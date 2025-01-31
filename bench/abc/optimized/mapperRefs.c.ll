@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Map_TimeStruct_t_ = type { float, float, float }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_NodeReadRefPhaseAct(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @Map_NodeReadRefPhaseAct(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -36,7 +36,7 @@ define i32 @Map_NodeReadRefPhaseAct(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @Map_NodeReadRefPhaseEst(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define float @Map_NodeReadRefPhaseEst(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -65,7 +65,7 @@ define float @Map_NodeReadRefPhaseEst(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @Map_NodeIncRefPhaseAct(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define i32 @Map_NodeIncRefPhaseAct(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -99,7 +99,7 @@ define i32 @Map_NodeIncRefPhaseAct(ptr nocapture noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Map_NodeDecRefPhaseAct(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @Map_NodeDecRefPhaseAct(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -133,7 +133,7 @@ define range(i32 -2147483648, 2147483647) i32 @Map_NodeDecRefPhaseAct(ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Map_MappingEstimateRefsInit(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Map_MappingEstimateRefsInit(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -169,7 +169,7 @@ define void @Map_MappingEstimateRefsInit(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Map_MappingEstimateRefs(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Map_MappingEstimateRefs(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -229,7 +229,7 @@ define void @Map_MappingEstimateRefs(ptr nocapture noundef readonly %0) local_un
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define float @Map_CutGetAreaFlow(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define float @Map_CutGetAreaFlow(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct.Map_MatchStruct_t_, ptr %3, i64 %4
@@ -598,7 +598,7 @@ define float @Map_CutDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Map_MappingSetRefs_rec(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @Map_MappingSetRefs_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
@@ -728,7 +728,7 @@ declare i32 @Map_NodeIsVar(ptr noundef) local_unnamed_addr #6
 declare i32 @Map_NodeIsBuf(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Map_MappingSetRefs(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define void @Map_MappingSetRefs(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -809,7 +809,7 @@ declare void @Mio_LibraryCleanProfile2(ptr noundef) local_unnamed_addr #6
 declare i32 @Map_NodeIsConst(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define float @Map_MappingGetArea(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0

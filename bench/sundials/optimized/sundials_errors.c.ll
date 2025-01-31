@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.SUNGlobalFallbackErrHandler = private unnamed_addr constant [25 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24], align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define range(i32 -9988, 1) i32 @SUNErrHandler_Create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -9988, 1) i32 @SUNErrHandler_Create(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #15
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -82,7 +82,7 @@ define void @SUNErrHandler_Destroy(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @SUNGetErrMsg(i32 noundef %0) local_unnamed_addr #4 {
@@ -102,11 +102,11 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @SUNLogErrHandlerFn(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6) local_unnamed_addr #5 {
+define void @SUNLogErrHandlerFn(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readnone captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #5 {
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %9 = add i64 %8, 6
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #15
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %9, ptr noundef nonnull @.str.30, ptr noundef %2, i32 noundef %0) #16
+  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %9, ptr noundef nonnull @.str.30, ptr noundef nonnull %2, i32 noundef %0) #16
   %12 = icmp eq ptr %3, null
   br i1 %12, label %13, label %SUNGetErrMsg.exit
 
@@ -135,14 +135,14 @@ define internal fastcc noalias noundef ptr @sunCombineFileAndLine(i32 noundef %0
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %4 = add i64 %3, 6
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #15
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef %4, ptr noundef nonnull @.str.30, ptr noundef %1, i32 noundef %0) #16
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef %4, ptr noundef nonnull @.str.30, ptr noundef nonnull %1, i32 noundef %0) #16
   ret ptr %5
 }
 
 declare i32 @SUNLogger_QueueMsg(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define void @SUNAbortErrHandlerFn(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, i32 noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6) local_unnamed_addr #8 {
+define void @SUNAbortErrHandlerFn(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3, i32 noundef %4, ptr noundef readnone captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #8 {
   %8 = tail call fastcc ptr @sunCombineFileAndLine(i32 noundef %0, ptr noundef %2)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -163,7 +163,7 @@ define void @SUNGlobalFallbackErrHandler(i32 noundef %0, ptr noundef %1, ptr nou
   call void @llvm.va_start.p0(ptr nonnull %6)
   %8 = call noalias dereferenceable_or_null(131) ptr @malloc(i64 noundef 131) #15
   %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 131, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.27, i32 noundef 95) #16
-  call void @sunCreateLogMessage(i32 noundef 1, i32 noundef 0, ptr noundef %8, ptr noundef nonnull @__func__.SUNGlobalFallbackErrHandler, ptr noundef nonnull @.str.28, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  call void @sunCreateLogMessage(i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull @__func__.SUNGlobalFallbackErrHandler, ptr noundef nonnull @.str.28, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
   %10 = load ptr, ptr @stderr, align 8
   %11 = load ptr, ptr %7, align 8
   %fputs = call i32 @fputs(ptr %11, ptr %10) #19
@@ -173,7 +173,7 @@ define void @SUNGlobalFallbackErrHandler(i32 noundef %0, ptr noundef %1, ptr nou
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %14 = add i64 %13, 6
   %15 = call noalias ptr @malloc(i64 noundef %14) #15
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %14, ptr noundef nonnull @.str.30, ptr noundef %2, i32 noundef %0) #16
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %14, ptr noundef nonnull @.str.30, ptr noundef nonnull %2, i32 noundef %0) #16
   %17 = icmp eq ptr %3, null
   br i1 %17, label %18, label %SUNGetErrMsg.exit
 
@@ -204,10 +204,10 @@ SUNGetErrMsg.exit:                                ; preds = %18, %switch.lookup,
 declare void @sunCreateLogMessage(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #13
@@ -216,7 +216,7 @@ declare void @llvm.va_start.p0(ptr) #13
 declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

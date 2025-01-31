@@ -61,7 +61,7 @@ entry:
 declare i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_decoder_cache_new(ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
+define ptr @ossl_decoder_cache_new(ptr noundef readnone captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 684) #6
   %cmp = icmp eq ptr %call, null
@@ -102,7 +102,7 @@ declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @decoder_cache_entry_hash(ptr nocapture noundef readonly %cache) #0 {
+define internal i64 @decoder_cache_entry_hash(ptr noundef readonly captures(none) %cache) #0 {
 entry:
   %propquery = getelementptr inbounds nuw i8, ptr %cache, i64 32
   %0 = load ptr, ptr %propquery, align 8
@@ -162,7 +162,7 @@ cond.end26:                                       ; preds = %cond.end17, %cond.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decoder_cache_entry_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @decoder_cache_entry_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %selection = getelementptr inbounds nuw i8, ptr %a, i64 24
   %0 = load i32, ptr %selection, align 8
@@ -824,12 +824,12 @@ return:                                           ; preds = %err, %ossl_decoder_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @OSSL_PARAM_construct_utf8_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #1
 
@@ -858,7 +858,7 @@ declare i64 @ossl_lh_strcasehash(ptr noundef) local_unnamed_addr #1
 declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @OPENSSL_LH_doall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -871,7 +871,7 @@ declare ptr @OPENSSL_LH_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @EVP_KEYMGMT_do_all_provided(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @collect_keymgmt(ptr noundef %keymgmt, ptr nocapture noundef %arg) #0 {
+define internal void @collect_keymgmt(ptr noundef %keymgmt, ptr noundef captures(none) %arg) #0 {
 entry:
   %keytype.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %0 = load ptr, ptr %keytype.i, align 8
@@ -958,7 +958,7 @@ if.end7:                                          ; preds = %land.lhs.true23.i, 
 declare void @OSSL_DECODER_do_all_provided(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @collect_decoder(ptr noundef %decoder, ptr nocapture noundef %arg) #0 {
+define internal void @collect_decoder(ptr noundef %decoder, ptr noundef captures(none) %arg) #0 {
 entry:
   %keymgmts1 = getelementptr inbounds nuw i8, ptr %arg, i64 40
   %0 = load ptr, ptr %keymgmts1, align 8
@@ -1059,7 +1059,7 @@ declare i32 @OSSL_DECODER_CTX_get_num_decoders(ptr noundef) local_unnamed_addr #
 declare i32 @OSSL_DECODER_CTX_set_construct(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @decoder_construct_pkey(ptr noundef %decoder_inst, ptr noundef %params, ptr nocapture noundef %construct_data) #0 {
+define internal range(i32 0, 2) i32 @decoder_construct_pkey(ptr noundef %decoder_inst, ptr noundef %params, ptr noundef captures(none) %construct_data) #0 {
 entry:
   %object_type = alloca ptr, align 8
   %import_data = alloca %struct.evp_keymgmt_util_try_import_data_st, align 8
@@ -1319,10 +1319,10 @@ declare ptr @OSSL_DECODER_CTX_get_cleanup(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_deep_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.eclass_useful_for_merging = private unnamed_addr constant [4 x i64] [i64 360, i64 360, i64 8, i64 360], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @process_equivalence(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @process_equivalence(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %1, align 8
@@ -1037,7 +1037,7 @@ declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_ec_member_matching_expr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @find_ec_member_matching_expr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not32 = icmp eq ptr %1, null
   br i1 %.not32, label %.critedge, label %.lr.ph
 
@@ -1123,7 +1123,7 @@ define dso_local ptr @find_ec_member_matching_expr(ptr nocapture noundef readonl
 declare zeroext i1 @bms_is_subset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_computable_ec_member(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local ptr @find_computable_ec_member(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1367,7 +1367,7 @@ declare void @list_free(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @is_parallel_safe(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @relation_can_be_sorted_early(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local zeroext i1 @relation_can_be_sorted_early(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 57
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
@@ -2140,7 +2140,7 @@ declare ptr @bms_union(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @add_outer_joins_to_relids(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_common_eclass_indexes(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @get_common_eclass_indexes(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %.outer.i
@@ -3397,7 +3397,7 @@ reconsider_full_join_clause.exit.thread:          ; preds = %.thread11.i, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @reconsider_outer_join_clause(ptr noundef %0, ptr nocapture readonly %.8.val, ptr nocapture readonly %.16.val, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @reconsider_outer_join_clause(ptr noundef %0, ptr readonly captures(none) %.8.val, ptr readonly captures(none) %.16.val, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -3682,7 +3682,7 @@ declare ptr @makeBoolConst(i1 noundef zeroext, i1 noundef zeroext) local_unnamed
 declare void @distribute_restrictinfo_to_rels(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @exprs_known_equal(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @exprs_known_equal(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -3768,7 +3768,7 @@ define dso_local noundef zeroext i1 @exprs_known_equal(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @match_eclasses_to_foreign_key_col(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @match_eclasses_to_foreign_key_col(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3944,7 +3944,7 @@ declare ptr @bms_intersect(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @get_mergejoin_opfamilies(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @find_derived_clause_for_ec_member(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 {
+define dso_local ptr @find_derived_clause_for_ec_member(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3982,7 +3982,7 @@ define dso_local ptr @find_derived_clause_for_ec_member(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_child_rel_equivalences(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @add_child_rel_equivalences(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 360
@@ -4143,7 +4143,7 @@ declare ptr @bms_difference(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @bms_add_members(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_child_join_rel_equivalences(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @add_child_join_rel_equivalences(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4322,7 +4322,7 @@ add_eq_member.exit:                               ; preds = %80, %97
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @generate_implied_equalities_for_column(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @generate_implied_equalities_for_column(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 2
@@ -4714,7 +4714,7 @@ define internal fastcc ptr @create_join_clause(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @have_relevant_eclass_joinclause(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @have_relevant_eclass_joinclause(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4758,7 +4758,7 @@ list_length.exit:                                 ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @has_relevant_eclass_joinclause(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @has_relevant_eclass_joinclause(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4835,7 +4835,7 @@ get_eclass_indexes_for_relids.exit._crit_edge:    ; preds = %36, %get_eclass_ind
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @eclass_useful_for_merging(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @eclass_useful_for_merging(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -4921,7 +4921,7 @@ list_length.exit.thread:                          ; preds = %36, %40, %23, %.lr.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @is_redundant_derived_clause(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @is_redundant_derived_clause(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -5081,13 +5081,13 @@ declare i32 @llvm.umin.i32(i32, i32) #5
 declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

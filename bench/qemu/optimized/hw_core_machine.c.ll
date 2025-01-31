@@ -396,7 +396,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_machine_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @machine_class_allow_dynamic_sysbus_dev(ptr nocapture noundef %mc, ptr noundef %type) local_unnamed_addr #0 {
+define dso_local void @machine_class_allow_dynamic_sysbus_dev(ptr noundef captures(none) %mc, ptr noundef %type) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #15
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %type) #16
@@ -415,7 +415,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @device_is_dynamic_sysbus(ptr nocapture noundef readonly %mc, ptr noundef %dev) local_unnamed_addr #0 {
+define dso_local zeroext i1 @device_is_dynamic_sysbus(ptr noundef readonly captures(none) %mc, ptr noundef %dev) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast(ptr noundef %dev, ptr noundef nonnull @.str.198) #16
   %tobool.not = icmp eq ptr %call, null
@@ -448,7 +448,7 @@ return:                                           ; preds = %for.body.i, %if.end
 declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @device_type_is_dynamic_sysbus(ptr nocapture noundef readonly %mc, ptr noundef %type) local_unnamed_addr #0 {
+define dso_local zeroext i1 @device_type_is_dynamic_sysbus(ptr noundef readonly captures(none) %mc, ptr noundef %type) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @object_class_by_name(ptr noundef %type) #16
   %allowed_dynamic_sysbus_devices = getelementptr inbounds nuw i8, ptr %mc, i64 280
@@ -553,7 +553,7 @@ declare ptr @g_memdup(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @object_get_canonical_path(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @machine_set_cpu_numa_node(ptr noundef %machine, ptr nocapture noundef readonly %props, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @machine_set_cpu_numa_node(ptr noundef %machine, ptr noundef readonly captures(none) %props, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %machine) #16
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #16
@@ -823,7 +823,7 @@ entry:
 declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @machine_get_audiodev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @machine_get_audiodev(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %audiodev = getelementptr inbounds nuw i8, ptr %call.i, i64 136
@@ -855,7 +855,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @object_class_property_set_description(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @machine_usb(ptr nocapture noundef readonly %machine) local_unnamed_addr #6 {
+define dso_local zeroext i1 @machine_usb(ptr noundef readonly captures(none) %machine) local_unnamed_addr #6 {
 entry:
   %usb = getelementptr inbounds nuw i8, ptr %machine, i64 82
   %0 = load i8, ptr %usb, align 2
@@ -864,7 +864,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @machine_phandle_start(ptr nocapture noundef readonly %machine) local_unnamed_addr #6 {
+define dso_local i32 @machine_phandle_start(ptr noundef readonly captures(none) %machine) local_unnamed_addr #6 {
 entry:
   %phandle_start = getelementptr inbounds nuw i8, ptr %machine, i64 64
   %0 = load i32, ptr %phandle_start, align 8
@@ -872,7 +872,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @machine_dump_guest_core(ptr nocapture noundef readonly %machine) local_unnamed_addr #6 {
+define dso_local zeroext i1 @machine_dump_guest_core(ptr noundef readonly captures(none) %machine) local_unnamed_addr #6 {
 entry:
   %dump_guest_core = getelementptr inbounds nuw i8, ptr %machine, i64 80
   %0 = load i8, ptr %dump_guest_core, align 8
@@ -881,7 +881,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @machine_mem_merge(ptr nocapture noundef readonly %machine) local_unnamed_addr #6 {
+define dso_local zeroext i1 @machine_mem_merge(ptr noundef readonly captures(none) %machine) local_unnamed_addr #6 {
 entry:
   %mem_merge = getelementptr inbounds nuw i8, ptr %machine, i64 81
   %0 = load i8, ptr %mem_merge, align 1
@@ -890,7 +890,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @machine_consume_memdev(ptr nocapture noundef readnone %machine, ptr noundef %backend) local_unnamed_addr #0 {
+define dso_local ptr @machine_consume_memdev(ptr noundef readnone captures(none) %machine, ptr noundef %backend) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @host_memory_backend_get_memory(ptr noundef %backend) #16
   %call1 = tail call zeroext i1 @host_memory_backend_is_mapped(ptr noundef %backend) #16
@@ -1113,10 +1113,10 @@ if.then18.us.i:                                   ; preds = %for.body11.us.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %props19.i, ptr noundef nonnull align 8 dereferenceable(128) %gep.i, i64 128, i1 false)
   %23 = load ptr, ptr %get_default_cpu_node_id.i90, align 8
   %24 = trunc nuw nsw i64 %indvars.iv52.i to i32
-  %call21.us.i = call i64 %23(ptr noundef %machine, i32 noundef %24) #16
+  %call21.us.i = call i64 %23(ptr noundef nonnull %machine, i32 noundef %24) #16
   store i64 %call21.us.i, ptr %node_id.i91, align 8
   store i8 1, ptr %props19.i, align 8
-  call void @machine_set_cpu_numa_node(ptr noundef %machine, ptr noundef nonnull %props19.i, ptr noundef nonnull @error_fatal)
+  call void @machine_set_cpu_numa_node(ptr noundef nonnull %machine, ptr noundef nonnull %props19.i, ptr noundef nonnull @error_fatal)
   %.pre55.i = load i32, ptr %call2.i, align 8
   br label %for.inc31.us.i
 
@@ -1140,7 +1140,7 @@ if.then18.i:                                      ; preds = %for.body11.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %props19.i, ptr noundef nonnull align 8 dereferenceable(128) %props15.i, i64 128, i1 false)
   %29 = load ptr, ptr %get_default_cpu_node_id.i, align 8
   %30 = trunc nuw nsw i64 %indvars.iv49.i to i32
-  %call21.i = call i64 %29(ptr noundef %machine, i32 noundef %30) #16
+  %call21.i = call i64 %29(ptr noundef nonnull %machine, i32 noundef %30) #16
   store i64 %call21.i, ptr %node_id.i, align 8
   %call.i27.i = call ptr @g_string_new(ptr noundef null) #16
   %has_socket_id.i.i = getelementptr inbounds nuw i8, ptr %arrayidx14.i, i64 64
@@ -1251,7 +1251,7 @@ cpu_slot_to_string.exit.i:                        ; preds = %if.end34.i.i, %if.e
   call void @g_free(ptr noundef %call37.i.i) #16
   store i64 0, ptr %node_id.i, align 8
   store i8 1, ptr %props19.i, align 8
-  call void @machine_set_cpu_numa_node(ptr noundef %machine, ptr noundef nonnull %props19.i, ptr noundef nonnull @error_fatal)
+  call void @machine_set_cpu_numa_node(ptr noundef nonnull %machine, ptr noundef nonnull %props19.i, ptr noundef nonnull @error_fatal)
   %.pre.i = load i32, ptr %call2.i, align 8
   br label %for.inc31.i
 
@@ -1345,12 +1345,12 @@ machine_numa_finish_cpu_init.exit:                ; preds = %if.end38.i, %land.l
   br i1 %tobool44, label %if.then45, label %if.end48
 
 if.then45:                                        ; preds = %machine_numa_finish_cpu_init.exit
-  %call.i.i62 = call ptr @object_get_class(ptr noundef %machine) #16
+  %call.i.i62 = call ptr @object_get_class(ptr noundef nonnull %machine) #16
   %call1.i.i63 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i62, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #16
   %59 = load ptr, ptr %numa_state, align 8
   %possible_cpu_arch_ids.i65 = getelementptr inbounds nuw i8, ptr %call1.i.i63, i64 336
   %60 = load ptr, ptr %possible_cpu_arch_ids.i65, align 8
-  %call1.i66 = call ptr %60(ptr noundef %machine) #16
+  %call1.i66 = call ptr %60(ptr noundef nonnull %machine) #16
   %cpus2.i = getelementptr inbounds nuw i8, ptr %call1.i66, i64 8
   %61 = load i32, ptr %59, align 8
   %cmp.i = icmp slt i32 %61, 2
@@ -1642,7 +1642,7 @@ declare i32 @error_printf(ptr noundef, ...) local_unnamed_addr #2
 declare void @warn_report(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_mem_merge(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_mem_merge(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
@@ -1798,7 +1798,7 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #2
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -1954,7 +1954,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @machine_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_CLASS) #16
   %default_ram_size = getelementptr inbounds nuw i8, ptr %call.i, i64 240
@@ -2005,7 +2005,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_class_base_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @machine_class_base_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_CLASS) #16
   %max_cpus = getelementptr inbounds nuw i8, ptr %call.i, i64 176
@@ -2036,7 +2036,7 @@ if.else:                                          ; preds = %if.then
 if.end:                                           ; preds = %if.then
   %call19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call15) #21
   %sub = add i64 %call19, -8
-  %call20 = tail call noalias ptr @g_strndup(ptr noundef %call15, i64 noundef %sub) #16
+  %call20 = tail call noalias ptr @g_strndup(ptr noundef nonnull %call15, i64 noundef %sub) #16
   %name = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr %call20, ptr %name, align 8
   %call21 = tail call ptr @g_ptr_array_new() #16
@@ -2053,7 +2053,7 @@ declare ptr @container_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @object_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @machine_get_nvdimm(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @machine_get_nvdimm(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %nvdimms_state = getelementptr inbounds nuw i8, ptr %call.i, i64 328
@@ -2064,7 +2064,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_nvdimm(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_nvdimm(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
@@ -2079,7 +2079,7 @@ declare void @object_property_set_description(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @machine_get_nvdimm_persistence(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @machine_get_nvdimm_persistence(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %nvdimms_state = getelementptr inbounds nuw i8, ptr %call.i, i64 328
@@ -2106,7 +2106,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.else
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.199, i32 noundef 647, ptr noundef nonnull @__func__.machine_set_nvdimm_persistence, ptr noundef nonnull @.str.257, ptr noundef %value) #16
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.199, i32 noundef 647, ptr noundef nonnull @__func__.machine_set_nvdimm_persistence, ptr noundef nonnull @.str.257, ptr noundef nonnull %value) #16
   br label %return
 
 if.end8:                                          ; preds = %if.else, %entry
@@ -2116,7 +2116,7 @@ if.end8:                                          ; preds = %if.else, %entry
   %persistence_string = getelementptr inbounds nuw i8, ptr %0, i64 312
   %1 = load ptr, ptr %persistence_string, align 8
   tail call void @g_free(ptr noundef %1) #16
-  %call9 = tail call noalias ptr @g_strdup(ptr noundef %value) #16
+  %call9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %value) #16
   store ptr %call9, ptr %persistence_string, align 8
   br label %return
 
@@ -2125,7 +2125,7 @@ return:                                           ; preds = %if.end8, %if.else7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @machine_get_hmat(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @machine_get_hmat(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %numa_state = getelementptr inbounds nuw i8, ptr %call.i, i64 336
@@ -2137,7 +2137,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_hmat(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_hmat(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
@@ -2149,13 +2149,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @machine_get_kernel(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @machine_get_kernel(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %kernel_filename = getelementptr inbounds nuw i8, ptr %call.i, i64 240
@@ -2165,7 +2165,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_kernel(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_kernel(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %kernel_filename = getelementptr inbounds nuw i8, ptr %call.i, i64 240
@@ -2177,7 +2177,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @machine_get_initrd(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @machine_get_initrd(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %initrd_filename = getelementptr inbounds nuw i8, ptr %call.i, i64 256
@@ -2187,7 +2187,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_initrd(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_initrd(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %initrd_filename = getelementptr inbounds nuw i8, ptr %call.i, i64 256
@@ -2199,7 +2199,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @machine_get_append(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @machine_get_append(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %kernel_cmdline = getelementptr inbounds nuw i8, ptr %call.i, i64 248
@@ -2209,7 +2209,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_append(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_append(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %kernel_cmdline = getelementptr inbounds nuw i8, ptr %call.i, i64 248
@@ -2221,7 +2221,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @machine_get_dtb(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @machine_get_dtb(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %dtb = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -2231,7 +2231,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_dtb(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_dtb(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %dtb = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -2243,7 +2243,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @machine_get_dumpdtb(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @machine_get_dumpdtb(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %dumpdtb = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -2253,7 +2253,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_dumpdtb(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_dumpdtb(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %dumpdtb = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -2267,7 +2267,7 @@ entry:
 declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_get_boot(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr nocapture readnone %errp) #0 {
+define internal void @machine_get_boot(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr readnone captures(none) %errp) #0 {
 entry:
   %config = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
@@ -2278,7 +2278,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_boot(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @machine_set_boot(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %config = alloca ptr, align 8
@@ -2370,7 +2370,7 @@ cleanup:                                          ; preds = %entry, %out_free, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_get_smp(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr nocapture readnone %errp) #0 {
+define internal void @machine_get_smp(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr readnone captures(none) %errp) #0 {
 entry:
   %config = alloca ptr, align 8
   %.compoundliteral = alloca %struct.SMPConfiguration, align 8
@@ -2443,7 +2443,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_smp(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @machine_set_smp(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %config = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
@@ -2470,7 +2470,7 @@ glib_autoptr_cleanup_SMPConfiguration.exit:       ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_get_phandle_start(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @machine_get_phandle_start(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
@@ -2483,7 +2483,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_phandle_start(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @machine_set_phandle_start(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
@@ -2502,7 +2502,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @machine_get_dt_compatible(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @machine_get_dt_compatible(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %dt_compatible = getelementptr inbounds nuw i8, ptr %call.i, i64 72
@@ -2512,7 +2512,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_dt_compatible(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_dt_compatible(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %dt_compatible = getelementptr inbounds nuw i8, ptr %call.i, i64 72
@@ -2526,7 +2526,7 @@ entry:
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @machine_get_dump_guest_core(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @machine_get_dump_guest_core(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %dump_guest_core = getelementptr inbounds nuw i8, ptr %call.i, i64 80
@@ -2536,7 +2536,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_dump_guest_core(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_dump_guest_core(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
@@ -2546,7 +2546,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @machine_get_mem_merge(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @machine_get_mem_merge(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %mem_merge = getelementptr inbounds nuw i8, ptr %call.i, i64 81
@@ -2556,7 +2556,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @machine_get_usb(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @machine_get_usb(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %usb = getelementptr inbounds nuw i8, ptr %call.i, i64 82
@@ -2566,7 +2566,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_usb(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_usb(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
@@ -2580,7 +2580,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @machine_get_graphics(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @machine_get_graphics(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %enable_graphics = getelementptr inbounds nuw i8, ptr %call.i, i64 98
@@ -2590,7 +2590,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_graphics(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_graphics(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
@@ -2600,7 +2600,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @machine_get_firmware(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @machine_get_firmware(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %firmware = getelementptr inbounds nuw i8, ptr %call.i, i64 88
@@ -2610,7 +2610,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_firmware(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_firmware(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %firmware = getelementptr inbounds nuw i8, ptr %call.i, i64 88
@@ -2622,7 +2622,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @machine_get_suppress_vmdesc(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @machine_get_suppress_vmdesc(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %suppress_vmdesc = getelementptr inbounds nuw i8, ptr %call.i, i64 97
@@ -2632,7 +2632,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_suppress_vmdesc(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @machine_set_suppress_vmdesc(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
@@ -2644,13 +2644,13 @@ entry:
 declare ptr @object_class_property_add_link(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @machine_check_confidential_guest_support(ptr nocapture readnone %obj, ptr nocapture readnone %name, ptr nocapture readnone %new_target, ptr nocapture readnone %errp) #11 {
+define internal void @machine_check_confidential_guest_support(ptr readnone captures(none) %obj, ptr readnone captures(none) %name, ptr readnone captures(none) %new_target, ptr readnone captures(none) %errp) #11 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @machine_get_memory_encryption(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @machine_get_memory_encryption(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %cgs = getelementptr inbounds nuw i8, ptr %call.i, i64 104
@@ -2691,7 +2691,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @object_property_allow_set_link(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_get_mem(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr nocapture readnone %errp) #0 {
+define internal void @machine_get_mem(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr readnone captures(none) %errp) #0 {
 entry:
   %mem = alloca %struct.MemorySizeConfiguration, align 8
   %p_mem = alloca ptr, align 8
@@ -2721,7 +2721,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @machine_set_mem(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @machine_set_mem(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %mem = alloca ptr, align 8
@@ -2864,7 +2864,7 @@ declare zeroext i1 @visit_type_BootConfiguration(ptr noundef, ptr noundef, ptr n
 declare void @validate_bootdevices(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @qapi_free_BootConfiguration(ptr noundef) local_unnamed_addr #2
 
@@ -2891,7 +2891,7 @@ declare i32 @g_str_has_suffix(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @g_ptr_array_new() local_unnamed_addr #2
 
@@ -2899,10 +2899,10 @@ declare ptr @g_ptr_array_new() local_unnamed_addr #2
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -169,10 +169,10 @@ define dso_local void @pci_setup_cardbus(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -184,7 +184,7 @@ declare dso_local void @pcibios_resource_to_bus(ptr noundef, ptr noundef, ptr no
 declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define weak dso_local void @pcibios_setup_bridge(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 align 16 {
@@ -478,7 +478,7 @@ define weak dso_local i64 @pcibios_window_alignment(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i64 @pci_cardbus_resource_alignment(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 16 {
+define dso_local i64 @pci_cardbus_resource_alignment(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 256
@@ -2046,7 +2046,7 @@ define internal fastcc void @pci_bus_allocate_dev_resources(ptr noundef readonly
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define dso_local void @pci_realloc_get_opt(ptr nocapture noundef readonly %0) local_unnamed_addr #7 section ".init.text" align 16 {
+define dso_local void @pci_realloc_get_opt(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 section ".init.text" align 16 {
 sub_0:
   %1 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %1, 111
@@ -4331,7 +4331,7 @@ declare dso_local void @pci_read_bridge_bases(ptr noundef) local_unnamed_addr #4
 declare dso_local void @release_child_resources(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef readonly %0, ptr noundef %1, i64 %.0.val, i64 %.8.val, i64 %.0.val1, i64 %.8.val3, ptr nocapture noundef byval(%struct.resource) align 8 %2) unnamed_addr #5 align 16 {
+define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef readonly %0, ptr noundef %1, i64 %.0.val, i64 %.8.val, i64 %.0.val1, i64 %.8.val3, ptr noundef byval(%struct.resource) align 8 captures(none) %2) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 1368

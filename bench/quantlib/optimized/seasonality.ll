@@ -92,7 +92,7 @@ $_ZN8QuantLib18KerkhofSeasonalityD0Ev = comdat any
 @_ZN8QuantLib30MultiplicativePriceSeasonalityC1ERKNS_4DateENS_9FrequencyERKSt6vectorIdSaIdEE = unnamed_addr alias void (ptr, ptr, i32, ptr), ptr @_ZN8QuantLib30MultiplicativePriceSeasonalityC2ERKNS_4DateENS_9FrequencyERKSt6vectorIdSaIdEE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -109,16 +109,16 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib11Seasonality12isConsistentERKNS_22InflationTermStructureE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib11Seasonality12isConsistentERKNS_22InflationTermStructureE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   ret i1 true
 }
@@ -1326,7 +1326,7 @@ declare double @llvm.fabs.f64(double) #11
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30MultiplicativePriceSeasonalityC2ERKNS_4DateENS_9FrequencyERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %seasonalityBaseDate, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seasonalityFactors) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30MultiplicativePriceSeasonalityC2ERKNS_4DateENS_9FrequencyERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %seasonalityBaseDate, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %seasonalityFactors) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib30MultiplicativePriceSeasonalityE, i64 16), ptr %this, align 8, !tbaa !3
   %seasonalityBaseDate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1362,7 +1362,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i, %lpa
 declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30MultiplicativePriceSeasonality3setERKNS_4DateENS_9FrequencyERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((16, 20)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %seasonalityBaseDate, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seasonalityFactors) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30MultiplicativePriceSeasonality3setERKNS_4DateENS_9FrequencyERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((16, 20)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %seasonalityBaseDate, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %seasonalityFactors) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frequency_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %frequency, ptr %frequency_, align 8, !tbaa !25
@@ -1455,7 +1455,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZNK8QuantLib30MultiplicativePriceSeasonality19seasonalityBaseDateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #12 align 2 {
+define i64 @_ZNK8QuantLib30MultiplicativePriceSeasonality19seasonalityBaseDateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #12 align 2 {
 entry:
   %seasonalityBaseDate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %retval.sroa.0.0.copyload = load i64, ptr %seasonalityBaseDate_, align 8, !tbaa !20
@@ -1463,7 +1463,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8QuantLib30MultiplicativePriceSeasonality9frequencyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #12 align 2 {
+define noundef i32 @_ZNK8QuantLib30MultiplicativePriceSeasonality9frequencyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #12 align 2 {
 entry:
   %frequency_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %frequency_, align 8, !tbaa !25
@@ -1471,7 +1471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib30MultiplicativePriceSeasonality18seasonalityFactorsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib30MultiplicativePriceSeasonality18seasonalityFactorsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seasonalityFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -3148,7 +3148,7 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #11
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #7
 
@@ -3168,13 +3168,13 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #17
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

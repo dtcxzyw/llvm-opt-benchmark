@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.cmsCIECAM02Init.6 = private unnamed_addr constant [3 x double] [double 0x3FEE666666666666, double 8.000000e-01, double 8.000000e-01], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsCIECAM02Init(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @cmsCIECAM02Init(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.CAM02COLOR, align 8
   %4 = alloca %struct.CAM02COLOR, align 8
   %5 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 368) #8
@@ -255,7 +255,7 @@ NonlinearCompression.exit:                        ; preds = %128
 declare ptr @_cmsMallocZero(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @cmsCIECAM02Done(ptr noundef %0) local_unnamed_addr #0 {
@@ -275,7 +275,7 @@ define hidden void @cmsCIECAM02Done(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @cmsCIECAM02Forward(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define hidden void @cmsCIECAM02Forward(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
   %4 = alloca %struct.CAM02COLOR, align 8
   %5 = alloca %struct.CAM02COLOR, align 8
   %.sroa.14.sroa.15.sroa.21.sroa.15 = alloca { double, double }, align 8
@@ -573,10 +573,10 @@ ComputeCorrelates.exit:                           ; preds = %96, %85, %83, %101,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @cmsCIECAM02Reverse(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define hidden void @cmsCIECAM02Reverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
   %4 = alloca %struct.CAM02COLOR, align 8
   %5 = alloca %struct.CAM02COLOR, align 8
   %.sroa.15.sroa.0 = alloca { double, double }, align 8
@@ -870,10 +870,10 @@ declare double @sin(double noundef) local_unnamed_addr #5
 declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

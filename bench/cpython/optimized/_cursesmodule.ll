@@ -3628,15 +3628,15 @@ declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 declare ptr @keyname(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3645,7 +3645,7 @@ declare i32 @delwin(ptr noundef) local_unnamed_addr #1
 declare void @PyObject_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_addch(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @_curses_window_addch(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %buffer.i.i = alloca [2 x i32], align 4
   %overflow.i.i = alloca i32, align 4
@@ -3859,7 +3859,7 @@ exit:                                             ; preds = %sw.bb12, %sw.bb7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_addnstr(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @_curses_window_addnstr(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %bytesobj.i = alloca ptr, align 8
   %wstr.i = alloca ptr, align 8
@@ -4043,7 +4043,7 @@ exit:                                             ; preds = %sw.bb12, %sw.bb7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_addstr(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @_curses_window_addstr(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %bytesobj.i = alloca ptr, align 8
   %wstr.i = alloca ptr, align 8
@@ -4225,7 +4225,7 @@ exit:                                             ; preds = %sw.bb12, %sw.bb7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_attroff(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_window_attroff(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %arg) #9
   %cmp = icmp eq i64 %call, -1
@@ -4262,7 +4262,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_attron(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_window_attron(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %arg) #9
   %cmp = icmp eq i64 %call, -1
@@ -4299,7 +4299,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_attrset(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_window_attrset(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %arg) #9
   %cmp = icmp eq i64 %call, -1
@@ -4336,7 +4336,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_bkgd(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_window_bkgd(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %bkgd.i = alloca i32, align 4
   %0 = add i64 %nargs, -1
@@ -4398,7 +4398,7 @@ exit:                                             ; preds = %land.lhs.true8, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_ChgAt(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_ChgAt(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %x = alloca i32, align 4
   %y = alloca i32, align 4
@@ -4509,7 +4509,7 @@ return:                                           ; preds = %if.else.i, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_bkgdset(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_window_bkgdset(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %bkgd.i = alloca i32, align 4
   %0 = add i64 %nargs, -1
@@ -4565,7 +4565,7 @@ exit:                                             ; preds = %land.lhs.true8, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_border(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_window_border(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %ch.i = alloca [8 x i32], align 16
   %or.cond = icmp ult i64 %nargs, 9
@@ -4822,7 +4822,7 @@ exit:                                             ; preds = %sw.bb3, %_curses_wi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @PyCursesWindow_wclear(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @PyCursesWindow_wclear(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -4831,7 +4831,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_clearok(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_clearok(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.177, ptr noundef nonnull %arg1) #9
@@ -4858,7 +4858,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @PyCursesWindow_wclrtobot(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @PyCursesWindow_wclrtobot(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -4867,7 +4867,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @PyCursesWindow_wclrtoeol(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @PyCursesWindow_wclrtoeol(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -4876,7 +4876,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @PyCursesWindow_wcursyncup(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @PyCursesWindow_wcursyncup(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -4885,7 +4885,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_delch(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @_curses_window_delch(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %y = alloca i32, align 4
   %x = alloca i32, align 4
@@ -4942,7 +4942,7 @@ exit:                                             ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_wdeleteln(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @PyCursesWindow_wdeleteln(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -4961,7 +4961,7 @@ PyCursesCheckERR.exit:                            ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_window_derwin(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @_curses_window_derwin(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %nlines = alloca i32, align 4
   %ncols = alloca i32, align 4
@@ -5066,7 +5066,7 @@ exit:                                             ; preds = %Py_DECREF.exit.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_echochar(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_window_echochar(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %ch_.i = alloca i32, align 4
   %0 = add i64 %nargs, -1
@@ -5147,7 +5147,7 @@ exit:                                             ; preds = %land.lhs.true8, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_window_enclose(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_curses_window_enclose(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -5195,7 +5195,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_werase(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @PyCursesWindow_werase(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -5214,7 +5214,7 @@ PyCursesCheckERR.exit:                            ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCursesWindow_getbegyx(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @PyCursesWindow_getbegyx(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -5238,7 +5238,7 @@ cond.end9:                                        ; preds = %entry, %cond.true5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_window_getbkgd(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_window_getbkgd(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -5258,7 +5258,7 @@ _curses_window_getbkgd_impl.exit:                 ; preds = %entry, %cond.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_window_getch(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @_curses_window_getch(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %y = alloca i32, align 4
   %x = alloca i32, align 4
@@ -5326,7 +5326,7 @@ exit:                                             ; preds = %land.lhs.true, %sw.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_window_getkey(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @_curses_window_getkey(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %y = alloca i32, align 4
   %x = alloca i32, align 4
@@ -5409,7 +5409,7 @@ exit:                                             ; preds = %if.else17.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_window_get_wch(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @_curses_window_get_wch(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %rtn.i = alloca i32, align 4
   %y = alloca i32, align 4
@@ -5497,7 +5497,7 @@ exit:                                             ; preds = %sw.bb1, %_curses_wi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCursesWindow_getmaxyx(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @PyCursesWindow_getmaxyx(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -5523,7 +5523,7 @@ cond.end10:                                       ; preds = %entry, %cond.true5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCursesWindow_getparyx(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @PyCursesWindow_getparyx(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -5545,7 +5545,7 @@ cond.end7:                                        ; preds = %entry, %cond.true4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCursesWindow_GetStr(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @PyCursesWindow_GetStr(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %x = alloca i32, align 4
   %y = alloca i32, align 4
@@ -5668,7 +5668,7 @@ return:                                           ; preds = %sw.bb30, %sw.bb13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCursesWindow_getyx(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @PyCursesWindow_getyx(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -5785,7 +5785,7 @@ exit:                                             ; preds = %sw.bb12, %sw.bb7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_idcok(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_idcok(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.177, ptr noundef nonnull %arg1) #9
@@ -5806,7 +5806,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_idlok(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_idlok(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.177, ptr noundef nonnull %arg1) #9
@@ -5833,7 +5833,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_immedok(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_immedok(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.177, ptr noundef nonnull %arg1) #9
@@ -5854,7 +5854,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_window_inch(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @_curses_window_inch(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %y = alloca i32, align 4
   %x = alloca i32, align 4
@@ -6003,7 +6003,7 @@ exit:                                             ; preds = %sw.bb12, %sw.bb7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_winsdelln(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_winsdelln(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.215, ptr noundef nonnull %arg1) #9
@@ -6029,7 +6029,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_winsertln(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @PyCursesWindow_winsertln(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -6048,7 +6048,7 @@ PyCursesCheckERR.exit:                            ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_insnstr(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @_curses_window_insnstr(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %bytesobj.i = alloca ptr, align 8
   %wstr.i = alloca ptr, align 8
@@ -6232,7 +6232,7 @@ exit:                                             ; preds = %sw.bb12, %sw.bb7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_insstr(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @_curses_window_insstr(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %bytesobj.i = alloca ptr, align 8
   %wstr.i = alloca ptr, align 8
@@ -6414,7 +6414,7 @@ exit:                                             ; preds = %sw.bb12, %sw.bb7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCursesWindow_InStr(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @PyCursesWindow_InStr(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %x = alloca i32, align 4
   %y = alloca i32, align 4
@@ -6530,7 +6530,7 @@ return:                                           ; preds = %sw.bb25, %sw.bb10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_window_is_linetouched(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal ptr @_curses_window_is_linetouched(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -6579,7 +6579,7 @@ exit:                                             ; preds = %if.then.i, %cond.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCursesWindow_is_wintouched(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @PyCursesWindow_is_wintouched(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -6590,7 +6590,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_keypad(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_keypad(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.177, ptr noundef nonnull %arg1) #9
@@ -6617,7 +6617,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_leaveok(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_leaveok(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.177, ptr noundef nonnull %arg1) #9
@@ -6644,7 +6644,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_wmove(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_wmove(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %arg2 = alloca i32, align 4
@@ -6672,7 +6672,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_mvderwin(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_mvderwin(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %arg2 = alloca i32, align 4
@@ -6700,7 +6700,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_mvwin(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_mvwin(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %arg2 = alloca i32, align 4
@@ -6728,7 +6728,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_nodelay(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_nodelay(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.177, ptr noundef nonnull %arg1) #9
@@ -6755,7 +6755,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_notimeout(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_notimeout(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.177, ptr noundef nonnull %arg1) #9
@@ -6782,7 +6782,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_noutrefresh(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @_curses_window_noutrefresh(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %pminrow = alloca i32, align 4
   %pmincol = alloca i32, align 4
@@ -6890,7 +6890,7 @@ exit:                                             ; preds = %if.else.i8.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_overlay(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @_curses_window_overlay(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %destwin = alloca ptr, align 8
   %sminrow = alloca i32, align 4
@@ -6965,7 +6965,7 @@ exit:                                             ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_overwrite(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @_curses_window_overwrite(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %destwin = alloca ptr, align 8
   %sminrow = alloca i32, align 4
@@ -7040,7 +7040,7 @@ exit:                                             ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_window_putwin(ptr nocapture noundef readonly %self, ptr noundef %file) #0 {
+define internal ptr @_curses_window_putwin(ptr noundef readonly captures(none) %self, ptr noundef %file) #0 {
 entry:
   %buf = alloca [8192 x i8], align 16
   %call = tail call noalias ptr @tmpfile64()
@@ -7112,7 +7112,7 @@ return:                                           ; preds = %exit, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_redrawln(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_window_redrawln(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -7170,7 +7170,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_redrawwin(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @PyCursesWindow_redrawwin(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -7201,7 +7201,7 @@ PyCursesCheckERR.exit:                            ; preds = %cond.end, %if.else.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_refresh(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @_curses_window_refresh(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %pminrow = alloca i32, align 4
   %pmincol = alloca i32, align 4
@@ -7309,7 +7309,7 @@ exit:                                             ; preds = %if.else.i8.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_wresize(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_wresize(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %arg2 = alloca i32, align 4
@@ -7337,7 +7337,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_scroll(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @_curses_window_scroll(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %lines = alloca i32, align 4
   store i32 1, ptr %lines, align 4
@@ -7384,7 +7384,7 @@ exit:                                             ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_scrollok(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_scrollok(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.177, ptr noundef nonnull %arg1) #9
@@ -7411,7 +7411,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_setscrreg(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_window_setscrreg(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -7469,7 +7469,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @PyCursesWindow_wstandend(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @PyCursesWindow_wstandend(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -7478,7 +7478,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @PyCursesWindow_wstandout(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @PyCursesWindow_wstandout(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -7487,7 +7487,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_window_subwin(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @_curses_window_subwin(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %nlines = alloca i32, align 4
   %ncols = alloca i32, align 4
@@ -7621,7 +7621,7 @@ exit:                                             ; preds = %Py_DECREF.exit.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @PyCursesWindow_wsyncdown(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @PyCursesWindow_wsyncdown(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -7630,7 +7630,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_syncok(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_syncok(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.177, ptr noundef nonnull %arg1) #9
@@ -7657,7 +7657,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @PyCursesWindow_wsyncup(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @PyCursesWindow_wsyncup(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -7666,7 +7666,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_wtimeout(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @PyCursesWindow_wtimeout(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg1 = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.260, ptr noundef nonnull %arg1) #9
@@ -7686,7 +7686,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_touchline(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal noundef ptr @_curses_window_touchline(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %start = alloca i32, align 4
   %count = alloca i32, align 4
@@ -7744,7 +7744,7 @@ exit:                                             ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_touchwin(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @PyCursesWindow_touchwin(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -7775,7 +7775,7 @@ PyCursesCheckERR.exit:                            ; preds = %cond.end, %if.else.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @PyCursesWindow_untouchwin(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @PyCursesWindow_untouchwin(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
@@ -7922,7 +7922,7 @@ declare ptr @PyBytes_AsString(ptr noundef) local_unnamed_addr #1
 declare i64 @PyLong_AsLongAndOverflow(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @PyCurses_ConvertToString(ptr noundef %obj, ptr nocapture noundef nonnull writeonly %bytes, ptr nocapture noundef nonnull writeonly %wstr) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @PyCurses_ConvertToString(ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %bytes, ptr noundef nonnull writeonly captures(none) %wstr) unnamed_addr #0 {
 entry:
   %str = alloca ptr, align 8
   %0 = getelementptr i8, ptr %obj, i64 8
@@ -8010,7 +8010,7 @@ declare i32 @wattr_on(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @PyCurses_ConvertToChtype(ptr noundef readonly %win, ptr noundef %obj, ptr nocapture noundef writeonly %ch) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PyCurses_ConvertToChtype(ptr noundef readonly %win, ptr noundef %obj, ptr noundef writeonly captures(none) %ch) unnamed_addr #0 {
 entry:
   %long_overflow = alloca i32, align 4
   %0 = getelementptr i8, ptr %obj, i64 8
@@ -8341,20 +8341,20 @@ declare ptr @PyErr_SetFromErrno(ptr noundef) local_unnamed_addr #1
 declare i32 @_Py_set_inheritable(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @putwin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @PyObject_CallMethod(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @wredrawln(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -8385,7 +8385,7 @@ declare void @wtimeout(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @wvline(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCursesWindow_get_encoding(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @PyCursesWindow_get_encoding(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %encoding = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %encoding, align 8
@@ -8394,7 +8394,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @PyCursesWindow_set_encoding(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @PyCursesWindow_set_encoding(ptr noundef captures(none) %self, ptr noundef %value, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %value, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8464,7 +8464,7 @@ return:                                           ; preds = %if.end3, %if.end13,
 declare ptr @PyUnicode_AsASCIIString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_baudrate(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_baudrate(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -8486,7 +8486,7 @@ _curses_baudrate_impl.exit:                       ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_beep(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_beep(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -8512,7 +8512,7 @@ _curses_beep_impl.exit:                           ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_can_change_color(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_can_change_color(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -8534,7 +8534,7 @@ _curses_can_change_color_impl.exit:               ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_cbreak(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_cbreak(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -8597,7 +8597,7 @@ exit:                                             ; preds = %if.else.i3.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_color_content(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_curses_color_content(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %r.i = alloca i32, align 4
   %g.i = alloca i32, align 4
@@ -8697,7 +8697,7 @@ exit:                                             ; preds = %color_allow_default
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_color_pair(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_curses_color_pair(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -8761,7 +8761,7 @@ exit:                                             ; preds = %if.end3.i10, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_curs_set(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_curses_curs_set(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -8826,7 +8826,7 @@ exit:                                             ; preds = %if.end4.i10, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_def_prog_mode(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_def_prog_mode(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -8852,7 +8852,7 @@ _curses_def_prog_mode_impl.exit:                  ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_def_shell_mode(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_def_shell_mode(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -8878,7 +8878,7 @@ _curses_def_shell_mode_impl.exit:                 ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_delay_output(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_delay_output(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -8933,7 +8933,7 @@ exit:                                             ; preds = %if.else.i.i10, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_doupdate(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_doupdate(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -8959,7 +8959,7 @@ _curses_doupdate_impl.exit:                       ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_echo(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_echo(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -9022,7 +9022,7 @@ exit:                                             ; preds = %if.else.i3.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_endwin(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_endwin(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -9048,7 +9048,7 @@ _curses_endwin_impl.exit:                         ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_erasechar(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_erasechar(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ch.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i)
@@ -9073,14 +9073,14 @@ _curses_erasechar_impl.exit:                      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @_curses_filter(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @_curses_filter(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   tail call void @filter() #9
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_flash(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_flash(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -9106,7 +9106,7 @@ _curses_flash_impl.exit:                          ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_flushinp(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_flushinp(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -9126,7 +9126,7 @@ _curses_flushinp_impl.exit:                       ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_getmouse(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_getmouse(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %event.i = alloca %struct.MEVENT, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %event.i)
@@ -9170,7 +9170,7 @@ _curses_getmouse_impl.exit:                       ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_ungetmouse(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_ungetmouse(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %event.i = alloca %struct.MEVENT, align 4
   %or.cond = icmp eq i64 %nargs, 5
@@ -9304,7 +9304,7 @@ exit:                                             ; preds = %land.lhs.true39, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_getsyx(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_getsyx(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %do.body.i, label %if.then.i
@@ -9345,7 +9345,7 @@ _curses_getsyx_impl.exit:                         ; preds = %if.then.i, %do.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_getwin(ptr nocapture readnone %module, ptr noundef %file) #0 {
+define internal ptr @_curses_getwin(ptr readnone captures(none) %module, ptr noundef %file) #0 {
 entry:
   %.b = load i1, ptr @initialised, align 4
   br i1 %.b, label %if.end, label %if.then
@@ -9517,7 +9517,7 @@ return:                                           ; preds = %error, %if.then2, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_has_colors(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_has_colors(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -9539,14 +9539,14 @@ _curses_has_colors_impl.exit:                     ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_has_extended_color_support(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_has_extended_color_support(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyBool_FromLong(i64 noundef 1) #9
   ret ptr %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_has_ic(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_has_ic(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -9568,7 +9568,7 @@ _curses_has_ic_impl.exit:                         ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_has_il(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_has_il(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -9590,7 +9590,7 @@ _curses_has_il_impl.exit:                         ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_has_key(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_curses_has_key(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -9637,7 +9637,7 @@ exit:                                             ; preds = %if.end.i7, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_halfdelay(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_halfdelay(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %arg) #9
   %cmp = icmp eq i64 %call, -1
@@ -9692,7 +9692,7 @@ exit:                                             ; preds = %if.else.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_init_color(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_init_color(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %overflow.i29 = alloca i32, align 4
   %overflow.i9 = alloca i32, align 4
@@ -9899,7 +9899,7 @@ exit:                                             ; preds = %color_allow_default
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_init_pair(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_init_pair(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %overflow.i17 = alloca i32, align 4
   %overflow.i5 = alloca i32, align 4
@@ -10074,7 +10074,7 @@ exit:                                             ; preds = %if.else.i43, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_initscr(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_initscr(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.then.i, label %if.end.i
@@ -11503,7 +11503,7 @@ _curses_initscr_impl.exit:                        ; preds = %if.end.i183.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_intrflush(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_intrflush(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyObject_IsTrue(ptr noundef %arg) #9
   %cmp = icmp slt i32 %call, 0
@@ -11535,7 +11535,7 @@ exit:                                             ; preds = %if.else.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_isendwin(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_isendwin(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -11557,7 +11557,7 @@ _curses_isendwin_impl.exit:                       ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_is_term_resized(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_curses_is_term_resized(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -11626,7 +11626,7 @@ exit:                                             ; preds = %if.end.i11, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_keyname(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_curses_keyname(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -11682,7 +11682,7 @@ exit:                                             ; preds = %if.end.i7, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_killchar(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_killchar(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ch.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i)
@@ -11694,7 +11694,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_longname(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_longname(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -11715,7 +11715,7 @@ _curses_longname_impl.exit:                       ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_meta(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_meta(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyObject_IsTrue(ptr noundef %arg) #9
   %cmp = icmp slt i32 %call, 0
@@ -11748,7 +11748,7 @@ exit:                                             ; preds = %if.else.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_mouseinterval(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_mouseinterval(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -11803,7 +11803,7 @@ exit:                                             ; preds = %if.else.i.i10, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_mousemask(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_curses_mousemask(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %oldmask.i = alloca i32, align 4
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -11849,7 +11849,7 @@ exit:                                             ; preds = %_curses_mousemask_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_napms(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_curses_napms(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -11896,7 +11896,7 @@ exit:                                             ; preds = %land.lhs.true4, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_newpad(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_curses_newpad(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -11940,7 +11940,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_newwin(ptr nocapture readnone %module, ptr noundef %args) #0 {
+define internal ptr @_curses_newwin(ptr readnone captures(none) %module, ptr noundef %args) #0 {
 entry:
   %nlines = alloca i32, align 4
   %ncols = alloca i32, align 4
@@ -12047,7 +12047,7 @@ exit:                                             ; preds = %Py_DECREF.exit.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_nl(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_nl(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -12110,7 +12110,7 @@ exit:                                             ; preds = %if.else.i3.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_nocbreak(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_nocbreak(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -12136,7 +12136,7 @@ _curses_nocbreak_impl.exit:                       ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_noecho(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_noecho(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -12162,7 +12162,7 @@ _curses_noecho_impl.exit:                         ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_nonl(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_nonl(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -12188,7 +12188,7 @@ _curses_nonl_impl.exit:                           ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_noqiflush(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_noqiflush(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -12208,7 +12208,7 @@ _curses_noqiflush_impl.exit:                      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_noraw(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_noraw(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -12234,7 +12234,7 @@ _curses_noraw_impl.exit:                          ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_pair_content(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_curses_pair_content(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %f.i = alloca i32, align 4
   %b.i = alloca i32, align 4
@@ -12337,7 +12337,7 @@ exit:                                             ; preds = %pair_converter.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_pair_number(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_curses_pair_number(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -12401,7 +12401,7 @@ exit:                                             ; preds = %if.end3.i10, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_putp(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_putp(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %string = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.429, ptr noundef nonnull %string) #9
@@ -12425,7 +12425,7 @@ exit:                                             ; preds = %if.else.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_qiflush(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_qiflush(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -12476,7 +12476,7 @@ exit:                                             ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_raw(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_raw(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -12539,7 +12539,7 @@ exit:                                             ; preds = %if.else.i3.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_reset_prog_mode(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_reset_prog_mode(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -12565,7 +12565,7 @@ _curses_reset_prog_mode_impl.exit:                ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_reset_shell_mode(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_reset_shell_mode(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -12591,7 +12591,7 @@ _curses_reset_shell_mode_impl.exit:               ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_resetty(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_resetty(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -12617,7 +12617,7 @@ _curses_resetty_impl.exit:                        ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_resizeterm(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_resizeterm(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -12736,7 +12736,7 @@ exit:                                             ; preds = %if.then1.i.i22, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_resize_term(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_resize_term(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -12855,7 +12855,7 @@ exit:                                             ; preds = %if.then1.i.i22, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_savetty(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_savetty(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -12881,7 +12881,7 @@ _curses_savetty_impl.exit:                        ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_get_escdelay(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_get_escdelay(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load i32, ptr @ESCDELAY, align 4
   %conv.i = sext i32 %0 to i64
@@ -12890,7 +12890,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_set_escdelay(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_set_escdelay(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -12931,7 +12931,7 @@ exit:                                             ; preds = %if.else.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_get_tabsize(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_get_tabsize(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load i32, ptr @TABSIZE, align 4
   %conv.i = sext i32 %0 to i64
@@ -12940,7 +12940,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_set_tabsize(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_set_tabsize(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -12981,7 +12981,7 @@ exit:                                             ; preds = %if.else.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_setsyx(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_curses_setsyx(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -13067,7 +13067,7 @@ exit:                                             ; preds = %if.else.i15, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_setupterm(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_curses_setupterm(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %err.i = alloca i32, align 4
   %argsbuf = alloca [2 x ptr], align 16
@@ -13214,7 +13214,7 @@ exit:                                             ; preds = %land.lhs.true45, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_start_color(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_start_color(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -13325,7 +13325,7 @@ _curses_start_color_impl.exit:                    ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_termattrs(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_termattrs(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -13347,7 +13347,7 @@ _curses_termattrs_impl.exit:                      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_termname(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_termname(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
@@ -13368,7 +13368,7 @@ _curses_termname_impl.exit:                       ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_tigetflag(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_curses_tigetflag(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %capname_length = alloca i64, align 8
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -13420,7 +13420,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_tigetnum(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_curses_tigetnum(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %capname_length = alloca i64, align 8
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -13472,7 +13472,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_tigetstr(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_curses_tigetstr(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %capname_length = alloca i64, align 8
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -13530,7 +13530,7 @@ exit:                                             ; preds = %if.end4.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_tparm(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @_curses_tparm(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %str = alloca ptr, align 8
   %i1 = alloca i32, align 4
@@ -13594,7 +13594,7 @@ exit:                                             ; preds = %if.end2.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_typeahead(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_typeahead(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -13649,7 +13649,7 @@ exit:                                             ; preds = %if.else.i.i10, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_unctrl(ptr nocapture readnone %module, ptr noundef %ch) #0 {
+define internal ptr @_curses_unctrl(ptr readnone captures(none) %module, ptr noundef %ch) #0 {
 entry:
   %ch_ = alloca i32, align 4
   %.b = load i1, ptr @initialised, align 4
@@ -13677,7 +13677,7 @@ return:                                           ; preds = %if.end, %if.end2, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_ungetch(ptr nocapture readnone %module, ptr noundef %ch) #0 {
+define internal noundef ptr @_curses_ungetch(ptr readnone captures(none) %module, ptr noundef %ch) #0 {
 entry:
   %ch_ = alloca i32, align 4
   %.b = load i1, ptr @initialised, align 4
@@ -13710,7 +13710,7 @@ return:                                           ; preds = %if.else.i, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_update_lines_cols(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_update_lines_cols(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call fastcc i32 @update_lines_cols()
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -13719,7 +13719,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_unget_wch(ptr nocapture readnone %module, ptr noundef %ch) #0 {
+define internal noundef ptr @_curses_unget_wch(ptr readnone captures(none) %module, ptr noundef %ch) #0 {
 entry:
   %buffer.i = alloca [2 x i32], align 4
   %overflow.i = alloca i32, align 4
@@ -13815,7 +13815,7 @@ return:                                           ; preds = %if.else.i3, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_use_env(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @_curses_use_env(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyObject_IsTrue(ptr noundef %arg) #9
   %cmp = icmp slt i32 %call, 0
@@ -13832,7 +13832,7 @@ exit:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_use_default_colors(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_use_default_colors(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %.b.i = load i1, ptr @initialised, align 4
   br i1 %.b.i, label %if.end.i, label %return.sink.split.i
@@ -13906,7 +13906,7 @@ declare i64 @PyLong_AsUnsignedLongMask(ptr noundef) local_unnamed_addr #1
 declare i32 @ungetmouse(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @getwin(ptr noundef) local_unnamed_addr #1
 
@@ -14344,16 +14344,16 @@ declare void @PyStructSequence_SetItem(ptr noundef, i64 noundef, ptr noundef) lo
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8

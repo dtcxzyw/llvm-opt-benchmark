@@ -46,8 +46,6 @@ define nonnull align 8 ptr @"_ZN105_$LT$cranelift_codegen_meta..error..Error$u20
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h194c53fac8f56a3fE.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %10 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %10)
   ret ptr %4
 }
 
@@ -93,7 +91,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 declare hidden ptr @_ZN5alloc5alloc15exchange_malloc17hb7db822585aad40aE(i64, i64) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen_meta..error..ErrorInner$GT$17h65b2fe3fa0ce03bfE"(ptr align 8) unnamed_addr #0

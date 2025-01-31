@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_coll_base_alltoall_intra_basic_inplace(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) local_unnamed_addr #0 {
+define i32 @mca_coll_base_alltoall_intra_basic_inplace(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.opal_convertor_t, align 8
@@ -205,10 +205,10 @@ declare i32 @opal_convertor_prepare_for_send(ptr noundef, ptr noundef, i64 nound
 declare i32 @opal_convertor_pack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_alltoall_intra_pairwise(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readnone %7) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_alltoall_intra_pairwise(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readnone captures(none) %7) local_unnamed_addr #0 {
   %9 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   br i1 %9, label %10, label %12
 
@@ -285,7 +285,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %46, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_alltoall_intra_bruck(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readnone %7) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_alltoall_intra_bruck(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readnone captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   br i1 %10, label %11, label %13
@@ -426,7 +426,7 @@ opal_datatype_span.exit:                          ; preds = %13, %30
   %91 = mul nsw i32 %spec.select, %4
   %92 = sext i32 %91 to i64
   %.reass = mul i64 %indvars.iv, %factor.op.mul
-  %93 = call i32 @opal_datatype_add(ptr noundef %90, ptr noundef %5, i64 noundef range(i64 -2147483648, 2147483648) %92, i64 noundef %.reass, i64 noundef %22) #7
+  %93 = call i32 @opal_datatype_add(ptr noundef %90, ptr noundef nonnull %5, i64 noundef range(i64 -2147483648, 2147483648) %92, i64 noundef %.reass, i64 noundef %22) #7
   %indvars.iv.next = add nsw i64 %indvars.iv, %86
   %94 = icmp slt i64 %indvars.iv.next, %23
   br i1 %94, label %87, label %95, !llvm.loop !8
@@ -491,7 +491,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %.lr.ph.i
   %.02026.i141 = phi i64 [ %125, %121 ], [ %24, %.lr.ph.i138.preheader ]
   %spec.select24.i142 = call i64 @llvm.umin.i64(i64 %.02026.i141, i64 2147483647)
   %spec.select.i143 = trunc nuw nsw i64 %spec.select24.i142 to i32
-  %120 = call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %5, i32 noundef %spec.select.i143, ptr noundef %.01927.i140, ptr noundef %.01828.i139) #7
+  %120 = call i32 @opal_datatype_copy_content_same_ddt(ptr noundef nonnull %5, i32 noundef %spec.select.i143, ptr noundef %.01927.i140, ptr noundef %.01828.i139) #7
   %.not22.i144 = icmp eq i32 %120, 0
   br i1 %.not22.i144, label %121, label %ompi_datatype_copy_content_same_ddt.exit147
 
@@ -536,7 +536,7 @@ declare ptr @ompi_datatype_create(i32 noundef) local_unnamed_addr #2
 declare i32 @ompi_datatype_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_alltoall_intra_linear_sync(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_alltoall_intra_linear_sync(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   br i1 %11, label %12, label %14
@@ -856,7 +856,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %113, %143, %.prehea
 declare ptr @ompi_coll_base_comm_get_reqs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_alltoall_intra_two_procs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readnone %7) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_alltoall_intra_two_procs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readnone captures(none) %7) local_unnamed_addr #0 {
   %9 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   br i1 %9, label %10, label %12
 
@@ -916,7 +916,7 @@ define i32 @ompi_coll_base_alltoall_intra_two_procs(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_alltoall_intra_basic_linear(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_alltoall_intra_basic_linear(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, inttoptr (i64 1 to ptr)

@@ -308,7 +308,7 @@ $_ZGVZN8QuantLib9SingletonINS_17CommoditySettingsESt17integral_constantIbLb0EEE8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -393,7 +393,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -512,10 +512,10 @@ _ZN8QuantLib10LazyObject6updateEv.exit:           ; preds = %entry, %if.end9.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12EnergyFutureC2EiNS_8QuantityENS_17CommodityUnitCostEN5boost10shared_ptrINS_14CommodityIndexEEERKNS_13CommodityTypeERKNS4_ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_3anyESt4lessISG_ESaISt4pairIKSG_SH_EEEEE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %vtt, i32 noundef %buySell, ptr nocapture noundef %quantity, ptr nocapture noundef %tradePrice, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %secondaryCosts) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12EnergyFutureC2EiNS_8QuantityENS_17CommodityUnitCostEN5boost10shared_ptrINS_14CommodityIndexEEERKNS_13CommodityTypeERKNS4_ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_3anyESt4lessISG_ESaISt4pairIKSG_SH_EEEEE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %vtt, i32 noundef %buySell, ptr noundef captures(none) %quantity, ptr noundef captures(none) %tradePrice, ptr noundef captures(none) %index, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %secondaryCosts) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::CommodityType", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -1516,7 +1516,7 @@ _ZN8QuantLib13CommodityTypeD2Ev.exit:             ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12EnergyFutureC1EiNS_8QuantityENS_17CommodityUnitCostEN5boost10shared_ptrINS_14CommodityIndexEEERKNS_13CommodityTypeERKNS4_ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_3anyESt4lessISG_ESaISt4pairIKSG_SH_EEEEE(ptr noundef nonnull align 8 dereferenceable(312) initializes((312, 320), (328, 332), (336, 344)) %this, i32 noundef %buySell, ptr nocapture noundef %quantity, ptr nocapture noundef %tradePrice, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %secondaryCosts) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12EnergyFutureC1EiNS_8QuantityENS_17CommodityUnitCostEN5boost10shared_ptrINS_14CommodityIndexEEERKNS_13CommodityTypeERKNS4_ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_3anyESt4lessISG_ESaISt4pairIKSG_SH_EEEEE(ptr noundef nonnull align 8 dereferenceable(312) initializes((312, 320), (328, 332), (336, 344)) %this, i32 noundef %buySell, ptr noundef captures(none) %quantity, ptr noundef captures(none) %tradePrice, ptr noundef captures(none) %index, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %secondaryCosts) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::CommodityType", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -2163,7 +2163,7 @@ ehcleanup29:                                      ; preds = %ehcleanup25, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib12EnergyFuture9isExpiredEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib12EnergyFuture9isExpiredEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret i1 false
 }
@@ -8067,7 +8067,7 @@ _ZN8QuantLib15EnergyCommodityD2Ev.exit:           ; preds = %_ZN8QuantLib8Quanti
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #17
@@ -8221,7 +8221,7 @@ _ZN8QuantLib8CurrencyD2Ev.exit:                   ; preds = %_ZN8QuantLib13UnitO
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26

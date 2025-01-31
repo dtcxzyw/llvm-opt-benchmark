@@ -60,7 +60,7 @@ declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 declare void @qemu_co_queue_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @register_aiocontext(ptr nocapture noundef initializes((144, 152)) %ctx) local_unnamed_addr #0 {
+define dso_local void @register_aiocontext(ptr noundef captures(none) initializes((144, 152)) %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #6
   %bdrv_graph = getelementptr inbounds nuw i8, ptr %ctx, i64 144
@@ -115,7 +115,7 @@ entry:
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @unregister_aiocontext(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define dso_local void @unregister_aiocontext(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr

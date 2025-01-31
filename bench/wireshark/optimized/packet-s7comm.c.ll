@@ -2946,7 +2946,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2387 = private unnamed_addr constant [3 x i8] c": \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @s7comm_decode_ud_cpu_diagnostic_message(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden noundef i32 @s7comm_decode_ud_cpu_diagnostic_message(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_s7comm_cpu_diag_msg_item, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %4, i32 noundef 20, i32 noundef 0) #8
   %8 = load i32, ptr @ett_s7comm_cpu_diag_msg, align 4
@@ -3291,7 +3291,7 @@ define hidden void @proto_reg_handoff_s7comm() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_s7comm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_s7comm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   %6 = icmp ult i32 %5, 10
   br i1 %6, label %166, label %7
@@ -3628,7 +3628,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @proto_tree_add_time_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -5995,7 +5995,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @try_str_to_str_idx(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext range(i8 1, 14) %5, ptr nocapture noundef nonnull readonly %6, i32 noundef range(i32 20, 23) %7) unnamed_addr #0 {
+define internal fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext range(i8 1, 14) %5, ptr noundef nonnull readonly captures(none) %6, i32 noundef range(i32 20, 23) %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %10, ptr noundef nonnull @.str.2081) #8
@@ -6052,7 +6052,7 @@ declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #1
 declare ptr @fragment_add_seq_next(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6076,7 +6076,7 @@ define internal fastcc i32 @s7comm_decode_ud_tis_subfunc(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 4) %4, i8 noundef zeroext %5, i32 noundef range(i32 1, 0) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 4) %4, i8 noundef zeroext %5, i32 noundef range(i32 1, 0) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -6645,7 +6645,7 @@ s7comm_get_timestring_from_s7time.exit246:        ; preds = %s7comm_get_timestri
 declare i32 @s7comm_decode_ud_cpu_szl_subfunc(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_s7comm_cpu_alarm_message_item, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %5, i32 noundef 0, i32 noundef 0) #8
   %9 = load i32, ptr @ett_s7comm_cpu_alarm_message, align 4
@@ -7085,7 +7085,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_query_response(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i32 noundef range(i32 1, 0) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i32 noundef range(i32 1, 0) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca [42 x i8], align 16
   switch i8 %3, label %105 [
     i8 1, label %8
@@ -7350,7 +7350,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_time_subfunc(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i8 noundef zeroext %4, i32 noundef range(i32 1, 0) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i8 noundef zeroext %4, i32 noundef range(i32 1, 0) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = icmp ugt i32 %5, 1
   br i1 %9, label %10, label %92
@@ -8837,7 +8837,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @s7comm_decode_ud_tis_item_address(ptr noundef %0, i32 noundef %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
@@ -9089,7 +9089,7 @@ declare ptr @gmtime(ptr noundef) local_unnamed_addr #5
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @s7comm_decode_message_service_ar_send_args(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @s7comm_decode_message_service_ar_send_args(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #8
   %8 = load i32, ptr @hf_s7comm_param_itemcount, align 4
@@ -9182,10 +9182,10 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7

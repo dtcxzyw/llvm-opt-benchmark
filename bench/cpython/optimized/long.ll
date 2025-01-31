@@ -124,7 +124,7 @@ entry:
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_testcapi_test_long_and_overflow(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_testcapi_test_long_and_overflow(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %overflow.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %overflow.i)
@@ -634,7 +634,7 @@ _testcapi_test_long_and_overflow_impl.exit:       ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_testcapi_test_long_api(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_testcapi_test_long_api(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   br label %for.cond1.preheader.i.i
 
@@ -1152,7 +1152,7 @@ _testcapi_test_long_api_impl.exit:                ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_testcapi_test_long_as_double(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_testcapi_test_long_as_double(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load i32, ptr @_Py_NoneStruct, align 8
   %add.i.i = add i32 %0, 1
@@ -1199,7 +1199,7 @@ _testcapi_test_long_as_double_impl.exit:          ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_testcapi_test_long_as_size_t(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_testcapi_test_long_as_size_t(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load i32, ptr @_Py_NoneStruct, align 8
   %add.i.i = add i32 %0, 1
@@ -1273,7 +1273,7 @@ _testcapi_test_long_as_size_t_impl.exit:          ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_testcapi_test_long_as_unsigned_long_long_mask(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_testcapi_test_long_as_unsigned_long_long_mask(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef null) #4
   %cmp.not.i = icmp eq i64 %call.i, -1
@@ -1310,7 +1310,7 @@ _testcapi_test_long_as_unsigned_long_long_mask_impl.exit: ; preds = %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_testcapi_test_long_long_and_overflow(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_testcapi_test_long_long_and_overflow(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %overflow.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %overflow.i)
@@ -1820,7 +1820,7 @@ _testcapi_test_long_long_and_overflow_impl.exit:  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_testcapi_test_longlong_api(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_testcapi_test_longlong_api(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   br label %for.cond1.preheader.i.i
 
@@ -2338,7 +2338,7 @@ _testcapi_test_longlong_api_impl.exit:            ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testcapi_call_long_compact_api(ptr nocapture readnone %module, ptr nocapture noundef readonly %arg) #0 {
+define internal ptr @_testcapi_call_long_compact_api(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -2375,7 +2375,7 @@ if.end:                                           ; preds = %_PyLong_CompactValu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_check(ptr nocapture readnone %module, ptr noundef readonly %obj) #0 {
+define internal ptr @pylong_check(ptr readnone captures(none) %module, ptr noundef readonly %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -2390,7 +2390,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_checkexact(ptr nocapture readnone %module, ptr noundef readonly %obj) #0 {
+define internal ptr @pylong_checkexact(ptr readnone captures(none) %module, ptr noundef readonly %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -2403,7 +2403,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_fromdouble(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_fromdouble(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %value = alloca double, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.77, ptr noundef nonnull %value) #4
@@ -2421,7 +2421,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_fromstring(ptr nocapture readnone %module, ptr noundef %args) #0 {
+define internal ptr @pylong_fromstring(ptr readnone captures(none) %module, ptr noundef %args) #0 {
 entry:
   %str = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -2454,7 +2454,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_fromunicodeobject(ptr nocapture readnone %module, ptr noundef %args) #0 {
+define internal ptr @pylong_fromunicodeobject(ptr readnone captures(none) %module, ptr noundef %args) #0 {
 entry:
   %unicode = alloca ptr, align 8
   %base = alloca i32, align 4
@@ -2483,7 +2483,7 @@ return:                                           ; preds = %entry, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_fromvoidptr(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_fromvoidptr(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -2492,7 +2492,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testcapi_PyLong_AsInt(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_testcapi_PyLong_AsInt(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call ptr @PyErr_Occurred() #4
   %tobool.not = icmp eq ptr %call, null
@@ -2525,7 +2525,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_aslong(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_aslong(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -2548,7 +2548,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_aslongandoverflow(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_aslongandoverflow(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %overflow = alloca i32, align 4
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
@@ -2583,7 +2583,7 @@ return:                                           ; preds = %if.then3, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_asunsignedlong(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_asunsignedlong(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -2606,7 +2606,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_asunsignedlongmask(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_asunsignedlongmask(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -2629,7 +2629,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_aslonglong(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_aslonglong(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -2652,7 +2652,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_aslonglongandoverflow(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_aslonglongandoverflow(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %overflow = alloca i32, align 4
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
@@ -2687,7 +2687,7 @@ return:                                           ; preds = %if.then3, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_asunsignedlonglong(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_asunsignedlonglong(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -2710,7 +2710,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_asunsignedlonglongmask(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_asunsignedlonglongmask(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -2733,7 +2733,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_as_ssize_t(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_as_ssize_t(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -2756,7 +2756,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_as_size_t(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_as_size_t(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -2779,7 +2779,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_asdouble(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_asdouble(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -2802,7 +2802,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pylong_asvoidptr(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pylong_asvoidptr(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -2909,10 +2909,10 @@ declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1
 declare ptr @PyLong_AsVoidPtr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

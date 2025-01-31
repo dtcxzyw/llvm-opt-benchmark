@@ -70,7 +70,7 @@ define dso_local void @dma_resv_init(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dma_resv_fini(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @dma_resv_fini(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -312,10 +312,10 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_reserve_fences(ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -627,7 +627,7 @@ define dso_local void @dma_resv_replace_fences(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @dma_resv_iter_first_unlocked(ptr nocapture noundef initializes((28, 45)) %0) #0 align 16 {
+define dso_local ptr @dma_resv_iter_first_unlocked(ptr noundef captures(none) initializes((28, 45)) %0) #0 align 16 {
   tail call void @__rcu_read_lock() #9
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -670,7 +670,7 @@ define dso_local ptr @dma_resv_iter_first_unlocked(ptr nocapture noundef initial
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dma_resv_iter_walk_unlocked(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @dma_resv_iter_walk_unlocked(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -829,7 +829,7 @@ define internal fastcc void @dma_resv_iter_walk_unlocked(ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @dma_resv_iter_next_unlocked(ptr nocapture noundef initializes((44, 45)) %0) #0 align 16 {
+define dso_local ptr @dma_resv_iter_next_unlocked(ptr noundef captures(none) initializes((44, 45)) %0) #0 align 16 {
   tail call void @__rcu_read_lock() #9
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %2, align 4
@@ -880,7 +880,7 @@ define dso_local ptr @dma_resv_iter_next_unlocked(ptr nocapture noundef initiali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @dma_resv_iter_first(ptr nocapture noundef initializes((28, 40), (44, 45)) %0) #3 align 16 {
+define dso_local ptr @dma_resv_iter_first(ptr noundef captures(none) initializes((28, 40), (44, 45)) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %2, align 4
   %3 = load ptr, ptr %0, align 8
@@ -929,7 +929,7 @@ define dso_local ptr @dma_resv_iter_first(ptr nocapture noundef initializes((28,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @dma_resv_iter_next(ptr nocapture noundef initializes((44, 45)) %0) #3 align 16 {
+define dso_local ptr @dma_resv_iter_next(ptr noundef captures(none) initializes((44, 45)) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1271,10 +1271,10 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_copy_fences(ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @dma_resv_get_fences(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef initializes((0, 8)) %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @dma_resv_get_fences(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 8)) %3) #0 align 16 {
   %5 = alloca %struct.dma_resv_iter, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1492,7 +1492,7 @@ thread-pre-split:                                 ; preds = %49, %51, %52
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @dma_resv_get_singleton(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @dma_resv_get_singleton(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9

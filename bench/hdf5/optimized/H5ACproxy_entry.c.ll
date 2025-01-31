@@ -59,13 +59,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.24 = private unnamed_addr constant [42 x i8] c"unknown notify action from metadata cache\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5AC__proxy_entry_image_len(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5AC__proxy_entry_image_len(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   store i64 1, ptr %1, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5AC__proxy_entry_serialize(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @H5AC__proxy_entry_serialize(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3) #1 {
   %5 = load i64, ptr @H5E_CACHE_g, align 8
   %6 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8
   %7 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5AC__proxy_entry_serialize, i32 noundef 460, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.19) #3
@@ -472,7 +472,7 @@ declare i32 @H5AC_mark_entry_serialized(ptr noundef) local_unnamed_addr #2
 declare i32 @H5SL_iterate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5AC__proxy_entry_add_child_cb(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal range(i32 -1, 1) i32 @H5AC__proxy_entry_add_child_cb(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
   %4 = tail call i32 @H5AC_create_flush_dependency(ptr noundef %0, ptr noundef %2) #3
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
@@ -553,7 +553,7 @@ define range(i32 -1, 1) i32 @H5AC_proxy_entry_remove_child(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5AC__proxy_entry_remove_child_cb(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal range(i32 -1, 1) i32 @H5AC__proxy_entry_remove_child_cb(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
   %4 = tail call i32 @H5AC_destroy_flush_dependency(ptr noundef %0, ptr noundef %2) #3
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10

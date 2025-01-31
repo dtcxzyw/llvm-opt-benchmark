@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_color32_t = type { i8, i8, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_sw_mask_rect(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define void @lv_draw_sw_mask_rect(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.lv_area_t, align 4
   %5 = alloca %struct.lv_area_t, align 4
   %6 = alloca %struct._lv_draw_sw_mask_radius_param_t, align 8
@@ -205,7 +205,7 @@ define void @lv_draw_sw_mask_rect(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -218,7 +218,7 @@ declare void @lv_draw_buf_clear(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @lv_draw_sw_mask_radius_init(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
 
@@ -231,7 +231,7 @@ declare i32 @lv_draw_sw_mask_apply(ptr noundef, ptr noundef, i32 noundef, i32 no
 declare ptr @lv_draw_layer_go_to_xy(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @lv_free(ptr noundef) local_unnamed_addr #2
 

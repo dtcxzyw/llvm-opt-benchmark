@@ -285,7 +285,7 @@ define internal i32 @dissect_h223_circuit_data(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_h223_bitswapped(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_h223_bitswapped(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
@@ -315,7 +315,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @circuit_chain_hash(ptr nocapture noundef readonly %0) #3 {
+define internal i32 @circuit_chain_hash(ptr noundef readonly captures(none) %0) #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
@@ -327,7 +327,7 @@ define internal i32 @circuit_chain_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @circuit_chain_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @circuit_chain_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -501,7 +501,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_h223(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_h223(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_h223_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #12
   ret i32 %5
@@ -544,7 +544,7 @@ define internal i32 @dissect_h223_bitswapped_circuit_data(ptr noundef %0, ptr no
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_h223_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
@@ -1432,7 +1432,7 @@ define internal fastcc void @init_logical_channel(i32 noundef %0, ptr noundef %1
   %18 = load ptr, ptr @circuit_chain_hashtable, align 8
   %19 = zext i32 %17 to i64
   %20 = inttoptr i64 %19 to ptr
-  %21 = call ptr @wmem_map_insert(ptr noundef %18, ptr noundef %15, ptr noundef %20) #12
+  %21 = call ptr @wmem_map_insert(ptr noundef %18, ptr noundef nonnull %15, ptr noundef %20) #12
   br label %circuit_chain_lookup.exit
 
 circuit_chain_lookup.exit:                        ; preds = %5, %13
@@ -1450,7 +1450,7 @@ circuit_chain_lookup.exit:                        ; preds = %5, %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   store ptr %1, ptr %28, align 8
   %29 = load i32, ptr @proto_h223, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %25, i32 noundef %29, ptr noundef %27) #12
+  call void @conversation_add_proto_data(ptr noundef nonnull %25, i32 noundef %29, ptr noundef nonnull %27) #12
   br label %33
 
 30:                                               ; preds = %circuit_chain_lookup.exit
@@ -1549,13 +1549,13 @@ declare void @except_free(ptr noundef) local_unnamed_addr #1
 declare ptr @except_pop() local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @attempt_mux_level0_header_parse(i32 %0, i32 %1, ptr nocapture readnone %2) #7 {
+define internal noundef i32 @attempt_mux_level0_header_parse(i32 %0, i32 %1, ptr readnone captures(none) %2) #7 {
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.113, i32 noundef 1092) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 0, 2) i32 @attempt_mux_level1_header_parse(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #8 {
+define internal range(i32 0, 2) i32 @attempt_mux_level1_header_parse(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #8 {
   %4 = icmp ult i32 %0, 2
   br i1 %4, label %11, label %5
 
@@ -1576,7 +1576,7 @@ define internal range(i32 0, 2) i32 @attempt_mux_level1_header_parse(i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @attempt_mux_level2_3_header_parse(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 0, 2) i32 @attempt_mux_level2_3_header_parse(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = icmp ult i32 %0, 3
   br i1 %4, label %20, label %5
 
@@ -1707,7 +1707,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
 declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 0) i32 @mux_element_sublist_size(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @mux_element_sublist_size(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @increment_dissection_depth(ptr noundef %0) #12
@@ -1818,7 +1818,7 @@ define internal fastcc void @dissect_mux_sdu_fragment(ptr noundef %0, ptr nounde
   %40 = load ptr, ptr @circuit_chain_hashtable, align 8
   %41 = zext i32 %39 to i64
   %42 = inttoptr i64 %41 to ptr
-  %43 = call ptr @wmem_map_insert(ptr noundef %40, ptr noundef %37, ptr noundef %42) #12
+  %43 = call ptr @wmem_map_insert(ptr noundef %40, ptr noundef nonnull %37, ptr noundef %42) #12
   br label %circuit_chain_lookup.exit
 
 circuit_chain_lookup.exit:                        ; preds = %27, %35
@@ -2169,16 +2169,16 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

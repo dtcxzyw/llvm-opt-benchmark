@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Map_CanonComputeSlow(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef initializes((0, 4)) %5) local_unnamed_addr #0 {
+define i32 @Map_CanonComputeSlow(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = shl nuw i32 1, %2
   %8 = icmp slt i32 %1, 6
   store i32 -1, ptr %5, align 4
@@ -237,7 +237,7 @@ Map_CanonComputePhase6.exit:                      ; preds = %.sink.split.i, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Map_CanonComputeFast(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) local_unnamed_addr #1 {
+define i32 @Map_CanonComputeFast(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %1, 6
   br i1 %7, label %8, label %61
 

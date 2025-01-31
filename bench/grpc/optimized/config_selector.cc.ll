@@ -41,7 +41,7 @@ entry:
 declare void @_Z31grpc_channel_arg_pointer_createPcPvPK23grpc_arg_pointer_vtable(ptr sret(%struct.grpc_arg) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14ConfigSelector18GetFromChannelArgsERK17grpc_channel_args(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %args) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core14ConfigSelector18GetFromChannelArgsERK17grpc_channel_args(ptr noalias writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %args) local_unnamed_addr #3 align 2 {
 entry:
   %call.i = tail call noundef ptr @_Z22grpc_channel_args_findPK17grpc_channel_argsPKc(ptr noundef nonnull %args, ptr noundef nonnull @.str)
   %cmp.i = icmp eq ptr %call.i, null

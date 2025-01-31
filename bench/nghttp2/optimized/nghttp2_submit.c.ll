@@ -236,7 +236,7 @@ return:                                           ; preds = %if.end12, %if.end9,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @nghttp2_priority_spec_normalize_weight(ptr noundef) local_unnamed_addr #1
 
@@ -657,10 +657,10 @@ declare void @nghttp2_frame_altsvc_init(ptr noundef, i32 noundef, ptr noundef, i
 declare void @nghttp2_frame_altsvc_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_submit_origin(ptr noundef %session, i8 noundef zeroext %flags, ptr nocapture noundef readonly %ov, i64 noundef %nov) local_unnamed_addr #0 {
+define i32 @nghttp2_submit_origin(ptr noundef %session, i8 noundef zeroext %flags, ptr noundef readonly captures(none) %ov, i64 noundef %nov) local_unnamed_addr #0 {
 entry:
   %mem1 = getelementptr inbounds nuw i8, ptr %session, i64 2528
   %server = getelementptr inbounds nuw i8, ptr %session, i64 2876
@@ -934,7 +934,7 @@ return:                                           ; preds = %if.end, %entry, %se
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_submit_data(ptr noundef %session, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr nocapture noundef readonly %data_prd) local_unnamed_addr #0 {
+define i32 @nghttp2_submit_data(ptr noundef %session, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr noundef readonly captures(none) %data_prd) local_unnamed_addr #0 {
 entry:
   %0 = and i8 %flags, 1
   %mem2 = getelementptr inbounds nuw i8, ptr %session, i64 2528

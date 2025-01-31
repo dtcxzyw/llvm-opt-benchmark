@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [27 x i8] c"Package allocation failure\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ut_copy_iobject_to_eobject(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ut_copy_iobject_to_eobject(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.acpi_pkg_info, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %5 = load i8, ptr %4, align 1
@@ -63,10 +63,10 @@ define dso_local i32 @acpi_ut_copy_iobject_to_eobject(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 16) i32 @acpi_ut_copy_isimple_to_esimple(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 16) i32 @acpi_ut_copy_isimple_to_esimple(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) unnamed_addr #0 align 16 {
   store i64 0, ptr %3, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %72, label %6
@@ -187,10 +187,10 @@ define internal fastcc noundef range(i32 0, 16) i32 @acpi_ut_copy_isimple_to_esi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 16) i32 @acpi_ut_copy_eobject_to_iobject(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 16) i32 @acpi_ut_copy_eobject_to_iobject(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = load i32, ptr %0, align 8
@@ -367,7 +367,7 @@ define dso_local range(i32 0, 16) i32 @acpi_ut_copy_eobject_to_iobject(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ut_copy_iobject_to_iobject(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ut_copy_iobject_to_iobject(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %6 = load i8, ptr %5, align 1
@@ -442,7 +442,7 @@ define dso_local i32 @acpi_ut_copy_iobject_to_iobject(ptr noundef %0, ptr nocapt
 declare dso_local ptr @acpi_ut_create_internal_object_dbg(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_ut_copy_simple_object(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @acpi_ut_copy_simple_object(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 10
@@ -584,13 +584,13 @@ define internal fastcc i32 @acpi_ut_copy_simple_object(ptr nocapture noundef rea
 declare dso_local void @acpi_ut_remove_reference(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_ut_walk_package_tree(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 4098) i32 @acpi_ut_copy_ielement_to_eelement(i8 noundef zeroext %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal noundef range(i32 0, 4098) i32 @acpi_ut_copy_ielement_to_eelement(i8 noundef zeroext %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -650,7 +650,7 @@ define internal noundef range(i32 0, 4098) i32 @acpi_ut_copy_ielement_to_eelemen
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_ns_get_type(ptr noundef) local_unnamed_addr #2
@@ -668,7 +668,7 @@ declare dso_local ptr @acpi_ut_create_package_object(i32 noundef) local_unnamed_
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @acpi_ut_copy_ielement_to_ielement(i8 noundef zeroext %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal i32 @acpi_ut_copy_ielement_to_ielement(i8 noundef zeroext %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32

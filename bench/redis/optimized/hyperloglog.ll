@@ -161,7 +161,7 @@ sw.epilog:                                        ; preds = %while.end, %sw.bb37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 1, 0) i32 @hllPatLen(ptr noundef readonly %ele, i64 noundef %elesize, ptr nocapture noundef writeonly %regp) local_unnamed_addr #1 {
+define dso_local range(i32 1, 0) i32 @hllPatLen(ptr noundef readonly %ele, i64 noundef %elesize, ptr noundef writeonly captures(none) %regp) local_unnamed_addr #1 {
 entry:
   %conv = trunc i64 %elesize to i32
   %sext = shl i64 %elesize, 32
@@ -297,7 +297,7 @@ while.end:                                        ; preds = %while.body, %Murmur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @hllDenseSet(ptr nocapture noundef %registers, i64 noundef %index, i8 noundef zeroext %count) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @hllDenseSet(ptr noundef captures(none) %registers, i64 noundef %index, i8 noundef zeroext %count) local_unnamed_addr #2 {
 entry:
   %mul = mul nsw i64 %index, 6
   %div = sdiv i64 %mul, 8
@@ -344,7 +344,7 @@ return:                                           ; preds = %entry, %do.body9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @hllDenseAdd(ptr nocapture noundef %registers, ptr noundef %ele, i64 noundef %elesize) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @hllDenseAdd(ptr noundef captures(none) %registers, ptr noundef %ele, i64 noundef %elesize) local_unnamed_addr #1 {
 entry:
   %index = alloca i64, align 8
   %call = call i32 @hllPatLen(ptr noundef %ele, i64 noundef %elesize, ptr noundef nonnull %index)
@@ -394,7 +394,7 @@ hllDenseSet.exit:                                 ; preds = %entry, %do.body9.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @hllDenseRegHisto(ptr nocapture noundef readonly %registers, ptr nocapture noundef %reghisto) local_unnamed_addr #1 {
+define dso_local void @hllDenseRegHisto(ptr noundef readonly captures(none) %registers, ptr noundef captures(none) %reghisto) local_unnamed_addr #1 {
 entry:
   br label %for.body
 
@@ -566,7 +566,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @hllSparseToDense(ptr nocapture noundef %o) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @hllSparseToDense(ptr noundef captures(none) %o) local_unnamed_addr #3 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %o, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -719,7 +719,7 @@ while.end71:                                      ; preds = %if.end70, %if.else2
   br i1 %16, label %if.end75, label %if.then74
 
 if.then74:                                        ; preds = %if.end, %while.end71
-  tail call void @sdsfree(ptr noundef %call2) #18
+  tail call void @sdsfree(ptr noundef nonnull %call2) #18
   br label %return
 
 if.end75:                                         ; preds = %while.end71
@@ -734,7 +734,7 @@ return:                                           ; preds = %sdslen.exit, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @sdslen(ptr nocapture noundef readonly %s) unnamed_addr #4 {
+define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %s) unnamed_addr #4 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
@@ -784,12 +784,12 @@ return:                                           ; preds = %entry, %sw.bb13, %s
 declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @sdsfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @hllSparseSet(ptr nocapture noundef %o, i64 noundef %index, i8 noundef zeroext %count) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 2) i32 @hllSparseSet(ptr noundef captures(none) %o, i64 noundef %index, i8 noundef zeroext %count) local_unnamed_addr #3 {
 entry:
   %seq = alloca [5 x i8], align 1
   %cmp = icmp ugt i8 %count, 32
@@ -1517,12 +1517,12 @@ declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare void @sdsIncrLen(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @hllSparseAdd(ptr nocapture noundef %o, ptr noundef %ele, i64 noundef %elesize) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 2) i32 @hllSparseAdd(ptr noundef captures(none) %o, ptr noundef %ele, i64 noundef %elesize) local_unnamed_addr #3 {
 entry:
   %index = alloca i64, align 8
   %call = call i32 @hllPatLen(ptr noundef %ele, i64 noundef %elesize, ptr noundef nonnull %index)
@@ -1533,7 +1533,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @hllSparseRegHisto(ptr noundef readonly %sparse, i32 noundef %sparselen, ptr noundef writeonly %invalid, ptr nocapture noundef %reghisto) local_unnamed_addr #1 {
+define dso_local void @hllSparseRegHisto(ptr noundef readonly %sparse, i32 noundef %sparselen, ptr noundef writeonly %invalid, ptr noundef captures(none) %reghisto) local_unnamed_addr #1 {
 entry:
   %idx.ext = sext i32 %sparselen to i64
   %add.ptr = getelementptr inbounds i8, ptr %sparse, i64 %idx.ext
@@ -1611,7 +1611,7 @@ if.end36:                                         ; preds = %if.then35, %while.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @hllRawRegHisto(ptr nocapture noundef readonly %registers, ptr nocapture noundef %reghisto) local_unnamed_addr #1 {
+define dso_local void @hllRawRegHisto(ptr noundef readonly captures(none) %registers, ptr noundef captures(none) %reghisto) local_unnamed_addr #1 {
 entry:
   br label %for.body
 
@@ -2045,7 +2045,7 @@ hllSigma.exit:                                    ; preds = %do.body.i31, %for.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
@@ -2053,7 +2053,7 @@ declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare i64 @llroundl(x86_fp80 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @hllAdd(ptr nocapture noundef %o, ptr noundef %ele, i64 noundef %elesize) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 2) i32 @hllAdd(ptr noundef captures(none) %o, ptr noundef %ele, i64 noundef %elesize) local_unnamed_addr #3 {
 entry:
   %index.i5 = alloca i64, align 8
   %index.i = alloca i64, align 8
@@ -2130,7 +2130,7 @@ return:                                           ; preds = %entry, %sw.bb1, %hl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @hllMerge(ptr nocapture noundef %max, ptr nocapture noundef readonly %hll) local_unnamed_addr #14 {
+define dso_local range(i32 -1, 1) i32 @hllMerge(ptr noundef captures(none) %max, ptr noundef readonly captures(none) %hll) local_unnamed_addr #14 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %hll, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -3330,7 +3330,7 @@ do.body:                                          ; preds = %if.end25, %do.body
   %16 = tail call i8 @llvm.fshr.i8(i8 %14, i8 %13, i8 %15)
   %conv37 = and i8 %16, 63
   %conv38 = zext nneg i8 %conv37 to i64
-  tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv38) #18
+  tail call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %conv38) #18
   %inc39 = add nuw nsw i32 %j.069, 1
   %exitcond.not = icmp eq i32 %inc39, 16384
   br i1 %exitcond.not, label %return, label %do.body, !llvm.loop !29
@@ -3458,7 +3458,7 @@ while.end:                                        ; preds = %if.end96, %if.end57
   %decoded.0.lcssa = phi ptr [ %call51, %if.end57 ], [ %decoded.1, %if.end96 ]
   %call97 = tail call ptr @sdstrim(ptr noundef %decoded.0.lcssa, ptr noundef nonnull @.str.19) #18
   %call98 = tail call fastcc i64 @sdslen(ptr noundef %call97)
-  tail call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef %call97, i64 noundef %call98) #18
+  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef %call97, i64 noundef %call98) #18
   tail call void @sdsfree(ptr noundef %call97) #18
   br label %return
 
@@ -3534,7 +3534,7 @@ return:                                           ; preds = %do.body, %if.end107
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @addReplyArrayLen(ptr noundef, i64 noundef) local_unnamed_addr #5
 
@@ -3555,10 +3555,10 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 declare i8 @llvm.fshr.i8(i8, i8, i8) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #16

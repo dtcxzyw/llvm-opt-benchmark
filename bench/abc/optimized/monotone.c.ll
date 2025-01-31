@@ -32,13 +32,13 @@ define noalias noundef ptr @allocAigPoIndices() local_unnamed_addr #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @deallocAigPoIndices(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @deallocAigPoIndices(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   tail call void @free(ptr noundef %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @allocPointersToMonotoneVectors() local_unnamed_addr #4 {
@@ -47,13 +47,13 @@ define noalias noundef ptr @allocPointersToMonotoneVectors() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @deallocPointersToMonotoneVectors(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @deallocPointersToMonotoneVectors(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   tail call void @free(ptr noundef %0) #15
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @findHintOutputs(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define noalias ptr @findHintOutputs(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %calloc.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %2 = getelementptr i8, ptr %0, i64 48
   %.val14 = load ptr, ptr %2, align 8
@@ -167,12 +167,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @findPendingSignal(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 -2147483648, 2147483647) i32 @findPendingSignal(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 48
   %.val9 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val9, i64 4
@@ -211,7 +211,7 @@ define range(i32 -2147483648, 2147483647) i32 @findPendingSignal(ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @checkSanityOfKnownMonotone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 {
+define noundef i32 @checkSanityOfKnownMonotone(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 {
   %4 = getelementptr i8, ptr %0, i64 4
   %.val28 = load i32, ptr %4, align 4
   %5 = icmp sgt i32 %.val28, 0
@@ -285,10 +285,10 @@ define noundef i32 @checkSanityOfKnownMonotone(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @createMonotoneTester(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define noundef ptr @createMonotoneTester(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
   %5 = load i32, ptr %1, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
@@ -1151,10 +1151,10 @@ Aig_ObjChild0Copy.exit306:                        ; preds = %.lr.ph348, %396
 declare ptr @Aig_ManStart(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare ptr @Aig_ObjCreateCi(ptr noundef) local_unnamed_addr #7
 
@@ -1169,7 +1169,7 @@ declare void @Aig_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @findNewMonotone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define noalias ptr @findNewMonotone(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.Pdr_Par_t_, align 8
   %6 = load i32, ptr %1, align 4
@@ -1568,16 +1568,16 @@ declare ptr @Abc_NtkStrash(ptr noundef, i32 noundef, i32 noundef, i32 noundef) l
 declare ptr @Abc_NtkToDar(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13

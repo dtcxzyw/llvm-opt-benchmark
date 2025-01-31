@@ -440,7 +440,7 @@ declare noundef zeroext i1 @_ZN9CDSConfig26is_using_full_module_graphEv() local_
 declare void @_ZN21ClassLoaderDataShared19clear_archived_oopsEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ArchiveHeapLoader34patch_compressed_embedded_pointersE10BitMapViewP11FileMapInfo9MemRegion(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr %2, i64 %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17ArchiveHeapLoader34patch_compressed_embedded_pointersE10BitMapViewP11FileMapInfo9MemRegion(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr %2, i64 %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %class.PatchCompressedEmbeddedPointersQuick, align 8
   %6 = alloca %class.PatchCompressedEmbeddedPointers, align 8
   %7 = tail call noundef i32 @_ZN11FileMapInfo36encoded_heap_region_dumptime_addressEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #12
@@ -749,7 +749,7 @@ _ZNK6BitMap7iterateI33PatchUncompressedEmbeddedPointersEEbPT_.exit: ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @_ZN17ArchiveHeapLoader27init_loaded_heap_relocationEP23LoadedArchiveHeapRegion(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN17ArchiveHeapLoader27init_loaded_heap_relocationEP23LoadedArchiveHeapRegion(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   store i64 %3, ptr @_ZN17ArchiveHeapLoader14_dumptime_baseE, align 8
@@ -783,7 +783,7 @@ define hidden noundef zeroext i1 @_ZN17ArchiveHeapLoader8can_loadEv() local_unna
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17ArchiveHeapLoader18init_loaded_regionEP11FileMapInfoP23LoadedArchiveHeapRegionR9MemRegion(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN17ArchiveHeapLoader18init_loaded_regionEP11FileMapInfoP23LoadedArchiveHeapRegionR9MemRegion(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 328
@@ -831,7 +831,7 @@ define hidden noundef zeroext i1 @_ZN17ArchiveHeapLoader18init_loaded_regionEP11
 declare noundef ptr @_ZN11FileMapInfo28heap_region_dumptime_addressEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17ArchiveHeapLoader21load_heap_region_implEP11FileMapInfoP23LoadedArchiveHeapRegionm(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN17ArchiveHeapLoader21load_heap_region_implEP11FileMapInfoP23LoadedArchiveHeapRegionm(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %"class.ArchiveHeapLoader::PatchLoadedRegionPointers", align 8
   %5 = tail call noundef ptr @_ZN11FileMapInfo17map_bitmap_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
   %6 = ptrtoint ptr %5 to i64
@@ -1048,7 +1048,7 @@ _ZN17ArchiveHeapLoader18init_loaded_regionEP11FileMapInfoP23LoadedArchiveHeapReg
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17ArchiveHeapLoader21finish_initializationEv() local_unnamed_addr #2 align 2 {
@@ -5294,10 +5294,10 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEm
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

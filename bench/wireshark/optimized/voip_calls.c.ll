@@ -591,7 +591,7 @@ remove_tap_listener_h245dg_calls.exit:            ; preds = %1, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @voip_calls_reset_all_taps(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @voip_calls_reset_all_taps(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @g_queue_peek_nth_link(ptr noundef %3, i32 noundef 0) #12
@@ -740,14 +740,14 @@ declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @rtp_event_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #3 {
+define internal noundef i32 @rtp_event_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #3 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -12
   %8 = inttoptr i64 %7 to ptr
@@ -1361,7 +1361,7 @@ copy_address.exit100:                             ; preds = %copy_address.exit, 
 declare void @rtpstream_info_free_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @rtpstream_info_malloc_and_init() local_unnamed_addr #1
 
@@ -1378,7 +1378,7 @@ declare ptr @rtp_dyn_payload_get_name(ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1392,7 +1392,7 @@ declare double @nstime_to_msec(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_address(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @copy_address(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1440,7 +1440,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @t38_packet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @t38_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = alloca [2048 x i8], align 16
   %7 = ptrtoint ptr %0 to i64
   %8 = add i64 %7, -18
@@ -1895,7 +1895,7 @@ declare ptr @val_to_str_ext_wmem(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare double @nstime_to_sec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_to_graph(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i16 noundef zeroext range(i16 1, 3) %8) unnamed_addr #0 {
+define internal fastcc void @add_to_graph(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, i16 noundef zeroext range(i16 1, 3) %8) unnamed_addr #0 {
   %10 = alloca [2048 x i8], align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load ptr, ptr %11, align 8
@@ -2006,7 +2006,7 @@ copy_address.exit34:                              ; preds = %copy_address.exit, 
 declare void @g_queue_insert_before(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sip_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @sip_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = alloca %struct._address, align 8
   %7 = ptrtoint ptr %0 to i64
   %8 = add i64 %7, -15
@@ -2450,7 +2450,7 @@ addresses_equal.exit164:                          ; preds = %233, %227, %223, %2
   %277 = load ptr, ptr %276, align 8
   %278 = getelementptr inbounds nuw i8, ptr %.0138, i64 24
   %279 = load ptr, ptr %278, align 8
-  %280 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.58, ptr noundef %185, ptr noundef %277, ptr noundef %279, i32 noundef %261) #12
+  %280 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.58, ptr noundef nonnull %185, ptr noundef %277, ptr noundef %279, i32 noundef %261) #12
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %168, %155, %150, %146, %203, %250, %._crit_edge, %272, %245, %131, %140, %179, %.thread180
@@ -2600,7 +2600,7 @@ define internal void @free_sip_info(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @addresses_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @addresses_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -2637,7 +2637,7 @@ define internal fastcc range(i32 0, 2) i32 @addresses_equal(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @isup_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @isup_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -5
   %8 = inttoptr i64 %7 to ptr
@@ -3020,7 +3020,7 @@ define internal void @isup_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @mtp3_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #3 {
+define internal noundef i32 @mtp3_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #3 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -9
   %8 = inttoptr i64 %7 to ptr
@@ -3062,7 +3062,7 @@ define internal noundef i32 @mtp3_calls_packet(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @m3ua_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #3 {
+define internal noundef i32 @m3ua_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #3 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -6
   %8 = inttoptr i64 %7 to ptr
@@ -3104,7 +3104,7 @@ define internal noundef i32 @m3ua_calls_packet(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @q931_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @q931_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = alloca %struct._address, align 8
   %7 = ptrtoint ptr %0 to i64
   %8 = add i64 %7, -10
@@ -3875,7 +3875,7 @@ define internal fastcc i32 @change_call_num_graph(ptr readonly %.88.val, i16 nou
 declare void @g_queue_unlink(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @h245_add_to_graph(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @h245_add_to_graph(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
@@ -3982,7 +3982,7 @@ append_to_frame_graph.exit:                       ; preds = %12, %19, %22, %31, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @h225_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @h225_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -1
   %8 = inttoptr i64 %7 to ptr
@@ -4609,7 +4609,7 @@ declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #8
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @h245dg_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @h245dg_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
@@ -4930,7 +4930,7 @@ define internal void @h245dg_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sdp_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @sdp_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -14
   %8 = inttoptr i64 %7 to ptr
@@ -5028,7 +5028,7 @@ define internal void @sdp_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mgcp_calls_packet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @mgcp_calls_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -8
   %8 = inttoptr i64 %7 to ptr
@@ -5727,7 +5727,7 @@ define internal void @mgcp_calls_draw(ptr noundef %0) #0 {
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_mgcp_signal(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_mgcp_signal(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %25, label %4
 
@@ -5777,7 +5777,7 @@ define internal fastcc range(i32 0, 2) i32 @is_mgcp_signal(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mgcp_dialed_digits(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @mgcp_dialed_digits(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %35, label %4
 
@@ -5871,7 +5871,7 @@ define internal fastcc void @mgcp_dialed_digits(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mgcp_caller_id(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @mgcp_caller_id(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %17, label %4
 
@@ -5918,10 +5918,10 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #9
 declare i32 @g_strv_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @actrace_calls_packet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @actrace_calls_packet(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = alloca %struct._address, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %8 = load i32, ptr %7, align 4
@@ -6154,7 +6154,7 @@ define internal void @actrace_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @megaco_calls_packet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @megaco_calls_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -7
   %8 = inttoptr i64 %7 to ptr
@@ -6210,7 +6210,7 @@ define internal void @megaco_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @h248_calls_packet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @h248_calls_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -3
   %8 = inttoptr i64 %7 to ptr
@@ -6266,7 +6266,7 @@ define internal void @h248_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @h248_calls_packet_common(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 8, 129) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @h248_calls_packet_common(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 8, 129) %4) unnamed_addr #0 {
   %6 = alloca [128 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %8 = load ptr, ptr %7, align 8
@@ -6480,7 +6480,7 @@ declare ptr @g_string_new(ptr noundef) local_unnamed_addr #1
 declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sccp_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @sccp_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -13
   %8 = inttoptr i64 %7 to ptr
@@ -6537,7 +6537,7 @@ define internal void @sccp_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sua_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @sua_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -17
   %8 = inttoptr i64 %7 to ptr
@@ -6594,7 +6594,7 @@ define internal void @sua_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sccp_calls(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 8192, 131073) %4) unnamed_addr #0 {
+define internal fastcc void @sccp_calls(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 8192, 131073) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -6819,7 +6819,7 @@ copy_address.exit:                                ; preds = %._crit_edge, %40
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @unistim_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @unistim_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -19
   %8 = inttoptr i64 %7 to ptr
@@ -7827,7 +7827,7 @@ declare ptr @g_string_assign(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_string_truncate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @skinny_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @skinny_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -16
   %8 = inttoptr i64 %7 to ptr
@@ -8155,7 +8155,7 @@ define internal void @skinny_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @iax2_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @iax2_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -4
   %8 = inttoptr i64 %7 to ptr
@@ -8407,7 +8407,7 @@ define internal void @free_iax2_info(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @voip_calls_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @voip_calls_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add i64 %6, -20
   %8 = inttoptr i64 %7 to ptr
@@ -8666,13 +8666,13 @@ define internal void @voip_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

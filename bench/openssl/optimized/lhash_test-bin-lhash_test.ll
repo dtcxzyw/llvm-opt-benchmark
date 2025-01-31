@@ -335,7 +335,7 @@ end:                                              ; preds = %if.end29, %for.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 4) i64 @int_hash(ptr nocapture noundef readonly %p) #2 {
+define internal range(i64 0, 4) i64 @int_hash(ptr noundef readonly captures(none) %p) #2 {
 entry:
   %0 = load i32, ptr %p, align 4
   %and = and i32 %0, 3
@@ -344,7 +344,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @int_cmp(ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) #2 {
+define internal range(i32 0, 2) i32 @int_cmp(ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %q) #2 {
 entry:
   %0 = load i32, ptr %p, align 4
   %1 = load i32, ptr %q, align 4
@@ -364,10 +364,10 @@ declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal void @int_doall(ptr nocapture noundef readonly %v) #4 {
+define internal void @int_doall(ptr noundef readonly captures(none) %v) #4 {
 entry:
   %0 = load i32, ptr %v, align 4
   br label %for.body.i
@@ -403,7 +403,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @int_doall_arg(ptr nocapture noundef readonly %p, ptr nocapture noundef %f) #5 {
+define internal void @int_doall_arg(ptr noundef readonly captures(none) %p, ptr noundef captures(none) %f) #5 {
 entry:
   %0 = load i32, ptr %p, align 4
   br label %for.body.i
@@ -457,7 +457,7 @@ declare i32 @OPENSSL_LH_error(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_LH_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @stress_hash(ptr nocapture noundef readonly %p) #2 {
+define internal range(i64 -2147483648, 2147483648) i64 @stress_hash(ptr noundef readonly captures(none) %p) #2 {
 entry:
   %0 = load i32, ptr %p, align 4
   %conv = sext i32 %0 to i64

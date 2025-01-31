@@ -370,7 +370,7 @@ gv_isspace.exit104:                               ; preds = %110, %gv_isspace.ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @fmtbuf(i64 noundef) local_unnamed_addr #2
 
@@ -380,14 +380,14 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @fmtesq(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
-  %4 = tail call ptr @fmtquote(ptr noundef %0, ptr noundef null, ptr noundef %1, i64 noundef %3)
+  %4 = tail call ptr @fmtquote(ptr noundef nonnull %0, ptr noundef null, ptr noundef %1, i64 noundef %3)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @fmtesc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
-  %3 = tail call ptr @fmtquote(ptr noundef %0, ptr noundef null, ptr noundef null, i64 noundef %2)
+  %3 = tail call ptr @fmtquote(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i64 noundef %2)
   ret ptr %3
 }
 

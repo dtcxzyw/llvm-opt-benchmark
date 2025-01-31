@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [17 x i32] [i32 63, i32 63, i32 63, i32 63, i32 45, i32 63, i32 63, i32 45, i32 63, i32 63, i32 32, i32 63, i32 63, i32 58, i32 63, i32 63, i32 0], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7RarTime8GetLocalEP12RarLocalTime(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly initializes((0, 36)) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7RarTime8GetLocalEP12RarLocalTime(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef writeonly captures(none) initializes((0, 36)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, 6802270473709551616
@@ -58,7 +58,7 @@ define void @_ZN7RarTime8GetLocalEP12RarLocalTime(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 0, 18446744074) i64 @_ZN7RarTime7GetUnixEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define noundef range(i64 0, 18446744074) i64 @_ZN7RarTime7GetUnixEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = add i64 %2, 6802270473709551616
   %4 = udiv i64 %3, 1000000000
@@ -69,7 +69,7 @@ define noundef range(i64 0, 18446744074) i64 @_ZN7RarTime7GetUnixEv(ptr nocaptur
 declare ptr @localtime(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @_ZN7RarTime8SetLocalEP12RarLocalTime(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define void @_ZN7RarTime8SetLocalEP12RarLocalTime(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %struct.tm, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
@@ -110,7 +110,7 @@ define void @_ZN7RarTime8SetLocalEP12RarLocalTime(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7RarTime7SetUnixEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN7RarTime7SetUnixEl(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = mul i64 %1, 1000000000
   %4 = add i64 %3, -6802270473709551616
   store i64 %4, ptr %0, align 8
@@ -118,38 +118,38 @@ define void @_ZN7RarTime7SetUnixEl(ptr nocapture noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 0, 184467440737095517) i64 @_ZN7RarTime6GetWinEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define noundef range(i64 0, 184467440737095517) i64 @_ZN7RarTime6GetWinEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = udiv i64 %2, 100
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7RarTime6SetWinEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN7RarTime6SetWinEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = mul i64 %1, 100
   store i64 %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN7RarTime9GetUnixNSEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN7RarTime9GetUnixNSEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = add i64 %2, 6802270473709551616
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7RarTime9SetUnixNSEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN7RarTime9SetUnixNSEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = add i64 %1, -6802270473709551616
   store i64 %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7RarTime6GetDosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN7RarTime6GetDosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load i64, ptr %0, align 8
@@ -186,7 +186,7 @@ define noundef i32 @_ZN7RarTime6GetDosEv(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @_ZN7RarTime6SetDosEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN7RarTime6SetDosEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %struct.tm, align 8
   %4 = shl i32 %1, 1
   %5 = and i32 %4, 62
@@ -224,7 +224,7 @@ define void @_ZN7RarTime6SetDosEj(ptr nocapture noundef nonnull writeonly align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7RarTime7GetTextEPwmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #6 align 2 {
+define void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #6 align 2 {
   %5 = alloca i64, align 8
   %6 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %6, 0
@@ -277,7 +277,7 @@ declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_
 declare void @_Z8wcsncpyzPwPKwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7RarTime10SetIsoTextEPKw(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
+define void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %struct.tm, align 8
   %4 = alloca [6 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -370,12 +370,12 @@ define void @_ZN7RarTime10SetIsoTextEPKw(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare noundef zeroext i1 @_Z7IsDigiti(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7RarTime10SetAgeTextEPKw(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
+define void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = alloca i64, align 8
   %4 = load i32, ptr %1, align 4
   %.not22 = icmp eq i32 %4, 0
@@ -454,7 +454,7 @@ define void @_ZN7RarTime10SetAgeTextEPKw(ptr nocapture noundef nonnull writeonly
 declare noundef signext i32 @_Z9etoupperww(i32 noundef signext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7RarTime14SetCurrentTimeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN7RarTime14SetCurrentTimeEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = call i64 @time(ptr noundef nonnull %2) #13
   %4 = load i64, ptr %2, align 8
@@ -468,7 +468,7 @@ define void @_ZN7RarTime14SetCurrentTimeEv(ptr nocapture noundef nonnull writeon
 declare i64 @time(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7RarTime6AdjustEl(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN7RarTime6AdjustEl(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = add i64 %3, %1
   store i64 %4, ptr %0, align 8
@@ -508,10 +508,10 @@ define noundef zeroext i1 @_Z10IsLeapYeari(i32 noundef %0) local_unnamed_addr #1
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #11

@@ -164,7 +164,7 @@ declare ptr @EVP_aes_128_cbc() local_unnamed_addr #1
 declare ptr @EVP_aes_256_cbc() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CMAC_Init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %cipher, ptr nocapture readnone %engine) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CMAC_Init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %cipher, ptr readnone captures(none) %engine) local_unnamed_addr #0 {
 entry:
   %scratch = alloca [16 x i8], align 16
   %call = tail call i32 @EVP_CIPHER_block_size(ptr noundef %cipher) #8
@@ -315,7 +315,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CMAC_Final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly initializes((0, 8)) %out_len) local_unnamed_addr #0 {
+define hidden i32 @CMAC_Final(ptr noundef %ctx, ptr noundef %out, ptr noundef writeonly captures(none) initializes((0, 8)) %out_len) local_unnamed_addr #0 {
 entry:
   store i64 16, ptr %out_len, align 8
   %cmp = icmp eq ptr %out, null
@@ -409,7 +409,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @EVP_CIPHER_block_size(ptr noundef) local_unnamed_addr #1
 
@@ -429,10 +429,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @EVP_CIPHER_CTX_init(ptr noundef) local_unnamed_addr #1
 
@@ -447,10 +447,10 @@ declare i8 @llvm.fshl.i8(i8, i8, i8) #6
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

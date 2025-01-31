@@ -25,7 +25,7 @@ $_ZTVN4llvm18ELFAttributeParserE = comdat any
 declare void @_ZN4llvm18ELFAttributeParser16integerAttributeEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22HexagonAttributeParser7handlerEmRb(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm22HexagonAttributeParser7handlerEmRb(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, i64 noundef %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %3) unnamed_addr #1 align 2 {
   store i8 0, ptr %3, align 1
   br label %6
 
@@ -97,7 +97,7 @@ define linkonce_odr hidden void @_ZN4llvm22HexagonAttributeParserD0Ev(ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @__cxa_pure_virtual() unnamed_addr
 

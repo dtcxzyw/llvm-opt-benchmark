@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.SlotH42 = type { i16, i16 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @BrotliCreateBackwardReferences(i64 noundef %num_bytes, i64 noundef %position, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef readonly %literal_context_lut, ptr noundef readonly %params, ptr noundef %hasher, ptr noundef %dist_cache, ptr nocapture noundef %last_insert_len, ptr noundef %commands, ptr nocapture noundef %num_commands, ptr nocapture noundef %num_literals) local_unnamed_addr #0 {
+define hidden void @BrotliCreateBackwardReferences(i64 noundef %num_bytes, i64 noundef %position, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef readonly %literal_context_lut, ptr noundef readonly %params, ptr noundef %hasher, ptr noundef %dist_cache, ptr noundef captures(none) %last_insert_len, ptr noundef %commands, ptr noundef captures(none) %num_commands, ptr noundef captures(none) %num_literals) local_unnamed_addr #0 {
 entry:
   %keys.i572.i = alloca [4 x i64], align 16
   %keys.i.i11603 = alloca [4 x i64], align 16
@@ -35039,10 +35039,10 @@ declare i64 @llvm.umax.i64(i64, i64) #2
 declare i64 @llvm.usub.sat.i64(i64, i64) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

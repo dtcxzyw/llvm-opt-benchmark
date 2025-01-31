@@ -241,7 +241,7 @@ declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @push_obj_state(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define noundef ptr @push_obj_state(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(424) ptr @calloc(i64 noundef 1, i64 noundef 424) #29
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit
@@ -300,10 +300,10 @@ gv_alloc.exit:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @pop_obj_state(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @pop_obj_state(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
@@ -361,10 +361,10 @@ define void @pop_obj_state(ptr nocapture noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @initMapData(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @initMapData(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -479,7 +479,7 @@ gv_strdup.exit:                                   ; preds = %41
 declare ptr @strdup_and_subst_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @getObjId(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @getObjId(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %6 = load ptr, ptr %5, align 8
@@ -777,7 +777,7 @@ agxbuse.exit:                                     ; preds = %124, %agxbclear.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -875,7 +875,7 @@ vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i
 declare i32 @agobjkind(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wedgedEllipse(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @wedgedEllipse(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.colorsegs_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -973,7 +973,7 @@ define i32 @wedgedEllipse(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parseSegs(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parseSegs(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call noalias ptr @strdup(ptr noundef readonly %0) #28
   %6 = icmp eq ptr %5, null
@@ -1260,7 +1260,7 @@ declare void @gvrender_beziercurve(ptr noundef, ptr noundef, i64 noundef, i32 no
 declare void @freePath(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @stripedBox(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @stripedBox(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.colorsegs_t, align 8
   %6 = alloca [4 x %struct.pointf_s], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1385,7 +1385,7 @@ define i32 @stripedBox(ptr noundef %0, ptr nocapture noundef readonly %1, ptr no
 declare void @gvrender_polygon(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @emit_map_rect(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %1) local_unnamed_addr #0 {
+define void @emit_map_rect(ptr noundef %0, ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4259840
@@ -1673,7 +1673,7 @@ define void @update_bb_bz(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 declare { double, double } @Bezier(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @xdotBB(ptr dead_on_unwind noalias nocapture writable sret(%struct.boxf) align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @xdotBB(ptr dead_on_unwind noalias writable sret(%struct.boxf) align 8 captures(none) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.textfont_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2215,12 +2215,12 @@ textBB.exit:                                      ; preds = %gv_strdup.exit, %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare { double, double } @textspan_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @freePara(ptr nocapture noundef readonly %0) #0 {
+define internal void @freePara(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 7
   br i1 %3, label %4, label %7
@@ -2905,7 +2905,7 @@ gv_calloc.exit.i113:                              ; preds = %301
 
 309:                                              ; preds = %308
   %310 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %279
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %310, ptr readonly align 1 %276, i64 %277, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %310, ptr nonnull readonly align 1 %276, i64 %277, i1 false)
   %311 = trunc i64 %277 to i8
   %312 = load i8, ptr %.phi.trans.insert.i, align 1
   %313 = add i8 %312, %311
@@ -2917,7 +2917,7 @@ gv_calloc.exit.i113:                              ; preds = %301
   %315 = phi ptr [ %.0.i115, %.thread ], [ %.pre253, %._crit_edge252 ]
   %316 = phi i64 [ %.pre251, %.thread ], [ %.pre255, %._crit_edge252 ]
   %317 = getelementptr inbounds i8, ptr %315, i64 %316
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %317, ptr readonly align 1 %276, i64 %277, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %317, ptr nonnull readonly align 1 %276, i64 %277, i1 false)
   %318 = add i64 %316, %277
   store i64 %318, ptr %196, align 8
   br label %agxbput.exit.i
@@ -4227,33 +4227,33 @@ emit_background.exit.i:                           ; preds = %emit_xdot.exit.i.i,
 
 .lr.ph145.i.i:                                    ; preds = %874, %._crit_edge141.i.i
   %.298143.i.i = phi ptr [ %878, %._crit_edge141.i.i ], [ %875, %874 ]
-  %876 = call ptr @agfstout(ptr noundef %1, ptr noundef nonnull %.298143.i.i) #28
+  %876 = call ptr @agfstout(ptr noundef nonnull %1, ptr noundef nonnull %.298143.i.i) #28
   %.not110137.i.i = icmp eq ptr %876, null
   br i1 %.not110137.i.i, label %._crit_edge141.i.i, label %.lr.ph140.i.i
 
 .lr.ph140.i.i:                                    ; preds = %.lr.ph145.i.i, %.lr.ph140.i.i
   %.1138.i.i = phi ptr [ %877, %.lr.ph140.i.i ], [ %876, %.lr.ph145.i.i ]
   call fastcc void @emit_edge(ptr noundef nonnull %0, ptr noundef %.1138.i.i)
-  %877 = call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.1138.i.i) #28
+  %877 = call ptr @agnxtout(ptr noundef nonnull %1, ptr noundef nonnull %.1138.i.i) #28
   %.not110.i.i = icmp eq ptr %877, null
   br i1 %.not110.i.i, label %._crit_edge141.i.i, label %.lr.ph140.i.i
 
 ._crit_edge141.i.i:                               ; preds = %.lr.ph140.i.i, %.lr.ph145.i.i
-  %878 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.298143.i.i) #28
+  %878 = call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.298143.i.i) #28
   %.not108.i.i = icmp eq ptr %878, null
   br i1 %.not108.i.i, label %._crit_edge146.i.i, label %.lr.ph145.i.i
 
 ._crit_edge146.i.i:                               ; preds = %._crit_edge141.i.i, %874
   call void @gvrender_end_edges(ptr noundef nonnull %0) #28
   call void @gvrender_begin_nodes(ptr noundef nonnull %0) #28
-  %879 = call ptr @agfstnode(ptr noundef %1) #28
+  %879 = call ptr @agfstnode(ptr noundef nonnull %1) #28
   %.not109147.i.i = icmp eq ptr %879, null
   br i1 %.not109147.i.i, label %._crit_edge151.i.i, label %.lr.ph150.i.i
 
 .lr.ph150.i.i:                                    ; preds = %._crit_edge146.i.i, %.lr.ph150.i.i
   %.399148.i.i = phi ptr [ %880, %.lr.ph150.i.i ], [ %879, %._crit_edge146.i.i ]
   call fastcc void @emit_node(ptr noundef nonnull %0, ptr noundef nonnull %.399148.i.i)
-  %880 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.399148.i.i) #28
+  %880 = call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.399148.i.i) #28
   %.not109.i.i = icmp eq ptr %880, null
   br i1 %.not109.i.i, label %._crit_edge151.i.i, label %.lr.ph150.i.i
 
@@ -4318,7 +4318,7 @@ write_node_test.exit.i.i:                         ; preds = %.lr.ph.i.i101.i, %.
 
 .lr.ph165.i.i:                                    ; preds = %._crit_edge156.i.i, %._crit_edge161.i.i
   %.5163.i.i = phi ptr [ %917, %._crit_edge161.i.i ], [ %900, %._crit_edge156.i.i ]
-  %901 = call ptr @agfstout(ptr noundef %1, ptr noundef nonnull %.5163.i.i) #28
+  %901 = call ptr @agfstout(ptr noundef nonnull %1, ptr noundef nonnull %.5163.i.i) #28
   %.not107157.i.i = icmp eq ptr %901, null
   br i1 %.not107157.i.i, label %._crit_edge161.i.i, label %.lr.ph160.i.i
 
@@ -4360,7 +4360,7 @@ write_edge_test.exit.i.i:                         ; preds = %.lr.ph.i115.i.i, %.
   br i1 %.not107.i102.i, label %._crit_edge161.i.i, label %.lr.ph160.i.i
 
 ._crit_edge161.i.i:                               ; preds = %write_edge_test.exit.i.i, %.lr.ph165.i.i
-  %917 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.5163.i.i) #28
+  %917 = call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.5163.i.i) #28
   %.not106.i103.i = icmp eq ptr %917, null
   br i1 %.not106.i103.i, label %._crit_edge166.i.i, label %.lr.ph165.i.i
 
@@ -4376,7 +4376,7 @@ write_edge_test.exit.i.i:                         ; preds = %.lr.ph.i115.i.i, %.
 .lr.ph175.i.i:                                    ; preds = %918, %._crit_edge171.i.i
   %.6173.i.i = phi ptr [ %928, %._crit_edge171.i.i ], [ %919, %918 ]
   call fastcc void @emit_node(ptr noundef nonnull %0, ptr noundef nonnull %.6173.i.i)
-  %920 = call ptr @agfstout(ptr noundef %1, ptr noundef nonnull %.6173.i.i) #28
+  %920 = call ptr @agfstout(ptr noundef nonnull %1, ptr noundef nonnull %.6173.i.i) #28
   %.not104167.i.i = icmp eq ptr %920, null
   br i1 %.not104167.i.i, label %._crit_edge171.i.i, label %.lr.ph170.i.i
 
@@ -4391,12 +4391,12 @@ write_edge_test.exit.i.i:                         ; preds = %.lr.ph.i115.i.i, %.
   %926 = load ptr, ptr %925, align 8
   call fastcc void @emit_node(ptr noundef nonnull %0, ptr noundef %926)
   call fastcc void @emit_edge(ptr noundef nonnull %0, ptr noundef %.3168.i.i)
-  %927 = call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.3168.i.i) #28
+  %927 = call ptr @agnxtout(ptr noundef nonnull %1, ptr noundef nonnull %.3168.i.i) #28
   %.not104.i104.i = icmp eq ptr %927, null
   br i1 %.not104.i104.i, label %._crit_edge171.i.i, label %.lr.ph170.i.i
 
 ._crit_edge171.i.i:                               ; preds = %.lr.ph170.i.i, %.lr.ph175.i.i
-  %928 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.6173.i.i) #28
+  %928 = call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.6173.i.i) #28
   %.not103.i.i = icmp eq ptr %928, null
   br i1 %.not103.i.i, label %.loopexit.i.i, label %.lr.ph175.i.i
 
@@ -4611,7 +4611,7 @@ define void @emit_once_reset() local_unnamed_addr #0 {
 declare i32 @dtclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @emit_clusters(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @emit_clusters(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [4 x %struct.pointf_s], align 16
   %6 = alloca [2 x ptr], align 16
@@ -5113,30 +5113,30 @@ select.unfold:                                    ; preds = %141, %139
 
 .lr.ph223:                                        ; preds = %237, %._crit_edge
   %.0149221 = phi ptr [ %241, %._crit_edge ], [ %238, %237 ]
-  call fastcc void @emit_node(ptr noundef %0, ptr noundef nonnull %.0149221)
-  %239 = call ptr @agfstout(ptr noundef %30, ptr noundef nonnull %.0149221) #28
+  call fastcc void @emit_node(ptr noundef nonnull %0, ptr noundef nonnull %.0149221)
+  %239 = call ptr @agfstout(ptr noundef nonnull %30, ptr noundef nonnull %.0149221) #28
   %.not192218 = icmp eq ptr %239, null
   br i1 %.not192218, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph223, %.lr.ph
   %.0150219 = phi ptr [ %240, %.lr.ph ], [ %239, %.lr.ph223 ]
-  call fastcc void @emit_edge(ptr noundef %0, ptr noundef %.0150219)
-  %240 = call ptr @agnxtout(ptr noundef %30, ptr noundef nonnull %.0150219) #28
+  call fastcc void @emit_edge(ptr noundef nonnull %0, ptr noundef %.0150219)
+  %240 = call ptr @agnxtout(ptr noundef nonnull %30, ptr noundef nonnull %.0150219) #28
   %.not192 = icmp eq ptr %240, null
   br i1 %.not192, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph223
-  %241 = call ptr @agnxtnode(ptr noundef %30, ptr noundef nonnull %.0149221) #28
+  %241 = call ptr @agnxtnode(ptr noundef nonnull %30, ptr noundef nonnull %.0149221) #28
   %.not191 = icmp eq ptr %241, null
   br i1 %.not191, label %.loopexit, label %.lr.ph223
 
 .loopexit:                                        ; preds = %._crit_edge, %237, %236
-  call void @gvrender_end_cluster(ptr noundef %0) #28
-  call void @pop_obj_state(ptr noundef %0)
+  call void @gvrender_end_cluster(ptr noundef nonnull %0) #28
+  call void @pop_obj_state(ptr noundef nonnull %0)
   br i1 %.not160, label %242, label %243
 
 242:                                              ; preds = %.loopexit
-  call void @emit_clusters(ptr noundef %0, ptr noundef %30, i32 noundef %2)
+  call void @emit_clusters(ptr noundef nonnull %0, ptr noundef nonnull %30, i32 noundef %2)
   br label %243
 
 243:                                              ; preds = %242, %.loopexit
@@ -5163,7 +5163,7 @@ declare ptr @setColorScheme(ptr noundef) local_unnamed_addr #1
 declare void @gvrender_begin_anchor(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @checkClusterStyle(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @checkClusterStyle(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.60) #28
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit46, label %4
@@ -5266,7 +5266,7 @@ declare void @gvrender_set_style(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @late_nnstring(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @findStopColor(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @findStopColor(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.colorsegs_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = call fastcc i32 @parseSegs(ptr noundef %0, i32 noundef 0, ptr noundef %4)
@@ -5553,7 +5553,7 @@ push_obj_state.exit.i:                            ; preds = %71, %52
   br i1 %.not.i, label %98, label %78
 
 78:                                               ; preds = %push_obj_state.exit.i
-  %79 = tail call ptr @agraphof(ptr noundef %1) #28
+  %79 = tail call ptr @agraphof(ptr noundef nonnull %1) #28
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 234
@@ -5586,7 +5586,7 @@ push_obj_state.exit.i:                            ; preds = %71, %52
   %99 = load ptr, ptr %4, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 136
   %101 = load ptr, ptr %100, align 8
-  tail call fastcc void @initObjMapData(ptr noundef nonnull %0, ptr noundef %101, ptr noundef %1)
+  tail call fastcc void @initObjMapData(ptr noundef nonnull %0, ptr noundef %101, ptr noundef nonnull %1)
   %102 = and i32 %44, 4259840
   %.not171.i = icmp eq i32 %102, 0
   br i1 %.not171.i, label %emit_begin_node.exit, label %103
@@ -5967,7 +5967,7 @@ gv_calloc.exit194.i:                              ; preds = %.thread.i
   br label %emit_begin_node.exit
 
 emit_begin_node.exit:                             ; preds = %98, %106, %291
-  %294 = tail call ptr @agget(ptr noundef %1, ptr noundef nonnull @.str.14) #28
+  %294 = tail call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.14) #28
   %295 = tail call ptr @setColorScheme(ptr noundef %294) #28
   store ptr %295, ptr @saved_color_scheme, align 8
   tail call void @gvrender_begin_node(ptr noundef nonnull %0) #28
@@ -5978,7 +5978,7 @@ emit_begin_node.exit:                             ; preds = %98, %106, %291
   %300 = load ptr, ptr %299, align 8
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 40
   %302 = load ptr, ptr %301, align 8
-  tail call void %302(ptr noundef nonnull %0, ptr noundef %1) #28
+  tail call void %302(ptr noundef nonnull %0, ptr noundef nonnull %1) #28
   %303 = load ptr, ptr %4, align 8
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 144
   %305 = load ptr, ptr %304, align 8
@@ -6180,7 +6180,7 @@ agxblen.exit.i.i:                                 ; preds = %edge_in_layer.exit.
   %.val.i25.i.i168 = phi i8 [ %.val.i25.pre.i.i, %86 ], [ 0, %agxblen.exit.i.i ]
   %87 = zext i8 %.val.i25.i.i168 to i64
   %88 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %87
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr readonly align 1 %80, i64 %81, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull readonly align 1 %80, i64 %81, i1 false)
   %89 = trunc i64 %81 to i8
   %90 = load i8, ptr %83, align 1
   %91 = add i8 %90, %89
@@ -6191,7 +6191,7 @@ agxblen.exit.i.i:                                 ; preds = %edge_in_layer.exit.
   %93 = load i64, ptr %84, align 8
   %94 = load ptr, ptr %12, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 %93
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr readonly align 1 %80, i64 %81, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr nonnull readonly align 1 %80, i64 %81, i1 false)
   %96 = add i64 %93, %81
   store i64 %96, ptr %84, align 8
   br label %agxbput.exit
@@ -6325,7 +6325,7 @@ agxblen.exit.i.i61:                               ; preds = %agxbput.exit47
 158:                                              ; preds = %157
   %159 = zext i8 %.val.i25.i.i64 to i64
   %160 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %159
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %160, ptr readonly align 1 %146, i64 %147, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %160, ptr nonnull readonly align 1 %146, i64 %147, i1 false)
   %161 = trunc i64 %147 to i8
   %162 = load i8, ptr %.phi.trans.insert, align 1
   %163 = add i8 %162, %161
@@ -6336,7 +6336,7 @@ agxblen.exit.i.i61:                               ; preds = %agxbput.exit47
   %165 = load i64, ptr %152, align 8
   %166 = load ptr, ptr %12, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 %165
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %167, ptr readonly align 1 %146, i64 %147, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %167, ptr nonnull readonly align 1 %146, i64 %147, i1 false)
   %168 = add i64 %165, %147
   store i64 %168, ptr %152, align 8
   br label %agxbput.exit67
@@ -9226,8 +9226,8 @@ emit_edge_graphics.exit:                          ; preds = %1441, %emit_begin_e
   %1479 = load ptr, ptr %1467, align 8
   %1480 = load ptr, ptr %1468, align 8
   %1481 = load ptr, ptr %1469, align 8
-  call void @gvrender_begin_anchor(ptr noundef %0, ptr noundef %1478, ptr noundef %1479, ptr noundef %1480, ptr noundef %1481) #28
-  call void @gvrender_end_anchor(ptr noundef %0) #28
+  call void @gvrender_begin_anchor(ptr noundef nonnull %0, ptr noundef %1478, ptr noundef %1479, ptr noundef %1480, ptr noundef %1481) #28
+  call void @gvrender_end_anchor(ptr noundef nonnull %0) #28
   %1482 = load ptr, ptr %1460, align 8
   %1483 = getelementptr inbounds nuw i32, ptr %1482, i64 %indvars.iv.i134
   %1484 = load i32, ptr %1483, align 4
@@ -9894,7 +9894,7 @@ define range(i32 -1, 1) i32 @gvRenderJobs(ptr noundef %0, ptr noundef %1) local_
   %62 = fadd double %58, %61
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 88
   store double %62, ptr %63, align 8
-  %64 = call ptr @agfstout(ptr noundef %1, ptr noundef nonnull %.014.i) #28
+  %64 = call ptr @agfstout(ptr noundef nonnull %1, ptr noundef nonnull %.014.i) #28
   %.not25.i.i = icmp eq ptr %64, null
   br i1 %.not25.i.i, label %init_bb_node.exit.i, label %.lr.ph.i.i
 
@@ -10174,12 +10174,12 @@ init_splines_bb.exit.i.i.i:                       ; preds = %170, %bezier_bb.exi
   br label %init_bb_edge.exit.i.i
 
 init_bb_edge.exit.i.i:                            ; preds = %init_splines_bb.exit.i.i.i, %.lr.ph.i.i
-  %175 = call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.026.i.i) #28
+  %175 = call ptr @agnxtout(ptr noundef nonnull %1, ptr noundef nonnull %.026.i.i) #28
   %.not.i.i = icmp eq ptr %175, null
   br i1 %.not.i.i, label %init_bb_node.exit.i, label %.lr.ph.i.i
 
 init_bb_node.exit.i:                              ; preds = %init_bb_edge.exit.i.i, %32
-  %176 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.014.i) #28
+  %176 = call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.014.i) #28
   %.not.i = icmp eq ptr %176, null
   br i1 %.not.i, label %init_bb.exit, label %32
 
@@ -10190,7 +10190,7 @@ init_bb.exit:                                     ; preds = %init_bb_node.exit.i
   store ptr %1, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 461
   store i8 0, ptr %178, align 1
-  %179 = call ptr @agget(ptr noundef %1, ptr noundef nonnull @.str.100) #28
+  %179 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.100) #28
   %.not.i84 = icmp eq ptr %179, null
   br i1 %.not.i84, label %192, label %180
 
@@ -10222,7 +10222,7 @@ init_bb.exit:                                     ; preds = %init_bb_node.exit.i
 192:                                              ; preds = %191, %180, %init_bb.exit
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 460
   store i8 0, ptr %193, align 4
-  %194 = call ptr @agget(ptr noundef %1, ptr noundef nonnull @.str.102) #28
+  %194 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.102) #28
   %.not47.i = icmp eq ptr %194, null
   br i1 %.not47.i, label %207, label %195
 
@@ -10495,7 +10495,7 @@ parse_layers.exit.i:                              ; preds = %layer_names_append.
   call void @free(ptr noundef %.sroa.0.1.i.i) #28
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store i32 %322, ptr %323, align 8
-  %324 = call ptr @agget(ptr noundef %1, ptr noundef nonnull @.str.111) #28
+  %324 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.111) #28
   %.not18.i = icmp eq ptr %324, null
   br i1 %.not18.i, label %init_layering.exit, label %325
 
@@ -11540,7 +11540,7 @@ gv_fixLocale.exit97:                              ; preds = %._crit_edge, %835, 
 
 843:                                              ; preds = %gv_fixLocale.exit97
   %844 = load ptr, ptr @stderr, align 8
-  %845 = call ptr @agnameof(ptr noundef %1) #28
+  %845 = call ptr @agnameof(ptr noundef nonnull %1) #28
   %846 = call double @elapsed_sec() #28
   %847 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %844, ptr noundef nonnull @.str.37, ptr noundef %845, double noundef %846) #30
   br label %848
@@ -11555,7 +11555,7 @@ declare void @start_timer() local_unnamed_addr #1
 declare ptr @agbindrec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare double @elapsed_sec() local_unnamed_addr #1
 
@@ -11564,7 +11564,7 @@ declare ptr @gvjobs_first(ptr noundef) local_unnamed_addr #1
 declare i32 @gvrender_select(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @gvrender_end_job(ptr noundef) local_unnamed_addr #1
 
@@ -11573,13 +11573,13 @@ declare i32 @gvrender_begin_job(ptr noundef) local_unnamed_addr #1
 declare ptr @gvjobs_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #13 {
@@ -11591,10 +11591,10 @@ define internal fastcc void @graphviz_exit() unnamed_addr #13 {
 declare void @exit(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -11669,16 +11669,16 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #16
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #16
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #17
@@ -11694,7 +11694,7 @@ declare double @llvm.minnum.f64(double, double) #6
 declare void @free_textspan(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @initObjMapData(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @initObjMapData(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.agxbuf, align 8
   %5 = tail call ptr @agget(ptr noundef %2, ptr noundef nonnull @.str.47) #28
   %6 = tail call ptr @agget(ptr noundef %2, ptr noundef nonnull @.str.48) #28
@@ -11825,7 +11825,7 @@ declare ptr @latin1ToUTF8(ptr noundef) local_unnamed_addr #1
 declare ptr @htmlEntityUTF8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_cluster_colors(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @emit_cluster_colors(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 236
@@ -11955,13 +11955,13 @@ declare i32 @agcontains(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @gvrender_end_graph(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @free_string_entry(ptr nocapture noundef %0, ptr nocapture readnone %1) #20 {
+define internal void @free_string_entry(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #20 {
   tail call void @free(ptr noundef %0) #28
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @node_in_layer(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @node_in_layer(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 2
@@ -12018,7 +12018,7 @@ define internal fastcc noundef zeroext i1 @node_in_layer(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @selectedLayer(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @selectedLayer(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -12252,10 +12252,10 @@ layer_index.exit79:                               ; preds = %89, %79, %81, %.pre
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #16
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #21
 
 declare ptr @agfstedge(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -12340,7 +12340,7 @@ declare zeroext i1 @mapbool(ptr noundef) local_unnamed_addr #1
 declare void @gvrender_begin_edge(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @approx_bezier(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @approx_bezier(ptr noundef nonnull %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca [4 x %struct.pointf_s], align 16
   %4 = alloca [4 x %struct.pointf_s], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -12418,7 +12418,7 @@ declare { i64, ptr } @taper(ptr noundef, ptr noundef, double noundef) local_unna
 declare void @arrow_gen(ptr noundef, i32 noundef, double, double, double, double, double noundef, double noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @splitBSpline(ptr %.0.val, i64 %.8.val, float noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @splitBSpline(ptr %.0.val, i64 %.8.val, float noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = add i64 %.8.val, -1
   %5 = udiv i64 %4, 3
   %.off = add i64 %.8.val, -4
@@ -13038,12 +13038,12 @@ emit_attachment.exit:                             ; preds = %55, %gv_isspace.exi
   br i1 %.not46, label %82, label %81
 
 81:                                               ; preds = %80
-  call fastcc void @map_label(ptr noundef %0, ptr noundef %1)
-  call void @gvrender_begin_anchor(ptr noundef %0, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %.042) #28
+  call fastcc void @map_label(ptr noundef nonnull %0, ptr noundef %1)
+  call void @gvrender_begin_anchor(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %.042) #28
   br label %82
 
 82:                                               ; preds = %81, %80
-  call void @gvrender_end_anchor(ptr noundef %0) #28
+  call void @gvrender_end_anchor(ptr noundef nonnull %0) #28
   br label %83
 
 83:                                               ; preds = %79, %82
@@ -13070,7 +13070,7 @@ agxbfree.exit:                                    ; preds = %83, %86
 declare void @gvrender_end_edge(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @map_label(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @map_label(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4259840
@@ -13172,10 +13172,10 @@ declare void @gvrender_end_cluster(ptr noundef) local_unnamed_addr #1
 declare void @arrow_bb(ptr dead_on_unwind writable sret(%struct.boxf) align 8, double, double, double, double, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #8
@@ -13210,10 +13210,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #24
 declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #24

@@ -97,7 +97,7 @@ declare ptr @BN_secure_new() local_unnamed_addr #1
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_multip_calc_product(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_multip_calc_product(ptr noundef readonly captures(none) %rsa) local_unnamed_addr #0 {
 entry:
   %prime_infos = getelementptr inbounds nuw i8, ptr %rsa, i64 136
   %0 = load ptr, ptr %prime_infos, align 8

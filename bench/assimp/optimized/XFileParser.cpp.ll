@@ -574,7 +574,7 @@ $_ZTV17DeadlyImportError = comdat any
 @_ZN6Assimp11XFileParserD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp11XFileParserD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XFileParserC2ERKSt6vectorIcSaIcEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 9), (16, 20), (24, 44), (48, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pBuffer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XFileParserC2ERKSt6vectorIcSaIcEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 9), (16, 20), (24, 44), (48, 56)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %pBuffer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %uncompressed = alloca %"class.std::vector", align 8
   %compression = alloca %"class.Assimp::Compression", align 8
@@ -1048,7 +1048,7 @@ unreachable:                                      ; preds = %invoke.cont159
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -1188,7 +1188,7 @@ declare void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZN6Assimp11CompressionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #7 align 2 {
 entry:
   %mIsBinaryFormat = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %mIsBinaryFormat, align 8
@@ -1592,7 +1592,7 @@ while.end:                                        ; preds = %cleanup, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XFileParser15FilterHierarchyEPNS_5XFile4NodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %this, ptr nocapture noundef %pNode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XFileParser15FilterHierarchyEPNS_5XFile4NodeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %this, ptr noundef captures(none) %pNode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mChildren = getelementptr inbounds nuw i8, ptr %pNode, i64 104
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %pNode, i64 112
@@ -1920,7 +1920,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11XFileParserD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp11XFileParserD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #2 align 2 {
 entry:
   %mScene = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %mScene, align 8
@@ -2105,7 +2105,7 @@ _ZNSt6vectorIPN6Assimp5XFile4MeshESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6A
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XFileParser12GetNextTokenB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XFileParser12GetNextTokenB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4773,7 +4773,7 @@ eh.resume:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XFileParser35ParseDataObjectTransformationMatrixER12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) initializes((0, 64)) %pMatrix) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XFileParser35ParseDataObjectTransformationMatrixER12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(64) initializes((0, 64)) %pMatrix) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5130,7 +5130,7 @@ _ZN6Assimp11XFileParser17CheckForSeparatorEv.exit20: ; preds = %if.end.i10, %lan
 
 if.end66:                                         ; preds = %if.else58
   store float 0.000000e+00, ptr %result67, align 4
-  %call69 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(4) %result67, i1 noundef zeroext true)
+  %call69 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %18, ptr noundef nonnull align 4 dereferenceable(4) %result67, i1 noundef zeroext true)
   store ptr %call69, ptr %mP.i3, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %token.i21)
   %21 = load i8, ptr %mIsBinaryFormat, align 8
@@ -5684,10 +5684,10 @@ _ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %entry, %_ZN6Assimp1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #12 align 2 {
 entry:
   %mIsBinaryFormat = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %mIsBinaryFormat, align 8
@@ -6959,7 +6959,7 @@ while.end68:                                      ; preds = %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XFileParser29ParseDataObjectSkinMeshHeaderEPNS_5XFile4MeshE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture readnone %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XFileParser29ParseDataObjectSkinMeshHeaderEPNS_5XFile4MeshE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr readnone captures(none) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN6Assimp11XFileParser20readHeadOfDataObjectEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef null)
@@ -7589,7 +7589,7 @@ return:                                           ; preds = %if.end43, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZN6Assimp11XFileParser14ThrowExceptionIJRA37_KcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 1 dereferenceable(37) %args) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8150,7 +8150,7 @@ _ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %entry, %_ZN6Assimp1
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #12 align 2 {
 entry:
   %mIsBinaryFormat = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %mIsBinaryFormat, align 8
@@ -8332,7 +8332,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XFileParser7ReadRGBEv(ptr noalias nocapture writeonly sret(%struct.aiColor3D) align 4 initializes((0, 12)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11XFileParser7ReadRGBEv(ptr noalias writeonly sret(%struct.aiColor3D) align 4 captures(none) initializes((0, 12)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
   store float 0.000000e+00, ptr %agg.result, align 4
   %g.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
@@ -8504,7 +8504,7 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XFileParser24ParseDataObjectAnimationEPNS_5XFile9AnimationE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %pAnim) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XFileParser24ParseDataObjectAnimationEPNS_5XFile9AnimationE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef captures(none) %pAnim) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %objectName = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8682,7 +8682,7 @@ while.end:                                        ; preds = %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XFileParser27ParseDataObjectAnimationKeyEPNS_5XFile8AnimBoneE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %pAnimBone) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XFileParser27ParseDataObjectAnimationKeyEPNS_5XFile8AnimBoneE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef captures(none) %pAnimBone) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i123 = alloca %"class.std::__cxx11::basic_string", align 8
   %token.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9593,7 +9593,7 @@ eh.resume:                                        ; preds = %lpad3, %lpad
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i16 @_ZN6Assimp11XFileParser11ReadBinWordEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #14 align 2 {
+define hidden noundef zeroext i16 @_ZN6Assimp11XFileParser11ReadBinWordEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #14 align 2 {
 entry:
   %mP = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %mP, align 8
@@ -9604,7 +9604,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN6Assimp11XFileParser12ReadBinDWordEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #14 align 2 {
+define hidden noundef i32 @_ZN6Assimp11XFileParser12ReadBinDWordEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #14 align 2 {
 entry:
   %mP = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %mP, align 8
@@ -11448,7 +11448,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
@@ -14437,7 +14437,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #5
 
@@ -17436,7 +17436,7 @@ unreachable:                                      ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
@@ -17905,10 +17905,10 @@ declare void @llvm.assume(i1 noundef) #21
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24

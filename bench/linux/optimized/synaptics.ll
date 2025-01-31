@@ -190,16 +190,16 @@ define dso_local range(i32 -19, 1) i32 @synaptics_detect(ptr noundef %0, i1 noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ps2_command(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @synaptics_reset(ptr noundef %0) #0 align 16 {
@@ -361,7 +361,7 @@ define dso_local i32 @synaptics_init_smbus(ptr noundef %0) local_unnamed_addr #0
 declare dso_local i32 @psmouse_reset(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr nocapture noundef initializes((0, 56)) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr noundef captures(none) initializes((0, 56)) %1) unnamed_addr #0 align 16 {
   %3 = alloca %union.anon.4, align 4
   %4 = alloca [3 x i8], align 1
   %5 = alloca %union.anon.4, align 4
@@ -688,7 +688,7 @@ declare dso_local void @psmouse_smbus_cleanup(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @ps2_sliced_command(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %5
 
@@ -1091,7 +1091,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @synaptics_set_mode(ptr noundef %0) unnamed_addr #0 align 16 {
@@ -1195,7 +1195,7 @@ define internal fastcc i32 @synaptics_set_mode(ptr noundef %0) unnamed_addr #0 a
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca %struct.synaptics_hw_state, align 4
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 241
@@ -2203,7 +2203,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local void @input_set_capability(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @set_abs_position_params(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 54) %2, i32 noundef range(i32 1, 55) %3) unnamed_addr #0 align 16 {
+define internal fastcc void @set_abs_position_params(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, 54) %2, i32 noundef range(i32 1, 55) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -2268,7 +2268,7 @@ declare dso_local i32 @input_mt_init_slots(ptr noundef, i32 noundef, i32 noundef
 declare dso_local void @input_alloc_absinfo(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 1, 3) i32 @synaptics_detect_pkt_type(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 1, 3) i32 @synaptics_detect_pkt_type(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   br label %6
 
@@ -2308,7 +2308,7 @@ declare dso_local ptr @psmouse_from_serio(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @serio_interrupt(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @synaptics_report_mt_data(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @synaptics_report_mt_data(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca [2 x ptr], align 16
   %5 = alloca [2 x %struct.input_mt_pos], align 8
   %6 = alloca [2 x i32], align 8
@@ -2403,7 +2403,7 @@ define internal fastcc void @synaptics_report_mt_data(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @synaptics_report_semi_mt_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @synaptics_report_semi_mt_data(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = icmp sgt i32 %3, 1
   br i1 %5, label %6, label %25
 
@@ -2463,7 +2463,7 @@ define internal fastcc void @synaptics_report_semi_mt_data(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @synaptics_report_buttons(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @synaptics_report_buttons(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -2636,7 +2636,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #3
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @synaptics_pt_write(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) #0 align 16 {
+define internal i32 @synaptics_pt_write(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
@@ -2677,7 +2677,7 @@ define internal noundef i32 @synaptics_pt_start(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @synaptics_pt_stop(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @synaptics_pt_stop(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @psmouse_from_serio(ptr noundef %3) #12
@@ -2757,7 +2757,7 @@ declare dso_local i64 @psmouse_attr_show_helper(ptr noundef, ptr noundef, ptr no
 declare dso_local i64 @psmouse_attr_set_helper(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @synaptics_show_disable_gesture(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #9 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @synaptics_show_disable_gesture(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #9 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 69
   %6 = load i8, ptr %5, align 1, !range !6, !noundef !7
@@ -2769,7 +2769,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @synaptics_show_d
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @synaptics_set_disable_gesture(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @synaptics_set_disable_gesture(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca [1 x i8], align 1
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8
@@ -2830,13 +2830,13 @@ define internal i64 @synaptics_set_disable_gesture(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @synaptics_capability(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @synaptics_capability(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %union.anon.4, align 4
   %4 = alloca %union.anon.4, align 4
   %5 = alloca %union.anon.4, align 4
@@ -2969,7 +2969,7 @@ define internal fastcc i32 @synaptics_capability(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @synaptics_resolution(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @synaptics_resolution(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28

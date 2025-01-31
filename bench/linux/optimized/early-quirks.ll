@@ -485,7 +485,7 @@ define internal void @apple_airport_reset(i32 noundef %0, i32 noundef %1, i32 no
 declare dso_local i32 @acpi_table_parse(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(none)
-define internal noundef i32 @nvidia_hpet_check(ptr nocapture readnone %0) #2 section ".init.text" align 16 {
+define internal noundef i32 @nvidia_hpet_check(ptr readnone captures(none) %0) #2 section ".init.text" align 16 {
   ret i32 0
 }
 
@@ -518,7 +518,7 @@ define internal fastcc range(i32 0, 256) i32 @ati_ixp4x0_rev(i32 noundef %0, i32
 declare dso_local void @write_pci_config_byte(i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @intel_graphics_stolen(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @intel_graphics_stolen(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = load ptr, ptr %3, align 8
   %6 = tail call i64 %5(i32 noundef %0, i32 noundef %1, i32 noundef %2) #4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8

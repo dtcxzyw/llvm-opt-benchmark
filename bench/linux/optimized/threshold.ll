@@ -96,7 +96,7 @@ declare dso_local i8 @irqentry_enter(ptr noundef) local_unnamed_addr #2 section 
 declare dso_local void @irq_enter_rcu() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__sysvec_threshold(ptr nocapture readnone %0) #3 align 16 {
+define internal void @__sysvec_threshold(ptr readnone captures(none) %0) #3 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_threshold_apic_entry, i64 8), i32 2) #10
           to label %22 [label %2], !srcloc !13
 

@@ -964,13 +964,13 @@ define dso_local i32 @i915_gem_execbuffer2_ioctl(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #2
@@ -982,7 +982,7 @@ declare dso_local noalias ptr @kvmalloc_node(i64 noundef, i32 noundef, i32 nound
 declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @drm_is_current_master(ptr noundef) local_unnamed_addr #2
@@ -997,7 +997,7 @@ declare dso_local ptr @sync_file_get_fence(i32 noundef) local_unnamed_addr #2
 declare dso_local i32 @get_unused_fd_flags(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @eb_select_context(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @eb_select_context(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
@@ -1037,7 +1037,7 @@ define internal fastcc i32 @eb_select_context(ptr nocapture noundef %0) unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @eb_select_engine(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @eb_select_engine(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 184
@@ -2334,7 +2334,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @eb_release_vmas(ptr nocapture noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @eb_release_vmas(ptr noundef captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3689,7 +3689,7 @@ eb_relocate_parse_slow.exit.thread:               ; preds = %.thread16, %eb_relo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @eb_capture_stage(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @eb_capture_stage(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -3809,7 +3809,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @eb_capture_stage(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @eb_requests_create(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 -1, -2147483648) %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 -1, -2147483648) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -4163,7 +4163,7 @@ define internal fastcc ptr @eb_requests_create(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @eb_submit(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -4652,7 +4652,7 @@ define internal fastcc i32 @eb_submit(ptr nocapture noundef %0) unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @eb_requests_get(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @eb_requests_get(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %4 = load i32, ptr %3, align 4
@@ -4695,7 +4695,7 @@ define internal fastcc void @eb_requests_get(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @eb_requests_add(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @eb_requests_add(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.i915_sched_attr, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %5 = load i32, ptr %4, align 4
@@ -4859,7 +4859,7 @@ define internal fastcc i32 @eb_requests_add(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @signal_fence_array(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @signal_fence_array(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -4950,7 +4950,7 @@ define internal fastcc void @dma_fence_put(ptr noundef %0) unnamed_addr #5 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @eb_requests_put(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @eb_requests_put(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %4 = load i32, ptr %3, align 4
@@ -4998,7 +4998,7 @@ define internal fastcc void @eb_requests_put(ptr nocapture noundef readonly %0) 
 declare dso_local void @i915_gem_ww_ctx_fini(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @eb_put_engine(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @eb_put_engine(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -5184,7 +5184,7 @@ declare dso_local void @put_unused_fd(i32 noundef) local_unnamed_addr #2
 declare dso_local i32 @i915_user_extensions(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @parse_timeline_fences(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal i32 @parse_timeline_fences(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca %struct.drm_i915_gem_exec_fence, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.drm_i915_gem_execbuffer_ext_timeline_fences, align 8
@@ -7378,7 +7378,7 @@ i915_gem_object_lock.exit.thread:                 ; preds = %119, %123
 declare dso_local i32 @i915_gem_ww_ctx_backoff(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @eb_pin_timeline(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @eb_pin_timeline(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7655,7 +7655,7 @@ declare dso_local i32 @ww_mutex_lock(ptr noundef, ptr noundef) local_unnamed_add
 declare dso_local i32 @i915_vma_pin_ww(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc i64 @eb_pin_flags(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #11 align 16 {
+define internal fastcc i64 @eb_pin_flags(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #11 align 16 {
   %3 = shl i32 %1, 9
   %4 = and i32 %3, 1024
   %5 = zext nneg i32 %4 to i64
@@ -7697,7 +7697,7 @@ declare dso_local i32 @i915_vma_pin_fence(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @i915_gem_evict_vm(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = load i32, ptr %2, align 8

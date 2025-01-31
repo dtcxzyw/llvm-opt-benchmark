@@ -740,10 +740,10 @@ declare void @xdl_free_env(ptr noundef) local_unnamed_addr #2
 declare i64 @xdl_bogosqrt(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @xdl_change_compact(ptr nocapture noundef readonly %xdf, ptr nocapture noundef readonly %xdfo, i64 noundef %flags) local_unnamed_addr #1 {
+define dso_local noundef i32 @xdl_change_compact(ptr noundef readonly captures(none) %xdf, ptr noundef readonly captures(none) %xdfo, i64 noundef %flags) local_unnamed_addr #1 {
 entry:
   %m = alloca %struct.split_measurement, align 4
   %rchg.i = getelementptr inbounds nuw i8, ptr %xdf, i64 104
@@ -1454,7 +1454,7 @@ if.end113:                                        ; preds = %while.end109
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @measure_split(ptr nocapture noundef readonly %xdf, i64 noundef %split, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %m) unnamed_addr #5 {
+define internal fastcc void @measure_split(ptr noundef readonly captures(none) %xdf, i64 noundef %split, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %m) unnamed_addr #5 {
 entry:
   %nrec = getelementptr inbounds nuw i8, ptr %xdf, i64 56
   %0 = load i64, ptr %nrec, align 8
@@ -1704,7 +1704,7 @@ for.end39:                                        ; preds = %get_indent.exit83, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @xdl_build_script(ptr nocapture noundef readonly %xe, ptr nocapture noundef writeonly %xscr) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @xdl_build_script(ptr noundef readonly captures(none) %xe, ptr noundef writeonly captures(none) %xscr) local_unnamed_addr #1 {
 entry:
   %rchg = getelementptr inbounds nuw i8, ptr %xe, i64 104
   %0 = load ptr, ptr %rchg, align 8
@@ -2227,7 +2227,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @xdl_call_hunk_func(ptr nocapture readnone %xe, ptr noundef %xscr, ptr nocapture noundef readonly %ecb, ptr noundef %xecfg) unnamed_addr #1 {
+define internal range(i32 -1, 1) i32 @xdl_call_hunk_func(ptr readnone captures(none) %xe, ptr noundef %xscr, ptr noundef readonly captures(none) %ecb, ptr noundef %xecfg) unnamed_addr #1 {
 entry:
   %xch = alloca ptr, align 8
   %hunk_func = getelementptr inbounds nuw i8, ptr %xecfg, i64 40
@@ -2293,10 +2293,10 @@ declare i64 @llvm.smin.i64(i64, i64) #6
 declare i64 @llvm.smax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

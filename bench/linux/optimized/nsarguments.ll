@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [54 x i8] c"Excess arguments - Caller passed %u, ACPI requires %u\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_ns_check_argument_types(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_ns_check_argument_types(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -98,7 +98,7 @@ declare dso_local void @acpi_ut_predefined_warning(ptr noundef, i32 noundef, ptr
 declare dso_local ptr @acpi_ut_get_type_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_ns_check_acpi_compliance(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_ns_check_acpi_compliance(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %41, label %5
 
@@ -170,7 +170,7 @@ define dso_local void @acpi_ns_check_acpi_compliance(ptr noundef %0, ptr nocaptu
 declare dso_local void @acpi_ut_predefined_bios_error(ptr noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_ns_check_argument_count(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_ns_check_argument_count(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 32

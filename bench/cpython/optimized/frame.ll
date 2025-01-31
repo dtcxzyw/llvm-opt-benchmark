@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyFrame_Traverse(ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %visit, ptr noundef %arg) local_unnamed_addr #0 {
+define hidden i32 @_PyFrame_Traverse(ptr noundef readonly captures(none) %frame, ptr noundef readonly captures(none) %visit, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %frame_obj = getelementptr inbounds nuw i8, ptr %frame, i64 48
   %0 = load ptr, ptr %frame_obj, align 8
@@ -178,7 +178,7 @@ declare ptr @_PyFrame_New_NoTrack(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_PyFrame_Copy(ptr noundef %src, ptr nocapture noundef writeonly initializes((8, 16)) %dest) local_unnamed_addr #2 {
+define hidden void @_PyFrame_Copy(ptr noundef %src, ptr noundef writeonly captures(none) initializes((8, 16)) %dest) local_unnamed_addr #2 {
 entry:
   %localsplus = getelementptr inbounds nuw i8, ptr %src, i64 72
   %stacktop = getelementptr inbounds nuw i8, ptr %src, i64 64
@@ -195,7 +195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyFrame_ClearExceptCode(ptr noundef %frame) local_unnamed_addr #0 {
@@ -484,7 +484,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @PyUnstable_InterpreterFrame_GetCode(ptr nocapture noundef readonly %frame) local_unnamed_addr #4 {
+define dso_local noundef ptr @PyUnstable_InterpreterFrame_GetCode(ptr noundef readonly captures(none) %frame) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %frame, align 8
   %1 = load i32, ptr %0, align 8
@@ -501,7 +501,7 @@ Py_INCREF.exit:                                   ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, -1) i32 @PyUnstable_InterpreterFrame_GetLasti(ptr nocapture noundef readonly %frame) local_unnamed_addr #5 {
+define dso_local range(i32 0, -1) i32 @PyUnstable_InterpreterFrame_GetLasti(ptr noundef readonly captures(none) %frame) local_unnamed_addr #5 {
 entry:
   %instr_ptr = getelementptr inbounds nuw i8, ptr %frame, i64 56
   %0 = load ptr, ptr %instr_ptr, align 8
@@ -516,7 +516,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyUnstable_InterpreterFrame_GetLine(ptr nocapture noundef readonly %frame) local_unnamed_addr #0 {
+define dso_local i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef readonly captures(none) %frame) local_unnamed_addr #0 {
 entry:
   %instr_ptr = getelementptr inbounds nuw i8, ptr %frame, i64 56
   %0 = load ptr, ptr %instr_ptr, align 8

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_string_view" = type { i64, ptr }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %b) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %b) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #4
   %0 = load i64, ptr %a, align 8
@@ -66,7 +66,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_S2_(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %c) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_S2_(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %b, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %c) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #4
   %0 = load i64, ptr %a, align 8
@@ -127,7 +127,7 @@ nrvo.skipdtor:                                    ; preds = %if.then.i14, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_S2_S2_(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %d) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_S2_S2_(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %b, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %d) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #4
   %0 = load i64, ptr %a, align 8
@@ -261,7 +261,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc17, %for.con
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl16strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS4_EE(ptr noundef nonnull %dest, ptr readonly %pieces.coerce0, i64 %pieces.coerce1) local_unnamed_addr #0 {
@@ -318,7 +318,7 @@ for.end20:                                        ; preds = %for.inc18, %for.end
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumE(ptr noundef nonnull %dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %a) local_unnamed_addr #0 {
+define dso_local void @_ZN4absl9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumE(ptr noundef nonnull %dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %a) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %dest) #4
   %0 = load i64, ptr %a, align 8
@@ -340,7 +340,7 @@ _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit: ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumES9_(ptr noundef nonnull %dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %b) local_unnamed_addr #0 {
+define dso_local void @_ZN4absl9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumES9_(ptr noundef nonnull %dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %b) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %dest) #4
   %0 = load i64, ptr %a, align 8
@@ -376,7 +376,7 @@ _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit11: ; preds = %_ZN4absl12_GL
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumES9_S9_(ptr noundef nonnull %dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %c) local_unnamed_addr #0 {
+define dso_local void @_ZN4absl9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumES9_S9_(ptr noundef nonnull %dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %b, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %c) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %dest) #4
   %0 = load i64, ptr %a, align 8
@@ -426,7 +426,7 @@ _ZN4absl12_GLOBAL__N_16AppendEPcRKNS_8AlphaNumE.exit18: ; preds = %_ZN4absl12_GL
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumES9_S9_S9_(ptr noundef nonnull %dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %d) local_unnamed_addr #0 {
+define dso_local void @_ZN4absl9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumES9_S9_S9_(ptr noundef nonnull %dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %b, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %d) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %dest) #4
   %0 = load i64, ptr %a, align 8

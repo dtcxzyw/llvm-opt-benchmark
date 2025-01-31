@@ -314,7 +314,7 @@ define dso_local i32 @_hash_getbuf_with_strategy(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_hash_relbuf(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_hash_relbuf(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @UnlockReleaseBuffer(i32 noundef %1) #10
   ret void
 }
@@ -322,13 +322,13 @@ define dso_local void @_hash_relbuf(ptr nocapture noundef readnone %0, i32 nound
 declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_hash_dropbuf(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_hash_dropbuf(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @ReleaseBuffer(i32 noundef %1) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_hash_dropscanbuf(ptr nocapture noundef readnone %0, ptr nocapture noundef initializes((12, 14)) %1) local_unnamed_addr #0 {
+define dso_local void @_hash_dropscanbuf(ptr noundef readnone captures(none) %0, ptr noundef captures(none) initializes((12, 14)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %.not20 = icmp eq i32 %4, 0
@@ -554,7 +554,7 @@ BufferGetPage.exit85:                             ; preds = %67, %73
   %.pre-phi = phi i32 [ %92, %91 ], [ 1, %90 ]
   %98 = phi i32 [ %97, %91 ], [ 0, %90 ]
   %99 = add i32 %.pre-phi, %98
-  %100 = call i32 @_hash_getnewbuf(ptr noundef %0, i32 noundef %99, i32 noundef %2)
+  %100 = call i32 @_hash_getnewbuf(ptr noundef nonnull %0, i32 noundef %99, i32 noundef %2)
   %101 = load i32, ptr %84, align 8
   %102 = icmp slt i32 %100, 0
   br i1 %102, label %109, label %103
@@ -611,7 +611,7 @@ _hash_initbuf.exit.us:                            ; preds = %109, %103
 
 BufferGetPage.exit87.us:                          ; preds = %129, %123
   %.0.i.i86.us = phi ptr [ %134, %129 ], [ %128, %123 ]
-  %135 = call i64 @log_newpage(ptr noundef %0, i32 noundef %2, i32 noundef %99, ptr noundef %.0.i.i86.us, i1 noundef zeroext true) #10
+  %135 = call i64 @log_newpage(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %99, ptr noundef %.0.i.i86.us, i1 noundef zeroext true) #10
   call void @UnlockReleaseBuffer(i32 noundef %100) #10
   %exitcond95.not = icmp eq i32 %.pre-phi, %86
   br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
@@ -643,7 +643,7 @@ BufferGetPage.exit87.us:                          ; preds = %129, %123
   %.pre-phi99 = phi i32 [ %140, %139 ], [ 1, %138 ]
   %146 = phi i32 [ %145, %139 ], [ 0, %138 ]
   %147 = add i32 %.pre-phi99, %146
-  %148 = call i32 @_hash_getnewbuf(ptr noundef %0, i32 noundef %147, i32 noundef %2)
+  %148 = call i32 @_hash_getnewbuf(ptr noundef nonnull %0, i32 noundef %147, i32 noundef %2)
   %149 = load i32, ptr %84, align 8
   %150 = icmp slt i32 %148, 0
   br i1 %150, label %151, label %157
@@ -687,7 +687,7 @@ _hash_initbuf.exit:                               ; preds = %151, %157
 ._crit_edge:                                      ; preds = %_hash_initbuf.exit, %BufferGetPage.exit87.us, %83
   call void @LockBuffer(i32 noundef %44, i32 noundef 2) #10
   %171 = add i32 %85, 2
-  %172 = call i32 @_hash_getnewbuf(ptr noundef %0, i32 noundef %171, i32 noundef %2)
+  %172 = call i32 @_hash_getnewbuf(ptr noundef nonnull %0, i32 noundef %171, i32 noundef %2)
   %173 = getelementptr i8, ptr %.0.i.i, i64 44
   %174 = load i16, ptr %173, align 4
   call void @_hash_initbitmapbuffer(i32 noundef %172, i16 noundef zeroext %174, i1 noundef zeroext false) #10
@@ -958,7 +958,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @_hash_get_totalbuckets(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @PageInit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2218,7 +2218,7 @@ declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare void @hash_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_hash_getcachedmetap(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @_hash_getcachedmetap(ptr noundef %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 448
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %4 = icmp eq ptr %.pre, null
@@ -2309,7 +2309,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @_hash_getbucketbuf_from_hashkey(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
@@ -2457,10 +2457,10 @@ declare i32 @llvm.ctpop.i32(i32) #7
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

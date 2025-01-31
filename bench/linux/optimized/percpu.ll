@@ -457,7 +457,7 @@ module asm ".previous\09\09\09\09\09"
 declare dso_local i32 @__SCT__tp_func_percpu_alloc_percpu(ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_percpu_alloc_percpu(ptr nocapture readnone %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10) #1 align 16 {
+define dso_local noundef i32 @__traceiter_percpu_alloc_percpu(ptr readnone captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10) #1 align 16 {
   %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_percpu_alloc_percpu, i64 72), align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %.preheader
@@ -478,21 +478,21 @@ define dso_local noundef i32 @__traceiter_percpu_alloc_percpu(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_percpu_alloc_percpu(ptr nocapture readnone %0, i64 %1, i1 zeroext %2, i1 zeroext %3, i64 %4, i64 %5, ptr nocapture readnone %6, i32 %7, ptr nocapture readnone %8, i64 %9, i32 %10) #2 align 16 {
+define dso_local void @__probestub_percpu_alloc_percpu(ptr readnone captures(none) %0, i64 %1, i1 zeroext %2, i1 zeroext %3, i64 %4, i64 %5, ptr readnone captures(none) %6, i32 %7, ptr readnone captures(none) %8, i64 %9, i32 %10) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_percpu_free_percpu(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_percpu_free_percpu(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_percpu_free_percpu(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_percpu_free_percpu, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -513,7 +513,7 @@ define dso_local noundef i32 @__traceiter_percpu_free_percpu(ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_percpu_free_percpu(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #2 align 16 {
+define dso_local void @__probestub_percpu_free_percpu(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3) #2 align 16 {
   ret void
 }
 
@@ -521,7 +521,7 @@ define dso_local void @__probestub_percpu_free_percpu(ptr nocapture readnone %0,
 declare dso_local i32 @__SCT__tp_func_percpu_alloc_percpu_fail(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i64 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_percpu_alloc_percpu_fail(ptr nocapture readnone %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_percpu_alloc_percpu_fail(ptr readnone captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_percpu_alloc_percpu_fail, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -542,7 +542,7 @@ define dso_local noundef i32 @__traceiter_percpu_alloc_percpu_fail(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_percpu_alloc_percpu_fail(ptr nocapture readnone %0, i1 zeroext %1, i1 zeroext %2, i64 %3, i64 %4) #2 align 16 {
+define dso_local void @__probestub_percpu_alloc_percpu_fail(ptr readnone captures(none) %0, i1 zeroext %1, i1 zeroext %2, i64 %3, i64 %4) #2 align 16 {
   ret void
 }
 
@@ -550,7 +550,7 @@ define dso_local void @__probestub_percpu_alloc_percpu_fail(ptr nocapture readno
 declare dso_local i32 @__SCT__tp_func_percpu_create_chunk(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_percpu_create_chunk(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_percpu_create_chunk(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_percpu_create_chunk, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -571,7 +571,7 @@ define dso_local noundef i32 @__traceiter_percpu_create_chunk(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_percpu_create_chunk(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_percpu_create_chunk(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -579,7 +579,7 @@ define dso_local void @__probestub_percpu_create_chunk(ptr nocapture readnone %0
 declare dso_local i32 @__SCT__tp_func_percpu_destroy_chunk(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_percpu_destroy_chunk(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_percpu_destroy_chunk(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_percpu_destroy_chunk, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -600,7 +600,7 @@ define dso_local noundef i32 @__traceiter_percpu_destroy_chunk(ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_percpu_destroy_chunk(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_percpu_destroy_chunk(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -2974,7 +2974,7 @@ define dso_local void @pcpu_free_alloc_info(ptr noundef %0) local_unnamed_addr #
 declare dso_local void @memblock_free(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @pcpu_setup_first_chunk(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #7 section ".init.text" align 16 {
+define dso_local void @pcpu_setup_first_chunk(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #7 section ".init.text" align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -3593,7 +3593,7 @@ define dso_local void @pcpu_setup_first_chunk(ptr nocapture noundef readonly %0,
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pcpu_dump_alloc_info(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc void @pcpu_dump_alloc_info(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 16 {
   %3 = alloca [9 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4713,7 +4713,7 @@ define internal fastcc ptr @pcpu_fc_alloc(i32 noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define weak dso_local void @pcpu_populate_pte(i64 noundef %0) local_unnamed_addr #7 section ".init.text" align 16 {
@@ -5178,10 +5178,10 @@ define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @vm_area_register_early(ptr noundef, i64 noundef) local_unnamed_addr #8 section ".init.text"
@@ -6893,7 +6893,7 @@ define internal fastcc void @pcpu_block_update_hint_alloc(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define internal fastcc void @pcpu_block_update(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 align 16 {
+define internal fastcc void @pcpu_block_update(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 align 16 {
   %4 = sub i32 %2, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 4
@@ -7047,7 +7047,7 @@ declare dso_local void @__bitmap_set(ptr noundef, i32 noundef, i32 noundef) loca
 declare dso_local void @__bitmap_clear(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pcpu_block_refresh_hint(ptr %.72.val, ptr nocapture %.80.val, i32 noundef range(i32 -2097152, 2097152) %0) unnamed_addr #1 align 16 {
+define internal fastcc void @pcpu_block_refresh_hint(ptr %.72.val, ptr captures(none) %.80.val, i32 noundef range(i32 -2097152, 2097152) %0) unnamed_addr #1 align 16 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr %struct.pcpu_block_md, ptr %.80.val, i64 %2
   %4 = shl nsw i64 %2, 4
@@ -7109,7 +7109,7 @@ define internal fastcc void @pcpu_block_refresh_hint(ptr %.72.val, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define internal fastcc void @pcpu_chunk_refresh_hint(ptr nocapture noundef %0, i1 noundef zeroext %1) unnamed_addr #5 align 16 {
+define internal fastcc void @pcpu_chunk_refresh_hint(ptr noundef captures(none) %0, i1 noundef zeroext %1) unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br i1 %1, label %13, label %4
 
@@ -7347,7 +7347,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pcpu_balance_workfn(ptr nocapture readnone %0) #1 align 16 {
+define internal void @pcpu_balance_workfn(ptr readnone captures(none) %0) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @pcpu_alloc_mutex) #23
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @pcpu_lock) #23
   tail call fastcc void @pcpu_balance_free(i1 noundef zeroext false)
@@ -8137,7 +8137,7 @@ define internal fastcc void @pcpu_balance_free(i1 noundef zeroext %0) unnamed_ad
 declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pcpu_depopulate_chunk(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @pcpu_depopulate_chunk(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = load ptr, ptr @pcpu_get_pages.pages, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.thread
@@ -8405,7 +8405,7 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #20
 declare dso_local ptr @memblock_alloc_try_nid(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @__pti_set_user_pgtbl(ptr noundef, i64) local_unnamed_addr #0

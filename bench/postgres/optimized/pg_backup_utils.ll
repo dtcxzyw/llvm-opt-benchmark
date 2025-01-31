@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @on_exit_nicely_list = internal unnamed_addr global [20 x %struct.anon] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @set_dump_section(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @set_dump_section(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 255
   br i1 %4, label %5, label %6
@@ -42,7 +42,7 @@ define dso_local void @set_dump_section(ptr noundef %0, ptr nocapture noundef %1
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %13
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %0) #6
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %0) #6
   %17 = load ptr, ptr @progname, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef %17) #6
   tail call void @exit_nicely(i32 noundef 1) #7
@@ -56,7 +56,7 @@ define dso_local void @set_dump_section(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 

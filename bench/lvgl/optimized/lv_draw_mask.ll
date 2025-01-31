@@ -10,7 +10,7 @@ define void @lv_draw_mask_rect_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_draw_task_get_mask_rect_dsc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @lv_draw_task_get_mask_rect_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = icmp eq i32 %3, 10

@@ -74,13 +74,13 @@ define dso_local range(i32 -19, 1) i32 @byd_detect(ptr noundef %0, i1 noundef ze
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ps2_command(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @byd_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -194,7 +194,7 @@ declare dso_local i32 @psmouse_reset(ptr noundef) local_unnamed_addr #2
 declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @byd_clear_touch(ptr nocapture noundef initializes((48, 56), (66, 67)) %0) #0 align 16 {
+define internal void @byd_clear_touch(ptr noundef captures(none) initializes((48, 56), (66, 67)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -239,7 +239,7 @@ define internal void @byd_clear_touch(ptr nocapture noundef initializes((48, 56)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @byd_disconnect(ptr nocapture noundef %0) #0 align 16 {
+define internal void @byd_disconnect(ptr noundef captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
@@ -322,7 +322,7 @@ define internal range(i32 -19, 1) i32 @byd_reconnect(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 3) i32 @byd_process_byte(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 0, 3) i32 @byd_process_byte(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232

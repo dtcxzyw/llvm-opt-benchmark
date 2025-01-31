@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.stbrp_rect = type { i32, i32, i32, i32, i32, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbrp_setup_heuristic(ptr nocapture noundef %context, i32 noundef %heuristic) local_unnamed_addr #0 {
+define void @stbrp_setup_heuristic(ptr noundef captures(none) %context, i32 noundef %heuristic) local_unnamed_addr #0 {
 entry:
   %init_mode = getelementptr inbounds nuw i8, ptr %context, i64 12
   %0 = load i32, ptr %init_mode, align 4
@@ -24,7 +24,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbrp_setup_allow_out_of_mem(ptr nocapture noundef initializes((8, 12)) %context, i32 noundef %allow_out_of_mem) local_unnamed_addr #0 {
+define void @stbrp_setup_allow_out_of_mem(ptr noundef captures(none) initializes((8, 12)) %context, i32 noundef %allow_out_of_mem) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %allow_out_of_mem, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -106,7 +106,7 @@ for.end:                                          ; preds = %entry, %for.end.loo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, -2147483648) i32 @stbrp__skyline_find_min_y(ptr nocapture noundef readnone %c, ptr nocapture noundef readonly %first, i32 noundef %x0, i32 noundef %width, ptr nocapture noundef writeonly %pwaste) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @stbrp__skyline_find_min_y(ptr noundef readnone captures(none) %c, ptr noundef readonly captures(none) %first, i32 noundef %x0, i32 noundef %width, ptr noundef writeonly captures(none) %pwaste) local_unnamed_addr #2 {
 entry:
   %add = add nsw i32 %width, %x0
   %0 = load i32, ptr %first, align 8
@@ -570,7 +570,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @rect_height_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define range(i32 -1, 2) i32 @rect_height_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %h = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %h, align 4
@@ -597,7 +597,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @rect_original_order(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define range(i32 -1, 2) i32 @rect_original_order(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %was_packed = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %was_packed, align 4
@@ -790,7 +790,7 @@ for.end69:                                        ; preds = %for.cond44, %for.en
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

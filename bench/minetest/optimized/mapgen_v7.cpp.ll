@@ -100,15 +100,15 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -309,7 +309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.20(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor.20(ptr readnone captures(none) %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16emergeActionStrsB5cxx11, i64 128), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL16emergeActionStrsB5cxx11, i64 144)
@@ -754,7 +754,7 @@ declare void @_ZN5NoiseC1EPK11NoiseParamsijjj(ptr noundef nonnull align 8 derefe
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(474)) unnamed_addr #1
@@ -5678,7 +5678,7 @@ declare noundef zeroext i1 @_ZN8Settings6setU16ERKNSt7__cxx1112basic_stringIcSt1
 declare noundef zeroext i1 @_ZN8Settings14setNoiseParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK11NoiseParams(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14MapgenV7Params18setDefaultSettingsEP8Settings(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %settings) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14MapgenV7Params18setDefaultSettingsEP8Settings(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %settings) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #17
@@ -5736,7 +5736,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 declare void @_ZN8Settings10setDefaultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK8FlagDescj(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -32767, 32770) i32 @_ZN8MapgenV720getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, i32 %p.coerce) unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 -32767, 32770) i32 @_ZN8MapgenV720getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, i32 %p.coerce) unnamed_addr #5 align 2 {
 entry:
   %p.sroa.4.0.extract.shift = lshr i32 %p.coerce, 16
   %0 = insertelement <2 x i32> poison, i32 %p.sroa.4.0.extract.shift, i64 0
@@ -5886,7 +5886,7 @@ return:                                           ; preds = %if.end50, %if.then4
 declare noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef, float noundef, float noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN8MapgenV723baseTerrainLevelAtPointEss(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, i16 noundef signext %x, i16 noundef signext %z) local_unnamed_addr #5 align 2 {
+define dso_local noundef float @_ZN8MapgenV723baseTerrainLevelAtPointEss(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, i16 noundef signext %x, i16 noundef signext %z) local_unnamed_addr #5 align 2 {
 entry:
   %noise_height_select = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load ptr, ptr %noise_height_select, align 8, !tbaa !60
@@ -5924,7 +5924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN8MapgenV725getMountainTerrainAtPointEsss(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, i16 noundef signext %x, i16 noundef signext %y, i16 noundef signext %z) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN8MapgenV725getMountainTerrainAtPointEsss(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, i16 noundef signext %x, i16 noundef signext %y, i16 noundef signext %z) local_unnamed_addr #5 align 2 {
 entry:
   %noise_mount_height = getelementptr inbounds nuw i8, ptr %this, i64 536
   %0 = load ptr, ptr %noise_mount_height, align 8, !tbaa !62
@@ -6784,7 +6784,7 @@ declare void @_ZN6Mapgen12calcLightingEN3irr4core8vector3dIsEES3_S3_S3_b(ptr nou
 declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef float @_ZN8MapgenV723baseTerrainLevelFromMapEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, i32 noundef %index) local_unnamed_addr #12 align 2 {
+define dso_local noundef float @_ZN8MapgenV723baseTerrainLevelFromMapEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, i32 noundef %index) local_unnamed_addr #12 align 2 {
 entry:
   %noise_height_select = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load ptr, ptr %noise_height_select, align 8, !tbaa !60
@@ -6828,7 +6828,7 @@ cond.end13:                                       ; preds = %cond.false8, %cond.
 declare noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef, float noundef, float noundef, float noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN8MapgenV725getMountainTerrainFromMapEiis(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, i32 noundef %idx_xyz, i32 noundef %idx_xz, i16 noundef signext %y) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext i1 @_ZN8MapgenV725getMountainTerrainFromMapEiis(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, i32 noundef %idx_xyz, i32 noundef %idx_xz, i16 noundef signext %y) local_unnamed_addr #12 align 2 {
 entry:
   %noise_mount_height = getelementptr inbounds nuw i8, ptr %this, i64 536
   %0 = load ptr, ptr %noise_mount_height, align 8, !tbaa !62
@@ -6858,7 +6858,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN8MapgenV722getRiverChannelFromMapEiis(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, i32 noundef %idx_xyz, i32 noundef %idx_xz, i16 noundef signext %y) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext i1 @_ZN8MapgenV722getRiverChannelFromMapEiis(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, i32 noundef %idx_xyz, i32 noundef %idx_xz, i16 noundef signext %y) local_unnamed_addr #12 align 2 {
 entry:
   %noise_ridge_uwater = getelementptr inbounds nuw i8, ptr %this, i64 544
   %0 = load ptr, ptr %noise_ridge_uwater, align 8, !tbaa !64
@@ -6901,7 +6901,7 @@ cleanup:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN8MapgenV726getFloatlandTerrainFromMapEif(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, i32 noundef %idx_xyz, float noundef %float_offset) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext i1 @_ZN8MapgenV726getFloatlandTerrainFromMapEif(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, i32 noundef %idx_xyz, float noundef %float_offset) local_unnamed_addr #12 align 2 {
 entry:
   %noise_floatland = getelementptr inbounds nuw i8, ptr %this, i64 568
   %0 = load ptr, ptr %noise_floatland, align 8, !tbaa !66

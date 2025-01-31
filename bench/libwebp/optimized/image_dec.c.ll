@@ -115,7 +115,7 @@ declare i32 @ReadWebP(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr no
 declare i32 @ReadPNM(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @FailReader(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal noundef i32 @FailReader(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2, i32 %3, ptr readnone captures(none) %4) #0 {
   ret i32 0
 }
 

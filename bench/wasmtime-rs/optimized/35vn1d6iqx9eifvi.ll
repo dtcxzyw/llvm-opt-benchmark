@@ -140,7 +140,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.c160ce05be1254bab33d8aa99a7c1e66.138 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.c160ce05be1254bab33d8aa99a7c1e66.137, [8 x i8] c"\0C\00\00\00\00\00\00\00", ptr @anon.c160ce05be1254bab33d8aa99a7c1e66.123, [8 x i8] c"\02\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h727de88a36903f9bE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h727de88a36903f9bE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load i64, ptr %3, align 8, !range !5, !noundef !3
   tail call void @_ZN4core4hash6Hasher11write_isize17hb102760bc979a878E(ptr align 8 %1, i64 %4)
@@ -348,7 +348,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_constructor2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_constructor28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdde99e05a3b4b3bfE"(ptr align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_constructor28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdde99e05a3b4b3bfE"(ptr align 8 %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca [3 x { ptr, ptr }], align 8
@@ -723,7 +723,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings19gen_to_and_from_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN22cranelift_codegen_meta12gen_settings14gen_enum_types28_$u7b$$u7b$closure$u7d$$u7d$17h2b7b1135324de816E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN22cranelift_codegen_meta12gen_settings14gen_enum_types28_$u7b$$u7b$closure$u7d$$u7d$17h2b7b1135324de816E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -811,7 +811,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings14gen_enum_types28
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN22cranelift_codegen_meta12gen_settings14gen_enum_types28_$u7b$$u7b$closure$u7d$$u7d$17h7270a29cd3685a37E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define hidden void @"_ZN22cranelift_codegen_meta12gen_settings14gen_enum_types28_$u7b$$u7b$closure$u7d$$u7d$17h7270a29cd3685a37E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -841,7 +841,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings10gen_getter28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN22cranelift_codegen_meta12gen_settings10gen_getter28_$u7b$$u7b$closure$u7d$$u7d$17h61a51ee92c9ef364E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN22cranelift_codegen_meta12gen_settings10gen_getter28_$u7b$$u7b$closure$u7d$$u7d$17h61a51ee92c9ef364E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -1127,7 +1127,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings11gen_getters28_$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors28_$u7b$$u7b$closure$u7d$$u7d$17h37b324d365e6118cE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors28_$u7b$$u7b$closure$u7d$$u7d$17h37b324d365e6118cE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { ptr, ptr, ptr }, align 8
   %4 = alloca i64, align 8
   %5 = alloca { { ptr, ptr, {} }, i64 }, align 8
@@ -1224,7 +1224,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2d282591999d35efE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2d282591999d35efE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca [2 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -1328,7 +1328,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h42c4a9e4e3e4cc40E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h42c4a9e4e3e4cc40E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -1412,7 +1412,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i64 @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors28_$u7b$$u7b$closure$u7d$$u7d$17h12bd7d9d262f9b67E"(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden i64 @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors28_$u7b$$u7b$closure$u7d$$u7d$17h12bd7d9d262f9b67E"(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZN22cranelift_codegen_meta12gen_settings15SettingOrPreset4name17hf742071b5426c519E(ptr align 8 %1)
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
@@ -1719,7 +1719,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN22cranelift_codegen_meta12gen_settings12gen_template28_$u7b$$u7b$closure$u7d$$u7d$17h772c6b41d473d9edE"(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nocapture readnone align 1 %1, ptr align 1 %2) unnamed_addr #0 {
+define hidden void @"_ZN22cranelift_codegen_meta12gen_settings12gen_template28_$u7b$$u7b$closure$u7d$$u7d$17h772c6b41d473d9edE"(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr readnone align 1 captures(none) %1, ptr align 1 %2) unnamed_addr #0 {
   %4 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -1867,7 +1867,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings9gen_group28_$u7b$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN90_$LT$cranelift_codegen_meta..gen_settings..SettingOrPreset$u20$as$u20$core..hash..Hash$GT$4hash17h7c9c04ed5edcfda7E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN90_$LT$cranelift_codegen_meta..gen_settings..SettingOrPreset$u20$as$u20$core..hash..Hash$GT$4hash17h7c9c04ed5edcfda7E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8, !range !5, !noundef !3
   tail call void @_ZN4core4hash6Hasher11write_isize17hb102760bc979a878E(ptr align 8 %1, i64 %3)
   %4 = load i64, ptr %0, align 8, !range !5, !noundef !3
@@ -1940,7 +1940,7 @@ declare hidden zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt
 declare void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr align 8) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17hb47ee976ee31bfb7E(ptr align 8, ptr align 8, ptr align 8) unnamed_addr #2

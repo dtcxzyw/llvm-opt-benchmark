@@ -1807,7 +1807,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1942,13 +1942,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN29DenseMap_Functionalities_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN29DenseMap_Functionalities_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map", align 8
   %gtest_fatal_failure_checker = alloca %"class.testing::internal::HasNewFatalFailureHelper", align 8
@@ -8253,7 +8253,7 @@ _ZN7testing8internal11CmpHelperEQImmEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7testing8internal8EqHelper7CompareIN4entt8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPNS4_14dense_map_nodeIiiEESt6vectorIS9_SaIS9_EEEEEESF_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSP_RKSH_RKSI_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(8) %lhs, ptr noundef nonnull align 8 dereferenceable(8) %rhs) local_unnamed_addr #4 comdat align 2 {
@@ -8486,7 +8486,7 @@ _ZN4entt8internal23compressed_pair_elementISt6vectorImSaImEELm0EvED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN26DenseMap_Constructors_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN26DenseMap_Constructors_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %minimum_bucket_count = alloca i64, align 8
   %map = alloca %"class.entt::dense_map.29", align 16
@@ -9894,7 +9894,7 @@ _ZN4entt8internal23compressed_pair_elementISt6vectorImSaImEELm0EvED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18DenseMap_Copy_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18DenseMap_Copy_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.45", align 8
   %ref.tmp = alloca i32, align 4
@@ -13003,7 +13003,7 @@ _ZN4entt8internal23compressed_pair_elementISt6vectorImSaImEELm0EvED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18DenseMap_Move_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18DenseMap_Move_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.45", align 16
   %ref.tmp = alloca i32, align 4
@@ -15837,7 +15837,7 @@ ehcleanup566:                                     ; preds = %ehcleanup562, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22DenseMap_Iterator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22DenseMap_Iterator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.29", align 8
   %ref.tmp = alloca i32, align 4
@@ -19322,7 +19322,7 @@ ehcleanup852:                                     ; preds = %ehcleanup848, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7testing8internal11CmpHelperLTIN4entt8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPNS3_14dense_map_nodeIiiEESt6vectorIS8_SaIS8_EEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %expr1, ptr noundef %expr2, ptr noundef nonnull align 8 dereferenceable(8) %val1, ptr noundef nonnull align 8 dereferenceable(8) %val2) local_unnamed_addr #4 comdat {
@@ -19405,7 +19405,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN27DenseMap_ConstIterator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN27DenseMap_ConstIterator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.29", align 8
   %ref.tmp = alloca i32, align 4
@@ -22970,7 +22970,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32DenseMap_IteratorConversion_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32DenseMap_IteratorConversion_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.29", align 8
   %ref.tmp = alloca i32, align 4
@@ -25099,7 +25099,7 @@ ehcleanup392:                                     ; preds = %ehcleanup388, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN20DenseMap_Insert_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN20DenseMap_Insert_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.29", align 8
   %it = alloca %"class.entt::internal::dense_map_iterator", align 8
@@ -31449,7 +31449,7 @@ ehcleanup1700:                                    ; preds = %ehcleanup1698, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN26DenseMap_InsertRehash_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN26DenseMap_InsertRehash_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %minimum_bucket_count = alloca i64, align 8
   %map = alloca %"class.entt::dense_map.45", align 8
@@ -34982,7 +34982,7 @@ ehcleanup691:                                     ; preds = %ehcleanup688, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN30DenseMap_InsertSameBucket_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN30DenseMap_InsertSameBucket_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.45", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -36892,7 +36892,7 @@ ehcleanup386:                                     ; preds = %ehcleanup384, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN28DenseMap_InsertOrAssign_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN28DenseMap_InsertOrAssign_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.29", align 8
   %it = alloca %"class.entt::internal::dense_map_iterator", align 8
@@ -42369,7 +42369,7 @@ ehcleanup1410:                                    ; preds = %ehcleanup1408, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN21DenseMap_Emplace_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN21DenseMap_Emplace_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i2846 = alloca i32, align 4
   %ref.tmp.i = alloca i32, align 4
@@ -49916,7 +49916,7 @@ cleanup33:                                        ; preds = %_ZN4entt9dense_mapI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN27DenseMap_EmplaceRehash_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN27DenseMap_EmplaceRehash_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %minimum_bucket_count = alloca i64, align 8
   %map = alloca %"class.entt::dense_map.45", align 8
@@ -53530,7 +53530,7 @@ ehcleanup721:                                     ; preds = %ehcleanup718, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN31DenseMap_EmplaceSameBucket_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN31DenseMap_EmplaceSameBucket_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.45", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -55448,7 +55448,7 @@ ehcleanup378:                                     ; preds = %ehcleanup376, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24DenseMap_TryEmplace_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24DenseMap_TryEmplace_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.29", align 8
   %it = alloca %"class.entt::internal::dense_map_iterator", align 8
@@ -58055,7 +58055,7 @@ ehcleanup562:                                     ; preds = %ehcleanup560, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN30DenseMap_TryEmplaceRehash_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN30DenseMap_TryEmplaceRehash_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %minimum_bucket_count = alloca i64, align 8
   %map = alloca %"class.entt::dense_map.45", align 8
@@ -61472,7 +61472,7 @@ ehcleanup683:                                     ; preds = %ehcleanup680, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34DenseMap_TryEmplaceSameBucket_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34DenseMap_TryEmplaceSameBucket_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.45", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -63390,7 +63390,7 @@ ehcleanup378:                                     ; preds = %ehcleanup376, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35DenseMap_TryEmplaceMovableType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35DenseMap_TryEmplaceMovableType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.109", align 8
   %value = alloca %"class.std::unique_ptr.118", align 8
@@ -64398,7 +64398,7 @@ _ZN4entt8internal23compressed_pair_elementISt6vectorImSaImEELm0EvED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19DenseMap_Erase_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19DenseMap_Erase_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.45", align 8
   %next = alloca i64, align 8
@@ -68790,7 +68790,7 @@ cleanup:                                          ; preds = %for.cond, %_ZN4entt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN38DenseMap_EraseWithMovableKeyValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN38DenseMap_EraseWithMovableKeyValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %minimum_bucket_count = alloca i64, align 8
   %map = alloca %"class.entt::dense_map.134", align 8
@@ -70248,7 +70248,7 @@ _ZN4entt8internal23compressed_pair_elementISt6vectorImSaImEELm0EvED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN29DenseMap_EraseFromBucket_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN29DenseMap_EraseFromBucket_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %minimum_bucket_count = alloca i64, align 8
   %map = alloca %"class.entt::dense_map.45", align 8
@@ -78755,7 +78755,7 @@ ehcleanup2004:                                    ; preds = %ehcleanup1995, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18DenseMap_Swap_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18DenseMap_Swap_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.29", align 8
   %other = alloca %"class.entt::dense_map.29", align 8
@@ -79967,7 +79967,7 @@ ehcleanup310:                                     ; preds = %ehcleanup308, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24DenseMap_EqualRange_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24DenseMap_EqualRange_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map", align 8
   %ref.tmp = alloca i32, align 4
@@ -84366,7 +84366,7 @@ _ZNK4entt9dense_mapIiiNS_8identityEN4test20transparent_equal_toESaISt4pairIKiiEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22DenseMap_Indexing_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22DenseMap_Indexing_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.29", align 8
   %key = alloca i32, align 4
@@ -85406,7 +85406,7 @@ ehcleanup168:                                     ; preds = %ehcleanup166, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN40DenseMapDeathTest_DISABLED_Indexing_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN40DenseMapDeathTest_DISABLED_Indexing_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.29", align 8
   %gtest_dt = alloca ptr, align 8
@@ -86382,17 +86382,17 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef ptr @_ZN7testing8internal9DeathTest11LastMessageEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN27DenseMap_LocalIterator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN27DenseMap_LocalIterator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i = alloca %"class.entt::internal::dense_map_local_iterator.64", align 8
   %map = alloca %"class.entt::dense_map.45", align 8
@@ -87728,7 +87728,7 @@ ehcleanup248:                                     ; preds = %ehcleanup244, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32DenseMap_ConstLocalIterator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32DenseMap_ConstLocalIterator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i = alloca %"class.entt::internal::dense_map_local_iterator.91", align 8
   %map = alloca %"class.entt::dense_map.45", align 8
@@ -89064,7 +89064,7 @@ ehcleanup250:                                     ; preds = %ehcleanup246, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN37DenseMap_LocalIteratorConversion_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN37DenseMap_LocalIteratorConversion_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map = alloca %"class.entt::dense_map.29", align 8
   %ref.tmp = alloca i32, align 4
@@ -90185,7 +90185,7 @@ ehcleanup211:                                     ; preds = %ehcleanup207, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN20DenseMap_Rehash_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN20DenseMap_Rehash_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %minimum_bucket_count = alloca i64, align 8
   %map = alloca %"class.entt::dense_map.45", align 8
@@ -96533,7 +96533,7 @@ terminate.lpad:                                   ; preds = %_ZNSt6vectorIN4entt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN21DenseMap_Reserve_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN21DenseMap_Reserve_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %minimum_bucket_count = alloca i64, align 8
   %map = alloca %"class.entt::dense_map.29", align 8
@@ -97385,7 +97385,7 @@ ehcleanup135:                                     ; preds = %ehcleanup133, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN31DenseMap_ThrowingAllocator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN31DenseMap_ThrowingAllocator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i104 = alloca i32, align 4
   %ref.tmp.i1031 = alloca i32, align 4
@@ -101170,7 +101170,7 @@ _ZN4entt8internal23compressed_pair_elementISt6vectorImN4test18throwing_allocator
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN41DenseMap_NoUsesAllocatorConstruction_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN41DenseMap_NoUsesAllocatorConstruction_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %memory_resource = alloca %"class.test::tracked_memory_resource", align 8
   %map = alloca %"class.entt::dense_map.210", align 8
@@ -101924,7 +101924,7 @@ _ZN4entt8internal23compressed_pair_elementISt6vectorImNSt3pmr21polymorphic_alloc
 declare void @_ZNSt3pmr15memory_resourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN42DenseMap_KeyUsesAllocatorConstruction_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN42DenseMap_KeyUsesAllocatorConstruction_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %memory_resource = alloca %"class.test::tracked_memory_resource", align 8
   %map = alloca %"class.entt::dense_map.228", align 8
@@ -103527,7 +103527,7 @@ _ZN4entt8internal23compressed_pair_elementISt6vectorImNSt3pmr21polymorphic_alloc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN44DenseMap_ValueUsesAllocatorConstruction_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN44DenseMap_ValueUsesAllocatorConstruction_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i21.i = alloca %"class.std::pmr::polymorphic_allocator.254", align 8
   %ref.tmp.i.i.i = alloca %"class.std::pmr::polymorphic_allocator", align 8
@@ -105343,7 +105343,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #15
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -106650,7 +106650,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK7testing8internal19MatchesRegexMatcher10DescribeToEPSo(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef %os) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -107360,7 +107360,7 @@ lpad:                                             ; preds = %entry
 declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #18
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #18
 
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -110399,7 +110399,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %if.end
-  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i64 noundef %call.i.i)
+  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3, i64 noundef %call.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -124956,7 +124956,7 @@ if.end:                                           ; preds = %for.body26.epil, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4entt9dense_mapImmSt4hashImESt8equal_toImEN4test18throwing_allocatorISt4pairIKmmEEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(100) %this, i64 noundef %cnt) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -135015,7 +135015,7 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #17

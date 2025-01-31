@@ -105,7 +105,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPHeadersC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPHeadersC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   %call.i.i1 = invoke noalias noundef nonnull dereferenceable(656) ptr @_Znam(i64 noundef 656) #22
@@ -293,7 +293,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen11HTTPHeaders6rawAddERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %value) local_unnamed_addr #3 align 2 {
@@ -422,7 +422,7 @@ cleanup.action7:                                  ; preds = %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen11HTTPHeaders6existsEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen11HTTPHeaders6existsEN5folly5RangeIPKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %name.coerce1.fr = freeze ptr %name.coerce1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %name.coerce1.fr to i64
@@ -577,7 +577,7 @@ return:                                           ; preds = %if.end18, %for.inc.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK8proxygen11HTTPHeaders6existsENS_14HTTPHeaderCodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i8 noundef zeroext %code) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen11HTTPHeaders6existsENS_14HTTPHeaderCodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i8 noundef zeroext %code) local_unnamed_addr #9 align 2 {
 entry:
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
@@ -604,7 +604,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8proxygen11HTTPHeaders17getNumberOfValuesENS_14HTTPHeaderCodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i8 noundef zeroext %code) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK8proxygen11HTTPHeaders17getNumberOfValuesENS_14HTTPHeaderCodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i8 noundef zeroext %code) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %conv = zext i8 %code to i32
@@ -641,7 +641,7 @@ while.end:                                        ; preds = %if.end, %while.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8proxygen11HTTPHeaders17getNumberOfValuesEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 align 2 {
+define noundef i64 @_ZNK8proxygen11HTTPHeaders17getNumberOfValuesEN5folly5RangeIPKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %name.coerce1.fr.i = freeze ptr %name.coerce1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %name.coerce1.fr.i to i64
@@ -839,7 +839,7 @@ if.end26.i:                                       ; preds = %_ZNK5folly20AsciiCa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen11HTTPHeaders6removeEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN8proxygen11HTTPHeaders6removeEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %name.coerce1.fr = freeze ptr %name.coerce1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %name.coerce1.fr to i64
@@ -1081,7 +1081,7 @@ return:                                           ; preds = %if.end.i, %if.end22
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN8proxygen11HTTPHeaders6removeENS_14HTTPHeaderCodeE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i8 noundef zeroext %code) local_unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZN8proxygen11HTTPHeaders6removeENS_14HTTPHeaderCodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i8 noundef zeroext %code) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1138,7 +1138,7 @@ while.end:                                        ; preds = %if.end, %while.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8proxygen11HTTPHeaders17removeAllVersionsENS_14HTTPHeaderCodeEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i8 noundef zeroext %code, ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZN8proxygen11HTTPHeaders17removeAllVersionsENS_14HTTPHeaderCodeEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i8 noundef zeroext %code, ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #12 align 2 {
 entry:
   %cmp.not = icmp ne i8 %code, 1
   %.pre = load ptr, ptr %this, align 8
@@ -1397,7 +1397,7 @@ while.end:                                        ; preds = %if.end20, %if.end20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen11HTTPHeaders20disposeOfHeaderNamesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #12 align 2 {
+define void @_ZN8proxygen11HTTPHeaders20disposeOfHeaderNamesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1460,7 +1460,7 @@ while.end:                                        ; preds = %delete.end, %while.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen11HTTPHeaders7destroyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #12 align 2 {
+define void @_ZN8proxygen11HTTPHeaders7destroyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1505,7 +1505,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen11HTTPHeadersD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPHeadersD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1576,7 +1576,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPHeadersC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %hdrs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPHeadersC2ERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %hdrs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %deletedCount_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %deletedCount_2 = getelementptr inbounds nuw i8, ptr %hdrs, i64 24
@@ -1606,7 +1606,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %lpad, %_ZNKSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPHeaders8copyFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPHeaders8copyFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %capacity_ = getelementptr inbounds nuw i8, ptr %other, i64 16
   %0 = load i64, ptr %capacity_, align 8
@@ -1765,7 +1765,7 @@ for.end:                                          ; preds = %if.end, %_ZN8proxyg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen11HTTPHeadersC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %hdrs) unnamed_addr #15 align 2 {
+define void @_ZN8proxygen11HTTPHeadersC2EOS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %hdrs) unnamed_addr #15 align 2 {
 entry:
   %0 = load i64, ptr %hdrs, align 8
   store i64 %0, ptr %this, align 8
@@ -1845,7 +1845,7 @@ if.end:                                           ; preds = %_ZN8proxygen11HTTPH
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen11HTTPHeaders9removeAllEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #12 align 2 {
+define void @_ZN8proxygen11HTTPHeaders9removeAllEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1969,7 +1969,7 @@ if.end:                                           ; preds = %_ZN8proxygen11HTTPH
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8proxygen11HTTPHeaders4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #16 align 2 {
+define noundef i64 @_ZNK8proxygen11HTTPHeaders4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #16 align 2 {
 entry:
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
@@ -1980,7 +1980,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen11HTTPHeaders23transferHeaderIfPresentEN5folly5RangeIPKcEERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr %name.coerce0, ptr %name.coerce1, ptr noundef nonnull align 8 dereferenceable(32) %strippedHeaders) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN8proxygen11HTTPHeaders23transferHeaderIfPresentEN5folly5RangeIPKcEERS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr %name.coerce0, ptr %name.coerce1, ptr noundef nonnull align 8 dereferenceable(32) %strippedHeaders) local_unnamed_addr #3 align 2 {
 entry:
   %name.coerce1.fr = freeze ptr %name.coerce1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %name.coerce1.fr to i64
@@ -2218,7 +2218,7 @@ if.end55:                                         ; preds = %if.end39, %if.end23
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPHeaders18stripPerHopHeadersERS0_bPKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %strippedHeaders, i1 noundef zeroext %stripPriority, ptr noundef readonly %customPerHopHeaders) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPHeaders18stripPerHopHeadersERS0_bPKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %strippedHeaders, i1 noundef zeroext %stripPriority, ptr noundef readonly %customPerHopHeaders) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hdr.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
@@ -2714,7 +2714,7 @@ declare void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 derefere
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8proxygen11HTTPHeaders6copyToERS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %hdrs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8proxygen11HTTPHeaders6copyToERS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %hdrs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %hdrs, i64 8
   %0 = load i64, ptr %length_.i, align 8
@@ -2864,7 +2864,7 @@ for.end:                                          ; preds = %for.inc, %_ZN8proxy
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
@@ -3682,10 +3682,10 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont.i
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

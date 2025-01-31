@@ -492,7 +492,7 @@ entry:
 declare void @_Z31grpc_channel_arg_pointer_createPcPvPK23grpc_arg_pointer_vtable(ptr sret(%struct.grpc_arg) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z33grpc_channel_credentials_from_argPK8grpc_arg(ptr nocapture noundef readonly %arg) local_unnamed_addr #5 {
+define noundef ptr @_Z33grpc_channel_credentials_from_argPK8grpc_arg(ptr noundef readonly captures(none) %arg) local_unnamed_addr #5 {
 entry:
   %key = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %0 = load ptr, ptr %key, align 8
@@ -520,7 +520,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z37grpc_channel_credentials_find_in_argsPK17grpc_channel_args(ptr noundef readonly %args) local_unnamed_addr #5 {
@@ -734,7 +734,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %if.end.i, %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23grpc_server_credentials27set_auth_metadata_processorERK28grpc_auth_metadata_processor(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %processor) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN23grpc_server_credentials27set_auth_metadata_processorERK28grpc_auth_metadata_processor(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %processor) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_api_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
@@ -770,10 +770,10 @@ _ZN23grpc_server_credentials16DestroyProcessorEv.exit: ; preds = %if.end, %land.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_server_credentials_set_auth_metadata_processor(ptr noundef %creds, ptr nocapture noundef readonly byval(%struct.grpc_auth_metadata_processor) align 8 %processor) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @grpc_server_credentials_set_auth_metadata_processor(ptr noundef %creds, ptr noundef readonly byval(%struct.grpc_auth_metadata_processor) align 8 captures(none) %processor) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_api_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %0 to i1
@@ -816,7 +816,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z32grpc_server_credentials_from_argPK8grpc_arg(ptr nocapture noundef readonly %arg) local_unnamed_addr #5 {
+define noundef ptr @_Z32grpc_server_credentials_from_argPK8grpc_arg(ptr noundef readonly captures(none) %arg) local_unnamed_addr #5 {
 entry:
   %key = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %0 = load ptr, ptr %key, align 8
@@ -1133,7 +1133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_credentials.cc() #17 section ".text.startup" {
@@ -1151,10 +1151,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #18
 declare extern_weak void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E() #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

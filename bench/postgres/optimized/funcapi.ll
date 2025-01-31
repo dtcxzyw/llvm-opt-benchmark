@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.resolve_anymultirange_from_others = private unnamed_addr constant [34 x i8] c"resolve_anymultirange_from_others\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InitMaterializedSRF(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @InitMaterializedSRF(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -181,7 +181,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @get_call_result_type(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @get_call_result_type(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -200,7 +200,7 @@ declare ptr @BlessTupleDesc(ptr noundef) local_unnamed_addr #2
 declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @init_MultiFuncCall(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @init_MultiFuncCall(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -273,7 +273,7 @@ define internal void @shutdown_MultiFuncCall(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @per_MultiFuncCall(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local ptr @per_MultiFuncCall(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -281,7 +281,7 @@ define dso_local ptr @per_MultiFuncCall(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @end_MultiFuncCall(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local void @end_MultiFuncCall(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1258,7 +1258,7 @@ define dso_local ptr @get_expr_result_tupdesc(ptr noundef %0, i1 noundef zeroext
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr nocapture noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.polymorphic_actuals, align 4
   %6 = alloca %struct.polymorphic_actuals, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -1655,12 +1655,12 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @get_call_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resolve_anyelement_from_others(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @resolve_anyelement_from_others(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -1752,7 +1752,7 @@ define internal fastcc void @resolve_anyelement_from_others(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resolve_anyarray_from_others(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @resolve_anyarray_from_others(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %.thread
@@ -1793,7 +1793,7 @@ define internal fastcc void @resolve_anyarray_from_others(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resolve_anyrange_from_others(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @resolve_anyrange_from_others(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -1828,7 +1828,7 @@ define internal fastcc void @resolve_anyrange_from_others(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resolve_anymultirange_from_others(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @resolve_anymultirange_from_others(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -1864,7 +1864,7 @@ define internal fastcc void @resolve_anymultirange_from_others(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_func_arg_info(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local i32 @get_func_arg_info(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -2001,7 +2001,7 @@ define dso_local i32 @get_func_arg_info(ptr noundef %0, ptr nocapture noundef wr
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %70, %62
-  %82 = call i64 @SysCacheGetAttr(i32 noundef 45, ptr noundef %0, i16 noundef signext 22, ptr noundef nonnull %5) #9
+  %82 = call i64 @SysCacheGetAttr(i32 noundef 45, ptr noundef nonnull %0, i16 noundef signext 22, ptr noundef nonnull %5) #9
   %83 = load i8, ptr %5, align 1
   %84 = trunc i8 %83 to i1
   br i1 %84, label %85, label %86
@@ -2078,14 +2078,14 @@ declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, -2147483648) i32 @get_func_trftypes(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @get_func_trftypes(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = call i64 @SysCacheGetAttr(i32 noundef 45, ptr noundef %0, i16 noundef signext 25, ptr noundef nonnull %3) #9
   %5 = load i8, ptr %3, align 1
@@ -2156,7 +2156,7 @@ define dso_local range(i32 0, -2147483648) i32 @get_func_trftypes(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_func_input_arg_names(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local i32 @get_func_input_arg_names(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = icmp eq i64 %0, 0
@@ -2891,7 +2891,7 @@ select.unfold:                                    ; preds = %4, %2, %8
 declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @extract_variadic_args(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
+define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -3112,10 +3112,10 @@ declare signext i8 @get_typtype(i32 noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

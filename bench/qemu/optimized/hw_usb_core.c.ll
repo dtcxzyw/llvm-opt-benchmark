@@ -76,7 +76,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.45 = private unnamed_addr constant [75 x i8] c"usb_packet_state_change bus %d, port %s, ep %d, packet %p, state %s -> %s\0A\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @usb_pick_speed(ptr nocapture noundef readonly %port) local_unnamed_addr #0 {
+define dso_local void @usb_pick_speed(ptr noundef readonly captures(none) %port) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %port, align 8
   %speedmask = getelementptr inbounds nuw i8, ptr %0, i64 220
@@ -428,7 +428,7 @@ sw.epilog:                                        ; preds = %if.end, %if.end19, 
 declare void @usb_pcap_ctrl(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_packet_copy(ptr nocapture noundef %p, ptr noundef %ptr, i64 noundef %bytes) local_unnamed_addr #1 {
+define dso_local void @usb_packet_copy(ptr noundef captures(none) %p, ptr noundef %ptr, i64 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %combined = getelementptr inbounds nuw i8, ptr %p, i64 96
   %0 = load ptr, ptr %combined, align 8
@@ -494,7 +494,7 @@ sw.epilog:                                        ; preds = %if.else.i21, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_packet_complete(ptr nocapture noundef readonly %dev, ptr noundef %p) local_unnamed_addr #1 {
+define dso_local void @usb_packet_complete(ptr noundef readonly captures(none) %dev, ptr noundef %p) local_unnamed_addr #1 {
 entry:
   %ep1 = getelementptr inbounds nuw i8, ptr %p, i64 16
   %0 = load ptr, ptr %ep1, align 8
@@ -623,7 +623,7 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @usb_find_device(ptr nocapture noundef readonly %port, i8 noundef zeroext %addr) local_unnamed_addr #1 {
+define dso_local ptr @usb_find_device(ptr noundef readonly captures(none) %port, i8 noundef zeroext %addr) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %port, align 8
   %cmp = icmp eq ptr %0, null
@@ -1484,7 +1484,7 @@ if.end:                                           ; preds = %trace_usb_packet_st
 declare void @usb_pcap_data(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_packet_complete_one(ptr nocapture noundef readonly %dev, ptr noundef %p) local_unnamed_addr #1 {
+define dso_local void @usb_packet_complete_one(ptr noundef readonly captures(none) %dev, ptr noundef %p) local_unnamed_addr #1 {
 entry:
   %ep1 = getelementptr inbounds nuw i8, ptr %p, i64 16
   %0 = load ptr, ptr %ep1, align 8
@@ -1739,13 +1739,13 @@ entry:
 declare void @qemu_iovec_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_packet_skip(ptr nocapture noundef %p, i64 noundef %bytes) local_unnamed_addr #1 {
+define dso_local void @usb_packet_skip(ptr noundef captures(none) %p, i64 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %combined = getelementptr inbounds nuw i8, ptr %p, i64 96
   %0 = load ptr, ptr %combined, align 8
@@ -1798,7 +1798,7 @@ if.end16:                                         ; preds = %if.then12, %if.end9
 declare i64 @iov_memset(ptr noundef, i32 noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @usb_packet_size(ptr nocapture noundef readonly %p) local_unnamed_addr #6 {
+define dso_local i64 @usb_packet_size(ptr noundef readonly captures(none) %p) local_unnamed_addr #6 {
 entry:
   %combined = getelementptr inbounds nuw i8, ptr %p, i64 96
   %0 = load ptr, ptr %combined, align 8
@@ -2549,7 +2549,7 @@ declare void @usb_device_handle_data(ptr noundef, ptr noundef) local_unnamed_add
 declare void @usb_device_handle_control(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -2560,16 +2560,16 @@ declare i64 @iov_to_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef,
 declare i64 @iov_from_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

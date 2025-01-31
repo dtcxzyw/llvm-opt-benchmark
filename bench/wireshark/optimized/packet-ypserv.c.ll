@@ -177,7 +177,7 @@ declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare i32 @dissect_rpc_unknown(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_domain_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_domain_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.78) #2
   %5 = load i32, ptr @hf_ypserv_domain, align 4
   %6 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0, ptr noundef null) #2
@@ -185,7 +185,7 @@ define internal i32 @dissect_domain_call(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_domain_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_domain_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.79) #2
   %5 = load i32, ptr @hf_ypserv_servesdomain, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
@@ -193,7 +193,7 @@ define internal noundef i32 @dissect_domain_reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_domain_nonack_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_domain_nonack_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.80) #2
   %5 = load i32, ptr @hf_ypserv_domain, align 4
   %6 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0, ptr noundef null) #2
@@ -201,7 +201,7 @@ define internal i32 @dissect_domain_nonack_call(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_domain_nonack_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_domain_nonack_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.81) #2
   %5 = load i32, ptr @hf_ypserv_servesdomain, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
@@ -209,7 +209,7 @@ define internal noundef i32 @dissect_domain_nonack_reply(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_match_call(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_match_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.82) #2
   %6 = load i32, ptr @hf_ypserv_domain, align 4
@@ -238,7 +238,7 @@ define internal i32 @dissect_match_call(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_match_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_match_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.86) #2
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
@@ -274,7 +274,7 @@ define internal i32 @dissect_match_reply(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_first_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_first_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.90) #2
   %5 = load i32, ptr @hf_ypserv_domain, align 4
   %6 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0, ptr noundef null) #2
@@ -284,7 +284,7 @@ define internal i32 @dissect_first_call(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_first_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_first_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.91) #2
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %6 = load i32, ptr @hf_ypserv_status, align 4
@@ -309,7 +309,7 @@ dissect_ypserv_status.exit:                       ; preds = %4, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_next_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_next_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.92) #2
   %5 = load i32, ptr @hf_ypserv_domain, align 4
   %6 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0, ptr noundef null) #2
@@ -321,7 +321,7 @@ define internal i32 @dissect_next_call(ptr noundef %0, ptr nocapture readnone %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_next_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_next_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.93) #2
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %6 = load i32, ptr @hf_ypserv_status, align 4
@@ -346,7 +346,7 @@ dissect_ypserv_status.exit:                       ; preds = %4, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_xfr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_xfr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.94) #2
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %5
@@ -392,7 +392,7 @@ define internal i32 @dissect_xfr_call(ptr noundef %0, ptr nocapture readnone %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_xfr_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_xfr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.95) #2
   %5 = load i32, ptr @hf_ypserv_transid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
@@ -402,19 +402,19 @@ define internal i32 @dissect_xfr_reply(ptr noundef %0, ptr nocapture readnone %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_clear_call(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_clear_call(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.96) #2
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_clear_reply(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_clear_reply(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.97) #2
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_all_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_all_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.98) #2
   %5 = load i32, ptr @hf_ypserv_domain, align 4
   %6 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0, ptr noundef null) #2
@@ -424,7 +424,7 @@ define internal i32 @dissect_all_call(ptr noundef %0, ptr nocapture readnone %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_all_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_all_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.99) #2
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %6 = load i32, ptr @hf_ypserv_more, align 4
@@ -468,7 +468,7 @@ dissect_ypserv_status.exit:                       ; preds = %9, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_master_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_master_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.100) #2
   %5 = load i32, ptr @hf_ypserv_domain, align 4
   %6 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0, ptr noundef null) #2
@@ -478,7 +478,7 @@ define internal i32 @dissect_master_call(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_master_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_master_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.101) #2
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %6 = load i32, ptr @hf_ypserv_status, align 4
@@ -501,7 +501,7 @@ dissect_ypserv_status.exit:                       ; preds = %4, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_order_call(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_order_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.102) #2
   %6 = load i32, ptr @hf_ypserv_domain, align 4
@@ -523,7 +523,7 @@ define internal i32 @dissect_order_call(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_order_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_order_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.103) #2
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %6 = load i32, ptr @hf_ypserv_status, align 4
@@ -551,7 +551,7 @@ dissect_ypserv_status.exit:                       ; preds = %4, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_maplist_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_maplist_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.105) #2
   %5 = load i32, ptr @hf_ypserv_domain, align 4
   %6 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0, ptr noundef null) #2
@@ -559,7 +559,7 @@ define internal i32 @dissect_maplist_call(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_maplist_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_maplist_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.106) #2
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %6 = load i32, ptr @hf_ypserv_status, align 4

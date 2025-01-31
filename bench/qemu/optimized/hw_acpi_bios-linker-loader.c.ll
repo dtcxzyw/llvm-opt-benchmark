@@ -103,7 +103,7 @@ declare ptr @fw_cfg_find() local_unnamed_addr #2
 declare zeroext i1 @fw_cfg_dma_enabled(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bios_linker_loader_alloc(ptr nocapture noundef readonly %linker, ptr noundef %file_name, ptr noundef %file_blob, i32 noundef %alloc_align, i1 noundef zeroext %alloc_fseg) local_unnamed_addr #0 {
+define dso_local void @bios_linker_loader_alloc(ptr noundef readonly captures(none) %linker, ptr noundef %file_name, ptr noundef %file_blob, i32 noundef %alloc_align, i1 noundef zeroext %alloc_fseg) local_unnamed_addr #0 {
 entry:
   %entry1 = alloca %struct.BiosLinkerLoaderEntry, align 4
   %file = alloca %struct.BiosLinkerFileEntry, align 8
@@ -174,15 +174,15 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @g_array_prepend_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bios_linker_loader_add_checksum(ptr nocapture noundef readonly %linker, ptr nocapture noundef readonly %file_name, i32 noundef %start_offset, i32 noundef %size, i32 noundef %checksum_offset) local_unnamed_addr #0 {
+define dso_local void @bios_linker_loader_add_checksum(ptr noundef readonly captures(none) %linker, ptr noundef readonly captures(none) %file_name, i32 noundef %start_offset, i32 noundef %size, i32 noundef %checksum_offset) local_unnamed_addr #0 {
 entry:
   %entry1 = alloca %struct.BiosLinkerLoaderEntry, align 4
   %file_list.i = getelementptr inbounds nuw i8, ptr %linker, i64 8
@@ -274,7 +274,7 @@ if.end20:                                         ; preds = %if.end14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bios_linker_loader_add_pointer(ptr nocapture noundef readonly %linker, ptr nocapture noundef readonly %dest_file, i32 noundef %dst_patched_offset, i8 noundef zeroext %dst_patched_size, ptr nocapture noundef readonly %src_file, i32 noundef %src_offset) local_unnamed_addr #0 {
+define dso_local void @bios_linker_loader_add_pointer(ptr noundef readonly captures(none) %linker, ptr noundef readonly captures(none) %dest_file, i32 noundef %dst_patched_offset, i8 noundef zeroext %dst_patched_size, ptr noundef readonly captures(none) %src_file, i32 noundef %src_offset) local_unnamed_addr #0 {
 entry:
   %le_src_offset = alloca i64, align 8
   %entry1 = alloca %struct.BiosLinkerLoaderEntry, align 4
@@ -408,10 +408,10 @@ if.end47:                                         ; preds = %if.end23, %if.end23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bios_linker_loader_write_pointer(ptr nocapture noundef readonly %linker, ptr nocapture noundef readonly %dest_file, i32 noundef %dst_patched_offset, i8 noundef zeroext %dst_patched_size, ptr nocapture noundef readonly %src_file, i32 noundef %src_offset) local_unnamed_addr #0 {
+define dso_local void @bios_linker_loader_write_pointer(ptr noundef readonly captures(none) %linker, ptr noundef readonly captures(none) %dest_file, i32 noundef %dst_patched_offset, i8 noundef zeroext %dst_patched_size, ptr noundef readonly captures(none) %src_file, i32 noundef %src_offset) local_unnamed_addr #0 {
 entry:
   %entry1 = alloca %struct.BiosLinkerLoaderEntry, align 4
   %file_list.i = getelementptr inbounds nuw i8, ptr %linker, i64 8
@@ -487,7 +487,7 @@ if.end29:                                         ; preds = %if.end4, %if.end4, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #8

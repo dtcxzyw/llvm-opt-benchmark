@@ -73,7 +73,7 @@ $_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFvvENS_4ListIJEEEvE4implEiPNS_15Q
 @_ZN16WirelessTimelineD1Ev = unnamed_addr alias void (ptr), ptr @_ZN16WirelessTimelineD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16WirelessTimeline15mousePressEventEP11QMouseEvent(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((48, 64)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16WirelessTimeline15mousePressEventEP11QMouseEvent(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(896) initializes((48, 64)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -86,7 +86,7 @@ define void @_ZN16WirelessTimeline15mousePressEventEP11QMouseEvent(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16WirelessTimeline14mouseMoveEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16WirelessTimeline14mouseMoveEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 4
   %4 = icmp eq i32 %.sroa.0.0.copyload.i, 0
@@ -169,7 +169,7 @@ _ZN16WirelessTimeline8clip_tsfEv.exit:            ; preds = %._crit_edge.i, %54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN16WirelessTimeline8clip_tsfEv(ptr nocapture noundef nonnull align 8 dereferenceable(896) %0) local_unnamed_addr #1 align 2 {
+define void @_ZN16WirelessTimeline8clip_tsfEv(ptr noundef nonnull align 8 captures(none) dereferenceable(896) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 864
@@ -218,7 +218,7 @@ define void @_ZN16WirelessTimeline8clip_tsfEv(ptr nocapture noundef nonnull alig
 declare void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16WirelessTimeline17mouseReleaseEventEP11QMouseEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16WirelessTimeline17mouseReleaseEventEP11QMouseEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(896) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -261,7 +261,7 @@ define void @_ZN16WirelessTimeline17mouseReleaseEventEP11QMouseEvent(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN16WirelessTimeline11find_packetEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN16WirelessTimeline11find_packetEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(896) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %4 = load i64, ptr %3, align 8
   %5 = uitofp i64 %4 to double
@@ -348,7 +348,7 @@ declare ptr @frame_data_sequence_find(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @cf_goto_frame(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr nocapture readnone %1) #0 align 2 {
+define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr readnone captures(none) %1) #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -489,7 +489,7 @@ _ZN16WirelessTimeline8clip_tsfEv.exit:            ; preds = %._crit_edge.i, %83
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(896) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
@@ -502,7 +502,7 @@ define noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr nocapture nounde
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(896) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 80), align 8
   %switch = icmp ult i32 %3, 2
   br i1 %switch, label %.loopexit, label %4
@@ -870,7 +870,7 @@ declare void @_ZN15MainApplication10pushStatusENS_10StatusInfoERK7QStringS3_(ptr
 declare void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16WirelessTimeline14appInitializedEv(ptr noundef nonnull align 8 dereferenceable(896) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -942,7 +942,7 @@ define void @_ZN16WirelessTimeline18tap_timeline_resetEPv(ptr noundef %0) #0 ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN16WirelessTimeline19tap_timeline_packetEPvP12_packet_infoP12epan_dissectPKvj(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 align 2 {
+define noundef i32 @_ZN16WirelessTimeline19tap_timeline_packetEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -958,12 +958,12 @@ declare void @report_failure(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN16WirelessTimeline11resizeEventEP12QResizeEvent(ptr nocapture noundef nonnull readnone align 8 dereferenceable(896) %0, ptr nocapture noundef readnone %1) unnamed_addr #6 align 2 {
+define void @_ZN16WirelessTimeline11resizeEventEP12QResizeEvent(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(896) %0, ptr noundef readnone captures(none) %1) unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN16WirelessTimeline8positionEmf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0, i64 noundef %1, float noundef %2) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZN16WirelessTimeline8positionEmf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(896) %0, i64 noundef %1, float noundef %2) local_unnamed_addr #7 align 2 {
   %.not = icmp eq i64 %1, -1
   br i1 %.not, label %28, label %4
 
@@ -1156,7 +1156,7 @@ define void @_ZThn16_N16WirelessTimelineD0Ev(ptr noundef %0) unnamed_addr #12 al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16WirelessTimeline13setPacketListEP10PacketList(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
+define void @_ZN16WirelessTimeline13setPacketListEP10PacketList(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(896) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
@@ -1167,7 +1167,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16WirelessTimeline9doToolTipEP10wlan_radio6QPointi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0, ptr nocapture noundef readonly %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16WirelessTimeline9doToolTipEP10wlan_radio6QPointi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(896) %0, ptr noundef readonly captures(none) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QPoint, align 8
@@ -1560,7 +1560,7 @@ _ZN8QToolTip8hideTextEv.exit:                     ; preds = %27, %_ZN17QArrayDat
 declare noundef zeroext i1 @_ZN7QWidget5eventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.1.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
@@ -1841,7 +1841,7 @@ _ZN16WirelessTimeline8positionEmf.exit9:          ; preds = %_ZN16WirelessTimeli
 declare double @pow(double noundef, double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16WirelessTimeline10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16WirelessTimeline10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QRectF, align 8
   %4 = alloca %class.pcolor, align 4
   %5 = alloca %class.QColor, align 4
@@ -2781,7 +2781,7 @@ declare noundef ptr @_ZNK10PacketList14getFDataForRowEi(ptr noundef nonnull alig
 declare void @_ZN14QGraphicsSceneC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef nonnull %2, float noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, float noundef %3) unnamed_addr #0 {
   %5 = alloca %class.QRectF, align 8
   %6 = alloca %class.pcolor, align 4
   %7 = sitofp i32 %1 to float
@@ -3151,10 +3151,10 @@ _ZN9QtPrivate15FunctionPointerIM16WirelessTimelineFvvEE4callINS_4ListIJEEEvEEvS3
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #18

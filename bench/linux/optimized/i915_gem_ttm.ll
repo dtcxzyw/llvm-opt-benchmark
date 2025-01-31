@@ -147,10 +147,10 @@ define dso_local void @i915_ttm_free_cached_io_rsgt(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @radix_tree_next_chunk(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -159,7 +159,7 @@ declare dso_local ptr @radix_tree_next_chunk(ptr noundef, ptr noundef, i32 nound
 declare dso_local ptr @radix_tree_delete(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @i915_ttm_purge(ptr noundef %0) local_unnamed_addr #1 align 16 {
@@ -237,7 +237,7 @@ declare dso_local void @fput(ptr noundef) local_unnamed_addr #4
 declare dso_local void @i915_ttm_adjust_gem_after_move(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @i915_ttm_resource_get_st(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local ptr @i915_ttm_resource_get_st(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1164,7 +1164,7 @@ define internal void @i915_ttm_tt_unpopulate(ptr noundef %0, ptr noundef %1) #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i915_ttm_tt_destroy(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define internal void @i915_ttm_tt_destroy(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1235,7 +1235,7 @@ define internal zeroext i1 @i915_ttm_eviction_valuable(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal void @i915_ttm_evict_flags(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) #6 align 16 {
+define internal void @i915_ttm_evict_flags(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1) #6 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) @i915_sys_placement, i64 32, i1 false)
   ret void
 }
@@ -1299,7 +1299,7 @@ define internal void @i915_ttm_swap_notify(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @i915_ttm_io_mem_reserve(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @i915_ttm_io_mem_reserve(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 368
@@ -1538,7 +1538,7 @@ declare dso_local ptr @shmem_file_setup(ptr noundef, i64 noundef, i64 noundef) l
 declare dso_local i32 @shmem_sg_alloc_table(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @shmem_sg_free_table(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
@@ -1681,7 +1681,7 @@ define internal i32 @i915_ttm_get_pages(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i915_ttm_put_pages(ptr nocapture noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal void @i915_ttm_put_pages(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1856,7 +1856,7 @@ define internal i32 @i915_ttm_shrink(ptr noundef %0, i32 noundef %1) #1 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i64 0, -4095) i64 @i915_ttm_mmap_offset(ptr nocapture noundef readonly %0) #5 align 16 {
+define internal range(i64 0, -4095) i64 @i915_ttm_mmap_offset(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = shl i64 %3, 12
@@ -2071,7 +2071,7 @@ define internal fastcc i32 @__i915_ttm_get_pages(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @i915_ttm_place_from_region(ptr noundef %0, ptr nocapture noundef initializes((0, 16)) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc void @i915_ttm_place_from_region(ptr noundef %0, ptr noundef captures(none) initializes((0, 16)) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %6 = tail call i32 @intel_region_to_ttm_type(ptr noundef %0) #11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2213,7 +2213,7 @@ declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unname
 declare dso_local void @ttm_bo_put(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ttm_vm_open(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @ttm_vm_open(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 1, ptr elementtype(i32) %3) #11, !srcloc !13
@@ -2236,7 +2236,7 @@ define internal void @ttm_vm_open(ptr nocapture noundef readonly %0) #1 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ttm_vm_close(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @ttm_vm_close(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 -1, ptr elementtype(i32) %3) #11, !srcloc !10

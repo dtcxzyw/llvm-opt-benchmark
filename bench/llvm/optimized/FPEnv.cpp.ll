@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE.2 = private unnamed_addr constant [3 x i64] [i64 15, i64 16, i64 15], align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i16 0, 264) i16 @_ZN4llvm24convertStrToRoundingModeENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #0 {
+define dso_local range(i16 0, 264) i16 @_ZN4llvm24convertStrToRoundingModeENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   switch i64 %1, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread137 [
     i64 13, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
     i64 15, label %_ZN4llvmeqENS_9StringRefES0_.exit.i8
@@ -81,7 +81,7 @@ _ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.6") align 8 initializes((16, 17)) %0, i8 noundef signext %1) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.6") align 8 captures(none) initializes((16, 17)) %0, i8 noundef signext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8
   %4 = icmp ult i8 %1, 8
@@ -110,7 +110,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i16 0, 259) i16 @_ZN4llvm29convertStrToExceptionBehaviorENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #0 {
+define dso_local range(i16 0, 259) i16 @_ZN4llvm29convertStrToExceptionBehaviorENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   switch i64 %1, label %.thread47 [
     i64 15, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
     i64 16, label %_ZN4llvmeqENS_9StringRefES0_.exit.i8
@@ -141,7 +141,7 @@ _ZN4llvm12StringSwitchISt8optionalINS_2fp17ExceptionBehaviorEES4_E4CaseENS_13Str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.6") align 8 initializes((16, 17)) %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.6") align 8 captures(none) initializes((16, 17)) %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8
   %4 = icmp ult i8 %1, 3
@@ -165,7 +165,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 139) i32 @_ZN4llvm25getConstrainedIntrinsicIDERKNS_11InstructionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 139) i32 @_ZN4llvm25getConstrainedIntrinsicIDERKNS_11InstructionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 8
   switch i8 %2, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread [
     i8 83, label %3
@@ -397,7 +397,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread: ; p
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #3
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

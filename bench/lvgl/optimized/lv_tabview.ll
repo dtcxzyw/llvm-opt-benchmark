@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_label_class = external constant %struct._lv_obj_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_tabview_constructor(ptr nocapture readnone %0, ptr noundef initializes((68, 72)) %1) #0 {
+define internal void @lv_tabview_constructor(ptr readnone captures(none) %0, ptr noundef initializes((68, 72)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 0, ptr %3, align 4, !tbaa !3
   tail call void @lv_obj_set_size(ptr noundef %1, i32 noundef 536871012, i32 noundef 536871012) #5
@@ -29,7 +29,7 @@ define internal void @lv_tabview_constructor(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_tabview_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_tabview_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_tabview_class, ptr noundef %1) #5
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %4, label %11
@@ -58,14 +58,14 @@ define noundef ptr @lv_tabview_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_tabview_add_tab(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -370,7 +370,7 @@ define void @lv_tabview_set_tab_bar_size(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_tabview_get_tab_active(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_tabview_get_tab_active(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8, !tbaa !12
   ret i32 %3

@@ -516,7 +516,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [2 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @hmp_block_resize, ptr @.str.500, ptr @.str.501, i32 43, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @hmp_screendump, ptr @.str.500, ptr @.str.502, i32 98, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nofree nounwind sspstrong memory(read) uwtable
-define dso_local range(i32 0, 2) i32 @hmp_compare_cmd(ptr nocapture noundef readonly %name, ptr noundef %list) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hmp_compare_cmd(ptr noundef readonly captures(none) %name, ptr noundef %list) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #10
   %sext = shl i64 %call, 32
@@ -533,7 +533,7 @@ for.cond:                                         ; preds = %if.end, %entry
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %for.cond
-  %bcmp = tail call i32 @bcmp(ptr %p.0, ptr %name, i64 %conv2)
+  %bcmp = tail call i32 @bcmp(ptr %p.0, ptr nonnull %name, i64 %conv2)
   %tobool.not = icmp eq i32 %bcmp, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -549,7 +549,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @hmp_help(ptr noundef, ptr noundef) #2
 
@@ -796,7 +796,7 @@ declare void @hmp_info_help(ptr noundef, ptr noundef) #2
 declare void @hmp_dumpdtb(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @get_monitor_def(ptr noundef %mon, ptr nocapture noundef writeonly %pval, ptr noundef %name) local_unnamed_addr #3 {
+define dso_local i32 @get_monitor_def(ptr noundef %mon, ptr noundef writeonly captures(none) %pval, ptr noundef %name) local_unnamed_addr #3 {
 entry:
   %tmp = alloca i64, align 8
   %call = tail call ptr @target_monitor_defs() #11
@@ -833,7 +833,7 @@ for.cond.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %for.cond.i
-  %bcmp.i = tail call i32 @bcmp(ptr %p.0.i, ptr readonly %name, i64 %conv2.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %p.0.i, ptr nonnull readonly %name, i64 %conv2.i)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %if.then7, label %if.end.i
 
@@ -919,10 +919,10 @@ entry:
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_mon_cmd(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #6 {
+define internal i32 @compare_mon_cmd(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #6 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -931,7 +931,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @monitor_register_hmp(ptr nocapture noundef readonly %name, i1 noundef zeroext %info, ptr noundef %cmd) local_unnamed_addr #3 {
+define dso_local void @monitor_register_hmp(ptr noundef readonly captures(none) %name, i1 noundef zeroext %info, ptr noundef %cmd) local_unnamed_addr #3 {
 entry:
   %cond = select i1 %info, ptr @hmp_info_cmds, ptr @hmp_cmds
   %0 = load ptr, ptr %cond, align 16
@@ -977,13 +977,13 @@ do.body10:                                        ; preds = %if.end9, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @monitor_register_hmp_info_hrt(ptr nocapture noundef readonly %name, ptr noundef %handler) local_unnamed_addr #3 {
+define dso_local void @monitor_register_hmp_info_hrt(ptr noundef readonly captures(none) %name, ptr noundef %handler) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @hmp_info_cmds, align 16
   %cmp.not7 = icmp eq ptr %0, null
@@ -1149,7 +1149,7 @@ declare void @hmp_virtio_queue_element(ptr noundef, ptr noundef) #2
 declare void @hmp_info_cryptodev(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 attributes #0 = { nofree nounwind sspstrong memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [12 x i8] c"poll failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_PollSelectorImpl_poll(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_PollSelectorImpl_poll(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = sext i32 %3 to i64
   %8 = tail call i32 @poll(ptr noundef %6, i64 noundef %7, i32 noundef %4) #3

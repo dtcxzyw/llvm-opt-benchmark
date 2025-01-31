@@ -133,7 +133,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xdp_features
 @llvm.compiler.used = appending global [33 x ptr] [ptr @__UNIQUE_ID___addressable___xdp_build_skb_from_frame1060, ptr @__UNIQUE_ID___addressable___xdp_rxq_info_reg1032, ptr @__UNIQUE_ID___addressable_xdp_alloc_skb_bulk1059, ptr @__UNIQUE_ID___addressable_xdp_attachment_setup1052, ptr @__UNIQUE_ID___addressable_xdp_build_skb_from_frame1061, ptr @__UNIQUE_ID___addressable_xdp_convert_zc_to_xdp_frame1053, ptr @__UNIQUE_ID___addressable_xdp_features_clear_redirect_target1066, ptr @__UNIQUE_ID___addressable_xdp_features_set_redirect_target1065, ptr @__UNIQUE_ID___addressable_xdp_flush_frame_bulk1049, ptr @__UNIQUE_ID___addressable_xdp_metadata_init1063, ptr @__UNIQUE_ID___addressable_xdp_reg_mem_model1037, ptr @__UNIQUE_ID___addressable_xdp_return_buff1051, ptr @__UNIQUE_ID___addressable_xdp_return_frame1047, ptr @__UNIQUE_ID___addressable_xdp_return_frame_bulk1050, ptr @__UNIQUE_ID___addressable_xdp_return_frame_rx_napi1048, ptr @__UNIQUE_ID___addressable_xdp_rxq_info_is_reg1034, ptr @__UNIQUE_ID___addressable_xdp_rxq_info_reg_mem_model1042, ptr @__UNIQUE_ID___addressable_xdp_rxq_info_unreg1019, ptr @__UNIQUE_ID___addressable_xdp_rxq_info_unreg_mem_model1018, ptr @__UNIQUE_ID___addressable_xdp_rxq_info_unused1033, ptr @__UNIQUE_ID___addressable_xdp_set_features_flag1064, ptr @__UNIQUE_ID___addressable_xdp_unreg_mem_model1013, ptr @__UNIQUE_ID___addressable_xdp_warn1058, ptr @bit_spin_lock.__UNIQUE_ID___addressable___SCK__preempt_schedule193, ptr @bit_spin_unlock.__UNIQUE_ID___addressable___SCK__preempt_schedule195, ptr @bpf_xdp_metadata_rx_hash, ptr @bpf_xdp_metadata_rx_timestamp, ptr @bpf_xdp_metadata_rx_vlan_tag, ptr @rht_assign_unlock.__UNIQUE_ID___addressable___SCK__preempt_schedule626, ptr @trace_mem_connect.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace821, ptr @trace_mem_connect.__UNIQUE_ID___addressable___SCK__tp_func_mem_connect820, ptr @trace_mem_disconnect.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace807, ptr @trace_mem_disconnect.__UNIQUE_ID___addressable___SCK__tp_func_mem_disconnect806], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xdp_unreg_mem_model(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @xdp_unreg_mem_model(ptr noundef captures(none) %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = load i32, ptr %0, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #19
@@ -160,10 +160,10 @@ define dso_local void @xdp_unreg_mem_model(ptr nocapture noundef %0) #0 align 16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.rhashtable_params) align 8 %2) unnamed_addr #2 align 16 {
+define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%struct.rhashtable_params) align 8 captures(none) %2) unnamed_addr #2 align 16 {
   %4 = alloca %struct.rhashtable_compare_arg, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -361,10 +361,10 @@ define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xdp_rxq_info_unreg_mem_model(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @xdp_rxq_info_unreg_mem_model(ptr noundef captures(none) %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
@@ -413,7 +413,7 @@ define dso_local void @xdp_rxq_info_unreg_mem_model(ptr nocapture noundef %0) #0
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xdp_rxq_info_unreg(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @xdp_rxq_info_unreg(ptr noundef captures(none) %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
@@ -466,7 +466,7 @@ xdp_rxq_info_unreg_mem_model.exit:                ; preds = %5, %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @__xdp_rxq_info_reg(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__xdp_rxq_info_reg(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca i32, align 4
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %9
@@ -562,14 +562,14 @@ xdp_rxq_info_unreg_mem_model.exit:                ; preds = %27, %15, %13, %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @xdp_rxq_info_unused(ptr nocapture noundef writeonly initializes((12, 16)) %0) #4 align 16 {
+define dso_local void @xdp_rxq_info_unused(ptr noundef writeonly captures(none) initializes((12, 16)) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 3, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @xdp_rxq_info_is_reg(ptr nocapture noundef readonly %0) #5 align 16 {
+define dso_local zeroext i1 @xdp_rxq_info_is_reg(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
@@ -577,7 +577,7 @@ define dso_local zeroext i1 @xdp_rxq_info_is_reg(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xdp_reg_mem_model(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @xdp_reg_mem_model(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call fastcc ptr @__xdp_reg_mem_model(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
   %6 = ptrtoint ptr %4 to i64
@@ -587,7 +587,7 @@ define dso_local i32 @xdp_reg_mem_model(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__xdp_reg_mem_model(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__xdp_reg_mem_model(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19
   %5 = icmp ne i32 %1, 2
@@ -798,7 +798,7 @@ define dso_local i32 @xdp_rxq_info_reg_mem_model(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__xdp_return(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr nocapture readnone %3) local_unnamed_addr #0 align 16 {
+define dso_local void @__xdp_return(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, ptr readnone captures(none) %3) local_unnamed_addr #0 align 16 {
   %5 = load i32, ptr %1, align 4
   switch i32 %5, label %83 [
     i32 2, label %6
@@ -941,7 +941,7 @@ define dso_local void @__xdp_return(ptr noundef %0, ptr nocapture noundef readon
 declare dso_local void @page_frag_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xdp_return_frame(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @xdp_return_frame(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1
@@ -1000,7 +1000,7 @@ define dso_local void @xdp_return_frame(ptr nocapture noundef readonly %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xdp_return_frame_rx_napi(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @xdp_return_frame_rx_napi(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1
@@ -1059,7 +1059,7 @@ define dso_local void @xdp_return_frame_rx_napi(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @xdp_flush_frame_bulk(ptr nocapture noundef %0) #6 align 16 {
+define dso_local void @xdp_flush_frame_bulk(ptr noundef captures(none) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1079,7 +1079,7 @@ define dso_local void @xdp_flush_frame_bulk(ptr nocapture noundef %0) #6 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xdp_return_frame_bulk(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local void @xdp_return_frame_bulk(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 2
@@ -1285,7 +1285,7 @@ define dso_local void @xdp_return_frame_bulk(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xdp_return_buff(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @xdp_return_buff(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1
@@ -1339,7 +1339,7 @@ define dso_local void @xdp_return_buff(ptr nocapture noundef readonly %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @xdp_attachment_setup(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define dso_local void @xdp_attachment_setup(ptr noundef writeonly captures(none) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -1351,7 +1351,7 @@ define dso_local void @xdp_attachment_setup(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @xdp_convert_zc_to_xdp_frame(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef ptr @xdp_convert_zc_to_xdp_frame(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1413,10 +1413,10 @@ define dso_local noundef ptr @xdp_convert_zc_to_xdp_frame(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @xdp_warn(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
@@ -1443,7 +1443,7 @@ define dso_local range(i32 -12, 1) i32 @xdp_alloc_skb_bulk(ptr noundef %0, i32 n
 declare dso_local i32 @kmem_cache_alloc_bulk(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__xdp_build_skb_from_frame(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @__xdp_build_skb_from_frame(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %6 = load i16, ptr %5, align 2
@@ -1557,7 +1557,7 @@ define dso_local ptr @__xdp_build_skb_from_frame(ptr nocapture noundef %0, ptr n
 declare dso_local ptr @build_skb_around(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @xdp_update_skb_shared_info(ptr nocapture noundef nonnull %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #9 align 16 {
+define internal fastcc void @xdp_update_skb_shared_info(ptr noundef nonnull captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #9 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -1594,7 +1594,7 @@ define internal fastcc void @xdp_update_skb_shared_info(ptr nocapture noundef no
 declare dso_local zeroext i16 @eth_type_trans(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @xdp_build_skb_from_frame(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local ptr @xdp_build_skb_from_frame(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr @skbuff_cache, align 8
   %4 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %3, i32 noundef 2080) #19
   %5 = icmp eq ptr %4, null
@@ -1614,7 +1614,7 @@ define dso_local ptr @xdp_build_skb_from_frame(ptr nocapture noundef %0, ptr nou
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @xdpf_clone(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @xdpf_clone(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -1659,17 +1659,17 @@ define dso_local noundef ptr @xdpf_clone(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @bpf_xdp_metadata_rx_timestamp(ptr nocapture readnone %0, ptr nocapture readnone %1) #10 align 16 {
+define dso_local noundef i32 @bpf_xdp_metadata_rx_timestamp(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #10 align 16 {
   ret i32 -95
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @bpf_xdp_metadata_rx_hash(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #10 align 16 {
+define dso_local noundef i32 @bpf_xdp_metadata_rx_hash(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #10 align 16 {
   ret i32 -95
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @bpf_xdp_metadata_rx_vlan_tag(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #10 align 16 {
+define dso_local noundef i32 @bpf_xdp_metadata_rx_vlan_tag(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #10 align 16 {
   ret i32 -95
 }
 
@@ -1777,13 +1777,13 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #3
 declare dso_local ptr @rht_bucket_nested(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @xdp_mem_id_hashfn(ptr nocapture noundef readonly %0, i32 %1, i32 %2) #5 align 16 {
+define internal i32 @xdp_mem_id_hashfn(ptr noundef readonly captures(none) %0, i32 %1, i32 %2) #5 align 16 {
   %4 = load i32, ptr %0, align 4
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, 2) i32 @xdp_mem_id_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 align 16 {
+define internal range(i32 0, 2) i32 @xdp_mem_id_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -1843,7 +1843,7 @@ declare dso_local ptr @__alloc_pages(i32 noundef, i32 noundef, i32 noundef, ptr 
 declare dso_local ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @btf_id_cmp_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 align 16 {
+define internal i32 @btf_id_cmp_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 align 16 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = sub i32 %3, %4
@@ -1851,7 +1851,7 @@ define internal i32 @btf_id_cmp_func(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

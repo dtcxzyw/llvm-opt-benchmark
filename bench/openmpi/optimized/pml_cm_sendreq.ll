@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_null = external global %struct.ompi_predefined_request_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_cm_send_request_completion(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @mca_pml_cm_send_request_completion(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
@@ -681,14 +681,14 @@ opal_free_list_return.exit:                       ; preds = %310, %309, %299, %2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @mca_pml_base_bsend_request_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_pml_cm_send_request_construct(ptr nocapture noundef writeonly initializes((112, 136)) %0) #3 {
+define internal void @mca_pml_cm_send_request_construct(ptr noundef writeonly captures(none) initializes((112, 136)) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @mca_pml_cm_start, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -712,7 +712,7 @@ declare i32 @opal_convertor_set_position_nocheck(ptr noundef, ptr noundef) local
 declare i32 @mca_pml_cm_start(i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_pml_cm_send_request_free(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @mca_pml_cm_send_request_free(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 164
   store volatile i32 1, ptr %3, align 4

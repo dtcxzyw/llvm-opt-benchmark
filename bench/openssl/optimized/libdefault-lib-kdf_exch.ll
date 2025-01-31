@@ -51,7 +51,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @kdf_derive(ptr nocapture noundef readonly %vpkdfctx, ptr noundef %secret, ptr nocapture noundef writeonly %secretlen, i64 noundef %outlen) #0 {
+define internal range(i32 0, 2) i32 @kdf_derive(ptr noundef readonly captures(none) %vpkdfctx, ptr noundef %secret, ptr noundef writeonly captures(none) %secretlen, i64 noundef %outlen) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @kdf_dupctx(ptr nocapture noundef readonly %vpkdfctx) #0 {
+define internal ptr @kdf_dupctx(ptr noundef readonly captures(none) %vpkdfctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -156,7 +156,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kdf_set_ctx_params(ptr nocapture noundef readonly %vpkdfctx, ptr noundef %params) #0 {
+define internal i32 @kdf_set_ctx_params(ptr noundef readonly captures(none) %vpkdfctx, ptr noundef %params) #0 {
 entry:
   %kdfctx = getelementptr inbounds nuw i8, ptr %vpkdfctx, i64 8
   %0 = load ptr, ptr %kdfctx, align 8
@@ -165,7 +165,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @kdf_tls1_prf_settable_ctx_params(ptr nocapture readnone %vpkdfctx, ptr noundef %provctx) #0 {
+define internal ptr @kdf_tls1_prf_settable_ctx_params(ptr readnone captures(none) %vpkdfctx, ptr noundef %provctx) #0 {
 entry:
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #3
   %call1.i = tail call ptr @EVP_KDF_fetch(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef null) #3
@@ -190,7 +190,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @kdf_hkdf_settable_ctx_params(ptr nocapture readnone %vpkdfctx, ptr noundef %provctx) #0 {
+define internal ptr @kdf_hkdf_settable_ctx_params(ptr readnone captures(none) %vpkdfctx, ptr noundef %provctx) #0 {
 entry:
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #3
   %call1.i = tail call ptr @EVP_KDF_fetch(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef null) #3
@@ -215,7 +215,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @kdf_scrypt_settable_ctx_params(ptr nocapture readnone %vpkdfctx, ptr noundef %provctx) #0 {
+define internal ptr @kdf_scrypt_settable_ctx_params(ptr readnone captures(none) %vpkdfctx, ptr noundef %provctx) #0 {
 entry:
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #3
   %call1.i = tail call ptr @EVP_KDF_fetch(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef null) #3
@@ -299,7 +299,7 @@ declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @ossl_kdf_data_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @EVP_KDF_CTX_dup(ptr noundef) local_unnamed_addr #1
 

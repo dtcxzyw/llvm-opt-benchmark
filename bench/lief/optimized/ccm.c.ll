@@ -21,13 +21,13 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ccm_init(ptr nocapture noundef writeonly initializes((0, 168)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_ccm_init(ptr noundef writeonly captures(none) initializes((0, 168)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 0, i64 168, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ccm_setkey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
@@ -83,7 +83,7 @@ define hidden void @mbedtls_ccm_free(ptr noundef %0) local_unnamed_addr #2 {
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = add i64 %3, -14
   %or.cond = icmp ult i64 %6, -7
@@ -205,7 +205,7 @@ ccm_calculate_first_block_if_ready.exit:          ; preds = %7, %29, %55, %.sink
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ccm_set_lengths(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
@@ -314,7 +314,7 @@ ccm_calculate_first_block_if_ready.exit:          ; preds = %10, %21, %44, %.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ccm_update_ad(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ccm_update_ad(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %6 = load i32, ptr %5, align 4
@@ -446,7 +446,7 @@ define hidden i32 @mbedtls_ccm_update_ad(ptr noundef %0, ptr nocapture noundef r
 declare i32 @mbedtls_cipher_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ccm_update(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ccm_update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #2 {
   %7 = alloca i64, align 8
   %8 = alloca [16 x i8], align 16
   %9 = alloca i64, align 8
@@ -829,7 +829,7 @@ mbedtls_ccm_crypt.exit:                           ; preds = %.preheader.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ccm_star_encrypt_and_tag(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly %7, ptr noundef %8, i64 noundef %9) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ccm_star_encrypt_and_tag(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef %8, i64 noundef %9) local_unnamed_addr #2 {
   %11 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %12 = tail call i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef 3, ptr noundef readonly %2, i64 noundef %3)
@@ -862,7 +862,7 @@ ccm_auth_crypt.exit:                              ; preds = %10, %13, %15, %17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly %7, ptr noundef %8, i64 noundef %9) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef %8, i64 noundef %9) local_unnamed_addr #2 {
   %11 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %12 = tail call i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef 1, ptr noundef readonly %2, i64 noundef %3)
@@ -895,13 +895,13 @@ ccm_auth_crypt.exit:                              ; preds = %10, %13, %15, %17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ccm_star_auth_decrypt(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr nocapture noundef readonly %8, i64 noundef %9) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ccm_star_auth_decrypt(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef readonly captures(none) %8, i64 noundef %9) local_unnamed_addr #2 {
   %11 = tail call fastcc i32 @ccm_auth_decrypt(ptr noundef %0, i32 noundef 2, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ccm_auth_decrypt(ptr noundef %0, i32 noundef range(i32 0, 3) %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef readonly %5, i64 noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr nocapture noundef readonly %9, i64 noundef %10) unnamed_addr #2 {
+define internal fastcc i32 @ccm_auth_decrypt(ptr noundef %0, i32 noundef range(i32 0, 3) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, i64 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef %8, ptr noundef readonly captures(none) %9, i64 noundef %10) unnamed_addr #2 {
   %12 = alloca i64, align 8
   %13 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
@@ -969,7 +969,7 @@ mbedtls_ccm_compare_tags.exit.thread:             ; preds = %._crit_edge.loopexi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ccm_auth_decrypt(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr nocapture noundef readonly %8, i64 noundef %9) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ccm_auth_decrypt(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef readonly captures(none) %8, i64 noundef %9) local_unnamed_addr #2 {
   %11 = tail call fastcc i32 @ccm_auth_decrypt(ptr noundef %0, i32 noundef 0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9)
   ret i32 %11
 }
@@ -1127,22 +1127,22 @@ mbedtls_ccm_encrypt_and_tag.exit:                 ; preds = %37
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

@@ -195,7 +195,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.143 = private unnamed_addr constant [29 x i8] c"Mask overlaps source buffer!\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_io_buffer_type_mark(ptr nocapture noundef readonly %0) #0 {
+define hidden void @rb_io_buffer_type_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   tail call void @rb_gc_mark(i64 noundef %3) #20
@@ -205,7 +205,7 @@ define hidden void @rb_io_buffer_type_mark(ptr nocapture noundef readonly %0) #0
 declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_io_buffer_type_free(ptr nocapture noundef %0) #0 {
+define hidden void @rb_io_buffer_type_free(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %io_buffer_free.exit, label %3
@@ -246,7 +246,7 @@ io_buffer_free.exit:                              ; preds = %1, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @rb_io_buffer_type_size(ptr nocapture noundef readonly %0) #2 {
+define hidden i64 @rb_io_buffer_type_size(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -548,7 +548,7 @@ rb_io_buffer_type_allocate.exit:                  ; preds = %3, %11
 declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_initialize(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc void @io_buffer_initialize(i64 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %22
 
@@ -689,7 +689,7 @@ io_buffer_map_file.exit:                          ; preds = %rb_io_buffer_type_a
 declare i32 @rb_io_descriptor(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i64 @rb_io_buffer_initialize(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #0 {
+define hidden noundef i64 @rb_io_buffer_initialize(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %.b.i = load i1, ptr @io_buffer_experimental.warned, align 4
   br i1 %.b.i, label %io_buffer_experimental.exit, label %4
 
@@ -781,7 +781,7 @@ io_buffer_extract_flags.exit:                     ; preds = %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_io_buffer_get_bytes(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define dso_local i32 @rb_io_buffer_get_bytes(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
@@ -821,7 +821,7 @@ io_buffer_validate.exit.thread:                   ; preds = %3, %io_buffer_valid
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_io_buffer_get_bytes_for_writing(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @rb_io_buffer_get_bytes_for_writing(i64 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
@@ -875,7 +875,7 @@ io_buffer_get_bytes_for_writing.exit:             ; preds = %20, %23
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_io_buffer_get_bytes_for_reading(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @rb_io_buffer_get_bytes_for_reading(i64 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
@@ -1131,7 +1131,7 @@ io_buffer_validate.exit.thread:                   ; preds = %1, %io_buffer_valid
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @io_buffer_hexdump(i64 noundef returned %0, i64 noundef range(i64 1, 0) %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc noundef i64 @io_buffer_hexdump(i64 noundef returned %0, i64 noundef range(i64 1, 0) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = add i64 %1, 1
   %8 = alloca i8, i64 %7, align 16
   %9 = getelementptr i8, ptr %8, i64 %1
@@ -1508,7 +1508,7 @@ rb_io_buffer_type_allocate.exit:                  ; preds = %rb_class_of.exit, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_io_buffer_resize(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -1757,7 +1757,7 @@ declare ptr @rb_errno_ptr() local_unnamed_addr #1
 declare void @rb_syserr_fail(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_io_buffer_clear(i64 noundef %0, i8 noundef zeroext %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -1812,7 +1812,7 @@ io_buffer_validate_range.exit:                    ; preds = %io_buffer_validate.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_io_buffer_read(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -1930,7 +1930,7 @@ declare i64 @rb_fiber_scheduler_current() local_unnamed_addr #1
 declare i64 @rb_fiber_scheduler_io_read(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_read_internal(ptr nocapture noundef %0) #0 {
+define internal i64 @io_buffer_read_internal(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %0, align 8
@@ -2137,7 +2137,7 @@ io_buffer_blocking_region.exit:                   ; preds = %47, %io_buffer_lock
 declare i64 @rb_fiber_scheduler_io_pread(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_pread_internal(ptr nocapture noundef %0) #0 {
+define internal i64 @io_buffer_pread_internal(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2336,7 +2336,7 @@ io_buffer_blocking_region.exit:                   ; preds = %40, %io_buffer_lock
 declare i64 @rb_fiber_scheduler_io_write(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_write_internal(ptr nocapture noundef %0) #0 {
+define internal i64 @io_buffer_write_internal(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %0, align 8
@@ -2532,7 +2532,7 @@ io_buffer_blocking_region.exit:                   ; preds = %42, %io_buffer_lock
 declare i64 @rb_fiber_scheduler_io_pwrite(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_pwrite_internal(ptr nocapture noundef %0) #0 {
+define internal i64 @io_buffer_pwrite_internal(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2884,7 +2884,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #5
 declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_map(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal i64 @io_buffer_map(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = add i32 %0, -5
   %or.cond.i = icmp ult i32 %4, -4
   br i1 %or.cond.i, label %5, label %rb_check_arity.exit
@@ -3032,7 +3032,7 @@ rb_io_buffer_get_bytes_for_reading.exit:          ; preds = %io_buffer_validate.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_io_buffer_hexdump(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal noundef i64 @rb_io_buffer_hexdump(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %or.cond.i = icmp ugt i32 %0, 3
@@ -3255,7 +3255,7 @@ define internal range(i64 0, 21) i64 @io_buffer_readonly_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_slice(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @io_buffer_slice(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %or.cond.i = icmp ugt i32 %0, 2
@@ -3484,7 +3484,7 @@ io_buffer_extract_size.exit:                      ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @io_buffer_clear(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #0 {
+define internal noundef i64 @io_buffer_clear(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %or.cond.i = icmp ugt i32 %0, 3
@@ -3887,7 +3887,7 @@ rb_ull2num_inline.exit:                           ; preds = %38, %41
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_values(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @io_buffer_values(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @rb_io_buffer_type) #20
@@ -4324,7 +4324,7 @@ rb_ull2num_inline.exit:                           ; preds = %91, %94
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_copy(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @io_buffer_copy(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = add i32 %0, -5
   %or.cond.i = icmp ult i32 %4, -4
   br i1 %or.cond.i, label %5, label %rb_check_arity.exit
@@ -4374,7 +4374,7 @@ rb_io_buffer_get_bytes_for_reading.exit:          ; preds = %io_buffer_validate.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_get_string(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @io_buffer_get_string(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %or.cond.i = icmp ugt i32 %0, 3
@@ -4441,7 +4441,7 @@ io_buffer_validate_range.exit:                    ; preds = %24
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_set_string(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @io_buffer_set_string(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = add i32 %0, -5
   %or.cond.i = icmp ult i32 %4, -4
   br i1 %or.cond.i, label %5, label %rb_check_arity.exit
@@ -5112,7 +5112,7 @@ memory_not_inplace.exit:                          ; preds = %.lr.ph.i, %io_buffe
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_read(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @io_buffer_read(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = add i32 %0, -4
@@ -5135,7 +5135,7 @@ rb_check_arity.exit:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_pread(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @io_buffer_pread(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = add i32 %0, -5
@@ -5174,7 +5174,7 @@ rb_num2long_inline.exit:                          ; preds = %12, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_write(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @io_buffer_write(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = add i32 %0, -4
@@ -5197,7 +5197,7 @@ rb_check_arity.exit:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @io_buffer_pwrite(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @io_buffer_pwrite(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = add i32 %0, -5
@@ -5236,7 +5236,7 @@ rb_num2long_inline.exit:                          ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
@@ -5383,27 +5383,27 @@ io_buffer_unlock.exit:                            ; preds = %1
 declare i64 @rb_thread_io_blocking_region(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree
-declare noundef i64 @pread(i32 noundef, ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree
-declare noundef i64 @pwrite(i32 noundef, ptr nocapture noundef readonly, i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noundef i64 @pwrite(i32 noundef, ptr noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare i64 @rb_file_size(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_copy_from(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i64 @io_buffer_copy_from(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %7, label %.thread38
 
@@ -5594,7 +5594,7 @@ rb_ull2num_inline.exit:                           ; preds = %io_buffer_memcpy.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @io_buffer_extract_offset_length(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @io_buffer_extract_offset_length(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %9, label %.thread
@@ -5694,7 +5694,7 @@ io_buffer_extract_length.exit:                    ; preds = %34, %32, %io_buffer
 declare i64 @rb_str_buf_new(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -5778,7 +5778,7 @@ define internal fastcc range(i64 1, 9) i64 @io_buffer_buffer_type_size(i64 nound
 declare i64 @rb_sym2id(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_io_buffer_get_value(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc i64 @rb_io_buffer_get_value(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U8, align 8
   %6 = icmp eq i64 %2, %5
   br i1 %6, label %7, label %17
@@ -6032,7 +6032,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, 0) i64 @io_buffer_read_S16(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, 0) i64 @io_buffer_read_S16(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 2
   %6 = icmp ugt i64 %5, %1
@@ -6055,7 +6055,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, 8589934592) i64 @io_buffer_read_u32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, 8589934592) i64 @io_buffer_read_u32(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 4
   %6 = icmp ugt i64 %5, %1
@@ -6077,7 +6077,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, 8589934592) i64 @io_buffer_read_U32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, 8589934592) i64 @io_buffer_read_U32(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 4
   %6 = icmp ugt i64 %5, %1
@@ -6100,7 +6100,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, 0) i64 @io_buffer_read_s32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, 0) i64 @io_buffer_read_s32(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 4
   %6 = icmp ugt i64 %5, %1
@@ -6122,7 +6122,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, 0) i64 @io_buffer_read_S32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, 0) i64 @io_buffer_read_S32(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 4
   %6 = icmp ugt i64 %5, %1
@@ -6145,7 +6145,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_u64(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i64 @io_buffer_read_u64(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 8
   %6 = icmp ugt i64 %5, %1
@@ -6178,7 +6178,7 @@ rb_ull2num_inline.exit:                           ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_U64(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i64 @io_buffer_read_U64(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 8
   %6 = icmp ugt i64 %5, %1
@@ -6212,7 +6212,7 @@ rb_ull2num_inline.exit:                           ; preds = %12, %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_s64(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i64 @io_buffer_read_s64(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 8
   %6 = icmp ugt i64 %5, %1
@@ -6246,7 +6246,7 @@ rb_ll2num_inline.exit:                            ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_S64(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i64 @io_buffer_read_S64(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 8
   %6 = icmp ugt i64 %5, %1
@@ -6281,7 +6281,7 @@ rb_ll2num_inline.exit:                            ; preds = %12, %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_f32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i64 @io_buffer_read_f32(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 4
   %6 = icmp ugt i64 %5, %1
@@ -6329,7 +6329,7 @@ rb_float_new_inline.exit:                         ; preds = %17, %21, %23
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_F32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i64 @io_buffer_read_F32(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 4
   %6 = icmp ugt i64 %5, %1
@@ -6379,7 +6379,7 @@ rb_float_new_inline.exit:                         ; preds = %19, %23, %25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_f64(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i64 @io_buffer_read_f64(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 8
   %6 = icmp ugt i64 %5, %1
@@ -6426,7 +6426,7 @@ rb_float_new_inline.exit:                         ; preds = %16, %20, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_buffer_read_F64(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i64 @io_buffer_read_F64(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 8
   %6 = icmp ugt i64 %5, %1
@@ -6503,7 +6503,7 @@ declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_frame_this_func() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_extract_offset_count(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc void @io_buffer_extract_offset_count(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = icmp sgt i32 %2, 0
   br i1 %7, label %8, label %.thread
 
@@ -6591,7 +6591,7 @@ io_buffer_extract_count.exit:                     ; preds = %29, %27, %35
 declare i64 @rb_yield_values(i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_io_buffer_set_value(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc void @rb_io_buffer_set_value(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef %4) unnamed_addr #0 {
   %6 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U8, align 8
   %7 = icmp eq i64 %2, %6
   br i1 %7, label %8, label %20
@@ -6880,7 +6880,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_S16(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_S16(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 2
   %7 = icmp ugt i64 %6, %1
@@ -6918,7 +6918,7 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_u32(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_u32(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 4
   %7 = icmp ugt i64 %6, %1
@@ -6942,7 +6942,7 @@ io_buffer_validate_type.exit:                     ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_U32(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_U32(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 4
   %7 = icmp ugt i64 %6, %1
@@ -6967,7 +6967,7 @@ io_buffer_validate_type.exit:                     ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_s32(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_s32(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 4
   %7 = icmp ugt i64 %6, %1
@@ -7004,7 +7004,7 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_S32(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_S32(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 4
   %7 = icmp ugt i64 %6, %1
@@ -7042,7 +7042,7 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_u64(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_u64(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 8
   %7 = icmp ugt i64 %6, %1
@@ -7079,7 +7079,7 @@ rb_num2ull_inline.exit:                           ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_U64(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_U64(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 8
   %7 = icmp ugt i64 %6, %1
@@ -7117,7 +7117,7 @@ rb_num2ull_inline.exit:                           ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_s64(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_s64(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 8
   %7 = icmp ugt i64 %6, %1
@@ -7154,7 +7154,7 @@ rb_num2ll_inline.exit:                            ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_S64(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_S64(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 8
   %7 = icmp ugt i64 %6, %1
@@ -7192,7 +7192,7 @@ rb_num2ll_inline.exit:                            ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_f32(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_f32(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 4
   %7 = icmp ugt i64 %6, %1
@@ -7216,7 +7216,7 @@ io_buffer_validate_type.exit:                     ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_F32(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_F32(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 4
   %7 = icmp ugt i64 %6, %1
@@ -7242,7 +7242,7 @@ io_buffer_validate_type.exit:                     ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_f64(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_f64(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 8
   %7 = icmp ugt i64 %6, %1
@@ -7265,7 +7265,7 @@ io_buffer_validate_type.exit:                     ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_write_F64(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @io_buffer_write_F64(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 8
   %7 = icmp ugt i64 %6, %1
@@ -7306,7 +7306,7 @@ declare i64 @rb_enc_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed
 declare i64 @rb_str_to_str(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_buffer_extract_length_offset(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc void @io_buffer_extract_length_offset(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %7 = icmp sgt i32 %1, 1
   br i1 %7, label %8, label %io_buffer_extract_offset.exit
@@ -7414,10 +7414,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

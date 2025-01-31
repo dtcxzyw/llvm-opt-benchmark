@@ -71,7 +71,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noalias nonnull ptr @MBCSOpen(ptr noundef %ucm) local_unnamed_addr #2 {
@@ -104,13 +104,13 @@ if.end:                                           ; preds = %entry
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local signext range(i8 0, 2) i8 @MBCSOkForBaseFromUnicode(ptr nocapture noundef readonly %mbcsData, ptr nocapture noundef readonly %bytes, i32 noundef %length, i32 noundef %c, i8 noundef signext %flag) local_unnamed_addr #6 {
+define dso_local signext range(i8 0, 2) i8 @MBCSOkForBaseFromUnicode(ptr noundef readonly captures(none) %mbcsData, ptr noundef readonly captures(none) %bytes, i32 noundef %length, i32 noundef %c, i8 noundef signext %flag) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq i8 %flag, 2
   %cmp1 = icmp eq i32 %length, 1
@@ -192,7 +192,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL11MBCSIsValidP12NewConverterPKhi(ptr nocapture noundef readonly %cnvData, ptr noundef %bytes, i32 noundef %length) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL11MBCSIsValidP12NewConverterPKhi(ptr noundef readonly captures(none) %cnvData, ptr noundef %bytes, i32 noundef %length) #2 {
 entry:
   %ucm = getelementptr inbounds nuw i8, ptr %cnvData, i64 32
   %0 = load ptr, ptr %ucm, align 8
@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL12MBCSAddTableP12NewConverterP8UCMTableP20UConverterStaticData(ptr noundef %cnvData, ptr nocapture noundef readonly %table, ptr nocapture noundef writeonly initializes((79, 80)) %staticData) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL12MBCSAddTableP12NewConverterP8UCMTableP20UConverterStaticData(ptr noundef %cnvData, ptr noundef readonly captures(none) %table, ptr noundef writeonly captures(none) initializes((79, 80)) %staticData) #2 {
 entry:
   %map.i61.i = alloca [1007 x i16], align 16
   %map.i27.i = alloca [1007 x i16], align 16
@@ -1275,7 +1275,7 @@ return:                                           ; preds = %if.then25.i, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL9MBCSWriteP12NewConverterPK20UConverterStaticDataP14UNewDataMemoryi(ptr noundef %cnvData, ptr nocapture noundef readonly %staticData, ptr noundef %pData, i32 noundef %tableType) #2 {
+define internal noundef i32 @_ZL9MBCSWriteP12NewConverterPK20UConverterStaticDataP14UNewDataMemoryi(ptr noundef %cnvData, ptr noundef readonly captures(none) %staticData, ptr noundef %pData, i32 noundef %tableType) #2 {
 entry:
   %header = alloca %struct._MBCSHeader, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %header, i8 0, i64 40, i1 false)
@@ -1582,10 +1582,10 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #7
 declare i32 @ucm_countChars(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL16MBCSAddToUnicodeP8MBCSDataPKhiia(ptr noundef %mbcsData, ptr nocapture noundef readonly %bytes, i32 noundef range(i32 -128, 128) %length, i32 noundef %c, i8 noundef signext %flag) unnamed_addr #2 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL16MBCSAddToUnicodeP8MBCSDataPKhiia(ptr noundef %mbcsData, ptr noundef readonly captures(none) %bytes, i32 noundef range(i32 -128, 128) %length, i32 noundef %c, i8 noundef signext %flag) unnamed_addr #2 {
 entry:
   %buffer = alloca [10 x i8], align 1
   %ucm = getelementptr inbounds nuw i8, ptr %mbcsData, i64 32
@@ -2114,7 +2114,7 @@ return:                                           ; preds = %if.else6.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL24MBCSSingleAddFromUnicodeP8MBCSDataPKhiia(ptr nocapture noundef %mbcsData, ptr nocapture noundef readonly %bytes, i32 noundef %c, i8 noundef signext %flag) unnamed_addr #8 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL24MBCSSingleAddFromUnicodeP8MBCSDataPKhiia(ptr noundef captures(none) %mbcsData, ptr noundef readonly captures(none) %bytes, i32 noundef %c, i8 noundef signext %flag) unnamed_addr #8 {
 entry:
   %cmp = icmp eq i8 %flag, 2
   br i1 %cmp, label %return, label %if.end
@@ -2345,7 +2345,7 @@ return:                                           ; preds = %if.end110, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18MBCSAddFromUnicodeP8MBCSDataPKhiia(ptr nocapture noundef %mbcsData, ptr nocapture noundef readonly %bytes, i32 noundef range(i32 -128, 128) %length, i32 noundef %c, i8 noundef signext %flag) unnamed_addr #8 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18MBCSAddFromUnicodeP8MBCSDataPKhiia(ptr noundef captures(none) %mbcsData, ptr noundef readonly captures(none) %bytes, i32 noundef range(i32 -128, 128) %length, i32 noundef %c, i8 noundef signext %flag) unnamed_addr #8 {
 entry:
   %buffer = alloca [10 x i8], align 1
   %ucm = getelementptr inbounds nuw i8, ptr %mbcsData, i64 32
@@ -2945,7 +2945,7 @@ return:                                           ; preds = %if.end214, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef nonnull ptr @_ZL10printBytesPcPKhi(ptr noundef nonnull returned writeonly %buffer, ptr nocapture noundef readonly %bytes, i32 noundef range(i32 -128, 128) %length) unnamed_addr #9 {
+define internal fastcc noundef nonnull ptr @_ZL10printBytesPcPKhi(ptr noundef nonnull returned writeonly %buffer, ptr noundef readonly captures(none) %bytes, i32 noundef range(i32 -128, 128) %length) unnamed_addr #9 {
 entry:
   %cmp11 = icmp sgt i32 %length, 0
   br i1 %cmp11, label %while.body, label %while.end
@@ -2988,19 +2988,19 @@ declare void @ucm_optimizeStates(ptr noundef, ptr noundef, ptr noundef, i32 noun
 declare void @udata_writeBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @char_width.range2 = internal unnamed_addr constant [29 x i32] [i32 4352, i32 4447, i32 9001, i32 9001, i32 9002, i32 9002, i32 11904, i32 12350, i32 12352, i32 42191, i32 44032, i32 55203, i32 63744, i32 64255, i32 65040, i32 65049, i32 65072, i32 65135, i32 65280, i32 65376, i32 65504, i32 65510, i32 126976, i32 128580, i32 131072, i32 196605, i32 196608, i32 262141, i32 -1], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 1, 5) i32 @encode_utf8(ptr nocapture noundef writeonly initializes((0, 1)) %buf, i32 noundef %c) local_unnamed_addr #0 {
+define dso_local range(i32 1, 5) i32 @encode_utf8(ptr noundef writeonly captures(none) initializes((0, 1)) %buf, i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 128
   br i1 %cmp, label %if.then, label %if.end
@@ -87,7 +87,7 @@ return:                                           ; preds = %if.end26, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @decode_utf8(ptr nocapture noundef writeonly %new_pos, ptr noundef %p) local_unnamed_addr #1 {
+define dso_local i32 @decode_utf8(ptr noundef writeonly captures(none) %new_pos, ptr noundef %p) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %p, align 1
   %cmp = icmp sgt i8 %0, -1

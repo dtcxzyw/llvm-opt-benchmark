@@ -287,7 +287,7 @@ ompi_coll_libnbc_hb_tree_empty.exit:              ; preds = %36, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ompi_coll_libnbc_hb_tree_insert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define range(i32 -1, 2) i32 @ompi_coll_libnbc_hb_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %.06183 = load ptr, ptr %0, align 8
   %.not84 = icmp eq ptr %.06183, null
   br i1 %.not84, label %._crit_edge, label %.lr.ph
@@ -581,7 +581,7 @@ node_new.exit.thread:                             ; preds = %._crit_edge, %12, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ompi_coll_libnbc_hb_tree_probe(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define range(i32 -1, 2) i32 @ompi_coll_libnbc_hb_tree_probe(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %.05270 = load ptr, ptr %0, align 8
   %.not71 = icmp eq ptr %.05270, null
   br i1 %.not71, label %._crit_edge, label %.lr.ph
@@ -849,7 +849,7 @@ node_new.exit.thread:                             ; preds = %._crit_edge, %118, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ompi_coll_libnbc_hb_tree_search(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define ptr @ompi_coll_libnbc_hb_tree_search(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %.014 = load ptr, ptr %0, align 8
   %.not15 = icmp eq ptr %.014, null
   br i1 %.not15, label %.loopexit, label %.lr.ph
@@ -888,7 +888,7 @@ define ptr @ompi_coll_libnbc_hb_tree_search(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_coll_libnbc_hb_tree_remove(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define range(i32 -1, 1) i32 @ompi_coll_libnbc_hb_tree_remove(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %.081127 = load ptr, ptr %0, align 8
   %cond128 = icmp eq ptr %.081127, null
   br i1 %cond128, label %.loopexit, label %.lr.ph
@@ -1437,7 +1437,7 @@ rot_right.exit123:                                ; preds = %221, %222, %224
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_coll_libnbc_hb_tree_empty(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define void @ompi_coll_libnbc_hb_tree_empty(ptr noundef captures(none) %0, i32 noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %.not34 = icmp eq ptr %3, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph
@@ -1557,7 +1557,7 @@ define void @ompi_coll_libnbc_hb_tree_empty(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_coll_libnbc_hb_tree_walk(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define void @ompi_coll_libnbc_hb_tree_walk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -1618,14 +1618,14 @@ node_next.exit:                                   ; preds = %.preheader19.i, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ompi_coll_libnbc_hb_tree_count(ptr nocapture noundef readonly %0) #2 {
+define i32 @ompi_coll_libnbc_hb_tree_count(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @rot_left(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @rot_left(ptr noundef writeonly captures(none) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1686,7 +1686,7 @@ define internal fastcc void @rot_left(ptr nocapture noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @rot_right(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @rot_right(ptr noundef writeonly captures(none) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1748,7 +1748,7 @@ define internal fastcc void @rot_right(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ompi_coll_libnbc_hb_tree_min(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @ompi_coll_libnbc_hb_tree_min(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %.preheader
@@ -1770,7 +1770,7 @@ define ptr @ompi_coll_libnbc_hb_tree_min(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ompi_coll_libnbc_hb_tree_max(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @ompi_coll_libnbc_hb_tree_max(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %.preheader
@@ -1792,7 +1792,7 @@ define ptr @ompi_coll_libnbc_hb_tree_max(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @ompi_coll_libnbc_hb_tree_height(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @ompi_coll_libnbc_hb_tree_height(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -1807,7 +1807,7 @@ define i32 @ompi_coll_libnbc_hb_tree_height(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @node_height(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 {
+define internal fastcc i32 @node_height(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1837,7 +1837,7 @@ define internal fastcc i32 @node_height(ptr nocapture noundef nonnull readonly %
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @ompi_coll_libnbc_hb_tree_mheight(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @ompi_coll_libnbc_hb_tree_mheight(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -1852,7 +1852,7 @@ define i32 @ompi_coll_libnbc_hb_tree_mheight(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @node_mheight(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 {
+define internal fastcc i32 @node_mheight(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1882,7 +1882,7 @@ define internal fastcc i32 @node_mheight(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @ompi_coll_libnbc_hb_tree_pathlen(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @ompi_coll_libnbc_hb_tree_pathlen(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -1897,7 +1897,7 @@ define i32 @ompi_coll_libnbc_hb_tree_pathlen(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @node_pathlen(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc i32 @node_pathlen(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #5 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %12, %2
@@ -1964,7 +1964,7 @@ ompi_coll_libnbc_hb_itor_first.exit:              ; preds = %.preheader.i, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_first(ptr nocapture noundef %0) #6 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_first(ptr noundef captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1994,7 +1994,7 @@ define void @ompi_coll_libnbc_hb_itor_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_valid(ptr nocapture noundef readonly %0) #2 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_valid(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
@@ -2003,14 +2003,14 @@ define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_valid(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ompi_coll_libnbc_hb_itor_invalidate(ptr nocapture noundef writeonly initializes((8, 16)) %0) #7 {
+define void @ompi_coll_libnbc_hb_itor_invalidate(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_next(ptr nocapture noundef %0) #6 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_next(ptr noundef captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2064,7 +2064,7 @@ ompi_coll_libnbc_hb_itor_first.exit:              ; preds = %.preheader19.i, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_prev(ptr nocapture noundef %0) #6 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_prev(ptr noundef captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2118,7 +2118,7 @@ ompi_coll_libnbc_hb_itor_last.exit:               ; preds = %.preheader19.i, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_nextn(ptr nocapture noundef %0, i32 noundef %1) #6 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_nextn(ptr noundef captures(none) %0, i32 noundef %1) #6 {
   %.not = icmp eq i32 %1, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -2200,7 +2200,7 @@ node_next.exit:                                   ; preds = %.preheader19.i, %.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_prevn(ptr nocapture noundef %0, i32 noundef %1) #6 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_prevn(ptr noundef captures(none) %0, i32 noundef %1) #6 {
   %.not = icmp eq i32 %1, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -2282,7 +2282,7 @@ node_prev.exit:                                   ; preds = %.preheader19.i, %.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_last(ptr nocapture noundef %0) #6 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_last(ptr noundef captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2305,7 +2305,7 @@ node_max.exit:                                    ; preds = %.preheader, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @hb_itor_search(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @hb_itor_search(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2337,7 +2337,7 @@ define internal range(i32 0, 2) i32 @hb_itor_search(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @ompi_coll_libnbc_hb_itor_key(ptr nocapture noundef readonly %0) #8 {
+define ptr @ompi_coll_libnbc_hb_itor_key(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2353,7 +2353,7 @@ define ptr @ompi_coll_libnbc_hb_itor_key(ptr nocapture noundef readonly %0) #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @ompi_coll_libnbc_hb_itor_data(ptr nocapture noundef readonly %0) #8 {
+define ptr @ompi_coll_libnbc_hb_itor_data(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2370,7 +2370,7 @@ define ptr @ompi_coll_libnbc_hb_itor_data(ptr nocapture noundef readonly %0) #8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @ompi_coll_libnbc_hb_itor_cdata(ptr nocapture noundef readonly %0) #8 {
+define ptr @ompi_coll_libnbc_hb_itor_cdata(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2387,7 +2387,7 @@ define ptr @ompi_coll_libnbc_hb_itor_cdata(ptr nocapture noundef readonly %0) #8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_coll_libnbc_hb_itor_set_data(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define range(i32 -1, 1) i32 @ompi_coll_libnbc_hb_itor_set_data(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2435,7 +2435,7 @@ declare i8 @llvm.smax.i8(i8, i8) #9
 declare i8 @llvm.smin.i8(i8, i8) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

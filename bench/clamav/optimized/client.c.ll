@@ -293,7 +293,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i64 @cli_strntoul(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @isremote() unnamed_addr #0 {
@@ -457,7 +457,7 @@ define internal fastcc range(i32 0, 2) i32 @isremote() unnamed_addr #0 {
 declare i32 @dconnect(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @recvlninit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -468,10 +468,10 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare i32 @sleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @get_clamd_version(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @get_clamd_version(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.RCVLN, align 8
   %4 = alloca [9 x i8], align 1
@@ -517,7 +517,7 @@ define dso_local range(i32 0, 3) i32 @get_clamd_version(ptr nocapture noundef re
 declare i32 @recvln(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @reload_clamd_database(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @reload_clamd_database(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.RCVLN, align 8
   %4 = alloca [8 x i8], align 8
@@ -793,14 +793,14 @@ sub_0100:                                         ; preds = %sub_0100.lr.ph, %12
 
 125:                                              ; preds = %.tail99
   %126 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.31) #14
-  %127 = tail call ptr @filelist(ptr noundef %0, ptr noundef null) #14
+  %127 = tail call ptr @filelist(ptr noundef nonnull %0, ptr noundef null) #14
   %.not82 = icmp eq ptr %127, null
   br i1 %.not82, label %.loopexit, label %sub_0100
 
 .outer:                                           ; preds = %sub_0100, %.tail99
   %128 = tail call fastcc i32 @client_scan(ptr noundef nonnull %120, i32 noundef %.055, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %66, i32 noundef %.056, i32 noundef %80)
   %129 = add nsw i32 %128, %.2.ph107
-  %130 = tail call ptr @filelist(ptr noundef %0, ptr noundef null) #14
+  %130 = tail call ptr @filelist(ptr noundef nonnull %0, ptr noundef null) #14
   %.not82104 = icmp eq ptr %130, null
   br i1 %.not82104, label %.loopexit, label %sub_0100.lr.ph
 
@@ -828,10 +828,10 @@ sub_0100:                                         ; preds = %sub_0100.lr.ph, %12
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #6
@@ -932,13 +932,13 @@ makeabs.exit:                                     ; preds = %10, %16, %26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -972,10 +972,10 @@ declare i32 @cli_is_abspath(ptr noundef) local_unnamed_addr #1
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #13

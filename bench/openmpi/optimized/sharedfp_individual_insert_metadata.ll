@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_byte = external global %struct.ompi_predefined_datatype_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_sharedfp_individual_insert_metadata(i32 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define i32 @mca_sharedfp_individual_insert_metadata(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -115,7 +115,7 @@ define i32 @mca_sharedfp_individual_insert_metadata(i32 noundef %0, i64 noundef 
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_sharedfp_individual_write_metadata_file(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @mca_sharedfp_individual_write_metadata_file(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.mca_sharedfp_individual_record2, align 8
   %3 = alloca %struct.ompi_status_public_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -216,7 +216,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare double @mca_sharedfp_individual_gettime() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @mca_common_ompio_file_write_at(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

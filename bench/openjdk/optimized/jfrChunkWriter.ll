@@ -1698,7 +1698,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrChunkWriter26set_last_checkpoint_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrChunkWriter26set_last_checkpoint_offsetEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN8JfrChunk26set_last_checkpoint_offsetEl(ptr noundef nonnull align 8 dereferenceable(66) %4, i64 noundef %1) #13
@@ -1706,7 +1706,7 @@ define hidden void @_ZN14JfrChunkWriter26set_last_checkpoint_offsetEl(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK14JfrChunkWriter12size_writtenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK14JfrChunkWriter12size_writtenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, -1
@@ -1809,7 +1809,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrChunkWriter16mark_chunk_finalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrChunkWriter16mark_chunk_finalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN8JfrChunk10mark_finalEv(ptr noundef nonnull align 8 dereferenceable(66) %3) #13
@@ -1976,7 +1976,7 @@ declare noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef) local_unnamed_addr #3
 declare void @_ZN8JfrChunkC1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrChunkWriterD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrChunkWriterD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2019,7 +2019,7 @@ declare void @_ZN8JfrChunkD1Ev(ptr noundef nonnull align 8 dereferenceable(66)) 
 declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrChunkWriter8set_pathEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrChunkWriter8set_pathEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN8JfrChunk8set_pathEPKc(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr noundef %1) #13
@@ -2029,7 +2029,7 @@ define hidden void @_ZN14JfrChunkWriter8set_pathEPKc(ptr nocapture noundef nonnu
 declare void @_ZN8JfrChunk8set_pathEPKc(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrChunkWriter14set_time_stampEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrChunkWriter14set_time_stampEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN8JfrChunk14set_time_stampEv(ptr noundef nonnull align 8 dereferenceable(66) %3) #13
@@ -2039,7 +2039,7 @@ define hidden void @_ZN14JfrChunkWriter14set_time_stampEv(ptr nocapture noundef 
 declare void @_ZN8JfrChunk14set_time_stampEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK14JfrChunkWriter22last_checkpoint_offsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK14JfrChunkWriter22last_checkpoint_offsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK8JfrChunk22last_checkpoint_offsetEv(ptr noundef nonnull align 8 dereferenceable(66) %3) #13
@@ -2049,7 +2049,7 @@ define hidden noundef i64 @_ZNK14JfrChunkWriter22last_checkpoint_offsetEv(ptr no
 declare noundef i64 @_ZNK8JfrChunk22last_checkpoint_offsetEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK14JfrChunkWriter25current_chunk_start_nanosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK14JfrChunkWriter25current_chunk_start_nanosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK8JfrChunk11start_nanosEv(ptr noundef nonnull align 8 dereferenceable(66) %3) #13
@@ -2061,7 +2061,7 @@ declare noundef i64 @_ZNK8JfrChunk11start_nanosEv(ptr noundef nonnull align 8 de
 declare void @_ZN8JfrChunk26set_last_checkpoint_offsetEl(ptr noundef nonnull align 8 dereferenceable(66), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrChunkWriter24set_last_metadata_offsetEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrChunkWriter24set_last_metadata_offsetEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN8JfrChunk24set_last_metadata_offsetEl(ptr noundef nonnull align 8 dereferenceable(66) %4, i64 noundef %1) #13
@@ -2071,7 +2071,7 @@ define hidden void @_ZN14JfrChunkWriter24set_last_metadata_offsetEl(ptr nocaptur
 declare void @_ZN8JfrChunk24set_last_metadata_offsetEl(ptr noundef nonnull align 8 dereferenceable(66), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK14JfrChunkWriter12has_metadataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK14JfrChunkWriter12has_metadataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZNK8JfrChunk12has_metadataEv(ptr noundef nonnull align 8 dereferenceable(66) %3) #13
@@ -2535,7 +2535,7 @@ declare void @_ZN14JfrJavaSupport5abortEPKcb(ptr noundef, i1 noundef zeroext) lo
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZN11JfrCHeapObj4freeEPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -3142,13 +3142,13 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

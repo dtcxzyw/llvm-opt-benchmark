@@ -1131,7 +1131,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transformColumnDefinition(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @transformColumnDefinition(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2165,7 +2165,7 @@ transformConstraintAttrs.exit:                    ; preds = %257
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transformTableConstraint(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @transformTableConstraint(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %58 [
@@ -2286,7 +2286,7 @@ define internal fastcc void @transformTableConstraint(ptr nocapture noundef nonn
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transformIndexConstraints(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2752,7 +2752,7 @@ define internal fastcc void @transformIndexConstraints(ptr nocapture noundef non
   br i1 %307, label %242, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %304, %225
-  tail call void @relation_close(ptr noundef %120, i32 noundef 0) #8
+  tail call void @relation_close(ptr noundef nonnull %120, i32 noundef 0) #8
   store i32 %110, ptr %83, align 8
   br label %308
 
@@ -3012,7 +3012,7 @@ define internal fastcc void @transformIndexConstraints(ptr nocapture noundef non
   br i1 %431, label %435, label %440
 
 435:                                              ; preds = %.split477.i
-  %436 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.110, ptr noundef %343) #8
+  %436 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.110, ptr noundef nonnull %343) #8
   %437 = load ptr, ptr %0, align 8
   %438 = load i32, ptr %434, align 4
   %439 = tail call i32 @parser_errposition(ptr noundef %437, i32 noundef %438) #8
@@ -3020,7 +3020,7 @@ define internal fastcc void @transformIndexConstraints(ptr nocapture noundef non
   unreachable
 
 440:                                              ; preds = %.split477.i
-  %441 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.111, ptr noundef %343) #8
+  %441 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.111, ptr noundef nonnull %343) #8
   %442 = load ptr, ptr %0, align 8
   %443 = load i32, ptr %434, align 4
   %444 = tail call i32 @parser_errposition(ptr noundef %442, i32 noundef %443) #8
@@ -3469,7 +3469,7 @@ transformIndexConstraint.exit:                    ; preds = %._crit_edge510.i, %
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transformFKConstraints(ptr nocapture noundef nonnull %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @transformFKConstraints(ptr noundef nonnull captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -3564,7 +3564,7 @@ define internal fastcc void @transformFKConstraints(ptr nocapture noundef nonnul
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @expandTableLikeClause(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @expandTableLikeClause(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -4040,7 +4040,7 @@ declare ptr @RelationGetIndexList(ptr noundef) local_unnamed_addr #1
 declare ptr @index_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @generateClonedIndexStmt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @generateClonedIndexStmt(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -4307,7 +4307,7 @@ define dso_local noundef ptr @generateClonedIndexStmt(ptr noundef %0, ptr nocapt
   br label %171
 
 171:                                              ; preds = %.loopexit, %167, %169
-  %172 = call i64 @SysCacheGetAttr(i32 noundef 32, ptr noundef %27, i16 noundef signext 20, ptr noundef nonnull %5) #8
+  %172 = call i64 @SysCacheGetAttr(i32 noundef 32, ptr noundef nonnull %27, i16 noundef signext 20, ptr noundef nonnull %5) #8
   %173 = load i8, ptr %5, align 1
   %174 = trunc i8 %173 to i1
   br i1 %174, label %.thread, label %176
@@ -4628,7 +4628,7 @@ get_opclass.exit:                                 ; preds = %282, %292
   br label %353
 
 353:                                              ; preds = %350, %._crit_edge
-  %354 = call i64 @SysCacheGetAttr(i32 noundef 32, ptr noundef %27, i16 noundef signext 21, ptr noundef nonnull %5) #8
+  %354 = call i64 @SysCacheGetAttr(i32 noundef 32, ptr noundef nonnull %27, i16 noundef signext 21, ptr noundef nonnull %5) #8
   %355 = load i8, ptr %5, align 1
   %356 = trunc i8 %355 to i1
   br i1 %356, label %374, label %357
@@ -4901,7 +4901,7 @@ list_length.exit.thread:                          ; preds = %._crit_edge, %list_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @transformRuleStmt(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local void @transformRuleStmt(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @table_openrv(ptr noundef %6, i32 noundef 8) #8
@@ -5023,9 +5023,9 @@ list_length.exit.thread:                          ; preds = %32, %list_length.ex
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %1, ptr %66, align 8
   %67 = tail call ptr @makeAlias(ptr noundef nonnull @.str.22, ptr noundef null) #8
-  %68 = tail call ptr @addRangeTableEntryForRelation(ptr noundef %65, ptr noundef %7, i32 noundef 1, ptr noundef %67, i1 noundef zeroext false, i1 noundef zeroext false) #8
+  %68 = tail call ptr @addRangeTableEntryForRelation(ptr noundef %65, ptr noundef nonnull %7, i32 noundef 1, ptr noundef %67, i1 noundef zeroext false, i1 noundef zeroext false) #8
   %69 = tail call ptr @makeAlias(ptr noundef nonnull @.str.23, ptr noundef null) #8
-  %70 = tail call ptr @addRangeTableEntryForRelation(ptr noundef %65, ptr noundef %7, i32 noundef 1, ptr noundef %69, i1 noundef zeroext false, i1 noundef zeroext false) #8
+  %70 = tail call ptr @addRangeTableEntryForRelation(ptr noundef %65, ptr noundef nonnull %7, i32 noundef 1, ptr noundef %69, i1 noundef zeroext false, i1 noundef zeroext false) #8
   tail call void @addNSItemToQuery(ptr noundef %65, ptr noundef %68, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false) #8
   tail call void @addNSItemToQuery(ptr noundef %65, ptr noundef %70, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false) #8
   %71 = tail call ptr @transformStmt(ptr noundef %65, ptr noundef %64) #8
@@ -5239,8 +5239,8 @@ list_length.exit.thread:                          ; preds = %32, %list_length.ex
 .loopexit:                                        ; preds = %174, %.preheader, %50
   %storemerge = phi ptr [ %60, %50 ], [ null, %.preheader ], [ %175, %174 ]
   store ptr %storemerge, ptr %2, align 8
-  tail call void @free_parsestate(ptr noundef %18) #8
-  tail call void @table_close(ptr noundef %7, i32 noundef 0) #8
+  tail call void @free_parsestate(ptr noundef nonnull %18) #8
+  tail call void @table_close(ptr noundef nonnull %7, i32 noundef 0) #8
   ret void
 }
 
@@ -5259,7 +5259,7 @@ declare ptr @getInsertSelectQuery(ptr noundef, ptr noundef) local_unnamed_addr #
 declare zeroext i1 @rangeTableEntry_used(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @transformAlterTableStmt(i32 noundef %0, ptr noundef returned %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @transformAlterTableStmt(i32 noundef %0, ptr noundef returned %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.CreateStmtContext, align 8
   %7 = tail call ptr @relation_open(i32 noundef %0, i32 noundef 0) #8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -5909,7 +5909,7 @@ declare ptr @makeDefElem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @makeTypeNameFromOid(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generateSerialExtraStmts(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef writeonly %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef writeonly %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = zext i1 %4 to i8
   %10 = tail call ptr @list_copy(ptr noundef %3) #8
   %.not = icmp eq ptr %10, null
@@ -6176,7 +6176,7 @@ define internal fastcc void @generateSerialExtraStmts(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -6235,7 +6235,7 @@ define dso_local ptr @transformCreateSchemaStmtElements(ptr noundef readonly %0,
   tail call void @llvm.assume(i1 %21)
   %22 = tail call i32 @errcode(i32 noundef 84279428) #8
   %23 = load ptr, ptr %14, align 8
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef %23, ptr noundef %1) #8
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef %23, ptr noundef nonnull %1) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4081, ptr noundef nonnull @__func__.setSchemaName) #8
   unreachable
 
@@ -6265,7 +6265,7 @@ setSchemaName.exit:                               ; preds = %17, %18
   tail call void @llvm.assume(i1 %36)
   %37 = tail call i32 @errcode(i32 noundef 84279428) #8
   %38 = load ptr, ptr %29, align 8
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef %38, ptr noundef %1) #8
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef %38, ptr noundef nonnull %1) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4081, ptr noundef nonnull @__func__.setSchemaName) #8
   unreachable
 
@@ -6295,7 +6295,7 @@ setSchemaName.exit46:                             ; preds = %32, %33
   tail call void @llvm.assume(i1 %51)
   %52 = tail call i32 @errcode(i32 noundef 84279428) #8
   %53 = load ptr, ptr %44, align 8
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef %53, ptr noundef %1) #8
+  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef %53, ptr noundef nonnull %1) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4081, ptr noundef nonnull @__func__.setSchemaName) #8
   unreachable
 
@@ -6325,7 +6325,7 @@ setSchemaName.exit48:                             ; preds = %47, %48
   tail call void @llvm.assume(i1 %66)
   %67 = tail call i32 @errcode(i32 noundef 84279428) #8
   %68 = load ptr, ptr %59, align 8
-  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef %68, ptr noundef %1) #8
+  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef %68, ptr noundef nonnull %1) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4081, ptr noundef nonnull @__func__.setSchemaName) #8
   unreachable
 
@@ -6355,7 +6355,7 @@ setSchemaName.exit50:                             ; preds = %62, %63
   tail call void @llvm.assume(i1 %81)
   %82 = tail call i32 @errcode(i32 noundef 84279428) #8
   %83 = load ptr, ptr %74, align 8
-  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef %83, ptr noundef %1) #8
+  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef %83, ptr noundef nonnull %1) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4081, ptr noundef nonnull @__func__.setSchemaName) #8
   unreachable
 
@@ -7083,13 +7083,13 @@ declare ptr @evaluate_expr(ptr noundef, i32 noundef, i32 noundef, i32 noundef) l
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

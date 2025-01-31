@@ -102,7 +102,7 @@ define void @"_ZN15wiggle_generate6config2kw1_81_$LT$impl$u20$syn..parse..Parse$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN15wiggle_generate6config2kw1_90_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..witx$GT$9to_tokens17h61f01db7307a95edE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN15wiggle_generate6config2kw1_90_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..witx$GT$9to_tokens17h61f01db7307a95edE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = load i32, ptr %0, align 4, !noundef !4
   call void @_ZN11proc_macro25Ident3new17h70c799beece818baE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %3, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.0, i64 4, i32 %4)
@@ -111,19 +111,19 @@ define void @"_ZN15wiggle_generate6config2kw1_90_$LT$impl$u20$quote..to_tokens..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN15wiggle_generate6config2kw1_82_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..witx$GT$5clone17hf76c4efd00f92594E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define noundef i32 @"_ZN15wiggle_generate6config2kw1_82_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..witx$GT$5clone17hf76c4efd00f92594E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4, !noundef !4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN15wiggle_generate6config2kw1_80_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..witx$GT$3fmt17h725287e552cb85f7E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN15wiggle_generate6config2kw1_80_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..witx$GT$3fmt17h725287e552cb85f7E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.3, i64 14)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..witx$GT$2eq17hc4fc712c7bc2ff5dE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..witx$GT$2eq17hc4fc712c7bc2ff5dE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -185,7 +185,7 @@ define void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse..Parse$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN15wiggle_generate6config2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..witx_literal$GT$9to_tokens17h8e68cf8db1eb89a0E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN15wiggle_generate6config2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..witx_literal$GT$9to_tokens17h8e68cf8db1eb89a0E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = load i32, ptr %0, align 4, !noundef !4
   call void @_ZN11proc_macro25Ident3new17h70c799beece818baE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %3, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.4, i64 12, i32 %4)
@@ -194,19 +194,19 @@ define void @"_ZN15wiggle_generate6config2kw1_98_$LT$impl$u20$quote..to_tokens..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN15wiggle_generate6config2kw1_90_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..witx_literal$GT$5clone17h189df747de7ff793E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define noundef i32 @"_ZN15wiggle_generate6config2kw1_90_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..witx_literal$GT$5clone17h189df747de7ff793E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4, !noundef !4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..witx_literal$GT$3fmt17hf30f41ba2bdff314E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..witx_literal$GT$3fmt17hf30f41ba2bdff314E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.7, i64 22)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_92_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..witx_literal$GT$2eq17h4361e09b8055a9f1E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_92_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..witx_literal$GT$2eq17h4361e09b8055a9f1E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -268,7 +268,7 @@ define void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse..Parse$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN15wiggle_generate6config2kw1_94_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..block_on$GT$9to_tokens17hcb08e03c2f578d8dE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN15wiggle_generate6config2kw1_94_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..block_on$GT$9to_tokens17hcb08e03c2f578d8dE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = load i32, ptr %0, align 4, !noundef !4
   call void @_ZN11proc_macro25Ident3new17h70c799beece818baE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %3, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.8, i64 8, i32 %4)
@@ -277,19 +277,19 @@ define void @"_ZN15wiggle_generate6config2kw1_94_$LT$impl$u20$quote..to_tokens..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..block_on$GT$5clone17heabd0e6b0ce687a2E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define noundef i32 @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..block_on$GT$5clone17heabd0e6b0ce687a2E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4, !noundef !4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..block_on$GT$3fmt17he76f76af55604c8bE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..block_on$GT$3fmt17he76f76af55604c8bE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.11, i64 18)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..block_on$GT$2eq17h759b510ad0ab5426E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..block_on$GT$2eq17h759b510ad0ab5426E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -351,7 +351,7 @@ define void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse..Parse$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN15wiggle_generate6config2kw1_92_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..errors$GT$9to_tokens17h65d2107b38467217E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN15wiggle_generate6config2kw1_92_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..errors$GT$9to_tokens17h65d2107b38467217E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = load i32, ptr %0, align 4, !noundef !4
   call void @_ZN11proc_macro25Ident3new17h70c799beece818baE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %3, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.12, i64 6, i32 %4)
@@ -360,19 +360,19 @@ define void @"_ZN15wiggle_generate6config2kw1_92_$LT$impl$u20$quote..to_tokens..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..errors$GT$5clone17ha064413a598672faE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define noundef i32 @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..errors$GT$5clone17ha064413a598672faE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4, !noundef !4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN15wiggle_generate6config2kw1_82_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..errors$GT$3fmt17h9920a2569082ec17E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN15wiggle_generate6config2kw1_82_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..errors$GT$3fmt17h9920a2569082ec17E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.15, i64 16)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..errors$GT$2eq17h7a0ddd3abccea63bE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..errors$GT$2eq17h7a0ddd3abccea63bE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -434,7 +434,7 @@ define void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse..Parse$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN15wiggle_generate6config2kw1_92_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..target$GT$9to_tokens17h874657e821eab83aE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN15wiggle_generate6config2kw1_92_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..target$GT$9to_tokens17h874657e821eab83aE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = load i32, ptr %0, align 4, !noundef !4
   call void @_ZN11proc_macro25Ident3new17h70c799beece818baE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %3, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.16, i64 6, i32 %4)
@@ -443,19 +443,19 @@ define void @"_ZN15wiggle_generate6config2kw1_92_$LT$impl$u20$quote..to_tokens..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..target$GT$5clone17h55e602afd7edca31E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define noundef i32 @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..target$GT$5clone17h55e602afd7edca31E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4, !noundef !4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN15wiggle_generate6config2kw1_82_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..target$GT$3fmt17he13dfa19e3f818a6E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN15wiggle_generate6config2kw1_82_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..target$GT$3fmt17he13dfa19e3f818a6E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.19, i64 16)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..target$GT$2eq17h9954e9c8d6ba064eE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..target$GT$2eq17h9954e9c8d6ba064eE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -517,7 +517,7 @@ define void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse..Parse$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN15wiggle_generate6config2kw1_94_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..wasmtime$GT$9to_tokens17hc4afc8c671d9003dE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN15wiggle_generate6config2kw1_94_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..wasmtime$GT$9to_tokens17hc4afc8c671d9003dE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = load i32, ptr %0, align 4, !noundef !4
   call void @_ZN11proc_macro25Ident3new17h70c799beece818baE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %3, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.20, i64 8, i32 %4)
@@ -526,19 +526,19 @@ define void @"_ZN15wiggle_generate6config2kw1_94_$LT$impl$u20$quote..to_tokens..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..wasmtime$GT$5clone17h87089c5d772dd9efE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define noundef i32 @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..wasmtime$GT$5clone17h87089c5d772dd9efE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4, !noundef !4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..wasmtime$GT$3fmt17h5f4453dd6e102b85E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..wasmtime$GT$3fmt17h5f4453dd6e102b85E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.23, i64 18)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..wasmtime$GT$2eq17h092c761faab9c874E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..wasmtime$GT$2eq17h092c761faab9c874E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -600,7 +600,7 @@ define void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse..Parse$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN15wiggle_generate6config2kw1_93_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..mutable$GT$9to_tokens17h6d7fe317f499329aE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN15wiggle_generate6config2kw1_93_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..mutable$GT$9to_tokens17h6d7fe317f499329aE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = load i32, ptr %0, align 4, !noundef !4
   call void @_ZN11proc_macro25Ident3new17h70c799beece818baE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %3, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.24, i64 7, i32 %4)
@@ -609,19 +609,19 @@ define void @"_ZN15wiggle_generate6config2kw1_93_$LT$impl$u20$quote..to_tokens..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..mutable$GT$5clone17h9cbe87f5017eb04cE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define noundef i32 @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..mutable$GT$5clone17h9cbe87f5017eb04cE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4, !noundef !4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..mutable$GT$3fmt17h7c8f163db625e0ceE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..mutable$GT$3fmt17h7c8f163db625e0ceE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.27, i64 17)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_87_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..mutable$GT$2eq17h63de5359270a056cE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_87_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..mutable$GT$2eq17h63de5359270a056cE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -683,7 +683,7 @@ define void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse..Parse$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN15wiggle_generate6config2kw1_93_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..tracing$GT$9to_tokens17h011b6422388f3987E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN15wiggle_generate6config2kw1_93_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..tracing$GT$9to_tokens17h011b6422388f3987E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = load i32, ptr %0, align 4, !noundef !4
   call void @_ZN11proc_macro25Ident3new17h70c799beece818baE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %3, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.28, i64 7, i32 %4)
@@ -692,19 +692,19 @@ define void @"_ZN15wiggle_generate6config2kw1_93_$LT$impl$u20$quote..to_tokens..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..tracing$GT$5clone17h6df655d259c2dd15E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define noundef i32 @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..tracing$GT$5clone17h6df655d259c2dd15E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4, !noundef !4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..tracing$GT$3fmt17h66b992ad82232c3bE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..tracing$GT$3fmt17h66b992ad82232c3bE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.31, i64 17)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_87_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..tracing$GT$2eq17hac97dbff31dc2972E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_87_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..tracing$GT$2eq17hac97dbff31dc2972E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -766,7 +766,7 @@ define void @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$syn..parse..Parse$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN15wiggle_generate6config2kw1_97_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..disable_for$GT$9to_tokens17h3df6185a11d1283eE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN15wiggle_generate6config2kw1_97_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..disable_for$GT$9to_tokens17h3df6185a11d1283eE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = load i32, ptr %0, align 4, !noundef !4
   call void @_ZN11proc_macro25Ident3new17h70c799beece818baE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %3, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.32, i64 11, i32 %4)
@@ -775,19 +775,19 @@ define void @"_ZN15wiggle_generate6config2kw1_97_$LT$impl$u20$quote..to_tokens..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..disable_for$GT$5clone17ha97e4fc60b530590E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define noundef i32 @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..disable_for$GT$5clone17ha97e4fc60b530590E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4, !noundef !4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN15wiggle_generate6config2kw1_87_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..disable_for$GT$3fmt17h2697e7bc83193051E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN15wiggle_generate6config2kw1_87_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..disable_for$GT$3fmt17h2697e7bc83193051E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.35, i64 21)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_91_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..disable_for$GT$2eq17hb9d15d01f122bd00E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_91_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..disable_for$GT$2eq17hb9d15d01f122bd00E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -849,7 +849,7 @@ define void @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$syn..parse..Parse$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN15wiggle_generate6config2kw1_95_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..trappable$GT$9to_tokens17ha2dcb238af50214fE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN15wiggle_generate6config2kw1_95_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$wiggle_generate..config..kw..trappable$GT$9to_tokens17ha2dcb238af50214fE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = load i32, ptr %0, align 4, !noundef !4
   call void @_ZN11proc_macro25Ident3new17h70c799beece818baE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %3, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.36, i64 9, i32 %4)
@@ -858,19 +858,19 @@ define void @"_ZN15wiggle_generate6config2kw1_95_$LT$impl$u20$quote..to_tokens..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN15wiggle_generate6config2kw1_87_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..trappable$GT$5clone17h5efa2aa55407cf27E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define noundef i32 @"_ZN15wiggle_generate6config2kw1_87_$LT$impl$u20$core..clone..Clone$u20$for$u20$wiggle_generate..config..kw..trappable$GT$5clone17h5efa2aa55407cf27E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4, !noundef !4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..trappable$GT$3fmt17h0f512805ce6ce15fE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wiggle_generate..config..kw..trappable$GT$3fmt17h0f512805ce6ce15fE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 @anon.959f6356d8a232f59a56dd574c2760d2.39, i64 19)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..trappable$GT$2eq17h61b5c1e22dca68bfE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$wiggle_generate..config..kw..trappable$GT$2eq17h61b5c1e22dca68bfE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -884,7 +884,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 declare void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr sret({ i64, [5 x i64] }) align 8, ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr align 8, ptr align 8) unnamed_addr #0

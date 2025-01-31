@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Info_set_f08 = weak alias void (ptr, ptr, ptr, ptr, i32, i32), ptr @ompi_info_set_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_info_set_f(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef %4, i32 noundef %5) #0 {
+define void @ompi_info_set_f(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
@@ -152,7 +152,7 @@ declare i32 @ompi_fortran_string_f2c(ptr noundef, i32 noundef, ptr noundef) loca
 declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PMPI_Info_f2c(i32 noundef) local_unnamed_addr #1
 

@@ -877,7 +877,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   store i16 %223, ptr %224, align 8
   %225 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
   %226 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
-  %227 = call i64 @strtoul(ptr nocapture noundef %226, ptr noundef null, i32 noundef 10) #10
+  %227 = call i64 @strtoul(ptr noundef captures(none) %226, ptr noundef null, i32 noundef 10) #10
   %228 = trunc i64 %227 to i32
   %229 = getelementptr inbounds nuw i8, ptr %215, i64 12
   store i32 %228, ptr %229, align 4
@@ -888,7 +888,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   store i32 %232, ptr %233, align 8
   %234 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
   %235 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
-  %236 = call i64 @strtoul(ptr nocapture noundef %235, ptr noundef null, i32 noundef 10) #10
+  %236 = call i64 @strtoul(ptr noundef captures(none) %235, ptr noundef null, i32 noundef 10) #10
   %237 = trunc i64 %236 to i32
   %238 = getelementptr inbounds nuw i8, ptr %215, i64 20
   store i32 %237, ptr %238, align 4
@@ -898,13 +898,13 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   store ptr %240, ptr %241, align 8
   %242 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
   %243 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
-  %244 = call i64 @strtoul(ptr nocapture noundef %243, ptr noundef null, i32 noundef 10) #10
+  %244 = call i64 @strtoul(ptr noundef captures(none) %243, ptr noundef null, i32 noundef 10) #10
   %245 = trunc i64 %244 to i32
   %246 = getelementptr inbounds nuw i8, ptr %215, i64 32
   store i32 %245, ptr %246, align 8
   %247 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
   %248 = call ptr @pg_strtok(ptr noundef nonnull %7) #10
-  %249 = call i64 @strtoul(ptr nocapture noundef %248, ptr noundef null, i32 noundef 10) #10
+  %249 = call i64 @strtoul(ptr noundef captures(none) %248, ptr noundef null, i32 noundef 10) #10
   %250 = trunc i64 %249 to i32
   %251 = getelementptr inbounds nuw i8, ptr %215, i64 36
   store i32 %250, ptr %251, align 4
@@ -932,7 +932,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   store i32 7, ptr %263, align 4
   %264 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
   %265 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
-  %266 = call i64 @strtoul(ptr nocapture noundef %265, ptr noundef null, i32 noundef 10) #10
+  %266 = call i64 @strtoul(ptr noundef captures(none) %265, ptr noundef null, i32 noundef 10) #10
   %267 = trunc i64 %266 to i32
   %268 = getelementptr inbounds nuw i8, ptr %263, i64 4
   store i32 %267, ptr %268, align 4
@@ -943,7 +943,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   store i32 %271, ptr %272, align 8
   %273 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
   %274 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
-  %275 = call i64 @strtoul(ptr nocapture noundef %274, ptr noundef null, i32 noundef 10) #10
+  %275 = call i64 @strtoul(ptr noundef captures(none) %274, ptr noundef null, i32 noundef 10) #10
   %276 = trunc i64 %275 to i32
   %277 = getelementptr inbounds nuw i8, ptr %263, i64 12
   store i32 %276, ptr %277, align 4
@@ -1012,7 +1012,7 @@ _readConst.exit:                                  ; preds = %300, %302
   store i32 %317, ptr %318, align 4
   %319 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
   %320 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
-  %321 = call i64 @strtoul(ptr nocapture noundef %320, ptr noundef null, i32 noundef 10) #10
+  %321 = call i64 @strtoul(ptr noundef captures(none) %320, ptr noundef null, i32 noundef 10) #10
   %322 = trunc i64 %321 to i32
   %323 = getelementptr inbounds nuw i8, ptr %310, i64 12
   store i32 %322, ptr %323, align 4
@@ -1023,7 +1023,7 @@ _readConst.exit:                                  ; preds = %300, %302
   store i32 %326, ptr %327, align 4
   %328 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
   %329 = call ptr @pg_strtok(ptr noundef nonnull %5) #10
-  %330 = call i64 @strtoul(ptr nocapture noundef %329, ptr noundef null, i32 noundef 10) #10
+  %330 = call i64 @strtoul(ptr noundef captures(none) %329, ptr noundef null, i32 noundef 10) #10
   %331 = trunc i64 %330 to i32
   %332 = getelementptr inbounds nuw i8, ptr %310, i64 20
   store i32 %331, ptr %332, align 4
@@ -1045,31 +1045,31 @@ _readConst.exit:                                  ; preds = %300, %302
   store i32 9, ptr %339, align 4
   %340 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
   %341 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
-  %342 = call i64 @strtoul(ptr nocapture noundef %341, ptr noundef null, i32 noundef 10) #10
+  %342 = call i64 @strtoul(ptr noundef captures(none) %341, ptr noundef null, i32 noundef 10) #10
   %343 = trunc i64 %342 to i32
   %344 = getelementptr inbounds nuw i8, ptr %339, i64 4
   store i32 %343, ptr %344, align 4
   %345 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
   %346 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
-  %347 = call i64 @strtoul(ptr nocapture noundef %346, ptr noundef null, i32 noundef 10) #10
+  %347 = call i64 @strtoul(ptr noundef captures(none) %346, ptr noundef null, i32 noundef 10) #10
   %348 = trunc i64 %347 to i32
   %349 = getelementptr inbounds nuw i8, ptr %339, i64 8
   store i32 %348, ptr %349, align 8
   %350 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
   %351 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
-  %352 = call i64 @strtoul(ptr nocapture noundef %351, ptr noundef null, i32 noundef 10) #10
+  %352 = call i64 @strtoul(ptr noundef captures(none) %351, ptr noundef null, i32 noundef 10) #10
   %353 = trunc i64 %352 to i32
   %354 = getelementptr inbounds nuw i8, ptr %339, i64 12
   store i32 %353, ptr %354, align 4
   %355 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
   %356 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
-  %357 = call i64 @strtoul(ptr nocapture noundef %356, ptr noundef null, i32 noundef 10) #10
+  %357 = call i64 @strtoul(ptr noundef captures(none) %356, ptr noundef null, i32 noundef 10) #10
   %358 = trunc i64 %357 to i32
   %359 = getelementptr inbounds nuw i8, ptr %339, i64 16
   store i32 %358, ptr %359, align 8
   %360 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
   %361 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
-  %362 = call i64 @strtoul(ptr nocapture noundef %361, ptr noundef null, i32 noundef 10) #10
+  %362 = call i64 @strtoul(ptr noundef captures(none) %361, ptr noundef null, i32 noundef 10) #10
   %363 = trunc i64 %362 to i32
   %364 = getelementptr inbounds nuw i8, ptr %339, i64 20
   store i32 %363, ptr %364, align 4
@@ -1140,7 +1140,7 @@ _readAggref.exit:                                 ; preds = %338, %399, %402
   store i8 %412, ptr %411, align 1
   %413 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
   %414 = call ptr @pg_strtok(ptr noundef nonnull %4) #10
-  %415 = call i64 @strtoul(ptr nocapture noundef %414, ptr noundef null, i32 noundef 10) #10
+  %415 = call i64 @strtoul(ptr noundef captures(none) %414, ptr noundef null, i32 noundef 10) #10
   %416 = trunc i64 %415 to i32
   %417 = getelementptr inbounds nuw i8, ptr %339, i64 76
   store i32 %416, ptr %417, align 4
@@ -1189,7 +1189,7 @@ _readAggref.exit:                                 ; preds = %338, %399, %402
   store ptr %444, ptr %445, align 8
   %446 = call ptr @pg_strtok(ptr noundef nonnull %3) #10
   %447 = call ptr @pg_strtok(ptr noundef nonnull %3) #10
-  %448 = call i64 @strtoul(ptr nocapture noundef %447, ptr noundef null, i32 noundef 10) #10
+  %448 = call i64 @strtoul(ptr noundef captures(none) %447, ptr noundef null, i32 noundef 10) #10
   %449 = trunc i64 %448 to i32
   %450 = getelementptr inbounds nuw i8, ptr %436, i64 32
   store i32 %449, ptr %450, align 8
@@ -1211,25 +1211,25 @@ _readAggref.exit:                                 ; preds = %338, %399, %402
   store i32 11, ptr %456, align 4
   %457 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %458 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
-  %459 = call i64 @strtoul(ptr nocapture noundef %458, ptr noundef null, i32 noundef 10) #10
+  %459 = call i64 @strtoul(ptr noundef captures(none) %458, ptr noundef null, i32 noundef 10) #10
   %460 = trunc i64 %459 to i32
   %461 = getelementptr inbounds nuw i8, ptr %456, i64 4
   store i32 %460, ptr %461, align 4
   %462 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %463 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
-  %464 = call i64 @strtoul(ptr nocapture noundef %463, ptr noundef null, i32 noundef 10) #10
+  %464 = call i64 @strtoul(ptr noundef captures(none) %463, ptr noundef null, i32 noundef 10) #10
   %465 = trunc i64 %464 to i32
   %466 = getelementptr inbounds nuw i8, ptr %456, i64 8
   store i32 %465, ptr %466, align 8
   %467 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %468 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
-  %469 = call i64 @strtoul(ptr nocapture noundef %468, ptr noundef null, i32 noundef 10) #10
+  %469 = call i64 @strtoul(ptr noundef captures(none) %468, ptr noundef null, i32 noundef 10) #10
   %470 = trunc i64 %469 to i32
   %471 = getelementptr inbounds nuw i8, ptr %456, i64 12
   store i32 %470, ptr %471, align 4
   %472 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %473 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
-  %474 = call i64 @strtoul(ptr nocapture noundef %473, ptr noundef null, i32 noundef 10) #10
+  %474 = call i64 @strtoul(ptr noundef captures(none) %473, ptr noundef null, i32 noundef 10) #10
   %475 = trunc i64 %474 to i32
   %476 = getelementptr inbounds nuw i8, ptr %456, i64 16
   store i32 %475, ptr %476, align 8
@@ -1243,7 +1243,7 @@ _readAggref.exit:                                 ; preds = %338, %399, %402
   store ptr %481, ptr %482, align 8
   %483 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %484 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
-  %485 = call i64 @strtoul(ptr nocapture noundef %484, ptr noundef null, i32 noundef 10) #10
+  %485 = call i64 @strtoul(ptr noundef captures(none) %484, ptr noundef null, i32 noundef 10) #10
   %486 = trunc i64 %485 to i32
   %487 = getelementptr inbounds nuw i8, ptr %456, i64 40
   store i32 %486, ptr %487, align 8
@@ -1279,19 +1279,19 @@ _readAggref.exit:                                 ; preds = %338, %399, %402
   store i32 12, ptr %506, align 4
   %507 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %508 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %509 = call i64 @strtoul(ptr nocapture noundef %508, ptr noundef null, i32 noundef 10) #10
+  %509 = call i64 @strtoul(ptr noundef captures(none) %508, ptr noundef null, i32 noundef 10) #10
   %510 = trunc i64 %509 to i32
   %511 = getelementptr inbounds nuw i8, ptr %506, i64 4
   store i32 %510, ptr %511, align 4
   %512 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %513 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %514 = call i64 @strtoul(ptr nocapture noundef %513, ptr noundef null, i32 noundef 10) #10
+  %514 = call i64 @strtoul(ptr noundef captures(none) %513, ptr noundef null, i32 noundef 10) #10
   %515 = trunc i64 %514 to i32
   %516 = getelementptr inbounds nuw i8, ptr %506, i64 8
   store i32 %515, ptr %516, align 8
   %517 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %518 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %519 = call i64 @strtoul(ptr nocapture noundef %518, ptr noundef null, i32 noundef 10) #10
+  %519 = call i64 @strtoul(ptr noundef captures(none) %518, ptr noundef null, i32 noundef 10) #10
   %520 = trunc i64 %519 to i32
   %521 = getelementptr inbounds nuw i8, ptr %506, i64 12
   store i32 %520, ptr %521, align 4
@@ -1302,7 +1302,7 @@ _readAggref.exit:                                 ; preds = %338, %399, %402
   store i32 %524, ptr %525, align 8
   %526 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %527 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %528 = call i64 @strtoul(ptr nocapture noundef %527, ptr noundef null, i32 noundef 10) #10
+  %528 = call i64 @strtoul(ptr noundef captures(none) %527, ptr noundef null, i32 noundef 10) #10
   %529 = trunc i64 %528 to i32
   %530 = getelementptr inbounds nuw i8, ptr %506, i64 20
   store i32 %529, ptr %530, align 4
@@ -4733,13 +4733,13 @@ define internal fastcc noundef ptr @_readFuncExpr() unnamed_addr #0 {
   store i32 13, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
@@ -4764,13 +4764,13 @@ define internal fastcc noundef ptr @_readFuncExpr() unnamed_addr #0 {
   store i32 %27, ptr %28, align 8
   %29 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %31 = call i64 @strtoul(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #10
+  %31 = call i64 @strtoul(ptr noundef captures(none) %30, ptr noundef null, i32 noundef 10) #10
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %32, ptr %33, align 4
   %34 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %35 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %36 = call i64 @strtoul(ptr nocapture noundef %35, ptr noundef null, i32 noundef 10) #10
+  %36 = call i64 @strtoul(ptr noundef captures(none) %35, ptr noundef null, i32 noundef 10) #10
   %37 = trunc i64 %36 to i32
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %37, ptr %38, align 8
@@ -4844,19 +4844,19 @@ define internal fastcc noundef ptr @_readOpExpr() unnamed_addr #0 {
   store i32 15, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #10
+  %15 = call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #10
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %16, ptr %17, align 4
@@ -4869,13 +4869,13 @@ define internal fastcc noundef ptr @_readOpExpr() unnamed_addr #0 {
   store i8 %23, ptr %22, align 8
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %26 = call i64 @strtoul(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #10
+  %26 = call i64 @strtoul(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #10
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %27, ptr %28, align 4
   %29 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %31 = call i64 @strtoul(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #10
+  %31 = call i64 @strtoul(ptr noundef captures(none) %30, ptr noundef null, i32 noundef 10) #10
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %32, ptr %33, align 8
@@ -4897,19 +4897,19 @@ define internal fastcc noundef ptr @_readDistinctExpr() unnamed_addr #0 {
   store i32 16, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #10
+  %15 = call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #10
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %16, ptr %17, align 4
@@ -4922,13 +4922,13 @@ define internal fastcc noundef ptr @_readDistinctExpr() unnamed_addr #0 {
   store i8 %23, ptr %22, align 8
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %26 = call i64 @strtoul(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #10
+  %26 = call i64 @strtoul(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #10
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %27, ptr %28, align 4
   %29 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %31 = call i64 @strtoul(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #10
+  %31 = call i64 @strtoul(ptr noundef captures(none) %30, ptr noundef null, i32 noundef 10) #10
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %32, ptr %33, align 8
@@ -4950,19 +4950,19 @@ define internal fastcc noundef ptr @_readNullIfExpr() unnamed_addr #0 {
   store i32 17, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #10
+  %15 = call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #10
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %16, ptr %17, align 4
@@ -4975,13 +4975,13 @@ define internal fastcc noundef ptr @_readNullIfExpr() unnamed_addr #0 {
   store i8 %23, ptr %22, align 8
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %25 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %26 = call i64 @strtoul(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #10
+  %26 = call i64 @strtoul(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #10
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %27, ptr %28, align 4
   %29 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %31 = call i64 @strtoul(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #10
+  %31 = call i64 @strtoul(ptr noundef captures(none) %30, ptr noundef null, i32 noundef 10) #10
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %32, ptr %33, align 8
@@ -5003,25 +5003,25 @@ define internal fastcc noundef ptr @_readScalarArrayOpExpr() unnamed_addr #0 {
   store i32 18, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #10
+  %15 = call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #10
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %16, ptr %17, align 4
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %20 = call i64 @strtoul(ptr nocapture noundef %19, ptr noundef null, i32 noundef 10) #10
+  %20 = call i64 @strtoul(ptr noundef captures(none) %19, ptr noundef null, i32 noundef 10) #10
   %21 = trunc i64 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %21, ptr %22, align 8
@@ -5034,7 +5034,7 @@ define internal fastcc noundef ptr @_readScalarArrayOpExpr() unnamed_addr #0 {
   store i8 %28, ptr %27, align 4
   %29 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %31 = call i64 @strtoul(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #10
+  %31 = call i64 @strtoul(ptr noundef captures(none) %30, ptr noundef null, i32 noundef 10) #10
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %32, ptr %33, align 8
@@ -5217,7 +5217,7 @@ nullable_string.exit:                             ; preds = %0, %27, %29
   store ptr %.0.i, ptr %31, align 8
   %32 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %33 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %34 = call i64 @strtoul(ptr nocapture noundef %33, ptr noundef null, i32 noundef 10) #10
+  %34 = call i64 @strtoul(ptr noundef captures(none) %33, ptr noundef null, i32 noundef 10) #10
   %35 = trunc i64 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %35, ptr %36, align 8
@@ -5228,7 +5228,7 @@ nullable_string.exit:                             ; preds = %0, %27, %29
   store i32 %39, ptr %40, align 4
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %42 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %43 = call i64 @strtoul(ptr nocapture noundef %42, ptr noundef null, i32 noundef 10) #10
+  %43 = call i64 @strtoul(ptr noundef captures(none) %42, ptr noundef null, i32 noundef 10) #10
   %44 = trunc i64 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %44, ptr %45, align 8
@@ -5307,7 +5307,7 @@ define internal fastcc noundef ptr @_readFieldSelect() unnamed_addr #0 {
   store i16 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %13 = call i64 @strtoul(ptr nocapture noundef %12, ptr noundef null, i32 noundef 10) #10
+  %13 = call i64 @strtoul(ptr noundef captures(none) %12, ptr noundef null, i32 noundef 10) #10
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %14, ptr %15, align 4
@@ -5318,7 +5318,7 @@ define internal fastcc noundef ptr @_readFieldSelect() unnamed_addr #0 {
   store i32 %18, ptr %19, align 8
   %20 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %22 = call i64 @strtoul(ptr nocapture noundef %21, ptr noundef null, i32 noundef 10) #10
+  %22 = call i64 @strtoul(ptr noundef captures(none) %21, ptr noundef null, i32 noundef 10) #10
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %23, ptr %24, align 4
@@ -5344,7 +5344,7 @@ define internal fastcc noundef ptr @_readFieldStore() unnamed_addr #0 {
   store ptr %10, ptr %11, align 8
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %14 = call i64 @strtoul(ptr nocapture noundef %13, ptr noundef null, i32 noundef 10) #10
+  %14 = call i64 @strtoul(ptr noundef captures(none) %13, ptr noundef null, i32 noundef 10) #10
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %15, ptr %16, align 8
@@ -5362,7 +5362,7 @@ define internal fastcc noundef ptr @_readRelabelType() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #10
+  %8 = call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #10
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %9, ptr %10, align 8
@@ -5373,7 +5373,7 @@ define internal fastcc noundef ptr @_readRelabelType() unnamed_addr #0 {
   store i32 %13, ptr %14, align 4
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i64 @strtoul(ptr nocapture noundef %16, ptr noundef null, i32 noundef 10) #10
+  %17 = call i64 @strtoul(ptr noundef captures(none) %16, ptr noundef null, i32 noundef 10) #10
   %18 = trunc i64 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %18, ptr %19, align 8
@@ -5400,13 +5400,13 @@ define internal fastcc noundef ptr @_readCoerceViaIO() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #10
+  %8 = call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #10
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %13 = call i64 @strtoul(ptr nocapture noundef %12, ptr noundef null, i32 noundef 10) #10
+  %13 = call i64 @strtoul(ptr noundef captures(none) %12, ptr noundef null, i32 noundef 10) #10
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %14, ptr %15, align 4
@@ -5437,7 +5437,7 @@ define internal fastcc noundef ptr @_readArrayCoerceExpr() unnamed_addr #0 {
   store ptr %7, ptr %8, align 8
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %11 = call i64 @strtoul(ptr nocapture noundef %10, ptr noundef null, i32 noundef 10) #10
+  %11 = call i64 @strtoul(ptr noundef captures(none) %10, ptr noundef null, i32 noundef 10) #10
   %12 = trunc i64 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %12, ptr %13, align 8
@@ -5448,7 +5448,7 @@ define internal fastcc noundef ptr @_readArrayCoerceExpr() unnamed_addr #0 {
   store i32 %16, ptr %17, align 4
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %20 = call i64 @strtoul(ptr nocapture noundef %19, ptr noundef null, i32 noundef 10) #10
+  %20 = call i64 @strtoul(ptr noundef captures(none) %19, ptr noundef null, i32 noundef 10) #10
   %21 = trunc i64 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %21, ptr %22, align 8
@@ -5475,7 +5475,7 @@ define internal fastcc noundef ptr @_readConvertRowtypeExpr() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #10
+  %8 = call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #10
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %9, ptr %10, align 8
@@ -5502,7 +5502,7 @@ define internal fastcc noundef ptr @_readCollateExpr() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #10
+  %8 = call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #10
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %9, ptr %10, align 8
@@ -5520,13 +5520,13 @@ define internal fastcc noundef ptr @_readCaseExpr() unnamed_addr #0 {
   store i32 30, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
@@ -5576,7 +5576,7 @@ define internal fastcc noundef ptr @_readCaseTestExpr() unnamed_addr #0 {
   store i32 32, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
@@ -5587,7 +5587,7 @@ define internal fastcc noundef ptr @_readCaseTestExpr() unnamed_addr #0 {
   store i32 %10, ptr %11, align 4
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %14 = call i64 @strtoul(ptr nocapture noundef %13, ptr noundef null, i32 noundef 10) #10
+  %14 = call i64 @strtoul(ptr noundef captures(none) %13, ptr noundef null, i32 noundef 10) #10
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %15, ptr %16, align 4
@@ -5601,19 +5601,19 @@ define internal fastcc noundef ptr @_readArrayExpr() unnamed_addr #0 {
   store i32 33, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #10
+  %15 = call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #10
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %16, ptr %17, align 4
@@ -5646,7 +5646,7 @@ define internal fastcc noundef ptr @_readRowExpr() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #10
+  %8 = call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #10
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %9, ptr %10, align 8
@@ -5706,13 +5706,13 @@ define internal fastcc noundef ptr @_readCoalesceExpr() unnamed_addr #0 {
   store i32 36, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
@@ -5734,19 +5734,19 @@ define internal fastcc noundef ptr @_readMinMaxExpr() unnamed_addr #0 {
   store i32 37, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #10
+  %15 = call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #10
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %16, ptr %17, align 4
@@ -5778,7 +5778,7 @@ define internal fastcc noundef ptr @_readSQLValueFunction() unnamed_addr #0 {
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %9 = call i64 @strtoul(ptr nocapture noundef %8, ptr noundef null, i32 noundef 10) #10
+  %9 = call i64 @strtoul(ptr noundef captures(none) %8, ptr noundef null, i32 noundef 10) #10
   %10 = trunc i64 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %10, ptr %11, align 4
@@ -5861,7 +5861,7 @@ nullable_string.exit:                             ; preds = %0, %17, %19
   store i8 %40, ptr %39, align 4
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %42 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %43 = call i64 @strtoul(ptr nocapture noundef %42, ptr noundef null, i32 noundef 10) #10
+  %43 = call i64 @strtoul(ptr noundef captures(none) %42, ptr noundef null, i32 noundef 10) #10
   %44 = trunc i64 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %44, ptr %45, align 8
@@ -5910,7 +5910,7 @@ define internal fastcc noundef ptr @_readJsonReturning() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #10
+  %8 = call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #10
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %9, ptr %10, align 8
@@ -6118,7 +6118,7 @@ define internal fastcc noundef ptr @_readCoerceToDomain() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #10
+  %8 = call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #10
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %9, ptr %10, align 8
@@ -6129,7 +6129,7 @@ define internal fastcc noundef ptr @_readCoerceToDomain() unnamed_addr #0 {
   store i32 %13, ptr %14, align 4
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %16 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %17 = call i64 @strtoul(ptr nocapture noundef %16, ptr noundef null, i32 noundef 10) #10
+  %17 = call i64 @strtoul(ptr noundef captures(none) %16, ptr noundef null, i32 noundef 10) #10
   %18 = trunc i64 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %18, ptr %19, align 8
@@ -6152,7 +6152,7 @@ define internal fastcc noundef ptr @_readCoerceToDomainValue() unnamed_addr #0 {
   store i32 49, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
@@ -6163,7 +6163,7 @@ define internal fastcc noundef ptr @_readCoerceToDomainValue() unnamed_addr #0 {
   store i32 %10, ptr %11, align 4
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %14 = call i64 @strtoul(ptr nocapture noundef %13, ptr noundef null, i32 noundef 10) #10
+  %14 = call i64 @strtoul(ptr noundef captures(none) %13, ptr noundef null, i32 noundef 10) #10
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %15, ptr %16, align 4
@@ -6181,7 +6181,7 @@ define internal fastcc noundef ptr @_readSetToDefault() unnamed_addr #0 {
   store i32 50, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
@@ -6192,7 +6192,7 @@ define internal fastcc noundef ptr @_readSetToDefault() unnamed_addr #0 {
   store i32 %10, ptr %11, align 4
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %14 = call i64 @strtoul(ptr nocapture noundef %13, ptr noundef null, i32 noundef 10) #10
+  %14 = call i64 @strtoul(ptr noundef captures(none) %13, ptr noundef null, i32 noundef 10) #10
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %15, ptr %16, align 4
@@ -6210,7 +6210,7 @@ define internal fastcc noundef ptr @_readCurrentOfExpr() unnamed_addr #0 {
   store i32 51, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
@@ -6260,13 +6260,13 @@ define internal fastcc noundef ptr @_readNextValueExpr() unnamed_addr #0 {
   store i32 52, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 4
@@ -6284,13 +6284,13 @@ define internal fastcc noundef ptr @_readInferenceElem() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #10
+  %8 = call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #10
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %13 = call i64 @strtoul(ptr nocapture noundef %12, ptr noundef null, i32 noundef 10) #10
+  %13 = call i64 @strtoul(ptr noundef captures(none) %12, ptr noundef null, i32 noundef 10) #10
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %14, ptr %15, align 4
@@ -6345,13 +6345,13 @@ nullable_string.exit:                             ; preds = %0, %21, %23
   store ptr %.0.i, ptr %25, align 8
   %26 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %28 = call i64 @strtoul(ptr nocapture noundef %27, ptr noundef null, i32 noundef 10) #10
+  %28 = call i64 @strtoul(ptr noundef captures(none) %27, ptr noundef null, i32 noundef 10) #10
   %29 = trunc i64 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %29, ptr %30, align 8
   %31 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %32 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %33 = call i64 @strtoul(ptr nocapture noundef %32, ptr noundef null, i32 noundef 10) #10
+  %33 = call i64 @strtoul(ptr noundef captures(none) %32, ptr noundef null, i32 noundef 10) #10
   %34 = trunc i64 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %34, ptr %35, align 4
@@ -6469,7 +6469,7 @@ define internal fastcc noundef ptr @_readOnConflictExpr() unnamed_addr #0 {
   store ptr %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #10
+  %15 = call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #10
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %16, ptr %17, align 8
@@ -6728,7 +6728,7 @@ define internal fastcc noundef ptr @_readTypeName() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #10
+  %8 = call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #10
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %9, ptr %10, align 8
@@ -7910,7 +7910,7 @@ nullable_string.exit42:                           ; preds = %68, %81, %83
   store ptr %122, ptr %123, align 8
   %124 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %125 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %126 = call i64 @strtoul(ptr nocapture noundef %125, ptr noundef null, i32 noundef 10) #10
+  %126 = call i64 @strtoul(ptr noundef captures(none) %125, ptr noundef null, i32 noundef 10) #10
   %127 = trunc i64 %126 to i32
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 %127, ptr %128, align 8
@@ -7940,13 +7940,13 @@ define internal fastcc noundef ptr @_readTableLikeClause() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #10
+  %8 = call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #10
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %13 = call i64 @strtoul(ptr nocapture noundef %12, ptr noundef null, i32 noundef 10) #10
+  %13 = call i64 @strtoul(ptr noundef captures(none) %12, ptr noundef null, i32 noundef 10) #10
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %14, ptr %15, align 4
@@ -8400,7 +8400,7 @@ define internal fastcc noundef ptr @_readRangeTblEntry() unnamed_addr #0 {
 13:                                               ; preds = %0
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %16 = call i64 @strtoul(ptr nocapture noundef %15, ptr noundef null, i32 noundef 10) #10
+  %16 = call i64 @strtoul(ptr noundef captures(none) %15, ptr noundef null, i32 noundef 10) #10
   %17 = trunc i64 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %17, ptr %18, align 8
@@ -8435,7 +8435,7 @@ define internal fastcc noundef ptr @_readRangeTblEntry() unnamed_addr #0 {
   store ptr %37, ptr %38, align 8
   %39 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %40 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %41 = call i64 @strtoul(ptr nocapture noundef %40, ptr noundef null, i32 noundef 10) #10
+  %41 = call i64 @strtoul(ptr noundef captures(none) %40, ptr noundef null, i32 noundef 10) #10
   %42 = trunc i64 %41 to i32
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %42, ptr %43, align 8
@@ -8455,7 +8455,7 @@ define internal fastcc noundef ptr @_readRangeTblEntry() unnamed_addr #0 {
   store i8 %53, ptr %52, align 8
   %54 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %55 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %56 = call i64 @strtoul(ptr nocapture noundef %55, ptr noundef null, i32 noundef 10) #10
+  %56 = call i64 @strtoul(ptr noundef captures(none) %55, ptr noundef null, i32 noundef 10) #10
   %57 = trunc i64 %56 to i32
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %57, ptr %58, align 8
@@ -8486,7 +8486,7 @@ define internal fastcc noundef ptr @_readRangeTblEntry() unnamed_addr #0 {
   store i32 %74, ptr %75, align 8
   %76 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %77 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %78 = call i64 @strtoul(ptr nocapture noundef %77, ptr noundef null, i32 noundef 10) #10
+  %78 = call i64 @strtoul(ptr noundef captures(none) %77, ptr noundef null, i32 noundef 10) #10
   %79 = trunc i64 %78 to i32
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %79, ptr %80, align 8
@@ -8611,7 +8611,7 @@ nullable_string.exit:                             ; preds = %139, %150, %152
   store ptr %.0.i, ptr %154, align 8
   %155 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %156 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %157 = call i64 @strtoul(ptr nocapture noundef %156, ptr noundef null, i32 noundef 10) #10
+  %157 = call i64 @strtoul(ptr noundef captures(none) %156, ptr noundef null, i32 noundef 10) #10
   %158 = trunc i64 %157 to i32
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 %158, ptr %159, align 8
@@ -8687,7 +8687,7 @@ nullable_string.exit83:                           ; preds = %175, %186, %188
   store ptr %202, ptr %203, align 8
   %204 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %205 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %206 = call i64 @strtoul(ptr nocapture noundef %205, ptr noundef null, i32 noundef 10) #10
+  %206 = call i64 @strtoul(ptr noundef captures(none) %205, ptr noundef null, i32 noundef 10) #10
   %207 = trunc i64 %206 to i32
   %208 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %207, ptr %208, align 8
@@ -8737,7 +8737,7 @@ define internal fastcc noundef ptr @_readRTEPermissionInfo() unnamed_addr #0 {
   store i32 94, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
@@ -8750,12 +8750,12 @@ define internal fastcc noundef ptr @_readRTEPermissionInfo() unnamed_addr #0 {
   store i8 %13, ptr %12, align 8
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %15 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %16 = call i64 @strtoul(ptr nocapture noundef %15, ptr noundef null, i32 noundef 10) #10
+  %16 = call i64 @strtoul(ptr noundef captures(none) %15, ptr noundef null, i32 noundef 10) #10
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %16, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %20 = call i64 @strtoul(ptr nocapture noundef %19, ptr noundef null, i32 noundef 10) #10
+  %20 = call i64 @strtoul(ptr noundef captures(none) %19, ptr noundef null, i32 noundef 10) #10
   %21 = trunc i64 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %21, ptr %22, align 8
@@ -8818,7 +8818,7 @@ define internal fastcc noundef ptr @_readTableSampleClause() unnamed_addr #0 {
   store i32 96, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
@@ -8926,19 +8926,19 @@ define internal fastcc noundef ptr @_readSortGroupClause() unnamed_addr #0 {
   store i32 98, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 4
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #10
+  %15 = call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #10
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %16, ptr %17, align 4
@@ -9074,19 +9074,19 @@ nullable_string.exit27:                           ; preds = %nullable_string.exi
   store ptr %50, ptr %51, align 8
   %52 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %53 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %54 = call i64 @strtoul(ptr nocapture noundef %53, ptr noundef null, i32 noundef 10) #10
+  %54 = call i64 @strtoul(ptr noundef captures(none) %53, ptr noundef null, i32 noundef 10) #10
   %55 = trunc i64 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 %55, ptr %56, align 8
   %57 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %58 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %59 = call i64 @strtoul(ptr nocapture noundef %58, ptr noundef null, i32 noundef 10) #10
+  %59 = call i64 @strtoul(ptr noundef captures(none) %58, ptr noundef null, i32 noundef 10) #10
   %60 = trunc i64 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 76
   store i32 %60, ptr %61, align 4
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %65, ptr %66, align 8
@@ -9106,7 +9106,7 @@ nullable_string.exit27:                           ; preds = %nullable_string.exi
   store i8 %78, ptr %77, align 1
   %79 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %80 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %81 = call i64 @strtoul(ptr nocapture noundef %80, ptr noundef null, i32 noundef 10) #10
+  %81 = call i64 @strtoul(ptr noundef captures(none) %80, ptr noundef null, i32 noundef 10) #10
   %82 = trunc i64 %81 to i32
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 %82, ptr %83, align 8
@@ -9127,7 +9127,7 @@ define internal fastcc noundef ptr @_readRowMarkClause() unnamed_addr #0 {
   store i32 101, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
@@ -9393,7 +9393,7 @@ nullable_string.exit18:                           ; preds = %nullable_string.exi
   store i32 -1, ptr %44, align 8
   %45 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %46 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %47 = call i64 @strtoul(ptr nocapture noundef %46, ptr noundef null, i32 noundef 10) #10
+  %47 = call i64 @strtoul(ptr noundef captures(none) %46, ptr noundef null, i32 noundef 10) #10
   %48 = trunc i64 %47 to i32
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %48, ptr %49, align 4
@@ -9404,13 +9404,13 @@ nullable_string.exit18:                           ; preds = %nullable_string.exi
   store i32 %52, ptr %53, align 8
   %54 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %55 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %56 = call i64 @strtoul(ptr nocapture noundef %55, ptr noundef null, i32 noundef 10) #10
+  %56 = call i64 @strtoul(ptr noundef captures(none) %55, ptr noundef null, i32 noundef 10) #10
   %57 = trunc i64 %56 to i32
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 %57, ptr %58, align 4
   %59 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %60 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %61 = call i64 @strtoul(ptr nocapture noundef %60, ptr noundef null, i32 noundef 10) #10
+  %61 = call i64 @strtoul(ptr noundef captures(none) %60, ptr noundef null, i32 noundef 10) #10
   %62 = trunc i64 %61 to i32
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %62, ptr %63, align 8
@@ -11346,7 +11346,7 @@ nullable_string.exit71:                           ; preds = %nullable_string.exi
   store ptr %217, ptr %218, align 8
   %219 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %220 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %221 = call i64 @strtoul(ptr nocapture noundef %220, ptr noundef null, i32 noundef 10) #10
+  %221 = call i64 @strtoul(ptr noundef captures(none) %220, ptr noundef null, i32 noundef 10) #10
   %222 = trunc i64 %221 to i32
   %223 = getelementptr inbounds nuw i8, ptr %2, i64 184
   store i32 %222, ptr %223, align 8
@@ -13176,7 +13176,7 @@ define internal fastcc noundef ptr @_readCreateSeqStmt() unnamed_addr #0 {
   store ptr %7, ptr %8, align 8
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %10 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %11 = call i64 @strtoul(ptr nocapture noundef %10, ptr noundef null, i32 noundef 10) #10
+  %11 = call i64 @strtoul(ptr noundef captures(none) %10, ptr noundef null, i32 noundef 10) #10
   %12 = trunc i64 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %12, ptr %13, align 8
@@ -13975,25 +13975,25 @@ nullable_string.exit50:                           ; preds = %nullable_string.exi
   store ptr %.0.i49, ptr %80, align 8
   %81 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %82 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %83 = call i64 @strtoul(ptr nocapture noundef %82, ptr noundef null, i32 noundef 10) #10
+  %83 = call i64 @strtoul(ptr noundef captures(none) %82, ptr noundef null, i32 noundef 10) #10
   %84 = trunc i64 %83 to i32
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 %84, ptr %85, align 8
   %86 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %87 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %88 = call i64 @strtoul(ptr nocapture noundef %87, ptr noundef null, i32 noundef 10) #10
+  %88 = call i64 @strtoul(ptr noundef captures(none) %87, ptr noundef null, i32 noundef 10) #10
   %89 = trunc i64 %88 to i32
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 %89, ptr %90, align 4
   %91 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %92 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %93 = call i64 @strtoul(ptr nocapture noundef %92, ptr noundef null, i32 noundef 10) #10
+  %93 = call i64 @strtoul(ptr noundef captures(none) %92, ptr noundef null, i32 noundef 10) #10
   %94 = trunc i64 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 %94, ptr %95, align 8
   %96 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %97 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %98 = call i64 @strtoul(ptr nocapture noundef %97, ptr noundef null, i32 noundef 10) #10
+  %98 = call i64 @strtoul(ptr noundef captures(none) %97, ptr noundef null, i32 noundef 10) #10
   %99 = trunc i64 %98 to i32
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 100
   store i32 %99, ptr %100, align 4
@@ -15469,7 +15469,7 @@ define internal fastcc noundef ptr @_readVacuumRelation() unnamed_addr #0 {
   store ptr %4, ptr %5, align 8
   %6 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %8 = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #10
+  %8 = call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #10
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %9, ptr %10, align 8
@@ -16507,13 +16507,13 @@ define internal fastcc noundef ptr @_readPlaceHolderVar() unnamed_addr #0 {
   store ptr %10, ptr %11, align 8
   %12 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %14 = call i64 @strtoul(ptr nocapture noundef %13, ptr noundef null, i32 noundef 10) #10
+  %14 = call i64 @strtoul(ptr noundef captures(none) %13, ptr noundef null, i32 noundef 10) #10
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %15, ptr %16, align 8
   %17 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %19 = call i64 @strtoul(ptr nocapture noundef %18, ptr noundef null, i32 noundef 10) #10
+  %19 = call i64 @strtoul(ptr noundef captures(none) %18, ptr noundef null, i32 noundef 10) #10
   %20 = trunc i64 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %20, ptr %21, align 4
@@ -16527,25 +16527,25 @@ define internal fastcc noundef ptr @_readAppendRelInfo() unnamed_addr #0 {
   store i32 306, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 8
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #10
+  %15 = call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #10
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %16, ptr %17, align 4
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %19 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %20 = call i64 @strtoul(ptr nocapture noundef %19, ptr noundef null, i32 noundef 10) #10
+  %20 = call i64 @strtoul(ptr noundef captures(none) %19, ptr noundef null, i32 noundef 10) #10
   %21 = trunc i64 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %21, ptr %22, align 8
@@ -16565,7 +16565,7 @@ define internal fastcc noundef ptr @_readAppendRelInfo() unnamed_addr #0 {
   store ptr %32, ptr %33, align 8
   %34 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %35 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %36 = call i64 @strtoul(ptr nocapture noundef %35, ptr noundef null, i32 noundef 10) #10
+  %36 = call i64 @strtoul(ptr noundef captures(none) %35, ptr noundef null, i32 noundef 10) #10
   %37 = trunc i64 %36 to i32
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %37, ptr %38, align 8
@@ -16584,7 +16584,7 @@ define internal fastcc noundef ptr @_readPlannedStmt() unnamed_addr #0 {
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %9 = call i64 @strtoul(ptr nocapture noundef %8, ptr noundef null, i32 noundef 10) #10
+  %9 = call i64 @strtoul(ptr noundef captures(none) %8, ptr noundef null, i32 noundef 10) #10
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8
   %11 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -16955,13 +16955,13 @@ define internal fastcc noundef ptr @_readModifyTable() unnamed_addr #0 {
   store i8 %71, ptr %70, align 4
   %72 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %73 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %74 = call i64 @strtoul(ptr nocapture noundef %73, ptr noundef null, i32 noundef 10) #10
+  %74 = call i64 @strtoul(ptr noundef captures(none) %73, ptr noundef null, i32 noundef 10) #10
   %75 = trunc i64 %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %75, ptr %76, align 8
   %77 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %78 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %79 = call i64 @strtoul(ptr nocapture noundef %78, ptr noundef null, i32 noundef 10) #10
+  %79 = call i64 @strtoul(ptr noundef captures(none) %78, ptr noundef null, i32 noundef 10) #10
   %80 = trunc i64 %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 116
   store i32 %80, ptr %81, align 4
@@ -17028,7 +17028,7 @@ define internal fastcc noundef ptr @_readModifyTable() unnamed_addr #0 {
   store ptr %127, ptr %128, align 8
   %129 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %130 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %131 = call i64 @strtoul(ptr nocapture noundef %130, ptr noundef null, i32 noundef 10) #10
+  %131 = call i64 @strtoul(ptr noundef captures(none) %130, ptr noundef null, i32 noundef 10) #10
   %132 = trunc i64 %131 to i32
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 224
   store i32 %132, ptr %133, align 8
@@ -17638,7 +17638,7 @@ define internal fastcc noundef ptr @_readSeqScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -17726,7 +17726,7 @@ define internal fastcc noundef ptr @_readSampleScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -17818,13 +17818,13 @@ define internal fastcc noundef ptr @_readIndexScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %68 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %69 = call i64 @strtoul(ptr nocapture noundef %68, ptr noundef null, i32 noundef 10) #10
+  %69 = call i64 @strtoul(ptr noundef captures(none) %68, ptr noundef null, i32 noundef 10) #10
   %70 = trunc i64 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %70, ptr %71, align 8
@@ -17937,13 +17937,13 @@ define internal fastcc noundef ptr @_readIndexOnlyScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %68 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %69 = call i64 @strtoul(ptr nocapture noundef %68, ptr noundef null, i32 noundef 10) #10
+  %69 = call i64 @strtoul(ptr noundef captures(none) %68, ptr noundef null, i32 noundef 10) #10
   %70 = trunc i64 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %70, ptr %71, align 8
@@ -18052,13 +18052,13 @@ define internal fastcc noundef ptr @_readBitmapIndexScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %68 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %69 = call i64 @strtoul(ptr nocapture noundef %68, ptr noundef null, i32 noundef 10) #10
+  %69 = call i64 @strtoul(ptr noundef captures(none) %68, ptr noundef null, i32 noundef 10) #10
   %70 = trunc i64 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %70, ptr %71, align 8
@@ -18161,7 +18161,7 @@ define internal fastcc noundef ptr @_readBitmapHeapScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -18253,7 +18253,7 @@ define internal fastcc noundef ptr @_readTidScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -18345,7 +18345,7 @@ define internal fastcc noundef ptr @_readTidRangeScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -18437,7 +18437,7 @@ define internal fastcc noundef ptr @_readSubqueryScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -18534,7 +18534,7 @@ define internal fastcc noundef ptr @_readFunctionScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -18633,7 +18633,7 @@ define internal fastcc noundef ptr @_readValuesScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -18725,7 +18725,7 @@ define internal fastcc noundef ptr @_readTableFuncScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -18817,7 +18817,7 @@ define internal fastcc noundef ptr @_readCteScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -18915,7 +18915,7 @@ define internal fastcc noundef ptr @_readNamedTuplestoreScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -19034,7 +19034,7 @@ define internal fastcc noundef ptr @_readWorkTableScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -19127,7 +19127,7 @@ define internal fastcc noundef ptr @_readForeignScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -19138,19 +19138,19 @@ define internal fastcc noundef ptr @_readForeignScan() unnamed_addr #0 {
   store i32 %69, ptr %70, align 8
   %71 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %72 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %73 = call i64 @strtoul(ptr nocapture noundef %72, ptr noundef null, i32 noundef 10) #10
+  %73 = call i64 @strtoul(ptr noundef captures(none) %72, ptr noundef null, i32 noundef 10) #10
   %74 = trunc i64 %73 to i32
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 116
   store i32 %74, ptr %75, align 4
   %76 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %77 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %78 = call i64 @strtoul(ptr nocapture noundef %77, ptr noundef null, i32 noundef 10) #10
+  %78 = call i64 @strtoul(ptr noundef captures(none) %77, ptr noundef null, i32 noundef 10) #10
   %79 = trunc i64 %78 to i32
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i32 %79, ptr %80, align 8
   %81 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %82 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %83 = call i64 @strtoul(ptr nocapture noundef %82, ptr noundef null, i32 noundef 10) #10
+  %83 = call i64 @strtoul(ptr noundef captures(none) %82, ptr noundef null, i32 noundef 10) #10
   %84 = trunc i64 %83 to i32
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 124
   store i32 %84, ptr %85, align 4
@@ -19269,13 +19269,13 @@ define internal fastcc noundef ptr @_readCustomScan() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
   %67 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %68 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %69 = call i64 @strtoul(ptr nocapture noundef %68, ptr noundef null, i32 noundef 10) #10
+  %69 = call i64 @strtoul(ptr noundef captures(none) %68, ptr noundef null, i32 noundef 10) #10
   %70 = trunc i64 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %70, ptr %71, align 8
@@ -19932,7 +19932,7 @@ define internal fastcc noundef ptr @_readMemoize() unnamed_addr #0 {
   store i8 %88, ptr %87, align 1
   %89 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %90 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %91 = call i64 @strtoul(ptr nocapture noundef %90, ptr noundef null, i32 noundef 10) #10
+  %91 = call i64 @strtoul(ptr noundef captures(none) %90, ptr noundef null, i32 noundef 10) #10
   %92 = trunc i64 %91 to i32
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 140
   store i32 %92, ptr %93, align 4
@@ -20380,7 +20380,7 @@ define internal fastcc noundef ptr @_readAgg() unnamed_addr #0 {
   store i64 %88, ptr %89, align 8
   %90 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %91 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %92 = call i64 @strtoul(ptr nocapture noundef %91, ptr noundef null, i32 noundef 10) #10
+  %92 = call i64 @strtoul(ptr noundef captures(none) %91, ptr noundef null, i32 noundef 10) #10
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i64 %92, ptr %93, align 8
   %94 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
@@ -20479,7 +20479,7 @@ define internal fastcc noundef ptr @_readWindowAgg() unnamed_addr #0 {
   store ptr %60, ptr %61, align 8
   %62 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %64 = call i64 @strtoul(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #10
+  %64 = call i64 @strtoul(ptr noundef captures(none) %63, ptr noundef null, i32 noundef 10) #10
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %65, ptr %66, align 8
@@ -20546,19 +20546,19 @@ define internal fastcc noundef ptr @_readWindowAgg() unnamed_addr #0 {
   store ptr %113, ptr %114, align 8
   %115 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %116 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %117 = call i64 @strtoul(ptr nocapture noundef %116, ptr noundef null, i32 noundef 10) #10
+  %117 = call i64 @strtoul(ptr noundef captures(none) %116, ptr noundef null, i32 noundef 10) #10
   %118 = trunc i64 %117 to i32
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 208
   store i32 %118, ptr %119, align 8
   %120 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %121 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %122 = call i64 @strtoul(ptr nocapture noundef %121, ptr noundef null, i32 noundef 10) #10
+  %122 = call i64 @strtoul(ptr noundef captures(none) %121, ptr noundef null, i32 noundef 10) #10
   %123 = trunc i64 %122 to i32
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 212
   store i32 %123, ptr %124, align 4
   %125 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %126 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %127 = call i64 @strtoul(ptr nocapture noundef %126, ptr noundef null, i32 noundef 10) #10
+  %127 = call i64 @strtoul(ptr noundef captures(none) %126, ptr noundef null, i32 noundef 10) #10
   %128 = trunc i64 %127 to i32
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 216
   store i32 %128, ptr %129, align 8
@@ -21004,7 +21004,7 @@ define internal fastcc noundef ptr @_readHash() unnamed_addr #0 {
   store ptr %63, ptr %64, align 8
   %65 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %66 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %67 = call i64 @strtoul(ptr nocapture noundef %66, ptr noundef null, i32 noundef 10) #10
+  %67 = call i64 @strtoul(ptr noundef captures(none) %66, ptr noundef null, i32 noundef 10) #10
   %68 = trunc i64 %67 to i32
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %68, ptr %69, align 8
@@ -21370,19 +21370,19 @@ define internal fastcc noundef ptr @_readPlanRowMark() unnamed_addr #0 {
   store i32 358, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %9 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #10
+  %10 = call i64 @strtoul(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #10
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %11, ptr %12, align 4
   %13 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %14 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %15 = call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #10
+  %15 = call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #10
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %16, ptr %17, align 4
@@ -21439,7 +21439,7 @@ define internal fastcc noundef ptr @_readPartitionedRelPruneInfo() unnamed_addr 
   store i32 360, ptr %2, align 4
   %3 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %4 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
@@ -21547,7 +21547,7 @@ define internal fastcc noundef ptr @_readPlanInvalItem() unnamed_addr #0 {
   store i32 %5, ptr %6, align 4
   %7 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %8 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
-  %9 = call i64 @strtoul(ptr nocapture noundef %8, ptr noundef null, i32 noundef 10) #10
+  %9 = call i64 @strtoul(ptr noundef captures(none) %8, ptr noundef null, i32 noundef 10) #10
   %10 = trunc i64 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %10, ptr %11, align 4
@@ -21622,7 +21622,7 @@ define dso_local i64 @readDatum(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
   %4 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
-  %5 = call i64 @strtoul(ptr nocapture noundef %4, ptr noundef null, i32 noundef 10) #10
+  %5 = call i64 @strtoul(ptr noundef captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %6 = and i64 %5, 4294967295
   %7 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
   %8 = icmp eq ptr %7, null
@@ -21722,10 +21722,10 @@ define dso_local i64 @readDatum(i1 noundef zeroext %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
@@ -21890,7 +21890,7 @@ define dso_local ptr @readOidCols(i32 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 29:                                               ; preds = %23
-  %30 = call i64 @strtoul(ptr nocapture noundef nonnull %21, ptr noundef null, i32 noundef 10) #10
+  %30 = call i64 @strtoul(ptr noundef nonnull captures(none) %21, ptr noundef null, i32 noundef 10) #10
   %31 = trunc i64 %30 to i32
   %32 = getelementptr i32, ptr %19, i64 %indvars.iv
   store i32 %31, ptr %32, align 4
@@ -22116,7 +22116,7 @@ define dso_local ptr @readBoolCols(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -22129,16 +22129,16 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 declare ptr @debackslash(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #4
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @GetCustomScanMethods(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -22148,13 +22148,13 @@ declare ptr @GetExtensibleNodeMethods(ptr noundef, i1 noundef zeroext) local_unn
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

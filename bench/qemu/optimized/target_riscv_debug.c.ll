@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.riscv_trigger_reset_hold = private unnamed_addr constant [3 x i64] [i64 536870912, i64 2305843009213693952, i64 2305843009213693952], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @tdata_available(ptr nocapture noundef readonly %env, i32 noundef %tdata_index) local_unnamed_addr #0 {
+define dso_local zeroext i1 @tdata_available(ptr noundef readonly captures(none) %env, i32 noundef %tdata_index) local_unnamed_addr #0 {
 entry:
   %trigger_cur = getelementptr inbounds nuw i8, ptr %env, i64 8352
   %0 = load i64, ptr %trigger_cur, align 16
@@ -86,7 +86,7 @@ return:                                           ; preds = %get_trigger_type.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @tselect_csr_read(ptr nocapture noundef readonly %env) local_unnamed_addr #1 {
+define dso_local i64 @tselect_csr_read(ptr noundef readonly captures(none) %env) local_unnamed_addr #1 {
 entry:
   %trigger_cur = getelementptr inbounds nuw i8, ptr %env, i64 8352
   %0 = load i64, ptr %trigger_cur, align 16
@@ -94,7 +94,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @tselect_csr_write(ptr nocapture noundef writeonly %env, i64 noundef %val) local_unnamed_addr #2 {
+define dso_local void @tselect_csr_write(ptr noundef writeonly captures(none) %env, i64 noundef %val) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i64 %val, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -109,7 +109,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @riscv_itrigger_enabled(ptr nocapture noundef readonly %env) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @riscv_itrigger_enabled(ptr noundef readonly captures(none) %env) local_unnamed_addr #0 {
 entry:
   %tdata1.i = getelementptr inbounds nuw i8, ptr %env, i64 8360
   %0 = getelementptr i8, ptr %env, i64 5008
@@ -576,7 +576,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @tdata_csr_read(ptr nocapture noundef readonly %env, i32 noundef %tdata_index) local_unnamed_addr #0 {
+define dso_local i64 @tdata_csr_read(ptr noundef readonly captures(none) %env, i32 noundef %tdata_index) local_unnamed_addr #0 {
 entry:
   switch i32 %tdata_index, label %do.body [
     i32 0, label %sw.bb
@@ -1653,7 +1653,7 @@ sw.epilog:                                        ; preds = %if.then27.i, %do.bo
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @tinfo_csr_read(ptr nocapture noundef readnone %env) local_unnamed_addr #5 {
+define dso_local noundef i64 @tinfo_csr_read(ptr noundef readnone captures(none) %env) local_unnamed_addr #5 {
 entry:
   ret i64 68
 }
@@ -1906,7 +1906,7 @@ return:                                           ; preds = %for.inc52.split, %s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @riscv_cpu_debug_check_watchpoint(ptr noundef %cs, ptr nocapture noundef readonly %wp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @riscv_cpu_debug_check_watchpoint(ptr noundef %cs, ptr noundef readonly captures(none) %wp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
   %tdata1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 18536
@@ -2043,7 +2043,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @riscv_trigger_reset_hold(ptr nocapture noundef %env) local_unnamed_addr #0 {
+define dso_local void @riscv_trigger_reset_hold(ptr noundef captures(none) %env) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5008
   %env.val = load i32, ptr %0, align 16

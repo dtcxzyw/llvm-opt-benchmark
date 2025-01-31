@@ -464,7 +464,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare void @gistdentryinit(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i16 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gistunionsubkey(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @gistunionsubkey(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %2, align 8
@@ -595,7 +595,7 @@ gistunionsubkeyvec.exit28:                        ; preds = %46, %.lr.ph.i15.us,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @gistUserPicksplit(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @gistUserPicksplit(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [32 x %struct.GISTENTRY], align 16
   %8 = alloca [32 x i8], align 16
   %9 = alloca %struct.GISTENTRY, align 8
@@ -999,7 +999,7 @@ supportSecondarySplit.exit:                       ; preds = %205, %208
   %237 = load i16, ptr %236, align 2
   %238 = zext i16 %237 to i64
   %239 = getelementptr %struct.GISTENTRY, ptr %227, i64 %238
-  %240 = call float @gistpenalty(ptr noundef %5, i32 noundef %2, ptr noundef nonnull %10, i1 noundef zeroext false, ptr noundef %239, i1 noundef zeroext false) #7
+  %240 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %10, i1 noundef zeroext false, ptr noundef %239, i1 noundef zeroext false) #7
   %241 = fcmp oeq float %240, 0.000000e+00
   br i1 %241, label %242, label %246
 
@@ -1043,7 +1043,7 @@ supportSecondarySplit.exit:                       ; preds = %205, %208
   %258 = load i16, ptr %257, align 2
   %259 = zext i16 %258 to i64
   %260 = getelementptr %struct.GISTENTRY, ptr %227, i64 %259
-  %261 = call float @gistpenalty(ptr noundef %5, i32 noundef %2, ptr noundef nonnull %10, i1 noundef zeroext false, ptr noundef %260, i1 noundef zeroext false) #7
+  %261 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %10, i1 noundef zeroext false, ptr noundef %260, i1 noundef zeroext false) #7
   %262 = fcmp oeq float %261, 0.000000e+00
   br i1 %262, label %263, label %267
 
@@ -1175,7 +1175,7 @@ removeDontCares.exit130:                          ; preds = %removeDontCares.exi
   br label %370
 
 311:                                              ; preds = %removeDontCares.exit130
-  call fastcc void @gistunionsubkey(ptr noundef %5, ptr noundef %4, ptr noundef nonnull %3)
+  call fastcc void @gistunionsubkey(ptr noundef nonnull %5, ptr noundef %4, ptr noundef nonnull %3)
   %312 = icmp eq i32 %.2.lcssa.i, 1
   br i1 %312, label %.preheader, label %370
 
@@ -1211,7 +1211,7 @@ removeDontCares.exit130:                          ; preds = %removeDontCares.exi
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @gistDeCompressAtt(ptr noundef %5, ptr noundef %0, ptr noundef %328, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
+  call void @gistDeCompressAtt(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %328, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %329 = load ptr, ptr %214, align 8
   %330 = load i32, ptr %329, align 8
   %331 = icmp slt i32 %213, %330
@@ -1296,7 +1296,7 @@ placeOne.exit:                                    ; preds = %363, %.loopexit.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i64 @nocache_index_getattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1335,10 +1335,10 @@ declare void @gistDeCompressAtt(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #6

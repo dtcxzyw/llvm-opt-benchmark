@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: read) uwtable
-define dso_local void @qemu_edid_generate(ptr noundef %edid, i64 noundef %size, ptr nocapture noundef %info) local_unnamed_addr #1 {
+define dso_local void @qemu_edid_generate(ptr noundef %edid, i64 noundef %size, ptr noundef captures(none) %info) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr i8, ptr %edid, i64 54
   %refresh_rate1 = getelementptr inbounds nuw i8, ptr %info, i64 44
@@ -666,7 +666,7 @@ if.end.i208:                                      ; preds = %land.lhs.true119
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %add.ptr.i205, i8 32, i64 13, i1 false)
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %50) #9
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i205, ptr nonnull readonly align 1 %50, i64 %spec.store.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i205, ptr nonnull readonly align 1 %50, i64 %spec.store.select.i, i1 false)
   %51 = getelementptr i8, ptr %retval.0.i195, i64 %spec.store.select.i
   %arrayidx.i206 = getelementptr i8, ptr %51, i64 5
   store i8 10, ptr %arrayidx.i206, align 1
@@ -718,7 +718,7 @@ if.end.i236:                                      ; preds = %land.lhs.true127
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %add.ptr.i231, i8 32, i64 13, i1 false)
   %call.i232 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %53) #9
   %spec.store.select.i233 = tail call i64 @llvm.umin.i64(i64 %call.i232, i64 12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i231, ptr nonnull readonly align 1 %53, i64 %spec.store.select.i233, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i231, ptr nonnull readonly align 1 %53, i64 %spec.store.select.i233, i1 false)
   %54 = getelementptr i8, ptr %desc.1396, i64 %spec.store.select.i233
   %arrayidx.i234 = getelementptr i8, ptr %54, i64 5
   store i8 10, ptr %arrayidx.i234, align 1
@@ -980,13 +980,13 @@ if.end148:                                        ; preds = %if.then.i353, %for.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 32769) i64 @qemu_edid_size(ptr nocapture noundef readonly %edid) local_unnamed_addr #4 {
+define dso_local range(i64 0, 32769) i64 @qemu_edid_size(ptr noundef readonly captures(none) %edid) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %edid, align 1
   %cmp.not = icmp eq i8 %0, 0
@@ -1015,10 +1015,10 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i16 @llvm.bswap.i16(i16) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

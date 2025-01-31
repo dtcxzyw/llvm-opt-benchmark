@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_op_ddt_map = external local_unnamed_addr global [52 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_allreduce_intra_nonoverlapping(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readnone %6) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_allreduce_intra_nonoverlapping(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   br i1 %8, label %9, label %22
 
@@ -75,7 +75,7 @@ define i32 @ompi_coll_base_allreduce_intra_nonoverlapping(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_allreduce_intra_recursivedoubling(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr nocapture readnone %6) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_allreduce_intra_recursivedoubling(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr readnone captures(none) %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %5, i64 248
   %.val154 = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val154, i64 16
@@ -375,7 +375,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %19, %ompi_datatype_
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ompi_op_reduce(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -488,10 +488,10 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
 declare i32 @ompi_coll_base_sendrecv_actual(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_allreduce_intra_ring(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr nocapture readnone %6) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_allreduce_intra_ring(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr readnone captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca [2 x ptr], align 16
   %9 = alloca [2 x ptr], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -891,10 +891,10 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %21, %15, %202, %203
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef range(i64 -2147483648, 2147483648) %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 {
@@ -919,7 +919,7 @@ define internal fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_allreduce_intra_ring_segmented(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr nocapture noundef readnone %6, i32 noundef %7) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_allreduce_intra_ring_segmented(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef readnone captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [2 x ptr], align 16
   %10 = alloca [2 x ptr], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -1880,7 +1880,7 @@ ompi_coll_base_allreduce_intra_basic_linear.exit: ; preds = %.thread361, %36, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_allreduce_intra_allgather_reduce(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_allreduce_intra_allgather_reduce(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %5, i64 248
   %.val132 = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val132, i64 16

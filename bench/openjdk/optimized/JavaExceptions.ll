@@ -622,7 +622,7 @@ throwThrowable.exit:                              ; preds = %2, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mapThrownThrowableIfNecessary(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @mapThrownThrowableIfNecessary(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load ptr, ptr %4, align 8

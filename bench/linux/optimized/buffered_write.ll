@@ -1039,10 +1039,10 @@ select.unfold30:                                  ; preds = %293, %205, %.thread
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @filemap_write_and_wait_range(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
@@ -1369,7 +1369,7 @@ define internal void @netfs_cleanup_buffered_write(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @balance_dirty_pages_ratelimited_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @fault_in_iov_iter_readable(ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -1637,7 +1637,7 @@ declare dso_local i64 @generic_write_checks(ptr noundef, ptr noundef) local_unna
 declare dso_local void @netfs_end_io_write(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 1, 1025) i32 @netfs_page_mkwrite(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 1, 1025) i32 @netfs_page_mkwrite(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1977,7 +1977,7 @@ declare dso_local i32 @folio_wait_writeback_killable(ptr noundef) local_unnamed_
 declare dso_local i32 @filemap_fdatawait_range(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @netfs_writepages(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local i32 @netfs_writepages(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -2063,7 +2063,7 @@ define dso_local i32 @netfs_writepages(ptr noundef %0, ptr nocapture noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.folio_batch, align 8
   %6 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #11
@@ -3157,7 +3157,7 @@ define dso_local i32 @netfs_launder_folio(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @netfs_alloc_request(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @netfs_cleanup_launder_folio(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @netfs_cleanup_launder_folio(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load i16, ptr %2, align 8
   %4 = icmp eq i16 %3, 0
@@ -3269,7 +3269,7 @@ declare dso_local i32 @__folio_lock_killable(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @rcuwait_wake_up(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @netfs_pages_written_back(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @netfs_pages_written_back(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.xa_state, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8

@@ -270,7 +270,7 @@ query_supports_distinctness.exit.i.i:             ; preds = %62
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8
-  %153 = call ptr @pull_varnos(ptr noundef %0, ptr noundef %152) #7
+  %153 = call ptr @pull_varnos(ptr noundef nonnull %0, ptr noundef %152) #7
   %154 = load ptr, ptr %121, align 8
   %155 = call zeroext i1 @bms_overlap(ptr noundef %153, ptr noundef %154) #7
   br i1 %155, label %join_is_removable.exit.thread, label %156
@@ -377,7 +377,7 @@ join_is_removable.exit.thread:                    ; preds = %61, %113, %148, %14
 
 join_is_removable.exit:                           ; preds = %clause_sides_match_join.exit.thread, %._crit_edge83.i, %.lr.ph90.i
   %.059.lcssa.i = phi ptr [ null, %._crit_edge83.i ], [ null, %.lr.ph90.i ], [ %.1.i, %clause_sides_match_join.exit.thread ]
-  %212 = call fastcc zeroext i1 @rel_is_distinct_for(ptr noundef %0, ptr noundef %33, ptr noundef %.059.lcssa.i, ptr noundef null)
+  %212 = call fastcc zeroext i1 @rel_is_distinct_for(ptr noundef nonnull %0, ptr noundef %33, ptr noundef %.059.lcssa.i, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br i1 %212, label %213, label %326
 
@@ -386,12 +386,12 @@ join_is_removable.exit:                           ; preds = %clause_sides_match_
   %215 = load ptr, ptr %23, align 8
   %216 = call i32 @bms_singleton_member(ptr noundef %215) #7
   %217 = load i32, ptr %98, align 4
-  %218 = call ptr @find_base_rel(ptr noundef %0, i32 noundef %216) #7
+  %218 = call ptr @find_base_rel(ptr noundef nonnull %0, i32 noundef %216) #7
   %219 = load ptr, ptr %93, align 8
   %220 = load ptr, ptr %23, align 8
   %221 = call ptr @bms_union(ptr noundef %219, ptr noundef %220) #7
   %222 = call ptr @bms_add_member(ptr noundef %221, i32 noundef %217) #7
-  call fastcc void @remove_rel_from_query(ptr noundef %0, ptr noundef %218, i32 noundef -1, ptr noundef %19, ptr noundef %222)
+  call fastcc void @remove_rel_from_query(ptr noundef nonnull %0, ptr noundef %218, i32 noundef -1, ptr noundef %19, ptr noundef %222)
   %223 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %224 = load ptr, ptr %223, align 8
   %225 = call ptr @bms_union(ptr noundef %222, ptr noundef %224) #7
@@ -418,7 +418,7 @@ join_is_removable.exit:                           ; preds = %clause_sides_match_
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 48
   %240 = load ptr, ptr %239, align 8
-  call void @remove_join_clause_from_rels(ptr noundef %0, ptr noundef %238, ptr noundef %240) #7
+  call void @remove_join_clause_from_rels(ptr noundef nonnull %0, ptr noundef %238, ptr noundef %240) #7
   %241 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %242 = load i8, ptr %241, align 8
   %243 = trunc i8 %242 to i1
@@ -431,7 +431,7 @@ join_is_removable.exit:                           ; preds = %clause_sides_match_
 
 247:                                              ; preds = %244, %.lr.ph64.i
   call fastcc void @remove_rel_from_restrictinfo(ptr noundef nonnull %238, i32 noundef %216, i32 noundef %217)
-  call void @distribute_restrictinfo_to_rels(ptr noundef %0, ptr noundef nonnull %238) #7
+  call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef nonnull %238) #7
   br label %248
 
 248:                                              ; preds = %247, %244
@@ -604,7 +604,7 @@ remove_leftjoinrel_from_query.exit:               ; preds = %311, %.lr.ph67.i, %
 declare i32 @bms_singleton_member(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @remove_rel_from_joinlist(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc ptr @remove_rel_from_joinlist(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -883,7 +883,7 @@ define dso_local noundef zeroext i1 @innerrel_is_unique(ptr noundef %0, ptr noun
 declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @query_supports_distinctness(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local zeroext i1 @query_supports_distinctness(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
@@ -931,7 +931,7 @@ define dso_local zeroext i1 @query_supports_distinctness(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @query_is_distinct_for(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @query_is_distinct_for(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -3591,7 +3591,7 @@ declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_rel_from_query(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.ReplaceVarnoContext, align 4
   %7 = alloca %struct.ReplaceVarnoContext, align 4
   %8 = alloca %struct.ReplaceVarnoContext, align 4
@@ -5086,7 +5086,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @self_join_candidates_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @self_join_candidates_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5116,10 +5116,10 @@ declare void @llvm.assume(i1 noundef) #4
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #5

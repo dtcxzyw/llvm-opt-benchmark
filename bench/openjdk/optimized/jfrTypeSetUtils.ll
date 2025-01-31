@@ -40,7 +40,7 @@ $_ZN26GrowableArrayWithAllocatorIPK5Klass13GrowableArrayIS2_EE9expand_toEi = com
 @_ZN14JfrArtifactSetD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14JfrArtifactSetD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrArtifactSetC2Eb(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 41)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrArtifactSetC2Eb(ptr noundef nonnull align 8 captures(none) dereferenceable(41) initializes((0, 41)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %4, align 8
@@ -52,7 +52,7 @@ define hidden void @_ZN14JfrArtifactSetC2Eb(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrArtifactSet10initializeEb(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((8, 41)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrArtifactSet10initializeEb(ptr noundef nonnull align 8 captures(none) dereferenceable(41) initializes((8, 41)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %3, ptr %4, align 8
@@ -114,7 +114,7 @@ declare noundef ptr @_ZN14JfrSymbolTable6createEv() local_unnamed_addr #1
 declare void @_ZN14JfrSymbolTable16set_class_unloadEb(ptr noundef nonnull align 8 dereferenceable(57), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrArtifactSet5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrArtifactSet5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -130,7 +130,7 @@ define hidden void @_ZN14JfrArtifactSet5clearEv(ptr nocapture noundef nonnull re
 declare void @_ZN14JfrSymbolTable5clearEv(ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrArtifactSetD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrArtifactSetD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -151,7 +151,7 @@ declare void @_ZN14JfrSymbolTableD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN14JfrArtifactSet14bootstrap_nameEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN14JfrArtifactSet14bootstrap_nameEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef i64 @_ZN14JfrSymbolTable14bootstrap_nameEb(ptr noundef nonnull align 8 dereferenceable(57) %3, i1 noundef zeroext %1) #9
   ret i64 %4
@@ -160,7 +160,7 @@ define hidden noundef i64 @_ZN14JfrArtifactSet14bootstrap_nameEb(ptr nocapture n
 declare noundef i64 @_ZN14JfrSymbolTable14bootstrap_nameEb(ptr noundef nonnull align 8 dereferenceable(57), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN14JfrArtifactSet22mark_hidden_klass_nameEPK5Klassb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN14JfrArtifactSet22mark_hidden_klass_nameEPK5Klassb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef i64 @_ZN14JfrSymbolTable22mark_hidden_klass_nameEPK13InstanceKlassb(ptr noundef nonnull align 8 dereferenceable(57) %4, ptr noundef %1, i1 noundef zeroext %2) #9
   ret i64 %5
@@ -169,7 +169,7 @@ define hidden noundef i64 @_ZN14JfrArtifactSet22mark_hidden_klass_nameEPK5Klassb
 declare noundef i64 @_ZN14JfrSymbolTable22mark_hidden_klass_nameEPK13InstanceKlassb(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN14JfrArtifactSet4markEmPK6Symbolb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN14JfrArtifactSet4markEmPK6Symbolb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i64 @_ZN14JfrSymbolTable4markEmPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(57) %5, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) #9
   ret i64 %6
@@ -178,7 +178,7 @@ define hidden noundef i64 @_ZN14JfrArtifactSet4markEmPK6Symbolb(ptr nocapture no
 declare noundef i64 @_ZN14JfrSymbolTable4markEmPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(57), i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN14JfrArtifactSet4markEPK5Klassb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN14JfrArtifactSet4markEPK5Klassb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef i64 @_ZN14JfrSymbolTable4markEPK5Klassb(ptr noundef nonnull align 8 dereferenceable(57) %4, ptr noundef %1, i1 noundef zeroext %2) #9
   ret i64 %5
@@ -187,7 +187,7 @@ define hidden noundef i64 @_ZN14JfrArtifactSet4markEPK5Klassb(ptr nocapture noun
 declare noundef i64 @_ZN14JfrSymbolTable4markEPK5Klassb(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN14JfrArtifactSet4markEPK6Symbolb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN14JfrArtifactSet4markEPK6Symbolb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef i64 @_ZN14JfrSymbolTable4markEPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(57) %4, ptr noundef %1, i1 noundef zeroext %2) #9
   ret i64 %5
@@ -196,7 +196,7 @@ define hidden noundef i64 @_ZN14JfrArtifactSet4markEPK6Symbolb(ptr nocapture nou
 declare noundef i64 @_ZN14JfrSymbolTable4markEPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN14JfrArtifactSet4markEmPKcb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN14JfrArtifactSet4markEmPKcb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i64 @_ZN14JfrSymbolTable4markEmPKcb(ptr noundef nonnull align 8 dereferenceable(57) %5, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) #9
   ret i64 %6
@@ -205,7 +205,7 @@ define hidden noundef i64 @_ZN14JfrArtifactSet4markEmPKcb(ptr nocapture noundef 
 declare noundef i64 @_ZN14JfrSymbolTable4markEmPKcb(ptr noundef nonnull align 8 dereferenceable(57), i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK14JfrArtifactSet17has_klass_entriesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK14JfrArtifactSet17has_klass_entriesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -214,7 +214,7 @@ define hidden noundef zeroext i1 @_ZNK14JfrArtifactSet17has_klass_entriesEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK14JfrArtifactSet7entriesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK14JfrArtifactSet7entriesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -222,7 +222,7 @@ define hidden noundef i32 @_ZNK14JfrArtifactSet7entriesEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14JfrArtifactSet19should_do_cld_klassEPK5Klassb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14JfrArtifactSet19should_do_cld_klassEPK5Klassb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %.in.v = select i1 %2, i64 24, i64 16
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
   %4 = load ptr, ptr %.in, align 8
@@ -333,7 +333,7 @@ _ZL10not_in_setP13GrowableArrayIPK5KlassES2_.exit: ; preds = %18, %_ZN26Growable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrArtifactSet14register_klassEPK5Klass(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrArtifactSet14register_klassEPK5Klass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
@@ -369,14 +369,14 @@ _ZN26GrowableArrayWithAllocatorIPK5Klass13GrowableArrayIS2_EE6appendERKS2_.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK14JfrArtifactSet11total_countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef i64 @_ZNK14JfrArtifactSet11total_countEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrArtifactSet23increment_checkpoint_idEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrArtifactSet23increment_checkpoint_idEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   tail call void @_ZN14JfrSymbolTable23increment_checkpoint_idEv(ptr noundef nonnull align 8 dereferenceable(57) %2) #9
   ret void
@@ -586,7 +586,7 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

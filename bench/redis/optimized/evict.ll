@@ -52,7 +52,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 4311744510001) i64 @estimateObjectIdleTime(ptr nocapture noundef readonly %o) local_unnamed_addr #3 {
+define dso_local range(i64 0, 4311744510001) i64 @estimateObjectIdleTime(ptr noundef readonly captures(none) %o) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 112), align 8
   %bf.load = load i32, ptr %o, align 8
@@ -99,7 +99,7 @@ declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #4
 declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evictionPoolPopulate(i32 noundef %dbid, i32 noundef %slot, ptr noundef %sampledict, ptr noundef %keydict, ptr nocapture noundef %pool) local_unnamed_addr #0 {
+define dso_local i32 @evictionPoolPopulate(i32 noundef %dbid, i32 noundef %slot, ptr noundef %sampledict, ptr noundef %keydict, ptr noundef captures(none) %pool) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4828), align 4
   %1 = zext i32 %0 to i64
@@ -431,7 +431,7 @@ declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 256) i64 @LFUDecrAndReturn(ptr nocapture noundef readonly %o) local_unnamed_addr #5 {
+define dso_local range(i64 0, 256) i64 @LFUDecrAndReturn(ptr noundef readonly captures(none) %o) local_unnamed_addr #5 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %bf.lshr = lshr i32 %bf.load, 8
@@ -473,14 +473,14 @@ declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 declare void @sdsfree(ptr noundef) local_unnamed_addr #1
 
 declare ptr @sdsdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 65536) i64 @LFUGetTimeInMinutes() local_unnamed_addr #8 {
@@ -750,7 +750,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i64 @aeCreateTimeEvent(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @evictionTimeProc(ptr nocapture readnone %eventLoop, i64 %id, ptr nocapture readnone %clientData) #0 {
+define internal range(i32 -1, 1) i32 @evictionTimeProc(ptr readnone captures(none) %eventLoop, i64 %id, ptr readnone captures(none) %clientData) #0 {
 entry:
   %call = tail call i32 @performEvictions()
   %cmp = icmp eq i32 %call, 1
@@ -1555,7 +1555,7 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #12
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

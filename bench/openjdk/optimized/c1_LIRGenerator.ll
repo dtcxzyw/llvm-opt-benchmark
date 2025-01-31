@@ -330,7 +330,7 @@ $_ZTV13LIR_OpRoundFP = comdat any
 @_ZN11PhiResolverD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN11PhiResolverD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16PhiResolverState5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 4), (24, 28), (48, 52)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16PhiResolverState5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 4), (24, 28), (48, 52)) %0) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %2, align 8
@@ -340,7 +340,7 @@ define hidden void @_ZN16PhiResolverState5resetEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN11PhiResolverC2EP12LIRGenerator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN11PhiResolverC2EP12LIRGenerator(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -359,10 +359,10 @@ define hidden void @_ZN11PhiResolverC2EP12LIRGenerator(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PhiResolver9emit_moveE7LIR_OprS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %1, i64 %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11PhiResolver9emit_moveE7LIR_OprS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i64 %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
@@ -513,7 +513,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %62, %67
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PhiResolver12move_temp_toE7LIR_Opr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11PhiResolver12move_temp_toE7LIR_Opr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i64 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.01.0.copyload = load i64, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
@@ -524,7 +524,7 @@ define hidden void @_ZN11PhiResolver12move_temp_toE7LIR_Opr(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PhiResolver12move_to_tempE7LIR_Opr(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i64 %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11PhiResolver12move_to_tempE7LIR_Opr(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = and i64 %1, 1
   %5 = icmp eq i64 %4, 0
@@ -617,7 +617,7 @@ switch.lookup7:                                   ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 9979
@@ -665,7 +665,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PhiResolver4moveEP11ResolveNodeS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11PhiResolver4moveEP11ResolveNodeS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -748,7 +748,7 @@ define hidden void @_ZN11PhiResolver4moveEP11ResolveNodeS1_(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PhiResolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN11PhiResolverD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -1071,7 +1071,7 @@ _ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo.exit: ; preds = %._ZN8LIR_List4move
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11PhiResolver11create_nodeE7LIR_Oprb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN11PhiResolver11create_nodeE7LIR_Oprb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i64 %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
   %4 = and i64 %1, 4103
   switch i64 %4, label %93 [
     i64 4101, label %5
@@ -1347,7 +1347,7 @@ _ZNK17GrowableArrayViewIP11ResolveNodeE8containsERKS1_.exit: ; preds = %75, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PhiResolver4moveE7LIR_OprS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %1, i64 %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11PhiResolver4moveE7LIR_OprS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i64 %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = tail call noundef ptr @_ZN11PhiResolver11create_nodeE7LIR_Oprb(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1, i1 noundef zeroext true)
   %5 = tail call noundef ptr @_ZN11PhiResolver11create_nodeE7LIR_Oprb(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %2, i1 noundef zeroext false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1384,7 +1384,7 @@ _ZN11ResolveNode6appendEPS_.exit:                 ; preds = %3, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7LIRItem10set_resultE7LIR_Opr(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 24)) %0, i64 %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN7LIRItem10set_resultE7LIR_Opr(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((16, 24)) %0, i64 %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %1, ptr %4, align 8
@@ -1979,7 +1979,7 @@ _ZN12LIRGenerator13set_vreg_flagE7LIR_OprNS_8VregFlagE.exit: ; preds = %65, %71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK7LIRItem20get_jobject_constantEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK7LIRItem20get_jobject_constantEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -2003,7 +2003,7 @@ define hidden noundef ptr @_ZNK7LIRItem20get_jobject_constantEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK7LIRItem17get_jint_constantEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK7LIRItem17get_jint_constantEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -2017,7 +2017,7 @@ define hidden noundef i32 @_ZNK7LIRItem17get_jint_constantEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK7LIRItem20get_address_constantEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK7LIRItem20get_address_constantEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -2031,7 +2031,7 @@ define hidden noundef i32 @_ZNK7LIRItem20get_address_constantEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef float @_ZNK7LIRItem19get_jfloat_constantEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef float @_ZNK7LIRItem19get_jfloat_constantEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -2045,7 +2045,7 @@ define hidden noundef float @_ZNK7LIRItem19get_jfloat_constantEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZNK7LIRItem20get_jdouble_constantEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef double @_ZNK7LIRItem20get_jdouble_constantEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -2059,7 +2059,7 @@ define hidden noundef double @_ZNK7LIRItem20get_jdouble_constantEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK7LIRItem18get_jlong_constantEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZNK7LIRItem18get_jlong_constantEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -2073,7 +2073,7 @@ define hidden noundef i64 @_ZNK7LIRItem18get_jlong_constantEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator15block_do_prologEP10BlockBegin(ptr nocapture noundef nonnull align 8 dereferenceable(232) initializes((144, 152)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator15block_do_prologEP10BlockBegin(ptr noundef nonnull align 8 captures(none) dereferenceable(232) initializes((144, 152)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -2226,7 +2226,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %38, %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN12LIRGenerator15block_do_epilogEP10BlockBegin(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN12LIRGenerator15block_do_epilogEP10BlockBegin(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -2808,7 +2808,7 @@ define hidden noundef ptr @_ZN12LIRGenerator9state_forEP11Instruction(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator23klass2reg_with_patchingE7LIR_OprP10ciMetadataP12CodeEmitInfob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i64 %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator23klass2reg_with_patchingE7LIR_OprP10ciMetadataP12CodeEmitInfob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i64 %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 {
   %6 = load i32, ptr @_ZN9Arguments5_modeE, align 4
   %7 = icmp eq i32 %6, 0
   %8 = load i64, ptr @TieredStopAtLevel, align 8
@@ -3254,7 +3254,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %33, %38
 declare void @_ZN12LIRGenerator11cmp_reg_memE13LIR_Condition7LIR_OprS1_i9BasicTypeP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232), i32 noundef, i64, i64, i32 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator13arithmetic_opEN9Bytecodes4CodeE7LIR_OprS2_S2_S2_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %1, i64 %2, i64 %3, i64 %4, i64 %5, ptr nocapture readnone %6) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator13arithmetic_opEN9Bytecodes4CodeE7LIR_OprS2_S2_S2_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %1, i64 %2, i64 %3, i64 %4, i64 %5, ptr readnone captures(none) %6) local_unnamed_addr #3 align 2 {
   %.not = icmp eq i64 %3, %2
   br i1 %.not, label %11, label %8
 
@@ -4272,7 +4272,7 @@ define hidden void @_ZN12LIRGenerator17arithmetic_op_intEN9Bytecodes4CodeE7LIR_O
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator18arithmetic_op_longEN9Bytecodes4CodeE7LIR_OprS2_S2_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %1, i64 %2, i64 %3, i64 %4, ptr nocapture noundef readnone %5) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator18arithmetic_op_longEN9Bytecodes4CodeE7LIR_OprS2_S2_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %1, i64 %2, i64 %3, i64 %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #3 align 2 {
   %.sroa.0.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   tail call void @_ZN12LIRGenerator13arithmetic_opEN9Bytecodes4CodeE7LIR_OprS2_S2_S2_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %1, i64 %2, i64 %3, i64 %4, i64 %.sroa.0.0.copyload, ptr poison)
   ret void
@@ -4285,7 +4285,7 @@ define hidden void @_ZN12LIRGenerator17arithmetic_op_fpuEN9Bytecodes4CodeE7LIR_O
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator8shift_opEN9Bytecodes4CodeE7LIR_OprS2_S2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i32 noundef %1, i64 %2, i64 %3, i64 %4, i64 %5) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator8shift_opEN9Bytecodes4CodeE7LIR_OprS2_S2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i32 noundef %1, i64 %2, i64 %3, i64 %4, i64 %5) local_unnamed_addr #3 align 2 {
   %.not = icmp eq i64 %3, %2
   br i1 %.not, label %10, label %7
 
@@ -4341,7 +4341,7 @@ declare void @_ZN8LIR_List11shift_rightE7LIR_OprS0_S0_S0_(ptr noundef nonnull al
 declare void @_ZN8LIR_List20unsigned_shift_rightE7LIR_OprS0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(32), i64, i64, i64, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator8logic_opEN9Bytecodes4CodeE7LIR_OprS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i32 noundef %1, i64 %2, i64 %3, i64 %4) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator8logic_opEN9Bytecodes4CodeE7LIR_OprS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i32 noundef %1, i64 %2, i64 %3, i64 %4) local_unnamed_addr #3 align 2 {
   %.not = icmp eq i64 %3, %2
   br i1 %.not, label %9, label %6
 
@@ -4748,7 +4748,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator13monitor_enterE7LIR_OprS0_S0_S0_iP12CodeEmitInfoS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator13monitor_enterE7LIR_OprS0_S0_S0_iP12CodeEmitInfoS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 align 2 {
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1808
@@ -5008,7 +5008,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %64, %69
 declare void @_ZN8LIR_List11lock_objectE7LIR_OprS0_S0_S0_P8CodeStubP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32), i64, i64, i64, i64, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator12monitor_exitE7LIR_OprS0_S0_S0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator12monitor_exitE7LIR_OprS0_S0_S0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1808
@@ -5084,7 +5084,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %21, %23
 declare void @_ZN8LIR_List13unlock_objectE7LIR_OprS0_S0_S0_P8CodeStub(ptr noundef nonnull align 8 dereferenceable(32), i64, i64, i64, i64, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator12new_instanceE7LIR_OprP15ciInstanceKlassbS0_S0_S0_S0_S0_P12CodeEmitInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i64 %1, ptr noundef %2, i1 noundef zeroext %3, i64 %4, i64 %5, i64 %6, i64 %7, i64 %8, ptr noundef %9) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator12new_instanceE7LIR_OprP15ciInstanceKlassbS0_S0_S0_S0_S0_P12CodeEmitInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i64 %1, ptr noundef %2, i1 noundef zeroext %3, i64 %4, i64 %5, i64 %6, i64 %7, i64 %8, ptr noundef %9) local_unnamed_addr #3 align 2 {
   %11 = load i32, ptr @_ZN9Arguments5_modeE, align 4
   %12 = icmp eq i32 %11, 0
   %13 = load i64, ptr @TieredStopAtLevel, align 8
@@ -5321,7 +5321,7 @@ declare void @_ZN15NewInstanceStubC1E7LIR_OprS0_P15ciInstanceKlassP12CodeEmitInf
 declare void @_ZN8LIR_List15allocate_objectE7LIR_OprS0_S0_S0_S0_iiS0_bP8CodeStub(ptr noundef nonnull align 8 dereferenceable(32), i64, i64, i64, i64, i64, i32 noundef, i32 noundef, i64, i1 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator16arraycopy_helperEP9IntrinsicPiPP12ciArrayKlass(ptr nocapture noundef nonnull readnone align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator16arraycopy_helperEP9IntrinsicPiPP12ciArrayKlass(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6075,12 +6075,12 @@ declare noundef ptr @_ZN12ciArrayKlass12element_typeEv(ptr noundef nonnull align
 declare noundef zeroext i1 @_ZN6ciType13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(25), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @_ZN12LIRGenerator10round_itemE7LIR_Opr(ptr nocapture noundef nonnull readnone align 8 dereferenceable(232) %0, i64 returned %1) local_unnamed_addr #9 align 2 {
+define hidden i64 @_ZN12LIRGenerator10round_itemE7LIR_Opr(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, i64 returned %1) local_unnamed_addr #9 align 2 {
   ret i64 %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator14profile_branchEP2IfN11Instruction9ConditionE(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator14profile_branchEP2IfN11Instruction9ConditionE(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 32768
@@ -6831,7 +6831,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %47, %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator11move_to_phiEP11PhiResolverP11InstructionS3_(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator11move_to_phiEP11PhiResolverP11InstructionS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -6970,7 +6970,7 @@ declare noundef i32 @_ZNK3Phi13operand_countEv(ptr noundef nonnull align 8 deref
 declare noundef ptr @_ZNK3Phi10operand_atEi(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN12LIRGenerator23operand_for_instructionEP11Instruction(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden i64 @_ZN12LIRGenerator23operand_for_instructionEP11Instruction(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %4 = and i64 %.sroa.0.0.copyload.i, 7
@@ -7051,7 +7051,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator11move_to_phiEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator11move_to_phiEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.PhiResolver, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -7181,7 +7181,7 @@ _ZNK10BlockBegin13number_of_suxEv.exit.thread:    ; preds = %2, %12, %.critedge2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator5rlockEP11Instruction(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator5rlockEP11Instruction(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %4) #17
@@ -7232,7 +7232,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator12rlock_resultEP11Instruction(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator12rlock_resultEP11Instruction(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %4) #17
@@ -7285,7 +7285,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN12LIRGenerator12rlock_resultEP11Instruction9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1, i8 noundef zeroext %2) local_unnamed_addr #3 align 2 {
+define hidden i64 @_ZN12LIRGenerator12rlock_resultEP11Instruction9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #3 align 2 {
   switch i8 %2, label %6 [
     i8 8, label %4
     i8 4, label %4
@@ -7354,7 +7354,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare i64 @_ZN12LIRGenerator10rlock_byteE9BasicType(ptr noundef nonnull align 8 dereferenceable(232), i8 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12LIRGenerator20get_jobject_constantEP11Instruction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN12LIRGenerator20get_jobject_constantEP11Instruction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -7377,7 +7377,7 @@ define hidden noundef ptr @_ZN12LIRGenerator20get_jobject_constantEP11Instructio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator18do_ExceptionObjectEP15ExceptionObject(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator18do_ExceptionObjectEP15ExceptionObject(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -8012,7 +8012,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN12LIRGenerator6do_PhiEP3Phi(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #10 align 2 {
+define hidden void @_ZN12LIRGenerator6do_PhiEP3Phi(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.4, i32 noundef 1140) #18
@@ -8285,13 +8285,13 @@ _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE6appendERKS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator8do_LocalEP5Local(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator8do_LocalEP5Local(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = tail call i64 @_ZN12LIRGenerator23operand_for_instructionEP11Instruction(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator9do_ReturnEP6Return(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef initializes((48, 56)) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator9do_ReturnEP6Return(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) initializes((48, 56)) %1) unnamed_addr #3 align 2 {
   %3 = alloca %class.GrowableArray.20, align 8
   %4 = alloca %class.LIRItem, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8523,7 +8523,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %86, %_ZN12LIRGenera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_I7LIR_OprEPhP9ValueTypeP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
+define hidden i64 @_ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_I7LIR_OprEPhP9ValueTypeP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
   %.sroa.019.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %8 = load i32, ptr %7, align 4
@@ -9391,7 +9391,7 @@ _ZN13GrowableArrayIP7LIRItemED2Ev.exit:           ; preds = %.loopexit.i, %.loop
 declare noundef i32 @_ZN8Runtime114is_instance_ofEP7oopDescS1_(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator10load_klassE7LIR_OprS0_P12CodeEmitInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i64 %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator10load_klassE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i64 %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN8LIR_List10load_klassE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 %1, i64 %2, ptr noundef %3)
@@ -10680,7 +10680,7 @@ _ZN22CompilationResourceObjnwEm.exit40:           ; preds = %176, %178
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator16do_getObjectSizeEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator16do_getObjectSizeEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.LIRItem, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -11721,13 +11721,13 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %45, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator19do_scopedValueCacheEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator19do_scopedValueCacheEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   tail call void @_ZN12LIRGenerator18do_JavaThreadFieldEP9Intrinsic8ByteSize(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, i32 noundef 920)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator18do_JavaThreadFieldEP9Intrinsic8ByteSize(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator18do_JavaThreadFieldEP9Intrinsic8ByteSize(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %class.LIRAccess, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i32, ptr %5, align 8
@@ -11932,13 +11932,13 @@ _ZN22CompilationResourceObjnwEm.exit12._crit_edge: ; preds = %_ZN22CompilationRe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator23do_currentCarrierThreadEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator23do_currentCarrierThreadEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   tail call void @_ZN12LIRGenerator18do_JavaThreadFieldEP9Intrinsic8ByteSize(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, i32 noundef 896)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator10do_vthreadEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator10do_vthreadEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   tail call void @_ZN12LIRGenerator18do_JavaThreadFieldEP9Intrinsic8ByteSize(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, i32 noundef 904)
   ret void
 }
@@ -12133,7 +12133,7 @@ _ZN8BitMap2D11at_put_growEmmb.exit:               ; preds = %11, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN12LIRGenerator16is_vreg_flag_setEiNS_8VregFlagE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZN12LIRGenerator16is_vreg_flag_setEiNS_8VregFlagE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = sext i32 %1 to i64
   %5 = zext i32 %2 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -12435,7 +12435,7 @@ _ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator17do_CompareAndSwapEP9IntrinsicP9ValueType(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef initializes((48, 56)) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator17do_CompareAndSwapEP9IntrinsicP9ValueType(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) initializes((48, 56)) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %class.LIRAccess, align 8
   %5 = alloca %class.LIRItem, align 8
   %6 = alloca %class.LIRItem, align 8
@@ -16024,7 +16024,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %8, %_ZN12LIRGenerat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator11do_TypeCastEP8TypeCast(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef initializes((48, 56)) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator11do_TypeCastEP8TypeCast(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) initializes((48, 56)) %1) unnamed_addr #3 align 2 {
   %3 = alloca %class.LIRItem, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -16558,7 +16558,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
 declare i64 @_ZN12LIRGenerator14exceptionPcOprEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator10do_RoundFPEP7RoundFP(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef initializes((48, 56)) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator10do_RoundFPEP7RoundFP(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) initializes((48, 56)) %1) unnamed_addr #3 align 2 {
   %3 = alloca %class.BitMap2D, align 8
   %4 = alloca %class.LIRItem, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -16802,7 +16802,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %43, %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator12do_UnsafeGetEP9UnsafeGet(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator12do_UnsafeGetEP9UnsafeGet(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %class.LIRAccess, align 8
   %4 = alloca %class.LIRItem, align 8
   %5 = alloca %class.LIRItem, align 8
@@ -17070,7 +17070,7 @@ _Z17is_reference_type9BasicTypeb.exit41:          ; preds = %140
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator12do_UnsafePutEP9UnsafePut(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef initializes((48, 56)) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator12do_UnsafePutEP9UnsafePut(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) initializes((48, 56)) %1) unnamed_addr #3 align 2 {
   %3 = alloca %class.LIRAccess, align 8
   %4 = alloca %class.LIRItem, align 8
   %5 = alloca %class.LIRItem, align 8
@@ -17314,7 +17314,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %95, %94
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator18do_UnsafeGetAndSetEP15UnsafeGetAndSet(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef initializes((48, 56)) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator18do_UnsafeGetAndSetEP15UnsafeGetAndSet(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) initializes((48, 56)) %1) unnamed_addr #3 align 2 {
   %3 = alloca %class.LIRAccess, align 8
   %4 = alloca %class.LIRAccess, align 8
   %5 = alloca %class.LIRItem, align 8
@@ -17561,7 +17561,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit29: ; preds = %_ZN7LIRItemC2EP11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator15do_SwitchRangesEP13GrowableArrayIP13C1SwitchRangeE7LIR_OprP10BlockBegin(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator15do_SwitchRangesEP13GrowableArrayIP13C1SwitchRangeE7LIR_OprP10BlockBegin(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = load i32, ptr %1, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -18044,7 +18044,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %32, %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12LIRGenerator20create_lookup_rangesEP11TableSwitch(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN12LIRGenerator20create_lookup_rangesEP11TableSwitch(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #17
   %4 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #17
   store i32 0, ptr %3, align 4
@@ -18267,7 +18267,7 @@ _ZNK6Switch6lengthEv.exit.thread:                 ; preds = %2, %99, %_ZN26Growa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12LIRGenerator20create_lookup_rangesEP12LookupSwitch(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN12LIRGenerator20create_lookup_rangesEP12LookupSwitch(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #17
   %4 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #17
   store i32 0, ptr %3, align 4
@@ -20059,7 +20059,7 @@ declare i64 @_ZN12LIRGenerator13getThreadTempEv(ptr noundef nonnull align 8 dere
 declare void @_ZN12LIRGenerator17increment_counterEP11LIR_Addressi(ptr noundef nonnull align 8 dereferenceable(232), ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12LIRGenerator12profile_typeEP12ciMethodDataiilP11InstructionR7LIR_OprbP7ciKlassS7_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN12LIRGenerator12profile_typeEP12ciMethodDataiilP11InstructionR7LIR_OprbP7ciKlassS7_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #3 align 2 {
   %11 = alloca %class.LIRItem, align 8
   %12 = and i64 %4, 1
   %.not126 = icmp eq i64 %12, 0
@@ -20581,7 +20581,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %53, %58
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator18profile_parametersEP4Base(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator18profile_parametersEP4Base(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.LIR_Opr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -20761,7 +20761,7 @@ declare noundef ptr @_ZNK12ciMethodData20parameters_type_dataEv(ptr noundef nonn
 declare void @_ZN12ciMethodData18set_parameter_typeEiP7ciKlass(ptr noundef nonnull align 8 dereferenceable(176), i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator7do_BaseEP4Base(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator7do_BaseEP4Base(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %class.GrowableArray.20, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -21959,7 +21959,7 @@ declare i64 @_ZN12LIRGenerator11syncTempOprEv(ptr noundef nonnull align 8 derefe
 declare noundef zeroext i1 @_ZNK8ciMethod11is_accessorEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator11do_OsrEntryEP8OsrEntry(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator11do_OsrEntryEP8OsrEntry(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef captures(none) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @_ZN13LIR_Assembler16osrBufferPointerEv() #17
@@ -22119,7 +22119,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %37, %42
 declare i64 @_ZN13LIR_Assembler16osrBufferPointerEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator21invoke_load_argumentsEP6InvokeP13GrowableArrayIP7LIRItemEPKS2_I7LIR_OprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator21invoke_load_argumentsEP6InvokeP13GrowableArrayIP7LIRItemEPKS2_I7LIR_OprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
@@ -22322,7 +22322,7 @@ _ZN7LIRItem14load_for_storeE9BasicType.exit33:    ; preds = %_ZNK7LIR_Opr11is_co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12LIRGenerator22invoke_visit_argumentsEP6Invoke(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN12LIRGenerator22invoke_visit_argumentsEP6Invoke(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #17
   %4 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #17
   store i32 0, ptr %3, align 4
@@ -23285,7 +23285,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %48, %53
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator15do_FPIntrinsicsEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator15do_FPIntrinsicsEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.LIRItem, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -23408,7 +23408,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator7do_IfOpEP4IfOp(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator7do_IfOpEP4IfOp(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %class.LIRItem, align 8
   %4 = alloca %class.LIRItem, align 8
   %5 = alloca %class.LIRItem, align 8
@@ -23750,7 +23750,7 @@ switch.lookup42:                                  ; preds = %switch.lookup45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator14do_RuntimeCallEPhP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator14do_RuntimeCallEPhP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %class.GrowableArray.20, align 8
   %5 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 1) #17
   store i32 0, ptr %4, align 8
@@ -24667,7 +24667,7 @@ declare void @_ZN12LIRGenerator16do_update_CRC32CEP9Intrinsic(ptr noundef nonnul
 declare void @_ZN12LIRGenerator21do_vectorizedMismatchEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator12do_blackholeEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator12do_blackholeEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.LIRItem, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -24756,7 +24756,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %13, %_ZN12LIRGenera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator17profile_argumentsEP11ProfileCall(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator17profile_argumentsEP11ProfileCall(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.LIR_Opr, align 8
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
@@ -25173,7 +25173,7 @@ declare noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noun
 declare void @_ZN12ciMethodData17set_argument_typeEiiP7ciKlass(ptr noundef nonnull align 8 dereferenceable(176), i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator26profile_parameters_at_callEP11ProfileCall(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator26profile_parameters_at_callEP11ProfileCall(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.LIR_Opr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -25414,7 +25414,7 @@ _ZN11Compilation18profile_parametersEv.exit.thread: ; preds = %112, %2, %10, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator14do_ProfileCallEP11ProfileCall(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator14do_ProfileCallEP11ProfileCall(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %class.LIRItem, align 8
   %.sroa.08.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -25700,7 +25700,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator20do_ProfileReturnTypeEP17ProfileReturnType(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator20do_ProfileReturnTypeEP17ProfileReturnType(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %class.LIR_Opr, align 8
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
@@ -26662,7 +26662,7 @@ declare noundef ptr @_ZN8ciMethod22ensure_method_countersEv(ptr noundef nonnull 
 declare void @_ZN8LIR_List5storeE7LIR_OprP11LIR_AddressP12CodeEmitInfo13LIR_PatchCode(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator14do_RuntimeCallEP11RuntimeCall(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator14do_RuntimeCallEP11RuntimeCall(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef captures(none) %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #17
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -27569,7 +27569,7 @@ _ZN13GrowableArrayIP7LIRItemED2Ev.exit:           ; preds = %.loopexit.i, %.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
+define hidden i64 @_ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
   %.sroa.020.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %8 = load i32, ptr %7, align 4
@@ -27870,7 +27870,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %44, %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator9do_MemBarEP6MemBar(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12LIRGenerator9do_MemBarEP6MemBar(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %26 [
@@ -28233,7 +28233,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %36, %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN12LIRGenerator12mask_booleanE7LIR_OprS0_RP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 align 2 {
+define hidden i64 @_ZN12LIRGenerator12mask_booleanE7LIR_OprS0_RP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %1, i64 %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #3 align 2 {
   %5 = tail call i64 @_ZN12LIRGenerator10rlock_byteE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext 8) #17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
@@ -29634,13 +29634,13 @@ declare void @llvm.assume(i1 noundef) #14
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #13

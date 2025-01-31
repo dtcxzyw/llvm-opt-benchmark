@@ -576,7 +576,7 @@ _set_data_string_inline.exit:                     ; preds = %29, %23, %22, %16, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
@@ -814,7 +814,7 @@ data_new.exit:                                    ; preds = %5, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_data_list_append(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_data_list_append(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call fastcc ptr @_new_data_list_node(ptr noundef %1, ptr noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -1140,7 +1140,7 @@ define internal fastcc void @_release_data_list_node(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @data_list_join(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define noundef ptr @data_list_join(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 384, ptr noundef nonnull @__func__.data_new) #16
   store i32 429004959, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1282,7 +1282,7 @@ data_list_for_each_const.exit:                    ; preds = %.lr.ph.split, %50, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @data_list_for_each_const(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @data_list_for_each_const(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -1486,7 +1486,7 @@ data_dict_find_first.exit:                        ; preds = %16, %2, %3, %6, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @data_dict_find_first(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @data_dict_find_first(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %4
 
@@ -1591,7 +1591,7 @@ data_key_get.exit:                                ; preds = %18, %2, %5, %8, %13
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @data_list_find_first(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @data_list_find_first(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %4
 
@@ -2784,7 +2784,7 @@ define ptr @data_get_list_last(ptr noundef %0) local_unnamed_addr #0 {
 declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @data_list_split_str(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @data_list_split_str(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -2863,12 +2863,12 @@ define range(i32 -1, 1) i32 @data_list_split_str(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 declare void @xstrtrim(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @data_list_join_str(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @data_list_join_str(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.merge_path_strings_t, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2935,7 +2935,7 @@ define range(i32 -1, 1) i32 @data_list_join_str(ptr nocapture noundef writeonly 
 
 32:                                               ; preds = %.loopexit
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #17
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %29, i64 noundef %33, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.data_list_join_str, ptr noundef nonnull %1, ptr noundef %2) #16
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %29, i64 noundef %33, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.data_list_join_str, ptr noundef nonnull %1, ptr noundef %2) #16
   br label %34
 
 34:                                               ; preds = %32, %.loopexit, %26
@@ -2946,7 +2946,7 @@ define range(i32 -1, 1) i32 @data_list_join_str(ptr nocapture noundef writeonly 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @data_list_for_each(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @data_list_for_each(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -3013,7 +3013,7 @@ define i32 @data_list_for_each(ptr noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @data_dict_for_each_const(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @data_dict_for_each_const(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader.i
 
@@ -3092,7 +3092,7 @@ data_get_type.exit.thread:                        ; preds = %6, %data_get_type.e
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @data_dict_for_each(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @data_dict_for_each(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader.i
 
@@ -3741,7 +3741,7 @@ data_get_string.exit14.thread:                    ; preds = %16
 data_get_string.exit16:                           ; preds = %16, %data_get_string.exit14.thread
   %.0.i1319 = phi ptr [ %19, %data_get_string.exit14.thread ], [ %18, %16 ]
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i1319) #17
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %.0.i1319, i64 noundef %20, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.97, ptr noundef nonnull @__func__._convert_data_null, ptr noundef nonnull %0) #16
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i1319, i64 noundef %20, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.97, ptr noundef nonnull @__func__._convert_data_null, ptr noundef nonnull %0) #16
   br label %21
 
 21:                                               ; preds = %13, %data_get_string.exit16
@@ -4645,7 +4645,7 @@ define internal fastcc zeroext i1 @_data_match_dict(ptr noundef nonnull %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_data_match_lists(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_data_match_lists(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 65282
@@ -4749,7 +4749,7 @@ define ptr @data_resolve_dict_path(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %13
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %12 = tail call ptr @xstrdup(ptr noundef nonnull %1) #16
   br label %13
 
 13:                                               ; preds = %11, %9
@@ -4885,7 +4885,7 @@ data_key_get.exit.thread:                         ; preds = %58, %data_key_get.e
 
 66:                                               ; preds = %65
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %1, i64 noundef %67, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.50, ptr noundef nonnull @__func__.data_resolve_dict_path, ptr noundef nonnull %0, ptr noundef nonnull %.136) #16
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %1, i64 noundef %67, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.50, ptr noundef nonnull @__func__.data_resolve_dict_path, ptr noundef nonnull %0, ptr noundef nonnull %.136) #16
   br label %71
 
 68:                                               ; preds = %62
@@ -4893,7 +4893,7 @@ data_key_get.exit.thread:                         ; preds = %58, %data_key_get.e
 
 69:                                               ; preds = %68
   %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %1, i64 noundef %70, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.51, ptr noundef nonnull @__func__.data_resolve_dict_path, ptr noundef nonnull %0) #16
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %1, i64 noundef %70, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.51, ptr noundef nonnull @__func__.data_resolve_dict_path, ptr noundef nonnull %0) #16
   br label %71
 
 71:                                               ; preds = %65, %66, %68, %69, %2
@@ -4902,7 +4902,7 @@ data_key_get.exit.thread:                         ; preds = %58, %data_key_get.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #10
@@ -4980,7 +4980,7 @@ data_key_get_const.exit:                          ; preds = %.lr.ph.i
 
 28:                                               ; preds = %._crit_edge
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %1, i64 noundef %29, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.52, ptr noundef nonnull @__func__.data_resolve_dict_path_const, ptr noundef nonnull %0, ptr noundef nonnull %.021.lcssa) #16
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %1, i64 noundef %29, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.52, ptr noundef nonnull @__func__.data_resolve_dict_path_const, ptr noundef nonnull %0, ptr noundef nonnull %.021.lcssa) #16
   br label %34
 
 data_key_get_const.exit.thread:                   ; preds = %15, %10, %data_key_get_const.exit, %.lr.ph, %20
@@ -4992,7 +4992,7 @@ data_key_get_const.exit.thread:                   ; preds = %15, %10, %data_key_
 
 32:                                               ; preds = %data_key_get_const.exit.thread
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %1, i64 noundef %33, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.53, ptr noundef nonnull @__func__.data_resolve_dict_path_const, ptr noundef nonnull %0) #16
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %1, i64 noundef %33, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.53, ptr noundef nonnull @__func__.data_resolve_dict_path_const, ptr noundef nonnull %0) #16
   br label %34
 
 34:                                               ; preds = %._crit_edge, %28, %data_key_get_const.exit.thread, %32, %2
@@ -5050,7 +5050,7 @@ define ptr @data_define_dict_path(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 18:                                               ; preds = %._crit_edge
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %1, i64 noundef %19, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.54, ptr noundef nonnull @__func__.data_define_dict_path, ptr noundef nonnull %0, ptr noundef nonnull %.022.lcssa) #16
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %1, i64 noundef %19, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.54, ptr noundef nonnull @__func__.data_define_dict_path, ptr noundef nonnull %0, ptr noundef nonnull %.022.lcssa) #16
   br label %25
 
 20:                                               ; preds = %12, %.lr.ph
@@ -5062,7 +5062,7 @@ define ptr @data_define_dict_path(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 23:                                               ; preds = %20
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %1, i64 noundef %24, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.data_define_dict_path, ptr noundef nonnull %0) #16
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %1, i64 noundef %24, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.data_define_dict_path, ptr noundef nonnull %0) #16
   br label %25
 
 25:                                               ; preds = %._crit_edge, %18, %20, %23, %2
@@ -5132,7 +5132,7 @@ data_new.exit:                                    ; preds = %12, %9, %4, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 9203) i32 @data_retrieve_dict_path_string(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -5166,7 +5166,7 @@ define range(i32 0, 9203) i32 @data_retrieve_dict_path_string(ptr noundef %0, pt
 15:                                               ; preds = %14
   %16 = load ptr, ptr %2, align 8
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #17
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %16, i64 noundef %17, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.data_retrieve_dict_path_string, ptr noundef %0, ptr noundef %1) #16
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %16, i64 noundef %17, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.data_retrieve_dict_path_string, ptr noundef %0, ptr noundef %1) #16
   br label %18
 
 18:                                               ; preds = %9, %10, %13, %14, %15, %3
@@ -5383,7 +5383,7 @@ declare void @_xstrfmtcatat(ptr noundef, ptr noundef, ptr noundef, ...) local_un
 declare i32 @tolower(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare i64 @lrint(double noundef) local_unnamed_addr #13
@@ -5391,7 +5391,7 @@ declare i64 @lrint(double noundef) local_unnamed_addr #13
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 5) i32 @_find_dict_match(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 1, 5) i32 @_find_dict_match(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -5535,13 +5535,13 @@ _type_to_string.exit30:                           ; preds = %51, %switch.lookup7
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

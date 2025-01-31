@@ -729,7 +729,7 @@ declare void @malloc_write(ptr noundef) local_unnamed_addr #2
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @emitter_table_printf(ptr nocapture noundef nonnull readonly %emitter, ptr noundef %format, ...) unnamed_addr #0 {
+define internal void @emitter_table_printf(ptr noundef nonnull readonly captures(none) %emitter, ptr noundef %format, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i32, ptr %emitter, align 8
@@ -3380,7 +3380,7 @@ if.end269:                                        ; preds = %emitter_json_object
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emitter_json_object_end(ptr nocapture noundef nonnull %emitter) unnamed_addr #0 {
+define internal fastcc void @emitter_json_object_end(ptr noundef nonnull captures(none) %emitter) unnamed_addr #0 {
 entry:
   %emitter.val = load i32, ptr %emitter, align 8
   %spec.select.i = icmp ult i32 %emitter.val, 2
@@ -3426,20 +3426,20 @@ if.end2:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden range(i64 0, 4194305) i64 @stats_interval_new_event_wait(ptr nocapture noundef readnone %tsd) local_unnamed_addr #5 {
+define hidden range(i64 0, 4194305) i64 @stats_interval_new_event_wait(ptr noundef readnone captures(none) %tsd) local_unnamed_addr #5 {
 entry:
   %0 = load i64, ptr @stats_interval_accum_batch, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @stats_interval_postponed_event_wait(ptr nocapture noundef readnone %tsd) local_unnamed_addr #6 {
+define hidden noundef i64 @stats_interval_postponed_event_wait(ptr noundef readnone captures(none) %tsd) local_unnamed_addr #6 {
 entry:
   ret i64 1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @stats_interval_event_handler(ptr nocapture noundef readnone %tsd, i64 noundef %elapsed) local_unnamed_addr #0 {
+define hidden void @stats_interval_event_handler(ptr noundef readnone captures(none) %tsd, i64 noundef %elapsed) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats_interval_accumulated, i64 8), align 8
   %1 = load atomic i64, ptr @stats_interval_accumulated monotonic, align 8
@@ -3532,7 +3532,7 @@ entry:
 declare void @counter_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @emitter_printf(ptr nocapture noundef nonnull readonly %emitter, ptr noundef %format, ...) unnamed_addr #0 {
+define internal void @emitter_printf(ptr noundef nonnull readonly captures(none) %emitter, ptr noundef %format, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -3548,7 +3548,7 @@ entry:
 declare void @malloc_vcprintf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emitter_json_key(ptr nocapture noundef nonnull %emitter, ptr noundef %json_key) unnamed_addr #0 {
+define internal fastcc void @emitter_json_key(ptr noundef nonnull captures(none) %emitter, ptr noundef %json_key) unnamed_addr #0 {
 entry:
   %emitter.val = load i32, ptr %emitter, align 8
   %spec.select.i = icmp ult i32 %emitter.val, 2
@@ -3626,7 +3626,7 @@ if.end:                                           ; preds = %6, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emitter_json_object_begin(ptr nocapture noundef nonnull %emitter) unnamed_addr #0 {
+define internal fastcc void @emitter_json_object_begin(ptr noundef nonnull captures(none) %emitter) unnamed_addr #0 {
 entry:
   %emitter.val = load i32, ptr %emitter, align 8
   %spec.select.i = icmp ult i32 %emitter.val, 2
@@ -3699,7 +3699,7 @@ declare void @malloc_printf(ptr noundef, ...) local_unnamed_addr #2
 declare void @fxp_print(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emitter_kv_note(ptr nocapture noundef nonnull %emitter, ptr noundef %json_key, ptr noundef %table_key, i32 noundef range(i32 0, 9) %value_type, ptr nocapture noundef readonly %value, ptr noundef %table_note_key, i32 noundef range(i32 0, 8) %table_note_value_type, ptr nocapture noundef readonly %table_note_value) unnamed_addr #0 {
+define internal fastcc void @emitter_kv_note(ptr noundef nonnull captures(none) %emitter, ptr noundef %json_key, ptr noundef %table_key, i32 noundef range(i32 0, 9) %value_type, ptr noundef readonly captures(none) %value, ptr noundef %table_note_key, i32 noundef range(i32 0, 8) %table_note_value_type, ptr noundef readonly captures(none) %table_note_value) unnamed_addr #0 {
 entry:
   %emitter.val = load i32, ptr %emitter, align 8
   %spec.select.i = icmp ult i32 %emitter.val, 2
@@ -3754,7 +3754,7 @@ if.end:                                           ; preds = %if.end.i, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emitter_json_array_kv_begin(ptr nocapture noundef nonnull %emitter, ptr noundef %json_key) unnamed_addr #0 {
+define internal fastcc void @emitter_json_array_kv_begin(ptr noundef nonnull captures(none) %emitter, ptr noundef %json_key) unnamed_addr #0 {
 entry:
   tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef %json_key)
   %emitter.val.i = load i32, ptr %emitter, align 8
@@ -3828,7 +3828,7 @@ declare i32 @ctl_mibnametomib(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare i32 @ctl_bymibname(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emitter_json_value(ptr nocapture noundef nonnull %emitter, i32 noundef range(i32 0, 9) %value_type, ptr nocapture noundef readonly %value) unnamed_addr #0 {
+define internal fastcc void @emitter_json_value(ptr noundef nonnull captures(none) %emitter, i32 noundef range(i32 0, 9) %value_type, ptr noundef readonly captures(none) %value) unnamed_addr #0 {
 entry:
   %emitter.val = load i32, ptr %emitter, align 8
   %spec.select.i = icmp ult i32 %emitter.val, 2
@@ -3893,7 +3893,7 @@ if.end:                                           ; preds = %emitter_json_key_pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emitter_print_value(ptr nocapture noundef nonnull readonly %emitter, i32 noundef %justify, i32 noundef %width, i32 noundef %value_type, ptr nocapture noundef readonly %value) unnamed_addr #0 {
+define internal fastcc void @emitter_print_value(ptr noundef nonnull readonly captures(none) %emitter, i32 noundef %justify, i32 noundef %width, i32 noundef %value_type, ptr noundef readonly captures(none) %value) unnamed_addr #0 {
 entry:
   %fmt = alloca [10 x i8], align 1
   %buf = alloca [256 x i8], align 16
@@ -4158,7 +4158,7 @@ declare ptr @tsd_fetch_slow(ptr noundef, i1 noundef zeroext) local_unnamed_addr 
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mutex_stats_init_cols(ptr nocapture noundef nonnull %row, ptr noundef %table_name, ptr noundef %name, ptr noundef nonnull %col_uint64_t, ptr noundef nonnull %col_uint32_t) unnamed_addr #8 {
+define internal fastcc void @mutex_stats_init_cols(ptr noundef nonnull captures(none) %row, ptr noundef %table_name, ptr noundef %name, ptr noundef nonnull %col_uint64_t, ptr noundef nonnull %col_uint32_t) unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %name, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4708,7 +4708,7 @@ declare i32 @mallctlnametomib(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @mallctlbymib(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mutex_stats_emit(ptr nocapture noundef nonnull %emitter, ptr noundef readonly %row, ptr nocapture noundef nonnull readonly %col_uint64_t, ptr nocapture noundef nonnull readonly %col_uint32_t) unnamed_addr #0 {
+define internal fastcc void @mutex_stats_emit(ptr noundef nonnull captures(none) %emitter, ptr noundef readonly %row, ptr noundef nonnull readonly captures(none) %col_uint64_t, ptr noundef nonnull readonly captures(none) %col_uint32_t) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %row, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9545,7 +9545,7 @@ if.end1033:                                       ; preds = %stats_arena_hpa_sha
 declare void @llvm.stackrestore.p0(ptr) #9
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @stats_arena_bins_print(ptr nocapture noundef nonnull %emitter, i1 noundef zeroext %mutex, i32 noundef %i, i64 noundef %uptime) unnamed_addr #4 {
+define internal fastcc void @stats_arena_bins_print(ptr noundef nonnull captures(none) %emitter, i1 noundef zeroext %mutex, i32 noundef %i, i64 noundef %uptime) unnamed_addr #4 {
 entry:
   %miblen_new.i = alloca i64, align 8
   %miblen_new11.i = alloca i64, align 8
@@ -12237,7 +12237,7 @@ if.end613:                                        ; preds = %if.then612, %emitte
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @stats_arena_lextents_print(ptr nocapture noundef nonnull %emitter, i32 noundef %i, i64 noundef %uptime) unnamed_addr #4 {
+define internal fastcc void @stats_arena_lextents_print(ptr noundef nonnull captures(none) %emitter, i32 noundef %i, i64 noundef %uptime) unnamed_addr #4 {
 entry:
   %nbins = alloca i32, align 4
   %nlextents = alloca i32, align 4
@@ -13160,7 +13160,7 @@ if.end319:                                        ; preds = %if.then318, %emitte
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @stats_arena_extents_print(ptr nocapture noundef nonnull %emitter, i32 noundef %i) unnamed_addr #4 {
+define internal fastcc void @stats_arena_extents_print(ptr noundef nonnull captures(none) %emitter, i32 noundef %i) unnamed_addr #4 {
 emitter_col_init.exit174:
   %col_size = alloca %struct.emitter_col_s, align 8
   %header_size = alloca %struct.emitter_col_s, align 8
@@ -14041,10 +14041,10 @@ declare void @llvm.assume(i1 noundef) #10
 declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

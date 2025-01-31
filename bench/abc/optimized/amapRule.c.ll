@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [47 x i8] c"Amap_LibCreateRules(): Skipping gate %s (%s).\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Amap_CreateRulesPrime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define noalias noundef ptr @Amap_CreateRulesPrime(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -194,7 +194,7 @@ declare i32 @Amap_LibFindMux(ptr noundef, i32 noundef, i32 noundef, i32 noundef)
 declare i32 @Amap_LibCreateMux(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Amap_CreateRulesTwo(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Amap_CreateRulesTwo(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 4
   %.val2530 = load i32, ptr %6, align 4
   %7 = icmp sgt i32 %.val2530, 0
@@ -349,7 +349,7 @@ declare i32 @Amap_LibFindNode(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare i32 @Amap_LibCreateNode(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Amap_CreateCheckAllZero(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Amap_CreateCheckAllZero(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val10 = load i32, ptr %2, align 4
   %3 = getelementptr i8, ptr %0, i64 8
@@ -385,7 +385,7 @@ define range(i32 0, 2) i32 @Amap_CreateCheckAllZero(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Amap_CreateRulesVector_rec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Amap_CreateRulesVector_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val84 = load i32, ptr %4, align 4
   %5 = icmp eq i32 %.val84, 1
@@ -911,7 +911,7 @@ Vec_PtrFree.exit125:                              ; preds = %Vec_PtrFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Amap_CreateRulesFromDsd_rec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Amap_CreateRulesFromDsd_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = ashr i32 %2, 1
   %5 = load i16, ptr %1, align 8
   %6 = zext i16 %5 to i32
@@ -1157,7 +1157,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge4, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Amap_CreateRulesFromDsd(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Amap_CreateRulesFromDsd(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, -2
@@ -1199,7 +1199,7 @@ define noalias noundef ptr @Amap_CreateRulesFromDsd(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Amap_CreateCheckEqual_rec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Amap_CreateCheckEqual_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = ashr i32 %1, 1
   %5 = load i16, ptr %0, align 8
   %6 = zext i16 %5 to i32
@@ -1298,7 +1298,7 @@ Kit_DsdNtkObj.exit37:                             ; preds = %Kit_DsdNtkObj.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Amap_CreateCheckAsym_rec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Amap_CreateCheckAsym_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = ashr i32 %1, 1
   %5 = load i16, ptr %0, align 8
   %6 = zext i16 %5 to i32
@@ -1537,7 +1537,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %.loopexit, %3, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Amap_CreateCheckAsym(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Amap_CreateCheckAsym(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, -2
@@ -1698,7 +1698,7 @@ Amap_CreateRulesFromDsd.exit..critedge_crit_edge: ; preds = %.preheader.i, %Amap
   %85 = or disjoint i32 %84, %77
   store i32 %85, ptr %76, align 8
   %86 = getelementptr inbounds nuw i8, ptr %74, i64 12
-  %87 = tail call i32 @Amap_LibDeriveGatePerm(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef %72, ptr noundef nonnull %86) #11
+  %87 = tail call i32 @Amap_LibDeriveGatePerm(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef %72, ptr noundef nonnull %86) #11
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %95
 
@@ -1711,7 +1711,7 @@ Amap_CreateRulesFromDsd.exit..critedge_crit_edge: ; preds = %.preheader.i, %Amap
   %92 = load ptr, ptr %66, align 8
   %93 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %92)
   %94 = load ptr, ptr @stdout, align 8
-  tail call void @Kit_DsdPrint(ptr noundef %94, ptr noundef %25) #11
+  tail call void @Kit_DsdPrint(ptr noundef %94, ptr noundef nonnull %25) #11
   br label %.critedge2
 
 95:                                               ; preds = %67
@@ -1804,7 +1804,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %142
   br label %Amap_CreateRulesFromDsd.exit.thread
 
 Amap_CreateRulesFromDsd.exit.thread:              ; preds = %42, %Vec_IntFree.exit
-  tail call void @Kit_DsdNtkFree(ptr noundef %25) #11
+  tail call void @Kit_DsdNtkFree(ptr noundef nonnull %25) #11
   %143 = load ptr, ptr %3, align 8
   %144 = icmp eq ptr %143, null
   br i1 %144, label %Vec_IntFreeP.exit, label %145
@@ -1838,19 +1838,19 @@ declare void @Kit_DsdNtkFree(ptr noundef) local_unnamed_addr #1
 declare void @Kit_DsdVerify(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @Kit_DsdPrint(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @Aig_MmFlexEntryFetch(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @Amap_LibDeriveGatePerm(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define void @Amap_LibCreateRules(ptr noundef initializes((80, 84), (104, 128)) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2058,10 +2058,10 @@ declare ptr @Amap_LibLookupTableAlloc(ptr noundef, i32 noundef) local_unnamed_ad
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

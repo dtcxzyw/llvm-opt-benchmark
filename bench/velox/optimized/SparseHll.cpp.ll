@@ -154,7 +154,7 @@ if.end25:                                         ; preds = %if.else29.i, %invok
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i64 @_ZNK8facebook5velox6common3hll9SparseHll11cardinalityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZNK8facebook5velox6common3hll9SparseHll11cardinalityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this) local_unnamed_addr #1 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -179,7 +179,7 @@ entry:
 declare double @llvm.round.f64(double) #2
 
 ; Function Attrs: mustprogress nounwind memory(write, argmem: readwrite) uwtable
-define noundef i64 @_ZN8facebook5velox6common3hll9SparseHll11cardinalityEPKc(ptr nocapture noundef readonly %serialized) local_unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8facebook5velox6common3hll9SparseHll11cardinalityEPKc(ptr noundef readonly captures(none) %serialized) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i8, ptr %serialized, align 1
   %cmp.not.i = icmp eq i8 %0, 2
@@ -204,7 +204,7 @@ _ZN8facebook5velox6common3hll12_GLOBAL__N_121initializeInputStreamEPKc.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8facebook5velox6common3hll9SparseHll9serializeEaPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, i8 noundef signext %indexBitLength, ptr nocapture noundef writeonly initializes((0, 4)) %output) local_unnamed_addr #4 align 2 {
+define void @_ZNK8facebook5velox6common3hll9SparseHll9serializeEaPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this, i8 noundef signext %indexBitLength, ptr noundef writeonly captures(none) initializes((0, 4)) %output) local_unnamed_addr #4 align 2 {
 entry:
   store i8 2, ptr %output, align 1
   %add.ptr.i5 = getelementptr inbounds nuw i8, ptr %output, i64 1
@@ -278,7 +278,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN8facebook5velox6common3hll9SparseHll14canDeserializeEPKc(ptr nocapture noundef readonly %input) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN8facebook5velox6common3hll9SparseHll14canDeserializeEPKc(ptr noundef readonly captures(none) %input) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %input, align 1
   %cmp = icmp eq i8 %0, 2
@@ -286,7 +286,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 4, 1) i32 @_ZNK8facebook5velox6common3hll9SparseHll14serializedSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #7 align 2 {
+define noundef range(i32 4, 1) i32 @_ZNK8facebook5velox6common3hll9SparseHll14serializedSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this) local_unnamed_addr #7 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -302,7 +302,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, -3) i32 @_ZNK8facebook5velox6common3hll9SparseHll12inMemorySizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, -3) i32 @_ZNK8facebook5velox6common3hll9SparseHll12inMemorySizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this) local_unnamed_addr #7 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -317,7 +317,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common3hll9SparseHllC2EPKcPNS0_19HashStringAllocatorE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef readonly %serialized, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6common3hll9SparseHllC2EPKcPNS0_19HashStringAllocatorE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef readonly captures(none) %serialized, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not.i = icmp eq ptr %allocator, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZN8facebook5velox12StlAllocatorIjEC2EPNS0_19HashStringAllocatorE.exit
@@ -420,7 +420,7 @@ _ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEED2Ev.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common3hll9SparseHll9mergeWithERKS3_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %other) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox6common3hll9SparseHll9mergeWithERKS3_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %other) local_unnamed_addr #0 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %other, i64 16
@@ -442,7 +442,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common3hll9SparseHll9mergeWithEmPKj(ptr noundef nonnull align 8 dereferenceable(36) %this, i64 noundef %otherSize, ptr nocapture noundef readonly %otherEntries) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6common3hll9SparseHll9mergeWithEmPKj(ptr noundef nonnull align 8 dereferenceable(36) %this, i64 noundef %otherSize, ptr noundef readonly captures(none) %otherEntries) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq i64 %otherSize, 0
   br i1 %cmp.not, label %if.then, label %if.end
@@ -638,7 +638,7 @@ eh.resume:                                        ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common3hll9SparseHll9mergeWithEPKc(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef readonly %serialized) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox6common3hll9SparseHll9mergeWithEPKc(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef readonly captures(none) %serialized) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %serialized, align 1
   %cmp.not.i = icmp eq i8 %0, 2
@@ -668,7 +668,7 @@ if.end:                                           ; preds = %if.then, %_ZN8faceb
 declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
-define void @_ZNK8facebook5velox6common3hll9SparseHll6verifyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #10 align 2 {
+define void @_ZNK8facebook5velox6common3hll9SparseHll6verifyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this) local_unnamed_addr #10 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -709,7 +709,7 @@ for.end:                                          ; preds = %for.cond, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox6common3hll9SparseHll7toDenseERNS2_8DenseHllE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(112) %denseHll) local_unnamed_addr #0 align 2 {
+define void @_ZNK8facebook5velox6common3hll9SparseHll7toDenseERNS2_8DenseHllE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(112) %denseHll) local_unnamed_addr #0 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -916,7 +916,7 @@ _ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
@@ -1081,7 +1081,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

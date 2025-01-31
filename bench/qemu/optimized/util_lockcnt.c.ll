@@ -34,14 +34,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [59 x i8] c"lockcnt_unlock_success lockcnt %p unlock %d->%d succeeded\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_lockcnt_init(ptr nocapture noundef writeonly initializes((0, 4)) %lockcnt) local_unnamed_addr #0 {
+define dso_local void @qemu_lockcnt_init(ptr noundef writeonly captures(none) initializes((0, 4)) %lockcnt) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %lockcnt, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @qemu_lockcnt_destroy(ptr nocapture noundef readnone %lockcnt) local_unnamed_addr #1 {
+define dso_local void @qemu_lockcnt_destroy(ptr noundef readnone captures(none) %lockcnt) local_unnamed_addr #1 {
 entry:
   ret void
 }
@@ -95,7 +95,7 @@ if.end16:                                         ; preds = %if.then15, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef %lockcnt, ptr nocapture noundef nonnull %val, i32 noundef %new_if_free, ptr nocapture noundef nonnull writeonly %waited) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef %lockcnt, ptr noundef nonnull captures(none) %val, i32 noundef %new_if_free, ptr noundef nonnull writeonly captures(none) %waited) unnamed_addr #2 {
 entry:
   %_now.i.i80 = alloca %struct.timeval, align 8
   %_now.i.i66 = alloca %struct.timeval, align 8
@@ -399,7 +399,7 @@ trace_lockcnt_futex_wake.exit:                    ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @qemu_lockcnt_dec(ptr nocapture noundef %lockcnt) local_unnamed_addr #3 {
+define dso_local void @qemu_lockcnt_dec(ptr noundef captures(none) %lockcnt) local_unnamed_addr #3 {
 entry:
   %0 = atomicrmw sub ptr %lockcnt, i32 4 seq_cst, align 4
   ret void
@@ -716,7 +716,7 @@ if.end:                                           ; preds = %if.then, %trace_loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 1073741824) i32 @qemu_lockcnt_count(ptr nocapture noundef readonly %lockcnt) local_unnamed_addr #3 {
+define dso_local range(i32 0, 1073741824) i32 @qemu_lockcnt_count(ptr noundef readonly captures(none) %lockcnt) local_unnamed_addr #3 {
 entry:
   %0 = load atomic i32, ptr %lockcnt monotonic, align 4
   %shr = lshr i32 %0, 2
@@ -727,7 +727,7 @@ entry:
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #6
 
@@ -740,10 +740,10 @@ declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #7
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

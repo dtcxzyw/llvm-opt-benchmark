@@ -57,7 +57,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [55 x i8] c"ne2000_ioport_write io write addr=0x%02lx val=0x%02lx\0A\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @ne2000_reset(ptr nocapture noundef initializes((298, 299)) %s) local_unnamed_addr #0 {
+define dso_local void @ne2000_reset(ptr noundef captures(none) initializes((298, 299)) %s) local_unnamed_addr #0 {
 entry:
   %isr = getelementptr inbounds nuw i8, ptr %s, i64 298
   store i8 -128, ptr %isr, align 2
@@ -89,7 +89,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @ne2000_receive(ptr noundef %nc, ptr noundef %buf, i64 noundef %size_) local_unnamed_addr #2 {
@@ -339,7 +339,7 @@ declare ptr @qemu_get_nic_opaque(ptr noundef) local_unnamed_addr #3
 declare i32 @net_crc32(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @ne2000_post_load(ptr nocapture noundef writeonly %opaque, i32 noundef %version_id) #4 {
+define internal noundef i32 @ne2000_post_load(ptr noundef writeonly captures(none) %opaque, i32 noundef %version_id) #4 {
 entry:
   %cmp = icmp slt i32 %version_id, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -1398,7 +1398,7 @@ if.end25:                                         ; preds = %if.else, %if.else.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -1409,16 +1409,16 @@ declare i64 @qemu_send_packet(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare ptr @qemu_get_queue(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

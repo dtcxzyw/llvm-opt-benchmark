@@ -25,7 +25,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @DES_ecb_encrypt(ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly initializes((0, 8)) %output, ptr noundef %ks, i32 noundef %enc) local_unnamed_addr #0 {
+define void @DES_ecb_encrypt(ptr noundef readonly captures(none) %input, ptr noundef writeonly captures(none) initializes((0, 8)) %output, ptr noundef %ks, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %ll = alloca [2 x i32], align 4
   %0 = load i32, ptr %input, align 1

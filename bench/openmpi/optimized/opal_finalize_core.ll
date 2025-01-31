@@ -34,24 +34,24 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @opal_cleanup_fn_item_construct(ptr nocapture readnone %0) #0 {
+define internal void @opal_cleanup_fn_item_construct(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @opal_cleanup_fn_item_destruct(ptr nocapture readnone %0) #0 {
+define internal void @opal_cleanup_fn_item_destruct(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_finalize_domain_construct(ptr nocapture noundef writeonly initializes((64, 72)) %0) #1 {
+define internal void @opal_finalize_domain_construct(ptr noundef writeonly captures(none) initializes((64, 72)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @opal_finalize_domain_destruct(ptr nocapture noundef %0) #2 {
+define internal void @opal_finalize_domain_destruct(ptr noundef captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #10
@@ -60,7 +60,7 @@ define internal void @opal_finalize_domain_destruct(ptr nocapture noundef %0) #2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @opal_finalize_append_cleanup(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @opal_finalize_append_cleanup(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_cleanup_fn_item_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #11
   %6 = load i32, ptr @opal_class_init_epoch, align 4
@@ -121,7 +121,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @opal_finalize_domain_init(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define void @opal_finalize_domain_init(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #10
@@ -139,10 +139,10 @@ define void @opal_finalize_domain_init(ptr nocapture noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @opal_finalize_set_domain(ptr noundef %0) local_unnamed_addr #6 {

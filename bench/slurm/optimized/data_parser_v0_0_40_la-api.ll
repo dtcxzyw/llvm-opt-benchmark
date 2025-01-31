@@ -260,7 +260,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 declare void @parsers_init() local_unnamed_addr #1
 
@@ -444,7 +444,7 @@ define range(i32 0, 23) i32 @data_parser_p_assign(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @data_parser_p_resolve_openapi_type(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @data_parser_p_resolve_openapi_type(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @find_parser_by_type(i32 noundef %1) #3
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
@@ -513,7 +513,7 @@ declare i32 @openapi_type_format_to_type(i32 noundef) local_unnamed_addr #1
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @data_parser_p_resolve_type_string(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @data_parser_p_resolve_type_string(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @find_parser_by_type(i32 noundef %1) #3
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %.preheader

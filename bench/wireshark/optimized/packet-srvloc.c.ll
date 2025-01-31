@@ -462,7 +462,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_srvloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_srvloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -859,7 +859,7 @@ unicode_to_bytes.exit.i:                          ; preds = %270
   %271 = sext i32 %.4.i.i to i64
   %272 = getelementptr i8, ptr %263, i64 %271
   store i8 0, ptr %272, align 1
-  %273 = tail call i64 @strtoul(ptr nocapture noundef %263, ptr noundef null, i32 noundef 10) #4
+  %273 = tail call i64 @strtoul(ptr noundef captures(none) %263, ptr noundef null, i32 noundef 10) #4
   %274 = trunc i64 %273 to i32
   %275 = load i32, ptr @hf_srvloc_protocol, align 4
   %276 = tail call ptr @proto_tree_add_uint(ptr noundef %243, i32 noundef %275, ptr noundef %0, i32 noundef %251, i32 noundef 4, i32 noundef %274) #4
@@ -897,7 +897,7 @@ unicode_to_bytes.exit241.i:                       ; preds = %288
   %289 = sext i32 %.4.i238.i to i64
   %290 = getelementptr i8, ptr %281, i64 %289
   store i8 0, ptr %290, align 1
-  %291 = tail call i64 @strtoul(ptr nocapture noundef %281, ptr noundef null, i32 noundef 10) #4
+  %291 = tail call i64 @strtoul(ptr noundef captures(none) %281, ptr noundef null, i32 noundef 10) #4
   %292 = trunc i64 %291 to i32
   %293 = load i32, ptr @hf_srvloc_protocol, align 4
   %294 = tail call ptr @proto_tree_add_uint(ptr noundef %243, i32 noundef %293, ptr noundef %0, i32 noundef %251, i32 noundef 4, i32 noundef %292) #4
@@ -970,7 +970,7 @@ unicode_to_bytes.exit242.i:                       ; preds = %325, %311
   %328 = sext i32 %.2.i.i to i64
   %329 = getelementptr i8, ptr %301, i64 %328
   store i8 0, ptr %329, align 1
-  %330 = tail call i64 @strtoul(ptr nocapture noundef %301, ptr noundef null, i32 noundef 16) #4
+  %330 = tail call i64 @strtoul(ptr noundef captures(none) %301, ptr noundef null, i32 noundef 16) #4
   %331 = trunc i64 %330 to i32
   %332 = load i32, ptr @hf_srvloc_add_ref_ip, align 4
   %333 = add i32 %.1367.i, 2
@@ -1036,7 +1036,7 @@ unicode_to_bytes.exit260.i:                       ; preds = %359
   %360 = sext i32 %.4.i256.i to i64
   %361 = getelementptr i8, ptr %352, i64 %360
   store i8 0, ptr %361, align 1
-  %362 = tail call i64 @strtoul(ptr nocapture noundef %352, ptr noundef null, i32 noundef 16) #4
+  %362 = tail call i64 @strtoul(ptr noundef captures(none) %352, ptr noundef null, i32 noundef 16) #4
   %363 = trunc i64 %362 to i32
   %364 = load i32, ptr @hf_srvloc_network, align 4
   %365 = tail call ptr @proto_tree_add_uint(ptr noundef %243, i32 noundef %364, ptr noundef %0, i32 noundef %348, i32 noundef 4, i32 noundef %363) #4
@@ -1073,7 +1073,7 @@ unicode_to_bytes.exit269.i:                       ; preds = %377
   %378 = sext i32 %.4.i265.i to i64
   %379 = getelementptr i8, ptr %370, i64 %378
   store i8 0, ptr %379, align 1
-  %380 = tail call i64 @strtoul(ptr nocapture noundef %370, ptr noundef null, i32 noundef 16) #4
+  %380 = tail call i64 @strtoul(ptr noundef captures(none) %370, ptr noundef null, i32 noundef 16) #4
   %381 = trunc i64 %380 to i32
   %382 = load i32, ptr @hf_srvloc_node, align 4
   %383 = tail call ptr @proto_tree_add_uint(ptr noundef %243, i32 noundef %382, ptr noundef %0, i32 noundef %366, i32 noundef 4, i32 noundef %381) #4
@@ -1115,7 +1115,7 @@ unicode_to_bytes.exit251.i:                       ; preds = %395, %346
   %396 = sext i32 %.4.i274.lcssa.sink.i to i64
   %397 = getelementptr i8, ptr %.sink398.i, i64 %396
   store i8 0, ptr %397, align 1
-  %398 = tail call i64 @strtoul(ptr nocapture noundef %.sink398.i, ptr noundef null, i32 noundef 16) #4
+  %398 = tail call i64 @strtoul(ptr noundef captures(none) %.sink398.i, ptr noundef null, i32 noundef 16) #4
   %399 = trunc i64 %398 to i32
   %400 = load i32, ptr %hf_srvloc_socket.sink.i, align 4
   %401 = tail call ptr @proto_tree_add_uint(ptr noundef %243, i32 noundef %400, ptr noundef %0, i32 noundef %.sink393.i, i32 noundef 4, i32 noundef %399) #4
@@ -1300,7 +1300,7 @@ unicode_to_bytes.exit298.i:                       ; preds = %479, %467
   %480 = sext i32 %.4.i292.lcssa.sink.i to i64
   %481 = getelementptr i8, ptr %.sink407.i, i64 %480
   store i8 0, ptr %481, align 1
-  %482 = tail call i64 @strtoul(ptr nocapture noundef %.sink407.i, ptr noundef null, i32 noundef 10) #4
+  %482 = tail call i64 @strtoul(ptr noundef captures(none) %.sink407.i, ptr noundef null, i32 noundef 10) #4
   %483 = trunc i64 %482 to i32
   %484 = load i32, ptr @hf_srvloc_protocol, align 4
   %485 = tail call ptr @proto_tree_add_uint(ptr noundef %440, i32 noundef %484, ptr noundef %0, i32 noundef %448, i32 noundef %.sink402.i, i32 noundef %483) #4
@@ -1368,7 +1368,7 @@ unicode_to_bytes.exit321.i:                       ; preds = %515, %501
   %518 = sext i32 %.2.i319.i to i64
   %519 = getelementptr i8, ptr %491, i64 %518
   store i8 0, ptr %519, align 1
-  %520 = tail call i64 @strtoul(ptr nocapture noundef %491, ptr noundef null, i32 noundef 16) #4
+  %520 = tail call i64 @strtoul(ptr noundef captures(none) %491, ptr noundef null, i32 noundef 16) #4
   %521 = trunc i64 %520 to i32
   %522 = load i32, ptr @hf_srvloc_add_ref_ip, align 4
   %523 = add i32 %.3371.i, 1
@@ -1434,7 +1434,7 @@ unicode_to_bytes.exit343.i:                       ; preds = %549
   %550 = sext i32 %.4.i337.i to i64
   %551 = getelementptr i8, ptr %542, i64 %550
   store i8 0, ptr %551, align 1
-  %552 = tail call i64 @strtoul(ptr nocapture noundef %542, ptr noundef null, i32 noundef 16) #4
+  %552 = tail call i64 @strtoul(ptr noundef captures(none) %542, ptr noundef null, i32 noundef 16) #4
   %553 = trunc i64 %552 to i32
   %554 = load i32, ptr @hf_srvloc_network, align 4
   %555 = tail call ptr @proto_tree_add_uint(ptr noundef %440, i32 noundef %554, ptr noundef %0, i32 noundef %538, i32 noundef 4, i32 noundef %553) #4
@@ -1471,7 +1471,7 @@ unicode_to_bytes.exit354.i:                       ; preds = %567
   %568 = sext i32 %.4.i348.i to i64
   %569 = getelementptr i8, ptr %560, i64 %568
   store i8 0, ptr %569, align 1
-  %570 = tail call i64 @strtoul(ptr nocapture noundef %560, ptr noundef null, i32 noundef 16) #4
+  %570 = tail call i64 @strtoul(ptr noundef captures(none) %560, ptr noundef null, i32 noundef 16) #4
   %571 = trunc i64 %570 to i32
   %572 = load i32, ptr @hf_srvloc_node, align 4
   %573 = tail call ptr @proto_tree_add_uint(ptr noundef %440, i32 noundef %572, ptr noundef %0, i32 noundef %556, i32 noundef 4, i32 noundef %571) #4
@@ -1513,7 +1513,7 @@ unicode_to_bytes.exit332.i:                       ; preds = %585, %536
   %586 = sext i32 %.4.i359.lcssa.sink.i to i64
   %587 = getelementptr i8, ptr %.sink416.i, i64 %586
   store i8 0, ptr %587, align 1
-  %588 = tail call i64 @strtoul(ptr nocapture noundef %.sink416.i, ptr noundef null, i32 noundef 16) #4
+  %588 = tail call i64 @strtoul(ptr noundef captures(none) %.sink416.i, ptr noundef null, i32 noundef 16) #4
   %589 = trunc i64 %588 to i32
   %590 = load i32, ptr %hf_srvloc_socket.sink412.i, align 4
   %591 = tail call ptr @proto_tree_add_uint(ptr noundef %440, i32 noundef %590, ptr noundef %0, i32 noundef %.sink410.i, i32 noundef 4, i32 noundef %589) #4
@@ -2633,17 +2633,17 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2656,7 +2656,7 @@ declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef,
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_srvloc_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_srvloc_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #4
   %6 = icmp eq i8 %5, 2
   %7 = add i32 %2, 2

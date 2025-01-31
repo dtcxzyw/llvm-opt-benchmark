@@ -1622,7 +1622,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 209) i32 @dissect_sapdiag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 209) i32 @dissect_sapdiag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_add_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.658) #2
@@ -1958,7 +1958,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 declare void @range_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @range_delete_callback(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @range_delete_callback(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @sapdiag_handle, align 8
   tail call void @dissector_delete_uint(ptr noundef nonnull @.str.1202, i32 noundef %0, ptr noundef %3) #2
   ret void
@@ -1969,7 +1969,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @range_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @range_add_callback(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @range_add_callback(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @sapdiag_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.1202, i32 noundef %0, ptr noundef %3) #2
   ret void
@@ -1994,7 +1994,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sapdiag_compressed_payload(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 209) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_sapdiag_compressed_payload(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 209) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_sapdiag_compress_header, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %4, i32 noundef 8, i32 noundef 0) #2
   %8 = load i32, ptr @ett_sapdiag, align 4
@@ -4237,7 +4237,7 @@ define internal fastcc void @add_item_value_string(ptr noundef %0, ptr %.408.val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %5) #2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
@@ -4249,7 +4249,7 @@ define internal fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_item_value_hexstring(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @add_item_value_hexstring(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @tvb_bytes_to_str(ptr noundef %8, ptr noundef %0, i32 noundef %5, i32 noundef 16) #2
@@ -4915,7 +4915,7 @@ define internal fastcc void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sapdiag_menu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #0 {
   %6 = add i32 %4, %3
   %7 = icmp ult i32 %3, %6
   br i1 %7, label %.lr.ph, label %._crit_edge

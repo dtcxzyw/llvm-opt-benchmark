@@ -462,7 +462,7 @@ define hidden noundef zeroext i1 @_ZN26ShenandoahBarrierC2Support19is_heap_stabl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN26ShenandoahBarrierC2Support21has_safepoint_betweenEP4NodeS1_P14PhaseIdealLoop(ptr noundef %0, ptr noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN26ShenandoahBarrierC2Support21has_safepoint_betweenEP4NodeS1_P14PhaseIdealLoop(ptr noundef %0, ptr noundef readnone %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Unique_Node_List, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -722,7 +722,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %127, %129
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN26ShenandoahBarrierC2Support22is_dominator_same_ctrlEP4NodeS1_S1_P14PhaseIdealLoop(ptr noundef readnone %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN26ShenandoahBarrierC2Support22is_dominator_same_ctrlEP4NodeS1_S1_P14PhaseIdealLoop(ptr noundef readnone %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Unique_Node_List, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
@@ -1281,7 +1281,7 @@ declare noundef ptr @_ZNK12MergeMemNode9memory_atEj(ptr noundef nonnull align 8 
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN26ShenandoahBarrierC2Support11no_branchesEP4NodeS1_bP14PhaseIdealLoop(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN26ShenandoahBarrierC2Support11no_branchesEP4NodeS1_bP14PhaseIdealLoop(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Unique_Node_List, align 8
   %.not88 = icmp eq ptr %0, %1
   br i1 %.not88, label %._crit_edge, label %.lr.ph91
@@ -1730,7 +1730,7 @@ declare noundef ptr @_ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11Deo
 declare noundef ptr @_ZNK8ProjNode27is_uncommon_trap_if_patternEN14Deoptimization11DeoptReasonE(ptr noundef nonnull align 8 dereferenceable(57), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN26ShenandoahBarrierC2Support7dom_memEP4NodeS1_iRS1_P14PhaseIdealLoop(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN26ShenandoahBarrierC2Support7dom_memEP4NodeS1_iRS1_P14PhaseIdealLoop(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.VectorSet, align 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %8 = load ptr, ptr %7, align 8
@@ -2344,7 +2344,7 @@ declare void @_ZN8CallNode19extract_projectionsEP15CallProjectionsbb(ptr noundef
 declare noundef ptr @_ZNK9MultiNode8proj_outEj(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26ShenandoahBarrierC2Support19follow_barrier_usesEP4NodeS1_R16Unique_Node_ListP14PhaseIdealLoop(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(68) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN26ShenandoahBarrierC2Support19follow_barrier_usesEP4NodeS1_R16Unique_Node_ListP14PhaseIdealLoop(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2503,7 +2503,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26ShenandoahBarrierC2Support13test_gc_stateERP4NodeS1_S2_P14PhaseIdealLoopi(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN26ShenandoahBarrierC2Support13test_gc_stateERP4NodeS1_S2_P14PhaseIdealLoopi(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
@@ -2981,7 +2981,7 @@ declare void @_ZN14PhaseIdealLoop16register_controlEP4NodeP13IdealLoopTreeS1_b(p
 declare void @_ZN14PhaseIdealLoop17register_new_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(237), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26ShenandoahBarrierC2Support9test_nullERP4NodeS1_S2_P14PhaseIdealLoop(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN26ShenandoahBarrierC2Support9test_nullERP4NodeS1_S2_P14PhaseIdealLoop(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -3261,7 +3261,7 @@ _ZNK14PhaseIdealLoop8get_loopEP4Node.exit:        ; preds = %_ZNK14PhaseIdealLoo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26ShenandoahBarrierC2Support12test_in_csetERP4NodeS2_S1_S1_P14PhaseIdealLoop(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN26ShenandoahBarrierC2Support12test_in_csetERP4NodeS2_S1_S1_P14PhaseIdealLoop(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %8 = load ptr, ptr %7, align 8
@@ -3800,7 +3800,7 @@ declare noundef ptr @_ZN10TypeRawPtr4makeEPh(ptr noundef) local_unnamed_addr #1
 declare noundef ptr @_ZN14ShenandoahHeap22in_cset_fast_test_addrEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26ShenandoahBarrierC2Support13call_lrb_stubERP4NodeS2_S1_mP14PhaseIdealLoop(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN26ShenandoahBarrierC2Support13call_lrb_stubERP4NodeS2_S1_mP14PhaseIdealLoop(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %7, label %9
@@ -4462,7 +4462,7 @@ _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26ShenandoahBarrierC2Support8fix_ctrlEP4NodeS1_RK16MemoryGraphFixerR16Unique_Node_ListS6_jP14PhaseIdealLoop(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN26ShenandoahBarrierC2Support8fix_ctrlEP4NodeS1_RK16MemoryGraphFixerR16Unique_Node_ListS6_jP14PhaseIdealLoop(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -5206,7 +5206,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit133:        ; preds = %_ZN9Node_List4pushE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16MemoryGraphFixer8find_memEP4NodeS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK16MemoryGraphFixer8find_memEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.CallProjections, align 8
   %5 = alloca %class.CallProjections, align 8
   %6 = alloca %class.CallProjections, align 8
@@ -7624,7 +7624,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
   %879 = zext i32 %877 to i64
   %880 = getelementptr inbounds nuw ptr, ptr %878, i64 %879
   %881 = load ptr, ptr %880, align 8
-  %882 = call fastcc noundef ptr @_ZL26create_phis_on_call_returnP4NodeS0_S0_S0_RK15CallProjectionsP14PhaseIdealLoop(ptr noundef nonnull %.0.i.i563, ptr noundef %.0.i601, ptr noundef %875, ptr noundef %881, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull %0)
+  %882 = call fastcc noundef ptr @_ZL26create_phis_on_call_returnP4NodeS0_S0_S0_RK15CallProjectionsP14PhaseIdealLoop(ptr noundef nonnull %.0.i.i563, ptr noundef nonnull %.0.i601, ptr noundef %875, ptr noundef %881, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull %0)
   %883 = load ptr, ptr %188, align 8
   %884 = call noundef i32 @_ZN4Node12replace_edgeEPS_S0_P8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52) %826, ptr noundef %875, ptr noundef %882, ptr noundef nonnull %883) #11
   %885 = getelementptr inbounds nuw i8, ptr %572, i64 8
@@ -9137,13 +9137,13 @@ _ZN4Node7set_reqEjPS_.exit760:                    ; preds = %_ZN4Node7del_outEPS
   %1745 = getelementptr inbounds nuw i8, ptr %1744, i64 16
   %1746 = load ptr, ptr %1745, align 8
   %.not.i761 = icmp eq ptr %1746, null
-  br i1 %.not.i761, label %_ZN4Node7del_outEPS_.exit.i764, label %1747
+  br i1 %.not.i761, label %1764, label %1747
 
 1747:                                             ; preds = %_ZN4Node7set_reqEjPS_.exit760
   %1748 = getelementptr inbounds nuw i8, ptr %1746, i64 16
   %1749 = load ptr, ptr %1748, align 8
   %1750 = icmp eq ptr %1749, null
-  br i1 %1750, label %_ZN4Node7del_outEPS_.exit.i764, label %1751
+  br i1 %1750, label %1764, label %1751
 
 1751:                                             ; preds = %1747
   %1752 = getelementptr inbounds nuw i8, ptr %1746, i64 32
@@ -9166,14 +9166,10 @@ _ZN4Node7set_reqEjPS_.exit760:                    ; preds = %_ZN4Node7del_outEPS
   %1762 = getelementptr inbounds nuw ptr, ptr %1749, i64 %1761
   %1763 = load ptr, ptr %1762, align 8
   store ptr %1763, ptr %1757, align 8
-  br label %_ZN4Node7del_outEPS_.exit.i764
+  br label %1764
 
-_ZN4Node7del_outEPS_.exit.i764:                   ; preds = %1759, %1747, %_ZN4Node7set_reqEjPS_.exit760
+1764:                                             ; preds = %_ZN4Node7set_reqEjPS_.exit760, %1747, %1759
   store ptr %1629, ptr %1745, align 8
-  %.not8.i765 = icmp eq ptr %1629, null
-  br i1 %.not8.i765, label %.sink.split, label %1764
-
-1764:                                             ; preds = %_ZN4Node7del_outEPS_.exit.i764
   %1765 = getelementptr inbounds nuw i8, ptr %1629, i64 16
   %1766 = load ptr, ptr %1765, align 8
   %1767 = icmp eq ptr %1766, null
@@ -9209,15 +9205,15 @@ _ZN4Node7del_outEPS_.exit.i764:                   ; preds = %1759, %1747, %_ZN4N
   store ptr %.sink, ptr %1780, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %1764, %_ZN4Node7del_outEPS_.exit.i764, %1599, %_ZN4Node7del_outEPS_.exit.i732
-  %.sink1123 = phi ptr [ %1540, %_ZN4Node7del_outEPS_.exit.i732 ], [ %1540, %1599 ], [ %1705, %_ZN4Node7del_outEPS_.exit.i764 ], [ %1705, %1764 ], [ %.sink, %.sink.split.sink.split ]
+.sink.split:                                      ; preds = %.sink.split.sink.split, %1764, %1599, %_ZN4Node7del_outEPS_.exit.i732
+  %.sink1123 = phi ptr [ %1540, %_ZN4Node7del_outEPS_.exit.i732 ], [ %1540, %1599 ], [ %1705, %1764 ], [ %.sink, %.sink.split.sink.split ]
   call void @_ZN14PhaseIdealLoop17register_new_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %.sink1123, ptr noundef %.pre1088) #11
   br label %1781
 
 1781:                                             ; preds = %.sink.split, %1619, %1614, %_ZN4Node8init_reqEjPS_.exit716
   %.0517 = phi ptr [ %1456, %1619 ], [ %1456, %1614 ], [ %1456, %_ZN4Node8init_reqEjPS_.exit716 ], [ %.sink1123, %.sink.split ]
   %1782 = load i64, ptr %1367, align 8
-  call void @_ZN26ShenandoahBarrierC2Support13call_lrb_stubERP4NodeS2_S1_mP14PhaseIdealLoop(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %.0517, i64 noundef %1782, ptr noundef %0)
+  call void @_ZN26ShenandoahBarrierC2Support13call_lrb_stubERP4NodeS2_S1_mP14PhaseIdealLoop(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %.0517, i64 noundef %1782, ptr noundef nonnull %0)
   %1783 = load ptr, ptr %8, align 8
   %1784 = load ptr, ptr %1375, align 8
   %1785 = getelementptr inbounds nuw i8, ptr %1784, i64 16
@@ -9296,7 +9292,7 @@ _ZN4Node8init_reqEjPS_.exit772:                   ; preds = %1781, %1786, %1797
 _ZN4Node8init_reqEjPS_.exit776:                   ; preds = %_ZN4Node8init_reqEjPS_.exit772, %1806, %1817
   call void @_ZN14PhaseIdealLoop16register_controlEP4NodeP13IdealLoopTreeS1_b(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %.0.i.i.i695, ptr noundef %.0.i690, ptr noundef %1374, i1 noundef zeroext true) #11
   call void @_ZN14PhaseIdealLoop17register_new_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %.0.i.i.i698, ptr noundef nonnull %.0.i.i.i695) #11
-  call void @_ZN26ShenandoahBarrierC2Support8fix_ctrlEP4NodeS1_RK16MemoryGraphFixerR16Unique_Node_ListS6_jP14PhaseIdealLoop(ptr noundef nonnull %1221, ptr noundef nonnull %.0.i.i.i695, ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull align 8 dereferenceable(68) %7, i32 noundef %1224, ptr noundef %0)
+  call void @_ZN26ShenandoahBarrierC2Support8fix_ctrlEP4NodeS1_RK16MemoryGraphFixerR16Unique_Node_ListS6_jP14PhaseIdealLoop(ptr noundef nonnull %1221, ptr noundef nonnull %.0.i.i.i695, ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull align 8 dereferenceable(68) %7, i32 noundef %1224, ptr noundef nonnull %0)
   store ptr %.0.i.i682, ptr %8, align 8
   %1823 = load ptr, ptr %1217, align 8
   call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1823, ptr noundef nonnull %1221) #11
@@ -9304,7 +9300,7 @@ _ZN4Node8init_reqEjPS_.exit776:                   ; preds = %_ZN4Node8init_reqEj
   %1825 = load ptr, ptr %1824, align 8
   %1826 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %1825, ptr noundef nonnull %1221) #11
   call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1823, ptr noundef nonnull %1221, ptr noundef nonnull %.0.i.i.i698) #11
-  call void @_ZN26ShenandoahBarrierC2Support19follow_barrier_usesEP4NodeS1_R16Unique_Node_ListP14PhaseIdealLoop(ptr noundef nonnull %.0.i.i.i698, ptr noundef %.0.i.i682, ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef %0)
+  call void @_ZN26ShenandoahBarrierC2Support19follow_barrier_usesEP4NodeS1_R16Unique_Node_ListP14PhaseIdealLoop(ptr noundef nonnull %.0.i.i.i698, ptr noundef nonnull %.0.i.i682, ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull %0)
   %1827 = load i32, ptr %35, align 8
   %.not1038 = icmp eq i32 %1827, 0
   br i1 %.not1038, label %._crit_edge1024, label %.lr.ph1023
@@ -11886,7 +11882,7 @@ _ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit: ; preds = %_ZN9VectorSet8tes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL26create_phis_on_call_returnP4NodeS0_S0_S0_RK15CallProjectionsP14PhaseIdealLoop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL26create_phis_on_call_returnP4NodeS0_S0_S0_RK15CallProjectionsP14PhaseIdealLoop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %4, ptr noundef %5) unnamed_addr #0 {
   %.not48 = icmp eq ptr %1, %0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
@@ -12319,7 +12315,7 @@ _ZN4Node8init_reqEjPS_.exit6:                     ; preds = %_ZN4Node8init_reqEj
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK34ShenandoahLoadReferenceBarrierNode10decoratorsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZNK34ShenandoahLoadReferenceBarrierNode10decoratorsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -15611,13 +15607,13 @@ _ZN4Node7set_reqEjPS_.exit52:                     ; preds = %_ZN4Node7del_outEPS
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
   %.not.i53 = icmp eq ptr %132, null
-  br i1 %.not.i53, label %_ZN4Node7del_outEPS_.exit.i56, label %133
+  br i1 %.not.i53, label %150, label %133
 
 133:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit52
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, null
-  br i1 %136, label %_ZN4Node7del_outEPS_.exit.i56, label %137
+  br i1 %136, label %150, label %137
 
 137:                                              ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %132, i64 32
@@ -15640,14 +15636,10 @@ _ZN4Node7set_reqEjPS_.exit52:                     ; preds = %_ZN4Node7del_outEPS
   %148 = getelementptr inbounds nuw ptr, ptr %135, i64 %147
   %149 = load ptr, ptr %148, align 8
   store ptr %149, ptr %143, align 8
-  br label %_ZN4Node7del_outEPS_.exit.i56
+  br label %150
 
-_ZN4Node7del_outEPS_.exit.i56:                    ; preds = %145, %133, %_ZN4Node7set_reqEjPS_.exit52
+150:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit52, %133, %145
   store ptr %53, ptr %131, align 8
-  %.not8.i57 = icmp eq ptr %53, null
-  br i1 %.not8.i57, label %_ZN4Node7set_reqEjPS_.exit60, label %150
-
-150:                                              ; preds = %_ZN4Node7del_outEPS_.exit.i56
   %151 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
@@ -15677,7 +15669,7 @@ _ZN4Node7del_outEPS_.exit.i56:                    ; preds = %145, %133, %_ZN4Nod
   store ptr %128, ptr %166, align 8
   br label %_ZN4Node7set_reqEjPS_.exit60
 
-_ZN4Node7set_reqEjPS_.exit60:                     ; preds = %_ZN4Node7del_outEPS_.exit.i56, %150, %161
+_ZN4Node7set_reqEjPS_.exit60:                     ; preds = %150, %161
   tail call void @_ZN14PhaseIdealLoop17register_new_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %1, ptr noundef nonnull %128, ptr noundef %24) #11
   %167 = tail call noundef ptr @_ZNK4Node5cloneEv(ptr noundef nonnull align 8 dereferenceable(52) %32) #11
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
@@ -15685,13 +15677,13 @@ _ZN4Node7set_reqEjPS_.exit60:                     ; preds = %_ZN4Node7del_outEPS
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load ptr, ptr %170, align 8
   %.not.i61 = icmp eq ptr %171, null
-  br i1 %.not.i61, label %_ZN4Node7del_outEPS_.exit.i64, label %172
+  br i1 %.not.i61, label %189, label %172
 
 172:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit60
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %174 = load ptr, ptr %173, align 8
   %175 = icmp eq ptr %174, null
-  br i1 %175, label %_ZN4Node7del_outEPS_.exit.i64, label %176
+  br i1 %175, label %189, label %176
 
 176:                                              ; preds = %172
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 32
@@ -15714,14 +15706,10 @@ _ZN4Node7set_reqEjPS_.exit60:                     ; preds = %_ZN4Node7del_outEPS
   %187 = getelementptr inbounds nuw ptr, ptr %174, i64 %186
   %188 = load ptr, ptr %187, align 8
   store ptr %188, ptr %182, align 8
-  br label %_ZN4Node7del_outEPS_.exit.i64
+  br label %189
 
-_ZN4Node7del_outEPS_.exit.i64:                    ; preds = %184, %172, %_ZN4Node7set_reqEjPS_.exit60
+189:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit60, %172, %184
   store ptr %128, ptr %170, align 8
-  %.not8.i65 = icmp eq ptr %128, null
-  br i1 %.not8.i65, label %_ZN4Node7set_reqEjPS_.exit68, label %189
-
-189:                                              ; preds = %_ZN4Node7del_outEPS_.exit.i64
   %190 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %191 = load ptr, ptr %190, align 8
   %192 = icmp eq ptr %191, null
@@ -15751,7 +15739,7 @@ _ZN4Node7del_outEPS_.exit.i64:                    ; preds = %184, %172, %_ZN4Nod
   store ptr %167, ptr %205, align 8
   br label %_ZN4Node7set_reqEjPS_.exit68
 
-_ZN4Node7set_reqEjPS_.exit68:                     ; preds = %_ZN4Node7del_outEPS_.exit.i64, %189, %200
+_ZN4Node7set_reqEjPS_.exit68:                     ; preds = %189, %200
   tail call void @_ZN14PhaseIdealLoop17register_new_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %1, ptr noundef nonnull %167, ptr noundef %24) #11
   %206 = tail call noundef ptr @_ZNK4Node5cloneEv(ptr noundef nonnull align 8 dereferenceable(52) %28) #11
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
@@ -15759,13 +15747,13 @@ _ZN4Node7set_reqEjPS_.exit68:                     ; preds = %_ZN4Node7del_outEPS
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %210 = load ptr, ptr %209, align 8
   %.not.i69 = icmp eq ptr %210, null
-  br i1 %.not.i69, label %_ZN4Node7del_outEPS_.exit.i72, label %211
+  br i1 %.not.i69, label %228, label %211
 
 211:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit68
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %213 = load ptr, ptr %212, align 8
   %214 = icmp eq ptr %213, null
-  br i1 %214, label %_ZN4Node7del_outEPS_.exit.i72, label %215
+  br i1 %214, label %228, label %215
 
 215:                                              ; preds = %211
   %216 = getelementptr inbounds nuw i8, ptr %210, i64 32
@@ -15788,14 +15776,10 @@ _ZN4Node7set_reqEjPS_.exit68:                     ; preds = %_ZN4Node7del_outEPS
   %226 = getelementptr inbounds nuw ptr, ptr %213, i64 %225
   %227 = load ptr, ptr %226, align 8
   store ptr %227, ptr %221, align 8
-  br label %_ZN4Node7del_outEPS_.exit.i72
+  br label %228
 
-_ZN4Node7del_outEPS_.exit.i72:                    ; preds = %223, %211, %_ZN4Node7set_reqEjPS_.exit68
+228:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit68, %211, %223
   store ptr %167, ptr %209, align 8
-  %.not8.i73 = icmp eq ptr %167, null
-  br i1 %.not8.i73, label %_ZN4Node7set_reqEjPS_.exit76, label %228
-
-228:                                              ; preds = %_ZN4Node7del_outEPS_.exit.i72
   %229 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %230 = load ptr, ptr %229, align 8
   %231 = icmp eq ptr %230, null
@@ -15825,7 +15809,7 @@ _ZN4Node7del_outEPS_.exit.i72:                    ; preds = %223, %211, %_ZN4Nod
   store ptr %206, ptr %244, align 8
   br label %_ZN4Node7set_reqEjPS_.exit76
 
-_ZN4Node7set_reqEjPS_.exit76:                     ; preds = %_ZN4Node7del_outEPS_.exit.i72, %228, %239
+_ZN4Node7set_reqEjPS_.exit76:                     ; preds = %228, %239
   tail call void @_ZN14PhaseIdealLoop17register_new_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %1, ptr noundef nonnull %206, ptr noundef %24) #11
   %245 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %246 = load ptr, ptr %245, align 8
@@ -16012,7 +15996,7 @@ _ZNK14PhaseIdealLoop4idomEP4Node.exit:            ; preds = %_ZNK10Node_ArrayixE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN26ShenandoahBarrierC2Support16merge_point_safeEP4Node(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN26ShenandoahBarrierC2Support16merge_point_safeEP4Node(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -16424,7 +16408,7 @@ declare noundef ptr @_ZN7PhiNode10make_blankEP4NodeS1_(ptr noundef, ptr noundef)
 declare void @_ZN14PhaseIdealLoop11do_split_ifEP4NodePP10RegionNodeS4_(ptr noundef nonnull align 8 dereferenceable(237), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN26ShenandoahBarrierC2Support26find_unswitching_candidateEPK13IdealLoopTreeP14PhaseIdealLoop(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN26ShenandoahBarrierC2Support26find_unswitching_candidateEPK13IdealLoopTreeP14PhaseIdealLoop(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -17002,7 +16986,7 @@ declare void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52),
 declare void @_ZN27ShenandoahBarrierSetC2State14add_iu_barrierEP23ShenandoahIUBarrierNode(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK23ShenandoahIUBarrierNode11bottom_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK23ShenandoahIUBarrierNode11bottom_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17033,7 +17017,7 @@ define hidden noundef ptr @_ZNK23ShenandoahIUBarrierNode11bottom_typeEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23ShenandoahIUBarrierNode5ValueEP8PhaseGVN(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZNK23ShenandoahIUBarrierNode5ValueEP8PhaseGVN(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -19498,7 +19482,7 @@ _ZN14PhaseIdealLoop12lazy_replaceEP4NodeS1_.exit: ; preds = %950, %961
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16MemoryGraphFixer32collect_memory_for_infinite_loopEPK4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16MemoryGraphFixer32collect_memory_for_infinite_loopEPK4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Node_Stack, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -19759,7 +19743,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %153, %151, %._crit_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16MemoryGraphFixer8get_ctrlEP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK16MemoryGraphFixer8get_ctrlEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.CallProjections, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -19866,7 +19850,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit:        ; preds = %2, %34
 declare void @_ZNK14PhaseIdealLoop3rpoEP4NodeR10Node_StackR9VectorSetR9Node_List(ptr noundef nonnull align 8 dereferenceable(237), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16MemoryGraphFixer12ctrl_or_selfEP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK16MemoryGraphFixer12ctrl_or_selfEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.CallProjections, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -19988,7 +19972,7 @@ declare void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN4Node8destructEP11PhaseValues(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK16MemoryGraphFixer15fix_memory_usesEP4NodeS1_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK16MemoryGraphFixer15fix_memory_usesEP4NodeS1_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -20862,7 +20846,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit185: ; preds = %_ZN9VectorSet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK16MemoryGraphFixer12mem_is_validEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.CallProjections, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %71, label %5
@@ -20978,7 +20962,7 @@ _ZNK16MemoryGraphFixer8get_ctrlEP4Node.exit:      ; preds = %_ZN14PhaseIdealLoop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK16MemoryGraphFixer11has_mem_phiEP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK16MemoryGraphFixer11has_mem_phiEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -21036,7 +21020,7 @@ define hidden noundef zeroext i1 @_ZNK16MemoryGraphFixer11has_mem_phiEP4Node(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16MemoryGraphFixer15clone_merge_memEP4NodeS1_S1_S1_Rj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK16MemoryGraphFixer15clone_merge_memEP4NodeS1_S1_S1_Rj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -21474,7 +21458,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %231, %220, %_ZN4Nod
 declare noundef i32 @_ZN4Node9find_edgeEPS_(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16MemoryGraphFixer18allocate_merge_memEP4NodeS1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK16MemoryGraphFixer18allocate_merge_memEP4NodeS1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_ZN12MergeMemNode4makeEP4Node(ptr noundef %1) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
@@ -21658,7 +21642,7 @@ _ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit:      ; preds = %85, %88
 declare void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK16MemoryGraphFixer18should_process_phiEP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK16MemoryGraphFixer18should_process_phiEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -21760,7 +21744,7 @@ define hidden void @_ZN34ShenandoahLoadReferenceBarrierNodeC2EP4NodeS1_m(ptr nou
 declare void @_ZN27ShenandoahBarrierSetC2State26add_load_reference_barrierEP34ShenandoahLoadReferenceBarrierNode(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK34ShenandoahLoadReferenceBarrierNode7size_ofEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZNK34ShenandoahLoadReferenceBarrierNode7size_ofEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0) unnamed_addr #5 align 2 {
   ret i32 64
 }
 
@@ -21807,7 +21791,7 @@ define hidden noundef zeroext i1 @_ZNK34ShenandoahLoadReferenceBarrierNode3cmpER
 declare noundef zeroext i1 @_ZNK4Node3cmpERKS_(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef nonnull align 8 dereferenceable(52)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK34ShenandoahLoadReferenceBarrierNode11bottom_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK34ShenandoahLoadReferenceBarrierNode11bottom_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -21851,7 +21835,7 @@ define hidden noundef ptr @_ZNK34ShenandoahLoadReferenceBarrierNode11bottom_type
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK34ShenandoahLoadReferenceBarrierNode5ValueEP8PhaseGVN(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK34ShenandoahLoadReferenceBarrierNode5ValueEP8PhaseGVN(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -22442,7 +22426,7 @@ declare void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr noundef nonnull align 8 derefere
 declare noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -22504,10 +22488,10 @@ declare void @llvm.assume(i1 noundef) #8
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [13 x i8] c"close failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_InheritedChannel_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_InheritedChannel_initIDs(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call void @initInetAddressIDs(ptr noundef %0) #4
   ret void
 }
@@ -23,7 +23,7 @@ define void @Java_sun_nio_ch_InheritedChannel_initIDs(ptr noundef %0, ptr nocapt
 declare void @initInetAddressIDs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_ch_InheritedChannel_inetPeerAddress0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_nio_ch_InheritedChannel_inetPeerAddress0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.SOCKETADDRESS, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -47,7 +47,7 @@ declare i32 @getpeername(i32 noundef, ptr, ptr noundef) local_unnamed_addr #2
 declare ptr @NET_SockaddrToInetAddress(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_ch_InheritedChannel_unixPeerAddress0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_nio_ch_InheritedChannel_unixPeerAddress0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.sockaddr_un, align 2
   %5 = alloca i32, align 4
   store i32 110, ptr %5, align 4
@@ -71,7 +71,7 @@ define ptr @Java_sun_nio_ch_InheritedChannel_unixPeerAddress0(ptr noundef %0, pt
 declare ptr @sockaddrToUnixAddressBytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_InheritedChannel_peerPort0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_InheritedChannel_peerPort0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.SOCKETADDRESS, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -92,7 +92,7 @@ define i32 @Java_sun_nio_ch_InheritedChannel_peerPort0(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 4) i32 @Java_sun_nio_ch_InheritedChannel_addressFamily(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 4) i32 @Java_sun_nio_ch_InheritedChannel_addressFamily(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.SOCKETADDRESS, align 4
   %5 = alloca i32, align 4
   store i32 28, ptr %5, align 4
@@ -126,7 +126,7 @@ define range(i32 -1, 4) i32 @Java_sun_nio_ch_InheritedChannel_addressFamily(ptr 
 declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_InheritedChannel_isConnected(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_InheritedChannel_isConnected(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.SOCKETADDRESS, align 4
   %5 = alloca i32, align 4
   store i32 28, ptr %5, align 4
@@ -137,7 +137,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_InheritedChannel_isConnected(p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 3) i32 @Java_sun_nio_ch_InheritedChannel_soType0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 3) i32 @Java_sun_nio_ch_InheritedChannel_soType0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 4, ptr %5, align 4
@@ -162,7 +162,7 @@ define range(i32 -1, 3) i32 @Java_sun_nio_ch_InheritedChannel_soType0(ptr nocapt
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_InheritedChannel_dup(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_InheritedChannel_dup(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @dup(i32 noundef %2) #4
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %7
@@ -181,7 +181,7 @@ declare i32 @dup(i32 noundef) local_unnamed_addr #2
 declare void @JNU_ThrowIOExceptionWithLastError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_InheritedChannel_dup2(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_InheritedChannel_dup2(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @dup2(i32 noundef %2, i32 noundef %3) #4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -198,7 +198,7 @@ define void @Java_sun_nio_ch_InheritedChannel_dup2(ptr noundef %0, ptr nocapture
 declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Java_sun_nio_ch_InheritedChannel_open0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef i32 @Java_sun_nio_ch_InheritedChannel_open0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %switch = icmp ult i32 %3, 3
   br i1 %switch, label %6, label %5
 
@@ -234,12 +234,12 @@ declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @JNU_GetStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #3
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
 
 declare void @JNU_ReleaseStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_InheritedChannel_close0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_InheritedChannel_close0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @close(i32 noundef %2) #4
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %7

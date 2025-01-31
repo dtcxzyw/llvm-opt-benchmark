@@ -25,7 +25,7 @@ $_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfER13aiQuaterniontIfES3_ = comdat
 @switch.table._ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh = private unnamed_addr constant [3 x i32] [i32 1, i32 2, i32 4], align 4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp17ScenePreprocessor12ProcessSceneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp17ScenePreprocessor12ProcessSceneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %struct.aiString, align 4
   %clr = alloca %struct.aiColor3D, align 4
@@ -186,7 +186,7 @@ if.end67:                                         ; preds = %for.end63, %land.lh
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %mesh) local_unnamed_addr #1 align 2 {
+define void @_ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef captures(none) %mesh) local_unnamed_addr #1 align 2 {
 entry:
   %mTextureCoords = getelementptr inbounds nuw i8, ptr %mesh, i64 112
   %mNumUVComponents4 = getelementptr inbounds nuw i8, ptr %mesh, i64 176
@@ -406,7 +406,7 @@ if.end109:                                        ; preds = %for.body95, %arrayc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef %anim) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef captures(none) %anim) local_unnamed_addr #0 align 2 {
 entry:
   %scaling = alloca %class.aiVector3t, align 4
   %position = alloca %class.aiVector3t, align 4
@@ -710,7 +710,7 @@ declare void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfER13aiQuaterniontIfES3_(ptr noundef nonnull align 4 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %pScaling, ptr noundef nonnull align 4 dereferenceable(16) %pRotation, ptr noundef nonnull align 4 dereferenceable(12) %pPosition) local_unnamed_addr #1 comdat align 2 {
@@ -994,7 +994,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #6
 declare float @sqrtf(float noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #9

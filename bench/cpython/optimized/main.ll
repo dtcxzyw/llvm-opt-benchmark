@@ -2161,7 +2161,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pymain_run_file(ptr nocapture noundef readonly %config) unnamed_addr #0 {
+define internal fastcc i32 @pymain_run_file(ptr noundef readonly captures(none) %config) unnamed_addr #0 {
 entry:
   %exitcode.i.i13.i = alloca i32, align 4
   %exitcode.i.i.i = alloca i32, align 4
@@ -2351,7 +2351,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pymain_run_stdin(ptr nocapture noundef %config) unnamed_addr #0 {
+define internal fastcc i32 @pymain_run_stdin(ptr noundef captures(none) %config) unnamed_addr #0 {
 entry:
   %exitcode.i.i11 = alloca i32, align 4
   %exitcode.i.i5 = alloca i32, align 4
@@ -2555,7 +2555,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 declare ptr @PyUnicode_FromWideChar(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @PyImport_GetImporter(ptr noundef) local_unnamed_addr #1
 
@@ -2569,7 +2569,7 @@ declare void @PyErr_Print() local_unnamed_addr #1
 declare i32 @isatty(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #1
 
@@ -2586,7 +2586,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyList_Insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @Py_GetVersion() local_unnamed_addr #1
 
@@ -2597,7 +2597,7 @@ declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @PyUnicode_AsUTF8String(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @_PyRun_SimpleStringFlagsWithName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2620,22 +2620,22 @@ declare ptr @__errno_location() local_unnamed_addr #7
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @_Py_fstat_noraise(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @Py_MakePendingCalls() local_unnamed_addr #1
 
 declare i32 @_PyRun_AnyFileObject(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pymain_run_interactive_hook(ptr nocapture noundef nonnull writeonly %exitcode) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pymain_run_interactive_hook(ptr noundef nonnull writeonly captures(none) %exitcode) unnamed_addr #0 {
 entry:
   %exitcode.i = alloca i32, align 4
   %call = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.30) #14
@@ -2788,7 +2788,7 @@ declare void @_PyRuntime_Finalize() local_unnamed_addr #1
 declare ptr @PyOS_setsig(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #4
@@ -2797,7 +2797,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @getpid() local_unnamed_addr #4
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @pymain_exit_error(ptr nocapture noundef readonly byval(%struct.PyStatus) align 8 %status) unnamed_addr #8 {
+define internal fastcc void @pymain_exit_error(ptr noundef readonly byval(%struct.PyStatus) align 8 captures(none) %status) unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %status, align 8
   %cmp = icmp eq i32 %0, 2
@@ -2830,7 +2830,7 @@ declare void @PyConfig_SetArgv(ptr sret(%struct.PyStatus) align 8, ptr noundef, 
 declare void @Py_InitializeFromConfig(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @PyConfig_Clear(ptr noundef) local_unnamed_addr #1
 
@@ -2838,13 +2838,13 @@ declare void @PyConfig_Clear(ptr noundef) local_unnamed_addr #1
 declare void @Py_ExitStatusException(ptr noundef byval(%struct.PyStatus) align 8) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

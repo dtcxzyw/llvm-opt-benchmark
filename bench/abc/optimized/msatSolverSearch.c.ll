@@ -46,7 +46,7 @@ define range(i32 0, 2) i32 @Msat_SolverAssume(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare i32 @Msat_SolverReadDecisionLevel(ptr noundef) local_unnamed_addr #2
 
@@ -590,7 +590,7 @@ define void @Msat_SolverRemoveMarked(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Msat_SolverSearch(ptr noundef initializes((32, 40), (64, 72)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Msat_SolverSearch(ptr noundef initializes((32, 40), (64, 72)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load i64, ptr %7, align 8
@@ -832,13 +832,13 @@ define range(i32 -1, 2) i32 @Msat_SolverSearch(ptr noundef initializes((32, 40),
 Msat_SolverAnalyze.exit:                          ; preds = %123, %._crit_edge.i
   %143 = load i32, ptr %24, align 8
   %. = call i32 @llvm.smax.i32(i32 %143, i32 %.189)
-  call void @Msat_SolverCancelUntil(ptr noundef %0, i32 noundef %.)
+  call void @Msat_SolverCancelUntil(ptr noundef nonnull %0, i32 noundef %.)
   %144 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %145 = call i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %144, i32 noundef 1, ptr noundef nonnull %6) #6
+  %145 = call i32 @Msat_ClauseCreate(ptr noundef nonnull %0, ptr noundef %144, i32 noundef 1, ptr noundef nonnull %6) #6
   %146 = call i32 @Msat_IntVecReadEntry(ptr noundef %144, i32 noundef 0) #6
   %147 = load ptr, ptr %6, align 8
-  %148 = call i32 @Msat_SolverEnqueue(ptr noundef %0, i32 noundef %146, ptr noundef %147)
+  %148 = call i32 @Msat_SolverEnqueue(ptr noundef nonnull %0, i32 noundef %146, ptr noundef %147)
   %149 = load ptr, ptr %6, align 8
   %.not.i76 = icmp eq ptr %149, null
   br i1 %.not.i76, label %Msat_SolverRecord.exit, label %150
@@ -909,13 +909,13 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
   %.03538.i = phi i32 [ 0, %.lr.ph.preheader.i80 ], [ %.136.i, %185 ]
   %176 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv.i83
   %177 = load ptr, ptr %176, align 8
-  %178 = call i32 @Msat_ClauseIsLocked(ptr noundef %0, ptr noundef %177) #6
+  %178 = call i32 @Msat_ClauseIsLocked(ptr noundef nonnull %0, ptr noundef %177) #6
   %.not37.i = icmp eq i32 %178, 0
   %179 = load ptr, ptr %176, align 8
   br i1 %.not37.i, label %180, label %181
 
 180:                                              ; preds = %.lr.ph.i82
-  call void @Msat_ClauseFree(ptr noundef %0, ptr noundef %179, i32 noundef 1) #6
+  call void @Msat_ClauseFree(ptr noundef nonnull %0, ptr noundef %179, i32 noundef 1) #6
   br label %185
 
 181:                                              ; preds = %.lr.ph.i82
@@ -936,7 +936,7 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
   %.241.i = phi i32 [ %.035.lcssa.i, %.lr.ph43.preheader.i ], [ %.3.i, %201 ]
   %186 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv46.i
   %187 = load ptr, ptr %186, align 8
-  %188 = call i32 @Msat_ClauseIsLocked(ptr noundef %0, ptr noundef %187) #6
+  %188 = call i32 @Msat_ClauseIsLocked(ptr noundef nonnull %0, ptr noundef %187) #6
   %.not.i79 = icmp eq i32 %188, 0
   br i1 %.not.i79, label %189, label %196
 
@@ -949,7 +949,7 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
 
 194:                                              ; preds = %189
   %195 = load ptr, ptr %186, align 8
-  call void @Msat_ClauseFree(ptr noundef %0, ptr noundef %195, i32 noundef 1) #6
+  call void @Msat_ClauseFree(ptr noundef nonnull %0, ptr noundef %195, i32 noundef 1) #6
   br label %201
 
 196:                                              ; preds = %189, %.lr.ph43.i
@@ -1038,7 +1038,7 @@ declare void @Msat_SolverClaDecayActivity(ptr noundef) local_unnamed_addr #2
 declare i32 @Msat_OrderVarSelect(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare double @Msat_SolverProgressEstimate(ptr noundef) local_unnamed_addr #2
 
@@ -1067,10 +1067,10 @@ declare i32 @Msat_ClauseIsLocked(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare float @Msat_ClauseReadActivity(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5

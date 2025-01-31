@@ -188,13 +188,13 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_netlink_attributes(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8) local_unnamed_addr #1 {
+define hidden i32 @dissect_netlink_attributes(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #1 {
   %10 = tail call fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef -1, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -1, -2147483648) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9) unnamed_addr #1 {
+define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -1, -2147483648) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(none) %9) unnamed_addr #1 {
   %11 = alloca ptr, align 8
   %12 = sub i32 0, %7
   %13 = and i32 %12, 3
@@ -368,7 +368,7 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
+define hidden i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #1 {
   %9 = tail call i32 @tvb_ensure_reported_length_remaining(ptr noundef %0, i32 noundef %6) #5
   %10 = tail call fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef -1, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %9, ptr noundef %7)
   ret i32 %10
@@ -377,7 +377,7 @@ define hidden i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef
 declare i32 @tvb_ensure_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_netlink_attributes_array(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9) local_unnamed_addr #1 {
+define hidden i32 @dissect_netlink_attributes_array(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(none) %9) local_unnamed_addr #1 {
   %11 = icmp sgt i32 %3, 0
   br i1 %11, label %13, label %12
 
@@ -539,7 +539,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca %struct.packet_netlink_data, align 4
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #5
   %.not = icmp eq i16 %6, 824

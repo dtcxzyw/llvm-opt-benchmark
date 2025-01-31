@@ -118,7 +118,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_set_destroy_function(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @openssl_destroy(ptr nocapture readnone %e) #0 {
+define internal noundef i32 @openssl_destroy(ptr readnone captures(none) %e) #0 {
 entry:
   %0 = load ptr, ptr @sha1_md, align 8
   tail call void @EVP_MD_meth_free(ptr noundef %0) #6
@@ -155,7 +155,7 @@ declare ptr @RAND_OpenSSL() local_unnamed_addr #1
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @openssl_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #0 {
+define internal i32 @openssl_ciphers(ptr readnone captures(none) %e, ptr noundef writeonly %cipher, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #0 {
 entry:
   %tobool.not = icmp eq ptr %cipher, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -246,7 +246,7 @@ return:                                           ; preds = %if.end8, %if.else6,
 declare i32 @ENGINE_set_digests(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @openssl_digests(ptr nocapture readnone %e, ptr noundef writeonly %digest, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #0 {
+define internal i32 @openssl_digests(ptr readnone captures(none) %e, ptr noundef writeonly %digest, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #0 {
 entry:
   %tobool.not = icmp eq ptr %digest, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -312,7 +312,7 @@ return:                                           ; preds = %if.then1, %if.else,
 declare i32 @ENGINE_set_load_privkey_function(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nounwind uwtable
-define internal ptr @openssl_load_privkey(ptr nocapture readnone %eng, ptr noundef %key_id, ptr nocapture readnone %ui_method, ptr nocapture readnone %callback_data) #2 {
+define internal ptr @openssl_load_privkey(ptr readnone captures(none) %eng, ptr noundef %key_id, ptr readnone captures(none) %ui_method, ptr readnone captures(none) %callback_data) #2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %key_id) #7
@@ -447,7 +447,7 @@ declare i32 @EVP_CIPHER_meth_set_flags(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @EVP_CIPHER_meth_set_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nounwind uwtable
-define internal range(i32 -2147483648, 2) i32 @test_rc4_init_key(ptr noundef %ctx, ptr nocapture noundef readonly %key, ptr nocapture readnone %iv, i32 %enc) #2 {
+define internal range(i32 -2147483648, 2) i32 @test_rc4_init_key(ptr noundef %ctx, ptr noundef readonly captures(none) %key, ptr readnone captures(none) %iv, i32 %enc) #2 {
 entry:
   %call = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %ctx) #6
   %0 = load ptr, ptr @stderr, align 8
@@ -486,12 +486,12 @@ declare i32 @EVP_CIPHER_meth_set_impl_ctx_size(ptr noundef, i32 noundef) local_u
 declare i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @RC4_set_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -615,7 +615,7 @@ declare ptr @PEM_read_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

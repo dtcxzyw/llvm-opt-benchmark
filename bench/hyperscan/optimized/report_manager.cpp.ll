@@ -328,13 +328,13 @@ cleanup:                                          ; preds = %_ZNSt6vectorIN3ue26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 -128102389400760775, 128102389400760776) i64 @_ZNK3ue213ReportManager10numReportsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i64 -128102389400760775, 128102389400760776) i64 @_ZNK3ue213ReportManager10numReportsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
 entry:
   %reportIds = getelementptr inbounds nuw i8, ptr %this, i64 200
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -362,7 +362,7 @@ declare void @_ZN3ue218ResourceLimitErrorD1Ev(ptr noundef nonnull align 8 derefe
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this, i32 noundef %id) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %this, i32 noundef %id) local_unnamed_addr #1 align 2 {
 entry:
   %reportIds = getelementptr inbounds nuw i8, ptr %this, i64 200
   %conv = zext i32 %id to i64
@@ -679,7 +679,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3ue213ReportManager8numDkeysEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK3ue213ReportManager8numDkeysEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_M_element_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i64, ptr %_M_element_count.i.i, align 8
@@ -688,7 +688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3ue213ReportManager8numEkeysEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK3ue213ReportManager8numEkeysEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   %0 = load i64, ptr %_M_node_count.i.i, align 8
@@ -697,7 +697,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3ue213ReportManager14numLogicalKeysEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK3ue213ReportManager14numLogicalKeysEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load i64, ptr %_M_node_count.i.i, align 8
@@ -706,7 +706,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3ue213ReportManager13numLogicalOpsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK3ue213ReportManager13numLogicalOpsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
 entry:
   %logicalTree = getelementptr inbounds nuw i8, ptr %this, i64 168
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -721,7 +721,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3ue213ReportManager8numCkeysEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK3ue213ReportManager8numCkeysEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i64, ptr %_M_node_count.i.i, align 8
@@ -730,7 +730,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK3ue213ReportManager20patternSetCanExhaustEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue213ReportManager20patternSetCanExhaustEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %this) local_unnamed_addr #3 align 2 {
 entry:
   %global_exhaust = getelementptr inbounds nuw i8, ptr %this, i64 504
   %0 = load i8, ptr %global_exhaust, align 8, !range !18, !noundef !19
@@ -743,7 +743,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue213ReportManager20getDkeyToReportTableEv(ptr noalias nocapture writeonly sret(%"class.std::vector.87") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue213ReportManager20getDkeyToReportTableEv(ptr noalias writeonly sret(%"class.std::vector.87") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_element_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i64, ptr %_M_element_count.i.i, align 8
@@ -1235,7 +1235,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESt10_Select1stIS8_ES
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK3ue213ReportManager7getDkeyERKNS_6ReportE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %r) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK3ue213ReportManager7getDkeyERKNS_6ReportE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %r) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %r, align 8
   %switch.tableidx = add i32 %0, -2
@@ -1552,7 +1552,7 @@ declare void @_ZN3ue212CompileErrorD1Ev(ptr noundef nonnull align 8 dereferencea
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213ReportManager22getBasicInternalReportERKNS_14ExpressionInfoEi(ptr noalias nocapture writeonly sret(%"struct.ue2::Report") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(505) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %expr, i32 noundef %adj) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213ReportManager22getBasicInternalReportERKNS_14ExpressionInfoEi(ptr noalias writeonly sret(%"struct.ue2::Report") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(505) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %expr, i32 noundef %adj) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.ue2::external_report_info", align 4
   %report = getelementptr inbounds nuw i8, ptr %expr, i64 4
@@ -1724,7 +1724,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK3ue213ReportManager16getProgramOffsetEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %this, i32 noundef %id) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK3ue213ReportManager16getProgramOffsetEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %this, i32 noundef %id) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_element_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load i64, ptr %_M_element_count.i.i.i.i, align 8
@@ -1796,7 +1796,7 @@ _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE2atERS5_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214reportsToEkeysERKSt3setIjSt4lessIjESaIjEERKNS_13ReportManagerE(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %reports, ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %rm) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214reportsToEkeysERKSt3setIjSt4lessIjESaIjEERKNS_13ReportManagerE(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %reports, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %rm) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
@@ -2437,7 +2437,7 @@ cleanup12:                                        ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
@@ -2891,7 +2891,7 @@ _ZNSt10_HashtableIN3ue26ReportESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: noreturn
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #14
@@ -3341,7 +3341,7 @@ declare void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferencea
 declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr noalias sret(%"class.boost::container::vec_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %pos, i64 noundef %n, ptr %insert_range_proxy.coerce) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {

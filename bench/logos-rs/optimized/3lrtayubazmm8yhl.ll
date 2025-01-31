@@ -88,13 +88,13 @@ define i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd4486bf195de736E(p
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17hff6208f4efb7a20dE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #2 {
+define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17hff6208f4efb7a20dE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 16)) %0, ptr readnone align 8 captures(none) %1) unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h09a0594f4f7f9683E"(ptr sret([88 x i8]) align 8 %0, ptr align 4 %1, i32 %2, ptr nocapture readnone align 8 %3) unnamed_addr #0 {
+define void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h09a0594f4f7f9683E"(ptr sret([88 x i8]) align 8 %0, ptr align 4 %1, i32 %2, ptr readnone align 8 captures(none) %3) unnamed_addr #0 {
   tail call void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From$LT$logos_codegen..graph..fork..Fork$GT$$u20$for$u20$logos_codegen..graph..Node$LT$T$GT$$GT$4from17h6b2e47f0bb8a5f0dE"(ptr sret([88 x i8]) align 8 %0, ptr align 4 %1, i32 %2)
   ret void
 }
@@ -167,7 +167,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork4miss17ha474bec596
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen5graph4fork4Fork10add_branch17h9a6dba12fc69ebf5E(ptr nocapture readonly align 8 %0, i8 %1, i8 %2, i32 %3, ptr align 8 %4) unnamed_addr #1 {
+define hidden void @_ZN13logos_codegen5graph4fork4Fork10add_branch17h9a6dba12fc69ebf5E(ptr readonly align 8 captures(none) %0, i8 %1, i8 %2, i32 %3, ptr align 8 %4) unnamed_addr #1 {
   %6 = alloca [2 x i8], align 1
   %7 = tail call { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h8bb22f44fbb60feaE"(i8 %1, i8 %2, ptr nonnull align 8 @anon.33164be75a3287a3b2008a53950c9b90.4)
   %8 = extractvalue { i8, i8 } %7, 0
@@ -207,7 +207,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork10add_branch17h9a6dba12fc6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E(ptr nocapture align 8 %0, ptr align 4 %1, i32 %2, ptr align 8 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E(ptr align 8 captures(none) %0, ptr align 4 %1, i32 %2, ptr align 8 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [56 x i8], align 8
   %6 = alloca [56 x i8], align 8
   %7 = alloca [16 x i8], align 8
@@ -310,7 +310,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2bE(ptr nocapture readonly align 8 %0, i8 %1, i8 %2) unnamed_addr #1 {
+define hidden i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2bE(ptr readonly align 8 captures(none) %0, i8 %1, i8 %2) unnamed_addr #1 {
   %4 = alloca [2 x i8], align 1
   %5 = alloca [2 x i8], align 1
   %6 = tail call { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h8bb22f44fbb60feaE"(i8 %1, i8 %2, ptr nonnull align 8 @anon.33164be75a3287a3b2008a53950c9b90.6)
@@ -539,7 +539,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h78e799755d0f0b49E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define hidden zeroext i1 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h78e799755d0f0b49E"(ptr readnone align 1 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
   %4 = load i32, ptr %3, align 4
   %.not.not = icmp eq i32 %4, 0
@@ -547,7 +547,7 @@ define hidden zeroext i1 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17he84186b0335f1251E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define hidden zeroext i1 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17he84186b0335f1251E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %0, align 8
@@ -619,7 +619,7 @@ declare i8 @_ZN4core4iter6traits8iterator12iter_compare17h8f23d2f71f603dacE(ptr 
 declare i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare i8 @"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h525025bf7d854130E"(ptr align 8, i64) unnamed_addr #0
@@ -697,13 +697,13 @@ declare void @_ZN4core4hash6Hasher8write_u817hdb1bc6b9728db45bE(ptr align 8, i8)
 declare void @"_ZN65_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..hash..Hash$GT$4hash17h79ec2b4850dda206E"(ptr align 4, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

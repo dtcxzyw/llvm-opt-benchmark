@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZTVSt9exception = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost7archive21xml_archive_exceptionC2ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4) unnamed_addr #0 align 2 {
+define void @_ZN5boost7archive21xml_archive_exceptionC2ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -160,7 +160,7 @@ declare void @_ZN5boost7archive17archive_exceptionD2Ev(ptr noundef nonnull align
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost7archive21xml_archive_exceptionC2ERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 {
+define void @_ZN5boost7archive21xml_archive_exceptionC2ERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %2) unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -197,7 +197,7 @@ define void @_ZN5boost7archive21xml_archive_exceptionC1ERKS1_(ptr noundef nonnul
 declare void @_ZN5boost7archive17archive_exceptionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef, ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5boost7archive21xml_archive_exceptionD2Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef readnone %1) unnamed_addr #5 align 2 {
+define void @_ZN5boost7archive21xml_archive_exceptionD2Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(none) %1) unnamed_addr #5 align 2 {
   ret void
 }
 

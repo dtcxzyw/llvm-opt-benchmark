@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mem_pool_init(ptr nocapture noundef initializes((0, 24)) %pool, i64 noundef %initial_size) local_unnamed_addr #0 {
+define dso_local void @mem_pool_init(ptr noundef captures(none) initializes((0, 24)) %pool, i64 noundef %initial_size) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool, i8 0, i64 24, i1 false)
   %block_alloc = getelementptr inbounds nuw i8, ptr %pool, i64 8
@@ -44,10 +44,10 @@ if.end:                                           ; preds = %mem_pool_alloc_bloc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mem_pool_discard(ptr nocapture noundef %pool, i32 noundef %invalidate_memory) local_unnamed_addr #0 {
+define dso_local void @mem_pool_discard(ptr noundef captures(none) %pool, i32 noundef %invalidate_memory) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pool, align 8
   %tobool.not8 = icmp eq ptr %0, null
@@ -79,10 +79,10 @@ while.end:                                        ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @mem_pool_alloc(ptr nocapture noundef %pool, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local ptr @mem_pool_alloc(ptr noundef captures(none) %pool, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %sub = add i64 %len, 7
   %div15 = and i64 %sub, -8
@@ -169,7 +169,7 @@ if.end13:                                         ; preds = %land.lhs.true, %mem
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @mem_pool_calloc(ptr nocapture noundef %pool, i64 noundef %count, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local ptr @mem_pool_calloc(ptr noundef captures(none) %pool, i64 noundef %count, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq i64 %count, 0
   br i1 %tobool.not.i, label %st_mult.exit, label %land.lhs.true.i
@@ -191,23 +191,23 @@ st_mult.exit:                                     ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @mem_pool_strdup(ptr nocapture noundef %pool, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define dso_local ptr @mem_pool_strdup(ptr noundef captures(none) %pool, ptr noundef readonly captures(none) %str) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #12
   %add = add i64 %call, 1
   %call1 = tail call ptr @mem_pool_alloc(ptr noundef %pool, i64 noundef %add)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1, ptr align 1 %str, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1, ptr nonnull align 1 %str, i64 %add, i1 false)
   ret ptr %call1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @mem_pool_strndup(ptr nocapture noundef %pool, ptr noundef %str, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local ptr @mem_pool_strndup(ptr noundef captures(none) %pool, ptr noundef %str, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @memchr(ptr noundef %str, i32 noundef 0, i64 noundef %len) #12
   %tobool.not = icmp eq ptr %call, null
@@ -227,7 +227,7 @@ entry:
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @mem_pool_contains(ptr nocapture noundef readonly %pool, ptr noundef readnone %mem) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @mem_pool_contains(ptr noundef readonly captures(none) %pool, ptr noundef readnone %mem) local_unnamed_addr #5 {
 entry:
   %p.05 = load ptr, ptr %pool, align 8
   %tobool.not6 = icmp eq ptr %p.05, null
@@ -256,7 +256,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @mem_pool_combine(ptr nocapture noundef %dst, ptr nocapture noundef %src) local_unnamed_addr #6 {
+define dso_local void @mem_pool_combine(ptr noundef captures(none) %dst, ptr noundef captures(none) %src) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %dst, align 8
   %tobool.not = icmp eq ptr %0, null

@@ -50,7 +50,7 @@ $_ZTIN3irr5video12IImageLoaderE = comdat any
 @.str.5 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video15CImageLoaderJPGC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CImageLoaderJPGC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video15CImageLoaderJPGC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 28)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr5video15CImageLoaderJPGC1Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 28)) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -86,19 +86,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3irr5video15CImageLoaderJPGD2Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %vtt) unnamed_addr #2 align 2 {
+define void @_ZN3irr5video15CImageLoaderJPGD2Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %vtt) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3irr5video15CImageLoaderJPGD1Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define void @_ZN3irr5video15CImageLoaderJPGD1Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n24_N3irr5video15CImageLoaderJPGD1Ev(ptr nocapture readonly %this) unnamed_addr #2 align 2 {
+define void @_ZTv0_n24_N3irr5video15CImageLoaderJPGD1Ev(ptr readonly captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -125,7 +125,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr5video15CImageLoaderJPG24isALoadableFileExtensionERKNS_4core6stringIcEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK3irr5video15CImageLoaderJPG24isALoadableFileExtensionERKNS_4core6stringIcEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   %ref.tmp2 = alloca %"class.irr::core::string", align 8
@@ -224,25 +224,25 @@ _ZN3irr4core6stringIcED2Ev.exit38:                ; preds = %if.then.i.i.i34, %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3irr5video15CImageLoaderJPG11init_sourceEP22jpeg_decompress_struct(ptr nocapture readnone %cinfo) #2 align 2 {
+define void @_ZN3irr5video15CImageLoaderJPG11init_sourceEP22jpeg_decompress_struct(ptr readnone captures(none) %cinfo) #2 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3irr5video15CImageLoaderJPG17fill_input_bufferEP22jpeg_decompress_struct(ptr nocapture readnone %cinfo) #2 align 2 {
+define noundef i32 @_ZN3irr5video15CImageLoaderJPG17fill_input_bufferEP22jpeg_decompress_struct(ptr readnone captures(none) %cinfo) #2 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video15CImageLoaderJPG15skip_input_dataEP22jpeg_decompress_structl(ptr nocapture noundef readonly %cinfo, i64 noundef %count) #7 align 2 {
+define void @_ZN3irr5video15CImageLoaderJPG15skip_input_dataEP22jpeg_decompress_structl(ptr noundef readonly captures(none) %cinfo, i64 noundef %count) #7 align 2 {
 entry:
   %cmp = icmp sgt i64 %count, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -264,7 +264,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3irr5video15CImageLoaderJPG11term_sourceEP22jpeg_decompress_struct(ptr nocapture readnone %cinfo) #2 align 2 {
+define void @_ZN3irr5video15CImageLoaderJPG11term_sourceEP22jpeg_decompress_struct(ptr readnone captures(none) %cinfo) #2 align 2 {
 entry:
   ret void
 }
@@ -372,7 +372,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 declare void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr5video15CImageLoaderJPG21isALoadableFileFormatEPNS_2io9IReadFileE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %file) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK3irr5video15CImageLoaderJPG21isALoadableFileFormatEPNS_2io9IReadFileE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %file) unnamed_addr #3 align 2 {
 entry:
   %header = alloca [3 x i8], align 1
   %tobool.not = icmp eq ptr %file, null
@@ -409,7 +409,7 @@ return:                                           ; preds = %land.end, %land.lhs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK3irr5video15CImageLoaderJPG9loadImageEPNS_2io9IReadFileE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %file) unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK3irr5video15CImageLoaderJPG9loadImageEPNS_2io9IReadFileE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %file) unnamed_addr #3 align 2 {
 entry:
   %filename = alloca %"class.irr::core::string", align 8
   %cinfo = alloca %struct.jpeg_decompress_struct, align 8
@@ -1000,7 +1000,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(pt
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

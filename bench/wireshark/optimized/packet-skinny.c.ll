@@ -3077,14 +3077,14 @@ declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_skinny_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_skinny_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %2) #6
   %6 = add i32 %5, 8
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_skinny_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_skinny_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4) #6
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #6
@@ -3288,7 +3288,7 @@ declare void @ptvcursor_free(ptr noundef) local_unnamed_addr #1
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_RegisterReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_RegisterReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 0) #6
   %6 = load i32, ptr @ett_skinny_tree, align 4
@@ -3387,14 +3387,14 @@ define internal void @handle_RegisterReqMessage(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_IpPortMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_IpPortMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_rtpMediaPort, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_KeypadButtonMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_KeypadButtonMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 0) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -3434,7 +3434,7 @@ define internal void @handle_KeypadButtonMessage(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_EnblocCallMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_EnblocCallMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 0) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -3471,7 +3471,7 @@ define internal void @handle_EnblocCallMessage(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StimulusMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_StimulusMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_stimulus, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -3496,7 +3496,7 @@ define internal void @handle_StimulusMessage(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_OffHookMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_OffHookMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 0) #6
   %6 = icmp ugt i32 %5, 4
@@ -3526,7 +3526,7 @@ define internal void @handle_OffHookMessage(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_OnHookMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_OnHookMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 0) #6
   %6 = icmp ugt i32 %5, 4
@@ -3556,7 +3556,7 @@ define internal void @handle_OnHookMessage(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_HookFlashMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_HookFlashMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -3577,7 +3577,7 @@ define internal void @handle_HookFlashMessage(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ForwardStatReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ForwardStatReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -3589,7 +3589,7 @@ define internal void @handle_ForwardStatReqMessage(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SpeedDialStatReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SpeedDialStatReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -3601,7 +3601,7 @@ define internal void @handle_SpeedDialStatReqMessage(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_LineStatReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_LineStatReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -3613,7 +3613,7 @@ define internal void @handle_LineStatReqMessage(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CapabilitiesResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_CapabilitiesResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -3751,7 +3751,7 @@ define internal void @handle_CapabilitiesResMessage(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_AlarmMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_AlarmMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_alarmSeverity, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_text, align 4
@@ -3764,7 +3764,7 @@ define internal void @handle_AlarmMessage(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_MulticastMediaReceptionAckMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_MulticastMediaReceptionAckMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -3798,7 +3798,7 @@ define internal void @handle_MulticastMediaReceptionAckMessage(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_OpenReceiveChannelAckMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_OpenReceiveChannelAckMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %5, i32 noundef 0) #6
@@ -3904,7 +3904,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %27, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ConnectionStatisticsResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ConnectionStatisticsResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 0) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -3961,7 +3961,7 @@ define internal void @handle_ConnectionStatisticsResMessage(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_OffHookWithCallingPartyNumberMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_OffHookWithCallingPartyNumberMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 4) #6
   %6 = icmp ugt i32 %5, 17
@@ -3982,7 +3982,7 @@ define internal void @handle_OffHookWithCallingPartyNumberMessage(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SoftKeyEventMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_SoftKeyEventMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_softKeyEvent, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -4005,7 +4005,7 @@ define internal void @handle_SoftKeyEventMessage(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_UnregisterReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_UnregisterReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 0) #6
   %6 = icmp ugt i32 %5, 12
@@ -4022,7 +4022,7 @@ define internal void @handle_UnregisterReqMessage(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_RegisterTokenReq(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_RegisterTokenReq(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2089) #6
   %6 = load i32, ptr @hf_skinny_DeviceName, align 4
@@ -4044,7 +4044,7 @@ define internal void @handle_RegisterTokenReq(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_MediaTransmissionFailureMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_MediaTransmissionFailureMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = load i32, ptr @hf_skinny_conferenceId, align 4
   %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -4135,14 +4135,14 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %30, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_HeadsetStatusMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_HeadsetStatusMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_headsetStatus, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_MediaResourceNotificationMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_MediaResourceNotificationMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_deviceType, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_numberOfInServiceStreams, align 4
@@ -4155,14 +4155,14 @@ define internal void @handle_MediaResourceNotificationMessage(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_RegisterAvailableLinesMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_RegisterAvailableLinesMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_maxNumOfAvailLines, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DeviceToUserDataMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_DeviceToUserDataMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2117) #6
   %6 = load i32, ptr @hf_skinny_applicationId, align 4
@@ -4198,7 +4198,7 @@ define internal void @handle_DeviceToUserDataMessage(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DeviceToUserDataResponseMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_DeviceToUserDataResponseMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2117) #6
   %6 = load i32, ptr @hf_skinny_applicationId, align 4
@@ -4234,7 +4234,7 @@ define internal void @handle_DeviceToUserDataResponseMessage(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_UpdateCapabilitiesMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_UpdateCapabilitiesMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -4845,7 +4845,7 @@ define internal void @handle_UpdateCapabilitiesMessage(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_OpenMultiMediaReceiveChannelAckMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_OpenMultiMediaReceiveChannelAckMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
@@ -4942,7 +4942,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %25, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ClearConferenceMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_ClearConferenceMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_serviceNum, align 4
@@ -4951,7 +4951,7 @@ define internal void @handle_ClearConferenceMessage(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ServiceURLStatReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ServiceURLStatReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -4963,7 +4963,7 @@ define internal void @handle_ServiceURLStatReqMessage(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_FeatureStatReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_FeatureStatReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 0) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -4986,7 +4986,7 @@ define internal void @handle_FeatureStatReqMessage(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CreateConferenceResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_CreateConferenceResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -5007,7 +5007,7 @@ define internal void @handle_CreateConferenceResMessage(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DeleteConferenceResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_DeleteConferenceResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -5021,7 +5021,7 @@ define internal void @handle_DeleteConferenceResMessage(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ModifyConferenceResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ModifyConferenceResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -5042,7 +5042,7 @@ define internal void @handle_ModifyConferenceResMessage(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_AddParticipantResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_AddParticipantResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -5066,7 +5066,7 @@ define internal void @handle_AddParticipantResMessage(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_AuditConferenceResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_AuditConferenceResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_last, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -5142,7 +5142,7 @@ define internal void @handle_AuditConferenceResMessage(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_AuditParticipantResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_AuditParticipantResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_audit_participant_result, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_last, align 4
@@ -5199,7 +5199,7 @@ define internal void @handle_AuditParticipantResMessage(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DeviceToUserDataMessageVersion1(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_DeviceToUserDataMessageVersion1(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2142) #6
   %6 = load i32, ptr @hf_skinny_applicationId, align 4
@@ -5245,7 +5245,7 @@ define internal void @handle_DeviceToUserDataMessageVersion1(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DeviceToUserDataResponseMessageVersion1(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_DeviceToUserDataResponseMessageVersion1(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2142) #6
   %6 = load i32, ptr @hf_skinny_applicationId, align 4
@@ -5291,7 +5291,7 @@ define internal void @handle_DeviceToUserDataResponseMessageVersion1(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CapabilitiesV2ResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_CapabilitiesV2ResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -5928,7 +5928,7 @@ define internal void @handle_CapabilitiesV2ResMessage(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CapabilitiesV3ResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_CapabilitiesV3ResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 4) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -6516,7 +6516,7 @@ define internal void @handle_CapabilitiesV3ResMessage(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_PortResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_PortResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %5, i32 noundef 4) #6
@@ -6620,7 +6620,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %39, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_QoSResvNotifyMessage(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_QoSResvNotifyMessage(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = load i32, ptr @hf_skinny_conferenceId, align 4
   %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6708,7 +6708,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_QoSErrorNotifyMessage(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_QoSErrorNotifyMessage(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = load i32, ptr @hf_skinny_conferenceId, align 4
   %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6806,7 +6806,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SubscriptionStatReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SubscriptionStatReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -6824,7 +6824,7 @@ define internal void @handle_SubscriptionStatReqMessage(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_MediaPathEventMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_MediaPathEventMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_mediaPathID, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_mediaPathEvent, align 4
@@ -6833,7 +6833,7 @@ define internal void @handle_MediaPathEventMessage(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_MediaPathCapabilityMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_MediaPathCapabilityMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_mediaPathID, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_mediaPathCapabilities, align 4
@@ -6842,7 +6842,7 @@ define internal void @handle_MediaPathCapabilityMessage(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_MwiNotificationMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_MwiNotificationMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_mwiTargetNumber, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 25, i32 noundef 0) #6
   %6 = load i32, ptr @hf_skinny_mwiControlNumber, align 4
@@ -6882,7 +6882,7 @@ define internal void @handle_MwiNotificationMessage(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_RegisterAckMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_RegisterAckMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_keepAliveInterval, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_dateTemplate, align 4
@@ -6936,7 +6936,7 @@ define internal void @handle_RegisterAckMessage(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StartToneMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_StartToneMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -6969,7 +6969,7 @@ define internal void @handle_StartToneMessage(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StopToneMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_StopToneMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 4) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -7001,7 +7001,7 @@ define internal void @handle_StopToneMessage(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SetRingerMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_SetRingerMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_ringMode, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_ringDuration, align 4
@@ -7026,7 +7026,7 @@ define internal void @handle_SetRingerMessage(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SetLampMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_SetLampMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_stimulus, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_stimulusInstance, align 4
@@ -7037,21 +7037,21 @@ define internal void @handle_SetLampMessage(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SetSpeakerModeMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_SetSpeakerModeMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_speakerMode, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SetMicroModeMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_SetMicroModeMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_micMode, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StartMediaTransmissionMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_StartMediaTransmissionMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %5, i32 noundef 4) #6
@@ -7364,7 +7364,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StopMediaTransmissionMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_StopMediaTransmissionMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -7389,7 +7389,7 @@ define internal void @handle_StopMediaTransmissionMessage(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CallInfoMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_CallInfoMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_callingPartyName, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 40, i32 noundef 0) #6
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -7511,7 +7511,7 @@ define internal void @handle_CallInfoMessage(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ForwardStatResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ForwardStatResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 4) #6
   %6 = icmp ugt i32 %5, 17
@@ -7541,7 +7541,7 @@ define internal void @handle_ForwardStatResMessage(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SpeedDialStatResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SpeedDialStatResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -7557,7 +7557,7 @@ define internal void @handle_SpeedDialStatResMessage(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_LineStatResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_LineStatResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -7577,7 +7577,7 @@ define internal void @handle_LineStatResMessage(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ConfigStatResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ConfigStatResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2089) #6
   %6 = load i32, ptr @hf_skinny_DeviceName, align 4
@@ -7600,7 +7600,7 @@ define internal void @handle_ConfigStatResMessage(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_TimeDateResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_TimeDateResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2160) #6
   %6 = load i32, ptr @hf_skinny_wYear, align 4
@@ -7627,7 +7627,7 @@ define internal void @handle_TimeDateResMessage(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StartSessionTransmissionMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_StartSessionTransmissionMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_remoteIpAddr_ipv4, align 4
   %5 = load i32, ptr @hf_skinny_remoteIpAddr_ipv6, align 4
   tail call fastcc void @dissect_skinny_ipv4or6(ptr noundef %0, i32 noundef %4, i32 noundef %5)
@@ -7637,7 +7637,7 @@ define internal void @handle_StartSessionTransmissionMessage(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StopSessionTransmissionMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_StopSessionTransmissionMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_remoteIpAddr_ipv4, align 4
   %5 = load i32, ptr @hf_skinny_remoteIpAddr_ipv6, align 4
   tail call fastcc void @dissect_skinny_ipv4or6(ptr noundef %0, i32 noundef %4, i32 noundef %5)
@@ -7647,7 +7647,7 @@ define internal void @handle_StopSessionTransmissionMessage(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ButtonTemplateResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ButtonTemplateResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2161) #6
   %6 = load i32, ptr @hf_skinny_buttonOffset, align 4
@@ -7718,7 +7718,7 @@ define internal void @handle_ButtonTemplateResMessage(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_VersionResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_VersionResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_versionStr, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 16, i32 noundef 0) #6
   tail call fastcc void @skinny_reqrep_add_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 15)
@@ -7726,21 +7726,21 @@ define internal void @handle_VersionResMessage(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DisplayTextMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_DisplayTextMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_text, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 32, i32 noundef 0) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_RegisterRejectMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_RegisterRejectMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_text, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 32, i32 noundef 0) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ServerResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ServerResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 0) #6
   %6 = load i32, ptr @ett_skinny_tree, align 4
@@ -7809,14 +7809,14 @@ define internal void @handle_ServerResMessage(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_Reset(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_Reset(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_resetType, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StartMulticastMediaReceptionMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_StartMulticastMediaReceptionMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %5, i32 noundef 4) #6
@@ -7958,7 +7958,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StartMulticastMediaTransmissionMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_StartMulticastMediaTransmissionMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %5, i32 noundef 4) #6
@@ -8106,7 +8106,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StopMulticastMediaReceptionMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_StopMulticastMediaReceptionMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -8129,7 +8129,7 @@ define internal void @handle_StopMulticastMediaReceptionMessage(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StopMulticastMediaTransmissionMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_StopMulticastMediaTransmissionMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -8152,7 +8152,7 @@ define internal void @handle_StopMulticastMediaTransmissionMessage(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %5, i32 noundef 0) #6
@@ -8478,7 +8478,7 @@ define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CloseReceiveChannelMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_CloseReceiveChannelMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -8503,7 +8503,7 @@ define internal void @handle_CloseReceiveChannelMessage(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ConnectionStatisticsReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ConnectionStatisticsReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 4) #6
   %6 = icmp ult i32 %5, 18
@@ -8529,7 +8529,7 @@ define internal void @handle_ConnectionStatisticsReqMessage(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SoftKeyTemplateResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SoftKeyTemplateResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2171) #6
   %6 = load i32, ptr @hf_skinny_softKeyOffset, align 4
@@ -8600,7 +8600,7 @@ define internal void @handle_SoftKeyTemplateResMessage(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SoftKeySetResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SoftKeySetResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2313) #6
   %6 = load i32, ptr @hf_skinny_softKeySetOffset, align 4
@@ -8695,7 +8695,7 @@ define internal void @handle_SoftKeySetResMessage(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SelectSoftKeysMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_SelectSoftKeysMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -8754,7 +8754,7 @@ define internal void @handle_SelectSoftKeysMessage(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CallStateMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_CallStateMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -8800,7 +8800,7 @@ define internal void @handle_CallStateMessage(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DisplayPromptStatusMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_DisplayPromptStatusMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_timeOutValue, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_promptStatus, align 4
@@ -8825,7 +8825,7 @@ define internal void @handle_DisplayPromptStatusMessage(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ClearPromptStatusMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_ClearPromptStatusMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -8846,7 +8846,7 @@ define internal void @handle_ClearPromptStatusMessage(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DisplayNotifyMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_DisplayNotifyMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_timeOutValue, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_notify, align 4
@@ -8855,7 +8855,7 @@ define internal void @handle_DisplayNotifyMessage(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ActivateCallPlaneMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_ActivateCallPlaneMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -8868,7 +8868,7 @@ define internal void @handle_ActivateCallPlaneMessage(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_UnregisterAckMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_UnregisterAckMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_status, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   tail call fastcc void @skinny_reqrep_add_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 39)
@@ -8876,7 +8876,7 @@ define internal void @handle_UnregisterAckMessage(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_BackSpaceResMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_BackSpaceResMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -8897,7 +8897,7 @@ define internal void @handle_BackSpaceResMessage(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_RegisterTokenReject(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_RegisterTokenReject(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_waitTimeBeforeNextReq, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   tail call fastcc void @skinny_reqrep_add_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 41)
@@ -8905,7 +8905,7 @@ define internal void @handle_RegisterTokenReject(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StartMediaFailureDetectionMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_StartMediaFailureDetectionMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 4) #6
   %6 = load i32, ptr @hf_skinny_conferenceId, align 4
@@ -8979,7 +8979,7 @@ define internal void @handle_StartMediaFailureDetectionMessage(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DialedNumberMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_DialedNumberMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 4) #6
   %6 = icmp ult i32 %5, 18
@@ -9037,7 +9037,7 @@ define internal void @handle_DialedNumberMessage(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_UserToDeviceDataMessage(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_UserToDeviceDataMessage(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2319) #6
   %6 = load i32, ptr @hf_skinny_applicationId, align 4
@@ -9072,7 +9072,7 @@ define internal void @handle_UserToDeviceDataMessage(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_FeatureStatResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_FeatureStatResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -9090,7 +9090,7 @@ define internal void @handle_FeatureStatResMessage(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DisplayPriNotifyMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_DisplayPriNotifyMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_timeOutValue, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_priority, align 4
@@ -9101,14 +9101,14 @@ define internal void @handle_DisplayPriNotifyMessage(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ClearPriNotifyMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_ClearPriNotifyMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_priority, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StartAnnouncementMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_StartAnnouncementMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2320) #6
   br label %6
@@ -9156,14 +9156,14 @@ define internal void @handle_StartAnnouncementMessage(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StopAnnouncementMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_StopAnnouncementMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_AnnouncementFinishMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_AnnouncementFinishMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_annStatus, align 4
@@ -9172,7 +9172,7 @@ define internal void @handle_AnnouncementFinishMessage(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_NotifyDtmfToneMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_NotifyDtmfToneMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_tone, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_conferenceId, align 4
@@ -9183,7 +9183,7 @@ define internal void @handle_NotifyDtmfToneMessage(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SendDtmfToneMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_SendDtmfToneMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_tone, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_conferenceId, align 4
@@ -9194,7 +9194,7 @@ define internal void @handle_SendDtmfToneMessage(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SubscribeDtmfPayloadReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SubscribeDtmfPayloadReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_payloadDtmf, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_conferenceId, align 4
@@ -9208,7 +9208,7 @@ define internal void @handle_SubscribeDtmfPayloadReqMessage(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SubscribeDtmfPayloadResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SubscribeDtmfPayloadResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_payloadDtmf, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_conferenceId, align 4
@@ -9224,7 +9224,7 @@ define internal void @handle_SubscribeDtmfPayloadResMessage(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SubscribeDtmfPayloadErrMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SubscribeDtmfPayloadErrMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_payloadDtmf, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_conferenceId, align 4
@@ -9240,7 +9240,7 @@ define internal void @handle_SubscribeDtmfPayloadErrMessage(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_UnSubscribeDtmfPayloadReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_UnSubscribeDtmfPayloadReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_payloadDtmf, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_conferenceId, align 4
@@ -9258,7 +9258,7 @@ define internal void @handle_UnSubscribeDtmfPayloadReqMessage(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_UnSubscribeDtmfPayloadResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_UnSubscribeDtmfPayloadResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_payloadDtmf, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_conferenceId, align 4
@@ -9274,7 +9274,7 @@ define internal void @handle_UnSubscribeDtmfPayloadResMessage(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_UnSubscribeDtmfPayloadErrMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_UnSubscribeDtmfPayloadErrMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_payloadDtmf, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_conferenceId, align 4
@@ -9290,7 +9290,7 @@ define internal void @handle_UnSubscribeDtmfPayloadErrMessage(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ServiceURLStatResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ServiceURLStatResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -9306,7 +9306,7 @@ define internal void @handle_ServiceURLStatResMessage(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CallSelectStatResMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_CallSelectStatResMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_callSelectStat, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -9329,7 +9329,7 @@ define internal void @handle_CallSelectStatResMessage(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %5, i32 noundef 4) #6
@@ -9847,7 +9847,7 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StartMultiMediaTransmissionMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_StartMultiMediaTransmissionMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 4) #6
   %6 = load i32, ptr @hf_skinny_conferenceId, align 4
@@ -10280,7 +10280,7 @@ define internal void @handle_StartMultiMediaTransmissionMessage(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StopMultiMediaTransmissionMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_StopMultiMediaTransmissionMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -10305,7 +10305,7 @@ define internal void @handle_StopMultiMediaTransmissionMessage(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_MiscellaneousCommandMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_MiscellaneousCommandMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_passthruPartyID, align 4
@@ -10495,7 +10495,7 @@ define internal void @handle_MiscellaneousCommandMessage(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_FlowControlCommandMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_FlowControlCommandMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_passthruPartyID, align 4
@@ -10514,7 +10514,7 @@ define internal void @handle_FlowControlCommandMessage(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CloseMultiMediaReceiveChannelMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_CloseMultiMediaReceiveChannelMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -10539,7 +10539,7 @@ define internal void @handle_CloseMultiMediaReceiveChannelMessage(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CreateConferenceReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_CreateConferenceReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -10568,7 +10568,7 @@ define internal void @handle_CreateConferenceReqMessage(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DeleteConferenceReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_DeleteConferenceReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -10580,7 +10580,7 @@ define internal void @handle_DeleteConferenceReqMessage(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ModifyConferenceReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ModifyConferenceReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -10607,7 +10607,7 @@ define internal void @handle_ModifyConferenceReqMessage(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_AddParticipantReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_AddParticipantReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -10663,7 +10663,7 @@ define internal void @handle_AddParticipantReqMessage(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DropParticipantReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_DropParticipantReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -10683,7 +10683,7 @@ define internal void @handle_DropParticipantReqMessage(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_AuditParticipantReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_AuditParticipantReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -10695,7 +10695,7 @@ define internal void @handle_AuditParticipantReqMessage(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ChangeParticipantReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ChangeParticipantReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -10751,7 +10751,7 @@ define internal void @handle_ChangeParticipantReqMessage(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_UserToDeviceDataMessageVersion1(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_UserToDeviceDataMessageVersion1(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2347) #6
   %6 = load i32, ptr @hf_skinny_applicationId, align 4
@@ -10796,7 +10796,7 @@ define internal void @handle_UserToDeviceDataMessageVersion1(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_VideoDisplayCommandMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_VideoDisplayCommandMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -10813,7 +10813,7 @@ define internal void @handle_VideoDisplayCommandMessage(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_FlowControlNotifyMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_FlowControlNotifyMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_passthruPartyID, align 4
@@ -10832,7 +10832,7 @@ define internal void @handle_FlowControlNotifyMessage(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ConfigStatV2ResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ConfigStatV2ResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2089) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -10900,7 +10900,7 @@ define internal void @handle_ConfigStatV2ResMessage(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DisplayNotifyV2Message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_DisplayNotifyV2Message(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_timeOutValue, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_notify, align 4
@@ -10909,7 +10909,7 @@ define internal void @handle_DisplayNotifyV2Message(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DisplayPriNotifyV2Message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_DisplayPriNotifyV2Message(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_timeOutValue, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_priority, align 4
@@ -10920,7 +10920,7 @@ define internal void @handle_DisplayPriNotifyV2Message(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_DisplayPromptStatusV2Message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_DisplayPromptStatusV2Message(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_timeOutValue, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -10945,7 +10945,7 @@ define internal void @handle_DisplayPromptStatusV2Message(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_FeatureStatV2ResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_FeatureStatV2ResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_featureIndex, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_featureID, align 4
@@ -10974,7 +10974,7 @@ define internal void @handle_FeatureStatV2ResMessage(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_LineStatV2ResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_LineStatV2ResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -11049,7 +11049,7 @@ define internal void @handle_LineStatV2ResMessage(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_ServiceURLStatV2ResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_ServiceURLStatV2ResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -11061,7 +11061,7 @@ define internal void @handle_ServiceURLStatV2ResMessage(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SpeedDialStatV2ResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SpeedDialStatV2ResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -11107,7 +11107,7 @@ define internal void @handle_SpeedDialStatV2ResMessage(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CallInfoV2Message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_CallInfoV2Message(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef 4) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -11467,7 +11467,7 @@ define internal void @handle_CallInfoV2Message(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_PortReqMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_PortReqMessage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -11497,7 +11497,7 @@ define internal void @handle_PortReqMessage(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_PortCloseMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_PortCloseMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_conferenceId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -11522,7 +11522,7 @@ define internal void @handle_PortCloseMessage(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_QoSListenMessage(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_QoSListenMessage(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = load i32, ptr @hf_skinny_conferenceId, align 4
   %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11639,7 +11639,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_QoSPathMessage(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_QoSPathMessage(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = load i32, ptr @hf_skinny_conferenceId, align 4
   %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11754,7 +11754,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_QoSTeardownMessage(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_QoSTeardownMessage(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = load i32, ptr @hf_skinny_conferenceId, align 4
   %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11842,7 +11842,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_UpdateDSCPMessage(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_UpdateDSCPMessage(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = load i32, ptr @hf_skinny_conferenceId, align 4
   %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11930,7 +11930,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_QoSModifyMessage(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_QoSModifyMessage(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = load i32, ptr @hf_skinny_conferenceId, align 4
   %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -12037,7 +12037,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SubscriptionStatResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SubscriptionStatResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -12055,7 +12055,7 @@ define internal void @handle_SubscriptionStatResMessage(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_NotificationMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_NotificationMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_transactionId, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_subscriptionFeatureID, align 4
@@ -12068,7 +12068,7 @@ define internal void @handle_NotificationMessage(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StartMediaTransmissionAckMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_StartMediaTransmissionAckMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = load i32, ptr @hf_skinny_conferenceId, align 4
   %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -12167,7 +12167,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %37, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_StartMultiMediaTransmissionAckMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_StartMultiMediaTransmissionAckMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = load i32, ptr @hf_skinny_conferenceId, align 4
   %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -12266,7 +12266,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %37, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CallHistoryInfoMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_CallHistoryInfoMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_callHistoryDisposition, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -12289,14 +12289,14 @@ define internal void @handle_CallHistoryInfoMessage(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_LocationInfoMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_LocationInfoMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_locationInfo, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 2401, i32 noundef 0) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_MwiResMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_MwiResMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_mwiTargetNumber, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 25, i32 noundef 0) #6
   %6 = load i32, ptr @hf_skinny_mwi_notification_result, align 4
@@ -12306,7 +12306,7 @@ define internal void @handle_MwiResMessage(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_AddOnDeviceCapabilitiesMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_AddOnDeviceCapabilitiesMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_unknown1_0159, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_unknown2_0159, align 4
@@ -12319,14 +12319,14 @@ define internal void @handle_AddOnDeviceCapabilitiesMessage(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_EnhancedAlarmMessage(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_EnhancedAlarmMessage(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_alarmInfo, align 4
   tail call fastcc void @dissect_skinny_xml(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 0, i32 noundef 2048)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_CallCountRespMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_CallCountRespMessage(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_totalNumOfConfiguredLines, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_skinny_startingLineInstance, align 4
@@ -12394,7 +12394,7 @@ define internal void @handle_CallCountRespMessage(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_RecordingStatusMessage(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @handle_RecordingStatusMessage(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
@@ -12409,7 +12409,7 @@ define internal void @handle_RecordingStatusMessage(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SPCPRegisterTokenReq(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SPCPRegisterTokenReq(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @ett_skinny_tree, align 4
   %5 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %4, ptr noundef nonnull @.str.2089) #6
   %6 = load i32, ptr @hf_skinny_DeviceName, align 4
@@ -12430,7 +12430,7 @@ define internal void @handle_SPCPRegisterTokenReq(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SPCPRegisterTokenAck(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SPCPRegisterTokenAck(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_features, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   tail call fastcc void @skinny_reqrep_add_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 32768)
@@ -12438,7 +12438,7 @@ define internal void @handle_SPCPRegisterTokenAck(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_SPCPRegisterTokenReject(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @handle_SPCPRegisterTokenReject(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr @hf_skinny_waitTimeBeforeNextReq, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #6
   tail call fastcc void @skinny_reqrep_add_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 32768)
@@ -12458,7 +12458,7 @@ declare ptr @ptvcursor_add_no_advance(ptr noundef, i32 noundef, i32 noundef, i32
 declare void @ptvcursor_advance(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @skinny_reqrep_add_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @skinny_reqrep_add_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -12530,7 +12530,7 @@ proto_item_set_generated.exit:                    ; preds = %42, %39, %36, %25, 
 declare ptr @ptvcursor_tree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -12547,7 +12547,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @tvb_format_stringzpad(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @skinny_reqrep_add_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @skinny_reqrep_add_response(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
   %7 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -12744,7 +12744,7 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_skinny_displayLabel(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 33) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_skinny_displayLabel(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 33) %3) unnamed_addr #0 {
   %5 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
   %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %7 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -12879,7 +12879,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

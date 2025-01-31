@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @php_hash_gost_crypto_ops = hidden local_unnamed_addr constant %struct._php_hash_ops { ptr @.str.2, ptr @PHP_GOSTInitCrypto, ptr @PHP_GOSTUpdate, ptr @PHP_GOSTFinal, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_gost_unserialize, ptr @.str.1, i64 32, i64 32, i64 120, i8 1 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_GOSTInit(ptr nocapture noundef writeonly initializes((0, 120)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_GOSTInit(ptr noundef writeonly captures(none) initializes((0, 120)) %0, ptr readnone captures(none) %1) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 112, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @tables_test, ptr %3, align 8
@@ -22,10 +22,10 @@ define void @PHP_GOSTInit(ptr nocapture noundef writeonly initializes((0, 120)) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_GOSTInitCrypto(ptr nocapture noundef writeonly initializes((0, 120)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_GOSTInitCrypto(ptr noundef writeonly captures(none) initializes((0, 120)) %0, ptr readnone captures(none) %1) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 112, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @tables_crypto, ptr %3, align 8
@@ -33,7 +33,7 @@ define void @PHP_GOSTInitCrypto(ptr nocapture noundef writeonly initializes((0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_GOSTUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 {
+define void @PHP_GOSTUpdate(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca [8 x i32], align 16
   %5 = alloca [8 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -217,13 +217,13 @@ GostTransform.exit55:                             ; preds = %74
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_GOSTFinal(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
+define void @PHP_GOSTFinal(ptr noundef writeonly captures(none) %0, ptr noundef %1) #2 {
   %3 = alloca [8 x i32], align 16
   %4 = alloca [8 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -331,7 +331,7 @@ GostTransform.exit:                               ; preds = %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #5 {
+define internal fastcc void @Gost(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #5 {
   %3 = alloca [8 x i32], align 16
   %.sroa.0181.0.copyload = load i32, ptr %0, align 8
   %.sroa.10187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1585,10 +1585,10 @@ define internal i32 @php_gost_unserialize(ptr noundef %0, i64 noundef %1, ptr no
 declare i32 @php_hash_unserialize_spec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

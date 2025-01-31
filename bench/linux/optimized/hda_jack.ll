@@ -115,7 +115,7 @@ define dso_local noundef zeroext i1 @is_jack_detectable(ptr noundef %0, i16 noun
 declare dso_local i32 @snd_hda_codec_get_pincfg(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef ptr @snd_hda_jack_tbl_get_mst(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2) #2 align 16 {
+define dso_local noundef ptr @snd_hda_jack_tbl_get_mst(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne i16 %1, 0
@@ -154,13 +154,13 @@ define dso_local noundef ptr @snd_hda_jack_tbl_get_mst(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @snd_hda_jack_tbl_get_from_tag(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) #2 align 16 {
+define dso_local ptr @snd_hda_jack_tbl_get_from_tag(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne i8 %1, 0
@@ -200,7 +200,7 @@ define dso_local ptr @snd_hda_jack_tbl_get_from_tag(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hda_jack_tbl_disconnect(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @snd_hda_jack_tbl_disconnect(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -321,7 +321,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 declare dso_local void @snd_array_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @snd_hda_jack_set_dirty_all(ptr nocapture noundef readonly %0) #4 align 16 {
+define dso_local void @snd_hda_jack_set_dirty_all(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -441,7 +441,7 @@ define dso_local i32 @snd_hda_jack_pin_sense(ptr noundef %0, i16 noundef zeroext
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @jack_detect_update(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @jack_detect_update(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i8, ptr %4, align 4
@@ -1133,7 +1133,7 @@ snd_hda_jack_tbl_new.exit7:                       ; preds = %.thread8.i2, %.thre
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr noundef readonly %2, i16 noundef zeroext %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly %2, i16 noundef zeroext %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne i16 %1, 0
@@ -1255,7 +1255,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr noc
 declare dso_local i32 @snd_jack_set_key(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @snd_hda_jack_set_button_state(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2) #4 align 16 {
+define dso_local void @snd_hda_jack_set_button_state(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne i16 %1, 0
@@ -1617,7 +1617,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr no
 declare dso_local i32 @snd_jack_new(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal void @hda_free_jack_priv(ptr nocapture noundef readonly %0) #5 align 16 {
+define internal void @hda_free_jack_priv(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   store i16 0, ptr %3, align 8
@@ -2441,7 +2441,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local i32 @snd_hdac_regmap_write_raw(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -2450,10 +2450,10 @@ declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare dso_local i32 @snd_hda_get_pin_label(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare dso_local ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

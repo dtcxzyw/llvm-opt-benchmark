@@ -23,12 +23,12 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN13duDisplayListD1Ev = unnamed_addr alias void (ptr), ptr @_ZN13duDisplayListD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN11duDebugDrawD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define void @_ZN11duDebugDrawD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN11duDebugDrawD0Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 {
+define void @_ZN11duDebugDrawD0Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #14
   unreachable
 }
@@ -37,7 +37,7 @@ define void @_ZN11duDebugDrawD0Ev(ptr nocapture noundef nonnull readnone align 8
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -16777216, 0) i32 @_ZN11duDebugDraw9areaToColEj(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define noundef range(i32 -16777216, 0) i32 @_ZN11duDebugDraw9areaToColEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %27, label %4
 
@@ -100,7 +100,7 @@ define noundef range(i32 4128768, 0) i32 @_Z10duIntToColii(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z10duIntToColiPf(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #3 {
+define void @_Z10duIntToColiPf(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) local_unnamed_addr #3 {
   %3 = and i32 %0, 1
   %4 = lshr i32 %0, 2
   %5 = and i32 %4, 2
@@ -959,7 +959,7 @@ define void @_Z13duAppendCrossP11duDebugDrawffffj(ptr noundef %0, float noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14duDebugDrawBoxP11duDebugDrawffffffPKj(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #4 {
+define void @_Z14duDebugDrawBoxP11duDebugDrawffffffPKj(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %9
 
@@ -980,7 +980,7 @@ define void @_Z14duDebugDrawBoxP11duDebugDrawffffffPKj(ptr noundef %0, float nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #4 {
+define void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #4 {
   %9 = alloca [24 x float], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %10
@@ -1468,7 +1468,7 @@ declare float @cosf(float noundef) local_unnamed_addr #6
 declare float @sinf(float noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z15appendArrowHeadP11duDebugDrawPKfS2_fj(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, float noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define void @_Z15appendArrowHeadP11duDebugDrawPKfS2_fj(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, float noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %77, label %6
 
@@ -1557,10 +1557,10 @@ define void @_Z15appendArrowHeadP11duDebugDrawPKfS2_fj(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13duDisplayListC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13duDisplayListC2Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 41)) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13duDisplayList, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1587,7 +1587,7 @@ define void @_ZN13duDisplayListC2Ei(ptr nocapture noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13duDisplayList6resizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((28, 32)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN13duDisplayList6resizeEi(ptr noundef nonnull align 8 captures(none) dereferenceable(41) initializes((28, 32)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = mul nsw i32 %1, 3
   %4 = sext i32 %3 to i64
   %5 = icmp slt i32 %1, 0
@@ -1654,7 +1654,7 @@ define void @_ZN13duDisplayList6resizeEi(ptr nocapture noundef nonnull align 8 d
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13duDisplayListD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
+define void @_ZN13duDisplayListD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13duDisplayList, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -1683,7 +1683,7 @@ define void @_ZN13duDisplayListD2Ev(ptr nocapture noundef nonnull align 8 derefe
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN13duDisplayListD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define void @_ZN13duDisplayListD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #14
   unreachable
 }
@@ -1692,14 +1692,14 @@ define void @_ZN13duDisplayListD0Ev(ptr nocapture nonnull readnone align 8 %0) u
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13duDisplayList5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((24, 28)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN13duDisplayList5clearEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((24, 28)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13duDisplayList9depthMaskEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
+define void @_ZN13duDisplayList9depthMaskEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %3, ptr %4, align 8
@@ -1707,7 +1707,7 @@ define void @_ZN13duDisplayList9depthMaskEb(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13duDisplayList5beginE21duDebugDrawPrimitivesf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((24, 28), (32, 40)) %0, i32 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define void @_ZN13duDisplayList5beginE21duDebugDrawPrimitivesf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((24, 28), (32, 40)) %0, i32 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1718,7 +1718,7 @@ define void @_ZN13duDisplayList5beginE21duDebugDrawPrimitivesf(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13duDisplayList6vertexEfffj(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0, float noundef %1, float noundef %2, float noundef %3, i32 noundef %4) unnamed_addr #4 align 2 {
+define void @_ZN13duDisplayList6vertexEfffj(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %0, float noundef %1, float noundef %2, float noundef %3, i32 noundef %4) unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = add nsw i32 %7, 1
@@ -1813,7 +1813,7 @@ _ZN13duDisplayList6resizeEi.exit:                 ; preds = %._crit_edge12.i, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13duDisplayList6vertexEPKfj(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #4 align 2 {
+define void @_ZN13duDisplayList6vertexEPKfj(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = load float, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load float, ptr %5, align 4
@@ -1827,12 +1827,12 @@ define void @_ZN13duDisplayList6vertexEPKfj(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN13duDisplayList3endEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define void @_ZN13duDisplayList3endEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13duDisplayList4drawEP11duDebugDraw(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN13duDisplayList4drawEP11duDebugDraw(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %39, label %3
 
@@ -1905,13 +1905,13 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare float @llvm.sqrt.f32(float) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

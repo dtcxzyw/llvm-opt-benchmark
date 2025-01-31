@@ -88,7 +88,7 @@ target triple = "x86_64-pc-linux-gnu"
 @type_info_arena = external local_unnamed_addr global %struct.Vmem, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @print_type(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @print_type(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 7
   %5 = icmp eq i16 %4, 2
@@ -272,13 +272,13 @@ define dso_local void @print_type(ptr noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare void @scratch_buffer_clear() local_unnamed_addr #3
 
@@ -813,7 +813,7 @@ emit_json_to_file.exit:                           ; preds = %._crit_edge132.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_type_data(ptr nocapture noundef %0, ptr %.0.val.8.val, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @emit_type_data(ptr noundef captures(none) %0, ptr %.0.val.8.val, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef %.0.val.8.val, ptr noundef %3) #6
   %5 = getelementptr i8, ptr %1, i64 24
@@ -974,7 +974,7 @@ decl_type_to_string.exit:                         ; preds = %2, %8, %9, %10, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_func_data(ptr noundef %0, ptr %.0.val.8.val, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @emit_func_data(ptr noundef %0, ptr %.0.val.8.val, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef %.0.val.8.val, ptr noundef %3) #6
   %5 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 13, i64 1, ptr %0)
@@ -1052,10 +1052,10 @@ define internal fastcc void @emit_func_data(ptr noundef %0, ptr %.0.val.8.val, p
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

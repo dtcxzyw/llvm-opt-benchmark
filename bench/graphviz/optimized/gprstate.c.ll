@@ -22,7 +22,7 @@ define noundef zeroext i1 @validTVT(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @initGPRState(ptr nocapture noundef writeonly initializes((64, 72)) %0) local_unnamed_addr #1 {
+define void @initGPRState(ptr noundef writeonly captures(none) initializes((64, 72)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(12) ptr @strdup(ptr noundef nonnull @.str) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %2, ptr %3, align 8
@@ -30,10 +30,10 @@ define void @initGPRState(ptr nocapture noundef writeonly initializes((64, 72)) 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @openGPRState(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define noalias noundef ptr @openGPRState(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = tail call noalias dereferenceable_or_null(160) ptr @calloc(i64 noundef 1, i64 noundef 160) #17
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -77,7 +77,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @_err_msg(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @findBinding(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define ptr @findBinding(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.gvprbinding, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -116,7 +116,7 @@ define ptr @findBinding(ptr nocapture noundef readonly %0, ptr noundef %1) local
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @bindingcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal i32 @bindingcmpf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #18
@@ -124,7 +124,7 @@ define internal i32 @bindingcmpf(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @addBindings(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #7 {
+define void @addBindings(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #7 {
   %.not28 = icmp eq ptr %1, null
   br i1 %.not28, label %.critedge.thread, label %.lr.ph.preheader
 
@@ -211,10 +211,10 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @closeGPRState(ptr noundef %0) local_unnamed_addr #10 {
@@ -239,13 +239,13 @@ define void @closeGPRState(ptr noundef %0) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #14 {

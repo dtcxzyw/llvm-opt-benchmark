@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [9 x i8] c"Knapsack\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
   %6 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %5, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #2
   %7 = load ptr, ptr @CurrentMemoryContext, align 8

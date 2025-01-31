@@ -147,7 +147,7 @@ if.then38:                                        ; preds = %if.end35
   %4 = load i32, ptr %timeout, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_cache.buf, i64 24, i1 false)
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.15, ptr noundef %0) #12
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.15, ptr noundef nonnull %0) #12
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.16, i32 noundef %4) #12
   %call3.i = call fastcc i32 @send_request(ptr noundef nonnull %3, ptr noundef %buf.i)
   %cmp4.i = icmp slt i32 %call3.i, 0
@@ -182,7 +182,7 @@ lor.lhs.false:                                    ; preds = %if.else
 
 if.then43:                                        ; preds = %lor.lhs.false, %if.else
   %6 = load i32, ptr %timeout, align 4
-  call fastcc void @do_cache(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %6, i32 noundef 2)
+  call fastcc void @do_cache(ptr noundef nonnull %3, ptr noundef nonnull %0, i32 noundef %6, i32 noundef 2)
   br label %if.end51
 
 if.else44:                                        ; preds = %lor.lhs.false
@@ -192,7 +192,7 @@ if.else44:                                        ; preds = %lor.lhs.false
 
 if.then47:                                        ; preds = %if.else44
   %7 = load i32, ptr %timeout, align 4
-  call fastcc void @do_cache(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %7, i32 noundef 3)
+  call fastcc void @do_cache(ptr noundef nonnull %3, ptr noundef nonnull %0, i32 noundef %7, i32 noundef 3)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then43, %if.else44, %if.then47, %do_cache.exit
@@ -200,10 +200,10 @@ if.end51:                                         ; preds = %if.then43, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @parse_options(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -214,7 +214,7 @@ declare void @usage_with_options(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @die(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @do_cache(ptr noundef %socket, ptr noundef %action, i32 noundef %timeout, i32 noundef range(i32 0, 4) %flags) unnamed_addr #0 {
@@ -323,14 +323,14 @@ if.end19:                                         ; preds = %if.end10, %spawn_da
 declare ptr @interpolate_path(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #3
 
 declare ptr @xdg_cache_home(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -340,7 +340,7 @@ declare i64 @strbuf_read(ptr noundef, i32 noundef, i64 noundef) local_unnamed_ad
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @send_request(ptr noundef %socket, ptr nocapture noundef nonnull readonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @send_request(ptr noundef %socket, ptr noundef nonnull readonly captures(none) %out) unnamed_addr #0 {
 entry:
   %in = alloca [1024 x i8], align 16
   %call = tail call i32 @unix_stream_connect(ptr noundef %socket, i32 noundef 0) #12
@@ -428,13 +428,13 @@ declare void @strvec_pushl(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @start_command(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

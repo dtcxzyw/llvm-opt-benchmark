@@ -200,7 +200,7 @@ $_ZTSSt10logical_orIxE = comdat any
 @_ZTSN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalE = internal constant [63 x i8] c"N5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalE\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost6locale11gnu_gettext6lambda7compileEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::locale::gnu_gettext::lambda::plural_expr") align 8 initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6locale11gnu_gettext6lambda7compileEPKc(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::locale::gnu_gettext::lambda::plural_expr") align 8 captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.boost::locale::gnu_gettext::lambda::(anonymous namespace)::parser", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
@@ -239,15 +239,15 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer4stepEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 align 2 {
   %2 = alloca ptr, align 8
   %.promoted = load ptr, ptr %0, align 8, !tbaa !3
   br label %3
@@ -399,10 +399,10 @@ sub_031.thread60.thread:                          ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser9cond_exprEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser9cond_exprEv(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %2 = alloca %"class.std::unique_ptr", align 8
   %3 = alloca %"class.std::unique_ptr", align 8
@@ -618,7 +618,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l2Ev(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l2Ev(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
@@ -718,7 +718,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111bin_factoryEiSt10unique_ptrINS2_4exprESt14default_deleteIS5_EES8_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111bin_factoryEiSt10unique_ptrINS2_4exprESt14default_deleteIS5_EES8_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   switch i32 %1, label %17 [
     i32 47, label %22
     i32 42, label %5
@@ -803,7 +803,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l3Ev(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l3Ev(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::unique_ptr", align 8
@@ -966,7 +966,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l4Ev(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l4Ev(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::unique_ptr", align 8
@@ -1129,7 +1129,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l5Ev(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l5Ev(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::unique_ptr", align 8
@@ -1292,7 +1292,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l6Ev(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser2l6Ev(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::unique_ptr", align 8
@@ -1455,7 +1455,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser10unary_exprEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16parser10unary_exprEv(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca [2 x i32], align 8
   %5 = alloca %"class.std::unique_ptr", align 8
@@ -1605,7 +1605,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -1617,7 +1617,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -1655,7 +1655,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -1666,7 +1666,7 @@ define internal noundef range(i64 -9223372036854775807, -9223372036854775808) i6
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -1704,7 +1704,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16numberclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 %1) unnamed_addr #7 align 2 {
+define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16numberclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !56
   ret i64 %4
@@ -1717,7 +1717,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16numberD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_18identityclEx(ptr nocapture nonnull readnone align 8 %0, i64 noundef returned %1) unnamed_addr #8 align 2 {
+define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_18identityclEx(ptr nonnull readnone align 8 captures(none) %0, i64 noundef returned %1) unnamed_addr #8 align 2 {
   ret i64 %1
 }
 
@@ -1745,7 +1745,7 @@ declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -1769,7 +1769,7 @@ define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -1835,7 +1835,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10multipliesIxELb0EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10multipliesIxELb0EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -1851,7 +1851,7 @@ define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10multipliesIxELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10multipliesIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -1917,7 +1917,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10multipliesIxELb0EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7modulusIxELb1EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7modulusIxELb1EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -1941,7 +1941,7 @@ define internal noundef range(i64 -9223372036854775807, -9223372036854775808) i6
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7modulusIxELb1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7modulusIxELb1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2007,7 +2007,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7modulusIxELb1EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4plusIxELb0EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4plusIxELb0EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -2023,7 +2023,7 @@ define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4plusIxELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4plusIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2089,7 +2089,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4plusIxELb0EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt5minusIxELb0EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt5minusIxELb0EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -2105,7 +2105,7 @@ define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt5minusIxELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt5minusIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2171,7 +2171,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt5minusIxELb0EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7greaterIxELb0EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7greaterIxELb0EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -2188,7 +2188,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7greaterIxELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7greaterIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2254,7 +2254,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7greaterIxELb0EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4lessIxELb0EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4lessIxELb0EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -2271,7 +2271,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4lessIxELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4lessIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2337,7 +2337,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4lessIxELb0EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt13greater_equalIxELb0EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt13greater_equalIxELb0EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -2354,7 +2354,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt13greater_equalIxELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt13greater_equalIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2420,7 +2420,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt13greater_equalIxELb
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10less_equalIxELb0EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10less_equalIxELb0EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -2437,7 +2437,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10less_equalIxELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10less_equalIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2503,7 +2503,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10less_equalIxELb0EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt8equal_toIxELb0EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt8equal_toIxELb0EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -2520,7 +2520,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt8equal_toIxELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt8equal_toIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2586,7 +2586,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt8equal_toIxELb0EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt12not_equal_toIxELb0EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt12not_equal_toIxELb0EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -2603,7 +2603,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt12not_equal_toIxELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt12not_equal_toIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2669,7 +2669,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt12not_equal_toIxELb0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -2688,7 +2688,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2754,7 +2754,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EEclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EEclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -2772,7 +2772,7 @@ define internal noundef range(i64 0, 2) i64 @_ZNK5boost6locale11gnu_gettext6lamb
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null
@@ -2838,7 +2838,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalclEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalclEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = load ptr, ptr %4, align 8, !tbaa !15
@@ -2855,7 +2855,7 @@ define internal noundef i64 @_ZNK5boost6locale11gnu_gettext6lambda12_GLOBAL__N_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %3, null

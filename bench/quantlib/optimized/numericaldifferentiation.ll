@@ -56,7 +56,7 @@ $_ZN5boost21const_multi_array_refIdLm3EPdE20init_multi_array_refIPlEEvT_ = comda
 @_ZN8QuantLib24NumericalDifferentiationC1ESt8functionIFddEEmdmNS0_6SchemeE = unnamed_addr alias void (ptr, ptr, i64, double, i64, i32), ptr @_ZN8QuantLib24NumericalDifferentiationC2ESt8functionIFddEEmdmNS0_6SchemeE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24NumericalDifferentiationC2ESt8functionIFddEEmNS_5ArrayE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %this, ptr nocapture noundef %f, i64 noundef %orderOfDerivative, ptr nocapture noundef %x_offsets) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24NumericalDifferentiationC2ESt8functionIFddEEmNS_5ArrayE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 16)) %this, ptr noundef captures(none) %f, i64 noundef %orderOfDerivative, ptr noundef captures(none) %x_offsets) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -111,7 +111,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_111calcWeightsERKNS_5ArrayEm(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x, i64 noundef %M) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_111calcWeightsERKNS_5ArrayEm(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x, i64 noundef %M) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -552,7 +552,7 @@ unreachable:                                      ; preds = %invoke.cont13
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24NumericalDifferentiationC2ESt8functionIFddEEmdmNS0_6SchemeE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef %f, i64 noundef %orderOfDerivative, double noundef %stepSize, i64 noundef %steps, i32 noundef %scheme) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24NumericalDifferentiationC2ESt8functionIFddEEmdmNS0_6SchemeE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef captures(none) %f, i64 noundef %orderOfDerivative, double noundef %stepSize, i64 noundef %steps, i32 noundef %scheme) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1200,10 +1200,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0 align 2
@@ -1421,7 +1421,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #10
@@ -1429,7 +1429,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #10
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
@@ -1616,7 +1616,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #14
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16

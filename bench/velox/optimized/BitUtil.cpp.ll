@@ -387,7 +387,7 @@ if.end:                                           ; preds = %if.then.i, %_ZN8fac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox4bits8toStringEPKviiPc(ptr nocapture noundef readonly %bits, i32 noundef %offset, i32 noundef %size, ptr nocapture noundef writeonly %out) local_unnamed_addr #1 {
+define void @_ZN8facebook5velox4bits8toStringEPKviiPc(ptr noundef readonly captures(none) %bits, i32 noundef %offset, i32 noundef %size, ptr noundef writeonly captures(none) %out) local_unnamed_addr #1 {
 entry:
   %cmp4 = icmp sgt i32 %size, 0
   br i1 %cmp4, label %for.body.preheader, label %for.end
@@ -421,7 +421,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4bits8toStringB5cxx11EPKvii(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef readonly %bits, i32 noundef %offset, i32 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4bits8toStringB5cxx11EPKvii(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(none) %bits, i32 noundef %offset, i32 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %conv = sext i32 %size to i64
@@ -499,7 +499,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4bits11scatterBitsEiiPKcPKmPc(i32 noundef %numSource, i32 noundef %numTarget, ptr nocapture noundef readonly %source, ptr nocapture noundef readonly %targetMask, ptr nocapture noundef %target) local_unnamed_addr #2 {
+define void @_ZN8facebook5velox4bits11scatterBitsEiiPKcPKmPc(i32 noundef %numSource, i32 noundef %numTarget, ptr noundef readonly captures(none) %source, ptr noundef readonly captures(none) %targetMask, ptr noundef captures(none) %target) local_unnamed_addr #2 {
 entry:
   %ref.tmp = alloca i32, align 4
   %ref.tmp1 = alloca i32, align 4
@@ -723,7 +723,7 @@ declare noundef zeroext i1 @_ZN8facebook5velox7process7hasBmi2Ev() local_unnamed
 declare i64 @llvm.ctpop.i64(i64) #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define noundef i64 @_ZN8facebook5velox4bits9hashBytesEmPKcm(i64 noundef %seed, ptr nocapture noundef readonly %data, i64 noundef %size) local_unnamed_addr #6 {
+define noundef i64 @_ZN8facebook5velox4bits9hashBytesEmPKcm(i64 noundef %seed, ptr noundef readonly captures(none) %data, i64 noundef %size) local_unnamed_addr #6 {
 entry:
   %result.i100 = alloca i64, align 8
   %result.i76 = alloca i64, align 8
@@ -1056,10 +1056,10 @@ declare i16 @llvm.fshr.i16(i16, i16, i16) #8
 declare i8 @llvm.fshr.i8(i8, i8, i8) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

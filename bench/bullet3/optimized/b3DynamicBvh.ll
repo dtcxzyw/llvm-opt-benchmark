@@ -69,7 +69,7 @@ $_ZTI20b3DbvtNodeEnumerator = comdat any
 @_ZN12b3DynamicBvhD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN12b3DynamicBvhD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12b3DynamicBvhC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 28), (36, 44), (48, 57), (68, 76), (80, 89)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12b3DynamicBvhC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((0, 28), (36, 44), (48, 57), (68, 76), (80, 89)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i.i, align 8
@@ -572,7 +572,7 @@ _ZN20b3AlignedObjectArrayIP10b3DbvtNodeE9push_backERKS1_.exit: ; preds = %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10b3BottomUpP12b3DynamicBvhPP10b3DbvtNodei(ptr nocapture noundef nonnull %pdbvt, ptr nocapture noundef nonnull %leaves, i32 noundef %count) unnamed_addr #6 {
+define internal fastcc void @_ZL10b3BottomUpP12b3DynamicBvhPP10b3DbvtNodei(ptr noundef nonnull captures(none) %pdbvt, ptr noundef nonnull captures(none) %leaves, i32 noundef %count) unnamed_addr #6 {
 entry:
   %locals.i = alloca [32 x i8], align 16
   %invariant.gep = getelementptr i8, ptr %leaves, i64 -8
@@ -1282,7 +1282,7 @@ if.end77:                                         ; preds = %init.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12b3DynamicBvh19optimizeIncrementalEi(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %passes) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN12b3DynamicBvh19optimizeIncrementalEi(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, i32 noundef %passes) local_unnamed_addr #2 align 2 {
 entry:
   %tmp.i.i = alloca %struct.b3DbvtAabbMm, align 16
   %cmp = icmp slt i32 %passes, 0
@@ -1407,7 +1407,7 @@ if.end11:                                         ; preds = %while.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12b3DynamicBvh6updateEP10b3DbvtNodei(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %leaf, i32 noundef %lookahead) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN12b3DynamicBvh6updateEP10b3DbvtNodei(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr noundef %leaf, i32 noundef %lookahead) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef %this, ptr noundef %leaf)
   %tobool.not = icmp eq ptr %call, null
@@ -1445,7 +1445,7 @@ if.end6:                                          ; preds = %land.rhs, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN12b3DynamicBvh6insertERK12b3DbvtAabbMmPv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(32) %volume, ptr noundef %data) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN12b3DynamicBvh6insertERK12b3DbvtAabbMmPv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(32) %volume, ptr noundef %data) local_unnamed_addr #2 align 2 {
 entry:
   %m_free.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_free.i.i, align 8
@@ -1480,7 +1480,7 @@ _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmPv.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr nocapture noundef nonnull %pdbvt, ptr noundef %root, ptr noundef %leaf) unnamed_addr #6 {
+define internal fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull captures(none) %pdbvt, ptr noundef %root, ptr noundef %leaf) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %pdbvt, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1746,7 +1746,7 @@ if.end44:                                         ; preds = %_ZNK12b3DbvtAabbMm7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr nocapture noundef nonnull %pdbvt, ptr noundef readonly %leaf) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef nonnull captures(none) %pdbvt, ptr noundef readonly %leaf) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %pdbvt, align 8
   %cmp = icmp eq ptr %leaf, %0
@@ -1887,7 +1887,7 @@ return:                                           ; preds = %_Z10b3NotEqualRK12b
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %leaf, ptr nocapture noundef nonnull readonly align 16 dereferenceable(32) %volume) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr noundef %leaf, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(32) %volume) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef %this, ptr noundef %leaf)
   %tobool.not = icmp eq ptr %call, null
@@ -1923,15 +1923,15 @@ if.else:                                          ; preds = %if.then
 if.end7:                                          ; preds = %land.rhs, %for.cond, %for.cond.preheader, %if.else, %entry
   %root.0 = phi ptr [ %2, %if.else ], [ null, %entry ], [ %call, %for.cond.preheader ], [ %root.18, %land.rhs ], [ %1, %for.cond ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull align 16 dereferenceable(32) %volume, i64 32, i1 false)
-  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef %this, ptr noundef %root.0, ptr noundef %leaf)
+  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef %this, ptr noundef %root.0, ptr noundef nonnull %leaf)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMmRK9b3Vector3f(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %leaf, ptr nocapture noundef nonnull align 16 dereferenceable(32) %volume, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %velocity, float noundef %margin) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMmRK9b3Vector3f(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr noundef %leaf, ptr noundef nonnull align 16 captures(none) dereferenceable(32) %volume, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %velocity, float noundef %margin) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load float, ptr %leaf, align 16
   %1 = load float, ptr %volume, align 16
@@ -2080,7 +2080,7 @@ return:                                           ; preds = %_ZNK12b3DbvtAabbMm7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMmRK9b3Vector3(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %leaf, ptr nocapture noundef nonnull align 16 dereferenceable(32) %volume, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %velocity) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMmRK9b3Vector3(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr noundef %leaf, ptr noundef nonnull align 16 captures(none) dereferenceable(32) %volume, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %velocity) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load float, ptr %leaf, align 16
   %1 = load float, ptr %volume, align 16
@@ -2204,7 +2204,7 @@ return:                                           ; preds = %_ZNK12b3DbvtAabbMm7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMmf(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %leaf, ptr nocapture noundef nonnull align 16 dereferenceable(32) %volume, float noundef %margin) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMmf(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr noundef %leaf, ptr noundef nonnull align 16 captures(none) dereferenceable(32) %volume, float noundef %margin) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load float, ptr %leaf, align 16
   %1 = load float, ptr %volume, align 16
@@ -2322,7 +2322,7 @@ return:                                           ; preds = %_ZNK12b3DbvtAabbMm7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12b3DynamicBvh6removeEP10b3DbvtNode(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %leaf) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN12b3DynamicBvh6removeEP10b3DbvtNode(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr noundef %leaf) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef %this, ptr noundef %leaf)
   %m_free.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2337,7 +2337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK12b3DynamicBvh5writeEPNS_7IWriterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr noundef %iwriter) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK12b3DynamicBvh5writeEPNS_7IWriterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef %iwriter) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nodes = alloca %struct.b3DbvtNodeEnumerator, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20b3DbvtNodeEnumerator, i64 16), ptr %nodes, align 8
@@ -2738,7 +2738,7 @@ _ZN20b3AlignedObjectArrayIPK10b3DbvtNodeED2Ev.exit: ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK12b3DynamicBvh5cloneERS_PNS_6ICloneE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %dest, ptr noundef %iclone) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK12b3DynamicBvh5cloneERS_PNS_6ICloneE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %dest, ptr noundef %iclone) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stack = alloca %class.b3AlignedObjectArray.9, align 8
   %0 = load ptr, ptr %dest, align 8
@@ -3222,7 +3222,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL13b3GetMaxDepthPK10b3DbvtNodeiRi(ptr nocapture noundef readonly %node, i32 noundef range(i32 -2147483647, -2147483648) %depth, ptr nocapture noundef nonnull align 4 dereferenceable(4) %maxdepth) unnamed_addr #8 {
+define internal fastcc void @_ZL13b3GetMaxDepthPK10b3DbvtNodeiRi(ptr noundef readonly captures(none) %node, i32 noundef range(i32 -2147483647, -2147483648) %depth, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %maxdepth) unnamed_addr #8 {
 entry:
   %arrayidx.i.i11 = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %arrayidx.i.i11, align 8
@@ -3252,7 +3252,7 @@ if.else:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN12b3DynamicBvh11countLeavesEPK10b3DbvtNode(ptr nocapture noundef readonly %node) local_unnamed_addr #9 align 2 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN12b3DynamicBvh11countLeavesEPK10b3DbvtNode(ptr noundef readonly captures(none) %node) local_unnamed_addr #9 align 2 {
 entry:
   %arrayidx.i.i3 = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %arrayidx.i.i3, align 8
@@ -3337,7 +3337,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #10
 declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #12
@@ -3445,10 +3445,10 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15

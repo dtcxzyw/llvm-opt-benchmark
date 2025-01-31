@@ -86,7 +86,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb20RangeTreeLockTracker15getOrCreateListEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7rocksdb20RangeTreeLockTracker15getOrCreateListEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %range_list_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %range_list_, align 8
@@ -159,7 +159,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20RangeTreeLockTracker5TrackERKNS_16PointLockRequestE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(50) %lock_req) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20RangeTreeLockTracker5TrackERKNS_16PointLockRequestE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(50) %lock_req) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key_dbt = alloca %struct.__toku_dbt, align 8
   %key = alloca %"class.std::__cxx11::basic_string", align 8
@@ -432,7 +432,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit9:                  ; preds = %ehcleanup
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20RangeTreeLockTracker5TrackERKNS_16RangeLockRequestE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(56) %lock_req) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20RangeTreeLockTracker5TrackERKNS_16RangeLockRequestE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(56) %lock_req) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %start_dbt = alloca %struct.__toku_dbt, align 8
   %end_dbt = alloca %struct.__toku_dbt, align 8
@@ -484,13 +484,13 @@ lpad:                                             ; preds = %invoke.cont10, %inv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define { i64, i64 } @_ZNK7rocksdb20RangeTreeLockTracker18GetPointLockStatusEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %this, i32 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #5 align 2 {
+define { i64, i64 } @_ZNK7rocksdb20RangeTreeLockTracker18GetPointLockStatusEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, i32 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #5 align 2 {
 entry:
   ret { i64, i64 } { i64 256, i64 0 }
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb20RangeTreeLockTracker5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20RangeTreeLockTracker5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %range_list_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %range_list_, align 8
@@ -1674,7 +1674,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3

@@ -65,7 +65,7 @@ define hidden range(i32 0, 2) i32 @compare_rlc_headers(i8 noundef zeroext %0, i8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @select_rlc_lte_session(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define hidden noundef ptr @select_rlc_lte_session(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.epan_dissect, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct._th_t, align 8
@@ -194,7 +194,7 @@ define hidden noundef ptr @select_rlc_lte_session(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare zeroext i1 @dfilter_compile_full(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -205,7 +205,7 @@ declare void @dfilter_free(ptr noundef) local_unnamed_addr #3
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tap_lte_rlc_packet(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal noundef i32 @tap_lte_rlc_packet(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #1 {
   %6 = load i32, ptr %0, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.critedge.thread
@@ -368,7 +368,7 @@ compare_rlc_headers.exit.thread:                  ; preds = %59, %57, %.lr.ph.sp
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -384,7 +384,7 @@ declare void @epan_dissect_run_with_taps(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @frame_tvbuff_new_buffer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @epan_dissect_cleanup(ptr noundef) local_unnamed_addr #3
 
@@ -393,7 +393,7 @@ declare void @remove_tap_listener(ptr noundef) local_unnamed_addr #3
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @rlc_graph_segment_list_get(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @rlc_graph_segment_list_get(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca %struct.rlc_segment, align 8
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
@@ -470,7 +470,7 @@ define hidden range(i32 0, 2) i32 @rlc_graph_segment_list_get(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rlc_lte_tap_for_graph_data(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal noundef i32 @rlc_lte_tap_for_graph_data(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i8, ptr %6, align 4
   %8 = load i8, ptr %3, align 8
@@ -652,7 +652,7 @@ compare_rlc_headers.exit.thread:                  ; preds = %35, %32, %5, %compa
 declare i32 @cf_retap_packets(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rlc_graph_segment_list_free(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden void @rlc_graph_segment_list_free(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %.pr = load ptr, ptr %0, align 8
   %.not5 = icmp eq ptr %.pr, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph

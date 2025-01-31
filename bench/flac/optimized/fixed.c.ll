@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor(ptr noundef readonly captures(none) %data, i32 noundef %data_len, ptr noundef writeonly captures(none) %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %cmp158 = icmp sgt i32 %data_len, 0
   br i1 %cmp158, label %for.body.preheader, label %for.end
@@ -180,7 +180,7 @@ cond.end325:                                      ; preds = %cond.end311, %cond.
 declare double @log(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide(ptr noundef readonly captures(none) %data, i32 noundef %data_len, ptr noundef writeonly captures(none) %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %cmp158 = icmp sgt i32 %data_len, 0
   br i1 %cmp158, label %for.body.preheader, label %for.end
@@ -358,7 +358,7 @@ cond.end350:                                      ; preds = %cond.end336, %cond.
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_residual(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_residual(ptr noundef readonly captures(none) %data, i32 noundef %data_len, ptr noundef writeonly captures(none) %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %cmp171 = icmp sgt i32 %data_len, -4
   br i1 %cmp171, label %for.body.preheader, label %if.end302.thread
@@ -602,7 +602,7 @@ if.end390:                                        ; preds = %if.end368, %cond.tr
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_residual_33bit(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_residual_33bit(ptr noundef readonly captures(none) %data, i32 noundef %data_len, ptr noundef writeonly captures(none) %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %cmp172 = icmp sgt i32 %data_len, -4
   br i1 %cmp172, label %for.body.preheader, label %if.end241.thread
@@ -841,7 +841,7 @@ if.end329:                                        ; preds = %if.end307, %cond.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__fixed_compute_residual(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef writeonly %residual) local_unnamed_addr #2 {
+define hidden void @FLAC__fixed_compute_residual(ptr noundef readonly captures(none) %data, i32 noundef %data_len, i32 noundef %order, ptr noundef writeonly captures(none) %residual) local_unnamed_addr #2 {
 entry:
   switch i32 %order, label %sw.epilog [
     i32 0, label %sw.bb
@@ -968,10 +968,10 @@ sw.epilog:                                        ; preds = %for.body58, %for.bo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__fixed_compute_residual_wide(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef writeonly %residual) local_unnamed_addr #2 {
+define hidden void @FLAC__fixed_compute_residual_wide(ptr noundef readonly captures(none) %data, i32 noundef %data_len, i32 noundef %order, ptr noundef writeonly captures(none) %residual) local_unnamed_addr #2 {
 entry:
   switch i32 %order, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1098,7 +1098,7 @@ sw.epilog:                                        ; preds = %for.body70, %for.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__fixed_compute_residual_wide_33bit(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef writeonly %residual) local_unnamed_addr #2 {
+define hidden void @FLAC__fixed_compute_residual_wide_33bit(ptr noundef readonly captures(none) %data, i32 noundef %data_len, i32 noundef %order, ptr noundef writeonly captures(none) %residual) local_unnamed_addr #2 {
 entry:
   switch i32 %order, label %sw.epilog [
     i32 0, label %for.cond.preheader
@@ -1243,7 +1243,7 @@ sw.epilog:                                        ; preds = %for.body70, %for.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__fixed_restore_signal(ptr nocapture noundef readonly %residual, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef %data) local_unnamed_addr #2 {
+define hidden void @FLAC__fixed_restore_signal(ptr noundef readonly captures(none) %residual, i32 noundef %data_len, i32 noundef %order, ptr noundef captures(none) %data) local_unnamed_addr #2 {
 entry:
   switch i32 %order, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1374,7 +1374,7 @@ sw.epilog:                                        ; preds = %for.body58, %for.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__fixed_restore_signal_wide(ptr nocapture noundef readonly %residual, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef %data) local_unnamed_addr #2 {
+define hidden void @FLAC__fixed_restore_signal_wide(ptr noundef readonly captures(none) %residual, i32 noundef %data_len, i32 noundef %order, ptr noundef captures(none) %data) local_unnamed_addr #2 {
 entry:
   switch i32 %order, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1505,7 +1505,7 @@ sw.epilog:                                        ; preds = %for.body70, %for.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__fixed_restore_signal_wide_33bit(ptr nocapture noundef readonly %residual, i32 noundef %data_len, i32 noundef %order, ptr nocapture noundef %data) local_unnamed_addr #2 {
+define hidden void @FLAC__fixed_restore_signal_wide_33bit(ptr noundef readonly captures(none) %residual, i32 noundef %data_len, i32 noundef %order, ptr noundef captures(none) %data) local_unnamed_addr #2 {
 entry:
   switch i32 %order, label %sw.epilog [
     i32 0, label %for.cond.preheader

@@ -82,7 +82,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN35btReducedDeformableStaticConstraintC2EP23btReducedDeformableBodyPN10btSoftBody4NodeERK9btVector3S7_S7_RK19btContactSolverInfof(ptr nocapture noundef nonnull align 8 dereferenceable(172) initializes((0, 9), (16, 172)) %this, ptr noundef %rsb, ptr noundef %node, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ri, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dir, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %dt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN35btReducedDeformableStaticConstraintC2EP23btReducedDeformableBodyPN10btSoftBody4NodeERK9btVector3S7_S7_RK19btContactSolverInfof(ptr noundef nonnull align 8 captures(none) dereferenceable(172) initializes((0, 9), (16, 172)) %this, ptr noundef %rsb, ptr noundef %node, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %ri, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %x0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dir, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %dt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %class.btMatrix3x3, align 4
   %m_static.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -198,12 +198,12 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN35btReducedDeformableStaticConstraint15solveConstraintERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr nocapture nonnull readnone align 4 %infoGlobal) unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZN35btReducedDeformableStaticConstraint15solveConstraintERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr nonnull readnone align 4 captures(none) %infoGlobal) unnamed_addr #3 align 2 {
 entry:
   %impulse = alloca %class.btVector3, align 8
   %m_rsb.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -258,7 +258,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK35btReducedDeformableStaticConstraint10getDeltaVaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this) local_unnamed_addr #3 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK35btReducedDeformableStaticConstraint10getDeltaVaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_rsb = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_rsb, align 8
@@ -348,7 +348,7 @@ invoke.cont7:
 declare void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(848), ptr noundef nonnull align 4 dereferenceable(128)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN41btReducedDeformableRigidContactConstraint13setSolverBodyEiR12btSolverBody(ptr nocapture noundef nonnull align 8 dereferenceable(436) %this, i32 noundef %bodyId, ptr noundef nonnull align 8 dereferenceable(248) %solver_body) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN41btReducedDeformableRigidContactConstraint13setSolverBodyEiR12btSolverBody(ptr noundef nonnull align 8 captures(none) dereferenceable(436) %this, i32 noundef %bodyId, ptr noundef nonnull align 8 dereferenceable(248) %solver_body) local_unnamed_addr #6 align 2 {
 entry:
   %m_collideMultibody = getelementptr inbounds nuw i8, ptr %this, i64 97
   %0 = load i8, ptr %m_collideMultibody, align 1
@@ -530,7 +530,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactConstraint5getVaEv(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN41btReducedDeformableRigidContactConstraint15solveConstraintERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr nocapture nonnull readnone align 4 %infoGlobal) unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZN41btReducedDeformableRigidContactConstraint15solveConstraintERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr nonnull readnone align 4 captures(none) %infoGlobal) unnamed_addr #3 align 2 {
 entry:
   %impulse = alloca %class.btVector3, align 8
   %vtable = load ptr, ptr %this, align 8
@@ -975,7 +975,7 @@ if.end76:                                         ; preds = %for.body.i155, %if.
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(436) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %deltaImpulse_tangent, ptr nocapture noundef nonnull align 4 dereferenceable(4) %appliedImpulse, float noundef %rhs_tangent, float noundef %tangentImpulseFactorInv, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %tangent, float noundef %lower_limit, float noundef %upper_limit, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %deltaV_rel) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(436) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %deltaImpulse_tangent, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %appliedImpulse, float noundef %rhs_tangent, float noundef %tangentImpulseFactorInv, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %tangent, float noundef %lower_limit, float noundef %upper_limit, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %deltaV_rel) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load float, ptr %deltaV_rel, align 4
   %1 = load float, ptr %tangent, align 4
@@ -1566,7 +1566,7 @@ if.end86:                                         ; preds = %if.then81, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint5getVbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this) unnamed_addr #9 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint5getVbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %this) unnamed_addr #9 align 2 {
 entry:
   %m_node = getelementptr inbounds nuw i8, ptr %this, i64 440
   %0 = load ptr, ptr %m_node, align 8
@@ -1580,7 +1580,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getDeltaVaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this) unnamed_addr #10 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getDeltaVaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %this) unnamed_addr #10 align 2 {
 entry:
   %m_collideStatic = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i8, ptr %m_collideStatic, align 8
@@ -1779,7 +1779,7 @@ if.end67:                                         ; preds = %if.then5, %for.end6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getDeltaVbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this) unnamed_addr #3 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getDeltaVbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %this) unnamed_addr #3 align 2 {
 entry:
   %m_rsb = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_rsb, align 8
@@ -1791,7 +1791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getSplitVbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this) unnamed_addr #9 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getSplitVbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %this) unnamed_addr #9 align 2 {
 entry:
   %m_node = getelementptr inbounds nuw i8, ptr %this, i64 440
   %0 = load ptr, ptr %m_node, align 8
@@ -1805,7 +1805,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this, ptr nocapture readnone %node) unnamed_addr #11 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %this, ptr readnone captures(none) %node) unnamed_addr #11 align 2 {
 entry:
   %m_total_normal_dv = getelementptr inbounds nuw i8, ptr %this, i64 40
   %m_total_tangent_dv = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -1907,7 +1907,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigidContactConstraint5getVbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(449) %this) unnamed_addr #10 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigidContactConstraint5getVbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(449) %this) unnamed_addr #10 align 2 {
 entry:
   %m_contact.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_contact.i, align 8
@@ -1967,7 +1967,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigidContactConstraint10getSplitVbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(449) %this) unnamed_addr #10 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigidContactConstraint10getSplitVbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(449) %this) unnamed_addr #10 align 2 {
 entry:
   %m_contact.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_contact.i, align 8
@@ -2027,7 +2027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigidContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(449) %this, ptr noundef readnone %node) unnamed_addr #10 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigidContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(449) %this, ptr noundef readnone %node) unnamed_addr #10 align 2 {
 entry:
   %m_total_normal_dv = getelementptr inbounds nuw i8, ptr %this, i64 40
   %m_total_tangent_dv = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -2076,7 +2076,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraint12applyImpulseERK9btVector3(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 4 %impulse) unnamed_addr #12 align 2 {
+define dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraint12applyImpulseERK9btVector3(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 4 captures(none) %impulse) unnamed_addr #12 align 2 {
 entry:
   ret void
 }
@@ -2204,7 +2204,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #18

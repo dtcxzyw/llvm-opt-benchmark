@@ -315,7 +315,7 @@ bary_mul_normal.exit:                             ; preds = %bary_muladd_1xN.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @bary_mul_normal(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5) unnamed_addr #1 {
+define internal fastcc void @bary_mul_normal(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) unnamed_addr #1 {
   %.not17 = icmp eq i64 %1, 0
   br i1 %.not17, label %.preheader, label %.lr.ph.preheader
 
@@ -517,7 +517,7 @@ BIGNUM_DIGITS.exit10:                             ; preds = %49, %51
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @bary_sq_fast(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @bary_sq_fast(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #1 {
   %.not94 = icmp eq i64 %1, 0
   br i1 %.not94, label %._crit_edge, label %.lr.ph.preheader
 
@@ -831,7 +831,7 @@ BIGNUM_DIGITS.exit20:                             ; preds = %74, %76
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bary_mul_balance_with_mulfunc(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #0 {
+define internal fastcc void @bary_mul_balance_with_mulfunc(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef readonly captures(none) %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   store i64 0, ptr %10, align 8
   %.not132 = icmp eq i64 %3, 0
@@ -2753,7 +2753,7 @@ BIGNUM_DIGITS.exit27:                             ; preds = %84, %86
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bary_mul_toom3(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 1, 0) %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 {
+define internal fastcc void @bary_mul_toom3(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 1, 0) %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   store i64 0, ptr %9, align 8
   %10 = icmp eq ptr %2, %4
@@ -6222,7 +6222,7 @@ declare void @rb_num_zerodiv() local_unnamed_addr #3
 declare i64 @rb_assoc_new(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bary_divmod_normal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 {
+define internal fastcc void @bary_divmod_normal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   store i64 0, ptr %9, align 8
   %10 = add i64 %5, 1
@@ -10570,7 +10570,7 @@ integer_pack_fill_dd.exit371:                     ; preds = %321, %324
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @validate_integer_pack_format(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef range(i32 1267, 2036) %4) unnamed_addr #0 {
@@ -16718,7 +16718,7 @@ rb_float_value_inline.exit.thread:                ; preds = %6, %rb_float_value_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_big_cmp(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -17377,7 +17377,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %BIGNUM_LEN.exit49.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, 2) i32 @bary_cmp(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #10 {
+define internal fastcc range(i32 -1, 2) i32 @bary_cmp(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #10 {
   %invariant.gep = getelementptr i8, ptr %0, i64 -4
   %.not36 = icmp eq i64 %1, 0
   br i1 %.not36, label %.critedge, label %.lr.ph
@@ -23648,7 +23648,7 @@ bignorm.exit:                                     ; preds = %345, %366, %364, %3
 declare i64 @rb_num_coerce_bit(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @abs2twocomp(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @abs2twocomp(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [6 x i64], align 16
   %4 = alloca i64, align 8
   %5 = load i64, ptr %0, align 8
@@ -28292,7 +28292,7 @@ bary_cmp.exit.thread:                             ; preds = %._crit_edge.i, %175
 declare i64 @rb_ulong_isqrt(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_int_powm(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i64 @rb_int_powm(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__mpz_struct], align 16
   %5 = alloca [1 x %struct.__mpz_struct], align 16
   %6 = alloca [1 x %struct.__mpz_struct], align 16
@@ -29167,7 +29167,7 @@ declare void @rb_free_tmp_buffer(ptr noundef) local_unnamed_addr #4
 declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @bary_2comp(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc void @bary_2comp(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #1 {
   %.not27 = icmp eq i64 %1, 0
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
@@ -29238,7 +29238,7 @@ define internal void @bary_mul_karatsuba_start(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @bary_mul_precheck(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @bary_mul_precheck(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = load i64, ptr %1, align 8
   %9 = load ptr, ptr %2, align 8
@@ -29992,7 +29992,7 @@ bigdivrem_single1.exit:                           ; preds = %29, %21, %40, %._cr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 declare ptr @rb_nogvl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -30229,7 +30229,7 @@ declare void @rb_obj_freeze_inline(i64 noundef) local_unnamed_addr #4
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: noreturn
 declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #2
@@ -31796,7 +31796,7 @@ big_shift.exit:                                   ; preds = %BIGNUM_DIGITS.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #4
 
@@ -31827,7 +31827,7 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #22
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #22
@@ -31839,10 +31839,10 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 declare i64 @llvm.smin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #22

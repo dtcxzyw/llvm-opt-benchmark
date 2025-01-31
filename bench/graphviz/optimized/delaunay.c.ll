@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [28 x i8] c"delaunay_triangulation: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @get_triangles(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define noalias noundef ptr @get_triangles(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
   ret ptr null
 }
@@ -21,25 +21,25 @@ define noalias noundef ptr @get_triangles(ptr nocapture noundef readnone %0, i32
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @delaunay_tri(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define noalias noundef ptr @delaunay_tri(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #9
   ret ptr null
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @mkSurface(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define noalias noundef ptr @mkSurface(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4) #9
   ret ptr null
 }
 
 ; Function Attrs: nounwind uwtable
-define void @freeSurface(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @freeSurface(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @UG_graph(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @UG_graph(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   switch i32 %2, label %32 [
     i32 2, label %4
     i32 1, label %20
@@ -140,7 +140,7 @@ define void @freeGraph(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @freeGraphData(ptr noundef %0) local_unnamed_addr #2 {
@@ -165,7 +165,7 @@ define void @freeGraphData(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #5 {

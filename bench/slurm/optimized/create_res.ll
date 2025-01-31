@@ -63,7 +63,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [153 x i8] c"Note, unless nodes are directly requested a reservation must exist in a single partition.\0AIf no partition is requested the default partition is assumed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scontrol_update_res(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @scontrol_update_res(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.resv_desc_msg, align 8
   %4 = alloca i32, align 4
   call void @slurm_init_resv_desc_msg(ptr noundef nonnull %3) #9
@@ -106,7 +106,7 @@ define dso_local i32 @scontrol_update_res(i32 noundef %0, ptr nocapture noundef 
 declare void @slurm_init_resv_desc_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -150,7 +150,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not, label %36, label %.critedge
 
 36:                                               ; preds = %28
-  %37 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.17, i64 noundef 3) #9
+  %37 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.17, i64 noundef 3) #9
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.thread, label %48
 
@@ -172,14 +172,14 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %45 = call i32 @llvm.smax.i32(i32 %.0238, i32 1)
   %46 = zext nneg i32 %45 to i64
-  %47 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.20, i64 noundef %46) #9
+  %47 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.20, i64 noundef %46) #9
   %.not247 = icmp eq i32 %47, 0
   br i1 %.not247, label %62, label %74
 
 48:                                               ; preds = %36
   %49 = call i32 @llvm.smax.i32(i32 %35, i32 2)
   %50 = zext nneg i32 %49 to i64
-  %51 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.18, i64 noundef %50) #9
+  %51 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.18, i64 noundef %50) #9
   %.not246 = icmp eq i32 %51, 0
   br i1 %.not246, label %52, label %58
 
@@ -235,7 +235,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
 74:                                               ; preds = %43
   %75 = call i32 @llvm.smax.i32(i32 %.0238, i32 3)
   %76 = zext nneg i32 %75 to i64
-  %77 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.22, i64 noundef %76) #9
+  %77 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.22, i64 noundef %76) #9
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %86
 
@@ -258,7 +258,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
 86:                                               ; preds = %74
   %87 = call i32 @llvm.smax.i32(i32 %.0238, i32 2)
   %88 = zext nneg i32 %87 to i64
-  %89 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.23, i64 noundef %88) #9
+  %89 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.23, i64 noundef %88) #9
   %.not250 = icmp eq i32 %89, 0
   br i1 %.not250, label %90, label %99
 
@@ -287,7 +287,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %.loopexit
 
 99:                                               ; preds = %86
-  %100 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.24, i64 noundef %46) #9
+  %100 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.24, i64 noundef %46) #9
   %.not252 = icmp eq i32 %100, 0
   br i1 %.not252, label %101, label %113
 
@@ -320,7 +320,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %.thread
 
 113:                                              ; preds = %99
-  %114 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.25, i64 noundef %46) #9
+  %114 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.25, i64 noundef %46) #9
   %.not255 = icmp eq i32 %114, 0
   br i1 %.not255, label %115, label %127
 
@@ -353,7 +353,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %.thread
 
 127:                                              ; preds = %113
-  %128 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.26, i64 noundef %46) #9
+  %128 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.26, i64 noundef %46) #9
   %.not258 = icmp eq i32 %128, 0
   br i1 %.not258, label %129, label %130
 
@@ -362,7 +362,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %296
 
 130:                                              ; preds = %127
-  %131 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.27, i64 noundef %88) #9
+  %131 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.27, i64 noundef %88) #9
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %133, label %134
 
@@ -371,7 +371,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %296
 
 134:                                              ; preds = %130
-  %135 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.28, i64 noundef %88) #9
+  %135 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.28, i64 noundef %88) #9
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %147
 
@@ -394,7 +394,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %296
 
 147:                                              ; preds = %134
-  %148 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.30, i64 noundef %46) #9
+  %148 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.30, i64 noundef %46) #9
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %160
 
@@ -417,7 +417,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %296
 
 160:                                              ; preds = %147
-  %161 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.32, i64 noundef %46) #9
+  %161 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.32, i64 noundef %46) #9
   %162 = icmp eq i32 %161, 0
   br i1 %162, label %163, label %178
 
@@ -451,7 +451,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %.thread
 
 178:                                              ; preds = %160
-  %179 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.34, i64 noundef %88) #9
+  %179 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.34, i64 noundef %88) #9
   %.not259 = icmp eq i32 %179, 0
   br i1 %.not259, label %180, label %188
 
@@ -474,12 +474,12 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
 188:                                              ; preds = %178
   %189 = call i32 @llvm.smax.i32(i32 %.0238, i32 5)
   %190 = zext nneg i32 %189 to i64
-  %191 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.35, i64 noundef %190) #9
+  %191 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.35, i64 noundef %190) #9
   %192 = icmp eq i32 %191, 0
   br i1 %192, label %196, label %193
 
 193:                                              ; preds = %188
-  %194 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.36, i64 noundef %190) #9
+  %194 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.36, i64 noundef %190) #9
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %196, label %206
 
@@ -507,22 +507,22 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %.loopexit
 
 206:                                              ; preds = %193
-  %207 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.39, i64 noundef %190) #9
+  %207 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.39, i64 noundef %190) #9
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %218, label %209
 
 209:                                              ; preds = %206
-  %210 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.40, i64 noundef %190) #9
+  %210 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.40, i64 noundef %190) #9
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %218, label %212
 
 212:                                              ; preds = %209
-  %213 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.41, i64 noundef %190) #9
+  %213 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.41, i64 noundef %190) #9
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %218, label %215
 
 215:                                              ; preds = %212
-  %216 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.42, i64 noundef %190) #9
+  %216 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.42, i64 noundef %190) #9
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %218, label %225
 
@@ -537,13 +537,13 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %.loopexit
 
 222:                                              ; preds = %218
-  %223 = call i64 @strtoul(ptr nocapture noundef nonnull %44, ptr noundef null, i32 noundef 10) #9
+  %223 = call i64 @strtoul(ptr noundef nonnull captures(none) %44, ptr noundef null, i32 noundef 10) #9
   %224 = trunc i64 %223 to i32
   store i32 %224, ptr %17, align 8
   br label %296
 
 225:                                              ; preds = %215
-  %226 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.44, i64 noundef %190) #9
+  %226 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.44, i64 noundef %190) #9
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %228, label %234
 
@@ -564,7 +564,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %.thread
 
 234:                                              ; preds = %225
-  %235 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.45, i64 noundef %88) #9
+  %235 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.45, i64 noundef %88) #9
   %236 = icmp eq i32 %235, 0
   br i1 %236, label %237, label %238
 
@@ -573,7 +573,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %296
 
 238:                                              ; preds = %234
-  %239 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.46, i64 noundef %88) #9
+  %239 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.46, i64 noundef %88) #9
   %240 = icmp eq i32 %239, 0
   br i1 %240, label %241, label %242
 
@@ -582,7 +582,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %296
 
 242:                                              ; preds = %238
-  %243 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.47, i64 noundef %46) #9
+  %243 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.47, i64 noundef %46) #9
   %244 = icmp eq i32 %243, 0
   br i1 %244, label %245, label %246
 
@@ -591,7 +591,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %296
 
 246:                                              ; preds = %242
-  %247 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.48, i64 noundef %46) #9
+  %247 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.48, i64 noundef %46) #9
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %249, label %261
 
@@ -623,7 +623,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %.thread
 
 261:                                              ; preds = %246
-  %262 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.50, i64 noundef %190) #9
+  %262 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.50, i64 noundef %190) #9
   %263 = icmp eq i32 %262, 0
   br i1 %263, label %264, label %281
 
@@ -663,7 +663,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %.thread
 
 281:                                              ; preds = %261
-  %282 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.51, i64 noundef %46) #9
+  %282 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.51, i64 noundef %46) #9
   %283 = icmp eq i32 %282, 0
   br i1 %283, label %284, label %289
 
@@ -681,7 +681,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %.loopexit
 
 289:                                              ; preds = %281
-  %290 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.17, i64 noundef 3) #9
+  %290 = call i32 @xstrncasecmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.17, i64 noundef 3) #9
   %291 = icmp eq i32 %290, 0
   br i1 %291, label %.thread, label %292
 
@@ -698,7 +698,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
 
 297:                                              ; preds = %296
   store i32 1, ptr @exit_code, align 4
-  %298 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.54, i32 noundef %.0238, ptr noundef %30, ptr noundef %2) #9
+  %298 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.54, i32 noundef %.0238, ptr noundef nonnull %30, ptr noundef %2) #9
   br label %.loopexit
 
 .thread:                                          ; preds = %73, %69, %96, %112, %108, %126, %122, %275, %260, %233, %229, %169, %170, %296, %289, %55, %56, %36
@@ -718,12 +718,12 @@ declare i32 @slurm_update_reservation(ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_get_errno() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @slurm_free_resv_desc_msg_part(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.resv_desc_msg, align 8
   %4 = alloca i32, align 4
   call void @slurm_init_resv_desc_msg(ptr noundef nonnull %3) #9
@@ -1083,7 +1083,7 @@ declare void @slurm_perror(ptr noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -1109,12 +1109,12 @@ declare i32 @str_to_nodes(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @xstring_is_whitespace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare i32 @slurm_watts_str_to_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

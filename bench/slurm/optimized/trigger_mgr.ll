@@ -1095,7 +1095,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @list_delete_item(ptr noundef) local_unnamed_addr #1
 
@@ -1105,7 +1105,7 @@ declare void @schedule_trigger_save() local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @trigger_get(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local ptr @trigger_get(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #14
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -1643,7 +1643,7 @@ declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #1
 declare ptr @bit_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_validate_trigger(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_validate_trigger(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1868,7 +1868,7 @@ define dso_local void @trigger_front_end_up(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @trigger_node_down(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @trigger_node_down(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #14
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -1912,7 +1912,7 @@ define dso_local void @trigger_node_down(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @trigger_node_drained(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @trigger_node_drained(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #14
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -1956,7 +1956,7 @@ define dso_local void @trigger_node_drained(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @trigger_node_failing(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @trigger_node_failing(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #14
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -2000,7 +2000,7 @@ define dso_local void @trigger_node_failing(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @trigger_node_up(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @trigger_node_up(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #14
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -2044,7 +2044,7 @@ define dso_local void @trigger_node_up(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @trigger_node_draining(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @trigger_node_draining(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #14
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -2088,7 +2088,7 @@ define dso_local void @trigger_node_draining(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @trigger_node_resume(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @trigger_node_resume(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #14
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -2649,12 +2649,12 @@ declare void @lock_state_files() local_unnamed_addr #1
 declare i32 @creat(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 declare i32 @fsync_and_close(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @link(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -4701,7 +4701,7 @@ _trigger_clone.exit:                              ; preds = %781, %784
   %821 = icmp eq ptr %820, null
   %822 = getelementptr inbounds nuw i8, ptr %820, i64 1
   %.035.i = select i1 %821, ptr %819, ptr %822
-  %823 = call ptr @xstrdup(ptr noundef %.035.i) #14
+  %823 = call ptr @xstrdup(ptr noundef nonnull %.035.i) #14
   store ptr %823, ptr %4, align 16
   br label %824
 
@@ -4795,7 +4795,7 @@ _trigger_clone.exit:                              ; preds = %781, %784
   unreachable
 
 866:                                              ; preds = %861
-  %867 = call i32 @execv(ptr noundef %819, ptr noundef nonnull %4) #14
+  %867 = call i32 @execv(ptr noundef nonnull %819, ptr noundef nonnull %4) #14
   call void @exit(i32 noundef 1) #18
   unreachable
 
@@ -5177,14 +5177,14 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @create_mmap_buf(ptr noundef) local_unnamed_addr #1
 
@@ -5207,7 +5207,7 @@ declare i32 @bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #8
@@ -5248,13 +5248,13 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -242,7 +242,7 @@ $_ZTTN3irr3gui11IGUIElementE = comdat any
 @.str.36 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui11CGUIEditBoxC2EPKwbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef %vtt, ptr noundef readonly %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rectangle) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui11CGUIEditBoxC2EPKwbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef %vtt, ptr noundef readonly %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %rectangle) unnamed_addr #0 align 2 {
 entry:
   %text36 = ptrtoint ptr %text to i64
   %first.i = alloca ptr, align 8
@@ -619,7 +619,7 @@ _ZN3irr3gui11CGUIEditBox18calculateFrameRectEv.exit: ; preds = %if.then5.i, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN3irr4core6stringIwEaSIwEERS2_PKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %c) local_unnamed_addr #0 comdat align 2 {
@@ -748,7 +748,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui11CGUIEditBox18calculateFrameRectEv(ptr nocapture noundef nonnull align 8 dereferenceable(520) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui11CGUIEditBox18calculateFrameRectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(520) %this) local_unnamed_addr #0 align 2 {
 entry:
   %AbsoluteRect = getelementptr inbounds nuw i8, ptr %this, i64 64
   %FrameRect = getelementptr inbounds nuw i8, ptr %this, i64 504
@@ -1806,7 +1806,7 @@ cleanup.cont:                                     ; preds = %cleanup.cont.sink.s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui11CGUIEditBoxC1EPKwbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(520) initializes((520, 540)) %this, ptr noundef readonly %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rectangle) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui11CGUIEditBoxC1EPKwbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(520) initializes((520, 540)) %this, ptr noundef readonly %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %rectangle) unnamed_addr #0 align 2 {
 entry:
   %text33 = ptrtoint ptr %text to i64
   %first.i = alloca ptr, align 8
@@ -2407,7 +2407,7 @@ return:                                           ; preds = %if.end15, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK3irr3gui11CGUIEditBox15getOverrideFontEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK3irr3gui11CGUIEditBox15getOverrideFontEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #4 align 2 {
 entry:
   %OverrideFont = getelementptr inbounds nuw i8, ptr %this, i64 328
   %0 = load ptr, ptr %OverrideFont, align 8, !tbaa !122
@@ -2415,7 +2415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK3irr3gui11CGUIEditBox13getActiveFontEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK3irr3gui11CGUIEditBox13getActiveFontEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #0 align 2 {
 entry:
   %OverrideFont = getelementptr inbounds nuw i8, ptr %this, i64 328
   %0 = load ptr, ptr %OverrideFont, align 8, !tbaa !122
@@ -2445,13 +2445,13 @@ return:                                           ; preds = %if.then4, %if.end, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui11CGUIEditBox16setOverrideColorENS_5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((312, 313), (324, 328)) %this, i32 %color.coerce) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui11CGUIEditBox16setOverrideColorENS_5video6SColorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(520) initializes((312, 313), (324, 328)) %this, i32 %color.coerce) unnamed_addr #6 align 2 {
 entry:
   %OverrideColor = getelementptr inbounds nuw i8, ptr %this, i64 324
   store i32 %color.coerce, ptr %OverrideColor, align 4, !tbaa !67
@@ -2461,7 +2461,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @_ZNK3irr3gui11CGUIEditBox16getOverrideColorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 {
+define i32 @_ZNK3irr3gui11CGUIEditBox16getOverrideColorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #4 align 2 {
 entry:
   %OverrideColor = getelementptr inbounds nuw i8, ptr %this, i64 324
   %retval.sroa.0.0.copyload = load i32, ptr %OverrideColor, align 4, !tbaa !67
@@ -2469,7 +2469,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui11CGUIEditBox13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((310, 311)) %this, i1 noundef zeroext %border) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui11CGUIEditBox13setDrawBorderEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(520) initializes((310, 311)) %this, i1 noundef zeroext %border) unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %border to i8
   %Border = getelementptr inbounds nuw i8, ptr %this, i64 310
@@ -2478,7 +2478,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox19isDrawBorderEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox19isDrawBorderEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #4 align 2 {
 entry:
   %Border = getelementptr inbounds nuw i8, ptr %this, i64 310
   %0 = load i8, ptr %Border, align 2, !tbaa !49, !range !83, !noundef !84
@@ -2487,7 +2487,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui11CGUIEditBox17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((311, 312)) %this, i1 noundef zeroext %draw) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui11CGUIEditBox17setDrawBackgroundEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(520) initializes((311, 312)) %this, i1 noundef zeroext %draw) unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %draw to i8
   %Background = getelementptr inbounds nuw i8, ptr %this, i64 311
@@ -2496,7 +2496,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox23isDrawBackgroundEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox23isDrawBackgroundEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #4 align 2 {
 entry:
   %Background = getelementptr inbounds nuw i8, ptr %this, i64 311
   %0 = load i8, ptr %Background, align 1, !tbaa !50, !range !83, !noundef !84
@@ -2505,7 +2505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui11CGUIEditBox19enableOverrideColorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((312, 313)) %this, i1 noundef zeroext %enable) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui11CGUIEditBox19enableOverrideColorEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(520) initializes((312, 313)) %this, i1 noundef zeroext %enable) unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %OverrideColorEnabled = getelementptr inbounds nuw i8, ptr %this, i64 312
@@ -2514,7 +2514,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox22isOverrideColorEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox22isOverrideColorEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #4 align 2 {
 entry:
   %OverrideColorEnabled = getelementptr inbounds nuw i8, ptr %this, i64 312
   %0 = load i8, ptr %OverrideColorEnabled, align 8, !tbaa !51, !range !83, !noundef !84
@@ -2670,7 +2670,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox17isWordWrapEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox17isWordWrapEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #4 align 2 {
 entry:
   %WordWrap = getelementptr inbounds nuw i8, ptr %this, i64 408
   %0 = load i8, ptr %WordWrap, align 8, !tbaa !96, !range !83, !noundef !84
@@ -2689,7 +2689,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox18isMultiLineEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox18isMultiLineEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #4 align 2 {
 entry:
   %MultiLine = getelementptr inbounds nuw i8, ptr %this, i64 409
   %0 = load i8, ptr %MultiLine, align 1, !tbaa !108, !range !83, !noundef !84
@@ -2765,7 +2765,7 @@ if.end:                                           ; preds = %_ZN3irr4core5arrayI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox13isPasswordBoxEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox13isPasswordBoxEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #4 align 2 {
 entry:
   %PasswordBox = getelementptr inbounds nuw i8, ptr %this, i64 411
   %0 = load i8, ptr %PasswordBox, align 1, !tbaa !61, !range !83, !noundef !84
@@ -2774,7 +2774,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui11CGUIEditBox16setTextAlignmentENS0_14EGUI_ALIGNMENTES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((416, 424)) %this, i32 noundef %horizontal, i32 noundef %vertical) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui11CGUIEditBox16setTextAlignmentENS0_14EGUI_ALIGNMENTES2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(520) initializes((416, 424)) %this, i32 noundef %horizontal, i32 noundef %vertical) unnamed_addr #6 align 2 {
 entry:
   %HAlign = getelementptr inbounds nuw i8, ptr %this, i64 416
   store i32 %horizontal, ptr %HAlign, align 8, !tbaa !63
@@ -2995,7 +2995,7 @@ if.end27:                                         ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr3gui11CGUIEditBox10processKeyERKNS_6SEventE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %event) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr3gui11CGUIEditBox10processKeyERKNS_6SEventE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %event) local_unnamed_addr #0 align 2 {
 entry:
   %e.i926 = alloca %"struct.irr::SEvent", align 8
   %e.i = alloca %"struct.irr::SEvent", align 8
@@ -4315,7 +4315,7 @@ return:                                           ; preds = %if.else635, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr3gui11CGUIEditBox12processMouseERKNS_6SEventE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %event) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr3gui11CGUIEditBox12processMouseERKNS_6SEventE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %event) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp73 = alloca %"class.irr::core::string", align 8
   %0 = getelementptr inbounds nuw i8, ptr %event, i64 8
@@ -5452,7 +5452,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1) #22
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %source) #22, !noalias !154
   %add.ptr.i = getelementptr inbounds i8, ptr %source, i64 %call.i.i
-  call void @_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEwSaIwESaIcEE10from_bytesEPKcS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(90) %conv, ptr noundef %source, ptr noundef %add.ptr.i)
+  call void @_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEwSaIwESaIcEE10from_bytesEPKcS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(90) %conv, ptr noundef nonnull %source, ptr noundef nonnull %add.ptr.i)
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %2, ptr %ref.tmp, align 8, !tbaa !56
   %3 = load ptr, ptr %ref.tmp1, align 8, !tbaa !59
@@ -5589,7 +5589,7 @@ _ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZN3irr3gui11CGUIEditBox14getLineFromPosEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this, i32 noundef %pos) local_unnamed_addr #8 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZN3irr3gui11CGUIEditBox14getLineFromPosEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this, i32 noundef %pos) local_unnamed_addr #8 align 2 {
 entry:
   %WordWrap = getelementptr inbounds nuw i8, ptr %this, i64 408
   %0 = load i8, ptr %WordWrap, align 8, !tbaa !96, !range !83, !noundef !84
@@ -7817,7 +7817,7 @@ if.end:                                           ; preds = %if.then, %_ZN3irr4c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui11CGUIEditBox13setAutoScrollEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((410, 411)) %this, i1 noundef zeroext %enable) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui11CGUIEditBox13setAutoScrollEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(520) initializes((410, 411)) %this, i1 noundef zeroext %enable) unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %AutoScroll = getelementptr inbounds nuw i8, ptr %this, i64 410
@@ -7826,7 +7826,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox19isAutoScrollEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK3irr3gui11CGUIEditBox19isAutoScrollEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #4 align 2 {
 entry:
   %AutoScroll = getelementptr inbounds nuw i8, ptr %this, i64 410
   %0 = load i8, ptr %AutoScroll, align 2, !tbaa !60, !range !83, !noundef !84
@@ -7952,7 +7952,7 @@ if.end:                                           ; preds = %_ZN3irr4core6string
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr3gui11CGUIEditBox6getMaxEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK3irr3gui11CGUIEditBox6getMaxEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #4 align 2 {
 entry:
   %Max = getelementptr inbounds nuw i8, ptr %this, i64 404
   %0 = load i32, ptr %Max, align 4, !tbaa !132
@@ -7960,7 +7960,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr3gui11CGUIEditBox13setCursorCharEw(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this, i32 noundef signext %cursorChar) unnamed_addr #10 align 2 {
+define void @_ZN3irr3gui11CGUIEditBox13setCursorCharEw(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this, i32 noundef signext %cursorChar) unnamed_addr #10 align 2 {
 entry:
   %CursorChar = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load ptr, ptr %CursorChar, align 8, !tbaa !59
@@ -7969,7 +7969,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i32 @_ZNK3irr3gui11CGUIEditBox13getCursorCharEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #8 align 2 {
+define noundef signext i32 @_ZNK3irr3gui11CGUIEditBox13getCursorCharEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #8 align 2 {
 entry:
   %CursorChar = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load ptr, ptr %CursorChar, align 8, !tbaa !59
@@ -7978,7 +7978,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui11CGUIEditBox18setCursorBlinkTimeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((356, 360)) %this, i32 noundef %timeMs) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui11CGUIEditBox18setCursorBlinkTimeEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(520) initializes((356, 360)) %this, i32 noundef %timeMs) unnamed_addr #6 align 2 {
 entry:
   %CursorBlinkTime = getelementptr inbounds nuw i8, ptr %this, i64 356
   store i32 %timeMs, ptr %CursorBlinkTime, align 4, !tbaa !55
@@ -7986,7 +7986,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr3gui11CGUIEditBox18getCursorBlinkTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK3irr3gui11CGUIEditBox18getCursorBlinkTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #4 align 2 {
 entry:
   %CursorBlinkTime = getelementptr inbounds nuw i8, ptr %this, i64 356
   %0 = load i32, ptr %CursorBlinkTime, align 4, !tbaa !55
@@ -10222,7 +10222,7 @@ _ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEw
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nounwind
 declare void @_ZNSt19__codecvt_utf8_baseIwED2Ev(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #13
@@ -10553,7 +10553,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(pt
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
@@ -10857,7 +10857,7 @@ declare ptr @wmemcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #13
@@ -11018,7 +11018,7 @@ _ZNSt12_Vector_baseIN3irr4core6stringIwEESaIS3_EE13_M_deallocateEPS3_m.exit: ; p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #9
 

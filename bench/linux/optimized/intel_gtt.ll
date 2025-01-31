@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5, ptr @trace_i915_ppgtt_release.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace805, ptr @trace_i915_ppgtt_release.__UNIQUE_ID___addressable___SCK__tp_func_i915_ppgtt_release804], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @i915_ggtt_require_binder(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @i915_ggtt_require_binder(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7179
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -122,7 +122,7 @@ define dso_local ptr @alloc_pt_lmem(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @__i915_gem_object_create_lmem_with_ps(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
@@ -131,7 +131,7 @@ declare dso_local ptr @__i915_gem_object_create_lmem_with_ps(ptr noundef, i64 no
 declare dso_local void @i915_drm_client_add_object(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @alloc_pt_dma(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
@@ -184,7 +184,7 @@ define dso_local ptr @alloc_pt_dma(ptr noundef %0, i32 noundef %1) local_unnamed
 declare dso_local ptr @i915_gem_object_create_internal(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @map_pt_dma(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @map_pt_dma(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @intel_gt_coherent_map_type(ptr noundef %4, ptr noundef %1, i1 noundef zeroext true) #10
@@ -223,7 +223,7 @@ declare dso_local ptr @i915_gem_object_pin_map_unlocked(ptr noundef, i32 noundef
 declare dso_local void @i915_gem_object_make_unshrinkable(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @map_pt_dma_locked(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @map_pt_dma_locked(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @intel_gt_coherent_map_type(ptr noundef %4, ptr noundef %1, i1 noundef zeroext true) #10
@@ -589,7 +589,7 @@ declare dso_local void @dma_resv_init(ptr noundef) local_unnamed_addr #3
 declare dso_local void @drm_mm_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @__px_vaddr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @__px_vaddr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -599,7 +599,7 @@ define dso_local ptr @__px_vaddr(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i64 @__px_dma(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local i64 @__px_dma(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -609,7 +609,7 @@ define dso_local i64 @__px_dma(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @__px_page(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local ptr @__px_page(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -620,7 +620,7 @@ define dso_local ptr @__px_page(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @fill_page_dma(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local void @fill_page_dma(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -767,7 +767,7 @@ define dso_local range(i32 -12, 1) i32 @setup_scratch_page(ptr noundef %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @free_scratch(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @free_scratch(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -810,7 +810,7 @@ define dso_local void @free_scratch(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gtt_write_workarounds(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @gtt_write_workarounds(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1510,7 +1510,7 @@ declare dso_local void @i915_vma_destroy_locked(ptr noundef) local_unnamed_addr 
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @drm_gem_object_free(ptr noundef) local_unnamed_addr #3

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [2 x i8] c"Z\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_management_VMManagementImpl_getVersion0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_management_VMManagementImpl_getVersion0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = load i32, ptr @jmm_version, align 4
   %5 = lshr i32 %4, 16
@@ -35,7 +35,7 @@ define ptr @Java_sun_management_VMManagementImpl_getVersion0(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_management_VMManagementImpl_initOptionalSupportFields(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -234,7 +234,7 @@ setStaticBooleanField.exit45:                     ; preds = %setStaticBooleanFie
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_management_VMManagementImpl_getVmArguments0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_management_VMManagementImpl_getVmArguments0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @JVM_GetVmArguments(ptr noundef %0) #3
   ret ptr %3
 }
@@ -242,7 +242,7 @@ define ptr @Java_sun_management_VMManagementImpl_getVmArguments0(ptr noundef %0,
 declare ptr @JVM_GetVmArguments(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getTotalClassCount(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getTotalClassCount(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -251,7 +251,7 @@ define i64 @Java_sun_management_VMManagementImpl_getTotalClassCount(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getUnloadedClassCount(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getUnloadedClassCount(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -260,7 +260,7 @@ define i64 @Java_sun_management_VMManagementImpl_getUnloadedClassCount(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_management_VMManagementImpl_getVerboseGC(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_management_VMManagementImpl_getVerboseGC(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -269,7 +269,7 @@ define zeroext i8 @Java_sun_management_VMManagementImpl_getVerboseGC(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_management_VMManagementImpl_getVerboseClass(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_management_VMManagementImpl_getVerboseClass(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -278,7 +278,7 @@ define zeroext i8 @Java_sun_management_VMManagementImpl_getVerboseClass(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getTotalThreadCount(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getTotalThreadCount(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -287,7 +287,7 @@ define i64 @Java_sun_management_VMManagementImpl_getTotalThreadCount(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_management_VMManagementImpl_getLiveThreadCount(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_management_VMManagementImpl_getLiveThreadCount(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -297,7 +297,7 @@ define i32 @Java_sun_management_VMManagementImpl_getLiveThreadCount(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_management_VMManagementImpl_getPeakThreadCount(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_management_VMManagementImpl_getPeakThreadCount(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -307,7 +307,7 @@ define i32 @Java_sun_management_VMManagementImpl_getPeakThreadCount(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_management_VMManagementImpl_getDaemonThreadCount(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_management_VMManagementImpl_getDaemonThreadCount(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -317,7 +317,7 @@ define i32 @Java_sun_management_VMManagementImpl_getDaemonThreadCount(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getTotalCompileTime(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getTotalCompileTime(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -326,7 +326,7 @@ define i64 @Java_sun_management_VMManagementImpl_getTotalCompileTime(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getStartupTime(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getStartupTime(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -335,7 +335,7 @@ define i64 @Java_sun_management_VMManagementImpl_getStartupTime(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getUptime0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getUptime0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -344,7 +344,7 @@ define i64 @Java_sun_management_VMManagementImpl_getUptime0(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_management_VMManagementImpl_isThreadContentionMonitoringEnabled(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_management_VMManagementImpl_isThreadContentionMonitoringEnabled(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -353,7 +353,7 @@ define zeroext i8 @Java_sun_management_VMManagementImpl_isThreadContentionMonito
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_management_VMManagementImpl_isThreadCpuTimeEnabled(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_management_VMManagementImpl_isThreadCpuTimeEnabled(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -362,7 +362,7 @@ define zeroext i8 @Java_sun_management_VMManagementImpl_isThreadCpuTimeEnabled(p
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_management_VMManagementImpl_isThreadAllocatedMemoryEnabled(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_management_VMManagementImpl_isThreadAllocatedMemoryEnabled(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -371,7 +371,7 @@ define zeroext i8 @Java_sun_management_VMManagementImpl_isThreadAllocatedMemoryE
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_management_VMManagementImpl_getProcessId(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_management_VMManagementImpl_getProcessId(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -381,7 +381,7 @@ define i32 @Java_sun_management_VMManagementImpl_getProcessId(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_management_VMManagementImpl_getAvailableProcessors(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_management_VMManagementImpl_getAvailableProcessors(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @JVM_ActiveProcessorCount() #3
   ret i32 %3
 }
@@ -389,7 +389,7 @@ define i32 @Java_sun_management_VMManagementImpl_getAvailableProcessors(ptr noca
 declare i32 @JVM_ActiveProcessorCount() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getSafepointCount(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getSafepointCount(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -398,7 +398,7 @@ define i64 @Java_sun_management_VMManagementImpl_getSafepointCount(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getTotalSafepointTime(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getTotalSafepointTime(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -407,7 +407,7 @@ define i64 @Java_sun_management_VMManagementImpl_getTotalSafepointTime(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getSafepointSyncTime(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getSafepointSyncTime(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -416,7 +416,7 @@ define i64 @Java_sun_management_VMManagementImpl_getSafepointSyncTime(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getTotalApplicationNonStoppedTime(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getTotalApplicationNonStoppedTime(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -425,7 +425,7 @@ define i64 @Java_sun_management_VMManagementImpl_getTotalApplicationNonStoppedTi
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getLoadedClassSize(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getLoadedClassSize(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -434,7 +434,7 @@ define i64 @Java_sun_management_VMManagementImpl_getLoadedClassSize(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getUnloadedClassSize(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getUnloadedClassSize(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -443,7 +443,7 @@ define i64 @Java_sun_management_VMManagementImpl_getUnloadedClassSize(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getClassLoadingTime(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getClassLoadingTime(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -452,7 +452,7 @@ define i64 @Java_sun_management_VMManagementImpl_getClassLoadingTime(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getMethodDataSize(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getMethodDataSize(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -461,7 +461,7 @@ define i64 @Java_sun_management_VMManagementImpl_getMethodDataSize(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getInitializedClassCount(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getInitializedClassCount(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -470,7 +470,7 @@ define i64 @Java_sun_management_VMManagementImpl_getInitializedClassCount(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getClassInitializationTime(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getClassInitializationTime(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -479,7 +479,7 @@ define i64 @Java_sun_management_VMManagementImpl_getClassInitializationTime(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_VMManagementImpl_getClassVerificationTime(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_VMManagementImpl_getClassVerificationTime(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8

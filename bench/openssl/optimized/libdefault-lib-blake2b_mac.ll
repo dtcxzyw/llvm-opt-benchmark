@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.blake2_mac_set_ctx_params = private unnamed_addr constant [26 x i8] c"blake2_mac_set_ctx_params\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @blake2_mac_new(ptr nocapture readnone %unused_provctx) #0 {
+define internal ptr @blake2_mac_new(ptr readnone captures(none) %unused_provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -42,7 +42,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @blake2_mac_dup(ptr nocapture noundef readonly %vsrc) #0 {
+define internal noalias ptr @blake2_mac_dup(ptr noundef readonly captures(none) %vsrc) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -162,7 +162,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @blake2_mac_final(ptr noundef %vmacctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
+define internal i32 @blake2_mac_final(ptr noundef %vmacctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 %outsize) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -182,13 +182,13 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @blake2_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @blake2_gettable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_gettable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @blake2_get_ctx_params(ptr nocapture noundef readonly %vmacctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @blake2_get_ctx_params(ptr noundef readonly captures(none) %vmacctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #5
   %cmp.not = icmp eq ptr %call, null
@@ -221,7 +221,7 @@ return:                                           ; preds = %land.lhs.true5, %la
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @blake2_mac_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %p_ctx) #1 {
+define internal noundef nonnull ptr @blake2_mac_settable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %p_ctx) #1 {
 entry:
   ret ptr @known_settable_ctx_params
 }
@@ -357,7 +357,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @ossl_blake2b_param_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -372,7 +372,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @ossl_blake2b_init_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @ossl_blake2b_param_set_key_length(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 

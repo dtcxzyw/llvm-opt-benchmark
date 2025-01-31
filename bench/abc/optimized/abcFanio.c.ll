@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [28 x i8] c" the fanouts of node %s...\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_ObjAddFanin(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Abc_ObjAddFanin(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
@@ -49,7 +49,7 @@ define void @Abc_ObjAddFanin(ptr nocapture noundef %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushMem(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushMem(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %1, align 8
@@ -149,7 +149,7 @@ define internal fastcc void @Vec_IntPushMem(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_ObjDeleteFanin(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define void @Abc_ObjDeleteFanin(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -296,10 +296,10 @@ Vec_IntRemove.exit26:                             ; preds = %51, %.preheader.i11
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_ObjRemoveFanins(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @Abc_ObjRemoveFanins(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -483,7 +483,7 @@ Vec_IntRemove.exit:                               ; preds = %50, %.preheader.i
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_ObjPatchFanoutFanin(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Abc_ObjPatchFanoutFanin(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val1725 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val1725, 0
@@ -754,7 +754,7 @@ declare ptr @Abc_NtkCreateNodeConst1(ptr noundef) local_unnamed_addr #3
 declare ptr @Abc_NtkCreateNodeConst0(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Abc_ObjFanoutFaninNum(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define range(i32 -2147483648, 2147483647) i32 @Abc_ObjFanoutFaninNum(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val, 0
@@ -803,7 +803,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare void @Mem_StepEntryRecycle(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

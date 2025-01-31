@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [58 x i8] c"*********************************************************\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_group_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef i32 @ompi_group_free(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i8, ptr @opal_uses_threads, align 1
@@ -80,10 +80,10 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %14
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_group_translate_ranks(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define noundef i32 @ompi_group_translate_ranks(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, @ompi_mpi_group_empty
   %7 = icmp eq ptr %3, @ompi_mpi_group_empty
   %or.cond = or i1 %6, %7
@@ -553,10 +553,10 @@ ompi_group_translate_ranks.exit86:                ; preds = %166, %ompi_group_ge
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @ompi_group_minloc(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @ompi_group_minloc(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -595,7 +595,7 @@ define i32 @ompi_group_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 declare i32 @ompi_group_incl_plist(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_group_excl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @ompi_group_excl(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = sub nsw i32 %6, %1
@@ -697,7 +697,7 @@ define i32 @ompi_group_excl(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_group_range_incl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @ompi_group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge122.thread
 
@@ -845,7 +845,7 @@ define i32 @ompi_group_range_incl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_group_range_excl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @ompi_group_range_excl(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge145
 
@@ -1085,7 +1085,7 @@ define i32 @ompi_group_range_excl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_group_intersection(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @ompi_group_intersection(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -1200,7 +1200,7 @@ ompi_group_get_proc_name.exit40:                  ; preds = %37, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_group_compare(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @ompi_group_compare(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.critedge, label %5
 
@@ -1313,7 +1313,7 @@ ompi_group_get_proc_name.exit52:                  ; preds = %31, %35
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @ompi_group_have_remote_peers(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define noundef zeroext i1 @ompi_group_have_remote_peers(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1352,7 +1352,7 @@ define noundef zeroext i1 @ompi_group_have_remote_peers(ptr nocapture noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @ompi_group_count_local_peers(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define i32 @ompi_group_count_local_peers(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1395,7 +1395,7 @@ define i32 @ompi_group_count_local_peers(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -2, 1) i32 @ompi_group_to_proc_name_array(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 {
+define range(i32 -2, 1) i32 @ompi_group_to_proc_name_array(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -1458,7 +1458,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %17, %21
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ompi_group_overlap(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @ompi_group_overlap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -1552,7 +1552,7 @@ ompi_group_get_proc_name.exit18:                  ; preds = %31, %35
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10

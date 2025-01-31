@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [4 x i8] c"%lu\00", align 1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define hidden void @pm_integer_parse(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @pm_integer_parse(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = load i8, ptr %2, align 1
   %7 = icmp eq i8 %6, 43
@@ -339,7 +339,7 @@ define internal fastcc range(i32 0, 16) i32 @pm_integer_parse_digit(i8 noundef z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden range(i64 32, 17) i64 @pm_integer_memsize(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i64 32, 17) i64 @pm_integer_memsize(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
   %3 = shl i64 %2, 4
   %4 = add i64 %3, 32
@@ -347,7 +347,7 @@ define hidden range(i64 32, 17) i64 @pm_integer_memsize(ptr nocapture noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 2) i32 @pm_integer_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden range(i32 -1, 2) i32 @pm_integer_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -407,7 +407,7 @@ define hidden range(i32 -1, 2) i32 @pm_integer_compare(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_integer_string(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @pm_integer_string(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.pm_integer_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8
@@ -544,10 +544,10 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @pm_buffer_append_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_integer_free(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden void @pm_integer_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -562,7 +562,7 @@ define hidden void @pm_integer_free(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pm_integer_word_destroy(ptr nocapture noundef nonnull %0) unnamed_addr #4 {
+define internal fastcc void @pm_integer_word_destroy(ptr noundef nonnull captures(none) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -580,7 +580,7 @@ define internal fastcc void @pm_integer_word_destroy(ptr nocapture noundef nonnu
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 10) i32 @pm_integer_divide_word(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 10) i32 @pm_integer_divide_word(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %4

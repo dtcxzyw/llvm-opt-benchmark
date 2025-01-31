@@ -35,14 +35,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.24 = private unnamed_addr constant [3 x i8] c"  \00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @jw_init(ptr nocapture noundef writeonly initializes((0, 56)) %jw) local_unnamed_addr #0 {
+define dso_local void @jw_init(ptr noundef writeonly captures(none) initializes((0, 56)) %jw) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.jw_init.blank, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @jw_release(ptr noundef %jw) local_unnamed_addr #2 {
@@ -136,7 +136,7 @@ begin.exit:                                       ; preds = %strbuf_avail.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @jw_object_string(ptr noundef %jw, ptr noundef %key, ptr nocapture noundef readonly %value) local_unnamed_addr #2 {
+define dso_local void @jw_object_string(ptr noundef %jw, ptr noundef %key, ptr noundef readonly captures(none) %value) local_unnamed_addr #2 {
 entry:
   tail call fastcc void @object_common(ptr noundef %jw, ptr noundef %key)
   tail call fastcc void @append_quoted_string(ptr noundef %jw, ptr noundef %value)
@@ -338,7 +338,7 @@ if.end11:                                         ; preds = %strbuf_addch.exit53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_quoted_string(ptr noundef %out, ptr nocapture noundef readonly %in) unnamed_addr #2 {
+define internal fastcc void @append_quoted_string(ptr noundef %out, ptr noundef readonly captures(none) %in) unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %out, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
@@ -995,7 +995,7 @@ begin.exit:                                       ; preds = %strbuf_avail.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @jw_array_string(ptr noundef %jw, ptr nocapture noundef readonly %value) local_unnamed_addr #2 {
+define dso_local void @jw_array_string(ptr noundef %jw, ptr noundef readonly captures(none) %value) local_unnamed_addr #2 {
 entry:
   tail call fastcc void @array_common(ptr noundef %jw)
   tail call fastcc void @append_quoted_string(ptr noundef %jw, ptr noundef %value)
@@ -1227,7 +1227,7 @@ assert_is_terminated.exit:                        ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @jw_array_argc_argv(ptr noundef %jw, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #2 {
+define dso_local void @jw_array_argc_argv(ptr noundef %jw, i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #2 {
 entry:
   %cmp3 = icmp sgt i32 %argc, 0
   br i1 %cmp3, label %for.body.preheader, label %for.end
@@ -1251,7 +1251,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @jw_array_argv(ptr noundef %jw, ptr nocapture noundef readonly %argv) local_unnamed_addr #2 {
+define dso_local void @jw_array_argv(ptr noundef %jw, ptr noundef readonly captures(none) %argv) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %argv, align 8
   %tobool.not2 = icmp eq ptr %0, null
@@ -1420,7 +1420,7 @@ jw_array_begin.exit:                              ; preds = %strbuf_avail.exit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @jw_is_terminated(ptr nocapture noundef readonly %jw) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @jw_is_terminated(ptr noundef readonly captures(none) %jw) local_unnamed_addr #4 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %0 = load i64, ptr %len, align 8
@@ -1586,10 +1586,10 @@ declare void @strbuf_addchars(ptr noundef, i32 noundef, i64 noundef) local_unnam
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #7

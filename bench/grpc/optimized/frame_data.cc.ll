@@ -54,7 +54,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z35grpc_chttp2_data_parser_begin_framehjP18grpc_chttp2_stream(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr nocapture noundef writeonly %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z35grpc_chttp2_data_parser_begin_framehjP18grpc_chttp2_stream(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr noundef writeonly captures(none) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -123,7 +123,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23grpc_chttp2_encode_datajP17grpc_slice_bufferjiP28grpc_transport_one_way_statsS0_(i32 noundef %id, ptr noundef %inbuf, i32 noundef %write_bytes, i32 noundef %is_eof, ptr nocapture noundef %stats, ptr noundef %outbuf) local_unnamed_addr #3 {
+define void @_Z23grpc_chttp2_encode_datajP17grpc_slice_bufferjiP28grpc_transport_one_way_statsS0_(i32 noundef %id, ptr noundef %inbuf, i32 noundef %write_bytes, i32 noundef %is_eof, ptr noundef captures(none) %stats, ptr noundef %outbuf) local_unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %struct.grpc_slice, align 8
   %agg.tmp = alloca %struct.grpc_slice, align 8
@@ -273,7 +273,7 @@ declare void @grpc_slice_buffer_add(ptr noundef, ptr noundef byval(%struct.grpc_
 declare void @grpc_slice_buffer_move_first_no_ref(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z40grpc_deframe_unprocessed_incoming_framesP18grpc_chttp2_streamPlPN9grpc_core11SliceBufferEPj(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll") align 8 %agg.result, ptr noundef %s, ptr noundef writeonly %min_progress_size, ptr noundef %stream_out, ptr noundef writeonly %message_flags) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z40grpc_deframe_unprocessed_incoming_framesP18grpc_chttp2_streamPlPN9grpc_core11SliceBufferEPj(ptr noalias writeonly sret(%"class.grpc_core::Poll") align 8 captures(none) %agg.result, ptr noundef %s, ptr noundef writeonly %min_progress_size, ptr noundef %stream_out, ptr noundef writeonly %message_flags) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %error = alloca %"class.absl::lts_20230802::Status", align 8
@@ -632,7 +632,7 @@ declare void @_Z40grpc_slice_buffer_copy_first_into_bufferP17grpc_slice_buffermP
 declare void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr sret(%"class.absl::lts_20230802::Status") align 8, i32 noundef, i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -713,7 +713,7 @@ declare void @grpc_slice_buffer_move_first_into_buffer(ptr noundef, i64 noundef,
 declare void @grpc_slice_buffer_move_first(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z29grpc_chttp2_data_parser_parsePvP21grpc_chttp2_transportP18grpc_chttp2_streamRK10grpc_slicei(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef readnone %0, ptr noundef %t, ptr noundef %s, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %slice, i32 noundef %is_last) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z29grpc_chttp2_data_parser_parsePvP21grpc_chttp2_transportP18grpc_chttp2_streamRK10grpc_slicei(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, ptr noundef readnone captures(none) %0, ptr noundef %t, ptr noundef %s, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %slice, i32 noundef %is_last) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.grpc_chttp2_transport::RemovedStreamHandle", align 8
   %agg.tmp3 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -938,10 +938,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #13

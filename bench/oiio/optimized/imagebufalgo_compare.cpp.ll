@@ -1328,7 +1328,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit156:         ; preds = %if.then.i154, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo10PixelStats5mergeERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %p) local_unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo10PixelStats5mergeERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %p) local_unnamed_addr #6 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -1425,7 +1425,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN18OpenImageIO_v2_6_012ImageBufAlgo10PixelStatsaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(216) initializes((8, 24), (32, 48), (56, 72), (80, 96), (104, 120), (128, 144), (152, 168), (176, 192), (200, 216)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(216) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN18OpenImageIO_v2_6_012ImageBufAlgo10PixelStatsaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(216) initializes((8, 24), (32, 48), (56, 72), (80, 96), (104, 120), (128, 144), (152, 168), (176, 192), (200, 216)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(216) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1627,7 +1627,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit62:               ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17computePixelStatsERKNS_8ImageBufENS_3ROIEi(ptr noalias sret(%"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17computePixelStatsERKNS_8ImageBufENS_3ROIEi(ptr noalias sret(%"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i891 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %nchannels.i892 = alloca i32, align 4
@@ -4397,7 +4397,7 @@ declare void @_ZN18OpenImageIO_v2_6_07get_roiERKNS_9ImageSpecE(ptr sret(%"struct
 declare noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf9nchannelsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -4412,7 +4412,7 @@ entry:
   %0 = load i32, ptr %args, align 4, !noalias !7
   %retval.i.sroa.0.0.insert.ext.i.i = zext i32 %0 to i64
   store i64 %retval.i.sroa.0.0.insert.ext.i.i, ptr %ref.tmp.i, align 16, !noalias !7
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 1, ptr nonnull %ref.tmp.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull %fmt, i64 %call.i2.i, i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -4448,7 +4448,7 @@ entry:
   store i64 %1, ptr %arrayinit.element.i.i.i.i, align 16, !alias.scope !13, !noalias !10
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN18OpenImageIO_v2_6_08TypeDescENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i, align 8, !alias.scope !13, !noalias !10
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -4655,7 +4655,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17computePixelStatsERNS0_10PixelStatsERKNS_8ImageBufENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(216) initializes((8, 24), (32, 48), (56, 72), (80, 96), (104, 120), (128, 144), (152, 168), (176, 192), (200, 216)) %stats, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17computePixelStatsERNS0_10PixelStatsERKNS_8ImageBufENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(216) initializes((8, 24), (32, 48), (56, 72), (80, 96), (104, 120), (128, 144), (152, 168), (176, 192), (200, 216)) %stats, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
   call void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17computePixelStatsERKNS_8ImageBufENS_3ROIEi(ptr nonnull sret(%"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
@@ -4675,14 +4675,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo7compareERKNS_8ImageBufES3_ffNS_3ROIEi(ptr noalias nocapture sret(%"struct.OpenImageIO_v2_6_0::ImageBufAlgo::CompareResults") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
+define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo7compareERKNS_8ImageBufES3_ffNS_3ROIEi(ptr noalias sret(%"struct.OpenImageIO_v2_6_0::ImageBufAlgo::CompareResults") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo7compareERKNS_8ImageBufES3_ffffNS_3ROIEi(ptr sret(%"struct.OpenImageIO_v2_6_0::ImageBufAlgo::CompareResults") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 poison)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo7compareERKNS_8ImageBufES3_ffffNS_3ROIEi(ptr noalias nocapture sret(%"struct.OpenImageIO_v2_6_0::ImageBufAlgo::CompareResults") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo7compareERKNS_8ImageBufES3_ffffNS_3ROIEi(ptr noalias sret(%"struct.OpenImageIO_v2_6_0::ImageBufAlgo::CompareResults") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i.i.i.i = alloca %struct.timespec, align 8
   %logtimer = alloca %"class.OpenImageIO_v2_6_0::pvt::LoggedTimer", align 8
@@ -5267,7 +5267,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %call.i2.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #24, !noalias !22
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 0, ptr nonnull %ref.tmp.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull %fmt, i64 %call.i2.i, i64 0, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -5289,7 +5289,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IffEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IffEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
@@ -6186,7 +6186,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit273: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IfhEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IfhEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
@@ -7082,7 +7082,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit272: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_If4halfEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_If4halfEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
@@ -7982,7 +7982,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit272: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IftEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IftEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
@@ -8885,7 +8885,7 @@ declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeD
 declare void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IhfEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IhfEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
@@ -9788,7 +9788,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit272: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IhhEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IhhEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
@@ -10681,7 +10681,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit275: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_Ih4halfEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_Ih4halfEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
@@ -11587,7 +11587,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit272: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IhtEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IhtEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
@@ -12480,7 +12480,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit274: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halffEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halffEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
@@ -13380,7 +13380,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit272: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halfhEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halfhEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
@@ -14279,7 +14279,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit272: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halfS1_EEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halfS1_EEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
@@ -15182,7 +15182,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit275: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halftEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halftEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
@@ -16081,7 +16081,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit272: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_ItfEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_ItfEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
@@ -16984,7 +16984,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit272: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IthEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IthEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
@@ -17877,7 +17877,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit274: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_It4halfEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_It4halfEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
@@ -18783,7 +18783,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit272: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IttEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IttEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
@@ -19678,7 +19678,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit275: ; preds = %ehcl
 declare noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08ImageBuf11initializedEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo7compareERKNS_8ImageBufES3_ffRNS0_14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %result, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo7compareERKNS_8ImageBufES3_ffRNS0_14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((0, 72)) %result, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::CompareResults", align 8
   call void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo7compareERKNS_8ImageBufES3_ffffNS_3ROIEi(ptr nonnull sret(%"struct.OpenImageIO_v2_6_0::ImageBufAlgo::CompareResults") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 poison)
@@ -19691,7 +19691,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef %threshold, ptr nocapture writeonly %color.coerce0, i64 %color.coerce1, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo15isConstantColorERKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef %threshold, ptr writeonly captures(none) %color.coerce0, i64 %color.coerce1, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %threshold.addr.i1337 = alloca float, align 4
   %result.i1338 = alloca i8, align 1
@@ -24618,7 +24618,7 @@ entry:
   store i64 %1, ptr %arrayinit.element.i.i.i.i, align 16, !alias.scope !137, !noalias !134
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN18OpenImageIO_v2_6_08TypeDescENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i, align 8, !alias.scope !137, !noalias !134
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -24640,7 +24640,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17isConstantChannelERKNS_8ImageBufEiffNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, float noundef %val, float noundef %threshold, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17isConstantChannelERKNS_8ImageBufEiffNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, float noundef %val, float noundef %threshold, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %channel.addr.i291 = alloca i32, align 4
   %val.addr.i292 = alloca float, align 4
@@ -25629,7 +25629,7 @@ cleanup:                                          ; preds = %_ZN18OpenImageIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo12isMonochromeERKNS_8ImageBufEfNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef %threshold, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo12isMonochromeERKNS_8ImageBufEfNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef %threshold, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %threshold.addr.i290 = alloca float, align 4
   %result.i291 = alloca %"struct.std::atomic", align 4
@@ -26635,7 +26635,7 @@ entry:
   store i64 %1, ptr %arrayinit.element.i.i.i.i, align 16, !alias.scope !143, !noalias !140
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN18OpenImageIO_v2_6_08TypeDescENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i, align 8, !alias.scope !143, !noalias !140
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -26657,7 +26657,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11color_countERKNS_8ImageBufEPmiNS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef %count, i32 noundef %ncolors, ptr %color.coerce0, i64 %color.coerce1, ptr nocapture noundef byval(%"class.OpenImageIO_v2_6_0::span.31") align 8 %eps, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11color_countERKNS_8ImageBufEPmiNS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef %count, i32 noundef %ncolors, ptr %color.coerce0, i64 %color.coerce1, ptr noundef byval(%"class.OpenImageIO_v2_6_0::span.31") align 8 captures(none) %eps, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %count.addr.i299 = alloca ptr, align 8
   %ncolors.addr.i300 = alloca i32, align 4
@@ -27733,7 +27733,7 @@ entry:
   store i64 %1, ptr %arrayinit.element.i.i.i.i, align 16, !alias.scope !150, !noalias !147
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN18OpenImageIO_v2_6_08TypeDescENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i, align 8, !alias.scope !150, !noalias !147
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -27755,7 +27755,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17color_range_checkERKNS_8ImageBufEPmS4_S4_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef %lowcount, ptr noundef %highcount, ptr noundef %inrangecount, ptr %low.coerce0, i64 %low.coerce1, ptr nocapture noundef byval(%"class.OpenImageIO_v2_6_0::span.31") align 8 %high, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17color_range_checkERKNS_8ImageBufEPmS4_S4_NS_4spanIKfLln1EEES7_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef %lowcount, ptr noundef %highcount, ptr noundef %inrangecount, ptr %low.coerce0, i64 %low.coerce1, ptr noundef byval(%"class.OpenImageIO_v2_6_0::span.31") align 8 captures(none) %high, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1.i303 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2.i304 = alloca %"class.std::function.196", align 8
@@ -28744,7 +28744,7 @@ sw.epilog:                                        ; preds = %_ZN18OpenImageIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14nonzero_regionERKNS_8ImageBufENS_3ROIEi(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14nonzero_regionERKNS_8ImageBufENS_3ROIEi(ptr noalias writeonly sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp126217 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %agg.tmp104180 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -29883,7 +29883,7 @@ ehcleanup139:                                     ; preds = %lpad.loopexit, %lpa
 declare void @_ZNK18OpenImageIO_v2_6_08ImageBuf3roiEv(ptr sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEENS_3ROIEii(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef readonly %extrainfo, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %blocksize, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEENS_3ROIEii(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %extrainfo, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %blocksize, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i.i.i.i = alloca %struct.timespec, align 8
   %blocksize.addr = alloca i32, align 4
@@ -30209,7 +30209,7 @@ ehcleanup39:                                      ; preds = %ehcleanup, %lpad16,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119simplePixelHashSHA1B5cxx11ERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEENS_3ROIE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef nonnull readonly %extrainfo, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119simplePixelHashSHA1B5cxx11ERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEENS_3ROIE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull readonly captures(none) %extrainfo, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %sha = alloca %"class.OpenImageIO_v2_6_0::SHA1", align 8
@@ -30461,7 +30461,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit37:                  ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare void @_ZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS_6paroptE(i64 noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef byval(%"class.OpenImageIO_v2_6_0::paropt") align 8) local_unnamed_addr #0
 
@@ -30506,7 +30506,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo9histogramERKNS_8ImageBufEiiffbNS_3ROIEi(ptr noalias sret(%"class.std::vector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, i32 noundef %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo9histogramERKNS_8ImageBufEiiffbNS_3ROIEi(ptr noalias sret(%"class.std::vector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, i32 noundef %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i.i.i.i = alloca %struct.timespec, align 8
   %channel.addr = alloca i32, align 4
@@ -30748,7 +30748,7 @@ entry:
   store i64 %retval.i12.i.sroa.0.0.insert.ext.i.i, ptr %ref.tmp.i, align 16, !alias.scope !179, !noalias !176
   %arrayinit.element.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store i64 %retval.i.i.sroa.0.0.insert.ext.i.i, ptr %arrayinit.element.i.i.i.i, align 16, !alias.scope !179, !noalias !176
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 17, ptr nonnull %ref.tmp.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull %fmt, i64 %call.i2.i, i64 17, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -30770,7 +30770,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIfEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIfEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %channel.addr = alloca i32, align 4
   %bins.addr = alloca i32, align 4
@@ -30890,7 +30890,7 @@ return:                                           ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIhEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIhEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %channel.addr = alloca i32, align 4
   %bins.addr = alloca i32, align 4
@@ -31010,7 +31010,7 @@ return:                                           ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implI4halfEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implI4halfEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %channel.addr = alloca i32, align 4
   %bins.addr = alloca i32, align 4
@@ -31130,7 +31130,7 @@ return:                                           ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implItEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implItEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %channel.addr = alloca i32, align 4
   %bins.addr = alloca i32, align 4
@@ -31250,7 +31250,7 @@ return:                                           ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIcEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIcEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %channel.addr = alloca i32, align 4
   %bins.addr = alloca i32, align 4
@@ -31370,7 +31370,7 @@ return:                                           ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIsEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIsEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %channel.addr = alloca i32, align 4
   %bins.addr = alloca i32, align 4
@@ -31490,7 +31490,7 @@ return:                                           ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIjEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIjEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %channel.addr = alloca i32, align 4
   %bins.addr = alloca i32, align 4
@@ -31610,7 +31610,7 @@ return:                                           ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIiEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIiEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %channel.addr = alloca i32, align 4
   %bins.addr = alloca i32, align 4
@@ -31730,7 +31730,7 @@ return:                                           ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIdEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L14histogram_implIdEEbRKNS_8ImageBufEiRSt6vectorImSaImEEiffbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %src, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %hist, i32 noundef range(i32 1, -2147483648) %bins, float noundef %min, float noundef %max, i1 noundef zeroext %ignore_empty, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %channel.addr = alloca i32, align 4
   %bins.addr = alloca i32, align 4
@@ -31864,7 +31864,7 @@ entry:
   store i64 %1, ptr %arrayinit.element.i.i.i.i, align 16, !alias.scope !186, !noalias !183
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN18OpenImageIO_v2_6_08TypeDescENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i, align 8, !alias.scope !186, !noalias !183
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -31888,7 +31888,7 @@ lpad:                                             ; preds = %entry
 declare noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08ImageBuf9has_errorEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo9histogramERKNS_8ImageBufEiRSt6vectorImSaImEEiffPmS8_NS_3ROIE(ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %histogram, i32 noundef %bins, float noundef %min, float noundef %max, ptr noundef %submin, ptr noundef %supermax, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo9histogramERKNS_8ImageBufEiRSt6vectorImSaImEEiffPmS8_NS_3ROIE(ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %histogram, i32 noundef %bins, float noundef %min, float noundef %max, ptr noundef %submin, ptr noundef %supermax, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %ref.tmp.i = alloca i64, align 8
@@ -32324,7 +32324,7 @@ entry:
   store i64 %0, ptr %ref.tmp.i, align 16, !noalias !189
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN18OpenImageIO_v2_6_08TypeDescENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %1, align 8, !noalias !189
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 15, ptr nonnull %ref.tmp.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull %fmt, i64 %call.i2.i, i64 15, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -32346,7 +32346,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14histogram_drawERNS_8ImageBufERKSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %histogram) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14histogram_drawERNS_8ImageBufERKSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %histogram) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i.i.i.i = alloca %struct.timespec, align 8
   %logtimer = alloca %"class.OpenImageIO_v2_6_0::pvt::LoggedTimer", align 8
@@ -32896,7 +32896,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -33584,7 +33584,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3fmt2v812format_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %message) unnamed_addr #5 comdat align 2 {
@@ -39134,7 +39134,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %x) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -46881,7 +46881,7 @@ return:                                           ; preds = %if.end74, %if.end30
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_11write_bytesILS4_2EcS5_EET1_S7_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EEEUlS5_E_EESB_SB_RKNSA_IS7_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #5 comdat {
@@ -54582,7 +54582,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp.i.i.i.i.i, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %for.body.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %5, ptr %id.coerce0, i64 %.other.coerce1.i.i.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %5, ptr %id.coerce0, i64 %.other.coerce1.i.i.i.i)
   %cmp6.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   %6 = icmp eq i64 %call.i8.i.i, %id.coerce1
   %or.cond.i.i = select i1 %cmp6.i.i.i.i, i1 %6, i1 false
@@ -55728,7 +55728,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i.i.i, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %for.body.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
   %cmp6.i.i.i = icmp eq i32 %bcmp.i.i, 0
   %6 = icmp eq i64 %call.i8.i, %name.coerce1
   %or.cond.i = select i1 %cmp6.i.i.i, i1 %6, i1 false
@@ -63732,7 +63732,7 @@ if.then.i.i:                                      ; preds = %cond.true
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
 
 _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit: ; preds = %cond.true, %if.then.i.i
-  %call.i = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %out.coerce, ptr %s, i64 %call.i5, ptr noundef nonnull align 4 dereferenceable(16) %specs)
+  %call.i = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %out.coerce, ptr nonnull %s, i64 %call.i5, ptr noundef nonnull align 4 dereferenceable(16) %specs)
   br label %cond.end
 
 cond.false:                                       ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit
@@ -64308,7 +64308,7 @@ if.end:                                           ; preds = %_ZN3fmt2v812system_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #16
@@ -65239,7 +65239,7 @@ if.end94:                                         ; preds = %for.body.i.i.i58, %
 declare void @_ZNK18OpenImageIO_v2_6_08ImageBuf5errorENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -65690,7 +65690,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IfEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -65869,7 +65869,7 @@ declare void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase12release_tileEv(ptr
 declare i32 @sched_yield() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -66329,7 +66329,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IfEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -66371,7 +66371,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 declare double @llvm.sqrt.f64(double) #9
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IhEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IhEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -66822,7 +66822,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IhEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IhEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IhEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -66884,7 +66884,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IhEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IhEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -67333,7 +67333,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IhEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IhEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IhEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -67372,7 +67372,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_I4halfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSG_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_I4halfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSG_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -67823,7 +67823,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_I4halfEEbRKNS0_8Im
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_I4halfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_I4halfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -67885,7 +67885,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_I4halfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSG_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_I4halfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSG_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -68348,7 +68348,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_I4halfEEbRKNS0_8Im
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_I4halfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_I4halfEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -68387,7 +68387,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_ItEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_ItEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -68838,7 +68838,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_ItEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_ItEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_ItEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -68900,7 +68900,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_ItEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_ItEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -69349,7 +69349,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_ItEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_ItEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_ItEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -69388,7 +69388,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IcEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IcEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -69839,7 +69839,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IcEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IcEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IcEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -69901,7 +69901,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IcEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IcEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -70351,7 +70351,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IcEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IcEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IcEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -70390,7 +70390,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IsEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IsEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -70841,7 +70841,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IsEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IsEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IsEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -70903,7 +70903,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IsEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IsEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -71353,7 +71353,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IsEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IsEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IsEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -71392,7 +71392,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IjEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IjEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -71843,7 +71843,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IjEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IjEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IjEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -71905,7 +71905,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IjEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IjEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -72354,7 +72354,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IjEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IjEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IjEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -72393,7 +72393,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IiEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IiEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -72844,7 +72844,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IiEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IiEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IiEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -72906,7 +72906,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IiEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IiEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -73356,7 +73356,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IiEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IiEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IiEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -73395,7 +73395,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IdEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IdEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -73846,7 +73846,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IdEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IdEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IdEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -73908,7 +73908,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IdEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IdEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E9_M_invokeERKSt9_Any_dataOlSF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subroi.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %tmp.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
@@ -74369,7 +74369,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18computePixelStats_IdEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IdEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L18computePixelStats_IdEEbRKNS1_8ImageBufERNS1_12ImageBufAlgo10PixelStatsENS1_3ROIEiEUlllE0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -74788,7 +74788,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -74973,7 +74973,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IfEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -75012,7 +75012,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -75202,7 +75202,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IfEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -75264,7 +75264,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IhEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IhEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.203", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -75449,7 +75449,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IhEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IhEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IhEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -75488,7 +75488,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IhEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IhEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -75681,7 +75681,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IhEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IhEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IhEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -75743,7 +75743,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_I4halfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_I4halfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.213", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -75934,7 +75934,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_I4halfEEbRKNS0_8Imag
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_I4halfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_I4halfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -75973,7 +75973,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_I4halfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_I4halfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -76169,7 +76169,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_I4halfEEbRKNS0_8Imag
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_I4halfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_I4halfEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -76231,7 +76231,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_ItEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_ItEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.223", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -76416,7 +76416,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_ItEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_ItEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_ItEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -76455,7 +76455,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_ItEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_ItEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -76648,7 +76648,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_ItEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_ItEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_ItEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -76792,7 +76792,7 @@ declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IcEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IcEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.230", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -76977,7 +76977,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IcEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IcEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IcEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -77016,7 +77016,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IcEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IcEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.170", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -77209,7 +77209,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IcEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IcEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IcEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -77271,7 +77271,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IsEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IsEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.240", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -77456,7 +77456,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IsEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IsEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IsEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -77495,7 +77495,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IsEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IsEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.175", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -77688,7 +77688,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IsEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IsEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IsEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -77750,7 +77750,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IjEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IjEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.247", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -77935,7 +77935,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IjEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IjEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IjEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -77974,7 +77974,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IjEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IjEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.180", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -78167,7 +78167,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IjEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IjEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IjEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -78229,7 +78229,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IiEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IiEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.254", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -78414,7 +78414,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IiEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IiEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IiEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -78453,7 +78453,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IiEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IiEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.185", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -78646,7 +78646,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IiEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IiEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IiEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -78708,7 +78708,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IdEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IdEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.259", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -78893,7 +78893,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IdEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IdEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IdEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -78932,7 +78932,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IdEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IdEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.190", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -79125,7 +79125,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L16isConstantColor_IdEEbRKNS0_8ImageBuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IdEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L16isConstantColor_IdEEbRKNS0_8ImageBufEfNS0_4spanIfLln1EEES1_iEUlS1_E0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -79167,7 +79167,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 declare double @llvm.fabs.f64(double) #9
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IfEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IfEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %s11.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
@@ -79483,7 +79483,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18isConstantChannel_IfEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IfEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IfEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -79522,7 +79522,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IhEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IhEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.203", align 8
   %s12.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
@@ -79849,7 +79849,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18isConstantChannel_IhEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IhEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IhEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -79888,7 +79888,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_I4halfEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_I4halfEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.213", align 8
   %s14.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
@@ -80247,7 +80247,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18isConstantChannel_I4halfEEbRKNS0_8Im
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_I4halfEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_I4halfEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -80288,7 +80288,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 declare noundef signext i16 @_ZN4half7convertEi(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_ItEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_ItEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.223", align 8
   %s12.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
@@ -80615,7 +80615,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18isConstantChannel_ItEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_ItEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_ItEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -80654,7 +80654,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IcEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IcEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.230", align 8
   %s12.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.170", align 8
@@ -80981,7 +80981,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18isConstantChannel_IcEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IcEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IcEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -81020,7 +81020,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IsEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IsEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.240", align 8
   %s12.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.175", align 8
@@ -81347,7 +81347,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18isConstantChannel_IsEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IsEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IsEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -81386,7 +81386,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IjEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IjEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.247", align 8
   %s11.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.180", align 8
@@ -81714,7 +81714,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18isConstantChannel_IjEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IjEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IjEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -81753,7 +81753,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IiEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IiEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.254", align 8
   %s11.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.185", align 8
@@ -82081,7 +82081,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18isConstantChannel_IiEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IiEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IiEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -82120,7 +82120,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IdEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IdEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.259", align 8
   %s11.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.190", align 8
@@ -82438,7 +82438,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18isConstantChannel_IdEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IdEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18isConstantChannel_IdEEbRKNS0_8ImageBufEiffS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -82477,7 +82477,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IfEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IfEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %s18.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
@@ -82809,7 +82809,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L13isMonochrome_IfEEbRKNS0_8ImageBufEfN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IfEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IfEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -82848,7 +82848,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IhEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IhEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.203", align 8
   %s19.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
@@ -83184,7 +83184,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L13isMonochrome_IhEEbRKNS0_8ImageBufEfN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IhEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IhEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -83223,7 +83223,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_I4halfEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_I4halfEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.213", align 8
   %s21.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
@@ -83567,7 +83567,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L13isMonochrome_I4halfEEbRKNS0_8ImageBu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_I4halfEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_I4halfEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -83606,7 +83606,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_ItEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_ItEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.223", align 8
   %s19.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
@@ -83942,7 +83942,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L13isMonochrome_ItEEbRKNS0_8ImageBufEfN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_ItEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_ItEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -83981,7 +83981,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IcEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IcEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.230", align 8
   %s19.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.170", align 8
@@ -84317,7 +84317,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L13isMonochrome_IcEEbRKNS0_8ImageBufEfN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IcEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IcEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -84356,7 +84356,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IsEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IsEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.240", align 8
   %s19.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.175", align 8
@@ -84692,7 +84692,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L13isMonochrome_IsEEbRKNS0_8ImageBufEfN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IsEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IsEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -84731,7 +84731,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IjEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IjEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.247", align 8
   %s18.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.180", align 8
@@ -85067,7 +85067,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L13isMonochrome_IjEEbRKNS0_8ImageBufEfN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IjEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IjEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -85106,7 +85106,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IiEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IiEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.254", align 8
   %s18.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.185", align 8
@@ -85442,7 +85442,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L13isMonochrome_IiEEbRKNS0_8ImageBufEfN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IiEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IiEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -85481,7 +85481,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IdEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IdEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.259", align 8
   %s18.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.190", align 8
@@ -85815,7 +85815,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L13isMonochrome_IdEEbRKNS0_8ImageBufEfN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IdEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L13isMonochrome_IdEEbRKNS0_8ImageBufEfS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -85854,7 +85854,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IfEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IfEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
@@ -85866,7 +85866,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IfEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IfEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -85905,7 +85905,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IfEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IfEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %0 = load ptr, ptr %this, align 8
@@ -86156,7 +86156,7 @@ for.end44:                                        ; preds = %for.body36, %_ZN18O
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IhEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IhEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
@@ -86168,7 +86168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IhEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IhEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -86207,7 +86207,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IhEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IhEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
   %0 = load ptr, ptr %this, align 8
@@ -86460,7 +86460,7 @@ for.end44:                                        ; preds = %for.body36, %_ZN18O
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_I4halfEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSC_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_I4halfEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSC_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
@@ -86472,7 +86472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_I4halfEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSC_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_I4halfEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSC_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -86511,7 +86511,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_I4halfEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS9_NS_3ROIEiENKUlSA_E_clESA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_I4halfEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS9_NS_3ROIEiENKUlSA_E_clESA_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
   %0 = load ptr, ptr %this, align 8
@@ -86765,7 +86765,7 @@ for.end44:                                        ; preds = %for.body36, %_ZN18O
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_ItEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_ItEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
@@ -86777,7 +86777,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_ItEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_ItEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -86816,7 +86816,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_ItEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_ItEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
   %0 = load ptr, ptr %this, align 8
@@ -87069,7 +87069,7 @@ for.end44:                                        ; preds = %for.body36, %_ZN18O
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IcEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IcEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
@@ -87081,7 +87081,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IcEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IcEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -87120,7 +87120,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IcEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IcEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.170", align 8
   %0 = load ptr, ptr %this, align 8
@@ -87373,7 +87373,7 @@ for.end44:                                        ; preds = %for.body36, %_ZN18O
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IsEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IsEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
@@ -87385,7 +87385,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IsEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IsEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -87424,7 +87424,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IsEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IsEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.175", align 8
   %0 = load ptr, ptr %this, align 8
@@ -87677,7 +87677,7 @@ for.end44:                                        ; preds = %for.body36, %_ZN18O
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IjEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IjEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
@@ -87689,7 +87689,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IjEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IjEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -87728,7 +87728,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IjEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IjEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.180", align 8
   %0 = load ptr, ptr %this, align 8
@@ -87981,7 +87981,7 @@ for.end44:                                        ; preds = %for.body36, %_ZN18O
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IiEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IiEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
@@ -87993,7 +87993,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IiEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IiEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -88032,7 +88032,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IiEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IiEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.185", align 8
   %0 = load ptr, ptr %this, align 8
@@ -88285,7 +88285,7 @@ for.end44:                                        ; preds = %for.body36, %_ZN18O
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IdEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IdEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
@@ -88297,7 +88297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IdEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L12color_count_IdEEbRKNS0_8ImageBufEPSt6atomicIxEiPKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -88336,7 +88336,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IdEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN18OpenImageIO_v2_6_0L12color_count_IdEEbRKNS_8ImageBufEPSt6atomicIxEiPKfS8_NS_3ROIEiENKUlS9_E_clES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.190", align 8
   %0 = load ptr, ptr %this, align 8
@@ -88588,7 +88588,7 @@ for.end44:                                        ; preds = %for.body36, %_ZN18O
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IfEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IfEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -88859,7 +88859,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18color_range_check_IfEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IfEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IfEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -88898,7 +88898,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IhEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IhEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -89171,7 +89171,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18color_range_check_IhEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IhEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IhEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -89210,7 +89210,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_I4halfEEbRKNS0_8ImageBufEPSt6atomicIxESA_SA_PKfSC_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_I4halfEEbRKNS0_8ImageBufEPSt6atomicIxESA_SA_PKfSC_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -89484,7 +89484,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18color_range_check_I4halfEEbRKNS0_8Im
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_I4halfEEbRKNS0_8ImageBufEPSt6atomicIxESA_SA_PKfSC_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_I4halfEEbRKNS0_8ImageBufEPSt6atomicIxESA_SA_PKfSC_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -89523,7 +89523,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_ItEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_ItEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -89796,7 +89796,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18color_range_check_ItEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_ItEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_ItEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -89835,7 +89835,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IcEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IcEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.170", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -90108,7 +90108,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18color_range_check_IcEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IcEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IcEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -90147,7 +90147,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IsEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IsEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.175", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -90420,7 +90420,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18color_range_check_IsEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IsEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IsEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -90459,7 +90459,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IjEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IjEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.180", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -90732,7 +90732,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18color_range_check_IjEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IjEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IjEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -90771,7 +90771,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IiEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IiEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.185", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -91044,7 +91044,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18color_range_check_IiEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IiEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IiEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -91083,7 +91083,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IdEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IdEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.190", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -91355,7 +91355,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L18color_range_check_IdEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IdEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L18color_range_check_IdEEbRKNS0_8ImageBufEPSt6atomicIxES9_S9_PKfSB_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -91394,7 +91394,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS1_8ImageBufENS1_17basic_string_viewIcSt11char_traitsIcEEENS1_3ROIEiiE3$_0E9_M_invokeERKSt9_Any_dataOlSG_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS1_8ImageBufENS1_17basic_string_viewIcSt11char_traitsIcEEENS1_3ROIEiiE3$_0E9_M_invokeERKSt9_Any_dataOlSG_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i.i.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -91445,7 +91445,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS1_8ImageBufENS1_17basic_string_viewIcSt11char_traitsIcEEENS1_3ROIEiiE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_012ImageBufAlgo20computePixelHashSHA1B5cxx11ERKNS1_8ImageBufENS1_17basic_string_viewIcSt11char_traitsIcEEENS1_3ROIEiiE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -91585,7 +91585,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIfEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIfEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -91952,7 +91952,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L14histogram_implIfEEbRKNS0_8ImageBufEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIfEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIfEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -92000,7 +92000,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIhEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIhEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -92371,7 +92371,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L14histogram_implIhEEbRKNS0_8ImageBufEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIhEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIhEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -92410,7 +92410,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implI4halfEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implI4halfEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -92783,7 +92783,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L14histogram_implI4halfEEbRKNS0_8ImageB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implI4halfEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implI4halfEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -92822,7 +92822,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implItEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implItEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -93193,7 +93193,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L14histogram_implItEEbRKNS0_8ImageBufEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implItEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implItEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -93232,7 +93232,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIcEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIcEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.170", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -93603,7 +93603,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L14histogram_implIcEEbRKNS0_8ImageBufEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIcEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIcEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -93642,7 +93642,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIsEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIsEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.175", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -94013,7 +94013,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L14histogram_implIsEEbRKNS0_8ImageBufEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIsEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIsEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -94052,7 +94052,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIjEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIjEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.180", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -94423,7 +94423,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L14histogram_implIjEEbRKNS0_8ImageBufEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIjEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIjEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -94462,7 +94462,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIiEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIiEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.185", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -94833,7 +94833,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L14histogram_implIiEEbRKNS0_8ImageBufEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIiEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIiEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -94872,7 +94872,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIdEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIdEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.190", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -95241,7 +95241,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L14histogram_implIdEEbRKNS0_8ImageBufEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIdEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L14histogram_implIdEEbRKNS0_8ImageBufEiRSt6vectorImSaImEEiffbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -95428,7 +95428,7 @@ entry:
 declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #20
@@ -95446,10 +95446,10 @@ declare i32 @llvm.smin.i32(i32, i32) #20
 declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #20

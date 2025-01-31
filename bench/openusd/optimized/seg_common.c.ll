@@ -7,17 +7,17 @@ target triple = "x86_64-pc-linux-gnu"
 @seg_feature_data_signed = internal unnamed_addr constant [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 0, i32 0, i32 0], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_clearall_segfeatures(ptr nocapture noundef writeonly initializes((4, 164)) %0) local_unnamed_addr #0 {
+define hidden void @av1_clearall_segfeatures(ptr noundef writeonly captures(none) initializes((4, 164)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %2, i8 0, i64 160, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_calculate_segdata(ptr nocapture noundef initializes((164, 169)) %0) local_unnamed_addr #2 {
+define hidden void @av1_calculate_segdata(ptr noundef captures(none) initializes((164, 169)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i8 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -65,7 +65,7 @@ define hidden void @av1_calculate_segdata(ptr nocapture noundef initializes((164
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_enable_segfeature(ptr nocapture noundef %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #3 {
+define hidden void @av1_enable_segfeature(ptr noundef captures(none) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = zext nneg i8 %2 to i32
   %5 = shl nuw i32 1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -94,7 +94,7 @@ define hidden i32 @av1_is_segfeature_signed(i8 noundef zeroext %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_set_segdata(ptr nocapture noundef writeonly %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @av1_set_segdata(ptr noundef writeonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = trunc i32 %3 to i16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = sext i32 %1 to i64

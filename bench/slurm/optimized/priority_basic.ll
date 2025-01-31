@@ -44,7 +44,7 @@ define noundef i32 @fini() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 1, 0) i32 @priority_p_set(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 1, 0) i32 @priority_p_set(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %4 = load i16, ptr %3, align 8
   %.not = icmp eq i16 %4, 0
@@ -107,7 +107,7 @@ define i32 @priority_p_recover(i32 noundef %0) local_unnamed_addr #0 {
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_foreach_job_boost_prio(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #4 {
+define internal noundef i32 @_foreach_job_boost_prio(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %5 = load i32, ptr %4, align 8
@@ -135,7 +135,7 @@ define void @priority_p_reconfig(i1 noundef zeroext %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @priority_p_set_assoc_usage(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
+define void @priority_p_set_assoc_usage(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   ret void
 }
 
@@ -171,7 +171,7 @@ define ptr @priority_p_get_priority_factors_list(i32 noundef %0) local_unnamed_a
 declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @priority_p_job_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.assoc_mgr_lock_t, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 944
@@ -360,7 +360,7 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

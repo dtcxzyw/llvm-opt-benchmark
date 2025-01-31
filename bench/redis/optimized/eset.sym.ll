@@ -41,7 +41,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i64 @eset_npages_get(ptr nocapture noundef readonly %eset) local_unnamed_addr #1 {
+define hidden i64 @eset_npages_get(ptr noundef readonly captures(none) %eset) local_unnamed_addr #1 {
 entry:
   %npages = getelementptr inbounds nuw i8, ptr %eset, i64 9640
   %0 = load atomic i64, ptr %npages monotonic, align 8
@@ -49,7 +49,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i64 @eset_nextents_get(ptr nocapture noundef readonly %eset, i32 noundef %pind) local_unnamed_addr #1 {
+define hidden i64 @eset_nextents_get(ptr noundef readonly captures(none) %eset, i32 noundef %pind) local_unnamed_addr #1 {
 entry:
   %bin_stats = getelementptr inbounds nuw i8, ptr %eset, i64 6432
   %idxprom = zext i32 %pind to i64
@@ -59,7 +59,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i64 @eset_nbytes_get(ptr nocapture noundef readonly %eset, i32 noundef %pind) local_unnamed_addr #1 {
+define hidden i64 @eset_nbytes_get(ptr noundef readonly captures(none) %eset, i32 noundef %pind) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i32 %pind to i64
   %nbytes.idx = shl nuw nsw i64 %idxprom, 4
@@ -687,7 +687,7 @@ return:                                           ; preds = %fb_ffs.exit49.i, %d
 declare void @edata_heap_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4

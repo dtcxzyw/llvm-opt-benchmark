@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_datatype_basicDatatypes = external local_unnamed_addr global [28 x ptr], align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_convertor_create_stack_with_pos_general(ptr noundef initializes((104, 108)) %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define noundef i32 @opal_convertor_create_stack_with_pos_general(ptr noundef initializes((104, 108)) %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104

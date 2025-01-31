@@ -215,7 +215,7 @@ define dso_local ptr @CreateWaitEventSet(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @AddWaitEventToSet(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @AddWaitEventToSet(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq i32 %1, 32
   br i1 %6, label %7, label %9
 
@@ -390,7 +390,7 @@ define dso_local void @FreeWaitEventSet(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @InitLatch(ptr nocapture noundef writeonly initializes((0, 9), (12, 16)) %0) local_unnamed_addr #4 {
+define dso_local void @InitLatch(ptr noundef writeonly captures(none) initializes((0, 9), (12, 16)) %0) local_unnamed_addr #4 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -403,7 +403,7 @@ define dso_local void @InitLatch(ptr nocapture noundef writeonly initializes((0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @InitSharedLatch(ptr nocapture noundef writeonly initializes((0, 9), (12, 16)) %0) local_unnamed_addr #5 {
+define dso_local void @InitSharedLatch(ptr noundef writeonly captures(none) initializes((0, 9), (12, 16)) %0) local_unnamed_addr #5 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -415,7 +415,7 @@ define dso_local void @InitSharedLatch(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @OwnLatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @OwnLatch(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -435,7 +435,7 @@ define dso_local void @OwnLatch(ptr nocapture noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @DisownLatch(ptr nocapture noundef writeonly initializes((12, 16)) %0) local_unnamed_addr #5 {
+define dso_local void @DisownLatch(ptr noundef writeonly captures(none) initializes((12, 16)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
   ret void
@@ -467,7 +467,7 @@ define dso_local i32 @WaitLatch(ptr noundef %0, i32 noundef %1, i64 noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ModifyWaitEvent(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @ModifyWaitEvent(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
@@ -549,7 +549,7 @@ define dso_local void @ModifyWaitEvent(ptr nocapture noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, -1) i32 @WaitEventSetWait(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, -1) i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca [1024 x i8], align 16
   %8 = alloca %struct.timespec, align 8
@@ -1029,7 +1029,7 @@ FreeWaitEventSet.exit:                            ; preds = %52, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SetLatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @SetLatch(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   %2 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %2, 0
@@ -1071,7 +1071,7 @@ define dso_local void @SetLatch(ptr nocapture noundef %0) local_unnamed_addr #0 
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ResetLatch(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #0 {
+define dso_local void @ResetLatch(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
   ret void
@@ -1099,7 +1099,7 @@ define dso_local void @FreeWaitEventSetAfterFork(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @WaitEventAdjustEpoll(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
+define internal fastcc void @WaitEventAdjustEpoll(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
   %4 = alloca %struct.epoll_event, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store ptr %1, ptr %5, align 4
@@ -1156,7 +1156,7 @@ define dso_local noundef zeroext i1 @WaitEventSetCanReportClosed() local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @GetNumRegisteredWaitEvents(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local i32 @GetNumRegisteredWaitEvents(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -1200,16 +1200,16 @@ declare zeroext i1 @PostmasterIsAliveInternal() local_unnamed_addr #1
 declare void @proc_exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13

@@ -467,7 +467,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare ptr @SUNBandMatrixStorage(i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @SUNMatDestroy(ptr noundef) local_unnamed_addr #1
 
@@ -544,7 +544,7 @@ define internal noundef i32 @ARKBBDPrecFree(ptr noundef %0) #0 {
 declare i32 @arkLSSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ARKBBDPrecSetup(double noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, double noundef %5, ptr nocapture noundef %6) #0 {
+define internal i32 @ARKBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, double noundef %5, ptr noundef captures(none) %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq i32 %3, 0
@@ -907,7 +907,7 @@ ARKBBDDQJac.exit:                                 ; preds = %._crit_edge.i, %35,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ARKBBDPrecSolve(double %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, double %5, double %6, i32 %7, ptr nocapture noundef readonly %8) #0 {
+define internal i32 @ARKBBDPrecSolve(double %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, double %5, double %6, i32 %7, ptr noundef readonly captures(none) %8) #0 {
   %10 = tail call ptr @N_VGetArrayPointer(ptr noundef %3) #8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %12 = load ptr, ptr %11, align 8
@@ -991,7 +991,7 @@ define i32 @ARKBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, dou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ARKBBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @ARKBBDPrecGetWorkSpace(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = call i32 @arkLs_AccessLMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKBBDPrecGetWorkSpace, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -1025,7 +1025,7 @@ define i32 @ARKBBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ARKBBDPrecGetNumGfnEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @ARKBBDPrecGetNumGfnEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = call i32 @arkLs_AccessLMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKBBDPrecGetNumGfnEvals, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -1085,7 +1085,7 @@ declare i64 @llvm.smax.i64(i64, i64) #6
 declare i64 @llvm.smin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

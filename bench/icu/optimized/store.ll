@@ -55,7 +55,7 @@ entry:
 declare void @u_versionFromString_75(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define dso_local void @setUnicodeVersionNC(ptr nocapture noundef readonly %version) local_unnamed_addr #2 {
+define dso_local void @setUnicodeVersionNC(ptr noundef readonly captures(none) %version) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %version, align 1
   %conv = zext i8 %0 to i32
@@ -103,7 +103,7 @@ declare noalias ptr @uprv_calloc_75(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @utrie_open_75(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @storeMapping(i32 noundef %codepoint, ptr nocapture noundef readonly %mapping, i32 noundef %length, i32 noundef %type, ptr noundef %status) local_unnamed_addr #0 {
+define dso_local void @storeMapping(i32 noundef %codepoint, ptr noundef readonly captures(none) %mapping, i32 noundef %length, i32 noundef %type, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @hashTable, align 8
   %cmp = icmp eq ptr %0, null
@@ -343,7 +343,7 @@ declare ptr @uhash_iput_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef) l
 declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @storeRange(i32 noundef %start, i32 noundef %end, i32 noundef %type, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local void @storeRange(i32 noundef %start, i32 noundef %end, i32 noundef %type, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %add = add i32 %type, 65520
   %cmp = icmp sgt i32 %add, 65535
@@ -677,7 +677,7 @@ if.end:                                           ; preds = %storeMappingData.ex
 if.then8:                                         ; preds = %if.end
   %call9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %call2)
   %conv10 = sext i32 %add6 to i64
-  %call11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %bundleName, i64 noundef %conv10)
+  %call11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull %bundleName, i64 noundef %conv10)
   %37 = load i32, ptr @mappingDataCapacity, align 4
   %mul12 = shl nsw i32 %37, 1
   %call13 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %mul12)
@@ -755,7 +755,7 @@ if.end44:                                         ; preds = %if.then43, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @utrie_serialize_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #1
 
@@ -789,10 +789,10 @@ return:                                           ; preds = %if.end5, %if.else
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 declare ptr @udata_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -825,13 +825,13 @@ declare ptr @uhash_nextElement_75(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @u_memmove_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

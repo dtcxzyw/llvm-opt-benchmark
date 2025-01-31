@@ -90,7 +90,7 @@ declare void @sk_free(ptr noundef) local_unnamed_addr #1
 declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @exnode_free(ptr nocapture noundef %node) #2 {
+define internal void @exnode_free(ptr noundef captures(none) %node) #2 {
 entry:
   %0 = load ptr, ptr %node, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -117,10 +117,10 @@ declare void @policy_node_free(ptr noundef) #1
 declare void @policy_data_free(ptr noundef) #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr nocapture noundef writeonly initializes((0, 8)) %ptree, ptr nocapture noundef initializes((0, 4)) %pexplicit_policy, ptr noundef %certs, ptr noundef %policy_oids, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly captures(none) initializes((0, 8)) %ptree, ptr noundef captures(none) initializes((0, 4)) %pexplicit_policy, ptr noundef %certs, ptr noundef %policy_oids, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %auth_nodes = alloca ptr, align 8
   store ptr null, ptr %auth_nodes, align 8
@@ -1048,7 +1048,7 @@ declare ptr @policy_cache_set(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @policy_data_new(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

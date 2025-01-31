@@ -212,7 +212,7 @@ if.then72.i:                                      ; preds = %if.else69.i
   br i1 %tobool74.not.i, label %if.else99.i, label %for.inc.i
 
 if.else77.i:                                      ; preds = %if.else69.i
-  %call78.i = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %e.2.i, ptr noundef %retval.0.i39.i, ptr noundef %spec.store.select.i, i32 noundef 0) #4
+  %call78.i = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %e.2.i, ptr noundef nonnull %retval.0.i39.i, ptr noundef %spec.store.select.i, i32 noundef 0) #4
   %tobool79.not.i = icmp eq i32 %call78.i, 0
   br i1 %tobool79.not.i, label %if.else99.i, label %for.inc.i
 
@@ -300,7 +300,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @int_engine_module_finish(ptr nocapture readnone %md) #0 {
+define internal void @int_engine_module_finish(ptr readnone captures(none) %md) #0 {
 entry:
   %0 = load ptr, ptr @initialized_engines, align 8
   %call.i1 = tail call ptr @OPENSSL_sk_pop(ptr noundef %0) #4
@@ -337,7 +337,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @ENGINE_by_id(ptr noundef) local_unnamed_addr #1
 
@@ -367,10 +367,10 @@ declare ptr @OPENSSL_sk_pop(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

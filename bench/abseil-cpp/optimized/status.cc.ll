@@ -660,7 +660,7 @@ lpad:                                             ; preds = %init
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl6StatusC2ENS_10StatusCodeESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %code, i64 %msg.coerce0, ptr %msg.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl6StatusC2ENS_10StatusCodeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, i32 noundef %code, i64 %msg.coerce0, ptr %msg.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -1064,7 +1064,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl9IsAbortedERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl9IsAbortedERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1090,7 +1090,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl15IsAlreadyExistsERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl15IsAlreadyExistsERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1116,7 +1116,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl11IsCancelledERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl11IsCancelledERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1142,7 +1142,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl10IsDataLossERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl10IsDataLossERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1168,7 +1168,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl18IsDeadlineExceededERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl18IsDeadlineExceededERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1194,7 +1194,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl20IsFailedPreconditionERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl20IsFailedPreconditionERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1220,7 +1220,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl10IsInternalERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl10IsInternalERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1246,7 +1246,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl17IsInvalidArgumentERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl17IsInvalidArgumentERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1272,7 +1272,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl10IsNotFoundERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl10IsNotFoundERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1298,7 +1298,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl12IsOutOfRangeERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl12IsOutOfRangeERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1324,7 +1324,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl18IsPermissionDeniedERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl18IsPermissionDeniedERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1350,7 +1350,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl19IsResourceExhaustedERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl19IsResourceExhaustedERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1376,7 +1376,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl17IsUnauthenticatedERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl17IsUnauthenticatedERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1402,7 +1402,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13IsUnavailableERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl13IsUnavailableERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1428,7 +1428,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl15IsUnimplementedERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl15IsUnimplementedERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1454,7 +1454,7 @@ _ZNK4absl6Status4codeEv.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl9IsUnknownERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4absl9IsUnknownERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i.i = and i64 %0, 1
@@ -1564,7 +1564,7 @@ lpad:                                             ; preds = %_ZN4absl12_GLOBAL__
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4absl19StatusMessageAsCStrERKNS_6StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4absl19StatusMessageAsCStrERKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %status, align 8
   %and.i.i = and i64 %0, 1
@@ -1658,7 +1658,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare noundef i32 @_ZN4absl15status_internal14MapToLocalCodeEi(i32 noundef) local_unnamed_addr #0
 
@@ -1846,10 +1846,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

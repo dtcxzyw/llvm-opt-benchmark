@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden range(i64 0, -71776119061217280) i64 @_ZN4core4hash3sip9u8to64_le17h85cd46293a33b68bE(ptr nocapture readonly align 1 %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 {
+define hidden range(i64 0, -71776119061217280) i64 @_ZN4core4hash3sip9u8to64_le17h85cd46293a33b68bE(ptr readonly align 1 captures(none) %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = icmp ugt i64 %3, 3
   br i1 %5, label %6, label %9
 
@@ -57,7 +57,7 @@ define hidden range(i64 0, -71776119061217280) i64 @_ZN4core4hash3sip9u8to64_le1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..hash..sip..Sip$GT$8c_rounds17h75d6cab168b99a05E"(ptr nocapture align 8 %0) unnamed_addr #1 {
+define hidden void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..hash..sip..Sip$GT$8c_rounds17h75d6cab168b99a05E"(ptr align 8 captures(none) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3
@@ -87,7 +87,7 @@ define hidden void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..has
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..hash..sip..Sip$GT$8d_rounds17h058543a58579d190E"(ptr nocapture align 8 %0) unnamed_addr #1 {
+define hidden void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..hash..sip..Sip$GT$8d_rounds17h058543a58579d190E"(ptr align 8 captures(none) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3

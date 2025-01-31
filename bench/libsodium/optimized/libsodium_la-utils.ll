@@ -127,7 +127,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nounwind ssp memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define range(i32 0, 2) i32 @sodium_is_zero(ptr nocapture noundef readonly %n, i64 noundef %nlen) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @sodium_is_zero(ptr noundef readonly captures(none) %n, i64 noundef %nlen) local_unnamed_addr #2 {
 entry:
   %d = alloca i8, align 1
   store volatile i8 0, ptr %d, align 1
@@ -409,7 +409,7 @@ return:                                           ; preds = %if.end4.i, %if.end4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind ssp uwtable
 define noalias noundef ptr @sodium_allocarray(i64 noundef %count, i64 noundef %size) local_unnamed_addr #0 {
@@ -513,7 +513,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: cold noreturn nounwind ssp uwtable
 define internal fastcc void @_out_of_bounds() unnamed_addr #8 {
@@ -599,7 +599,7 @@ _sodium_mprotect.exit:                            ; preds = %entry
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define range(i32 -1, 1) i32 @sodium_pad(ptr noundef writeonly %padded_buflen_p, ptr nocapture noundef nonnull %buf, i64 noundef %unpadded_buflen, i64 noundef %blocksize, i64 noundef %max_buflen) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sodium_pad(ptr noundef writeonly %padded_buflen_p, ptr noundef nonnull captures(none) %buf, i64 noundef %unpadded_buflen, i64 noundef %blocksize, i64 noundef %max_buflen) local_unnamed_addr #0 {
 entry:
   %mask = alloca i8, align 1
   %cmp = icmp eq i64 %blocksize, 0
@@ -678,7 +678,7 @@ return:                                           ; preds = %for.body, %if.end12
 }
 
 ; Function Attrs: nofree norecurse nounwind ssp memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -1, 1) i32 @sodium_unpad(ptr nocapture noundef writeonly %unpadded_buflen_p, ptr nocapture noundef nonnull readonly %buf, i64 noundef %padded_buflen, i64 noundef %blocksize) local_unnamed_addr #9 {
+define range(i32 -1, 1) i32 @sodium_unpad(ptr noundef writeonly captures(none) %unpadded_buflen_p, ptr noundef nonnull readonly captures(none) %buf, i64 noundef %padded_buflen, i64 noundef %blocksize) local_unnamed_addr #9 {
 entry:
   %pad_len = alloca i64, align 8
   store volatile i64 0, ptr %pad_len, align 8
@@ -757,10 +757,10 @@ declare i64 @llvm.ctpop.i64(i64) #11
 declare i64 @llvm.fshl.i64(i64, i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

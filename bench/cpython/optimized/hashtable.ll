@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_Py_hashtable_size(ptr nocapture noundef readonly %ht) local_unnamed_addr #1 {
+define dso_local i64 @_Py_hashtable_size(ptr noundef readonly captures(none) %ht) local_unnamed_addr #1 {
 entry:
   %nbuckets = getelementptr inbounds nuw i8, ptr %ht, i64 8
   %0 = load i64, ptr %nbuckets, align 8
@@ -35,14 +35,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_Py_hashtable_len(ptr nocapture noundef readonly %ht) local_unnamed_addr #1 {
+define dso_local i64 @_Py_hashtable_len(ptr noundef readonly captures(none) %ht) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %ht, align 8
   ret i64 %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_hashtable_get_entry_generic(ptr nocapture noundef readonly %ht, ptr noundef %key) #2 {
+define hidden ptr @_Py_hashtable_get_entry_generic(ptr noundef readonly captures(none) %ht, ptr noundef %key) #2 {
 entry:
   %hash_func = getelementptr inbounds nuw i8, ptr %ht, i64 32
   %0 = load ptr, ptr %hash_func, align 8
@@ -85,7 +85,7 @@ return:                                           ; preds = %if.end7, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_Py_hashtable_steal(ptr nocapture noundef %ht, ptr noundef %key) local_unnamed_addr #2 {
+define dso_local ptr @_Py_hashtable_steal(ptr noundef captures(none) %ht, ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %hash_func = getelementptr inbounds nuw i8, ptr %ht, i64 32
   %0 = load ptr, ptr %hash_func, align 8
@@ -233,7 +233,7 @@ return:                                           ; preds = %if.end7, %entry, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_Py_hashtable_set(ptr nocapture noundef %ht, ptr noundef %key, ptr noundef %value) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @_Py_hashtable_set(ptr noundef captures(none) %ht, ptr noundef %key, ptr noundef %value) local_unnamed_addr #2 {
 entry:
   %alloc = getelementptr inbounds nuw i8, ptr %ht, i64 64
   %0 = load ptr, ptr %alloc, align 8
@@ -388,7 +388,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_Py_hashtable_foreach(ptr noundef %ht, ptr nocapture noundef readonly %func, ptr noundef %user_data) local_unnamed_addr #2 {
+define dso_local i32 @_Py_hashtable_foreach(ptr noundef %ht, ptr noundef readonly captures(none) %func, ptr noundef %user_data) local_unnamed_addr #2 {
 entry:
   %nbuckets = getelementptr inbounds nuw i8, ptr %ht, i64 8
   %0 = load i64, ptr %nbuckets, align 8
@@ -499,10 +499,10 @@ declare ptr @PyMem_Malloc(i64 noundef) #3
 declare void @PyMem_Free(ptr noundef) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal ptr @_Py_hashtable_get_entry_ptr(ptr nocapture noundef readonly %ht, ptr noundef %key) #5 {
+define internal ptr @_Py_hashtable_get_entry_ptr(ptr noundef readonly captures(none) %ht, ptr noundef %key) #5 {
 entry:
   %0 = ptrtoint ptr %key to i64
   %or.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 60)
@@ -581,7 +581,7 @@ _Py_hashtable_new_full.exit:                      ; preds = %entry, %if.then10.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_Py_hashtable_clear(ptr nocapture noundef %ht) local_unnamed_addr #2 {
+define dso_local void @_Py_hashtable_clear(ptr noundef captures(none) %ht) local_unnamed_addr #2 {
 entry:
   %nbuckets = getelementptr inbounds nuw i8, ptr %ht, i64 8
   %0 = load i64, ptr %nbuckets, align 8

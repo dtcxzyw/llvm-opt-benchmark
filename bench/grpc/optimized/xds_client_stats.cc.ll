@@ -138,7 +138,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core19XdsClusterDropStatsC2ENS_13RefCountedPtrINS_9XdsClientEEERKNS_12XdsBootstrap9XdsServerESt17basic_string_viewIcSt11char_traitsIcEESB_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 80), (88, 92), (96, 104)) %this, ptr nocapture noundef %xds_client, ptr noundef nonnull align 8 dereferenceable(8) %lrs_server, i64 %cluster_name.coerce0, ptr %cluster_name.coerce1, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %eds_service_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core19XdsClusterDropStatsC2ENS_13RefCountedPtrINS_9XdsClientEEERKNS_12XdsBootstrap9XdsServerESt17basic_string_viewIcSt11char_traitsIcEESB_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 80), (88, 92), (96, 104)) %this, ptr noundef captures(none) %xds_client, ptr noundef nonnull align 8 dereferenceable(8) %lrs_server, i64 %cluster_name.coerce0, ptr %cluster_name.coerce1, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %eds_service_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -280,7 +280,7 @@ ehcleanup27:                                      ; preds = %ehcleanup26, %lpad2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -681,7 +681,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core19XdsClusterDropStats21AddUncategorizedDropsEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN9grpc_core19XdsClusterDropStats21AddUncategorizedDropsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #9 align 2 {
 entry:
   %uncategorized_drops_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = atomicrmw add ptr %uncategorized_drops_, i64 1 seq_cst, align 8
@@ -798,7 +798,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23XdsClusterLocalityStatsC2ENS_13RefCountedPtrINS_9XdsClientEEERKNS_12XdsBootstrap9XdsServerESt17basic_string_viewIcSt11char_traitsIcEESB_NS1_INS_15XdsLocalityNameEEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 72)) %this, ptr nocapture noundef %xds_client, ptr noundef nonnull align 8 dereferenceable(8) %lrs_server, i64 %cluster_name.coerce0, ptr %cluster_name.coerce1, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %eds_service_name, ptr nocapture noundef %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23XdsClusterLocalityStatsC2ENS_13RefCountedPtrINS_9XdsClientEEERKNS_12XdsBootstrap9XdsServerESt17basic_string_viewIcSt11char_traitsIcEESB_NS1_INS_15XdsLocalityNameEEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 72)) %this, ptr noundef captures(none) %xds_client, ptr noundef nonnull align 8 dereferenceable(8) %lrs_server, i64 %cluster_name.coerce0, ptr %cluster_name.coerce1, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %eds_service_name, ptr noundef captures(none) %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i.i = alloca [3 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1050,7 +1050,7 @@ _ZN9grpc_core13RefCountedPtrINS_15XdsLocalityNameEED2Ev.exit: ; preds = %ehclean
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1381,7 +1381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23XdsClusterLocalityStats19GetSnapshotAndResetEv(ptr noalias sret(%"struct.grpc_core::XdsClusterLocalityStats::Snapshot") align 8 initializes((0, 32), (40, 44), (48, 56)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23XdsClusterLocalityStats19GetSnapshotAndResetEv(ptr noalias sret(%"struct.grpc_core::XdsClusterLocalityStats::Snapshot") align 8 initializes((0, 32), (40, 44), (48, 56)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.93", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.96", align 1
@@ -2975,10 +2975,10 @@ declare extern_weak void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E() #0
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

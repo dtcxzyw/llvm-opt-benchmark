@@ -169,10 +169,10 @@ define dso_local void @ieee80211_link_init(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ieee80211_csa_finalize_work(ptr noundef, ptr noundef) #1
@@ -181,7 +181,7 @@ declare dso_local void @ieee80211_csa_finalize_work(ptr noundef, ptr noundef) #1
 declare dso_local void @ieee80211_color_change_finalize_work(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ieee80211_color_collision_detection_work(ptr noundef) #1
@@ -678,7 +678,7 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ieee80211_set_active_links(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
@@ -1134,7 +1134,7 @@ declare dso_local void @wiphy_work_queue(ptr noundef, ptr noundef) local_unnamed
 declare dso_local void @wiphy_delayed_work_timer(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_set_vif_links_bitmaps(ptr nocapture noundef initializes((5056, 5058), (5060, 5062)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_set_vif_links_bitmaps(ptr noundef captures(none) initializes((5056, 5058), (5060, 5062)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4056
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 5056
   store i16 %1, ptr %5, align 8

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_animimg_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_image_class, ptr @lv_animimg_constructor, ptr null, ptr null, ptr null, ptr @.str, i32 0, i32 0, i8 -128, i8 16, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_animimg_constructor(ptr nocapture readnone %0, ptr noundef initializes((248, 257)) %1) #0 {
+define internal void @lv_animimg_constructor(ptr readnone captures(none) %0, ptr noundef initializes((248, 257)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -82,14 +82,14 @@ define void @lv_animimg_set_repeat_count(ptr noundef %0, i32 noundef %1) local_u
 declare void @lv_anim_set_repeat_count(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_animimg_get_src(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_animimg_get_src(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i8 @lv_animimg_get_src_count(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define zeroext i8 @lv_animimg_get_src_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i8, ptr %2, align 8, !tbaa !15
   ret i8 %3

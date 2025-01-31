@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @jmm_interface_management_ext = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_management_internal_HotSpotDiagnostic_dumpHeap0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_com_sun_management_internal_HotSpotDiagnostic_dumpHeap0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @jmm_interface_management_ext, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 240
   %7 = load ptr, ptr %6, align 8

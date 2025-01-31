@@ -180,7 +180,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_intern(ptr nocapture noundef readonly %package) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_intern(ptr noundef readonly captures(none) %package) unnamed_addr #0 {
 entry:
   %bytes.addr.i.i56 = alloca ptr, align 8
   %data.i = alloca ptr, align 8
@@ -544,7 +544,7 @@ declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnam
 declare void @test_openssl_errors() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -9223372036854775803, -9223372036854775808) i64 @make_custom_der(ptr nocapture noundef readonly %custom_data, ptr nocapture noundef nonnull %encoding, i32 noundef range(i32 0, 2) %explicit_default) unnamed_addr #0 {
+define internal fastcc range(i64 -9223372036854775803, -9223372036854775808) i64 @make_custom_der(ptr noundef readonly captures(none) %custom_data, ptr noundef nonnull captures(none) %encoding, i32 noundef range(i32 0, 2) %explicit_default) unnamed_addr #0 {
 entry:
   %nbytes1 = getelementptr inbounds nuw i8, ptr %custom_data, i64 8
   %0 = load i64, ptr %nbytes1, align 8
@@ -841,7 +841,7 @@ return:                                           ; preds = %if.end50, %cond.end
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1021,13 +1021,13 @@ declare ptr @ASN1_item_new(ptr noundef) local_unnamed_addr #1
 declare ptr @DIRECTORYSTRING_it() #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

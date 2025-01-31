@@ -455,7 +455,7 @@ declare void @_ZN6colvar3cvc14get_atom_listsEv(ptr dead_on_unwind writable sret(
 declare void @_ZN6colvar3cvc9read_dataEv(ptr noundef nonnull align 8 dereferenceable(1648)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar8distance10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) initializes((640, 648), (1664, 1688)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar8distance10calc_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1688) initializes((640, 648), (1664, 1688)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -527,7 +527,7 @@ define void @_ZN6colvar8distance10calc_valueEv(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar8distance14calc_gradientsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1688) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar8distance14calc_gradientsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1688) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -575,7 +575,7 @@ declare void @_ZN6colvar3cvc15debug_gradientsEv(ptr noundef nonnull align 8 dere
 declare void @_ZN6colvar3cvc17collect_gradientsERKSt6vectorIiSaIiEERS1_IN12colvarmodule7rvectorESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(1648), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar8distance19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar8distance19calc_force_invgradsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1688) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -672,7 +672,7 @@ define void @_ZN6colvar8distance19calc_force_invgradsEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6colvar8distance24calc_Jacobian_derivativeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) initializes((1144, 1152)) %0) unnamed_addr #3 align 2 {
+define void @_ZN6colvar8distance24calc_Jacobian_derivativeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1688) initializes((1144, 1152)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %3 = load double, ptr %2, align 8
   %4 = fcmp une double %3, 0.000000e+00
@@ -684,7 +684,7 @@ define void @_ZN6colvar8distance24calc_Jacobian_derivativeEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar8distance11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1688) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
+define void @_ZN6colvar8distance11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1688) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1288
@@ -715,7 +715,7 @@ define void @_ZN6colvar8distance11apply_forceERK11colvarvalue(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6colvar8distance5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #4 align 2 {
+define noundef double @_ZNK6colvar8distance5dist2ERK11colvarvalueS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -726,7 +726,7 @@ define noundef double @_ZNK6colvar8distance5dist2ERK11colvarvalueS3_(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar8distance11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar8distance11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
@@ -798,7 +798,7 @@ define linkonce_odr void @_ZN6colvar12distance_vecD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar12distance_vec10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) initializes((648, 672)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar12distance_vec10calc_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1688) initializes((648, 672)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -856,12 +856,12 @@ define void @_ZN6colvar12distance_vec10calc_valueEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6colvar12distance_vec14calc_gradientsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define void @_ZN6colvar12distance_vec14calc_gradientsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar12distance_vec11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1688) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
+define void @_ZN6colvar12distance_vec11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1688) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %5 = load ptr, ptr %4, align 8
@@ -907,7 +907,7 @@ define void @_ZN6colvar12distance_vec11apply_forceERK11colvarvalue(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK6colvar12distance_vec5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(168) %2) unnamed_addr #2 align 2 {
+define noundef double @_ZNK6colvar12distance_vec5dist2ERK11colvarvalueS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(168) %2) unnamed_addr #2 align 2 {
   %4 = alloca %"class.colvarmodule::rvector", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -924,7 +924,7 @@ define noundef double @_ZNK6colvar12distance_vec5dist2ERK11colvarvalueS3_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar12distance_vec11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar12distance_vec11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca %"class.colvarmodule::rvector", align 8
   %6 = alloca %"class.colvarmodule::rvector", align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -949,7 +949,7 @@ define void @_ZNK6colvar12distance_vec11dist2_lgradERK11colvarvalueS3_(ptr dead_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar12distance_vec11dist2_rgradERK11colvarvalueS3_(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar12distance_vec11dist2_rgradERK11colvarvalueS3_(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca %"class.colvarmodule::rvector", align 8
   %6 = alloca %"class.colvarmodule::rvector", align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1002,7 +1002,7 @@ define linkonce_odr void @_ZN6colvar12distance_dirD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar12distance_dir10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) initializes((648, 672), (1664, 1688)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar12distance_dir10calc_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1688) initializes((648, 672), (1664, 1688)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -1085,12 +1085,12 @@ define void @_ZN6colvar12distance_dir10calc_valueEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6colvar12distance_dir14calc_gradientsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define void @_ZN6colvar12distance_dir14calc_gradientsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar12distance_dir11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1688) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
+define void @_ZN6colvar12distance_dir11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1688) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1155,7 +1155,7 @@ define void @_ZN6colvar12distance_dir11apply_forceERK11colvarvalue(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6colvar12distance_dir5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #4 align 2 {
+define noundef double @_ZNK6colvar12distance_dir5dist2ERK11colvarvalueS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load double, ptr %4, align 8, !noalias !38
@@ -1178,7 +1178,7 @@ define noundef double @_ZNK6colvar12distance_dir5dist2ERK11colvarvalueS3_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar12distance_dir11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar12distance_dir11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca %"class.colvarmodule::rvector", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1206,7 +1206,7 @@ define void @_ZNK6colvar12distance_dir11dist2_lgradERK11colvarvalueS3_(ptr dead_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar12distance_dir11dist2_rgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar12distance_dir11dist2_rgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca %"class.colvarmodule::rvector", align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1697,7 +1697,7 @@ define void @_ZN6colvar10distance_z14calc_gradientsEv(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar10distance_z19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1729) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar10distance_z19calc_force_invgradsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1729) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -1777,14 +1777,14 @@ define void @_ZN6colvar10distance_z19calc_force_invgradsEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6colvar10distance_z24calc_Jacobian_derivativeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1729) initializes((1144, 1152)) %0) unnamed_addr #8 align 2 {
+define void @_ZN6colvar10distance_z24calc_Jacobian_derivativeEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1729) initializes((1144, 1152)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store double 0.000000e+00, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar10distance_z11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1729) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
+define void @_ZN6colvar10distance_z11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1729) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1288
@@ -1832,7 +1832,7 @@ define void @_ZN6colvar10distance_z11apply_forceERK11colvarvalue(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZNK6colvar10distance_z5dist2ERK11colvarvalueS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1729) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #9 align 2 {
+define noundef double @_ZNK6colvar10distance_z5dist2ERK11colvarvalueS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1729) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2) unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1862,7 +1862,7 @@ define noundef double @_ZNK6colvar10distance_z5dist2ERK11colvarvalueS3_(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar10distance_z11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1729) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar10distance_z11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1729) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
@@ -1895,7 +1895,7 @@ define void @_ZNK6colvar10distance_z11dist2_lgradERK11colvarvalueS3_(ptr dead_on
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar10distance_z11dist2_rgradERK11colvarvalueS3_(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1729) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar10distance_z11dist2_rgradERK11colvarvalueS3_(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1729) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
@@ -1928,7 +1928,7 @@ define void @_ZNK6colvar10distance_z11dist2_rgradERK11colvarvalueS3_(ptr dead_on
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6colvar10distance_z4wrapER11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1729) %0, ptr nocapture noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #10 align 2 {
+define void @_ZNK6colvar10distance_z4wrapER11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1729) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(168) %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 65
@@ -1985,7 +1985,7 @@ define linkonce_odr void @_ZN6colvar11distance_xyD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar11distance_xy10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1808) initializes((640, 648), (1704, 1728), (1736, 1760)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar11distance_xy10calc_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1808) initializes((640, 648), (1704, 1728), (1736, 1760)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -2170,7 +2170,7 @@ define void @_ZN6colvar11distance_xy10calc_valueEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar11distance_xy14calc_gradientsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1808) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar11distance_xy14calc_gradientsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1808) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -2356,7 +2356,7 @@ define void @_ZN6colvar11distance_xy14calc_gradientsEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar11distance_xy19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1808) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar11distance_xy19calc_force_invgradsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1808) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -2445,7 +2445,7 @@ define void @_ZN6colvar11distance_xy19calc_force_invgradsEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6colvar11distance_xy24calc_Jacobian_derivativeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1808) initializes((1144, 1152)) %0) unnamed_addr #3 align 2 {
+define void @_ZN6colvar11distance_xy24calc_Jacobian_derivativeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1808) initializes((1144, 1152)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %3 = load double, ptr %2, align 8
   %4 = fcmp une double %3, 0.000000e+00
@@ -2457,7 +2457,7 @@ define void @_ZN6colvar11distance_xy24calc_Jacobian_derivativeEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar11distance_xy11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1808) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
+define void @_ZN6colvar11distance_xy11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1808) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1288
@@ -2505,7 +2505,7 @@ define void @_ZN6colvar11distance_xy11apply_forceERK11colvarvalue(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6colvar11distance_xy5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #4 align 2 {
+define noundef double @_ZNK6colvar11distance_xy5dist2ERK11colvarvalueS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2516,7 +2516,7 @@ define noundef double @_ZNK6colvar11distance_xy5dist2ERK11colvarvalueS3_(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar11distance_xy11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar11distance_xy11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
@@ -2567,7 +2567,7 @@ define linkonce_odr void @_ZN6colvar12distance_invD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar12distance_inv10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1668) initializes((640, 648)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar12distance_inv10calc_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1668) initializes((640, 648)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %3, align 8
@@ -3012,7 +3012,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit38:     ; preds = %.loopexit, %._crit_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6colvar12distance_inv14calc_gradientsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define void @_ZN6colvar12distance_inv14calc_gradientsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret void
 }
 
@@ -3021,7 +3021,7 @@ declare void @_ZN6colvar3cvc19calc_force_invgradsEv(ptr noundef nonnull align 8 
 declare void @_ZN6colvar3cvc24calc_Jacobian_derivativeEv(ptr noundef nonnull align 8 dereferenceable(1648)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar12distance_inv11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1668) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
+define void @_ZN6colvar12distance_inv11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1668) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1288
@@ -3052,7 +3052,7 @@ define void @_ZN6colvar12distance_inv11apply_forceERK11colvarvalue(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6colvar12distance_inv5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #4 align 2 {
+define noundef double @_ZNK6colvar12distance_inv5dist2ERK11colvarvalueS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3063,7 +3063,7 @@ define noundef double @_ZNK6colvar12distance_inv5dist2ERK11colvarvalueS3_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar12distance_inv11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar12distance_inv11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
@@ -3432,12 +3432,12 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6colvar14distance_pairs14calc_gradientsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define void @_ZN6colvar14distance_pairs14calc_gradientsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar14distance_pairs11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1664) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar14distance_pairs11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1664) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct._Guard, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4615,7 +4615,7 @@ define linkonce_odr void @_ZN6colvar16dipole_magnitudeD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar16dipole_magnitude10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1680) initializes((640, 648), (1656, 1680)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar16dipole_magnitude10calc_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1680) initializes((640, 648), (1656, 1680)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load ptr, ptr %3, align 8
@@ -4641,7 +4641,7 @@ define void @_ZN6colvar16dipole_magnitude10calc_valueEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar16dipole_magnitude14calc_gradientsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1680) %0) unnamed_addr #11 align 2 {
+define void @_ZN6colvar16dipole_magnitude14calc_gradientsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1680) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1656
@@ -4705,7 +4705,7 @@ define void @_ZN6colvar16dipole_magnitude14calc_gradientsEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar16dipole_magnitude11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1680) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
+define void @_ZN6colvar16dipole_magnitude11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1680) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1288
@@ -4723,7 +4723,7 @@ define void @_ZN6colvar16dipole_magnitude11apply_forceERK11colvarvalue(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6colvar16dipole_magnitude5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #4 align 2 {
+define noundef double @_ZNK6colvar16dipole_magnitude5dist2ERK11colvarvalueS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4734,7 +4734,7 @@ define noundef double @_ZNK6colvar16dipole_magnitude5dist2ERK11colvarvalueS3_(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar16dipole_magnitude11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar16dipole_magnitude11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
@@ -4785,7 +4785,7 @@ define linkonce_odr void @_ZN6colvar8gyrationD0Ev(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6colvar8gyration10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1656) initializes((640, 648)) %0) unnamed_addr #12 align 2 {
+define void @_ZN6colvar8gyration10calc_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1656) initializes((640, 648)) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
@@ -4836,7 +4836,7 @@ define void @_ZN6colvar8gyration10calc_valueEv(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar8gyration14calc_gradientsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1656) %0) unnamed_addr #11 align 2 {
+define void @_ZN6colvar8gyration14calc_gradientsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1656) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 504
@@ -4884,7 +4884,7 @@ define void @_ZN6colvar8gyration14calc_gradientsEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar8gyration19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1656) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar8gyration19calc_force_invgradsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1656) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN12colvarmodule10atom_group17read_total_forcesEv(ptr noundef nonnull align 8 dereferenceable(1440) %3)
@@ -5027,7 +5027,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar8gyration11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1656) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
+define void @_ZN6colvar8gyration11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1656) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1288
@@ -5045,7 +5045,7 @@ define void @_ZN6colvar8gyration11apply_forceERK11colvarvalue(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6colvar8gyration5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #4 align 2 {
+define noundef double @_ZNK6colvar8gyration5dist2ERK11colvarvalueS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5056,7 +5056,7 @@ define noundef double @_ZNK6colvar8gyration5dist2ERK11colvarvalueS3_(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar8gyration11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar8gyration11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
@@ -5107,7 +5107,7 @@ define linkonce_odr void @_ZN6colvar7inertiaD0Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar7inertia10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1656) initializes((640, 648)) %0) unnamed_addr #13 align 2 {
+define void @_ZN6colvar7inertia10calc_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1656) initializes((640, 648)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
@@ -5143,7 +5143,7 @@ define void @_ZN6colvar7inertia10calc_valueEv(ptr nocapture noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar7inertia14calc_gradientsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1656) %0) unnamed_addr #11 align 2 {
+define void @_ZN6colvar7inertia14calc_gradientsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1656) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 504
@@ -5182,7 +5182,7 @@ define void @_ZN6colvar7inertia14calc_gradientsEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar7inertia11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1656) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
+define void @_ZN6colvar7inertia11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1656) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1288
@@ -5200,7 +5200,7 @@ define void @_ZN6colvar7inertia11apply_forceERK11colvarvalue(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6colvar7inertia5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #4 align 2 {
+define noundef double @_ZNK6colvar7inertia5dist2ERK11colvarvalueS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5211,7 +5211,7 @@ define noundef double @_ZNK6colvar7inertia5dist2ERK11colvarvalueS3_(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar7inertia11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar7inertia11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
@@ -5262,7 +5262,7 @@ define linkonce_odr void @_ZN6colvar9inertia_zD0Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar9inertia_z10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1680) initializes((640, 648)) %0) unnamed_addr #13 align 2 {
+define void @_ZN6colvar9inertia_z10calc_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1680) initializes((640, 648)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
@@ -5307,7 +5307,7 @@ define void @_ZN6colvar9inertia_z10calc_valueEv(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar9inertia_z14calc_gradientsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1680) %0) unnamed_addr #11 align 2 {
+define void @_ZN6colvar9inertia_z14calc_gradientsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1680) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 504
@@ -5359,7 +5359,7 @@ define void @_ZN6colvar9inertia_z14calc_gradientsEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar9inertia_z11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1680) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
+define void @_ZN6colvar9inertia_z11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1680) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1288
@@ -5377,7 +5377,7 @@ define void @_ZN6colvar9inertia_z11apply_forceERK11colvarvalue(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6colvar9inertia_z5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #4 align 2 {
+define noundef double @_ZNK6colvar9inertia_z5dist2ERK11colvarvalueS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5388,7 +5388,7 @@ define noundef double @_ZNK6colvar9inertia_z5dist2ERK11colvarvalueS3_(ptr nocapt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar9inertia_z11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar9inertia_z11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
@@ -5485,7 +5485,7 @@ _ZN6colvar11eigenvectorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN12col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar11eigenvector10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1712) initializes((640, 648)) %0) unnamed_addr #13 align 2 {
+define void @_ZN6colvar11eigenvector10calc_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1712) initializes((640, 648)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
@@ -5549,7 +5549,7 @@ define void @_ZN6colvar11eigenvector10calc_valueEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar11eigenvector14calc_gradientsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1712) %0) unnamed_addr #11 align 2 {
+define void @_ZN6colvar11eigenvector14calc_gradientsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1712) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 504
@@ -5588,7 +5588,7 @@ define void @_ZN6colvar11eigenvector14calc_gradientsEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar11eigenvector19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1712) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar11eigenvector19calc_force_invgradsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1712) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN12colvarmodule10atom_group17read_total_forcesEv(ptr noundef nonnull align 8 dereferenceable(1440) %3)
@@ -5647,7 +5647,7 @@ define void @_ZN6colvar11eigenvector19calc_force_invgradsEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar11eigenvector24calc_Jacobian_derivativeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1712) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar11eigenvector24calc_Jacobian_derivativeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1712) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit:
   %1 = alloca [4 x [4 x %"class.colvarmodule::rvector"]], align 16
   %2 = alloca %"class.colvarmodule::rvector", align 8
@@ -6244,7 +6244,7 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %_ZNSt6vectorIN12co
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar11eigenvector11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1712) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
+define void @_ZN6colvar11eigenvector11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1712) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1288
@@ -6262,7 +6262,7 @@ define void @_ZN6colvar11eigenvector11apply_forceERK11colvarvalue(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6colvar11eigenvector5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #4 align 2 {
+define noundef double @_ZNK6colvar11eigenvector5dist2ERK11colvarvalueS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6273,7 +6273,7 @@ define noundef double @_ZNK6colvar11eigenvector5dist2ERK11colvarvalueS3_(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar11eigenvector11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar11eigenvector11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
@@ -6394,7 +6394,7 @@ _ZN6colvar4rmsdD2Ev.exit:                         ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6colvar4rmsd10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1696) initializes((640, 648)) %0) unnamed_addr #12 align 2 {
+define void @_ZN6colvar4rmsd10calc_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1696) initializes((640, 648)) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
@@ -6552,7 +6552,7 @@ define void @_ZN6colvar4rmsd10calc_valueEv(ptr nocapture noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar4rmsd14calc_gradientsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1696) %0) unnamed_addr #11 align 2 {
+define void @_ZN6colvar4rmsd14calc_gradientsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1696) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %3 = load double, ptr %2, align 8
   %4 = fcmp ogt double %3, 0.000000e+00
@@ -6650,7 +6650,7 @@ define void @_ZN6colvar4rmsd14calc_gradientsEv(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar4rmsd19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1696) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar4rmsd19calc_force_invgradsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1696) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN12colvarmodule10atom_group17read_total_forcesEv(ptr noundef nonnull align 8 dereferenceable(1440) %3)
@@ -6708,7 +6708,7 @@ define void @_ZN6colvar4rmsd19calc_force_invgradsEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar4rmsd24calc_Jacobian_derivativeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1696) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar4rmsd24calc_Jacobian_derivativeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1696) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [4 x [4 x %"class.colvarmodule::rvector"]], align 16
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::matrix2d", align 8
@@ -7337,7 +7337,7 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %334, %_ZNSt6vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar4rmsd11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1696) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
+define void @_ZN6colvar4rmsd11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1696) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1288
@@ -7355,7 +7355,7 @@ define void @_ZN6colvar4rmsd11apply_forceERK11colvarvalue(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6colvar4rmsd5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #4 align 2 {
+define noundef double @_ZNK6colvar4rmsd5dist2ERK11colvarvalueS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7366,7 +7366,7 @@ define noundef double @_ZNK6colvar4rmsd5dist2ERK11colvarvalueS3_(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6colvar4rmsd11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
+define void @_ZNK6colvar4rmsd11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
@@ -7467,7 +7467,7 @@ _ZN6colvar9cartesianD2Ev.exit:                    ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar9cartesian10calc_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1680) %0) unnamed_addr #11 align 2 {
+define void @_ZN6colvar9cartesian10calc_valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1680) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %4 = load ptr, ptr %3, align 8
@@ -7554,12 +7554,12 @@ _ZN12colvarmodule7rvectorixEi.exit.us:            ; preds = %29, %27, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6colvar9cartesian14calc_gradientsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define void @_ZN6colvar9cartesian14calc_gradientsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar9cartesian11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1680) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) unnamed_addr #11 align 2 {
+define void @_ZN6colvar9cartesian11apply_forceERK11colvarvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1680) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1) unnamed_addr #11 align 2 {
   %.sroa.0 = alloca double, align 8
   %.sroa.4 = alloca double, align 8
   %.sroa.6 = alloca double, align 8
@@ -7960,7 +7960,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -8096,7 +8096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 declare void @_ZN6colvar3cvcC2Ev(ptr noundef nonnull align 8 dereferenceable(1648)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
 
 declare void @_ZN12colvarmodule17position_distanceERKNS_7rvectorES2_(ptr dead_on_unwind writable sret(%"class.colvarmodule::rvector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
@@ -9673,7 +9673,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #22
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6colvar14distance_pairsC2Ev(ptr noundef nonnull align 8 dereferenceable(1664) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
@@ -11008,7 +11008,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
           to label %9 unwind label %13
 
 9:                                                ; preds = %3
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %6)
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %6)
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
@@ -18799,7 +18799,7 @@ declare double @llvm.sqrt.f64(double) #25
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #27
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25
@@ -18808,10 +18808,10 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #28
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

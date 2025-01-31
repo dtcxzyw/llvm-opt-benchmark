@@ -126,7 +126,7 @@ return:                                           ; preds = %if.end26, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @epoll_nochangelist_add(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture readnone %p) #0 {
+define internal range(i32 -1, 1) i32 @epoll_nochangelist_add(ptr noundef readonly captures(none) %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr readnone captures(none) %p) #0 {
 entry:
   %ch = alloca %struct.event_change, align 4
   store i32 %fd, ptr %ch, align 4
@@ -181,7 +181,7 @@ if.end25:                                         ; preds = %if.then19, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @epoll_nochangelist_del(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture readnone %p) #0 {
+define internal range(i32 -1, 1) i32 @epoll_nochangelist_del(ptr noundef readonly captures(none) %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr readnone captures(none) %p) #0 {
 entry:
   %ch = alloca %struct.event_change, align 4
   store i32 %fd, ptr %ch, align 4
@@ -363,7 +363,7 @@ if.end68:                                         ; preds = %if.else44, %for.bod
   %data = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %22 = load i32, ptr %data, align 1
   %23 = or i16 %ev.045, 32
-  call void @evmap_io_active_(ptr noundef %base, i32 noundef %22, i16 noundef signext %23) #5
+  call void @evmap_io_active_(ptr noundef nonnull %base, i32 noundef %22, i16 noundef signext %23) #5
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end65, %if.end68
@@ -457,7 +457,7 @@ declare i32 @event_changelist_add_(ptr noundef, i32 noundef, i16 noundef signext
 declare i32 @event_changelist_del_(ptr noundef, i32 noundef, i16 noundef signext, i16 noundef signext, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @epoll_apply_one_change(ptr nocapture noundef readonly %epollop, ptr nocapture noundef readonly %ch) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @epoll_apply_one_change(ptr noundef readonly captures(none) %epollop, ptr noundef readonly captures(none) %ch) unnamed_addr #0 {
 entry:
   %epev = alloca %struct.epoll_event, align 4
   %close_change = getelementptr inbounds nuw i8, ptr %ch, i64 8
@@ -674,7 +674,7 @@ return:                                           ; preds = %if.then119, %do.bod
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare i32 @epoll_ctl(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

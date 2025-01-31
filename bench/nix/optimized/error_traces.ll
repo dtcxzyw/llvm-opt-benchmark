@@ -6497,7 +6497,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit209: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing8internal14TrueWithStringC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6544,7 +6544,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
-  %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %4, ptr noundef %1, i64 noundef %5)
+  %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %4, ptr noundef nonnull %1, i64 noundef %5)
   ret ptr %6
 }
 
@@ -6766,11 +6766,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 22:                                               ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr nonnull align 1 %1, i64 %3, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 23:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5, i64 noundef 0, ptr noundef %1, i64 noundef %3)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5, i64 noundef 0, ptr noundef nonnull %1, i64 noundef %3)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %17, %20, %22, %23
@@ -6816,7 +6816,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare noundef nonnull align 8 dereferenceable(384) ptr @_ZN3nix16EvalErrorBuilderINS_9EvalErrorEE9withTraceENS_6PosIdxESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(384), i32, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix9BaseError8addTraceIJEEEvOSt10shared_ptrINS_3PosEESt17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %2, ptr %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -23438,142 +23438,142 @@ define void @_ZTv0_n48_N3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix32ErrorTraceTest_scopedImport_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix32ErrorTraceTest_scopedImport_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix32ErrorTraceTest_scopedImport_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix32ErrorTraceTest_scopedImport_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_import_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_import_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_import_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_import_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_typeOf_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_typeOf_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_typeOf_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_typeOf_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_isNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_isNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_isNull_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_isNull_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix30ErrorTraceTest_isFunction_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix30ErrorTraceTest_isFunction_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix30ErrorTraceTest_isFunction_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix30ErrorTraceTest_isFunction_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_isInt_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_isInt_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_isInt_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_isInt_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix27ErrorTraceTest_isFloat_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix27ErrorTraceTest_isFloat_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_isFloat_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_isFloat_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix28ErrorTraceTest_isString_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix28ErrorTraceTest_isString_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_isString_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_isString_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_isBool_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_isBool_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_isBool_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_isBool_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_isPath_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_isPath_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_isPath_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_isPath_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_break_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_break_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_break_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_break_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_abort_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_abort_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_abort_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_abort_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_throw_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_throw_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_throw_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_throw_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix35ErrorTraceTest_addErrorContext_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix35ErrorTraceTest_addErrorContext_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix35ErrorTraceTest_addErrorContext_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix35ErrorTraceTest_addErrorContext_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -25781,12 +25781,12 @@ define void @_ZTv0_n48_N3nix25ErrorTraceTest_floor_Test8TestBodyEv(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix27ErrorTraceTest_tryEval_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix27ErrorTraceTest_tryEval_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_tryEval_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_tryEval_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -26922,32 +26922,32 @@ define void @_ZTv0_n48_N3nix26ErrorTraceTest_getEnv_Test8TestBodyEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix23ErrorTraceTest_seq_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix23ErrorTraceTest_seq_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix23ErrorTraceTest_seq_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix23ErrorTraceTest_seq_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix27ErrorTraceTest_deepSeq_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix27ErrorTraceTest_deepSeq_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_deepSeq_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_deepSeq_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_trace_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_trace_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_trace_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_trace_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -34454,92 +34454,92 @@ define void @_ZTv0_n48_N3nix30ErrorTraceTest_baseNameOf_Test8TestBodyEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_dirOf_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_dirOf_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_dirOf_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_dirOf_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix28ErrorTraceTest_readFile_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix28ErrorTraceTest_readFile_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_readFile_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_readFile_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix28ErrorTraceTest_findFile_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix28ErrorTraceTest_findFile_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_findFile_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_findFile_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix28ErrorTraceTest_hashFile_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix28ErrorTraceTest_hashFile_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_hashFile_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_hashFile_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix27ErrorTraceTest_readDir_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix27ErrorTraceTest_readDir_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_readDir_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_readDir_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_toXML_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_toXML_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_toXML_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_toXML_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_toJSON_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_toJSON_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_toJSON_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_toJSON_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix28ErrorTraceTest_fromJSON_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix28ErrorTraceTest_fromJSON_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_fromJSON_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_fromJSON_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_toFile_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_toFile_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_toFile_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_toFile_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -37710,12 +37710,12 @@ define void @_ZTv0_n48_N3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix24ErrorTraceTest_path_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix24ErrorTraceTest_path_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix24ErrorTraceTest_path_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix24ErrorTraceTest_path_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -43030,12 +43030,12 @@ define void @_ZTv0_n48_N3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix36ErrorTraceTest_unsafeGetAttrPos_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix36ErrorTraceTest_unsafeGetAttrPos_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix36ErrorTraceTest_unsafeGetAttrPos_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix36ErrorTraceTest_unsafeGetAttrPos_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -45162,12 +45162,12 @@ define void @_ZTv0_n48_N3nix27ErrorTraceTest_hasAttr_Test8TestBodyEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix27ErrorTraceTest_isAttrs_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix27ErrorTraceTest_isAttrs_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_isAttrs_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_isAttrs_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -64098,12 +64098,12 @@ define void @_ZTv0_n48_N3nix32ErrorTraceTest_zipAttrsWith_Test8TestBodyEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_isList_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_isList_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_isList_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_isList_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -152020,12 +152020,12 @@ define void @_ZTv0_n48_N3nix32ErrorTraceTest_splitVersion_Test8TestBodyEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix32ErrorTraceTest_traceVerbose_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix32ErrorTraceTest_traceVerbose_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix32ErrorTraceTest_traceVerbose_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix32ErrorTraceTest_traceVerbose_Test8TestBodyEv(ptr readonly captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -176959,7 +176959,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #9
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
@@ -178171,12 +178171,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #18
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7testing8internal31CanonicalizeForStdLibVersioningENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -187055,7 +187055,7 @@ define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPNS_2io18b
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264), i8 noundef signext) local_unnamed_addr #0
 
@@ -200903,16 +200903,16 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

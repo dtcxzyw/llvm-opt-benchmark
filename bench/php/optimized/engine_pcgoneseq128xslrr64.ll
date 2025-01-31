@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [35 x i8] c"must be greater than or equal to 0\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_random_pcgoneseq128xslrr64_seed128(ptr nocapture noundef writeonly initializes((0, 16)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @php_random_pcgoneseq128xslrr64_seed128(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.sroa.0.0.insert.ext.i13 = zext i64 %1 to i128
   %.sroa.02.0.insert.insert.i = add nuw nsw i128 %.sroa.0.0.insert.ext.i13, 117397592171526113268558934119004209487
   %4 = lshr i128 %.sroa.02.0.insert.insert.i, 64
@@ -57,7 +57,7 @@ define void @php_random_pcgoneseq128xslrr64_seed128(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal { i64, i64 } @generate(ptr nocapture noundef %0) #1 {
+define internal { i64, i64 } @generate(ptr noundef captures(none) %0) #1 {
   %2 = load i128, ptr %0, align 16
   %3 = mul i128 %2, 47026247687942121848144207491837523525
   %.sroa.02.0.insert.insert.i21.i = add i128 %3, 1442695040888963407
@@ -85,7 +85,7 @@ define internal i64 @range(ptr noundef %0, i64 noundef %1, i64 noundef %2) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @serialize(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
+define internal noundef zeroext i1 @serialize(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = alloca i64, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = load i128, ptr %0, align 16
@@ -118,7 +118,7 @@ define internal noundef zeroext i1 @serialize(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @unserialize(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
+define internal noundef zeroext i1 @unserialize(ptr noundef writeonly captures(none) %0, ptr noundef %1) #2 {
   %3 = alloca [2 x i64], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
@@ -171,7 +171,7 @@ define internal noundef zeroext i1 @unserialize(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @php_random_pcgoneseq128xslrr64_advance(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define void @php_random_pcgoneseq128xslrr64_advance(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %.not191 = icmp eq i64 %1, 0
   br i1 %.not191, label %._crit_edge, label %.lr.ph
 
@@ -271,7 +271,7 @@ define void @php_random_pcgoneseq128xslrr64_advance(ptr nocapture noundef %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i128, align 16
@@ -468,7 +468,7 @@ declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_u
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_PcgOneseq128XslRr64_jump(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define hidden void @zim_Random_Engine_PcgOneseq128XslRr64_jump(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8

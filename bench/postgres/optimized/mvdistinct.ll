@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.ndistinct_for_combination = private unnamed_addr constant [26 x i8] c"ndistinct_for_combination\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @statext_ndistinct_build(double noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @statext_ndistinct_build(double noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = shl nuw i32 1, %4
@@ -671,7 +671,7 @@ declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @statext_ndistinct_serialize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @statext_ndistinct_serialize(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -749,12 +749,12 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @pg_ndistinct_in(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define dso_local noundef i64 @pg_ndistinct_in(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #9
@@ -768,7 +768,7 @@ declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_ndistinct_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_ndistinct_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -846,7 +846,7 @@ declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_add
 declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @pg_ndistinct_recv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define dso_local noundef i64 @pg_ndistinct_recv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #9
@@ -877,7 +877,7 @@ declare i32 @multi_sort_compare(ptr noundef, ptr noundef, ptr noundef) #1
 declare double @llvm.floor.f64(double) #5
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @generate_combinations_recurse(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #6 {
+define internal fastcc void @generate_combinations_recurse(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) unnamed_addr #6 {
   %5 = load i32, ptr %0, align 8
   %6 = icmp slt i32 %1, %5
   br i1 %6, label %.preheader, label %17

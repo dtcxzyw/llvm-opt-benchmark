@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vuf_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @vuf_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #8
@@ -338,7 +338,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vuf_get_features(ptr noundef %vdev, i64 noundef %features, ptr nocapture readnone %errp) #0 {
+define internal i64 @vuf_get_features(ptr noundef %vdev, i64 noundef %features, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
   %vhost_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 600
@@ -347,7 +347,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vuf_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly initializes((0, 40)) %config) #0 {
+define internal void @vuf_get_config(ptr noundef %vdev, ptr noundef writeonly captures(none) initializes((0, 40)) %config) #0 {
 entry:
   %fscfg = alloca %struct.virtio_fs_config, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
@@ -357,7 +357,7 @@ entry:
   %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %add = add i64 %call4, 1
   %cond = tail call i64 @llvm.umin.i64(i64 %add, i64 36)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %fscfg, ptr align 1 %0, i64 %cond, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %fscfg, ptr nonnull align 1 %0, i64 %cond, i1 false)
   %num_request_queues6 = getelementptr inbounds nuw i8, ptr %call.i, i64 584
   %1 = load i16, ptr %num_request_queues6, align 8
   %conv = zext i16 %1 to i32
@@ -477,7 +477,7 @@ if.then19.i:                                      ; preds = %if.end14.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %i.029.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  tail call void @vhost_virtqueue_mask(ptr noundef nonnull %vhost_dev.i, ptr noundef %vdev, i32 noundef %i.029.i, i1 noundef zeroext false) #8
+  tail call void @vhost_virtqueue_mask(ptr noundef nonnull %vhost_dev.i, ptr noundef nonnull %vdev, i32 noundef %i.029.i, i1 noundef zeroext false) #8
   %inc.i = add nuw i32 %i.029.i, 1
   %16 = load i32, ptr %nvqs.i, align 8
   %cmp24.i = icmp ult i32 %inc.i, %16
@@ -592,13 +592,13 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @vuf_is_internal_migration(ptr nocapture readnone %opaque) #2 {
+define internal noundef zeroext i1 @vuf_is_internal_migration(ptr readnone captures(none) %opaque) #2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vuf_load_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -2147483648, 1) i32 @vuf_load_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %local_error = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pv, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
@@ -627,7 +627,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vuf_save_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal range(i32 -2147483648, 1) i32 @vuf_save_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %local_error = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pv, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
@@ -668,7 +668,7 @@ declare i32 @vhost_save_backend_state(ptr noundef, ptr noundef, ptr noundef) loc
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare zeroext i1 @vhost_user_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -677,7 +677,7 @@ declare void @virtio_init(ptr noundef, i16 noundef zeroext, i64 noundef) local_u
 declare ptr @virtio_add_queue(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @vuf_handle_output(ptr nocapture readnone %vdev, ptr nocapture readnone %vq) #2 {
+define internal void @vuf_handle_output(ptr readnone captures(none) %vdev, ptr readnone captures(none) %vq) #2 {
 entry:
   ret void
 }
@@ -703,10 +703,10 @@ declare void @vhost_dev_cleanup(ptr noundef) local_unnamed_addr #1
 declare i64 @vhost_get_features(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @qdev_get_parent_bus(ptr noundef) local_unnamed_addr #1
 

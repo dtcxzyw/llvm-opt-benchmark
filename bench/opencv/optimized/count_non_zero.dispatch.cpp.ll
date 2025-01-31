@@ -44,7 +44,7 @@ define hidden noundef ptr @_ZN2cv12cpu_baseline18getCountNonZeroTabEi(i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZN2cv12cpu_baselineL14countNonZero8uEPKhi(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal noundef i32 @_ZN2cv12cpu_baselineL14countNonZero8uEPKhi(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -70,7 +70,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL14countNonZero8uEPKhi(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZN2cv12cpu_baselineL15countNonZero16uEPKti(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal noundef i32 @_ZN2cv12cpu_baselineL15countNonZero16uEPKti(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader.i, label %_ZN2cv12cpu_baselineL13countNonZero_ItEEiPKT_i.exit
 
@@ -96,7 +96,7 @@ _ZN2cv12cpu_baselineL13countNonZero_ItEEiPKT_i.exit: ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZN2cv12cpu_baselineL15countNonZero32sEPKii(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal noundef i32 @_ZN2cv12cpu_baselineL15countNonZero32sEPKii(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader.i, label %_ZN2cv12cpu_baselineL13countNonZero_IiEEiPKT_i.exit
 
@@ -122,7 +122,7 @@ _ZN2cv12cpu_baselineL13countNonZero_IiEEiPKT_i.exit: ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZN2cv12cpu_baselineL15countNonZero32fEPKfi(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal noundef i32 @_ZN2cv12cpu_baselineL15countNonZero32fEPKfi(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader.i, label %_ZN2cv12cpu_baselineL13countNonZero_IfEEiPKT_i.exit
 
@@ -148,7 +148,7 @@ _ZN2cv12cpu_baselineL13countNonZero_IfEEiPKT_i.exit: ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZN2cv12cpu_baselineL15countNonZero64fEPKdi(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal noundef i32 @_ZN2cv12cpu_baselineL15countNonZero64fEPKdi(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader.i, label %_ZN2cv12cpu_baselineL13countNonZero_IdEEiPKT_i.exit
 
@@ -401,7 +401,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPPhi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef, i32 noundef) unnamed_addr #3
 
@@ -1014,10 +1014,10 @@ declare void @llvm.assume(i1 noundef) #12
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

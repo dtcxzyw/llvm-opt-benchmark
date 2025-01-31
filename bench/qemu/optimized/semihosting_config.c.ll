@@ -161,7 +161,7 @@ while.end:                                        ; preds = %if.then.i4, %entry
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @add_semihosting_arg(ptr nocapture noundef %opaque, ptr nocapture noundef readonly %name, ptr noundef %val, ptr nocapture readnone %errp) #2 {
+define internal noundef i32 @add_semihosting_arg(ptr noundef captures(none) %opaque, ptr noundef readonly captures(none) %name, ptr noundef %val, ptr readnone captures(none) %errp) #2 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(4) @.str.5) #9
   %cmp = icmp eq i32 %call, 0
@@ -197,7 +197,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @qemu_semihosting_enable() local_unnamed_addr #5 {
@@ -272,7 +272,7 @@ declare zeroext i1 @qemu_opt_get_bool(ptr noundef, ptr noundef, i1 noundef zeroe
 declare ptr @qemu_opt_get(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 

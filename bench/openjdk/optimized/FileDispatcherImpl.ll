@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [12 x i8] c"Copy failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_FileDispatcherImpl_init0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_FileDispatcherImpl_init0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str) #4
   store ptr %3, ptr @my_copy_file_range_func, align 8
   ret void
@@ -19,7 +19,7 @@ define void @Java_sun_nio_ch_FileDispatcherImpl_init0(ptr nocapture noundef read
 declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -6, -9223372036854775808) i64 @Java_sun_nio_ch_FileDispatcherImpl_transferFrom0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
+define range(i64 -6, -9223372036854775808) i64 @Java_sun_nio_ch_FileDispatcherImpl_transferFrom0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = load ptr, ptr @my_copy_file_range_func, align 8
   %10 = icmp eq ptr %9, null
@@ -82,7 +82,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare void @JNU_ThrowIOExceptionWithLastError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -6, -9223372036854775808) i64 @Java_sun_nio_ch_FileDispatcherImpl_transferTo0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
+define range(i64 -6, -9223372036854775808) i64 @Java_sun_nio_ch_FileDispatcherImpl_transferTo0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #4
   %10 = tail call i32 @fdval(ptr noundef %0, ptr noundef %5) #4

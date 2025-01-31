@@ -210,7 +210,7 @@ declare i32 @lv_display_get_horizontal_resolution(ptr noundef) local_unnamed_add
 declare zeroext i1 @lv_color_eq(i24, i24) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @theme_apply(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %4 = tail call ptr @lv_obj_get_parent(ptr noundef %1) #3
   %5 = icmp eq ptr %4, null
@@ -3961,13 +3961,13 @@ declare void @lv_style_set_shadow_offset_y(ptr noundef, i32 noundef) local_unnam
 declare void @lv_color_filter_dsc_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i24 @dark_color_filter_cb(ptr nocapture readnone %0, i24 %1, i8 noundef zeroext %2) #0 {
+define internal i24 @dark_color_filter_cb(ptr readnone captures(none) %0, i24 %1, i8 noundef zeroext %2) #0 {
   %4 = tail call i24 @lv_color_darken(i24 %1, i8 noundef zeroext %2) #3
   ret i24 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i24 @grey_filter_cb(ptr nocapture readnone %0, i24 %1, i8 noundef zeroext %2) #0 {
+define internal i24 @grey_filter_cb(ptr readnone captures(none) %0, i24 %1, i8 noundef zeroext %2) #0 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load i32, ptr %5, align 8, !tbaa !21

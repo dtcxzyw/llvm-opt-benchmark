@@ -58,7 +58,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @interpid_repr(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @interpid_repr(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @interpid_hash(ptr nocapture noundef readonly %self) #0 {
+define internal i64 @interpid_hash(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %id1 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %id1, align 8
@@ -101,7 +101,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @interpid_str(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @interpid_str(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %id1 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %id1, align 8
@@ -110,7 +110,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @interpid_richcompare(ptr nocapture noundef readonly %self, ptr noundef %other, i32 noundef %op) #0 {
+define internal ptr @interpid_richcompare(ptr noundef readonly captures(none) %self, ptr noundef %other, i32 noundef %op) #0 {
 entry:
   %overflow = alloca i32, align 4
   %cmp1 = icmp ne i32 %op, 3
@@ -367,7 +367,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @interp_id_converter(ptr noundef %arg, ptr nocapture noundef writeonly %ptr) #0 {
+define internal range(i32 0, 2) i32 @interp_id_converter(ptr noundef %arg, ptr noundef writeonly captures(none) %ptr) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val9 = load ptr, ptr %0, align 8
@@ -444,7 +444,7 @@ declare ptr @_PyType_Name(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @interpid_int(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @interpid_int(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %id1 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %id1, align 8

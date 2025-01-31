@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [2 x i8] c"R\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%struct.slurmctld_lock_t) align 8 %0) local_unnamed_addr #0 {
+define dso_local void @lock_slurmctld(ptr noundef readonly byval(%struct.slurmctld_lock_t) align 8 captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %11 [
     i32 1, label %3
@@ -195,7 +195,7 @@ declare void @fatal(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @unlock_slurmctld(ptr nocapture noundef readonly byval(%struct.slurmctld_lock_t) align 8 %0) local_unnamed_addr #0 {
+define dso_local void @unlock_slurmctld(ptr noundef readonly byval(%struct.slurmctld_lock_t) align 8 captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -322,7 +322,7 @@ define dso_local i32 @report_locks_set() local_unnamed_addr #0 {
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %0
-  %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef %6, ptr noundef %8, ptr noundef %11, ptr noundef %14, ptr noundef %17) #6
+  %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef nonnull %17) #6
   br label %24
 
 24:                                               ; preds = %22, %0
@@ -330,7 +330,7 @@ define dso_local i32 @report_locks_set() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_report_lock_set(ptr nocapture noundef nonnull writeonly %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
+define internal fastcc void @_report_lock_set(ptr noundef nonnull writeonly captures(none) %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr inbounds nuw [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 %3
   %5 = tail call i32 @pthread_rwlock_tryrdlock(ptr noundef nonnull %4) #6
@@ -374,7 +374,7 @@ define internal fastcc void @_report_lock_set(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #5
 

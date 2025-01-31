@@ -2398,10 +2398,10 @@ return:                                           ; preds = %if.else, %entry, %i
 declare i8 @_ZN4cvc58internal7Minisat6Solver6solve_Ev(ptr noundef nonnull align 8 dereferenceable(850)) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4cvc58internal7Minisat10SimpSolver11extendModelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1108) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal7Minisat10SimpSolver11extendModelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1108) %this) local_unnamed_addr #7 align 2 {
 entry:
   %elimclauses = getelementptr inbounds nuw i8, ptr %this, i64 896
   %sz.i = getelementptr inbounds nuw i8, ptr %this, i64 904
@@ -2653,7 +2653,7 @@ return:                                           ; preds = %for.inc, %if.then11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver7impliedERKNS1_3vecINS1_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1108) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver7impliedERKNS1_3vecINS1_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1108) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c) local_unnamed_addr #4 align 2 {
 entry:
   %trail_lim = getelementptr inbounds nuw i8, ptr %this, i64 568
   %sz.i = getelementptr inbounds nuw i8, ptr %this, i64 560
@@ -3433,7 +3433,7 @@ declare void @_ZN4cvc58internal7Minisat6Solver12attachClauseEj(ptr noundef nonnu
 declare noundef i32 @_ZN4cvc58internal7Minisat6Solver9propagateENS2_15TheoryCheckTypeE(ptr noundef nonnull align 8 dereferenceable(850), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver5mergeERKNS1_6ClauseES5_iRNS1_3vecINS1_3LitEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1108) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %_ps, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %_qs, i32 noundef %v, ptr nocapture noundef nonnull align 8 dereferenceable(16) %out_clause) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver5mergeERKNS1_6ClauseES5_iRNS1_3vecINS1_3LitEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1108) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %_ps, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %_qs, i32 noundef %v, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %out_clause) local_unnamed_addr #4 align 2 {
 entry:
   %merges = getelementptr inbounds nuw i8, ptr %this, i64 876
   %0 = load i32, ptr %merges, align 4
@@ -3670,7 +3670,7 @@ return:                                           ; preds = %if.then29, %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver5mergeERKNS1_6ClauseES5_iRi(ptr nocapture noundef nonnull align 8 dereferenceable(1108) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %_ps, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %_qs, i32 noundef %v, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %size) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver5mergeERKNS1_6ClauseES5_iRi(ptr noundef nonnull align 8 captures(none) dereferenceable(1108) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %_ps, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %_qs, i32 noundef %v, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %size) local_unnamed_addr #8 align 2 {
 entry:
   %merges = getelementptr inbounds nuw i8, ptr %this, i64 876
   %0 = load i32, ptr %merges, align 4
@@ -3757,7 +3757,7 @@ return:                                           ; preds = %if.then30, %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal7Minisat10SimpSolver20gatherTouchedClausesEv(ptr nocapture noundef nonnull align 8 dereferenceable(1108) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal7Minisat10SimpSolver20gatherTouchedClausesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1108) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_touched = getelementptr inbounds nuw i8, ptr %this, i64 1100
   %0 = load i32, ptr %n_touched, align 4
@@ -5586,7 +5586,7 @@ _ZN4cvc58internal7Minisat3vecIjED2Ev.exit151:     ; preds = %_ZN4cvc58internal7M
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12mkElimClauseRN4cvc58internal7Minisat3vecIjEEiRNS1_6ClauseE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %elimclauses, i32 noundef %v, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %c) unnamed_addr #4 {
+define internal fastcc void @_ZL12mkElimClauseRN4cvc58internal7Minisat3vecIjEEiRNS1_6ClauseE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %elimclauses, i32 noundef %v, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %c) unnamed_addr #4 {
 entry:
   %sz.i = getelementptr inbounds nuw i8, ptr %elimclauses, i64 8
   %0 = load i32, ptr %sz.i, align 8
@@ -5748,7 +5748,7 @@ _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit56: ; preds = %lor.lhs.false.i.i45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12mkElimClauseRN4cvc58internal7Minisat3vecIjEENS1_3LitE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %elimclauses, i32 %x.coerce) unnamed_addr #4 {
+define internal fastcc void @_ZL12mkElimClauseRN4cvc58internal7Minisat3vecIjEENS1_3LitE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %elimclauses, i32 %x.coerce) unnamed_addr #4 {
 entry:
   %sz.i = getelementptr inbounds nuw i8, ptr %elimclauses, i64 8
   %0 = load i32, ptr %sz.i, align 8
@@ -6242,7 +6242,7 @@ _ZN4cvc58internal7Minisat3vecIiE5clearEb.exit:    ; preds = %_ZN4cvc58internal7M
 declare void @_ZN4cvc58internal7Minisat6Solver16rebuildOrderHeapEv(ptr noundef nonnull align 8 dereferenceable(850)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4cvc58internal7Minisat10SimpSolver14cleanUpClausesEv(ptr nocapture noundef nonnull align 8 dereferenceable(1108) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal7Minisat10SimpSolver14cleanUpClausesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1108) %this) local_unnamed_addr #7 align 2 {
 entry:
   %occurs = getelementptr inbounds nuw i8, ptr %this, i64 928
   %dirties.i = getelementptr inbounds nuw i8, ptr %this, i64 960
@@ -6944,10 +6944,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #14
@@ -6961,13 +6961,13 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 declare void @llvm.trap() #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal7Minisat9IntOptionD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #3 comdat align 2 {
@@ -7119,7 +7119,7 @@ if.end20:                                         ; preds = %if.then17, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #18
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #19
@@ -7267,7 +7267,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #18
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #18
 
 declare void @_ZN4cvc58internal7Minisat6Solver8toDimacsEP8_IO_FILERKNS1_3vecINS1_3LitEEE(ptr noundef nonnull align 8 dereferenceable(850), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -8055,19 +8055,19 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
@@ -8076,10 +8076,10 @@ declare void @llvm.assume(i1 noundef) #23
 declare i32 @llvm.umax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #25

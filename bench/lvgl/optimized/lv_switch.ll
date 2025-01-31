@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_switch_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_switch_constructor, ptr @lv_switch_destructor, ptr @lv_switch_event, ptr null, ptr @.str, i32 52, i32 30, i8 -124, i8 4, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_switch_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 68)) %1) #0 {
+define internal void @lv_switch_constructor(ptr readnone captures(none) %0, ptr noundef initializes((64, 68)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 -1, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -33,13 +33,13 @@ define internal void @lv_switch_constructor(ptr nocapture readnone %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_switch_destructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_switch_destructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call zeroext i1 @lv_anim_delete(ptr noundef %1, ptr noundef null) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_switch_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_switch_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct.lv_draw_rect_dsc_t, align 8
   %5 = alloca %struct.lv_area_t, align 4
@@ -288,14 +288,14 @@ define noundef ptr @lv_switch_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_switch_set_orientation(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -313,7 +313,7 @@ define void @lv_switch_set_orientation(ptr noundef %0, i32 noundef %1) local_unn
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 8) i32 @lv_switch_get_orientation(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 8) i32 @lv_switch_get_orientation(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 7
@@ -360,7 +360,7 @@ declare void @lv_anim_set_values(ptr noundef, i32 noundef, i32 noundef) local_un
 declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_switch_anim_completed(ptr nocapture noundef readonly %0) #0 {
+define internal void @lv_switch_anim_completed(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !17
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 -1, ptr %3, align 8, !tbaa !3

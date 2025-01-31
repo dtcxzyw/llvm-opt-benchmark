@@ -76,7 +76,7 @@ define dso_local noundef ptr @cmsysProcess_New() local_unnamed_addr #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cmsysProcess_Delete(ptr noundef %0) local_unnamed_addr #3 {
@@ -863,7 +863,7 @@ cmsysProcess_SetPipeShared.exit:                  ; preds = %4, %12, %23, %19, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @cmsysProcess_AddCommand(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
@@ -1044,7 +1044,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_AddCommand(ptr noundef %0, pt
 declare ptr @cmsysSystem_Parse_CommandForUnix(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @cmsysProcess_SetTimeout(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #8 {
@@ -1065,7 +1065,7 @@ define dso_local void @cmsysProcess_SetTimeout(ptr noundef writeonly %0, double 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @cmsysProcess_SetPipeNative(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
@@ -2706,7 +2706,7 @@ declare i32 @chdir(ptr noundef) local_unnamed_addr #13
 declare ptr @__errno_location() local_unnamed_addr #14
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #15
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #15
 
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #6
 
@@ -2732,7 +2732,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetNonBlocking(i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeFile(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeFile(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.preheader.i, label %kwsysProcessCleanupDescriptor.exit
@@ -2777,7 +2777,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %2, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kwsysProcessCleanupDescriptor(ptr nocapture noundef nonnull %0) unnamed_addr #3 {
+define internal fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull captures(none) %0) unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = icmp sgt i32 %2, 2
   br i1 %3, label %.preheader, label %11
@@ -2803,7 +2803,7 @@ define internal fastcc void @kwsysProcessCleanupDescriptor(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeNative(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeNative(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.preheader.i, label %kwsysProcessCleanupDescriptor.exit
@@ -2848,7 +2848,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %2, %.critedge.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 declare i32 @close(i32 noundef) local_unnamed_addr #6
 
@@ -3576,7 +3576,7 @@ kwsysProcessCleanupDescriptor.exit61:             ; preds = %.preheader.i109, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kwsysProcessClosePipes(ptr nocapture noundef nonnull %0) unnamed_addr #3 {
+define internal fastcc void @kwsysProcessClosePipes(ptr noundef nonnull captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4209,7 +4209,7 @@ kwsysProcessWaitForPipe.exit:                     ; preds = %.critedge3.i, %240
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, ptr nocapture noundef nonnull initializes((0, 16)) %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull captures(none) initializes((0, 16)) %2) unnamed_addr #3 {
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %6 = load double, ptr %5, align 8
@@ -4612,12 +4612,12 @@ define dso_local void @cmsysProcess_ResetStartTime(ptr noundef writeonly %0) loc
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #17
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #13
@@ -4662,13 +4662,13 @@ declare i32 @execvp(ptr noundef, ptr noundef) local_unnamed_addr #19
 declare i32 @fork() local_unnamed_addr #19
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #15
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: noreturn
 declare void @_exit(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #13
@@ -4677,44 +4677,44 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #13
 declare double @llvm.fmuladd.f64(double, double, double) #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #19
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #19
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #19
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #3 {
+define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #3 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = alloca %struct.sigaction, align 8
@@ -4878,10 +4878,10 @@ declare i32 @raise(i32 noundef) local_unnamed_addr #13
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24

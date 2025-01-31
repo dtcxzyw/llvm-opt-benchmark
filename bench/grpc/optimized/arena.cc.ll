@@ -29,7 +29,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core5ArenaD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core5ArenaD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %last_zone_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %last_zone_ seq_cst, align 8
@@ -115,7 +115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core5Arena24DestroyManagedNewObjectsEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core5Arena24DestroyManagedNewObjectsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %managed_new_head_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = atomicrmw xchg ptr %managed_new_head_, i64 0 monotonic, align 8
@@ -190,7 +190,7 @@ _ZN9grpc_core5Arena24DestroyManagedNewObjectsEv.exit: ; preds = %while.cond.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %size) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i64 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   %add = add i64 %size, 16
   %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -230,10 +230,10 @@ do.end:                                           ; preds = %_ZNSt6atomicIPN9grp
 declare ptr @gpr_malloc_aligned(i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef %head) local_unnamed_addr #8 align 2 {
+define void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef captures(none) %head) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load atomic i64, ptr %head monotonic, align 8
   %next = getelementptr inbounds nuw i8, ptr %this, i64 8

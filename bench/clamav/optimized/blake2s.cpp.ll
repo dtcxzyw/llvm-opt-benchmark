@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZL13blake2s_sigma = internal unnamed_addr constant [10 x [16 x i8]] [[16 x i8] c"\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F", [16 x i8] c"\0E\0A\04\08\09\0F\0D\06\01\0C\00\02\0B\07\05\03", [16 x i8] c"\0B\08\0C\00\05\02\0F\0D\0A\0E\03\06\07\01\09\04", [16 x i8] c"\07\09\03\01\0D\0C\0B\0E\02\06\05\0A\04\00\0F\08", [16 x i8] c"\09\00\05\07\02\04\0A\0F\0E\01\0B\0C\06\08\03\0D", [16 x i8] c"\02\0C\06\0A\00\0B\08\03\04\0D\07\05\0F\0E\01\09", [16 x i8] c"\0C\05\01\0F\0E\0D\04\0A\00\07\06\03\09\02\08\0B", [16 x i8] c"\0D\0B\07\0E\0C\01\03\09\05\00\0F\04\08\06\02\0A", [16 x i8] c"\06\0F\0E\09\0B\03\00\08\0C\02\0D\07\01\04\0A\05", [16 x i8] c"\0A\02\08\04\07\06\01\05\0F\0B\09\0E\03\0C\0D\00"], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z13blake2sp_initP14blake2sp_state(ptr nocapture noundef initializes((2304, 2544), (2576, 2585), (2592, 3112)) %0) local_unnamed_addr #0 {
+define void @_Z13blake2sp_initP14blake2sp_state(ptr noundef captures(none) initializes((2304, 2544), (2576, 2585), (2592, 3112)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(281) %3, i8 0, i64 240, i1 false)
@@ -94,10 +94,10 @@ _ZL18blake2s_init_paramP13blake2s_statejj.exit12: ; preds = %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN16Blake2ThreadData6UpdateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN16Blake2ThreadData6UpdateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp ugt i64 %3, 511
@@ -177,7 +177,7 @@ define void @_ZN16Blake2ThreadData6UpdateEv(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z15blake2sp_updateP14blake2sp_statePKhm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @_Z15blake2sp_updateP14blake2sp_statePKhm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3104
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 512, %5
@@ -366,10 +366,10 @@ _ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us: ; preds = %.thread.i.i.us.us
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z14blake2sp_finalP14blake2sp_statePh(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define void @_Z14blake2sp_finalP14blake2sp_statePh(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [8 x [32 x i8]], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3104
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2592
@@ -525,7 +525,7 @@ _ZL14blake2s_updateP13blake2s_statePKhm.exit:     ; preds = %.thread.i, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL13blake2s_finalP13blake2s_statePh(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZL13blake2s_finalP13blake2s_statePh(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %4, 64
@@ -617,7 +617,7 @@ _ZL21blake2s_set_lastblockP13blake2s_state.exit:  ; preds = %24, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
 .preheader42:
   %2 = alloca [16 x i32], align 16
   %3 = alloca [16 x i32], align 16

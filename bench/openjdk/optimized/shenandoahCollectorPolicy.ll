@@ -86,7 +86,7 @@ define hidden void @_ZN25ShenandoahCollectorPolicyC2Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN25ShenandoahCollectorPolicy23record_collection_causeEN7GCCause5CauseE(ptr nocapture noundef nonnull align 8 dereferenceable(528) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN25ShenandoahCollectorPolicy23record_collection_causeEN7GCCause5CauseE(ptr noundef nonnull align 8 captures(none) dereferenceable(528) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw [34 x i64], ptr %3, i64 0, i64 %4
@@ -97,7 +97,7 @@ define hidden void @_ZN25ShenandoahCollectorPolicy23record_collection_causeEN7GC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN25ShenandoahCollectorPolicy28record_alloc_failure_to_fullEv(ptr nocapture noundef nonnull align 8 dereferenceable(528) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN25ShenandoahCollectorPolicy28record_alloc_failure_to_fullEv(ptr noundef nonnull align 8 captures(none) dereferenceable(528) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 1
@@ -106,7 +106,7 @@ define hidden void @_ZN25ShenandoahCollectorPolicy28record_alloc_failure_to_full
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN25ShenandoahCollectorPolicy35record_alloc_failure_to_degeneratedEN12ShenandoahGC20ShenandoahDegenPointE(ptr nocapture noundef nonnull align 8 dereferenceable(528) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN25ShenandoahCollectorPolicy35record_alloc_failure_to_degeneratedEN12ShenandoahGC20ShenandoahDegenPointE(ptr noundef nonnull align 8 captures(none) dereferenceable(528) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1
@@ -121,7 +121,7 @@ define hidden void @_ZN25ShenandoahCollectorPolicy35record_alloc_failure_to_dege
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN25ShenandoahCollectorPolicy34record_degenerated_upgrade_to_fullEv(ptr nocapture noundef nonnull align 8 dereferenceable(528) initializes((40, 44)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN25ShenandoahCollectorPolicy34record_degenerated_upgrade_to_fullEv(ptr noundef nonnull align 8 captures(none) dereferenceable(528) initializes((40, 44)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -132,7 +132,7 @@ define hidden void @_ZN25ShenandoahCollectorPolicy34record_degenerated_upgrade_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN25ShenandoahCollectorPolicy25record_success_concurrentEb(ptr nocapture noundef nonnull align 8 dereferenceable(528) initializes((40, 44)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN25ShenandoahCollectorPolicy25record_success_concurrentEb(ptr noundef nonnull align 8 captures(none) dereferenceable(528) initializes((40, 44)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %3, align 8
   %4 = load i64, ptr %0, align 8
@@ -152,7 +152,7 @@ define hidden void @_ZN25ShenandoahCollectorPolicy25record_success_concurrentEb(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN25ShenandoahCollectorPolicy26record_success_degeneratedEb(ptr nocapture noundef nonnull align 8 dereferenceable(528) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN25ShenandoahCollectorPolicy26record_success_degeneratedEb(ptr noundef nonnull align 8 captures(none) dereferenceable(528) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1
@@ -670,7 +670,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162E
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @_ZN8GCTracer20report_gc_start_implEN7GCCause5CauseERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(80), i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 

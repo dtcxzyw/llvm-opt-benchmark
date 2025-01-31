@@ -762,7 +762,7 @@ return:                                           ; preds = %if.end49, %if.then5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
@@ -771,10 +771,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @p_ere(ptr noundef nonnull %p, i32 noundef range(i32 41, 129) %stop) unnamed_addr #0 {
@@ -3955,7 +3955,7 @@ lor.end:                                          ; preds = %seterr.exit, %if.en
 declare void @llvh_regfree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @doinsert(ptr nocapture noundef nonnull %p, i64 noundef range(i64 1207959552, 2013265921) %op, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %opnd, i64 noundef %pos) unnamed_addr #0 {
+define internal fastcc void @doinsert(ptr noundef nonnull captures(none) %p, i64 noundef range(i64 1207959552, 2013265921) %op, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %opnd, i64 noundef %pos) unnamed_addr #0 {
 entry:
   %error = getelementptr inbounds nuw i8, ptr %p, i64 16
   %0 = load i32, ptr %error, align 8
@@ -6609,7 +6609,7 @@ sw.epilog:                                        ; preds = %tailrecurse.outer.b
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define internal fastcc signext i8 @othercase(i32 noundef %ch) unnamed_addr #8 {
@@ -6645,10 +6645,10 @@ return:                                           ; preds = %if.else, %if.then11
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc signext i8 @p_b_symbol(ptr nocapture noundef nonnull %p) unnamed_addr #10 {
+define internal fastcc signext i8 @p_b_symbol(ptr noundef nonnull captures(none) %p) unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %end = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -6827,7 +6827,7 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #11
 declare i32 @toupper(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @bothcases(ptr noundef nonnull %p, i32 noundef %ch) unnamed_addr #0 {
@@ -6851,10 +6851,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #14

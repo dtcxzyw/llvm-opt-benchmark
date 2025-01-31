@@ -66,7 +66,7 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5PL__close_plugin_cache(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define noundef i32 @H5PL__close_plugin_cache(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5PL_cache_g, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %.preheader
@@ -109,7 +109,7 @@ define noundef i32 @H5PL__close_plugin_cache(ptr nocapture noundef writeonly %0)
 declare i32 @H5PL__close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5PL__add_plugin(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5PL__add_plugin(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @H5PL_num_plugins_g, align 4
   %5 = load i32, ptr @H5PL_cache_capacity_g, align 4
   %.not = icmp ult i32 %4, %5
@@ -169,10 +169,10 @@ H5PL__expand_cache.exit:                          ; preds = %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   store ptr null, ptr %2, align 8
   %4 = load i32, ptr @H5PL_num_plugins_g, align 4
@@ -355,7 +355,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -363,7 +363,7 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare ptr @H5MM_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

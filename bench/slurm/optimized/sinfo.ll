@@ -219,7 +219,7 @@ _multi_cluster.exit:                              ; preds = %58
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @slurm_init(ptr noundef) local_unnamed_addr #2
 
@@ -228,7 +228,7 @@ declare i32 @log_init(ptr noundef, ptr noundef byval(%struct.log_options_t) alig
 declare ptr @xbasename(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @list_create(ptr noundef) local_unnamed_addr #2
 
@@ -739,7 +739,7 @@ _reservation_report.exit:                         ; preds = %.thread36.i, %.crit
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @sleep(i32 noundef) local_unnamed_addr #2
 
@@ -1763,7 +1763,7 @@ declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #2
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_list_find_func(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #10 {
+define internal range(i32 0, 2) i32 @_list_find_func(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, %1
   %. = zext i1 %4 to i32
@@ -1967,7 +1967,7 @@ declare i32 @slurm_load_node_single2(ptr noundef, ptr noundef, i16 noundef zeroe
 declare i32 @slurm_load_node2(i64 noundef, ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #4 {
   %4 = alloca i16, align 2
   %5 = alloca i64, align 8
   %6 = alloca %union.pthread_attr_t, align 8
@@ -2498,7 +2498,7 @@ declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_sinfo(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc void @_update_sinfo(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = alloca i64, align 8
   %4 = alloca i16, align 2
   store i64 0, ptr %3, align 8
@@ -3041,13 +3041,13 @@ declare ptr @node_state_string_complete(i32 noundef) local_unnamed_addr #2
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

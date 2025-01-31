@@ -415,7 +415,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN3smt7context22validate_justificationEjRKNS_13bool_var_dataERKNS_15b_justificationE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(11616) %this, i32 noundef %v, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %d, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %j) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt7context22validate_justificationEjRKNS_13bool_var_dataERKNS_15b_justificationE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(11616) %this, i32 noundef %v, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %d, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %j) local_unnamed_addr #3 align 2 {
 entry:
   ret i1 true
 }
@@ -1222,7 +1222,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 

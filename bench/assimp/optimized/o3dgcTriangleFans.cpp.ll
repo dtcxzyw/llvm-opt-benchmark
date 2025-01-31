@@ -13,7 +13,7 @@ $_ZN5o3dgc12BinaryStream14WriteUIntASCIIEm = comdat any
 $_ZN5o3dgc12BinaryStream14WriteUInt32BinEm = comdat any
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc12SaveUIntDataERKNS_6VectorIlEERNS_12BinaryStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN5o3dgc12SaveUIntDataERKNS_6VectorIlEERNS_12BinaryStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %bstream, i64 16
   %0 = load i64, ptr %m_size.i.i, align 8
@@ -317,7 +317,7 @@ if.end:                                           ; preds = %_ZN5o3dgc6VectorIhE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc11SaveIntDataERKNS_6VectorIlEERNS_12BinaryStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN5o3dgc11SaveIntDataERKNS_6VectorIlEERNS_12BinaryStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %bstream, i64 16
   %0 = load i64, ptr %m_size.i.i, align 8
@@ -471,7 +471,7 @@ _ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEmm.exit: ; preds = %for.body.i41
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc11SaveBinDataERKNS_6VectorIlEERNS_12BinaryStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, ptr nocapture noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN5o3dgc11SaveBinDataERKNS_6VectorIlEERNS_12BinaryStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %data, ptr noundef nonnull align 8 captures(none) dereferenceable(28) %bstream) local_unnamed_addr #0 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %bstream, i64 16
   %0 = load i64, ptr %m_size.i.i, align 8
@@ -676,7 +676,7 @@ _ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEmm.exit: ; preds = %for.body.i64
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans10SaveUIntACERKNS_6VectorIlEEmRNS_12BinaryStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(164) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, i64 noundef %M, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans10SaveUIntACERKNS_6VectorIlEEmRNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(164) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %data, i64 noundef %M, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ace = alloca %"class.o3dgc::Arithmetic_Codec", align 8
   %mModelValues = alloca %"class.o3dgc::Adaptive_Data_Model", align 8
@@ -1268,7 +1268,7 @@ declare void @_ZN5o3dgc19Adaptive_Data_ModelD1Ev(ptr noundef nonnull align 8 der
 declare void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans9SaveBinACERKNS_6VectorIlEERNS_12BinaryStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(164) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans9SaveBinACERKNS_6VectorIlEERNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(164) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ace = alloca %"class.o3dgc::Arithmetic_Codec", align 8
   %bModel = alloca %"class.o3dgc::Adaptive_Bit_Model", align 4
@@ -1465,7 +1465,7 @@ declare void @_ZN5o3dgc18Adaptive_Bit_ModelC1Ev(ptr noundef nonnull align 4 dere
 declare void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_18Adaptive_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef, ptr noundef nonnull align 4 dereferenceable(20)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans12SaveIntACEGCERKNS_6VectorIlEEmRNS_12BinaryStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(164) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, i64 noundef %M, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans12SaveIntACEGCERKNS_6VectorIlEEmRNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(164) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %data, i64 noundef %M, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ace = alloca %"class.o3dgc::Arithmetic_Codec", align 8
   %mModelValues = alloca %"class.o3dgc::Adaptive_Data_Model", align 8
@@ -1760,7 +1760,7 @@ if.end58:                                         ; preds = %for.end57, %entry
 declare void @_ZN5o3dgc16Static_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans4SaveERNS_12BinaryStreamEbNS_15O3DGCStreamTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(164) %this, ptr noundef nonnull align 8 dereferenceable(28) %bstream, i1 noundef zeroext %encodeTrianglesOrder, i32 noundef %streamType) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans4SaveERNS_12BinaryStreamEbNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(164) %this, ptr noundef nonnull align 8 dereferenceable(28) %bstream, i1 noundef zeroext %encodeTrianglesOrder, i32 noundef %streamType) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %streamType, 1
   %m_degrees = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1800,7 +1800,7 @@ if.end23:                                         ; preds = %if.else, %if.then19
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc12LoadUIntDataERNS_6VectorIlEERKNS_12BinaryStreamERm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %bstream, ptr nocapture noundef nonnull align 8 dereferenceable(8) %iterator) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN5o3dgc12LoadUIntDataERNS_6VectorIlEERKNS_12BinaryStreamERm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %bstream, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %iterator) local_unnamed_addr #0 {
 entry:
   %.pre.i = load i64, ptr %iterator, align 8
   %0 = add i64 %.pre.i, 5
@@ -1954,7 +1954,7 @@ for.end:                                          ; preds = %_ZN5o3dgc6VectorIlE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc11LoadIntDataERNS_6VectorIlEERKNS_12BinaryStreamERm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %bstream, ptr nocapture noundef nonnull align 8 dereferenceable(8) %iterator) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN5o3dgc11LoadIntDataERNS_6VectorIlEERKNS_12BinaryStreamERm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %bstream, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %iterator) local_unnamed_addr #0 {
 entry:
   %.pre.i = load i64, ptr %iterator, align 8
   %0 = add i64 %.pre.i, 5
@@ -2115,7 +2115,7 @@ for.end:                                          ; preds = %_ZN5o3dgc6VectorIlE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc11LoadBinDataERNS_6VectorIlEERKNS_12BinaryStreamERm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %bstream, ptr nocapture noundef nonnull align 8 dereferenceable(8) %iterator) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN5o3dgc11LoadBinDataERNS_6VectorIlEERKNS_12BinaryStreamERm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %bstream, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %iterator) local_unnamed_addr #0 {
 entry:
   %.pre.i = load i64, ptr %iterator, align 8
   %0 = add i64 %.pre.i, 5
@@ -2255,7 +2255,7 @@ for.end7:                                         ; preds = %for.cond.loopexit, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc10LoadUIntACERNS_6VectorIlEEmRKNS_12BinaryStreamERm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %data, i64 noundef %M, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %bstream, ptr nocapture noundef nonnull align 8 dereferenceable(8) %iterator) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN5o3dgc10LoadUIntACERNS_6VectorIlEEmRKNS_12BinaryStreamERm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %data, i64 noundef %M, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %bstream, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %iterator) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %acd = alloca %"class.o3dgc::Arithmetic_Codec", align 8
   %mModelValues = alloca %"class.o3dgc::Adaptive_Data_Model", align 8
@@ -2620,7 +2620,7 @@ declare void @_ZN5o3dgc16Arithmetic_Codec13start_decoderEv(ptr noundef nonnull a
 declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc12LoadIntACEGCERNS_6VectorIlEEmRKNS_12BinaryStreamERm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %data, i64 noundef %M, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %bstream, ptr nocapture noundef nonnull align 8 dereferenceable(8) %iterator) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN5o3dgc12LoadIntACEGCERNS_6VectorIlEEmRKNS_12BinaryStreamERm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %data, i64 noundef %M, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %bstream, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %iterator) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %acd = alloca %"class.o3dgc::Arithmetic_Codec", align 8
   %mModelValues = alloca %"class.o3dgc::Adaptive_Data_Model", align 8
@@ -3058,7 +3058,7 @@ return:                                           ; preds = %_ZNK5o3dgc12BinaryS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc9LoadBinACERNS_6VectorIlEERKNS_12BinaryStreamERm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %bstream, ptr nocapture noundef nonnull align 8 dereferenceable(8) %iterator) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN5o3dgc9LoadBinACERNS_6VectorIlEERKNS_12BinaryStreamERm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %bstream, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %iterator) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %acd = alloca %"class.o3dgc::Arithmetic_Codec", align 8
   %bModel = alloca %"class.o3dgc::Adaptive_Bit_Model", align 4
@@ -3346,7 +3346,7 @@ return:                                           ; preds = %_ZNK5o3dgc12BinaryS
 declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_18Adaptive_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 4 dereferenceable(20)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans4LoadERKNS_12BinaryStreamERmbNS_15O3DGCStreamTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(164) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %bstream, ptr nocapture noundef nonnull align 8 dereferenceable(8) %iterator, i1 noundef zeroext %decodeTrianglesOrder, i32 noundef %streamType) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans4LoadERKNS_12BinaryStreamERmbNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(164) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %bstream, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %iterator, i1 noundef zeroext %decodeTrianglesOrder, i32 noundef %streamType) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %streamType, 1
   %m_degrees = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3386,7 +3386,7 @@ if.end23:                                         ; preds = %if.else, %if.then19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_16Static_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 

@@ -400,7 +400,7 @@ tcg_region_tree_unlock_all.exit:                  ; preds = %for.body.i5, %entry
 declare i32 @q_tree_nnodes(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @tcg_region_alloc(ptr nocapture noundef %s) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @tcg_region_alloc(ptr noundef captures(none) %s) local_unnamed_addr #1 {
 entry:
   %code_gen_buffer_size = getelementptr inbounds nuw i8, ptr %s, i64 144
   %0 = load i64, ptr %code_gen_buffer_size, align 8
@@ -452,7 +452,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_region_initial_alloc(ptr nocapture noundef writeonly %s) local_unnamed_addr #1 {
+define dso_local void @tcg_region_initial_alloc(ptr noundef writeonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -981,7 +981,7 @@ declare ptr @__errno_location() local_unnamed_addr #5
 declare i32 @qemu_mprotect_none(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_region_prologue_set(ptr nocapture noundef %s) local_unnamed_addr #1 {
+define dso_local void @tcg_region_prologue_set(ptr noundef captures(none) %s) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @region, i64 48), align 8
   %code_gen_buffer = getelementptr inbounds nuw i8, ptr %s, i64 136
@@ -1118,7 +1118,7 @@ declare ptr @qemu_memalign(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @q_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 2) i32 @tb_tc_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp, ptr nocapture readnone %userdata) #1 {
+define internal range(i32 -1, 2) i32 @tb_tc_cmp(ptr noundef readonly captures(none) %ap, ptr noundef readonly captures(none) %bp, ptr readnone captures(none) %userdata) #1 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %ap, i64 8
   %0 = load i64, ptr %size, align 8
@@ -1177,7 +1177,7 @@ return:                                           ; preds = %do.body, %if.else, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @tb_destroy(ptr nocapture readnone %value) #7 {
+define internal void @tb_destroy(ptr readnone captures(none) %value) #7 {
 entry:
   ret void
 }
@@ -1189,13 +1189,13 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.38 = private unnamed_addr constant [33 x i8] c"       XX                       \00", align 1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @cursor_print_ascii_art(ptr nocapture noundef readonly %c, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local void @cursor_print_ascii_art(ptr noundef readonly captures(none) %c, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %height = getelementptr inbounds nuw i8, ptr %c, i64 2
   %0 = load i16, ptr %height, align 2
@@ -120,7 +120,7 @@ for.end29:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @cursor_builtin_hidden() local_unnamed_addr #2 {
@@ -130,7 +130,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias noundef ptr @cursor_parse_xpm(ptr nocapture noundef readonly %xpm) unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @cursor_parse_xpm(ptr noundef readonly captures(none) %xpm) unnamed_addr #2 {
 entry:
   %ctab = alloca [128 x i32], align 16
   %width = alloca i32, align 4
@@ -366,7 +366,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @g_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 8193) i32 @cursor_get_mono_bpl(ptr nocapture noundef readonly %c) local_unnamed_addr #6 {
+define dso_local range(i32 0, 8193) i32 @cursor_get_mono_bpl(ptr noundef readonly captures(none) %c) local_unnamed_addr #6 {
 entry:
   %0 = load i16, ptr %c, align 4
   %conv = zext i16 %0 to i32
@@ -376,7 +376,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @cursor_set_mono(ptr nocapture noundef %c, i32 noundef %foreground, i32 noundef %background, ptr noundef readonly %image, i32 noundef %transparent, ptr noundef readonly %mask) local_unnamed_addr #7 {
+define dso_local void @cursor_set_mono(ptr noundef captures(none) %c, i32 noundef %foreground, i32 noundef %background, ptr noundef readonly %image, i32 noundef %transparent, ptr noundef readonly %mask) local_unnamed_addr #7 {
 entry:
   %data1 = getelementptr inbounds nuw i8, ptr %c, i64 16
   %cmp = icmp eq ptr %image, %mask
@@ -782,7 +782,7 @@ if.end143:                                        ; preds = %for.inc139, %for.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @cursor_get_mono_image(ptr nocapture noundef readonly %c, i32 noundef %foreground, ptr nocapture noundef %image) local_unnamed_addr #7 {
+define dso_local void @cursor_get_mono_image(ptr noundef readonly captures(none) %c, i32 noundef %foreground, ptr noundef captures(none) %image) local_unnamed_addr #7 {
 entry:
   %0 = load i16, ptr %c, align 4
   %conv.i = zext i16 %0 to i32
@@ -867,10 +867,10 @@ for.end28:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @cursor_get_mono_mask(ptr nocapture noundef readonly %c, i32 noundef %transparent, ptr nocapture noundef %mask) local_unnamed_addr #7 {
+define dso_local void @cursor_get_mono_mask(ptr noundef readonly captures(none) %c, i32 noundef %transparent, ptr noundef captures(none) %mask) local_unnamed_addr #7 {
 entry:
   %0 = load i16, ptr %c, align 4
   %conv.i = zext i16 %0 to i32
@@ -1008,19 +1008,19 @@ for.end40:                                        ; preds = %for.end, %for.end.u
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 attributes #0 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

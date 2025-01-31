@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_avx2(ptr noundef readonly %data, i32 noundef %data_len, ptr noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr nocapture noundef writeonly %residual) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_avx2(ptr noundef readonly %data, i32 noundef %data_len, ptr noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noundef writeonly captures(none) %residual) local_unnamed_addr #0 {
 entry:
   %vecinit3.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %lp_quantization, i64 0
   %cmp = icmp ult i32 %order, 13
@@ -1607,7 +1607,7 @@ if.end1630:                                       ; preds = %sw.epilog1620, %sw.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2(ptr noundef readonly %data, i32 noundef %data_len, ptr noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr nocapture noundef writeonly %residual) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2(ptr noundef readonly %data, i32 noundef %data_len, ptr noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noundef writeonly captures(none) %residual) local_unnamed_addr #0 {
 entry:
   %vecinit3.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %lp_quantization, i64 0
   %cmp = icmp ult i32 %order, 13
@@ -2864,7 +2864,7 @@ if.end1553:                                       ; preds = %sw.epilog1543, %sw.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin_avx2(ptr noundef readonly %data, i32 noundef %data_len, ptr noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr nocapture noundef writeonly %residual) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin_avx2(ptr noundef readonly %data, i32 noundef %data_len, ptr noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noundef writeonly captures(none) %residual) local_unnamed_addr #0 {
 entry:
   %vecinit3.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %lp_quantization, i64 0
   %0 = bitcast <4 x i32> %vecinit3.i to <2 x i64>

@@ -454,7 +454,7 @@ define linkonce_odr void @_ZN14StructureSynth5Model9Rendering16TemplateRenderer1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11MyTrenderer7drawBoxEN12SyntopiaCore4Math7Vector3IfEES3_S3_S3_PNS0_8GLEngine14PrimitiveClassE(ptr noundef nonnull align 8 dereferenceable(288) %0, <2 x float> %1, float %2, <2 x float> %3, float %4, <2 x float> %5, float %6, <2 x float> %7, float %8, ptr nocapture readnone %9) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11MyTrenderer7drawBoxEN12SyntopiaCore4Math7Vector3IfEES3_S3_S3_PNS0_8GLEngine14PrimitiveClassE(ptr noundef nonnull align 8 dereferenceable(288) %0, <2 x float> %1, float %2, <2 x float> %3, float %4, <2 x float> %5, float %6, <2 x float> %7, float %8, ptr readnone captures(none) %9) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.StructureSynth::Model::Rendering::TemplatePrimitive", align 8
   %12 = alloca %class.QString, align 8
   %13 = alloca %class.QString, align 8
@@ -2197,7 +2197,7 @@ _ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit: ; preds = %_ZN7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11MyTrenderer8drawMeshEN12SyntopiaCore4Math7Vector3IfEES3_S3_S3_S3_S3_PNS0_8GLEngine14PrimitiveClassE(ptr noundef nonnull align 8 dereferenceable(288) %0, <2 x float> %1, float %2, <2 x float> %3, float %4, <2 x float> %5, float %6, <2 x float> %7, float %8, ptr nocapture noundef readonly byval(%"class.SyntopiaCore::Math::Vector3") align 8 %9, ptr nocapture noundef readonly byval(%"class.SyntopiaCore::Math::Vector3") align 8 %10, ptr nocapture readnone %11) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11MyTrenderer8drawMeshEN12SyntopiaCore4Math7Vector3IfEES3_S3_S3_S3_S3_PNS0_8GLEngine14PrimitiveClassE(ptr noundef nonnull align 8 dereferenceable(288) %0, <2 x float> %1, float %2, <2 x float> %3, float %4, <2 x float> %5, float %6, <2 x float> %7, float %8, ptr noundef readonly byval(%"class.SyntopiaCore::Math::Vector3") align 8 captures(none) %9, ptr noundef readonly byval(%"class.SyntopiaCore::Math::Vector3") align 8 captures(none) %10, ptr readnone captures(none) %11) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %13 = alloca %class.QString, align 8
   %14 = alloca %class.QString, align 8
   %15 = alloca %class.QString, align 8
@@ -3351,7 +3351,7 @@ declare void @_ZN14StructureSynth5Model9Rendering16TemplateRenderer8drawGridEN12
 declare void @_ZN14StructureSynth5Model9Rendering16TemplateRenderer8drawLineEN12SyntopiaCore4Math7Vector3IfEES6_PNS3_8GLEngine14PrimitiveClassE(ptr noundef nonnull align 8 dereferenceable(208), <2 x float>, float, <2 x float>, float, ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11MyTrenderer7drawDotEN12SyntopiaCore4Math7Vector3IfEEPNS0_8GLEngine14PrimitiveClassE(ptr noundef nonnull align 8 dereferenceable(288) %0, <2 x float> %1, float %2, ptr nocapture readnone %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11MyTrenderer7drawDotEN12SyntopiaCore4Math7Vector3IfEEPNS0_8GLEngine14PrimitiveClassE(ptr noundef nonnull align 8 dereferenceable(288) %0, <2 x float> %1, float %2, ptr readnone captures(none) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.StructureSynth::Model::Rendering::TemplatePrimitive", align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -4019,7 +4019,7 @@ _ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit: ; preds = %_ZN7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11MyTrenderer10drawSphereEN12SyntopiaCore4Math7Vector3IfEEfPNS0_8GLEngine14PrimitiveClassE(ptr noundef nonnull align 8 dereferenceable(288) %0, <2 x float> %1, float %2, float noundef %3, ptr nocapture readnone %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11MyTrenderer10drawSphereEN12SyntopiaCore4Math7Vector3IfEEfPNS0_8GLEngine14PrimitiveClassE(ptr noundef nonnull align 8 dereferenceable(288) %0, <2 x float> %1, float %2, float noundef %3, ptr readnone captures(none) %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.StructureSynth::Model::Rendering::TemplatePrimitive", align 8
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
@@ -5025,7 +5025,7 @@ _ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit: ; preds = %_ZN7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11MyTrenderer12drawTriangleEN12SyntopiaCore4Math7Vector3IfEES3_S3_PNS0_8GLEngine14PrimitiveClassE(ptr noundef nonnull align 8 dereferenceable(288) %0, <2 x float> %1, float %2, <2 x float> %3, float %4, <2 x float> %5, float %6, ptr nocapture readnone %7) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11MyTrenderer12drawTriangleEN12SyntopiaCore4Math7Vector3IfEES3_S3_PNS0_8GLEngine14PrimitiveClassE(ptr noundef nonnull align 8 dereferenceable(288) %0, <2 x float> %1, float %2, <2 x float> %3, float %4, <2 x float> %5, float %6, ptr readnone captures(none) %7) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.StructureSynth::Model::Rendering::TemplatePrimitive", align 8
   %10 = alloca %class.QString, align 8
   %11 = alloca %class.QString, align 8
@@ -6216,7 +6216,7 @@ define linkonce_odr void @_ZN14StructureSynth5Model9Rendering8Renderer19setPersp
 declare void @_ZN14StructureSynth5Model9Rendering16TemplateRenderer11callCommandERK7QStringS5_(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -7409,10 +7409,10 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

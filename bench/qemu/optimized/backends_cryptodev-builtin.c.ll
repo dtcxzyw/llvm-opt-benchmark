@@ -64,7 +64,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_builtin_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @cryptodev_builtin_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_CLASS) #6
   %init = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -140,7 +140,7 @@ return:                                           ; preds = %cryptodev_builtin_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_builtin_cleanup(ptr noundef %backend, ptr nocapture readnone %errp) #0 {
+define internal void @cryptodev_builtin_cleanup(ptr noundef %backend, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 39, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_BUILTIN) #6
   %conf = getelementptr inbounds nuw i8, ptr %backend, i64 48
@@ -225,7 +225,7 @@ for.end19:                                        ; preds = %for.inc17, %for.con
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -3, 1) i32 @cryptodev_builtin_create_session(ptr noundef %backend, ptr nocapture noundef %sess_info, i32 %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
+define internal range(i32 -3, 1) i32 @cryptodev_builtin_create_session(ptr noundef %backend, ptr noundef captures(none) %sess_info, i32 %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
 entry:
   %opts.i = alloca %struct.QCryptoAkCipherOptions, align 4
   %local_error = alloca ptr, align 8
@@ -602,7 +602,7 @@ if.end16:                                         ; preds = %if.then15, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -4, 1) i32 @cryptodev_builtin_operation(ptr noundef %backend, ptr nocapture noundef readonly %op_info) #0 {
+define internal range(i32 -4, 1) i32 @cryptodev_builtin_operation(ptr noundef %backend, ptr noundef readonly captures(none) %op_info) #0 {
 entry:
   %local_error = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 39, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_BUILTIN) #6
@@ -867,10 +867,10 @@ declare i32 @qcrypto_akcipher_verify(ptr noundef, ptr noundef, i64 noundef, ptr 
 declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

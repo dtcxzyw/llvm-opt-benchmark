@@ -96,7 +96,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler4rust23GenerateAccessorMsgImplENS2_7ContextINS0_15FieldDescriptorEEE(ptr nocapture noundef readonly byval(%"class.google::protobuf::compiler::rust::Context") align 8 %field) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4rust23GenerateAccessorMsgImplENS2_7ContextINS0_15FieldDescriptorEEE(ptr noundef readonly byval(%"class.google::protobuf::compiler::rust::Context") align 8 captures(none) %field) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   %agg.tmp.sroa.1.0.field.sroa_idx = getelementptr inbounds nuw i8, ptr %field, i64 8
@@ -129,7 +129,7 @@ _ZNSt10unique_ptrIN6google8protobuf8compiler4rust17AccessorGeneratorESt14default
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_120AccessorGeneratorForENS2_7ContextINS0_15FieldDescriptorEEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %field.8.val, ptr %field.16.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_120AccessorGeneratorForENS2_7ContextINS0_15FieldDescriptorEEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr %field.8.val, ptr %field.16.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.6", align 8
   %ref.tmp8 = alloca %"class.std::unique_ptr.6", align 8
@@ -424,7 +424,7 @@ return:                                           ; preds = %sw.bb39, %sw.bb37, 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler4rust23GenerateAccessorExternCENS2_7ContextINS0_15FieldDescriptorEEE(ptr nocapture noundef readonly byval(%"class.google::protobuf::compiler::rust::Context") align 8 %field) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4rust23GenerateAccessorExternCENS2_7ContextINS0_15FieldDescriptorEEE(ptr noundef readonly byval(%"class.google::protobuf::compiler::rust::Context") align 8 captures(none) %field) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   %agg.tmp.sroa.1.0.field.sroa_idx = getelementptr inbounds nuw i8, ptr %field, i64 8
@@ -457,7 +457,7 @@ _ZNSt10unique_ptrIN6google8protobuf8compiler4rust17AccessorGeneratorESt14default
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler4rust23GenerateAccessorThunkCcENS2_7ContextINS0_15FieldDescriptorEEE(ptr nocapture noundef readonly byval(%"class.google::protobuf::compiler::rust::Context") align 8 %field) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4rust23GenerateAccessorThunkCcENS2_7ContextINS0_15FieldDescriptorEEE(ptr noundef readonly byval(%"class.google::protobuf::compiler::rust::Context") align 8 captures(none) %field) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
@@ -1077,7 +1077,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -1165,10 +1165,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

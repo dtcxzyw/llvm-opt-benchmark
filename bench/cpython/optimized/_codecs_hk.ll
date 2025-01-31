@@ -218,7 +218,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 
@@ -380,17 +380,17 @@ register_maps.exit:                               ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @big5hkscs_codec_init(ptr nocapture noundef readonly %codec) #0 {
+define internal range(i32 -1, 1) i32 @big5hkscs_codec_init(ptr noundef readonly captures(none) %codec) #0 {
 entry:
   %modstate = getelementptr inbounds nuw i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -473,7 +473,7 @@ importmap.exit.thread:                            ; preds = %importmap.exit.thre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 -2, 2) i64 @big5hkscs_encode(ptr nocapture readnone %state, ptr nocapture noundef readonly %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 noundef %flags) #5 {
+define internal range(i64 -2, 2) i64 @big5hkscs_encode(ptr readnone captures(none) %state, ptr noundef readonly captures(none) %codec, i32 noundef %kind, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %inpos, i64 noundef %inlen, ptr noundef captures(none) %outbuf, i64 noundef %outleft, i32 noundef %flags) #5 {
 entry:
   %0 = load i64, ptr %inpos, align 8
   %cmp88 = icmp slt i64 %0, %inlen
@@ -725,7 +725,7 @@ return:                                           ; preds = %do.body, %if.end10,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -4, 2) i64 @big5hkscs_decode(ptr nocapture readnone %state, ptr nocapture noundef readonly %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
+define internal range(i64 -4, 2) i64 @big5hkscs_decode(ptr readnone captures(none) %state, ptr noundef readonly captures(none) %codec, ptr noundef captures(none) %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
   %cmp169 = icmp sgt i64 %inleft, 0
   br i1 %cmp169, label %while.body.lr.ph, label %return
@@ -1208,10 +1208,10 @@ declare i32 @_PyUnicodeWriter_WriteChar(ptr noundef, i32 noundef) local_unnamed_
 declare i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

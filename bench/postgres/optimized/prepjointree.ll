@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.find_jointree_node_for_rel = private unnamed_addr constant [27 x i8] c"find_jointree_node_for_rel\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @transform_MERGE_to_join(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @transform_MERGE_to_join(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 5
@@ -157,7 +157,7 @@ declare ptr @add_nulling_relids(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @bms_make_singleton(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @replace_empty_jointree(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @replace_empty_jointree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -233,7 +233,7 @@ define dso_local void @pull_up_sublinks(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @pull_up_sublinks_jointree_recurse(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -575,7 +575,7 @@ list_length.exit.i:                               ; preds = %50
   br label %45, !llvm.loop !5
 
 .split87:                                         ; preds = %45, %41
-  %58 = tail call fastcc ptr @pull_up_simple_subquery(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %24, ptr noundef %2, ptr noundef nonnull %3)
+  %58 = tail call fastcc ptr @pull_up_simple_subquery(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %24, ptr noundef %2, ptr noundef nonnull %3)
   br label %common.ret138
 
 is_safe_append_member.exit:                       ; preds = %list_length.exit.i, %50, %47, %45, %28
@@ -706,7 +706,7 @@ pull_up_simple_union_all.exit:                    ; preds = %.lr.ph130, %.prehea
   tail call void @CombineRangeTables(ptr noundef nonnull %119, ptr noundef nonnull %120, ptr noundef %103, ptr noundef %122) #7
   %123 = getelementptr inbounds nuw i8, ptr %93, i64 224
   %124 = load ptr, ptr %123, align 8
-  tail call fastcc void @pull_up_union_leaf_queries(ptr noundef %124, ptr noundef %0, i32 noundef %92, ptr noundef %93, i32 noundef %100)
+  tail call fastcc void @pull_up_union_leaf_queries(ptr noundef %124, ptr noundef nonnull %0, i32 noundef %92, ptr noundef %93, i32 noundef %100)
   %125 = getelementptr inbounds nuw i8, ptr %24, i64 201
   store i8 1, ptr %125, align 1
   br label %common.ret138
@@ -1136,7 +1136,7 @@ list_length.exit:                                 ; preds = %.critedge, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @is_simple_union_all_recurse(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @is_simple_union_all_recurse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %31, %3
@@ -1205,7 +1205,7 @@ tailrecurse:                                      ; preds = %31, %3
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pull_up_union_leaf_queries(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @pull_up_union_leaf_queries(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %57, %5
@@ -1543,7 +1543,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reduce_outer_joins_pass2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @reduce_outer_joins_pass2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %11
 
@@ -2474,7 +2474,7 @@ declare ptr @bms_join(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_relids_for_join(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @get_relids_for_join(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @find_jointree_node_for_rel(ptr noundef %4, i32 noundef %1)
@@ -2582,7 +2582,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare void @check_stack_depth() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pull_up_sublinks_qual_recurse(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @pull_up_sublinks_qual_recurse(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = icmp eq ptr %1, null
@@ -2832,7 +2832,7 @@ list_length.exit:                                 ; preds = %._crit_edge
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @bms_union(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2845,7 +2845,7 @@ declare ptr @make_andclause(ptr noundef) local_unnamed_addr #1
 declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = icmp eq i32 %5, 59
   br i1 %6, label %7, label %10
@@ -3194,7 +3194,7 @@ is_safe_append_member.exit.thread:                ; preds = %101, %97, %90
   %114 = load ptr, ptr %18, align 8
   %115 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %116 = load ptr, ptr %115, align 8
-  %117 = tail call ptr @flatten_join_alias_vars(ptr noundef %17, ptr noundef %114, ptr noundef %116) #7
+  %117 = tail call ptr @flatten_join_alias_vars(ptr noundef nonnull %17, ptr noundef %114, ptr noundef %116) #7
   store ptr %117, ptr %115, align 8
   %118 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %119 = load ptr, ptr %118, align 8
@@ -3593,7 +3593,7 @@ declare zeroext i1 @bms_is_subset(ptr noundef, ptr noundef) local_unnamed_addr #
 declare zeroext i1 @contain_volatile_functions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @flatten_join_alias_vars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3602,7 +3602,7 @@ declare void @OffsetVarNodes(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare void @IncrementVarSublevelsUp(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @perform_pullup_replace_vars(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @perform_pullup_replace_vars(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %2, null
@@ -4004,7 +4004,7 @@ define internal fastcc void @replace_vars_in_jointree(ptr noundef %0, ptr nounde
 declare ptr @replace_rte_variables(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pullup_replace_vars_callback(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal ptr @pullup_replace_vars_callback(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4381,7 +4381,7 @@ declare ptr @find_nonnullable_vars(ptr noundef) local_unnamed_addr #1
 declare ptr @mbms_overlap_sets(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @find_dependent_phvs_in_jointree(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @find_dependent_phvs_in_jointree(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #0 {
   %4 = alloca %struct.find_dependent_phvs_context, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -4479,7 +4479,7 @@ find_dependent_phvs_walker.exit.thread:           ; preds = %49, %51, %find_depe
 declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_result_refs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @remove_result_refs(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.substitute_phv_relids_context, align 8
   %5 = alloca %struct.substitute_phv_relids_context, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4631,10 +4631,10 @@ declare zeroext i1 @bms_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

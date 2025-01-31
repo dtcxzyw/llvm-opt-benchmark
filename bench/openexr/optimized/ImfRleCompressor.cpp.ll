@@ -173,13 +173,13 @@ _ZN7Imf_3_213RleCompressorD2Ev.exit:              ; preds = %delete.end.i, %dele
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK7Imf_3_213RleCompressor12numScanLinesEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK7Imf_3_213RleCompressor12numScanLinesEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213RleCompressor8compressEPKciiRS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef readonly %inPtr, i32 noundef %inSize, i32 %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213RleCompressor8compressEPKciiRS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly %inPtr, i32 noundef %inSize, i32 %minY, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPtr) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %inSize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -262,7 +262,7 @@ return:                                           ; preds = %while.end31, %if.th
 declare noundef i32 @_ZN7Imf_3_211rleCompressEiPKcPa(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213RleCompressor10uncompressEPKciiRS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN7Imf_3_213RleCompressor10uncompressEPKciiRS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 %minY, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPtr) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i32 %inSize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -386,7 +386,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

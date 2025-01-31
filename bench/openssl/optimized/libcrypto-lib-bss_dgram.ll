@@ -319,12 +319,12 @@ define internal i32 @dgram_puts(ptr noundef %bp, ptr noundef %str) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #13
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @dgram_write(ptr noundef %bp, ptr noundef %str, i32 noundef %conv)
+  %call1 = tail call i32 @dgram_write(ptr noundef %bp, ptr noundef nonnull %str, i32 noundef %conv)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, -9223372036854775808) i64 @dgram_ctrl(ptr nocapture noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
+define internal range(i64 -1, -9223372036854775808) i64 @dgram_ctrl(ptr noundef captures(none) %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
 entry:
   %tmp_addr.i118 = alloca %struct.in6_addr, align 4
   %tmp_addr.i = alloca %struct.in6_addr, align 4
@@ -1000,7 +1000,7 @@ return:                                           ; preds = %sw.epilog333, %sw.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dgram_new(ptr nocapture noundef writeonly %bi) #1 {
+define internal range(i32 0, 2) i32 @dgram_new(ptr noundef writeonly captures(none) %bi) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 264, ptr noundef nonnull @.str.1, i32 noundef 257) #11
   %cmp = icmp eq ptr %call, null
@@ -1058,7 +1058,7 @@ return:                                           ; preds = %entry, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dgram_sendmmsg(ptr nocapture noundef readonly %b, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
+define internal range(i32 0, 2) i32 @dgram_sendmmsg(ptr noundef readonly captures(none) %b, ptr noundef captures(none) %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr noundef writeonly captures(none) %num_processed) #1 {
 entry:
   %mh = alloca [64 x %struct.mmsghdr], align 16
   %iov = alloca [64 x %struct.iovec], align 16
@@ -1321,7 +1321,7 @@ return:                                           ; preds = %for.body44, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dgram_recvmmsg(ptr nocapture noundef readonly %b, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
+define internal range(i32 0, 2) i32 @dgram_recvmmsg(ptr noundef readonly captures(none) %b, ptr noundef captures(none) %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr noundef writeonly captures(none) %num_processed) #1 {
 entry:
   %mh = alloca [64 x %struct.mmsghdr], align 16
   %iov = alloca [64 x %struct.iovec], align 16
@@ -1606,7 +1606,7 @@ return:                                           ; preds = %for.inc58, %for.con
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @BIO_ADDR_sockaddr_size(ptr noundef) local_unnamed_addr #2
 
@@ -1636,7 +1636,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i64 @ossl_time_now() local_unnamed_addr #2
 
@@ -1644,10 +1644,10 @@ declare i64 @ossl_time_now() local_unnamed_addr #2
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @enable_local_addr(ptr nocapture noundef readonly %b, i32 noundef range(i32 0, 2) %enable) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @enable_local_addr(ptr noundef readonly captures(none) %b, i32 noundef range(i32 0, 2) %enable) unnamed_addr #1 {
 entry:
   %enable.addr = alloca i32, align 4
   store i32 %enable, ptr %enable.addr, align 4
@@ -1720,10 +1720,10 @@ declare i64 @llvm.smax.i64(i64, i64) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #9

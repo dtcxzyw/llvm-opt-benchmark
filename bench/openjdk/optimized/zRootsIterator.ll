@@ -143,7 +143,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN21ZNMethodsIteratorImplD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN21ZNMethodsIteratorImplD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ZOopStorageSetIteratorStrong5applyEP10OopClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(289) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN28ZOopStorageSetIteratorStrong5applyEP10OopClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(289) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN14ZRootStatTimer18calculate_subphaseE21ZGenerationIdOptionalRK17ZRootStatSubPhase.exit.i:
   %2 = alloca %class.TimeInstant, align 8
   %3 = alloca %"struct.OopStorage::BasicParState::IterationData", align 8
@@ -257,7 +257,7 @@ _ZN14ZRootStatTimerD2Ev.exit:                     ; preds = %_ZN27OopStorageSetS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ZCLDsIteratorStrong5applyEP10CLDClosure(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19ZCLDsIteratorStrong5applyEP10CLDClosure(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN14ZRootStatTimer18calculate_subphaseE21ZGenerationIdOptionalRK17ZRootStatSubPhase.exit.i:
   %2 = alloca %class.TimeInstant, align 8
   %3 = alloca %class.ZRootStatTimer, align 8
@@ -312,7 +312,7 @@ _ZN14ZRootStatTimerD2Ev.exit:                     ; preds = %_ZN14ZRootStatTimer
 declare void @_ZN20ClassLoaderDataGraph20always_strong_cld_doEP10CLDClosure(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ZCLDsIteratorWeak5applyEP10CLDClosure(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ZCLDsIteratorWeak5applyEP10CLDClosure(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN14ZRootStatTimer18calculate_subphaseE21ZGenerationIdOptionalRK17ZRootStatSubPhase.exit.i:
   %2 = alloca %class.TimeInstant, align 8
   %3 = alloca %class.ZRootStatTimer, align 8
@@ -367,7 +367,7 @@ _ZN14ZRootStatTimerD2Ev.exit:                     ; preds = %_ZN14ZRootStatTimer
 declare void @_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZCLDsIteratorAll5applyEP10CLDClosure(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ZCLDsIteratorAll5applyEP10CLDClosure(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN14ZRootStatTimer18calculate_subphaseE21ZGenerationIdOptionalRK17ZRootStatSubPhase.exit.i:
   %2 = alloca %class.TimeInstant, align 8
   %3 = alloca %class.ZRootStatTimer, align 8
@@ -543,7 +543,7 @@ _ZN14ZRootStatTimerD2Ev.exit:                     ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ZNMethodsIteratorImplC2E21ZGenerationIdOptionalbb(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, i8 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ZNMethodsIteratorImplC2E21ZGenerationIdOptionalbb(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0, i8 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %2 to i8
   %6 = zext i1 %3 to i8
   store i8 %5, ptr %0, align 1
@@ -564,7 +564,7 @@ define hidden void @_ZN21ZNMethodsIteratorImplC2E21ZGenerationIdOptionalbb(ptr n
 declare void @_ZN8ZNMethod17nmethods_do_beginEb(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ZNMethodsIteratorImplD2Ev(ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ZNMethodsIteratorImplD2Ev(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %8
@@ -583,7 +583,7 @@ define hidden void @_ZN21ZNMethodsIteratorImplD2Ev(ptr nocapture noundef nonnull
 declare void @_ZN8ZNMethod15nmethods_do_endEb(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ZNMethodsIteratorImpl5applyEP14NMethodClosure(ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21ZNMethodsIteratorImpl5applyEP14NMethodClosure(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN14ZRootStatTimer18calculate_subphaseE21ZGenerationIdOptionalRK17ZRootStatSubPhase.exit.i:
   %2 = alloca %class.TimeInstant, align 8
   %3 = alloca %class.ZRootStatTimer, align 8
@@ -1085,7 +1085,7 @@ _ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26ZOopStorageSetIteratorWeak15report_num_deadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(569) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN26ZOopStorageSetIteratorWeak15report_num_deadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(569) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -1105,7 +1105,7 @@ _ZN25OopStorageSetWeakParStateILb1ELb0EE15report_num_deadEv.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25ZRootsIteratorWeakColored15report_num_deadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(584) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN25ZRootsIteratorWeakColored15report_num_deadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(584) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -1535,7 +1535,7 @@ declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #1
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #1
 
@@ -2410,10 +2410,10 @@ define internal void @_GLOBAL__sub_I_zRootsIterator.cpp() #2 section ".text.star
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

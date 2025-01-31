@@ -2306,7 +2306,7 @@ init.end:                                         ; preds = %init.check, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io14StreamMetadataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #38
   invoke void @_ZN7openvdb5v11_02io14StreamMetadata4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(164) %call)
@@ -2400,7 +2400,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadataC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %other) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io14StreamMetadataC2ERKS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %other) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::any>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::any>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %call = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #38
@@ -2713,7 +2713,7 @@ _ZNSt8ios_base5iwordEi.exit19:                    ; preds = %cond.true.i15, %con
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %strm) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
@@ -2976,7 +2976,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io14StreamMetadataD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3151,7 +3151,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io14StreamMetadata10transferToERSt8ios_base(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(216) %strm) local_unnamed_addr #6 align 2 {
+define void @_ZNK7openvdb5v11_02io14StreamMetadata10transferToERSt8ios_base(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(216) %strm) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mLibraryVersion = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3183,7 +3183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io10setVersionERSt8ios_baseRKNS0_9VersionIdEj(ptr noundef nonnull align 8 dereferenceable(216) %strm, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %libraryVersion, i32 noundef %fileVersion) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io10setVersionERSt8ios_baseRKNS0_9VersionIdEj(ptr noundef nonnull align 8 dereferenceable(216) %strm, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %libraryVersion, i32 noundef %fileVersion) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %meta = alloca %"class.std::shared_ptr.24", align 8
   %conv = zext i32 %fileVersion to i64
@@ -4123,7 +4123,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_02io14StreamMetadataEED2Ev.exit: ; preds = %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata11fileVersionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata11fileVersionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 8
@@ -4131,7 +4131,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK7openvdb5v11_02io14StreamMetadata14libraryVersionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define i64 @_ZNK7openvdb5v11_02io14StreamMetadata14libraryVersionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mLibraryVersion = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4140,7 +4140,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata11compressionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata11compressionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mCompression = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -4149,7 +4149,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata9gridClassEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata9gridClassEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mGridClass = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4158,7 +4158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK7openvdb5v11_02io14StreamMetadata13backgroundPtrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZNK7openvdb5v11_02io14StreamMetadata13backgroundPtrEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mBackgroundPtr = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4167,7 +4167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata9halfFloatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata9halfFloatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mHalfFloat = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4177,7 +4177,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata14writeGridStatsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata14writeGridStatsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mWriteGridStats = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -4187,7 +4187,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata8seekableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata8seekableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mSeekable = getelementptr inbounds nuw i8, ptr %0, i64 34
@@ -4197,7 +4197,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata15delayedLoadMetaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata15delayedLoadMetaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mDelayedLoadMeta = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -4207,7 +4207,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata14countingPassesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata14countingPassesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mCountingPasses = getelementptr inbounds nuw i8, ptr %0, i64 35
@@ -4217,7 +4217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata4passEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata4passEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mPass = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -4226,7 +4226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK7openvdb5v11_02io14StreamMetadata4leafEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK7openvdb5v11_02io14StreamMetadata4leafEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mLeaf = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -4235,7 +4235,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN7openvdb5v11_02io14StreamMetadata12gridMetadataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN7openvdb5v11_02io14StreamMetadata12gridMetadataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mGridMetadata = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4243,7 +4243,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7openvdb5v11_02io14StreamMetadata12gridMetadataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7openvdb5v11_02io14StreamMetadata12gridMetadataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mGridMetadata = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4251,7 +4251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata6__testEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata6__testEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mTest = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -4260,7 +4260,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN7openvdb5v11_02io14StreamMetadata7auxDataB5cxx11Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN7openvdb5v11_02io14StreamMetadata7auxDataB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mAuxData = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -4268,7 +4268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7openvdb5v11_02io14StreamMetadata7auxDataB5cxx11Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7openvdb5v11_02io14StreamMetadata7auxDataB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mAuxData = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -4276,7 +4276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadata14setFileVersionEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %v) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io14StreamMetadata14setFileVersionEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %v) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   store i32 %v, ptr %0, align 8
@@ -4284,7 +4284,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadata17setLibraryVersionENS0_9VersionIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %v.coerce) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io14StreamMetadata17setLibraryVersionENS0_9VersionIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %v.coerce) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mLibraryVersion = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4293,7 +4293,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadata14setCompressionEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %c) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io14StreamMetadata14setCompressionEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %c) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mCompression = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -4302,7 +4302,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadata12setGridClassEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %c) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io14StreamMetadata12setGridClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %c) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mGridClass = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4311,7 +4311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadata16setBackgroundPtrEPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %ptr) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io14StreamMetadata16setBackgroundPtrEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %ptr) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mBackgroundPtr = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4320,7 +4320,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadata12setHalfFloatEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i1 noundef zeroext %b) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io14StreamMetadata12setHalfFloatEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %b) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %b to i8
   %0 = load ptr, ptr %this, align 8
@@ -4330,7 +4330,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadata17setWriteGridStatsEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i1 noundef zeroext %b) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io14StreamMetadata17setWriteGridStatsEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %b) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %b to i8
   %0 = load ptr, ptr %this, align 8
@@ -4340,7 +4340,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadata11setSeekableEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i1 noundef zeroext %b) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io14StreamMetadata11setSeekableEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %b) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %b to i8
   %0 = load ptr, ptr %this, align 8
@@ -4350,7 +4350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadata17setCountingPassesEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i1 noundef zeroext %b) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io14StreamMetadata17setCountingPassesEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %b) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %b to i8
   %0 = load ptr, ptr %this, align 8
@@ -4360,7 +4360,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadata7setPassEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %i) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io14StreamMetadata7setPassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %i) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mPass = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -4369,7 +4369,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadata7setLeafEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %i) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io14StreamMetadata7setLeafEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %i) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mLeaf = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -4378,7 +4378,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io14StreamMetadata9__setTestEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %t) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io14StreamMetadata9__setTestEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %t) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mTest = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -4387,7 +4387,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io14StreamMetadata3strB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_02io14StreamMetadata3strB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ostr = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5919,7 +5919,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7openvdb5v11_02iolsERSoRKNS1_14StreamMetadataE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %meta) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7openvdb5v11_02iolsERSoRKNS1_14StreamMetadataE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %meta) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK7openvdb5v11_02io14StreamMetadata3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %meta)
@@ -6304,7 +6304,7 @@ terminate.lpad:                                   ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io10MappedFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %autoDelete) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io10MappedFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %autoDelete) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #38
   invoke void @_ZN7openvdb5v11_02io10MappedFile4ImplC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %autoDelete)
@@ -6368,7 +6368,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7openvdb5v11_02io10MappedFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io10MappedFileD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -6385,7 +6385,7 @@ _ZNSt10unique_ptrIN7openvdb5v11_02io10MappedFile4ImplESt14default_deleteIS4_EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io10MappedFile8filenameB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_02io10MappedFile8filenameB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   %0 = load ptr, ptr %this, align 8
@@ -6414,7 +6414,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io10MappedFile12createBufferEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.18") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_02io10MappedFile12createBufferEv(ptr noalias writeonly sret(%"class.std::shared_ptr.18") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.boost::iostreams::basic_array_source", align 8
   %info.i = alloca %struct.stat, align 8
@@ -6604,7 +6604,7 @@ lpad32.body:                                      ; preds = %_ZN5boost9iostreams
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io10MappedFile11setNotifierERKSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %notifier) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io10MappedFile11setNotifierERKSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %notifier) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function", align 8
@@ -6686,7 +6686,7 @@ _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSERKS7_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7openvdb5v11_02io10MappedFile13clearNotifierEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io10MappedFile13clearNotifierEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_manager.i = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -6785,7 +6785,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io7Archive4copyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.21") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_02io7Archive4copyEv(ptr noalias writeonly sret(%"class.std::shared_ptr.21") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #38
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_02io7ArchiveE, i64 16), ptr %call, align 8
@@ -6915,7 +6915,7 @@ return:                                           ; preds = %if.end, %entry, %_Z
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io7Archive16setFormatVersionERSi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io7Archive16setFormatVersionERSi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %meta = alloca %"class.std::shared_ptr.24", align 8
   %mFileVersion = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -7065,7 +7065,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_02io14StreamMetadataEED2Ev.exit: ; preds = %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io20getStreamMetadataPtrERSt8ios_base(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.24") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %strm) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io20getStreamMetadataPtrERSt8ios_base(ptr noalias writeonly sret(%"class.std::shared_ptr.24") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %strm) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -7230,7 +7230,7 @@ _ZNSt12__shared_ptrIN7openvdb5v11_02io14StreamMetadataELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io7Archive17setLibraryVersionERSi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io7Archive17setLibraryVersionERSi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %meta = alloca %"class.std::shared_ptr.24", align 8
   %mLibraryVersion = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -7735,7 +7735,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_02io14StreamMetadataEED2Ev.exit: ; preds = %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io7Archive7versionB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_02io7Archive7versionB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ostr = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ostr)
@@ -7780,7 +7780,7 @@ lpad:                                             ; preds = %invoke.cont9, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io7Archive18setDataCompressionERSi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io7Archive18setDataCompressionERSi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %meta = alloca %"class.std::shared_ptr.24", align 8
   %vtable = load ptr, ptr %is, align 8
@@ -7897,7 +7897,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io7Archive18setGridCompressionERSoRKNS0_8GridBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(72) %grid) local_unnamed_addr #6 align 2 {
+define void @_ZNK7openvdb5v11_02io7Archive18setGridCompressionERSoRKNS0_8GridBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(72) %grid) local_unnamed_addr #6 align 2 {
 entry:
   %c = alloca i32, align 4
   %mCompression.i = getelementptr inbounds nuw i8, ptr %this, i64 60
@@ -8007,7 +8007,7 @@ _ZNSt8ios_base5pwordEi.exit:                      ; preds = %cond.true.i, %cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io16getMappedFilePtrERSt8ios_base(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.30") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %strm) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io16getMappedFilePtrERSt8ios_base(ptr noalias writeonly sret(%"class.std::shared_ptr.30") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %strm) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -8786,7 +8786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io7Archive15connectInstanceERKNS1_14GridDescriptorERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_8GridBaseEESt4lessISC_ESaISt4pairIKSC_SF_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef nonnull align 8 dereferenceable(48) %grids) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_02io7Archive15connectInstanceERKNS1_14GridDescriptorERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_8GridBaseEESt4lessISC_ESaISt4pairIKSC_SF_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef nonnull align 8 dereferenceable(48) %grids) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::shared_ptr.113", align 8
   %ref.tmp.i = alloca %"class.std::shared_ptr.113", align 8
@@ -9782,10 +9782,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #16
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io7Archive8readGridESt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERSi(ptr nocapture noundef readonly %grid, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io7Archive8readGridESt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERSi(ptr noundef readonly captures(none) %grid, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %restore.i = alloca %struct.OnExit.1087, align 8
   %streamMetadata.i = alloca %"class.std::shared_ptr.24", align 8
@@ -10869,7 +10869,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i, %ehclea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io7Archive8readGridESt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERSiRKNS0_4math4BBoxINSA_4Vec3IdEEEE(ptr nocapture noundef readonly %grid, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(48) %worldBBox) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io7Archive8readGridESt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERSiRKNS0_4math4BBoxINSA_4Vec3IdEEEE(ptr noundef readonly captures(none) %grid, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(48) %worldBBox) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i181.i = alloca %"class.openvdb::v11_0::math::CoordBBox", align 4
   %ref.tmp.i.i = alloca %"class.openvdb::v11_0::math::CoordBBox", align 4
@@ -11982,7 +11982,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i, %ehclea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io7Archive8readGridESt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERSiRKNS0_4math9CoordBBoxE(ptr nocapture noundef readonly %grid, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 4 dereferenceable(24) %indexBBox) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io7Archive8readGridESt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERSiRKNS0_4math9CoordBBoxE(ptr noundef readonly captures(none) %grid, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 4 dereferenceable(24) %indexBBox) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %restore.i = alloca %struct.OnExit.1092, align 8
   %streamMetadata.i = alloca %"class.std::shared_ptr.24", align 8
@@ -13066,7 +13066,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i, %ehclea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io7Archive5writeERSoRKSt6vectorISt10shared_ptrINS0_8GridBaseEESaIS7_EEbRKNS0_7MetaMapE(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %grids, i1 noundef zeroext %seekable, ptr noundef nonnull align 8 dereferenceable(56) %metadata) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_02io7Archive5writeERSoRKSt6vectorISt10shared_ptrINS0_8GridBaseEESaIS7_EEbRKNS0_7MetaMapE(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %grids, i1 noundef zeroext %seekable, ptr noundef nonnull align 8 dereferenceable(56) %metadata) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %0 = load ptr, ptr %grids, align 8
@@ -13251,7 +13251,7 @@ lpad8:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io7Archive5writeERSoRKSt6vectorISt10shared_ptrIKNS0_8GridBaseEESaIS8_EEbRKNS0_7MetaMapE(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %grids, i1 noundef zeroext %seekable, ptr noundef nonnull align 8 dereferenceable(56) %metadata) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_02io7Archive5writeERSoRKSt6vectorISt10shared_ptrIKNS0_8GridBaseEESaIS8_EEbRKNS0_7MetaMapE(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %grids, i1 noundef zeroext %seekable, ptr noundef nonnull align 8 dereferenceable(56) %metadata) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.1113", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.1100", align 1
@@ -14579,7 +14579,7 @@ declare noundef zeroext i1 @_ZNK7openvdb5v11_08GridBase15saveFloatAsHalfEv(ptr n
 declare void @_ZN7openvdb5v11_02io14GridDescriptorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io7Archive17writeGridInstanceERNS1_14GridDescriptorESt10shared_ptrIKNS0_8GridBaseEERSob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr nocapture noundef readonly %grid, ptr noundef nonnull align 8 dereferenceable(8) %os, i1 noundef zeroext %seekable) local_unnamed_addr #6 align 2 {
+define void @_ZNK7openvdb5v11_02io7Archive17writeGridInstanceERNS1_14GridDescriptorESt10shared_ptrIKNS0_8GridBaseEERSob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef readonly captures(none) %grid, ptr noundef nonnull align 8 dereferenceable(8) %os, i1 noundef zeroext %seekable) local_unnamed_addr #6 align 2 {
 entry:
   %c.i20 = alloca i32, align 4
   %c.i = alloca i32, align 4
@@ -14752,7 +14752,7 @@ _ZNSt12__shared_ptrIKN7openvdb5v11_08GridBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io7Archive9writeGridERNS1_14GridDescriptorESt10shared_ptrIKNS0_8GridBaseEERSob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr nocapture noundef readonly %grid, ptr noundef nonnull align 8 dereferenceable(8) %os, i1 noundef zeroext %seekable) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_02io7Archive9writeGridERNS1_14GridDescriptorESt10shared_ptrIKNS0_8GridBaseEERSob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef readonly captures(none) %grid, ptr noundef nonnull align 8 dereferenceable(8) %os, i1 noundef zeroext %seekable) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alloc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %wn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"struct.tbb::detail::d1::wait_node", align 8
@@ -17486,7 +17486,7 @@ declare void @_ZNK7openvdb5v11_02io14GridDescriptor14writeStreamPosERSo(ptr noun
 declare void @_ZN7openvdb5v11_07MetaMap10insertMetaERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8MetadataE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_02io19DelayedLoadMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17753,7 +17753,7 @@ _ZNSt12__shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataELN9__gnu_cxx12_Lock_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZNK7openvdb5v11_02io7Archive9writeGridERNS1_14GridDescriptorESt10shared_ptrIKNS0_8GridBaseEERSobEN6OnExitD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZNK7openvdb5v11_02io7Archive9writeGridERNS1_14GridDescriptorESt10shared_ptrIKNS0_8GridBaseEERSobEN6OnExitD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -17912,7 +17912,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -17978,7 +17978,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -18887,7 +18887,7 @@ if.end102:                                        ; preds = %if.end91
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #23
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost12interprocess12file_mappingD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -18998,12 +18998,12 @@ entry:
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #24
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #24
 
 declare i32 @close(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #23
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
@@ -19048,7 +19048,7 @@ declare i32 @shmdt(ptr noundef) local_unnamed_addr #1
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #23
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #23
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8ios_base13_M_grow_wordsEib(ptr noundef nonnull align 8 dereferenceable(216), i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
@@ -19280,7 +19280,7 @@ if.end71:                                         ; preds = %if.then38, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(44) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateD2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(44) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr @_ZSt4cout, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
@@ -19764,7 +19764,7 @@ _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE15getN
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE15getNodeLog2DimsERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(24) %dims) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -24979,7 +24979,7 @@ if.end31:                                         ; preds = %land.rhs, %do.cond,
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -25497,7 +25497,7 @@ _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8Ro
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEE8run_bodyERSI_(ptr nocapture noundef nonnull readonly align 64 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEE8run_bodyERSI_(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(152) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %maskCompressData.i.i = alloca %"struct.openvdb::v11_0::io::MaskCompress", align 4
   %ref.tmp.i.i = alloca %"class.openvdb::v11_0::util::NodeMask.192", align 8
@@ -32529,7 +32529,7 @@ if.end31:                                         ; preds = %land.rhs, %do.cond,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -33047,7 +33047,7 @@ _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8Ro
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEE8run_bodyERSI_(ptr nocapture noundef nonnull readonly align 64 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEE8run_bodyERSI_(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(152) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %maskCompressData.i.i = alloca %"struct.openvdb::v11_0::io::MaskCompress.372", align 8
   %ref.tmp.i.i = alloca %"class.openvdb::v11_0::util::NodeMask.192", align 8
@@ -39968,7 +39968,7 @@ if.end31:                                         ; preds = %land.rhs, %do.cond,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -40486,7 +40486,7 @@ _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8Ro
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEE8run_bodyERSI_(ptr nocapture noundef nonnull readonly align 64 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEE8run_bodyERSI_(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(152) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %maskCompressData.i.i = alloca %"struct.openvdb::v11_0::io::MaskCompress.503", align 4
   %ref.tmp.i.i = alloca %"class.openvdb::v11_0::util::NodeMask.192", align 8
@@ -47712,7 +47712,7 @@ if.end31:                                         ; preds = %land.rhs, %do.cond,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -48230,7 +48230,7 @@ _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8Ro
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEE8run_bodyERSI_(ptr nocapture noundef nonnull readonly align 64 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENSH_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISF_EEEEvRKT_EUlRKSB_mE_EEKNS1_16auto_partitionerEE8run_bodyERSI_(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(152) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %maskCompressData.i.i = alloca %"struct.openvdb::v11_0::io::MaskCompress.639", align 8
   %ref.tmp.i.i = alloca %"class.openvdb::v11_0::util::NodeMask.192", align 8
@@ -55454,7 +55454,7 @@ if.end31:                                         ; preds = %land.rhs, %do.cond,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSK_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISI_EEEEvRKT_EUlRKSE_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSK_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISI_EEEEvRKT_EUlRKSE_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -55972,7 +55972,7 @@ _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8Ro
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSK_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISI_EEEEvRKT_EUlRKSE_mE_EEKNS1_16auto_partitionerEE8run_bodyERSL_(ptr nocapture noundef nonnull readonly align 64 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSK_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISI_EEEEvRKT_EUlRKSE_mE_EEKNS1_16auto_partitionerEE8run_bodyERSL_(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(152) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %maskCompressData.i.i = alloca %"struct.openvdb::v11_0::io::MaskCompress.773", align 4
   %ref.tmp.i.i = alloca %"class.openvdb::v11_0::util::NodeMask.192", align 8
@@ -63067,7 +63067,7 @@ if.end31:                                         ; preds = %land.rhs, %do.cond,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSK_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISI_EEEEvRKT_EUlRKSE_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSK_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISI_EEEEvRKT_EUlRKSE_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -63585,7 +63585,7 @@ _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8Ro
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSK_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISI_EEEEvRKT_EUlRKSE_mE_EEKNS1_16auto_partitionerEE8run_bodyERSL_(ptr nocapture noundef nonnull readonly align 64 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSK_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISI_EEEEvRKT_EUlRKSE_mE_EEKNS1_16auto_partitionerEE8run_bodyERSL_(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(152) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %maskCompressData.i.i = alloca %"struct.openvdb::v11_0::io::MaskCompress.908", align 4
   %ref.tmp.i.i = alloca %"class.openvdb::v11_0::util::NodeMask.192", align 8
@@ -71270,7 +71270,7 @@ if.end31:                                         ; preds = %land.rhs, %do.cond,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSK_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISI_EEEEvRKT_EUlRKSE_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSK_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISI_EEEEvRKT_EUlRKSE_mE_EEKNS1_16auto_partitionerEED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -71788,7 +71788,7 @@ _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8Ro
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSK_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISI_EEEEvRKT_EUlRKSE_mE_EEKNS1_16auto_partitionerEE8run_bodyERSL_(ptr nocapture noundef nonnull readonly align 64 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSK_15LeafTransformerIZNKS4_2io12_GLOBAL__N_129PopulateDelayedLoadMetadataOpclINS4_4GridISI_EEEEvRKT_EUlRKSE_mE_EEKNS1_16auto_partitionerEE8run_bodyERSL_(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(152) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %maskCompressData.i.i = alloca %"struct.openvdb::v11_0::io::MaskCompress.1046", align 8
   %ref.tmp.i.i = alloca %"class.openvdb::v11_0::util::NodeMask.192", align 8
@@ -73935,7 +73935,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #1
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZSt20__throw_bad_any_castv() local_unnamed_addr #29 comdat {
@@ -76555,7 +76555,7 @@ declare void @_ZN7openvdb5v11_07MetaMap8readMetaERSi(ptr noundef nonnull align 8
 declare void @_ZN7openvdb5v11_08GridBase7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN7openvdb5v11_02io12_GLOBAL__N_110doReadGridINS2_6NoBBoxEEEvSt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERSiRKT_EN6OnExitD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN7openvdb5v11_02io12_GLOBAL__N_110doReadGridINS2_6NoBBoxEEEvSt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERSiRKT_EN6OnExitD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -76622,7 +76622,7 @@ terminate.lpad.body:                              ; preds = %lpad.i, %terminate.
 declare void @_ZN7openvdb5v11_04math9Transform4readERSi(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN7openvdb5v11_02io12_GLOBAL__N_110doReadGridINS0_4math4BBoxINS4_4Vec3IdEEEEEEvSt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERSiRKT_EN6OnExitD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN7openvdb5v11_02io12_GLOBAL__N_110doReadGridINS0_4math4BBoxINS4_4Vec3IdEEEEEEvSt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERSiRKT_EN6OnExitD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -76689,7 +76689,7 @@ terminate.lpad.body:                              ; preds = %lpad.i, %terminate.
 declare void @_ZNK7openvdb5v11_04math9Transform24worldToIndexNodeCenteredERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr sret(%"class.openvdb::v11_0::math::CoordBBox") align 4, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN7openvdb5v11_02io12_GLOBAL__N_110doReadGridINS0_4math9CoordBBoxEEEvSt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERSiRKT_EN6OnExitD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN7openvdb5v11_02io12_GLOBAL__N_110doReadGridINS0_4math9CoordBBoxEEEvSt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERSiRKT_EN6OnExitD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -78125,13 +78125,13 @@ declare float @llvm.fabs.f32(float) #34
 declare void @llvm.experimental.noalias.scope.decl(metadata) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #36
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #36
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #36
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #37
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #34

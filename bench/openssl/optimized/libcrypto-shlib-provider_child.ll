@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/provider_child.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @ossl_child_prov_ctx_new(ptr nocapture noundef readnone %libctx) local_unnamed_addr #0 {
+define noalias ptr @ossl_child_prov_ctx_new(ptr noundef readnone captures(none) %libctx) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str, i32 noundef 39) #2
   ret ptr %call
@@ -29,7 +29,7 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_provider_init_as_child(ptr noundef %ctx, ptr noundef %handle, ptr nocapture noundef readonly %in) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_init_as_child(ptr noundef %ctx, ptr noundef %handle, ptr noundef readonly captures(none) %in) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -375,7 +375,7 @@ declare i32 @ossl_provider_activate(ptr noundef, i32 noundef, i32 noundef) local
 declare ptr @ossl_provider_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ossl_child_provider_init(ptr noundef %handle, ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
+define internal range(i32 0, 2) i32 @ossl_child_provider_init(ptr noundef %handle, ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %provctx) #0 {
 entry:
   br label %for.cond
 

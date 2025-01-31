@@ -76,7 +76,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_758numparse4impl22MultiplierParseHandlerC1ENS_6number5ScaleE = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_758numparse4impl22MultiplierParseHandlerC2ENS_6number5ScaleE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_758numparse4impl21RequireAffixValidator11postProcessERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
+define void @_ZNK6icu_758numparse4impl21RequireAffixValidator11postProcessERNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   %fUnion.i = getelementptr inbounds nuw i8, ptr %result, i64 88
   %0 = load i16, ptr %fUnion.i, align 8
@@ -103,7 +103,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl21RequireAffixValidator8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_758numparse4impl21RequireAffixValidator8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull @.str)
   ret void
@@ -112,7 +112,7 @@ entry:
 declare void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_758numparse4impl24RequireCurrencyValidator11postProcessERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
+define void @_ZNK6icu_758numparse4impl24RequireCurrencyValidator11postProcessERNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   %currencyCode = getelementptr inbounds nuw i8, ptr %result, i64 208
   %0 = load i16, ptr %currencyCode, align 8
@@ -131,14 +131,14 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl24RequireCurrencyValidator8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_758numparse4impl24RequireCurrencyValidator8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758numparse4impl32RequireDecimalSeparatorValidatorC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, i1 noundef zeroext %patternHasDecimalSeparator) unnamed_addr #3 align 2 {
+define void @_ZN6icu_758numparse4impl32RequireDecimalSeparatorValidatorC2Eb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 9)) %this, i1 noundef zeroext %patternHasDecimalSeparator) unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %patternHasDecimalSeparator to i8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758numparse4impl32RequireDecimalSeparatorValidatorE, i64 16), ptr %this, align 8
@@ -148,7 +148,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_758numparse4impl32RequireDecimalSeparatorValidator11postProcessERNS1_12ParsedNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, ptr nocapture noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
+define void @_ZNK6icu_758numparse4impl32RequireDecimalSeparatorValidator11postProcessERNS1_12ParsedNumberE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
@@ -171,14 +171,14 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl32RequireDecimalSeparatorValidator8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_758numparse4impl32RequireDecimalSeparatorValidator8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull @.str.2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl22RequireNumberValidator11postProcessERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_758numparse4impl22RequireNumberValidator11postProcessERNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberEv(ptr noundef nonnull align 8 dereferenceable(216) %result)
   br i1 %call, label %if.end, label %if.then
@@ -197,7 +197,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl22RequireNumberValidator8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_758numparse4impl22RequireNumberValidator8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull @.str.3)
   ret void
@@ -235,7 +235,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZNK6icu_756number5Scale17applyReciprocalToERNS0_4impl15DecimalQuantityE(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl22MultiplierParseHandler8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_758numparse4impl22MultiplierParseHandler8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull @.str.4)
   ret void

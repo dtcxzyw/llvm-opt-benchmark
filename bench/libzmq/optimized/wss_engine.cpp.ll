@@ -240,10 +240,10 @@ declare i32 @gnutls_certificate_allocate_credentials(ptr noundef) local_unnamed_
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
@@ -489,7 +489,7 @@ return:                                           ; preds = %if.end3, %if.then
 declare noundef zeroext i1 @_ZN3zmq11ws_engine_t9handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq12wss_engine_t4readEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25720) %this, ptr noundef %data_, i64 noundef %size_) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq12wss_engine_t4readEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25720) %this, ptr noundef %data_, i64 noundef %size_) unnamed_addr #0 align 2 {
 entry:
   %_tls_session = getelementptr inbounds nuw i8, ptr %this, i64 25712
   %0 = load ptr, ptr %_tls_session, align 8
@@ -547,7 +547,7 @@ declare i32 @gnutls_alert_send(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq12wss_engine_t5writeEPKvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25720) %this, ptr noundef %data_, i64 noundef %size_) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq12wss_engine_t5writeEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25720) %this, ptr noundef %data_, i64 noundef %size_) unnamed_addr #0 align 2 {
 entry:
   %_tls_session = getelementptr inbounds nuw i8, ptr %this, i64 25712
   %0 = load ptr, ptr %_tls_session, align 8

@@ -86,7 +86,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i64 @xsize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_parser_obj(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @free_parser_obj(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   br label %6
@@ -136,7 +136,7 @@ parser_obj_free_func.exit:                        ; preds = %5, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local ptr @parser_obj_free_func(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @parser_obj_free_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   br label %5
@@ -166,7 +166,7 @@ define dso_local ptr @parser_obj_free_func(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local zeroext i1 @alloc_registered(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local zeroext i1 @alloc_registered(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   br label %4

@@ -334,7 +334,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.update_job_dependency_list = private unnamed_addr constant [8 x ptr] [ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.23, ptr @.str.102, ptr @.str.101, ptr @.str.103], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @job_queue_rec_magnetic_resv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @job_queue_rec_magnetic_resv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -369,7 +369,7 @@ define dso_local void @job_queue_rec_magnetic_resv(ptr nocapture noundef readonl
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @job_queue_rec_resv_list(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local void @job_queue_rec_resv_list(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1048,7 +1048,7 @@ _job_queue_append.exit194:                        ; preds = %284, %286, %289, %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #4
@@ -1393,7 +1393,7 @@ define dso_local void @set_job_elig_time() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8) local_unnamed_addr #1
 
@@ -1605,7 +1605,7 @@ define dso_local void @fill_array_reasons(ptr noundef %0, ptr noundef readonly %
 declare ptr @job_state_reason_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @job_queue_append_internal(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @job_queue_append_internal(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %4 = load ptr, ptr %3, align 8
@@ -1694,7 +1694,7 @@ define dso_local void @sort_job_queue(ptr noundef %0) local_unnamed_addr #0 {
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @sort_job_queue2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define dso_local range(i32 -1, 2) i32 @sort_job_queue2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load i64, ptr @sort_job_queue2.config_update, align 8
@@ -3066,7 +3066,7 @@ declare void @set_agent_arg_r_uid(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @agent_queue_request(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @make_batch_job_cred(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @make_batch_job_cred(ptr noundef captures(none) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.slurm_cred_arg_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %6 = load ptr, ptr %5, align 8
@@ -3174,7 +3174,7 @@ define dso_local ptr @depended_list_copy(ptr noundef %0) local_unnamed_addr #0 {
   %6 = phi ptr [ %8, %.lr.ph ], [ %5, %2 ]
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 2760, ptr noundef nonnull @__func__.depended_list_copy) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
-  tail call void @list_append(ptr noundef %3, ptr noundef %7) #16
+  tail call void @list_append(ptr noundef %3, ptr noundef nonnull %7) #16
   %8 = tail call ptr @list_next(ptr noundef %4) #16
   %.not13 = icmp eq ptr %8, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -3228,7 +3228,7 @@ define dso_local void @print_job_dependency(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_depend_list2str(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @_depend_list2str(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -4102,7 +4102,7 @@ declare ptr @find_job_array_rec(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_find_singleton_job(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_find_singleton_job(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1064
@@ -4180,7 +4180,7 @@ declare i32 @list_flush(ptr noundef) local_unnamed_addr #1
 declare void @acct_policy_remove_accrue_time(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_dependency(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @find_dependency(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4202,7 +4202,7 @@ define dso_local ptr @find_dependency(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_find_dependency(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 0, 2) i32 @_find_dependency(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4343,7 +4343,7 @@ _depend_type2str.exit:                            ; preds = %23, %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @handle_job_dependency_updates(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @handle_job_dependency_updates(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -5093,37 +5093,37 @@ _parse_dependency_jobid_old.exit:                 ; preds = %238, %241
   br i1 %243, label %.backedge, label %_parse_depend_state.exit.thread157
 
 244:                                              ; preds = %163
-  %245 = call i32 @xstrncasecmp(ptr noundef %.0125185, ptr noundef nonnull @.str.24, i64 noundef 11) #16
+  %245 = call i32 @xstrncasecmp(ptr noundef nonnull %.0125185, ptr noundef nonnull @.str.24, i64 noundef 11) #16
   %.not51 = icmp eq i32 %245, 0
   br i1 %.not51, label %.lr.ph.i79, label %246
 
 246:                                              ; preds = %244
-  %247 = call i32 @xstrncasecmp(ptr noundef %.0125185, ptr noundef nonnull @.str.25, i64 noundef 10) #16
+  %247 = call i32 @xstrncasecmp(ptr noundef nonnull %.0125185, ptr noundef nonnull @.str.25, i64 noundef 10) #16
   %.not52 = icmp eq i32 %247, 0
   br i1 %.not52, label %.lr.ph.i79, label %248
 
 248:                                              ; preds = %246
-  %249 = call i32 @xstrncasecmp(ptr noundef %.0125185, ptr noundef nonnull @.str.26, i64 noundef 9) #16
+  %249 = call i32 @xstrncasecmp(ptr noundef nonnull %.0125185, ptr noundef nonnull @.str.26, i64 noundef 9) #16
   %.not53 = icmp eq i32 %249, 0
   br i1 %.not53, label %.lr.ph.i79, label %250
 
 250:                                              ; preds = %248
-  %251 = call i32 @xstrncasecmp(ptr noundef %.0125185, ptr noundef nonnull @.str.27, i64 noundef 8) #16
+  %251 = call i32 @xstrncasecmp(ptr noundef nonnull %.0125185, ptr noundef nonnull @.str.27, i64 noundef 8) #16
   %.not54 = icmp eq i32 %251, 0
   br i1 %.not54, label %.lr.ph.i79, label %252
 
 252:                                              ; preds = %250
-  %253 = call i32 @xstrncasecmp(ptr noundef %.0125185, ptr noundef nonnull @.str.28, i64 noundef 11) #16
+  %253 = call i32 @xstrncasecmp(ptr noundef nonnull %.0125185, ptr noundef nonnull @.str.28, i64 noundef 11) #16
   %.not55 = icmp eq i32 %253, 0
   br i1 %.not55, label %.lr.ph.i79, label %254
 
 254:                                              ; preds = %252
-  %255 = call i32 @xstrncasecmp(ptr noundef %.0125185, ptr noundef nonnull @.str.29, i64 noundef 6) #16
+  %255 = call i32 @xstrncasecmp(ptr noundef nonnull %.0125185, ptr noundef nonnull @.str.29, i64 noundef 6) #16
   %.not56 = icmp eq i32 %255, 0
   br i1 %.not56, label %.lr.ph.i79, label %256
 
 256:                                              ; preds = %254
-  %257 = call i32 @xstrncasecmp(ptr noundef %.0125185, ptr noundef nonnull @.str.30, i64 noundef 7) #16
+  %257 = call i32 @xstrncasecmp(ptr noundef nonnull %.0125185, ptr noundef nonnull @.str.30, i64 noundef 7) #16
   %.not57 = icmp eq i32 %257, 0
   br i1 %.not57, label %258, label %_parse_depend_state.exit.thread153
 
@@ -5835,7 +5835,7 @@ _depends_on_same_job.exit:                        ; preds = %.split.us
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @job_start_data(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @job_start_data(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca double, align 8
   %5 = alloca ptr, align 8
@@ -6446,7 +6446,7 @@ _get_system_usage.exit:                           ; preds = %238, %._crit_edge.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_part_weight_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 -1, 2) i32 @_part_weight_sort(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 278
@@ -6492,7 +6492,7 @@ define dso_local void @epilog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
 declare void @prep_g_epilog_slurmctld(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @node_features_reboot(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @node_features_reboot(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -6872,7 +6872,7 @@ _set_reboot_features_active.exit:                 ; preds = %_set_reboot_feature
   %140 = load i8, ptr @reboot_job_nodes.power_save_on, align 1
   %141 = trunc nuw i8 %140 to i1
   %142 = load ptr, ptr %6, align 8
-  call fastcc void @_do_reboot(i1 noundef zeroext %141, ptr noundef nonnull %138, ptr noundef %0, ptr noundef %142, i16 noundef zeroext %.0.lcssa)
+  call fastcc void @_do_reboot(i1 noundef zeroext %141, ptr noundef nonnull %138, ptr noundef nonnull %0, ptr noundef %142, i16 noundef zeroext %.0.lcssa)
   %143 = load ptr, ptr %3, align 8
   %144 = load ptr, ptr %4, align 8
   call void @bit_and_not(ptr noundef %143, ptr noundef %144) #16
@@ -6890,7 +6890,7 @@ _set_reboot_features_active.exit:                 ; preds = %_set_reboot_feature
 147:                                              ; preds = %145
   %148 = load i8, ptr @reboot_job_nodes.power_save_on, align 1
   %149 = trunc nuw i8 %148 to i1
-  call fastcc void @_do_reboot(i1 noundef zeroext %149, ptr noundef nonnull %146, ptr noundef %0, ptr noundef null, i16 noundef zeroext %.0.lcssa)
+  call fastcc void @_do_reboot(i1 noundef zeroext %149, ptr noundef nonnull %146, ptr noundef nonnull %0, ptr noundef null, i16 noundef zeroext %.0.lcssa)
   %150 = load ptr, ptr %3, align 8
   %151 = load ptr, ptr %5, align 8
   call void @bit_and_not(ptr noundef %150, ptr noundef %151) #16
@@ -7346,7 +7346,7 @@ define dso_local void @feature_list_delete(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2134) i32 @build_feature_list(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2134) i32 @build_feature_list(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
@@ -7730,7 +7730,7 @@ _valid_batch_features.exit:                       ; preds = %._crit_edge.thread.
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %strchr260 = tail call ptr @strchr(ptr nonnull dereferenceable(1) %0, i32 44)
@@ -7746,7 +7746,7 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   store ptr null, ptr %6, align 8
-  %7 = tail call ptr @xstrdup(ptr noundef %0) #16
+  %7 = tail call ptr @xstrdup(ptr noundef nonnull %0) #16
   store ptr %7, ptr %5, align 8
   %8 = tail call ptr @list_create(ptr noundef nonnull @feature_list_delete) #16
   store ptr %8, ptr %2, align 8
@@ -8092,7 +8092,7 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
 
 .sink.split:                                      ; preds = %169, %161, %157, %150, %123, %117, %111, %104, %100, %67, %35, %23
   %.str.116.sink = phi ptr [ @.str.116, %23 ], [ @.str.117, %35 ], [ @.str.118, %67 ], [ @.str.119, %100 ], [ @.str.120, %104 ], [ @.str.119, %111 ], [ @.str.121, %117 ], [ @.str.121, %123 ], [ @.str.122, %150 ], [ @.str.123, %157 ], [ @.str.124, %161 ], [ @.str.125, %169 ]
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull %.str.116.sink, ptr noundef %1, ptr noundef %0) #16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull %.str.116.sink, ptr noundef %1, ptr noundef nonnull %0) #16
   br label %176
 
 176:                                              ; preds = %.sink.split, %23, %35, %67, %100, %104, %111, %117, %123, %150, %157, %161, %169
@@ -8111,7 +8111,7 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %179
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.126, ptr noundef %1, ptr noundef %0) #16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.126, ptr noundef %1, ptr noundef nonnull %0) #16
   br label %183
 
 183:                                              ; preds = %172, %179, %182
@@ -8127,7 +8127,7 @@ declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare i32 @job_features_set2str(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2030) i32 @_valid_feature_list(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2030) i32 @_valid_feature_list(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %12
 
@@ -8620,7 +8620,7 @@ define dso_local void @main_sched_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_sched_agent(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_sched_agent(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.137, ptr noundef null, ptr noundef null, ptr noundef null) #16
@@ -8833,7 +8833,7 @@ declare i32 @job_limits_check(ptr noundef, i1 noundef zeroext) local_unnamed_add
 declare zeroext i1 @job_state_reason_check(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_queue_resv_list(ptr noundef %0, ptr nocapture noundef initializes((32, 40)) %1) #0 {
+define internal noundef i32 @_queue_resv_list(ptr noundef %0, ptr noundef captures(none) initializes((32, 40)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %1, align 8
@@ -8898,10 +8898,10 @@ declare zeroext i1 @fed_mgr_job_started_on_sib(ptr noundef) local_unnamed_addr #
 declare i32 @bb_g_job_test_stage_out(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #1
 
@@ -8914,7 +8914,7 @@ declare i32 @bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #12
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
 
 declare zeroext i1 @fed_mgr_is_origin_job_id(i32 noundef) local_unnamed_addr #1
 
@@ -8953,10 +8953,10 @@ declare void @prep_g_prolog_slurmctld(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @node_features_g_changeable_feature(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_match_job_feature(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_match_job_feature(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %1) #16
   %.not = icmp eq i32 %4, 0
@@ -8970,7 +8970,7 @@ declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -11696,10 +11696,10 @@ declare void @schedule_node_save() local_unnamed_addr #1
 declare void @schedule_job_save() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atoll(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @atoll(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare zeroext i1 @fed_mgr_sibs_synced() local_unnamed_addr #1
 
@@ -11750,10 +11750,10 @@ declare i32 @llvm.umin.i32(i32, i32) #14
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i16(i16, i16) #14

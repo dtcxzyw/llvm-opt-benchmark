@@ -94,7 +94,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #12
   ret ptr %2
 }
@@ -103,22 +103,22 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @views(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @container(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @position(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_timeout_show_all_feathers(ptr nocapture noundef writeonly initializes((148, 152)) %0) #1 {
+define hidden noundef i32 @_timeout_show_all_feathers(ptr noundef writeonly captures(none) initializes((148, 152)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %2, align 4, !tbaa !6
   tail call void (...) @dt_control_queue_redraw_center() #12
@@ -126,12 +126,12 @@ define hidden noundef i32 @_timeout_show_all_feathers(ptr nocapture noundef writ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef range(i32 0, 2) i32 @_find_mask_iter_by_values(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
@@ -240,14 +240,14 @@ define hidden noundef range(i32 0, 2) i32 @_find_mask_iter_by_values(ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @gtk_tree_model_iter_children(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare i32 @gtk_tree_model_iter_next(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_lib_masks_get_selected(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @_lib_masks_get_selected(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca i32, align 4
@@ -342,7 +342,7 @@ declare void @gtk_tree_path_free(ptr noundef) #4
 declare void @g_list_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct._GtkTreeIter, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !24
@@ -498,7 +498,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_lib_masks_inactivate_icons(ptr nocapture readonly %0) unnamed_addr #1 {
+define internal fastcc void @_lib_masks_inactivate_icons(ptr readonly captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !49
   %4 = tail call i64 @gtk_toggle_button_get_type() #13
@@ -529,7 +529,7 @@ declare ptr @gtk_tree_store_new(i32 noundef, ...) local_unnamed_addr #4
 declare i64 @gdk_pixbuf_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_lib_masks_list_recurs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, float noundef %6, ptr nocapture noundef nonnull readonly %7) unnamed_addr #1 {
+define internal fastcc void @_lib_masks_list_recurs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, float noundef %6, ptr noundef nonnull readonly captures(none) %7) unnamed_addr #1 {
   %9 = alloca [256 x i8], align 16
   %10 = alloca [1000 x i8], align 16
   %11 = alloca i32, align 4
@@ -1621,7 +1621,7 @@ declare ptr @dt_action_define(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_bt_add_shape(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal void @_bt_add_shape(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !41
@@ -1707,7 +1707,7 @@ declare ptr @gtk_cell_renderer_text_new() local_unnamed_addr #4
 declare void @g_object_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tree_cell_edited(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal void @_tree_cell_edited(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 280
@@ -1758,7 +1758,7 @@ declare void @gtk_tree_selection_set_mode(ptr noundef, i32 noundef) local_unname
 declare void @gtk_tree_selection_set_select_function(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_tree_restrict_select(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @_tree_restrict_select(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %8 = load i32, ptr %7, align 8, !tbaa !41
@@ -1859,7 +1859,7 @@ declare void @gtk_tree_view_set_headers_visible(ptr noundef, i32 noundef) local_
 declare void @gtk_widget_set_has_tooltip(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_tree_query_tooltip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture readnone %5) #1 {
+define internal i32 @_tree_query_tooltip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %struct._GtkTreeIter, align 8
@@ -1918,7 +1918,7 @@ define internal i32 @_tree_query_tooltip(ptr noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tree_selection_change(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_tree_selection_change(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -3245,7 +3245,7 @@ define internal void @_lib_masks_recreate_list(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_masks_update_list(ptr nocapture noundef readonly %0) #1 {
+define internal void @_lib_masks_update_list(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -3258,7 +3258,7 @@ define internal void @_lib_masks_update_list(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_masks_remove_item(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 {
+define internal void @_lib_masks_remove_item(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -3326,7 +3326,7 @@ define internal void @_lib_masks_remove_item(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_masks_selection_change(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal void @_lib_masks_selection_change(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !24
@@ -3386,7 +3386,7 @@ define internal void @_lib_masks_selection_change(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @gui_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   tail call void @g_free(ptr noundef %3) #12
@@ -3401,7 +3401,7 @@ declare void @gtk_tree_model_get(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -3511,7 +3511,7 @@ declare void @gtk_tree_store_insert(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare void @gtk_tree_store_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_iter_name(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, float noundef %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #1 {
+define internal fastcc void @_set_iter_name(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #1 {
   %7 = alloca [256 x i8], align 16
   %8 = alloca [256 x i8], align 16
   %9 = icmp eq ptr %1, null
@@ -3601,7 +3601,7 @@ declare ptr @dt_masks_get_from_id(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i64 @gtk_tree_store_get_type() local_unnamed_addr #6
@@ -3621,7 +3621,7 @@ declare ptr @gdk_pixbuf_new_from_data(ptr noundef, i32 noundef, i32 noundef, i32
 declare i32 @cairo_image_surface_get_stride(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tree_add_shape(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_tree_add_shape(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
@@ -3724,7 +3724,7 @@ declare void @dt_masks_clear_form_gui(ptr noundef) local_unnamed_addr #4
 declare void @dt_view_accels_refresh(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_all_properties(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc void @_update_all_properties(ptr noundef readonly captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !tbaa !73
   tail call void @gtk_widget_show(ptr noundef %3) #12
@@ -3864,7 +3864,7 @@ declare void @gtk_menu_item_set_submenu(ptr noundef, ptr noundef) local_unnamed_
 declare i64 @gtk_menu_item_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tree_duplicate_shape(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_tree_duplicate_shape(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -3917,7 +3917,7 @@ define internal void @_tree_duplicate_shape(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tree_delete_shape(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_tree_delete_shape(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca i32, align 4
@@ -4048,7 +4048,7 @@ define internal void @_tree_delete_shape(ptr nocapture readnone %0, ptr noundef 
 declare ptr @gtk_separator_menu_item_new() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tree_group(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_tree_group(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -4160,7 +4160,7 @@ define internal void @_tree_group(ptr nocapture readnone %0, ptr noundef %1) #1 
 declare void @gtk_widget_set_sensitive(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tree_moveup(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_tree_moveup(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -4264,7 +4264,7 @@ define internal void @_tree_moveup(ptr nocapture readnone %0, ptr noundef %1) #1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tree_movedown(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_tree_movedown(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -4368,7 +4368,7 @@ define internal void @_tree_movedown(ptr nocapture readnone %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tree_cleanup(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_tree_cleanup(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !45
   tail call void @dt_masks_cleanup_unused(ptr noundef %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -4414,7 +4414,7 @@ declare ptr @gtk_tree_iter_copy(ptr noundef) local_unnamed_addr #4
 declare i32 @gtk_tree_model_iter_previous(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_swap_last_secondlast_item_visibility(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_swap_last_secondlast_item_visibility(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4508,7 +4508,7 @@ declare void @gtk_check_menu_item_set_active(ptr noundef, i32 noundef) local_unn
 declare i64 @gtk_check_menu_item_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tree_operation(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_tree_operation(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -4694,7 +4694,7 @@ declare void @dt_lib_gui_queue_update(ptr noundef) local_unnamed_addr #4
 declare void @gtk_tree_model_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_update_foreach(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal noundef i32 @_update_foreach(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = icmp eq ptr %2, null
@@ -4772,7 +4772,7 @@ define internal noundef i32 @_update_foreach(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_remove_foreach(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #1 {
+define internal noundef i32 @_remove_foreach(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = icmp eq ptr %2, null
@@ -4827,7 +4827,7 @@ declare ptr @gtk_tree_row_reference_new(ptr noundef, ptr noundef) local_unnamed_
 declare void @gtk_tree_view_expand_all(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_r(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_r(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca %struct._GtkTreeIter, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8

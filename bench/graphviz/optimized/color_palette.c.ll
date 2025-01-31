@@ -550,7 +550,7 @@ target triple = "x86_64-pc-linux-gnu"
 @palette_adam = local_unnamed_addr global [11 x [3 x float]] [[3 x float] [float 1.000000e+00, float 0x3FDC9C9CA0000000, float 0.000000e+00], [3 x float] [float 0x3FEEBEBEC0000000, float 0x3FDDDDDDE0000000, float 0x3FB7171720000000], [3 x float] [float 0x3FD0505060000000, float 0x3FE6767680000000, float 0x3FEB9B9BA0000000], [3 x float] [float 0x3FED9D9DA0000000, float 0.000000e+00, float 0x3FE19191A0000000], [3 x float] [float 0x3F98181820000000, float 0x3FDE9E9EA0000000, float 0x3FE69696A0000000], [3 x float] [float 0x3FA8181820000000, float 0x3FC29292A0000000, float 0x3FDDDDDDE0000000], [3 x float] [float 0x3FE0303040000000, float 0x3F70101020000000, float 0x3FBA1A1A20000000], [3 x float] [float 0x3FE8D8D8E0000000, float 0x3FEA9A9AA0000000, float 0x3FCE9E9EA0000000], [3 x float] [float 0x3FDB9B9BA0000000, float 0x3FE7777780000000, float 0x3FBF1F1F20000000], [3 x float] [float 0x3FE6767680000000, float 0x3FA4141420000000, float 0x3FCE1E1E20000000], [3 x float] [float 0x3FE0101020000000, float 0x3FE0101020000000, float 0x3FE0101020000000]], align 16
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @knownColorScheme(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @knownColorScheme(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -582,7 +582,7 @@ define range(i32 0, 2) i32 @knownColorScheme(ptr nocapture noundef readonly %0) 
   br i1 %17, label %color_palettes_Q.exit, label %13
 
 18:                                               ; preds = %13
-  %19 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
+  %19 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %20 = icmp eq i32 %19, 3
   %21 = zext i1 %20 to i32
   br label %color_palettes_Q.exit
@@ -593,7 +593,7 @@ color_palettes_Q.exit:                            ; preds = %.preheader, %18, %1
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @color_palettes_Q(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @color_palettes_Q(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   br label %3
 
 2:                                                ; preds = %3
@@ -615,10 +615,10 @@ define range(i32 0, 2) i32 @color_palettes_Q(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @color_palettes_get(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @color_palettes_get(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   br label %3
 
 2:                                                ; preds = %3
@@ -645,7 +645,7 @@ define ptr @color_palettes_get(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -166,7 +166,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.mbedtls_ssl_parse_certificate = private unnamed_addr constant [10 x i32] [i32 32, i32 128, i32 128, i32 128, i32 0, i32 0, i32 32, i32 0, i32 8, i32 8], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_session_copy(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ssl_session_copy(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %mbedtls_ssl_session_free.exit, label %4
 
@@ -279,7 +279,7 @@ ssl_clear_peer_cert.exit:                         ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
@@ -289,7 +289,7 @@ declare void @mbedtls_x509_crt_init(ptr noundef) local_unnamed_addr #3
 declare i32 @mbedtls_x509_crt_parse_der(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_tls_prf(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #0 {
@@ -312,19 +312,19 @@ define hidden i32 @mbedtls_ssl_tls_prf(i32 noundef %0, ptr noundef %1, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls_prf_sha384(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6) #0 {
+define internal i32 @tls_prf_sha384(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 noundef %6) #0 {
   %8 = tail call fastcc i32 @tls_prf_generic(i32 noundef 5, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls_prf_sha256(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6) #0 {
+define internal i32 @tls_prf_sha256(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 noundef %6) #0 {
   %8 = tail call fastcc i32 @tls_prf_generic(i32 noundef 4, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6)
   ret i32 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_ssl_optimize_checksum(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define hidden void @mbedtls_ssl_optimize_checksum(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 5
@@ -337,7 +337,7 @@ define hidden void @mbedtls_ssl_optimize_checksum(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_update_checksum_sha384(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @ssl_update_checksum_sha384(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1192
@@ -346,7 +346,7 @@ define internal void @ssl_update_checksum_sha384(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_update_checksum_sha256(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @ssl_update_checksum_sha256(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1084
@@ -387,7 +387,7 @@ define hidden void @mbedtls_ssl_add_hs_msg_to_checksum(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_ssl_reset_checksum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_ssl_reset_checksum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1084
@@ -417,20 +417,20 @@ define hidden void @mbedtls_ssl_transform_init(ptr noundef initializes((0, 384))
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @mbedtls_cipher_init(ptr noundef) local_unnamed_addr #3
 
 declare void @mbedtls_md_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_session_init(ptr nocapture noundef writeonly initializes((0, 152)) %0) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_session_init(ptr noundef writeonly captures(none) initializes((0, 152)) %0) local_unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, i8 0, i64 152, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_init(ptr nocapture noundef writeonly initializes((0, 504)) %0) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_init(ptr noundef writeonly captures(none) initializes((0, 504)) %0) local_unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %0, i8 0, i64 504, i1 false)
   ret void
 }
@@ -955,7 +955,7 @@ define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_session_reset(ptr noundef in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_endpoint(ptr nocapture noundef writeonly initializes((8, 9)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_endpoint(ptr noundef writeonly captures(none) initializes((8, 9)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %3, ptr %4, align 8
@@ -963,7 +963,7 @@ define hidden void @mbedtls_ssl_conf_endpoint(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_transport(ptr nocapture noundef writeonly initializes((9, 10)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_transport(ptr noundef writeonly captures(none) initializes((9, 10)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %3, ptr %4, align 1
@@ -971,21 +971,21 @@ define hidden void @mbedtls_ssl_conf_transport(ptr nocapture noundef writeonly i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_dtls_anti_replay(ptr nocapture noundef writeonly initializes((15, 16)) %0, i8 noundef signext %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_dtls_anti_replay(ptr noundef writeonly captures(none) initializes((15, 16)) %0, i8 noundef signext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 15
   store i8 %1, ptr %3, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_dtls_badmac_limit(ptr nocapture noundef writeonly initializes((360, 364)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_dtls_badmac_limit(ptr noundef writeonly captures(none) initializes((360, 364)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_set_datagram_packing(ptr nocapture noundef writeonly initializes((312, 313)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_set_datagram_packing(ptr noundef writeonly captures(none) initializes((312, 313)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq i32 %1, 0
   %3 = zext i1 %.not to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -994,7 +994,7 @@ define hidden void @mbedtls_ssl_set_datagram_packing(ptr nocapture noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_handshake_timeout(ptr nocapture noundef writeonly initializes((340, 348)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_handshake_timeout(ptr noundef writeonly captures(none) initializes((340, 348)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 340
   store i32 %1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -1003,7 +1003,7 @@ define hidden void @mbedtls_ssl_conf_handshake_timeout(ptr nocapture noundef wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_authmode(ptr nocapture noundef writeonly initializes((10, 11)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_authmode(ptr noundef writeonly captures(none) initializes((10, 11)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %3, ptr %4, align 2
@@ -1011,7 +1011,7 @@ define hidden void @mbedtls_ssl_conf_authmode(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_verify(ptr nocapture noundef writeonly initializes((104, 120)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_verify(ptr noundef writeonly captures(none) initializes((104, 120)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1020,7 +1020,7 @@ define hidden void @mbedtls_ssl_conf_verify(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_rng(ptr nocapture noundef writeonly initializes((48, 64)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_rng(ptr noundef writeonly captures(none) initializes((48, 64)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1029,7 +1029,7 @@ define hidden void @mbedtls_ssl_conf_rng(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_dbg(ptr nocapture noundef writeonly initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_dbg(ptr noundef writeonly captures(none) initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1038,7 +1038,7 @@ define hidden void @mbedtls_ssl_conf_dbg(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_set_bio(ptr nocapture noundef writeonly initializes((48, 80)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_set_bio(ptr noundef writeonly captures(none) initializes((48, 80)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1051,14 +1051,14 @@ define hidden void @mbedtls_ssl_set_bio(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_set_mtu(ptr nocapture noundef writeonly initializes((400, 402)) %0, i16 noundef zeroext %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_set_mtu(ptr noundef writeonly captures(none) initializes((400, 402)) %0, i16 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i16 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_read_timeout(ptr nocapture noundef writeonly initializes((336, 340)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_read_timeout(ptr noundef writeonly captures(none) initializes((336, 340)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 %1, ptr %3, align 8
   ret void
@@ -1077,7 +1077,7 @@ define hidden void @mbedtls_ssl_set_timer_cb(ptr noundef initializes((152, 176))
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_session_cache(ptr nocapture noundef writeonly initializes((64, 88)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_session_cache(ptr noundef writeonly captures(none) initializes((64, 88)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1130,21 +1130,21 @@ define hidden i32 @mbedtls_ssl_set_session(ptr noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_ciphersuites(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_ciphersuites(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_cert_profile(ptr nocapture noundef writeonly initializes((184, 192)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_cert_profile(ptr noundef writeonly captures(none) initializes((184, 192)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_conf_own_cert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_conf_own_cert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %10
@@ -1201,7 +1201,7 @@ ssl_append_key_cert.exit:                         ; preds = %ssl_key_cert_free.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_ca_chain(ptr nocapture noundef writeonly initializes((200, 216)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_ca_chain(ptr noundef writeonly captures(none) initializes((200, 216)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -1210,7 +1210,7 @@ define hidden void @mbedtls_ssl_conf_ca_chain(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @mbedtls_ssl_get_hs_sni(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #8 {
+define hidden ptr @mbedtls_ssl_get_hs_sni(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2632
@@ -1223,7 +1223,7 @@ define hidden ptr @mbedtls_ssl_get_hs_sni(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hs_own_cert(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hs_own_cert(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 848
@@ -1282,7 +1282,7 @@ ssl_append_key_cert.exit:                         ; preds = %ssl_key_cert_free.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_ssl_set_hs_ca_chain(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define hidden void @mbedtls_ssl_set_hs_ca_chain(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 856
@@ -1294,7 +1294,7 @@ define hidden void @mbedtls_ssl_set_hs_ca_chain(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_ssl_set_hs_dn_hints(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
+define hidden void @mbedtls_ssl_set_hs_dn_hints(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2640
@@ -1303,7 +1303,7 @@ define hidden void @mbedtls_ssl_set_hs_dn_hints(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_ssl_set_hs_authmode(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden void @mbedtls_ssl_set_hs_authmode(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -1313,7 +1313,7 @@ define hidden void @mbedtls_ssl_set_hs_authmode(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_set_verify(ptr nocapture noundef writeonly initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_set_verify(ptr noundef writeonly captures(none) initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1322,7 +1322,7 @@ define hidden void @mbedtls_ssl_set_verify(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_conf_psk(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_conf_psk(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 296
   %.val = load ptr, ptr %6, align 8
   %.not.i.not = icmp eq ptr %.val, null
@@ -1385,7 +1385,7 @@ ssl_conf_remove_psk.exit:                         ; preds = %27, %23, %ssl_conf_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hs_psk(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hs_psk(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %33, label %5
 
@@ -1443,7 +1443,7 @@ ssl_remove_psk.exit:                              ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_psk_cb(ptr nocapture noundef writeonly initializes((120, 136)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_psk_cb(ptr noundef writeonly captures(none) initializes((120, 136)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1452,7 +1452,7 @@ define hidden void @mbedtls_ssl_conf_psk_cb(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 4) i32 @mbedtls_ssl_get_mode_from_transform(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden range(i32 0, 4) i32 @mbedtls_ssl_get_mode_from_transform(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.val = load ptr, ptr %2, align 8
   %3 = icmp eq ptr %.val, null
@@ -1486,7 +1486,7 @@ mbedtls_ssl_get_base_mode.exit:                   ; preds = %mbedtls_cipher_get_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 4) i32 @mbedtls_ssl_get_mode_from_ciphersuite(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @mbedtls_ssl_get_mode_from_ciphersuite(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = zext i8 %4 to i32
@@ -1580,21 +1580,21 @@ define hidden i32 @mbedtls_ssl_conf_dh_param_ctx(ptr noundef %0, ptr noundef %1)
 declare i32 @mbedtls_dhm_get_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_dhm_min_bitlen(ptr nocapture noundef writeonly initializes((364, 368)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_dhm_min_bitlen(ptr noundef writeonly captures(none) initializes((364, 368)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 364
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_sig_hashes(ptr nocapture noundef writeonly initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_sig_hashes(ptr noundef writeonly captures(none) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_sig_algs(ptr nocapture noundef writeonly initializes((216, 232)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_sig_algs(ptr noundef writeonly captures(none) initializes((216, 232)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1603,7 +1603,7 @@ define hidden void @mbedtls_ssl_conf_sig_algs(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_curves(ptr nocapture noundef writeonly initializes((232, 248)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_curves(ptr noundef writeonly captures(none) initializes((232, 248)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -1612,7 +1612,7 @@ define hidden void @mbedtls_ssl_conf_curves(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_groups(ptr nocapture noundef writeonly initializes((232, 248)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_groups(ptr noundef writeonly captures(none) initializes((232, 248)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -1621,7 +1621,7 @@ define hidden void @mbedtls_ssl_conf_groups(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hostname(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hostname(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -1670,12 +1670,12 @@ define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hostname(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_sni(ptr nocapture noundef writeonly initializes((88, 104)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_sni(ptr noundef writeonly captures(none) initializes((88, 104)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1684,7 +1684,7 @@ define hidden void @mbedtls_ssl_conf_sni(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_conf_alpn_protocols(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_conf_alpn_protocols(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = load ptr, ptr %1, align 8
   %.not18 = icmp eq ptr %3, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -1718,14 +1718,14 @@ define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_conf_alpn_protocols(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @mbedtls_ssl_get_alpn_protocol(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden ptr @mbedtls_ssl_get_alpn_protocol(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_max_version(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_max_version(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = shl i32 %1, 8
   %5 = or i32 %4, %2
   store i32 %5, ptr %0, align 8
@@ -1733,7 +1733,7 @@ define hidden void @mbedtls_ssl_conf_max_version(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_min_version(ptr nocapture noundef writeonly initializes((4, 8)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_min_version(ptr noundef writeonly captures(none) initializes((4, 8)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = shl i32 %1, 8
   %5 = or i32 %4, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1742,28 +1742,28 @@ define hidden void @mbedtls_ssl_conf_min_version(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_cert_req_ca_list(ptr nocapture noundef writeonly initializes((18, 19)) %0, i8 noundef signext %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_cert_req_ca_list(ptr noundef writeonly captures(none) initializes((18, 19)) %0, i8 noundef signext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 %1, ptr %3, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_encrypt_then_mac(ptr nocapture noundef writeonly initializes((13, 14)) %0, i8 noundef signext %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_encrypt_then_mac(ptr noundef writeonly captures(none) initializes((13, 14)) %0, i8 noundef signext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 %1, ptr %3, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_extended_master_secret(ptr nocapture noundef writeonly initializes((14, 15)) %0, i8 noundef signext %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_extended_master_secret(ptr noundef writeonly captures(none) initializes((14, 15)) %0, i8 noundef signext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i8 %1, ptr %3, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_conf_max_frag_len(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) local_unnamed_addr #7 {
+define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_conf_max_frag_len(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = icmp ugt i8 %1, 4
   br i1 %3, label %5, label %ssl_mfl_code_to_length.exit
 
@@ -1778,7 +1778,7 @@ ssl_mfl_code_to_length.exit:                      ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_legacy_renegotiation(ptr nocapture noundef writeonly initializes((11, 12)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_legacy_renegotiation(ptr noundef writeonly captures(none) initializes((11, 12)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 %3, ptr %4, align 1
@@ -1786,7 +1786,7 @@ define hidden void @mbedtls_ssl_conf_legacy_renegotiation(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_renegotiation(ptr nocapture noundef writeonly initializes((16, 17)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_renegotiation(ptr noundef writeonly captures(none) initializes((16, 17)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %3, ptr %4, align 8
@@ -1794,14 +1794,14 @@ define hidden void @mbedtls_ssl_conf_renegotiation(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_renegotiation_enforced(ptr nocapture noundef writeonly initializes((348, 352)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_renegotiation_enforced(ptr noundef writeonly captures(none) initializes((348, 352)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 348
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mbedtls_ssl_conf_renegotiation_period(ptr nocapture noundef writeonly initializes((352, 360)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #13 {
+define hidden void @mbedtls_ssl_conf_renegotiation_period(ptr noundef writeonly captures(none) initializes((352, 360)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = load i64, ptr %1, align 1
   store i64 %4, ptr %3, align 8
@@ -1809,7 +1809,7 @@ define hidden void @mbedtls_ssl_conf_renegotiation_period(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_session_tickets(ptr nocapture noundef writeonly initializes((17, 18)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_session_tickets(ptr noundef writeonly captures(none) initializes((17, 18)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 %3, ptr %4, align 1
@@ -1817,7 +1817,7 @@ define hidden void @mbedtls_ssl_conf_session_tickets(ptr nocapture noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_session_tickets_cb(ptr nocapture noundef writeonly initializes((160, 184)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_conf_session_tickets_cb(ptr noundef writeonly captures(none) initializes((160, 184)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1828,7 +1828,7 @@ define hidden void @mbedtls_ssl_conf_session_tickets_cb(ptr nocapture noundef wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_set_export_keys_cb(ptr nocapture noundef writeonly initializes((480, 496)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_set_export_keys_cb(ptr noundef writeonly captures(none) initializes((480, 496)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -1837,7 +1837,7 @@ define hidden void @mbedtls_ssl_set_export_keys_cb(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_ssl_get_verify_result(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden i32 @mbedtls_ssl_get_verify_result(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1906,7 +1906,7 @@ define hidden ptr @mbedtls_ssl_get_ciphersuite(ptr noundef readonly %0) local_un
 declare ptr @mbedtls_ssl_get_ciphersuite_name(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden nonnull ptr @mbedtls_ssl_get_version(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden nonnull ptr @mbedtls_ssl_get_version(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %4 = load i8, ptr %3, align 1
@@ -1933,7 +1933,7 @@ define hidden nonnull ptr @mbedtls_ssl_get_version(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 512, 16385) i64 @mbedtls_ssl_get_input_max_frag_len(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden range(i64 512, 16385) i64 @mbedtls_ssl_get_input_max_frag_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i8, ptr %3, align 8
@@ -2007,7 +2007,7 @@ ssl_mfl_code_to_length.exit:                      ; preds = %10, %switch.lookup,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 512, 16385) i64 @mbedtls_ssl_get_output_max_frag_len(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden range(i64 512, 16385) i64 @mbedtls_ssl_get_output_max_frag_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %4 = load i8, ptr %3, align 4
@@ -2082,7 +2082,7 @@ ssl_mfl_code_to_length.exit20:                    ; preds = %switch.lookup36, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 0, 65536) i64 @mbedtls_ssl_get_current_mtu(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden range(i64 0, 65536) i64 @mbedtls_ssl_get_current_mtu(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i8, ptr %3, align 8
@@ -2295,7 +2295,7 @@ mbedtls_ssl_get_current_mtu.exit.thread:          ; preds = %mbedtls_ssl_get_cur
 declare i32 @mbedtls_ssl_get_record_expansion(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 512, 16385) i32 @mbedtls_ssl_get_max_in_record_payload(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden range(i32 512, 16385) i32 @mbedtls_ssl_get_max_in_record_payload(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i8, ptr %3, align 8
@@ -2437,13 +2437,13 @@ define hidden i32 @mbedtls_ssl_get_session(ptr noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -28800, 1) i32 @mbedtls_ssl_session_save(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #14 {
+define hidden range(i32 -28800, 1) i32 @mbedtls_ssl_session_save(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #14 {
   %5 = tail call fastcc i32 @ssl_session_save(ptr noundef %0, i8 noundef zeroext 0, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -28800, 1) i32 @ssl_session_save(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 0, 2) %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #14 {
+define internal fastcc range(i32 -28800, 1) i32 @ssl_session_save(ptr noundef readonly captures(none) %0, i8 noundef zeroext range(i8 0, 2) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #14 {
   %.not = icmp eq i8 %1, 0
   br i1 %.not, label %6, label %10
 
@@ -2738,7 +2738,7 @@ mbedtls_ssl_session_free.exit:                    ; preds = %ssl_clear_peer_cert
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_session_load(ptr nocapture noundef %0, i8 noundef zeroext range(i8 0, 2) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @ssl_session_load(ptr noundef captures(none) %0, i8 noundef zeroext range(i8 0, 2) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
   %.not = icmp eq i8 %1, 0
   br i1 %.not, label %6, label %11
@@ -3468,7 +3468,7 @@ declare void @mbedtls_ssl_flight_free(ptr noundef) local_unnamed_addr #3
 declare void @mbedtls_ssl_buffering_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ssl_clear_peer_cert(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @ssl_clear_peer_cert(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3486,7 +3486,7 @@ define internal fastcc void @ssl_clear_peer_cert(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_context_save(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_context_save(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %6, align 8
@@ -4378,7 +4378,7 @@ mbedtls_ssl_session_free.exit43:                  ; preds = %40, %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_config_init(ptr nocapture noundef writeonly initializes((0, 392)) %0) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_config_init(ptr noundef writeonly captures(none) initializes((0, 392)) %0) local_unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   ret void
 }
@@ -4688,15 +4688,15 @@ mbedtls_ssl_conf_is_tls12_only.exit101.thread:    ; preds = %93, %mbedtls_ssl_co
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ssl_cookie_write_dummy(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i64 %4) #16 {
+define internal noundef i32 @ssl_cookie_write_dummy(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i64 %4) #16 {
   ret i32 -28800
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ssl_cookie_check_dummy(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3, i64 %4) #16 {
+define internal noundef i32 @ssl_cookie_check_dummy(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, i64 %4) #16 {
   ret i32 -28800
 }
 
@@ -4814,7 +4814,7 @@ define hidden zeroext range(i8 0, 7) i8 @mbedtls_ssl_hash_from_md_alg(i32 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 1) i32 @mbedtls_ssl_check_curve_tls_id(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #17 {
+define hidden range(i32 -1, 1) i32 @mbedtls_ssl_check_curve_tls_id(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -4857,7 +4857,7 @@ mbedtls_ssl_get_groups.exit:                      ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @mbedtls_ssl_check_curve(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @mbedtls_ssl_check_curve(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @mbedtls_ecp_curve_info_from_grp_id(i32 noundef %1) #22
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i16, ptr %4, align 4
@@ -4905,7 +4905,7 @@ mbedtls_ssl_check_curve_tls_id.exit:              ; preds = %16, %.lr.ph.i, %mbe
 declare ptr @mbedtls_ecp_curve_info_from_grp_id(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @mbedtls_ssl_check_cert_usage(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @mbedtls_ssl_check_cert_usage(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq i32 %2, 1
   br i1 %5, label %6, label %11
 
@@ -4957,7 +4957,7 @@ declare i32 @mbedtls_x509_crt_check_key_usage(ptr noundef, i32 noundef) local_un
 declare i32 @mbedtls_x509_crt_check_extended_key_usage(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_get_handshake_transcript(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ssl_get_handshake_transcript(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.mbedtls_sha256_context, align 4
   %7 = alloca %struct.mbedtls_sha512_context, align 8
   switch i32 %1, label %28 [
@@ -5724,7 +5724,7 @@ mbedtls_ssl_get_mode_from_ciphersuite.exit:       ; preds = %17, %22, %24, %.fol
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 1) i32 @mbedtls_ssl_set_calc_verify_md(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden range(i32 -1, 1) i32 @mbedtls_ssl_set_calc_verify_md(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   switch i32 %1, label %7 [
     i32 5, label %.sink.split
     i32 4, label %3
@@ -5747,7 +5747,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_ssl_set_calc_verify_md(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_calc_verify_tls_sha384(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define internal void @ssl_calc_verify_tls_sha384(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 {
   %4 = alloca %struct.mbedtls_sha512_context, align 8
   call void @mbedtls_sha512_init(ptr noundef nonnull %4) #22
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 5650, ptr noundef nonnull @.str.111) #22
@@ -5764,7 +5764,7 @@ define internal void @ssl_calc_verify_tls_sha384(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_calc_verify_tls_sha256(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define internal void @ssl_calc_verify_tls_sha256(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 {
   %4 = alloca %struct.mbedtls_sha256_context, align 4
   call void @mbedtls_sha256_init(ptr noundef nonnull %4) #22
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 5601, ptr noundef nonnull @.str.108) #22
@@ -7343,7 +7343,7 @@ declare i32 @mbedtls_ct_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare void @mbedtls_ssl_recv_flight_completed(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_get_key_exchange_md_tls1_2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ssl_get_key_exchange_md_tls1_2(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_md_context_t, align 8
   %8 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %5) #22
   %9 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %8) #22
@@ -7428,7 +7428,7 @@ declare i32 @mbedtls_md_finish(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @mbedtls_md_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 256) i32 @mbedtls_ssl_tls12_get_preferred_hash_for_sig_alg(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define hidden range(i32 0, 256) i32 @mbedtls_ssl_tls12_get_preferred_hash_for_sig_alg(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -7466,7 +7466,7 @@ define hidden range(i32 0, 256) i32 @mbedtls_ssl_tls12_get_preferred_hash_for_si
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @mbedtls_ssl_validate_ciphersuite(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @mbedtls_ssl_validate_ciphersuite(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %23, label %6
 
@@ -7508,7 +7508,7 @@ declare i32 @mbedtls_ssl_ciphersuite_uses_psk(ptr noundef) local_unnamed_addr #3
 declare i32 @mbedtls_ssl_conf_has_static_psk(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -27648, 1) i32 @mbedtls_ssl_write_sig_alg_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define hidden range(i32 -27648, 1) i32 @mbedtls_ssl_write_sig_alg_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   store i64 0, ptr %3, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 8248, ptr noundef nonnull @.str.78) #22
   %5 = icmp ule ptr %1, %2
@@ -7895,7 +7895,7 @@ define hidden range(i32 -30080, 1) i32 @mbedtls_ssl_parse_alpn_ext(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -27136, 1) i32 @mbedtls_ssl_write_alpn_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define hidden range(i32 -27136, 1) i32 @mbedtls_ssl_write_alpn_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   store i64 0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %6 = load ptr, ptr %5, align 8
@@ -7957,7 +7957,7 @@ declare void @mbedtls_sha256_init(ptr noundef) local_unnamed_addr #3
 declare void @mbedtls_sha512_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_update_checksum_start(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @ssl_update_checksum_start(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1084
@@ -7983,7 +7983,7 @@ declare void @mbedtls_sha256_clone(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @mbedtls_sha256_finish(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tls_prf_generic(i32 noundef range(i32 4, 6) %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef writeonly %6, i64 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @tls_prf_generic(i32 noundef range(i32 4, 6) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7) unnamed_addr #0 {
   %9 = alloca [64 x i8], align 16
   %10 = alloca %struct.mbedtls_md_context_t, align 8
   call void @mbedtls_md_init(ptr noundef nonnull %10) #22
@@ -8003,7 +8003,7 @@ define internal fastcc i32 @tls_prf_generic(i32 noundef range(i32 4, 6) %0, ptr 
 
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 %15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %3, i64 %16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %3, i64 %16, i1 false)
   %23 = getelementptr inbounds i8, ptr %22, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %4, i64 %5, i1 false)
   %24 = call i32 @mbedtls_md_setup(ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 1) #22
@@ -8198,16 +8198,16 @@ declare i32 @mbedtls_cipher_set_padding_mode(ptr noundef, i32 noundef) local_unn
 declare i64 @llvm.usub.sat.i64(i64, i64) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #20
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18

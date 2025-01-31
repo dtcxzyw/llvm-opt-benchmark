@@ -141,7 +141,7 @@ define noalias noundef ptr @wmem_strconcat(ptr noundef %0, ptr noundef %1, ...) 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -248,7 +248,7 @@ define noalias noundef ptr @wmem_strjoin(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @wmem_strjoinv(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noalias ptr @wmem_strjoinv(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %spec.store.select = select i1 %4, ptr @.str, ptr %1
   %5 = load ptr, ptr %2, align 8
@@ -440,7 +440,7 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @wmem_ascii_strdown(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -566,7 +566,7 @@ define noundef ptr @ascii_strup_inplace(ptr noundef returned %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @isprint_string(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define noundef zeroext i1 @isprint_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1
   %.not7 = icmp eq i8 %2, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -645,7 +645,7 @@ declare i32 @g_unichar_isprint(i32 noundef) local_unnamed_addr #3
 declare i32 @g_utf8_get_char(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @isdigit_string(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define noundef zeroext i1 @isdigit_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1
   %.not7 = icmp eq i8 %2, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -687,7 +687,7 @@ define noundef ptr @ws_ascii_strcasestr(ptr noundef %0, ptr noundef %1) local_un
 .lr.ph:                                           ; preds = %2, %6
   %.in = phi i64 [ %7, %6 ], [ %3, %2 ]
   %.01014 = phi ptr [ %8, %6 ], [ %0, %2 ]
-  %5 = tail call i32 @g_ascii_strncasecmp(ptr noundef %.01014, ptr noundef %1, i64 noundef %4) #19
+  %5 = tail call i32 @g_ascii_strncasecmp(ptr noundef %.01014, ptr noundef nonnull %1, i64 noundef %4) #19
   %.not12 = icmp eq i32 %5, 0
   br i1 %.not12, label %._crit_edge, label %6
 
@@ -876,13 +876,13 @@ define signext i8 @printable_char_or_period(i8 noundef signext %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ws_escape_string_len(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define ptr @ws_escape_string_len(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @escape_string_len(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @escape_char, i1 noundef zeroext %3, i8 noundef signext 34, i1 noundef zeroext false)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @escape_string_len(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, i8 noundef signext %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc ptr @escape_string_len(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, i8 noundef signext %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = icmp slt i64 %2, 0
   br i1 %9, label %10, label %12
@@ -1008,7 +1008,7 @@ define internal fastcc ptr @escape_string_len(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @escape_char(i8 noundef signext %0, ptr nocapture noundef writeonly %1) #11 {
+define internal noundef zeroext i1 @escape_char(i8 noundef signext %0, ptr noundef writeonly captures(none) %1) #11 {
   switch i8 %0, label %12 [
     i8 7, label %11
     i8 8, label %3
@@ -1056,20 +1056,20 @@ define internal noundef zeroext i1 @escape_char(i8 noundef signext %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ws_escape_string(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define ptr @ws_escape_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @escape_string_len(ptr noundef %0, ptr noundef %1, i64 noundef -1, ptr noundef nonnull @escape_char, i1 noundef zeroext %2, i8 noundef signext 34, i1 noundef zeroext false)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ws_escape_null(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define ptr @ws_escape_null(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = select i1 %3, i8 34, i8 0
   %6 = tail call fastcc ptr @escape_string_len(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @escape_null, i1 noundef zeroext %3, i8 noundef signext %5, i1 noundef zeroext false)
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @escape_null(i8 noundef signext %0, ptr nocapture noundef writeonly %1) #11 {
+define internal noundef zeroext i1 @escape_null(i8 noundef signext %0, ptr noundef writeonly captures(none) %1) #11 {
   %3 = icmp eq i8 %0, 0
   br i1 %3, label %4, label %5
 
@@ -1082,7 +1082,7 @@ define internal noundef zeroext i1 @escape_null(i8 noundef signext %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ws_escape_csv(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i8 noundef signext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define ptr @ws_escape_csv(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i8 noundef signext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %escape_char.escape_null = select i1 %5, ptr @escape_char, ptr @escape_null
   %7 = tail call fastcc ptr @escape_string_len(ptr noundef %0, ptr noundef %1, i64 noundef -1, ptr noundef nonnull %escape_char.escape_null, i1 noundef zeroext %2, i8 noundef signext %3, i1 noundef zeroext %4)
   ret ptr %7
@@ -1112,7 +1112,7 @@ declare ptr @strerrorname_np(i32 noundef) local_unnamed_addr #12
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define ptr @ws_strdup_underline(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -1831,7 +1831,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 ; Function Attrs: nounwind uwtable
 define ptr @format_text_string(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
-  %4 = tail call fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef %1, i64 noundef %3, i1 noundef zeroext false)
+  %4 = tail call fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3, i1 noundef zeroext false)
   ret ptr %4
 }
 
@@ -1995,7 +1995,7 @@ declare ptr @g_utf8_find_prev_char(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @g_utf8_get_char_validated(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @EBCDIC_to_ASCII(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @EBCDIC_to_ASCII(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #15 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2025,7 +2025,7 @@ define zeroext i8 @EBCDIC_to_ASCII1(i8 noundef zeroext %0) local_unnamed_addr #4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @hex_dump_buffer(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [79 x i8], align 16
   %8 = add i32 %3, -1
   %.not = icmp ult i32 %8, 268435456
@@ -2286,7 +2286,7 @@ define noundef zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
 

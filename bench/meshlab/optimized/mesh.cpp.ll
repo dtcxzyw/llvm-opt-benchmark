@@ -2539,7 +2539,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z8LoadMeshPKcR4MeshRSt10shared_ptrI13TextureObjectERi(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z8LoadMeshPKcR4MeshRSt10shared_ptrI13TextureObjectERi(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QFileInfo, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %"class.logging::Buffer", align 8
@@ -3900,7 +3900,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io8ImporterI4MeshE4OpenERS3_PKcRiPF
 
 31:                                               ; preds = %4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #36
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %32 unwind label %45
 
 32:                                               ; preds = %31
@@ -3928,7 +3928,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io8ImporterI4MeshE4OpenERS3_PKcRiPF
   store i64 0, ptr %8, align 8
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %3, ptr %39, align 8
-  %40 = invoke noundef i32 @_ZN3vcg3tri2io11ImporterPLYI4MeshE4OpenERS3_PKcRNS1_7PlyInfoE(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %8)
+  %40 = invoke noundef i32 @_ZN3vcg3tri2io11ImporterPLYI4MeshE4OpenERS3_PKcRNS1_7PlyInfoE(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(144) %8)
           to label %_ZN3vcg3tri2io11ImporterPLYI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit unwind label %41
 
 common.resume:                                    ; preds = %52, %80, %104, %122, %137, %93, %41
@@ -3978,7 +3978,7 @@ _ZN3vcg3tri2io11ImporterPLYI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit: ; preds = %36
 
 53:                                               ; preds = %35
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #36
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -3999,7 +3999,7 @@ _ZN3vcg3tri2io11ImporterPLYI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit: ; preds = %36
 
 58:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %59 = call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.100)
+  %59 = call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.100)
   %60 = icmp eq ptr %59, null
   br i1 %60, label %_ZN3vcg3tri2io11ImporterSTLI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit, label %61
 
@@ -4008,7 +4008,7 @@ _ZN3vcg3tri2io11ImporterPLYI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit: ; preds = %36
   %63 = load i32, ptr %2, align 4
   %64 = or i32 %63, 65
   store i32 %64, ptr %2, align 4
-  %65 = call noundef zeroext i1 @_ZN3vcg3tri2io11ImporterSTLI4MeshE14IsSTLMalformedEPKcRb(ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %65 = call noundef zeroext i1 @_ZN3vcg3tri2io11ImporterSTLI4MeshE14IsSTLMalformedEPKcRb(ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
   br i1 %65, label %66, label %_ZN3vcg3tri2io11ImporterSTLI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit
 
 66:                                               ; preds = %61
@@ -4017,11 +4017,11 @@ _ZN3vcg3tri2io11ImporterPLYI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit: ; preds = %36
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %66
-  %70 = call noundef i32 @_ZN3vcg3tri2io11ImporterSTLI4MeshE10OpenBinaryERS3_PKcRiPFbiS7_E(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3)
+  %70 = call noundef i32 @_ZN3vcg3tri2io11ImporterSTLI4MeshE10OpenBinaryERS3_PKcRiPFbiS7_E(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3)
   br label %_ZN3vcg3tri2io11ImporterSTLI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit
 
 71:                                               ; preds = %66
-  %72 = call noundef i32 @_ZN3vcg3tri2io11ImporterSTLI4MeshE9OpenAsciiERS3_PKcPFbiS7_E(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef %1, ptr noundef %3)
+  %72 = call noundef i32 @_ZN3vcg3tri2io11ImporterSTLI4MeshE9OpenAsciiERS3_PKcPFbiS7_E(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef nonnull %1, ptr noundef %3)
   br label %_ZN3vcg3tri2io11ImporterSTLI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit
 
 _ZN3vcg3tri2io11ImporterSTLI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit: ; preds = %58, %61, %69, %71
@@ -4058,7 +4058,7 @@ _ZN3vcg3tri2io11ImporterSTLI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit: ; preds = %58, %
 
 81:                                               ; preds = %57
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #36
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %18)
           to label %82 unwind label %97
 
 82:                                               ; preds = %81
@@ -4079,7 +4079,7 @@ _ZN3vcg3tri2io11ImporterSTLI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit: ; preds = %58, %
 
 86:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %6)
-  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %6, ptr noundef %1, i32 noundef 8)
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %6, ptr noundef nonnull %1, i32 noundef 8)
   %87 = load ptr, ptr %6, align 8
   %88 = getelementptr i8, ptr %87, i64 -24
   %89 = load i64, ptr %88, align 8
@@ -4135,7 +4135,7 @@ _ZN3vcg3tri2io11ImporterOFFI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit: ; preds = %92, %
 
 105:                                              ; preds = %85
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #36
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %22)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %106 unwind label %115
 
 106:                                              ; preds = %105
@@ -4161,7 +4161,7 @@ _ZN3vcg3tri2io11ImporterOFFI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit: ; preds = %92, %
   store i32 0, ptr %112, align 4
   store i32 0, ptr %5, align 8
   store ptr %3, ptr %111, align 8
-  %113 = call noundef i32 @_ZN3vcg3tri2io11ImporterOBJI4MeshE4OpenERS3_PKcRNS4_4InfoE(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(36) %5)
+  %113 = call noundef i32 @_ZN3vcg3tri2io11ImporterOBJI4MeshE4OpenERS3_PKcRNS4_4InfoE(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(36) %5)
   %114 = load i32, ptr %5, align 8
   store i32 %114, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -4196,7 +4196,7 @@ _ZN3vcg3tri2io11ImporterOFFI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit: ; preds = %92, %
 
 123:                                              ; preds = %109
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #36
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %26)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %26)
           to label %124 unwind label %130
 
 124:                                              ; preds = %123
@@ -4216,7 +4216,7 @@ _ZN3vcg3tri2io11ImporterOFFI4MeshE4OpenERS3_PKcRiPFbiS7_E.exit: ; preds = %92, %
   br i1 %126, label %128, label %138
 
 128:                                              ; preds = %127
-  %129 = call noundef i32 @_ZN3vcg3tri2io11ImporterVMII4MeshldiscE4OpenERS3_PKcRiPFbiS7_E(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3)
+  %129 = call noundef i32 @_ZN3vcg3tri2io11ImporterVMII4MeshldiscE4OpenERS3_PKcRiPFbiS7_E(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3)
   br label %138
 
 130:                                              ; preds = %123
@@ -4264,7 +4264,7 @@ declare void @_ZNK9QFileInfo16absoluteFilePathEv(ptr dead_on_unwind writable sre
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
@@ -4355,12 +4355,12 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 declare void @_ZN13TextureObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -14670,7 +14670,7 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshFaceED2Ev.exit4: ; preds = %9
 declare float @llvm.fmuladd.f32(float, float, float) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE9push_backEOi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 comdat align 2 {
@@ -15226,7 +15226,7 @@ define linkonce_odr void @_ZN3vcg3ply14PropDescriptorC2ENSt7__cxx1112basic_strin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #14 section ".text.startup" {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #14 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -15249,7 +15249,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.79(ptr nocapture readnone %0) #14 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.79(ptr readnone captures(none) %0) #14 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -15266,7 +15266,7 @@ define internal void @__cxx_global_array_dtor.79(ptr nocapture readnone %0) #14 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.85(ptr nocapture readnone %0) #14 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.85(ptr readnone captures(none) %0) #14 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -15283,21 +15283,21 @@ define internal void @__cxx_global_array_dtor.85(ptr nocapture readnone %0) #14 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.86(ptr nocapture readnone %0) #14 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.86(ptr readnone captures(none) %0) #14 section ".text.startup" {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE12TristripDescEiE2qf, i64 32)) #36
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN3vcg3tri2io11ImporterPLYI4MeshE12TristripDescEiE2qf) #36
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.87(ptr nocapture readnone %0) #14 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.87(ptr readnone captures(none) %0) #14 section ".text.startup" {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE9RangeDescEiE11range_props, i64 32)) #36
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN3vcg3tri2io11ImporterPLYI4MeshE9RangeDescEiE11range_props) #36
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.90(ptr nocapture readnone %0) #14 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.90(ptr readnone captures(none) %0) #14 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -15877,7 +15877,7 @@ _ZNSt12_Vector_baseI10MeshVertexSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIP10MeshVertexSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15978,7 +15978,7 @@ _ZNSt12_Vector_baseIP10MeshVertexSaIS1_EE13_M_deallocateEPS1_m.exit35: ; preds =
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZN3vcg3tri9AllocatorI4MeshE8AddEdgesERS2_mRNS3_14PointerUpdaterIP8MeshEdgeEE(ptr noundef nonnull align 8 dereferenceable(808) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(57) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17338,10 +17338,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #17
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ImporterSTLI4MeshE14IsSTLMalformedEPKcRb(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #3 comdat align 2 {
@@ -17824,13 +17824,13 @@ _ZN3vcg3tri9AllocatorI4MeshE11AddVerticesERS2_m.exit: ; preds = %65, %67
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #17
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ImporterSTLI4MeshE12IsSTLColoredEPKcRbS7_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17927,10 +17927,10 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ImporterSTLI4MeshE12IsST
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
@@ -19678,7 +19678,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #8
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -28225,7 +28225,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #20
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #1
@@ -42407,7 +42407,7 @@ _ZNSt12_Vector_baseIN3vcg3tri2io9DummyTypeILi1048576EEESaIS4_EE13_M_deallocateEP
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #22
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i32 } @_ZN3vcg3tri9AllocatorI4MeshE19AddPerFaceAttributeIcEENS0_7TriMeshISt6vectorI10MeshVertexSaIS7_EES6_I8MeshFaceSaISA_EENS0_14DummyContainerESD_SD_E22PerFaceAttributeHandleIT_EERS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -48193,7 +48193,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z8SaveMeshPKcR4MeshRKSt6vectorISt10shared_ptrI6QImageESaIS6_EEb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z8SaveMeshPKcR4MeshRKSt6vectorISt10shared_ptrI6QImageESaIS6_EEb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.39", align 1
@@ -49632,7 +49632,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterOFFI4MeshE4SaveERS3_PKc
   %41 = load double, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0147, i64 16
   %43 = load double, ptr %42, align 8
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.283, i32 noundef 16, double noundef %39, i32 noundef 16, double noundef %41, i32 noundef 16, double noundef %43) #36
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.283, i32 noundef 16, double noundef %39, i32 noundef 16, double noundef %41, i32 noundef 16, double noundef %43) #36
   br i1 %.not71, label %59, label %45
 
 45:                                               ; preds = %38
@@ -49648,7 +49648,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterOFFI4MeshE4SaveERS3_PKc
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0147, i64 103
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.285, i32 noundef %48, i32 noundef %51, i32 noundef %54, i32 noundef %57) #36
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.285, i32 noundef %48, i32 noundef %51, i32 noundef %54, i32 noundef %57) #36
   br label %59
 
 59:                                               ; preds = %45, %38
@@ -49661,7 +49661,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterOFFI4MeshE4SaveERS3_PKc
   %64 = load double, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0147, i64 64
   %66 = load double, ptr %65, align 8
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.298, double noundef %62, double noundef %64, double noundef %66) #36
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.298, double noundef %62, double noundef %64, double noundef %66) #36
   br label %68
 
 68:                                               ; preds = %60, %59
@@ -49672,11 +49672,11 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterOFFI4MeshE4SaveERS3_PKc
   %71 = load double, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0147, i64 32
   %73 = load double, ptr %72, align 8
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.318, double noundef %71, double noundef %73) #36
+  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.318, double noundef %71, double noundef %73) #36
   br label %75
 
 75:                                               ; preds = %69, %68
-  %fputc83 = tail call i32 @fputc(i32 10, ptr %6)
+  %fputc83 = tail call i32 @fputc(i32 10, ptr nonnull %6)
   %.pre = load ptr, ptr %32, align 8
   br label %76
 
@@ -49803,7 +49803,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_SaIS3_EEE
   %122 = sub i64 %120, %121
   %123 = lshr exact i64 %122, 3
   %124 = trunc i64 %123 to i32
-  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.284, i32 noundef %124) #36
+  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.284, i32 noundef %124) #36
   %126 = load ptr, ptr %93, align 8
   %127 = load ptr, ptr %5, align 8
   %.not164 = icmp eq ptr %126, %127
@@ -49819,7 +49819,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_SaIS3_EEE
   %133 = ptrtoint ptr %131 to i64
   %134 = sub i64 %132, %133
   %135 = sdiv exact i64 %134, 120
-  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.319, i64 noundef %135) #36
+  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.319, i64 noundef %135) #36
   %137 = add nuw i64 %.068149, 1
   %138 = load ptr, ptr %93, align 8
   %139 = load ptr, ptr %5, align 8
@@ -49855,11 +49855,11 @@ _ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit:      ; preds = %.body, %146
   %154 = getelementptr inbounds nuw i8, ptr %.sroa.0112.0154, i64 194
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
-  %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.320, i32 noundef %150, i32 noundef %153, i32 noundef %156) #36
+  %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.320, i32 noundef %150, i32 noundef %153, i32 noundef %156) #36
   br label %158
 
 158:                                              ; preds = %147, %._crit_edge152
-  %fputc79 = call i32 @fputc(i32 10, ptr %6)
+  %fputc79 = call i32 @fputc(i32 10, ptr nonnull %6)
   br label %159
 
 159:                                              ; preds = %95, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit, %158
@@ -49900,7 +49900,7 @@ _ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit:      ; preds = %.body, %146
   br i1 %.not144, label %174, label %199
 
 174:                                              ; preds = %169
-  %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.290, i32 noundef 3) #36
+  %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.290, i32 noundef 3) #36
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0160, i64 8
   br label %177
 
@@ -49913,7 +49913,7 @@ _ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit:      ; preds = %.body, %146
   %182 = ptrtoint ptr %180 to i64
   %183 = sub i64 %181, %182
   %184 = sdiv exact i64 %183, 120
-  %185 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.319, i64 noundef %184) #36
+  %185 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.319, i64 noundef %184) #36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %186, label %177, !llvm.loop !363
@@ -49931,11 +49931,11 @@ _ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit:      ; preds = %.body, %146
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0160, i64 194
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
-  %197 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.320, i32 noundef %190, i32 noundef %193, i32 noundef %196) #36
+  %197 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.320, i32 noundef %190, i32 noundef %193, i32 noundef %196) #36
   br label %198
 
 198:                                              ; preds = %187, %186
-  %fputc76 = tail call i32 @fputc(i32 10, ptr %6)
+  %fputc76 = tail call i32 @fputc(i32 10, ptr nonnull %6)
   %.pre170 = load ptr, ptr %166, align 8
   br label %199
 
@@ -49946,10 +49946,10 @@ _ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit:      ; preds = %.body, %146
   br i1 %.not143, label %_ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit101, label %169, !llvm.loop !364
 
 _ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit101:   ; preds = %199, %79, %_ZN3vcg3tri11UpdateFlagsI4MeshE10FaceClearVERS2_.exit, %163, %162, %._crit_edge157
-  %202 = call i32 @ferror(ptr noundef %6) #36
+  %202 = call i32 @ferror(ptr noundef nonnull %6) #36
   %.not77 = icmp eq i32 %202, 0
   %spec.store.select = select i1 %.not77, i32 0, i32 2
-  %203 = call i32 @fclose(ptr noundef %6)
+  %203 = call i32 @fclose(ptr noundef nonnull %6)
   br label %204
 
 204:                                              ; preds = %3, %_ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit101
@@ -54084,14 +54084,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
 declare noundef ptr @_ZNK3vcg3ply14PropDescriptor11stotypenameEv(ptr noundef nonnull align 8 dereferenceable(108)) local_unnamed_addr #0
 
 declare noundef ptr @_ZNK3vcg3ply14PropDescriptor12stotype2nameEv(ptr noundef nonnull align 8 dereferenceable(108)) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i32 } @_ZN3vcg3tri9AllocatorI4MeshE22FindPerVertexAttributeIfEENS0_7TriMeshISt6vectorI10MeshVertexSaIS7_EES6_I8MeshFaceSaISA_EENS0_14DummyContainerESD_SD_E29ConstPerVertexAttributeHandleIT_EERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -55006,7 +55006,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #24
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNKSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -55142,7 +55142,7 @@ _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %21
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #25
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN3vcg3tri5CleanI4MeshE21CountBitLargePolygonsERKS2_(ptr noundef nonnull align 8 dereferenceable(808) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -56555,33 +56555,33 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ExporterDXFI4MeshE8SaveE
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.324, i64 2, i64 1, ptr %3)
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.345, i64 5, i64 1, ptr %3)
-  %20 = tail call i64 @fwrite(ptr nonnull @.str.329, i64 2, i64 1, ptr %3)
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.324, i64 2, i64 1, ptr %3)
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.330, i64 3, i64 1, ptr %3)
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.331, double noundef %.sroa.032.0.copyload) #36
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.332, i64 3, i64 1, ptr %3)
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.331, double noundef %.sroa.233.0.copyload) #36
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.333, i64 3, i64 1, ptr %3)
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.331, double noundef %.sroa.334.0.copyload) #36
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.334, i64 3, i64 1, ptr %3)
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.331, double noundef %.sroa.0.0.copyload) #36
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.335, i64 3, i64 1, ptr %3)
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.331, double noundef %.sroa.2.0.copyload) #36
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.336, i64 3, i64 1, ptr %3)
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.331, double noundef %.sroa.3.0.copyload) #36
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.324, i64 2, i64 1, ptr nonnull %3)
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.345, i64 5, i64 1, ptr nonnull %3)
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.329, i64 2, i64 1, ptr nonnull %3)
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.324, i64 2, i64 1, ptr nonnull %3)
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.330, i64 3, i64 1, ptr nonnull %3)
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.331, double noundef %.sroa.032.0.copyload) #36
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.332, i64 3, i64 1, ptr nonnull %3)
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.331, double noundef %.sroa.233.0.copyload) #36
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.333, i64 3, i64 1, ptr nonnull %3)
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.331, double noundef %.sroa.334.0.copyload) #36
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.334, i64 3, i64 1, ptr nonnull %3)
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.331, double noundef %.sroa.0.0.copyload) #36
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.335, i64 3, i64 1, ptr nonnull %3)
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.331, double noundef %.sroa.2.0.copyload) #36
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.336, i64 3, i64 1, ptr nonnull %3)
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.331, double noundef %.sroa.3.0.copyload) #36
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.036.041, i64 72
   %35 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %34, %35
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !410
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %36 = tail call i64 @fwrite(ptr nonnull @.str.324, i64 2, i64 1, ptr %3)
-  %37 = tail call i64 @fwrite(ptr nonnull @.str.343, i64 7, i64 1, ptr %3)
-  %38 = tail call i64 @fwrite(ptr nonnull @.str.324, i64 2, i64 1, ptr %3)
-  %39 = tail call i64 @fwrite(ptr nonnull @.str.344, i64 4, i64 1, ptr %3)
-  %40 = tail call i32 @fclose(ptr noundef %3)
+  %36 = tail call i64 @fwrite(ptr nonnull @.str.324, i64 2, i64 1, ptr nonnull %3)
+  %37 = tail call i64 @fwrite(ptr nonnull @.str.343, i64 7, i64 1, ptr nonnull %3)
+  %38 = tail call i64 @fwrite(ptr nonnull @.str.324, i64 2, i64 1, ptr nonnull %3)
+  %39 = tail call i64 @fwrite(ptr nonnull @.str.344, i64 4, i64 1, ptr nonnull %3)
+  %40 = tail call i32 @fclose(ptr noundef nonnull %3)
   br label %41
 
 41:                                               ; preds = %2, %._crit_edge
@@ -59839,7 +59839,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare void @abort() local_unnamed_addr #26
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z30ScaleTextureCoordinatesToImageR4MeshSt10shared_ptrI13TextureObjectE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(808) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @_Z30ScaleTextureCoordinatesToImageR4MeshSt10shared_ptrI13TextureObjectE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(808) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -59914,7 +59914,7 @@ declare noundef i32 @_ZN13TextureObject12TextureWidthEm(ptr noundef nonnull alig
 declare noundef i32 @_ZN13TextureObject13TextureHeightEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z38ScaleTextureCoordinatesToParameterAreaR4MeshSt10shared_ptrI13TextureObjectE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(808) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @_Z38ScaleTextureCoordinatesToParameterAreaR4MeshSt10shared_ptrI13TextureObjectE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(808) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -59983,7 +59983,7 @@ define void @_Z38ScaleTextureCoordinatesToParameterAreaR4MeshSt10shared_ptrI13Te
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z5UVBoxRK4Mesh(ptr dead_on_unwind noalias nocapture writable sret(%"class.vcg::Box2") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(808) %1) local_unnamed_addr #27 {
+define void @_Z5UVBoxRK4Mesh(ptr dead_on_unwind noalias writable sret(%"class.vcg::Box2") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(808) %1) local_unnamed_addr #27 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 1.000000e+00, ptr %0, align 8
   store double -1.000000e+00, ptr %3, align 8
@@ -60077,7 +60077,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %20, %34, %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z11UVBoxVertexRK4Mesh(ptr dead_on_unwind noalias nocapture writable sret(%"class.vcg::Box2") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(808) %1) local_unnamed_addr #27 {
+define void @_Z11UVBoxVertexRK4Mesh(ptr dead_on_unwind noalias writable sret(%"class.vcg::Box2") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(808) %1) local_unnamed_addr #27 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 1.000000e+00, ptr %0, align 8
   store double -1.000000e+00, ptr %3, align 8
@@ -62867,7 +62867,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg3tri14Updat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20MeshFromFacePointersRKSt6vectorIP8MeshFaceSaIS1_EER4Mesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(808) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z20MeshFromFacePointersRKSt6vectorIP8MeshFaceSaIS1_EER4Mesh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(808) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::tri::Allocator<Mesh>::PointerUpdater.207", align 8
   %4 = alloca %"class.vcg::tri::Allocator<Mesh>::PointerUpdater", align 8
   %5 = alloca %"class.std::unordered_map.815", align 8
@@ -63578,19 +63578,19 @@ define internal void @_GLOBAL__sub_I_mesh.cpp() #28 section ".text.startup" {
 declare void @llvm.assume(i1 noundef) #29
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #32
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #33

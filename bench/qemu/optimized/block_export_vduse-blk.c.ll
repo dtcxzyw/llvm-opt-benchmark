@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [4 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @virtio_blk_process_req, ptr @.str.10, ptr @.str.11, i32 31, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @vduse_blk_virtio_process_req, ptr @.str.10, ptr @.str.12, i32 70, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.13, ptr @.str.14, i32 81, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.15, ptr @.str.14, i32 81, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @vduse_blk_exp_create(ptr noundef %exp, ptr nocapture noundef readonly %opts, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @vduse_blk_exp_create(ptr noundef %exp, ptr noundef readonly captures(none) %opts, ptr noundef %errp) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %config = alloca %struct.virtio_blk_config, align 8
@@ -275,7 +275,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vduse_blk_exp_request_shutdown(ptr nocapture noundef %exp) #0 {
+define internal void @vduse_blk_exp_request_shutdown(ptr noundef captures(none) %exp) #0 {
 entry:
   %num_queues.i = getelementptr inbounds nuw i8, ptr %exp, i64 88
   %0 = load i16, ptr %num_queues.i, align 8
@@ -316,7 +316,7 @@ vduse_blk_stop_virtqueues.exit:                   ; preds = %vduse_blk_disable_q
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -354,7 +354,7 @@ entry:
 declare void @blk_add_aio_context_notifier(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_aio_attached(ptr noundef %ctx, ptr nocapture noundef initializes((24, 32)) %opaque) #0 {
+define internal void @blk_aio_attached(ptr noundef %ctx, ptr noundef captures(none) initializes((24, 32)) %opaque) #0 {
 entry:
   %ctx1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store ptr %ctx, ptr %ctx1, align 8
@@ -367,7 +367,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_aio_detach(ptr nocapture noundef %opaque) #0 {
+define internal void @blk_aio_detach(ptr noundef captures(none) %opaque) #0 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 24
   %opaque.val = load ptr, ptr %0, align 8
@@ -539,7 +539,7 @@ declare void @qemu_coroutine_enter(ptr noundef) local_unnamed_addr #2
 declare i32 @virtio_blk_process_req(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @vduse_queue_push(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -554,7 +554,7 @@ declare void @blk_exp_ref(ptr noundef) local_unnamed_addr #2
 declare i32 @vduse_dev_handler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vduse_blk_drained_begin(ptr nocapture noundef %opaque) #0 {
+define internal void @vduse_blk_drained_begin(ptr noundef captures(none) %opaque) #0 {
 entry:
   %num_queues.i = getelementptr inbounds nuw i8, ptr %opaque, i64 88
   %0 = load i16, ptr %num_queues.i, align 8
@@ -595,7 +595,7 @@ vduse_blk_stop_virtqueues.exit:                   ; preds = %vduse_blk_disable_q
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vduse_blk_drained_end(ptr nocapture noundef initializes((108, 109)) %opaque) #0 {
+define internal void @vduse_blk_drained_end(ptr noundef captures(none) initializes((108, 109)) %opaque) #0 {
 entry:
   %vqs_started.i = getelementptr inbounds nuw i8, ptr %opaque, i64 108
   store i8 1, ptr %vqs_started.i, align 4
@@ -640,7 +640,7 @@ vduse_blk_start_virtqueues.exit:                  ; preds = %vduse_blk_enable_qu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal zeroext i1 @vduse_blk_drained_poll(ptr nocapture noundef readonly %opaque) #4 {
+define internal zeroext i1 @vduse_blk_drained_poll(ptr noundef readonly captures(none) %opaque) #4 {
 entry:
   %inflight = getelementptr inbounds nuw i8, ptr %opaque, i64 104
   %0 = load atomic i32, ptr %inflight monotonic, align 8
@@ -649,7 +649,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vduse_blk_resize(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @vduse_blk_resize(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %config = alloca %struct.virtio_blk_config, align 8
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -673,7 +673,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @blk_remove_aio_context_notifier(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.ctpop.i16(i16) #7

@@ -93,7 +93,7 @@ $_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLev
 @_ZN22PathToGcRootsOperationC1EP13ObjectSamplerP9EdgeStorelbb = hidden unnamed_addr alias void (ptr, ptr, ptr, i64, i1, i1), ptr @_ZN22PathToGcRootsOperationC2EP13ObjectSamplerP9EdgeStorelbb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22PathToGcRootsOperationC2EP13ObjectSamplerP9EdgeStorelbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(42) initializes((0, 42)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN22PathToGcRootsOperationC2EP13ObjectSamplerP9EdgeStorelbb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(42) initializes((0, 42)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %4 to i8
   %8 = zext i1 %5 to i8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -113,7 +113,7 @@ define hidden void @_ZN22PathToGcRootsOperationC2EP13ObjectSamplerP9EdgeStorelbb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22PathToGcRootsOperation4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(42) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN22PathToGcRootsOperation4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(42) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ObjectBitSet, align 8
   %3 = alloca %class.EdgeQueue, align 8
   %4 = alloca %class.ObjectSampleMarker, align 8
@@ -597,7 +597,7 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17)) unnamed_addr #3

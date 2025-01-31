@@ -635,7 +635,7 @@ declare void @_ZN4cvc58internal6ResultC1Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN4cvc58internal3smt10Assertions14setAssumptionsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noundef ptr @_ZNK4cvc58internal3Env18getResourceManagerEv(ptr noundef nonnull align 8 dereferenceable(576)) local_unnamed_addr #0
 
@@ -742,7 +742,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt9SmtDriver14notifyPushPostEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal3smt9SmtDriver14notifyPushPostEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_smt = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_smt, align 8
@@ -753,7 +753,7 @@ entry:
 declare void @_ZN4cvc58internal3smt9SmtSolver15pushPropContextEv(ptr noundef nonnull align 8 dereferenceable(1216)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_smt = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_smt, align 8
@@ -764,7 +764,7 @@ entry:
 declare void @_ZN4cvc58internal3smt9SmtSolver14popPropContextEv(ptr noundef nonnull align 8 dereferenceable(1216)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_smt = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_smt, align 8
@@ -1509,7 +1509,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
@@ -1688,7 +1688,7 @@ invoke.cont:                                      ; preds = %if.then.i, %entry
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOImED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {

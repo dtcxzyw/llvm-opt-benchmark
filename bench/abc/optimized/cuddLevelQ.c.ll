@@ -69,15 +69,15 @@ define noalias noundef ptr @cuddLevelQueueInit(i32 noundef %0, i32 noundef %1, i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @cuddComputeFloorLog2(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define void @cuddLevelQueueQuit(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @cuddLevelQueueQuit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not26 = icmp eq ptr %3, null
@@ -133,7 +133,7 @@ define void @cuddLevelQueueQuit(ptr nocapture noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @cuddLevelQueueEnqueue(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 52
@@ -356,7 +356,7 @@ hashLookup.exit:                                  ; preds = %.lr.ph.i, %20, %has
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @cuddLevelQueueDequeue(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @cuddLevelQueueDequeue(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %4, align 8

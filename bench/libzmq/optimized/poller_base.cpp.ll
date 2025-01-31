@@ -78,7 +78,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZNK3zmq13poller_base_t8get_loadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK3zmq13poller_base_t8get_loadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_load = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load atomic i32, ptr %_load seq_cst, align 8
@@ -100,10 +100,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #5
 
@@ -119,7 +119,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3zmq13poller_base_t11adjust_loadEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %amount_) local_unnamed_addr #1 align 2 {
+define void @_ZN3zmq13poller_base_t11adjust_loadEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, i32 noundef %amount_) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp sgt i32 %amount_, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -372,7 +372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #8 align 2 {
+define void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(192) %this) local_unnamed_addr #8 align 2 {
 entry:
   ret void
 }
@@ -467,7 +467,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare void @_ZN3zmq7clock_tC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10

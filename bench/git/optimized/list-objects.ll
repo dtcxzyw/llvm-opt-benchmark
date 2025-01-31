@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [16 x i8] c"bad blob object\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mark_edges_uninteresting(ptr nocapture noundef readonly %revs, ptr nocapture noundef readonly %show_edge, i32 noundef %sparse) local_unnamed_addr #0 {
+define dso_local void @mark_edges_uninteresting(ptr noundef readonly captures(none) %revs, ptr noundef readonly captures(none) %show_edge, i32 noundef %sparse) local_unnamed_addr #0 {
 entry:
   %set = alloca %struct.oidset, align 8
   %tobool.not = icmp eq i32 %sparse, 0
@@ -473,7 +473,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @traverse_non_commits(ptr nocapture noundef nonnull %ctx, ptr noundef nonnull %base) unnamed_addr #0 {
+define internal fastcc void @traverse_non_commits(ptr noundef nonnull captures(none) %ctx, ptr noundef nonnull %base) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %pending25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -606,7 +606,7 @@ declare void @add_pending_object(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @gettext(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_tree(ptr nocapture noundef nonnull %ctx, ptr noundef %tree, ptr noundef nonnull %base, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @process_tree(ptr noundef nonnull captures(none) %ctx, ptr noundef %tree, ptr noundef nonnull %base, ptr noundef %name) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %len = getelementptr inbounds nuw i8, ptr %base, i64 8
@@ -695,7 +695,7 @@ if.then44:                                        ; preds = %if.end38
 
 if.end48:                                         ; preds = %if.end38, %if.end18
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #9
-  tail call void @strbuf_add(ptr noundef nonnull %base, ptr noundef %name, i64 noundef %call.i) #7
+  tail call void @strbuf_add(ptr noundef nonnull %base, ptr noundef nonnull %name, i64 noundef %call.i) #7
   %11 = load ptr, ptr %ctx, align 8
   %repo = getelementptr inbounds nuw i8, ptr %11, i64 24
   %12 = load ptr, ptr %repo, align 8
@@ -897,7 +897,7 @@ return:                                           ; preds = %land.lhs.true34, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_blob(ptr nocapture noundef nonnull readonly %ctx, ptr noundef %blob, ptr noundef nonnull %path, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @process_blob(ptr noundef nonnull readonly captures(none) %ctx, ptr noundef %blob, ptr noundef nonnull %path, ptr noundef %name) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %blob_objects = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -941,7 +941,7 @@ if.end21:                                         ; preds = %land.lhs.true16, %l
   %len = getelementptr inbounds nuw i8, ptr %path, i64 8
   %5 = load i64, ptr %len, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #9
-  tail call void @strbuf_add(ptr noundef nonnull %path, ptr noundef %name, i64 noundef %call.i) #7
+  tail call void @strbuf_add(ptr noundef nonnull %path, ptr noundef nonnull %name, i64 noundef %call.i) #7
   %6 = load ptr, ptr %ctx, align 8
   %repo = getelementptr inbounds nuw i8, ptr %6, i64 24
   %7 = load ptr, ptr %repo, align 8
@@ -1034,7 +1034,7 @@ declare i32 @is_promisor_object(ptr noundef) local_unnamed_addr #1
 declare void @trace_printf_key_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_tree_contents(ptr nocapture noundef nonnull %ctx, ptr noundef nonnull %tree, ptr noundef nonnull %base) unnamed_addr #0 {
+define internal fastcc void @process_tree_contents(ptr noundef nonnull captures(none) %ctx, ptr noundef nonnull %tree, ptr noundef nonnull %base) unnamed_addr #0 {
 entry:
   %desc = alloca %struct.tree_desc, align 8
   %entry1 = alloca %struct.name_entry, align 8
@@ -1155,7 +1155,7 @@ declare void @free_tree_buffer(ptr noundef) local_unnamed_addr #1
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1178,10 +1178,10 @@ declare i32 @repo_has_object_file(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i64 @llvm.usub.sat.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

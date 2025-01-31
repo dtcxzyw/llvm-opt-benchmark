@@ -448,7 +448,7 @@ land.end:                                         ; preds = %land.rhs, %lor.rhs,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK8proxygen13SessionHolder12shouldAgeOutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i64 %maxAge.coerce) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen13SessionHolder12shouldAgeOutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i64 %maxAge.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp slt i64 %maxAge.coerce, 1
   br i1 %cmp, label %return, label %if.end
@@ -476,10 +476,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(1582) ptr @_ZNK8proxygen13SessionHolder10getSessionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(1582) ptr @_ZNK8proxygen13SessionHolder10getSessionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this) local_unnamed_addr #10 align 2 {
 entry:
   %session_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %session_, align 8
@@ -487,7 +487,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen13SessionHolder14newTransactionEPNS_22HTTPTransactionHandlerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef %handler) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN8proxygen13SessionHolder14newTransactionEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef %handler) local_unnamed_addr #3 align 2 {
 entry:
   %session_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %session_, align 8
@@ -499,7 +499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZNK8proxygen13SessionHolder14getLastUseTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #10 align 2 {
+define i64 @_ZNK8proxygen13SessionHolder14getLastUseTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this) local_unnamed_addr #10 align 2 {
 entry:
   %lastUseTime_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload = load i64, ptr %lastUseTime_, align 8
@@ -1026,7 +1026,7 @@ if.end69:                                         ; preds = %if.then58, %if.else
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN8proxygen13SessionHolder8onCreateERKNS_15HTTPSessionBaseE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen13SessionHolder8onCreateERKNS_15HTTPSessionBaseE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessageFatal", align 8
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 157)
@@ -1049,7 +1049,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder14onIngressErrorERKNS_15HTTPSessionBaseENS_13ProxygenErrorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i32 noundef %error) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder14onIngressErrorERKNS_15HTTPSessionBaseENS_13ProxygenErrorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i32 noundef %error) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1082,7 +1082,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder6onReadERKNS_15HTTPSessionBaseEmN5folly8OptionalImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i64 noundef %bytesRead, ptr nocapture noundef readonly %streamId) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen13SessionHolder6onReadERKNS_15HTTPSessionBaseEmN5folly8OptionalImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i64 noundef %bytesRead, ptr noundef readonly captures(none) %streamId) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional.30", align 8
   %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -1130,7 +1130,7 @@ if.end8:                                          ; preds = %_ZN5folly8OptionalI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder7onWriteERKNS_15HTTPSessionBaseEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i64 noundef %bytesWritten) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder7onWriteERKNS_15HTTPSessionBaseEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i64 noundef %bytesWritten) unnamed_addr #3 align 2 {
 entry:
   %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %stats_, align 8
@@ -1162,7 +1162,7 @@ if.end8:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder14onRequestBeginERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder14onRequestBeginERKNS_15HTTPSessionBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1181,7 +1181,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder12onRequestEndERKNS_15HTTPSessionBaseEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i32 noundef %maxIngressQueueSize) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder12onRequestEndERKNS_15HTTPSessionBaseEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, i32 noundef %maxIngressQueueSize) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1200,7 +1200,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder20onActivateConnectionERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder20onActivateConnectionERKNS_15HTTPSessionBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
   %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %stats_, align 8
@@ -1383,7 +1383,7 @@ lpad:                                             ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder16onIngressMessageERKNS_15HTTPSessionBaseERKNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, ptr noundef nonnull align 8 dereferenceable(616) %msg) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder16onIngressMessageERKNS_15HTTPSessionBaseERKNS_11HTTPMessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session, ptr noundef nonnull align 8 dereferenceable(616) %msg) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1402,7 +1402,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder22onIngressLimitExceededERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder22onIngressLimitExceededERKNS_15HTTPSessionBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1421,7 +1421,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder15onIngressPausedERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder15onIngressPausedERKNS_15HTTPSessionBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1440,7 +1440,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder21onTransactionAttachedERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder21onTransactionAttachedERKNS_15HTTPSessionBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1479,7 +1479,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder15onPingReplySentEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i64 noundef %latency) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder15onPingReplySentEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i64 noundef %latency) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1498,7 +1498,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder19onPingReplyReceivedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder19onPingReplyReceivedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1579,7 +1579,7 @@ if.end6:                                          ; preds = %if.end, %if.then5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder25onFlowControlWindowClosedERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder25onFlowControlWindowClosedERKNS_15HTTPSessionBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1598,7 +1598,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder16onEgressBufferedERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder16onEgressBufferedERKNS_15HTTPSessionBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1617,7 +1617,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder21onEgressBufferClearedERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder21onEgressBufferClearedERKNS_15HTTPSessionBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %session) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1636,7 +1636,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder10onSettingsERKNS_15HTTPSessionBaseERKSt6vectorINS_11HTTPSettingESaIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %sess, ptr noundef nonnull align 8 dereferenceable(24) %settings) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder10onSettingsERKNS_15HTTPSessionBaseERKSt6vectorINS_11HTTPSettingESaIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %sess, ptr noundef nonnull align 8 dereferenceable(24) %settings) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1655,7 +1655,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolder13onSettingsAckERKNS_15HTTPSessionBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %sess) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SessionHolder13onSettingsAckERKNS_15HTTPSessionBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(1582) %sess) unnamed_addr #3 align 2 {
 entry:
   %originalSessionInfoCb_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %originalSessionInfoCb_, align 8
@@ -1674,7 +1674,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8proxygen13SessionHolder8describeERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8proxygen13SessionHolder8describeERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %localAddr = alloca %"class.folly::SocketAddress", align 8
   %serverAddr = alloca %"class.folly::SocketAddress", align 8
@@ -1975,7 +1975,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2034,7 +2034,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.log.f80(x86_fp80) #19
@@ -2043,10 +2043,10 @@ declare x86_fp80 @llvm.log.f80(x86_fp80) #19
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

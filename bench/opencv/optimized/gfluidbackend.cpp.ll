@@ -1162,7 +1162,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi5fluid7backendEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::gapi::GBackend") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi5fluid7backendEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.cv::gapi::GBackend") align 8 captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::shared_ptr", align 8
   %3 = load atomic i8, ptr @_ZGVZN2cv4gapi5fluid7backendEvE12this_backend acquire, align 8
   %4 = icmp eq i8 %3, 0
@@ -1493,7 +1493,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl10FluidAgentC2ERKN3ade5GraphENS2_6HandleINS2_4NodeEEE(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl10FluidAgentC2ERKN3ade5GraphENS2_6HandleINS2_4NodeEEE(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::util::bad_variant_access", align 8
   %5 = alloca %"class.ade::details::MetadataId", align 8
   %6 = alloca %"class.ade::Handle", align 8
@@ -3362,7 +3362,7 @@ declare noundef nonnull align 8 dereferenceable(108) ptr @_ZN2cv4gapi5fluid4View
 declare void @_ZN2cv4gapi5fluid4View4Priv5resetEi(ptr noundef nonnull align 8 dereferenceable(108), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK2cv5gimpl20FluidDownscaleMapper11firstWindowEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZNK2cv5gimpl20FluidDownscaleMapper11firstWindowEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 align 2 {
   %4 = add nsw i32 %2, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8
@@ -3380,7 +3380,7 @@ define hidden noundef i32 @_ZNK2cv5gimpl20FluidDownscaleMapper11firstWindowEii(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK2cv5gimpl20FluidDownscaleMapper22linesReadAndNextWindowEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 align 2 {
+define hidden i64 @_ZNK2cv5gimpl20FluidDownscaleMapper22linesReadAndNextWindowEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, %1
@@ -3410,7 +3410,7 @@ define hidden i64 @_ZNK2cv5gimpl20FluidDownscaleMapper22linesReadAndNextWindowEi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK2cv5gimpl18FluidUpscaleMapper11firstWindowEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZNK2cv5gimpl18FluidUpscaleMapper11firstWindowEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 align 2 {
   %4 = add i32 %1, -1
   %5 = add i32 %4, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3433,7 +3433,7 @@ define hidden noundef i32 @_ZNK2cv5gimpl18FluidUpscaleMapper11firstWindowEii(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK2cv5gimpl18FluidUpscaleMapper22linesReadAndNextWindowEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 align 2 {
+define hidden i64 @_ZNK2cv5gimpl18FluidUpscaleMapper22linesReadAndNextWindowEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, %1
@@ -3468,7 +3468,7 @@ define hidden i64 @_ZNK2cv5gimpl18FluidUpscaleMapper22linesReadAndNextWindowEii(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK2cv5gimpl16FluidFilterAgent11firstWindowEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(364) %0, i64 %1) unnamed_addr #6 align 2 {
+define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK2cv5gimpl16FluidFilterAgent11firstWindowEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(364) %0, i64 %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %5 = load i32, ptr %4, align 8
@@ -3485,7 +3485,7 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK2cv5gimpl16Flu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK2cv5gimpl16FluidFilterAgent22linesReadAndnextWindowEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(364) %0, i64 %1) unnamed_addr #6 align 2 {
+define hidden i64 @_ZNK2cv5gimpl16FluidFilterAgent22linesReadAndnextWindowEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(364) %0, i64 %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %5 = load i32, ptr %4, align 8
@@ -3507,7 +3507,7 @@ define hidden i64 @_ZNK2cv5gimpl16FluidFilterAgent22linesReadAndnextWindowEm(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK2cv5gimpl16FluidResizeAgent11firstWindowEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %0, i64 %1) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK2cv5gimpl16FluidResizeAgent11firstWindowEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(368) %0, i64 %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3534,7 +3534,7 @@ define hidden noundef i32 @_ZNK2cv5gimpl16FluidResizeAgent11firstWindowEm(ptr no
 declare noundef nonnull align 8 dereferenceable(188) ptr @_ZN2cv4gapi5fluid6Buffer4privEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden i64 @_ZNK2cv5gimpl16FluidResizeAgent22linesReadAndnextWindowEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %0, i64 %1) unnamed_addr #3 align 2 {
+define hidden i64 @_ZNK2cv5gimpl16FluidResizeAgent22linesReadAndnextWindowEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(368) %0, i64 %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3560,21 +3560,21 @@ define hidden i64 @_ZNK2cv5gimpl16FluidResizeAgent22linesReadAndnextWindowEm(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 1, 3) i32 @_ZNK2cv5gimpl18Fluid420toRGBAgent11firstWindowEm(ptr nocapture nonnull readnone align 8 %0, i64 noundef %1) unnamed_addr #7 align 2 {
+define hidden noundef range(i32 1, 3) i32 @_ZNK2cv5gimpl18Fluid420toRGBAgent11firstWindowEm(ptr nonnull readnone align 8 captures(none) %0, i64 noundef %1) unnamed_addr #7 align 2 {
   %3 = icmp eq i64 %1, 0
   %4 = select i1 %3, i32 2, i32 1
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i64 4294967297, 8589934595) i64 @_ZNK2cv5gimpl18Fluid420toRGBAgent22linesReadAndnextWindowEm(ptr nocapture nonnull readnone align 8 %0, i64 noundef %1) unnamed_addr #7 align 2 {
+define hidden noundef range(i64 4294967297, 8589934595) i64 @_ZNK2cv5gimpl18Fluid420toRGBAgent22linesReadAndnextWindowEm(ptr nonnull readnone align 8 captures(none) %0, i64 noundef %1) unnamed_addr #7 align 2 {
   %3 = icmp eq i64 %1, 0
   %spec.select = select i1 %3, i64 8589934594, i64 4294967297
   ret i64 %spec.select
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl16FluidResizeAgent8setRatioEd(ptr nocapture noundef nonnull align 8 dereferenceable(368) %0, double noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl16FluidResizeAgent8setRatioEd(ptr noundef nonnull align 8 captures(none) dereferenceable(368) %0, double noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = fcmp ult double %1, 1.000000e+00
   br i1 %3, label %12, label %4
 
@@ -3635,7 +3635,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2cv5gimpl10FluidAgent7canReadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK2cv5gimpl10FluidAgent7canReadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -3666,7 +3666,7 @@ define hidden noundef zeroext i1 @_ZNK2cv5gimpl10FluidAgent7canReadEv(ptr nocapt
 declare noundef zeroext i1 @_ZNK2cv4gapi5fluid4View5readyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2cv5gimpl10FluidAgent8canWriteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK2cv5gimpl10FluidAgent8canWriteEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -3699,12 +3699,12 @@ define hidden noundef zeroext i1 @_ZNK2cv5gimpl10FluidAgent8canWriteEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare noundef zeroext i1 @_ZNK2cv4gapi5fluid6Buffer4Priv4fullEv(ptr noundef nonnull align 8 dereferenceable(188)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2cv5gimpl10FluidAgent7canWorkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK2cv5gimpl10FluidAgent7canWorkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -3867,7 +3867,7 @@ declare void @_ZN2cv4gapi5fluid4View4Priv8readDoneEii(ptr noundef nonnull align 
 declare void @_ZN2cv4gapi5fluid6Buffer4Priv9writeDoneEv(ptr noundef nonnull align 8 dereferenceable(188)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK2cv5gimpl10FluidAgent4doneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK2cv5gimpl10FluidAgent4doneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -4077,7 +4077,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl16GFluidExecutable14initBufferRoisERSt6vectorIiSaIiEERS2_INS_5Rect_IiEESaIS7_EERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl16GFluidExecutable14initBufferRoisERSt6vectorIiSaIiEERS2_INS_5Rect_IiEESaIS7_EERKS9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1312) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.ade::details::MetadataId", align 8
   %6 = alloca %"class.ade::Handle", align 8
   %7 = alloca %"class.ade::Handle.392", align 8
@@ -8819,7 +8819,7 @@ _ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EED2Ev.exit29: ; preds = %_ZSt8_DestroyIPN2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl30fluidExtractInputDataFromGraphERKN3ade5GraphERKSt6vectorINS1_6HandleINS1_4NodeEEESaIS8_EE(ptr dead_on_unwind noalias writable sret(%"struct.cv::gimpl::FluidGraphInputData") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl30fluidExtractInputDataFromGraphERKN3ade5GraphERKSt6vectorINS1_6HandleINS1_4NodeEEESaIS8_EE(ptr dead_on_unwind noalias writable sret(%"struct.cv::gimpl::FluidGraphInputData") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ade::details::MetadataId", align 8
   %5 = alloca %"class.ade::Handle.392", align 8
   %6 = alloca %"class.ade::details::MetadataId", align 8
@@ -12782,7 +12782,7 @@ _ZNSt6vectorImSaImEED2Ev.exit479:                 ; preds = %.body, %1738
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2cv5gimpl30fluidExtractInputDataFromGraphERKN3ade5GraphERKSt6vectorINS1_6HandleINS1_4NodeEEESaIS8_EEENK3$_0clES8_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv5gimpl30fluidExtractInputDataFromGraphERKN3ade5GraphERKSt6vectorINS1_6HandleINS1_4NodeEEESaIS8_EEENK3$_0clES8_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple.549", align 8
   %4 = alloca %"class.std::tuple.551", align 1
   %5 = alloca %"class.ade::details::MetadataId", align 8
@@ -13201,7 +13201,7 @@ _ZNKSt13unordered_mapIimSt4hashIiESt8equal_toIiESaISt4pairIKimEEE5countERS5_.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5gimpl12agent_data_tD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13404,7 +13404,7 @@ _ZNSt12_Vector_baseIN2cv5gimpl12agent_data_tESaIS2_EED2Ev.exit: ; preds = %_ZSt8
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl16GFluidExecutableC2ERKN3ade5GraphERKNS0_19FluidGraphInputDataERKSt6vectorINS_5Rect_IiEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(1312) initializes((0, 208)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl16GFluidExecutableC2ERKN3ade5GraphERKNS0_19FluidGraphInputDataERKSt6vectorINS_5Rect_IiEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(1312) initializes((0, 208)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %4 = alloca %"class.cv::util::any", align 8
   %5 = alloca %"class.ade::details::MetadataId", align 8
@@ -16057,7 +16057,7 @@ declare void @_ZN2cv4gapi5fluid4ViewD1Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZN2cv4gapi5fluid6Buffer7addViewEPKNS1_4ViewE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl16GFluidExecutable11makeReshapeERKSt6vectorINS_5Rect_IiEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl16GFluidExecutable11makeReshapeERKSt6vectorINS_5Rect_IiEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::array.661", align 8
   %4 = alloca %"struct.std::array.661", align 8
   %5 = alloca %"struct.std::array.660", align 8
@@ -29857,7 +29857,7 @@ declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN2cv5gimpl8magazine10bindOutArgERNS1_5ClassIJNS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENS6_9OpaqueRefENS_4RMatENS9_4ViewENS_10MediaFrameENS_4UMatEEEERKNS0_6RcDescERKNS_4util7variantIJPSC_PS3_PS9_PS5_PSB_S7_S8_EEENS1_10HandleRMatE(ptr noundef nonnull align 8 dereferenceable(896), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl16GFluidExecutable7packArgERNS_4GArgERKS2_(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl16GFluidExecutable7packArgERNS_4GArgERKS2_(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::detail::OpaqueRef", align 8
   %5 = alloca %"struct.std::_Hashtable<int, std::pair<const int, cv::detail::OpaqueRef>, std::allocator<std::pair<const int, cv::detail::OpaqueRef>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %6 = alloca %"class.cv::detail::VectorRef", align 8
@@ -30279,13 +30279,13 @@ _ZN2cv4GArgD2Ev.exit:                             ; preds = %_ZN2cv4GArgD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl16GFluidExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 1 %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv5gimpl16GFluidExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 1 captures(none) %2) unnamed_addr #3 align 2 {
   tail call void @_ZN2cv5gimpl16GFluidExecutable3runERSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EERS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl16GFluidExecutable3runERSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EERS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 1 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl16GFluidExecutable3runERSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EERS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 1 captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ade::details::MetadataId", align 8
   %5 = alloca %"class.ade::Handle", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30975,7 +30975,7 @@ declare void @_ZN2cv4gapi5fluid6Buffer4Priv5resetEv(ptr noundef nonnull align 8 
 declare void @_ZN2cv5gimpl8magazine6unbindERNS1_5ClassIJNS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENS6_9OpaqueRefENS_4RMatENS9_4ViewENS_10MediaFrameENS_4UMatEEEERKNS0_6RcDescE(ptr noundef nonnull align 8 dereferenceable(896), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl24GParallelFluidExecutableC2ERKN3ade5GraphERKNS0_19FluidGraphInputDataERKSt6vectorINS_16GFluidOutputRoisESaISA_EERKSt8functionIFvmSF_IFvmEEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl24GParallelFluidExecutableC2ERKN3ade5GraphERKNS0_19FluidGraphInputDataERKSt6vectorINS_16GFluidOutputRoisESaISA_EERKSt8functionIFvmSF_IFvmEEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv5gimpl24GParallelFluidExecutableE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -31205,7 +31205,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN2cv5gimpl16GFluidExecutableESt14default_dele
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN2cv5gimpl24GParallelFluidExecutable7reshapeERN3ade5GraphERKSt6vectorINS_11GCompileArgESaIS6_EE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl24GParallelFluidExecutable7reshapeERN3ade5GraphERKSt6vectorINS_11GCompileArgESaIS6_EE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #29
@@ -31945,7 +31945,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -35638,7 +35638,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
           to label %9 unwind label %13
 
 9:                                                ; preds = %3
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %6)
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %6)
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
@@ -36543,7 +36543,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -38150,7 +38150,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2cv4util18bad_variant_access4whatEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117GFluidBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117GFluidBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret void
 }
 
@@ -38161,7 +38161,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117GFluidBack
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117GFluidBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117GFluidBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   ret void
 }
 
@@ -38204,7 +38204,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_117GFluidBackendImpl12unpackKernelERN3ade5GraphERKNS1_6HandleINS1_4NodeEEERKN2cv11GKernelImplE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_117GFluidBackendImpl12unpackKernelERN3ade5GraphERKNS1_6HandleINS1_4NodeEEERKN2cv11GKernelImplE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::array.661", align 8
   %6 = alloca %"class.ade::details::MetadataId", align 8
   %7 = alloca %"class.ade::Handle", align 8
@@ -38426,7 +38426,7 @@ _ZN2cv5gimpl9FluidUnitD2Ev.exit:                  ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaIS7_EERKS5_INS1_6HandleINS1_4NodeEEESaISE_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.809") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaIS7_EERKS5_INS1_6HandleINS1_4NodeEEESaISE_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.809") align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::array.794", align 8
   %7 = alloca %"struct.std::array.794", align 8
   %8 = alloca %"struct.std::array.885", align 8
@@ -39404,7 +39404,7 @@ declare void @_ZNK2cv4gapi8GBackend4Priv7compileERKN3ade5GraphERKSt6vectorINS_11
 declare void @_ZN2cv4gapi8GBackend4Priv16addBackendPassesERN3ade27ExecutionEngineSetupContextE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_117GFluidBackendImpl29addMetaSensitiveBackendPassesERN3ade27ExecutionEngineSetupContextE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_117GFluidBackendImpl29addMetaSensitiveBackendPassesERN3ade27ExecutionEngineSetupContextE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::initializer_list.950", align 8
   %4 = alloca %"struct.ade::ExecutionEngine::PassWrapper.1043", align 8
   %5 = alloca %"class.std::vector.951", align 8
@@ -41311,7 +41311,7 @@ declare noundef zeroext i1 @_ZNK2cv4gapi8GBackend4Priv11allowsMergeERKN3ade10Typ
 declare noundef zeroext i1 @_ZNK2cv4gapi8GBackend4Priv13supportsConstENS_6GShapeE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_117GFluidBackendImplD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_117GFluidBackendImplD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret void
 }
 
@@ -43817,7 +43817,7 @@ _ZSt8_DestroyIPN2cv16GFluidOutputRoisEEvT_S3_.exit: ; preds = %_ZSt8_DestroyIN2c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvmSt8functionIFvmEEEZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISC_EERKSA_INS6_6HandleINS6_4NodeEEESaISJ_EEEUlmS2_E_E9_M_invokeERKSt9_Any_dataOmOS2_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(32) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFvmSt8functionIFvmEEEZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISC_EERKSA_INS6_6HandleINS6_4NodeEEESaISJ_EEEUlmS2_E_E9_M_invokeERKSt9_Any_dataOmOS2_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Range", align 4
   %5 = alloca %struct.Body, align 8
   %6 = alloca %"class.std::function.526", align 8
@@ -43971,7 +43971,7 @@ _ZSt10__invoke_rIvRZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvmSt8functionIFvmEEEZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISC_EERKSA_INS6_6HandleINS6_4NodeEEESaISJ_EEEUlmS2_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvmSt8functionIFvmEEEZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaISC_EERKSA_INS6_6HandleINS6_4NodeEEESaISJ_EEEUlmS2_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #22 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaIS9_EERKS7_INS3_6HandleINS3_4NodeEEESaISG_EEEUlmSt8functionIFvmEEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaIS9_EERKS7_INS3_6HandleINS3_4NodeEEESaISG_EEEUlmSt8functionIFvmEEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -44046,7 +44046,7 @@ _ZZZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaIS7_EERKS5_INS1_6HandleINS1_4NodeEEESaISE_EEENKUlmSt8functionIFvmEEE_clEmSL_ENK4BodyclERKNS6_5RangeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define internal void @_ZZZNK12_GLOBAL__N_117GFluidBackendImpl7compileERKN3ade5GraphERKSt6vectorIN2cv11GCompileArgESaIS7_EERKS5_INS1_6HandleINS1_4NodeEEESaISE_EEENKUlmSt8functionIFvmEEE_clEmSL_ENK4BodyclERKNS6_5RangeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = alloca i64, align 8
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -47667,7 +47667,7 @@ declare noundef zeroext i1 @_ZNK2cv4gapi8GBackendeqERKS1_(ptr noundef nonnull al
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2cv5gimpl7GIsland8contentsEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZZN12_GLOBAL__N_117GFluidBackendImpl29addMetaSensitiveBackendPassesERN3ade27ExecutionEngineSetupContextEENK3$_0clERNS1_6passes11PassContextEENKUlNS1_6HandleINS1_4NodeEEEbE_clESA_b"(ptr nocapture readonly %.0.val, ptr %.0.val1, ptr %.8.val, i1 noundef zeroext %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN12_GLOBAL__N_117GFluidBackendImpl29addMetaSensitiveBackendPassesERN3ade27ExecutionEngineSetupContextEENK3$_0clERNS1_6passes11PassContextEENKUlNS1_6HandleINS1_4NodeEEEbE_clESA_b"(ptr readonly captures(none) %.0.val, ptr %.0.val1, ptr %.8.val, i1 noundef zeroext %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::array.661", align 8
   %3 = alloca %"struct.std::array.661", align 8
   %4 = alloca %"class.ade::details::MetadataId", align 8
@@ -54912,7 +54912,7 @@ define linkonce_odr hidden void @_ZNK3ade7details8Metadata14MetadataHolderIN2cv5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #19
 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3ade5Graph8metadataENS_6HandleINS_4NodeEEE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef) local_unnamed_addr #0
 
@@ -57670,7 +57670,7 @@ _ZN2cv4util3any11holder_implINS_6detail9OpaqueRefEED2Ev.exit: ; preds = %1, %20,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvmEZN2cv5gimpl24GParallelFluidExecutable3runEOSt6vectorISt4pairINS2_6RcDescENS1_7GRunArgEESaIS8_EEOS4_IS5_IS6_NS1_4util7variantIJPNS1_4UMatEPNS1_3MatEPNS1_4RMatEPNS1_7Scalar_IdEEPNS1_10MediaFrameENS1_6detail9VectorRefENSP_9OpaqueRefEEEEESaIST_EEE3$_0E9_M_invokeERKSt9_Any_dataOm"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvmEZN2cv5gimpl24GParallelFluidExecutable3runEOSt6vectorISt4pairINS2_6RcDescENS1_7GRunArgEESaIS8_EEOS4_IS5_IS6_NS1_4util7variantIJPNS1_4UMatEPNS1_3MatEPNS1_4RMatEPNS1_7Scalar_IdEEPNS1_10MediaFrameENS1_6detail9VectorRefENSP_9OpaqueRefEEEEESaIST_EEE3$_0E9_M_invokeERKSt9_Any_dataOm"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %.val = load ptr, ptr %0, align 8
@@ -57725,7 +57725,7 @@ define internal void @"_ZNSt17_Function_handlerIFvmEZN2cv5gimpl24GParallelFluidE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvmEZN2cv5gimpl24GParallelFluidExecutable3runEOSt6vectorISt4pairINS2_6RcDescENS1_7GRunArgEESaIS8_EEOS4_IS5_IS6_NS1_4util7variantIJPNS1_4UMatEPNS1_3MatEPNS1_4RMatEPNS1_7Scalar_IdEEPNS1_10MediaFrameENS1_6detail9VectorRefENSP_9OpaqueRefEEEEESaIST_EEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvmEZN2cv5gimpl24GParallelFluidExecutable3runEOSt6vectorISt4pairINS2_6RcDescENS1_7GRunArgEESaIS8_EEOS4_IS5_IS6_NS1_4util7variantIJPNS1_4UMatEPNS1_3MatEPNS1_4RMatEPNS1_7Scalar_IdEEPNS1_10MediaFrameENS1_6detail9VectorRefENSP_9OpaqueRefEEEEESaIST_EEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5gimpl24GParallelFluidExecutable3runEOSt6vectorISt4pairINS2_6RcDescENS1_7GRunArgEESaIS8_EEOS4_IS5_IS6_NS1_4util7variantIJPNS1_4UMatEPNS1_3MatEPNS1_4RMatEPNS1_7Scalar_IdEEPNS1_10MediaFrameENS1_6detail9VectorRefENSP_9OpaqueRefEEEEESaIST_EEE3$_0E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -57782,13 +57782,13 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #26
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #28

@@ -529,13 +529,13 @@ define dso_local ptr @ip_tunnel_lookup(ptr noundef %0, i32 noundef %1, i16 nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @ip_tunnel_md_udp_encap(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @ip_tunnel_md_udp_encap(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -567,7 +567,7 @@ define dso_local void @ip_tunnel_md_udp_encap(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip_tunnel_rcv(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4) #3 align 16 {
+define dso_local noundef i32 @ip_tunnel_rcv(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i1 noundef zeroext %4) #3 align 16 {
   %6 = alloca %struct.vlan_hdr, align 4
   %7 = alloca %struct.vlan_hdr, align 4
   %8 = alloca %struct.vlan_hdr, align 4
@@ -1438,7 +1438,7 @@ define dso_local range(i32 -34, 1) i32 @ip_tunnel_encap_del_ops(ptr noundef %0, 
 declare dso_local void @synchronize_net() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @ip_tunnel_encap_setup(ptr nocapture noundef initializes((152, 160)) %0, ptr noundef %1) #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ip_tunnel_encap_setup(ptr noundef captures(none) initializes((152, 160)) %0, ptr noundef %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %3, align 8
   %4 = load i16, ptr %1, align 2
@@ -1509,7 +1509,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ip_tunnel_encap_setup(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ip_md_tunnel_xmit(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) #3 align 16 {
@@ -1952,7 +1952,7 @@ declare dso_local ptr @dst_cache_get_ip4(ptr noundef, ptr noundef) local_unnamed
 declare dso_local void @dst_cache_set_ip4(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -7, 1) i32 @tnl_update_pmtu(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -7, 1) i32 @tnl_update_pmtu(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) unnamed_addr #3 align 16 {
   br i1 %7, label %12, label %9
 
 9:                                                ; preds = %8
@@ -2278,7 +2278,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @tnl_update_pmtu(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc zeroext i8 @ip_tunnel_ecn_encap(i8 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #8 align 16 {
+define internal fastcc zeroext i8 @ip_tunnel_ecn_encap(i8 noundef zeroext %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #8 align 16 {
   %4 = alloca %struct.vlan_hdr, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %6 = load i16, ptr %5, align 8
@@ -2440,7 +2440,7 @@ define internal fastcc zeroext i8 @ip_tunnel_ecn_encap(i8 noundef zeroext %0, pt
 declare dso_local void @iptunnel_xmit(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ip_tunnel_xmit(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3) #3 align 16 {
+define dso_local void @ip_tunnel_xmit(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3) #3 align 16 {
   %5 = alloca %struct.vlan_hdr, align 4
   %6 = alloca i8, align 1
   %7 = alloca %struct.flowi4, align 8
@@ -3904,7 +3904,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @ns_capable(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -4063,7 +4063,7 @@ define internal fastcc void @ip_tunnel_update(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip_tunnel_siocdevprivate(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #3 align 16 {
+define dso_local i32 @ip_tunnel_siocdevprivate(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #3 align 16 {
   %5 = alloca %struct.ip_tunnel_parm, align 4
   call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %5) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %5, i8 0, i64 52, i1 false), !annotation !16
@@ -4095,7 +4095,7 @@ define dso_local i32 @ip_tunnel_siocdevprivate(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @__ip_tunnel_change_mtu(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2) #10 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__ip_tunnel_change_mtu(ptr noundef captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) #10 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2452
   %5 = load i32, ptr %4, align 4
   %6 = sub i32 65515, %5
@@ -4131,7 +4131,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__ip_tunnel_change_mtu(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @ip_tunnel_change_mtu(ptr nocapture noundef %0, i32 noundef %1) #10 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ip_tunnel_change_mtu(ptr noundef captures(none) %0, i32 noundef %1) #10 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2452
   %4 = load i32, ptr %3, align 4
   %5 = sub i32 65515, %4
@@ -4226,14 +4226,14 @@ define dso_local void @ip_tunnel_dellink(ptr noundef %0, ptr noundef %1) #3 alig
 declare dso_local void @unregister_netdevice_queue(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @ip_tunnel_get_link_net(ptr nocapture noundef readonly %0) #11 align 16 {
+define dso_local ptr @ip_tunnel_get_link_net(ptr noundef readonly captures(none) %0) #11 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2336
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @ip_tunnel_get_iflink(ptr nocapture noundef readonly %0) #11 align 16 {
+define dso_local i32 @ip_tunnel_get_iflink(ptr noundef readonly captures(none) %0) #11 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2408
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -4472,7 +4472,7 @@ define internal fastcc ptr @__ip_tunnel_create(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 68, -2147483648) i32 @ip_tunnel_bind_dev(ptr nocapture noundef initializes((60, 62)) %0) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 68, -2147483648) i32 @ip_tunnel_bind_dev(ptr noundef captures(none) initializes((60, 62)) %0) unnamed_addr #3 align 16 {
   %2 = alloca %struct.flowi4, align 8
   %3 = getelementptr i8, ptr %0, i64 2452
   %4 = load i32, ptr %3, align 4
@@ -4716,7 +4716,7 @@ define dso_local void @ip_tunnel_delete_nets(ptr noundef readonly %0, i32 nounde
 declare dso_local void @unregister_netdevice_many(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip_tunnel_newlink(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #3 align 16 {
+define dso_local i32 @ip_tunnel_newlink(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 align 16 {
   %5 = alloca [6 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = load ptr, ptr %6, align 8
@@ -5006,7 +5006,7 @@ declare dso_local i32 @register_netdevice(ptr noundef) local_unnamed_addr #5
 declare dso_local i32 @dev_set_mtu(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @ip_tunnel_changelink(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ip_tunnel_changelink(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #3 align 16 {
   %5 = getelementptr i8, ptr %0, i64 2304
   %6 = getelementptr i8, ptr %0, i64 2336
   %7 = load ptr, ptr %6, align 8
@@ -5305,7 +5305,7 @@ declare dso_local i32 @gro_cells_init(ptr noundef, ptr noundef) local_unnamed_ad
 declare dso_local void @dst_cache_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #13
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ip_tunnel_uninit(ptr noundef %0) #3 align 16 {
@@ -5369,7 +5369,7 @@ define dso_local void @ip_tunnel_uninit(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @ip_tunnel_setup(ptr nocapture noundef writeonly initializes((2476, 2480)) %0, i32 noundef %1) #14 align 16 {
+define dso_local void @ip_tunnel_setup(ptr noundef writeonly captures(none) initializes((2476, 2480)) %0, i32 noundef %1) #14 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2476
   store i32 %1, ptr %3, align 4
   ret void
@@ -5439,7 +5439,7 @@ declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) loca
 declare dso_local zeroext i1 @dev_valid_name(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @rtnl_is_locked() local_unnamed_addr #5

@@ -448,7 +448,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @apm_partition_intersection(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i64 noundef range(i64 0, 65536) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc i32 @apm_partition_intersection(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef range(i64 0, 65536) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.partition_intersection_list, align 8
   %6 = alloca %struct.apm_partition_info, align 1
   %7 = alloca i32, align 4
@@ -577,7 +577,7 @@ fmap_readn.exit.thread:                           ; preds = %25, %19, %fmap_read
 declare i32 @cli_magic_scan_nested_fmap_type(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @partition_intersection_list_init(ptr noundef) local_unnamed_addr #1
 
@@ -594,7 +594,7 @@ declare i16 @llvm.bswap.i16(i16) #3
 declare i32 @llvm.bswap.i32(i32) #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #3

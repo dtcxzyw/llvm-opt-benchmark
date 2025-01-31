@@ -37,7 +37,7 @@ define dso_local noundef ptr @init_local_source(ptr noundef %0) local_unnamed_ad
 declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @local_traverse_files(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @local_traverse_files(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   tail call void @traverse_datadir(ptr noundef %4, ptr noundef %1) #7
@@ -45,7 +45,7 @@ define internal void @local_traverse_files(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @local_fetch_file(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal ptr @local_fetch_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @slurpFile(ptr noundef %5, ptr noundef %1, ptr noundef %2) #7
@@ -53,7 +53,7 @@ define internal ptr @local_fetch_file(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @local_queue_fetch_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @local_queue_fetch_file(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %union.PGIOAlignedBlock, align 4096
   %5 = alloca [1024 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -118,7 +118,7 @@ define internal void @local_queue_fetch_file(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @local_queue_fetch_range(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal void @local_queue_fetch_range(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %union.PGIOAlignedBlock, align 4096
   %6 = alloca [1024 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -193,7 +193,7 @@ define internal void @local_queue_fetch_range(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @local_finish_fetch(ptr nocapture readnone %0) #2 {
+define internal void @local_finish_fetch(ptr readnone captures(none) %0) #2 {
   ret void
 }
 
@@ -210,7 +210,7 @@ declare ptr @slurpFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #3
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
 
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -220,7 +220,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #4
 declare void @open_target_file(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare void @write_target_range(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 

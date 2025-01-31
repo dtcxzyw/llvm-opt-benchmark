@@ -340,7 +340,7 @@ define internal void @_ZN12_GLOBAL__N_19BoothPassD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_19BoothPass4helpEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_19BoothPass4helpEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.3)
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.4)
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.3)
@@ -2567,7 +2567,7 @@ declare void @_ZNK5Yosys5RTLIL6Design16selected_modulesEv(ptr dead_on_unwind wri
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module18has_processes_warnEv(ptr noundef nonnull align 8 dereferenceable(560)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorkerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorkerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(94) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -2614,7 +2614,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #6
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
@@ -3840,7 +3840,7 @@ declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4248,7 +4248,7 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker15CreateBoothMultEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker15CreateBoothMultEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(94) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16278,7 +16278,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit634:              ; preds = %_ZSt8_DestroyIPN5Yo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker23CreateBoothLowpowerMultEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker23CreateBoothLowpowerMultEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(94) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
@@ -24845,7 +24845,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE9do_lookupERKS2_Ri.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 declare void @_ZN5Yosys13log_backtraceEPKci(ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -25488,7 +25488,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE9do_lookupERKS2_Ri.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE8do_eraseEii(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -27021,7 +27021,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
 declare void @_ZN5Yosys13new_id_suffixENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS5_S5_(ptr dead_on_unwind writable sret(%"struct.Yosys::RTLIL::IdString") align 4, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker10BuildBur4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %9, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker10BuildBur4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) %8, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) %9, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %13 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %14 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -27631,7 +27631,7 @@ define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #14
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -27651,7 +27651,7 @@ declare { ptr, i32 } @_ZN5Yosys5RTLIL6Module7NorGateENS0_8IdStringERKNS0_6SigBit
 declare void @_ZN5Yosys5RTLIL7SigSpec6appendERKNS0_6SigBitE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_lsbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_lsbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %9 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %10 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
@@ -27926,7 +27926,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit26:              ; preds = %62, %67, %74
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker7Bur4d_nENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %7, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker7Bur4d_nENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %7, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %11 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %12 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
@@ -28463,7 +28463,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit59:              ; preds = %134, %139, %146
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_msbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_msbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %9 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %10 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
@@ -30834,7 +30834,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %47, %57
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker7BuildHaENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_RS9_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker7BuildHaENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_RS9_SA_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %10 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %11 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -31134,7 +31134,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(pt
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %9, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) %7, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) %8, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) %9, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %13 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %14 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
@@ -32639,7 +32639,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit156:             ; preds = %_ZN5Yosys5RTLIL8IdS
 declare noundef ptr @_ZN5Yosys5RTLIL6Module10addNotGateENS0_8IdStringERKNS0_6SigBitES5_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(560), ptr noundef, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4dENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_RS9_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %7, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4dENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_RS9_SA_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %7, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %8, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %13 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %14 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -33284,7 +33284,7 @@ declare void @llvm.assume(i1 noundef) #17
 declare i32 @llvm.abs.i32(i32, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
@@ -33296,10 +33296,10 @@ declare i64 @llvm.umax.i64(i64, i64) #18
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18

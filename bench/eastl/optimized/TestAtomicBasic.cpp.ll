@@ -364,14 +364,14 @@ $_ZN23AtomicUserTypeBasicTestI17AtomicUserType128E19TestAllMemoryOrdersEv = comd
 @.str.72 = private unnamed_addr constant [22 x i8] c"observed == expected2\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define dso_local void @_ZN25AtomicStandaloneBasicTest17AtomicSignalFenceEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN25AtomicStandaloneBasicTest17AtomicSignalFenceEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
 entry:
   fence syncscope("singlethread") seq_cst
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN25AtomicStandaloneBasicTest17AtomicThreadFenceEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN25AtomicStandaloneBasicTest17AtomicThreadFenceEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #1 align 2 {
 entry:
   fence acq_rel
   tail call void asm sideeffect "lock; addl $$0, -8(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !5
@@ -379,14 +379,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN25AtomicStandaloneBasicTest14AtomicCpuPauseEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN25AtomicStandaloneBasicTest14AtomicCpuPauseEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #1 align 2 {
 entry:
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN25AtomicStandaloneBasicTest21AtomicCompilerBarrierEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN25AtomicStandaloneBasicTest21AtomicCompilerBarrierEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #1 align 2 {
 entry:
   %ret = alloca i8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
@@ -479,7 +479,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN19AtomicFlagBasicTest19TestAllMemoryOrdersEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN19AtomicFlagBasicTest19TestAllMemoryOrdersEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #4 align 2 {
 entry:
   %atomic.sroa.0 = alloca i8, align 1
   %atomic4 = alloca %"class.eastl::atomic_flag", align 1
@@ -505,7 +505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN19AtomicFlagBasicTest24TestAtomicFlagStandaloneEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN19AtomicFlagBasicTest24TestAtomicFlagStandaloneEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #4 align 2 {
 entry:
   %atomic = alloca %"class.eastl::atomic_flag", align 1
   %atomic16.sroa.0 = alloca i8, align 1
@@ -681,7 +681,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN26AtomicVoidPointerBasicTest19TestAllMemoryOrdersEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN26AtomicVoidPointerBasicTest19TestAllMemoryOrdersEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #4 align 2 {
 entry:
   %atomic.sroa.0 = alloca ptr, align 8
   %atomic4.sroa.0 = alloca ptr, align 8
@@ -872,7 +872,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN22AtomicPointerBasicTest23TestAssignmentOperatorsEv(ptr noundef nonnull align 4 dereferenceable(4) %this) local_unnamed_addr #2 align 2 {
@@ -1057,7 +1057,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN22AtomicPointerBasicTest19TestAllMemoryOrdersEv(ptr nocapture nonnull readnone align 4 %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22AtomicPointerBasicTest19TestAllMemoryOrdersEv(ptr nonnull readnone align 4 captures(none) %this) local_unnamed_addr #4 align 2 {
 entry:
   %atomic.sroa.0 = alloca ptr, align 8
   %atomic4.sroa.0 = alloca ptr, align 8
@@ -1716,7 +1716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN19AtomicBoolBasicTest19TestAllMemoryOrdersEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN19AtomicBoolBasicTest19TestAllMemoryOrdersEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #4 align 2 {
 entry:
   %atomic.sroa.0 = alloca i8, align 1
   %atomic4.sroa.0 = alloca i8, align 1
@@ -14155,10 +14155,10 @@ _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

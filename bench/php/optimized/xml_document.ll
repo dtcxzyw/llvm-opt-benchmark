@@ -112,7 +112,7 @@ declare void @llvm.assume(i1 noundef) #1
 declare void @dom_ns_compat_copy_attribute_list_mark(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_XMLDocument_createEmpty(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_XMLDocument_createEmpty(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -193,7 +193,7 @@ declare ptr @php_dom_instantiate_object_helper(ptr noundef, ptr noundef, ptr nou
 declare void @php_dom_throw_error(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_XMLDocument_createFromString(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_XMLDocument_createFromString(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
   tail call fastcc void @load_from_helper(i32 %.val, ptr noundef %1, i32 noundef 0)
@@ -377,7 +377,7 @@ dom_mark_namespaces_as_attributes_too.exit:       ; preds = %.preheader.i, %dom_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_XMLDocument_createFromFile(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_XMLDocument_createFromFile(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
   tail call fastcc void @load_from_helper(i32 %.val, ptr noundef %1, i32 noundef 1)
@@ -385,7 +385,7 @@ define hidden void @zim_DOM_XMLDocument_createFromFile(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @dom_document_parser(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 

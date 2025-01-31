@@ -119,14 +119,14 @@ define hidden i32 @misc_dissect_struct_GUID(ptr noundef %0, i32 noundef %1, ptr 
   %26 = phi i1 [ true, %18 ], [ false, %25 ]
   %.089.i = phi i32 [ %24, %18 ], [ %28, %25 ]
   %27 = load i32, ptr @hf_misc_GUID_clock_seq, align 4
-  %28 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #2
+  %28 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #2
   br i1 %26, label %25, label %misc_dissect_element_GUID_clock_seq.exit, !llvm.loop !4
 
 misc_dissect_element_GUID_clock_seq.exit:         ; preds = %25, %misc_dissect_element_GUID_clock_seq.exit
   %.010.i = phi i32 [ %31, %misc_dissect_element_GUID_clock_seq.exit ], [ 0, %25 ]
   %.089.i56 = phi i32 [ %30, %misc_dissect_element_GUID_clock_seq.exit ], [ %28, %25 ]
   %29 = load i32, ptr @hf_misc_GUID_node, align 4
-  %30 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i56, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #2
+  %30 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i56, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #2
   %31 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %31, 6
   br i1 %exitcond.not.i, label %misc_dissect_element_GUID_node.exit, label %misc_dissect_element_GUID_clock_seq.exit, !llvm.loop !6

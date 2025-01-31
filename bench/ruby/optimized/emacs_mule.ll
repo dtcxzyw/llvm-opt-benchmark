@@ -26,7 +26,7 @@ define void @Init_emacs_mule() local_unnamed_addr #0 {
 declare i32 @rb_enc_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr readnone captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i64
@@ -174,7 +174,7 @@ select.unfold:                                    ; preds = %9, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -400, 5) i32 @code_to_mbclen(i32 noundef %0, ptr nocapture readnone %1) #3 {
+define internal range(i32 -400, 5) i32 @code_to_mbclen(i32 noundef %0, ptr readnone captures(none) %1) #3 {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %10, label %4
 
@@ -270,7 +270,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr noundef %2)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #4 {
+define internal range(i32 -2147483647, -2147483648) i32 @mbc_case_fold(i32 %0, ptr noundef captures(none) %1, ptr noundef readnone %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4) #4 {
   %6 = load ptr, ptr %1, align 8
   %7 = load i8, ptr %6, align 1
   %8 = icmp sgt i8 %7, -1
@@ -395,7 +395,7 @@ declare i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef, ptr noundef, 
 declare i32 @onigenc_minimum_property_name_to_ctype(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #3 {
   %4 = icmp ult i32 %0, 128
   br i1 %4, label %5, label %code_to_mbclen.exit
 
@@ -422,7 +422,7 @@ code_to_mbclen.exit:                              ; preds = %3
 declare i32 @onigenc_not_support_get_ctype_code_range(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal noundef ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #5 {
+define internal noundef ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef readonly %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #5 {
   %.not = icmp ugt ptr %1, %0
   br i1 %.not, label %.preheader, label %.loopexit
 

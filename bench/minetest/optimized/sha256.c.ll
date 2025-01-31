@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @K256 = internal unnamed_addr constant [64 x i32] [i32 1116352408, i32 1899447441, i32 -1245643825, i32 -373957723, i32 961987163, i32 1508970993, i32 -1841331548, i32 -1424204075, i32 -670586216, i32 310598401, i32 607225278, i32 1426881987, i32 1925078388, i32 -2132889090, i32 -1680079193, i32 -1046744716, i32 -459576895, i32 -272742522, i32 264347078, i32 604807628, i32 770255983, i32 1249150122, i32 1555081692, i32 1996064986, i32 -1740746414, i32 -1473132947, i32 -1341970488, i32 -1084653625, i32 -958395405, i32 -710438585, i32 113926993, i32 338241895, i32 666307205, i32 773529912, i32 1294757372, i32 1396182291, i32 1695183700, i32 1986661051, i32 -2117940946, i32 -1838011259, i32 -1564481375, i32 -1474664885, i32 -1035236496, i32 -949202525, i32 -778901479, i32 -694614492, i32 -200395387, i32 275423344, i32 430227734, i32 506948616, i32 659060556, i32 883997877, i32 958139571, i32 1322822218, i32 1537002063, i32 1747873779, i32 1955562222, i32 2024104815, i32 -2067236844, i32 -1933114872, i32 -1866530822, i32 -1538233109, i32 -1090935817, i32 -965641998], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @SHA256_Init(ptr nocapture noundef writeonly initializes((0, 112)) %c) local_unnamed_addr #0 {
+define dso_local noundef i32 @SHA256_Init(ptr noundef writeonly captures(none) initializes((0, 112)) %c) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %c, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @SHA256_Update(ptr noundef %c, ptr noundef %data_, i64 noundef %len) local_unnamed_addr #2 {
@@ -122,10 +122,10 @@ return:                                           ; preds = %if.end38, %if.then4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @sha256_block_data_order(ptr nocapture noundef %ctx, ptr noundef %_in, i64 noundef range(i64 1, 288230376151711744) %num) unnamed_addr #2 {
+define internal fastcc void @sha256_block_data_order(ptr noundef captures(none) %ctx, ptr noundef %_in, i64 noundef range(i64 1, 288230376151711744) %num) unnamed_addr #2 {
 entry:
   %_in1614 = ptrtoint ptr %_in to i64
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %ctx, i64 4
@@ -1373,14 +1373,14 @@ while.end:                                        ; preds = %for.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @SHA256_Transform(ptr nocapture noundef %c, ptr noundef %data) local_unnamed_addr #2 {
+define dso_local void @SHA256_Transform(ptr noundef captures(none) %c, ptr noundef %data) local_unnamed_addr #2 {
 entry:
   tail call fastcc void @sha256_block_data_order(ptr noundef %c, ptr noundef %data, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @SHA256_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(none) %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %c, i64 40
   %num = getelementptr inbounds nuw i8, ptr %c, i64 104

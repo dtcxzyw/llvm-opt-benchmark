@@ -162,7 +162,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.062 = phi i32 [ %inc30, %if.end28 ], [ 0, %for.cond.preheader ]
   %vq_init_count.161 = phi i32 [ %inc29, %if.end28 ], [ 2, %for.cond.preheader ]
   %add24 = add i32 %i.062, 2
-  %call25 = tail call fastcc i32 @virtio_scsi_set_host_notifier(ptr noundef %call.i56, i32 noundef %add24)
+  %call25 = tail call fastcc i32 @virtio_scsi_set_host_notifier(ptr noundef nonnull %call.i56, i32 noundef %add24)
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.end28, label %fail_host_notifiers
 
@@ -465,7 +465,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @virtio_queue_aio_detach_host_notifier(ptr noundef, ptr noundef) local_unnamed_addr #1
 

@@ -1032,7 +1032,7 @@ define dso_local i64 @gistXLogPageDelete(i32 noundef %0, i64 %1, i32 noundef %2,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gistXLogAssignLSN() local_unnamed_addr #0 {
@@ -1048,7 +1048,7 @@ define dso_local i64 @gistXLogAssignLSN() local_unnamed_addr #0 {
 declare void @XLogSetRecordFlags(i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gistXLogPageReuse(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 {
+define dso_local void @gistXLogPageReuse(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 {
   %5 = alloca %struct.gistxlogPageReuse, align 8
   %6 = load i32, ptr @wal_level, align 4
   %7 = icmp sgt i32 %6, 1
@@ -1105,7 +1105,7 @@ define dso_local void @gistXLogPageReuse(ptr nocapture noundef readonly %0, ptr 
 declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gistXLogUpdate(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local i64 @gistXLogUpdate(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.gistxlogPageUpdate, align 2
   %8 = trunc i32 %2 to i16
   store i16 %8, ptr %7, align 2
@@ -1241,10 +1241,10 @@ declare void @PageIndexTupleDelete(ptr noundef, i16 noundef zeroext) local_unnam
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

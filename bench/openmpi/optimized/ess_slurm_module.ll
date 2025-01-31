@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @prte_ess_base_num_procs = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i32 @prte_ess_base_std_prolog() #7
   switch i32 %3, label %59 [
     i32 0, label %4
@@ -83,7 +83,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
   br label %slurm_set_name.exit
 
 22:                                               ; preds = %17
-  %23 = tail call i64 @strtoul(ptr nocapture noundef nonnull %18, ptr noundef null, i32 noundef 10) #7
+  %23 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %18, ptr noundef null, i32 noundef 10) #7
   %24 = trunc i64 %23 to i32
   %25 = tail call ptr @getenv(ptr noundef nonnull @.str.7) #7
   %26 = tail call i32 @atoi(ptr noundef %25) #8
@@ -208,21 +208,21 @@ declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_un
 declare void @PMIx_Load_nspace(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @prte_util_print_name_args(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare i32 @prte_ess_base_prted_finalize() local_unnamed_addr #1
 

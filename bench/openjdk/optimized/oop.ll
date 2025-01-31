@@ -258,7 +258,7 @@ define hidden void @_ZNK7oopDesc16print_address_onEP12outputStream(ptr noundef n
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, -1163019586
   br i1 %4, label %5, label %6
@@ -706,7 +706,7 @@ _ZN7oopDesc6is_oopEPS_b.exit:                     ; preds = %14, %10, %4, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16VerifyOopClosure6do_oopEPP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16VerifyOopClosure6do_oopEPP7oopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN16VerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit, label %5
@@ -744,7 +744,7 @@ _ZN16VerifyOopClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %2, %11, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16VerifyOopClosure6do_oopEP9narrowOop(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16VerifyOopClosure6do_oopEP9narrowOop(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 0
   %5 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -791,7 +791,7 @@ _ZN16VerifyOopClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %2, %21, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK7oopDesc20is_instance_noinlineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7oopDesc20is_instance_noinlineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr @UseCompressedClassPointers, align 1
   %3 = trunc i8 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -822,7 +822,7 @@ _ZNK7oopDesc11is_instanceEv.exit:                 ; preds = %5, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK7oopDesc23is_instanceRef_noinlineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7oopDesc23is_instanceRef_noinlineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr @UseCompressedClassPointers, align 1
   %3 = trunc i8 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -853,7 +853,7 @@ _ZNK7oopDesc14is_instanceRefEv.exit:              ; preds = %5, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK7oopDesc22is_stackChunk_noinlineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7oopDesc22is_stackChunk_noinlineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr @UseCompressedClassPointers, align 1
   %3 = trunc i8 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -884,7 +884,7 @@ _ZNK7oopDesc13is_stackChunkEv.exit:               ; preds = %5, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK7oopDesc17is_array_noinlineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7oopDesc17is_array_noinlineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr @UseCompressedClassPointers, align 1
   %3 = trunc i8 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -915,7 +915,7 @@ _ZNK7oopDesc8is_arrayEv.exit:                     ; preds = %5, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK7oopDesc20is_objArray_noinlineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7oopDesc20is_objArray_noinlineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr @UseCompressedClassPointers, align 1
   %3 = trunc i8 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -946,7 +946,7 @@ _ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %5, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK7oopDesc21is_typeArray_noinlineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7oopDesc21is_typeArray_noinlineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr @UseCompressedClassPointers, align 1
   %3 = trunc i8 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -984,7 +984,7 @@ define hidden noundef zeroext i1 @_ZN7oopDesc13has_klass_gapEv() local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7oopDesc16set_narrow_klassEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN7oopDesc16set_narrow_klassEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void

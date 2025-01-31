@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ia6_ctrID = hidden local_unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_net_Inet6Address_init(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_java_net_Inet6Address_init(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %.b = load i1, ptr @ia6_initialized, align 4
   br i1 %.b, label %60, label %3
 

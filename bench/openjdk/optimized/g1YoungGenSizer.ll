@@ -33,7 +33,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN15G1YoungGenSizerC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15G1YoungGenSizerC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1YoungGenSizerC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 13), (16, 24)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1YoungGenSizerC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 13), (16, 24)) %0) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV15G1YoungGenSizer, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -162,7 +162,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 1, 42949673) i32 @_ZN15G1YoungGenSizer28calculate_default_min_lengthEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 1, 42949673) i32 @_ZN15G1YoungGenSizer28calculate_default_min_lengthEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr @G1NewSizePercent, align 4
   %4 = mul i32 %3, %1
   %5 = udiv i32 %4, 100
@@ -171,7 +171,7 @@ define hidden noundef range(i32 1, 42949673) i32 @_ZN15G1YoungGenSizer28calculat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 1, 42949673) i32 @_ZN15G1YoungGenSizer28calculate_default_max_lengthEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 1, 42949673) i32 @_ZN15G1YoungGenSizer28calculate_default_max_lengthEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr @G1MaxNewSizePercent, align 4
   %4 = mul i32 %3, %1
   %5 = udiv i32 %4, 100
@@ -180,7 +180,7 @@ define hidden noundef range(i32 1, 42949673) i32 @_ZN15G1YoungGenSizer28calculat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %37 [
@@ -251,7 +251,7 @@ define hidden void @_ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1YoungGenSizer19adjust_max_new_sizeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1YoungGenSizer19adjust_max_new_sizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
@@ -318,7 +318,7 @@ _ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0_.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1YoungGenSizer17heap_size_changedEj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1YoungGenSizer17heap_size_changedEj(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -427,10 +427,10 @@ declare i32 @llvm.umax.i32(i32, i32) #6
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1617,7 +1617,7 @@ declare { i64, ptr } @jv_object() local_unnamed_addr #2
 declare ptr @jq_init() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare ptr @jq_util_input_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1630,19 +1630,19 @@ declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #2
 declare { i64, ptr } @jv_parse(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @jq_util_input_add_input(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #2
 
 declare { i64, ptr } @jq_realpath(i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @isoption(ptr noundef readonly %0, i8 noundef signext range(i8 0, 116) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @isoption(ptr noundef readonly %0, i8 noundef signext range(i8 0, 116) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 {
   %5 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %5, 45
   br i1 %.not, label %6, label %10
@@ -1694,7 +1694,7 @@ define internal fastcc range(i32 0, 2) i32 @isoption(ptr noundef readonly %0, i8
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @jv_object_has(i64, ptr, i64, ptr) local_unnamed_addr #2
 
@@ -1739,25 +1739,25 @@ define internal fastcc void @usage(i32 noundef range(i32 0, 3) %0, i32 noundef r
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @jq_testsuite(i64, ptr, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @isatty(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @jq_set_colors(ptr noundef) local_unnamed_addr #2
 
 declare void @jq_set_attr(ptr noundef, i64, ptr, i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #10
@@ -1766,7 +1766,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #10
 declare ptr @dirname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @jq_compile_args(ptr noundef, ptr noundef, i64, ptr) local_unnamed_addr #2
 
@@ -1783,7 +1783,7 @@ declare { i64, ptr } @jq_util_input_next_input_cb(ptr noundef, ptr noundef) #2
 declare void @jq_set_debug_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @debug_cb(ptr nocapture noundef readonly %0, i64 %1, ptr %2) #12 {
+define internal void @debug_cb(ptr noundef readonly captures(none) %0, i64 %1, ptr %2) #12 {
   %4 = load i32, ptr %0, align 4
   %5 = tail call { i64, ptr } @jv_array() #19
   %6 = extractvalue { i64, ptr } %5, 0
@@ -1808,7 +1808,7 @@ define internal void @debug_cb(ptr nocapture noundef readonly %0, i64 %1, ptr %2
 declare void @jq_set_stderr_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nounwind uwtable
-define internal void @stderr_cb(ptr nocapture readonly %0, i64 %1, ptr %2) #13 {
+define internal void @stderr_cb(ptr readonly captures(none) %0, i64 %1, ptr %2) #13 {
   %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #19
   %5 = icmp eq i32 %4, 5
   br i1 %5, label %6, label %15
@@ -2252,10 +2252,10 @@ declare i32 @jv_invalid_has_msg(i64, ptr) local_unnamed_addr #2
 declare i32 @jq_halted(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
@@ -2294,7 +2294,7 @@ declare i32 @jv_string_length_bytes(i64, ptr) local_unnamed_addr #2
 declare { i64, ptr } @jv_dump_string(i64, ptr, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @jq_start(ptr noundef, i64, ptr, i32 noundef) local_unnamed_addr #2
 
@@ -2305,7 +2305,7 @@ declare { i64, ptr } @jv_invalid_with_msg(i64, ptr) local_unnamed_addr #2
 declare void @jv_dump(i64, ptr, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare { i64, ptr } @jq_get_exit_code(ptr noundef) local_unnamed_addr #2
 
@@ -2319,16 +2319,16 @@ declare { i64, ptr } @jq_util_input_get_position(ptr noundef) local_unnamed_addr
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #17
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -70,7 +70,7 @@ for.end:                                          ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core18HandshakerRegistry7Builder5BuildEv(ptr noalias nocapture sret(%"class.grpc_core::HandshakerRegistry") align 8 initializes((0, 48)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core18HandshakerRegistry7Builder5BuildEv(ptr noalias sret(%"class.grpc_core::HandshakerRegistry") align 8 captures(none) initializes((0, 48)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i8 0, i64 48, i1 false)
   br label %for.body
@@ -131,7 +131,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorISt10un
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core18HandshakerRegistry14AddHandshakersENS_14HandshakerTypeERKNS_11ChannelArgsEP16grpc_pollset_setPNS_16HandshakeManagerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %handshaker_type, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef %interested_parties, ptr noundef %handshake_mgr) local_unnamed_addr #3 align 2 {
+define void @_ZNK9grpc_core18HandshakerRegistry14AddHandshakersENS_14HandshakerTypeERKNS_11ChannelArgsEP16grpc_pollset_setPNS_16HandshakeManagerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %handshaker_type, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef %interested_parties, ptr noundef %handshake_mgr) local_unnamed_addr #3 align 2 {
 entry:
   %idxprom = zext i32 %handshaker_type to i64
   %arrayidx = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %this, i64 0, i64 %idxprom
@@ -353,7 +353,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

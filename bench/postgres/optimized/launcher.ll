@@ -788,7 +788,7 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -851,7 +851,7 @@ logicalrep_worker_find.exit.thread:               ; preds = %25, %2, %logicalrep
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logicalrep_worker_stop_internal(ptr nocapture noundef readonly %0, i32 noundef range(i32 2, 16) %1) unnamed_addr #1 {
+define internal fastcc void @logicalrep_worker_stop_internal(ptr noundef readonly captures(none) %0, i32 noundef range(i32 2, 16) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -955,7 +955,7 @@ define internal fastcc void @logicalrep_worker_stop_internal(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_pa_worker_stop(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define dso_local void @logicalrep_pa_worker_stop(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #13, !srcloc !13
@@ -1084,7 +1084,7 @@ logicalrep_worker_find.exit.thread:               ; preds = %28, %2, %logicalrep
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_worker_wakeup_ptr(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local void @logicalrep_worker_wakeup_ptr(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 36
@@ -2216,10 +2216,10 @@ declare void @llvm.assume(i1 noundef) #10
 declare i64 @llvm.smin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

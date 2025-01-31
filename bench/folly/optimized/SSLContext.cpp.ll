@@ -347,7 +347,7 @@ unreachable:                                      ; preds = %invoke.cont7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext17setSigAlgsOrThrowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %sigalgs) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext17setSigAlgsOrThrowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %sigalgs) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -468,7 +468,7 @@ unreachable:                                      ; preds = %invoke.cont7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext21setVerificationOptionERKNS0_17SSLVerifyPeerEnumE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyPeer) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext21setVerificationOptionERKNS0_17SSLVerifyPeerEnumE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(304) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %verifyPeer) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %0 = load i32, ptr %verifyPeer, align 4, !tbaa !72
@@ -502,7 +502,7 @@ cleanup.done11:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly10SSLContext21setVerificationOptionERKNS0_23VerifyClientCertificateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) initializes((20, 24)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyClient) unnamed_addr #2 align 2 {
+define void @_ZN5folly10SSLContext21setVerificationOptionERKNS0_23VerifyClientCertificateE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(304) initializes((20, 24)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %verifyClient) unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %verifyClient, align 4, !tbaa !75
   %verifyClient_ = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -511,7 +511,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly10SSLContext21setVerificationOptionERKNS0_23VerifyServerCertificateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) initializes((24, 28)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyServer) unnamed_addr #2 align 2 {
+define void @_ZN5folly10SSLContext21setVerificationOptionERKNS0_23VerifyServerCertificateE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(304) initializes((24, 28)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %verifyServer) unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %verifyServer, align 4, !tbaa !77
   %verifyServer_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -531,7 +531,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 4) i32 @_ZNK5folly10SSLContext19getVerificationModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZNK5folly10SSLContext19getVerificationModeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1.i = alloca %"class.google::LogMessageFatal", align 8
   %verifyPeer_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -611,7 +611,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext15loadCertificateEPKcS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr noundef %path, ptr noundef %format) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext15loadCertificateEPKcS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr noundef %path, ptr noundef %format) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reason = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -884,7 +884,7 @@ unreachable:                                      ; preds = %invoke.cont39, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext28loadCertificateFromBufferPEMENS_5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr %cert.coerce0, ptr %cert.coerce1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext28loadCertificateFromBufferPEMENS_5RangeIPKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr %cert.coerce0, ptr %cert.coerce1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bio = alloca %"class.std::unique_ptr.76", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1570,7 +1570,7 @@ unreachable:                                      ; preds = %invoke.cont135, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext14loadPrivateKeyEPKcS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr noundef %path, ptr noundef %format) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext14loadPrivateKeyEPKcS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr noundef %path, ptr noundef %format) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1817,7 +1817,7 @@ unreachable:                                      ; preds = %invoke.cont29, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext27loadPrivateKeyFromBufferPEMENS_5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr %pkey.coerce0, ptr %pkey.coerce1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext27loadPrivateKeyFromBufferPEMENS_5RangeIPKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr %pkey.coerce0, ptr %pkey.coerce1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bio = alloca %"class.std::unique_ptr.76", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2417,7 +2417,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5folly10SSLContext18isCertKeyPairValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK5folly10SSLContext18isCertKeyPairValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this) unnamed_addr #1 align 2 {
 entry:
   %ctx_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ctx_, align 8, !tbaa !10
@@ -2427,7 +2427,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext23loadTrustedCertificatesEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr noundef %path) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext23loadTrustedCertificatesEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr noundef %path) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2566,7 +2566,7 @@ unreachable:                                      ; preds = %invoke.cont11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext23loadTrustedCertificatesEP13x509_store_st(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr noundef %store) unnamed_addr #1 align 2 {
+define void @_ZN5folly10SSLContext23loadTrustedCertificatesEP13x509_store_st(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr noundef %store) unnamed_addr #1 align 2 {
 entry:
   %ctx_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ctx_, align 8, !tbaa !10
@@ -2575,7 +2575,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext17passwordCollectorESt10shared_ptrINS_17PasswordCollectorEE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr nocapture noundef readonly %collector) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext17passwordCollectorESt10shared_ptrINS_17PasswordCollectorEE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef readonly captures(none) %collector) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %0 = load ptr, ptr %collector, align 8, !tbaa !117
@@ -2734,7 +2734,7 @@ _ZNSt10shared_ptrIN5folly17PasswordCollectorEEC2ERKS2_.exit: ; preds = %if.else.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext21setServerNameCallbackERKSt8functionIFNS0_24ServerNameCallbackResultEP6ssl_stEE(ptr nocapture noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(32) %cb) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext21setServerNameCallbackERKSt8functionIFNS0_24ServerNameCallbackResultEP6ssl_stEE(ptr noundef nonnull align 8 captures(none) dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(32) %cb) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function", align 8
@@ -3224,13 +3224,13 @@ declare ptr @TLS_method() local_unnamed_addr #3
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__lhs) #28
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__rhs, i64 noundef 0, i64 noundef 0, ptr noundef %__lhs, i64 noundef %call.i.i)
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__rhs, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %__lhs, i64 noundef %call.i.i)
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !126
   %1 = load ptr, ptr %call3.i.i, align 8, !tbaa !62
@@ -3275,7 +3275,7 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -3321,7 +3321,7 @@ _ZN5folly12_GLOBAL__N_114getExDataIndexEv.exit:   ; preds = %invoke.cont.i, %ini
 declare i64 @SSL_CTX_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 4) i32 @_ZN5folly10SSLContext29baseServerNameOpenSSLCallbackEP6ssl_stPiPv(ptr noundef %ssl, ptr nocapture noundef writeonly %al, ptr noundef %data) #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZN5folly10SSLContext29baseServerNameOpenSSLCallbackEP6ssl_stPiPv(ptr noundef %ssl, ptr noundef writeonly captures(none) %al, ptr noundef %data) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i26 = alloca ptr, align 8
   %__args.addr.i = alloca ptr, align 8
@@ -3554,15 +3554,15 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly10SSLContext9getErrorsB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 noundef %errnoCopy) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -3911,7 +3911,7 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
 declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
@@ -4560,7 +4560,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10SSLContext26deleteNextProtocolsStringsEv(ptr nocapture noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext26deleteNextProtocolsStringsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(304) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %advertisedNextProtocols_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %advertisedNextProtocols_, align 8, !tbaa !81
@@ -4611,7 +4611,7 @@ delete.end:                                       ; preds = %delete.notnull, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext21setClientECCurvesListERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ecCurves) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext21setClientECCurvesListERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %ecCurves) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ecCurvesList = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4905,7 +4905,7 @@ while.end:                                        ; preds = %_ZN5folly8toAppendI
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext18setSupportedGroupsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %groups) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext18setSupportedGroupsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %groups) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %groupsList = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5115,7 +5115,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext16setServerECCurveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %curveName) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext16setServerECCurveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %curveName) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp12 = alloca %"class.google::LogMessageFatal", align 8
@@ -5384,7 +5384,7 @@ declare i32 @SSL_CTX_up_ref(ptr noundef) local_unnamed_addr #3
 declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext18setX509VerifyParamERKSt10unique_ptrI20X509_VERIFY_PARAM_stNS_23static_function_deleterIS2_XadL_Z22X509_VERIFY_PARAM_freeEEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %x509VerifyParam) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext18setX509VerifyParamERKSt10unique_ptrI20X509_VERIFY_PARAM_stNS_23static_function_deleterIS2_XadL_Z22X509_VERIFY_PARAM_freeEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %x509VerifyParam) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5514,7 +5514,7 @@ declare i32 @SSL_CTX_set_cipher_list(ptr noundef, ptr noundef) local_unnamed_add
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 4) i32 @_ZN5folly10SSLContext19getVerificationModeERKNS0_23VerifyClientCertificateE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyClient) local_unnamed_addr #20 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN5folly10SSLContext19getVerificationModeERKNS0_23VerifyClientCertificateE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %verifyClient) local_unnamed_addr #20 align 2 {
 entry:
   %0 = load i32, ptr %verifyClient, align 4, !tbaa !75
   %switch.selectcmp = icmp eq i32 %0, 1
@@ -5525,7 +5525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_ZN5folly10SSLContext19getVerificationModeERKNS0_23VerifyServerCertificateE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyServer) local_unnamed_addr #20 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN5folly10SSLContext19getVerificationModeERKNS0_23VerifyServerCertificateE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %verifyServer) local_unnamed_addr #20 align 2 {
 entry:
   %0 = load i32, ptr %verifyServer, align 4, !tbaa !77
   %switch.selectcmp2 = icmp eq i32 %0, 0
@@ -5534,7 +5534,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 4) i32 @_ZN5folly10SSLContext19getVerificationModeERKNS0_17SSLVerifyPeerEnumE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyPeer) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZN5folly10SSLContext19getVerificationModeERKNS0_17SSLVerifyPeerEnumE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %verifyPeer) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"class.google::LogMessageFatal", align 8
   %0 = load i32, ptr %verifyPeer, align 4, !tbaa !72
@@ -5574,7 +5574,7 @@ declare void @SSL_CTX_set_verify(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @SSL_CTX_use_certificate_chain_file(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -5737,7 +5737,7 @@ declare i32 @SSL_CTX_load_verify_locations(ptr noundef, ptr noundef, ptr noundef
 declare void @SSL_CTX_set_cert_store(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext43setSupportedClientCertificateAuthorityNamesESt6vectorISt10unique_ptrI12X509_name_stNS_23static_function_deleterIS3_XadL_Z14X509_NAME_freeEEEEESaIS6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr nocapture noundef readonly %names) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext43setSupportedClientCertificateAuthorityNamesESt6vectorISt10unique_ptrI12X509_name_stNS_23static_function_deleterIS3_XadL_Z14X509_NAME_freeEEEEESaIS6_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr noundef readonly captures(none) %names) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nameList = alloca %"class.std::unique_ptr.107", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nameList) #28
@@ -5876,7 +5876,7 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 declare void @SSL_CTX_set_default_passwd_cb(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly10SSLContext16passwordCallbackEPciiPv(ptr nocapture noundef writeonly %password, i32 noundef %size, i32 %0, ptr noundef %data) #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN5folly10SSLContext16passwordCallbackEPciiPv(ptr noundef writeonly captures(none) %password, i32 noundef %size, i32 %0, ptr noundef %data) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %userPassword = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6271,7 +6271,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #18
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 4) i32 @_ZN5folly10SSLContext18alpnSelectCallbackEP6ssl_stPPKhPhS4_jPv(ptr nocapture readnone %0, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr noundef readonly %data) #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZN5folly10SSLContext18alpnSelectCallbackEP6ssl_stPPKhPhS4_jPv(ptr readnone captures(none) %0, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr noundef readonly %data) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %tobool.not = icmp eq ptr %data, null
@@ -6334,7 +6334,7 @@ cleanup26:                                        ; preds = %cleanup, %if.else, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZN5folly10SSLContext17pickNextProtocolsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN5folly10SSLContext17pickNextProtocolsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
   %rng = alloca %"class.folly::ThreadLocalPRNG", align 1
@@ -6458,7 +6458,7 @@ _ZNSt21discrete_distributionIiEclIN5folly15ThreadLocalPRNGEEEiRT_RKNS0_10param_t
 declare i32 @SSL_select_next_proto(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly10SSLContext26getAdvertisedNextProtocolsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly10SSLContext26getAdvertisedNextProtocolsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i30 = alloca i64, align 8
   %advertisedNextProtocols_ = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -7392,7 +7392,7 @@ for.end:                                          ; preds = %_ZNSt7__cxx114listI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext18unsetNextProtocolsEv(ptr nocapture noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext18unsetNextProtocolsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(304) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %advertisedNextProtocols_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %advertisedNextProtocols_.i, align 8, !tbaa !81
@@ -7456,7 +7456,7 @@ declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) 
 declare i32 @SSL_CTX_set_alpn_protos(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt21discrete_distributionIiE10param_typeC2IN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_SA_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__wbegin.coerce, ptr %__wend.coerce) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8018,7 +8018,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #21
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZNK5folly10SSLContext9createSSLEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK5folly10SSLContext9createSSLEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8139,7 +8139,7 @@ unreachable:                                      ; preds = %invoke.cont6
 declare ptr @SSL_new(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext22setSessionCacheContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %context) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly10SSLContext22setSessionCacheContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %context) local_unnamed_addr #1 align 2 {
 entry:
   %ctx_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ctx_, align 8, !tbaa !10
@@ -8155,7 +8155,7 @@ entry:
 declare i32 @SSL_CTX_set_session_id_context(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN5folly10SSLContext9matchNameEPKcS2_i(ptr nocapture noundef readonly %host, ptr nocapture noundef readonly %pattern, i32 noundef %size) local_unnamed_addr #22 align 2 {
+define noundef zeroext i1 @_ZN5folly10SSLContext9matchNameEPKcS2_i(ptr noundef readonly captures(none) %host, ptr noundef readonly captures(none) %pattern, i32 noundef %size) local_unnamed_addr #22 align 2 {
 entry:
   %cmp56 = icmp sgt i32 %size, 0
   br i1 %cmp56, label %land.rhs.preheader, label %while.end31
@@ -8256,7 +8256,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext10setOptionsEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, i64 noundef %options) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext10setOptionsEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, i64 noundef %options) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ctx_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ctx_, align 8, !tbaa !10
@@ -8363,7 +8363,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENSt9en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext12disableTLS13Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly10SSLContext12disableTLS13Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this) local_unnamed_addr #1 align 2 {
 entry:
   %ctx_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ctx_, align 8, !tbaa !10
@@ -8614,7 +8614,7 @@ declare noundef ptr @_ZN5folly3ssl17SSLSessionManager10getFromSSLEPK6ssl_st(ptr 
 declare void @_ZN5folly3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10SSLContext28setSessionLifecycleCallbacksESt10unique_ptrINS0_25SessionLifecycleCallbacksESt14default_deleteIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(304) %this, ptr nocapture noundef %cb) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly10SSLContext28setSessionLifecycleCallbacksESt10unique_ptrINS0_25SessionLifecycleCallbacksESt14default_deleteIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(304) %this, ptr noundef captures(none) %cb) local_unnamed_addr #0 align 2 {
 entry:
   %sessionLifecycleCallbacks_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %cb, align 8, !tbaa !81
@@ -8636,7 +8636,7 @@ _ZNSt10unique_ptrIN5folly10SSLContext25SessionLifecycleCallbacksESt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext22setCiphersuitesOrThrowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %ciphersuites) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext22setCiphersuitesOrThrowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %ciphersuites) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8758,7 +8758,7 @@ unreachable:                                      ; preds = %invoke.cont7
 declare i32 @SSL_CTX_set_ciphersuites(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext16setAllowNoDheKexEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, i1 noundef zeroext %flag) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly10SSLContext16setAllowNoDheKexEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this, i1 noundef zeroext %flag) local_unnamed_addr #1 align 2 {
 entry:
   %ctx_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ctx_, align 8, !tbaa !10
@@ -8779,7 +8779,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare i64 @SSL_CTX_clear_options(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext16setTicketHandlerESt10unique_ptrINS_20OpenSSLTicketHandlerESt14default_deleteIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(304) %this, ptr nocapture noundef %handler) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly10SSLContext16setTicketHandlerESt10unique_ptrINS_20OpenSSLTicketHandlerESt14default_deleteIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(304) %this, ptr noundef captures(none) %handler) local_unnamed_addr #1 align 2 {
 entry:
   %ticketHandler_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %handler, align 8, !tbaa !81

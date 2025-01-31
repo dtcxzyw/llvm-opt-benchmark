@@ -2990,7 +2990,7 @@ declare void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hc807568605
 declare void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hdbaf498d81c8b760E"(ptr sret([216 x i8]) align 8, ptr align 8, ptr align 1, i64, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0ffebff02a90d31fE"(ptr sret([32 x i8]) align 8, ptr align 8) unnamed_addr #0

@@ -265,7 +265,7 @@ define internal zeroext i1 @SubTransPagePrecedes(i64 noundef %0, i64 noundef %1)
 declare void @SimpleLruInit(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_subtrans_buffers(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @check_subtrans_buffers(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i1 @check_slru_buffers(ptr noundef nonnull @.str.3, ptr noundef %0) #5
   ret i1 %4
 }

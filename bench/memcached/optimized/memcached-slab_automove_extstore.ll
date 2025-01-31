@@ -63,14 +63,14 @@ return:                                           ; preds = %entry, %if.end13, %
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @fill_item_stats_automove(ptr noundef) local_unnamed_addr #3
 
 declare void @fill_slab_stats_automove(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @slab_automove_extstore_free(ptr nocapture noundef %arg) local_unnamed_addr #4 {
+define dso_local void @slab_automove_extstore_free(ptr noundef captures(none) %arg) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   tail call void @free(ptr noundef %0) #11
@@ -79,7 +79,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slab_automove_extstore_run(ptr noundef %arg, ptr nocapture noundef writeonly initializes((0, 4)) %src, ptr nocapture noundef writeonly initializes((0, 4)) %dst) local_unnamed_addr #0 {
+define dso_local void @slab_automove_extstore_run(ptr noundef %arg, ptr noundef writeonly captures(none) initializes((0, 4)) %src, ptr noundef writeonly captures(none) initializes((0, 4)) %dst) local_unnamed_addr #0 {
 entry:
   %mem_limit_reached.i = alloca i8, align 1
   store i32 -1, ptr %src, align 4
@@ -322,10 +322,10 @@ return:                                           ; preds = %if.end119, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @global_page_pool_size(ptr noundef) local_unnamed_addr #3
 
@@ -333,10 +333,10 @@ declare i32 @global_page_pool_size(ptr noundef) local_unnamed_addr #3
 declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9

@@ -245,7 +245,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN3net22QuicCryptoClientConfig11CachedStateD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net22QuicCryptoClientConfig11CachedStateD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoClientConfigC2ESt10unique_ptrINS_13ProofVerifierESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef %proof_verifier) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net22QuicCryptoClientConfigC2ESt10unique_ptrINS_13ProofVerifierESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef captures(none) %proof_verifier) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3net16QuicCryptoConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this)
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -328,7 +328,7 @@ declare void @_ZN3net16QuicCryptoConfigC2Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoClientConfig11SetDefaultsEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net22QuicCryptoClientConfig11SetDefaultsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [2 x i32], align 8
   %ref.tmp3 = alloca [2 x i32], align 8
@@ -1160,7 +1160,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 declare noundef zeroext i1 @_ZNK3net12QuicWallTime7IsAfterES0_(ptr noundef nonnull align 8 dereferenceable(8), i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare noundef ptr @_ZN4base9Histogram14FactoryTimeGetEPKcNS_9TimeDeltaES3_ji(ptr noundef, i64, i64, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1209,7 +1209,7 @@ _ZNSt5queueImSt5dequeImSaImEEE4pushERKm.exit:     ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net22QuicCryptoClientConfig11CachedState35has_server_designated_connection_idEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net22QuicCryptoClientConfig11CachedState35has_server_designated_connection_idEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 240
@@ -1247,7 +1247,7 @@ _ZNSt5queueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net22QuicCryptoClientConfig11CachedState16has_server_nonceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net22QuicCryptoClientConfig11CachedState16has_server_nonceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
@@ -1445,7 +1445,7 @@ declare void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net22QuicCryptoClientConfig11CachedState15SetProofInvalidEv(ptr nocapture noundef nonnull align 8 dereferenceable(384) initializes((184, 185)) %this) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN3net22QuicCryptoClientConfig11CachedState15SetProofInvalidEv(ptr noundef nonnull align 8 captures(none) dereferenceable(384) initializes((184, 185)) %this) local_unnamed_addr #8 align 2 {
 entry:
   %server_config_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   store i8 0, ptr %server_config_valid_, align 8
@@ -2034,7 +2034,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net22QuicCryptoClientConfig11CachedState13SetProofValidEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((184, 185)) %this) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN3net22QuicCryptoClientConfig11CachedState13SetProofValidEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(384) initializes((184, 185)) %this) local_unnamed_addr #9 align 2 {
 entry:
   %server_config_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   store i8 1, ptr %server_config_valid_, align 8
@@ -2196,7 +2196,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net22QuicCryptoClientConfig11CachedState11proof_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net22QuicCryptoClientConfig11CachedState11proof_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %this) local_unnamed_addr #7 align 2 {
 entry:
   %server_config_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load i8, ptr %server_config_valid_, align 8
@@ -2205,7 +2205,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net22QuicCryptoClientConfig11CachedState18generation_counterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i64 @_ZNK3net22QuicCryptoClientConfig11CachedState18generation_counterEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %this) local_unnamed_addr #7 align 2 {
 entry:
   %generation_counter_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load i64, ptr %generation_counter_, align 8
@@ -2213,7 +2213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK3net22QuicCryptoClientConfig11CachedState20proof_verify_detailsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZNK3net22QuicCryptoClientConfig11CachedState20proof_verify_detailsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %this) local_unnamed_addr #7 align 2 {
 entry:
   %proof_verify_details_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %proof_verify_details_, align 8
@@ -2251,7 +2251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22QuicCryptoClientConfig11CachedState21SetProofVerifyDetailsEPNS_18ProofVerifyDetailsE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %this, ptr noundef %details) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN3net22QuicCryptoClientConfig11CachedState21SetProofVerifyDetailsEPNS_18ProofVerifyDetailsE(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %this, ptr noundef %details) local_unnamed_addr #3 align 2 {
 entry:
   %proof_verify_details_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %proof_verify_details_, align 8
@@ -2335,7 +2335,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3net22QuicCryptoClientConfig11CachedState35GetNextServerDesignatedConnectionIdEv(ptr nocapture noundef nonnull align 8 dereferenceable(384) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN3net22QuicCryptoClientConfig11CachedState35GetNextServerDesignatedConnectionIdEv(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.logging::LogMessage", align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 272
@@ -2411,7 +2411,7 @@ declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 derefe
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoClientConfig11CachedState18GetNextServerNonceB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(384) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net22QuicCryptoClientConfig11CachedState18GetNextServerNonceB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(384) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp11 = alloca %"class.std::allocator.23", align 1
@@ -4766,7 +4766,7 @@ declare noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3net22CryptoHandsha
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
@@ -4805,7 +4805,7 @@ declare void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 de
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 46) i32 @_ZN3net22QuicCryptoClientConfig20CacheNewServerConfigERKNS_22CryptoHandshakeMessageENS_12QuicWallTimeENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKSt6vectorISD_SaISD_EEPNS0_11CachedStateEPSD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(72) %message, i64 %now.coerce, i32 %version, ptr %chlo_hash.coerce0, i64 %chlo_hash.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %cached_certs, ptr noundef %cached, ptr noundef %error_details) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 46) i32 @_ZN3net22QuicCryptoClientConfig20CacheNewServerConfigERKNS_22CryptoHandshakeMessageENS_12QuicWallTimeENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKSt6vectorISD_SaISD_EEPNS0_11CachedStateEPSD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(72) %message, i64 %now.coerce, i32 %version, ptr %chlo_hash.coerce0, i64 %chlo_hash.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %cached_certs, ptr noundef %cached, ptr noundef %error_details) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %token.i = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5010,7 +5010,7 @@ declare i64 @_ZNK3net12QuicWallTime3AddENS_8QuicTime5DeltaE(ptr noundef nonnull 
 declare noundef zeroext i1 @_ZN3net14CertCompressor15DecompressChainEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKSt6vectorIS8_SaIS8_EEPKNS_14CommonCertSetsEPSC_(ptr, i64, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 46) i32 @_ZN3net22QuicCryptoClientConfig16ProcessRejectionERKNS_22CryptoHandshakeMessageENS_12QuicWallTimeENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS0_11CachedStateEPNS_30QuicCryptoNegotiatedParametersEPSD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(72) %rej, i64 %now.coerce, i32 noundef %version, ptr %chlo_hash.coerce0, i64 %chlo_hash.coerce1, ptr noundef %cached, ptr noundef %out_params, ptr noundef %error_details) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 46) i32 @_ZN3net22QuicCryptoClientConfig16ProcessRejectionERKNS_22CryptoHandshakeMessageENS_12QuicWallTimeENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS0_11CachedStateEPNS_30QuicCryptoNegotiatedParametersEPSD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(72) %rej, i64 %now.coerce, i32 noundef %version, ptr %chlo_hash.coerce0, i64 %chlo_hash.coerce1, ptr noundef %cached, ptr noundef %out_params, ptr noundef %error_details) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %connection_id.addr.i = alloca i64, align 8
   %nonce = alloca %"class.base::BasicStringPiece", align 8
@@ -5129,7 +5129,7 @@ return:                                           ; preds = %if.end14, %_ZN3net2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net22QuicCryptoClientConfig18ProcessServerHelloERKNS_22CryptoHandshakeMessageEmNS_11QuicVersionERKSt6vectorIS4_SaIS4_EEPNS0_11CachedStateEPNS_30QuicCryptoNegotiatedParametersEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(72) %server_hello, i64 noundef %connection_id, i32 noundef %version, ptr noundef nonnull align 8 dereferenceable(24) %negotiated_versions, ptr noundef %cached, ptr noundef %out_params, ptr noundef %error_details) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN3net22QuicCryptoClientConfig18ProcessServerHelloERKNS_22CryptoHandshakeMessageEmNS_11QuicVersionERKSt6vectorIS4_SaIS4_EEPNS0_11CachedStateEPNS_30QuicCryptoNegotiatedParametersEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(72) %server_hello, i64 noundef %connection_id, i32 noundef %version, ptr noundef nonnull align 8 dereferenceable(24) %negotiated_versions, ptr noundef %cached, ptr noundef %out_params, ptr noundef %error_details) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %token.i = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5288,7 +5288,7 @@ return:                                           ; preds = %entry, %cleanup, %i
 declare noundef i32 @_ZN3net11CryptoUtils19ValidateServerHelloERKNS_22CryptoHandshakeMessageERKSt6vectorINS_11QuicVersionESaIS5_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 46) i32 @_ZN3net22QuicCryptoClientConfig25ProcessServerConfigUpdateERKNS_22CryptoHandshakeMessageENS_12QuicWallTimeENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS0_11CachedStateEPNS_30QuicCryptoNegotiatedParametersEPSD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(72) %server_config_update, i64 %now.coerce, i32 noundef %version, ptr %chlo_hash.coerce0, i64 %chlo_hash.coerce1, ptr noundef %cached, ptr noundef %out_params, ptr noundef %error_details) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 46) i32 @_ZN3net22QuicCryptoClientConfig25ProcessServerConfigUpdateERKNS_22CryptoHandshakeMessageENS_12QuicWallTimeENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS0_11CachedStateEPNS_30QuicCryptoNegotiatedParametersEPSD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(72) %server_config_update, i64 %now.coerce, i32 noundef %version, ptr %chlo_hash.coerce0, i64 %chlo_hash.coerce1, ptr noundef %cached, ptr noundef %out_params, ptr noundef %error_details) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %server_config_update, align 8
   %cmp.not = icmp eq i32 %0, 1347765075
@@ -5309,7 +5309,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK3net22QuicCryptoClientConfig14proof_verifierEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZNK3net22QuicCryptoClientConfig14proof_verifierEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this) local_unnamed_addr #7 align 2 {
 entry:
   %proof_verifier_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %proof_verifier_, align 8
@@ -5317,7 +5317,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK3net22QuicCryptoClientConfig17channel_id_sourceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZNK3net22QuicCryptoClientConfig17channel_id_sourceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this) local_unnamed_addr #7 align 2 {
 entry:
   %channel_id_source_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %channel_id_source_, align 8
@@ -5325,7 +5325,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22QuicCryptoClientConfig18SetChannelIDSourceEPNS_15ChannelIDSourceE(ptr nocapture noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %source) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN3net22QuicCryptoClientConfig18SetChannelIDSourceEPNS_15ChannelIDSourceE(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %this, ptr noundef %source) local_unnamed_addr #3 align 2 {
 entry:
   %channel_id_source_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %channel_id_source_, align 8
@@ -5652,7 +5652,7 @@ declare void @_ZN3net12QuicServerIdC1ERKNSt7__cxx1112basic_stringIcSt11char_trai
 declare void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6817,7 +6817,7 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -11323,13 +11323,13 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #18

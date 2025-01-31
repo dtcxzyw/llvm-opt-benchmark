@@ -1175,7 +1175,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1310,13 +1310,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN31StorageEntity_Constructors_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN31StorageEntity_Constructors_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -2439,7 +2439,7 @@ init.end:                                         ; preds = %init, %init.check, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN23StorageEntity_Move_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN23StorageEntity_Move_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %other = alloca %"class.entt::basic_storage", align 8
@@ -6449,7 +6449,7 @@ _ZN7testing8internal11CmpHelperEQIN4entt6entityES3_EENS_15AssertionResultEPKcS6_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN23StorageEntity_Swap_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN23StorageEntity_Swap_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %other = alloca %"class.entt::basic_storage", align 8
@@ -8476,7 +8476,7 @@ ehcleanup329:                                     ; preds = %ehcleanup327, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN26StorageEntity_Getters_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN26StorageEntity_Getters_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %gtest_fatal_failure_checker = alloca %"class.testing::internal::HasNewFatalFailureHelper", align 8
@@ -9077,7 +9077,7 @@ ehcleanup139:                                     ; preds = %ehcleanup137, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN44StorageEntityDeathTest_DISABLED_Getters_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN44StorageEntityDeathTest_DISABLED_Getters_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %gtest_dt = alloca ptr, align 8
@@ -10751,17 +10751,17 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare noundef ptr @_ZN7testing8internal9DeathTest11LastMessageEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN26StorageEntity_Emplace_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN26StorageEntity_Emplace_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %entity = alloca [2 x i32], align 8
@@ -13935,7 +13935,7 @@ ehcleanup639:                                     ; preds = %ehcleanup637, %ehcl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN4entt13basic_storageINS_6entityES1_SaIS1_EvE7emplaceEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #4 comdat align 2 {
@@ -14096,7 +14096,7 @@ for.end18:                                        ; preds = %_ZNK4entt16basic_sp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN29StorageEntity_TryEmplace_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN29StorageEntity_TryEmplace_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -18322,7 +18322,7 @@ ehcleanup946:                                     ; preds = %ehcleanup942, %ehcl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7testing8internal8EqHelper7CompareItiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 2 dereferenceable(2) %lhs, ptr noundef nonnull align 4 dereferenceable(4) %rhs) local_unnamed_addr #4 comdat align 2 {
@@ -18346,7 +18346,7 @@ _ZN7testing8internal11CmpHelperEQItiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24StorageEntity_Patch_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24StorageEntity_Patch_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %counter = alloca i32, align 4
@@ -18752,7 +18752,7 @@ ehcleanup62:                                      ; preds = %ehcleanup58, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN42StorageEntityDeathTest_DISABLED_Patch_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN42StorageEntityDeathTest_DISABLED_Patch_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %gtest_dt = alloca ptr, align 8
@@ -19206,7 +19206,7 @@ terminate.lpad:                                   ; preds = %ehcleanup, %lpad36
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN25StorageEntity_Insert_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN25StorageEntity_Insert_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -21666,7 +21666,7 @@ ehcleanup465:                                     ; preds = %ehcleanup463, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN23StorageEntity_Pack_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN23StorageEntity_Pack_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %entity = alloca [3 x i32], align 8
@@ -23574,7 +23574,7 @@ ehcleanup342:                                     ; preds = %ehcleanup340, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24StorageEntity_InUse_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24StorageEntity_InUse_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -24665,7 +24665,7 @@ ehcleanup195:                                     ; preds = %ehcleanup193, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN42StorageEntityDeathTest_DISABLED_InUse_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN42StorageEntityDeathTest_DISABLED_InUse_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %gtest_dt = alloca ptr, align 8
@@ -25132,7 +25132,7 @@ terminate.lpad:                                   ; preds = %ehcleanup, %lpad36
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN27StorageEntity_Iterable_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN27StorageEntity_Iterable_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i = alloca %"struct.entt::internal::sparse_set_iterator", align 8
   %pool = alloca %"class.entt::basic_storage", align 8
@@ -27614,7 +27614,7 @@ ehcleanup468:                                     ; preds = %ehcleanup462, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32StorageEntity_ConstIterable_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32StorageEntity_ConstIterable_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i = alloca %"struct.entt::internal::sparse_set_iterator", align 8
   %pool = alloca %"class.entt::basic_storage", align 8
@@ -30096,7 +30096,7 @@ ehcleanup468:                                     ; preds = %ehcleanup462, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN45StorageEntity_IterableIteratorConversion_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN45StorageEntity_IterableIteratorConversion_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %it = alloca %"class.entt::internal::extended_storage_iterator", align 8
@@ -30536,7 +30536,7 @@ ehcleanup59:                                      ; preds = %ehcleanup55, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN49StorageEntity_IterableAlgorithmCompatibility_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN49StorageEntity_IterableAlgorithmCompatibility_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -30812,7 +30812,7 @@ ehcleanup33:                                      ; preds = %ehcleanup27, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34StorageEntity_ReverseIterable_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34StorageEntity_ReverseIterable_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i = alloca %"struct.entt::internal::sparse_set_iterator", align 8
   %pool = alloca %"class.entt::basic_storage", align 8
@@ -33282,7 +33282,7 @@ ehcleanup461:                                     ; preds = %ehcleanup455, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN39StorageEntity_ReverseConstIterable_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN39StorageEntity_ReverseConstIterable_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i = alloca %"struct.entt::internal::sparse_set_iterator", align 8
   %pool = alloca %"class.entt::basic_storage", align 8
@@ -35752,7 +35752,7 @@ ehcleanup461:                                     ; preds = %ehcleanup455, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN52StorageEntity_ReverseIterableIteratorConversion_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN52StorageEntity_ReverseIterableIteratorConversion_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %it = alloca %"class.entt::internal::extended_storage_iterator.52", align 8
@@ -36171,7 +36171,7 @@ ehcleanup59:                                      ; preds = %ehcleanup55, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN56StorageEntity_ReverseIterableAlgorithmCompatibility_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN56StorageEntity_ReverseIterableAlgorithmCompatibility_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -36442,7 +36442,7 @@ ehcleanup33:                                      ; preds = %ehcleanup27, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN30StorageEntity_SortOrdered_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN30StorageEntity_SortOrdered_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -36801,7 +36801,7 @@ ehcleanup39:                                      ; preds = %ehcleanup34, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN30StorageEntity_SortReverse_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN30StorageEntity_SortReverse_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -37160,7 +37160,7 @@ ehcleanup39:                                      ; preds = %ehcleanup34, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32StorageEntity_SortUnordered_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32StorageEntity_SortUnordered_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %entity = alloca [5 x i32], align 16
@@ -38142,7 +38142,7 @@ ehcleanup156:                                     ; preds = %ehcleanup154, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24StorageEntity_SortN_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24StorageEntity_SortN_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.entt::basic_storage", align 8
   %entity = alloca [5 x i32], align 16
@@ -39943,7 +39943,7 @@ while.end:                                        ; preds = %while.body, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN33StorageEntity_SortAsDisjoint_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN33StorageEntity_SortAsDisjoint_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs = alloca %"class.entt::basic_storage", align 8
   %rhs = alloca %"class.entt::basic_storage", align 8
@@ -40696,7 +40696,7 @@ if.end9:                                          ; preds = %if.then7, %if.then,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32StorageEntity_SortAsOverlap_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32StorageEntity_SortAsOverlap_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs = alloca %"class.entt::basic_storage", align 8
   %rhs = alloca %"class.entt::basic_storage", align 8
@@ -41780,7 +41780,7 @@ ehcleanup186:                                     ; preds = %ehcleanup184, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32StorageEntity_SortAsOrdered_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32StorageEntity_SortAsOrdered_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs = alloca %"class.entt::basic_storage", align 8
   %rhs = alloca %"class.entt::basic_storage", align 8
@@ -42680,7 +42680,7 @@ ehcleanup136:                                     ; preds = %ehcleanup127, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32StorageEntity_SortAsReverse_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32StorageEntity_SortAsReverse_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs = alloca %"class.entt::basic_storage", align 8
   %rhs = alloca %"class.entt::basic_storage", align 8
@@ -44372,7 +44372,7 @@ ehcleanup282:                                     ; preds = %ehcleanup280, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34StorageEntity_SortAsUnordered_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34StorageEntity_SortAsUnordered_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs = alloca %"class.entt::basic_storage", align 8
   %rhs = alloca %"class.entt::basic_storage", align 8
@@ -47630,7 +47630,7 @@ if.end94:                                         ; preds = %for.body.i.i.i154, 
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
@@ -48254,7 +48254,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK7testing8internal19MatchesRegexMatcher10DescribeToEPSo(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef %os) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -51187,7 +51187,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %if.end
-  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i64 noundef %call.i.i)
+  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3, i64 noundef %call.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i

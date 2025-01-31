@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -527, -528) i32 @nfs3_proc_get_root(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_get_root(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc i32 @do_proc_get_root(ptr noundef %5, ptr noundef %1, ptr noundef %2)
@@ -75,7 +75,7 @@ declare dso_local i32 @nfs_submount(ptr noundef, ptr noundef) #1
 declare dso_local i32 @nfs_try_get_tree(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -527, -528) i32 @nfs3_proc_getattr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_getattr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3) #0 align 16 {
   %5 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 48), ptr %5, align 8
@@ -137,7 +137,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_getattr(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.nfs3_sattrargs, align 8
   %5 = alloca %struct.rpc_message, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -244,7 +244,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -527, -528) i32 @nfs3_proc_lookup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_lookup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 872
@@ -690,7 +690,7 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -527, -528) i32 @nfs3_proc_remove(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_remove(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.nfs_removeargs, align 8
   %4 = alloca %struct.nfs_removeres, align 8
   %5 = alloca %struct.rpc_message, align 8
@@ -772,13 +772,13 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_remove(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @nfs3_proc_unlink_setup(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define internal void @nfs3_proc_unlink_setup(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 576), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs3_proc_unlink_rpc_prepare(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @nfs3_proc_unlink_rpc_prepare(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @rpc_call_start(ptr noundef %0) #10
   ret void
 }
@@ -818,13 +818,13 @@ define internal noundef range(i32 0, 2) i32 @nfs3_proc_unlink_done(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @nfs3_proc_rename_setup(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define internal void @nfs3_proc_rename_setup(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 672), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs3_proc_rename_rpc_prepare(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @nfs3_proc_rename_rpc_prepare(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @rpc_call_start(ptr noundef %0) #10
   ret void
 }
@@ -867,7 +867,7 @@ define internal noundef range(i32 0, 2) i32 @nfs3_proc_rename_done(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -527, -528) i32 @nfs3_proc_link(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_link(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.nfs3_linkargs, align 8
   %5 = alloca %struct.nfs3_linkres, align 8
   %6 = alloca %struct.rpc_message, align 8
@@ -1164,7 +1164,7 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -527, -528) i32 @nfs3_proc_rmdir(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_rmdir(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.nfs3_diropargs, align 8
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
@@ -1243,7 +1243,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_rmdir(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -527, -528) i32 @nfs3_proc_readdir(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_readdir(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.nfs3_readdirargs, align 8
   %4 = alloca %struct.nfs3_readdirres, align 8
   %5 = alloca %struct.rpc_message, align 8
@@ -1519,7 +1519,7 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -527, -528) i32 @nfs3_proc_statfs(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_statfs(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 864), ptr %4, align 8
@@ -1570,7 +1570,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_statfs(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
   %5 = alloca %struct.rpc_message, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1686,7 +1686,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -527, -528) i32 @nfs3_proc_pathconf(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -527, -528) i32 @nfs3_proc_pathconf(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 960), ptr %4, align 8
@@ -1740,13 +1740,13 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_pathconf(ptr nocapture noun
 declare dso_local i32 @nfs3_decode_dirent(ptr noundef, ptr noundef, i1 noundef zeroext) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs3_proc_pgio_rpc_prepare(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @nfs3_proc_pgio_rpc_prepare(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @rpc_call_start(ptr noundef %0) #10
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @nfs3_proc_read_setup(ptr nocapture noundef initializes((680, 684)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #3 align 16 {
+define internal void @nfs3_proc_read_setup(ptr noundef captures(none) initializes((680, 684)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #3 align 16 {
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 288), ptr %1, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1820,7 +1820,7 @@ define internal i32 @nfs3_read_done(ptr noundef %0, ptr noundef %1) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @nfs3_proc_write_setup(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture readnone %2) #2 align 16 {
+define internal void @nfs3_proc_write_setup(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr readnone captures(none) %2) #2 align 16 {
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 336), ptr %1, align 8
   ret void
 }
@@ -1871,13 +1871,13 @@ define internal i32 @nfs3_write_done(ptr noundef %0, ptr noundef %1) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @nfs3_proc_commit_setup(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture readnone %2) #2 align 16 {
+define internal void @nfs3_proc_commit_setup(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr readnone captures(none) %2) #2 align 16 {
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 1008), ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs3_proc_commit_rpc_prepare(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @nfs3_proc_commit_rpc_prepare(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @rpc_call_start(ptr noundef %0) #10
   ret void
 }
@@ -1927,7 +1927,7 @@ define internal i32 @nfs3_commit_done(ptr noundef %0, ptr noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs3_proc_lock(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @nfs3_proc_lock(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -1975,7 +1975,7 @@ declare dso_local void @forget_all_cached_acls(ptr noundef) #1
 declare dso_local void @nfs_close_context(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @nfs3_have_delegation(ptr nocapture readnone %0, i32 %1) #4 align 16 {
+define internal noundef i32 @nfs3_have_delegation(ptr readnone captures(none) %0, i32 %1) #4 align 16 {
   ret i32 0
 }
 
@@ -2110,7 +2110,7 @@ define internal void @nfs3_nlm_release_call(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @get_nfs_open_context(ptr noundef) local_unnamed_addr #1
@@ -2119,7 +2119,7 @@ declare dso_local ptr @get_nfs_open_context(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @nfs_get_lock_context(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @nfs_async_iocounter_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2220,7 +2220,7 @@ define internal fastcc range(i32 -527, -528) i32 @do_proc_get_root(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @nfs_fattr_init(ptr noundef) local_unnamed_addr #1
@@ -2492,7 +2492,7 @@ declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @rpc_call_start(ptr noundef) local_unnamed_addr #1

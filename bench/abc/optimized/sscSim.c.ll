@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Gia_Obj_t_ = type <{ i64, i32 }>
 
 ; Function Attrs: nounwind uwtable
-define void @Vec_WrdDoubleSimInfo(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Vec_WrdDoubleSimInfo(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %3, align 4
   %4 = shl nsw i32 %.val, 1
@@ -66,13 +66,13 @@ define void @Vec_WrdDoubleSimInfo(ptr nocapture noundef %0, i32 noundef %1) loca
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Ssc_GiaResetPiPattern(ptr nocapture noundef initializes((812, 816)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Ssc_GiaResetPiPattern(ptr noundef captures(none) initializes((812, 816)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 812
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 848
@@ -147,7 +147,7 @@ Vec_WrdFill.exit:                                 ; preds = %27, %Vec_WrdGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssc_GiaSavePiPattern(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Ssc_GiaSavePiPattern(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 812
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 848
@@ -285,7 +285,7 @@ Vec_WrdDoubleSimInfo.exit:                        ; preds = %._crit_edge.i, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssc_GiaRandomPiPattern(ptr nocapture noundef initializes((812, 816)) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @Ssc_GiaRandomPiPattern(ptr noundef captures(none) initializes((812, 816)) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 812
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 848
@@ -525,13 +525,13 @@ Ssc_GiaResetPiPattern.exit:                       ; preds = %28, %Vec_WrdGrow.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Ssc_GiaPrintPiPatterns(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define void @Ssc_GiaPrintPiPatterns(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
 .critedge:
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssc_GiaTransferPiPattern(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define i32 @Ssc_GiaTransferPiPattern(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
@@ -819,7 +819,7 @@ Ssc_GiaResetPiPattern.exit:                       ; preds = %83, %Vec_WrdGrow.ex
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Ssc_GiaGetCareMask(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define noalias noundef ptr @Ssc_GiaGetCareMask(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -896,7 +896,7 @@ Ssc_SimAnd.exit.loopexit.us:                      ; preds = %.lr.ph.i.us
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssc_GiaResetSimInfo(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Ssc_GiaResetSimInfo(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -979,7 +979,7 @@ Vec_WrdFill.exit:                                 ; preds = %32, %Vec_WrdGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssc_GiaSimRound(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Ssc_GiaSimRound(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -1399,10 +1399,10 @@ Ssc_SimDup.exit126:                               ; preds = %.lr.ph.i115, %.lr.p
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Ssc_GiaGetOneSim(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Ssc_GiaGetOneSim(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -1666,7 +1666,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Ssc_GiaFindPivotSim(ptr nocapture noundef initializes((812, 816)) %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Ssc_GiaFindPivotSim(ptr noundef captures(none) initializes((812, 816)) %0) local_unnamed_addr #0 {
   tail call void @Ssc_GiaRandomPiPattern(ptr noundef %0, i32 noundef 1, ptr noundef null)
   tail call void @Ssc_GiaSimRound(ptr noundef %0)
   %2 = tail call ptr @Ssc_GiaGetOneSim(ptr noundef %0)
@@ -1674,7 +1674,7 @@ define noalias noundef ptr @Ssc_GiaFindPivotSim(ptr nocapture noundef initialize
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define i32 @Ssc_GiaCountCaresSim(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define i32 @Ssc_GiaCountCaresSim(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -1797,7 +1797,7 @@ Ssc_SimCountBits.exit.thread:                     ; preds = %.lr.ph.i7, %Ssc_Sim
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssc_GiaEstimateCare(ptr nocapture noundef initializes((812, 816)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @Ssc_GiaEstimateCare(ptr noundef captures(none) initializes((812, 816)) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @Ssc_GiaRandomPiPattern(ptr noundef %0, i32 noundef %1, ptr noundef null)
   tail call void @Ssc_GiaSimRound(ptr noundef %0)
   %3 = tail call i32 @Ssc_GiaCountCaresSim(ptr noundef %0)
@@ -1805,7 +1805,7 @@ define i32 @Ssc_GiaEstimateCare(ptr nocapture noundef initializes((812, 816)) %0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @Gia_ManRandom(i32 noundef) local_unnamed_addr #10
 

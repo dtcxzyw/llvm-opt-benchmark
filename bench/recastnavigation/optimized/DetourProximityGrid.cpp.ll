@@ -47,13 +47,13 @@ define void @_Z19dtFreeProximityGridP15dtProximityGrid(ptr noundef %0) local_unn
 declare void @_Z6dtFreePv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15dtProximityGridC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 36)) %0) unnamed_addr #2 align 2 {
+define void @_ZN15dtProximityGridC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(52) initializes((0, 36)) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 0, i64 36, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15dtProximityGridD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15dtProximityGridD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z6dtFreePv(ptr noundef %3)
@@ -91,7 +91,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN15dtProximityGrid4initEif(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8), (24, 36)) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN15dtProximityGrid4initEif(ptr noundef nonnull align 8 captures(none) dereferenceable(52) initializes((0, 8), (24, 36)) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %5 = icmp eq ptr %4, null
   %6 = icmp sgt i32 %1, 0
@@ -178,7 +178,7 @@ define noundef zeroext i1 @_ZN15dtProximityGrid4initEif(ptr nocapture noundef no
 declare noundef ptr @_Z21dtAssertFailGetCustomv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN15dtProximityGrid5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((16, 20), (36, 52)) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN15dtProximityGrid5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(52) initializes((16, 20), (36, 52)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -200,10 +200,10 @@ define void @_ZN15dtProximityGrid5clearEv(ptr nocapture noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN15dtProximityGrid7addItemEtffff(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, i16 noundef zeroext %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #8 align 2 {
+define void @_ZN15dtProximityGrid7addItemEtffff(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %0, i16 noundef zeroext %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #8 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load float, ptr %7, align 4
   %9 = fmul float %2, %8
@@ -313,7 +313,7 @@ define void @_ZN15dtProximityGrid7addItemEtffff(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #9 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load float, ptr %8, align 4
   %10 = fmul float %1, %9
@@ -433,7 +433,7 @@ define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = mul nsw i32 %1, 73856093

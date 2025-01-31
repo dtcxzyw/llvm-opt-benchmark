@@ -234,10 +234,10 @@ _ZN10PathfinderD2Ev.exit10:                       ; preds = %delete.notnull.i7, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: uwtable
 define dso_local void @_ZN10Pathfinder7getPathEN3irr4core8vector3dIsEES3_jjj13PathAlgorithm(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 25), (26, 50)) %this, i48 %source.coerce, i48 %destination.coerce, i32 noundef %searchdistance, i32 noundef %max_jump, i32 noundef %max_drop, i32 noundef %algo) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -1446,10 +1446,10 @@ _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EED2Ev.exit664: ; preds = %ehcleanup32
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN8PathCostC2ERKS_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(13) initializes((0, 1), (4, 13)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(13) %b) unnamed_addr #7 align 2 {
+define dso_local void @_ZN8PathCostC2ERKS_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(13) initializes((0, 1), (4, 13)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(13) %b) unnamed_addr #7 align 2 {
 entry:
   store i8 0, ptr %this, align 4, !tbaa !127
   %value = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -1467,7 +1467,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(13) ptr @_ZN8PathCostaSERKS_(ptr noundef nonnull returned writeonly align 4 dereferenceable(13) initializes((0, 1), (4, 13)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(13) %b) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(13) ptr @_ZN8PathCostaSERKS_(ptr noundef nonnull returned writeonly align 4 dereferenceable(13) initializes((0, 1), (4, 13)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(13) %b) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %b, align 4, !tbaa !127, !range !86, !noundef !87
   store i8 %0, ptr %this, align 4, !tbaa !127
@@ -1483,7 +1483,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN12PathGridnodeC2ERKS_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(92) initializes((0, 3), (4, 25), (28, 37), (40, 41), (44, 53), (56, 57), (60, 69), (72, 73), (76, 85), (88, 92)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(92) %b) unnamed_addr #7 align 2 {
+define dso_local void @_ZN12PathGridnodeC2ERKS_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(92) initializes((0, 3), (4, 25), (28, 37), (40, 41), (44, 53), (56, 57), (60, 69), (72, 73), (76, 85), (88, 92)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(92) %b) unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %b, align 4, !tbaa !110, !range !86, !noundef !87
   store i8 %0, ptr %this, align 4, !tbaa !110
@@ -1579,7 +1579,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN12PathGridnodeaSERKS_(ptr noundef nonnull returned writeonly align 4 dereferenceable(92) initializes((0, 3), (4, 8), (12, 25), (28, 37), (40, 41), (44, 53), (56, 57), (60, 69), (72, 73), (76, 85), (90, 92)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(92) %b) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN12PathGridnodeaSERKS_(ptr noundef nonnull returned writeonly align 4 dereferenceable(92) initializes((0, 3), (4, 8), (12, 25), (28, 37), (40, 41), (44, 53), (56, 57), (60, 69), (72, 73), (76, 85), (90, 92)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(92) %b) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %b, align 4, !tbaa !110, !range !86, !noundef !87
   store i8 %0, ptr %this, align 4, !tbaa !110
@@ -1661,7 +1661,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN12PathGridnode7getCostEN3irr4core8vector3dIsEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.PathCost) align 4 initializes((0, 1), (4, 13)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(92) %this, i48 %dir.coerce) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN12PathGridnode7getCostEN3irr4core8vector3dIsEE(ptr dead_on_unwind noalias writable writeonly sret(%class.PathCost) align 4 captures(none) initializes((0, 1), (4, 13)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(92) %this, i48 %dir.coerce) local_unnamed_addr #7 align 2 {
 entry:
   %dir.sroa.0.0.extract.trunc = trunc i48 %dir.coerce to i32
   %sext = shl i32 %dir.sroa.0.0.extract.trunc, 16
@@ -1749,7 +1749,7 @@ return:                                           ; preds = %if.end21, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN12PathGridnode7setCostEN3irr4core8vector3dIsEERK8PathCost(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(92) %this, i48 %dir.coerce, ptr nocapture noundef nonnull readonly align 4 dereferenceable(13) %cost) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN12PathGridnode7setCostEN3irr4core8vector3dIsEERK8PathCost(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(92) %this, i48 %dir.coerce, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(13) %cost) local_unnamed_addr #7 align 2 {
 entry:
   %dir.sroa.0.0.extract.trunc = trunc i48 %dir.coerce to i32
   %sext = shl i32 %dir.sroa.0.0.extract.trunc, 16
@@ -1821,7 +1821,7 @@ if.end24:                                         ; preds = %if.end24.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17GridNodeContainer8initNodeEN3irr4core8vector3dIsEEP12PathGridnode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i48 %ipos.coerce, ptr nocapture noundef writeonly %p_node) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN17GridNodeContainer8initNodeEN3irr4core8vector3dIsEEP12PathGridnode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i48 %ipos.coerce, ptr noundef writeonly captures(none) %p_node) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp54 = alloca %class.PathCost, align 4
   %ref.tmp59 = alloca %class.PathCost, align 4
@@ -2045,7 +2045,7 @@ cleanup:                                          ; preds = %if.then53, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i48 @_ZN10Pathfinder10getRealPosEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i48 %ipos.coerce) local_unnamed_addr #8 align 2 {
+define dso_local i48 @_ZN10Pathfinder10getRealPosEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i48 %ipos.coerce) local_unnamed_addr #8 align 2 {
 entry:
   %ipos.sroa.0.0.extract.trunc = trunc i48 %ipos.coerce to i16
   %ipos.sroa.2.0.extract.shift = lshr i48 %ipos.coerce, 16
@@ -2074,7 +2074,7 @@ entry:
 declare i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144), i48, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN10Pathfinder8calcCostEN3irr4core8vector3dIsEES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.PathCost) align 4 initializes((0, 1), (4, 13)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i48 %pos.coerce, i48 %dir.coerce) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN10Pathfinder8calcCostEN3irr4core8vector3dIsEES3_(ptr dead_on_unwind noalias writable writeonly sret(%class.PathCost) align 4 captures(none) initializes((0, 1), (4, 13)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i48 %pos.coerce, i48 %dir.coerce) local_unnamed_addr #6 align 2 {
 entry:
   %pos2 = alloca %"class.irr::core::vector3d", align 8
   %ref.tmp25 = alloca %"class.irr::core::vector3d", align 8
@@ -2870,7 +2870,7 @@ _ZN11StreamProxylsIRA13_KcEERS_OT_.exit:          ; preds = %if.then.i, %entry
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN22ArrayGridNodeContainer6accessEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i48 %p.coerce) unnamed_addr #8 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN22ArrayGridNodeContainer6accessEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i48 %p.coerce) unnamed_addr #8 align 2 {
 entry:
   %p.sroa.0.0.extract.trunc = trunc i48 %p.coerce to i32
   %m_nodes_array = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3134,7 +3134,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: uwtable
-define dso_local i48 @_ZN10Pathfinder13walkDownwardsEN3irr4core8vector3dIsEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i48 %pos.coerce, i32 noundef %max_down) local_unnamed_addr #6 align 2 {
+define dso_local i48 @_ZN10Pathfinder13walkDownwardsEN3irr4core8vector3dIsEEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i48 %pos.coerce, i32 noundef %max_down) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp42 = alloca %"class.irr::core::vector3d", align 8
   %ref.tmp48 = alloca %"class.irr::core::vector3d", align 8
@@ -3382,7 +3382,7 @@ return:                                           ; preds = %while.body, %_ZN11S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i48 @_ZN10Pathfinder11getIndexPosEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i48 %pos.coerce) local_unnamed_addr #8 align 2 {
+define dso_local i48 @_ZN10Pathfinder11getIndexPosEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i48 %pos.coerce) local_unnamed_addr #8 align 2 {
 entry:
   %pos.sroa.0.0.extract.trunc = trunc i48 %pos.coerce to i16
   %pos.sroa.2.0.extract.shift = lshr i48 %pos.coerce, 16
@@ -3409,7 +3409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN10Pathfinder15getIndexElementEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i48 %ipos.coerce) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN10Pathfinder15getIndexElementEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i48 %ipos.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %m_nodes_container = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_nodes_container, align 8, !tbaa !17
@@ -3447,7 +3447,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN10Pathfinder14updateAllCostsEN3irr4core8vector3dIsEES3_ii(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i48 %ipos.coerce, i48 %srcdir.coerce, i32 noundef %current_cost, i32 noundef %level) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN10Pathfinder14updateAllCostsEN3irr4core8vector3dIsEES3_ii(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, i48 %ipos.coerce, i48 %srcdir.coerce, i32 noundef %current_cost, i32 noundef %level) local_unnamed_addr #6 align 2 {
 entry:
   %ipos2 = alloca %"class.irr::core::vector3d", align 8
   %ipos.sroa.0.0.extract.trunc = trunc i48 %ipos.coerce to i16
@@ -4240,7 +4240,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN10Pathfinder9buildPathERSt6vectorIN3irr4core8vector3dIsEESaIS4_EES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %path, i48 %ipos.coerce) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN10Pathfinder9buildPathERSt6vectorIN3irr4core8vector3dIsEESaIS4_EES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %path, i48 %ipos.coerce) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ipos.sroa.0.0.extract.trunc = trunc i48 %ipos.coerce to i16
   %ipos.sroa.6.0.extract.shift = lshr i48 %ipos.coerce, 16
@@ -4594,7 +4594,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN3irr4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10PathfinderD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #13 align 2 {
+define dso_local void @_ZN10PathfinderD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) unnamed_addr #13 align 2 {
 entry:
   %m_nodes_container = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_nodes_container, align 8, !tbaa !17
@@ -4645,7 +4645,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN10Pathfinder12isValidIndexEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i48 %index.coerce) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZN10Pathfinder12isValidIndexEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i48 %index.coerce) local_unnamed_addr #8 align 2 {
 entry:
   %index.sroa.0.0.extract.trunc = trunc i48 %index.coerce to i32
   %sext = shl i32 %index.sroa.0.0.extract.trunc, 16
@@ -4683,7 +4683,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i48 @_ZN10Pathfinder6invertEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %this, i48 %pos.coerce) local_unnamed_addr #14 align 2 {
+define dso_local i48 @_ZN10Pathfinder6invertEN3irr4core8vector3dIsEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %this, i48 %pos.coerce) local_unnamed_addr #14 align 2 {
 entry:
   %retval.sroa.0.0.extract.trunc = trunc i48 %pos.coerce to i16
   %mul = sub i16 0, %retval.sroa.0.0.extract.trunc
@@ -4704,7 +4704,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 -131070, 131071) i32 @_ZN10Pathfinder18getXZManhattanDistEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i48 %pos.coerce) local_unnamed_addr #8 align 2 {
+define dso_local noundef range(i32 -131070, 131071) i32 @_ZN10Pathfinder18getXZManhattanDistEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i48 %pos.coerce) local_unnamed_addr #8 align 2 {
 entry:
   %pos.sroa.0.0.extract.trunc = trunc i48 %pos.coerce to i16
   %pos.sroa.553.0.extract.shift = lshr i48 %pos.coerce, 32
@@ -4728,7 +4728,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt14priority_queueIN3irr4core8vector3dIsEESt6vectorIS3_SaIS3_EE26PathfinderCompareHeuristicE4pushERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 2 dereferenceable(6) %__x) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4945,7 +4945,7 @@ declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 deref
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18

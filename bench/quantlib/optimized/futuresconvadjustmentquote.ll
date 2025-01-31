@@ -156,7 +156,7 @@ $_ZGVZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1 align 2
@@ -275,7 +275,7 @@ _ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -375,7 +375,7 @@ declare void @llvm.trap() #9
 declare void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26FuturesConvAdjustmentQuoteC2ERKN5boost10shared_ptrINS_9IborIndexEEERKNS_4DateENS_6HandleINS_5QuoteEEESC_SC_(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16), (24, 28), (32, 40)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %futuresDate, ptr nocapture noundef %futuresQuote, ptr nocapture noundef %volatility, ptr nocapture noundef %meanReversion) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26FuturesConvAdjustmentQuoteC2ERKN5boost10shared_ptrINS_9IborIndexEEERKNS_4DateENS_6HandleINS_5QuoteEEESC_SC_(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16), (24, 28), (32, 40)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %futuresDate, ptr noundef captures(none) %futuresQuote, ptr noundef captures(none) %volatility, ptr noundef captures(none) %meanReversion) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.10", align 8
   %ref.tmp21 = alloca %"class.boost::shared_ptr.10", align 8
@@ -1132,7 +1132,7 @@ ehcleanup46:                                      ; preds = %ehcleanup45, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10shared_ptrIN8QuantLib10ObservableEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1270,7 +1270,7 @@ _ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26FuturesConvAdjustmentQuoteC1ERKN5boost10shared_ptrINS_9IborIndexEEERKNS_4DateENS_6HandleINS_5QuoteEEESC_SC_(ptr noundef nonnull align 8 dereferenceable(144) initializes((160, 164), (168, 176)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %futuresDate, ptr nocapture noundef %futuresQuote, ptr nocapture noundef %volatility, ptr nocapture noundef %meanReversion) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26FuturesConvAdjustmentQuoteC1ERKN5boost10shared_ptrINS_9IborIndexEEERKNS_4DateENS_6HandleINS_5QuoteEEESC_SC_(ptr noundef nonnull align 8 dereferenceable(144) initializes((160, 164), (168, 176)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %futuresDate, ptr noundef captures(none) %futuresQuote, ptr noundef captures(none) %volatility, ptr noundef captures(none) %meanReversion) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.10", align 8
   %ref.tmp19 = alloca %"class.boost::shared_ptr.10", align 8
@@ -2023,7 +2023,7 @@ ehcleanup44:                                      ; preds = %ehcleanup43, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26FuturesConvAdjustmentQuoteC2ERKN5boost10shared_ptrINS_9IborIndexEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6HandleINS_5QuoteEEESH_SH_(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16), (24, 28), (32, 40)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr noundef nonnull align 8 dereferenceable(32) %immCode, ptr nocapture noundef %futuresQuote, ptr nocapture noundef %volatility, ptr nocapture noundef %meanReversion) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26FuturesConvAdjustmentQuoteC2ERKN5boost10shared_ptrINS_9IborIndexEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6HandleINS_5QuoteEEESH_SH_(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16), (24, 28), (32, 40)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index, ptr noundef nonnull align 8 dereferenceable(32) %immCode, ptr noundef captures(none) %futuresQuote, ptr noundef captures(none) %volatility, ptr noundef captures(none) %meanReversion) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %ref.tmp19 = alloca %"class.boost::shared_ptr.10", align 8
@@ -2847,7 +2847,7 @@ declare i64 @_ZN8QuantLib3IMM4dateERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26FuturesConvAdjustmentQuoteC1ERKN5boost10shared_ptrINS_9IborIndexEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6HandleINS_5QuoteEEESH_SH_(ptr noundef nonnull align 8 dereferenceable(144) initializes((160, 164), (168, 176)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr noundef nonnull align 8 dereferenceable(32) %immCode, ptr nocapture noundef %futuresQuote, ptr nocapture noundef %volatility, ptr nocapture noundef %meanReversion) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26FuturesConvAdjustmentQuoteC1ERKN5boost10shared_ptrINS_9IborIndexEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6HandleINS_5QuoteEEESH_SH_(ptr noundef nonnull align 8 dereferenceable(144) initializes((160, 164), (168, 176)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index, ptr noundef nonnull align 8 dereferenceable(32) %immCode, ptr noundef captures(none) %futuresQuote, ptr noundef captures(none) %volatility, ptr noundef captures(none) %meanReversion) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %ref.tmp17 = alloca %"class.boost::shared_ptr.10", align 8
@@ -5079,7 +5079,7 @@ _ZN8QuantLib8ObserverD2Ev.exit:                   ; preds = %for.cond.cleanup.i
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
@@ -5139,7 +5139,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #15
 declare void @llvm.assume(i1 noundef) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23

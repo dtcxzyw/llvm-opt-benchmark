@@ -287,7 +287,7 @@ _ZN13GrowableArrayImED2Ev.exit:                   ; preds = %2, %6
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN22ObjectSampleCheckpoint15save_mark_wordsEPK13ObjectSamplerR18ObjectSampleMarkerb(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN22ObjectSampleCheckpoint15save_mark_wordsEPK13ObjectSamplerR18ObjectSampleMarkerb(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZNK13ObjectSampler4lastEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ZL15iterate_samplesI12SampleMarkerEvRT_b.exit, label %6
@@ -378,7 +378,7 @@ declare noundef ptr @_ZNK13ObjectSampler4lastEv(ptr noundef nonnull align 8 dere
 declare noundef i64 @_ZN13ObjectSampler10last_sweepEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9BlobCache3getEPK12ObjectSample(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RefCountHandle) align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((40, 48)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9BlobCache3getEPK12ObjectSample(ptr dead_on_unwind noalias writable writeonly sret(%class.RefCountHandle) align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((40, 48)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -442,7 +442,7 @@ _ZNK22JfrBasicHashtableEntryI14RefCountHandleI15RefCountPointerI7JfrBlob23MultiT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9BlobCache3putEPK12ObjectSampleRK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((40, 48)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9BlobCache3putEPK12ObjectSampleRK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((40, 48)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -500,7 +500,7 @@ _ZN13HashTableHostI14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23StackTraceBlobInstaller7installEP12ObjectSample(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((40, 48)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN23StackTraceBlobInstaller7installEP12ObjectSample(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((40, 48)) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JfrCheckpointWriter, align 8
   %4 = alloca %class.RefCountHandle, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -725,7 +725,7 @@ declare void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnul
 declare void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ObjectSampleCheckpoint16write_stacktraceEPK13JfrStackTraceR19JfrCheckpointWriter(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(73) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22ObjectSampleCheckpoint16write_stacktraceEPK13JfrStackTraceR19JfrCheckpointWriter(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JfrCheckpointFlush, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
@@ -1612,7 +1612,7 @@ declare void @_ZN18ObjectSampleWriterC1ER19JfrCheckpointWriterP9EdgeStore(ptr no
 declare void @_ZN18ObjectSampleWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ObjectSampleCheckpoint11on_type_setEP10JavaThread(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22ObjectSampleCheckpoint11on_type_setEP10JavaThread(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN13ObjectSampler20has_unresolved_entryEv() #11
   br i1 %2, label %3, label %9
 
@@ -1996,7 +1996,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSRK15NativeCallStackN17AllocFailSt
 declare void @_ZN15NativeCallStackC1Ei(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2387,7 +2387,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 declare void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef, i64 noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2598,10 +2598,10 @@ declare i32 @llvm.ctpop.i32(i32) #8
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

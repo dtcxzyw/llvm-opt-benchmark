@@ -150,7 +150,7 @@ define void @_ZN3g2o8RawLaserD0Ev(ptr noundef nonnull align 16 dereferenceable(2
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK3g2o8RawLaser5writeERSo(ptr nocapture nonnull readnone align 16 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK3g2o8RawLaser5writeERSo(ptr nonnull readnone align 16 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #6 align 2 {
   ret i1 false
 }
 
@@ -429,7 +429,7 @@ define void @_ZN3g2o8RawLaser13setRemissionsERKSt6vectorIdSaIdEE(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3g2o8RawLaser14setLaserParamsERKNS_15LaserParametersE(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(256) initializes((160, 168), (176, 256)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o8RawLaser14setLaserParamsERKNS_15LaserParametersE(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(256) initializes((160, 168), (176, 256)) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(96) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i64, ptr %1, align 16
   store i64 %4, ptr %3, align 16
@@ -444,7 +444,7 @@ define void @_ZN3g2o8RawLaser14setLaserParamsERKNS_15LaserParametersE(ptr nocapt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o8RawLaser9cartesianEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.6") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(256) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o8RawLaser9cartesianEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.6") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(256) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -617,7 +617,7 @@ define linkonce_odr noundef i32 @_ZNK3g2o10HyperGraph4Data11elementTypeEv(ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -728,7 +728,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #11
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_raw_laser.cpp() #13 section ".text.startup" {
@@ -741,7 +741,7 @@ define internal void @_GLOBAL__sub_I_raw_laser.cpp() #13 section ".text.startup"
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

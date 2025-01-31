@@ -124,7 +124,7 @@ $_ZZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_mE30__folly_detail_safe_asse
 @_ZN5folly10symbolizer7ElfFileC1EOS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN5folly10symbolizer7ElfFileC2EOS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly10symbolizer7ElfFileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(576) initializes((0, 516), (520, 576)) %this) unnamed_addr #0 align 2 {
+define void @_ZN5folly10symbolizer7ElfFileC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(576) initializes((0, 516), (520, 576)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %this, i8 0, i64 512, i1 false), !tbaa !7
   %arrayinit.end = getelementptr inbounds nuw i8, ptr %this, i64 512
@@ -137,10 +137,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10symbolizer7ElfFileC2EPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 516), (520, 576)) %this, ptr noundef %name, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %options) unnamed_addr #2 align 2 {
+define void @_ZN5folly10symbolizer7ElfFileC2EPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 516), (520, 576)) %this, ptr noundef %name, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %options) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %this, i8 0, i64 512, i1 false), !tbaa !7
   %arrayinit.end = getelementptr inbounds nuw i8, ptr %this, i64 512
@@ -154,7 +154,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10symbolizer7ElfFile4openEPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %name, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %options) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10symbolizer7ElfFile4openEPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %name, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %options) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca %"struct.folly::symbolizer::ElfFile::OpenResult", align 8
   %_result = alloca %"struct.google::CheckOpString", align 8
@@ -220,10 +220,10 @@ lpad:                                             ; preds = %invoke.cont, %while
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i32, ptr } @_ZN5folly10symbolizer7ElfFile11openNoThrowEPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %name, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %options) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define { i32, ptr } @_ZN5folly10symbolizer7ElfFile11openNoThrowEPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %name, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %options) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %st = alloca %struct.stat, align 16
   %fd_ = getelementptr inbounds nuw i8, ptr %this, i64 512
@@ -407,7 +407,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: inlinehint mustprogress uwtable
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #6
@@ -477,7 +477,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #13
 declare void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #10
@@ -533,7 +533,7 @@ invoke.cont:                                      ; preds = %if.else.i.i, %if.th
   store i8 0, ptr %3, align 8, !tbaa !7
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %call.i.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__what) #26, !noalias !52
-  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef %__what, i64 noundef %call.i.i.i16)
+  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %__what, i64 noundef %call.i.i.i16)
           to label %call3.i.i.i.noexc27 unwind label %lpad4
 
 call3.i.i.i.noexc27:                              ; preds = %invoke.cont
@@ -703,7 +703,7 @@ declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_trait
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
@@ -771,10 +771,10 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare noundef i64 @_ZN5folly7strlcpyEPcPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #19
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #12
@@ -931,7 +931,7 @@ terminate.lpad:                                   ; preds = %if.end17, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10symbolizer7ElfFile5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(576) initializes((0, 1)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10symbolizer7ElfFile5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(576) initializes((0, 1)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !7
   %file_ = getelementptr inbounds nuw i8, ptr %this, i64 520
@@ -977,7 +977,7 @@ terminate.lpad:                                   ; preds = %if.then5
 declare void @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef, ...) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i32, ptr } @_ZN5folly10symbolizer7ElfFile13openAndFollowEPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %name, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %options) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define { i32, ptr } @_ZN5folly10symbolizer7ElfFile13openAndFollowEPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %name, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %options) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %linkname = alloca [4096 x i8], align 16
   %call = tail call { i32, ptr } @_ZN5folly10symbolizer7ElfFile11openNoThrowEPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %name, ptr noundef nonnull align 1 dereferenceable(1) %options) #26
@@ -1013,10 +1013,10 @@ if.end8:                                          ; preds = %if.end
 
 if.end14:                                         ; preds = %if.end8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %linkname) #26
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %linkname, ptr align 1 %name, i64 %cond, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %linkname, ptr nonnull align 1 %name, i64 %cond, i1 false)
   %add.ptr16 = getelementptr inbounds i8, ptr %linkname, i64 %cond
   %add19 = add i64 %call11, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr16, ptr align 1 %add.ptr.i, i64 %add19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr16, ptr nonnull align 1 %add.ptr.i, i64 %add19, i1 false)
   store i8 0, ptr %this, align 8, !tbaa !7
   %cmp.not.i = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -1058,7 +1058,7 @@ _ZN5folly10symbolizer7ElfFile5resetEv.exit:       ; preds = %invoke.cont.i, %if.
   br i1 %cmp23, label %cleanup, label %if.end25
 
 if.end25:                                         ; preds = %_ZN5folly10symbolizer7ElfFile5resetEv.exit
-  %call26 = call { i32, ptr } @_ZN5folly10symbolizer7ElfFile11openNoThrowEPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %name, ptr noundef nonnull align 1 dereferenceable(1) %options) #26
+  %call26 = call { i32, ptr } @_ZN5folly10symbolizer7ElfFile11openNoThrowEPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef nonnull %name, ptr noundef nonnull align 1 dereferenceable(1) %options) #26
   %9 = extractvalue { i32, ptr } %call26, 0
   br label %cleanup
 
@@ -1081,7 +1081,7 @@ cleanup32:                                        ; preds = %cleanup, %if.end8, 
 declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK5folly10symbolizer7ElfFile16getSectionByNameEPKc(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK5folly10symbolizer7ElfFile16getSectionByNameEPKc(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load i64, ptr %length_.i.i, align 8, !tbaa !35
@@ -1162,7 +1162,7 @@ return:                                           ; preds = %for.inc.i, %"_ZZNK5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, ptr } @_ZNK5folly10symbolizer7ElfFile14getSectionBodyERK10Elf64_Shdr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %section) local_unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define { ptr, ptr } @_ZNK5folly10symbolizer7ElfFile14getSectionBodyERK10Elf64_Shdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %section) local_unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %file_ = getelementptr inbounds nuw i8, ptr %this, i64 520
   %0 = load ptr, ptr %file_, align 8, !tbaa !16
@@ -1178,7 +1178,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10symbolizer7ElfFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(576) initializes((0, 1)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10symbolizer7ElfFileD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(576) initializes((0, 1)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !7
   %file_.i = getelementptr inbounds nuw i8, ptr %this, i64 520
@@ -1344,10 +1344,10 @@ declare i32 @close(i32 noundef) local_unnamed_addr #7
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #19
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree
-declare noundef i64 @pread(i32 noundef, ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #19
+declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5folly10symbolizer7ElfFile9elfHeaderEv(ptr noundef nonnull align 8 dereferenceable(576) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1455,7 +1455,7 @@ _ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit18: ; preds = %_ZNK5folly10symbol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK5folly10symbolizer7ElfFile19validateStringTableERK10Elf64_Shdr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %stringTable) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly10symbolizer7ElfFile19validateStringTableERK10Elf64_Shdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %stringTable) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sh_type = getelementptr inbounds nuw i8, ptr %stringTable, i64 4
   %0 = load i32, ptr %sh_type, align 4, !tbaa !80
@@ -1498,7 +1498,7 @@ do.end13:                                         ; preds = %land.rhs, %do.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK5folly10symbolizer7ElfFile9getStringERK10Elf64_Shdrm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %stringTable, i64 noundef %offset) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK5folly10symbolizer7ElfFile9getStringERK10Elf64_Shdrm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %stringTable, i64 noundef %offset) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sh_type.i = getelementptr inbounds nuw i8, ptr %stringTable, i64 4
   %0 = load i32, ptr %sh_type.i, align 4, !tbaa !80
@@ -1550,7 +1550,7 @@ do.end:                                           ; preds = %_ZNK5folly10symboli
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK5folly10symbolizer7ElfFile14getSectionNameERK10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %section) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK5folly10symbolizer7ElfFile14getSectionNameERK10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %section) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load i64, ptr %length_.i.i, align 8, !tbaa !35
@@ -1645,7 +1645,7 @@ return:                                           ; preds = %_ZNK5folly10symboli
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define { ptr, ptr } @_ZNK5folly10symbolizer7ElfFile22getDefinitionByAddressEm(ptr noundef nonnull align 8 dereferenceable(576) %this, i64 noundef %address) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -1682,7 +1682,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_"(ptr noundef nonnull align 8 dereferenceable(576) %this, i32 noundef range(i32 2, 12) %type, ptr nocapture noundef readonly byval(%class.anon.4) align 8 %fn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @"_ZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_"(ptr noundef nonnull align 8 dereferenceable(576) %this, i32 noundef range(i32 2, 12) %type, ptr noundef readonly byval(%class.anon.4) align 8 captures(none) %fn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load i64, ptr %length_.i.i.i, align 8, !tbaa !35
@@ -1857,7 +1857,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_"(ptr noundef nonnull align 8 dereferenceable(576) %this, i32 noundef range(i32 2, 12) %type, ptr nocapture noundef readonly byval(%class.anon.8) align 8 %fn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @"_ZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_"(ptr noundef nonnull align 8 dereferenceable(576) %this, i32 noundef range(i32 2, 12) %type, ptr noundef readonly byval(%class.anon.8) align 8 captures(none) %fn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load i64, ptr %length_.i.i.i, align 8, !tbaa !35
@@ -2382,7 +2382,7 @@ invoke.cont:                                      ; preds = %for.inc.i, %for.bod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK5folly10symbolizer7ElfFile13getSymbolNameERKSt4pairIPK10Elf64_ShdrPK9Elf64_SymE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %symbol) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK5folly10symbolizer7ElfFile13getSymbolNameERKSt4pairIPK10Elf64_ShdrPK9Elf64_SymE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %symbol) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %symbol, align 8, !tbaa !89
   %tobool.not = icmp eq ptr %0, null
@@ -2493,7 +2493,7 @@ return:                                           ; preds = %_ZNK5folly10symboli
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i32, ptr } @_ZNK5folly10symbolizer7ElfFile12posixFadviseElli(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, i64 noundef %offset, i64 noundef %len, i32 noundef %advice) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define { i32, ptr } @_ZNK5folly10symbolizer7ElfFile12posixFadviseElli(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, i64 noundef %offset, i64 noundef %len, i32 noundef %advice) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fd_ = getelementptr inbounds nuw i8, ptr %this, i64 512
   %0 = load i32, ptr %fd_, align 8, !tbaa !10
@@ -2518,7 +2518,7 @@ return:                                           ; preds = %if.end, %entry
 declare i32 @posix_fadvise(i32 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i32, ptr } @_ZNK5folly10symbolizer7ElfFile12posixFadviseEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, i32 noundef %advice) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define { i32, ptr } @_ZNK5folly10symbolizer7ElfFile12posixFadviseEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, i32 noundef %advice) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fd_.i = getelementptr inbounds nuw i8, ptr %this, i64 512
   %0 = load i32, ptr %fd_.i, align 8, !tbaa !10
@@ -2543,7 +2543,7 @@ _ZNK5folly10symbolizer7ElfFile12posixFadviseElli.exit: ; preds = %if.end.i, %ent
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25

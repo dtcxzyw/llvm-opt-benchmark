@@ -170,7 +170,7 @@ invoke.cont:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -217,10 +217,10 @@ cleanup:                                          ; preds = %_ZNKSt3mapIj4AreaSt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK9AreaStore9serializeERSo(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 {
@@ -333,7 +333,7 @@ for.body28:                                       ; preds = %for.cond.cleanup, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -1215,7 +1215,7 @@ _ZN9AreaStore15invalidateCacheEv.exit:            ; preds = %_ZN8LRUCacheIN3irr4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9AreaStore9cacheMissEPvRKN3irr4core8vector3dIsEEPSt6vectorIP4AreaSaIS9_EE(ptr noundef %data, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %mpos, ptr noundef %dest) #3 align 2 {
+define dso_local void @_ZN9AreaStore9cacheMissEPvRKN3irr4core8vector3dIsEEPSt6vectorIP4AreaSaIS9_EE(ptr noundef %data, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %mpos, ptr noundef %dest) #3 align 2 {
 entry:
   %m_cacheblock_radius = getelementptr inbounds nuw i8, ptr %data, i64 57
   %0 = load i8, ptr %m_cacheblock_radius, align 1, !tbaa !32
@@ -1683,7 +1683,7 @@ if.end37:                                         ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15VectorAreaStore10insertAreaEP4Area(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef %a) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15VectorAreaStore10insertAreaEP4Area(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef captures(none) %a) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"struct.std::pair.24", align 8
@@ -2121,7 +2121,7 @@ cleanup29:                                        ; preds = %_ZN8LRUCacheIN3irr4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15VectorAreaStore18getAreasForPosImplEPSt6vectorIP4AreaSaIS2_EEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef %result, i48 %pos.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15VectorAreaStore18getAreasForPosImplEPSt6vectorIP4AreaSaIS2_EEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, ptr noundef captures(none) %result, i48 %pos.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_areas = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_areas, align 8, !tbaa !45
@@ -2257,7 +2257,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIP4Area
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15VectorAreaStore14getAreasInAreaEPSt6vectorIP4AreaSaIS2_EEN3irr4core8vector3dIsEES9_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef %result, i48 %minedge.coerce, i48 %maxedge.coerce, i1 noundef zeroext %accept_overlap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15VectorAreaStore14getAreasInAreaEPSt6vectorIP4AreaSaIS2_EEN3irr4core8vector3dIsEES9_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, ptr noundef captures(none) %result, i48 %minedge.coerce, i48 %maxedge.coerce, i1 noundef zeroext %accept_overlap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %minedge.sroa.0.0.extract.trunc = trunc i48 %minedge.coerce to i16
   %minedge.sroa.3.0.extract.shift = lshr i48 %minedge.coerce, 16
@@ -2883,7 +2883,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
@@ -2891,7 +2891,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19

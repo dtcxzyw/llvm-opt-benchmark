@@ -306,7 +306,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.wimax_compact_ulmap_ie_decoder.5 = private unnamed_addr constant [3 x ptr] [ptr @hf_rcid_ie_cid11_1, ptr @hf_rcid_ie_cid7_1, ptr @hf_rcid_ie_cid3_1], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 72) i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 72) i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #2
   %7 = zext i8 %6 to i32
   %8 = and i32 %4, 1
@@ -1300,7 +1300,7 @@ define internal fastcc range(i32 1, 3) i32 @wimax_compact_ulmap_harq_control_ie_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 2, 33) i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 2, 33) i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #2
   %7 = and i32 %4, 1
   %.not = icmp eq i32 %7, 0
@@ -1614,7 +1614,7 @@ define hidden range(i32 2, 33) i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @wimax_cdma_allocation_ie_decoder(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden noundef i32 @wimax_cdma_allocation_ie_decoder(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = and i32 %4, 1
   %.not = icmp eq i32 %6, 0
   %. = select i1 %.not, i32 2, i32 4

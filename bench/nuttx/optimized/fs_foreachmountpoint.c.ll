@@ -22,7 +22,7 @@ define i32 @foreach_mountpoint(ptr noundef %0, ptr noundef %1) local_unnamed_add
 declare i32 @foreach_inode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mountpoint_filter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @mountpoint_filter(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct.statfs, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %6 = load i16, ptr %5, align 2
@@ -59,7 +59,7 @@ define internal i32 @mountpoint_filter(ptr noundef %0, ptr noundef %1, ptr nocap
   %26 = getelementptr inbounds i8, ptr %1, i64 %25
   %sext23 = sub i64 1099511627776, %sext
   %27 = ashr exact i64 %sext23, 32
-  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %26, i64 noundef %27, ptr noundef nonnull @.str, ptr noundef nonnull %18) #5
+  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %26, i64 noundef %27, ptr noundef nonnull @.str, ptr noundef nonnull %18) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %29 = load ptr, ptr %10, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 152
@@ -72,7 +72,7 @@ define internal i32 @mountpoint_filter(ptr noundef %0, ptr noundef %1, ptr nocap
   %35 = load ptr, ptr %2, align 8
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = call i32 %35(ptr noundef %1, ptr noundef nonnull %4, ptr noundef %37) #5
+  %38 = call i32 %35(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef %37) #5
   br label %39
 
 39:                                               ; preds = %34, %24
@@ -86,13 +86,13 @@ define internal i32 @mountpoint_filter(ptr noundef %0, ptr noundef %1, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

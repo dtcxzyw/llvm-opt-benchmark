@@ -28,7 +28,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_sprint_OID: 
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_look_up_OID307, ptr @__UNIQUE_ID___addressable_parse_OID308, ptr @__UNIQUE_ID___addressable_sprint_OID312, ptr @__UNIQUE_ID___addressable_sprint_oid309, ptr @__UNIQUE_ID_author304, ptr @__UNIQUE_ID_description303, ptr @__UNIQUE_ID_file305, ptr @__UNIQUE_ID_license306], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local range(i32 0, 256) i32 @look_up_OID(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local range(i32 0, 256) i32 @look_up_OID(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = trunc i64 %1 to i32
   %4 = add i32 %3, -1
   %5 = icmp eq i64 %1, 0
@@ -143,7 +143,7 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = icmp ult i64 %1, 3
   br i1 %4, label %95, label %5
 
@@ -279,7 +279,7 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local i32 @sprint_oid(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #2 align 16 {
+define dso_local i32 @sprint_oid(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #2 align 16 {
   %5 = getelementptr i8, ptr %0, i64 %1
   %6 = icmp ugt ptr %5, %0
   br i1 %6, label %7, label %.loopexit
@@ -367,10 +367,10 @@ define dso_local i32 @sprint_oid(ptr noundef readonly %0, i64 noundef %1, ptr no
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -73, -74) i32 @sprint_OID(i32 noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #4 align 16 {
+define dso_local range(i32 -73, -74) i32 @sprint_OID(i32 noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #4 align 16 {
   %4 = icmp ugt i32 %0, 97
   br i1 %4, label %5, label %6, !prof !11
 

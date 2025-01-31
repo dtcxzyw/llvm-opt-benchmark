@@ -200,7 +200,7 @@ return:                                           ; preds = %if.end15, %if.end, 
 declare i64 @_mi_heap_random_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_os_free_ex(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext %still_committed, ptr nocapture noundef readonly byval(%struct.mi_memid_s) align 8 %memid, ptr nocapture readnone %tld_stats) local_unnamed_addr #1 {
+define hidden void @_mi_os_free_ex(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext %still_committed, ptr noundef readonly byval(%struct.mi_memid_s) align 8 captures(none) %memid, ptr readnone captures(none) %tld_stats) local_unnamed_addr #1 {
 entry:
   %memkind = getelementptr inbounds nuw i8, ptr %memid, i64 20
   %0 = load i32, ptr %memkind, align 4
@@ -353,14 +353,14 @@ return:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_os_free(ptr noundef %p, i64 noundef %size, ptr nocapture noundef readonly byval(%struct.mi_memid_s) align 8 %memid, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #1 {
+define hidden void @_mi_os_free(ptr noundef %p, i64 noundef %size, ptr noundef readonly byval(%struct.mi_memid_s) align 8 captures(none) %memid, ptr noundef readnone captures(none) %tld_stats) local_unnamed_addr #1 {
 entry:
   tail call void @_mi_os_free_ex(ptr noundef %p, i64 noundef %size, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid, ptr poison) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc(i64 noundef %size, ptr nocapture noundef writeonly initializes((0, 24)) %memid, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #1 {
+define hidden ptr @_mi_os_alloc(i64 noundef %size, ptr noundef writeonly captures(none) initializes((0, 24)) %memid, ptr noundef readnone captures(none) %tld_stats) local_unnamed_addr #1 {
 entry:
   %p.i = alloca ptr, align 8
   %os_is_large = alloca i8, align 1
@@ -482,7 +482,7 @@ return:                                           ; preds = %mi_os_prim_alloc.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly initializes((0, 24)) %memid, ptr nocapture readnone %tld_stats) local_unnamed_addr #1 {
+define hidden ptr @_mi_os_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr noundef writeonly captures(none) initializes((0, 24)) %memid, ptr readnone captures(none) %tld_stats) local_unnamed_addr #1 {
 entry:
   %p.i75.i = alloca ptr, align 8
   %p.i63.i = alloca ptr, align 8
@@ -834,7 +834,7 @@ return:                                           ; preds = %mi_os_prim_alloc.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_aligned_at_offset(i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly initializes((0, 24)) %memid, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #1 {
+define hidden ptr @_mi_os_alloc_aligned_at_offset(i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr noundef writeonly captures(none) initializes((0, 24)) %memid, ptr noundef readnone captures(none) %tld_stats) local_unnamed_addr #1 {
 entry:
   %needs_recommit.i = alloca i8, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid, i8 0, i64 24, i1 false)
@@ -934,7 +934,7 @@ return:                                           ; preds = %if.end11, %_mi_os_d
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_os_decommit(ptr noundef %addr, i64 noundef %size, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_os_decommit(ptr noundef %addr, i64 noundef %size, ptr noundef readnone captures(none) %tld_stats) local_unnamed_addr #1 {
 entry:
   %needs_recommit = alloca i8, align 1
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %size) #7
@@ -991,7 +991,7 @@ mi_os_decommit_ex.exit:                           ; preds = %entry, %cond.end16.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %addr, i64 noundef %size, ptr noundef writeonly %is_zero, ptr nocapture readnone %tld_stats) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %addr, i64 noundef %size, ptr noundef writeonly %is_zero, ptr readnone captures(none) %tld_stats) local_unnamed_addr #1 {
 entry:
   %os_is_zero = alloca i8, align 1
   %cmp = icmp ne ptr %is_zero, null
@@ -1388,7 +1388,7 @@ mi_os_protectx.exit:                              ; preds = %entry, %cond.end16.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %max_msecs, ptr noundef writeonly %pages_reserved, ptr noundef writeonly %psize, ptr nocapture noundef writeonly initializes((0, 24)) %memid) local_unnamed_addr #1 {
+define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %max_msecs, ptr noundef writeonly %pages_reserved, ptr noundef writeonly %psize, ptr noundef writeonly captures(none) initializes((0, 24)) %memid) local_unnamed_addr #1 {
 entry:
   %is_zero = alloca i8, align 1
   %p = alloca ptr, align 8
@@ -1628,7 +1628,7 @@ declare i64 @_mi_prim_numa_node_count() local_unnamed_addr #2
 declare void @_mi_verbose_message(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_mi_os_numa_node_get(ptr nocapture noundef readnone %tld) local_unnamed_addr #1 {
+define hidden i32 @_mi_os_numa_node_get(ptr noundef readnone captures(none) %tld) local_unnamed_addr #1 {
 entry:
   %0 = load atomic i64, ptr @_mi_numa_node_count monotonic, align 8
   %cmp.not.i = icmp eq i64 %0, 0
@@ -1689,7 +1689,7 @@ declare i32 @_mi_prim_free(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @_mi_stat_decrease(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @_mi_prim_alloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1704,10 +1704,10 @@ declare i64 @llvm.ctpop.i64(i64) #5
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

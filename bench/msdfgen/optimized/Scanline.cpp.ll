@@ -42,7 +42,7 @@ return:                                           ; preds = %entry, %sw.bb4, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef double @_ZN7msdfgen8Scanline7overlapERKS0_S2_ddNS_8FillRuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %b, double noundef %xFrom, double noundef %xTo, i32 noundef %fillRule) local_unnamed_addr #1 align 2 {
+define dso_local noundef double @_ZN7msdfgen8Scanline7overlapERKS0_S2_ddNS_8FillRuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %b, double noundef %xFrom, double noundef %xTo, i32 noundef %fillRule) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
@@ -362,14 +362,14 @@ while.end132:                                     ; preds = %if.end131, %while.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen8ScanlineC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN7msdfgen8ScanlineC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((0, 28)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %this, i8 0, i64 28, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define dso_local void @_ZN7msdfgen8Scanline10preprocessEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((24, 28)) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN7msdfgen8Scanline10preprocessEv(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((24, 28)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %lastIndex = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %lastIndex, align 8
@@ -407,10 +407,10 @@ if.end:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN7msdfgenL20compareIntersectionsEPKvS1_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal noundef range(i32 -1, 2) i32 @_ZN7msdfgenL20compareIntersectionsEPKvS1_(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %0 = load double, ptr %a, align 8
   %1 = load double, ptr %b, align 8
@@ -574,7 +574,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen8Scanline16setIntersectionsEOSt6vectorINS0_12IntersectionESaIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((8, 28)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %intersections) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7msdfgen8Scanline16setIntersectionsEOSt6vectorINS0_12IntersectionESaIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((8, 28)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %intersections) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -631,7 +631,7 @@ _ZN7msdfgen8Scanline10preprocessEv.exit:          ; preds = %for.body.i, %_ZNSt6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK7msdfgen8Scanline6moveToEd(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, double noundef %x) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK7msdfgen8Scanline6moveToEd(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %this, double noundef %x) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -703,7 +703,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZNK7msdfgen8Scanline18countIntersectionsEd(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, double noundef %x) local_unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZNK7msdfgen8Scanline18countIntersectionsEd(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %this, double noundef %x) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -776,7 +776,7 @@ _ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK7msdfgen8Scanline16sumIntersectionsEd(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, double noundef %x) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK7msdfgen8Scanline16sumIntersectionsEd(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %this, double noundef %x) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -858,7 +858,7 @@ return:                                           ; preds = %entry, %_ZNK7msdfge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK7msdfgen8Scanline6filledEdNS_8FillRuleE(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, double noundef %x, i32 noundef %fillRule) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7msdfgen8Scanline6filledEdNS_8FillRuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %this, double noundef %x, i32 noundef %fillRule) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -974,16 +974,16 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #8
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

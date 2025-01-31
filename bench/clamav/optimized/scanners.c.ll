@@ -438,7 +438,7 @@ sub_164:                                          ; preds = %.tail
   br label %cli_magic_scan_file.exit.thread.thread
 
 27:                                               ; preds = %.tail62.thread
-  %28 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %0, ptr noundef nonnull %11) #16
+  %28 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %0, ptr noundef nonnull %11) #16
   %29 = call i32 @lstat(ptr noundef nonnull %25, ptr noundef nonnull %4) #16
   %.not43 = icmp eq i32 %29, -1
   br i1 %.not43, label %40, label %30
@@ -498,26 +498,26 @@ cli_magic_scan_file.exit.thread.thread:           ; preds = %41, %26, %.preheade
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_magic_scan_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -536,13 +536,13 @@ define i32 @cli_magic_scan_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9) i32 @find_file(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @find_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %2, null
@@ -623,7 +623,7 @@ sub_140:                                          ; preds = %.tail
   %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %38 = add i64 %37, 1
   %. = call i64 @llvm.umin.i64(i64 %38, i64 %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 1 %1, i64 %., i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %1, i64 %., i1 false)
   %39 = getelementptr i8, ptr %2, i64 %.
   %40 = getelementptr i8, ptr %39, i64 -1
   store i8 0, ptr %40, align 1
@@ -645,10 +645,10 @@ sub_140:                                          ; preds = %.tail
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define void @emax_reached(ptr noundef readonly %0) local_unnamed_addr #0 {
@@ -3128,7 +3128,7 @@ declare ptr @cli_gentemp_with_prefix(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @cli_gentemp(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #1
 
 declare i32 @cli_determine_fmap_type(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -3314,14 +3314,14 @@ declare i32 @cli_check_fp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @clean_cache_check(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @cli_scan_fmap(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @cli_bitset_init() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @scanraw(ptr noundef %0, i32 noundef range(i32 587, 586) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @scanraw(ptr noundef %0, i32 noundef range(i32 587, 586) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.cli_exe_info, align 8
   %8 = alloca ptr, align 8
@@ -4509,7 +4509,7 @@ define internal fastcc i32 @scanraw(ptr noundef %0, i32 noundef range(i32 587, 5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @result_should_goto_done(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @result_should_goto_done(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -4770,7 +4770,7 @@ define internal fastcc noundef i32 @cli_scanegg(ptr noundef %0) unnamed_addr #0 
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 14
   store i8 0, ptr %36, align 1
   %37 = load ptr, ptr %23, align 8
-  %38 = call ptr @cli_gentemp_with_prefix(ptr noundef %37, ptr noundef %33) #16
+  %38 = call ptr @cli_gentemp_with_prefix(ptr noundef %37, ptr noundef nonnull %33) #16
   %.not146 = icmp eq ptr %38, null
   call void @free(ptr noundef nonnull %33) #16
   br i1 %.not146, label %cli_magic_scan_buff.exit.thread, label %39
@@ -4812,7 +4812,7 @@ define internal fastcc noundef i32 @cli_scanegg(ptr noundef %0) unnamed_addr #0 
   %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
   %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #17
-  %60 = call ptr @fmap_open_memory(ptr noundef %58, i64 noundef %59, ptr noundef null) #16
+  %60 = call ptr @fmap_open_memory(ptr noundef nonnull %58, i64 noundef %59, ptr noundef null) #16
   %.not.i = icmp eq ptr %60, null
   br i1 %.not.i, label %cli_magic_scan_buff.exit.thread, label %cli_magic_scan_buff.exit
 
@@ -7305,7 +7305,7 @@ define internal fastcc i32 @cli_scanriff(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @calculate_fuzzy_image_hash(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @calculate_fuzzy_image_hash(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.image_fuzzy_hash, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [17 x i8], align 16
@@ -7818,7 +7818,7 @@ declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @clean_cache_add(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_magic_scan_desc_type(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -7905,7 +7905,7 @@ define i32 @cli_magic_scan_desc_type(i32 noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @fmap(i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -8246,7 +8246,7 @@ define i32 @cli_magic_scan_buff(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
 declare ptr @fmap_open_memory(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @scan_common(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @scan_common(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.tms, align 8
   %9 = alloca [512 x i8], align 16
   %10 = alloca %union.ev_val, align 8
@@ -9006,7 +9006,7 @@ define i32 @cl_scanmap_callback(ptr noundef %0, ptr noundef %1, ptr noundef writ
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #8
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define i32 @cl_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -9238,7 +9238,7 @@ declare ptr @cl_strerror(i32 noundef) local_unnamed_addr #2
 declare void @cli_event_time_nested_start(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #1
 
 declare i32 @fmap_dump_to_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -9717,10 +9717,10 @@ cli_magic_scan_buff.exit.thread:                  ; preds = %88, %176, %cli_unra
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #1
 
 declare i32 @cli_rmdirs(ptr noundef) local_unnamed_addr #2
 
@@ -9801,7 +9801,7 @@ declare i32 @cli_ac_caloff(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare i32 @cli_scan_buff(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare i64 @text_normalize_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -9917,7 +9917,7 @@ define internal fastcc i32 @cli_ole2_scan_tempdir(ptr noundef %0, ptr noundef no
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.i.backedge
   %44 = phi i32 [ %.be, %.lr.ph.i.backedge ], [ %.pr.i, %43 ]
   %45 = load ptr, ptr %7, align 8
-  %46 = call i32 @cli_extract_xlm_macros_and_images(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %45, i32 noundef %44) #16
+  %46 = call i32 @cli_extract_xlm_macros_and_images(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef %45, i32 noundef %44) #16
   switch i32 %46, label %47 [
     i32 0, label %.thread
     i32 1, label %cli_ole2_tempdir_scan_for_xlm_and_images.exit.thread
@@ -9971,7 +9971,7 @@ cli_ole2_tempdir_scan_for_xlm_and_images.exit:    ; preds = %47
   br i1 %or.cond3.not, label %56, label %54
 
 54:                                               ; preds = %52
-  %55 = call i32 @cli_magic_scan_dir(ptr noundef nonnull %1, ptr noundef %0, i32 noundef 0)
+  %55 = call i32 @cli_magic_scan_dir(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef 0)
   %.not92 = icmp eq i32 %55, 0
   br i1 %.not92, label %56, label %.thread114
 
@@ -10045,7 +10045,7 @@ sub_1121:                                         ; preds = %.tail
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %82
-  %87 = call fastcc i32 @cli_ole2_scan_tempdir(ptr noundef %0, ptr noundef %77, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %87 = call fastcc i32 @cli_ole2_scan_tempdir(ptr noundef nonnull %0, ptr noundef %77, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %.not100 = icmp eq i32 %87, 0
   br i1 %.not100, label %88, label %93
 
@@ -10219,7 +10219,7 @@ thread-pre-split:                                 ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_ole2_tempdir_scan_vba(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc i32 @cli_ole2_tempdir_scan_vba(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca [1024 x i8], align 16
   %7 = alloca ptr, align 8
@@ -11038,7 +11038,7 @@ declare ptr @cli_jsonarray(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @cli_vba_readdir_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare i32 @cli_extract_xlm_macros_and_images(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -11082,12 +11082,12 @@ declare ptr @evidence_new() local_unnamed_addr #2
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @cli_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #10
@@ -11099,7 +11099,7 @@ declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #10
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #13
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
 
 declare void @cli_logg_setup(ptr noundef) local_unnamed_addr #2
 
@@ -11140,7 +11140,7 @@ declare i32 @cli_event_define(ptr noundef, i32 noundef, ptr noundef, i32 noundef
 declare void @cli_event_int(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @times(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @times(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #10
@@ -11155,10 +11155,10 @@ declare void @cli_events_free(ptr noundef) local_unnamed_addr #2
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

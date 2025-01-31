@@ -68,7 +68,7 @@ define dso_local i32 @acpi_load_tables() local_unnamed_addr #0 section ".init.te
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_ev_install_region_handlers() local_unnamed_addr #2
@@ -223,7 +223,7 @@ define dso_local i32 @acpi_tb_load_namespace() local_unnamed_addr #3 align 16 {
 declare dso_local i32 @acpi_ns_initialize_objects() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_ut_acquire_mutex(i32 noundef) local_unnamed_addr #2
@@ -235,7 +235,7 @@ declare dso_local i32 @acpi_tb_validate_table(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @acpi_tb_copy_dsdt(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_ut_release_mutex(i32 noundef) local_unnamed_addr #2

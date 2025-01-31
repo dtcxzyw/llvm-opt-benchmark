@@ -219,7 +219,7 @@ define internal i32 @sit_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @ipip6_tunnel_setup(ptr nocapture noundef initializes((8, 24), (56, 60), (168, 172), (544, 554), (813, 814), (1308, 1309), (1312, 1320)) %0) #2 align 16 {
+define internal void @ipip6_tunnel_setup(ptr noundef captures(none) initializes((8, 24), (56, 60), (168, 172), (544, 554), (813, 814), (1308, 1309), (1312, 1320)) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2452
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -259,7 +259,7 @@ define internal void @ipip6_tunnel_setup(ptr nocapture noundef initializes((8, 2
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @ipip6_validate(ptr nocapture readnone %0, ptr noundef readonly %1, ptr nocapture readnone %2) #3 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ipip6_validate(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #3 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %13, label %5
 
@@ -287,7 +287,7 @@ define internal noundef range(i32 -22, 1) i32 @ipip6_validate(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @ipip6_newlink(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #4 align 16 {
+define internal range(i32 -2147483648, 1) i32 @ipip6_newlink(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #4 align 16 {
   %6 = alloca %struct.ip_tunnel_encap, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %8 = load ptr, ptr %7, align 8
@@ -429,7 +429,7 @@ define internal range(i32 -2147483648, 1) i32 @ipip6_newlink(ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @ipip6_changelink(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #4 align 16 {
+define internal range(i32 -2147483648, 1) i32 @ipip6_changelink(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #4 align 16 {
   %5 = alloca %struct.ip_tunnel_parm, align 4
   %6 = alloca %struct.ip_tunnel_encap, align 8
   %7 = getelementptr i8, ptr %0, i64 2304
@@ -601,12 +601,12 @@ define internal void @ipip6_dellink(ptr noundef %0, ptr noundef %1) #4 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @ipip6_get_size(ptr nocapture readnone %0) #5 align 16 {
+define internal noundef i64 @ipip6_get_size(ptr readnone captures(none) %0) #5 align 16 {
   ret i64 104
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -90, 1) i32 @ipip6_fill_info(ptr noundef %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define internal noundef range(i32 -90, 1) i32 @ipip6_fill_info(ptr noundef %0, ptr noundef readonly captures(none) %1) #4 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
@@ -764,7 +764,7 @@ define internal noundef range(i32 -90, 1) i32 @ipip6_fill_info(ptr noundef %0, p
 declare dso_local ptr @ip_tunnel_get_link_net(ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ipip6_dev_free(ptr noundef %0) #4 align 16 {
@@ -777,7 +777,7 @@ define internal void @ipip6_dev_free(ptr noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ipip6_tunnel_init(ptr noundef %0) #4 align 16 {
@@ -2518,7 +2518,7 @@ define internal range(i32 -105, 1) i32 @ipip6_tunnel_ctl(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @ipip6_tunnel_bind_dev(ptr noundef %0) unnamed_addr #4 align 16 {
@@ -2637,7 +2637,7 @@ declare dso_local i32 @dst_cache_init(ptr noundef, i32 noundef) local_unnamed_ad
 declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @__dev_get_by_index(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -2646,13 +2646,13 @@ declare dso_local ptr @__dev_get_by_index(ptr noundef, i32 noundef) local_unname
 declare dso_local ptr @ip_route_output_flow(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @dst_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -6, 1) i32 @ipip6_tunnel_del_prl(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -6, 1) i32 @ipip6_tunnel_del_prl(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #4 align 16 {
   %3 = tail call i32 @rtnl_is_locked() #18
   %4 = icmp ne i32 %3, 0
   %5 = load i1, ptr @ipip6_tunnel_del_prl.__already_done, align 1
@@ -2780,7 +2780,7 @@ declare dso_local void @dst_cache_set_ip4(ptr noundef, ptr noundef, i32 noundef)
 declare dso_local void @icmpv6_ndo_send(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal fastcc range(i32 0, 2) i32 @skb_clone_writable(ptr nocapture noundef readonly %0) unnamed_addr #11 align 16 {
+define internal fastcc range(i32 0, 2) i32 @skb_clone_writable(ptr noundef readonly captures(none) %0) unnamed_addr #11 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %3 = load i8, ptr %2, align 2
   %4 = and i8 %3, 1

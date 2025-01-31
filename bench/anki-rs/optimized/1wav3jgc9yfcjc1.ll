@@ -4,14 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @_ZN3std4path6Prefix11is_verbatim17h55238ad06f2bc8e6E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden zeroext i1 @_ZN3std4path6Prefix11is_verbatim17h55238ad06f2bc8e6E(ptr readonly align 8 captures(none) %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 8, !range !3, !noundef !4
   %switch = icmp samesign ult i8 %2, 3
   ret i1 %switch
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3b82180fa039a29E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3b82180fa039a29E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
   %.sroa.3.i1.i = alloca [39 x i8], align 1
   %.sroa.3.i.i = alloca [39 x i8], align 1
   %3 = alloca { { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] } }, align 8
@@ -178,7 +178,7 @@ define void @"_ZN61_$LT$std..path..PathBuf$u20$as$u20$anki_io..ToUtf8PathBuf$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN55_$LT$std..path..Path$u20$as$u20$anki_io..ToUtf8Path$GT$4utf817h8ddbe5c202ccedcaE"(ptr nocapture writeonly sret({ i64, [7 x i64] }) align 8 initializes((0, 8)) %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
+define void @"_ZN55_$LT$std..path..Path$u20$as$u20$anki_io..ToUtf8Path$GT$4utf817h8ddbe5c202ccedcaE"(ptr writeonly sret({ i64, [7 x i64] }) align 8 captures(none) initializes((0, 8)) %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   %5 = tail call { ptr, i64 } @_ZN6camino8Utf8Path9from_path17he184e548550e5653E(ptr align 1 %1, i64 %2)
   %.fca.0.extract = extractvalue { ptr, i64 } %5, 0
@@ -214,7 +214,7 @@ declare zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h44bc3b0dca2df3dfE(p
 declare void @_ZN3std4path4Path10components17h1e1a50d69cc8b4a3E(ptr sret({ { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }) align 8, ptr align 1, i64) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb24f480458daf650E"(ptr align 1, i64, ptr align 1, i64) unnamed_addr #2
@@ -235,10 +235,10 @@ declare { ptr, i64 } @_ZN6camino8Utf8Path9from_path17he184e548550e5653E(ptr alig
 declare void @_ZN3std3sys4unix6os_str5Slice8to_owned17h2ca8b8fae4b3b09dE(ptr sret({ { { ptr, i64 }, i64 } }) align 8, ptr align 1, i64) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

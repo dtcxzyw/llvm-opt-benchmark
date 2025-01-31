@@ -113,7 +113,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7531SimpleFilteredSentenceBreakDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7531SimpleFilteredSentenceBreakDataD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7531SimpleFilteredSentenceBreakDataE, i64 16), ptr %this, align 8
   %fBackwardsTrie = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -382,7 +382,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(504) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #2 align 2 {
+define void @_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(504) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #2 align 2 {
 entry:
   %fText = getelementptr inbounds nuw i8, ptr %this, i64 496
   %fDelegate = getelementptr inbounds nuw i8, ptr %this, i64 488
@@ -407,7 +407,7 @@ _ZN6icu_7517LocalUTextPointer12adoptInsteadEP5UText.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this, i32 noundef %n) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %this, i32 noundef %n) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iter = alloca %"class.icu_75::UCharsTrie", align 8
   %iter39 = alloca %"class.icu_75::UCharsTrie", align 8
@@ -645,7 +645,7 @@ declare noundef i32 @_ZN6icu_7510UCharsTrie16nextForCodePointEi(ptr noundef nonn
 declare i64 @utext_getNativeIndex_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalNextEi(ptr nocapture noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %n) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalNextEi(ptr noundef nonnull align 8 captures(none) dereferenceable(504) %this, i32 noundef %n) local_unnamed_addr #2 align 2 {
 entry:
   %status = alloca i32, align 4
   %cmp = icmp eq i32 %n, -1
@@ -716,7 +716,7 @@ return:                                           ; preds = %while.body, %sw.bb,
 declare i64 @utext_nativeLength_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi(ptr nocapture noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %n) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi(ptr noundef nonnull align 8 captures(none) dereferenceable(504) %this, i32 noundef %n) local_unnamed_addr #2 align 2 {
 entry:
   %status = alloca i32, align 4
   %0 = add i32 %n, 1
@@ -778,7 +778,7 @@ return:                                           ; preds = %while.body, %sw.bb,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(504) %this) unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(504) %this) unnamed_addr #2 align 2 {
 entry:
   %fDelegate = getelementptr inbounds nuw i8, ptr %this, i64 488
   %0 = load ptr, ptr %fDelegate, align 8
@@ -791,7 +791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator5firstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this) unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator5firstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %this) unnamed_addr #2 align 2 {
 entry:
   %fDelegate = getelementptr inbounds nuw i8, ptr %this, i64 488
   %0 = load ptr, ptr %fDelegate, align 8
@@ -803,7 +803,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator9precedingEi(ptr nocapture noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %offset) unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator9precedingEi(ptr noundef nonnull align 8 captures(none) dereferenceable(504) %this, i32 noundef %offset) unnamed_addr #2 align 2 {
 entry:
   %status.i = alloca i32, align 4
   %fDelegate = getelementptr inbounds nuw i8, ptr %this, i64 488
@@ -872,7 +872,7 @@ _ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator8previousEv(ptr nocapture noundef nonnull align 8 dereferenceable(504) %this) unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator8previousEv(ptr noundef nonnull align 8 captures(none) dereferenceable(504) %this) unnamed_addr #2 align 2 {
 entry:
   %status.i = alloca i32, align 4
   %fDelegate = getelementptr inbounds nuw i8, ptr %this, i64 488
@@ -941,7 +941,7 @@ _ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator10isBoundaryEi(ptr nocapture noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %offset) unnamed_addr #2 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator10isBoundaryEi(ptr noundef nonnull align 8 captures(none) dereferenceable(504) %this, i32 noundef %offset) unnamed_addr #2 align 2 {
 entry:
   %status = alloca i32, align 4
   %fDelegate = getelementptr inbounds nuw i8, ptr %this, i64 488
@@ -992,7 +992,7 @@ return:                                           ; preds = %_ZN6icu_7535SimpleF
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator4nextEi(ptr nocapture noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %offset) unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator4nextEi(ptr noundef nonnull align 8 captures(none) dereferenceable(504) %this, i32 noundef %offset) unnamed_addr #2 align 2 {
 entry:
   %fDelegate = getelementptr inbounds nuw i8, ptr %this, i64 488
   %0 = load ptr, ptr %fDelegate, align 8
@@ -1005,7 +1005,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator9followingEi(ptr nocapture noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %offset) unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator9followingEi(ptr noundef nonnull align 8 captures(none) dereferenceable(504) %this, i32 noundef %offset) unnamed_addr #2 align 2 {
 entry:
   %fDelegate = getelementptr inbounds nuw i8, ptr %this, i64 488
   %0 = load ptr, ptr %fDelegate, align 8
@@ -1018,7 +1018,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator4lastEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this) unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator4lastEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %this) unnamed_addr #2 align 2 {
 entry:
   %fDelegate = getelementptr inbounds nuw i8, ptr %this, i64 488
   %0 = load ptr, ptr %fDelegate, align 8
@@ -1074,7 +1074,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7528FilteredBreakIteratorBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define void @_ZN6icu_7528FilteredBreakIteratorBuilderC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7528FilteredBreakIteratorBuilderE, i64 16), ptr %this, align 8
   ret void
@@ -1485,7 +1485,7 @@ return:                                           ; preds = %if.else.i, %delete.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7534SimpleFilteredBreakIteratorBuilder20unsuppressBreakAfterERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(64) %exception, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 {
+define noundef signext i8 @_ZN6icu_7534SimpleFilteredBreakIteratorBuilder20unsuppressBreakAfterERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(64) %exception, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %status) unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2165,7 +2165,7 @@ delete.end3:                                      ; preds = %arraydestroy.done2,
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7528FilteredBreakIteratorBuilderD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7528FilteredBreakIteratorBuilderD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #15
   unreachable
@@ -2548,13 +2548,13 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #3
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12

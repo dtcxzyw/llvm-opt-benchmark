@@ -40,7 +40,7 @@ $_ZGVZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard = comdat any
 @_ZN5folly6LoggerC1EPNS_8LoggerDBENS_5RangeIPKcEE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN5folly6LoggerC2EPNS_8LoggerDBENS_5RangeIPKcEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6LoggerC2ENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr %name.coerce0, ptr %name.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6LoggerC2ENS_5RangeIPKcEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr %name.coerce0, ptr %name.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createIZNS_8LoggerDB3getEvE9SingletonvEERT_vE3arg acquire, align 8
   %atomic-temp.0.i.i = inttoptr i64 %0 to ptr
@@ -61,7 +61,7 @@ _ZN5folly6detail30StaticSingletonManagerWithRtti6createIZNS_8LoggerDB3getEvE9Sin
 declare noundef ptr @_ZN5folly8LoggerDB11getCategoryENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(232), ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6LoggerC2EPNS_11LogCategoryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %cat) unnamed_addr #2 align 2 {
+define void @_ZN5folly6LoggerC2EPNS_11LogCategoryE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef %cat) unnamed_addr #2 align 2 {
 entry:
   store ptr %cat, ptr %this, align 8, !tbaa !8
   ret void
@@ -175,7 +175,7 @@ declare void @_ZN5folly8LoggerDB15cleanupHandlersEv(ptr noundef nonnull align 8 
 declare noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6LoggerC2EPNS_8LoggerDBENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull %db, ptr %name.coerce0, ptr %name.coerce1) unnamed_addr #0 align 2 {
+define void @_ZN5folly6LoggerC2EPNS_8LoggerDBENS_5RangeIPKcEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull %db, ptr %name.coerce0, ptr %name.coerce1) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN5folly8LoggerDB11getCategoryENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(232) %db, ptr %name.coerce0, ptr %name.coerce1)
   store ptr %call, ptr %this, align 8, !tbaa !8

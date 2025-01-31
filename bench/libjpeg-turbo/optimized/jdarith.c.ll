@@ -480,7 +480,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_mcu_DC_first(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @decode_mcu_DC_first(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -685,7 +685,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 
 121:                                              ; preds = %.lr.ph
   %122 = getelementptr inbounds nuw i8, ptr %.17894, i64 1
-  %123 = tail call fastcc i32 @arith_decode(ptr noundef %0, ptr noundef nonnull %122)
+  %123 = tail call fastcc i32 @arith_decode(ptr noundef nonnull %0, ptr noundef nonnull %122)
   %.not85 = icmp eq i32 %123, 0
   br i1 %.not85, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
@@ -770,7 +770,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_mcu_AC_first(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @decode_mcu_AC_first(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -1039,7 +1039,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_mcu_DC_refine(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @decode_mcu_DC_refine(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -1196,7 +1196,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_mcu_AC_refine(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @decode_mcu_AC_refine(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -1673,7 +1673,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 
 120:                                              ; preds = %.lr.ph
   %121 = getelementptr inbounds nuw i8, ptr %.1138182, i64 1
-  %122 = tail call fastcc i32 @arith_decode(ptr noundef %0, ptr noundef nonnull %121)
+  %122 = tail call fastcc i32 @arith_decode(ptr noundef nonnull %0, ptr noundef nonnull %121)
   %.not156 = icmp eq i32 %122, 0
   br i1 %.not156, label %.loopexit172, label %.lr.ph, !llvm.loop !21
 
@@ -1890,10 +1890,10 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @arith_decode(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @arith_decode(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48

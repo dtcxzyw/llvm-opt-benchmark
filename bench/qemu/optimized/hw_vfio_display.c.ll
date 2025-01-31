@@ -401,7 +401,7 @@ return:                                           ; preds = %if.then.i14, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #3
@@ -409,7 +409,7 @@ declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #3
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_display_finalize(ptr nocapture noundef readonly %vdev) local_unnamed_addr #0 {
+define dso_local void @vfio_display_finalize(ptr noundef readonly captures(none) %vdev) local_unnamed_addr #0 {
 entry:
   %dpy = getelementptr inbounds nuw i8, ptr %vdev, i64 3568
   %0 = load ptr, ptr %dpy, align 16
@@ -514,7 +514,7 @@ declare void @graphic_console_close(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @migrate_needed(ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef zeroext i1 @migrate_needed(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %ramfb = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %ramfb, align 8
@@ -543,13 +543,13 @@ declare ptr @ramfb_setup(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @vfio_display_get_flags(ptr nocapture readnone %opaque) #5 {
+define internal noundef i32 @vfio_display_get_flags(ptr readnone captures(none) %opaque) #5 {
 entry:
   ret i32 3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_display_dmabuf_update(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @vfio_display_dmabuf_update(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %dpy1 = getelementptr inbounds nuw i8, ptr %opaque, i64 3568
   %0 = load ptr, ptr %dpy1, align 16
@@ -730,7 +730,7 @@ if.end56:                                         ; preds = %for.inc.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_display_edid_ui_info(ptr nocapture noundef readonly %opaque, i32 %idx, ptr nocapture noundef readonly %info) #0 {
+define internal void @vfio_display_edid_ui_info(ptr noundef readonly captures(none) %opaque, i32 %idx, ptr noundef readonly captures(none) %info) #0 {
 entry:
   %dpy1 = getelementptr inbounds nuw i8, ptr %opaque, i64 3568
   %0 = load ptr, ptr %dpy1, align 16
@@ -764,7 +764,7 @@ if.end7:                                          ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @vfio_display_get_dmabuf(ptr nocapture noundef readonly %vdev, i32 noundef range(i32 1, 3) %plane_type) unnamed_addr #0 {
+define internal fastcc ptr @vfio_display_get_dmabuf(ptr noundef readonly captures(none) %vdev, i32 noundef range(i32 1, 3) %plane_type) unnamed_addr #0 {
 entry:
   %plane = alloca %struct.vfio_device_gfx_plane_info, align 8
   %dpy1 = getelementptr inbounds nuw i8, ptr %vdev, i64 3568
@@ -1069,7 +1069,7 @@ declare void @dpy_gl_update(ptr noundef, i32 noundef, i32 noundef, i32 noundef, 
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vfio_display_edid_update(ptr nocapture noundef readonly %vdev, i1 noundef zeroext %enabled, i32 noundef %prefx, i32 noundef %prefy) unnamed_addr #0 {
+define internal fastcc void @vfio_display_edid_update(ptr noundef readonly captures(none) %vdev, i1 noundef zeroext %enabled, i32 noundef %prefx, i32 noundef %prefy) unnamed_addr #0 {
 entry:
   %_now.i.i39 = alloca %struct.timeval, align 8
   %_now.i.i25 = alloca %struct.timeval, align 8
@@ -1330,7 +1330,7 @@ declare i64 @qemu_edid_size(ptr noundef) local_unnamed_addr #1
 declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1346,7 +1346,7 @@ declare i64 @pread64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_u
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_display_edid_link_up(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @vfio_display_edid_link_up(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %_now.i.i4 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1668,10 +1668,10 @@ declare i32 @pixman_image_get_height(ptr noundef) local_unnamed_addr #1
 declare i32 @pixman_image_get_format(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

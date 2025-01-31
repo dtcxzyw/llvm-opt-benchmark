@@ -88,7 +88,7 @@ if.end8:                                          ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @ASYNC_start_job(ptr nocapture noundef %job, ptr noundef %wctx, ptr nocapture noundef writeonly %ret, ptr noundef %func, ptr noundef readonly %args, i64 noundef %size) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @ASYNC_start_job(ptr noundef captures(none) %job, ptr noundef %wctx, ptr noundef writeonly captures(none) %ret, ptr noundef %func, ptr noundef readonly %args, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 256, ptr noundef null) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -408,7 +408,7 @@ declare ptr @OSSL_LIB_CTX_set0_default(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @ossl_lib_ctx_get_concrete(ptr noundef) local_unnamed_addr #1
 
@@ -613,7 +613,7 @@ return:                                           ; preds = %while.end, %if.end6
 declare i32 @ossl_init_thread_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @async_delete_thread_state(ptr nocapture readnone %arg) #0 {
+define internal void @async_delete_thread_state(ptr readnone captures(none) %arg) #0 {
 entry:
   %call = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @poolkey) #7
   %cmp.not = icmp eq ptr %call, null
@@ -709,7 +709,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ASYNC_get_wait_ctx(ptr nocapture noundef readonly %job) local_unnamed_addr #3 {
+define ptr @ASYNC_get_wait_ctx(ptr noundef readonly captures(none) %job) local_unnamed_addr #3 {
 entry:
   %waitctx = getelementptr inbounds nuw i8, ptr %job, i64 1200
   %0 = load ptr, ptr %waitctx, align 8

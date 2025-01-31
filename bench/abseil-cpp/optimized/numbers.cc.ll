@@ -240,7 +240,7 @@ declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 no
 declare noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64, ptr, i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %i, ptr nocapture noundef writeonly initializes((0, 2)) %buf) local_unnamed_addr #3 {
+define dso_local void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %i, ptr noundef writeonly captures(none) initializes((0, 2)) %buf) local_unnamed_addr #3 {
 entry:
   %conv = zext i32 %i to i64
   %mul = mul nuw nsw i64 %conv, 103
@@ -1532,7 +1532,7 @@ return:                                           ; preds = %if.end181, %while.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 4)) %value, i32 noundef %base) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) initializes((0, 4)) %value, i32 noundef %base) local_unnamed_addr #6 {
 entry:
   %text.i = alloca %"class.std::basic_string_view", align 8
   %base.addr.i = alloca i32, align 4
@@ -1638,7 +1638,7 @@ _ZN4absl12_GLOBAL__N_117safe_int_internalIiEEbSt17basic_string_viewIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %value, i32 noundef %base) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) initializes((0, 8)) %value, i32 noundef %base) local_unnamed_addr #6 {
 entry:
   %text.i = alloca %"class.std::basic_string_view", align 8
   %base.addr.i = alloca i32, align 4
@@ -1745,7 +1745,7 @@ _ZN4absl12_GLOBAL__N_117safe_int_internalIlEEbSt17basic_string_viewIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 16)) %value, i32 noundef %base) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) initializes((0, 16)) %value, i32 noundef %base) local_unnamed_addr #6 {
 entry:
   %text.i = alloca %"class.std::basic_string_view", align 8
   %base.addr.i = alloca i32, align 4
@@ -1924,7 +1924,7 @@ _ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 4)) %value, i32 noundef %base) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) initializes((0, 4)) %value, i32 noundef %base) local_unnamed_addr #6 {
 entry:
   %text.i = alloca %"class.std::basic_string_view", align 8
   %base.addr.i = alloca i32, align 4
@@ -1998,7 +1998,7 @@ _ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %value, i32 noundef %base) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) initializes((0, 8)) %value, i32 noundef %base) local_unnamed_addr #6 {
 entry:
   %text.i = alloca %"class.std::basic_string_view", align 8
   %base.addr.i = alloca i32, align 4
@@ -2072,7 +2072,7 @@ _ZN4absl12_GLOBAL__N_118safe_uint_internalImEEbSt17basic_string_viewIcSt11char_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 16)) %value, i32 noundef %base) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) initializes((0, 16)) %value, i32 noundef %base) local_unnamed_addr #6 {
 entry:
   %text.i = alloca %"class.std::basic_string_view", align 8
   %base.addr.i = alloca i32, align 4
@@ -2483,7 +2483,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc { i64, i64 } @_ZN4abslL7PowFiveEmi(i64 noundef range(i64 0, -1) %num, i32 noundef range(i32 0, -2147483648) %expfive) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
@@ -2597,7 +2597,7 @@ _ZN4abslL5Mul32ESt4pairImmEj.exit42:              ; preds = %while.end, %if.end.
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr nocapture noundef nonnull %text, ptr nocapture noundef nonnull %base_ptr, ptr nocapture noundef nonnull writeonly %negative_ptr) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr noundef nonnull captures(none) %text, ptr noundef nonnull captures(none) %base_ptr, ptr noundef nonnull writeonly captures(none) %negative_ptr) unnamed_addr #6 {
 entry:
   %_M_str.i = getelementptr inbounds nuw i8, ptr %text, i64 8
   %0 = load ptr, ptr %_M_str.i, align 8
@@ -2762,7 +2762,7 @@ return:                                           ; preds = %while.cond5, %if.el
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
@@ -2771,10 +2771,10 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 declare i64 @llvm.fshl.i64(i64, i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #13

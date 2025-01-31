@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define hidden void @FLAC__window_bartlett(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #0 {
+define hidden void @FLAC__window_bartlett(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #0 {
 entry:
   %sub = add nsw i32 %L, -1
   %and = and i32 %L, 1
@@ -113,7 +113,7 @@ if.end:                                           ; preds = %for.body6, %for.bod
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write) uwtable
-define hidden void @FLAC__window_bartlett_hann(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #1 {
+define hidden void @FLAC__window_bartlett_hann(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #1 {
 entry:
   %cmp7 = icmp sgt i32 %L, 0
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
@@ -158,7 +158,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #2
 declare float @cosf(float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong memory(write) uwtable
-define hidden void @FLAC__window_blackman(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #1 {
+define hidden void @FLAC__window_blackman(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #1 {
 entry:
   %cmp7 = icmp sgt i32 %L, 0
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
@@ -196,7 +196,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write) uwtable
-define hidden void @FLAC__window_blackman_harris_4term_92db_sidelobe(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #1 {
+define hidden void @FLAC__window_blackman_harris_4term_92db_sidelobe(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #1 {
 entry:
   %cmp.not.not9 = icmp sgt i32 %L, 0
   br i1 %cmp.not.not9, label %for.body.lr.ph, label %for.end
@@ -240,7 +240,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define hidden void @FLAC__window_connes(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #0 {
+define hidden void @FLAC__window_connes(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #0 {
 entry:
   %sub = add nsw i32 %L, -1
   %conv = sitofp i32 %sub to double
@@ -278,7 +278,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nofree nounwind sspstrong memory(write) uwtable
-define hidden void @FLAC__window_flattop(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #1 {
+define hidden void @FLAC__window_flattop(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #1 {
 entry:
   %cmp11 = icmp sgt i32 %L, 0
   br i1 %cmp11, label %for.body.lr.ph, label %for.end
@@ -328,7 +328,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write) uwtable
-define hidden void @FLAC__window_gauss(ptr nocapture noundef writeonly %window, i32 noundef %L, float noundef %stddev) local_unnamed_addr #1 {
+define hidden void @FLAC__window_gauss(ptr noundef writeonly captures(none) %window, i32 noundef %L, float noundef %stddev) local_unnamed_addr #1 {
 entry:
   %sub = add nsw i32 %L, -1
   %conv = sitofp i32 %sub to double
@@ -399,7 +399,7 @@ if.end:                                           ; preds = %for.body.i, %for.bo
 declare double @exp(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong memory(write) uwtable
-define hidden void @FLAC__window_hamming(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #1 {
+define hidden void @FLAC__window_hamming(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #1 {
 entry:
   %cmp5 = icmp sgt i32 %L, 0
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
@@ -431,7 +431,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write) uwtable
-define hidden void @FLAC__window_hann(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #1 {
+define hidden void @FLAC__window_hann(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #1 {
 entry:
   %cmp5 = icmp sgt i32 %L, 0
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
@@ -463,7 +463,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write) uwtable
-define hidden void @FLAC__window_kaiser_bessel(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #1 {
+define hidden void @FLAC__window_kaiser_bessel(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #1 {
 entry:
   %cmp9 = icmp sgt i32 %L, 0
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
@@ -507,7 +507,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write) uwtable
-define hidden void @FLAC__window_nuttall(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #1 {
+define hidden void @FLAC__window_nuttall(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #1 {
 entry:
   %cmp9 = icmp sgt i32 %L, 0
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
@@ -551,7 +551,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define hidden void @FLAC__window_rectangle(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #0 {
+define hidden void @FLAC__window_rectangle(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #0 {
 entry:
   %cmp3 = icmp sgt i32 %L, 0
   br i1 %cmp3, label %for.body.preheader, label %for.end
@@ -573,7 +573,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define hidden void @FLAC__window_triangle(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #0 {
+define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #0 {
 entry:
   %and = and i32 %L, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -692,7 +692,7 @@ if.end:                                           ; preds = %for.body7, %for.bod
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write) uwtable
-define hidden void @FLAC__window_tukey(ptr nocapture noundef writeonly %window, i32 noundef %L, float noundef %p) local_unnamed_addr #1 {
+define hidden void @FLAC__window_tukey(ptr noundef writeonly captures(none) %window, i32 noundef %L, float noundef %p) local_unnamed_addr #1 {
 entry:
   %cmp = fcmp reassoc nsz arcp ugt float %p, 0.000000e+00
   br i1 %cmp, label %if.else, label %if.then
@@ -873,7 +873,7 @@ if.end40:                                         ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write) uwtable
-define hidden void @FLAC__window_partial_tukey(ptr nocapture noundef writeonly %window, i32 noundef %L, float noundef %p, float noundef %start, float noundef %end) local_unnamed_addr #1 {
+define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(none) %window, i32 noundef %L, float noundef %p, float noundef %start, float noundef %end) local_unnamed_addr #1 {
 entry:
   %conv = sitofp i32 %L to float
   %mul = fmul reassoc nsz arcp float %start, %conv
@@ -1305,7 +1305,7 @@ if.end87:                                         ; preds = %if.end87.sink.split
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write) uwtable
-define hidden void @FLAC__window_punchout_tukey(ptr nocapture noundef writeonly %window, i32 noundef %L, float noundef %p, float noundef %start, float noundef %end) local_unnamed_addr #1 {
+define hidden void @FLAC__window_punchout_tukey(ptr noundef writeonly captures(none) %window, i32 noundef %L, float noundef %p, float noundef %start, float noundef %end) local_unnamed_addr #1 {
 entry:
   br label %tailrecurse
 
@@ -1530,7 +1530,7 @@ if.end134:                                        ; preds = %for.body119, %for.c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define hidden void @FLAC__window_welch(ptr nocapture noundef writeonly %window, i32 noundef %L) local_unnamed_addr #0 {
+define hidden void @FLAC__window_welch(ptr noundef writeonly captures(none) %window, i32 noundef %L) local_unnamed_addr #0 {
 entry:
   %sub = add nsw i32 %L, -1
   %conv = sitofp i32 %sub to double
@@ -1567,7 +1567,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind sspstrong memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

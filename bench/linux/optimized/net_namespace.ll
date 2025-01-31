@@ -330,10 +330,10 @@ rtnl_net_notifyid.exit:                           ; preds = %66, %68
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @peernet2id(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -845,17 +845,17 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #2
 declare dso_local void @key_remove_domain(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @net_ns_get_ownership(ptr nocapture readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #4 align 16 {
+define dso_local void @net_ns_get_ownership(ptr readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #4 align 16 {
   store i32 0, ptr %1, align 4
   store i32 0, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @net_ns_barrier() #0 align 16 {
@@ -1091,7 +1091,7 @@ define dso_local i32 @register_pernet_subsys(ptr noundef %0) #0 align 16 {
 declare dso_local void @rtnl_register(i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtnl_net_newid(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @rtnl_net_newid(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.net_fill_args, align 4
   %5 = alloca [6 x ptr], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1821,7 +1821,7 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtnl_net_dumpid(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal i32 @rtnl_net_dumpid(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca [6 x ptr], align 16
   %4 = alloca %struct.rtnl_net_dump_cb, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
@@ -2149,7 +2149,7 @@ define internal fastcc i32 @register_pernet_operations(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unregister_pernet_subsys(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @unregister_pernet_subsys(ptr noundef captures(none) %0) #0 align 16 {
   %2 = alloca %struct.list_head, align 8
   tail call void @down_write(ptr noundef nonnull @pernet_ops_rwsem) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
@@ -2349,7 +2349,7 @@ define internal void @netns_put(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -1, 1) i32 @netns_install(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @netns_install(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %1, i64 -120
@@ -2420,7 +2420,7 @@ define internal noundef range(i32 -1, 1) i32 @netns_install(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @netns_owner(ptr nocapture noundef readonly %0) #8 align 16 {
+define internal ptr @netns_owner(ptr noundef readonly captures(none) %0) #8 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -40
   %3 = load ptr, ptr %2, align 16
   ret ptr %3
@@ -2460,7 +2460,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #2
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @net_defaults_init_net(ptr nocapture noundef writeonly initializes((376, 385)) %0) #4 align 16 {
+define internal noundef i32 @net_defaults_init_net(ptr noundef writeonly captures(none) initializes((376, 385)) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i32 4096, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 380
@@ -2501,7 +2501,7 @@ declare void @llvm.write_register.i64(metadata, i64) #14
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ops_init(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ops_init(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2637,7 +2637,7 @@ declare dso_local zeroext i1 @llist_add_batch(ptr noundef, ptr noundef, ptr noun
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @cleanup_net(ptr nocapture readnone %0) #0 align 16 {
+define internal void @cleanup_net(ptr readnone captures(none) %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
@@ -3000,7 +3000,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_net_fill(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_net_fill(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load i32, ptr %1, align 4
@@ -3130,7 +3130,7 @@ define internal i32 @net_ns_net_init(ptr noundef initializes((128, 136)) %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @net_ns_net_exit(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @net_ns_net_exit(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   tail call void @proc_free_inum(i32 noundef %3) #17
@@ -3159,7 +3159,7 @@ declare dso_local i32 @rtnl_unicast(ptr noundef, ptr noundef, i32 noundef) local
 declare dso_local zeroext i1 @netlink_strict_get_check(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -90, 1) i32 @rtnl_net_dumpid_one(i32 noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal noundef range(i32 -90, 1) i32 @rtnl_net_dumpid_one(i32 noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -3218,7 +3218,7 @@ declare dso_local void @ida_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare dso_local i32 @ida_alloc_range(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @free_exit_list(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @free_exit_list(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

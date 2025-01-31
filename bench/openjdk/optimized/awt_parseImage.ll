@@ -78,7 +78,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [35 x i8] c"java/awt/image/ComponentColorModel\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @awt_parseImage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @awt_parseImage(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -713,7 +713,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @awt_parseRaster(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1265,7 +1265,7 @@ define hidden range(i32 -1, 2) i32 @awt_parseRaster(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @awt_parseColorModel(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((24, 32)) %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @awt_parseColorModel(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((24, 32)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %5, align 8
   %6 = icmp eq ptr %1, null
@@ -1694,7 +1694,7 @@ getColorModelType.exit:                           ; preds = %._crit_edge, %101, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @awt_freeParsedRaster(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden void @awt_freeParsedRaster(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1717,7 +1717,7 @@ define hidden void @awt_freeParsedRaster(ptr nocapture noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @awt_freeParsedImage(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden void @awt_freeParsedImage(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1765,7 +1765,7 @@ declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_add
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @checkChannelOffsets(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @checkChannelOffsets(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -1851,7 +1851,7 @@ define internal fastcc range(i32 0, 2) i32 @checkChannelOffsets(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 428
@@ -2062,7 +2062,7 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 428

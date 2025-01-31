@@ -127,13 +127,13 @@ _ZN4absl15LogSeverityNameENS_11LogSeverityE.exit: ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare noundef i64 @_ZN4absl19ToInt64MicrosecondsENS_8DurationE(i64, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE(i32 noundef %severity, i64 %timestamp.coerce0, i32 %timestamp.coerce1, i32 noundef %tid, i64 %basename.coerce0, ptr nocapture readonly %basename.coerce1, i32 noundef %line, i32 noundef %format, ptr nocapture noundef nonnull align 8 dereferenceable(16) %buf) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE(i32 noundef %severity, i64 %timestamp.coerce0, i32 %timestamp.coerce1, i32 noundef %tid, i64 %basename.coerce0, ptr readonly captures(none) %basename.coerce1, i32 noundef %line, i32 noundef %format, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %buf) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca [4 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
   %ci.i = alloca %"struct.absl::TimeZone::CivilInfo", align 8
@@ -453,10 +453,10 @@ declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8Dispatc
 declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIPKcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

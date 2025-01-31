@@ -626,7 +626,7 @@ define void @awt_DrawingSurface_FreeDrawingSurfaceInfo(ptr noundef %0) #3 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @awt_DrawingSurface_Unlock(ptr noundef readonly %0) #0 {

@@ -845,7 +845,7 @@ _get_command.exit:                                ; preds = %.lr.ph61.i, %.loope
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @slurm_init(ptr noundef) local_unnamed_addr #2
 
@@ -854,7 +854,7 @@ declare i32 @log_init(ptr noundef, ptr noundef byval(%struct.log_options_t) alig
 declare ptr @xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
@@ -866,7 +866,7 @@ declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
@@ -1154,7 +1154,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %.0.i = trunc i64 %.0.in.i to i32
   %108 = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 3)
   %109 = zext nneg i32 %108 to i64
-  %110 = tail call i32 @xstrncasecmp(ptr noundef %99, ptr noundef nonnull @.str.136, i64 noundef %109) #17
+  %110 = tail call i32 @xstrncasecmp(ptr noundef nonnull %99, ptr noundef nonnull @.str.136, i64 noundef %109) #17
   %.not35.i = icmp eq i32 %110, 0
   br i1 %.not35.i, label %111, label %113
 
@@ -1163,7 +1163,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %124
 
 113:                                              ; preds = %107
-  %114 = tail call i32 @xstrncasecmp(ptr noundef %99, ptr noundef nonnull @.str.137, i64 noundef %109) #17
+  %114 = tail call i32 @xstrncasecmp(ptr noundef nonnull %99, ptr noundef nonnull @.str.137, i64 noundef %109) #17
   %.not36.i = icmp eq i32 %114, 0
   br i1 %.not36.i, label %115, label %117
 
@@ -1172,7 +1172,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %124
 
 117:                                              ; preds = %113
-  %118 = tail call i32 @xstrncasecmp(ptr noundef %99, ptr noundef nonnull @.str.138, i64 noundef %109) #17
+  %118 = tail call i32 @xstrncasecmp(ptr noundef nonnull %99, ptr noundef nonnull @.str.138, i64 noundef %109) #17
   %.not37.i = icmp eq i32 %118, 0
   br i1 %.not37.i, label %119, label %96
 
@@ -1452,7 +1452,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %254 = load ptr, ptr %253, align 8
   %255 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %254) #22
   %256 = trunc i64 %255 to i32
-  %257 = call i32 @hash_g_compute(ptr noundef %254, i32 noundef %256, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5) #17
+  %257 = call i32 @hash_g_compute(ptr noundef nonnull %254, i32 noundef %256, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5) #17
   %258 = icmp sgt i32 %257, 0
   br i1 %258, label %.lr.ph577, label %._crit_edge578
 
@@ -2206,7 +2206,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %560 = load ptr, ptr %559, align 8
   %561 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %560) #22
   %spec.select = tail call i64 @llvm.umax.i64(i64 %561, i64 5)
-  %562 = tail call i32 @xstrncasecmp(ptr noundef %560, ptr noundef nonnull @.str.113, i64 noundef %spec.select) #17
+  %562 = tail call i32 @xstrncasecmp(ptr noundef nonnull %560, ptr noundef nonnull @.str.113, i64 noundef %spec.select) #17
   %.not500 = icmp eq i32 %562, 0
   br i1 %.not500, label %563, label %572
 
@@ -2230,7 +2230,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %573 = load ptr, ptr %559, align 8
   %574 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %573) #22
   %spec.select525 = tail call i64 @llvm.umax.i64(i64 %574, i64 6)
-  %575 = tail call i32 @xstrncasecmp(ptr noundef %573, ptr noundef nonnull @.str.114, i64 noundef %spec.select525) #17
+  %575 = tail call i32 @xstrncasecmp(ptr noundef nonnull %573, ptr noundef nonnull @.str.114, i64 noundef %spec.select525) #17
   %.not501 = icmp eq i32 %575, 0
   br i1 %.not501, label %576, label %584
 
@@ -2590,7 +2590,7 @@ _create_it.exit:                                  ; preds = %.lr.ph, %369, %.lr.
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare ptr @data_parser_cli_meta(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2610,7 +2610,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #7 {
+define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -2716,7 +2716,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
   %48 = add nsw i32 %.14372, 1
   %49 = call i32 @llvm.smax.i32(i32 %47, i32 1)
   %50 = zext nneg i32 %49 to i64
-  %51 = call i32 @xstrncasecmp(ptr noundef %45, ptr noundef nonnull @.str.48, i64 noundef %50) #17
+  %51 = call i32 @xstrncasecmp(ptr noundef nonnull %45, ptr noundef nonnull @.str.48, i64 noundef %50) #17
   %.not60 = icmp eq i32 %51, 0
   br i1 %.not60, label %64, label %52
 
@@ -2811,13 +2811,13 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @scontrol_reboot_nodes(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2828,12 +2828,12 @@ declare void @print_slurm_version() local_unnamed_addr #2
 declare i64 @slurm_api_version() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @readline(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @add_history(ptr noundef) local_unnamed_addr #2
 
@@ -2857,7 +2857,7 @@ declare void @slurm_free_reservation_info_msg(ptr noundef) local_unnamed_addr #2
 declare void @slurm_free_ctl_conf(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #14
 
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #2
 
@@ -2866,7 +2866,7 @@ declare void @scontrol_getaddrs(ptr noundef) local_unnamed_addr #2
 declare void @scontrol_gethost(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @create_mmap_buf(ptr noundef) local_unnamed_addr #2
 
@@ -2877,7 +2877,7 @@ declare void @free_buf(ptr noundef) local_unnamed_addr #2
 declare void @scontrol_pid_info(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_print_ping(i32 noundef range(i32 1, -2147483648) %0, ptr noundef %1) unnamed_addr #7 {
@@ -3052,7 +3052,7 @@ declare void @scontrol_suspend(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @scontrol_top_job(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_fetch_token(i32 noundef range(i32 1, -2147483648) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 {
+define internal fastcc void @_fetch_token(i32 noundef range(i32 1, -2147483648) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
   %3 = alloca ptr, align 8
   %4 = icmp samesign ugt i32 %0, 1
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
@@ -3135,7 +3135,7 @@ define internal fastcc void @_fetch_token(i32 noundef range(i32 1, -2147483648) 
 declare i32 @scontrol_job_ready(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_setdebugflags(i32 noundef range(i32 1, -2147483648) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 {
+define internal fastcc void @_setdebugflags(i32 noundef range(i32 1, -2147483648) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp samesign ult i32 %0, 2
@@ -3272,12 +3272,12 @@ switch.early.test:                                ; preds = %45
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #14
 
 declare i32 @slurm_set_fs_dampeningfactor(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 {
+define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
   %3 = alloca ptr, align 8
   %4 = icmp samesign ugt i32 %0, 3
   br i1 %4, label %5, label %11
@@ -3504,7 +3504,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   %.0134 = trunc i64 %.0134.in to i32
   %41 = tail call i32 @llvm.smax.i32(i32 %.0134, i32 1)
   %42 = zext nneg i32 %41 to i64
-  %43 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.176, i64 noundef %42) #17
+  %43 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.176, i64 noundef %42) #17
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %48
 
@@ -3523,12 +3523,12 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
 48:                                               ; preds = %40
   %49 = tail call i32 @llvm.smax.i32(i32 %.0134, i32 2)
   %50 = zext nneg i32 %49 to i64
-  %51 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.174, i64 noundef %50) #17
+  %51 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.174, i64 noundef %50) #17
   %.not142 = icmp eq i32 %51, 0
   br i1 %.not142, label %54, label %52
 
 52:                                               ; preds = %48
-  %53 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.175, i64 noundef %50) #17
+  %53 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.175, i64 noundef %50) #17
   %.not143 = icmp eq i32 %53, 0
   br i1 %.not143, label %54, label %57
 
@@ -3539,7 +3539,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 57:                                               ; preds = %52
-  %58 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.177, i64 noundef %50) #17
+  %58 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.177, i64 noundef %50) #17
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %61
 
@@ -3548,12 +3548,12 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 61:                                               ; preds = %57
-  %62 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.173, i64 noundef %50) #17
+  %62 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.173, i64 noundef %50) #17
   %.not144 = icmp eq i32 %62, 0
   br i1 %.not144, label %65, label %63
 
 63:                                               ; preds = %61
-  %64 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.178, i64 noundef %50) #17
+  %64 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.178, i64 noundef %50) #17
   %.not145 = icmp eq i32 %64, 0
   br i1 %.not145, label %65, label %68
 
@@ -3564,7 +3564,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 68:                                               ; preds = %63
-  %69 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.114, i64 noundef %42) #17
+  %69 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.114, i64 noundef %42) #17
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %72
 
@@ -3573,7 +3573,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 72:                                               ; preds = %68
-  %73 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.179, i64 noundef %42) #17
+  %73 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.179, i64 noundef %42) #17
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %83
 
@@ -3598,7 +3598,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 83:                                               ; preds = %72
-  %84 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.180, i64 noundef %42) #17
+  %84 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.180, i64 noundef %42) #17
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %87
 
@@ -3607,7 +3607,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 87:                                               ; preds = %83
-  %88 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.181, i64 noundef %42) #17
+  %88 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.181, i64 noundef %42) #17
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %91
 
@@ -3618,7 +3618,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
 91:                                               ; preds = %87
   %92 = tail call i32 @llvm.smax.i32(i32 %.0134, i32 5)
   %93 = zext nneg i32 %92 to i64
-  %94 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.182, i64 noundef %93) #17
+  %94 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.182, i64 noundef %93) #17
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %100
 
@@ -3636,7 +3636,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 100:                                              ; preds = %91
-  %101 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.184, i64 noundef %93) #17
+  %101 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.184, i64 noundef %93) #17
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %110
 
@@ -3663,7 +3663,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
 110:                                              ; preds = %100
   %111 = tail call i32 @llvm.smax.i32(i32 %.0134, i32 9)
   %112 = zext nneg i32 %111 to i64
-  %113 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.186, i64 noundef %112) #17
+  %113 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.186, i64 noundef %112) #17
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %122
 
@@ -3688,12 +3688,12 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 122:                                              ; preds = %110
-  %123 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.187, i64 noundef %42) #17
+  %123 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.187, i64 noundef %42) #17
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %128, label %125
 
 125:                                              ; preds = %122
-  %126 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.188, i64 noundef %42) #17
+  %126 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.188, i64 noundef %42) #17
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %128, label %129
 
@@ -3702,7 +3702,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 129:                                              ; preds = %125
-  %130 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.189, i64 noundef %50) #17
+  %130 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.189, i64 noundef %50) #17
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %132, label %133
 
@@ -3711,7 +3711,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 133:                                              ; preds = %129
-  %134 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.190, i64 noundef %42) #17
+  %134 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.190, i64 noundef %42) #17
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %136, label %137
 
@@ -3720,12 +3720,12 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 137:                                              ; preds = %133
-  %138 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.191, i64 noundef %50) #17
+  %138 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.191, i64 noundef %50) #17
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %143, label %140
 
 140:                                              ; preds = %137
-  %141 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.192, i64 noundef %50) #17
+  %141 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.192, i64 noundef %50) #17
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %144
 
@@ -3734,12 +3734,12 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 144:                                              ; preds = %140
-  %145 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.193, i64 noundef %42) #17
+  %145 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.193, i64 noundef %42) #17
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %150, label %147
 
 147:                                              ; preds = %144
-  %148 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.194, i64 noundef %42) #17
+  %148 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.194, i64 noundef %42) #17
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %151
 
@@ -3748,7 +3748,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 151:                                              ; preds = %147
-  %152 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.195, i64 noundef %50) #17
+  %152 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.195, i64 noundef %50) #17
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %155
 
@@ -3757,7 +3757,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 155:                                              ; preds = %151
-  %156 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.196, i64 noundef %50) #17
+  %156 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.196, i64 noundef %50) #17
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %159
 
@@ -3766,7 +3766,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 159:                                              ; preds = %155
-  %160 = tail call i32 @xstrncasecmp(ptr noundef %27, ptr noundef nonnull @.str.197, i64 noundef %42) #17
+  %160 = tail call i32 @xstrncasecmp(ptr noundef nonnull %27, ptr noundef nonnull @.str.197, i64 noundef %42) #17
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %162, label %163
 
@@ -3783,7 +3783,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
 165:                                              ; preds = %163
   %166 = load ptr, ptr @stderr, align 8
   %167 = load ptr, ptr %1, align 8
-  %168 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef nonnull @.str.198, ptr noundef %27, ptr noundef %167) #21
+  %168 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef nonnull @.str.198, ptr noundef nonnull %27, ptr noundef %167) #21
   br label %169
 
 169:                                              ; preds = %54, %65, %76, %78, %82, %90, %107, %109, %104, %128, %136, %150, %158, %163, %165, %162, %154, %143, %132, %116, %121, %119, %97, %98, %86, %71, %60, %46, %47, %21, %23, %4, %6
@@ -3975,63 +3975,63 @@ define internal fastcc void @_update_it(i32 noundef range(i32 1, 2147483647) %0,
   %.0 = phi i32 [ %.1, %23 ], [ %10, %8 ]
   %26 = tail call i32 @llvm.smax.i32(i32 %.0, i32 3)
   %27 = zext nneg i32 %26 to i64
-  %28 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.136, i64 noundef %27) #17
+  %28 = tail call i32 @xstrncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.136, i64 noundef %27) #17
   %.not128 = icmp eq i32 %28, 0
   br i1 %.not128, label %55, label %29
 
 29:                                               ; preds = %25
-  %30 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.137, i64 noundef %27) #17
+  %30 = tail call i32 @xstrncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.137, i64 noundef %27) #17
   %.not129 = icmp eq i32 %30, 0
   br i1 %.not129, label %55, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.208, i64 noundef %27) #17
+  %32 = tail call i32 @xstrncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.208, i64 noundef %27) #17
   %.not130 = icmp eq i32 %32, 0
   br i1 %.not130, label %55, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.209, i64 noundef %27) #17
+  %34 = tail call i32 @xstrncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.209, i64 noundef %27) #17
   %.not131 = icmp eq i32 %34, 0
   br i1 %.not131, label %55, label %35
 
 35:                                               ; preds = %33
   %36 = tail call i32 @llvm.smax.i32(i32 %.0, i32 4)
   %37 = zext nneg i32 %36 to i64
-  %38 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.210, i64 noundef %37) #17
+  %38 = tail call i32 @xstrncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.210, i64 noundef %37) #17
   %.not132 = icmp eq i32 %38, 0
   br i1 %.not132, label %55, label %39
 
 39:                                               ; preds = %35
   %40 = tail call i32 @llvm.smax.i32(i32 %.0, i32 2)
   %41 = zext nneg i32 %40 to i64
-  %42 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.181, i64 noundef %41) #17
+  %42 = tail call i32 @xstrncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.181, i64 noundef %41) #17
   %.not133 = icmp eq i32 %42, 0
   br i1 %.not133, label %55, label %43
 
 43:                                               ; preds = %39
-  %44 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.138, i64 noundef %27) #17
+  %44 = tail call i32 @xstrncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.138, i64 noundef %27) #17
   %.not134 = icmp eq i32 %44, 0
   br i1 %.not134, label %55, label %45
 
 45:                                               ; preds = %43
-  %46 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.211, i64 noundef %41) #17
+  %46 = tail call i32 @xstrncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.211, i64 noundef %41) #17
   %.not135 = icmp eq i32 %46, 0
   br i1 %.not135, label %55, label %47
 
 47:                                               ; preds = %45
   %48 = tail call i32 @llvm.smax.i32(i32 %.0, i32 11)
   %49 = zext nneg i32 %48 to i64
-  %50 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.212, i64 noundef %49) #17
+  %50 = tail call i32 @xstrncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.212, i64 noundef %49) #17
   %.not136 = icmp eq i32 %50, 0
   br i1 %.not136, label %55, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.213, i64 noundef %49) #17
+  %52 = tail call i32 @xstrncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.213, i64 noundef %49) #17
   %.not137 = icmp eq i32 %52, 0
   br i1 %.not137, label %55, label %53
 
 53:                                               ; preds = %51
-  %54 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.214, i64 noundef %49) #17
+  %54 = tail call i32 @xstrncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.214, i64 noundef %49) #17
   %.not138 = icmp eq i32 %54, 0
   %spec.select = select i1 %.not138, i32 1, i32 %.087158
   br label %55
@@ -4161,7 +4161,7 @@ define internal fastcc void @_update_it(i32 noundef range(i32 1, 2147483647) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_delete_it(i32 noundef range(i32 1, 2147483647) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 {
+define internal fastcc void @_delete_it(i32 noundef range(i32 1, 2147483647) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
   %3 = alloca %struct.slurm_update_node_msg, align 8
   %4 = alloca [64 x i8], align 16
   %5 = alloca %struct.delete_partition_msg, align 8
@@ -4210,7 +4210,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 1, 2147483647) %0,
   %.0 = trunc i64 %.0.in to i32
   %27 = tail call i32 @llvm.smax.i32(i32 %.0, i32 3)
   %28 = zext nneg i32 %27 to i64
-  %29 = tail call i32 @xstrncasecmp(ptr noundef %.027, ptr noundef nonnull @.str.136, i64 noundef %28) #17
+  %29 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.027, ptr noundef nonnull @.str.136, i64 noundef %28) #17
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %37
 
@@ -4230,7 +4230,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 1, 2147483647) %0,
   br label %57
 
 37:                                               ; preds = %26
-  %38 = tail call i32 @xstrncasecmp(ptr noundef %.027, ptr noundef nonnull @.str.137, i64 noundef %28) #17
+  %38 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.027, ptr noundef nonnull @.str.137, i64 noundef %28) #17
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %45
 
@@ -4248,7 +4248,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 1, 2147483647) %0,
   br label %57
 
 45:                                               ; preds = %37
-  %46 = tail call i32 @xstrncasecmp(ptr noundef %.027, ptr noundef nonnull @.str.138, i64 noundef %28) #17
+  %46 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.027, ptr noundef nonnull @.str.138, i64 noundef %28) #17
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %53
 
@@ -4293,7 +4293,7 @@ declare i32 @scontrol_create_res(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @ping_all_controllers(...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @getuid() local_unnamed_addr #4
@@ -4639,7 +4639,7 @@ declare void @slurm_print_ctl_conf(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @gethostname(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #14
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #14
 
 declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -4721,16 +4721,16 @@ declare i32 @slurm_delete_partition(ptr noundef) local_unnamed_addr #2
 declare i32 @slurm_delete_reservation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16

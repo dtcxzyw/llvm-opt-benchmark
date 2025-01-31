@@ -758,7 +758,7 @@ define hidden void @Init_builtin_rjit_c() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i64 0, 21) i64 @rjit_enabled_p(ptr nocapture readnone %0, i64 %1) #1 {
+define internal range(i64 0, 21) i64 @rjit_enabled_p(ptr readnone captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr @rb_rjit_enabled, align 1
   %4 = trunc i8 %3 to i1
   %5 = select i1 %4, i64 20, i64 0
@@ -766,7 +766,7 @@ define internal range(i64 0, 21) i64 @rjit_enabled_p(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_12(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_12(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -795,7 +795,7 @@ rb_ull2num_inline.exit:                           ; preds = %14, %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @mprotect_write(ptr nocapture readnone %0, i64 %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal range(i64 0, 21) i64 @mprotect_write(ptr readnone captures(none) %0, i64 %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = and i64 %2, 1
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %8, label %6
@@ -820,7 +820,7 @@ rb_num2ull_inline.exit:                           ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @mprotect_exec(ptr nocapture readnone %0, i64 %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal range(i64 0, 21) i64 @mprotect_exec(ptr readnone captures(none) %0, i64 %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = and i64 %2, 1
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %8, label %6
@@ -859,7 +859,7 @@ rb_num2ull_inline.exit:                           ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_24(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_24(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rjit_insn_exits to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -878,7 +878,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_29(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_29(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_rjit_counters to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -897,13 +897,13 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @dump_disasm(ptr nocapture readnone %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 {
+define internal i64 @dump_disasm(ptr readnone captures(none) %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 {
   %6 = tail call i64 @rb_ary_new() #17
   ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_41(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_41(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -928,7 +928,7 @@ rb_ull2num_inline.exit:                           ; preds = %10, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_45(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_45(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -978,7 +978,7 @@ rb_num2int_inline.exit7:                          ; preds = %20, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 8589934592) i64 @builtin_inline_class_50(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 8589934592) i64 @builtin_inline_class_50(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1024,7 +1024,7 @@ rb_num2ull_inline.exit7:                          ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @builtin_inline_class_54(ptr nocapture noundef readonly %0, i64 %1) #2 {
+define internal i64 @builtin_inline_class_54(ptr noundef readonly captures(none) %0, i64 %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1073,7 +1073,7 @@ rb_class_of.exit:                                 ; preds = %13, %16, %17, %18, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_58(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_58(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1104,7 +1104,7 @@ rb_ull2num_inline.exit:                           ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 8) i64 @builtin_inline_class_65(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 8) i64 @builtin_inline_class_65(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1134,7 +1134,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_70(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_70(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1162,7 +1162,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_75(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_75(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1192,7 +1192,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 64) i64 @builtin_inline_class_80(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 64) i64 @builtin_inline_class_80(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1222,7 +1222,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_84(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_84(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1283,7 +1283,7 @@ rb_type.exit.i:                                   ; preds = %switch.lookup, %26,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 8589934592) i64 @builtin_inline_class_89(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 8589934592) i64 @builtin_inline_class_89(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1312,7 +1312,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @builtin_inline_class_93(ptr nocapture readnone %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @builtin_inline_class_93(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call i32 @rb_shape_id_offset() #17
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 1
@@ -1321,7 +1321,7 @@ define internal range(i64 1, 0) i64 @builtin_inline_class_93(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 8589934592) i64 @builtin_inline_class_97(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 8589934592) i64 @builtin_inline_class_97(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -1371,7 +1371,7 @@ rb_num2ull_inline.exit9:                          ; preds = %20, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_106(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_106(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1403,7 +1403,7 @@ rb_num2ull_inline.exit:                           ; preds = %12, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_110(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_110(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1452,14 +1452,14 @@ RB_FL_TEST.exit.thread:                           ; preds = %20, %rb_num2ull_inl
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rjit_for_each_iseq(ptr nocapture readnone %0, i64 %1, i64 noundef %2) #0 {
+define internal noundef i64 @rjit_for_each_iseq(ptr readnone captures(none) %0, i64 %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %2 to ptr
   tail call void @rb_objspace_each_objects(ptr noundef nonnull @for_each_iseq_i, ptr noundef %4) #17
   ret i64 4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_118(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_118(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1485,7 +1485,7 @@ rb_ull2num_inline.exit:                           ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_123(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_123(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1527,7 +1527,7 @@ rb_ull2num_inline.exit:                           ; preds = %18, %21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_129(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_129(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1539,7 +1539,7 @@ define internal i64 @builtin_inline_class_129(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_133(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_133(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1565,7 +1565,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_137(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_137(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1579,7 +1579,7 @@ define internal i64 @builtin_inline_class_137(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_142(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_142(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1629,7 +1629,7 @@ imemo_type_p.exit.thread:                         ; preds = %rb_num2ull_inline.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_147(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_147(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1657,7 +1657,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_155(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_155(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1685,7 +1685,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @builtin_inline_class_162(ptr nocapture noundef readonly %0, i64 %1) #3 {
+define internal i64 @builtin_inline_class_162(ptr noundef readonly captures(none) %0, i64 %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1697,7 +1697,7 @@ define internal i64 @builtin_inline_class_162(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_166(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_166(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1736,7 +1736,7 @@ rb_ull2num_inline.exit:                           ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_170(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_170(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1779,7 +1779,7 @@ rb_ull2num_inline.exit:                           ; preds = %19, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_176(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_176(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1839,7 +1839,7 @@ rb_ull2num_inline.exit:                           ; preds = %27, %30
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 8589934592) i64 @builtin_inline_class_182(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 8589934592) i64 @builtin_inline_class_182(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1869,7 +1869,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_186(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_186(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1881,7 +1881,7 @@ define internal i64 @builtin_inline_class_186(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_190(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_190(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1893,7 +1893,7 @@ define internal i64 @builtin_inline_class_190(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_195(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_195(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1935,7 +1935,7 @@ rb_ull2num_inline.exit:                           ; preds = %18, %21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_203(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_203(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1978,7 +1978,7 @@ rb_ull2num_inline.exit:                           ; preds = %19, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_212(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_212(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2007,7 +2007,7 @@ rb_ull2num_inline.exit:                           ; preds = %14, %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_218(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_218(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2046,7 +2046,7 @@ rb_ull2num_inline.exit:                           ; preds = %15, %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_224(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_224(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2073,7 +2073,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 8589934592) i64 @builtin_inline_class_229(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 8589934592) i64 @builtin_inline_class_229(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2118,7 +2118,7 @@ vm_ci_argc.exit:                                  ; preds = %15, %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 8589934592) i64 @builtin_inline_class_234(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 8589934592) i64 @builtin_inline_class_234(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2164,7 +2164,7 @@ vm_ci_flag.exit:                                  ; preds = %15, %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_239(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_239(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2213,7 +2213,7 @@ rb_ull2num_inline.exit:                           ; preds = %vm_ci_kwarg.exit.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_245(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_245(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2265,7 +2265,7 @@ rb_ull2num_inline.exit:                           ; preds = %20, %23
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_249(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_249(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_rjit_opts to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -2284,7 +2284,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @builtin_inline_class_254(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal noundef i64 @builtin_inline_class_254(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2309,7 +2309,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @builtin_inline_class_263(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @builtin_inline_class_263(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2339,7 +2339,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_268(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_268(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2364,12 +2364,12 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_272(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_272(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_282(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_282(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load i64, ptr @rb_rjit_raw_samples, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = load i64, ptr %4, align 8
@@ -2868,7 +2868,7 @@ rjit_exit_traces.exit:                            ; preds = %.lr.ph.i88.i, %rbim
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_287(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_287(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2910,7 +2910,7 @@ rb_ull2num_inline.exit:                           ; preds = %18, %21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_292(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_292(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2922,7 +2922,7 @@ define internal i64 @builtin_inline_class_292(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_296(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_296(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2939,7 +2939,7 @@ define internal i64 @builtin_inline_class_296(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_304(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_304(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2951,7 +2951,7 @@ define internal i64 @builtin_inline_class_304(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_308(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_308(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2977,7 +2977,7 @@ rb_ull2num_inline.exit:                           ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_312(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_312(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3020,7 +3020,7 @@ rb_ull2num_inline.exit:                           ; preds = %19, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_318(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_318(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3050,7 +3050,7 @@ rb_num2ull_inline.exit:                           ; preds = %12, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_323(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_323(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3107,7 +3107,7 @@ rb_num2ull_inline.exit10:                         ; preds = %rb_num2ull_inline.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @builtin_inline_class_327(ptr nocapture noundef readonly %0, i64 %1) #2 {
+define internal i64 @builtin_inline_class_327(ptr noundef readonly captures(none) %0, i64 %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3121,7 +3121,7 @@ define internal i64 @builtin_inline_class_327(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_337(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_337(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3166,7 +3166,7 @@ rb_ull2num_inline.exit:                           ; preds = %20, %23
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_342(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_342(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3193,547 +3193,547 @@ rb_ull2num_inline.exit:                           ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_349(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_349(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_350(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_350(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 -3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_351(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_351(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_352(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_352(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_353(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_353(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_354(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_354(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_355(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_355(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_356(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_356(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_357(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_357(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_358(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_358(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_359(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_359(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_360(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_360(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_361(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_361(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_362(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_362(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_363(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_363(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_364(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_364(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 59
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_365(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_365(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_366(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_366(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_367(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_367(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_368(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_368(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_369(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_369(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 8589934591
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_370(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_370(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_371(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_371(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_372(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_372(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_373(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_373(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_374(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_374(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_375(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_375(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_376(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_376(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_377(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_377(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_378(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_378(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_379(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_379(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_380(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_380(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 16385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_381(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_381(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 8323073
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_382(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_382(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_383(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_383(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 16385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_384(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_384(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65537
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_385(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_385(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 16385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_386(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_386(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2080769
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_387(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_387(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1065353217
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_388(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_388(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_389(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_389(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_390(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_390(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_391(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_391(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_392(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_392(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_393(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_393(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_394(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_394(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4097
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_395(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_395(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 8193
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_396(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_396(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_397(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_397(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_398(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_398(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_399(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_399(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_400(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_400(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_401(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_401(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_402(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_402(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_403(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_403(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 63
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_404(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_404(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_405(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_405(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_406(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_406(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_407(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_407(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_408(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_408(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_409(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_409(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_410(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_410(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_411(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_411(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_412(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_412(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 8589934591
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_413(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_413(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_414(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_414(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_415(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_415(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_416(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_416(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_417(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_417(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_418(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_418(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_419(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_419(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_420(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_420(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_421(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_421(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_422(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_422(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4097
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_423(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_423(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_424(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_424(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2049
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_425(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_425(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_426(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_426(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_427(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_427(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1025
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_428(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_428(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_429(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_429(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_430(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_430(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_431(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_431(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_432(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_432(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_433(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_433(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_434(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_434(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2049
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_435(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_435(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_436(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_436(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1025
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_437(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_437(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1145307139
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_438(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_438(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2863267843
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_439(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_439(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 572653571
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_440(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_440(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_441(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_441(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_442(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_442(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_443(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_443(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_444(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_444(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_445(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_445(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_446(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_446(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_447(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_447(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_448(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_448(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_449(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_449(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_450(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_450(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_451(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_451(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_452(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_452(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_454(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_454(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_455(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_455(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 313
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_456(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_456(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_457(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_457(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_458(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_458(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load i64, ptr @rb_block_param_proxy, align 8
   %4 = icmp ult i64 %3, 4611686018427387904
   br i1 %4, label %5, label %8
@@ -3753,7 +3753,7 @@ rb_ull2num_inline.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_459(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_459(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load i64, ptr @rb_cArray, align 8
   %4 = icmp ult i64 %3, 4611686018427387904
   br i1 %4, label %5, label %8
@@ -3773,7 +3773,7 @@ rb_ull2num_inline.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_460(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_460(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load i64, ptr @rb_cFalseClass, align 8
   %4 = icmp ult i64 %3, 4611686018427387904
   br i1 %4, label %5, label %8
@@ -3793,7 +3793,7 @@ rb_ull2num_inline.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_461(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_461(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load i64, ptr @rb_cFloat, align 8
   %4 = icmp ult i64 %3, 4611686018427387904
   br i1 %4, label %5, label %8
@@ -3813,7 +3813,7 @@ rb_ull2num_inline.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_462(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_462(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load i64, ptr @rb_cInteger, align 8
   %4 = icmp ult i64 %3, 4611686018427387904
   br i1 %4, label %5, label %8
@@ -3833,7 +3833,7 @@ rb_ull2num_inline.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_463(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_463(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load i64, ptr @rb_cNilClass, align 8
   %4 = icmp ult i64 %3, 4611686018427387904
   br i1 %4, label %5, label %8
@@ -3853,7 +3853,7 @@ rb_ull2num_inline.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_464(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_464(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load i64, ptr @rb_cString, align 8
   %4 = icmp ult i64 %3, 4611686018427387904
   br i1 %4, label %5, label %8
@@ -3873,7 +3873,7 @@ rb_ull2num_inline.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_465(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_465(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load i64, ptr @rb_cSymbol, align 8
   %4 = icmp ult i64 %3, 4611686018427387904
   br i1 %4, label %5, label %8
@@ -3893,7 +3893,7 @@ rb_ull2num_inline.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_466(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_466(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load i64, ptr @rb_cTrueClass, align 8
   %4 = icmp ult i64 %3, 4611686018427387904
   br i1 %4, label %5, label %8
@@ -3913,7 +3913,7 @@ rb_ull2num_inline.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_467(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_467(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load i64, ptr @rb_mRubyVMFrozenCore, align 8
   %4 = icmp ult i64 %3, 4611686018427387904
   br i1 %4, label %5, label %8
@@ -3933,7 +3933,7 @@ rb_ull2num_inline.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i64 1, 8589934592) i64 @builtin_inline_class_468(ptr nocapture readnone %0, i64 %1) #1 {
+define internal range(i64 1, 8589934592) i64 @builtin_inline_class_468(ptr readnone captures(none) %0, i64 %1) #1 {
   %3 = load i32, ptr @rb_rjit_global_events, align 4
   %4 = zext i32 %3 to i64
   %5 = shl nuw nsw i64 %4, 1
@@ -3942,7 +3942,7 @@ define internal range(i64 1, 8589934592) i64 @builtin_inline_class_468(ptr nocap
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_469(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_469(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load i64, ptr @rb_vm_insns_count, align 8
   %4 = icmp ult i64 %3, 4611686018427387904
   br i1 %4, label %5, label %8
@@ -3962,7 +3962,7 @@ rb_ull2num_inline.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_472(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_472(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ary_clear to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -3981,7 +3981,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_476(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_476(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ary_dup to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4000,7 +4000,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_480(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_480(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ary_entry_internal to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4019,7 +4019,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_484(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_484(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ary_push to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4038,7 +4038,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_488(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_488(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ary_resurrect to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4057,7 +4057,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_492(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_492(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ary_store to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4076,7 +4076,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_496(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_496(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ary_tmp_new_from_values to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4095,7 +4095,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_500(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_500(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ary_unshift_m to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4114,7 +4114,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_504(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_504(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_backref_get to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4133,7 +4133,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_508(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_508(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ec_ary_new_from_values to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4152,7 +4152,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_512(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_512(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ec_str_resurrect to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4171,7 +4171,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_516(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_516(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ensure_iv_list_size to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4190,7 +4190,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_520(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_520(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_fix_aref to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4209,7 +4209,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_524(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_524(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_fix_div_fix to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4228,7 +4228,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_528(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_528(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_fix_mod_fix to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4247,7 +4247,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_532(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_532(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_fix_mul_fix to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4266,7 +4266,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_536(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_536(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_gc_writebarrier to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4285,7 +4285,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_540(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_540(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_get_symbol_id to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4304,7 +4304,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_544(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_544(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_gvar_get to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4323,7 +4323,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_548(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_548(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_hash_aref to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4342,7 +4342,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_552(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_552(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_hash_aset to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4361,7 +4361,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_556(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_556(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_hash_bulk_insert to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4380,7 +4380,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_560(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_560(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_hash_new to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4399,7 +4399,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_564(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_564(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_hash_new_with_size to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4418,7 +4418,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_568(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_568(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_hash_resurrect to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4437,7 +4437,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_572(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_572(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ivar_defined to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4456,7 +4456,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_576(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_576(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_ivar_get to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4475,7 +4475,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_580(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_580(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_obj_as_string_result to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4494,7 +4494,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_584(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_584(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_obj_is_kind_of to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4513,7 +4513,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_588(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_588(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_range_new to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4532,7 +4532,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_592(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_592(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_reg_last_match to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4551,7 +4551,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_596(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_596(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_reg_match_last to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4570,7 +4570,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_600(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_600(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_reg_match_post to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4589,7 +4589,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_604(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_604(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_reg_match_pre to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4608,7 +4608,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_608(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_608(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_reg_new_ary to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4627,7 +4627,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_612(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_612(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_reg_nth_match to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4646,7 +4646,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_616(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_616(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_rjit_branch_stub_hit to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4665,7 +4665,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_620(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_620(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_rjit_entry_stub_hit to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4684,7 +4684,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_624(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_624(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_str_buf_append to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4703,7 +4703,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_628(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_628(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_str_bytesize to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4722,7 +4722,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_632(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_632(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_str_concat_literals to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4741,7 +4741,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_636(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_636(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_str_dup to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4760,7 +4760,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_640(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_640(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_str_eql_internal to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4779,7 +4779,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_644(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_644(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_str_getbyte to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4798,7 +4798,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_648(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_648(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_str_intern to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4817,7 +4817,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_652(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_652(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_sym_to_proc to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4836,7 +4836,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_656(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_656(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_bh_to_procval to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4855,7 +4855,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_660(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_660(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_concat_array to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4874,7 +4874,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_664(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_664(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_defined to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4893,7 +4893,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_668(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_668(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_get_ev_const to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4912,7 +4912,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_672(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_672(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_getclassvariable to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4931,7 +4931,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_676(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_676(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_ic_hit_p to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4950,7 +4950,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_680(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_680(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_opt_newarray_hash to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4969,7 +4969,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_684(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_684(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_opt_newarray_max to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -4988,7 +4988,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_688(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_688(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_opt_newarray_min to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5007,7 +5007,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_692(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_692(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_set_ivar_id to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5026,7 +5026,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_696(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_696(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_setclassvariable to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5045,7 +5045,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_700(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_700(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_setinstancevariable to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5064,7 +5064,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_704(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_704(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_splat_array to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5083,7 +5083,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_708(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_708(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_throw to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5102,7 +5102,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_712(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_712(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rb_vm_yield_with_cfunc to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5121,7 +5121,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_716(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_716(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rjit_build_kwhash to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5140,7 +5140,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_720(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_720(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rjit_full_cfunc_return to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5159,7 +5159,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_724(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_724(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rjit_optimized_call to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5178,7 +5178,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_728(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_728(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rjit_rb_ary_subseq_length to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5197,7 +5197,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_732(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_732(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rjit_record_exit_stack to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5216,7 +5216,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_736(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_736(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rjit_str_neq_internal to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5235,7 +5235,7 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_740(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @builtin_inline_class_740(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = icmp ult i64 ptrtoint (ptr @rjit_str_simple_append to i64), 4611686018427387904
   br i1 %3, label %4, label %7
 
@@ -5254,2177 +5254,2177 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_761(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_761(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_762(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_762(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_764(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_764(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_766(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_766(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_767(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_767(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_769(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_769(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_772(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_772(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_773(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_773(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_776(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_776(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_786(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_786(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_787(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_787(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_788(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_788(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_794(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_794(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_795(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_795(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_797(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_797(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_799(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_799(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_800(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_800(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_801(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_801(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_804(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_804(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_810(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_810(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_811(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_811(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_812(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_812(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_814(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_814(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_816(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_816(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_817(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_817(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_819(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_819(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_822(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_822(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_825(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_825(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_826(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_826(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_828(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_828(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_834(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_834(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_835(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_835(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_837(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_837(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_839(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_839(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_840(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_840(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_841(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_841(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_844(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_844(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_854(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_854(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_855(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_855(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_856(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_856(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_862(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_862(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_863(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_863(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_864(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_864(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_865(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_865(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_866(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_866(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_867(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_867(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_873(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_873(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_874(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_874(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_875(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_875(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_881(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_881(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_883(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_883(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_884(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_884(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_885(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_885(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_898(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_898(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_900(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_900(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_904(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_904(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_905(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_905(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_915(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_915(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_916(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_916(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_917(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_917(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_918(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_918(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 193
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_919(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_919(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_925(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_925(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_926(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_926(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_927(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_927(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_933(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_933(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_934(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_934(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_935(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_935(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_936(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_936(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_937(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_937(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_938(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_938(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_944(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_944(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_945(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_945(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_946(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_946(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_947(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_947(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_948(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_948(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_949(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_949(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_955(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_955(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_956(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_956(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_957(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_957(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_958(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_958(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_959(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_959(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_961(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_961(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_963(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_963(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_964(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_964(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_969(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_969(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_975(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_975(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_976(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_976(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_977(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_977(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_978(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_978(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_979(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_979(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_980(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_980(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_986(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_986(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_987(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_987(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_988(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_988(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_989(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_989(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_995(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_995(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_996(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_996(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_997(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_997(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_999(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_999(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1003(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1003(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1013(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1013(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 113
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1014(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1014(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1015(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1015(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1016(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1016(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1017(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1017(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1018(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1018(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1019(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1019(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 641
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1020(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1020(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 769
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1026(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1026(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1027(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1027(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1028(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1028(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1029(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1029(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1030(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1030(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1031(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1031(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1037(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1037(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 753
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1038(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1038(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1039(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1039(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1040(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1040(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1041(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1041(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1042(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1042(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1043(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1043(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 577
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1044(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1044(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 641
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1045(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1045(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 769
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1046(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1046(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 897
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1047(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1047(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1025
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1048(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1048(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1153
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1049(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1049(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1281
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1050(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1050(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1409
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1051(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1051(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1537
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1052(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1052(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1665
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1053(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1053(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1793
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1054(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1054(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1921
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1055(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1055(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2049
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1056(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1056(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2177
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1057(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1057(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2305
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1059(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1059(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 449
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1060(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1060(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1061(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1061(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1062(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1062(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1063(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1063(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2433
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1073(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1073(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 705
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1074(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1074(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1075(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1075(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1076(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1076(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1078(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1078(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 97
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1080(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1080(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1093(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1093(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1094(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1094(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1095(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1095(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1096(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1096(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 193
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1097(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1097(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1098(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1098(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 321
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1099(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1099(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1100(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1100(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 449
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1101(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1101(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1102(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1102(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 641
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1103(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1103(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1104(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1104(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1025
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1105(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1105(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1793
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1106(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1106(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2305
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1107(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1107(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2433
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1108(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1108(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2561
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1109(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1109(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2689
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1110(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1110(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2817
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1111(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1111(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2945
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1113(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1113(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1114(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1114(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1115(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1115(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1116(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1116(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1117(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1117(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1118(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1118(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1119(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1119(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3073
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1120(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1120(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3713
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1121(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1121(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3777
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1122(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1122(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3841
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1123(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1123(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3905
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1124(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1124(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3969
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1125(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1125(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4033
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1126(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1126(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4097
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1127(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1127(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4161
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1128(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1128(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4225
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1130(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1130(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1133(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1133(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4353
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1134(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1134(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4481
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1135(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1135(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4609
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1136(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1136(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4737
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1137(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1137(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4865
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1138(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1138(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5249
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1144(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1144(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 97
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1145(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1145(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1146(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1146(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1147(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1147(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1148(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1148(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1149(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1149(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 449
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1150(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1150(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1156(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1156(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1157(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1157(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1158(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1158(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1159(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1159(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1160(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1160(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 193
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1161(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1161(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1162(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1162(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1168(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1168(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1169(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1169(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1170(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1170(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1171(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1171(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1173(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1173(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1176(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1176(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1177(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1177(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1178(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1178(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1181(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1181(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1182(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1182(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1183(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1183(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1185(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1185(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1199(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1199(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1200(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1200(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1201(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1201(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1207(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1207(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1208(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1208(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1209(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1209(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1210(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1210(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1216(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1216(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1217(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1217(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1218(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1218(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1219(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1219(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1225(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1225(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 97
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1232(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1232(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1240(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1240(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1241(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1241(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1242(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1242(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 641
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1248(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1248(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1249(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1249(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1250(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1250(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1251(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1251(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1252(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1252(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1253(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1253(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1259(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1259(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1260(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1260(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1261(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1261(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1267(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1267(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1268(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1268(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1269(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1269(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1279(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1279(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1280(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1280(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1286(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1286(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1287(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1287(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1288(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1288(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1289(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1289(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1290(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1290(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 193
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1291(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1291(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 209
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1292(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1292(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 225
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1293(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1293(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 241
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1294(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1294(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1295(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1295(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 273
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1301(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1301(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1969
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1302(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1302(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1303(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1303(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1304(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1304(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1305(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1305(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1306(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1306(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1307(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1307(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 641
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1308(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1308(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 769
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1309(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1309(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 897
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1310(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1310(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1025
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1311(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1311(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1153
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1312(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1312(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1281
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1313(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1313(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1409
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1314(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1314(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1537
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1315(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1315(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1665
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1316(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1316(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1793
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1317(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1317(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1921
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1318(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1318(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2049
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1319(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1319(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2177
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1320(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1320(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2305
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1321(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1321(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2433
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1322(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1322(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2561
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1323(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1323(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2689
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1324(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1324(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2817
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1325(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1325(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 2945
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1326(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1326(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3073
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1327(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1327(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3201
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1328(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1328(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3329
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1329(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1329(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3457
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1330(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1330(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3585
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1331(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1331(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3713
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1332(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1332(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3841
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1333(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1333(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3969
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1334(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1334(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4097
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1335(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1335(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4225
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1336(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1336(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4353
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1337(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1337(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4481
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1338(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1338(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4609
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1339(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1339(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4737
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1340(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1340(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4865
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1341(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1341(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4993
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1342(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1342(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5121
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1343(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1343(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5249
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1344(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1344(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5377
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1345(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1345(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5505
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1346(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1346(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5633
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1347(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1347(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5761
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1348(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1348(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5889
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1349(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1349(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6017
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1350(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1350(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6145
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1351(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1351(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6273
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1352(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1352(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6401
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1353(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1353(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6529
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1354(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1354(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6657
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1355(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1355(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6785
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1356(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1356(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6913
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1357(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1357(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7041
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1358(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1358(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7169
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1359(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1359(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7297
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1360(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1360(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7425
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1361(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1361(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7553
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1362(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1362(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7681
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1363(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1363(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7809
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1364(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1364(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7937
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1365(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1365(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 8065
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1366(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1366(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 8193
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1367(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1367(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 8321
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1368(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1368(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 8449
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1369(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1369(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 8577
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1370(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1370(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 8705
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1371(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1371(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 8833
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1372(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1372(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 8961
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1373(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1373(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9089
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1374(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1374(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9217
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1375(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1375(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9345
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1376(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1376(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9473
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1377(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1377(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9601
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1378(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1378(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9729
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1379(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1379(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9857
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1380(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1380(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9985
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1381(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1381(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 10113
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1382(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1382(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 10241
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1383(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1383(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 10369
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1384(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1384(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 10497
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1385(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1385(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 10625
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1386(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1386(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 10753
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1387(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1387(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 10881
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1388(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1388(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 11009
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1389(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1389(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 11137
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1390(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1390(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 11265
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1391(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1391(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 11393
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1392(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1392(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 11521
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1393(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1393(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 11649
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1394(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1394(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 11777
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1395(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1395(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 11905
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1396(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1396(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 12033
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1397(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1397(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 12161
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1398(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1398(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 12289
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1399(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1399(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 12417
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1400(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1400(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 12545
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1401(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1401(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 12673
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1402(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1402(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 12801
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1403(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1403(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 12929
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1404(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1404(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 13057
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1405(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1405(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 13185
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1406(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1406(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 13313
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1407(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1407(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 13441
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1408(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1408(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 13569
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1409(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1409(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 13697
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1410(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1410(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 13825
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1411(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1411(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 13953
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1412(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1412(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 14081
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1413(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1413(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 14209
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1414(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1414(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 14337
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1415(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1415(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 14465
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1416(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1416(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 14593
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1417(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1417(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 14721
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1418(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1418(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 14849
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1419(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1419(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 14977
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1420(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1420(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 15105
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1421(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1421(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 15233
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1422(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1422(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 15361
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1423(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1423(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 15489
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1424(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1424(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 15617
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1434(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1434(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1435(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1435(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1436(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1436(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1437(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1437(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1438(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1438(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 321
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1439(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1439(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1440(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1440(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 401
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1441(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1441(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 449
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1442(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1442(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1452(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1452(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 913
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1453(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1453(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1454(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1454(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1455(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1455(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 385
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1456(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1456(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 513
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1457(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1457(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 641
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1458(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1458(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 769
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1459(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1459(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 897
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1460(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1460(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3201
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1461(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1461(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3265
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1462(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1462(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3329
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1463(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1463(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3457
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1464(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1464(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3585
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1465(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1465(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3713
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1466(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1466(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3857
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1467(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1467(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3905
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1468(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1468(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 3969
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1469(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1469(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4097
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1470(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1470(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4225
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1471(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1471(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4353
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1472(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1472(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4481
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1473(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1473(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 4609
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1474(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1474(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5249
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1475(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1475(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5505
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1476(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1476(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5633
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1477(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1477(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5761
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1479(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1479(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1481(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1481(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1482(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1482(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1483(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1483(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1484(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1484(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1487(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1487(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1488(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1488(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1489(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1489(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1491(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1491(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 5889
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1492(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1492(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6273
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1493(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1493(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6401
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1494(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1494(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6529
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1495(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1495(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6657
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1496(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1496(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6785
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1497(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1497(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 6913
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1498(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1498(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7041
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1499(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1499(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 7169
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1505(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1505(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1506(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1506(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1512(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1512(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @builtin_inline_class_1513(ptr nocapture readnone %0, i64 %1) #4 {
+define internal noundef i64 @builtin_inline_class_1513(ptr readnone captures(none) %0, i64 %1) #4 {
   ret i64 0
 }
 
@@ -7489,7 +7489,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #6
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare ptr @rb_errno_ptr() local_unnamed_addr #5
 
@@ -7985,7 +7985,7 @@ declare i64 @rb_vm_throw(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #5
 declare i64 @rb_vm_yield_with_cfunc(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rjit_build_kwhash(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal i64 @rjit_build_kwhash(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
 vm_ci_kwarg.exit:
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 1
@@ -8165,7 +8165,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
 declare void @rb_exec_event_hooks(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rjit_optimized_call(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) #0 {
+define internal i64 @rjit_optimized_call(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @rb_vm_invoke_proc(ptr noundef %1, ptr noundef %8, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) #17
@@ -8201,7 +8201,7 @@ rb_array_len.exit:                                ; preds = %6, %9
 declare i64 @rb_ary_subseq(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @rjit_record_exit_stack(ptr nocapture noundef readonly %0) #0 {
+define internal void @rjit_record_exit_stack(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca [2048 x i64], align 16
   %3 = alloca [2048 x i32], align 16
   %4 = load i8, ptr @rb_rjit_call_p, align 1
@@ -8458,7 +8458,7 @@ rb_array_len.exit54:                              ; preds = %114, %117
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare i32 @rb_profile_frames(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -8546,13 +8546,13 @@ declare i64 @rb_str_cat(i64 noundef, ptr noundef, i64 noundef) local_unnamed_add
 declare i64 @llvm.fshl.i64(i64, i64, i64) #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

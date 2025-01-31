@@ -23,7 +23,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7510EmojiPropsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7510EmojiPropsD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7510EmojiPropsD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7510EmojiPropsD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   invoke void @udata_close_75(ptr noundef %0)
@@ -206,7 +206,7 @@ return:                                           ; preds = %entry, %_ZN6icu_751
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510EmojiProps12isAcceptableEPvPKcS3_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510EmojiProps12isAcceptableEPvPKcS3_PK9UDataInfo(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %pInfo) #5 align 2 {
 entry:
   %3 = load i16, ptr %pInfo, align 2
   %cmp.i = icmp ugt i16 %3, 19
@@ -306,7 +306,7 @@ declare ptr @udata_getMemory_75(ptr noundef) local_unnamed_addr #1
 declare ptr @ucptrie_openFromBinary_75(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7510EmojiProps17addPropertyStartsEPK9USetAdderR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %sa, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #4 align 2 {
+define void @_ZNK6icu_7510EmojiProps17addPropertyStartsEPK9USetAdderR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %sa, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 align 2 {
 entry:
   %value = alloca i32, align 4
   %cpTrie = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -423,7 +423,7 @@ land.end:                                         ; preds = %cond.end26.i, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEi9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %c, i32 noundef %which) local_unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEi9UProperty(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %c, i32 noundef %which) local_unnamed_addr #4 align 2 {
 entry:
   %0 = add i32 %which, -72
   %or.cond = icmp ult i32 %0, -15
@@ -523,7 +523,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEPKDsi9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %s, i32 noundef %length, i32 noundef %which) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEPKDsi9UProperty(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %s, i32 noundef %length, i32 noundef %which) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %trie = alloca %"class.icu_75::UCharsTrie", align 8
   %agg.tmp20 = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -619,7 +619,7 @@ declare noundef i32 @_ZN6icu_7510UCharsTrie4nextENS_14ConstChar16PtrEi(ptr nound
 declare void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7510EmojiProps10addStringsEPK9USetAdder9UPropertyR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %sa, i32 noundef %which, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7510EmojiProps10addStringsEPK9USetAdder9UPropertyR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %sa, i32 noundef %which, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iter = alloca %"class.icu_75::UCharsTrie::Iterator", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -762,7 +762,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_thread_construct(ptr nocapture noundef writeonly initializes((16, 24), (32, 40)) %0) #0 {
+define internal void @opal_thread_construct(ptr noundef writeonly captures(none) initializes((16, 24), (32, 40)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -34,7 +34,7 @@ define range(i32 -11, 1) i32 @opal_thread_start(ptr noundef %0) local_unnamed_ad
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -11, 1) i32 @opal_thread_join(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -11, 1) i32 @opal_thread_join(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 @pthread_join(i64 noundef %4, ptr noundef %1) #8
@@ -47,7 +47,7 @@ define range(i32 -11, 1) i32 @opal_thread_join(ptr nocapture noundef %0, ptr nou
 declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @opal_thread_self_compare(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define zeroext i1 @opal_thread_self_compare(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = tail call i64 @pthread_self() #9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8

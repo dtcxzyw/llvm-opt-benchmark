@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Java_com_sun_management_internal_Flag_getFlags = private unnamed_addr constant [7 x ptr] [ptr @default_origin, ptr @vm_creation_origin, ptr @mgmt_origin, ptr @envvar_origin, ptr @config_file_origin, ptr @ergo_origin, ptr @attach_origin], align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_management_internal_Flag_getInternalFlagCount(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_com_sun_management_internal_Flag_getInternalFlagCount(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface_management_ext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -47,7 +47,7 @@ define i32 @Java_com_sun_management_internal_Flag_getInternalFlagCount(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_management_internal_Flag_getAllFlagNames(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_com_sun_management_internal_Flag_getAllFlagNames(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface_management_ext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8
@@ -56,7 +56,7 @@ define ptr @Java_com_sun_management_internal_Flag_getAllFlagNames(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_management_internal_Flag_initialize(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_com_sun_management_internal_Flag_initialize(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -117,7 +117,7 @@ define void @Java_com_sun_management_internal_Flag_initialize(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_management_internal_Flag_getFlags(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_com_sun_management_internal_Flag_getFlags(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %7, label %8
 
@@ -283,14 +283,14 @@ declare void @JNU_ThrowIllegalArgumentException(ptr noundef, ptr noundef) local_
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @JNU_NewObjectByName(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_management_internal_Flag_setLongValue(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_com_sun_management_internal_Flag_setLongValue(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @jmm_interface_management_ext, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %7 = load ptr, ptr %6, align 8
@@ -299,7 +299,7 @@ define void @Java_com_sun_management_internal_Flag_setLongValue(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_management_internal_Flag_setDoubleValue(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, double noundef %3) local_unnamed_addr #0 {
+define void @Java_com_sun_management_internal_Flag_setDoubleValue(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = bitcast double %3 to i64
   %6 = load ptr, ptr @jmm_interface_management_ext, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 256
@@ -309,7 +309,7 @@ define void @Java_com_sun_management_internal_Flag_setDoubleValue(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_management_internal_Flag_setBooleanValue(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_com_sun_management_internal_Flag_setBooleanValue(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @jmm_interface_management_ext, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %7 = load ptr, ptr %6, align 8
@@ -319,7 +319,7 @@ define void @Java_com_sun_management_internal_Flag_setBooleanValue(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_management_internal_Flag_setStringValue(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_com_sun_management_internal_Flag_setStringValue(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = load ptr, ptr @jmm_interface_management_ext, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 256

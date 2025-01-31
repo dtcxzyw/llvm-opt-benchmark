@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [27 x i8] c"../openssl/crypto/packet.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_allocate_bytes(ptr nocapture noundef %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_allocate_bytes(ptr noundef captures(none) %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes) local_unnamed_addr #0 {
 entry:
   %subs.i = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i, align 8
@@ -123,7 +123,7 @@ return:                                           ; preds = %if.then15.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_reserve_bytes(ptr nocapture noundef readonly %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_reserve_bytes(ptr noundef readonly captures(none) %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes) local_unnamed_addr #0 {
 entry:
   %subs = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -230,7 +230,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_sub_allocate_bytes__(ptr nocapture noundef %pkt, i64 noundef %len, ptr noundef %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_sub_allocate_bytes__(ptr noundef captures(none) %pkt, i64 noundef %len, ptr noundef %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %lenchars.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lenchars.i)
@@ -315,7 +315,7 @@ return:                                           ; preds = %WPACKET_close.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_start_sub_packet_len__(ptr nocapture noundef %pkt, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_start_sub_packet_len__(ptr noundef captures(none) %pkt, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %lenchars = alloca ptr, align 8
   %subs = getelementptr inbounds nuw i8, ptr %pkt, i64 40
@@ -368,7 +368,7 @@ return:                                           ; preds = %if.end20, %if.end9,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_close(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_close(ptr noundef captures(none) %pkt) local_unnamed_addr #0 {
 entry:
   %subs = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -392,7 +392,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @WPACKET_get_curr(ptr nocapture noundef readonly %pkt) local_unnamed_addr #2 {
+define ptr @WPACKET_get_curr(ptr noundef readonly captures(none) %pkt) local_unnamed_addr #2 {
 entry:
   %staticbuf = getelementptr inbounds nuw i8, ptr %pkt, i64 8
   %0 = load ptr, ptr %staticbuf, align 8
@@ -440,7 +440,7 @@ return:                                           ; preds = %cond.false, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_sub_reserve_bytes__(ptr nocapture noundef readonly %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_sub_reserve_bytes__(ptr noundef readonly captures(none) %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %endfirst = getelementptr inbounds nuw i8, ptr %pkt, i64 48
   %bf.load = load i8, ptr %endfirst, align 8
@@ -562,7 +562,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_init_static_len(ptr nocapture noundef %pkt, ptr noundef %buf, i64 noundef %len, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_init_static_len(ptr noundef captures(none) %pkt, ptr noundef %buf, i64 noundef %len, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %lenchars.i = alloca ptr, align 8
   %cmp = icmp ne ptr %buf, null
@@ -632,7 +632,7 @@ return:                                           ; preds = %entry, %wpacket_int
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_init_der(ptr nocapture noundef %pkt, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_init_der(ptr noundef captures(none) %pkt, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %buf, null
   %cmp1 = icmp ne i64 %len, 0
@@ -664,7 +664,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_init_len(ptr nocapture noundef %pkt, ptr noundef %buf, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_init_len(ptr noundef captures(none) %pkt, ptr noundef %buf, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %lenchars.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %buf, null
@@ -731,7 +731,7 @@ return:                                           ; preds = %entry, %wpacket_int
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_init(ptr nocapture noundef %pkt, ptr noundef %buf) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_init(ptr noundef captures(none) %pkt, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %buf, null
   br i1 %cmp.not.i, label %WPACKET_init_len.exit, label %if.end.i
@@ -761,7 +761,7 @@ WPACKET_init_len.exit:                            ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_init_null(ptr nocapture noundef initializes((0, 48)) %pkt, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_init_null(ptr noundef captures(none) initializes((0, 48)) %pkt, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %0 = add i64 %lenbytes, -8
   %or.cond.i = icmp ult i64 %0, -7
@@ -788,7 +788,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_init_null_der(ptr nocapture noundef initializes((0, 48)) %pkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_init_null_der(ptr noundef captures(none) initializes((0, 48)) %pkt) local_unnamed_addr #0 {
 entry:
   %maxsize = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pkt, i8 0, i64 16, i1 false)
@@ -808,7 +808,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @WPACKET_set_flags(ptr nocapture noundef readonly %pkt, i32 noundef %flags) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @WPACKET_set_flags(ptr noundef readonly captures(none) %pkt, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
   %subs = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -826,7 +826,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_fill_lengths(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_fill_lengths(ptr noundef captures(none) %pkt) local_unnamed_addr #0 {
 entry:
   %subs = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -850,7 +850,7 @@ return:                                           ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @wpacket_intern_close(ptr nocapture noundef %pkt, ptr noundef nonnull %sub, i32 noundef range(i32 0, 2) %doclose) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wpacket_intern_close(ptr noundef captures(none) %pkt, ptr noundef nonnull %sub, i32 noundef range(i32 0, 2) %doclose) unnamed_addr #0 {
 entry:
   %data.i = alloca ptr, align 8
   %written = getelementptr inbounds nuw i8, ptr %pkt, i64 24
@@ -1176,7 +1176,7 @@ return:                                           ; preds = %if.then72, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_finish(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_finish(ptr noundef captures(none) %pkt) local_unnamed_addr #0 {
 entry:
   %subs = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -1209,7 +1209,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_start_sub_packet(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_start_sub_packet(ptr noundef captures(none) %pkt) local_unnamed_addr #0 {
 entry:
   %subs.i = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i, align 8
@@ -1239,7 +1239,7 @@ WPACKET_start_sub_packet_len__.exit:              ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_put_bytes__(ptr nocapture noundef %pkt, i64 noundef %val, i64 noundef %size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_put_bytes__(ptr noundef captures(none) %pkt, i64 noundef %val, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %data = alloca ptr, align 8
   %cmp = icmp ult i64 %size, 9
@@ -1287,7 +1287,7 @@ return:                                           ; preds = %put_value.exit, %lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @WPACKET_set_max_size(ptr nocapture noundef %pkt, i64 noundef %maxsize) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @WPACKET_set_max_size(ptr noundef captures(none) %pkt, i64 noundef %maxsize) local_unnamed_addr #4 {
 entry:
   %subs = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -1331,7 +1331,7 @@ return:                                           ; preds = %for.end, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_memset(ptr nocapture noundef %pkt, i32 noundef %ch, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_memset(ptr noundef captures(none) %pkt, i32 noundef %ch, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %dest = alloca ptr, align 8
   %cmp = icmp eq i64 %len, 0
@@ -1358,10 +1358,10 @@ return:                                           ; preds = %if.end2, %if.then4,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_memcpy(ptr nocapture noundef %pkt, ptr nocapture noundef readonly %src, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_memcpy(ptr noundef captures(none) %pkt, ptr noundef readonly captures(none) %src, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %dest = alloca ptr, align 8
   %cmp = icmp eq i64 %len, 0
@@ -1387,10 +1387,10 @@ return:                                           ; preds = %if.end2, %if.then4,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_sub_memcpy__(ptr nocapture noundef %pkt, ptr nocapture noundef readonly %src, i64 noundef %len, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_sub_memcpy__(ptr noundef captures(none) %pkt, ptr noundef readonly captures(none) %src, i64 noundef %len, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %dest.i = alloca ptr, align 8
   %lenchars.i = alloca ptr, align 8
@@ -1495,7 +1495,7 @@ return:                                           ; preds = %WPACKET_close.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @WPACKET_get_total_written(ptr nocapture noundef readonly %pkt, ptr noundef writeonly %written) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @WPACKET_get_total_written(ptr noundef readonly captures(none) %pkt, ptr noundef writeonly %written) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %written, null
   br i1 %cmp.not, label %return, label %if.end
@@ -1512,7 +1512,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @WPACKET_get_length(ptr nocapture noundef readonly %pkt, ptr noundef writeonly %len) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @WPACKET_get_length(ptr noundef readonly captures(none) %pkt, ptr noundef writeonly %len) local_unnamed_addr #8 {
 entry:
   %subs = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -1536,7 +1536,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @WPACKET_is_null_buf(ptr nocapture noundef readonly %pkt) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @WPACKET_is_null_buf(ptr noundef readonly captures(none) %pkt) local_unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %pkt, align 8
   %cmp = icmp eq ptr %0, null
@@ -1555,7 +1555,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @WPACKET_cleanup(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define void @WPACKET_cleanup(ptr noundef captures(none) %pkt) local_unnamed_addr #0 {
 entry:
   %subs = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -1575,7 +1575,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_start_quic_sub_packet_bound(ptr nocapture noundef %pkt, i64 noundef %max_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_start_quic_sub_packet_bound(ptr noundef captures(none) %pkt, i64 noundef %max_len) local_unnamed_addr #0 {
 entry:
   %lenchars.i = alloca ptr, align 8
   %cmp.i = icmp ult i64 %max_len, 64
@@ -1649,7 +1649,7 @@ return:                                           ; preds = %WPACKET_start_sub_p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_start_quic_sub_packet(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_start_quic_sub_packet(ptr noundef captures(none) %pkt) local_unnamed_addr #0 {
 entry:
   %subs.i.i = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i.i, align 8
@@ -1734,7 +1734,7 @@ WPACKET_start_quic_sub_packet_bound.exit:         ; preds = %if.then15.i.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_quic_sub_allocate_bytes(ptr nocapture noundef %pkt, i64 noundef %len, ptr noundef %allocbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_quic_sub_allocate_bytes(ptr noundef captures(none) %pkt, i64 noundef %len, ptr noundef %allocbytes) local_unnamed_addr #0 {
 entry:
   %lenchars.i.i = alloca ptr, align 8
   %cmp.i.i = icmp ult i64 %len, 64
@@ -1829,7 +1829,7 @@ return:                                           ; preds = %WPACKET_start_sub_p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_quic_write_vlint(ptr nocapture noundef %pkt, i64 noundef %v) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_quic_write_vlint(ptr noundef captures(none) %pkt, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %b = alloca ptr, align 8
   store ptr null, ptr %b, align 8
@@ -1875,10 +1875,10 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

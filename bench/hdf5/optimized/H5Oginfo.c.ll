@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [44 x i8] c"Estimated length of object in group's name:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5O__ginfo_decode(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal ptr @H5O__ginfo_decode(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr i8, ptr %5, i64 %4
   %.ptr74 = getelementptr i8, ptr %7, i64 -1
   %8 = icmp ugt ptr %5, %.ptr74
@@ -216,7 +216,7 @@ define internal ptr @H5O__ginfo_decode(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5O__ginfo_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 2)) %3, ptr nocapture noundef readonly %4) #1 {
+define internal noundef i32 @H5O__ginfo_encode(ptr readnone captures(none) %0, i1 zeroext %1, i64 %2, ptr noundef writeonly captures(none) initializes((0, 2)) %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %3, align 1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -289,7 +289,7 @@ define internal noundef i32 @H5O__ginfo_encode(ptr nocapture readnone %0, i1 zer
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5O__ginfo_copy(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #0 {
+define internal noundef ptr @H5O__ginfo_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %10
 
@@ -315,7 +315,7 @@ define internal noundef ptr @H5O__ginfo_copy(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 2, 11) i64 @H5O__ginfo_size(ptr nocapture readnone %0, i1 zeroext %1, ptr nocapture noundef readonly %2) #2 {
+define internal range(i64 2, 11) i64 @H5O__ginfo_size(ptr readnone captures(none) %0, i1 zeroext %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
@@ -335,7 +335,7 @@ define internal noundef i32 @H5O__ginfo_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5O__ginfo_debug(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #3 {
+define internal noundef i32 @H5O__ginfo_debug(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #3 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -364,10 +364,10 @@ declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare noalias ptr @H5FL_reg_malloc(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -115,7 +115,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [1 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qemu_get_buffer, ptr @.str.63, ptr @.str.64, i32 38, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_bool(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 1)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_bool(ptr noundef %f, ptr noundef writeonly captures(none) initializes((0, 1)) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call = tail call i32 @qemu_get_byte(ptr noundef %f) #6
   %tobool = icmp ne i32 %call, 0
@@ -125,7 +125,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_bool(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_bool(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %0 = load i8, ptr %pv, align 1
   %1 = and i8 %0, 1
@@ -135,7 +135,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_int8(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 1)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_int8(ptr noundef %f, ptr noundef writeonly captures(none) initializes((0, 1)) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call.i.i = tail call i32 @qemu_get_byte(ptr noundef %f) #6
   %conv.i.i = trunc i32 %call.i.i to i8
@@ -144,7 +144,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_int8(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_int8(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %pv.val = load i8, ptr %pv, align 1
   %conv.i.i = zext i8 %pv.val to i32
@@ -153,7 +153,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_int16(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 2)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_int16(ptr noundef %f, ptr noundef writeonly captures(none) initializes((0, 2)) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call.i.i = tail call i32 @qemu_get_be16(ptr noundef %f) #6
   %conv.i.i = trunc i32 %call.i.i to i16
@@ -162,7 +162,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_int16(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_int16(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %pv.val = load i16, ptr %pv, align 2
   %conv.i.i = zext i16 %pv.val to i32
@@ -171,7 +171,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_int32(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 4)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_int32(ptr noundef %f, ptr noundef writeonly captures(none) initializes((0, 4)) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call.i.i = tail call i32 @qemu_get_be32(ptr noundef %f) #6
   store i32 %call.i.i, ptr %pv, align 4
@@ -179,7 +179,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_int32(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_int32(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %pv.val = load i32, ptr %pv, align 4
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %pv.val) #6
@@ -187,7 +187,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @get_int32_equal(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture noundef readonly %field) #0 {
+define internal range(i32 -22, 1) i32 @get_int32_equal(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr noundef readonly captures(none) %field) #0 {
 entry:
   %call.i.i = tail call i32 @qemu_get_be32(ptr noundef %f) #6
   %0 = load i32, ptr %pv, align 4
@@ -211,7 +211,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @get_int32_le(ptr noundef %f, ptr nocapture noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @get_int32_le(ptr noundef %f, ptr noundef captures(none) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call.i.i = tail call i32 @qemu_get_be32(ptr noundef %f) #6
   %cmp = icmp slt i32 %call.i.i, 0
@@ -234,7 +234,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_int64(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 8)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_int64(ptr noundef %f, ptr noundef writeonly captures(none) initializes((0, 8)) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call.i.i = tail call i64 @qemu_get_be64(ptr noundef %f) #6
   store i64 %call.i.i, ptr %pv, align 8
@@ -242,7 +242,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_int64(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_int64(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %pv.val = load i64, ptr %pv, align 8
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %pv.val) #6
@@ -250,7 +250,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_uint8(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 1)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_uint8(ptr noundef %f, ptr noundef writeonly captures(none) initializes((0, 1)) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call.i = tail call i32 @qemu_get_byte(ptr noundef %f) #6
   %conv.i = trunc i32 %call.i to i8
@@ -259,7 +259,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_uint8(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_uint8(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %pv.val = load i8, ptr %pv, align 1
   %conv.i = zext i8 %pv.val to i32
@@ -268,7 +268,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_uint16(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 2)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_uint16(ptr noundef %f, ptr noundef writeonly captures(none) initializes((0, 2)) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call.i = tail call i32 @qemu_get_be16(ptr noundef %f) #6
   %conv.i = trunc i32 %call.i to i16
@@ -277,7 +277,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_uint16(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_uint16(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %pv.val = load i16, ptr %pv, align 2
   %conv.i = zext i16 %pv.val to i32
@@ -286,7 +286,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_uint32(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 4)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_uint32(ptr noundef %f, ptr noundef writeonly captures(none) initializes((0, 4)) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call.i = tail call i32 @qemu_get_be32(ptr noundef %f) #6
   store i32 %call.i, ptr %pv, align 4
@@ -294,7 +294,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_uint32(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_uint32(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %pv.val = load i32, ptr %pv, align 4
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %pv.val) #6
@@ -302,7 +302,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @get_uint32_equal(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture noundef readonly %field) #0 {
+define internal range(i32 -22, 1) i32 @get_uint32_equal(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr noundef readonly captures(none) %field) #0 {
 entry:
   %call.i = tail call i32 @qemu_get_be32(ptr noundef %f) #6
   %0 = load i32, ptr %pv, align 4
@@ -326,7 +326,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_uint64(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 8)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_uint64(ptr noundef %f, ptr noundef writeonly captures(none) initializes((0, 8)) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call.i = tail call i64 @qemu_get_be64(ptr noundef %f) #6
   store i64 %call.i, ptr %pv, align 8
@@ -334,7 +334,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_uint64(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_uint64(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %pv.val = load i64, ptr %pv, align 8
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %pv.val) #6
@@ -342,7 +342,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @get_nullptr(ptr noundef %f, ptr nocapture readnone %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @get_nullptr(ptr noundef %f, ptr readnone captures(none) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call = tail call i32 @qemu_get_byte(ptr noundef %f) #6
   %cmp = icmp eq i32 %call, 48
@@ -358,7 +358,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @put_nullptr(ptr noundef %f, ptr noundef readnone %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal range(i32 -22, 1) i32 @put_nullptr(ptr noundef %f, ptr noundef readnone %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %cmp = icmp eq ptr %pv, null
   br i1 %cmp, label %if.then, label %if.end
@@ -377,7 +377,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @get_uint64_equal(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture noundef readonly %field) #0 {
+define internal range(i32 -22, 1) i32 @get_uint64_equal(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr noundef readonly captures(none) %field) #0 {
 entry:
   %call.i = tail call i64 @qemu_get_be64(ptr noundef %f) #6
   %0 = load i64, ptr %pv, align 8
@@ -401,7 +401,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @get_uint8_equal(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture noundef readonly %field) #0 {
+define internal range(i32 -22, 1) i32 @get_uint8_equal(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr noundef readonly captures(none) %field) #0 {
 entry:
   %call.i = tail call i32 @qemu_get_byte(ptr noundef %f) #6
   %conv.i = trunc i32 %call.i to i8
@@ -428,7 +428,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @get_uint16_equal(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture noundef readonly %field) #0 {
+define internal range(i32 -22, 1) i32 @get_uint16_equal(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr noundef readonly captures(none) %field) #0 {
 entry:
   %call.i = tail call i32 @qemu_get_be16(ptr noundef %f) #6
   %conv.i = trunc i32 %call.i to i16
@@ -455,7 +455,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_cpudouble(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 8)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_cpudouble(ptr noundef %f, ptr noundef writeonly captures(none) initializes((0, 8)) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %upper = getelementptr inbounds nuw i8, ptr %pv, i64 4
   %call.i = tail call i32 @qemu_get_be32(ptr noundef %f) #6
@@ -466,7 +466,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_cpudouble(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_cpudouble(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %upper = getelementptr inbounds nuw i8, ptr %pv, i64 4
   %upper.val = load i32, ptr %upper, align 4
@@ -477,21 +477,21 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_buffer(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_buffer(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %pv, i64 noundef %size) #6
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_buffer(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_buffer(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %pv, i64 noundef %size) #6
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_unused_buffer(ptr noundef %f, ptr nocapture readnone %pv, i64 noundef %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_unused_buffer(ptr noundef %f, ptr readnone captures(none) %pv, i64 noundef %size, ptr readnone captures(none) %field) #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %cmp.not6 = icmp eq i64 %size, 0
@@ -510,7 +510,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_unused_buffer(ptr noundef %f, ptr nocapture readnone %pv, i64 noundef %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_unused_buffer(ptr noundef %f, ptr readnone captures(none) %pv, i64 noundef %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %cmp.not6 = icmp eq i64 %size, 0
   br i1 %cmp.not6, label %while.end, label %while.body
@@ -528,7 +528,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_tmp(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr nocapture noundef readonly %field) #0 {
+define internal i32 @get_tmp(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr noundef readonly captures(none) %field) #0 {
 entry:
   %vmsd1 = getelementptr inbounds nuw i8, ptr %field, i64 80
   %0 = load ptr, ptr %vmsd1, align 8
@@ -542,7 +542,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @put_tmp(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr nocapture noundef readonly %field, ptr noundef %vmdesc) #0 {
+define internal i32 @put_tmp(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr noundef readonly captures(none) %field, ptr noundef %vmdesc) #0 {
 entry:
   %vmsd1 = getelementptr inbounds nuw i8, ptr %field, i64 80
   %0 = load ptr, ptr %vmsd1, align 8
@@ -554,7 +554,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_bitmap(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 noundef %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_bitmap(ptr noundef %f, ptr noundef writeonly captures(none) %pv, i64 noundef %size, ptr readnone captures(none) %field) #0 {
 entry:
   %sub = add i64 %size, 63
   %div2 = lshr i64 %sub, 6
@@ -577,7 +577,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_bitmap(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 noundef %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_bitmap(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 noundef %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %sub = add i64 %size, 63
   %div2 = lshr i64 %sub, 6
@@ -600,7 +600,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_qtailq(ptr noundef %f, ptr nocapture noundef %pv, i64 %unused_size, ptr nocapture noundef readonly %field) #0 {
+define internal i32 @get_qtailq(ptr noundef %f, ptr noundef captures(none) %pv, i64 %unused_size, ptr noundef readonly captures(none) %field) #0 {
 entry:
   %_now.i.i56 = alloca %struct.timeval, align 8
   %_now.i.i41 = alloca %struct.timeval, align 8
@@ -811,7 +811,7 @@ return:                                           ; preds = %while.body, %trace_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @put_qtailq(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %unused_size, ptr nocapture noundef readonly %field, ptr noundef %vmdesc) #0 {
+define internal i32 @put_qtailq(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %unused_size, ptr noundef readonly captures(none) %field, ptr noundef %vmdesc) #0 {
 entry:
   %_now.i.i10 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -918,7 +918,7 @@ return:                                           ; preds = %for.body, %trace_pu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_gtree(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %unused_size, ptr nocapture noundef readonly %field) #0 {
+define internal i32 @get_gtree(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %unused_size, ptr noundef readonly captures(none) %field) #0 {
 entry:
   %_now.i.i70 = alloca %struct.timeval, align 8
   %_now.i.i56 = alloca %struct.timeval, align 8
@@ -1196,7 +1196,7 @@ return:                                           ; preds = %trace_get_gtree_end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @put_gtree(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %unused_size, ptr nocapture noundef readonly %field, ptr noundef %vmdesc) #0 {
+define internal i32 @put_gtree(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %unused_size, ptr noundef readonly captures(none) %field, ptr noundef %vmdesc) #0 {
 entry:
   %_now.i.i32 = alloca %struct.timeval, align 8
   %_now.i.i18 = alloca %struct.timeval, align 8
@@ -1355,7 +1355,7 @@ if.end:                                           ; preds = %trace_put_gtree_end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_qlist(ptr noundef %f, ptr noundef %pv, i64 %unused_size, ptr nocapture noundef readonly %field) #0 {
+define internal i32 @get_qlist(ptr noundef %f, ptr noundef %pv, i64 %unused_size, ptr noundef readonly captures(none) %field) #0 {
 entry:
   %_now.i.i46 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1530,7 +1530,7 @@ return:                                           ; preds = %trace_get_qlist_end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @put_qlist(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %unused_size, ptr nocapture noundef readonly %field, ptr noundef %vmdesc) #0 {
+define internal i32 @put_qlist(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %unused_size, ptr noundef readonly captures(none) %field, ptr noundef %vmdesc) #0 {
 entry:
   %_now.i.i15 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1678,7 +1678,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @vmstate_save_state(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1694,7 +1694,7 @@ declare i32 @g_tree_nnodes(ptr noundef) local_unnamed_addr #1
 declare void @g_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @put_gtree_elem(ptr noundef %key, ptr noundef %value, ptr nocapture noundef %data) #0 {
+define internal range(i32 0, 2) i32 @put_gtree_elem(ptr noundef %key, ptr noundef %value, ptr noundef captures(none) %data) #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   tail call void @qemu_put_byte(ptr noundef %0, i32 noundef 1) #6
@@ -1739,10 +1739,10 @@ return:                                           ; preds = %return.sink.split, 
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

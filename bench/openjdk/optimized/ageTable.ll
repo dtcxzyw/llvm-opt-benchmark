@@ -84,7 +84,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN8AgeTableC1Eb = hidden unnamed_addr alias void (ptr, i1), ptr @_ZN8AgeTableC2Eb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8AgeTableC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((0, 129)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN8AgeTableC2Eb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(264) initializes((0, 129)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.ExceptionMark, align 8
   %4 = alloca [10 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -165,7 +165,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %42, %40, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8AgeTable5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((0, 128)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8AgeTable5clearEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(264) initializes((0, 128)) %0) local_unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   ret void
 }
@@ -180,7 +180,7 @@ declare noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef, ptr 
 declare void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN8AgeTable5mergeEPKS_(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN8AgeTable5mergeEPKS_(ptr noundef nonnull align 8 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -200,7 +200,7 @@ define hidden void @_ZN8AgeTable5mergeEPKS_(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8AgeTable26compute_tenuring_thresholdEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8AgeTable26compute_tenuring_thresholdEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @AlwaysTenure, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %8, label %5
@@ -265,7 +265,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8AgeTable15print_age_tableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8AgeTable15print_age_tableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.LogStream, align 8
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %3, null
@@ -348,7 +348,7 @@ _ZN8AgeTable8print_onEP12outputStream.exit:       ; preds = %31
 declare noundef zeroext i1 @_ZN14AgeTableTracer38is_tenuring_distribution_event_enabledEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8AgeTable8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8AgeTable8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -591,7 +591,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

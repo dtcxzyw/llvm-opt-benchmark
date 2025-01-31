@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @uv__idna_toascii_label.alphabet = internal unnamed_addr constant [37 x i8] c"abcdefghijklmnopqrstuvwxyz0123456789\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr nocapture noundef %p, ptr noundef %pe) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr noundef captures(none) %p, ptr noundef %pe) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -299,7 +299,7 @@ return:                                           ; preds = %if.end48.i.i, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %s, ptr noundef %se, ptr nocapture noundef nonnull %d, ptr noundef readnone %de) unnamed_addr #1 {
+define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %s, ptr noundef %se, ptr noundef nonnull captures(none) %d, ptr noundef readnone %de) unnamed_addr #1 {
 entry:
   %cmp302 = icmp ult ptr %s, %se
   br i1 %cmp302, label %while.body.lr.ph, label %if.end23
@@ -970,7 +970,7 @@ return:                                           ; preds = %if.end48.i.i, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @uv_wtf8_length_as_utf16(ptr nocapture noundef readonly %source_ptr) local_unnamed_addr #2 {
+define hidden i64 @uv_wtf8_length_as_utf16(ptr noundef readonly captures(none) %source_ptr) local_unnamed_addr #2 {
 entry:
   br label %do.body
 
@@ -1051,7 +1051,7 @@ return:                                           ; preds = %if.then53.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @uv_wtf8_to_utf16(ptr nocapture noundef readonly %source_ptr, ptr nocapture noundef writeonly %w_target, i64 noundef %w_target_len) local_unnamed_addr #3 {
+define hidden void @uv_wtf8_to_utf16(ptr noundef readonly captures(none) %source_ptr, ptr noundef writeonly captures(none) %w_target, i64 noundef %w_target_len) local_unnamed_addr #3 {
 entry:
   br label %do.body
 
@@ -1158,7 +1158,7 @@ do.end:                                           ; preds = %do.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @uv_utf16_length_as_wtf8(ptr nocapture noundef readonly %w_source_ptr, i64 noundef %w_source_len) local_unnamed_addr #2 {
+define hidden i64 @uv_utf16_length_as_wtf8(ptr noundef readonly captures(none) %w_source_ptr, i64 noundef %w_source_len) local_unnamed_addr #2 {
 entry:
   %tobool.not17 = icmp eq i64 %w_source_len, 0
   br i1 %tobool.not17, label %while.end, label %while.body
@@ -1245,7 +1245,7 @@ while.end:                                        ; preds = %if.end18, %uv__get_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -105, 1) i32 @uv_utf16_to_wtf8(ptr nocapture noundef readonly %w_source_ptr, i64 noundef %w_source_len, ptr noundef %target_ptr, ptr noundef %target_len_ptr) local_unnamed_addr #4 {
+define hidden range(i32 -105, 1) i32 @uv_utf16_to_wtf8(ptr noundef readonly captures(none) %w_source_ptr, i64 noundef %w_source_len, ptr noundef %target_ptr, ptr noundef %target_len_ptr) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %target_ptr, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

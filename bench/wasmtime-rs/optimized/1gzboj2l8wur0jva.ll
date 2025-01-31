@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.25df609c2fb9583ff30bdc2dd44f75f3.26 = private unnamed_addr constant <{ [3 x i8] }> <{ [3 x i8] c"val" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf8018e550e0E(ptr nocapture writeonly sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf8018e550e0E(ptr writeonly sret({ { i64, [3 x i64] }, {} }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, [3 x i64] }, {} }, align 8
   %.sroa.029 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -1257,7 +1257,7 @@ declare void @"_ZN4witx6layout43_$LT$impl$u20$witx..ast..RecordDatatype$GT$13mem
 declare void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha78011d18c51c247E"(ptr sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @"_ZN85_$LT$witx..ast..RecordDatatype$u20$as$u20$wiggle_generate..lifetimes..LifetimeExt$GT$14needs_lifetime17hdd48d3517d9d466dE"(ptr align 8) unnamed_addr #0

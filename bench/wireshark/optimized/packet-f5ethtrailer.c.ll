@@ -879,7 +879,7 @@ define internal i32 @dissect_dpt_trailer_noise(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dpt_trailer_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dpt_trailer_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @pref_generate_keylog, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %35, label %6
@@ -946,7 +946,7 @@ define internal i32 @dissect_dpt_trailer_tls(ptr noundef %0, ptr noundef %1, ptr
 declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @f5_tcp_conv_valid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @f5_tcp_conv_valid(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 0, ptr %3, align 4
@@ -968,7 +968,7 @@ define internal range(i32 0, 2) i32 @f5_tcp_conv_valid(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @f5_tcp_conv_filter(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noalias ptr @f5_tcp_conv_filter(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [46 x i8], align 16
   %4 = alloca [46 x i8], align 16
   store i8 0, ptr %3, align 16
@@ -1031,7 +1031,7 @@ define internal noalias ptr @f5_tcp_conv_filter(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @f5_udp_conv_valid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @f5_udp_conv_valid(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 0, ptr %3, align 4
@@ -1053,7 +1053,7 @@ define internal range(i32 0, 2) i32 @f5_udp_conv_valid(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @f5_udp_conv_filter(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noalias ptr @f5_udp_conv_filter(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [46 x i8], align 16
   %4 = alloca [46 x i8], align 16
   store i8 0, ptr %3, align 16
@@ -1116,7 +1116,7 @@ define internal noalias ptr @f5_udp_conv_filter(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @f5_ip_conv_valid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @f5_ip_conv_valid(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -1133,7 +1133,7 @@ define internal range(i32 0, 2) i32 @f5_ip_conv_valid(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @f5_ip_conv_filter(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noalias ptr @f5_ip_conv_filter(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [46 x i8], align 16
   %4 = alloca [46 x i8], align 16
   store i8 0, ptr %3, align 16
@@ -1196,7 +1196,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare ptr @stats_tree_register_plugin(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @f5eth_tmmdist_stats_tree_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @f5eth_tmmdist_stats_tree_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %6 = alloca [17 x i8], align 16
   %7 = icmp eq ptr %3, null
   br i1 %7, label %48, label %8
@@ -1269,7 +1269,7 @@ define internal void @f5eth_tmmdist_stats_tree_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @f5eth_virtdist_stats_tree_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @f5eth_virtdist_stats_tree_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %35, label %7
 
@@ -1398,7 +1398,7 @@ define hidden void @proto_reg_handoff_f5ethtrailer() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_f5ethtrailer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_f5ethtrailer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3254,7 +3254,7 @@ proto_item_set_hidden.exit161:                    ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_noise_high(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_noise_high(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %6
 
@@ -3539,7 +3539,7 @@ proto_item_set_hidden.exit140:                    ; preds = %139, %136, %proto_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type0(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_type0(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #7
   %6 = zext i16 %5 to i32
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #7
@@ -3702,7 +3702,7 @@ proto_item_set_generated.exit:                    ; preds = %98, %95, %92, %4, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_extended(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_tls_extended(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #7
   %6 = zext i16 %5 to i32
   %7 = load i32, ptr @hf_f5tls_tls, align 4
@@ -4168,7 +4168,7 @@ define hidden void @proto_reg_handoff_f5fileinfo() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_f5fileinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_f5fileinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load ptr, ptr %6, align 8
@@ -4407,14 +4407,14 @@ f5eth_process_f5info.exit:                        ; preds = %120, %128, %129
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @f5eth_set_info_col_inout(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, i32 %3) #0 {
+define internal void @f5eth_set_info_col_inout(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @col_get_writable(ptr noundef %6, i32 noundef 25) #7
@@ -4432,7 +4432,7 @@ define internal void @f5eth_set_info_col_inout(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @f5eth_set_info_col_slot(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal void @f5eth_set_info_col_slot(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @col_get_writable(ptr noundef %6, i32 noundef 25) #7
@@ -4471,7 +4471,7 @@ define internal void @f5eth_set_info_col_slot(ptr nocapture noundef readonly %0,
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ip_tap_pkt(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @ip_tap_pkt(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %6 = tail call ptr @wmem_file_scope() #7
   %7 = load i32, ptr @proto_f5ethtrailer, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #7
@@ -4529,7 +4529,7 @@ declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, pt
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ipv6_tap_pkt(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @ipv6_tap_pkt(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %6 = tail call ptr @wmem_file_scope() #7
   %7 = load i32, ptr @proto_f5ethtrailer, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #7
@@ -4565,7 +4565,7 @@ define internal range(i32 0, 2) i32 @ipv6_tap_pkt(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @tcp_tap_pkt(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @tcp_tap_pkt(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %6 = alloca %struct.subtree_search, align 8
   %7 = tail call ptr @wmem_file_scope() #7
   %8 = load i32, ptr @proto_f5ethtrailer, align 4
@@ -4728,7 +4728,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare void @proto_tree_children_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @compare_subtree(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @compare_subtree(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %3
 
@@ -4789,7 +4789,7 @@ declare i32 @proto_is_frame_protocol(ptr noundef, ptr noundef) local_unnamed_add
 declare void @address_to_str_buf(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @stats_tree_manip_node_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4996,7 +4996,7 @@ define internal fastcc range(i32 0, 2) i32 @f5eth_add_tls_element(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @f5eth_add_tls_keylog(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 6) %1, ptr %.0.val, i32 %.8.val, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noalias ptr @f5eth_add_tls_keylog(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 6) %1, ptr %.0.val, i32 %.8.val, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
 switch.lookup:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
@@ -5043,7 +5043,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5056,7 +5056,7 @@ declare void @tvb_set_reported_length(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @g_regex_match_simple(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @f5eth_set_info_col_noslot(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, i32 noundef %3) #0 {
+define internal void @f5eth_set_info_col_noslot(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @col_get_writable(ptr noundef %6, i32 noundef 25) #7
@@ -5074,10 +5074,10 @@ define internal void @f5eth_set_info_col_noslot(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6

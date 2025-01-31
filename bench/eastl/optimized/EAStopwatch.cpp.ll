@@ -180,7 +180,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA4StdC9StopwatchC2Eib(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %nUnits, i1 noundef zeroext %bStartImmediately) unnamed_addr #1 align 2 {
+define dso_local void @_ZN2EA4StdC9StopwatchC2Eib(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, i32 noundef %nUnits, i1 noundef zeroext %bStartImmediately) unnamed_addr #1 align 2 {
 entry:
   %ts.i.i = alloca %struct.timespec, align 8
   %mnUnits = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -253,7 +253,7 @@ if.end3:                                          ; preds = %if.end6.sink.split.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN2EA4StdC9Stopwatch8SetUnitsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %this, i32 noundef %nUnits) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN2EA4StdC9Stopwatch8SetUnitsEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((16, 24)) %this, i32 noundef %nUnits) local_unnamed_addr #3 align 2 {
 entry:
   %mnUnits = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %nUnits, ptr %mnUnits, align 8
@@ -276,7 +276,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC9Stopwatch4StopEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %0 = load i64, ptr %this, align 8
@@ -344,7 +344,7 @@ if.end10:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %mnTotalElapsedTime = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -434,7 +434,7 @@ if.end15:                                         ; preds = %if.then13, %switch.
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC9Stopwatch14SetElapsedTimeEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %this, i64 noundef %nElapsedTime) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC9Stopwatch14SetElapsedTimeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 16)) %this, i64 noundef %nElapsedTime) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %0 = load i64, ptr %this, align 8
@@ -489,7 +489,7 @@ if.end:                                           ; preds = %_ZN2EA4StdC9Stopwat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef float @_ZNK2EA4StdC9Stopwatch19GetElapsedTimeFloatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZNK2EA4StdC9Stopwatch19GetElapsedTimeFloatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %mnTotalElapsedTime = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -554,7 +554,7 @@ if.end11:                                         ; preds = %if.then6, %if.else8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC9Stopwatch19SetElapsedTimeFloatEf(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %this, float noundef %fElapsedTime) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC9Stopwatch19SetElapsedTimeFloatEf(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 16)) %this, float noundef %fElapsedTime) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %0 = load i64, ptr %this, align 8
@@ -694,7 +694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC14LimitStopwatch12SetTimeLimitEmb(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %this, i64 noundef %nLimit, i1 noundef zeroext %bStartImmediately) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC14LimitStopwatch12SetTimeLimitEmb(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((24, 32)) %this, i64 noundef %nLimit, i1 noundef zeroext %bStartImmediately) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i.i = alloca %struct.timespec, align 8
   %ts.i = alloca %struct.timespec, align 8
@@ -766,7 +766,7 @@ if.end:                                           ; preds = %if.end6.sink.split.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef float @_ZNK2EA4StdC14LimitStopwatch21GetTimeRemainingFloatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZNK2EA4StdC14LimitStopwatch21GetTimeRemainingFloatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
@@ -809,16 +809,16 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

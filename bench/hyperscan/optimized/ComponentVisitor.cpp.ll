@@ -17,13 +17,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3ue223DefaultComponentVisitorD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3ue223DefaultComponentVisitorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue216ComponentVisitorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue216ComponentVisitorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN3ue216ComponentVisitorD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN3ue216ComponentVisitorD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.trap() #6
   unreachable
@@ -33,14 +33,14 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue223DefaultComponentVisitorE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
@@ -56,169 +56,169 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_19AsciiComponentClassE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_19AsciiComponentClassE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_19AsciiComponentClassE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_19AsciiComponentClassE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_20ComponentAlternationE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_20ComponentAlternationE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_20ComponentAlternationE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_20ComponentAlternationE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_18ComponentAssertionE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_18ComponentAssertionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_18ComponentAssertionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_18ComponentAssertionE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_20ComponentAtomicGroupE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_20ComponentAtomicGroupE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_20ComponentAtomicGroupE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_20ComponentAtomicGroupE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_22ComponentBackReferenceE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_22ComponentBackReferenceE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_22ComponentBackReferenceE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_22ComponentBackReferenceE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_17ComponentBoundaryE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_17ComponentBoundaryE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_17ComponentBoundaryE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_17ComponentBoundaryE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_13ComponentByteE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_13ComponentByteE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_13ComponentByteE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_13ComponentByteE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_22ComponentCondReferenceE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_22ComponentCondReferenceE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_22ComponentCondReferenceE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_22ComponentCondReferenceE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_14ComponentEmptyE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_14ComponentEmptyE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_14ComponentEmptyE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_14ComponentEmptyE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_12ComponentEUSE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_12ComponentEUSE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_12ComponentEUSE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_12ComponentEUSE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_15ComponentRepeatE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_15ComponentRepeatE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_15ComponentRepeatE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_15ComponentRepeatE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_17ComponentSequenceE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_17ComponentSequenceE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_17ComponentSequenceE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_17ComponentSequenceE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_21ComponentWordBoundaryE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_21ComponentWordBoundaryE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_21ComponentWordBoundaryE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_21ComponentWordBoundaryE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_18UTF8ComponentClassE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_18UTF8ComponentClassE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_18UTF8ComponentClassE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue223DefaultComponentVisitor4postEPNS_18UTF8ComponentClassE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }

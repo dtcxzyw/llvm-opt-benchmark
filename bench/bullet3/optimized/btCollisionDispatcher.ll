@@ -165,7 +165,7 @@ for.end30:                                        ; preds = %for.inc28
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21btCollisionDispatcher19defaultNearCallbackER16btBroadphasePairRS_RK16btDispatcherInfo(ptr nocapture noundef nonnull align 8 dereferenceable(32) %collisionPair, ptr noundef nonnull align 8 dereferenceable(20816) %dispatcher, ptr noundef nonnull align 8 dereferenceable(49) %dispatchInfo) #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21btCollisionDispatcher19defaultNearCallbackER16btBroadphasePairRS_RK16btDispatcherInfo(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %collisionPair, ptr noundef nonnull align 8 dereferenceable(20816) %dispatcher, ptr noundef nonnull align 8 dereferenceable(49) %dispatchInfo) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %obj0Wrap = alloca %struct.btCollisionObjectWrapper, align 8
   %obj1Wrap = alloca %struct.btCollisionObjectWrapper, align 8
@@ -300,7 +300,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 declare void @_ZN12btDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN21btCollisionDispatcher27registerCollisionCreateFuncEiiP30btCollisionAlgorithmCreateFunc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20816) %this, i32 noundef %proxyType0, i32 noundef %proxyType1, ptr noundef %createFunc) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN21btCollisionDispatcher27registerCollisionCreateFuncEiiP30btCollisionAlgorithmCreateFunc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20816) %this, i32 noundef %proxyType0, i32 noundef %proxyType1, ptr noundef %createFunc) local_unnamed_addr #3 align 2 {
 entry:
   %m_doubleDispatchContactPoints = getelementptr inbounds nuw i8, ptr %this, i64 72
   %idxprom = sext i32 %proxyType0 to i64
@@ -311,7 +311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN21btCollisionDispatcher31registerClosestPointsCreateFuncEiiP30btCollisionAlgorithmCreateFunc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20816) %this, i32 noundef %proxyType0, i32 noundef %proxyType1, ptr noundef %createFunc) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN21btCollisionDispatcher31registerClosestPointsCreateFuncEiiP30btCollisionAlgorithmCreateFunc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20816) %this, i32 noundef %proxyType0, i32 noundef %proxyType1, ptr noundef %createFunc) local_unnamed_addr #3 align 2 {
 entry:
   %m_doubleDispatchClosestPoints = getelementptr inbounds nuw i8, ptr %this, i64 10440
   %idxprom = sext i32 %proxyType0 to i64
@@ -402,7 +402,7 @@ _ZN21btCollisionDispatcherD2Ev.exit:              ; preds = %entry, %if.then.i.i
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN21btCollisionDispatcher14getNewManifoldEPK17btCollisionObjectS2_(ptr nocapture noundef nonnull align 8 dereferenceable(20816) %this, ptr noundef %body0, ptr noundef %body1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN21btCollisionDispatcher14getNewManifoldEPK17btCollisionObjectS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(20816) %this, ptr noundef %body0, ptr noundef %body1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca float, align 4
   %ref.tmp3 = alloca float, align 4
@@ -591,7 +591,7 @@ return:                                           ; preds = %if.then, %_ZN20btAl
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21btCollisionDispatcher13clearManifoldEP20btPersistentManifold(ptr nocapture nonnull readnone align 8 %this, ptr noundef %manifold) unnamed_addr #0 align 2 {
+define dso_local void @_ZN21btCollisionDispatcher13clearManifoldEP20btPersistentManifold(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %manifold) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -733,7 +733,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN21btCollisionDispatcher13needsResponseEPK17btCollisionObjectS2_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %body0, ptr nocapture noundef readonly %body1) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN21btCollisionDispatcher13needsResponseEPK17btCollisionObjectS2_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %body0, ptr noundef readonly captures(none) %body1) unnamed_addr #6 align 2 {
 entry:
   %m_collisionFlags.i = getelementptr inbounds nuw i8, ptr %body0, i64 224
   %0 = load i32, ptr %m_collisionFlags.i, align 8
@@ -764,7 +764,7 @@ land.end6:                                        ; preds = %entry, %land.rhs3, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN21btCollisionDispatcher14needsCollisionEPK17btCollisionObjectS2_(ptr nocapture nonnull readnone align 8 %this, ptr noundef %body0, ptr noundef %body1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN21btCollisionDispatcher14needsCollisionEPK17btCollisionObjectS2_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %body0, ptr noundef %body1) unnamed_addr #0 align 2 {
 entry:
   %m_activationState1.i.i = getelementptr inbounds nuw i8, ptr %body0, i64 240
   %0 = load i32, ptr %m_activationState1.i.i, align 8
@@ -859,7 +859,7 @@ entry:
 declare void @_ZN16btManifoldResultC1EPK24btCollisionObjectWrapperS2_(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN21btCollisionDispatcher26allocateCollisionAlgorithmEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20816) %this, i32 noundef %size) unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN21btCollisionDispatcher26allocateCollisionAlgorithmEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20816) %this, i32 noundef %size) unnamed_addr #0 align 2 {
 entry:
   %m_collisionAlgorithmPoolAllocator = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_collisionAlgorithmPoolAllocator, align 8
@@ -888,7 +888,7 @@ return:                                           ; preds = %_ZN15btPoolAllocato
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21btCollisionDispatcher22freeCollisionAlgorithmEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20816) %this, ptr noundef %ptr) unnamed_addr #0 align 2 {
+define dso_local void @_ZN21btCollisionDispatcher22freeCollisionAlgorithmEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20816) %this, ptr noundef %ptr) unnamed_addr #0 align 2 {
 entry:
   %m_collisionAlgorithmPoolAllocator = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_collisionAlgorithmPoolAllocator, align 8
@@ -1012,13 +1012,13 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -724,7 +724,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @streamInitSufPQ(ptr noundef %t, ptr nocapture noundef %state, ptr noundef %scratch) local_unnamed_addr #0 {
+define hidden void @streamInitSufPQ(ptr noundef %t, ptr noundef captures(none) %state, ptr noundef %scratch) local_unnamed_addr #0 {
 entry:
   %queueCount = getelementptr inbounds nuw i8, ptr %t, i64 156
   %0 = load i32, ptr %queueCount, align 4
@@ -1811,7 +1811,7 @@ for.end:                                          ; preds = %if.else.i411, %for.
 declare signext i8 @nfaQueueExecToMatch(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @blockInitSufPQ(ptr noundef %t, ptr nocapture noundef %state, ptr noundef %scratch, i8 noundef signext %is_small_block) local_unnamed_addr #2 {
+define hidden void @blockInitSufPQ(ptr noundef %t, ptr noundef captures(none) %state, ptr noundef %scratch, i8 noundef signext %is_small_block) local_unnamed_addr #2 {
 entry:
   %queues1 = getelementptr inbounds nuw i8, ptr %scratch, i64 176
   %0 = load ptr, ptr %queues1, align 16
@@ -9277,7 +9277,7 @@ declare signext i8 @nfaExpandState(ptr noundef, ptr noundef, ptr noundef, i64 no
 declare i64 @roseRunProgram(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
@@ -9422,7 +9422,7 @@ declare i64 @llvm.umin.i64(i64, i64) #6
 declare i64 @llvm.smin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

@@ -54,7 +54,7 @@ define void @_ZN5boost7archive6detail18utf8_codecvt_facetD0Ev(ptr noundef nonnul
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 3) i32 @_ZNK5boost7archive6detail18utf8_codecvt_facet5do_inER11__mbstate_tPKcS6_RS6_PwS8_RS8_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1, ptr noundef %2, ptr noundef readnone %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef readnone %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %7) unnamed_addr #5 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK5boost7archive6detail18utf8_codecvt_facet5do_inER11__mbstate_tPKcS6_RS6_PwS8_RS8_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr noundef readnone %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4, ptr noundef %5, ptr noundef readnone %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %7) unnamed_addr #5 align 2 {
   %9 = icmp ne ptr %2, %3
   %10 = icmp ne ptr %5, %6
   %11 = and i1 %9, %10
@@ -186,7 +186,7 @@ _ZN5boost7archive6detail18utf8_codecvt_facet20get_cont_octet_countEh.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_ZNK5boost7archive6detail18utf8_codecvt_facet6do_outER11__mbstate_tPKwS6_RS6_PcS8_RS8_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1, ptr noundef %2, ptr noundef readnone %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef readnone %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %7) unnamed_addr #5 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK5boost7archive6detail18utf8_codecvt_facet6do_outER11__mbstate_tPKwS6_RS6_PcS8_RS8_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr noundef readnone %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4, ptr noundef %5, ptr noundef readnone %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %7) unnamed_addr #5 align 2 {
   %9 = icmp ne ptr %2, %3
   %10 = icmp ne ptr %5, %6
   %11 = and i1 %9, %10
@@ -321,7 +321,7 @@ _ZN5boost7archive6detail6detail29get_cont_octet_out_count_implILm4EEEiw.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK5boost7archive6detail18utf8_codecvt_facet9do_lengthER11__mbstate_tPKcS6_m(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK5boost7archive6detail18utf8_codecvt_facet9do_lengthER11__mbstate_tPKcS6_m(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = icmp ne i64 %4, 0
   %7 = icmp ult ptr %2, %3
   %8 = and i1 %6, %7

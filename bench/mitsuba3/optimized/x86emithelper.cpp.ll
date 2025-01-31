@@ -59,7 +59,7 @@ $_ZTIN6asmjit9_abi_1_1014BaseEmitHelperE = comdat any
 @switch.table._ZN6asmjit9_abi_1_103x86L16kmovInstFromSizeEj = private unnamed_addr constant [8 x i32] [i32 336, i32 339, i32 0, i32 337, i32 0, i32 0, i32 0, i32 338], align 4
 
 ; Function Attrs: minsize mustprogress uwtable
-define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper11emitRegMoveERKNS0_8Operand_ES5_NS0_6TypeIdEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2, i8 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper11emitRegMoveERKNS0_8Operand_ES5_NS0_6TypeIdEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, i8 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.asmjit::_abi_1_10::Operand", align 4
   %7 = alloca %"class.asmjit::_abi_1_10::Operand", align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
@@ -267,13 +267,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper11emitRegMoveERKN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: minsize mustprogress uwtable
-define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper11emitArgMoveERKNS0_7BaseRegENS0_6TypeIdERKNS0_8Operand_ES6_PKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper11emitArgMoveERKNS0_7BaseRegENS0_6TypeIdERKNS0_8Operand_ES6_PKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef zeroext %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.asmjit::_abi_1_10::x86::Reg", align 4
   %8 = alloca %"class.asmjit::_abi_1_10::Operand", align 4
   %9 = icmp eq i8 %2, 0
@@ -700,7 +700,7 @@ _ZN6asmjit9_abi_1_103x86L16kmovInstFromSizeEj.exit6: ; preds = %129, %132
 declare noundef i32 @_ZNK6asmjit9_abi_1_1011Environment14stackAlignmentEv(ptr noundef nonnull align 1 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper11emitRegSwapERKNS0_7BaseRegES5_PKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef %3) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper11emitRegSwapERKNS0_7BaseRegES5_PKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef %3) unnamed_addr #3 align 2 {
   %5 = load i32, ptr %1, align 4, !tbaa !9
   %6 = and i32 %5, 3840
   %7 = icmp eq i32 %6, 0
@@ -726,7 +726,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper11emitRegSwapERKN
 }
 
 ; Function Attrs: minsize mustprogress uwtable
-define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitPrologERKNS0_9FuncFrameE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitPrologERKNS0_9FuncFrameE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(100) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.asmjit::_abi_1_10::x86::Gp", align 4
   %4 = alloca %"class.asmjit::_abi_1_10::x86::Gp", align 4
   %5 = alloca %"class.asmjit::_abi_1_10::x86::Gp", align 4
@@ -1020,7 +1020,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_103x8616EmitterExplici
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRestoreInfoENS0_8RegGroupERKNS0_9FuncFrameERNS1_3RegERjS8_(i8 noundef zeroext range(i8 1, 4) %0, i32 %.0.val, ptr nocapture noundef nonnull align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRestoreInfoENS0_8RegGroupERKNS0_9FuncFrameERNS1_3RegERjS8_(i8 noundef zeroext range(i8 1, 4) %0, i32 %.0.val, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   switch i8 %0, label %default.unreachable1 [
     i8 1, label %5
     i8 2, label %13
@@ -1059,7 +1059,7 @@ default.unreachable1:                             ; preds = %4
 }
 
 ; Function Attrs: minsize mustprogress uwtable
-define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS0_9FuncFrameE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS0_9FuncFrameE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(100) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.asmjit::_abi_1_10::Imm", align 4
   %4 = alloca %"class.asmjit::_abi_1_10::x86::Gp", align 4
   %5 = alloca %"class.asmjit::_abi_1_10::x86::Gp", align 4
@@ -1404,7 +1404,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_103x8616EmitterExplici
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6asmjit9_abi_1_103x8618assignEmitterFuncsEPNS0_11BaseEmitterE(ptr nocapture noundef writeonly initializes((104, 144)) %0) local_unnamed_addr #6 {
+define hidden void @_ZN6asmjit9_abi_1_103x8618assignEmitterFuncsEPNS0_11BaseEmitterE(ptr noundef writeonly captures(none) initializes((104, 144)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZN6asmjit9_abi_1_103x86L18Emitter_emitPrologEPNS0_11BaseEmitterERKNS0_9FuncFrameE, ptr %2, align 8, !tbaa !96
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1419,7 +1419,7 @@ define hidden void @_ZN6asmjit9_abi_1_103x8618assignEmitterFuncsEPNS0_11BaseEmit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L18Emitter_emitPrologEPNS0_11BaseEmitterERKNS0_9FuncFrameE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %1) #3 {
+define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L18Emitter_emitPrologEPNS0_11BaseEmitterERKNS0_9FuncFrameE(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(100) %1) #3 {
   %3 = alloca %"class.asmjit::_abi_1_10::x86::EmitHelper", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
   %4 = load i32, ptr %1, align 4, !tbaa !49
@@ -1442,7 +1442,7 @@ define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L18Emitter_emitPrologEPNS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L18Emitter_emitEpilogEPNS0_11BaseEmitterERKNS0_9FuncFrameE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %1) #3 {
+define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L18Emitter_emitEpilogEPNS0_11BaseEmitterERKNS0_9FuncFrameE(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(100) %1) #3 {
   %3 = alloca %"class.asmjit::_abi_1_10::x86::EmitHelper", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
   %4 = load i32, ptr %1, align 4, !tbaa !49
@@ -1494,7 +1494,7 @@ declare noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatInstruct
 declare noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4ArchERKNS0_8BaseInstEPKNS0_8Operand_EmNS0_15ValidationFlagsE(i8 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @__gxx_personality_v0(...)
 

@@ -141,7 +141,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.88 = private unnamed_addr constant [16 x i8] c"%s %s %.*s (%d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_info_break(ptr nocapture readnone %0) #0 {
+define hidden noundef i32 @phpdbg_do_info_break(ptr readnone captures(none) %0) #0 {
   tail call void @phpdbg_print_breakpoints(i64 noundef 0) #5
   tail call void @phpdbg_print_breakpoints(i64 noundef 2) #5
   tail call void @phpdbg_print_breakpoints(i64 noundef 4) #5
@@ -155,7 +155,7 @@ define hidden noundef i32 @phpdbg_do_info_break(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_info_files(ptr nocapture readnone %0) #0 {
+define hidden noundef i32 @phpdbg_do_info_files(ptr readnone captures(none) %0) #0 {
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2168), align 8
@@ -226,7 +226,7 @@ define hidden noundef i32 @phpdbg_do_info_files(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_info_classes(ptr nocapture readnone %0) #0 {
+define hidden noundef i32 @phpdbg_do_info_classes(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zend_array, align 8
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
@@ -408,7 +408,7 @@ define hidden noundef i32 @phpdbg_do_info_classes(ptr nocapture readnone %0) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_info_funcs(ptr nocapture readnone %0) #0 {
+define hidden noundef i32 @phpdbg_do_info_funcs(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zend_array, align 8
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
@@ -540,7 +540,7 @@ define hidden noundef i32 @phpdbg_do_info_funcs(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_info_error(ptr nocapture readnone %0) #0 {
+define hidden noundef i32 @phpdbg_do_info_error(ptr readnone captures(none) %0) #0 {
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 496), align 8
   %.not = icmp eq ptr %3, null
@@ -583,7 +583,7 @@ define hidden noundef i32 @phpdbg_do_info_error(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_info_constants(ptr nocapture readnone %0) #0 {
+define hidden noundef i32 @phpdbg_do_info_constants(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zend_array, align 8
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
@@ -911,19 +911,19 @@ define hidden noundef i32 @phpdbg_do_info_constants(ptr nocapture readnone %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_info_vars(ptr nocapture readnone %0) #0 {
+define hidden noundef i32 @phpdbg_do_info_vars(ptr readnone captures(none) %0) #0 {
   tail call fastcc void @phpdbg_print_symbols(i1 noundef zeroext false)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_info_globals(ptr nocapture readnone %0) #0 {
+define hidden noundef i32 @phpdbg_do_info_globals(ptr readnone captures(none) %0) #0 {
   tail call fastcc void @phpdbg_print_symbols(i1 noundef zeroext true)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_info_literal(ptr nocapture readnone %0) #0 {
+define hidden noundef i32 @phpdbg_do_info_literal(ptr readnone captures(none) %0) #0 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1384), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %10
@@ -1041,7 +1041,7 @@ define hidden noundef i32 @phpdbg_do_info_literal(ptr nocapture readnone %0) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_info_memory(ptr nocapture readnone %0) #0 {
+define hidden noundef i32 @phpdbg_do_info_memory(ptr readnone captures(none) %0) #0 {
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8
   %3 = and i64 %2, 2147483648
   %.not = icmp eq i64 %3, 0
@@ -1703,7 +1703,7 @@ declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @zend_hash_apply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @phpdbg_arm_auto_global(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @phpdbg_arm_auto_global(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 17
   %4 = load i8, ptr %3, align 1

@@ -52,12 +52,12 @@ define dso_local noundef nonnull ptr @GetHeapamTableAmRoutine() local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @heap_tableam_handler(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @heap_tableam_handler(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i64 ptrtoint (ptr @heapam_methods to i64)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @heapam_slot_callbacks(ptr nocapture readnone %0) #0 {
+define internal noundef nonnull ptr @heapam_slot_callbacks(ptr readnone captures(none) %0) #0 {
   ret ptr @TTSOpsBufferHeapTuple
 }
 
@@ -89,7 +89,7 @@ define internal noundef ptr @heapam_index_fetch_begin(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @heapam_index_fetch_reset(ptr nocapture noundef %0) #2 {
+define internal void @heapam_index_fetch_reset(ptr noundef captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -122,7 +122,7 @@ heapam_index_fetch_reset.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @heapam_index_fetch_tuple(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5) #2 {
+define internal zeroext i1 @heapam_index_fetch_tuple(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5) #2 {
   %7 = load i8, ptr %4, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %21, label %9
@@ -190,7 +190,7 @@ define internal zeroext i1 @heapam_index_fetch_tuple(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @heapam_fetch_row_version(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef initializes((84, 90)) %3) #2 {
+define internal noundef zeroext i1 @heapam_fetch_row_version(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef initializes((84, 90)) %3) #2 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 84
@@ -212,7 +212,7 @@ define internal noundef zeroext i1 @heapam_fetch_row_version(ptr noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @heapam_tuple_tid_valid(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #3 {
+define internal zeroext i1 @heapam_tuple_tid_valid(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #3 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %ItemPointerIsValid.exit.thread, label %ItemPointerIsValid.exit
 
@@ -243,7 +243,7 @@ ItemPointerIsValid.exit.thread:                   ; preds = %2, %5, %ItemPointer
 declare void @heap_get_latest_tid(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @heapam_tuple_satisfies_snapshot(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #2 {
+define internal zeroext i1 @heapam_tuple_satisfies_snapshot(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load i32, ptr %4, align 8
   tail call void @LockBuffer(i32 noundef %5, i32 noundef 1) #11
@@ -356,13 +356,13 @@ define internal void @heapam_tuple_complete_speculative(ptr noundef %0, ptr noun
 declare void @heap_multi_insert(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @heapam_tuple_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, i1 noundef zeroext %7) #2 {
+define internal i32 @heapam_tuple_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, i1 noundef zeroext %7) #2 {
   %9 = tail call i32 @heap_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, i1 noundef zeroext %7) #11
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @heapam_tuple_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #2 {
+define internal i32 @heapam_tuple_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #2 {
   %11 = alloca i8, align 1
   store i8 1, ptr %11, align 1
   %12 = call ptr @ExecFetchSlotHeapTuple(ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %11) #11
@@ -397,7 +397,7 @@ define internal i32 @heapam_tuple_update(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @heapam_tuple_lock(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2, ptr noundef initializes((84, 90)) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i8 noundef zeroext %7, ptr noundef initializes((16, 17)) %8) #2 {
+define internal i32 @heapam_tuple_lock(ptr noundef %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2, ptr noundef initializes((84, 90)) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i8 noundef zeroext %7, ptr noundef initializes((16, 17)) %8) #2 {
   %10 = alloca i32, align 4
   %11 = alloca %struct.SnapshotData, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -424,7 +424,7 @@ define internal i32 @heapam_tuple_lock(ptr noundef %0, ptr nocapture noundef %1,
 .lr.ph:                                           ; preds = %9, %101
   %26 = load i32, ptr %10, align 4
   call void @ReleaseBuffer(i32 noundef %26) #11
-  %27 = call zeroext i1 @ItemPointerEquals(ptr noundef %8, ptr noundef nonnull %17) #11
+  %27 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %8, ptr noundef nonnull %17) #11
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %.lr.ph
@@ -582,7 +582,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %30, %ItemPointerInd
   %102 = load i32, ptr %10, align 4
   call void @ReleaseBuffer(i32 noundef %102) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %17, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
-  %103 = call i32 @heap_lock_tuple(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %15, ptr noundef nonnull %10, ptr noundef %8) #11
+  %103 = call i32 @heap_lock_tuple(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %15, ptr noundef nonnull %10, ptr noundef nonnull %8) #11
   %.not127 = icmp eq i32 %103, 3
   br i1 %.not127, label %.lr.ph, label %.split125
 
@@ -665,7 +665,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %30, %ItemPointerInd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @heapam_relation_set_new_filelocator(ptr nocapture readnone %0, ptr noundef %1, i8 noundef signext %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #2 {
+define internal void @heapam_relation_set_new_filelocator(ptr readnone captures(none) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #2 {
   %6 = load i32, ptr @RecentXmin, align 4
   store i32 %6, ptr %3, align 4
   %7 = tail call i32 @GetOldestMultiXactId() #11
@@ -805,7 +805,7 @@ RelationGetSmgr.exit33:                           ; preds = %37, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @heapam_relation_copy_for_cluster(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9) #2 {
+define internal void @heapam_relation_copy_for_cluster(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9) #2 {
   %11 = alloca [2 x i32], align 8
   %12 = alloca [2 x i64], align 16
   %13 = alloca [2 x i32], align 8
@@ -1243,7 +1243,7 @@ reform_and_rewrite_tuple.exit129:                 ; preds = %211, %199
 declare void @heap_vacuum_rel(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @heapam_scan_analyze_next_block(ptr nocapture noundef initializes((72, 80), (120, 124)) %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal noundef zeroext i1 @heapam_scan_analyze_next_block(ptr noundef captures(none) initializes((72, 80), (120, 124)) %0, i32 noundef %1, ptr noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1257,7 +1257,7 @@ define internal noundef zeroext i1 @heapam_scan_analyze_next_block(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @heapam_scan_analyze_next_tuple(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4) #2 {
+define internal noundef zeroext i1 @heapam_scan_analyze_next_tuple(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 0
@@ -1441,7 +1441,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal double @heapam_index_build_range_scan(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8, ptr noundef %9, ptr noundef %10) #2 {
+define internal double @heapam_index_build_range_scan(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef %9, ptr noundef %10) #2 {
   %12 = alloca i8, align 1
   %13 = alloca [32 x i64], align 16
   %14 = alloca [32 x i8], align 16
@@ -1912,7 +1912,7 @@ BufferGetPage.exit:                               ; preds = %108, %114
   br i1 %.not201, label %.outer.backedge, label %243
 
 243:                                              ; preds = %238, %233
-  call void @FormIndexDatum(ptr noundef %2, ptr noundef %34, ptr noundef %27, ptr noundef nonnull %13, ptr noundef nonnull %14) #11
+  call void @FormIndexDatum(ptr noundef %2, ptr noundef %34, ptr noundef nonnull %27, ptr noundef nonnull %13, ptr noundef nonnull %14) #11
   %244 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 18
@@ -2035,7 +2035,7 @@ BufferGetPage.exit196:                            ; preds = %260, %266
 
 302:                                              ; preds = %301, %295
   call void @ExecDropSingleTupleTableSlot(ptr noundef %34) #11
-  call void @FreeExecutorState(ptr noundef %27) #11
+  call void @FreeExecutorState(ptr noundef nonnull %27) #11
   %303 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr null, ptr %303, align 8
   %304 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -2044,7 +2044,7 @@ BufferGetPage.exit196:                            ; preds = %260, %266
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @heapam_index_validate_scan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) #2 {
+define internal void @heapam_index_validate_scan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) #2 {
   %6 = alloca i8, align 1
   %7 = alloca [32 x i64], align 16
   %8 = alloca [32 x i8], align 16
@@ -2299,7 +2299,7 @@ BufferGetPage.exit:                               ; preds = %65, %71
   br i1 %.not93, label %.backedge, label %146
 
 146:                                              ; preds = %141, %138
-  call void @FormIndexDatum(ptr noundef %2, ptr noundef %24, ptr noundef %15, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
+  call void @FormIndexDatum(ptr noundef %2, ptr noundef %24, ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %147 = load i8, ptr %46, align 8
   %148 = and i8 %147, 1
   %149 = zext nneg i8 %148 to i32
@@ -2324,7 +2324,7 @@ BufferGetPage.exit:                               ; preds = %65, %71
   %158 = load ptr, ptr %157, align 8
   call void %158(ptr noundef nonnull %33) #11
   call void @ExecDropSingleTupleTableSlot(ptr noundef %24) #11
-  call void @FreeExecutorState(ptr noundef %15) #11
+  call void @FreeExecutorState(ptr noundef nonnull %15) #11
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr null, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -2335,7 +2335,7 @@ BufferGetPage.exit:                               ; preds = %65, %71
 declare i64 @table_block_relation_size(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @heapam_relation_needs_toast_table(ptr nocapture noundef readonly %0) #2 {
+define internal zeroext i1 @heapam_relation_needs_toast_table(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -2443,7 +2443,7 @@ define internal zeroext i1 @heapam_relation_needs_toast_table(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @heapam_relation_toast_am(ptr nocapture noundef readonly %0) #4 {
+define internal i32 @heapam_relation_toast_am(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 84
@@ -2460,7 +2460,7 @@ define internal void @heapam_estimate_rel_size(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @heapam_scan_bitmap_next_block(ptr nocapture noundef initializes((120, 128)) %0, ptr nocapture noundef readonly %1) #2 {
+define internal zeroext i1 @heapam_scan_bitmap_next_block(ptr noundef captures(none) initializes((120, 128)) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca %struct.ItemPointerData, align 2
   %4 = alloca %struct.HeapTupleData, align 8
   %5 = alloca %struct.HeapTupleData, align 8
@@ -2663,7 +2663,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @heapam_scan_bitmap_next_tuple(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #2 {
+define internal noundef zeroext i1 @heapam_scan_bitmap_next_tuple(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 0
@@ -3234,7 +3234,7 @@ declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @heap_hot_search_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @ExecStoreBufferHeapTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3388,7 +3388,7 @@ declare void @FreeExecutorState(ptr noundef) local_unnamed_addr #1
 declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @ItemPointerCompare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3419,10 +3419,10 @@ declare void @llvm.assume(i1 noundef) #8
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

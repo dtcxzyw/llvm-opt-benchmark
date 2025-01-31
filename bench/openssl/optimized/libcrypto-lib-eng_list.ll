@@ -769,12 +769,12 @@ return:                                           ; preds = %if.end27, %lor.lhs.
 declare void @ENGINE_load_builtin_engines() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @ENGINE_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @engine_cpy(ptr noundef nonnull initializes((0, 80), (88, 136), (144, 156), (216, 224)) %dest, ptr nocapture noundef nonnull readonly %src) unnamed_addr #3 {
+define internal fastcc void @engine_cpy(ptr noundef nonnull initializes((0, 80), (88, 136), (144, 156), (216, 224)) %dest, ptr noundef nonnull readonly captures(none) %src) unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %dest, align 8

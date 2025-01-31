@@ -117,7 +117,7 @@ define dso_local noundef ptr @gistbuild(ptr noundef %0, ptr noundef %1, ptr noun
 40:                                               ; preds = %39
   %41 = add nuw nsw i32 %.046, 1
   %42 = trunc i32 %41 to i16
-  %43 = tail call i32 @index_getprocid(ptr noundef %1, i16 noundef signext %42, i16 noundef zeroext 11) #10
+  %43 = tail call i32 @index_getprocid(ptr noundef nonnull %1, i16 noundef signext %42, i16 noundef zeroext 11) #10
   %.not51 = icmp eq i32 %43, 0
   br i1 %.not51, label %.loopexit, label %39, !llvm.loop !5
 
@@ -153,13 +153,13 @@ define dso_local noundef ptr @gistbuild(ptr noundef %0, ptr noundef %1, ptr noun
 58:                                               ; preds = %44, %55
   %59 = phi ptr [ %54, %44 ], [ %57, %55 ]
   %60 = load i32, ptr @maintenance_work_mem, align 4
-  %61 = tail call ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1, i32 noundef %60, ptr noundef null, i32 noundef 0) #10
+  %61 = tail call ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %60, ptr noundef null, i32 noundef 0) #10
   store ptr %61, ptr %18, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 280
   %65 = load ptr, ptr %64, align 8
-  %66 = call double %65(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @gistSortedBuildCallback, ptr noundef nonnull %5, ptr noundef null) #10
+  %66 = call double %65(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @gistSortedBuildCallback, ptr noundef nonnull %5, ptr noundef null) #10
   %67 = load ptr, ptr %18, align 8
   call void @tuplesort_performsort(ptr noundef %67) #10
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -244,7 +244,7 @@ gist_indexsortbuild.exit:                         ; preds = %86
   %101 = load ptr, ptr %96, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4096 dereferenceable(8192) %100, ptr noundef nonnull align 1 dereferenceable(8192) %101, i64 8192, i1 false)
   %102 = load ptr, ptr %71, align 8
-  call void @smgr_bulk_write(ptr noundef %102, i32 noundef 0, ptr noundef %100, i1 noundef zeroext true) #10
+  call void @smgr_bulk_write(ptr noundef %102, i32 noundef 0, ptr noundef nonnull %100, i1 noundef zeroext true) #10
   call void @pfree(ptr noundef nonnull %.031.i) #10
   %103 = load ptr, ptr %71, align 8
   call void @smgr_bulk_finish(ptr noundef %103) #10
@@ -255,7 +255,7 @@ gist_indexsortbuild.exit:                         ; preds = %86
 105:                                              ; preds = %44, %55
   %106 = phi ptr [ %54, %44 ], [ %57, %55 ]
   %107 = phi ptr [ %46, %44 ], [ %33, %55 ]
-  %108 = tail call i32 @gistNewBuffer(ptr noundef %1, ptr noundef %0) #10
+  %108 = tail call i32 @gistNewBuffer(ptr noundef nonnull %1, ptr noundef %0) #10
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %110, label %116
 
@@ -293,7 +293,7 @@ BufferGetPage.exit:                               ; preds = %110, %116
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 280
   %130 = load ptr, ptr %129, align 8
-  %131 = call double %130(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @gistBuildCallback, ptr noundef nonnull %5, ptr noundef null) #10
+  %131 = call double %130(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @gistBuildCallback, ptr noundef nonnull %5, ptr noundef null) #10
   %132 = load i32, ptr %107, align 8
   %133 = icmp eq i32 %132, 4
   br i1 %133, label %134, label %207
@@ -401,7 +401,7 @@ BufferGetPage.exit:                               ; preds = %110, %116
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8
   call void @MemoryContextReset(ptr noundef %189) #10
-  %190 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef %171, ptr noundef nonnull %176, ptr noundef nonnull %4) #10
+  %190 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef nonnull %171, ptr noundef nonnull %176, ptr noundef nonnull %4) #10
   br i1 %190, label %181, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %186, %181, %.lr.ph16.i.i
@@ -521,7 +521,7 @@ declare i32 @index_getprocid(ptr noundef, i16 noundef signext, i16 noundef zeroe
 declare ptr @tuplesort_begin_index_gist(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @gistSortedBuildCallback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 zeroext %4, ptr nocapture noundef %5) #0 {
+define internal void @gistSortedBuildCallback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 zeroext %4, ptr noundef captures(none) %5) #0 {
   %7 = alloca [32 x i64], align 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -559,7 +559,7 @@ declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #1
 declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @gistBuildCallback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i1 zeroext %4, ptr nocapture noundef %5) #0 {
+define internal void @gistBuildCallback(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i1 zeroext %4, ptr noundef captures(none) %5) #0 {
   %7 = alloca %struct.HASHCTL, align 8
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -621,7 +621,7 @@ define internal void @gistBuildCallback(ptr noundef %0, ptr nocapture noundef re
   %45 = load ptr, ptr %8, align 8
   %46 = load i32, ptr %39, align 8
   %47 = load i32, ptr %43, align 4
-  %48 = call fastcc zeroext i1 @gistProcessItup(ptr noundef readonly %5, ptr noundef %45, i32 noundef %46, i32 noundef %47)
+  %48 = call fastcc zeroext i1 @gistProcessItup(ptr noundef nonnull readonly %5, ptr noundef %45, i32 noundef %46, i32 noundef %47)
   br i1 %48, label %._crit_edge.i.i, label %49
 
 49:                                               ; preds = %44
@@ -629,7 +629,7 @@ define internal void @gistBuildCallback(ptr noundef %0, ptr nocapture noundef re
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   call void @MemoryContextReset(ptr noundef %52) #10
-  %53 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef %34, ptr noundef nonnull %39, ptr noundef nonnull %8) #10
+  %53 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef nonnull %34, ptr noundef nonnull %39, ptr noundef nonnull %8) #10
   br i1 %53, label %44, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %49, %44, %.lr.ph16.i.i
@@ -956,7 +956,7 @@ declare void @gistinitpage(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @tuplesort_getindextuple(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gist_indexsortbuild_levelstate_add(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @gist_indexsortbuild_levelstate_add(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 6
@@ -1033,7 +1033,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_add(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1247,7 +1247,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare ptr @smgr_bulk_get_buf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @smgr_bulk_write(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -1278,7 +1278,7 @@ declare void @gistdoinsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, p
 declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @gistProcessItup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @gistProcessItup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   %7 = alloca ptr, align 8
@@ -1432,7 +1432,7 @@ declare zeroext i16 @gistchoose(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare ptr @gistgetadjusted(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @gistbufferinginserttuples(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc i32 @gistbufferinginserttuples(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
   %11 = alloca i32, align 4
@@ -1990,16 +1990,16 @@ declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

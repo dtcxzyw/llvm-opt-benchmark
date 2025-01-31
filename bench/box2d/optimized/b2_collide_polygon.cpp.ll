@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.b2ManifoldPoint = type { %struct.b2Vec2, float, float, %union.b2ContactID }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17b2CollidePolygonsP10b2ManifoldPK14b2PolygonShapeRK11b2TransformS3_S6_(ptr nocapture noundef writeonly initializes((60, 64)) %manifold, ptr nocapture noundef readonly %polyA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %polyB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #0 {
+define void @_Z17b2CollidePolygonsP10b2ManifoldPK14b2PolygonShapeRK11b2TransformS3_S6_(ptr noundef writeonly captures(none) initializes((60, 64)) %manifold, ptr noundef readonly captures(none) %polyA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xfA, ptr noundef readonly captures(none) %polyB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xfB) local_unnamed_addr #0 {
 entry:
   %edgeA = alloca i32, align 4
   %edgeB = alloca i32, align 4
@@ -363,7 +363,7 @@ return:                                           ; preds = %if.end40, %_ZN6b2Ve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef float @_ZL19b2FindMaxSeparationPiPK14b2PolygonShapeRK11b2TransformS2_S5_(ptr nocapture noundef nonnull writeonly %edgeIndex, ptr nocapture noundef readonly %poly1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf1, ptr nocapture noundef readonly %poly2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf2) unnamed_addr #1 {
+define internal fastcc noundef float @_ZL19b2FindMaxSeparationPiPK14b2PolygonShapeRK11b2TransformS2_S5_(ptr noundef nonnull writeonly captures(none) %edgeIndex, ptr noundef readonly captures(none) %poly1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xf1, ptr noundef readonly captures(none) %poly2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xf2) unnamed_addr #1 {
 entry:
   %m_count = getelementptr inbounds nuw i8, ptr %poly1, i64 152
   %0 = load i32, ptr %m_count, align 8

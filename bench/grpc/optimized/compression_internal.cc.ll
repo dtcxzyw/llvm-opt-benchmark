@@ -92,7 +92,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 4294967300) i64 @_ZN9grpc_core25ParseCompressionAlgorithmESt17basic_string_viewIcSt11char_traitsIcEE(i64 %algorithm.coerce0, ptr nocapture readonly %algorithm.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 4294967300) i64 @_ZN9grpc_core25ParseCompressionAlgorithmESt17basic_string_viewIcSt11char_traitsIcEE(i64 %algorithm.coerce0, ptr readonly captures(none) %algorithm.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   switch i64 %algorithm.coerce0, label %if.else13 [
     i64 8, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
@@ -126,7 +126,7 @@ return:                                           ; preds = %_ZNSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK9grpc_core23CompressionAlgorithmSet28CompressionAlgorithmForLevelE22grpc_compression_level(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %this, i32 noundef %level) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK9grpc_core23CompressionAlgorithmSet28CompressionAlgorithmForLevelE22grpc_compression_level(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %this, i32 noundef %level) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -386,14 +386,14 @@ _ZN9grpc_core23CompressionAlgorithmSet10FromUint32Ej.exit: ; preds = %for.body.i
 declare i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core23CompressionAlgorithmSetC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this) unnamed_addr #8 align 2 {
+define void @_ZN9grpc_core23CompressionAlgorithmSetC2Ev(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %this) unnamed_addr #8 align 2 {
 entry:
   store i8 0, ptr %this, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core23CompressionAlgorithmSetC2ESt16initializer_listI26grpc_compression_algorithmE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this, ptr readonly %algorithms.coerce0, i64 %algorithms.coerce1) unnamed_addr #9 align 2 {
+define void @_ZN9grpc_core23CompressionAlgorithmSetC2ESt16initializer_listI26grpc_compression_algorithmE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %this, ptr readonly %algorithms.coerce0, i64 %algorithms.coerce1) unnamed_addr #9 align 2 {
 entry:
   store i8 0, ptr %this, align 1
   %add.ptr.i = getelementptr inbounds i32, ptr %algorithms.coerce0, i64 %algorithms.coerce1
@@ -425,7 +425,7 @@ for.end:                                          ; preds = %_ZN9grpc_core23Comp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core23CompressionAlgorithmSet3SetE26grpc_compression_algorithm(ptr nocapture noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %algorithm) local_unnamed_addr #10 align 2 {
+define void @_ZN9grpc_core23CompressionAlgorithmSet3SetE26grpc_compression_algorithm(ptr noundef nonnull align 1 captures(none) dereferenceable(1) %this, i32 noundef %algorithm) local_unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ult i32 %algorithm, 3
   br i1 %cmp, label %if.then, label %if.end
@@ -443,7 +443,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK9grpc_core23CompressionAlgorithmSet5IsSetE26grpc_compression_algorithm(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %this, i32 noundef %algorithm) local_unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK9grpc_core23CompressionAlgorithmSet5IsSetE26grpc_compression_algorithm(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %this, i32 noundef %algorithm) local_unnamed_addr #11 align 2 {
 entry:
   %cmp = icmp ult i32 %algorithm, 3
   %0 = load i8, ptr %this, align 1
@@ -456,7 +456,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { i64, ptr } @_ZNK9grpc_core23CompressionAlgorithmSet8ToStringEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %this) local_unnamed_addr #12 align 2 {
+define { i64, ptr } @_ZNK9grpc_core23CompressionAlgorithmSet8ToStringEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %this) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i8, ptr %this, align 1
   br label %for.body.i.i
@@ -488,7 +488,7 @@ _ZNK9grpc_core23CompressionAlgorithmSet15ToLegacyBitmaskEv.exit: ; preds = %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK9grpc_core23CompressionAlgorithmSet15ToLegacyBitmaskEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %this) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZNK9grpc_core23CompressionAlgorithmSet15ToLegacyBitmaskEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %this) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i8, ptr %this, align 1
   br label %for.body.i
@@ -513,7 +513,7 @@ _ZNK9grpc_core6BitSetILm3ELm8EE5ToIntIjEENSt9enable_ifIXaasr3std11is_unsignedIT_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9grpc_core23CompressionAlgorithmSet7ToSliceEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %this) local_unnamed_addr #13 align 2 {
+define void @_ZNK9grpc_core23CompressionAlgorithmSet7ToSliceEv(ptr noalias writeonly sret(%"class.grpc_core::Slice") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %this) local_unnamed_addr #13 align 2 {
 entry:
   %0 = load i8, ptr %this, align 1
   br label %for.body.i.i.i
@@ -814,7 +814,7 @@ return:                                           ; preds = %if.end7, %_ZNK9grpc
 declare noundef ptr @_ZNK9grpc_core11ChannelArgs3GetESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #15 comdat {
@@ -1328,13 +1328,13 @@ __cxx_global_var_init.3.exit:                     ; preds = %for.end22.i.i
 declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

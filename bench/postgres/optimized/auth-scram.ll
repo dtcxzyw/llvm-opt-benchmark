@@ -72,14 +72,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [5 x i8] c"v=%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @scram_get_mechanisms(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @scram_get_mechanisms(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @appendStringInfoString(ptr noundef %1, ptr noundef nonnull @.str.7) #12
   tail call void @appendStringInfoChar(ptr noundef %1, i8 noundef signext 0) #12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @scram_init(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal noundef ptr @scram_init(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call ptr @palloc0(i64 noundef 224) #12
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %5, align 8
@@ -157,7 +157,7 @@ define internal noundef ptr @scram_init(ptr noundef %0, ptr nocapture noundef re
 
 50:                                               ; preds = %.critedge
   %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #13
-  %52 = tail call i32 @pg_cryptohash_update(ptr noundef %47, ptr noundef %40, i64 noundef %51) #12
+  %52 = tail call i32 @pg_cryptohash_update(ptr noundef %47, ptr noundef nonnull %40, i64 noundef %51) #12
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %select.unfold.i, label %54
 
@@ -212,7 +212,7 @@ mock_scram_secret.exit:                           ; preds = %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) #0 {
+define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly %5) #0 {
   %7 = alloca [32 x i8], align 16
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16
@@ -380,7 +380,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   %93 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %93)
   %94 = tail call i32 @errcode(i32 noundef 16908800) #12
-  tail call fastcc void @sanitize_str(ptr noundef %90)
+  tail call fastcc void @sanitize_str(ptr noundef nonnull %90)
   %95 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull @sanitize_str.buf) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1050, ptr noundef nonnull @__func__.read_client_first_message) #12
   unreachable
@@ -616,7 +616,7 @@ build_server_first_message.exit:                  ; preds = %149
   %212 = call ptr @palloc(i64 noundef %211) #12
   %213 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %205) #13
   %214 = trunc i64 %213 to i32
-  %215 = call i32 @pg_b64_decode(ptr noundef %205, i32 noundef %214, ptr noundef %212, i32 noundef %210) #12
+  %215 = call i32 @pg_b64_decode(ptr noundef nonnull %205, i32 noundef %214, ptr noundef %212, i32 noundef %210) #12
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %217 = load i32, ptr %216, align 8
   %.not27.i = icmp eq i32 %215, %217
@@ -683,7 +683,7 @@ read_client_final_message.exit:                   ; preds = %223
 254:                                              ; preds = %read_client_final_message.exit
   %sext.i = shl i64 %244, 32
   %255 = ashr exact i64 %sext.i, 32
-  %bcmp.i = call i32 @bcmp(ptr %250, ptr %243, i64 %255)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %250, ptr nonnull %243, i64 %255)
   %.not13.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not13.i, label %verify_final_nonce.exit, label %verify_final_nonce.exit.thread
 
@@ -691,7 +691,7 @@ verify_final_nonce.exit:                          ; preds = %254
   %256 = getelementptr i8, ptr %250, i64 %255
   %sext14.i = shl i64 %248, 32
   %257 = ashr exact i64 %sext14.i, 32
-  %bcmp15.i = call i32 @bcmp(ptr %256, ptr %247, i64 %257)
+  %bcmp15.i = call i32 @bcmp(ptr %256, ptr nonnull %247, i64 %257)
   %.not16.i = icmp eq i32 %bcmp15.i, 0
   br i1 %.not16.i, label %262, label %verify_final_nonce.exit.thread
 
@@ -724,7 +724,7 @@ verify_final_nonce.exit.thread:                   ; preds = %254, %read_client_f
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %273 = load ptr, ptr %272, align 8
   %274 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %273) #13
-  %275 = call i32 @pg_hmac_update(ptr noundef %265, ptr noundef %273, i64 noundef %274) #12
+  %275 = call i32 @pg_hmac_update(ptr noundef %265, ptr noundef nonnull %273, i64 noundef %274) #12
   %276 = icmp slt i32 %275, 0
   br i1 %276, label %299, label %277
 
@@ -737,7 +737,7 @@ verify_final_nonce.exit.thread:                   ; preds = %254, %read_client_f
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %282 = load ptr, ptr %281, align 8
   %283 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %282) #13
-  %284 = call i32 @pg_hmac_update(ptr noundef %265, ptr noundef %282, i64 noundef %283) #12
+  %284 = call i32 @pg_hmac_update(ptr noundef %265, ptr noundef nonnull %282, i64 noundef %283) #12
   %285 = icmp slt i32 %284, 0
   br i1 %285, label %299, label %286
 
@@ -749,7 +749,7 @@ verify_final_nonce.exit.thread:                   ; preds = %254, %read_client_f
 289:                                              ; preds = %286
   %290 = load ptr, ptr %239, align 8
   %291 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %290) #13
-  %292 = call i32 @pg_hmac_update(ptr noundef %265, ptr noundef %290, i64 noundef %291) #12
+  %292 = call i32 @pg_hmac_update(ptr noundef %265, ptr noundef nonnull %290, i64 noundef %291) #12
   %293 = icmp slt i32 %292, 0
   br i1 %293, label %299, label %294
 
@@ -836,7 +836,7 @@ verify_client_proof.exit:                         ; preds = %._crit_edge.i
 334:                                              ; preds = %326
   %335 = load ptr, ptr %272, align 8
   %336 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %335) #13
-  %337 = call i32 @pg_hmac_update(ptr noundef %328, ptr noundef %335, i64 noundef %336) #12
+  %337 = call i32 @pg_hmac_update(ptr noundef %328, ptr noundef nonnull %335, i64 noundef %336) #12
   %338 = icmp slt i32 %337, 0
   br i1 %338, label %360, label %339
 
@@ -848,7 +848,7 @@ verify_client_proof.exit:                         ; preds = %._crit_edge.i
 342:                                              ; preds = %339
   %343 = load ptr, ptr %281, align 8
   %344 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %343) #13
-  %345 = call i32 @pg_hmac_update(ptr noundef %328, ptr noundef %343, i64 noundef %344) #12
+  %345 = call i32 @pg_hmac_update(ptr noundef %328, ptr noundef nonnull %343, i64 noundef %344) #12
   %346 = icmp slt i32 %345, 0
   br i1 %346, label %360, label %347
 
@@ -860,7 +860,7 @@ verify_client_proof.exit:                         ; preds = %._crit_edge.i
 350:                                              ; preds = %347
   %351 = load ptr, ptr %239, align 8
   %352 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %351) #13
-  %353 = call i32 @pg_hmac_update(ptr noundef %328, ptr noundef %351, i64 noundef %352) #12
+  %353 = call i32 @pg_hmac_update(ptr noundef %328, ptr noundef nonnull %351, i64 noundef %352) #12
   %354 = icmp slt i32 %353, 0
   br i1 %354, label %360, label %355
 
@@ -1039,7 +1039,7 @@ define dso_local zeroext i1 @scram_verify_plain_password(ptr noundef %0, ptr nou
   %25 = tail call ptr @palloc(i64 noundef %24) #12
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #13
   %27 = trunc i64 %26 to i32
-  %28 = tail call i32 @pg_b64_decode(ptr noundef %20, i32 noundef %27, ptr noundef %25, i32 noundef %23) #12
+  %28 = tail call i32 @pg_b64_decode(ptr noundef nonnull %20, i32 noundef %27, ptr noundef %25, i32 noundef %23) #12
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %34
 
@@ -1098,7 +1098,7 @@ define dso_local zeroext i1 @scram_verify_plain_password(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parse_scram_secret(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @parse_scram_secret(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = tail call ptr @pstrdup(ptr noundef %0) #12
   %10 = tail call ptr @strtok(ptr noundef %9, ptr noundef nonnull @.str.4) #12
@@ -1207,7 +1207,7 @@ define dso_local noundef zeroext i1 @parse_scram_secret(ptr noundef %0, ptr noca
 declare i32 @pg_b64_dec_len(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
@@ -1222,19 +1222,19 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1251,7 +1251,7 @@ declare i32 @pg_b64_enc_len(i32 noundef) local_unnamed_addr #1
 declare i32 @pg_b64_encode(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @GetMockAuthenticationNonce() local_unnamed_addr #1
 
@@ -1278,7 +1278,7 @@ define internal fastcc void @sanitize_char(i8 noundef signext %0) unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @read_attr_value(ptr nocapture noundef nonnull %0, i8 noundef signext range(i8 99, 115) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @read_attr_value(ptr noundef nonnull captures(none) %0, i8 noundef signext range(i8 99, 115) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1
   %5 = zext nneg i8 %1 to i32
@@ -1339,7 +1339,7 @@ define internal fastcc noundef ptr @read_attr_value(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal fastcc void @sanitize_str(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc void @sanitize_str(ptr noundef readonly captures(none) %0) unnamed_addr #8 {
   br label %2
 
 2:                                                ; preds = %1, %6
@@ -1367,7 +1367,7 @@ define internal fastcc void @sanitize_str(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @read_any_attr(ptr nocapture noundef nonnull %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @read_any_attr(ptr noundef nonnull captures(none) %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
@@ -1469,13 +1469,13 @@ declare i32 @scram_H(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr nou
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

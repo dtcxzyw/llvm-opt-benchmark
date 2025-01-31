@@ -534,7 +534,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.373 = private unnamed_addr constant [5 x i8] c"TRUE\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @dcom_interface_find(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @dcom_interface_find(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) @uuid_null, i64 16)
   %4 = icmp eq i32 %bcmp, 0
   %.011 = load ptr, ptr @dcom_interfaces, align 8
@@ -562,7 +562,7 @@ define ptr @dcom_interface_find(ptr nocapture noundef readnone %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dcom_interface_new(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #1 {
+define ptr @dcom_interface_new(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #1 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) @uuid_null, i64 16)
   %7 = icmp eq i32 %bcmp, 0
   br i1 %7, label %.loopexit, label %8
@@ -766,7 +766,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @wmem_file_scope() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1264,7 +1264,7 @@ define i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_dcom_tobedone_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden noundef i32 @dissect_dcom_tobedone_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = load i32, ptr @hf_dcom_tobedone, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef %5, i32 noundef 0) #11
   %.not.i = icmp eq ptr %8, null
@@ -1294,7 +1294,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_dcom_nospec_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden noundef i32 @dissect_dcom_nospec_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = load i32, ptr @hf_dcom_nospec, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef %5, i32 noundef 0) #11
   %.not.i = icmp eq ptr %8, null
@@ -1384,7 +1384,7 @@ define noundef i32 @dissect_dcom_indexed_DWORD(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissect_dcom_HRESULT_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6, i32 noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #1 {
+define i32 @dissect_dcom_HRESULT_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6, i32 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #1 {
   %10 = alloca i32, align 4
   %11 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef %7, ptr noundef nonnull %10) #11
   %.not = icmp eq ptr %3, null
@@ -2244,7 +2244,7 @@ define i32 @dissect_dcom_indexed_LPWSTR(ptr noundef %0, i32 noundef %1, ptr noun
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, ptr nocapture noundef nonnull initializes((0, 4)) %5) unnamed_addr #1 {
+define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr noundef nonnull captures(none) initializes((0, 4)) %5) unnamed_addr #1 {
   store i32 1, ptr %5, align 4
   %7 = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 1)
   %.not = icmp eq i32 %4, 0
@@ -2574,7 +2574,7 @@ define hidden i32 @dissect_dcom_STDOBJREF(ptr noundef %0, i32 noundef %1, ptr no
 declare i32 @dissect_ndr_duint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dcom_register_routine(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @dcom_register_routine(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %1, ptr noundef nonnull dereferenceable(16) @uuid_null, i64 16)
   %3 = icmp eq i32 %bcmp.i, 0
   %.011.i = load ptr, ptr @dcom_marshalers, align 8
@@ -2625,7 +2625,7 @@ dcom_get_routine_by_uuid.exit.thread:             ; preds = %4, %2, %dcom_get_ro
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @dcom_get_routine_by_uuid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @dcom_get_routine_by_uuid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) @uuid_null, i64 16)
   %2 = icmp eq i32 %bcmp, 0
   %.011 = load ptr, ptr @dcom_marshalers, align 8
@@ -2801,7 +2801,7 @@ dissect_dcom_CUSTOBJREF.exit:                     ; preds = %53, %41, %dcom_get_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @dissect_dcom_PMInterfacePointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #1 {
@@ -3047,7 +3047,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #6
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
@@ -3056,16 +3056,16 @@ declare void @g_list_free(ptr noundef) local_unnamed_addr #2
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #9

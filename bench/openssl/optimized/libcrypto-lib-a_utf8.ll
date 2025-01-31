@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -4, 5) i32 @UTF8_getc(ptr nocapture noundef readonly %str, i32 noundef %len, ptr nocapture noundef writeonly %val) local_unnamed_addr #0 {
+define range(i32 -4, 5) i32 @UTF8_getc(ptr noundef readonly captures(none) %str, i32 noundef %len, ptr noundef writeonly captures(none) %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %len, 1
   br i1 %cmp, label %return, label %if.end

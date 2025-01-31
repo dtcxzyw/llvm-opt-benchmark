@@ -402,7 +402,7 @@ define dso_local void @appendStringLiteral(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @enlargePQExpBuffer(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -441,7 +441,7 @@ define dso_local void @appendStringLiteralConn(ptr noundef %0, ptr noundef %1, p
 18:                                               ; preds = %17, %12, %9
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 69) #11
   %19 = tail call i32 @PQclientEncoding(ptr noundef %2) #11
-  tail call void @appendStringLiteral(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %19, i1 noundef zeroext false)
+  tail call void @appendStringLiteral(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %19, i1 noundef zeroext false)
   br label %32
 
 20:                                               ; preds = %6, %3
@@ -457,7 +457,7 @@ define dso_local void @appendStringLiteralConn(ptr noundef %0, ptr noundef %1, p
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr i8, ptr %25, i64 %27
-  %29 = tail call i64 @PQescapeStringConn(ptr noundef %2, ptr noundef %28, ptr noundef %1, i64 noundef %4, ptr noundef null) #11
+  %29 = tail call i64 @PQescapeStringConn(ptr noundef %2, ptr noundef %28, ptr noundef nonnull %1, i64 noundef %4, ptr noundef null) #11
   %30 = load i64, ptr %26, align 8
   %31 = add i64 %30, %29
   store i64 %31, ptr %26, align 8
@@ -511,7 +511,7 @@ define dso_local void @appendStringLiteralDQ(ptr noundef %0, ptr noundef %1, ptr
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %4, i8 noundef signext 36) #11
   %16 = load ptr, ptr %4, align 8
   tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef %16) #11
-  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef %1) #11
+  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull %1) #11
   %17 = load ptr, ptr %4, align 8
   tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef %17) #11
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %4) #11
@@ -519,10 +519,10 @@ define dso_local void @appendStringLiteralDQ(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @appendByteaLiteral(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @appendByteaLiteral(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = shl i64 %2, 1
   %6 = add i64 %5, 5
   %7 = tail call i32 @enlargePQExpBuffer(ptr noundef %0, i64 noundef %6) #11
@@ -667,7 +667,7 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @appendConnStrVal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -808,7 +808,7 @@ declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #1
 declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local noundef zeroext i1 @parsePGArray(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @parsePGArray(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #4 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
@@ -1020,7 +1020,7 @@ define dso_local void @appendPGArray(ptr noundef %0, ptr noundef %1) local_unnam
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @appendReloptionsArray(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @appendReloptionsArray(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = call zeroext i1 @parsePGArray(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -1063,7 +1063,7 @@ define dso_local noundef zeroext i1 @appendReloptionsArray(ptr noundef %0, ptr n
   br label %21
 
 21:                                               ; preds = %20, %19
-  %22 = tail call ptr @fmtId(ptr noundef %15)
+  %22 = tail call ptr @fmtId(ptr noundef nonnull %15)
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %2, ptr noundef %22) #11
   %23 = tail call ptr @fmtId(ptr noundef %.0)
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %.0) #12
@@ -1071,11 +1071,11 @@ define dso_local noundef zeroext i1 @appendReloptionsArray(ptr noundef %0, ptr n
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %21
-  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef %.0) #11
+  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull %.0) #11
   br label %28
 
 27:                                               ; preds = %21
-  tail call void @appendStringLiteral(ptr noundef %0, ptr noundef %.0, i32 noundef %3, i1 noundef zeroext %4)
+  tail call void @appendStringLiteral(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %3, i1 noundef zeroext %4)
   br label %28
 
 28:                                               ; preds = %26, %27
@@ -1090,10 +1090,10 @@ define dso_local noundef zeroext i1 @appendReloptionsArray(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @processSQLNamePattern(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
@@ -1242,7 +1242,7 @@ define dso_local noundef zeroext i1 @processSQLNamePattern(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr nocapture noundef initializes((0, 4)) %7) local_unnamed_addr #0 {
+define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef captures(none) initializes((0, 4)) %7) local_unnamed_addr #0 {
   %9 = alloca [3 x %struct.PQExpBufferData], align 16
   %10 = alloca %struct.PQExpBufferData, align 8
   store i32 0, ptr %7, align 4
@@ -1534,7 +1534,7 @@ declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #8
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -84,7 +84,7 @@ target triple = "x86_64-pc-linux-gnu"
 @class_ClosedGeneratorException_methods = internal constant [1 x %struct._zend_function_entry] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define void @zend_generator_restore_call_stack(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @zend_generator_restore_call_stack(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   br label %4
@@ -187,12 +187,12 @@ define void @zend_generator_restore_call_stack(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_generator_freeze_call_stack(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define ptr @zend_generator_freeze_call_stack(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   br label %4
@@ -284,7 +284,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #3
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define void @zend_generator_close(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define void @zend_generator_close(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -497,7 +497,7 @@ declare void @zend_free_compiled_variables(ptr noundef) local_unnamed_addr #2
 declare void @zend_free_extra_named_params(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_generator_cleanup_unfinished_execution(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_generator_cleanup_unfinished_execution(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
@@ -1955,7 +1955,7 @@ declare void @zend_observer_fcall_end(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @zend_throw_exception_internal(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Generator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Generator_rewind(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2011,7 +2011,7 @@ zend_generator_rewind.exit:                       ; preds = %26, %zend_generator
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Generator_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Generator_valid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2110,7 +2110,7 @@ zend_generator_update_root.exit:                  ; preds = %31, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Generator_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Generator_current(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2256,7 +2256,7 @@ zend_generator_update_root.exit:                  ; preds = %31, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Generator_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Generator_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2402,7 +2402,7 @@ zend_generator_update_root.exit:                  ; preds = %31, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Generator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Generator_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2449,7 +2449,7 @@ zend_generator_ensure_initialized.exit:           ; preds = %6, %12, %15, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Generator_send(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Generator_send(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -2679,7 +2679,7 @@ declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Generator_throw(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Generator_throw(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2966,7 +2966,7 @@ zend_generator_update_root.exit132:               ; preds = %92, %95
 declare void @zend_throw_exception_object(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Generator_getReturn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Generator_getReturn(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3041,7 +3041,7 @@ zend_generator_ensure_initialized.exit:           ; preds = %6, %12, %15, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @zend_generator_get_iterator(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define hidden noundef ptr @zend_generator_get_iterator(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -3153,7 +3153,7 @@ define internal noundef ptr @zend_generator_create(ptr noundef %0) #0 {
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store i32 0, ptr %5, align 8
-  tail call void @zend_object_std_init(ptr noundef %2, ptr noundef %0) #10
+  tail call void @zend_object_std_init(ptr noundef nonnull %2, ptr noundef %0) #10
   ret ptr %2
 }
 
@@ -3613,7 +3613,7 @@ zend_generator_remove_child.exit:                 ; preds = %43, %44, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_generator_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal ptr @zend_generator_get_gc(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -3853,7 +3853,7 @@ zend_generator_revert_call_stack.exit113:         ; preds = %.preheader, %zend_g
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @zend_generator_get_constructor(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @zend_generator_get_constructor(ptr readnone captures(none) %0) #0 {
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.21) #10
   ret ptr null
 }
@@ -3886,7 +3886,7 @@ define internal void @zend_generator_iterator_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @zend_generator_iterator_valid(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @zend_generator_iterator_valid(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -3970,7 +3970,7 @@ zend_generator_update_root.exit:                  ; preds = %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @zend_generator_iterator_get_data(ptr nocapture noundef readonly %0) #0 {
+define internal nonnull ptr @zend_generator_iterator_get_data(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -4052,7 +4052,7 @@ zend_generator_update_root.exit:                  ; preds = %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_generator_iterator_get_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @zend_generator_iterator_get_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -4183,7 +4183,7 @@ zend_generator_update_root.exit:                  ; preds = %27, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_generator_iterator_move_forward(ptr nocapture noundef readonly %0) #0 {
+define internal void @zend_generator_iterator_move_forward(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -4217,7 +4217,7 @@ zend_generator_ensure_initialized.exit:           ; preds = %1, %7, %10, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_generator_iterator_rewind(ptr nocapture noundef readonly %0) #0 {
+define internal void @zend_generator_iterator_rewind(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -4261,7 +4261,7 @@ zend_generator_rewind.exit:                       ; preds = %zend_generator_ensu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noalias noundef ptr @zend_generator_iterator_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #6 {
+define internal noalias noundef ptr @zend_generator_iterator_get_gc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %4, ptr %1, align 8
   store i32 1, ptr %2, align 4
@@ -4269,7 +4269,7 @@ define internal noalias noundef ptr @zend_generator_iterator_get_gc(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @zend_register_internal_class_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -4291,10 +4291,10 @@ declare void @zend_get_gc_buffer_grow(ptr noundef) local_unnamed_addr #2
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Pxy_t = type { double, double }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @in_poly(ptr nocapture readonly %0, i32 %1, double %2, double %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @in_poly(ptr readonly captures(none) %0, i32 %1, double %2, double %3) local_unnamed_addr #0 {
   %5 = add i32 %1, -1
   %6 = icmp slt i32 %1, 1
   br i1 %6, label %._crit_edge, label %.lr.ph.preheader

@@ -2755,7 +2755,7 @@ err:                                              ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2788,7 +2788,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @OSSL_PARAM_construct_uint(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2803,7 +2803,7 @@ declare ptr @EVP_KDF_CTX_new(ptr noundef) local_unnamed_addr #1
 declare void @EVP_KDF_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias ptr @construct_kbkdf_params(ptr noundef %digest, ptr noundef %mac, ptr noundef %key, i64 noundef range(i64 0, 2) %keylen, ptr noundef nonnull %r) unnamed_addr #0 {
@@ -2917,11 +2917,11 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %incdec.ptr1 = getelementptr inbounds nuw i8, ptr %call, i64 80
   %call3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %secret) #7
-  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.116, ptr noundef %secret, i64 noundef %call3) #6
+  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.116, ptr noundef nonnull %secret, i64 noundef %call3) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
   %incdec.ptr4 = getelementptr inbounds nuw i8, ptr %call, i64 120
   %call6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %seed) #7
-  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp5, ptr noundef nonnull @.str.79, ptr noundef %seed, i64 noundef %call6) #6
+  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp5, ptr noundef nonnull @.str.79, ptr noundef nonnull %seed, i64 noundef %call6) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1, ptr noundef nonnull align 8 dereferenceable(40) %tmp5, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp7) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr4, ptr noundef nonnull align 8 dereferenceable(40) %tmp7, i64 40, i1 false)
@@ -2958,7 +2958,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   %p.0 = phi ptr [ %incdec.ptr, %if.then2 ], [ %call, %if.end ]
   %incdec.ptr4 = getelementptr inbounds nuw i8, ptr %p.0, i64 40
   %call6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %salt) #7
-  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp5, ptr noundef nonnull @.str.69, ptr noundef %salt, i64 noundef %call6) #6
+  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp5, ptr noundef nonnull @.str.69, ptr noundef nonnull %salt, i64 noundef %call6) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p.0, ptr noundef nonnull align 8 dereferenceable(40) %tmp5, i64 40, i1 false)
   %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %p.0, i64 80
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8, ptr noundef nonnull @.str.78, ptr noundef %key, i64 noundef %keylen) #6
@@ -3148,7 +3148,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %call, i64 80
   %call4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %salt) #7
-  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp3, ptr noundef nonnull @.str.69, ptr noundef %salt, i64 noundef %call4) #6
+  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp3, ptr noundef nonnull @.str.69, ptr noundef nonnull %salt, i64 noundef %call4) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp3, i64 40, i1 false)
   %incdec.ptr5 = getelementptr inbounds nuw i8, ptr %call, i64 120
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6, ptr noundef nonnull @.str.70, ptr noundef nonnull %iter) #6
@@ -3182,10 +3182,10 @@ declare void @test_note(ptr noundef, ...) local_unnamed_addr #1
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

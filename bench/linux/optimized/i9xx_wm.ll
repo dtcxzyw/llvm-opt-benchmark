@@ -165,7 +165,7 @@ define dso_local zeroext i1 @intel_set_memory_cxsr(ptr noundef %0, i1 noundef ze
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -352,7 +352,7 @@ define internal fastcc zeroext i1 @_intel_set_memory_cxsr(ptr noundef %0, i1 nou
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @ilk_disable_lp_wm(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -668,7 +668,7 @@ define dso_local void @ilk_wm_sanitize(ptr noundef %0) local_unnamed_addr #0 ali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
@@ -689,7 +689,7 @@ declare dso_local i32 @intel_atomic_check(ptr noundef, ptr noundef) local_unname
 declare dso_local void @intel_optimize_watermarks(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @drm_atomic_state_clear(ptr noundef) local_unnamed_addr #2
@@ -1161,7 +1161,7 @@ declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_u
 declare dso_local void @intel_print_wm_latency(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @ilk_compute_pipe_wm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ilk_compute_pipe_wm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.ilk_wm_maximums, align 8
   %4 = alloca %struct.ilk_wm_maximums, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1386,7 +1386,7 @@ ilk_validate_pipe_wm.exit:                        ; preds = %119, %121
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @ilk_compute_intermediate_wm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ilk_compute_intermediate_wm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.ilk_wm_maximums, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1566,7 +1566,7 @@ ilk_validate_pipe_wm.exit:                        ; preds = %114, %116
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ilk_initial_watermarks(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((1724, 1828)) %1) #0 align 16 {
+define internal void @ilk_initial_watermarks(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((1724, 1828)) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1586,7 +1586,7 @@ define internal void @ilk_initial_watermarks(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ilk_optimize_watermarks(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal void @ilk_optimize_watermarks(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -1782,7 +1782,7 @@ define internal void @ilk_wm_get_hw_state(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ilk_compute_wm_level(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly initializes((0, 1)) %6) unnamed_addr #0 align 16 {
+define internal fastcc void @ilk_compute_wm_level(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) initializes((0, 1)) %6) unnamed_addr #0 align 16 {
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 6898
   %10 = getelementptr [5 x i16], ptr %9, i64 0, i64 %8
@@ -2059,7 +2059,7 @@ define internal fastcc void @ilk_compute_wm_level(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @ilk_validate_wm_level(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @ilk_validate_wm_level(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 align 16 {
   %4 = load i8, ptr %2, align 4, !range !27, !noundef !28
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %65, label %6
@@ -2934,7 +2934,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ilk_wm_merge(ptr noundef readonly %0, i32 %.0.val, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((100, 101)) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ilk_wm_merge(ptr noundef readonly %0, i32 %.0.val, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((100, 101)) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7024
   %5 = load i8, ptr %4, align 8
   %6 = zext i8 %5 to i32
@@ -3117,7 +3117,7 @@ define internal fastcc void @ilk_wm_merge(ptr noundef readonly %0, i32 %.0.val, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -3634,7 +3634,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @vlv_compute_intermediate_wm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 align 16 {
+define internal noundef i32 @vlv_compute_intermediate_wm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -3825,7 +3825,7 @@ define internal noundef i32 @vlv_compute_intermediate_wm(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_initial_watermarks(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((1724, 1798)) %1) #0 align 16 {
+define internal void @vlv_initial_watermarks(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((1724, 1798)) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3845,7 +3845,7 @@ define internal void @vlv_initial_watermarks(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_atomic_update_fifo(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @vlv_atomic_update_fifo(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7368
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4158,7 +4158,7 @@ define internal void @vlv_atomic_update_fifo(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_optimize_watermarks(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal void @vlv_optimize_watermarks(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -4941,7 +4941,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr nocapture noundef initializes((1756, 1758)) %0) unnamed_addr #10 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr noundef captures(none) initializes((1756, 1758)) %0) unnamed_addr #10 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1556
@@ -5721,7 +5721,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -6294,7 +6294,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @g4x_compute_intermediate_wm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @g4x_compute_intermediate_wm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -6665,7 +6665,7 @@ define internal noundef i32 @g4x_compute_intermediate_wm(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @g4x_initial_watermarks(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((1724, 1758)) %1) #0 align 16 {
+define internal void @g4x_initial_watermarks(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((1724, 1758)) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -6685,7 +6685,7 @@ define internal void @g4x_initial_watermarks(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @g4x_optimize_watermarks(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal void @g4x_optimize_watermarks(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -7235,7 +7235,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 -22, 1) i32 @_g4x_compute_pipe_wm(ptr nocapture noundef %0) unnamed_addr #11 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @_g4x_compute_pipe_wm(ptr noundef captures(none) %0) unnamed_addr #11 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1556
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1644
@@ -9081,7 +9081,7 @@ declare i32 @llvm.umax.i32(i32, i32) #12
 declare i16 @llvm.umax.i16(i16, i16) #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

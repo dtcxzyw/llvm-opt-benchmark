@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i32 @intel_ring_update_space(ptr nocapture noundef initializes((40, 44)) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_ring_update_space(ptr noundef captures(none) initializes((40, 44)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -144,7 +144,7 @@ declare dso_local ptr @i915_gem_object_pin_map(ptr noundef, i32 noundef) local_u
 declare dso_local ptr @i915_vma_make_unshrinkable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @intel_ring_reset(ptr nocapture noundef initializes((28, 44)) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_ring_reset(ptr noundef captures(none) initializes((28, 44)) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -1
@@ -222,7 +222,7 @@ declare dso_local void @i915_vma_unpin_iomap(ptr noundef) local_unnamed_addr #2
 declare dso_local void @i915_vma_make_purgeable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @intel_engine_create_ring(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local ptr @intel_engine_create_ring(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 56) #6
@@ -393,7 +393,7 @@ define dso_local void @intel_ring_free(ptr noundef %0) local_unnamed_addr #1 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @intel_ring_begin(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local ptr @intel_ring_begin(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 52
@@ -555,7 +555,7 @@ define internal fastcc i32 @wait_for_space(ptr noundef initializes((40, 44)) %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_ring_cacheline_align(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local i32 @intel_ring_cacheline_align(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 36

@@ -245,7 +245,7 @@ block_next.exit:                                  ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @default_walker(ptr nocapture readnone %0, i64 %1, i32 %2, ptr nocapture readnone %3) unnamed_addr #2 {
+define internal void @default_walker(ptr readnone captures(none) %0, i64 %1, i32 %2, ptr readnone captures(none) %3) unnamed_addr #2 {
   ret void
 }
 
@@ -306,7 +306,7 @@ lv_tlsf_walk_pool.exit:                           ; preds = %.lr.ph.i, %block_ne
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i64 @lv_tlsf_size() local_unnamed_addr #2 {
@@ -712,7 +712,7 @@ lv_tlsf_add_pool.exit:                            ; preds = %lv_tlsf_create.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @lv_tlsf_destroy(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
+define void @lv_tlsf_destroy(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   ret void
 }
 

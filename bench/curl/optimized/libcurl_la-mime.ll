@@ -153,7 +153,7 @@ if.end10:                                         ; preds = %do.body, %entry
 declare void @curl_slist_free_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_mime_initpart(ptr nocapture noundef writeonly initializes((0, 440)) %part) local_unnamed_addr #2 {
+define hidden void @Curl_mime_initpart(ptr noundef writeonly captures(none) initializes((0, 440)) %part) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(440) %part, i8 0, i64 432, i1 false)
   %lastreadstatus = getelementptr inbounds nuw i8, ptr %part, i64 432
@@ -365,7 +365,7 @@ if.end:                                           ; preds = %cleanup_part_conten
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_mime_duppart(ptr noundef %data, ptr noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define hidden i32 @Curl_mime_duppart(ptr noundef %data, ptr noundef %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %kind = getelementptr inbounds nuw i8, ptr %src, i64 16
   %0 = load i32, ptr %kind, align 8
@@ -1353,17 +1353,17 @@ return:                                           ; preds = %if.then4, %entry, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @Curl_rand_alnum(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @mime_mem_read(ptr nocapture noundef writeonly %buffer, i64 %size, i64 noundef %nitems, ptr nocapture noundef readonly %instream) #0 {
+define internal i64 @mime_mem_read(ptr noundef writeonly captures(none) %buffer, i64 %size, i64 noundef %nitems, ptr noundef readonly captures(none) %instream) #0 {
 entry:
   %datasize = getelementptr inbounds nuw i8, ptr %instream, i64 112
   %0 = load i64, ptr %datasize, align 8
@@ -1394,7 +1394,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @mime_mem_seek(ptr nocapture noundef %instream, i64 noundef %offset, i32 noundef %whence) #5 {
+define internal range(i32 0, 2) i32 @mime_mem_seek(ptr noundef captures(none) %instream, i64 noundef %offset, i32 noundef %whence) #5 {
 entry:
   switch i32 %whence, label %sw.epilog [
     i32 1, label %sw.epilog.sink.split
@@ -1433,7 +1433,7 @@ return:                                           ; preds = %sw.epilog, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mime_mem_free(ptr nocapture noundef %ptr) #0 {
+define internal void @mime_mem_free(ptr noundef captures(none) %ptr) #0 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %data = getelementptr inbounds nuw i8, ptr %ptr, i64 24
@@ -1444,13 +1444,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 3) i32 @mime_file_seek(ptr nocapture noundef %instream, i64 noundef %offset, i32 noundef %whence) #7 {
+define internal range(i32 0, 3) i32 @mime_file_seek(ptr noundef captures(none) %instream, i64 noundef %offset, i32 noundef %whence) #7 {
 entry:
   %cmp = icmp ne i32 %whence, 0
   %tobool = icmp ne i64 %offset, 0
@@ -1488,7 +1488,7 @@ return:                                           ; preds = %mime_open_file.exit
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @mime_file_read(ptr nocapture noundef %buffer, i64 noundef %size, i64 noundef %nitems, ptr nocapture noundef %instream) #7 {
+define internal noundef i64 @mime_file_read(ptr noundef captures(none) %buffer, i64 noundef %size, i64 noundef %nitems, ptr noundef captures(none) %instream) #7 {
 entry:
   %tobool.not = icmp eq i64 %nitems, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1518,7 +1518,7 @@ return:                                           ; preds = %mime_open_file.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mime_file_free(ptr nocapture noundef %ptr) #0 {
+define internal void @mime_file_free(ptr noundef captures(none) %ptr) #0 {
 entry:
   %fp = getelementptr inbounds nuw i8, ptr %ptr, i64 64
   %0 = load ptr, ptr %fp, align 8
@@ -1675,7 +1675,7 @@ return:                                           ; preds = %cleanup_part_conten
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mime_subparts_seek(ptr nocapture noundef %instream, i64 noundef %offset, i32 noundef %whence) #0 {
+define internal i32 @mime_subparts_seek(ptr noundef captures(none) %instream, i64 noundef %offset, i32 noundef %whence) #0 {
 entry:
   %cmp = icmp ne i32 %whence, 0
   %tobool = icmp ne i64 %offset, 0
@@ -1834,7 +1834,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @readback_part(ptr noundef %part, ptr noundef %buffer, i64 noundef %bufsize, ptr nocapture noundef nonnull %hasread) unnamed_addr #0 {
+define internal fastcc i64 @readback_part(ptr noundef %part, ptr noundef %buffer, i64 noundef %bufsize, ptr noundef nonnull captures(none) %hasread) unnamed_addr #0 {
 entry:
   %tobool.not119 = icmp eq i64 %bufsize, 0
   br i1 %tobool.not119, label %return, label %while.body.lr.ph
@@ -2154,7 +2154,7 @@ return:                                           ; preds = %while.body, %sw.epi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 66) i32 @Curl_mime_rewind(ptr nocapture noundef initializes((152, 176), (432, 440)) %part) local_unnamed_addr #0 {
+define hidden range(i32 0, 66) i32 @Curl_mime_rewind(ptr noundef captures(none) initializes((152, 176), (432, 440)) %part) local_unnamed_addr #0 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %part, i64 20
   %0 = load i32, ptr %flags.i, align 4
@@ -2330,7 +2330,7 @@ if.end13:                                         ; preds = %slist_size.exit20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_mime_add_header(ptr nocapture noundef %slp, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_mime_add_header(ptr noundef captures(none) %slp, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -2385,7 +2385,7 @@ for.body:                                         ; preds = %if.then, %for.inc
 land.lhs.true:                                    ; preds = %for.body
   %idx.neg = sub i64 0, %call2
   %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %call9 = tail call i32 @curl_strequal(ptr noundef nonnull %add.ptr5, ptr noundef %0) #15
+  %call9 = tail call i32 @curl_strequal(ptr noundef nonnull %add.ptr5, ptr noundef nonnull %0) #15
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %for.inc, label %if.then11
 
@@ -2405,7 +2405,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_mime_prepare_headers(ptr noundef %data, ptr nocapture noundef %part, ptr noundef %contenttype, ptr noundef %disposition, i32 noundef %strategy) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_mime_prepare_headers(ptr noundef %data, ptr noundef captures(none) %part, ptr noundef %contenttype, ptr noundef %disposition, i32 noundef %strategy) local_unnamed_addr #0 {
 entry:
   %curlheaders = getelementptr inbounds nuw i8, ptr %part, i64 72
   %0 = load ptr, ptr %curlheaders, align 8
@@ -2501,7 +2501,7 @@ for.body.i98:                                     ; preds = %for.inc.i, %if.then
 land.lhs.true.i:                                  ; preds = %for.body.i98
   %idx.neg.i = sub i64 0, %call2.i
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  %call9.i = tail call i32 @curl_strequal(ptr noundef nonnull %add.ptr5.i, ptr noundef %11) #15
+  %call9.i = tail call i32 @curl_strequal(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %11) #15
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %for.inc.i, label %Curl_mime_contenttype.exit
 
@@ -2538,7 +2538,7 @@ for.body.i103:                                    ; preds = %for.inc.i116, %if.t
 land.lhs.true.i108:                               ; preds = %for.body.i103
   %idx.neg.i109 = sub i64 0, %call2.i106
   %add.ptr5.i110 = getelementptr inbounds i8, ptr %add.ptr.i102, i64 %idx.neg.i109
-  %call9.i111 = tail call i32 @curl_strequal(ptr noundef nonnull %add.ptr5.i110, ptr noundef %14) #15
+  %call9.i111 = tail call i32 @curl_strequal(ptr noundef nonnull %add.ptr5.i110, ptr noundef nonnull %14) #15
   %tobool10.not.i112 = icmp eq i32 %call9.i111, 0
   br i1 %tobool10.not.i112, label %for.inc.i116, label %if.end17
 
@@ -2581,7 +2581,7 @@ for.body.i124:                                    ; preds = %for.inc.i137, %if.t
 land.lhs.true.i129:                               ; preds = %for.body.i124
   %idx.neg.i130 = sub i64 0, %call2.i127
   %add.ptr5.i131 = getelementptr inbounds i8, ptr %add.ptr.i123, i64 %idx.neg.i130
-  %call9.i132 = tail call i32 @curl_strequal(ptr noundef nonnull %add.ptr5.i131, ptr noundef %18) #15
+  %call9.i132 = tail call i32 @curl_strequal(ptr noundef nonnull %add.ptr5.i131, ptr noundef nonnull %18) #15
   %tobool10.not.i133 = icmp eq i32 %call9.i132, 0
   br i1 %tobool10.not.i133, label %for.inc.i137, label %if.then11.i134
 
@@ -3014,25 +3014,25 @@ if.end10:                                         ; preds = %for.body, %for.cond
 declare i64 @curlx_sotouz(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare ptr @__xpg_basename(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @encoder_nop_read(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i1 zeroext %ateof, ptr nocapture noundef %part) #5 {
+define internal i64 @encoder_nop_read(ptr noundef writeonly captures(none) %buffer, i64 noundef %size, i1 zeroext %ateof, ptr noundef captures(none) %part) #5 {
 entry:
   %bufbeg = getelementptr inbounds nuw i8, ptr %part, i64 160
   %0 = load i64, ptr %bufbeg, align 8
@@ -3066,7 +3066,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @encoder_nop_size(ptr nocapture noundef readonly %part) #11 {
+define internal i64 @encoder_nop_size(ptr noundef readonly captures(none) %part) #11 {
 entry:
   %datasize = getelementptr inbounds nuw i8, ptr %part, i64 112
   %0 = load i64, ptr %datasize, align 8
@@ -3074,7 +3074,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i64 @encoder_7bit_read(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i1 zeroext %ateof, ptr nocapture noundef %part) #12 {
+define internal i64 @encoder_7bit_read(ptr noundef writeonly captures(none) %buffer, i64 noundef %size, i1 zeroext %ateof, ptr noundef captures(none) %part) #12 {
 entry:
   %bufbeg = getelementptr inbounds nuw i8, ptr %part, i64 160
   %tobool1.not = icmp eq i64 %size, 0
@@ -3124,7 +3124,7 @@ return:                                           ; preds = %if.end9, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i64 @encoder_base64_read(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i1 noundef zeroext %ateof, ptr nocapture noundef %part) #12 {
+define internal i64 @encoder_base64_read(ptr noundef writeonly captures(none) %buffer, i64 noundef %size, i1 noundef zeroext %ateof, ptr noundef captures(none) %part) #12 {
 entry:
   %encstate = getelementptr inbounds nuw i8, ptr %part, i64 152
   %bufbeg = getelementptr inbounds nuw i8, ptr %part, i64 160
@@ -3330,7 +3330,7 @@ return:                                           ; preds = %if.then61, %while.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 4, 1) i64 @encoder_base64_size(ptr nocapture noundef readonly %part) #11 {
+define internal range(i64 4, 1) i64 @encoder_base64_size(ptr noundef readonly captures(none) %part) #11 {
 entry:
   %datasize = getelementptr inbounds nuw i8, ptr %part, i64 112
   %0 = load i64, ptr %datasize, align 8
@@ -3353,7 +3353,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i64 @encoder_qp_read(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i1 noundef zeroext %ateof, ptr nocapture noundef %part) #12 {
+define internal i64 @encoder_qp_read(ptr noundef writeonly captures(none) %buffer, i64 noundef %size, i1 noundef zeroext %ateof, ptr noundef captures(none) %part) #12 {
 entry:
   %buf = alloca [4 x i8], align 4
   %encstate = getelementptr inbounds nuw i8, ptr %part, i64 152
@@ -3564,7 +3564,7 @@ return:                                           ; preds = %qp_lookahead_eol.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 -1, 1) i64 @encoder_qp_size(ptr nocapture noundef readonly %part) #11 {
+define internal range(i64 -1, 1) i64 @encoder_qp_size(ptr noundef readonly captures(none) %part) #11 {
 entry:
   %datasize = getelementptr inbounds nuw i8, ptr %part, i64 112
   %0 = load i64, ptr %datasize, align 8
@@ -3574,7 +3574,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @read_part_content(ptr nocapture noundef %part, ptr noundef %buffer, i64 noundef range(i64 1, 0) %bufsize, ptr nocapture noundef nonnull %hasread) unnamed_addr #0 {
+define internal fastcc noundef i64 @read_part_content(ptr noundef captures(none) %part, ptr noundef %buffer, i64 noundef range(i64 1, 0) %bufsize, ptr noundef nonnull captures(none) %hasread) unnamed_addr #0 {
 entry:
   %lastreadstatus = getelementptr inbounds nuw i8, ptr %part, i64 432
   %0 = load i64, ptr %lastreadstatus, align 8
@@ -3835,10 +3835,10 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 

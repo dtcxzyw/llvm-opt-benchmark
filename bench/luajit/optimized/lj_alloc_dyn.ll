@@ -167,10 +167,10 @@ return:                                           ; preds = %if.else, %return.si
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lj_alloc_setprng(ptr nocapture noundef writeonly initializes((864, 872)) %msp, ptr noundef %rs) local_unnamed_addr #2 {
+define hidden void @lj_alloc_setprng(ptr noundef writeonly captures(none) initializes((864, 872)) %msp, ptr noundef %rs) local_unnamed_addr #2 {
 entry:
   %prng = getelementptr inbounds nuw i8, ptr %msp, i64 864
   store ptr %rs, ptr %prng, align 8
@@ -178,7 +178,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_alloc_destroy(ptr nocapture noundef readonly %msp) local_unnamed_addr #0 {
+define hidden void @lj_alloc_destroy(ptr noundef readonly captures(none) %msp) local_unnamed_addr #0 {
 entry:
   %seg = getelementptr inbounds nuw i8, ptr %msp, i64 840
   %call.i = tail call ptr @__errno_location() #9
@@ -3204,7 +3204,7 @@ declare ptr @mremap(ptr noundef, i64 noundef, i64 noundef, i32 noundef, ...) loc
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

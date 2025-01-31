@@ -33,7 +33,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base8internal13WeakReference4Flag10InvalidateEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(6) initializes((5, 6)) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base8internal13WeakReference4Flag10InvalidateEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(6) initializes((5, 6)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 5
   store i8 0, ptr %is_valid_, align 1
@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base8internal13WeakReference4Flag7IsValidEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base8internal13WeakReference4Flag7IsValidEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(6) %this) local_unnamed_addr #2 align 2 {
 entry:
   %is_valid_ = getelementptr inbounds nuw i8, ptr %this, i64 5
   %0 = load i8, ptr %is_valid_, align 1
@@ -57,14 +57,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base8internal13WeakReferenceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base8internal13WeakReferenceC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal13WeakReferenceC2EPKNS1_4FlagE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %flag) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base8internal13WeakReferenceC2EPKNS1_4FlagE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef %flag) unnamed_addr #0 align 2 {
 entry:
   store ptr %flag, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %flag, null
@@ -79,7 +79,7 @@ _ZN13scoped_refptrIKN4base8internal13WeakReference4FlagEEC2EPS4_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base8internal13WeakReferenceD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base8internal13WeakReferenceD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -109,7 +109,7 @@ _ZN13scoped_refptrIKN4base8internal13WeakReference4FlagEED2Ev.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base8internal13WeakReferenceC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4base8internal13WeakReferenceC2EOS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %other) unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8
@@ -118,7 +118,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal13WeakReferenceC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %other) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base8internal13WeakReferenceC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %other) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8
@@ -134,7 +134,7 @@ _ZN13scoped_refptrIKN4base8internal13WeakReference4FlagEEC2ERKS5_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base8internal13WeakReference8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base8internal13WeakReference8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -152,14 +152,14 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base8internal18WeakReferenceOwnerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base8internal18WeakReferenceOwnerC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base8internal18WeakReferenceOwnerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base8internal18WeakReferenceOwnerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -221,7 +221,7 @@ terminate.lpad:                                   ; preds = %if.then4.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal18WeakReferenceOwner10InvalidateEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base8internal18WeakReferenceOwner10InvalidateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -261,7 +261,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4base8internal18WeakReferenceOwner6GetRefEv(ptr noalias nocapture writeonly sret(%"class.base::internal::WeakReference") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4base8internal18WeakReferenceOwner6GetRefEv(ptr noalias writeonly sret(%"class.base::internal::WeakReference") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -326,14 +326,14 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base8internal11WeakPtrBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base8internal11WeakPtrBaseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base8internal11WeakPtrBaseD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base8internal11WeakPtrBaseD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -363,7 +363,7 @@ _ZN4base8internal13WeakReferenceD2Ev.exit:        ; preds = %entry, %call.i.i.no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal11WeakPtrBaseC2ERKNS0_13WeakReferenceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ref) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base8internal11WeakPtrBaseC2ERKNS0_13WeakReferenceE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ref) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %ref, align 8
   store ptr %0, ptr %this, align 8

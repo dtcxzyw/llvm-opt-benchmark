@@ -70,7 +70,7 @@ $_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLev
 @_ZN13JfrJvmtiAgentD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN13JfrJvmtiAgentD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @jfr_on_class_file_load_hook(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readnone %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
+define hidden void @jfr_on_class_file_load_hook(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = icmp eq ptr %2, null
   br i1 %11, label %36, label %12
 
@@ -418,7 +418,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i43: ; preds = %103, %_ZN18Safepo
   %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #13
   %108 = add i64 %107, 43
   %109 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %108, i32 noundef 0) #12
-  %110 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %109, i64 noundef %108, ptr noundef nonnull @.str.11, ptr noundef nonnull %4, ptr noundef %106) #12
+  %110 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %109, i64 noundef %108, ptr noundef nonnull @.str.11, ptr noundef nonnull %4, ptr noundef nonnull %106) #12
   %111 = icmp eq i32 %90, 60
   br i1 %111, label %112, label %113
 
@@ -470,12 +470,12 @@ declare noundef zeroext i1 @_ZN11JdkJfrEvent4is_aEP7_jclass(ptr noundef) local_u
 declare void @_ZN11JdkJfrEvent11tag_as_hostEP7_jclass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13JfrJvmtiAgentC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN13JfrJvmtiAgentC2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #2 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13JfrJvmtiAgentD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN13JfrJvmtiAgentD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.jvmtiEventCallbacks, align 8
   %4 = alloca ptr, align 8
@@ -990,10 +990,10 @@ declare void @llvm.va_end.p0(ptr) #5
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1009,17 +1009,17 @@ declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #1
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @_ZN14JfrJavaSupport29throw_illegal_state_exceptionEPKcP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [93 x i8] c"mca_sharedfp_individual_file_open: Error during metadatafile file open. Continuing anyway. \0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_sharedfp_individual_file_open(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_sharedfp_individual_file_open(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %6 = icmp eq ptr %calloc, null
   br i1 %6, label %7, label %8
@@ -85,7 +85,7 @@ mca_sharedfp_individual_insert_headnode.exit:     ; preds = %8, %11
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %24 = load i32, ptr %23, align 4
-  %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %19, i64 noundef %18, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef nonnull @.str.4, i32 noundef %24) #9
+  %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %19, i64 noundef %18, ptr noundef nonnull @.str.3, ptr noundef nonnull %1, ptr noundef nonnull @.str.4, i32 noundef %24) #9
   %26 = tail call noalias dereferenceable_or_null(464) ptr @malloc(i64 noundef 464) #10
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
@@ -134,7 +134,7 @@ mca_sharedfp_individual_insert_headnode.exit:     ; preds = %8, %11
 
 42:                                               ; preds = %37
   %43 = load i32, ptr %23, align 4
-  %44 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %18, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef %43) #9
+  %44 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %18, ptr noundef nonnull @.str.3, ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i32 noundef %43) #9
   %45 = tail call noalias dereferenceable_or_null(464) ptr @malloc(i64 noundef 464) #10
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %49
@@ -212,13 +212,13 @@ define noalias noundef ptr @mca_sharedfp_individual_insert_headnode() local_unna
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare i32 @mca_common_ompio_file_open(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -294,7 +294,7 @@ define i32 @mca_sharedfp_individual_file_close(ptr noundef %0) local_unnamed_add
 declare i32 @mca_sharedfp_individual_collaborate_data(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8

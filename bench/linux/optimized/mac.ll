@@ -36,16 +36,16 @@ define dso_local noundef i32 @e1000e_get_bus_info_pcie(ptr noundef initializes((
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @pcie_capability_read_word(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @e1000_set_lan_id_multi_port_pcie(ptr nocapture noundef initializes((1156, 1158)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @e1000_set_lan_id_multi_port_pcie(ptr noundef captures(none) initializes((1156, 1158)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
@@ -59,7 +59,7 @@ define dso_local void @e1000_set_lan_id_multi_port_pcie(ptr nocapture noundef in
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @e1000_set_lan_id_single_port(ptr nocapture noundef writeonly initializes((1156, 1158)) %0) local_unnamed_addr #3 align 16 {
+define dso_local void @e1000_set_lan_id_single_port(ptr noundef writeonly captures(none) initializes((1156, 1158)) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1156
   store i16 0, ptr %2, align 4
   ret void
@@ -129,7 +129,7 @@ define dso_local void @e1000e_init_rx_addrs(ptr noundef %0, i16 noundef zeroext 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @e1000_check_alt_mac_addr_generic(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -226,7 +226,7 @@ define dso_local i32 @e1000_check_alt_mac_addr_generic(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 65536) i32 @e1000e_rar_get_count_generic(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, 65536) i32 @e1000e_rar_get_count_generic(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %3 = load i16, ptr %2, align 8
   %4 = zext i16 %3 to i32
@@ -234,7 +234,7 @@ define dso_local range(i32 0, 65536) i32 @e1000e_rar_get_count_generic(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000e_rar_set_generic(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @e1000e_rar_set_generic(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i16, ptr %1, align 1
   %5 = zext i16 %4 to i32
   %6 = getelementptr i8, ptr %1, i64 2
@@ -283,7 +283,7 @@ define dso_local noundef i32 @e1000e_rar_set_generic(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef initializes((264, 776)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef initializes((264, 776)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %5 = icmp eq i32 %2, 0
@@ -387,7 +387,7 @@ define dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef initialize
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @e1000e_clear_hw_cntrs_base(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @e1000e_clear_hw_cntrs_base(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 16384
@@ -1383,7 +1383,7 @@ define dso_local noundef range(i32 -3, 1) i32 @e1000e_force_mac_fc(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000e_get_speed_and_duplex_copper(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 2)) %1, ptr nocapture noundef writeonly initializes((0, 2)) %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @e1000e_get_speed_and_duplex_copper(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1, ptr noundef writeonly captures(none) initializes((0, 2)) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 8
@@ -1403,7 +1403,7 @@ define dso_local noundef i32 @e1000e_get_speed_and_duplex_copper(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @e1000e_get_speed_and_duplex_fiber_serdes(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 2)) %1, ptr nocapture noundef writeonly initializes((0, 2)) %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef i32 @e1000e_get_speed_and_duplex_fiber_serdes(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1, ptr noundef writeonly captures(none) initializes((0, 2)) %2) local_unnamed_addr #3 align 16 {
   store i16 1000, ptr %1, align 2
   store i16 2, ptr %2, align 2
   ret i32 0
@@ -1489,7 +1489,7 @@ define dso_local void @e1000e_put_hw_semaphore(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -9, 1) i32 @e1000e_get_auto_rd_done(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -9, 1) i32 @e1000e_get_auto_rd_done(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 

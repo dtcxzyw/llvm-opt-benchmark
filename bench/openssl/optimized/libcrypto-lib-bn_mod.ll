@@ -98,7 +98,7 @@ return:                                           ; preds = %if.end5.i, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %r, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readonly captures(none) %m) local_unnamed_addr #0 {
 entry:
   %storage = alloca [16 x i64], align 16
   %top = getelementptr inbounds nuw i8, ptr %m, i64 8
@@ -231,7 +231,7 @@ declare i64 @bn_sub_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) lo
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_mod_add_quick(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_mod_add_quick(ptr noundef %r, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readonly captures(none) %m) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @bn_mod_add_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %m)
   %tobool.not = icmp eq i32 %call, 0
@@ -289,7 +289,7 @@ return:                                           ; preds = %if.end5.i, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bn_mod_sub_fixed_top(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_mod_sub_fixed_top(ptr noundef %r, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readonly captures(none) %m) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %m, i64 8
   %0 = load i32, ptr %top, align 8

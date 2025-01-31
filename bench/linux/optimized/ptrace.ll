@@ -48,7 +48,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @pcpu_hot = external dso_local global %struct.pcpu_hot, section ".data..percpu..shared_aligned", align 64
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @regs_query_register_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @regs_query_register_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   br label %2
 
 2:                                                ; preds = %10, %1
@@ -75,13 +75,13 @@ define dso_local i32 @regs_query_register_offset(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(none)
 define dso_local ptr @regs_query_register_name(i32 noundef %0) local_unnamed_addr #3 align 16 {
@@ -410,7 +410,7 @@ define internal fastcc i64 @getreg(ptr noundef %0, i64 noundef range(i64 -171798
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @ptrace_get_debugreg(ptr nocapture noundef readonly %0, i32 noundef range(i32 -79, 10) %1) unnamed_addr #4 align 16 {
+define internal fastcc i64 @ptrace_get_debugreg(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -79, 10) %1) unnamed_addr #4 align 16 {
   %3 = icmp slt i32 %1, 4
   br i1 %3, label %4, label %17
 
@@ -1067,7 +1067,7 @@ define dso_local void @update_regset_xstate_info(i32 noundef %0, i64 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local nonnull ptr @task_user_regset_view(ptr nocapture noundef readonly %0) local_unnamed_addr #9 align 16 {
+define dso_local nonnull ptr @task_user_regset_view(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 32
   %4 = ptrtoint ptr %3 to i64
@@ -1081,7 +1081,7 @@ define dso_local nonnull ptr @task_user_regset_view(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @send_sigtrap(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
+define dso_local void @send_sigtrap(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2928
@@ -1111,7 +1111,7 @@ define dso_local void @send_sigtrap(ptr nocapture noundef readonly %0, i32 nound
 declare dso_local i32 @force_sig_fault(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @user_single_step_report(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local void @user_single_step_report(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2928
@@ -1149,10 +1149,10 @@ declare dso_local void @x86_fsbase_write_task(ptr noundef, i64 noundef) local_un
 declare dso_local void @x86_gsbase_write_task(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @modify_user_hw_breakpoint(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -1161,7 +1161,7 @@ declare dso_local i32 @modify_user_hw_breakpoint(ptr noundef, ptr noundef) local
 declare dso_local ptr @register_user_hw_breakpoint(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal void @ptrace_triggered(ptr noundef readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 align 16 {
+define internal void @ptrace_triggered(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2872
@@ -1204,7 +1204,7 @@ declare dso_local i32 @decode_dr7(i64 noundef, i32 noundef, ptr noundef, ptr nou
 declare dso_local i64 @encode_dr7(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @getreg32(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @getreg32(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 32
   %6 = ptrtoint ptr %5 to i64
@@ -1823,7 +1823,7 @@ declare dso_local i32 @compat_ptrace_request(ptr noundef, i32 noundef, i32 nound
 declare dso_local i64 @x86_fsgsbase_read_task(ptr noundef, i16 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @genregs_get(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture writeonly %2, i64 %3) #4 align 16 {
+define internal noundef i32 @genregs_get(ptr noundef %0, ptr readnone captures(none) %1, ptr writeonly captures(none) %2, i64 %3) #4 align 16 {
   %5 = alloca i64, align 8
   %6 = icmp eq i64 %3, 0
   br i1 %6, label %.loopexit, label %.preheader
@@ -1862,7 +1862,7 @@ define internal noundef i32 @genregs_get(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @genregs_set(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) #4 align 16 {
+define internal i32 @genregs_set(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) #4 align 16 {
   %7 = icmp eq ptr %4, null
   %8 = icmp ugt i32 %3, 7
   br i1 %7, label %.preheader, label %9
@@ -1929,7 +1929,7 @@ declare dso_local i32 @xfpregs_set(ptr noundef, ptr noundef, i32 noundef, i32 no
 declare dso_local i32 @regset_xregset_fpregs_active(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal i32 @ioperm_get(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture writeonly %2, i64 %3) #13 align 16 {
+define internal i32 @ioperm_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr writeonly captures(none) %2, i64 %3) #13 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2944
   %6 = load ptr, ptr %5, align 64
   %7 = icmp eq ptr %6, null
@@ -1953,7 +1953,7 @@ define internal i32 @ioperm_get(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ioperm_active(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 align 16 {
+define internal i32 @ioperm_active(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2944
   %4 = load ptr, ptr %3, align 64
   %5 = icmp eq ptr %4, null
@@ -1984,7 +1984,7 @@ declare dso_local i32 @xstateregs_set(ptr noundef, ptr noundef, i32 noundef, i32
 declare dso_local i32 @regset_fpregs_active(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @genregs32_get(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture writeonly %2, i64 %3) #4 align 16 {
+define internal noundef i32 @genregs32_get(ptr noundef %0, ptr readnone captures(none) %1, ptr writeonly captures(none) %2, i64 %3) #4 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = icmp eq i64 %3, 0
@@ -2027,7 +2027,7 @@ define internal noundef i32 @genregs32_get(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @genregs32_set(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) #4 align 16 {
+define internal i32 @genregs32_set(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) #4 align 16 {
   %7 = icmp eq ptr %4, null
   %8 = icmp ugt i32 %3, 3
   br i1 %7, label %.preheader, label %9

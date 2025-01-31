@@ -25,7 +25,7 @@ $__clang_call_terminate = comdat any
 @_ZN3zmq15socket_poller_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq15socket_poller_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq15socket_poller_tC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 4), (8, 42), (44, 56)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq15socket_poller_tC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 4), (8, 42), (44, 56)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -889275714, ptr %this, align 8
   %_signaler = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -55,7 +55,7 @@ _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EED2Ev.exit: ; preds = %lpad, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((40, 42), (44, 48)) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((40, 42), (44, 48)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fd_size = alloca i64, align 8
   %_use_signaler = getelementptr inbounds nuw i8, ptr %this, i64 41
@@ -239,7 +239,7 @@ return:                                           ; preds = %for.inc123, %if.end
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq15socket_poller_tD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 4)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq15socket_poller_tD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 4)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -559038737, ptr %this, align 8
   %_items = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -351,10 +351,10 @@ declare void @_ZN3zmq10signaler_tD1Ev(ptr noundef nonnull align 4 dereferenceabl
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3zmq15socket_poller_t9check_tagEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK3zmq15socket_poller_t9check_tagEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, -889275714
@@ -362,7 +362,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZNK3zmq15socket_poller_t11signaler_fdEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %fd_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZNK3zmq15socket_poller_t11signaler_fdEPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef writeonly captures(none) %fd_) local_unnamed_addr #0 align 2 {
 entry:
   %_signaler = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_signaler, align 8
@@ -390,7 +390,7 @@ declare noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr noundef nonnull align 4 d
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %socket_, ptr noundef %user_data_, i16 noundef signext %events_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef %socket_, ptr noundef %user_data_, i16 noundef signext %events_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_items = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
@@ -606,7 +606,7 @@ declare void @_ZN3zmq13socket_base_t12add_signalerEPNS_10signaler_tE(ptr noundef
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6add_fdEiPvs(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd_, ptr noundef %user_data_, i16 noundef signext %events_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6add_fdEiPvs(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, i32 noundef %fd_, ptr noundef %user_data_, i16 noundef signext %events_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_items = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
@@ -752,7 +752,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6modifyEPKNS_13socket_base_tEs(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readnone %socket_, i16 noundef signext %events_) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6modifyEPKNS_13socket_base_tEs(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef readnone %socket_, i16 noundef signext %events_) local_unnamed_addr #11 align 2 {
 entry:
   %_items = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
@@ -795,7 +795,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t9modify_fdEis(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd_, i16 noundef signext %events_) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t9modify_fdEis(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, i32 noundef %fd_, i16 noundef signext %events_) local_unnamed_addr #11 align 2 {
 entry:
   %_items = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
@@ -842,7 +842,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6removeEPNS_13socket_base_tE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %socket_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6removeEPNS_13socket_base_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef %socket_) local_unnamed_addr #0 align 2 {
 entry:
   %_items = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
@@ -910,7 +910,7 @@ return:                                           ; preds = %_ZNSt6vectorIN3zmq1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t9remove_fdEi(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd_) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t9remove_fdEi(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, i32 noundef %fd_) local_unnamed_addr #11 align 2 {
 entry:
   %_items = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8
@@ -980,15 +980,15 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 declare noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii(ptr nocapture noundef writeonly %events_, i32 noundef %n_events_, i32 noundef %found_) local_unnamed_addr #14 align 2 {
+define void @_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii(ptr noundef writeonly captures(none) %events_, i32 noundef %n_events_, i32 noundef %found_) local_unnamed_addr #14 align 2 {
 entry:
   %cmp9 = icmp slt i32 %found_, %n_events_
   br i1 %cmp9, label %for.body.preheader, label %for.end
@@ -1017,7 +1017,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_ti(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %events_, i32 noundef %n_events_) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_ti(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef writeonly captures(none) %events_, i32 noundef %n_events_) local_unnamed_addr #0 align 2 {
 entry:
   %events_size = alloca i64, align 8
   %events = alloca i32, align 4
@@ -1148,7 +1148,7 @@ return:                                           ; preds = %if.then, %for.inc, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb(ptr noundef nonnull align 8 dereferenceable(16) %clock_, i64 noundef %timeout_, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %now_, ptr nocapture noundef nonnull align 8 dereferenceable(8) %end_, ptr nocapture noundef nonnull align 1 dereferenceable(1) %first_pass_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb(ptr noundef nonnull align 8 dereferenceable(16) %clock_, i64 noundef %timeout_, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %now_, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %end_, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %first_pass_) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i64 %timeout_, 0
   br i1 %cmp, label %return, label %if.end
@@ -1193,7 +1193,7 @@ return:                                           ; preds = %if.end8, %if.then2,
 declare noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %events_, i32 noundef %n_events_, i64 noundef %timeout_) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef writeonly captures(none) %events_, i32 noundef %n_events_, i64 noundef %timeout_) local_unnamed_addr #0 align 2 {
 entry:
   %clock = alloca %"class.zmq::clock_t", align 8
   %_items = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1402,13 +1402,13 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20

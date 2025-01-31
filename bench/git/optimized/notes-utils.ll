@@ -141,7 +141,7 @@ if.end7:                                          ; preds = %lor.lhs.false3
 
 if.end10:                                         ; preds = %if.end7
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #12
-  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %msg, i64 noundef %call.i) #10
+  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %msg, i64 noundef %call.i) #10
   %len.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %4 = load i64, ptr %len.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %4, 0
@@ -202,7 +202,7 @@ return:                                           ; preds = %if.end7, %strbuf_co
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %msgid) unnamed_addr #0 {
@@ -230,7 +230,7 @@ declare i32 @update_ref(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @parse_notes_merge_strategy(ptr nocapture noundef readonly %v, ptr nocapture noundef writeonly %s) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @parse_notes_merge_strategy(ptr noundef readonly captures(none) %v, ptr noundef writeonly captures(none) %s) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %v, ptr noundef nonnull dereferenceable(7) @.str.5) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -267,7 +267,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @init_copy_notes_for_rewrite(ptr noundef %cmd) local_unnamed_addr #0 {
@@ -383,7 +383,7 @@ return:                                           ; preds = %if.end28, %if.then2
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @combine_notes_concatenate(ptr noundef, ptr noundef) #1
 
@@ -396,7 +396,7 @@ declare void @string_list_add_refs_from_colon_sep(ptr noundef, ptr noundef) loca
 declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @notes_rewrite_config(ptr noundef %k, ptr noundef %v, ptr nocapture readnone %ctx, ptr nocapture noundef %cb) #0 {
+define internal range(i32 -1, 2) i32 @notes_rewrite_config(ptr noundef %k, ptr noundef %v, ptr readnone captures(none) %ctx, ptr noundef captures(none) %cb) #0 {
 entry:
   %call = tail call i32 @starts_with(ptr noundef %k, ptr noundef nonnull @.str.17) #10
   %tobool.not = icmp eq i32 %call, 0
@@ -432,7 +432,7 @@ if.then8:                                         ; preds = %land.lhs.true5
   br i1 %tobool9.not, label %if.then10, label %if.end
 
 if.then10:                                        ; preds = %if.then8
-  %call11 = tail call i32 @config_error_nonbool(ptr noundef %k) #10
+  %call11 = tail call i32 @config_error_nonbool(ptr noundef nonnull %k) #10
   br label %return
 
 if.end:                                           ; preds = %if.then8
@@ -493,7 +493,7 @@ if.then26:                                        ; preds = %land.lhs.true23
   br i1 %tobool27.not, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.then26
-  %call29 = tail call i32 @config_error_nonbool(ptr noundef %k) #10
+  %call29 = tail call i32 @config_error_nonbool(ptr noundef nonnull %k) #10
   br label %return
 
 if.end31:                                         ; preds = %if.then26
@@ -529,12 +529,12 @@ return:                                           ; preds = %parse_combine_notes
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @load_notes_trees(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @copy_note_for_rewrite(ptr nocapture noundef readonly %c, ptr noundef %from_obj, ptr noundef %to_obj) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @copy_note_for_rewrite(ptr noundef readonly captures(none) %c, ptr noundef %from_obj, ptr noundef %to_obj) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %c, align 8
   %1 = load ptr, ptr %0, align 8
@@ -572,7 +572,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare i32 @copy_note(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @finish_copy_notes_for_rewrite(ptr noundef %r, ptr nocapture noundef %c, ptr noundef %msg) local_unnamed_addr #0 {
+define dso_local void @finish_copy_notes_for_rewrite(ptr noundef %r, ptr noundef captures(none) %c, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %c, align 8
   %1 = load ptr, ptr %0, align 8
@@ -611,14 +611,14 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #8
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @strbuf_insert(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @combine_notes_overwrite(ptr noundef, ptr noundef) #1
 

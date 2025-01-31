@@ -37,7 +37,7 @@ $_ZTIN3irr2io9IReadFileE = comdat any
 @_ZTIN3irr2io14CLimitReadFileE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr2io14CLimitReadFileE, ptr @_ZTIN3irr2io9IReadFileE }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io14CLimitReadFileC2EPNS0_9IReadFileEllRKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %alreadyOpenedFile, i64 noundef %pos, i64 noundef %areaSize, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io14CLimitReadFileC2EPNS0_9IReadFileEllRKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef %alreadyOpenedFile, i64 noundef %pos, i64 noundef %areaSize, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -147,7 +147,7 @@ if.end:                                           ; preds = %if.then, %_ZN3irr4c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io14CLimitReadFileD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io14CLimitReadFileD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -425,7 +425,7 @@ _ZN3irr2io14CLimitReadFileD0Ev.exit:              ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN3irr2io14CLimitReadFile4readEPvm(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %buffer, i64 noundef %sizeToRead) unnamed_addr #0 align 2 {
+define noundef i64 @_ZN3irr2io14CLimitReadFile4readEPvm(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, ptr noundef %buffer, i64 noundef %sizeToRead) unnamed_addr #0 align 2 {
 entry:
   %File = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %File, align 8, !tbaa !14
@@ -467,7 +467,7 @@ return:                                           ; preds = %if.end7, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3irr2io14CLimitReadFile4seekElb(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %finalPos, i1 noundef zeroext %relativeMovement) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN3irr2io14CLimitReadFile4seekElb(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, i64 noundef %finalPos, i1 noundef zeroext %relativeMovement) unnamed_addr #3 align 2 {
 entry:
   %Pos = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %Pos, align 8
@@ -488,7 +488,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK3irr2io14CLimitReadFile7getSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
+define noundef i64 @_ZNK3irr2io14CLimitReadFile7getSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #4 align 2 {
 entry:
   %AreaEnd = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %AreaEnd, align 8, !tbaa !22
@@ -499,7 +499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK3irr2io14CLimitReadFile6getPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
+define noundef i64 @_ZNK3irr2io14CLimitReadFile6getPosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #4 align 2 {
 entry:
   %Pos = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %Pos, align 8, !tbaa !26
@@ -618,7 +618,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERK
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13

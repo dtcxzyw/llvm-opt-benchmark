@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [66 x i8] c"null argument to binary_upgrade_replorigin_advance is not allowed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_pg_tablespace_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_pg_tablespace_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -75,7 +75,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_pg_type_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_pg_type_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -97,7 +97,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_type_oid(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_array_pg_type_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_array_pg_type_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -119,7 +119,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_array_pg_type_oid(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_multirange_pg_type_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_multirange_pg_type_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -141,7 +141,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_multirange_pg_type_oid(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_multirange_array_pg_type_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_multirange_array_pg_type_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -163,7 +163,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_multirange_array_pg_type_o
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_heap_pg_class_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_heap_pg_class_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -185,7 +185,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_heap_pg_class_oid(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_heap_relfilenode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_heap_relfilenode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -207,7 +207,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_heap_relfilenode(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_index_pg_class_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_index_pg_class_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -229,7 +229,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_index_pg_class_oid(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_index_relfilenode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_index_relfilenode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -251,7 +251,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_index_relfilenode(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_toast_pg_class_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_toast_pg_class_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -273,7 +273,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_toast_pg_class_oid(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_toast_relfilenode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_toast_relfilenode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -295,7 +295,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_toast_relfilenode(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_pg_enum_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_pg_enum_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -317,7 +317,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_enum_oid(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_next_pg_authid_oid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_next_pg_authid_oid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -339,7 +339,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_authid_oid(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = load i8, ptr @IsBinaryUpgrade, align 1
@@ -488,7 +488,7 @@ declare i32 @GetUserId() local_unnamed_addr #2
 declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_record_init_privs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_record_init_privs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -511,7 +511,7 @@ define dso_local noundef i64 @binary_upgrade_set_record_init_privs(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_set_missing_value(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_set_missing_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -545,7 +545,7 @@ define dso_local noundef i64 @binary_upgrade_set_missing_value(ptr nocapture nou
 declare void @SetAttrMissing(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @binary_upgrade_logical_slot_has_caught_up(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @binary_upgrade_logical_slot_has_caught_up(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -580,7 +580,7 @@ declare zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 noundef) local_unnam
 declare void @ReplicationSlotRelease() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_add_sub_rel_state(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_add_sub_rel_state(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsBinaryUpgrade, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4
@@ -664,7 +664,7 @@ declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @binary_upgrade_replorigin_advance(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @binary_upgrade_replorigin_advance(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = load i8, ptr @IsBinaryUpgrade, align 1
   %4 = trunc i8 %3 to i1

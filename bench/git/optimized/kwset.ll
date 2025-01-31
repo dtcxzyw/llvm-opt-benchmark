@@ -138,7 +138,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #2
+declare void @free(ptr allocptr noundef captures(none)) #2
 
 declare void @_obstack_newchunk(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -151,7 +151,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @kwsincr(ptr noundef %kws, ptr nocapture noundef readonly %text, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @kwsincr(ptr noundef %kws, ptr noundef readonly captures(none) %text, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %links = alloca [12 x ptr], align 16
   %dirs = alloca [12 x i32], align 16
@@ -979,7 +979,7 @@ return:                                           ; preds = %for.body210, %if.el
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @enqueue(ptr noundef readonly %tree, ptr noundef nonnull %last) unnamed_addr #5 {
@@ -1175,10 +1175,10 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @kwsexec(ptr nocapture noundef readonly %kws, ptr noundef %text, i64 noundef %size, ptr noundef writeonly %kwsmatch) local_unnamed_addr #8 {
+define dso_local i64 @kwsexec(ptr noundef readonly captures(none) %kws, ptr noundef %text, i64 noundef %size, ptr noundef writeonly %kwsmatch) local_unnamed_addr #8 {
 entry:
   %words = getelementptr inbounds nuw i8, ptr %kws, i64 88
   %0 = load i32, ptr %words, align 8

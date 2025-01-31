@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [16 x i8] c" * threads (%u)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @machine_parse_smp_config(ptr noundef %ms, ptr nocapture noundef readonly %config, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @machine_parse_smp_config(ptr noundef %ms, ptr noundef readonly captures(none) %config, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %ms) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #4
@@ -550,7 +550,7 @@ if.end17:                                         ; preds = %if.then15, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @machine_topo_get_cores_per_socket(ptr nocapture noundef readonly %ms) local_unnamed_addr #2 {
+define dso_local i32 @machine_topo_get_cores_per_socket(ptr noundef readonly captures(none) %ms) local_unnamed_addr #2 {
 entry:
   %cores = getelementptr inbounds nuw i8, ptr %ms, i64 312
   %0 = load i32, ptr %cores, align 8
@@ -564,7 +564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @machine_topo_get_threads_per_socket(ptr nocapture noundef readonly %ms) local_unnamed_addr #2 {
+define dso_local i32 @machine_topo_get_threads_per_socket(ptr noundef readonly captures(none) %ms) local_unnamed_addr #2 {
 entry:
   %threads = getelementptr inbounds nuw i8, ptr %ms, i64 316
   %0 = load i32, ptr %threads, align 4

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [29 x i8] c"Error in system call %s: %s\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_usage_printf(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
+define noundef i32 @MPL_usage_printf(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call i32 @vprintf(ptr noundef %0, ptr noundef nonnull %2) #8
@@ -21,13 +21,13 @@ define noundef i32 @MPL_usage_printf(ptr nocapture noundef readonly %0, ...) loc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define noundef i32 @MPL_internal_error_printf(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #2 {
+define noundef i32 @MPL_internal_error_printf(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stderr, align 8
@@ -39,7 +39,7 @@ define noundef i32 @MPL_internal_error_printf(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nounwind uwtable
 define noundef i32 @MPL_internal_sys_error_printf(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ...) local_unnamed_addr #3 {
@@ -65,13 +65,13 @@ define noundef i32 @MPL_internal_sys_error_printf(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_msg_printf(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
+define noundef i32 @MPL_msg_printf(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stdout, align 8

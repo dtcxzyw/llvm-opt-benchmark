@@ -65,7 +65,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @OGLSD_NextPowerOfTwo(i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initTexture(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initTexture(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = inttoptr i64 %2 to ptr
   %10 = icmp eq i64 %2, 0
   br i1 %10, label %11, label %12
@@ -145,7 +145,7 @@ OGLSD_SetNativeDimensions.exit:                   ; preds = %25, %43
 declare void @J2dTraceImpl(i32 noundef, i8 noundef zeroext, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @OGLSD_InitTextureObject(ptr nocapture noundef nonnull %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 0, 2) i8 @OGLSD_InitTextureObject(ptr noundef nonnull captures(none) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -278,7 +278,7 @@ OGLSD_NextPowerOfTwo.exit69.thread:               ; preds = %OGLSD_NextPowerOfTw
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLSD_SetNativeDimensions(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden void @OGLSD_SetNativeDimensions(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %7 = load ptr, ptr %6, align 8
@@ -313,7 +313,7 @@ define hidden void @OGLSD_SetNativeDimensions(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitFBObject(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitFBObject(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = load ptr, ptr @j2d_glGenFramebuffersEXT, align 8
@@ -388,7 +388,7 @@ define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitFBObject(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initFBObject(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initFBObject(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = inttoptr i64 %2 to ptr
@@ -478,7 +478,7 @@ OGLSD_SetNativeDimensions.exit:                   ; preds = %29, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initFlipBackbuffer(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initFlipBackbuffer(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = inttoptr i64 %2 to ptr
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %6, label %7
@@ -560,7 +560,7 @@ OGLSD_SetNativeDimensions.exit:                   ; preds = %36, %17, %16, %13, 
 declare zeroext i8 @OGLSD_InitOGLWindow(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_java2d_opengl_OGLSurfaceData_getTextureTarget(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define i32 @Java_sun_java2d_opengl_OGLSurfaceData_getTextureTarget(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -580,7 +580,7 @@ define i32 @Java_sun_java2d_opengl_OGLSurfaceData_getTextureTarget(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_java2d_opengl_OGLSurfaceData_getTextureID(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define i32 @Java_sun_java2d_opengl_OGLSurfaceData_getTextureID(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -685,7 +685,7 @@ define hidden void @OGLSD_Dispose(ptr noundef %0, ptr noundef %1) local_unnamed_
 declare i64 @JNU_CallStaticMethodByName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @OGLSD_Lock(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden noundef i32 @OGLSD_Lock(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   tail call void @JNU_ThrowInternalError(ptr noundef %0, ptr noundef nonnull @.str.17) #3
   ret i32 -1
 }
@@ -693,13 +693,13 @@ define hidden noundef i32 @OGLSD_Lock(ptr noundef %0, ptr nocapture noundef read
 declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLSD_GetRasInfo(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
+define hidden void @OGLSD_GetRasInfo(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   tail call void @JNU_ThrowInternalError(ptr noundef %0, ptr noundef nonnull @.str.18) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLSD_Unlock(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
+define hidden void @OGLSD_Unlock(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   tail call void @JNU_ThrowInternalError(ptr noundef %0, ptr noundef nonnull @.str.19) #3
   ret void
 }

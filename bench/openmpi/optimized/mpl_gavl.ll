@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define range(i32 0, 16) i32 @MPL_gavl_tree_create(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 16) i32 @MPL_gavl_tree_create(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call noalias noundef dereferenceable_or_null(552) ptr @calloc(i64 noundef 1, i64 noundef 552) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -21,7 +21,7 @@ define range(i32 0, 16) i32 @MPL_gavl_tree_create(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 16) i32 @MPL_gavl_tree_insert(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 16) i32 @MPL_gavl_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   tail call fastcc void @gavl_tree_remove_nodes(ptr noundef %0, i64 noundef %5, i64 noundef %2, i32 noundef 0)
   %6 = tail call noalias noundef dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #6
@@ -113,7 +113,7 @@ MPLI_gavl_subset_cmp_func.exit.thread41.i:        ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @gavl_tree_remove_nodes(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #2 {
+define internal fastcc void @gavl_tree_remove_nodes(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #2 {
   %5 = load ptr, ptr %0, align 8
   %.not16 = icmp eq ptr %5, null
   br i1 %.not16, label %.loopexit, label %.lr.ph
@@ -369,10 +369,10 @@ gavl_tree_remove_node_internal.exit:              ; preds = %103, %106
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @gavl_tree_rebalance(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @gavl_tree_rebalance(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1069,7 +1069,7 @@ thread-pre-split:                                 ; preds = %368
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MPL_gavl_tree_destory(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define noundef i32 @MPL_gavl_tree_destory(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %.not27 = icmp eq ptr %2, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph
@@ -1137,7 +1137,7 @@ define noundef i32 @MPL_gavl_tree_destory(ptr nocapture noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MPL_gavl_tree_delete_range(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define noundef i32 @MPL_gavl_tree_delete_range(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = ptrtoint ptr %1 to i64
   tail call fastcc void @gavl_tree_remove_nodes(ptr noundef %0, i64 noundef %4, i64 noundef %2, i32 noundef 1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -1208,7 +1208,7 @@ gavl_tree_delete_removed_nodes.exit:              ; preds = %26, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MPL_gavl_tree_delete_start_addr(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define noundef i32 @MPL_gavl_tree_delete_start_addr(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %1 to i64
   tail call fastcc void @gavl_tree_remove_nodes(ptr noundef %0, i64 noundef %3, i64 noundef 0, i32 noundef 2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544

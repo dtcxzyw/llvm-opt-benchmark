@@ -172,7 +172,7 @@ if.end29:                                         ; preds = %land.rhs, %for.inc,
 declare hidden ptr @lj_tab_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_serialize_put(ptr noundef returned initializes((64, 68)) %sbx, ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_serialize_put(ptr noundef returned initializes((64, 68)) %sbx, ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %depth = getelementptr inbounds nuw i8, ptr %sbx, i64 64
   store i32 100, ptr %depth, align 8
@@ -183,7 +183,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @serialize_put(ptr noundef %w, ptr noundef %sbx, ptr nocapture noundef readonly %o) unnamed_addr #0 {
+define internal fastcc nonnull ptr @serialize_put(ptr noundef %w, ptr noundef %sbx, ptr noundef readonly captures(none) %o) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %o, align 8
   %shr = ashr i64 %0, 47
@@ -1054,7 +1054,7 @@ if.end365:                                        ; preds = %serialize_more.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @lj_serialize_get(ptr noundef initializes((64, 68)) %sbx, ptr nocapture noundef writeonly %o) local_unnamed_addr #0 {
+define hidden nonnull ptr @lj_serialize_get(ptr noundef initializes((64, 68)) %sbx, ptr noundef writeonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %depth = getelementptr inbounds nuw i8, ptr %sbx, i64 64
   store i32 100, ptr %depth, align 8
@@ -1065,7 +1065,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @serialize_get(ptr noundef %r, ptr noundef %sbx, ptr nocapture noundef writeonly %o) unnamed_addr #0 {
+define internal fastcc nonnull ptr @serialize_get(ptr noundef %r, ptr noundef %sbx, ptr noundef writeonly captures(none) %o) unnamed_addr #0 {
 entry:
   %k = alloca %union.TValue, align 8
   %0 = load ptr, ptr %sbx, align 8
@@ -1718,7 +1718,7 @@ eob:                                              ; preds = %if.else.i251, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_serialize_encode(ptr noundef %L, ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define hidden ptr @lj_serialize_encode(ptr noundef %L, ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %sbx = alloca %struct.SBufExt, align 8
   %0 = getelementptr inbounds nuw i8, ptr %sbx, i64 48
@@ -1757,12 +1757,12 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_serialize_decode(ptr noundef %L, ptr nocapture noundef writeonly %o, ptr noundef %str) local_unnamed_addr #0 {
+define hidden void @lj_serialize_decode(ptr noundef %L, ptr noundef writeonly captures(none) %o, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %sbx = alloca %struct.SBufExt, align 8
   %0 = getelementptr inbounds nuw i8, ptr %sbx, i64 32
@@ -1799,7 +1799,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 15) i32 @lj_serialize_peektype(ptr nocapture noundef readonly %sbx) local_unnamed_addr #5 {
+define hidden range(i32 0, 15) i32 @lj_serialize_peektype(ptr noundef readonly captures(none) %sbx) local_unnamed_addr #5 {
 entry:
   %r = getelementptr inbounds nuw i8, ptr %sbx, i64 40
   %0 = load ptr, ptr %r, align 8
@@ -1857,7 +1857,7 @@ return:                                           ; preds = %if.then, %switch.lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
 declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed_addr #3

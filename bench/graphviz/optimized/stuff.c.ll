@@ -161,7 +161,7 @@ define void @free_array(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @scan_graph_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
@@ -308,7 +308,7 @@ degreeKind.exit:                                  ; preds = %38
   %.222.i = phi ptr [ %.121.i, %.lr.ph.i.i ], [ %.121.i, %58 ], [ %.121.i, %60 ], [ %..i.i, %63 ]
   %.144.i.i = phi i32 [ %.04353.i.i, %.lr.ph.i.i ], [ 1, %58 ], [ 1, %60 ], [ 1, %63 ]
   %.1.i.i = phi ptr [ %.054.i.i, %.lr.ph.i.i ], [ %.054.i.i, %58 ], [ %.054.i.i, %60 ], [ %..i.i, %63 ]
-  %65 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.04552.i.i, ptr noundef nonnull %.036.i) #20
+  %65 = tail call ptr @agnxtedge(ptr noundef nonnull %0, ptr noundef nonnull %.04552.i.i, ptr noundef nonnull %.036.i) #20
   %.not.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i, label %degreeKind.exit.i, label %.lr.ph.i.i
 
@@ -321,7 +321,7 @@ degreeKind.exit.thread27.i:                       ; preds = %degreeKind.exit.i, 
   br i1 %66, label %67, label %prune.exit.sink.split
 
 67:                                               ; preds = %degreeKind.exit.thread27.i
-  %68 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.036.i) #20
+  %68 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.036.i) #20
   br label %prune.exit.sink.split
 
 69:                                               ; preds = %degreeKind.exit.i
@@ -329,7 +329,7 @@ degreeKind.exit.thread27.i:                       ; preds = %degreeKind.exit.i, 
   br i1 %70, label %71, label %degreeKind.exit.thread.i
 
 71:                                               ; preds = %69
-  %72 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.036.i) #20
+  %72 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.036.i) #20
   br label %degreeKind.exit.thread.i
 
 degreeKind.exit.thread.i:                         ; preds = %71, %69
@@ -723,7 +723,7 @@ new_3array.exit:                                  ; preds = %._crit_edge49.split
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @agnameof(ptr noundef) local_unnamed_addr #5
 
@@ -744,7 +744,7 @@ declare void @getdouble(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #6
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc double @setEdgeLen(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 {
@@ -836,7 +836,7 @@ define i32 @scan_graph(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @free_scan_graph(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define void @free_scan_graph(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 184
@@ -944,7 +944,7 @@ free_3array.exit:                                 ; preds = %free_array.exit9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jitter_d(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @jitter_d(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr @Ndim, align 4
   %5 = icmp slt i32 %2, %4
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -978,7 +978,7 @@ define void @jitter_d(ptr nocapture noundef readonly %0, i32 noundef %1, i32 nou
 declare double @drand48() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @jitter3d(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @jitter3d(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr @Ndim, align 4
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.lr.ph.i, label %jitter_d.exit
@@ -1008,7 +1008,7 @@ jitter_d.exit:                                    ; preds = %7, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @randompos(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @randompos(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = sitofp i32 %1 to double
   %4 = tail call double @drand48() #20
   %5 = fmul double %4, %3
@@ -2843,7 +2843,7 @@ declare ptr @agnxtout(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare ptr @agxget(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @grealloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
@@ -2860,16 +2860,16 @@ declare double @llvm.fabs.f64(double) #7
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

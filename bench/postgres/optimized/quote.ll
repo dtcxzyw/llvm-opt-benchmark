@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @quote_ident(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @quote_ident(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -27,7 +27,7 @@ declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #1
 declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @quote_literal(ptr nocapture noundef readonly %0) #0 {
+define dso_local i64 @quote_literal(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -230,10 +230,10 @@ quote_literal_internal.exit:                      ; preds = %21, %.loopexit.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @quote_nullable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @quote_nullable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1

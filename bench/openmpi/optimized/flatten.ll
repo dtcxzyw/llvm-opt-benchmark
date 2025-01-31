@@ -103,7 +103,7 @@ define ptr @ADIOI_Flatten_datatype(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @PMPI_Type_create_keyval(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ADIOI_Flattened_type_copy(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #2 {
+define noundef i32 @ADIOI_Flattened_type_copy(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %7
 
@@ -121,7 +121,7 @@ define noundef i32 @ADIOI_Flattened_type_copy(ptr nocapture readnone %0, i32 %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ADIOI_Flattened_type_delete(ptr nocapture readnone %0, i32 %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define noundef i32 @ADIOI_Flattened_type_delete(ptr readnone captures(none) %0, i32 %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, -1
@@ -2898,7 +2898,7 @@ flatlist_node_grow.exit915:                       ; preds = %.flatlist_node_grow
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Optimize_flattened(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @ADIOI_Optimize_flattened(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp sgt i64 %3, 0
@@ -3103,7 +3103,7 @@ declare i32 @PMPI_Type_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ADIO_Type_create_darray(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @flatlist_node_grow(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @flatlist_node_grow(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -3195,10 +3195,10 @@ define ptr @ADIOI_Flatten_and_find(ptr noundef %0) local_unnamed_addr #0 {
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -69,7 +69,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK19TileAnimationParams9serializeERSot(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, i16 noundef zeroext %protocol_ver) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK19TileAnimationParams9serializeERSot(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, i16 noundef zeroext %protocol_ver) local_unnamed_addr #3 align 2 {
 entry:
   %buf.i40 = alloca [4 x i8], align 1
   %buf.i38 = alloca [1 x i8], align 1
@@ -147,13 +147,13 @@ if.end21:                                         ; preds = %if.then11, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19TileAnimationParams11deSerializeERSit(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 1)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i16 noundef zeroext %protocol_ver) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN19TileAnimationParams11deSerializeERSit(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 1)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i16 noundef zeroext %protocol_ver) local_unnamed_addr #3 align 2 {
 entry:
   %buf.i33 = alloca [4 x i8], align 4
   %buf.i31 = alloca [1 x i8], align 1
@@ -237,7 +237,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK19TileAnimationParams15determineParamsEN3irr4core8vector2dIjEEPiS4_PS3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, i64 %texture_size.coerce, ptr noundef writeonly %frame_count, ptr noundef writeonly %frame_length_ms, ptr noundef writeonly %frame_size) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK19TileAnimationParams15determineParamsEN3irr4core8vector2dIjEEPiS4_PS3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, i64 %texture_size.coerce, ptr noundef writeonly %frame_count, ptr noundef writeonly %frame_length_ms, ptr noundef writeonly %frame_size) local_unnamed_addr #5 align 2 {
 entry:
   %texture_size.sroa.0.0.extract.trunc = trunc i64 %texture_size.coerce to i32
   %texture_size.sroa.4.0.extract.shift = lshr i64 %texture_size.coerce, 32
@@ -345,10 +345,10 @@ if.end44:                                         ; preds = %if.end44.sink.split
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK19TileAnimationParams17getTextureModiferERSoN3irr4core8vector2dIjEEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, i64 %texture_size.coerce, i32 noundef %frame) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK19TileAnimationParams17getTextureModiferERSoN3irr4core8vector2dIjEEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, i64 %texture_size.coerce, i32 noundef %frame) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i8, ptr %this, align 4, !tbaa !4
   switch i8 %0, label %if.end24 [
@@ -402,7 +402,7 @@ if.end24:                                         ; preds = %if.then12, %_ZNK19T
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local <2 x float> @_ZNK19TileAnimationParams16getTextureCoordsEN3irr4core8vector2dIjEEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, i64 %texture_size.coerce, i32 noundef %frame) local_unnamed_addr #7 align 2 {
+define dso_local <2 x float> @_ZNK19TileAnimationParams16getTextureCoordsEN3irr4core8vector2dIjEEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, i64 %texture_size.coerce, i32 noundef %frame) local_unnamed_addr #7 align 2 {
 entry:
   %texture_size.sroa.0.0.extract.trunc = trunc i64 %texture_size.coerce to i32
   %0 = load i8, ptr %this, align 4, !tbaa !4
@@ -700,7 +700,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 

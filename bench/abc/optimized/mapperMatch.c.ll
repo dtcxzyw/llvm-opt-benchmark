@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [65 x i8] c"\0AError: A node in the mapping graph does not have feasible cuts.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_MatchClean(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #0 {
+define void @Map_MatchClean(ptr noundef writeonly captures(none) initializes((0, 40)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store float 0x47B9999980000000, ptr %2, align 4
@@ -28,10 +28,10 @@ define void @Map_MatchClean(ptr nocapture noundef writeonly initializes((0, 40))
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Map_MatchCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Map_MatchCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   %.not = icmp eq i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %6 = load float, ptr %5, align 4
@@ -205,7 +205,7 @@ declare i32 @Mio_GateReadProfile(ptr noundef) local_unnamed_addr #3
 declare i32 @Mio_GateReadProfile2(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Map_MatchNodeCut(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
+define noundef i32 @Map_MatchNodeCut(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
   %.sroa.0 = alloca { ptr, i32, i32 }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %7 = sext i32 %3 to i64
@@ -544,7 +544,7 @@ Map_MatchCompare.exit.thread:                     ; preds = %88, %129, %121, %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare float @Map_TimeCutComputeArrival(ptr noundef, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #3
 
@@ -555,7 +555,7 @@ declare float @Map_CutGetAreaDerefed(ptr noundef, i32 noundef) local_unnamed_add
 declare float @Map_SwitchCutGetDerefed(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Map_MatchNodePhase(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef i32 @Map_MatchNodePhase(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.Map_MatchStruct_t_, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = sext i32 %2 to i64
@@ -831,7 +831,7 @@ declare float @Map_CutRef(ptr noundef, i32 noundef, i32 noundef) local_unnamed_a
 declare float @Map_SwitchCutRef(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Map_MappingSetPiArrivalTimes(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Map_MappingSetPiArrivalTimes(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -958,7 +958,7 @@ define void @Map_MappingSetPiArrivalTimes(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Map_TimeMatchWithInverter(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define float @Map_TimeMatchWithInverter(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load float, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -977,7 +977,7 @@ define float @Map_TimeMatchWithInverter(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Map_NodeTryDroppingOnePhase(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @Map_NodeTryDroppingOnePhase(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1189,7 +1189,7 @@ define void @Map_NodeTryDroppingOnePhase(ptr nocapture noundef readonly %0, ptr 
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Map_NodeTransferArrivalTimes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #7 {
+define void @Map_NodeTransferArrivalTimes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1500,14 +1500,14 @@ declare i32 @Map_NodeIsAnd(ptr noundef) local_unnamed_addr #3
 declare void @Extra_ProgressBarStop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare ptr @Scl_ConReadMan(...) local_unnamed_addr #3
 
 declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

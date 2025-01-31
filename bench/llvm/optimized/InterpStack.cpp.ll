@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5clang6interp11InterpStackD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang6interp11InterpStackD2Ev
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @_ZN5clang6interp11InterpStackD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp11InterpStackD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((8, 16)) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN5clang6interp11InterpStack5clearEv.exit, label %3
@@ -36,7 +36,7 @@ _ZN5clang6interp11InterpStack5clearEv.exit:       ; preds = %1, %5, %.thread6.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @_ZN5clang6interp11InterpStack5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp11InterpStack5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((8, 16)) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %3
@@ -63,10 +63,10 @@ define dso_local void @_ZN5clang6interp11InterpStack5clearEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %4
@@ -129,7 +129,7 @@ define dso_local noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr nocapture
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %.08 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.08, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -165,7 +165,7 @@ define dso_local noundef ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp11InterpStack6shrinkEm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang6interp11InterpStack6shrinkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -226,12 +226,12 @@ define dso_local void @_ZN5clang6interp11InterpStack6shrinkEm(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZNK5clang6interp11InterpStack4dumpEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZNK5clang6interp11InterpStack4dumpEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

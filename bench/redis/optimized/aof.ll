@@ -285,7 +285,7 @@ cond.end:                                         ; preds = %entry
 declare ptr @sdsdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @aofInfoFormat(ptr noundef %buf, ptr nocapture noundef readonly %ai) local_unnamed_addr #0 {
+define dso_local ptr @aofInfoFormat(ptr noundef %buf, ptr noundef readonly captures(none) %ai) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ai, align 8
   %call = tail call i32 @sdsneedsrepr(ptr noundef %0) #20
@@ -955,7 +955,7 @@ if.end116:                                        ; preds = %if.then111
 
 if.end123:                                        ; preds = %if.then105, %if.end116, %if.end98
   %maxseq.1 = phi i64 [ %maxseq.0.ph, %if.end98 ], [ %maxseq.0.ph, %if.then105 ], [ %29, %if.end116 ]
-  call void @sdsfree(ptr noundef %call28) #20
+  call void @sdsfree(ptr noundef nonnull %call28) #20
   br label %while.body.outer
 
 while.body.outer:                                 ; preds = %while.body.preheader, %if.end123
@@ -1097,7 +1097,7 @@ if.end:                                           ; preds = %aofManifestFree.exi
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #5
@@ -1109,10 +1109,10 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
@@ -1124,19 +1124,19 @@ declare ptr @sdsnew(ptr noundef) local_unnamed_addr #2
 declare ptr @sdssplitargs(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @pathIsBaseName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atoll(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @atoll(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @aofManifestDup(ptr noundef readonly %orig) local_unnamed_addr #0 {
@@ -1279,7 +1279,7 @@ if.end:                                           ; preds = %cond.end14, %cond.e
 declare ptr @listAddNodeHead(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getNewIncrAofName(ptr nocapture noundef initializes((40, 44)) %am) local_unnamed_addr #0 {
+define dso_local ptr @getNewIncrAofName(ptr noundef captures(none) initializes((40, 44)) %am) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #19
   %file_type = getelementptr inbounds nuw i8, ptr %call.i, i64 16
@@ -1459,7 +1459,7 @@ declare void @listRewindTail(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @writeAofManifestFile(ptr nocapture noundef readonly %buf) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @writeAofManifestFile(ptr noundef readonly captures(none) %buf) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @sdsempty() #20
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3912), align 8
@@ -1640,15 +1640,15 @@ if.end75:                                         ; preds = %do.body, %if.end, %
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #10
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 declare i32 @fdatasync(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare i32 @fsyncFileDir(ptr noundef) local_unnamed_addr #2
 
@@ -2082,7 +2082,7 @@ if.end76:                                         ; preds = %if.end60, %if.end76
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rewriteAppendOnlyFile(ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rewriteAppendOnlyFile(ptr noundef readonly captures(none) %filename) local_unnamed_addr #0 {
 entry:
   %aof = alloca %struct._rio, align 8
   %tmpfile = alloca [256 x i8], align 16
@@ -3757,7 +3757,7 @@ return:                                           ; preds = %if.else, %do.end31,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i64 -1, -9223372036854775808) i64 @aofWrite(i32 noundef %fd, ptr nocapture noundef readonly %buf, i64 noundef %len) local_unnamed_addr #11 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @aofWrite(i32 noundef %fd, ptr noundef readonly captures(none) %buf, i64 noundef %len) local_unnamed_addr #11 {
 entry:
   %tobool.not12 = icmp eq i64 %len, 0
   br i1 %tobool.not12, label %return, label %while.cond.outer.split
@@ -3810,7 +3810,7 @@ declare void @sdsrange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr
 declare void @sdsclear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @catAppendOnlyGenericCommand(ptr noundef %dst, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local ptr @catAppendOnlyGenericCommand(ptr noundef %dst, i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   store i8 42, ptr %buf, align 16
@@ -4034,7 +4034,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #5
 declare ptr @sdscatfmt(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @feedAppendOnlyFile(i32 noundef %dictid, ptr nocapture noundef readonly %argv, i32 noundef %argc) local_unnamed_addr #0 {
+define dso_local void @feedAppendOnlyFile(i32 noundef %dictid, ptr noundef readonly captures(none) %argv, i32 noundef %argc) local_unnamed_addr #0 {
 entry:
   %seldb = alloca [64 x i8], align 16
   %call = tail call ptr @sdsempty() #20
@@ -4195,10 +4195,10 @@ if.end33:                                         ; preds = %if.end21, %sdslen.e
 declare ptr @sdscatsds(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @createAOFClient() local_unnamed_addr #0 {
@@ -4439,7 +4439,7 @@ if.then145:                                       ; preds = %for.body
   br i1 %cmp138, label %readerr, label %do.body330
 
 if.end151:                                        ; preds = %for.body
-  %call154 = call i64 @strtol(ptr nocapture noundef nonnull %arrayidx113, ptr noundef null, i32 noundef 10) #20
+  %call154 = call i64 @strtol(ptr noundef nonnull captures(none) %arrayidx113, ptr noundef null, i32 noundef 10) #20
   %18 = load ptr, ptr @SDS_NOINIT, align 8
   %call155 = call ptr @sdsnewlen(ptr noundef %18, i64 noundef %call154) #20
   %tobool156.not = icmp eq i64 %call154, 0
@@ -4722,7 +4722,7 @@ if.end334:                                        ; preds = %do.body330
 
 if.then337.sink.split:                            ; preds = %if.then62
   %.str.93..str.92 = select i1 %tobool41.not, ptr @.str.93, ptr @.str.92
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull %.str.93..str.92, ptr noundef %filename) #20
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull %.str.93..str.92, ptr noundef nonnull %filename) #20
   br label %if.then337
 
 if.then337:                                       ; preds = %do.end184, %loaded_ok, %do.body249, %if.end253, %do.body324, %if.end328, %do.body330, %if.end334, %do.body306, %do.body282, %do.body289, %if.then62, %if.then337.sink.split
@@ -4740,22 +4740,22 @@ return:                                           ; preds = %if.then337, %if.the
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @rioInitWithFile(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -4764,7 +4764,7 @@ declare i32 @rdbLoadRio(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @loadingAbsProgress(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello64(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @ftello64(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @loadingIncrProgress(i64 noundef) local_unnamed_addr #2
 
@@ -4773,7 +4773,7 @@ declare void @processEventsWhileBlocked() local_unnamed_addr #2
 declare void @processModuleLoadingProgressEvent(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #1
@@ -4781,7 +4781,7 @@ declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #1
 declare void @freeClientArgv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #12
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
 
 declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -4855,7 +4855,7 @@ land.lhs.true18:                                  ; preds = %land.lhs.true13
 
 land.lhs.true22:                                  ; preds = %land.lhs.true18
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3920), align 8
-  %call.i = tail call ptr @makePath(ptr noundef %7, ptr noundef %6) #20
+  %call.i = tail call ptr @makePath(ptr noundef %7, ptr noundef nonnull %6) #20
   %call1.i = tail call i32 @fileExist(ptr noundef %call.i) #20
   tail call void @sdsfree(ptr noundef %call.i) #20
   %tobool24.not = icmp eq i32 %call1.i, 0
@@ -5086,7 +5086,7 @@ return:                                           ; preds = %if.then55, %cond.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @getBaseAndIncrAppendOnlyFilesNum(ptr nocapture noundef readonly %am) local_unnamed_addr #13 {
+define dso_local i32 @getBaseAndIncrAppendOnlyFilesNum(ptr noundef readonly captures(none) %am) local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr %am, align 8
   %tobool.not = icmp ne ptr %0, null
@@ -5109,7 +5109,7 @@ if.end5:                                          ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @getBaseAndIncrAppendOnlyFilesSize(ptr nocapture noundef readonly %am, ptr noundef %status) local_unnamed_addr #0 {
+define dso_local i64 @getBaseAndIncrAppendOnlyFilesSize(ptr noundef readonly captures(none) %am, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %0 = load ptr, ptr %am, align 8
@@ -5182,7 +5182,7 @@ declare i64 @ustime() local_unnamed_addr #2
 declare void @stopLoading(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rioWriteBulkObject(ptr noundef %r, ptr nocapture noundef readonly %obj) local_unnamed_addr #0 {
+define dso_local i32 @rioWriteBulkObject(ptr noundef %r, ptr noundef readonly captures(none) %obj) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %obj, align 8
   %bf.lshr = lshr i32 %bf.load, 4
@@ -5266,7 +5266,7 @@ declare i64 @rioWriteBulkString(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @rewriteListObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rewriteListObject(ptr noundef %r, ptr noundef readonly captures(none) %key, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %entry2 = alloca %struct.listTypeEntry, align 8
   %vlen = alloca i64, align 8
@@ -5347,7 +5347,7 @@ declare void @listTypeReleaseIterator(ptr noundef) local_unnamed_addr #2
 declare ptr @listTypeGetValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @rewriteSetObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rewriteSetObject(ptr noundef %r, ptr noundef readonly captures(none) %key, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %str = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -5431,7 +5431,7 @@ declare i32 @setTypeNext(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare void @setTypeReleaseIterator(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @rewriteSortedSetObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rewriteSortedSetObject(ptr noundef %r, ptr noundef readonly captures(none) %key, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %eptr = alloca ptr, align 8
   %sptr = alloca ptr, align 8
@@ -5672,7 +5672,7 @@ declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #2
 declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @rewriteHashObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rewriteHashObject(ptr noundef %r, ptr noundef readonly captures(none) %key, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @hashTypeLength(ptr noundef %o) #20
   %call1 = tail call ptr @hashTypeInitIterator(ptr noundef %o) #20
@@ -5831,7 +5831,7 @@ return:                                           ; preds = %sdslen.exit, %if.el
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rioWriteBulkStreamID(ptr noundef %r, ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
+define dso_local i32 @rioWriteBulkStreamID(ptr noundef %r, ptr noundef readonly captures(none) %id) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sdsempty() #20
   %0 = load i64, ptr %id, align 8
@@ -5887,7 +5887,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @rioWriteStreamPendingEntry(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %groupname, i64 noundef %groupname_len, ptr nocapture noundef readonly %consumer, ptr noundef %rawid, ptr nocapture noundef readonly %nack) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rioWriteStreamPendingEntry(ptr noundef %r, ptr noundef readonly captures(none) %key, ptr noundef %groupname, i64 noundef %groupname_len, ptr noundef readonly captures(none) %consumer, ptr noundef %rawid, ptr noundef readonly captures(none) %nack) local_unnamed_addr #0 {
 entry:
   %id = alloca %struct.streamID, align 8
   call void @streamDecodeID(ptr noundef %rawid, ptr noundef nonnull %id) #20
@@ -6060,7 +6060,7 @@ return:                                           ; preds = %if.end46, %if.end42
 declare void @streamDecodeID(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @rioWriteStreamEmptyConsumer(ptr noundef %r, ptr nocapture noundef readonly %key, ptr noundef %groupname, i64 noundef %groupname_len, ptr nocapture noundef readonly %consumer) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rioWriteStreamEmptyConsumer(ptr noundef %r, ptr noundef readonly captures(none) %key, ptr noundef %groupname, i64 noundef %groupname_len, ptr noundef readonly captures(none) %consumer) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @rioWriteBulkCount(ptr noundef %r, i8 noundef signext 42, i64 noundef 5) #20
   %cmp = icmp eq i64 %call, 0
@@ -6142,7 +6142,7 @@ return:                                           ; preds = %sdslen.exit, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @rewriteStreamObject(ptr noundef %r, ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rewriteStreamObject(ptr noundef %r, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.streamIterator, align 8
   %id = alloca %struct.streamID, align 8
@@ -6568,7 +6568,7 @@ declare void @raxStop(ptr noundef) local_unnamed_addr #2
 declare i64 @raxSize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @rewriteModuleObject(ptr noundef %r, ptr noundef %key, ptr nocapture noundef readonly %o, i32 noundef %dbid) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rewriteModuleObject(ptr noundef %r, ptr noundef %key, ptr noundef readonly captures(none) %o, i32 noundef %dbid) local_unnamed_addr #0 {
 entry:
   %io = alloca %struct.RedisModuleIO, align 8
   %ptr = getelementptr inbounds nuw i8, ptr %o, i64 8
@@ -7276,7 +7276,7 @@ return:                                           ; preds = %for.inc, %rewriteFu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare i64 @dbSize(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -7304,14 +7304,14 @@ declare void @startSaving(i32 noundef) local_unnamed_addr #2
 declare i32 @rdbSaveRio(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @fsync(i32 noundef) local_unnamed_addr #2
 
 declare i32 @reclaimFilePageCache(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @stopSaving(i32 noundef) local_unnamed_addr #2
 
@@ -7879,7 +7879,7 @@ declare ptr @functionsLibGet() local_unnamed_addr #2
 declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #15
@@ -7888,13 +7888,13 @@ declare i64 @llvm.smin.i64(i64, i64) #15
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

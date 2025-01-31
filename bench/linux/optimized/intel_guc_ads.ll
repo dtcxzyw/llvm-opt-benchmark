@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_ads_print_policy_info(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_guc_ads_print_policy_info(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -99,10 +99,10 @@ define dso_local void @intel_guc_ads_print_policy_info(ptr nocapture noundef rea
 declare dso_local void @drm_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_guc_global_policies_update(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -2486,7 +2486,7 @@ define dso_local void @intel_guc_ads_reset(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_guc_engine_usage_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @intel_guc_engine_usage_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2500,7 +2500,7 @@ define dso_local i32 @intel_guc_engine_usage_offset(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local { ptr, i8 } @intel_guc_engine_usage_record_map(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local { ptr, i8 } @intel_guc_engine_usage_record_map(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2528,10 +2528,10 @@ define dso_local { ptr, i8 } @intel_guc_engine_usage_record_map(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @msleep_interruptible(i32 noundef) local_unnamed_addr #1
@@ -2549,7 +2549,7 @@ declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unname
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @guc_mmio_reg_add(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 0, 15794176) %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef i64 @guc_mmio_reg_add(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef range(i32 0, 15794176) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.guc_mmio_reg, align 4
   %5 = alloca %struct.guc_mmio_reg, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2672,7 +2672,7 @@ define internal fastcc noundef i64 @guc_mmio_reg_add(ptr nocapture noundef %0, i
 declare dso_local ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @guc_mmio_reg_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
+define internal i32 @guc_mmio_reg_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 align 16 {
   %3 = load i32, ptr %0, align 1
   %4 = load i32, ptr %1, align 1
   %5 = sub i32 %3, %4
@@ -2689,7 +2689,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 declare dso_local void @intel_gt_mcr_get_nonterminated_steering(ptr noundef, i32, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @fill_engine_enable_masks(ptr nocapture noundef readonly %0, ptr %.0.val, i8 %.8.val) unnamed_addr #0 align 16 {
+define internal fastcc void @fill_engine_enable_masks(ptr noundef readonly captures(none) %0, ptr %.0.val, i8 %.8.val) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4956
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1

@@ -380,7 +380,7 @@ define void @core_array_or(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 declare void @bit_or(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @free_core_array(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @free_core_array(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %2, align 8

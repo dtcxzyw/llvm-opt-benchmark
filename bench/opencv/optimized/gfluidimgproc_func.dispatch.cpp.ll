@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._ZN2cv4gapi5fluid12cpu_baselineL27run_morphology3x3_referenceIhEEvPT_PPKS4_iiPKhNS1_10MorphShapeENS1_10MorphologyE = private unnamed_addr constant [28 x i8] c"run_morphology3x3_reference\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline17run_rgb2gray_implEPhPKhifff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline17run_rgb2gray_implEPhPKhifff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -149,7 +149,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline16run_rgb2hsv_implEPhPKhPKiS7_i(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #5 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline16run_rgb2hsv_implEPhPKhPKiS7_i(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x i32], align 4
   %8 = icmp sgt i32 %4, 0
@@ -266,7 +266,7 @@ _ZSt3maxIiET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline23run_bayergr2rgb_bg_implEPhPPKhi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline23run_bayergr2rgb_bg_implEPhPPKhi(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = add i32 %2, -1
   %5 = icmp sgt i32 %2, 1
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -414,7 +414,7 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline23run_bayergr2rgb_bg_implEPhP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline23run_bayergr2rgb_gr_implEPhPPKhi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline23run_bayergr2rgb_gr_implEPhPPKhi(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = add i32 %2, -1
   %5 = icmp sgt i32 %2, 1
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -561,7 +561,7 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline23run_bayergr2rgb_gr_implEPhP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline16run_rgb2yuv_implEPhPKhiPKf(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline16run_rgb2yuv_implEPhPKhiPKf(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #5 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -652,7 +652,7 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline16run_rgb2yuv_implEPhPKhiPKf(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline16run_yuv2rgb_implEPhPKhiPKf(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline16run_yuv2rgb_implEPhPKhiPKf(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #5 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -744,7 +744,7 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline16run_yuv2rgb_implEPhPKhiPKf(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_rgb2yuv422_implEPhPKhi(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_rgb2yuv422_implEPhPKhi(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -830,7 +830,7 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_rgb2yuv422_implEPhPKhi(
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPhPPKhiiPKfS8_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPhPPKhiiPKfS8_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   %13 = alloca [3 x i32], align 4
   %14 = alloca [3 x i32], align 4
   %15 = fcmp oeq float %7, 1.000000e+00
@@ -1057,7 +1057,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter3x3_codeILb0EhhEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPsPPKhiiPKfS8_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPsPPKhiiPKfS8_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   %13 = alloca [3 x i32], align 4
   %14 = alloca [3 x i32], align 4
   %15 = fcmp oeq float %7, 1.000000e+00
@@ -1276,7 +1276,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter3x3_codeILb0EshEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPfPPKhiiPKfS8_iffPS3_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPfPPKhiiPKfS8_iffPS3_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   %13 = alloca [3 x i32], align 4
   %14 = alloca [3 x i32], align 4
   %15 = fcmp oeq float %7, 1.000000e+00
@@ -1491,7 +1491,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter3x3_codeILb0EfhEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPtPPKtiiPKfS8_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPtPPKtiiPKfS8_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   %13 = alloca [3 x i32], align 4
   %14 = alloca [3 x i32], align 4
   %15 = fcmp oeq float %7, 1.000000e+00
@@ -1718,7 +1718,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter3x3_codeILb0EttEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPsPPKtiiPKfS8_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPsPPKtiiPKfS8_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   %13 = alloca [3 x i32], align 4
   %14 = alloca [3 x i32], align 4
   %15 = fcmp oeq float %7, 1.000000e+00
@@ -1937,7 +1937,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter3x3_codeILb0EstEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPfPPKtiiPKfS8_iffPS3_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPfPPKtiiPKfS8_iffPS3_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   %13 = alloca [3 x i32], align 4
   %14 = alloca [3 x i32], align 4
   %15 = fcmp oeq float %7, 1.000000e+00
@@ -2152,7 +2152,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter3x3_codeILb0EftEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPsPPKsiiPKfS8_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPsPPKsiiPKfS8_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   %13 = alloca [3 x i32], align 4
   %14 = alloca [3 x i32], align 4
   %15 = fcmp oeq float %7, 1.000000e+00
@@ -2371,7 +2371,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter3x3_codeILb0EssEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPfPPKsiiPKfS8_iffPS3_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPfPPKsiiPKfS8_iffPS3_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   %13 = alloca [3 x i32], align 4
   %14 = alloca [3 x i32], align 4
   %15 = fcmp oeq float %7, 1.000000e+00
@@ -2586,7 +2586,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter3x3_codeILb0EfsEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPfPPKfiiS5_S5_iffPS3_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPfPPKfiiS5_S5_iffPS3_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   %13 = alloca [3 x i32], align 4
   %14 = alloca [3 x i32], align 4
   %15 = fcmp oeq float %7, 1.000000e+00
@@ -2795,7 +2795,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter3x3_codeILb0EffEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPhPPKhiiPKfS8_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPhPPKhiiPKfS8_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   %13 = alloca [5 x i32], align 16
   %14 = alloca [5 x ptr], align 16
   %15 = alloca [5 x i32], align 16
@@ -3120,7 +3120,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter5x5_codeILb0EhhEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPsPPKhiiPKfS8_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPsPPKhiiPKfS8_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   %13 = alloca [5 x i32], align 16
   %14 = alloca [5 x ptr], align 16
   %15 = alloca [5 x i32], align 16
@@ -3437,7 +3437,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter5x5_codeILb0EshEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPfPPKhiiPKfS8_iffPS3_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPfPPKhiiPKfS8_iffPS3_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   %13 = alloca [5 x i32], align 16
   %14 = alloca [5 x ptr], align 16
   %15 = alloca [5 x i32], align 16
@@ -3750,7 +3750,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter5x5_codeILb0EfhEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPtPPKtiiPKfS8_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPtPPKtiiPKfS8_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   %13 = alloca [5 x i32], align 16
   %14 = alloca [5 x ptr], align 16
   %15 = alloca [5 x i32], align 16
@@ -4075,7 +4075,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter5x5_codeILb0EttEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPsPPKtiiPKfS8_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPsPPKtiiPKfS8_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   %13 = alloca [5 x i32], align 16
   %14 = alloca [5 x ptr], align 16
   %15 = alloca [5 x i32], align 16
@@ -4392,7 +4392,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter5x5_codeILb0EstEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPfPPKtiiPKfS8_iffPS3_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPfPPKtiiPKfS8_iffPS3_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   %13 = alloca [5 x i32], align 16
   %14 = alloca [5 x ptr], align 16
   %15 = alloca [5 x i32], align 16
@@ -4705,7 +4705,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter5x5_codeILb0EftEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPsPPKsiiPKfS8_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPsPPKsiiPKfS8_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   %13 = alloca [5 x i32], align 16
   %14 = alloca [5 x ptr], align 16
   %15 = alloca [5 x i32], align 16
@@ -5022,7 +5022,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter5x5_codeILb0EssEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPfPPKsiiPKfS8_iffPS3_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPfPPKsiiPKfS8_iffPS3_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   %13 = alloca [5 x i32], align 16
   %14 = alloca [5 x ptr], align 16
   %15 = alloca [5 x i32], align 16
@@ -5335,7 +5335,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter5x5_codeILb0EfsEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPfPPKfiiS5_S5_iffPS3_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPfPPKfiiS5_S5_iffPS3_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   %13 = alloca [5 x i32], align 16
   %14 = alloca [5 x ptr], align 16
   %15 = alloca [5 x i32], align 16
@@ -5646,7 +5646,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_sepfilter5x5_codeILb0EffEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPhPPKhiiPKfff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #9 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPhPPKhiiPKfff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #9 {
   %8 = fcmp oeq float %5, 1.000000e+00
   %9 = fcmp oeq float %6, 0.000000e+00
   %or.cond = and i1 %8, %9
@@ -5807,7 +5807,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_filter2d_3x3_codeILb1EhhEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPtPPKtiiPKfff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #9 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPtPPKtiiPKfff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #9 {
   %8 = fcmp oeq float %5, 1.000000e+00
   %9 = fcmp oeq float %6, 0.000000e+00
   %or.cond = and i1 %8, %9
@@ -5968,7 +5968,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_filter2d_3x3_codeILb1EttEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPsPPKsiiPKfff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #9 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPsPPKsiiPKfff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #9 {
   %8 = fcmp oeq float %5, 1.000000e+00
   %9 = fcmp oeq float %6, 0.000000e+00
   %or.cond = and i1 %8, %9
@@ -6121,7 +6121,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_filter2d_3x3_codeILb1EssEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPfPPKhiiPKfff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPfPPKhiiPKfff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
   %8 = fcmp oeq float %5, 1.000000e+00
   %9 = fcmp oeq float %6, 0.000000e+00
   %or.cond = and i1 %8, %9
@@ -6270,7 +6270,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_filter2d_3x3_codeILb1EfhEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPfPPKtiiPKfff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPfPPKtiiPKfff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
   %8 = fcmp oeq float %5, 1.000000e+00
   %9 = fcmp oeq float %6, 0.000000e+00
   %or.cond = and i1 %8, %9
@@ -6419,7 +6419,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_filter2d_3x3_codeILb1EftEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPfPPKsiiPKfff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPfPPKsiiPKfff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
   %8 = fcmp oeq float %5, 1.000000e+00
   %9 = fcmp oeq float %6, 0.000000e+00
   %or.cond = and i1 %8, %9
@@ -6568,7 +6568,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_filter2d_3x3_codeILb1EfsEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPfPPKfiiS5_ff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPfPPKfiiS5_ff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
   %8 = fcmp oeq float %5, 1.000000e+00
   %9 = fcmp oeq float %6, 0.000000e+00
   %or.cond = and i1 %8, %9
@@ -6699,7 +6699,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL21run_filter2d_3x3_codeILb1EffEEvPT0_PPKT1_iiPKf
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPhPPKhiiS5_NS1_10MorphShapeENS1_10MorphologyE(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPhPPKhiiS5_NS1_10MorphShapeENS1_10MorphologyE(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -7208,7 +7208,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL22run_morphology3x3_codeIhEEvPT_PPKS4_iiPKhNS1_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPtPPKtiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPtPPKtiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -7717,7 +7717,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL22run_morphology3x3_codeItEEvPT_PPKS4_iiPKhNS1_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPsPPKsiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPsPPKsiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -8226,7 +8226,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL22run_morphology3x3_codeIsEEvPT_PPKS4_iiPKhNS1_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPfPPKfiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPfPPKfiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -8787,7 +8787,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL22run_morphology3x3_codeIfEEvPT_PPKS4_iiPKhNS1_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPhPPKhii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPhPPKhii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = mul nsw i32 %3, %2
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i.i, label %_ZN2cv4gapi5fluid12cpu_baselineL19run_medblur3x3_codeIhEEvPT_PPKS4_ii.exit
@@ -8865,7 +8865,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL19run_medblur3x3_codeIhEEvPT_PPKS4_ii.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPtPPKtii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPtPPKtii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = mul nsw i32 %3, %2
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i.i, label %_ZN2cv4gapi5fluid12cpu_baselineL19run_medblur3x3_codeItEEvPT_PPKS4_ii.exit
@@ -8943,7 +8943,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL19run_medblur3x3_codeItEEvPT_PPKS4_ii.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPsPPKsii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPsPPKsii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = mul nsw i32 %3, %2
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i.i, label %_ZN2cv4gapi5fluid12cpu_baselineL19run_medblur3x3_codeIsEEvPT_PPKS4_ii.exit
@@ -9021,7 +9021,7 @@ _ZN2cv4gapi5fluid12cpu_baselineL19run_medblur3x3_codeIsEEvPT_PPKS4_ii.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPfPPKfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPfPPKfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = mul nsw i32 %3, %2
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i.i, label %_ZN2cv4gapi5fluid12cpu_baselineL19run_medblur3x3_codeIfEEvPT_PPKS4_ii.exit
@@ -9129,43 +9129,43 @@ _ZN2cv4gapi5fluid12cpu_baselineL19run_medblur3x3_codeIfEEvPT_PPKS4_ii.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4gapi5fluid17run_rgb2gray_implEPhPKhifff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #0 {
+define hidden void @_ZN2cv4gapi5fluid17run_rgb2gray_implEPhPKhifff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #0 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline17run_rgb2gray_implEPhPKhifff(ptr noundef %0, ptr noundef %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4gapi5fluid16run_rgb2hsv_implEPhPKhPKiS6_i(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #5 {
+define hidden void @_ZN2cv4gapi5fluid16run_rgb2hsv_implEPhPKhPKiS6_i(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #5 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline16run_rgb2hsv_implEPhPKhPKiS7_i(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid23run_bayergr2rgb_bg_implEPhPPKhi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid23run_bayergr2rgb_bg_implEPhPPKhi(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline23run_bayergr2rgb_bg_implEPhPPKhi(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid23run_bayergr2rgb_gr_implEPhPPKhi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid23run_bayergr2rgb_gr_implEPhPPKhi(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline23run_bayergr2rgb_gr_implEPhPPKhi(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4gapi5fluid16run_rgb2yuv_implEPhPKhiPKf(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 {
+define hidden void @_ZN2cv4gapi5fluid16run_rgb2yuv_implEPhPKhiPKf(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #5 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline16run_rgb2yuv_implEPhPKhiPKf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4gapi5fluid16run_yuv2rgb_implEPhPKhiPKf(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 {
+define hidden void @_ZN2cv4gapi5fluid16run_yuv2rgb_implEPhPKhiPKf(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #5 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline16run_yuv2rgb_implEPhPKhiPKf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4gapi5fluid19run_rgb2yuv422_implEPhPKhi(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @_ZN2cv4gapi5fluid19run_rgb2yuv422_implEPhPKhi(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluid12cpu_baseline19run_rgb2yuv422_implEPhPKhi.exit
 
@@ -9251,181 +9251,181 @@ _ZN2cv4gapi5fluid12cpu_baseline19run_rgb2yuv422_implEPhPKhi.exit: ; preds = %.lr
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPhPPKhiiPKfS7_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPhPPKhiiPKfS7_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPhPPKhiiPKfS8_iffPPfii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPsPPKhiiPKfS7_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPsPPKhiiPKfS7_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPsPPKhiiPKfS8_iffPPfii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPfPPKhiiPKfS7_iffPS2_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPfPPKhiiPKfS7_iffPS2_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPfPPKhiiPKfS8_iffPS3_ii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPtPPKtiiPKfS7_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPtPPKtiiPKfS7_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPtPPKtiiPKfS8_iffPPfii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPsPPKtiiPKfS7_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPsPPKtiiPKfS7_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPsPPKtiiPKfS8_iffPPfii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPfPPKtiiPKfS7_iffPS2_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPfPPKtiiPKfS7_iffPS2_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPfPPKtiiPKfS8_iffPS3_ii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPsPPKsiiPKfS7_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPsPPKsiiPKfS7_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPsPPKsiiPKfS8_iffPPfii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPfPPKsiiPKfS7_iffPS2_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPfPPKsiiPKfS7_iffPS2_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPfPPKsiiPKfS8_iffPS3_ii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPfPPKfiiS4_S4_iffPS2_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter3x3_implEPfPPKfiiS4_S4_iffPS2_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter3x3_implEPfPPKfiiS5_S5_iffPS3_ii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPhPPKhiiPKfS7_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPhPPKhiiPKfS7_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPhPPKhiiPKfS8_iffPPfii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPsPPKhiiPKfS7_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPsPPKhiiPKfS7_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPsPPKhiiPKfS8_iffPPfii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPfPPKhiiPKfS7_iffPS2_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPfPPKhiiPKfS7_iffPS2_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPfPPKhiiPKfS8_iffPS3_ii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPtPPKtiiPKfS7_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPtPPKtiiPKfS7_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPtPPKtiiPKfS8_iffPPfii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPsPPKtiiPKfS7_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPsPPKtiiPKfS7_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPsPPKtiiPKfS8_iffPPfii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPfPPKtiiPKfS7_iffPS2_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPfPPKtiiPKfS7_iffPS2_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPfPPKtiiPKfS8_iffPS3_ii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPsPPKsiiPKfS7_iffPPfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPsPPKsiiPKfS7_iffPPfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #7 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPsPPKsiiPKfS8_iffPPfii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPfPPKsiiPKfS7_iffPS2_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPfPPKsiiPKfS7_iffPS2_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPfPPKsiiPKfS8_iffPS3_ii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPfPPKfiiS4_S4_iffPS2_ii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, float noundef %7, float noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
+define hidden void @_ZN2cv4gapi5fluid21run_sepfilter5x5_implEPfPPKfiiS4_S4_iffPS2_ii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #8 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_sepfilter5x5_implEPfPPKfiiS5_S5_iffPS3_ii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPhPPKhiiPKfff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #9 {
+define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPhPPKhiiPKfff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #9 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPhPPKhiiPKfff(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, float noundef %5, float noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPtPPKtiiPKfff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #9 {
+define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPtPPKtiiPKfff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #9 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPtPPKtiiPKfff(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, float noundef %5, float noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPsPPKsiiPKfff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #9 {
+define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPsPPKsiiPKfff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #9 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPsPPKsiiPKfff(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, float noundef %5, float noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPfPPKhiiPKfff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPfPPKhiiPKfff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPfPPKhiiPKfff(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, float noundef %5, float noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPfPPKtiiPKfff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPfPPKtiiPKfff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPfPPKtiiPKfff(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, float noundef %5, float noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPfPPKsiiPKfff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPfPPKsiiPKfff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPfPPKsiiPKfff(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, float noundef %5, float noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPfPPKfiiS4_ff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid21run_filter2d_3x3_implEPfPPKfiiS4_ff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #6 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline21run_filter2d_3x3_implEPfPPKfiiS5_ff(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, float noundef %5, float noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4gapi5fluid22run_morphology3x3_implEPhPPKhiiS4_NS1_10MorphShapeENS1_10MorphologyE(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @_ZN2cv4gapi5fluid22run_morphology3x3_implEPhPPKhiiS4_NS1_10MorphShapeENS1_10MorphologyE(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPhPPKhiiS5_NS1_10MorphShapeENS1_10MorphologyE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4gapi5fluid22run_morphology3x3_implEPtPPKtiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @_ZN2cv4gapi5fluid22run_morphology3x3_implEPtPPKtiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPtPPKtiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4gapi5fluid22run_morphology3x3_implEPsPPKsiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @_ZN2cv4gapi5fluid22run_morphology3x3_implEPsPPKsiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPsPPKsiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4gapi5fluid22run_morphology3x3_implEPfPPKfiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @_ZN2cv4gapi5fluid22run_morphology3x3_implEPfPPKfiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPfPPKfiiPKhNS1_10MorphShapeENS1_10MorphologyE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid19run_medblur3x3_implEPhPPKhii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid19run_medblur3x3_implEPhPPKhii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = mul nsw i32 %3, %2
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i.i.i, label %_ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPhPPKhii.exit
@@ -9503,7 +9503,7 @@ _ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPhPPKhii.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid19run_medblur3x3_implEPtPPKtii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid19run_medblur3x3_implEPtPPKtii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = mul nsw i32 %3, %2
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i.i.i, label %_ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPtPPKtii.exit
@@ -9581,7 +9581,7 @@ _ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPtPPKtii.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid19run_medblur3x3_implEPsPPKsii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid19run_medblur3x3_implEPsPPKsii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = mul nsw i32 %3, %2
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i.i.i, label %_ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPsPPKsii.exit
@@ -9659,7 +9659,7 @@ _ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPsPPKsii.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4gapi5fluid19run_medblur3x3_implEPfPPKfii(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden void @_ZN2cv4gapi5fluid19run_medblur3x3_implEPfPPKfii(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   tail call void @_ZN2cv4gapi5fluid12cpu_baseline19run_medblur3x3_implEPfPPKfii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3)
   ret void
 }
@@ -9668,7 +9668,7 @@ define hidden void @_ZN2cv4gapi5fluid19run_medblur3x3_implEPfPPKfii(ptr nocaptur
 declare float @rintf(float noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
@@ -9680,10 +9680,10 @@ declare i32 @llvm.smin.i32(i32, i32) #12
 declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.fptosi.sat.i16.f32(float) #12

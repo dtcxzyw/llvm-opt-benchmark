@@ -772,13 +772,13 @@ opal_obj_new.exit.thread:                         ; preds = %opal_obj_new.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_libnbc_barrier_init(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @ompi_coll_libnbc_barrier_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @nbc_barrier_init(ptr noundef %0, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_libnbc_barrier_inter_init(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @ompi_coll_libnbc_barrier_inter_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @nbc_barrier_inter_init(ptr noundef %0, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true)
   ret i32 %5
 }
@@ -786,7 +786,7 @@ define i32 @ompi_coll_libnbc_barrier_inter_init(ptr noundef %0, ptr nocapture no
 declare i32 @NBC_Sched_send(ptr noundef, i8 noundef signext, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @NBC_Sched_recv(ptr noundef, i8 noundef signext, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 

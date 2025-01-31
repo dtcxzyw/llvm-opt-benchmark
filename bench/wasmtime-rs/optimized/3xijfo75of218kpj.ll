@@ -592,14 +592,14 @@ default.unreachable1:                             ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN20wasmtime_wit_bindgen11AsyncConfig11maybe_async17h8ce5476eb94af167E(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
+define noundef zeroext i1 @_ZN20wasmtime_wit_bindgen11AsyncConfig11maybe_async17h8ce5476eb94af167E(ptr readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !3, !noundef !4
   %switch = icmp ne i64 %2, 0
   ret i1 %switch
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN20wasmtime_wit_bindgen4Opts8generate17h640193755005c8b0E(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 %1, ptr align 8 %2, i64 %3, i32 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN20wasmtime_wit_bindgen4Opts8generate17h640193755005c8b0E(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, i64 %3, i32 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
   %7 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
   %8 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
@@ -1483,7 +1483,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_mo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime8generate17hc045317a088df036E(ptr noalias nocapture writeonly align 8 %0, ptr nonnull align 8 %1, ptr align 8 %2, i64 %3, i32 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime8generate17hc045317a088df036E(ptr noalias writeonly align 8 captures(none) %0, ptr nonnull align 8 %1, ptr align 8 %2, i64 %3, i32 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -8908,7 +8908,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime12emit_modules4em
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime18lookup_replacement17hfc7bf3832d721b8aE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr align 8 %2, ptr nonnull align 8 %3, ptr align 1 %4, i64 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime18lookup_replacement17hfc7bf3832d721b8aE(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr nonnull align 8 %1, ptr align 8 %2, ptr nonnull align 8 %3, ptr align 1 %4, i64 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -12481,7 +12481,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15prin
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator28special_case_trappable_error17hf42114af230f0ca3E(ptr nocapture writeonly sret({ [3 x i64], i64, [2 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator28special_case_trappable_error17hf42114af230f0ca3E(ptr writeonly sret({ [3 x i64], i64, [2 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %.sroa.4 = alloca [28 x i8], align 4
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -12640,7 +12640,7 @@ define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator28special_case_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator31generate_add_function_to_linker17hcd272560ed63c84eE(ptr nonnull align 8 %0, ptr nocapture nonnull readonly align 8 %1, ptr nonnull align 8 %2, ptr align 1 %3, i64 range(i64 4, 7) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator31generate_add_function_to_linker17hcd272560ed63c84eE(ptr nonnull align 8 %0, ptr nonnull readonly align 8 captures(none) %1, ptr nonnull align 8 %2, ptr align 1 %3, i64 range(i64 4, 7) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -14184,7 +14184,7 @@ _ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator22extract_typed_function17hc536619ba7f34f58E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator22extract_typed_function17hc536619ba7f34f58E(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { { { { i64, ptr, {} }, i64 } }, i64 }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -14925,7 +14925,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator24defi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2ef016a29d87b7E(ptr align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca { { { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } }, {} } }, align 8
   %5 = load i64, ptr %1, align 8, !range !26, !noundef !4
@@ -14987,7 +14987,7 @@ define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator7rustdoc17h3c2e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator12path_to_root17hbc1e7ed6792e01bcE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator12path_to_root17hbc1e7ed6792e01bcE(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   store i64 0, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -15038,14 +15038,14 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator12path
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
+define noundef nonnull align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !align !32, !noundef !4
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i8 0, 3) i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
+define noundef range(i8 0, 3) i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !align !32, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 187
@@ -15054,7 +15054,7 @@ define noundef range(i8 0, 3) i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGen
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$17path_to_interface17hcdfaa3bccd922492E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2, i32 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$17path_to_interface17hcdfaa3bccd922492E"(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, i64 %2, i32 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { { ptr, ptr, {} }, i64 }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -15237,7 +15237,7 @@ define void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$was
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i40 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$4info17h7ee73b7b031a3440E"(ptr nocapture readonly align 8 %0, i64 %1, i32 %2) unnamed_addr #0 {
+define i40 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$4info17h7ee73b7b031a3440E"(ptr readonly align 8 captures(none) %0, i64 %1, i32 %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !32, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 448
@@ -15246,7 +15246,7 @@ define i40 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasm
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$21is_imported_interface17h9525ce5a76c42b80E"(ptr nocapture readonly align 8 %0, i64 %1, i32 %2) unnamed_addr #0 {
+define zeroext i1 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$21is_imported_interface17h9525ce5a76c42b80E"(ptr readonly align 8 captures(none) %0, i64 %1, i32 %2) unnamed_addr #0 {
   %4 = alloca { i64, i32, {}, [4 x i8] }, align 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -15453,7 +15453,7 @@ define hidden zeroext i1 @"_ZN73_$LT$wasmtime_wit_bindgen..TrappableError$u20$as
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN75_$LT$wasmtime_wit_bindgen..TrappableError$u20$as$u20$core..clone..Clone$GT$5clone17h106e592b638a7915E"(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }) align 8 %0, ptr align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN75_$LT$wasmtime_wit_bindgen..TrappableError$u20$as$u20$core..clone..Clone$GT$5clone17h106e592b638a7915E"(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %4, ptr align 8 %1)
@@ -15523,7 +15523,7 @@ declare void @_ZN10wit_parser9sizealign9SizeAlign4fill17hce1c3591c5117a09E(ptr a
 declare void @"_ZN4core3ptr47drop_in_place$LT$wasmtime_wit_bindgen..Opts$GT$17h7ed4084a6b424dfeE"(ptr align 8) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr51drop_in_place$LT$wasmtime_wit_bindgen..Wasmtime$GT$17ha016bbf65f8dae49E"(ptr align 8) unnamed_addr #0
@@ -15991,7 +15991,7 @@ declare zeroext i1 @"_ZN62_$LT$wit_parser..PackageName$u20$as$u20$core..fmt..Dis
 declare hidden { ptr, i64 } @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h4524f4d0b1c3d297E"(ptr align 1, i64, ptr align 1, i64) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h1b00fbb00589afe4E(i32, ptr align 1, i64) unnamed_addr #3
@@ -16276,10 +16276,10 @@ declare void @"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

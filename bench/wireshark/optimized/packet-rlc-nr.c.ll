@@ -403,7 +403,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.261 = private unnamed_addr constant [20 x i8] c"Use signalled value\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @set_rlc_nr_drb_pdcp_mapping(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @set_rlc_nr_drb_pdcp_mapping(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct._wmem_tree_key_t], align 16
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -575,7 +575,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rlc_nr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_rlc_nr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_rlc_nr_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
   ret i32 %5
@@ -625,7 +625,7 @@ define hidden void @proto_reg_handoff_rlc_nr() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_rlc_nr_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_rlc_nr_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #9
   %6 = icmp slt i32 %5, 10
   br i1 %6, label %62, label %7
@@ -1520,14 +1520,14 @@ proto_item_set_hidden.exit.i142:                  ; preds = %362, %359, %356
   %414 = add i32 %.0133161.i.i, %.0131.i.i
   %415 = load i64, ptr %7, align 8
   %416 = trunc i64 %415 to i32
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.244, i32 noundef %416)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @.str.244, i32 noundef %416)
   %417 = load i64, ptr %7, align 8
   %418 = load i64, ptr %6, align 8
   %419 = icmp eq i64 %417, %418
   br i1 %419, label %420, label %422
 
 420:                                              ; preds = %411
-  %421 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %413, ptr noundef nonnull @ei_rlc_nr_am_nack_sn_ack_same, ptr noundef nonnull @.str.245, i64 noundef %417) #9
+  %421 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %413, ptr noundef nonnull @ei_rlc_nr_am_nack_sn_ack_same, ptr noundef nonnull @.str.245, i64 noundef %417) #9
   %.pre.i.i = load i64, ptr %6, align 8
   %.pre168.i.i = load i64, ptr %7, align 8
   br label %422
@@ -1542,7 +1542,7 @@ proto_item_set_hidden.exit.i142:                  ; preds = %362, %359, %356
   br i1 %428, label %429, label %431
 
 429:                                              ; preds = %422
-  %430 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %413, ptr noundef nonnull @ei_rlc_nr_am_nack_sn_ahead_ack) #9
+  %430 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %413, ptr noundef nonnull @ei_rlc_nr_am_nack_sn_ahead_ack) #9
   br label %431
 
 431:                                              ; preds = %429, %422
@@ -1575,11 +1575,11 @@ proto_item_set_hidden.exit.i142:                  ; preds = %362, %359, %356
   br i1 %.not149.i.i, label %453, label %451
 
 451:                                              ; preds = %438
-  %452 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %413, ptr noundef nonnull @ei_rlc_nr_am_nack_sn_partial, ptr noundef nonnull @.str.246, ptr noundef %448, i32 noundef %450) #9
+  %452 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %413, ptr noundef nonnull @ei_rlc_nr_am_nack_sn_partial, ptr noundef nonnull @.str.246, ptr noundef %448, i32 noundef %450) #9
   br label %455
 
 453:                                              ; preds = %438
-  %454 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %413, ptr noundef nonnull @ei_rlc_nr_am_nack_sn, ptr noundef nonnull @.str.247, ptr noundef %448, i32 noundef %450) #9
+  %454 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %413, ptr noundef nonnull @ei_rlc_nr_am_nack_sn, ptr noundef nonnull @.str.247, ptr noundef %448, i32 noundef %450) #9
   br label %455
 
 455:                                              ; preds = %453, %451
@@ -1594,7 +1594,7 @@ proto_item_set_hidden.exit.i142:                  ; preds = %362, %359, %356
   br i1 %.not150.i.i, label %464, label %462
 
 462:                                              ; preds = %455
-  %463 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %460, ptr noundef nonnull @ei_rlc_nr_reserved_bits_not_zero) #9
+  %463 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %460, ptr noundef nonnull @ei_rlc_nr_reserved_bits_not_zero) #9
   br label %464
 
 464:                                              ; preds = %462, %455
@@ -1617,11 +1617,11 @@ proto_item_set_hidden.exit.i142:                  ; preds = %362, %359, %356
   br i1 %476, label %478, label %479
 
 478:                                              ; preds = %466
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.248, i32 noundef %477)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @.str.248, i32 noundef %477)
   br label %480
 
 479:                                              ; preds = %466
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.249, i32 noundef %477, i32 noundef %475)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @.str.249, i32 noundef %477, i32 noundef %475)
   br label %480
 
 480:                                              ; preds = %479, %478, %464
@@ -1640,7 +1640,7 @@ proto_item_set_hidden.exit.i142:                  ; preds = %362, %359, %356
   br i1 %488, label %489, label %491
 
 489:                                              ; preds = %482
-  %490 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %485, ptr noundef nonnull @ei_rlc_nr_am_nack_range) #9
+  %490 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %485, ptr noundef nonnull @ei_rlc_nr_am_nack_range) #9
   br label %dissect_rlc_nr_am_status_pdu.exit.i
 
 491:                                              ; preds = %482
@@ -1650,7 +1650,7 @@ proto_item_set_hidden.exit.i142:                  ; preds = %362, %359, %356
   %495 = add i64 %494, %492
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %485, ptr noundef nonnull @.str.250, i64 noundef %492, i64 noundef %495) #9
   %496 = load i32, ptr %14, align 4
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.251, i32 noundef %496)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @.str.251, i32 noundef %496)
   %497 = load i32, ptr %14, align 4
   %498 = add i32 %497, -1
   %.not166.i.i = icmp eq i32 %498, 0
@@ -1737,7 +1737,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %519, %516, %513
   %531 = icmp eq i8 %530, 0
   %532 = select i1 %531, i32 85, i32 68
   %533 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %526) #9
-  %534 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %367, ptr noundef nonnull @ei_rlc_nr_bytes_after_status_pdu_complete, ptr noundef nonnull @.str.253, i32 noundef %532, i32 noundef %533) #9
+  %534 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %367, ptr noundef nonnull @ei_rlc_nr_bytes_after_status_pdu_complete, ptr noundef nonnull @.str.253, i32 noundef %532, i32 noundef %533) #9
   br label %535
 
 535:                                              ; preds = %529, %._crit_edge164.thread.i.i
@@ -2042,7 +2042,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @write_pdu_label_and_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ...) unnamed_addr #0 {
+define internal void @write_pdu_label_and_info(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ...) unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = call i32 @vsnprintf(ptr noundef nonnull @write_pdu_label_and_info.info_buffer, i64 noundef 256, ptr noundef %3, ptr noundef nonnull %5) #9
@@ -2065,10 +2065,10 @@ define internal void @write_pdu_label_and_info(ptr noundef %0, ptr noundef %1, p
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rlc_nr_tm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_rlc_nr_tm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2252,7 +2252,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2291,7 +2291,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_reassembly_start_frame(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @get_reassembly_start_frame(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [6 x i32], align 16
   %6 = alloca [2 x %struct._wmem_tree_key_t], align 16
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 6
@@ -2394,7 +2394,7 @@ declare ptr @fragment_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i3
 declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 6) %3, i32 noundef %4, ptr nocapture noundef nonnull readonly %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #0 {
+define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 6) %3, i32 noundef %4, ptr noundef nonnull readonly captures(none) %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #0 {
   %9 = alloca [2 x %struct._wmem_tree_key_t], align 16
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -2697,22 +2697,22 @@ define internal range(i32 0, 2) i32 @pdu_equal(ptr noundef readnone %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @pdu_temporary_key(ptr nocapture readnone %0, i32 %1, ptr noundef readnone returned %2) #6 {
+define internal noundef ptr @pdu_temporary_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned %2) #6 {
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @pdu_persistent_key(ptr nocapture readnone %0, i32 %1, ptr noundef readnone returned %2) #6 {
+define internal noundef ptr @pdu_persistent_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned %2) #6 {
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @pdu_free_temporary_key(ptr nocapture readnone %0) #6 {
+define internal void @pdu_free_temporary_key(ptr readnone captures(none) %0) #6 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @pdu_free_persistent_key(ptr nocapture readnone %0) #6 {
+define internal void @pdu_free_persistent_key(ptr readnone captures(none) %0) #6 {
   ret void
 }
 
@@ -2731,10 +2731,10 @@ declare void @llvm.va_start.p0(ptr) #7
 declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

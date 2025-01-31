@@ -287,7 +287,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
@@ -576,7 +576,7 @@ _ZN4base8internal12CopyToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_strin
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal12CopyToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr noundef %target) local_unnamed_addr #1 {
+define dso_local void @_ZN4base8internal12CopyToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef %target) local_unnamed_addr #1 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -614,7 +614,7 @@ _ZN4base8internal14AppendToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal14AppendToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr noundef %target) local_unnamed_addr #1 {
+define dso_local void @_ZN4base8internal14AppendToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef %target) local_unnamed_addr #1 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -644,7 +644,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal4copyERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPcmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef writeonly %buf, i64 noundef %n, i64 noundef %pos) local_unnamed_addr #5 {
+define dso_local noundef i64 @_ZN4base8internal4copyERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPcmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef writeonly captures(none) %buf, i64 noundef %n, i64 noundef %pos) local_unnamed_addr #5 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -744,7 +744,7 @@ _ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11ch
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #1 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -894,7 +894,7 @@ _ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11ch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i8 noundef signext %c, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, i8 noundef signext %c, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -1087,7 +1087,7 @@ _ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #1 {
 entry:
   %__rresult.i.i.i = alloca %"class.std::reverse_iterator", align 8
   %agg.tmp.i.i.i = alloca %"class.std::reverse_iterator", align 8
@@ -1197,7 +1197,7 @@ _ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i8 noundef signext %c, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, i8 noundef signext %c, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -1238,7 +1238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %lookup = alloca [256 x i8], align 16
   %length_.i = getelementptr inbounds nuw i8, ptr %self, i64 8
@@ -1611,7 +1611,7 @@ _ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %lookup = alloca [256 x i8], align 16
   %length_.i = getelementptr inbounds nuw i8, ptr %self, i64 8
@@ -1723,7 +1723,7 @@ _ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i8 noundef signext %c, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, i8 noundef signext %c, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -1842,7 +1842,7 @@ _ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_strin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %lookup = alloca [256 x i8], align 16
   %length_.i = getelementptr inbounds nuw i8, ptr %self, i64 8
@@ -2052,7 +2052,7 @@ _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %lookup = alloca [256 x i8], align 16
   %length_.i = getelementptr inbounds nuw i8, ptr %self, i64 8
@@ -2172,7 +2172,7 @@ _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i8 noundef signext %c, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, i8 noundef signext %c, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -2228,7 +2228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZN4base8internal6substrERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i64 noundef %pos, i64 noundef %n) local_unnamed_addr #1 {
+define dso_local { ptr, i64 } @_ZN4base8internal6substrERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, i64 noundef %pos, i64 noundef %n) local_unnamed_addr #1 {
 entry:
   %retval.i = alloca %"class.base::BasicStringPiece", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -2574,7 +2574,7 @@ _ZN4base8internal12CopyToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_strin
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal12CopyToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr noundef %target) local_unnamed_addr #1 {
+define dso_local void @_ZN4base8internal12CopyToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef %target) local_unnamed_addr #1 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -2612,7 +2612,7 @@ _ZN4base8internal14AppendToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal14AppendToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr noundef %target) local_unnamed_addr #1 {
+define dso_local void @_ZN4base8internal14AppendToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef %target) local_unnamed_addr #1 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -2643,7 +2643,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal4copyERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPtmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef writeonly %buf, i64 noundef %n, i64 noundef %pos) local_unnamed_addr #5 {
+define dso_local noundef i64 @_ZN4base8internal4copyERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPtmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef writeonly captures(none) %buf, i64 noundef %n, i64 noundef %pos) local_unnamed_addr #5 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -2737,7 +2737,7 @@ _ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20s
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #1 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #1 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -2896,7 +2896,7 @@ _ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i16 noundef zeroext %c, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, i16 noundef zeroext %c, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -3098,7 +3098,7 @@ _ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #1 {
 entry:
   %__rresult.i.i.i = alloca %"class.std::reverse_iterator.7", align 8
   %agg.tmp.i.i.i = alloca %"class.std::reverse_iterator.7", align 8
@@ -3209,7 +3209,7 @@ _ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i16 noundef zeroext %c, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, i16 noundef zeroext %c, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -3300,7 +3300,7 @@ _ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %self, align 8
   %length_.i = getelementptr inbounds nuw i8, ptr %self, i64 8
@@ -3526,7 +3526,7 @@ _ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i, align 8
@@ -3599,7 +3599,7 @@ _ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i16 noundef zeroext %c, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, i16 noundef zeroext %c, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -3680,7 +3680,7 @@ _ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_strin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i, align 8
@@ -3818,7 +3818,7 @@ _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i, align 8
@@ -3904,7 +3904,7 @@ _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i16 noundef zeroext %c, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, i16 noundef zeroext %c, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -3960,7 +3960,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZN4base8internal6substrERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i64 noundef %pos, i64 noundef %n) local_unnamed_addr #1 {
+define dso_local { ptr, i64 } @_ZN4base8internal6substrERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %self, i64 noundef %pos, i64 noundef %n) local_unnamed_addr #1 {
 entry:
   %retval.i = alloca %"class.base::BasicStringPiece.0", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -3982,7 +3982,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %y) local_unnamed_addr #7 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %0 = load i64, ptr %length_.i, align 8
@@ -4008,7 +4008,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4baselsERSoRKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull returned align 8 dereferenceable(8) %o, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %piece) local_unnamed_addr #1 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4baselsERSoRKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull returned align 8 dereferenceable(8) %o, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %piece) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %piece, align 8
   %length_.i = getelementptr inbounds nuw i8, ptr %piece, i64 8
@@ -4020,13 +4020,13 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare noundef i64 @_ZN4base6c16lenEPKt(ptr noundef) local_unnamed_addr #4
 
@@ -5132,13 +5132,13 @@ return:                                           ; preds = %if.end17, %_ZSt9__f
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

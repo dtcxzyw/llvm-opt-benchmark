@@ -91,7 +91,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @parse_type_int64(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @parse_type_int64(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) %obj, ptr noundef %errp) #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   %start.i = alloca i64, align 8
@@ -253,7 +253,7 @@ return:                                           ; preds = %if.then26, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @parse_type_uint64(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @parse_type_uint64(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) %obj, ptr noundef %errp) #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   %start.i = alloca i64, align 8
@@ -415,7 +415,7 @@ return:                                           ; preds = %if.then26, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @parse_type_size(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @parse_type_size(ptr noundef readonly captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) %obj, ptr noundef %errp) #0 {
 entry:
   %val = alloca i64, align 8
   %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
@@ -443,7 +443,7 @@ return:                                           ; preds = %if.end, %if.end3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @parse_type_bool(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
+define internal zeroext i1 @parse_type_bool(ptr noundef readonly captures(none) %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
   %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
@@ -464,7 +464,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @parse_type_str(ptr nocapture noundef readonly %v, ptr nocapture readnone %name, ptr nocapture noundef writeonly %obj, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @parse_type_str(ptr noundef readonly captures(none) %v, ptr readnone captures(none) %name, ptr noundef writeonly captures(none) %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
@@ -484,7 +484,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @parse_type_number(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @parse_type_number(ptr noundef readonly captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) %obj, ptr noundef %errp) #0 {
 entry:
   %val = alloca double, align 8
   %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
@@ -519,7 +519,7 @@ return:                                           ; preds = %if.end4, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @parse_type_null(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @parse_type_null(ptr noundef readonly captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) %obj, ptr noundef %errp) #0 {
 entry:
   %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
@@ -556,7 +556,7 @@ return:                                           ; preds = %if.end3, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @start_list(ptr nocapture noundef %v, ptr nocapture readnone %name, ptr noundef %list, i64 noundef %size, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @start_list(ptr noundef captures(none) %v, ptr readnone captures(none) %name, ptr noundef %list, i64 noundef %size, ptr readnone captures(none) %errp) #0 {
 entry:
   %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
@@ -602,7 +602,7 @@ if.end14:                                         ; preds = %if.end14.sink.split
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @next_list(ptr nocapture noundef readonly %v, ptr nocapture noundef writeonly %tail, i64 noundef %size) #0 {
+define internal ptr @next_list(ptr noundef readonly captures(none) %v, ptr noundef writeonly captures(none) %tail, i64 noundef %size) #0 {
 entry:
   %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
@@ -628,7 +628,7 @@ return:                                           ; preds = %entry, %sw.epilog
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @check_list(ptr nocapture noundef readonly %v, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @check_list(ptr noundef readonly captures(none) %v, ptr noundef %errp) #0 {
 entry:
   %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
@@ -653,7 +653,7 @@ return:                                           ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @end_list(ptr nocapture noundef %v, ptr noundef readnone %obj) #0 {
+define internal void @end_list(ptr noundef captures(none) %v, ptr noundef readnone %obj) #0 {
 entry:
   %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
@@ -708,13 +708,13 @@ declare i32 @qemu_strtod_finite(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

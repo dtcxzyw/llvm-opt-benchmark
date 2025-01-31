@@ -848,10 +848,10 @@ define dso_local noundef i32 @Curl_init_userdefined(ptr noundef initializes((408
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) #2
 
 declare void @Curl_mime_initpart(ptr noundef) local_unnamed_addr #1
 
@@ -860,10 +860,10 @@ declare void @Curl_ssl_easy_config_init(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_ssl_backend() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_open(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_open(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @Curl_ccalloc, align 8
   %3 = tail call ptr %2(i64 noundef 1, i64 noundef 5200) #12
   %.not = icmp eq ptr %3, null
@@ -1140,7 +1140,7 @@ define dso_local ptr @Curl_get_scheme_handler(ptr noundef %0) local_unnamed_addr
 
 15:                                               ; preds = %._crit_edge.i
   %16 = load ptr, ptr %14, align 8
-  %17 = tail call i32 @curl_strnequal(ptr noundef %0, ptr noundef %16, i64 noundef %2) #12
+  %17 = tail call i32 @curl_strnequal(ptr noundef nonnull %0, ptr noundef %16, i64 noundef %2) #12
   %.not25.i = icmp eq i32 %17, 0
   br i1 %.not25.i, label %22, label %18
 
@@ -1209,7 +1209,7 @@ define dso_local ptr @Curl_getn_scheme_handler(ptr noundef %0, i64 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare signext i8 @Curl_raw_tolower(i8 noundef signext) local_unnamed_addr #1
 
@@ -1403,10 +1403,10 @@ define dso_local range(i32 0, 28) i32 @Curl_parse_login_details(ptr noundef %0, 
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_setup_conn(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
+define dso_local i32 @Curl_setup_conn(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call { i64, i32 } @Curl_pgrsTime(ptr noundef %0, i32 noundef 4) #12
@@ -1457,7 +1457,7 @@ declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 declare i32 @Curl_conn_setup(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_connect(ptr noundef %0, ptr nocapture noundef initializes((0, 1)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local i32 @Curl_connect(ptr noundef %0, ptr noundef captures(none) initializes((0, 1)) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca i8, align 1
@@ -2234,7 +2234,7 @@ thread-pre-split.i.i:                             ; preds = %247
 
 387:                                              ; preds = %382
   %388 = load ptr, ptr %163, align 8
-  %389 = call i64 @strtoul(ptr nocapture noundef %388, ptr noundef null, i32 noundef 10) #12
+  %389 = call i64 @strtoul(ptr noundef captures(none) %388, ptr noundef null, i32 noundef 10) #12
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %391 = load i16, ptr %390, align 8
   %.not225.i.i = icmp eq i16 %391, 0
@@ -3578,7 +3578,7 @@ priority_remove_child.exit:                       ; preds = %8, %.critedge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_data_priority_clear_state(ptr nocapture noundef writeonly initializes((4480, 4504)) %0) local_unnamed_addr #7 {
+define dso_local void @Curl_data_priority_clear_state(ptr noundef writeonly captures(none) initializes((4480, 4504)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
@@ -3842,7 +3842,7 @@ Curl_uc_to_curlcode.exit:                         ; preds = %96, %75, %102, %101
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @set_login(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @set_login(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 140
@@ -3895,7 +3895,7 @@ define internal fastcc range(i32 0, 28) i32 @set_login(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
@@ -4288,7 +4288,7 @@ declare void @Curl_persistconninfo(ptr noundef, ptr noundef, ptr noundef, i32 no
 declare i32 @Curl_conncache_add_conn(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @setup_range(ptr nocapture noundef initializes((4464, 4472)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @setup_range(ptr noundef captures(none) initializes((4464, 4472)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4464
@@ -4450,7 +4450,7 @@ define internal fastcc void @prune_dead_connections(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ConnectionExists(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ConnectionExists(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3072
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3488
   %8 = load i64, ptr %7, align 8
@@ -5450,7 +5450,7 @@ declare ptr @Curl_conncache_extract_oldest(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_ssl_conn_config_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 29) i32 @resolve_server(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 29) i32 @resolve_server(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 672
@@ -5614,7 +5614,7 @@ declare ptr @curl_url_strerror(i32 noundef) local_unnamed_addr #1
 declare i32 @curl_url_get(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zonefrom_url(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc void @zonefrom_url(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [256 x i8], align 16
@@ -5683,7 +5683,7 @@ define internal fastcc void @zonefrom_url(ptr noundef nonnull %0, ptr noundef %1
 declare ptr @Curl_hsts(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @findprotocol(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @findprotocol(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
   %5 = add i64 %4, -1
   %or.cond.i.i = icmp ult i64 %5, 7
@@ -5713,7 +5713,7 @@ define internal fastcc range(i32 0, 2) i32 @findprotocol(ptr noundef %0, ptr noc
 
 17:                                               ; preds = %._crit_edge.i.i
   %18 = load ptr, ptr %16, align 8
-  %19 = tail call i32 @curl_strnequal(ptr noundef %2, ptr noundef %18, i64 noundef %4) #12
+  %19 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef %18, i64 noundef %4) #12
   %.not25.i.i = icmp eq i32 %19, 0
   br i1 %.not25.i.i, label %Curl_get_scheme_handler.exit.thread, label %20
 
@@ -5761,7 +5761,7 @@ Curl_get_scheme_handler.exit.thread:              ; preds = %20, %17, %._crit_ed
   %43 = and i32 %42, 2
   %.not18 = icmp eq i32 %43, 0
   %44 = select i1 %.not18, ptr @.str.14, ptr @.str.22
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %2, ptr noundef nonnull %40, ptr noundef nonnull %44) #12
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef nonnull %2, ptr noundef nonnull %40, ptr noundef nonnull %44) #12
   br label %45
 
 45:                                               ; preds = %Curl_get_scheme_handler.exit.thread, %37
@@ -5774,7 +5774,7 @@ declare i32 @Curl_urldecode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, 
 declare i32 @Curl_setstropt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 declare zeroext i16 @curlx_ultous(i64 noundef) local_unnamed_addr #1
 
@@ -5791,7 +5791,7 @@ declare ptr @curl_getenv(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @Curl_check_noproxy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_proxy(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
+define internal fastcc i32 @parse_proxy(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5981,7 +5981,7 @@ define internal fastcc i32 @parse_proxy(ptr noundef %0, ptr nocapture noundef no
   br label %.thread
 
 91:                                               ; preds = %82
-  %92 = call i64 @strtol(ptr nocapture noundef nonnull %84, ptr noundef null, i32 noundef 10) #12
+  %92 = call i64 @strtol(ptr noundef nonnull captures(none) %84, ptr noundef null, i32 noundef 10) #12
   %93 = trunc i64 %92 to i32
   %94 = load ptr, ptr @Curl_cfree, align 8
   %95 = load ptr, ptr %5, align 8
@@ -6065,7 +6065,7 @@ declare void @Curl_strntoupper(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare zeroext i1 @Curl_ssl_supports(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -6079,7 +6079,7 @@ declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #1
 declare zeroext i1 @Curl_conncache_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @call_extract_if_dead(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 2) i32 @call_extract_if_dead(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = tail call fastcc zeroext i1 @extract_if_dead(ptr noundef %1, ptr noundef %0)
   br i1 %4, label %5, label %7
 
@@ -6208,7 +6208,7 @@ declare zeroext i1 @Curl_multiplex_wanted(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @Curl_conn_is_connected(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @socks_proxy_info_matches(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @socks_proxy_info_matches(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -6257,7 +6257,7 @@ proxy_info_matches.exit:                          ; preds = %14, %8, %2, %26, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @proxy_info_matches(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @proxy_info_matches(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -6293,7 +6293,7 @@ define internal fastcc noundef zeroext i1 @proxy_info_matches(ptr nocapture noun
 declare zeroext i1 @Curl_ssl_conn_config_match(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @Curl_timestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6306,10 +6306,10 @@ declare i64 @Curl_timeleft(ptr noundef, ptr noundef, i1 noundef zeroext) local_u
 declare i32 @Curl_resolv_timeout(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

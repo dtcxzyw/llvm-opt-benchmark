@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [42 x i8] c"Io_ReadPla: The network check has failed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Io_ReadPlaMarkIdentical(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Io_ReadPlaMarkIdentical(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 8
   %.not.i.i = icmp slt i32 %5, %1
   %6 = ashr i32 %1, 5
@@ -222,7 +222,7 @@ Abc_TtEqual.exit:                                 ; preds = %.lr.ph, %81
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Io_ReadPlaMarkContained(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Io_ReadPlaMarkContained(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 8
   %.not.i.i = icmp slt i32 %5, %1
   %6 = ashr i32 %1, 5
@@ -436,7 +436,7 @@ Abc_TtImply.exit47:                               ; preds = %.lr.ph, %91
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Io_ReadPlaRemoveMarked(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define i32 @Io_ReadPlaRemoveMarked(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -528,7 +528,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.split, %Abc_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Io_ReadPlaMergeDistance1(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @Io_ReadPlaMergeDistance1(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 8
   %.not.i.i = icmp slt i32 %5, %1
   %6 = ashr i32 %1, 5
@@ -722,7 +722,7 @@ Io_ReadPlaDistance1.exit.thread.us.us:            ; preds = %74, %75, %Io_ReadPl
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Io_ReadPlaSelfSubsumption(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @Io_ReadPlaSelfSubsumption(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 8
   %.not.i.i = icmp slt i32 %5, %1
   %6 = ashr i32 %1, 5
@@ -1031,7 +1031,7 @@ Io_ReadPlaConsensus.exit.thread.us.us:            ; preds = %100, %101, %Io_Read
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Io_ReadPlaCubeSetup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Io_ReadPlaCubeSetup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   %3 = tail call i32 @Abc_SopGetCubeNum(ptr noundef %.val) #16
@@ -1139,7 +1139,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Io_ReadPlaCubeSetdown(ptr nocapture noundef initializes((4, 8)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Io_ReadPlaCubeSetdown(ptr noundef captures(none) initializes((4, 8)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %5, align 4
   %6 = icmp sgt i32 %2, 0
@@ -1325,7 +1325,7 @@ Vec_StrPush.exit19:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_StrPrintStr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Vec_StrPrintStr(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %4 = trunc i64 %3 to i32
   %5 = icmp sgt i32 %4, 0
@@ -1411,7 +1411,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Io_ReadPlaCubePreprocess(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Io_ReadPlaCubePreprocess(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Io_ReadPlaCubeSetup(ptr noundef %0)
   %5 = getelementptr i8, ptr %0, i64 8
   %.val47 = load ptr, ptr %5, align 8
@@ -1601,10 +1601,10 @@ Vec_BitFree.exit:                                 ; preds = %68, %70
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define ptr @Io_ReadPla(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -2111,7 +2111,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %182, %.lr.ph372.i
 225:                                              ; preds = %.lr.ph380.i
   %226 = getelementptr inbounds nuw ptr, ptr %.2223.i, i64 %indvars.iv483.i
   %227 = load ptr, ptr %226, align 8
-  call fastcc void @Vec_StrPrintStr(ptr noundef %227, ptr noundef %202)
+  call fastcc void @Vec_StrPrintStr(ptr noundef %227, ptr noundef nonnull %202)
   %228 = load ptr, ptr %226, align 8
   call fastcc void @Vec_StrPrintStr(ptr noundef %228, ptr noundef nonnull @.str)
   br label %229
@@ -2142,7 +2142,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %182, %.lr.ph372.i
 234:                                              ; preds = %.lr.ph382.i
   %235 = getelementptr inbounds nuw ptr, ptr %.2223.i, i64 %indvars.iv487.i
   %236 = load ptr, ptr %235, align 8
-  call fastcc void @Vec_StrPrintStr(ptr noundef %236, ptr noundef %202)
+  call fastcc void @Vec_StrPrintStr(ptr noundef %236, ptr noundef nonnull %202)
   %237 = load ptr, ptr %235, align 8
   call fastcc void @Vec_StrPrintStr(ptr noundef %237, ptr noundef nonnull @.str)
   br label %238
@@ -2181,7 +2181,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %182, %.lr.ph372.i
 242:                                              ; preds = %.lr.ph384.i, %.lr.ph384.i
   %243 = getelementptr inbounds nuw ptr, ptr %.2223.i, i64 %indvars.iv492.i
   %244 = load ptr, ptr %243, align 8
-  call fastcc void @Vec_StrPrintStr(ptr noundef %244, ptr noundef %202)
+  call fastcc void @Vec_StrPrintStr(ptr noundef %244, ptr noundef nonnull %202)
   %245 = load ptr, ptr %243, align 8
   call fastcc void @Vec_StrPrintStr(ptr noundef %245, ptr noundef nonnull @.str)
   br label %246
@@ -2201,7 +2201,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %182, %.lr.ph372.i
 250:                                              ; preds = %.lr.ph386.i
   %251 = getelementptr inbounds nuw ptr, ptr %.2223.i, i64 %indvars.iv497.i
   %252 = load ptr, ptr %251, align 8
-  call fastcc void @Vec_StrPrintStr(ptr noundef %252, ptr noundef %202)
+  call fastcc void @Vec_StrPrintStr(ptr noundef %252, ptr noundef nonnull %202)
   %253 = load ptr, ptr %251, align 8
   call fastcc void @Vec_StrPrintStr(ptr noundef %253, ptr noundef nonnull @.str)
   br label %254
@@ -2461,13 +2461,13 @@ declare i32 @Abc_NtkCheckRead(ptr noundef) local_unnamed_addr #2
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare ptr @Abc_NtkStartRead(ptr noundef) local_unnamed_addr #2
 
@@ -2484,24 +2484,24 @@ declare i32 @Extra_FileReaderGetCurPosition(ptr noundef) local_unnamed_addr #2
 declare i32 @Extra_FileReaderGetLineNumber(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #2
 
 declare void @Extra_ProgressBarStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @Io_ReadCreatePi(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @Io_ReadCreatePo(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2519,16 +2519,16 @@ declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

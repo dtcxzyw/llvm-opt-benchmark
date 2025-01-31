@@ -67,7 +67,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.deposit32 = private unnamed_addr constant [49 x i8] c"uint32_t deposit32(uint32_t, int, int, uint32_t)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ctucan_hardware_reset(ptr nocapture noundef initializes((0, 4), (8, 20), (88, 96), (108, 116), (120, 124), (8644, 8656)) %s) local_unnamed_addr #0 {
+define dso_local void @ctucan_hardware_reset(ptr noundef captures(none) initializes((0, 4), (8, 20), (88, 96), (108, 116), (120, 124), (8644, 8656)) %s) local_unnamed_addr #0 {
 entry:
   %tx_status = getelementptr inbounds nuw i8, ptr %s, i64 92
   store i32 34952, ptr %tx_status, align 4
@@ -687,7 +687,7 @@ do.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i64 0, 4294967296) i64 @ctucan_mem_read(ptr nocapture noundef %s, i64 noundef %addr, i32 noundef %size) local_unnamed_addr #1 {
+define dso_local range(i64 0, 4294967296) i64 @ctucan_mem_read(ptr noundef captures(none) %s, i64 noundef %addr, i32 noundef %size) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %addr, 1280
   br i1 %cmp, label %return, label %if.end
@@ -886,10 +886,10 @@ return:                                           ; preds = %entry, %sw.epilog
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @ctucan_can_receive(ptr nocapture noundef readonly %client) #3 {
+define dso_local zeroext i1 @ctucan_can_receive(ptr noundef readonly captures(none) %client) #3 {
 entry:
   %add.ptr = getelementptr i8, ptr %client, i64 -8664
   %bf.load = load i32, ptr %add.ptr, align 8
@@ -899,7 +899,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -1, 275) i64 @ctucan_receive(ptr nocapture noundef %client, ptr noundef readonly %frames, i64 noundef %frames_cnt) #0 {
+define dso_local range(i64 -1, 275) i64 @ctucan_receive(ptr noundef captures(none) %client, ptr noundef readonly %frames, i64 noundef %frames_cnt) #0 {
 entry:
   %cmp = icmp eq i64 %frames_cnt, 0
   br i1 %cmp, label %return, label %if.end
@@ -1104,7 +1104,7 @@ entry:
 declare i32 @can_bus_remove_client(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @ctucan_init(ptr nocapture noundef initializes((0, 4), (8, 20), (88, 96), (108, 116), (120, 124), (8644, 8664)) %s, ptr noundef %irq) local_unnamed_addr #0 {
+define dso_local noundef i32 @ctucan_init(ptr noundef captures(none) initializes((0, 4), (8, 20), (88, 96), (108, 116), (120, 124), (8644, 8664)) %s, ptr noundef %irq) local_unnamed_addr #0 {
 entry:
   %irq1 = getelementptr inbounds nuw i8, ptr %s, i64 8656
   store ptr %irq, ptr %irq1, align 8
@@ -1138,7 +1138,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ctucan_post_load(ptr nocapture noundef %opaque, i32 %version_id) #0 {
+define internal noundef i32 @ctucan_post_load(ptr noundef captures(none) %opaque, i32 %version_id) #0 {
 entry:
   %rx_status_rx_settings.i = getelementptr inbounds nuw i8, ptr %opaque, i64 88
   %bf.load.i = load i32, ptr %rx_status_rx_settings.i, align 8
@@ -1177,7 +1177,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare zeroext i8 @can_dlc2len(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare zeroext i8 @can_len2dlc(i8 noundef zeroext) local_unnamed_addr #4
 

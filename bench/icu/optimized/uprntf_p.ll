@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL8gNullStr = internal constant [7 x i16] [i16 40, i16 110, i16 117, i16 108, i16 108, i16 41, i16 0], align 2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_printf_parse_75(ptr noundef %streamHandler, ptr noundef %fmt, ptr noundef %context, ptr noundef readonly %locStringContext, ptr noundef %formatBundle, ptr nocapture noundef %written, ptr nocapture noundef %ap) local_unnamed_addr #0 {
+define i32 @u_printf_parse_75(ptr noundef %streamHandler, ptr noundef %fmt, ptr noundef %context, ptr noundef readonly %locStringContext, ptr noundef %formatBundle, ptr noundef captures(none) %written, ptr noundef captures(none) %ap) local_unnamed_addr #0 {
 entry:
   %args = alloca %union.ufmt_args, align 8
   %spec = alloca %struct.u_printf_spec, align 4
@@ -1231,7 +1231,7 @@ return:                                           ; preds = %if.then130.i, %if.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare noundef i32 @_Z18ufmt_digitvalue_75Ds(i16 noundef zeroext) local_unnamed_addr #2
 
@@ -1241,7 +1241,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL31u_printf_simple_percent_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr nocapture readnone %formatBundle, ptr nocapture readnone %info, ptr nocapture readnone %args) #0 {
+define internal noundef i32 @_ZL31u_printf_simple_percent_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr readnone captures(none) %formatBundle, ptr readnone captures(none) %info, ptr readnone captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %handler, align 8
   %call = tail call noundef i32 %0(ptr noundef %context, ptr noundef nonnull @_ZZL31u_printf_simple_percent_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_argsE7PERCENT, i32 noundef 1)
@@ -1249,7 +1249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL22u_printf_uchar_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr nocapture readnone %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL22u_printf_uchar_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr readnone captures(none) %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %arg = alloca i16, align 2
   %0 = load i64, ptr %args, align 8
@@ -1262,7 +1262,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL27u_printf_scientific_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL27u_printf_scientific_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %plusSymbol.i = alloca [8 x i16], align 16
   %result = alloca [1024 x i16], align 16
@@ -1381,7 +1381,7 @@ return:                                           ; preds = %entry, %if.end47
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL23u_printf_scidbl_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr noundef %formatBundle, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL23u_printf_scidbl_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %scidbl_info = alloca %struct.u_printf_spec_info, align 4
   %0 = load double, ptr %args, align 8
@@ -1465,7 +1465,7 @@ return:                                           ; preds = %if.then, %if.end29,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL24u_printf_percent_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL24u_printf_percent_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %plusSymbol.i = alloca [8 x i16], align 16
   %result = alloca [1024 x i16], align 16
@@ -1541,7 +1541,7 @@ return:                                           ; preds = %entry, %if.end24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL24u_printf_ustring_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr nocapture readnone %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL24u_printf_ustring_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr readnone captures(none) %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %cmp = icmp eq ptr %0, null
@@ -1558,7 +1558,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL25u_printf_spellout_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL25u_printf_spellout_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %plusSymbol.i = alloca [8 x i16], align 16
   %result = alloca [1024 x i16], align 16
@@ -1634,7 +1634,7 @@ return:                                           ; preds = %entry, %if.end24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL20u_printf_hex_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr nocapture readnone %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL20u_printf_hex_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr readnone captures(none) %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %result = alloca [1024 x i16], align 16
   %len = alloca i32, align 4
@@ -1713,7 +1713,7 @@ if.end21:                                         ; preds = %if.then14, %land.lh
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL21u_printf_char_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr nocapture readnone %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL21u_printf_char_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr readnone captures(none) %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %s = alloca [3 x i16], align 2
   %arg = alloca i8, align 1
@@ -1738,7 +1738,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL24u_printf_integer_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL24u_printf_integer_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %plusSymbol.i = alloca [8 x i16], align 16
   %result = alloca [1024 x i16], align 16
@@ -1849,7 +1849,7 @@ return:                                           ; preds = %if.end7, %if.end31
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL23u_printf_double_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL23u_printf_double_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %plusSymbol.i = alloca [8 x i16], align 16
   %result = alloca [1024 x i16], align 16
@@ -1925,7 +1925,7 @@ return:                                           ; preds = %entry, %if.end24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL22u_printf_count_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture readnone %handler, ptr nocapture readnone %context, ptr nocapture readnone %formatBundle, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args) #4 {
+define internal noundef i32 @_ZL22u_printf_count_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr readnone captures(none) %handler, ptr readnone captures(none) %context, ptr readnone captures(none) %formatBundle, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args) #4 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %fWidth = getelementptr inbounds nuw i8, ptr %info, i64 4
@@ -1935,7 +1935,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL22u_printf_octal_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr nocapture readnone %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL22u_printf_octal_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr readnone captures(none) %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %result = alloca [1024 x i16], align 16
   %len = alloca i32, align 4
@@ -2006,7 +2006,7 @@ if.end18:                                         ; preds = %if.then13, %cond.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL24u_printf_pointer_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr nocapture readnone %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL24u_printf_pointer_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr readnone captures(none) %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %result = alloca [1024 x i16], align 16
   %len = alloca i32, align 4
@@ -2021,7 +2021,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL23u_printf_string_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr nocapture readnone %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL23u_printf_string_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr readnone captures(none) %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %buffer = alloca [128 x i16], align 16
   %0 = load ptr, ptr %args, align 8
@@ -2074,7 +2074,7 @@ return:                                           ; preds = %if.end17, %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL25u_printf_uinteger_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture noundef readonly %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef %info, ptr nocapture noundef readonly %args) #0 {
+define internal noundef i32 @_ZL25u_printf_uinteger_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef readonly captures(none) %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef %info, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %result = alloca [1024 x i16], align 16
   %status = alloca i32, align 4
@@ -2159,7 +2159,7 @@ declare i32 @unum_getTextAttribute_75(ptr noundef, i32 noundef, ptr noundef, i32
 declare void @unum_setTextAttribute_75(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare double @uprv_trunc_75(double noundef) local_unnamed_addr #2
 
@@ -2170,7 +2170,7 @@ declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #2
 declare void @_Z13ufmt_64tou_75PDsPimhai(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i8 noundef signext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 declare noundef ptr @_Z26ufmt_defaultCPToUnicode_75PKciPDsi(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2179,16 +2179,16 @@ declare i32 @unum_formatInt64_75(ptr noundef, i64 noundef, ptr noundef, i32 noun
 declare void @_Z12ufmt_ptou_75PDsPiPva(ptr noundef, ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

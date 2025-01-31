@@ -36,7 +36,7 @@ declare i32 @onigenc_single_byte_code_to_mbclen(i32 noundef, ptr noundef) #1
 declare i32 @onigenc_single_byte_code_to_mbc(i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, ptr nocapture readnone %4) #2 {
+define internal noundef i32 @mbc_case_fold(i32 %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr readnone captures(none) %4) #2 {
   %6 = load ptr, ptr %1, align 8
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
@@ -50,13 +50,13 @@ define internal noundef i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apply_all_case_fold(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @apply_all_case_fold(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @onigenc_apply_all_case_fold_with_map(i32 noundef 46, ptr noundef nonnull @CaseFoldMap, i32 noundef 0, i32 noundef %0, ptr noundef %1, ptr noundef %2) #5
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_case_fold_codes_by_str(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @get_case_fold_codes_by_str(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noundef 46, ptr noundef nonnull @CaseFoldMap, i32 noundef 0, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5
   ret i32 %6
 }
@@ -64,7 +64,7 @@ define internal i32 @get_case_fold_codes_by_str(i32 noundef %0, ptr noundef %1, 
 declare i32 @onigenc_minimum_property_name_to_ctype(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #3 {
   %4 = icmp ult i32 %0, 256
   br i1 %4, label %5, label %12
 
@@ -89,7 +89,7 @@ declare ptr @onigenc_single_byte_left_adjust_char_head(ptr noundef, ptr noundef,
 declare i32 @onigenc_always_true_is_allowed_reverse_match(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef readnone %4, ptr nocapture readnone %5) #4 {
+define internal i32 @case_map(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef readnone %4, ptr readnone captures(none) %5) #4 {
   %7 = load i32, ptr %0, align 4
   %8 = load ptr, ptr %1, align 8
   %9 = icmp ult ptr %8, %2

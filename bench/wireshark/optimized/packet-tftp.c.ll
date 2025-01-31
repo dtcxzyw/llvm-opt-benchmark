@@ -241,7 +241,7 @@ declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_tftp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_tftp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load ptr, ptr @global_tftp_port_range, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %7 = load i32, ptr %6, align 8
@@ -390,7 +390,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare i32 @register_export_object(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tftp_eo_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @tftp_eo_packet(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc_n(i64 noundef 1, i64 noundef 48) #7
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i32, ptr %7, align 4
@@ -435,7 +435,7 @@ define hidden void @proto_reg_handoff_tftp() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_embeddedtftp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_embeddedtftp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %34, label %7
@@ -512,7 +512,7 @@ tftp_info_for_conversation.exit:                  ; preds = %13, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_tftp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_tftp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc i32 @is_valid_request_body(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %27, label %6
@@ -1264,7 +1264,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_valid_request_body(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_valid_request_body(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.lr.ph, label %.loopexit
@@ -1372,7 +1372,7 @@ declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr nounde
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tftp_dissect_options(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @tftp_dissect_options(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef writeonly captures(none) %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %2) #6
   %.not94 = icmp eq i32 %7, 0
   br i1 %.not94, label %._crit_edge, label %.lr.ph
@@ -1432,7 +1432,7 @@ define internal fastcc void @tftp_dissect_options(ptr noundef %0, ptr noundef %1
   br i1 %.not93, label %43, label %49
 
 43:                                               ; preds = %41
-  %44 = tail call i64 @strtol(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #6
+  %44 = tail call i64 @strtol(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #6
   %45 = trunc i64 %44 to i32
   %46 = add i32 %45, -65536
   %or.cond4 = icmp ult i32 %46, -65535
@@ -1461,7 +1461,7 @@ define internal fastcc void @tftp_dissect_options(ptr noundef %0, ptr noundef %1
   br i1 %.not87, label %56, label %64
 
 56:                                               ; preds = %54
-  %57 = tail call i64 @strtol(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #6
+  %57 = tail call i64 @strtol(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #6
   %58 = trunc i64 %57 to i32
   %59 = add i32 %58, -65465
   %or.cond9 = icmp ult i32 %59, -65457
@@ -1482,7 +1482,7 @@ define internal fastcc void @tftp_dissect_options(ptr noundef %0, ptr noundef %1
   br i1 %.not88, label %66, label %74
 
 66:                                               ; preds = %64
-  %67 = tail call i64 @strtol(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #6
+  %67 = tail call i64 @strtol(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #6
   %68 = trunc i64 %67 to i32
   %69 = add i32 %68, -65536
   %or.cond11 = icmp ult i32 %69, -65535
@@ -1568,7 +1568,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1586,7 +1586,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

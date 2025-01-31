@@ -879,7 +879,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @fold_unaryop.ops = internal unnamed_addr constant [5 x ptr] [ptr null, ptr @PyNumber_Invert, ptr @unary_not, ptr @PyNumber_Positive, ptr @PyNumber_Negative], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyAST_Optimize(ptr nocapture noundef readonly %mod, ptr noundef %arena, i32 noundef %optimize, i32 noundef %ff_features) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyAST_Optimize(ptr noundef readonly captures(none) %mod, ptr noundef %arena, i32 noundef %optimize, i32 noundef %ff_features) local_unnamed_addr #0 {
 entry:
   %state = alloca %struct._PyASTOptimizeState, align 4
   store i32 %optimize, ptr %state, align 4
@@ -2729,7 +2729,7 @@ return:                                           ; preds = %land.lhs.true.i512,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr nocapture noundef %node_, ptr noundef %ctx_, ptr nocapture noundef nonnull %state) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(none) %node_, ptr noundef %ctx_, ptr noundef nonnull captures(none) %state) unnamed_addr #0 {
 entry:
   %recursion_depth = getelementptr inbounds nuw i8, ptr %state, i64 8
   %0 = load i32, ptr %recursion_depth, align 4
@@ -3774,7 +3774,7 @@ declare ptr @_PyAST_JoinedStr(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @astfold_arguments(ptr nocapture noundef readonly %node_, ptr noundef %ctx_, ptr nocapture noundef nonnull %state) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @astfold_arguments(ptr noundef readonly captures(none) %node_, ptr noundef %ctx_, ptr noundef nonnull captures(none) %state) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %node_, align 8
   %cmp = icmp eq ptr %0, null
@@ -4046,7 +4046,7 @@ return:                                           ; preds = %land.lhs.true.i, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_iter(ptr nocapture noundef %arg, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_iter(ptr noundef captures(none) %arg, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %arg, align 8
   switch i32 %0, label %return [
@@ -4276,7 +4276,7 @@ return:                                           ; preds = %for.body.i, %if.end
 declare ptr @PyFrozenSet_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @make_const(ptr nocapture noundef writeonly %node, ptr noundef %val, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @make_const(ptr noundef writeonly captures(none) %node, ptr noundef %val, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %val, null
   br i1 %cmp, label %if.then, label %if.end2
@@ -4336,7 +4336,7 @@ declare void @PyErr_Clear() local_unnamed_addr #1
 declare i32 @_PyArena_AddPyObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @astfold_pattern(ptr nocapture noundef readonly %node_, ptr noundef %ctx_, ptr noundef nonnull %state) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @astfold_pattern(ptr noundef readonly captures(none) %node_, ptr noundef %ctx_, ptr noundef nonnull %state) unnamed_addr #0 {
 entry:
   %recursion_depth = getelementptr inbounds nuw i8, ptr %state, i64 8
   %0 = load i32, ptr %recursion_depth, align 4
@@ -4618,7 +4618,7 @@ return:                                           ; preds = %land.lhs.true105, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_binop(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_binop(ptr noundef captures(none) %node, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [9 x i8], align 1
   %v = getelementptr inbounds nuw i8, ptr %node, i64 8
@@ -5642,7 +5642,7 @@ return:                                           ; preds = %cond.end19.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_unaryop(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_unaryop(ptr noundef captures(none) %node, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %v = getelementptr inbounds nuw i8, ptr %node, i64 8
   %operand = getelementptr inbounds nuw i8, ptr %node, i64 16
@@ -5757,7 +5757,7 @@ return:                                           ; preds = %if.then11, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_compare(ptr readonly %node.16.val, ptr nocapture readonly %node.24.val, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_compare(ptr readonly %node.16.val, ptr readonly captures(none) %node.24.val, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %node.16.val, null
   br i1 %cmp, label %cond.end, label %cond.false
@@ -5793,7 +5793,7 @@ return:                                           ; preds = %if.then, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_subscr(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_subscr(ptr noundef captures(none) %node, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %v = getelementptr inbounds nuw i8, ptr %node, i64 8
   %0 = load ptr, ptr %v, align 8
@@ -5866,7 +5866,7 @@ return:                                           ; preds = %if.end6.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_tuple(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_tuple(ptr noundef captures(none) %node, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %node, i64 16
   %0 = load i32, ptr %ctx, align 8
@@ -6240,7 +6240,7 @@ declare ptr @PyNumber_And(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @PyUnicode_Substring(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -6249,7 +6249,7 @@ declare ptr @PyUnicode_Replace(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 declare ptr @_PyAST_Constant(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 
@@ -6260,7 +6260,7 @@ declare i64 @_PyLong_NumBits(ptr noundef) local_unnamed_addr #1
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @check_complexity(ptr nocapture noundef readonly %obj, i64 noundef range(i64 0, -9223372036854775808) %limit) unnamed_addr #5 {
+define internal fastcc i64 @check_complexity(ptr noundef readonly captures(none) %obj, i64 noundef range(i64 0, -9223372036854775808) %limit) unnamed_addr #5 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -6339,10 +6339,10 @@ declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_GetItem(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

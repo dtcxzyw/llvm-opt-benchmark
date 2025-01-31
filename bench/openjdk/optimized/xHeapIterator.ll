@@ -748,7 +748,7 @@ _ZN19GenericTaskQueueSetI17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072E
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @_ZN14XRootsIteratorC1Ei(ptr noundef nonnull align 8 dereferenceable(378), i32 noundef) unnamed_addr #2
 
@@ -1222,7 +1222,7 @@ define hidden void @_ZN13XHeapIterator15push_weak_rootsERK20XHeapIteratorContext
 declare void @_ZN18XWeakRootsIterator5applyEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(576), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13XHeapIterator12follow_arrayERK20XHeapIteratorContextP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(29) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13XHeapIterator12follow_arrayERK20XHeapIteratorContextP7oopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(29) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.NativeAccessClosure, align 8
   %5 = load i8, ptr @UseCompressedClassPointers, align 1
   %6 = trunc i8 %5 to i1
@@ -1370,7 +1370,7 @@ define linkonce_odr hidden void @_ZN23XHeapIteratorOopClosureILb0EE8do_klassEP5K
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13XHeapIterator18follow_array_chunkERK20XHeapIteratorContextRK12ObjArrayTask(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(29) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13XHeapIterator18follow_array_chunkERK20XHeapIteratorContextRK12ObjArrayTask(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(29) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %2, align 8
   %5 = load i8, ptr @UseCompressedClassPointers, align 1
   %6 = trunc i8 %5 to i1
@@ -1872,7 +1872,7 @@ define linkonce_odr hidden void @_ZN26XHeapIteratorThreadClosure9do_threadEP6Thr
 declare void @_ZN6Thread7oops_doEP10OopClosureP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(888), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -11174,10 +11174,10 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23XHeapIteratorOopCl
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -148,7 +148,7 @@ define noundef i32 @serializer_p_fini() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 9203) i32 @serialize_p_data_to_string(ptr nocapture noundef writeonly %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 9203) i32 @serialize_p_data_to_string(ptr noundef writeonly captures(none) %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.yaml_event_s, align 8
   %6 = alloca %struct.yaml_version_directive_s, align 8
   %7 = alloca %struct.yaml_emitter_s, align 8
@@ -271,7 +271,7 @@ declare void @yaml_emitter_delete(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_xfer_buf_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9203) i32 @serialize_p_string_to_data(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 9203) i32 @serialize_p_string_to_data(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.yaml_parser_s, align 8
   %.not = icmp eq i64 %2, 0
@@ -335,7 +335,7 @@ _parse_yaml.exit:                                 ; preds = %13
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare ptr @data_new() local_unnamed_addr #1
 
@@ -344,7 +344,7 @@ declare void @data_free(ptr noundef) local_unnamed_addr #1
 declare void @yaml_parser_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @yaml_emitter_initialize(ptr noundef) local_unnamed_addr #1
 
@@ -357,7 +357,7 @@ declare void @yaml_emitter_set_break(ptr noundef, i32 noundef) local_unnamed_add
 declare void @yaml_emitter_set_output(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 0) i32 @_yaml_write_handler(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal range(i32 1, 0) i32 @_yaml_write_handler(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = trunc i64 %2 to i32
   %5 = add i32 %4, 1
   %6 = tail call i32 @try_grow_buf_remaining(ptr noundef %0, i32 noundef %5) #6
@@ -668,7 +668,7 @@ declare ptr @slurm_xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 declare double @data_get_float(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
@@ -758,7 +758,7 @@ declare i32 @yaml_parser_initialize(ptr noundef) local_unnamed_addr #1
 declare void @yaml_parser_set_input_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.yaml_event_s, align 8
   %6 = icmp sgt i32 %0, 64
   br i1 %6, label %10, label %.preheader
@@ -863,7 +863,7 @@ declare void @yaml_event_delete(ptr noundef) local_unnamed_addr #1
 declare void @_log_flag_hex(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 6) i32 @_on_parse_event(i32 noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @_on_parse_event(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %3) #6
   %7 = icmp eq i32 %6, 2
   %8 = load i32, ptr %2, align 8
@@ -1062,10 +1062,10 @@ declare i32 @data_convert_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @slurm_xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

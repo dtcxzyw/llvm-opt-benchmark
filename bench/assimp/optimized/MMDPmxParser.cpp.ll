@@ -515,7 +515,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN4utf88utf16to8IPKtPcEET0_T_S5_S4_(ptr noundef %start, ptr noundef %end, ptr noundef %result) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -714,7 +714,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx22PmxVertexSkinningBDEF14ReadEPSiPNS_10PmxSettingE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((8, 12)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx22PmxVertexSkinningBDEF14ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((8, 12)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) unnamed_addr #3 align 2 {
 entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
@@ -762,7 +762,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx22PmxVertexSkinningBDEF24ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(20) initializes((8, 16)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx22PmxVertexSkinningBDEF24ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(20) initializes((8, 16)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) unnamed_addr #3 align 2 {
 entry:
   %tmp8.i4 = alloca i8, align 1
   %tmp16.i5 = alloca i16, align 2
@@ -853,7 +853,7 @@ _ZN3pmx9ReadIndexEPSii.exit20:                    ; preds = %_ZN3pmx9ReadIndexEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx22PmxVertexSkinningBDEF44ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 24)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx22PmxVertexSkinningBDEF44ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 24)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) unnamed_addr #3 align 2 {
 entry:
   %tmp8.i45 = alloca i8, align 1
   %tmp16.i46 = alloca i16, align 2
@@ -1032,7 +1032,7 @@ _ZN3pmx9ReadIndexEPSii.exit61:                    ; preds = %_ZN3pmx9ReadIndexEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx21PmxVertexSkinningSDEF4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(56) initializes((8, 16)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx21PmxVertexSkinningSDEF4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(56) initializes((8, 16)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) unnamed_addr #3 align 2 {
 entry:
   %tmp8.i7 = alloca i8, align 1
   %tmp16.i8 = alloca i16, align 2
@@ -1129,7 +1129,7 @@ _ZN3pmx9ReadIndexEPSii.exit23:                    ; preds = %_ZN3pmx9ReadIndexEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx21PmxVertexSkinningQDEF4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 24)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx21PmxVertexSkinningQDEF4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 24)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) unnamed_addr #3 align 2 {
 entry:
   %tmp8.i45 = alloca i8, align 1
   %tmp16.i46 = alloca i16, align 2
@@ -1431,7 +1431,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx11PmxMaterial4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull %stream, ptr nocapture noundef readonly %setting) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx11PmxMaterial4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull %stream, ptr noundef readonly captures(none) %setting) local_unnamed_addr #3 align 2 {
 entry:
   %tmp8.i39 = alloca i8, align 1
   %tmp16.i40 = alloca i16, align 2
@@ -1614,7 +1614,7 @@ if.end:                                           ; preds = %_ZN3pmx9ReadIndexEP
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx9PmxIkLink4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(32) initializes((0, 4)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx9PmxIkLink4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(32) initializes((0, 4)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) local_unnamed_addr #3 align 2 {
 entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
@@ -1675,7 +1675,7 @@ if.end:                                           ; preds = %if.then, %_ZN3pmx9R
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx7PmxBone4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull %stream, ptr nocapture noundef readonly %setting) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3pmx7PmxBone4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull %stream, ptr noundef readonly captures(none) %setting) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp8.i61 = alloca i8, align 1
   %tmp16.i62 = alloca i16, align 2
@@ -1992,7 +1992,7 @@ if.end70:                                         ; preds = %for.body, %_ZNSt10u
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx20PmxMorphVertexOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(24) initializes((8, 12)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx20PmxMorphVertexOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(24) initializes((8, 12)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) unnamed_addr #3 align 2 {
 entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
@@ -2042,7 +2042,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx16PmxMorphUVOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(28) initializes((8, 12)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx16PmxMorphUVOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(28) initializes((8, 12)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) unnamed_addr #3 align 2 {
 entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
@@ -2092,7 +2092,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx18PmxMorphBoneOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 12)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx18PmxMorphBoneOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 12)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) unnamed_addr #3 align 2 {
 entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
@@ -2144,7 +2144,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx22PmxMorphMaterialOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(128) initializes((8, 12)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx22PmxMorphMaterialOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(128) initializes((8, 12)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) unnamed_addr #3 align 2 {
 entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
@@ -2212,7 +2212,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx19PmxMorphGroupOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(16) initializes((8, 12)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx19PmxMorphGroupOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(16) initializes((8, 12)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) unnamed_addr #3 align 2 {
 entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
@@ -2262,7 +2262,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx18PmxMorphFlipOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(16) initializes((8, 12)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx18PmxMorphFlipOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(16) initializes((8, 12)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) unnamed_addr #3 align 2 {
 entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
@@ -2312,7 +2312,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx20PmxMorphImplusOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 12)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx20PmxMorphImplusOffset4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 12)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) unnamed_addr #3 align 2 {
 entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
@@ -2713,7 +2713,7 @@ sw.epilog:                                        ; preds = %for.body79, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx15PmxFrameElement4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef nonnull %stream, ptr nocapture noundef readonly %setting) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx15PmxFrameElement4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef nonnull %stream, ptr noundef readonly captures(none) %setting) local_unnamed_addr #3 align 2 {
 entry:
   %tmp8.i4 = alloca i8, align 1
   %tmp16.i5 = alloca i16, align 2
@@ -2814,7 +2814,7 @@ if.end:                                           ; preds = %_ZN3pmx9ReadIndexEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx8PmxFrame4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %stream, ptr nocapture noundef readonly %setting) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3pmx8PmxFrame4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %stream, ptr noundef readonly captures(none) %setting) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2886,7 +2886,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt10u
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx12PmxRigidBody4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(133) %this, ptr noundef nonnull %stream, ptr nocapture noundef readonly %setting) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx12PmxRigidBody4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(133) %this, ptr noundef nonnull %stream, ptr noundef readonly captures(none) %setting) local_unnamed_addr #3 align 2 {
 entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
@@ -2969,7 +2969,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx13PmxJointParam4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(104) initializes((0, 8)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx13PmxJointParam4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(104) initializes((0, 8)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) local_unnamed_addr #3 align 2 {
 entry:
   %tmp8.i11 = alloca i8, align 1
   %tmp16.i12 = alloca i16, align 2
@@ -3073,7 +3073,7 @@ _ZN3pmx9ReadIndexEPSii.exit27:                    ; preds = %_ZN3pmx9ReadIndexEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx8PmxJoint4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull %stream, ptr nocapture noundef readonly %setting) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx8PmxJoint4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull %stream, ptr noundef readonly captures(none) %setting) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3094,7 +3094,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3pmx18PmxAncherRigidBody4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(9) initializes((0, 8)) %this, ptr noundef %stream, ptr nocapture noundef readonly %setting) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3pmx18PmxAncherRigidBody4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(9) initializes((0, 8)) %this, ptr noundef %stream, ptr noundef readonly captures(none) %setting) local_unnamed_addr #3 align 2 {
 entry:
   %tmp8.i4 = alloca i8, align 1
   %tmp16.i5 = alloca i16, align 2
@@ -3185,7 +3185,7 @@ _ZN3pmx9ReadIndexEPSii.exit20:                    ; preds = %_ZN3pmx9ReadIndexEP
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN3pmx11PmxSoftBody4ReadEPSiPNS_10PmxSettingE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(232) %this, ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3pmx11PmxSoftBody4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %this, ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #17
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.3)
@@ -5066,7 +5066,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -5216,10 +5216,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

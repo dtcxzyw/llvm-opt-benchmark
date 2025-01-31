@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [16 x i8] c"Unknown version\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_media_sound_MidiInDeviceProvider_nGetNumDevices(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_com_sun_media_sound_MidiInDeviceProvider_nGetNumDevices(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 (...) @MIDI_IN_GetNumDevices() #3
   ret i32 %3
 }
@@ -17,7 +17,7 @@ define i32 @Java_com_sun_media_sound_MidiInDeviceProvider_nGetNumDevices(ptr noc
 declare i32 @MIDI_IN_GetNumDevices(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetName(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetName(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [129 x i8], align 16
   store i8 0, ptr %4, align 16
   %5 = call i32 @MIDI_IN_GetDeviceName(i32 noundef %2, ptr noundef nonnull %4, i32 noundef 128) #3
@@ -40,7 +40,7 @@ define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetName(ptr noundef %
 declare i32 @MIDI_IN_GetDeviceName(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetVendor(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetVendor(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [129 x i8], align 16
   store i8 0, ptr %4, align 16
   %5 = call i32 @MIDI_IN_GetDeviceVendor(i32 noundef %2, ptr noundef nonnull %4, i32 noundef 128) #3
@@ -63,7 +63,7 @@ define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetVendor(ptr noundef
 declare i32 @MIDI_IN_GetDeviceVendor(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetDescription(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetDescription(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [129 x i8], align 16
   store i8 0, ptr %4, align 16
   %5 = call i32 @MIDI_IN_GetDeviceDescription(i32 noundef %2, ptr noundef nonnull %4, i32 noundef 128) #3
@@ -86,7 +86,7 @@ define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetDescription(ptr no
 declare i32 @MIDI_IN_GetDeviceDescription(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetVersion(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetVersion(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [129 x i8], align 16
   store i8 0, ptr %4, align 16
   %5 = call i32 @MIDI_IN_GetDeviceVersion(i32 noundef %2, ptr noundef nonnull %4, i32 noundef 128) #3
@@ -109,7 +109,7 @@ define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetVersion(ptr nounde
 declare i32 @MIDI_IN_GetDeviceVersion(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

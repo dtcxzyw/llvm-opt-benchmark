@@ -141,7 +141,7 @@ _ZN12b2BroadPhase10BufferMoveEi.exit:             ; preds = %entry, %if.then.i
 declare noundef i32 @_ZN13b2DynamicTree11CreateProxyERK6b2AABBPv(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12b2BroadPhase10BufferMoveEi(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #0 align 2 {
+define void @_ZN12b2BroadPhase10BufferMoveEi(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #0 align 2 {
 entry:
   %m_moveCount = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load i32, ptr %m_moveCount, align 4
@@ -222,7 +222,7 @@ _ZN12b2BroadPhase12UnBufferMoveEi.exit:           ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN12b2BroadPhase12UnBufferMoveEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #6 align 2 {
+define void @_ZN12b2BroadPhase12UnBufferMoveEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #6 align 2 {
 entry:
   %m_moveCount = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load i32, ptr %m_moveCount, align 4
@@ -309,7 +309,7 @@ if.end:                                           ; preds = %_ZN12b2BroadPhase10
 declare noundef zeroext i1 @_ZN13b2DynamicTree9MoveProxyEiRK6b2AABBRK6b2Vec2(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12b2BroadPhase10TouchProxyEi(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #0 align 2 {
+define void @_ZN12b2BroadPhase10TouchProxyEi(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #0 align 2 {
 entry:
   %m_moveCount.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load i32, ptr %m_moveCount.i, align 4
@@ -348,10 +348,10 @@ _ZN12b2BroadPhase10BufferMoveEi.exit:             ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN12b2BroadPhase13QueryCallbackEi(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN12b2BroadPhase13QueryCallbackEi(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %this, i32 noundef %proxyId) local_unnamed_addr #0 align 2 {
 entry:
   %m_queryProxyId = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %m_queryProxyId, align 8

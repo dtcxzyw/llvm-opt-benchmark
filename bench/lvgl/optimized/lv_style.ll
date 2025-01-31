@@ -110,7 +110,7 @@ define zeroext i8 @lv_style_get_num_custom_props() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @lv_style_remove_prop(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @lv_style_remove_prop(ptr noundef captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 12
   %.val = load i8, ptr %3, align 4, !tbaa !3
   switch i8 %.val, label %.lr.ph.preheader [
@@ -199,7 +199,7 @@ define noundef zeroext i1 @lv_style_remove_prop(ptr nocapture noundef %0, i8 nou
 declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_style_set_prop(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr %2) local_unnamed_addr #0 {
+define void @lv_style_set_prop(ptr noundef captures(none) %0, i8 noundef zeroext %1, ptr %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 12
   %.val = load i8, ptr %4, align 4, !tbaa !3
   %5 = icmp eq i8 %.val, -1
@@ -300,7 +300,7 @@ define void @lv_style_set_prop(ptr nocapture noundef %0, i8 noundef zeroext %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @lv_style_get_prop(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @lv_style_get_prop(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %0, i64 12
   %.val.i = load i8, ptr %4, align 4, !tbaa !3
   %5 = icmp eq i8 %.val.i, -1
@@ -451,7 +451,7 @@ define noundef ptr @lv_style_prop_get_default(i8 noundef zeroext %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_style_is_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define zeroext i1 @lv_style_is_empty(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i8, ptr %2, align 4, !tbaa !3
   %4 = icmp eq i8 %3, 0

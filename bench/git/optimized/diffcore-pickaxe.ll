@@ -154,7 +154,7 @@ if.else31:                                        ; preds = %land.lhs.true27.if.
   %and33.pre-phi = phi ptr [ %4, %land.lhs.true27.if.else31_crit_edge ], [ null, %if.then23 ]
   %call35 = tail call ptr @kwsalloc(ptr noundef %and33.pre-phi) #9
   %call36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
-  %call37 = tail call ptr @kwsincr(ptr noundef %call35, ptr noundef %0, i64 noundef %call36) #9
+  %call37 = tail call ptr @kwsincr(ptr noundef %call35, ptr noundef nonnull %0, i64 noundef %call36) #9
   %call38 = tail call ptr @kwsprep(ptr noundef %call35) #9
   br label %if.end47
 
@@ -273,7 +273,7 @@ if.end53:                                         ; preds = %if.then52, %if.end5
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @diff_grep(ptr noundef %one, ptr noundef %two, ptr nocapture noundef readonly %o, ptr noundef %regexp, ptr nocapture readnone %kws) #0 {
+define internal i32 @diff_grep(ptr noundef %one, ptr noundef %two, ptr noundef readonly captures(none) %o, ptr noundef %regexp, ptr readnone captures(none) %kws) #0 {
 entry:
   %ecbdata = alloca %struct.diffgrep_cb, align 8
   %xpp = alloca %struct.s_xpparam, align 8
@@ -303,7 +303,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @has_changes(ptr noundef readonly %one, ptr noundef readonly %two, ptr nocapture readnone %o, ptr noundef %regexp, ptr noundef %kws) #0 {
+define internal range(i32 0, 2) i32 @has_changes(ptr noundef readonly %one, ptr noundef readonly %two, ptr readnone captures(none) %o, ptr noundef %regexp, ptr noundef %kws) #0 {
 entry:
   %regmatch.i8 = alloca %struct.regmatch_t, align 4
   %kwsm.i9 = alloca %struct.kwsmatch, align 8
@@ -550,7 +550,7 @@ cond.end5:                                        ; preds = %cond.end, %contains
 declare i32 @has_non_ascii(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @basic_regex_quote_buf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -561,7 +561,7 @@ declare ptr @kwsalloc(ptr noundef) local_unnamed_addr #2
 declare ptr @kwsincr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @kwsprep(ptr noundef) local_unnamed_addr #2
 
@@ -577,12 +577,12 @@ declare i64 @regerror(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_
 declare void @die(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @xdi_diff_outf(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @diffgrep_consume(ptr nocapture noundef %priv, ptr noundef %line, i64 noundef %len) #0 {
+define internal range(i32 0, 2) i32 @diffgrep_consume(ptr noundef captures(none) %priv, ptr noundef %line, i64 noundef %len) #0 {
 entry:
   %regmatch = alloca %struct.regmatch_t, align 4
   %0 = load i8, ptr %line, align 1
@@ -627,7 +627,7 @@ declare i32 @regexec(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 nou
 declare i64 @kwsexec(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pickaxe_match(ptr noundef %p, ptr noundef %o, ptr noundef %regexp, ptr noundef %kws, ptr nocapture noundef readonly %fn) unnamed_addr #0 {
+define internal fastcc i32 @pickaxe_match(ptr noundef %p, ptr noundef %o, ptr noundef %regexp, ptr noundef %kws, ptr noundef readonly captures(none) %fn) unnamed_addr #0 {
 entry:
   %mf1 = alloca %struct.s_mmfile, align 8
   %mf2 = alloca %struct.s_mmfile, align 8
@@ -791,7 +791,7 @@ declare void @diff_free_filepair(ptr noundef) local_unnamed_addr #2
 declare void @diff_q(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @oidset_contains(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -806,10 +806,10 @@ declare i64 @fill_textconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 declare void @diff_free_filespec_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

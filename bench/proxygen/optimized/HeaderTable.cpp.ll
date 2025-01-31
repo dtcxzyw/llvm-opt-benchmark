@@ -140,7 +140,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 0, 67108864) i32 @_ZN8proxygen11HeaderTable18initialTableLengthEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %this, i32 noundef %capacity) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 67108864) i32 @_ZN8proxygen11HeaderTable18initialTableLengthEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %this, i32 noundef %capacity) local_unnamed_addr #3 align 2 {
 entry:
   %shr.i.mask = and i32 %capacity, -32
   %cmp = icmp eq i32 %shr.i.mask, 32
@@ -150,7 +150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 0, 134217728) i32 @_ZNK8proxygen11HeaderTable17getMaxTableLengthEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %this, i32 noundef %capacityVal) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 134217728) i32 @_ZNK8proxygen11HeaderTable17getMaxTableLengthEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %this, i32 noundef %capacityVal) local_unnamed_addr #3 align 2 {
 entry:
   %shr = lshr i32 %capacityVal, 5
   ret i32 %shr
@@ -489,7 +489,7 @@ entry:
 declare double @llvm.ceil.f64(double) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8proxygen11HeaderTable4nextEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %i) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK8proxygen11HeaderTable4nextEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i32 noundef %i) local_unnamed_addr #7 align 2 {
 entry:
   %add = add i32 %i, 1
   %conv = zext i32 %add to i64
@@ -605,7 +605,7 @@ _ZSt4swapIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 0, -4294967295) i64 @_ZNK8proxygen11HeaderTable8getIndexERKNS_11HPACKHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %header) local_unnamed_addr #4 align 2 {
+define range(i64 0, -4294967295) i64 @_ZNK8proxygen11HeaderTable8getIndexERKNS_11HPACKHeaderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %header) local_unnamed_addr #4 align 2 {
 entry:
   %value = getelementptr inbounds nuw i8, ptr %header, i64 8
   %0 = load ptr, ptr %value, align 8
@@ -625,7 +625,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 0, -4294967295) i64 @_ZNK8proxygen11HeaderTable12getIndexImplERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %headerName, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %nameOnly) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, -4294967295) i64 @_ZNK8proxygen11HeaderTable12getIndexImplERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %headerName, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %nameOnly) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %indexNames_ = getelementptr inbounds nuw i8, ptr %this, i64 52
@@ -915,14 +915,14 @@ return:                                           ; preds = %if.end20.i.i, %whil
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 0, -4294967295) i64 @_ZNK8proxygen11HeaderTable8getIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #4 align 2 {
+define range(i64 0, -4294967295) i64 @_ZNK8proxygen11HeaderTable8getIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call i64 @_ZNK8proxygen11HeaderTable12getIndexImplERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEb(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext false)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
@@ -936,7 +936,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 1, 0) i32 @_ZNK8proxygen11HeaderTable10toExternalEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %internalIndex) local_unnamed_addr #7 align 2 {
+define noundef range(i32 1, 0) i32 @_ZNK8proxygen11HeaderTable10toExternalEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i32 noundef %internalIndex) local_unnamed_addr #7 align 2 {
 entry:
   %head_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %head_, align 4
@@ -957,7 +957,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen11HeaderTable7hasNameERKNS_15HPACKHeaderNameE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %headerName) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen11HeaderTable7hasNameERKNS_15HPACKHeaderNameE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %headerName) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %indexNames_ = getelementptr inbounds nuw i8, ptr %this, i64 52
@@ -1123,7 +1123,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK8proxygen11HeaderTable9nameIndexERKNS_15HPACKHeaderNameE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %headerName) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK8proxygen11HeaderTable9nameIndexERKNS_15HPACKHeaderNameE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %headerName) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call i64 @_ZNK8proxygen11HeaderTable12getIndexImplERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEb(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %headerName, ptr null, ptr null, i1 noundef zeroext true)
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %call to i32
@@ -1131,7 +1131,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8proxygen11HeaderTable9getHeaderEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %index) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8proxygen11HeaderTable9getHeaderEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i32 noundef %index) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %call = tail call noundef zeroext i1 @_ZNK8proxygen11HeaderTable7isValidEj(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %index)
@@ -1178,7 +1178,7 @@ cleanup.done:                                     ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen11HeaderTable7isValidEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %index) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8proxygen11HeaderTable7isValidEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i32 noundef %index) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1225,7 +1225,7 @@ if.end:                                           ; preds = %invoke.cont10, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, -1) i32 @_ZNK8proxygen11HeaderTable10toInternalEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %externalIndex) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, -1) i32 @_ZNK8proxygen11HeaderTable10toInternalEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i32 noundef %externalIndex) local_unnamed_addr #7 align 2 {
 entry:
   %head_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %head_, align 4
@@ -1563,7 +1563,7 @@ if.end39:                                         ; preds = %entry.if.end39_crit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8proxygen11HeaderTable4tailEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK8proxygen11HeaderTable4tailEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %head_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %head_, align 4
@@ -1805,7 +1805,7 @@ _ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE6resizeEm.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen11HeaderTable18updateResizedTableEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %oldTail, i32 noundef %oldLength, i32 noundef %newLength) unnamed_addr #5 align 2 {
+define void @_ZN8proxygen11HeaderTable18updateResizedTableEjjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i32 noundef %oldTail, i32 noundef %oldLength, i32 noundef %newLength) unnamed_addr #5 align 2 {
 entry:
   %conv = zext i32 %oldTail to i64
   %conv9 = zext i32 %oldLength to i64
@@ -1901,7 +1901,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8proxygen11HeaderTableeqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %other) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen11HeaderTableeqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %other) local_unnamed_addr #7 align 2 {
 entry:
   %size_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %size_.i, align 8
@@ -1918,7 +1918,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_11HeaderTableE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %table) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_11HeaderTableE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %table) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %size_.i = getelementptr inbounds nuw i8, ptr %table, i64 40
@@ -2094,7 +2094,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 declare noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -2166,7 +2166,7 @@ for.end:                                          ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
@@ -2885,7 +2885,7 @@ unreachable:                                      ; preds = %invoke.cont8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #19
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
@@ -4106,10 +4106,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #26
@@ -4118,7 +4118,7 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #27
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #26

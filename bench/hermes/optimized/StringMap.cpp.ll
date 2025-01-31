@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4llvh13StringMapImplC1Ejj = hidden unnamed_addr alias void (ptr, i32, i32), ptr @_ZN4llvh13StringMapImplC2Ejj
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh13StringMapImplC2Ejj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %InitSize, i32 noundef %itemSize) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh13StringMapImplC2Ejj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, i32 noundef %InitSize, i32 noundef %itemSize) unnamed_addr #0 align 2 {
 entry:
   %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %ItemSize = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -62,7 +62,7 @@ return:                                           ; preds = %if.end, %_ZN4llvh13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh13StringMapImpl4initEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, i32 noundef %InitSize) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh13StringMapImpl4initEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 20)) %this, i32 noundef %InitSize) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq i32 %InitSize, 0
   %cond = select i1 %tobool.not, i32 16, i32 %InitSize
@@ -91,7 +91,7 @@ _ZN4llvh11safe_callocEmm.exit:                    ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr readonly %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr readonly %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets, align 8
@@ -207,7 +207,7 @@ return:                                           ; preds = %land.rhs.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr readonly %Key.coerce0, i64 %Key.coerce1) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr readonly %Key.coerce0, i64 %Key.coerce1) local_unnamed_addr #1 align 2 {
 entry:
   %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets, align 8
@@ -286,7 +286,7 @@ return:                                           ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh13StringMapImpl9RemoveKeyEPNS_18StringMapEntryBaseE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %V) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN4llvh13StringMapImpl9RemoveKeyEPNS_18StringMapEntryBaseE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef %V) local_unnamed_addr #2 align 2 {
 entry:
   %ItemSize = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %ItemSize, align 4
@@ -298,7 +298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN4llvh13StringMapImpl9RemoveKeyENS_9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr readonly %Key.coerce0, i64 %Key.coerce1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN4llvh13StringMapImpl9RemoveKeyENS_9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr readonly %Key.coerce0, i64 %Key.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %NumBuckets.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets.i, align 8
@@ -431,7 +431,7 @@ return:                                           ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh13StringMapImpl11RehashTableEj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %BucketNo) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN4llvh13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i32 noundef %BucketNo) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -561,7 +561,7 @@ return:                                           ; preds = %if.else, %for.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
@@ -569,10 +569,10 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

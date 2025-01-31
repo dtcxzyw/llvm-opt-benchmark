@@ -80,7 +80,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_btl_tcp_module = external local_unnamed_addr global %struct.mca_btl_tcp_module_t, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal void @mca_btl_tcp_frag_eager_constructor(ptr nocapture noundef writeonly initializes((256, 264), (272, 280)) %0) #0 {
+define internal void @mca_btl_tcp_frag_eager_constructor(ptr noundef writeonly captures(none) initializes((256, 264), (272, 280)) %0) #0 {
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_tcp_module, i64 8), align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 %2, ptr %3, align 8
@@ -90,7 +90,7 @@ define internal void @mca_btl_tcp_frag_eager_constructor(ptr nocapture noundef w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal void @mca_btl_tcp_frag_max_constructor(ptr nocapture noundef writeonly initializes((256, 264), (272, 280)) %0) #0 {
+define internal void @mca_btl_tcp_frag_max_constructor(ptr noundef writeonly captures(none) initializes((256, 264), (272, 280)) %0) #0 {
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_tcp_module, i64 24), align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 %2, ptr %3, align 8
@@ -100,7 +100,7 @@ define internal void @mca_btl_tcp_frag_max_constructor(ptr nocapture noundef wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_btl_tcp_frag_user_constructor(ptr nocapture noundef writeonly initializes((256, 264), (272, 280)) %0) #1 {
+define internal void @mca_btl_tcp_frag_user_constructor(ptr noundef writeonly captures(none) initializes((256, 264), (272, 280)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -109,7 +109,7 @@ define internal void @mca_btl_tcp_frag_user_constructor(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @mca_btl_tcp_frag_dump(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #2 {
+define i64 @mca_btl_tcp_frag_dump(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 252
@@ -163,10 +163,10 @@ define i64 @mca_btl_tcp_frag_dump(ptr noundef %0, ptr noundef %1, ptr nocapture 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @mca_btl_tcp_frag_send(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define zeroext i1 @mca_btl_tcp_frag_send(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.msghdr, align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -344,7 +344,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #7
 declare void @mca_btl_tcp_endpoint_close(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
@@ -754,7 +754,7 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare i64 @readv(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -774,7 +774,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #7
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11

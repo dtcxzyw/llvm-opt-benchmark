@@ -63,7 +63,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @mca_part_persist_start(i64 noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph38
 
@@ -172,7 +172,7 @@ opal_thread_swap_ptr.exit:                        ; preds = %44, %46
 }
 
 ; Function Attrs: alwaysinline nofree norecurse nounwind uwtable
-define internal range(i32 -1, 1) i32 @mca_part_persist_free(ptr nocapture noundef %0) #2 {
+define internal range(i32 -1, 1) i32 @mca_part_persist_free(ptr noundef captures(none) %0) #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %4 = load volatile i32, ptr %3, align 4
@@ -192,7 +192,7 @@ define internal range(i32 -1, 1) i32 @mca_part_persist_free(ptr nocapture nounde
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { alwaysinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

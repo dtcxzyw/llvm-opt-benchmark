@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @UDataMemory_init_75(ptr nocapture noundef writeonly initializes((0, 56)) %This) local_unnamed_addr #0 {
+define void @UDataMemory_init_75(ptr noundef writeonly captures(none) initializes((0, 56)) %This) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %This, i8 0, i64 56, i1 false)
   %length = getelementptr inbounds nuw i8, ptr %This, i64 48
@@ -13,10 +13,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @UDatamemory_assign_75(ptr nocapture noundef initializes((0, 24), (25, 56)) %dest, ptr nocapture noundef readonly %source) local_unnamed_addr #2 {
+define void @UDatamemory_assign_75(ptr noundef captures(none) initializes((0, 24), (25, 56)) %dest, ptr noundef readonly captures(none) %source) local_unnamed_addr #2 {
 entry:
   %heapAllocated = getelementptr inbounds nuw i8, ptr %dest, i64 24
   %0 = load i8, ptr %heapAllocated, align 8
@@ -26,10 +26,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @UDataMemory_createNewInstance_75(ptr nocapture noundef %pErr) local_unnamed_addr #4 {
+define noalias noundef ptr @UDataMemory_createNewInstance_75(ptr noundef captures(none) %pErr) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %pErr, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -88,7 +88,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @UDataMemory_setData_75(ptr nocapture noundef writeonly initializes((8, 16)) %This, ptr noundef %dataAddr) local_unnamed_addr #2 {
+define void @UDataMemory_setData_75(ptr noundef writeonly captures(none) initializes((8, 16)) %This, ptr noundef %dataAddr) local_unnamed_addr #2 {
 entry:
   %cmp.i = icmp eq ptr %dataAddr, null
   br i1 %cmp.i, label %UDataMemory_normalizeDataPointer_75.exit, label %lor.lhs.false.i
@@ -222,7 +222,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext range(i8 0, 2) i8 @UDataMemory_isLoaded_75(ptr nocapture noundef readonly %This) local_unnamed_addr #6 {
+define signext range(i8 0, 2) i8 @UDataMemory_isLoaded_75(ptr noundef readonly captures(none) %This) local_unnamed_addr #6 {
 entry:
   %pHeader = getelementptr inbounds nuw i8, ptr %This, i64 8
   %0 = load ptr, ptr %pHeader, align 8

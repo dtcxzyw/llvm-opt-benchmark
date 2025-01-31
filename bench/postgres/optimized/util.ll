@@ -207,7 +207,7 @@ define dso_local void @cleanup_output_dirs() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare zeroext i1 @rmtree(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -264,7 +264,7 @@ define dso_local void @check_ok() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @quote_identifier(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @quote_identifier(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %3 = shl i64 %2, 1
   %4 = add i64 %3, 3
@@ -305,10 +305,10 @@ define dso_local noundef ptr @quote_identifier(ptr nocapture noundef readonly %0
 declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_user_info(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local i32 @get_user_info(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = tail call i32 @geteuid() #10
   %4 = call ptr @get_user_name(ptr noundef nonnull %2) #10
@@ -334,19 +334,19 @@ declare ptr @get_user_name(ptr noundef) local_unnamed_addr #1
 declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local i32 @str2uint(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = tail call i64 @strtoul(ptr nocapture noundef %0, ptr noundef null, i32 noundef 10) #10
+define dso_local i32 @str2uint(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+  %2 = tail call i64 @strtoul(ptr noundef captures(none) %0, ptr noundef null, i32 noundef 10) #10
   %3 = trunc i64 %2 to i32
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #9

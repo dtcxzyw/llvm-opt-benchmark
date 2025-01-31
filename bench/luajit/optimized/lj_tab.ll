@@ -278,7 +278,7 @@ if.end:                                           ; preds = %for.body.i5, %clear
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_tab_dup(ptr noundef %L, ptr nocapture noundef readonly %kt) local_unnamed_addr #0 {
+define hidden ptr @lj_tab_dup(ptr noundef %L, ptr noundef readonly captures(none) %kt) local_unnamed_addr #0 {
 entry:
   %asize1 = getelementptr inbounds nuw i8, ptr %kt, i64 48
   %0 = load i32, ptr %asize1, align 8
@@ -370,10 +370,10 @@ if.end51:                                         ; preds = %for.body30, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @lj_tab_clear(ptr nocapture noundef %t) local_unnamed_addr #3 {
+define hidden void @lj_tab_clear(ptr noundef captures(none) %t) local_unnamed_addr #3 {
 entry:
   %asize1.i = getelementptr inbounds nuw i8, ptr %t, i64 48
   %0 = load i32, ptr %asize1.i, align 8
@@ -424,7 +424,7 @@ if.end:                                           ; preds = %for.body.i8, %clear
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_tab_free(ptr nocapture noundef %g, ptr noundef %t) local_unnamed_addr #0 {
+define hidden void @lj_tab_free(ptr noundef captures(none) %g, ptr noundef %t) local_unnamed_addr #0 {
 entry:
   %hmask = getelementptr inbounds nuw i8, ptr %t, i64 52
   %0 = load i32, ptr %hmask, align 4
@@ -1074,7 +1074,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rehashtab(ptr noundef %L, ptr noundef %t, ptr nocapture noundef readonly %ek) unnamed_addr #0 {
+define internal fastcc void @rehashtab(ptr noundef %L, ptr noundef %t, ptr noundef readonly captures(none) %ek) unnamed_addr #0 {
 entry:
   %bins = alloca [28 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %bins, i8 0, i64 112, i1 false)
@@ -1310,7 +1310,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lj_tab_getinth(ptr nocapture noundef readonly %t, i32 noundef %key) local_unnamed_addr #6 {
+define hidden ptr @lj_tab_getinth(ptr noundef readonly captures(none) %t, i32 noundef %key) local_unnamed_addr #6 {
 entry:
   %conv = sitofp i32 %key to double
   %0 = bitcast double %conv to i64
@@ -1358,7 +1358,7 @@ return:                                           ; preds = %do.body, %do.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lj_tab_getstr(ptr nocapture noundef readonly %t, ptr noundef readonly %key) local_unnamed_addr #6 {
+define hidden ptr @lj_tab_getstr(ptr noundef readonly captures(none) %t, ptr noundef readonly %key) local_unnamed_addr #6 {
 entry:
   %sid = getelementptr inbounds nuw i8, ptr %key, i64 12
   %0 = load i32, ptr %sid, align 4
@@ -1397,7 +1397,7 @@ return:                                           ; preds = %do.cond, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_tab_get(ptr nocapture noundef readonly %L, ptr nocapture noundef readonly %t, ptr noundef %key) local_unnamed_addr #0 {
+define hidden ptr @lj_tab_get(ptr noundef readonly captures(none) %L, ptr noundef readonly captures(none) %t, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %key, align 8
   %shr = ashr i64 %0, 47
@@ -2053,7 +2053,7 @@ return:                                           ; preds = %do.body, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_tab_keyindex(ptr nocapture noundef readonly %t, ptr noundef %key) local_unnamed_addr #0 {
+define hidden i32 @lj_tab_keyindex(ptr noundef readonly captures(none) %t, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %key, align 8
   %cmp = icmp ult i64 %0, -1970324836974592
@@ -2185,7 +2185,7 @@ return:                                           ; preds = %if.end9, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @lj_tab_next(ptr nocapture noundef readonly %t, ptr noundef %key, ptr nocapture noundef writeonly %o) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @lj_tab_next(ptr noundef readonly captures(none) %t, ptr noundef %key, ptr noundef writeonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @lj_tab_keyindex(ptr noundef %t, ptr noundef %key)
   %asize = getelementptr inbounds nuw i8, ptr %t, i64 48
@@ -2270,7 +2270,7 @@ return:                                           ; preds = %for.end23, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @lj_tab_len(ptr nocapture noundef readonly %t) local_unnamed_addr #6 {
+define hidden i32 @lj_tab_len(ptr noundef readonly captures(none) %t) local_unnamed_addr #6 {
 entry:
   %asize = getelementptr inbounds nuw i8, ptr %t, i64 48
   %0 = load i32, ptr %asize, align 8
@@ -2545,7 +2545,7 @@ return:                                           ; preds = %while.cond.preheade
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @lj_tab_len_hint(ptr nocapture noundef readonly %t, i64 noundef %hint) local_unnamed_addr #6 {
+define hidden i32 @lj_tab_len_hint(ptr noundef readonly captures(none) %t, i64 noundef %hint) local_unnamed_addr #6 {
 entry:
   %asize1 = getelementptr inbounds nuw i8, ptr %t, i64 48
   %0 = load i32, ptr %asize1, align 8
@@ -2607,16 +2607,16 @@ declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

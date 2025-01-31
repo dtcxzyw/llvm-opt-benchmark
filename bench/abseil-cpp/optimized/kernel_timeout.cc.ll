@@ -26,7 +26,7 @@ entry:
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_4TimeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, i64 %t.coerce0, i32 %t.coerce1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_4TimeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, i64 %t.coerce0, i32 %t.coerce1) unnamed_addr #2 align 2 {
 entry:
   %cmp.i.i = icmp eq i64 %t.coerce0, 9223372036854775807
   %cmp8.i.i = icmp eq i32 %t.coerce1, -1
@@ -53,7 +53,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare noundef i64 @_ZN4absl11ToUnixNanosENS_4TimeE(i64, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_8DurationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, i64 %d.coerce0, i32 %d.coerce1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_8DurationE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, i64 %d.coerce0, i32 %d.coerce1) unnamed_addr #0 align 2 {
 entry:
   %cmp.i = icmp eq i64 %d.coerce0, 9223372036854775807
   %cmp8.i = icmp eq i32 %d.coerce1, -1
@@ -84,7 +84,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare noundef i64 @_ZN4absl18ToInt64NanosecondsENS_8DurationE(i64, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef i64 @_ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i.not = icmp eq i64 %0, -1
@@ -119,7 +119,7 @@ return:                                           ; preds = %if.then4, %if.else1
 declare noundef i64 @_ZN4absl19GetCurrentTimeNanosEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i64 0, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i.not = icmp eq i64 %0, -1
@@ -149,7 +149,7 @@ return:                                           ; preds = %entry, %if.end8, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i.not.i = icmp eq i64 %0, -1
@@ -195,7 +195,7 @@ _ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv.exit: ; preds
 declare { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout20MakeRelativeTimespecEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout20MakeRelativeTimespecEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i.not.i = icmp eq i64 %0, -1
@@ -230,7 +230,7 @@ _ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %c) local_unnamed_addr #4 align 2 {
+define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %c) local_unnamed_addr #4 align 2 {
 entry:
   %lhs.i = alloca %"class.absl::Duration", align 8
   %now = alloca %struct.timespec, align 8
@@ -320,7 +320,7 @@ declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 no
 declare { i64, i32 } @_ZN4absl20DurationFromTimespecE8timespec(i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 -1, 9223372036855) i64 @_ZNK4absl24synchronization_internal13KernelTimeout21InMillisecondsFromNowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i64 -1, 9223372036855) i64 @_ZNK4absl24synchronization_internal13KernelTimeout21InMillisecondsFromNowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i.not = icmp eq i64 %0, -1
@@ -358,7 +358,7 @@ return:                                           ; preds = %_ZNK4absl24synchron
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 -9223372036854775000, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout17ToChronoTimePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 -9223372036854775000, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout17ToChronoTimePointEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i.not = icmp eq i64 %0, -1
@@ -398,7 +398,7 @@ return:                                           ; preds = %entry, %_ZNK4absl24
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 0, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout16ToChronoDurationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout16ToChronoDurationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i.not = icmp eq i64 %0, -1
@@ -438,10 +438,10 @@ declare i64 @llvm.smax.i64(i64, i64) #6
 declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

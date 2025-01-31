@@ -9,7 +9,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_759InputTextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_759InputTextD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759InputTextC2ER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8), (16, 24), (32, 52)) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
+define void @_ZN6icu_759InputTextC2ER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(52) initializes((0, 8), (16, 24), (32, 52)) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %status) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias dereferenceable_or_null(8192) ptr @uprv_malloc_75(i64 noundef 8192) #13
   store ptr %call, ptr %this, align 8
@@ -36,7 +36,7 @@ if.end:                                           ; preds = %entry, %if.then
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_759InputTextD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_759InputTextD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fDeclaredEncoding = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %fDeclaredEncoding, align 8
@@ -82,7 +82,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_759InputText7setTextEPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((8, 12), (24, 25), (40, 52)) %this, ptr noundef %in, i32 noundef %len) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_759InputText7setTextEPKci(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(52) initializes((8, 12), (24, 25), (40, 52)) %this, ptr noundef %in, i32 noundef %len) local_unnamed_addr #6 align 2 {
 entry:
   %fInputLen = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %fInputLen, align 8
@@ -106,10 +106,10 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759InputText19setDeclaredEncodingEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, ptr noundef readonly %encoding, i32 noundef %len) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_759InputText19setDeclaredEncodingEPKci(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %this, ptr noundef readonly %encoding, i32 noundef %len) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %encoding, null
   br i1 %tobool.not, label %if.end9, label %if.then
@@ -140,10 +140,10 @@ if.end9:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759InputText5isSetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #9 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759InputText5isSetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #9 align 2 {
 entry:
   %fRawInput = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
@@ -153,7 +153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_759InputText10MungeInputEa(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, i8 noundef signext %fStripTags) local_unnamed_addr #10 align 2 {
+define void @_ZN6icu_759InputText10MungeInputEa(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %this, i8 noundef signext %fStripTags) local_unnamed_addr #10 align 2 {
 entry:
   %tobool.not = icmp eq i8 %fStripTags, 0
   %fRawLength28.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -311,7 +311,7 @@ for.end74:                                        ; preds = %for.cond62, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

@@ -371,7 +371,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define dso_local noundef i32 @_ZNK4base12SampleVector10TotalCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK4base12SampleVector10TotalCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %counts_size_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i64, ptr %counts_size_, align 8
@@ -399,7 +399,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local noundef i32 @_ZNK4base12SampleVector15GetCountAtIndexEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i64 noundef %bucket_index) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK4base12SampleVector15GetCountAtIndexEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, i64 noundef %bucket_index) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %counts_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %counts_, align 8
@@ -409,7 +409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4base12SampleVector8IteratorEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4base12SampleVector8IteratorEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   %counts_ = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -436,7 +436,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base12SampleVector15AddSubtractImplEPNS_19SampleCountIteratorENS_16HistogramSamples8OperatorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef %iter, i32 noundef %op) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base12SampleVector15AddSubtractImplEPNS_19SampleCountIteratorENS_16HistogramSamples8OperatorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef %iter, i32 noundef %op) unnamed_addr #0 align 2 {
 entry:
   %min = alloca i32, align 4
   %max = alloca i32, align 4
@@ -572,7 +572,7 @@ return:                                           ; preds = %if.else, %if.else.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK4base12SampleVector14GetBucketIndexEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZNK4base12SampleVector14GetBucketIndexEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, i32 noundef %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v1.addr.i31 = alloca i32, align 4
   %v2.addr.i32 = alloca i32, align 4
@@ -726,7 +726,7 @@ if.end74:                                         ; preds = %_ZN7logging11CheckG
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base20SampleVectorIteratorC2EPKSt6vectorIiSaIiEEPKNS_12BucketRangesE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef readonly %counts, ptr noundef %bucket_ranges) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base20SampleVectorIteratorC2EPKSt6vectorIiSaIiEEPKNS_12BucketRangesE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef readonly captures(none) %counts, ptr noundef %bucket_ranges) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp11 = alloca %"class.logging::LogMessage", align 8
@@ -960,7 +960,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base20SampleVectorIterator4DoneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base20SampleVectorIterator4DoneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #8 align 2 {
 entry:
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %index_, align 8
@@ -1013,7 +1013,7 @@ _ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit: ; preds = %while.body.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZNK4base20SampleVectorIterator3GetEPiS1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef writeonly %min, ptr noundef writeonly %max, ptr noundef writeonly %count) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4base20SampleVectorIterator3GetEPiS1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef writeonly %min, ptr noundef writeonly %max, ptr noundef writeonly %count) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %min, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1064,7 +1064,7 @@ if.end12:                                         ; preds = %if.then9, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base20SampleVectorIterator14GetBucketIndexEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef writeonly %index) unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base20SampleVectorIterator14GetBucketIndexEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef writeonly %index) unnamed_addr #9 align 2 {
 entry:
   %cmp.not = icmp eq ptr %index, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1097,13 +1097,13 @@ declare noundef ptr @_ZN7logging17MakeCheckOpStringImjEEPNSt7__cxx1112basic_stri
 declare noundef ptr @_ZN7logging17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

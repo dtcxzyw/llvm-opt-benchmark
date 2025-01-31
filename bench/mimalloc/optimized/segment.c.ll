@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_mi_heap_main = external local_unnamed_addr global %struct.mi_heap_s, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @_mi_commit_mask_committed_size(ptr nocapture noundef readonly %cm, i64 noundef %total) local_unnamed_addr #0 {
+define hidden i64 @_mi_commit_mask_committed_size(ptr noundef readonly captures(none) %cm, i64 noundef %total) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -67,7 +67,7 @@ for.end11:                                        ; preds = %for.inc9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @_mi_commit_mask_next_run(ptr nocapture noundef readonly %cm, ptr nocapture noundef %idx) local_unnamed_addr #1 {
+define hidden i64 @_mi_commit_mask_next_run(ptr noundef readonly captures(none) %cm, ptr noundef captures(none) %idx) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %idx, align 8
   %cmp29 = icmp ult i64 %0, 512
@@ -209,7 +209,7 @@ _mi_segment_page_start_from_slice.exit:           ; preds = %if.end10.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_mi_segment_thread_collect(ptr nocapture noundef readnone %tld) local_unnamed_addr #3 {
+define hidden void @_mi_segment_thread_collect(ptr noundef readnone captures(none) %tld) local_unnamed_addr #3 {
 entry:
   ret void
 }
@@ -341,7 +341,7 @@ if.end:                                           ; preds = %_mi_page_start.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_free(ptr noundef %segment, ptr nocapture noundef %tld) unnamed_addr #4 {
+define internal fastcc void @mi_segment_free(ptr noundef %segment, ptr noundef captures(none) %tld) unnamed_addr #4 {
 entry:
   %slice_entries.i = getelementptr inbounds nuw i8, ptr %segment, i64 248
   %0 = load i64, ptr %slice_entries.i, align 8
@@ -559,7 +559,7 @@ mi_segment_os_free.exit:                          ; preds = %if.then.i15.i, %_mi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_abandon(ptr noundef %segment, ptr nocapture noundef %tld) unnamed_addr #4 {
+define internal fastcc void @mi_segment_abandon(ptr noundef %segment, ptr noundef captures(none) %tld) unnamed_addr #4 {
 entry:
   %slice_entries.i = getelementptr inbounds nuw i8, ptr %segment, i64 248
   %0 = load i64, ptr %slice_entries.i, align 8
@@ -758,7 +758,7 @@ do.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_page_abandon(ptr noundef %page, ptr nocapture noundef %tld) local_unnamed_addr #4 {
+define hidden void @_mi_segment_page_abandon(ptr noundef %page, ptr noundef captures(none) %tld) local_unnamed_addr #4 {
 entry:
   %0 = ptrtoint ptr %page to i64
   %sub.i.i = add i64 %0, -1
@@ -1523,7 +1523,7 @@ while.end:                                        ; preds = %if.then11, %_mi_com
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_huge_page_reset(ptr nocapture noundef readonly %segment, ptr nocapture noundef readnone %page, ptr noundef %block) local_unnamed_addr #4 {
+define hidden void @_mi_segment_huge_page_reset(ptr noundef readonly captures(none) %segment, ptr noundef readnone captures(none) %page, ptr noundef %block) local_unnamed_addr #4 {
 entry:
   %allow_decommit = getelementptr inbounds nuw i8, ptr %segment, i64 24
   %0 = load i8, ptr %allow_decommit, align 8
@@ -2523,7 +2523,7 @@ return:                                           ; preds = %if.end32, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mi_segment_span_free(ptr noundef %segment, i64 noundef %slice_index, i64 noundef %slice_count, i1 noundef zeroext %allow_purge, ptr noundef %tld) unnamed_addr #4 {
@@ -2906,7 +2906,7 @@ return:                                           ; preds = %for.body.i26, %mi_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_commit_mask(ptr noundef %segment, i1 noundef zeroext %conservative, ptr noundef %p, i64 noundef %size, ptr nocapture noundef nonnull writeonly %start_p, ptr nocapture noundef nonnull writeonly %full_size, ptr nocapture noundef nonnull writeonly initializes((0, 64)) %cm) unnamed_addr #4 {
+define internal fastcc void @mi_segment_commit_mask(ptr noundef %segment, i1 noundef zeroext %conservative, ptr noundef %p, i64 noundef %size, ptr noundef nonnull writeonly captures(none) %start_p, ptr noundef nonnull writeonly captures(none) %full_size, ptr noundef nonnull writeonly captures(none) initializes((0, 64)) %cm) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %cm, i8 0, i64 64, i1 false)
   %0 = add i64 %size, -33554433
@@ -3027,10 +3027,10 @@ declare void @_mi_page_free_collect(ptr noundef, i1 noundef zeroext) local_unnam
 declare void @_mi_page_reclaim(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_alloc(i64 noundef %required, i64 noundef %page_alignment, i32 noundef %req_arena_id, ptr noundef %tld, ptr noundef %os_tld, ptr nocapture noundef writeonly %huge_page) unnamed_addr #4 {
+define internal fastcc ptr @mi_segment_alloc(i64 noundef %required, i64 noundef %page_alignment, i32 noundef %req_arena_id, ptr noundef %tld, ptr noundef %os_tld, ptr noundef writeonly captures(none) %huge_page) unnamed_addr #4 {
 entry:
   %memid.i = alloca %struct.mi_memid_s, align 8
   %commit_mask.i = alloca %struct.mi_commit_mask_s, align 8
@@ -3735,10 +3735,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #10
 declare i64 @llvm.ctpop.i64(i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

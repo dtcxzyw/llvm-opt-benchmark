@@ -72,7 +72,7 @@ declare void @oidset_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @for_each_loose_object(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @add_recent_loose(ptr noundef %oid, ptr nocapture noundef readonly %path, ptr noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @add_recent_loose(ptr noundef %oid, ptr noundef readonly captures(none) %path, ptr noundef %data) #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %0 = getelementptr i8, ptr %data, i64 24
@@ -327,7 +327,7 @@ declare ptr @prepare_bitmap_walk(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @traverse_bitmap_commit_list(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mark_object_seen(ptr noundef %oid, i32 noundef %type, i32 %exclude, i32 %name_hash, ptr nocapture readnone %found_pack, i64 %found_offset) #0 {
+define internal noundef i32 @mark_object_seen(ptr noundef %oid, i32 noundef %type, i32 %exclude, i32 %name_hash, ptr readnone captures(none) %found_pack, i64 %found_offset) #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call ptr @lookup_object_by_type(ptr noundef %0, ptr noundef %oid, i32 noundef %type) #8
@@ -354,7 +354,7 @@ declare i32 @prepare_revision_walk(ptr noundef) local_unnamed_addr #1
 declare void @die(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @mark_commit(ptr nocapture readnone %c, ptr nocapture noundef %data) #0 {
+define internal void @mark_commit(ptr readnone captures(none) %c, ptr noundef captures(none) %data) #0 {
 entry:
   %count.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load i64, ptr %count.i.i, align 8
@@ -374,7 +374,7 @@ mark_object.exit:                                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mark_object(ptr nocapture readnone %obj, ptr nocapture readnone %name, ptr nocapture noundef %data) #0 {
+define internal void @mark_object(ptr readnone captures(none) %obj, ptr readnone captures(none) %name, ptr noundef captures(none) %data) #0 {
 entry:
   %count.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load i64, ptr %count.i, align 8
@@ -398,7 +398,7 @@ declare void @display_progress(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @lookup_object(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4
@@ -654,7 +654,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -671,7 +671,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @oidset_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @finish_command(ptr noundef) local_unnamed_addr #1
 
@@ -693,10 +693,10 @@ declare ptr @lookup_object_by_type(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @traverse_commit_list_filtered(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -31,7 +31,7 @@ $_ZTIN4absl12crc_internal7CRCImplE = comdat any
 @_ZN4absl12crc_internal3CRCD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4absl12crc_internal3CRCD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(i32 noundef %poly, i32 noundef %last, i32 noundef %word_size, ptr nocapture noundef %t) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(i32 noundef %poly, i32 noundef %last, i32 noundef %word_size, ptr noundef captures(none) %t) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.not40 = icmp eq i32 %word_size, 0
   br i1 %cmp.not40, label %for.end64, label %for.body.preheader
@@ -146,7 +146,7 @@ for.end64:                                        ; preds = %for.inc62, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -2147483648, 257) i32 @_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j(i32 noundef %poly, ptr nocapture noundef writeonly %t) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 -2147483648, 257) i32 @_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j(i32 noundef %poly, ptr noundef writeonly captures(none) %t) local_unnamed_addr #1 align 2 {
 entry:
   br label %for.body.i.preheader
 
@@ -268,7 +268,7 @@ declare noundef ptr @_ZN4absl12crc_internal36TryNewCRC32AcceleratedX86ARMCombine
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -276,7 +276,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12crc_internal5CRC3210InitTablesEv(ptr nocapture noundef nonnull align 8 dereferenceable(8200) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4absl12crc_internal5CRC3210InitTablesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8200) %this) unnamed_addr #1 align 2 {
 for.body4.i.preheader:
   %call = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #18
   store i32 0, ptr %call, align 4
@@ -729,7 +729,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZNK4absl12crc_internal5CRC326ExtendEPjPKvm(ptr noundef nonnull readonly align 8 dereferenceable(8200) %this, ptr nocapture noundef %crc, ptr noundef %bytes, i64 noundef %length) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4absl12crc_internal5CRC326ExtendEPjPKvm(ptr noundef nonnull readonly align 8 dereferenceable(8200) %this, ptr noundef captures(none) %crc, ptr noundef %bytes, i64 noundef %length) unnamed_addr #6 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %bytes, i64 %length
   %0 = load i32, ptr %crc, align 4
@@ -1441,7 +1441,7 @@ while.end37:                                      ; preds = %while.body36, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_(ptr nocapture noundef %crc, i64 noundef %length, ptr nocapture noundef readonly %zeroes_table, ptr nocapture noundef readonly %poly_table) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_(ptr noundef captures(none) %crc, i64 noundef %length, ptr noundef readonly captures(none) %zeroes_table, ptr noundef readonly captures(none) %poly_table) local_unnamed_addr #0 align 2 {
 entry:
   %mtab = alloca [4 x i64], align 16
   %cmp.not = icmp eq i64 %length, 0
@@ -1540,7 +1540,7 @@ if.end44:                                         ; preds = %for.end43, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4absl12crc_internal5CRC3214ExtendByZeroesEPjm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8200) %this, ptr nocapture noundef %crc, i64 noundef %length) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4absl12crc_internal5CRC3214ExtendByZeroesEPjm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8200) %this, ptr noundef captures(none) %crc, i64 noundef %length) unnamed_addr #0 align 2 {
 entry:
   %mtab.i = alloca [4 x i64], align 16
   %table0_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1642,7 +1642,7 @@ _ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4absl12crc_internal5CRC3216UnextendByZeroesEPjm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8200) %this, ptr nocapture noundef %crc, i64 noundef %length) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4absl12crc_internal5CRC3216UnextendByZeroesEPjm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8200) %this, ptr noundef captures(none) %crc, i64 noundef %length) unnamed_addr #0 align 2 {
 entry:
   %mtab.i = alloca [4 x i64], align 16
   %0 = load i32, ptr %crc, align 4
@@ -1745,7 +1745,7 @@ _ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit: ; preds = %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4absl12crc_internal5CRC328ScrambleEPj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %crc) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK4absl12crc_internal5CRC328ScrambleEPj(ptr nonnull readnone align 8 captures(none) %this, ptr noundef captures(none) %crc) unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %crc, align 4
   %add = add i32 %0, 779543579
@@ -1755,7 +1755,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4absl12crc_internal5CRC3210UnscrambleEPj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %crc) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK4absl12crc_internal5CRC3210UnscrambleEPj(ptr nonnull readnone align 8 captures(none) %this, ptr noundef captures(none) %crc) unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %crc, align 4
   %or.i = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 17)
@@ -1765,13 +1765,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4absl12crc_internal3CRCD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4absl12crc_internal3CRCD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4absl12crc_internal3CRCD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4absl12crc_internal3CRCD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @llvm.trap() #20
   unreachable
@@ -1781,7 +1781,7 @@ entry:
 declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl12crc_internal3CRCC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #11 align 2 {
+define dso_local void @_ZN4absl12crc_internal3CRCC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #11 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4absl12crc_internal3CRCE, i64 16), ptr %this, align 8
   ret void
@@ -1844,13 +1844,13 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #14
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bitreverse.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
@@ -1859,10 +1859,10 @@ declare i32 @llvm.smax.i32(i32, i32) #15
 declare i32 @llvm.fshl.i32(i32, i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

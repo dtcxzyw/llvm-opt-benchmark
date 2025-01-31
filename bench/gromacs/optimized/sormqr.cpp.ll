@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [11 x i8] c"Columnwise\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @sormqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef initializes((0, 4)) %10, ptr nocapture noundef readonly %11, ptr nocapture noundef initializes((0, 4)) %12) local_unnamed_addr #0 {
+define void @sormqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef initializes((0, 4)) %10, ptr noundef readonly captures(none) %11, ptr noundef captures(none) initializes((0, 4)) %12) local_unnamed_addr #0 {
   %14 = alloca i32, align 4
   %15 = alloca [4160 x float], align 16
   %16 = alloca i32, align 4

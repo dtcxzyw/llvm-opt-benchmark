@@ -956,7 +956,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.48 = private unnamed_addr constant [15 x i8] c"_defaultaction\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyWarnings_InitState(ptr nocapture noundef %interp) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyWarnings_InitState(ptr noundef captures(none) %interp) local_unnamed_addr #0 {
 entry:
   %warnings = getelementptr inbounds nuw i8, ptr %interp, i64 4256
   %0 = load ptr, ptr %warnings, align 8
@@ -2855,7 +2855,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyWarnings_Fini(ptr nocapture noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyWarnings_Fini(ptr noundef captures(none) %interp) local_unnamed_addr #0 {
 entry:
   %warnings = getelementptr inbounds nuw i8, ptr %interp, i64 4256
   %0 = load ptr, ptr %warnings, align 8
@@ -3537,7 +3537,7 @@ declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @already_warned(ptr nocapture noundef readonly %interp, ptr noundef %registry, ptr noundef %key, i32 noundef range(i32 0, 2) %should_set) unnamed_addr #0 {
+define internal fastcc i32 @already_warned(ptr noundef readonly captures(none) %interp, ptr noundef %registry, ptr noundef %key, i32 noundef range(i32 0, 2) %should_set) unnamed_addr #0 {
 entry:
   %already_warned = alloca ptr, align 8
   %cmp = icmp eq ptr %key, null
@@ -3762,7 +3762,7 @@ return:                                           ; preds = %do.body, %if.then1.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @update_registry(ptr nocapture noundef readonly %interp, ptr noundef %registry, ptr noundef %text, ptr noundef %category) unnamed_addr #0 {
+define internal fastcc i32 @update_registry(ptr noundef readonly captures(none) %interp, ptr noundef %registry, ptr noundef %text, ptr noundef %category) unnamed_addr #0 {
 entry:
   %call2 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 2, ptr noundef %text, ptr noundef %category) #7
   %call3 = tail call fastcc i32 @already_warned(ptr noundef %interp, ptr noundef %registry, ptr noundef %call2, i32 noundef 1)
@@ -4267,7 +4267,7 @@ declare ptr @PyImport_GetModule(ptr noundef) local_unnamed_addr #1
 declare i32 @PyObject_GetOptionalAttr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @warnings_warn(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @warnings_warn(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -4470,7 +4470,7 @@ exit:                                             ; preds = %if.end9.i, %get_cat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @warnings_warn_explicit(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @warnings_warn_explicit(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %get_source.i.i = alloca ptr, align 8
   %argsbuf = alloca [8 x ptr], align 16
@@ -4835,7 +4835,7 @@ exit:                                             ; preds = %if.then1.i.i21.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @warnings_filters_mutated(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @warnings_filters_mutated(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -4925,16 +4925,16 @@ declare void @llvm.va_start.p0(ptr) #3
 declare void @llvm.va_end.p0(ptr) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

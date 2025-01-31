@@ -65,7 +65,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4cvc58internal7IntStat9maxAssignEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %val) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4cvc58internal7IntStat9maxAssignEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %d_value = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -82,7 +82,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4cvc58internal7IntStat9minAssignEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %val) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4cvc58internal7IntStat9minAssignEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %d_value = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -99,7 +99,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal9TimerStat5startEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN4cvc58internal9TimerStat5startEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #5
   %0 = load ptr, ptr %this, align 8
@@ -115,7 +115,7 @@ entry:
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal9TimerStat4stopEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN4cvc58internal9TimerStat4stopEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #5
   %0 = load ptr, ptr %this, align 8
@@ -133,7 +133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal9TimerStat7runningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal9TimerStat7runningEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %d_running = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -143,7 +143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal9CodeTimerC2ERNS0_9TimerStatEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timer, i1 noundef zeroext %allow_reentrant) unnamed_addr #2 align 2 {
+define hidden void @_ZN4cvc58internal9CodeTimerC2ERNS0_9TimerStatEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timer, i1 noundef zeroext %allow_reentrant) unnamed_addr #2 align 2 {
 entry:
   store ptr %timer, ptr %this, align 8
   %d_reentrant = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -174,7 +174,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal9CodeTimerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal9CodeTimerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_reentrant = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %d_reentrant, align 8

@@ -46,7 +46,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ikcp_log(ptr noundef %kcp, i32 noundef %mask, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #1 {
+define dso_local void @ikcp_log(ptr noundef %kcp, i32 noundef %mask, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #1 {
 entry:
   %buffer = alloca [1024 x i8], align 16
   %argptr = alloca [1 x %struct.__va_list_tag], align 16
@@ -77,10 +77,10 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vsprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @ikcp_qprint(ptr nocapture noundef readnone %name, ptr nocapture noundef readnone %head) local_unnamed_addr #3 {
+define dso_local void @ikcp_qprint(ptr noundef readnone captures(none) %name, ptr noundef readnone captures(none) %head) local_unnamed_addr #3 {
 entry:
   ret void
 }
@@ -504,7 +504,7 @@ if.end97:                                         ; preds = %if.else.i75, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ikcp_setoutput(ptr nocapture noundef writeonly initializes((256, 264)) %kcp, ptr noundef %output) local_unnamed_addr #4 {
+define dso_local void @ikcp_setoutput(ptr noundef writeonly captures(none) initializes((256, 264)) %kcp, ptr noundef %output) local_unnamed_addr #4 {
 entry:
   %output1 = getelementptr inbounds nuw i8, ptr %kcp, i64 256
   store ptr %output, ptr %output1, align 8
@@ -831,7 +831,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @ikcp_send(ptr noundef %kcp, ptr noundef readonly %buffer, i32 noundef %len) local_unnamed_addr #1 {
@@ -2726,7 +2726,7 @@ return:                                           ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @ikcp_setmtu(ptr nocapture noundef %kcp, i32 noundef %mtu) local_unnamed_addr #1 {
+define dso_local range(i32 -2, 1) i32 @ikcp_setmtu(ptr noundef captures(none) %kcp, i32 noundef %mtu) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %mtu, 50
   br i1 %cmp, label %return, label %if.end
@@ -2782,7 +2782,7 @@ return:                                           ; preds = %ikcp_malloc.exit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @ikcp_interval(ptr nocapture noundef writeonly initializes((80, 84)) %kcp, i32 noundef %interval) local_unnamed_addr #4 {
+define dso_local noundef i32 @ikcp_interval(ptr noundef writeonly captures(none) initializes((80, 84)) %kcp, i32 noundef %interval) local_unnamed_addr #4 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %interval, i32 10)
   %0 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 5000)
@@ -2792,7 +2792,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @ikcp_nodelay(ptr nocapture noundef writeonly %kcp, i32 noundef %nodelay, i32 noundef %interval, i32 noundef %resend, i32 noundef %nc) local_unnamed_addr #4 {
+define dso_local noundef i32 @ikcp_nodelay(ptr noundef writeonly captures(none) %kcp, i32 noundef %nodelay, i32 noundef %interval, i32 noundef %resend, i32 noundef %nc) local_unnamed_addr #4 {
 entry:
   %cmp = icmp sgt i32 %nodelay, -1
   br i1 %cmp, label %if.then, label %if.end4
@@ -2869,7 +2869,7 @@ if.end5:                                          ; preds = %if.end, %if.then3, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @ikcp_waitsnd(ptr nocapture noundef readonly %kcp) local_unnamed_addr #7 {
+define dso_local i32 @ikcp_waitsnd(ptr noundef readonly captures(none) %kcp) local_unnamed_addr #7 {
 entry:
   %nsnd_buf = getelementptr inbounds nuw i8, ptr %kcp, i64 96
   %0 = load i32, ptr %nsnd_buf, align 8
@@ -2880,7 +2880,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @ikcp_getconv(ptr nocapture noundef readonly %ptr) local_unnamed_addr #7 {
+define dso_local i32 @ikcp_getconv(ptr noundef readonly captures(none) %ptr) local_unnamed_addr #7 {
 entry:
   %conv.0.copyload = load i32, ptr %ptr, align 1
   ret i32 %conv.0.copyload
@@ -2890,7 +2890,7 @@ entry:
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #10
@@ -2914,7 +2914,7 @@ declare i32 @llvm.umin.i32(i32, i32) #12
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #12

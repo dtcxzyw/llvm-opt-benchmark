@@ -357,7 +357,7 @@ module asm ".popsection\09\09\09\09\09"
 declare dso_local i32 @__SCT__tp_func_irq_matrix_online(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_matrix_online(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_matrix_online(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_matrix_online, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -378,21 +378,21 @@ define dso_local noundef i32 @__traceiter_irq_matrix_online(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_matrix_online(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_irq_matrix_online(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_irq_matrix_offline(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_matrix_offline(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_matrix_offline(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_matrix_offline, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -413,7 +413,7 @@ define dso_local noundef i32 @__traceiter_irq_matrix_offline(ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_matrix_offline(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_irq_matrix_offline(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -421,7 +421,7 @@ define dso_local void @__probestub_irq_matrix_offline(ptr nocapture readnone %0,
 declare dso_local i32 @__SCT__tp_func_irq_matrix_reserve(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_matrix_reserve(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_matrix_reserve(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_matrix_reserve, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -442,7 +442,7 @@ define dso_local noundef i32 @__traceiter_irq_matrix_reserve(ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_matrix_reserve(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_irq_matrix_reserve(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -450,7 +450,7 @@ define dso_local void @__probestub_irq_matrix_reserve(ptr nocapture readnone %0,
 declare dso_local i32 @__SCT__tp_func_irq_matrix_remove_reserved(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_matrix_remove_reserved(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_matrix_remove_reserved(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_matrix_remove_reserved, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -471,7 +471,7 @@ define dso_local noundef i32 @__traceiter_irq_matrix_remove_reserved(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_matrix_remove_reserved(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_irq_matrix_remove_reserved(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -479,7 +479,7 @@ define dso_local void @__probestub_irq_matrix_remove_reserved(ptr nocapture read
 declare dso_local i32 @__SCT__tp_func_irq_matrix_assign_system(ptr noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_matrix_assign_system(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_matrix_assign_system(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_matrix_assign_system, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -500,7 +500,7 @@ define dso_local noundef i32 @__traceiter_irq_matrix_assign_system(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_matrix_assign_system(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_irq_matrix_assign_system(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -508,7 +508,7 @@ define dso_local void @__probestub_irq_matrix_assign_system(ptr nocapture readno
 declare dso_local i32 @__SCT__tp_func_irq_matrix_alloc_reserved(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_matrix_alloc_reserved(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_matrix_alloc_reserved(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_matrix_alloc_reserved, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -529,7 +529,7 @@ define dso_local noundef i32 @__traceiter_irq_matrix_alloc_reserved(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_matrix_alloc_reserved(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 align 16 {
+define dso_local void @__probestub_irq_matrix_alloc_reserved(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 align 16 {
   ret void
 }
 
@@ -537,7 +537,7 @@ define dso_local void @__probestub_irq_matrix_alloc_reserved(ptr nocapture readn
 declare dso_local i32 @__SCT__tp_func_irq_matrix_reserve_managed(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_matrix_reserve_managed(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_matrix_reserve_managed(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_matrix_reserve_managed, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -558,7 +558,7 @@ define dso_local noundef i32 @__traceiter_irq_matrix_reserve_managed(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_matrix_reserve_managed(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 align 16 {
+define dso_local void @__probestub_irq_matrix_reserve_managed(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 align 16 {
   ret void
 }
 
@@ -566,7 +566,7 @@ define dso_local void @__probestub_irq_matrix_reserve_managed(ptr nocapture read
 declare dso_local i32 @__SCT__tp_func_irq_matrix_remove_managed(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_matrix_remove_managed(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_matrix_remove_managed(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_matrix_remove_managed, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -587,7 +587,7 @@ define dso_local noundef i32 @__traceiter_irq_matrix_remove_managed(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_matrix_remove_managed(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 align 16 {
+define dso_local void @__probestub_irq_matrix_remove_managed(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 align 16 {
   ret void
 }
 
@@ -595,7 +595,7 @@ define dso_local void @__probestub_irq_matrix_remove_managed(ptr nocapture readn
 declare dso_local i32 @__SCT__tp_func_irq_matrix_alloc_managed(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_matrix_alloc_managed(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_matrix_alloc_managed(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_matrix_alloc_managed, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -616,7 +616,7 @@ define dso_local noundef i32 @__traceiter_irq_matrix_alloc_managed(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_matrix_alloc_managed(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 align 16 {
+define dso_local void @__probestub_irq_matrix_alloc_managed(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 align 16 {
   ret void
 }
 
@@ -624,7 +624,7 @@ define dso_local void @__probestub_irq_matrix_alloc_managed(ptr nocapture readno
 declare dso_local i32 @__SCT__tp_func_irq_matrix_assign(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_matrix_assign(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_matrix_assign(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_matrix_assign, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -645,7 +645,7 @@ define dso_local noundef i32 @__traceiter_irq_matrix_assign(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_matrix_assign(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 align 16 {
+define dso_local void @__probestub_irq_matrix_assign(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 align 16 {
   ret void
 }
 
@@ -653,7 +653,7 @@ define dso_local void @__probestub_irq_matrix_assign(ptr nocapture readnone %0, 
 declare dso_local i32 @__SCT__tp_func_irq_matrix_alloc(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_matrix_alloc(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_matrix_alloc(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_matrix_alloc, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -674,7 +674,7 @@ define dso_local noundef i32 @__traceiter_irq_matrix_alloc(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_matrix_alloc(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 align 16 {
+define dso_local void @__probestub_irq_matrix_alloc(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 align 16 {
   ret void
 }
 
@@ -682,7 +682,7 @@ define dso_local void @__probestub_irq_matrix_alloc(ptr nocapture readnone %0, i
 declare dso_local i32 @__SCT__tp_func_irq_matrix_free(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_matrix_free(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_matrix_free(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_matrix_free, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -703,12 +703,12 @@ define dso_local noundef i32 @__traceiter_irq_matrix_free(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_matrix_free(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 align 16 {
+define dso_local void @__probestub_irq_matrix_free(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_irq_matrix_global(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @trace_event_raw_event_irq_matrix_global(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -758,7 +758,7 @@ define internal void @trace_event_raw_event_irq_matrix_global(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_irq_matrix_global(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @perf_trace_irq_matrix_global(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
@@ -831,7 +831,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_irq_matrix_global_update(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @trace_event_raw_event_irq_matrix_global_update(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -883,7 +883,7 @@ define internal void @trace_event_raw_event_irq_matrix_global_update(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_irq_matrix_global_update(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @perf_trace_irq_matrix_global_update(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
@@ -952,7 +952,7 @@ define internal void @perf_trace_irq_matrix_global_update(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_irq_matrix_cpu(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #1 align 16 {
+define internal void @trace_event_raw_event_irq_matrix_cpu(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #1 align 16 {
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1021,7 +1021,7 @@ define internal void @trace_event_raw_event_irq_matrix_cpu(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_irq_matrix_cpu(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #1 align 16 {
+define internal void @perf_trace_irq_matrix_cpu(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #1 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
@@ -1424,7 +1424,7 @@ define dso_local void @irq_matrix_assign_system(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -28, 1) i32 @irq_matrix_reserve_managed(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @irq_matrix_reserve_managed(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1573,7 +1573,7 @@ define dso_local noundef range(i32 -28, 1) i32 @irq_matrix_reserve_managed(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_matrix_remove_managed(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local void @irq_matrix_remove_managed(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1701,7 +1701,7 @@ define dso_local void @irq_matrix_remove_managed(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, -1) i32 @irq_matrix_alloc_managed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, -1) i32 @irq_matrix_alloc_managed(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %92, label %6
@@ -2051,7 +2051,7 @@ define dso_local void @irq_matrix_remove_reserved(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, -1) i32 @irq_matrix_alloc(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, -1) i32 @irq_matrix_alloc(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 align 16 {
   %5 = load i64, ptr %1, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %106, label %7
@@ -2346,7 +2346,7 @@ define dso_local void @irq_matrix_free(ptr noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i32 @irq_matrix_available(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 16 {
+define dso_local i32 @irq_matrix_available(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %4) #17, !srcloc !120
@@ -2371,14 +2371,14 @@ define dso_local i32 @irq_matrix_available(ptr nocapture noundef readonly %0, i1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @irq_matrix_reserved(ptr nocapture noundef readonly %0) local_unnamed_addr #8 align 16 {
+define dso_local i32 @irq_matrix_reserved(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i32 @irq_matrix_allocated(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 16 {
+define dso_local i32 @irq_matrix_allocated(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %3) #17, !srcloc !121
@@ -2392,7 +2392,7 @@ define dso_local i32 @irq_matrix_allocated(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @trace_event_buffer_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0

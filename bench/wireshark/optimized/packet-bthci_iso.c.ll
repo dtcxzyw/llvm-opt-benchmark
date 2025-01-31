@@ -389,7 +389,7 @@ define internal i32 @dissect_bthci_iso(ptr noundef %0, ptr noundef %1, ptr nound
   %sext = add i64 %154, 4294967296
   %155 = ashr exact i64 %sext, 32
   %156 = call noalias ptr @wmem_alloc(ptr noundef %153, i64 noundef %155) #7
-  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %156, i64 noundef %155, ptr noundef nonnull @.str.58, ptr noundef %147, ptr noundef %.0305) #7
+  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %156, i64 noundef %155, ptr noundef nonnull @.str.58, ptr noundef nonnull %147, ptr noundef nonnull %.0305) #7
   %158 = load i32, ptr %21, align 4
   switch i32 %158, label %216 [
     i32 1, label %159
@@ -591,7 +591,7 @@ define internal i32 @dissect_bthci_iso(ptr noundef %0, ptr noundef %1, ptr nound
   %sext340 = add i64 %258, 4294967296
   %259 = ashr exact i64 %sext340, 32
   %260 = call noalias ptr @wmem_alloc(ptr noundef %257, i64 noundef %259) #7
-  %261 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %260, i64 noundef %259, ptr noundef nonnull @.str.58, ptr noundef %.0309, ptr noundef %.0307) #7
+  %261 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %260, i64 noundef %259, ptr noundef nonnull @.str.58, ptr noundef nonnull %.0309, ptr noundef nonnull %.0307) #7
   %262 = load i32, ptr %21, align 4
   switch i32 %262, label %282 [
     i32 1, label %.sink.split386
@@ -1096,7 +1096,7 @@ define hidden void @proto_register_iso_data() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 4, -2147483640) i32 @dissect_iso_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 4, -2147483640) i32 @dissect_iso_data(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @proto_bthci_iso_data, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
@@ -1192,18 +1192,18 @@ declare ptr @wmem_tree_lookup32_array_le(ptr noundef, ptr noundef) local_unnamed
 declare ptr @get_ether_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #1
 

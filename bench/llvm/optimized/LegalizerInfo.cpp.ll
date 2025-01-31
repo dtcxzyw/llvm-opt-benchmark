@@ -451,7 +451,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %168, %166, %154, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm13LegalityQuery5printERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull returned align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm13LegalityQuery5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull returned align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -685,26 +685,26 @@ _ZNK4llvm12LegalizeRule17determineMutationERKNS_13LegalityQueryE.exit: ; preds =
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm15LegalizeRuleSet22verifyTypeIdxsCoverageEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm15LegalizeRuleSet22verifyTypeIdxsCoverageEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm15LegalizeRuleSet21verifyImmIdxsCoverageEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm15LegalizeRuleSet21verifyImmIdxsCoverageEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK4llvm13LegalizerInfo21getOpcodeIdxForOpcodeEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(121040) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK4llvm13LegalizerInfo21getOpcodeIdxForOpcodeEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(121040) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = add i32 %1, -52
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4llvm13LegalizerInfo23getActionDefinitionsIdxEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121040) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef i32 @_ZNK4llvm13LegalizerInfo23getActionDefinitionsIdxEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(121040) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = add i32 %1, -52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %3 to i64
@@ -787,7 +787,7 @@ define dso_local noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13Leg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm13LegalizerInfo22aliasActionDefinitionsEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(121040) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4llvm13LegalizerInfo22aliasActionDefinitionsEjj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(121040) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = add i32 %2, -52
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext i32 %4 to i64
@@ -1260,7 +1260,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13LegalizerInfo15isLegalOrCustomER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 132, 135) i32 @_ZNK4llvm13LegalizerInfo31getExtOpcodeForWideningConstantENS_3LLTE(ptr nocapture nonnull readnone align 8 %0, i64 %1) unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 132, 135) i32 @_ZNK4llvm13LegalizerInfo31getExtOpcodeForWideningConstantENS_3LLTE(ptr nonnull readnone align 8 captures(none) %0, i64 %1) unnamed_addr #4 align 2 {
   %3 = and i64 %1, -7
   %spec.select.i.i.i.i = icmp ne i64 %3, 0
   %4 = and i64 %1, 6
@@ -1310,7 +1310,7 @@ _ZNK4llvm3LLT11isByteSizedEv.exit:                ; preds = %9, %13, %15, %_ZNK4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZNK4llvm13LegalizerInfo6verifyERKNS_11MCInstrInfoE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(121040) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(44) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4llvm13LegalizerInfo6verifyERKNS_11MCInstrInfoE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(121040) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(44) %1) local_unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -1458,7 +1458,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm13LegalizerInfo17legaliz
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
@@ -1480,7 +1480,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare i8 @_ZNK4llvm17MachineMemOperand8getAlignEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 

@@ -83,7 +83,7 @@ define hidden void @registerTransportLayerTypes(i32 noundef %0) local_unnamed_ad
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseMessageHeader(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define hidden void @parseMessageHeader(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
@@ -106,7 +106,7 @@ define hidden void @parseMessageHeader(ptr noundef %0, ptr noundef %1, ptr nocap
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @parseHello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define hidden noundef i32 @parseHello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
@@ -156,7 +156,7 @@ define hidden noundef i32 @parseHello(ptr noundef %0, ptr noundef %1, ptr nounde
 declare ptr @parseString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @parseAcknowledge(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define hidden noundef i32 @parseAcknowledge(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
@@ -202,7 +202,7 @@ define hidden noundef i32 @parseAcknowledge(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @parseError(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define hidden noundef i32 @parseError(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
@@ -229,7 +229,7 @@ define hidden noundef i32 @parseError(ptr noundef %0, ptr noundef %1, ptr nounde
 declare ptr @parseStatusCode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @parseReverseHello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define hidden noundef i32 @parseReverseHello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
@@ -254,7 +254,7 @@ define hidden noundef i32 @parseReverseHello(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @parseMessage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define hidden noundef i32 @parseMessage(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
@@ -280,7 +280,7 @@ define hidden noundef i32 @parseMessage(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @parseAbort(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define hidden noundef i32 @parseAbort(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
@@ -305,7 +305,7 @@ define hidden noundef i32 @parseAbort(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @parseService(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) local_unnamed_addr #0 {
+define hidden i32 @parseService(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %3, align 4
@@ -365,7 +365,7 @@ declare ptr @find_conversation_pinfo(ptr noundef, i32 noundef) local_unnamed_add
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @get_encryption_info(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @get_encryption_info(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #3
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %20, label %5
@@ -530,7 +530,7 @@ declare ptr @parseByteString(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare void @parseSequenceHeader(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @parseCloseSecureChannel(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define hidden noundef i32 @parseCloseSecureChannel(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
@@ -556,7 +556,7 @@ define hidden noundef i32 @parseCloseSecureChannel(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #2
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

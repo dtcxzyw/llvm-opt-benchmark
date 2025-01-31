@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @C4coeff.coeff = internal unnamed_addr constant [77 x double] [double 9.700000e+01, double 1.501500e+04, double 1.088000e+03, double 1.560000e+02, double 4.504500e+04, double -2.240000e+02, double -4.784000e+03, double 1.573000e+03, double 4.504500e+04, double -1.065600e+04, double 1.414400e+04, double -4.576000e+03, double -8.580000e+02, double 4.504500e+04, double 6.400000e+01, double 6.240000e+02, double -4.576000e+03, double 6.864000e+03, double -3.003000e+03, double 1.501500e+04, double 1.000000e+02, double 2.080000e+02, double 5.720000e+02, double 3.432000e+03, double -1.201200e+04, double 3.003000e+04, double 4.504500e+04, double 1.000000e+00, double 9.009000e+03, double -2.944000e+03, double 4.680000e+02, double 1.351350e+05, double 5.792000e+03, double 1.040000e+03, double -1.287000e+03, double 1.351350e+05, double 5.952000e+03, double -1.164800e+04, double 9.152000e+03, double -2.574000e+03, double 1.351350e+05, double -6.400000e+01, double -6.240000e+02, double 4.576000e+03, double -6.864000e+03, double 3.003000e+03, double 1.351350e+05, double 8.000000e+00, double 1.072500e+04, double 1.856000e+03, double -9.360000e+02, double 2.252250e+05, double -8.448000e+03, double 4.992000e+03, double -1.144000e+03, double 2.252250e+05, double -1.440000e+03, double 4.160000e+03, double -4.576000e+03, double 1.716000e+03, double 2.252250e+05, double -1.360000e+02, double 6.306300e+04, double 1.024000e+03, double -2.080000e+02, double 1.051050e+05, double 3.584000e+03, double -3.328000e+03, double 1.144000e+03, double 3.153150e+05, double -1.280000e+02, double 1.351350e+05, double -2.560000e+03, double 8.320000e+02, double 4.054050e+05, double 1.280000e+02, double 9.909900e+04], align 16
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @geod_init(ptr nocapture noundef initializes((0, 72)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define void @geod_init(ptr noundef captures(none) initializes((0, 72)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %.b = load i1, ptr @init, align 4
   br i1 %.b, label %4, label %Init.exit
 
@@ -320,7 +320,7 @@ declare double @llvm.maxnum.f64(double, double) #2
 declare double @llvm.minnum.f64(double, double) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_lineinit(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define void @geod_lineinit(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca i32, align 4
   %8 = alloca double, align 8
   %9 = alloca double, align 8
@@ -401,7 +401,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %35,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @geod_lineinit_int(ptr noundef initializes((0, 56), (72, 96), (504, 508)) %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7) unnamed_addr #3 {
+define internal fastcc void @geod_lineinit_int(ptr noundef initializes((0, 56), (72, 96), (504, 508)) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7) unnamed_addr #3 {
   %9 = alloca i32, align 4
   %10 = alloca double, align 8
   %11 = alloca double, align 8
@@ -1073,7 +1073,7 @@ SinCosSeries.exit197:                             ; preds = %359
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_gendirectline(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define void @geod_gendirectline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   tail call void @geod_lineinit(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %7)
   %9 = and i32 %5, 1
   %.not.i = icmp eq i32 %9, 0
@@ -1128,7 +1128,7 @@ define void @geod_gensetdistance(ptr noundef initializes((64, 72)) %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_directline(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #3 {
+define void @geod_directline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #3 {
   tail call void @geod_lineinit(ptr noundef %0, ptr noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %5, ptr %8, align 8
@@ -1974,7 +1974,7 @@ define void @geod_position(ptr noundef %0, double noundef %1, ptr noundef %2, pt
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define double @geod_gendirect(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, double noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) local_unnamed_addr #3 {
+define double @geod_gendirect(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, double noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) local_unnamed_addr #3 {
   %15 = alloca %struct.geod_geodesicline, align 8
   %.not = icmp eq ptr %6, null
   %16 = select i1 %.not, i32 0, i32 128
@@ -2008,7 +2008,7 @@ define double @geod_gendirect(ptr nocapture noundef readonly %0, double noundef 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_direct(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
+define void @geod_direct(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = alloca %struct.geod_geodesicline, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9)
   %.not.i = icmp eq ptr %5, null
@@ -2026,7 +2026,7 @@ define void @geod_direct(ptr nocapture noundef readonly %0, double noundef %1, d
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define double @geod_geninverse(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #3 {
+define double @geod_geninverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #3 {
   %13 = alloca double, align 8
   %14 = alloca double, align 8
   %15 = alloca double, align 8
@@ -2131,7 +2131,7 @@ atan2dx.exit25:                                   ; preds = %37, %48, %51, %53
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc double @geod_geninverse_int(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef writeonly %11, ptr noundef writeonly %12, ptr noundef writeonly %13) unnamed_addr #3 {
+define internal fastcc double @geod_geninverse_int(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef writeonly %11, ptr noundef writeonly %12, ptr noundef writeonly %13) unnamed_addr #3 {
   %15 = alloca double, align 8
   %16 = alloca double, align 8
   %17 = alloca double, align 8
@@ -3654,7 +3654,7 @@ SinCosSeries.exit291:                             ; preds = %830
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_inverseline(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #3 {
+define void @geod_inverseline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = alloca double, align 8
   %9 = alloca double, align 8
   %10 = call fastcc double @geod_geninverse_int(ptr noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, ptr noundef null, ptr noundef %8, ptr noundef %9, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -3716,13 +3716,13 @@ atan2dx.exit:                                     ; preds = %7, %21, %24, %26
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_inverse(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
+define void @geod_inverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = tail call double @geod_geninverse(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @geod_polygon_init(ptr nocapture noundef writeonly initializes((0, 76)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @geod_polygon_init(ptr noundef writeonly captures(none) initializes((0, 76)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp ne i32 %1, 0
   %4 = zext i1 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3745,7 +3745,7 @@ define void @geod_polygon_init(ptr nocapture noundef writeonly initializes((0, 7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @geod_polygon_clear(ptr nocapture noundef writeonly initializes((0, 64), (68, 76)) %0) local_unnamed_addr #4 {
+define void @geod_polygon_clear(ptr noundef writeonly captures(none) initializes((0, 64), (68, 76)) %0) local_unnamed_addr #4 {
   %2 = load double, ptr @NaN, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %3, align 8
@@ -3764,7 +3764,7 @@ define void @geod_polygon_clear(ptr nocapture noundef writeonly initializes((0, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_polygon_addpoint(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #3 {
+define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #3 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
@@ -3873,7 +3873,7 @@ transit.exit:                                     ; preds = %44, %47, %50
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @accadd(ptr nocapture noundef %0, double noundef %1) unnamed_addr #5 {
+define internal fastcc void @accadd(ptr noundef captures(none) %0, double noundef %1) unnamed_addr #5 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
@@ -3980,7 +3980,7 @@ sumx.exit20:                                      ; preds = %29, %32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_polygon_addedge(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #3 {
+define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct.geod_geodesicline, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
@@ -4050,7 +4050,7 @@ define void @geod_polygon_addedge(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @geod_polygon_compute(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #3 {
+define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #3 {
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = alloca double, align 8
@@ -4675,7 +4675,7 @@ areareduceA.exit:                                 ; preds = %250, %sumx.exit20.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @geod_polygon_testpoint(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #3 {
+define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #3 {
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca double, align 8
@@ -4926,7 +4926,7 @@ areareduceB.exit:                                 ; preds = %118, %120, %123, %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 2, 1) i32 @geod_polygon_testedge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #3 {
+define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #3 {
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca double, align 8
@@ -5155,7 +5155,7 @@ areareduceB.exit:                                 ; preds = %121, %123, %126, %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_polygonarea(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
+define void @geod_polygonarea(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.geod_polygon, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %8, align 8
@@ -5200,7 +5200,7 @@ define void @geod_polygonarea(ptr nocapture noundef readonly %0, ptr nocapture n
 declare double @remainder(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @remquo(double noundef, double noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare double @remquo(double noundef, double noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
 define internal fastcc double @AngDiff(double noundef %0, double noundef %1, ptr noundef writeonly %2) unnamed_addr #6 {
@@ -5320,7 +5320,7 @@ sumx.exit25:                                      ; preds = %31, %34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Lengths(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, ptr noundef writeonly %11, ptr nocapture noundef nonnull writeonly %12, ptr noundef writeonly %13, ptr noundef writeonly %14, ptr noundef writeonly %15, ptr nocapture noundef nonnull %16) unnamed_addr #7 {
+define internal fastcc void @Lengths(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, ptr noundef writeonly %11, ptr noundef nonnull writeonly captures(none) %12, ptr noundef writeonly %13, ptr noundef writeonly %14, ptr noundef writeonly %15, ptr noundef nonnull captures(none) %16) unnamed_addr #7 {
   %18 = alloca [7 x double], align 16
   %19 = icmp ne ptr %14, null
   %20 = fmul double %1, %1
@@ -5718,13 +5718,13 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare double @llvm.sqrt.f64(double) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [26 x i8] c"%02d%02d%02d%02d%02d%02dZ\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @asn1_utctime_to_tm(ptr noundef %tm, ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @asn1_utctime_to_tm(ptr noundef %tm, ptr noundef readonly captures(none) %d) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %d, i64 4
   %0 = load i32, ptr %type, align 4
@@ -343,7 +343,7 @@ return:                                           ; preds = %if.end65, %lor.lhs.
 declare i32 @OPENSSL_gmtime_adj(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_check(ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_check(ptr noundef readonly captures(none) %d) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @asn1_utctime_to_tm(ptr noundef null, ptr noundef %d)
   ret i32 %call
@@ -369,7 +369,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %call5 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %s, ptr noundef %str, i32 noundef %conv) #5
+  %call5 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %s, ptr noundef nonnull %str, i32 noundef %conv) #5
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %if.end
 
@@ -384,7 +384,7 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -512,14 +512,14 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 2) i32 @ASN1_UTCTIME_cmp_time_t(ptr nocapture noundef readonly %s, i64 noundef %t) local_unnamed_addr #0 {
+define hidden range(i32 -2, 2) i32 @ASN1_UTCTIME_cmp_time_t(ptr noundef readonly captures(none) %s, i64 noundef %t) local_unnamed_addr #0 {
 entry:
   %t.addr = alloca i64, align 8
   %stm = alloca %struct.tm, align 8

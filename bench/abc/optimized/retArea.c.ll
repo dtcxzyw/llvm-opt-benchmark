@@ -973,7 +973,7 @@ declare void @Abc_NtkInsertLatchValues(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_NtkMarkCone_rec(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_NtkMarkCone_rec(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 16
@@ -1051,7 +1051,7 @@ define void @Abc_NtkMarkCone_rec(ptr nocapture noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_NtkUnmarkCone_rec(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_NtkUnmarkCone_rec(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 16
@@ -1373,12 +1373,12 @@ declare ptr @Abc_NtkDupObj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @Abc_NtkMaxFlow(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_NtkRetimeMinAreaUpdateLatches(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @Abc_NtkRetimeMinAreaUpdateLatches(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
@@ -1813,7 +1813,7 @@ Vec_PtrPush.exit234:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not174, label %212, label %213
 
 212:                                              ; preds = %.lr.ph274
-  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %208, ptr noundef %77, ptr noundef %194) #7
+  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %208, ptr noundef nonnull %77, ptr noundef %194) #7
   %.val182.pre = load i32, ptr %62, align 4
   br label %213
 
@@ -1843,7 +1843,7 @@ Vec_PtrPush.exit234:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not172, label %224, label %223
 
 223:                                              ; preds = %.lr.ph271
-  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %219, ptr noundef %77, ptr noundef %194) #7
+  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %219, ptr noundef nonnull %77, ptr noundef %194) #7
   %.val181.pre = load i32, ptr %62, align 4
   br label %224
 
@@ -2219,10 +2219,10 @@ declare void @Abc_NtkCleanMarkA(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -2339,7 +2339,7 @@ declare void @Abc_ObjTransferFanout(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @Abc_NtkDeleteObj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

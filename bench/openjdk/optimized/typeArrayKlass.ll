@@ -332,7 +332,7 @@ define hidden noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(
 declare void @_ZN5Klass29check_array_allocation_lengthEiiP10JavaThread(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14TypeArrayKlass14multi_allocateEiPiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14TypeArrayKlass14multi_allocateEiPiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = load i32, ptr %2, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load i32, ptr %6, align 8
@@ -375,7 +375,7 @@ _ZN14TypeArrayKlass8allocateEiP10JavaThread.exit: ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14TypeArrayKlass10copy_arrayEP12arrayOopDesciS1_iiP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN14TypeArrayKlass10copy_arrayEP12arrayOopDesciS1_iiP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 align 2 {
   %8 = alloca %class.stringStream, align 8
   %9 = alloca %class.stringStream, align 8
   %10 = alloca %class.stringStream, align 8
@@ -946,7 +946,7 @@ declare noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 
 declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK14TypeArrayKlass8oop_sizeEP7oopDesc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZNK14TypeArrayKlass8oop_sizeEP7oopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -975,7 +975,7 @@ define hidden noundef i64 @_ZNK14TypeArrayKlass8oop_sizeEP7oopDesc(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN14TypeArrayKlass10initializeEP10JavaThread(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN14TypeArrayKlass10initializeEP10JavaThread(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -1002,12 +1002,12 @@ switch.lookup:                                    ; preds = %1
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK14TypeArrayKlass8print_onEP12outputStream(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #4 align 2 {
+define hidden void @_ZNK14TypeArrayKlass8print_onEP12outputStream(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14TypeArrayKlass14print_value_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define hidden void @_ZNK14TypeArrayKlass14print_value_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.20) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -1043,7 +1043,7 @@ define hidden void @_ZN14TypeArrayKlass12oop_print_onEP7oopDescP12outputStream(p
 declare void @_ZN10ArrayKlass12oop_print_onEP7oopDescP12outputStream(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDescP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDescP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load i8, ptr @UseCompressedClassPointers, align 1
   %5 = trunc i8 %4 to i1
   %6 = select i1 %5, i64 12, i64 16
@@ -1305,13 +1305,13 @@ define hidden noundef ptr @_ZNK14TypeArrayKlass13internal_nameEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14TypeArrayKlass6moduleEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZNK14TypeArrayKlass6moduleEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   %2 = load ptr, ptr @_ZN16ModuleEntryTable16_javabase_moduleE, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noalias noundef ptr @_ZNK14TypeArrayKlass7packageEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noalias noundef ptr @_ZNK14TypeArrayKlass7packageEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr null
 }
 

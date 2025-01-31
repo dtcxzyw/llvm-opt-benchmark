@@ -14,13 +14,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @curl_escape(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @curl_escape(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @curl_easy_escape(ptr poison, ptr noundef %0, i32 noundef %1)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @curl_easy_escape(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @curl_easy_escape(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dynbuf, align 8
   %5 = alloca i8, align 1
   %6 = alloca [3 x i8], align 1
@@ -111,7 +111,7 @@ switch.early.test:                                ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @curl_unescape(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @curl_unescape(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %1, -1
   br i1 %3, label %4, label %curl_easy_unescape.exit
 
@@ -229,7 +229,7 @@ curl_easy_unescape.exit:                          ; preds = %2, %8, %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @curl_easy_unescape(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local ptr @curl_easy_unescape(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %2, -1
   br i1 %5, label %6, label %Curl_urldecode.exit
 
@@ -367,14 +367,14 @@ Curl_urldecode.exit:                              ; preds = %4, %47, %49, %.loop
 declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_urldecode(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_urldecode(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %6, label %8
 
@@ -691,7 +691,7 @@ define dso_local void @curl_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @Curl_hexencode(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #3 {
+define dso_local void @Curl_hexencode(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i64 %1, 0
   %or.cond = and i1 %5, %6

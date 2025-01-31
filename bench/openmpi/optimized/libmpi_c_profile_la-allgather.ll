@@ -244,7 +244,7 @@ ompi_errcode_get_mpi_code.exit103:                ; preds = %85, %81, %.preheade
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %113 = load i32, ptr %112, align 8
-  %114 = tail call i32 @ompi_errhandler_invoke(ptr noundef %111, ptr noundef %6, i32 noundef %113, i32 noundef %.0.i93, ptr noundef nonnull @FUNC_NAME) #4
+  %114 = tail call i32 @ompi_errhandler_invoke(ptr noundef %111, ptr noundef nonnull %6, i32 noundef %113, i32 noundef %.0.i93, ptr noundef nonnull @FUNC_NAME) #4
   br label %115
 
 115:                                              ; preds = %74, %72, %68, %ompi_errcode_get_mpi_code.exit103, %ompi_errcode_get_mpi_code.exit91, %ompi_errcode_get_mpi_code.exit, %34

@@ -78,7 +78,7 @@ declare void @_ZN7Iex_3_26ArgExcD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218dataWindowForLevelERKNS_15TileDescriptionEiiiiii(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %tileDesc, i32 noundef %minX, i32 noundef %maxX, i32 noundef %minY, i32 noundef %maxY, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_218dataWindowForLevelERKNS_15TileDescriptionEiiiiii(ptr noalias writeonly sret(%"class.Imath_3_2::Box") align 4 captures(none) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %tileDesc, i32 noundef %minX, i32 noundef %maxX, i32 noundef %minY, i32 noundef %maxY, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp slt i32 %lx, 0
   br i1 %cmp.i, label %if.then.i, label %_ZN7Imf_3_29levelSizeEiiiNS_17LevelRoundingModeE.exit
@@ -160,7 +160,7 @@ _ZN7Imf_3_29levelSizeEiiiNS_17LevelRoundingModeE.exit20: ; preds = %_ZN7Imf_3_29
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_217dataWindowForTileERKNS_15TileDescriptionEiiiiiiii(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Box") align 4 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %tileDesc, i32 noundef %minX, i32 noundef %maxX, i32 noundef %minY, i32 noundef %maxY, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 {
+define void @_ZN7Imf_3_217dataWindowForTileERKNS_15TileDescriptionEiiiiiiii(ptr noalias writeonly sret(%"class.Imath_3_2::Box") align 4 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %tileDesc, i32 noundef %minX, i32 noundef %maxX, i32 noundef %minY, i32 noundef %maxY, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Box", align 4
   %0 = load i32, ptr %tileDesc, align 4
@@ -235,7 +235,7 @@ declare ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 derefer
 declare noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_221calculateBytesPerLineERKNS_6HeaderEPciiiiiiRSt6vectorIiSaIiEES7_RS4_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(49) %header, ptr nocapture noundef readonly %sampleCountBase, i32 noundef %sampleCountXStride, i32 noundef %sampleCountYStride, i32 noundef %minX, i32 noundef %maxX, i32 noundef %minY, i32 noundef %maxY, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %xOffsets, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %yOffsets, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bytesPerLine) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_221calculateBytesPerLineERKNS_6HeaderEPciiiiiiRSt6vectorIiSaIiEES7_RS4_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(49) %header, ptr noundef readonly captures(none) %sampleCountBase, i32 noundef %sampleCountXStride, i32 noundef %sampleCountYStride, i32 noundef %minX, i32 noundef %maxX, i32 noundef %minY, i32 noundef %maxY, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %xOffsets, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %yOffsets, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %bytesPerLine) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %header)
   %call1 = tail call ptr @_ZNK7Imf_3_211ChannelList5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %call)
@@ -319,7 +319,7 @@ for.end31:                                        ; preds = %for.inc28, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_220precalculateTileInfoERKNS_15TileDescriptionEiiiiRPiS4_RiS5_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %tileDesc, i32 noundef %minX, i32 noundef %maxX, i32 noundef %minY, i32 noundef %maxY, ptr nocapture noundef nonnull align 8 dereferenceable(8) %numXTiles, ptr nocapture noundef nonnull align 8 dereferenceable(8) %numYTiles, ptr nocapture noundef nonnull align 4 dereferenceable(4) %numXLevels, ptr nocapture noundef nonnull align 4 dereferenceable(4) %numYLevels) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_220precalculateTileInfoERKNS_15TileDescriptionEiiiiRPiS4_RiS5_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %tileDesc, i32 noundef %minX, i32 noundef %maxX, i32 noundef %minY, i32 noundef %maxY, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %numXTiles, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %numYTiles, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %numXLevels, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %numYLevels) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %tileDesc, i64 8
   %tileDesc.val = load i32, ptr %0, align 4

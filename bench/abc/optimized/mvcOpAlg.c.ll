@@ -205,7 +205,7 @@ declare ptr @Mvc_CoverClone(ptr noundef) local_unnamed_addr #1
 declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Mvc_CoverClone(ptr noundef %0) #4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.061 = load ptr, ptr %4, align 8
@@ -335,7 +335,7 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr nocapture noundef rea
 declare ptr @Mvc_CubeDup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02651 = load ptr, ptr %3, align 8
   %.not52 = icmp eq ptr %.02651, null
@@ -434,7 +434,7 @@ define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -493,7 +493,7 @@ define hidden void @proto_register_zbee_nwk_gp() local_unnamed_addr #1 {
 declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @gp_uat_key_records_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @gp_uat_key_records_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = load ptr, ptr %0, align 8
@@ -503,7 +503,7 @@ define internal void @gp_uat_key_records_string_set_cb(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gp_uat_key_records_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @gp_uat_key_records_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -530,7 +530,7 @@ define internal void @gp_uat_key_records_string_tostr_cb(ptr nocapture noundef r
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @gp_uat_key_records_byte_order_set_cb(ptr nocapture noundef writeonly initializes((8, 9)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @gp_uat_key_records_byte_order_set_cb(ptr noundef writeonly captures(none) initializes((8, 9)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -573,7 +573,7 @@ define internal void @gp_uat_key_records_byte_order_set_cb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gp_uat_key_records_byte_order_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @gp_uat_key_records_byte_order_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -622,7 +622,7 @@ define internal void @gp_uat_key_records_byte_order_tostr_cb(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gp_uat_key_records_label_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @gp_uat_key_records_label_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -633,7 +633,7 @@ define internal void @gp_uat_key_records_label_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gp_uat_key_records_label_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @gp_uat_key_records_label_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -665,7 +665,7 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeonly initializes((0, 8), (16, 24)) %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeonly initializes((0, 8), (16, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #11
   store ptr %5, ptr %0, align 8
@@ -678,7 +678,7 @@ define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 {
+define internal noundef zeroext i1 @uat_key_record_update_cb(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -725,7 +725,7 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_key_record_free_cb(ptr nocapture noundef readonly %0) #1 {
+define internal void @uat_key_record_free_cb(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -851,7 +851,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca [13 x i8], align 4
   %6 = alloca %struct.zbee_nwk_green_power_packet, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, i8 0, i64 36, i1 false)
@@ -1610,7 +1610,7 @@ zbee_gp_decrypt_payload.exit.i:                   ; preds = %194, %.zbee_gp_make
   %brmerge.i.i = or i1 %192, %202
   %.sink.i.i.i = select i1 %brmerge.i.i, i8 5, i8 -93
   store i8 %.sink.i.i.i, ptr %186, align 4
-  %203 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %190, ptr noundef nonnull %10, ptr noundef nonnull %156, ptr noundef %171, ptr noundef %154, i32 noundef 4, i32 noundef 16, i32 noundef 4) #11
+  %203 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %190, ptr noundef nonnull %10, ptr noundef nonnull %156, ptr noundef nonnull %171, ptr noundef %154, i32 noundef 4, i32 noundef 16, i32 noundef 4) #11
   %.not.i.i = icmp eq i32 %203, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %10)
   %204 = getelementptr inbounds nuw i8, ptr %.0141176.i, i64 8
@@ -1632,7 +1632,7 @@ zbee_gp_decrypt_payload.exit.i:                   ; preds = %194, %.zbee_gp_make
   %211 = call dereferenceable_or_null(32) ptr @g_memdup2(ptr noundef nonnull %11, i64 noundef 32) #13
   %212 = call ptr @g_slist_prepend(ptr noundef %210, ptr noundef %211) #11
   store ptr %212, ptr @zbee_gp_keyring, align 8
-  %213 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %154, i32 noundef 16, i32 noundef 16) #11
+  %213 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %154, i32 noundef 16, i32 noundef 16) #11
   call void @add_new_data_source(ptr noundef %1, ptr noundef %213, ptr noundef nonnull @.str.307) #11
   br label %.critedge.i
 
@@ -2057,7 +2057,7 @@ zbee_gp_decrypt_payload.exit.i124:                ; preds = %420, %.zbee_gp_make
   %brmerge.i.i128 = or i1 %417, %435
   %.sink.i.i.i129 = select i1 %brmerge.i.i128, i8 5, i8 -93
   store i8 %.sink.i.i.i129, ptr %411, align 4
-  %436 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %415, ptr noundef nonnull %6, ptr noundef nonnull %381, ptr noundef %396, ptr noundef %379, i32 noundef 4, i32 noundef 16, i32 noundef 4) #11
+  %436 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %415, ptr noundef nonnull %6, ptr noundef nonnull %381, ptr noundef nonnull %396, ptr noundef %379, i32 noundef 4, i32 noundef 16, i32 noundef 4) #11
   %.not.i.i130 = icmp eq i32 %436, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6)
   %437 = getelementptr inbounds nuw i8, ptr %.07193.i, i64 8
@@ -2079,7 +2079,7 @@ zbee_gp_decrypt_payload.exit.i124:                ; preds = %420, %.zbee_gp_make
   %444 = call dereferenceable_or_null(32) ptr @g_memdup2(ptr noundef nonnull %8, i64 noundef 32) #13
   %445 = call ptr @g_slist_prepend(ptr noundef %443, ptr noundef %444) #11
   store ptr %445, ptr @zbee_gp_keyring, align 8
-  %446 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %379, i32 noundef 16, i32 noundef 16) #11
+  %446 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %379, i32 noundef 16, i32 noundef 16) #11
   call void @add_new_data_source(ptr noundef %1, ptr noundef %446, ptr noundef nonnull @.str.307) #11
   br label %dissect_zbee_nwk_gp_cmd_commissioning_reply.exit
 
@@ -2257,7 +2257,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #0
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -2266,7 +2266,7 @@ declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #0
 declare ptr @g_strchug(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @zbee_gp_security_parse_key(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @zbee_gp_security_parse_key(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
@@ -2375,13 +2375,13 @@ define internal fastcc range(i32 0, 2) i32 @zbee_gp_security_parse_key(ptr nound
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @g_ascii_xdigit_value(i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -2513,13 +2513,13 @@ declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -197,7 +197,7 @@ define dso_local noundef zeroext i1 @intel_gmch_enable_gtt() #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @pci_read_config_word(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -209,7 +209,7 @@ declare dso_local i32 @pci_write_config_word(ptr noundef, i32 noundef, i16 nound
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_gmch_gtt_insert_page(i64 noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
@@ -236,7 +236,7 @@ define dso_local void @intel_gmch_gtt_insert_page(i64 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gmch_gtt_insert_sg_entries(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local void @intel_gmch_gtt_insert_sg_entries(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -1038,7 +1038,7 @@ define dso_local void @intel_gmch_remove() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none)
-define dso_local void @intel_gmch_gtt_get(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #4 align 16 {
+define dso_local void @intel_gmch_gtt_get(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #4 align 16 {
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @intel_private, i64 192), align 8
   %5 = shl i32 %4, 12
   %6 = zext i32 %5 to i64
@@ -1571,7 +1571,7 @@ define internal noundef range(i32 -5, 1) i32 @intel_fake_agp_configure() #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @intel_fake_agp_enable(ptr nocapture readnone %0, i32 %1) #5 align 16 {
+define internal void @intel_fake_agp_enable(ptr readnone captures(none) %0, i32 %1) #5 align 16 {
   ret void
 }
 
@@ -1609,7 +1609,7 @@ define internal void @intel_gtt_cleanup() #0 align 16 {
 declare dso_local void @global_cache_flush() #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: write, inaccessiblemem: none)
-define internal noundef i32 @intel_fake_agp_create_gatt_table(ptr nocapture readnone %0) #7 align 16 {
+define internal noundef i32 @intel_fake_agp_create_gatt_table(ptr readnone captures(none) %0) #7 align 16 {
   %2 = load ptr, ptr @agp_bridge, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -1619,12 +1619,12 @@ define internal noundef i32 @intel_fake_agp_create_gatt_table(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @intel_fake_agp_free_gatt_table(ptr nocapture readnone %0) #5 align 16 {
+define internal noundef i32 @intel_fake_agp_free_gatt_table(ptr readnone captures(none) %0) #5 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @intel_fake_agp_insert_entries(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @intel_fake_agp_insert_entries(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.sg_table, align 8
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @intel_private, i64 56), align 8, !range !20, !noundef !21
   %6 = icmp eq i8 %5, 0
@@ -1827,7 +1827,7 @@ define internal noundef range(i32 -22, 1) i32 @intel_fake_agp_insert_entries(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_fake_agp_remove_entries(ptr nocapture noundef %0, i64 noundef %1, i32 %2) #0 align 16 {
+define internal noundef i32 @intel_fake_agp_remove_entries(ptr noundef captures(none) %0, i64 noundef %1, i32 %2) #0 align 16 {
   %4 = alloca %struct.sg_table, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
@@ -2087,10 +2087,10 @@ declare dso_local void @agp_generic_destroy_page(ptr noundef, i32 noundef) #2
 declare dso_local void @agp_generic_destroy_pages(ptr noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @intel_gtt_map_memory(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @intel_gtt_map_memory(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call i32 @sg_alloc_table(ptr noundef %2, i32 noundef %1, i32 noundef 3264) #9
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %36

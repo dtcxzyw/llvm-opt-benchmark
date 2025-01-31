@@ -32,7 +32,7 @@ $_ZNSt12out_of_rangeC2EOS_ = comdat any
 @_ZTVSt12out_of_range = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN8facebook5velox9functions17JsonPathTokenizer5resetEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr %path.coerce0, ptr %path.coerce1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN8facebook5velox9functions17JsonPathTokenizer5resetEN5folly5RangeIPKcEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %this, ptr %path.coerce0, ptr %path.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i = icmp eq ptr %path.coerce0, %path.coerce1
   br i1 %cmp.i, label %return, label %lor.lhs.false
@@ -56,7 +56,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox9functions17JsonPathTokenizer7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK8facebook5velox9functions17JsonPathTokenizer7hasNextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -71,7 +71,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions17JsonPathTokenizer7getNextB5cxx11Ev(ptr noalias sret(%"class.folly::Expected") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions17JsonPathTokenizer7getNextB5cxx11Ev(ptr noalias sret(%"class.folly::Expected") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %token = alloca %"class.folly::Expected", align 8
   %0 = load i64, ptr %this, align 8
@@ -193,7 +193,7 @@ return:                                           ; preds = %sw.bb.i.i.i44, %cle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN8facebook5velox9functions17JsonPathTokenizer5matchEc(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i8 noundef signext %expected) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN8facebook5velox9functions17JsonPathTokenizer5matchEc(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i8 noundef signext %expected) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -223,7 +223,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions17JsonPathTokenizer11matchDotKeyB5cxx11Ev(ptr noalias sret(%"class.folly::Expected") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions17JsonPathTokenizer11matchDotKeyB5cxx11Ev(ptr noalias sret(%"class.folly::Expected") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -310,7 +310,7 @@ return:                                           ; preds = %_ZNK5folly5RangeIPK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions17JsonPathTokenizer23matchQuotedSubscriptKeyB5cxx11Ev(ptr noalias sret(%"class.folly::Expected") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions17JsonPathTokenizer23matchQuotedSubscriptKeyB5cxx11Ev(ptr noalias sret(%"class.folly::Expected") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %token = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #16
@@ -421,7 +421,7 @@ cleanup:                                          ; preds = %invoke.cont71, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions17JsonPathTokenizer25matchUnquotedSubscriptKeyB5cxx11Ev(ptr noalias sret(%"class.folly::Expected") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions17JsonPathTokenizer25matchUnquotedSubscriptKeyB5cxx11Ev(ptr noalias sret(%"class.folly::Expected") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -508,7 +508,7 @@ return:                                           ; preds = %_ZNK5folly5RangeIPK
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN8facebook5velox9functions17JsonPathTokenizer14isDotKeyFormatEc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, i8 noundef signext %c) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN8facebook5velox9functions17JsonPathTokenizer14isDotKeyFormatEc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, i8 noundef signext %c) local_unnamed_addr #4 align 2 {
 entry:
   %switch.tableidx = add i8 %c, -42
   %0 = icmp ult i8 %switch.tableidx, 54
@@ -535,7 +535,7 @@ lor.end:                                          ; preds = %switch.hole_check, 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN8facebook5velox9functions17JsonPathTokenizer26isUnquotedBracketKeyFormatEc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, i8 noundef signext %c) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN8facebook5velox9functions17JsonPathTokenizer26isUnquotedBracketKeyFormatEc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, i8 noundef signext %c) local_unnamed_addr #4 align 2 {
 entry:
   switch i8 %c, label %lor.rhs [
     i8 95, label %lor.end
@@ -712,10 +712,10 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

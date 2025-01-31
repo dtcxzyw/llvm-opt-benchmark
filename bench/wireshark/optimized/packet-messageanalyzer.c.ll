@@ -688,7 +688,7 @@ define hidden void @proto_reg_handoff_message_analyzer() local_unnamed_addr #0 {
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ma_wfp_capture_v4(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ma_wfp_capture_v4(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.222) #4
@@ -700,7 +700,7 @@ define internal i32 @dissect_ma_wfp_capture_v4(ptr noundef %0, ptr noundef initi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ma_wfp_capture2_v4(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ma_wfp_capture2_v4(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.225) #4
@@ -712,7 +712,7 @@ define internal i32 @dissect_ma_wfp_capture2_v4(ptr noundef %0, ptr noundef init
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ma_wfp_capture_v6(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ma_wfp_capture_v6(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.228) #4
@@ -724,7 +724,7 @@ define internal i32 @dissect_ma_wfp_capture_v6(ptr noundef %0, ptr noundef initi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ma_wfp_capture2_v6(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ma_wfp_capture2_v6(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.231) #4
@@ -736,7 +736,7 @@ define internal i32 @dissect_ma_wfp_capture2_v6(ptr noundef %0, ptr noundef init
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ma_wfp_capture_auth_v4(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ma_wfp_capture_auth_v4(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.234) #4
@@ -748,7 +748,7 @@ define internal i32 @dissect_ma_wfp_capture_auth_v4(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ma_wfp_capture_auth_v6(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ma_wfp_capture_auth_v6(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.237) #4
@@ -2200,10 +2200,10 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

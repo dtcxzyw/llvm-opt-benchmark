@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [47 x i8] c"Nesting level too deep - recursive dependency?\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @zend_hash_str_find_ptr_lc(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @zend_hash_str_find_ptr_lc(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = add i64 %2, 1
   %5 = icmp ugt i64 %4, 32768
   br i1 %5, label %6, label %8
@@ -84,7 +84,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #2
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @zend_hash_find_ptr_lc(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @zend_hash_find_ptr_lc(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @zend_string_tolower_ex(ptr noundef %1, i1 noundef zeroext false) #28
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
@@ -202,7 +202,7 @@ zend_hash_find.exit:                              ; preds = %.critedge.i, %8, %.
 declare void @zval_ptr_dtor(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @_zend_hash_init(ptr nocapture noundef writeonly initializes((0, 32), (36, 56)) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define void @_zend_hash_init(ptr noundef writeonly captures(none) initializes((0, 32), (36, 56)) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   store i32 1, ptr %0, align 4
   %5 = select i1 %3, i32 151, i32 7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -323,7 +323,7 @@ define noalias noundef ptr @_zend_new_array(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @zend_new_pair(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @zend_new_pair(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @_emalloc_56() #28
   store i32 1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -368,7 +368,7 @@ define noalias noundef ptr @zend_new_pair(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_packed_grow(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @zend_hash_packed_grow(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 1073741823
@@ -440,7 +440,7 @@ declare ptr @__zend_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @_erealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_real_init(ptr nocapture noundef initializes((16, 24)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
+define void @zend_hash_real_init(ptr noundef captures(none) initializes((16, 24)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 8
@@ -573,7 +573,7 @@ define void @zend_hash_real_init(ptr nocapture noundef initializes((16, 24)) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_real_init_packed(ptr nocapture noundef initializes((8, 9), (16, 24)) %0) local_unnamed_addr #0 {
+define void @zend_hash_real_init_packed(ptr noundef captures(none) initializes((8, 9), (16, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 128
@@ -624,7 +624,7 @@ define void @zend_hash_real_init_packed(ptr nocapture noundef initializes((8, 9)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_real_init_mixed(ptr nocapture noundef initializes((8, 9), (12, 24)) %0) local_unnamed_addr #5 {
+define void @zend_hash_real_init_mixed(ptr noundef captures(none) initializes((8, 9), (12, 24)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = shl i32 %3, 1
@@ -803,7 +803,7 @@ declare void @llvm.assume(i1 noundef) #6
 declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define void @zend_hash_rehash(ptr noundef %0) local_unnamed_addr #8 {
@@ -1340,7 +1340,7 @@ _zend_hash_iterators_update.exit236:              ; preds = %250, %.preheader, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_to_packed(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @zend_hash_to_packed(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1641,10 +1641,10 @@ define void @zend_hash_extend(ptr noundef %0, i32 noundef %1, i1 noundef zeroext
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @zend_hash_discard(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @zend_hash_discard(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -1805,7 +1805,7 @@ zend_array_recalc_elements.exit22:                ; preds = %45, %29, %47, %zend
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @zend_hash_get_current_pos(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define i32 @zend_hash_get_current_pos(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1985,7 +1985,7 @@ define i32 @zend_hash_iterator_add(ptr noundef %0, i32 noundef %1) local_unnamed
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define i32 @zend_hash_iterator_pos(i32 noundef %0, ptr noundef %1) local_unnamed_addr #14 {
@@ -2170,7 +2170,7 @@ define i32 @zend_hash_iterator_pos(i32 noundef %0, ptr noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @zend_hash_iterator_pos_ex(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define i32 @zend_hash_iterator_pos_ex(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %5 = zext i32 %0 to i64
@@ -5483,7 +5483,7 @@ define ptr @zend_hash_add_or_update(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @zend_hash_add(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define noundef ptr @zend_hash_add(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
@@ -5715,7 +5715,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %52, %32, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @zend_hash_add_new(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define noundef ptr @zend_hash_add_new(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
@@ -6655,7 +6655,7 @@ define ptr @zend_hash_str_add_or_update(ptr noundef %0, ptr noundef %1, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_hash_str_add(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 {
+define ptr @zend_hash_str_add(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #5 {
   %5 = tail call i64 @zend_hash_func(ptr noundef %1, i64 noundef %2) #28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
@@ -6886,7 +6886,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %49, %29, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @zend_hash_str_add_new(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 {
+define noundef ptr @zend_hash_str_add_new(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #5 {
   %5 = tail call i64 @zend_hash_func(ptr noundef %1, i64 noundef %2) #28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
@@ -7586,7 +7586,7 @@ define ptr @zend_hash_index_add_empty_element(ptr noundef %0, i64 noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_hash_index_add(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define ptr @zend_hash_index_add(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -7988,7 +7988,7 @@ define ptr @zend_hash_str_add_empty_element(ptr noundef %0, ptr noundef %1, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_hash_index_add_or_update(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @zend_hash_index_add_or_update(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = add i32 %3, -2
   %6 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 29)
   switch i32 %6, label %21 [
@@ -8034,7 +8034,7 @@ define ptr @zend_hash_index_add_or_update(ptr noundef %0, i64 noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_hash_index_add_new(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define ptr @zend_hash_index_add_new(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -8382,7 +8382,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %156, %137, %164, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_hash_next_index_insert(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define ptr @zend_hash_next_index_insert(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, -9223372036854775808
@@ -8768,7 +8768,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %157, %138, %182, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_hash_next_index_insert_new(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define ptr @zend_hash_next_index_insert_new(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, -9223372036854775808
@@ -9086,7 +9086,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %147, %128, %155, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_hash_index_update(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define ptr @zend_hash_index_update(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -9861,7 +9861,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %153, %134, %178, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_hash_set_bucket_key(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @zend_hash_set_bucket_key(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -10849,7 +10849,7 @@ define range(i32 -1, 1) i32 @zend_hash_del_ind(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @zend_hash_str_del_ind(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_hash_str_del_ind(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = icmp ugt i64 %2, 7
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -11203,7 +11203,7 @@ define range(i32 -1, 1) i32 @zend_hash_str_del_ind(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @zend_hash_str_del(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_hash_str_del(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = icmp ugt i64 %2, 7
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -12503,7 +12503,7 @@ declare void @gc_remove_from_buffer(ptr noundef) local_unnamed_addr #1
 declare void @_efree_56(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_clean(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @zend_hash_clean(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -12773,7 +12773,7 @@ define void @zend_hash_clean(ptr nocapture noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_symtable_clean(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @zend_symtable_clean(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -13767,7 +13767,7 @@ define void @zend_hash_graceful_reverse_destroy(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_apply(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @zend_hash_apply(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14117,7 +14117,7 @@ define void @zend_hash_apply(ptr noundef %0, ptr nocapture noundef readonly %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_apply_with_argument(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @zend_hash_apply_with_argument(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14467,7 +14467,7 @@ define void @zend_hash_apply_with_argument(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ...) local_unnamed_addr #0 {
+define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
@@ -14831,7 +14831,7 @@ define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_reverse_apply(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @zend_hash_reverse_apply(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15173,7 +15173,7 @@ define void @zend_hash_reverse_apply(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_copy(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @zend_hash_copy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -15340,7 +15340,7 @@ define void @zend_hash_copy(ptr noundef %0, ptr nocapture noundef readonly %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @zend_array_to_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @zend_array_to_list(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = tail call noalias ptr @_emalloc_56() #28
@@ -15493,7 +15493,7 @@ zend_hash_real_init_packed.exit:                  ; preds = %.thread, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_merge(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #5 {
+define void @zend_hash_merge(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 4
@@ -16239,7 +16239,7 @@ zend_hash_real_init_mixed.exit368:                ; preds = %292, %276, %.loopex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_merge_ex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @zend_hash_merge_ex(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct._zend_hash_key, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
@@ -16329,7 +16329,7 @@ define void @zend_hash_merge_ex(ptr noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_hash_find(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @zend_hash_find(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -16410,7 +16410,7 @@ define ptr @zend_hash_find(ptr nocapture noundef readonly %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_hash_find_known_hash(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @zend_hash_find_known_hash(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp ne i64 %4, 0
@@ -16481,7 +16481,7 @@ define ptr @zend_hash_find_known_hash(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define ptr @zend_hash_str_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #16 {
+define ptr @zend_hash_str_find(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #16 {
   %4 = icmp ugt i64 %2, 7
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -16671,7 +16671,7 @@ define ptr @zend_hash_str_find(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define ptr @zend_hash_index_find(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #17 {
+define ptr @zend_hash_index_find(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -16744,7 +16744,7 @@ define ptr @zend_hash_index_find(ptr nocapture noundef readonly %0, i64 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define ptr @_zend_hash_index_find(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #17 {
+define ptr @_zend_hash_index_find(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -16796,7 +16796,7 @@ define ptr @_zend_hash_index_find(ptr nocapture noundef readonly %0, i64 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @zend_hash_internal_pointer_reset_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #18 {
+define void @zend_hash_internal_pointer_reset_ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -16859,7 +16859,7 @@ define void @zend_hash_internal_pointer_reset_ex(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @zend_hash_internal_pointer_end_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #18 {
+define void @zend_hash_internal_pointer_end_ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16911,7 +16911,7 @@ define void @zend_hash_internal_pointer_end_ex(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @zend_hash_move_forward_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #18 {
+define range(i32 -1, 1) i32 @zend_hash_move_forward_ex(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #18 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -17024,7 +17024,7 @@ define range(i32 -1, 1) i32 @zend_hash_move_forward_ex(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @zend_hash_move_backwards_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #18 {
+define range(i32 -1, 1) i32 @zend_hash_move_backwards_ex(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #18 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -17085,7 +17085,7 @@ define range(i32 -1, 1) i32 @zend_hash_move_backwards_ex(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 1, 4) i32 @zend_hash_get_current_key_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #18 {
+define range(i32 1, 4) i32 @zend_hash_get_current_key_ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #18 {
   %5 = load i32, ptr %3, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
@@ -17180,7 +17180,7 @@ define range(i32 1, 4) i32 @zend_hash_get_current_key_ex(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @zend_hash_get_current_key_zval_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #15 {
+define void @zend_hash_get_current_key_zval_ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #15 {
   %4 = load i32, ptr %2, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -17287,7 +17287,7 @@ define void @zend_hash_get_current_key_zval_ex(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 1, 4) i32 @zend_hash_get_current_key_type_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+define range(i32 1, 4) i32 @zend_hash_get_current_key_type_ex(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -17379,7 +17379,7 @@ define range(i32 1, 4) i32 @zend_hash_get_current_key_type_ex(ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @zend_hash_get_current_data_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+define ptr @zend_hash_get_current_data_ex(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -17460,7 +17460,7 @@ define ptr @zend_hash_get_current_data_ex(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zend_hash_bucket_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) #19 {
+define void @zend_hash_bucket_swap(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #19 {
   %3 = alloca %struct._zval_struct, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17481,7 +17481,7 @@ define void @zend_hash_bucket_swap(ptr nocapture noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zend_hash_bucket_renum_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) #19 {
+define void @zend_hash_bucket_renum_swap(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #19 {
   %3 = alloca %struct._zval_struct, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
@@ -17490,7 +17490,7 @@ define void @zend_hash_bucket_renum_swap(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zend_hash_bucket_packed_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) #19 {
+define void @zend_hash_bucket_packed_swap(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #19 {
   %3 = alloca %struct._zval_struct, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17505,7 +17505,7 @@ define void @zend_hash_bucket_packed_swap(ptr nocapture noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_sort_ex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #5 {
+define void @zend_hash_sort_ex(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = icmp ugt i32 %6, 1
@@ -17828,7 +17828,7 @@ define void @zend_hash_sort_ex(ptr noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @zend_hash_compare(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define i32 @zend_hash_compare(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %236, label %6
 
@@ -18286,7 +18286,7 @@ zend_hash_find.exit:                              ; preds = %224, %225, %226, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_hash_minmax(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @zend_hash_minmax(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -18472,7 +18472,7 @@ define ptr @zend_hash_minmax(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #20 {
+define noundef zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #20 {
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 45
@@ -19198,7 +19198,7 @@ declare i64 @zend_string_hash_func(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @zend_string_equal_val(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #22
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #22
 
 declare void @rc_dtor_func(ptr noundef) local_unnamed_addr #1
 
@@ -19248,7 +19248,7 @@ declare void @llvm.va_start.p0(ptr) #23
 declare void @llvm.va_end.p0(ptr) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #25
@@ -19257,10 +19257,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #25
 declare i32 @llvm.umin.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

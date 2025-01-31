@@ -75,7 +75,7 @@ declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @cpu_loop_exit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_semihosting_console_read(ptr noundef %cs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local i32 @qemu_semihosting_console_read(ptr noundef %cs, ptr noundef writeonly captures(none) %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %call.i = tail call zeroext i1 @qemu_mutex_iothread_locked() #5
   br i1 %call.i, label %do.end.i, label %if.else.i
@@ -156,7 +156,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @qemu_chr_write(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_semihosting_console_init(ptr noundef %chr) local_unnamed_addr #0 {
@@ -199,7 +199,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @console_read(ptr noundef %opaque, ptr nocapture noundef readonly %buf, i32 noundef %size) #0 {
+define internal void @console_read(ptr noundef %opaque, ptr noundef readonly captures(none) %buf, i32 noundef %size) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_mutex_iothread_locked() #5
   br i1 %call, label %while.cond.preheader, label %if.else
@@ -249,7 +249,7 @@ declare void @fifo8_push(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @console_wake_up(ptr noundef initializes((724, 728)) %data, ptr nocapture readnone %user_data) #0 {
+define internal void @console_wake_up(ptr noundef initializes((724, 728)) %data, ptr readnone captures(none) %user_data) #0 {
 entry:
   %halted = getelementptr inbounds nuw i8, ptr %data, i64 724
   store i32 0, ptr %halted, align 4

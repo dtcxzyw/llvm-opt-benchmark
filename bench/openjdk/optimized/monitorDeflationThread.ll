@@ -146,7 +146,7 @@ declare void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable
 declare ptr @_ZN10JavaThread27create_system_thread_objectEPKcPS_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22MonitorDeflationThread30monitor_deflation_thread_entryEP10JavaThreadS1_(ptr noundef %0, ptr nocapture readnone %1) #0 align 2 {
+define hidden void @_ZN22MonitorDeflationThread30monitor_deflation_thread_entryEP10JavaThreadS1_(ptr noundef %0, ptr readnone captures(none) %1) #0 align 2 {
   %3 = alloca %class.LogStreamTemplate, align 8
   %4 = load i64, ptr @AsyncDeflationInterval, align 8
   %5 = icmp sgt i64 %4, 0

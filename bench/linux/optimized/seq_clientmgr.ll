@@ -220,10 +220,10 @@ define dso_local ptr @snd_seq_client_use_ptr(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -290,10 +290,10 @@ define dso_local noundef i32 @client_init_data() local_unnamed_addr #3 section "
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__snd_seq_deliver_single_event(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @__snd_seq_deliver_single_event(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = load i32, ptr %0, align 8
   switch i32 %6, label %25 [
     i32 1, label %7
@@ -434,7 +434,7 @@ define dso_local i32 @snd_seq_dispatch_event(ptr noundef %0, i32 noundef %1, i32
 declare dso_local void @snd_seq_cell_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @snd_seq_deliver_event(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
@@ -522,7 +522,7 @@ define internal fastcc i32 @snd_seq_deliver_event(ptr noundef nonnull %0, ptr no
 declare dso_local i32 @snd_seq_enqueue_event(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_seq_client_notify_subscription(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @snd_seq_client_notify_subscription(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.snd_seq_event, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #19
   %6 = trunc i32 %3 to i8
@@ -567,7 +567,7 @@ declare dso_local i32 @snd_seq_queue_check_access(i32 noundef, i32 noundef) loca
 declare dso_local i32 @snd_seq_queue_timer_set_tempo(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_seq_create_kernel_client(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ...) #0 align 16 {
+define dso_local i32 @snd_seq_create_kernel_client(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) #0 align 16 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #19
   %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !6
@@ -749,7 +749,7 @@ define internal fastcc noundef ptr @seq_create_client1(i32 noundef %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare dso_local noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @snd_seq_system_broadcast(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -1160,7 +1160,7 @@ define dso_local void @snd_seq_kernel_client_put(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_seq_info_clients_read(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @snd_seq_info_clients_read(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %3, ptr noundef nonnull @.str.2) #19
   %4 = load ptr, ptr %1, align 8
@@ -2009,13 +2009,13 @@ declare dso_local i32 @snd_seq_queue_is_used(i32 noundef, i32 noundef) local_unn
 declare dso_local i32 @snd_seq_event_dup(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @snd_seq_ioctl_pversion(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #11 align 16 {
+define internal noundef i32 @snd_seq_ioctl_pversion(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #11 align 16 {
   store i32 65539, ptr %1, align 4
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @snd_seq_ioctl_user_pversion(ptr nocapture noundef writeonly initializes((12, 16)) %0, ptr nocapture noundef readonly %1) #12 align 16 {
+define internal noundef i32 @snd_seq_ioctl_user_pversion(ptr noundef writeonly captures(none) initializes((12, 16)) %0, ptr noundef readonly captures(none) %1) #12 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %3, ptr %4, align 4
@@ -2023,7 +2023,7 @@ define internal noundef i32 @snd_seq_ioctl_user_pversion(ptr nocapture noundef w
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @snd_seq_ioctl_client_id(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #12 align 16 {
+define internal noundef i32 @snd_seq_ioctl_client_id(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #12 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4
@@ -2031,7 +2031,7 @@ define internal noundef i32 @snd_seq_ioctl_client_id(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_seq_ioctl_system_info(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 48)) %1) #0 align 16 {
+define internal noundef i32 @snd_seq_ioctl_system_info(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 48)) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %3, i8 0, i64 28, i1 false)
   store i32 32, ptr %1, align 4
@@ -2051,7 +2051,7 @@ define internal noundef i32 @snd_seq_ioctl_system_info(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_running_mode(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_running_mode(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = tail call ptr @snd_seq_client_use_ptr(i32 noundef %4)
@@ -2089,7 +2089,7 @@ define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_running_mode(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @snd_seq_ioctl_get_client_info(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @snd_seq_ioctl_get_client_info(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = tail call ptr @snd_seq_client_use_ptr(i32 noundef %3)
   %5 = icmp eq ptr %4, null
@@ -2398,7 +2398,7 @@ define internal range(i32 -2147483648, 1) i32 @snd_seq_ioctl_create_port(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_seq_ioctl_delete_port(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @snd_seq_ioctl_delete_port(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load i8, ptr %1, align 8
   %4 = zext i8 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2440,7 +2440,7 @@ define internal i32 @snd_seq_ioctl_delete_port(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -6, 1) i32 @snd_seq_ioctl_get_port_info(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -6, 1) i32 @snd_seq_ioctl_get_port_info(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load i8, ptr %1, align 8
   %4 = zext i8 %3 to i32
   %5 = tail call ptr @snd_seq_client_use_ptr(i32 noundef %4)
@@ -2760,7 +2760,7 @@ define internal i32 @snd_seq_ioctl_unsubscribe_port(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_seq_ioctl_create_queue(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @snd_seq_ioctl_create_queue(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2814,7 +2814,7 @@ define internal i32 @snd_seq_ioctl_create_queue(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_seq_ioctl_delete_queue(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @snd_seq_ioctl_delete_queue(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -2823,7 +2823,7 @@ define internal i32 @snd_seq_ioctl_delete_queue(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_info(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_info(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = tail call ptr @queueptr(i32 noundef %3) #19
   %5 = icmp eq ptr %4, null
@@ -2854,7 +2854,7 @@ define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_info(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_set_queue_info(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_set_queue_info(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2923,7 +2923,7 @@ define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_set_queue_info(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_named_queue(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_named_queue(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %4 = tail call ptr @snd_seq_queue_find_name(ptr noundef nonnull %3) #19
   %5 = icmp eq ptr %4, null
@@ -2953,7 +2953,7 @@ define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_named_queue(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_status(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_status(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = tail call ptr @queueptr(i32 noundef %3) #19
   %5 = icmp eq ptr %4, null
@@ -3001,7 +3001,7 @@ define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_status(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_tempo(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_tempo(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = tail call ptr @queueptr(i32 noundef %3) #19
   %5 = icmp eq ptr %4, null
@@ -3039,7 +3039,7 @@ define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_tempo(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @snd_seq_ioctl_set_queue_tempo(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @snd_seq_ioctl_set_queue_tempo(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -3059,7 +3059,7 @@ define internal range(i32 -2147483648, 1) i32 @snd_seq_ioctl_set_queue_tempo(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_timer(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_timer(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = tail call ptr @queueptr(i32 noundef %3) #19
   %5 = icmp eq ptr %4, null
@@ -3103,7 +3103,7 @@ define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_timer(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_seq_ioctl_set_queue_timer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @snd_seq_ioctl_set_queue_timer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -3161,7 +3161,7 @@ define internal i32 @snd_seq_ioctl_set_queue_timer(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_client(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_client(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
@@ -3183,7 +3183,7 @@ define internal noundef range(i32 -22, 1) i32 @snd_seq_ioctl_get_queue_client(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @snd_seq_ioctl_set_queue_client(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @snd_seq_ioctl_set_queue_client(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, -1
@@ -3218,7 +3218,7 @@ define internal range(i32 -2147483648, 1) i32 @snd_seq_ioctl_set_queue_client(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @snd_seq_ioctl_get_client_pool(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @snd_seq_ioctl_get_client_pool(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = tail call ptr @snd_seq_client_use_ptr(i32 noundef %3)
   %5 = icmp eq ptr %4, null
@@ -3292,7 +3292,7 @@ define internal noundef range(i32 -2, 1) i32 @snd_seq_ioctl_get_client_pool(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @snd_seq_ioctl_set_client_pool(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @snd_seq_ioctl_set_client_pool(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -3473,7 +3473,7 @@ define internal range(i32 -2147483648, 1) i32 @snd_seq_ioctl_set_client_pool(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_seq_ioctl_get_subscription(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal i32 @snd_seq_ioctl_get_subscription(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load i8, ptr %1, align 4
   %4 = zext i8 %3 to i32
   %5 = tail call ptr @snd_seq_client_use_ptr(i32 noundef %4)
@@ -3508,7 +3508,7 @@ define internal i32 @snd_seq_ioctl_get_subscription(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @snd_seq_ioctl_query_next_client(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @snd_seq_ioctl_query_next_client(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 2147483647
   br i1 %4, label %.thread7, label %5
@@ -3611,7 +3611,7 @@ define internal noundef range(i32 -2, 1) i32 @snd_seq_ioctl_query_next_client(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -6, 1) i32 @snd_seq_ioctl_query_next_port(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -6, 1) i32 @snd_seq_ioctl_query_next_port(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load i8, ptr %1, align 8
   %4 = zext i8 %3 to i32
   %5 = tail call ptr @snd_seq_client_use_ptr(i32 noundef %4)
@@ -3648,7 +3648,7 @@ define internal noundef range(i32 -6, 1) i32 @snd_seq_ioctl_query_next_port(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_seq_ioctl_remove_events(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef i32 @snd_seq_ioctl_remove_events(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = and i32 %3, 1
   %5 = icmp eq i32 %4, 0
@@ -3687,7 +3687,7 @@ define internal noundef i32 @snd_seq_ioctl_remove_events(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -6, 1) i32 @snd_seq_ioctl_query_subs(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 -6, 1) i32 @snd_seq_ioctl_query_subs(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load i8, ptr %1, align 4
   %4 = zext i8 %3 to i32
   %5 = tail call ptr @snd_seq_client_use_ptr(i32 noundef %4)
@@ -3790,7 +3790,7 @@ define internal noundef range(i32 -6, 1) i32 @snd_seq_ioctl_query_subs(ptr nocap
 declare dso_local i32 @snd_seq_queue_get_cur_queues() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #13
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @pid_vnr(ptr noundef) local_unnamed_addr #2
@@ -3820,7 +3820,7 @@ declare dso_local i32 @snd_seq_port_disconnect(ptr noundef, ptr noundef, ptr nou
 declare dso_local ptr @snd_seq_queue_alloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @snd_seq_queue_delete(i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -3868,7 +3868,7 @@ declare dso_local void @snd_seq_fifo_clear(ptr noundef) local_unnamed_addr #2
 declare dso_local void @snd_seq_queue_remove_cells(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @snd_seq_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal i64 @snd_seq_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.snd_seq_ump_event, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -4035,7 +4035,7 @@ define internal i64 @snd_seq_read(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @snd_seq_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snd_seq_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = alloca %union.__snd_seq_event, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
@@ -4314,7 +4314,7 @@ define internal range(i32 0, 384) i32 @snd_seq_poll(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @snd_seq_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snd_seq_ioctl(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %union.anon.14, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
@@ -4402,7 +4402,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_seq_ioctl(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @snd_seq_ioctl_compat(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snd_seq_ioctl_compat(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = and i64 %2, 4294967295
@@ -4596,7 +4596,7 @@ define internal range(i32 -2147483648, 1) i32 @snd_seq_open(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_seq_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @snd_seq_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -4646,7 +4646,7 @@ declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) lo
 declare dso_local i32 @snd_seq_fifo_poll_wait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_seq_call_port_info_ioctl(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -1062710496, 1084773156) %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_seq_call_port_info_ioctl(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 -1062710496, 1084773156) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 168) #21
   %6 = icmp eq ptr %5, null
@@ -4776,7 +4776,7 @@ declare dso_local i32 @stream_open(ptr noundef, ptr noundef) local_unnamed_addr 
 declare dso_local ptr @snd_seq_fifo_new(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #2

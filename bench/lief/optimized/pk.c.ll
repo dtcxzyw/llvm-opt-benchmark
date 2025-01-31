@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.mbedtls_pk_sign_ext = private unnamed_addr constant [7 x i32] [i32 100664067, i32 100664069, i32 100664072, i32 100664073, i32 100664074, i32 100664075, i32 100664068], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_pk_init(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_pk_init(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -66,7 +66,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16256, 1) i32 @mbedtls_pk_setup(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 -16256, 1) i32 @mbedtls_pk_setup(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %13, label %4
 
@@ -94,7 +94,7 @@ define hidden range(i32 -16256, 1) i32 @mbedtls_pk_setup(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16256, 1) i32 @mbedtls_pk_setup_rsa_alt(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define hidden range(i32 -16256, 1) i32 @mbedtls_pk_setup_rsa_alt(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %16
@@ -145,7 +145,7 @@ define hidden i32 @mbedtls_pk_can_do(ptr noundef readonly %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_verify_restartable(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef readnone %6) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_verify_restartable(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #1 {
   %8 = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %pk_hashlen_helper.exit, label %10
@@ -185,7 +185,7 @@ pk_hashlen_helper.exit:                           ; preds = %11, %17, %7, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_verify(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_verify(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %mbedtls_pk_verify_restartable.exit, label %9
@@ -225,7 +225,7 @@ mbedtls_pk_verify_restartable.exit:               ; preds = %6, %10, %16, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_verify_ext(i32 noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_verify_ext(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #1 {
   %9 = load ptr, ptr %2, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %mbedtls_pk_verify.exit, label %mbedtls_pk_can_do.exit
@@ -359,7 +359,7 @@ mbedtls_pk_verify.exit:                           ; preds = %31, %26, %20, %16, 
 declare i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_sign_restartable(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr nocapture noundef readnone %9) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_sign_restartable(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef readnone captures(none) %9) local_unnamed_addr #1 {
   %11 = load ptr, ptr %0, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %pk_hashlen_helper.exit, label %13
@@ -399,7 +399,7 @@ pk_hashlen_helper.exit:                           ; preds = %14, %20, %10, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_sign(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_sign(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
   %10 = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %mbedtls_pk_sign_restartable.exit, label %12
@@ -439,7 +439,7 @@ mbedtls_pk_sign_restartable.exit:                 ; preds = %9, %13, %19, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_sign_ext(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef initializes((0, 8)) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_sign_ext(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef initializes((0, 8)) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #1 {
   store i64 0, ptr %7, align 8
   %11 = load ptr, ptr %1, align 8
   %12 = icmp eq ptr %11, null
@@ -553,7 +553,7 @@ declare i32 @mbedtls_pk_error_from_psa_rsa(i32 noundef) local_unnamed_addr #2
 declare i32 @mbedtls_pk_psa_rsa_sign_ext(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_decrypt(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_decrypt(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = load ptr, ptr %0, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %19, label %11
@@ -576,7 +576,7 @@ define hidden i32 @mbedtls_pk_decrypt(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_encrypt(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_encrypt(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = load ptr, ptr %0, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %19, label %11
@@ -599,7 +599,7 @@ define hidden i32 @mbedtls_pk_encrypt(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_check_pair(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_check_pair(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %27, label %7
@@ -668,7 +668,7 @@ define hidden i64 @mbedtls_pk_get_bitlen(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16128, 1) i32 @mbedtls_pk_debug(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 -16128, 1) i32 @mbedtls_pk_debug(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
@@ -715,7 +715,7 @@ declare ptr @mbedtls_md_info_from_type(i32 noundef) local_unnamed_addr #2
 declare zeroext i8 @mbedtls_md_get_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

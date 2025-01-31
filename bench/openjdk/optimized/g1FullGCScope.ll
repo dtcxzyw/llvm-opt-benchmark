@@ -143,7 +143,7 @@ define hidden void @_ZN13G1FullGCScopeC2EP19G1MonitoringSupportbbP14G1FullGCTrac
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @_ZN17IsSTWGCActiveMarkC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
@@ -152,7 +152,7 @@ declare void @_ZN23G1FullGCMonitoringScopeC1EP19G1MonitoringSupport(ptr noundef 
 declare void @_ZN17G1HeapPrinterMarkC1EP15G1CollectedHeap(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN13G1FullGCScope22should_clear_soft_refsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN13G1FullGCScope22should_clear_soft_refsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -166,14 +166,14 @@ define hidden noundef nonnull ptr @_ZN13G1FullGCScope5timerEv(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN13G1FullGCScope6tracerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN13G1FullGCScope6tracerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK13G1FullGCScope27region_compaction_thresholdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef i64 @_ZNK13G1FullGCScope27region_compaction_thresholdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %3 = load i64, ptr %2, align 8
   ret i64 %3

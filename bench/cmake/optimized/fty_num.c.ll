@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [5 x i8] c"%.*f\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noalias noundef ptr @Make_Numeric_Type(ptr nocapture noundef %0) #0 {
+define internal noalias noundef ptr @Make_Numeric_Type(ptr noundef captures(none) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %51, label %3
@@ -130,7 +130,7 @@ define internal void @Free_Numeric_Type(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr nocapture noundef readonly %1) #2 {
+define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca [64 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
@@ -246,7 +246,7 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @Check_Numeric_Character(i32 noundef %0, ptr nocapture readnone %1) #3 {
+define internal noundef zeroext i1 @Check_Numeric_Character(i32 noundef %0, ptr readnone captures(none) %1) #3 {
   %3 = tail call ptr @__ctype_b_loc() #14
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %0 to i64
@@ -276,10 +276,10 @@ switch.edge:                                      ; preds = %switch.early.test, 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @field_buffer(ptr noundef, i32 noundef) local_unnamed_addr #7
 
@@ -287,10 +287,10 @@ declare ptr @field_buffer(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare ptr @__ctype_b_loc() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #9
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare i32 @set_field_buffer(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 

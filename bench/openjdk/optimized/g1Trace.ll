@@ -165,7 +165,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @switch.table._ZN24G1HeapRegionTypeConstant9serializeER19JfrCheckpointWriter = private unnamed_addr constant [6 x ptr] [ptr @.str, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1NewTracer10initializeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1NewTracer10initializeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #11
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV24G1HeapRegionTypeConstant, i64 16), ptr %2, align 8
   %3 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 189, i1 noundef zeroext true, ptr noundef nonnull %2) #11
@@ -176,7 +176,7 @@ define hidden void @_ZN11G1NewTracer10initializeEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11G1NewTracer21report_young_gc_pauseE13G1GCPauseType(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11G1NewTracer21report_young_gc_pauseE13G1GCPauseType(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %1, ptr %3, align 4
   ret void
@@ -232,7 +232,7 @@ _ZN11G1NewTracer22send_g1_young_gc_eventEv.exit:  ; preds = %3, %9
 declare void @_ZN13YoungGCTracer18report_gc_end_implERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1NewTracer22send_g1_young_gc_eventEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1NewTracer22send_g1_young_gc_eventEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.EventG1GarbageCollection, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %3, align 8
@@ -276,7 +276,7 @@ _ZN8JfrEventI24EventG1GarbageCollectionE13should_commitEv.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1NewTracer22report_evacuation_infoEP10G1EvacInfo(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1NewTracer22report_evacuation_infoEP10G1EvacInfo(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.EventEvacuationInformation, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -334,7 +334,7 @@ _ZN11G1NewTracer26send_evacuation_info_eventEP10G1EvacInfo.exit: ; preds = %2, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1NewTracer26send_evacuation_info_eventEP10G1EvacInfo(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1NewTracer26send_evacuation_info_eventEP10G1EvacInfo(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.EventEvacuationInformation, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, i8 0, i64 11, i1 false)
@@ -390,7 +390,7 @@ _ZN8JfrEventI26EventEvacuationInformationE13should_commitEv.exit: ; preds = %2, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1NewTracer24report_evacuation_failedER20EvacuationFailedInfo(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1NewTracer24report_evacuation_failedER20EvacuationFailedInfo(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.EventEvacuationFailed, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -442,7 +442,7 @@ _ZNK11G1NewTracer28send_evacuation_failed_eventERK20EvacuationFailedInfo.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11G1NewTracer28send_evacuation_failed_eventERK20EvacuationFailedInfo(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11G1NewTracer28send_evacuation_failed_eventERK20EvacuationFailedInfo(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.EventEvacuationFailed, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, i8 0, i64 11, i1 false)
@@ -488,7 +488,7 @@ _ZN8JfrEventI21EventEvacuationFailedE13should_commitEv.exit: ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11G1NewTracer28report_evacuation_statisticsERK13G1EvacSummaryS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11G1NewTracer28report_evacuation_statisticsERK13G1EvacSummaryS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.EventG1EvacuationOldStatistics, align 8
   %5 = alloca %class.EventG1EvacuationYoungStatistics, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5)
@@ -625,7 +625,7 @@ _ZNK11G1NewTracer30send_old_evacuation_statisticsERK13G1EvacSummary.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1EvacSummary(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1EvacSummary(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.EventG1EvacuationYoungStatistics, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, i8 0, i64 11, i1 false)
@@ -694,7 +694,7 @@ _ZN8JfrEventI32EventG1EvacuationYoungStatisticsE13should_commitEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11G1NewTracer30send_old_evacuation_statisticsERK13G1EvacSummary(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11G1NewTracer30send_old_evacuation_statisticsERK13G1EvacSummary(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.EventG1EvacuationOldStatistics, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, i8 0, i64 11, i1 false)
@@ -763,7 +763,7 @@ _ZN8JfrEventI30EventG1EvacuationOldStatisticsE13should_commitEv.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1NewTracer28report_basic_ihop_statisticsEmmmmdd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1NewTracer28report_basic_ihop_statisticsEmmmmdd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %class.EventG1BasicIHOP, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -821,7 +821,7 @@ _ZN11G1NewTracer26send_basic_ihop_statisticsEmmmmdd.exit: ; preds = %7, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1NewTracer26send_basic_ihop_statisticsEmmmmdd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1NewTracer26send_basic_ihop_statisticsEmmmmdd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %class.EventG1BasicIHOP, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %9, i8 0, i64 11, i1 false)
@@ -877,7 +877,7 @@ _ZN8JfrEventI16EventG1BasicIHOPE13should_commitEv.exit: ; preds = %7, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1NewTracer31report_adaptive_ihop_statisticsEmmmmddb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, double noundef %5, double noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1NewTracer31report_adaptive_ihop_statisticsEmmmmddb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, double noundef %5, double noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %class.EventG1AdaptiveIHOP, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -930,7 +930,7 @@ _ZN11G1NewTracer29send_adaptive_ihop_statisticsEmmmmddb.exit: ; preds = %8, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1NewTracer29send_adaptive_ihop_statisticsEmmmmddb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, double noundef %5, double noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1NewTracer29send_adaptive_ihop_statisticsEmmmmddb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, double noundef %5, double noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %class.EventG1AdaptiveIHOP, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %10, i8 0, i64 11, i1 false)
@@ -1575,14 +1575,14 @@ _ZN8JfrEventI19EventG1AdaptiveIHOPE11write_eventEv.exit: ; preds = %9, %38, %36,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11G1OldTracer20report_gc_start_implEN7GCCause5CauseERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((16, 32)) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN11G1OldTracer20report_gc_start_implEN7GCCause5CauseERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((16, 32)) %0, i32 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11G1OldTracer12set_gc_causeEN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11G1OldTracer12set_gc_causeEN7GCCause5CauseE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void
@@ -1839,7 +1839,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 declare noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
@@ -2095,7 +2095,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -2251,7 +2251,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 declare void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef, i64 noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #8
@@ -5001,10 +5001,10 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

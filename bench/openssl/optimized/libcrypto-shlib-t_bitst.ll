@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_BIT_STRING_name_print(ptr noundef %out, ptr noundef %bs, ptr nocapture noundef readonly %tbl, i32 noundef %indent) local_unnamed_addr #0 {
+define noundef i32 @ASN1_BIT_STRING_name_print(ptr noundef %out, ptr noundef %bs, ptr noundef readonly captures(none) %tbl, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str, i32 noundef %indent, ptr noundef nonnull @.str.1) #4
   %lname7 = getelementptr inbounds nuw i8, ptr %tbl, i64 8
@@ -59,7 +59,7 @@ declare i32 @ASN1_BIT_STRING_get_bit(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_BIT_STRING_set_asc(ptr noundef %bs, ptr nocapture noundef readonly %name, i32 noundef %value, ptr nocapture noundef readonly %tbl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_BIT_STRING_set_asc(ptr noundef %bs, ptr noundef readonly captures(none) %name, i32 noundef %value, ptr noundef readonly captures(none) %tbl) local_unnamed_addr #0 {
 entry:
   %lname7.i = getelementptr inbounds nuw i8, ptr %tbl, i64 8
   %0 = load ptr, ptr %lname7.i, align 8
@@ -110,7 +110,7 @@ return:                                           ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @ASN1_BIT_STRING_num_asc(ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %tbl) local_unnamed_addr #2 {
+define i32 @ASN1_BIT_STRING_num_asc(ptr noundef readonly captures(none) %name, ptr noundef readonly captures(none) %tbl) local_unnamed_addr #2 {
 entry:
   %lname7 = getelementptr inbounds nuw i8, ptr %tbl, i64 8
   %0 = load ptr, ptr %lname7, align 8
@@ -150,7 +150,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 declare i32 @ASN1_BIT_STRING_set_bit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

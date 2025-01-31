@@ -65,7 +65,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_memchr_inv: 
 @llvm.compiler.used = appending global [28 x ptr] [ptr @__UNIQUE_ID___addressable_bcmp169, ptr @__UNIQUE_ID___addressable_memchr173, ptr @__UNIQUE_ID___addressable_memchr_inv174, ptr @__UNIQUE_ID___addressable_memcmp168, ptr @__UNIQUE_ID___addressable_memscan170, ptr @__UNIQUE_ID___addressable_stpcpy151, ptr @__UNIQUE_ID___addressable_strcasecmp145, ptr @__UNIQUE_ID___addressable_strcat152, ptr @__UNIQUE_ID___addressable_strchr158, ptr @__UNIQUE_ID___addressable_strchrnul159, ptr @__UNIQUE_ID___addressable_strcmp156, ptr @__UNIQUE_ID___addressable_strcpy146, ptr @__UNIQUE_ID___addressable_strcspn165, ptr @__UNIQUE_ID___addressable_strlcat155, ptr @__UNIQUE_ID___addressable_strlen162, ptr @__UNIQUE_ID___addressable_strncasecmp144, ptr @__UNIQUE_ID___addressable_strncat153, ptr @__UNIQUE_ID___addressable_strnchr161, ptr @__UNIQUE_ID___addressable_strncmp157, ptr @__UNIQUE_ID___addressable_strncpy147, ptr @__UNIQUE_ID___addressable_strnlen163, ptr @__UNIQUE_ID___addressable_strnstr172, ptr @__UNIQUE_ID___addressable_strpbrk166, ptr @__UNIQUE_ID___addressable_strrchr160, ptr @__UNIQUE_ID___addressable_strscpy150, ptr @__UNIQUE_ID___addressable_strsep167, ptr @__UNIQUE_ID___addressable_strspn164, ptr @__UNIQUE_ID___addressable_strstr171], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local range(i32 -255, 256) i32 @strncasecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i32 -255, 256) i32 @strncasecmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %41, label %.preheader
 
@@ -122,7 +122,7 @@ define dso_local range(i32 -255, 256) i32 @strncasecmp(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local range(i32 -255, 256) i32 @strcasecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local range(i32 -255, 256) i32 @strcasecmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -157,7 +157,7 @@ define dso_local range(i32 -255, 256) i32 @strcasecmp(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @strcpy(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define dso_local noundef ptr @strcpy(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -175,7 +175,7 @@ define dso_local noundef ptr @strcpy(ptr noundef returned writeonly %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @strncpy(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef ptr @strncpy(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -198,7 +198,7 @@ define dso_local noundef ptr @strncpy(ptr noundef returned writeonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @strscpy(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
+define dso_local i64 @strscpy(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -297,7 +297,7 @@ define dso_local i64 @strscpy(ptr nocapture noundef writeonly %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @stpcpy(ptr noalias noundef writeonly %0, ptr noalias nocapture noundef readonly %1) #1 align 16 {
+define dso_local noundef ptr @stpcpy(ptr noalias noundef writeonly %0, ptr noalias noundef readonly captures(none) %1) #1 align 16 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -315,7 +315,7 @@ define dso_local noundef ptr @stpcpy(ptr noalias noundef writeonly %0, ptr noali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @strcat(ptr noundef returned %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define dso_local noundef ptr @strcat(ptr noundef returned %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -340,7 +340,7 @@ define dso_local noundef ptr @strcat(ptr noundef returned %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @strncat(ptr noundef returned %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef ptr @strncat(ptr noundef returned %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader1
 
@@ -440,10 +440,10 @@ define dso_local noundef i64 @strlen(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local range(i32 -1, 2) i32 @strcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local range(i32 -1, 2) i32 @strcmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   br label %3
 
 3:                                                ; preds = %12, %2
@@ -471,7 +471,7 @@ define dso_local range(i32 -1, 2) i32 @strcmp(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local range(i32 -1, 2) i32 @strncmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i32 -1, 2) i32 @strncmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -790,7 +790,7 @@ define dso_local noundef ptr @strpbrk(ptr noundef readonly %0, ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local ptr @strsep(ptr nocapture noundef %0, ptr noundef readonly %1) #4 align 16 {
+define dso_local ptr @strsep(ptr noundef captures(none) %0, ptr noundef readonly %1) #4 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %31, label %5
@@ -852,7 +852,7 @@ define dso_local ptr @strsep(ptr nocapture noundef %0, ptr noundef readonly %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local range(i32 -255, 256) i32 @memcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i32 -255, 256) i32 @memcmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = icmp ugt i64 %2, 7
   br i1 %4, label %.preheader6, label %.loopexit7
 
@@ -910,7 +910,7 @@ define dso_local range(i32 -255, 256) i32 @memcmp(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local range(i32 -255, 256) i32 @bcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i32 -255, 256) i32 @bcmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = icmp ugt i64 %2, 7
   br i1 %4, label %.preheader6, label %.loopexit7
 

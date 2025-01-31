@@ -1133,7 +1133,7 @@ $_ZTIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE = comdat any
 @switch.table._ZZN12_GLOBAL__N_116FunctionCompiler7compileEN5cxx204spanIKN8WasmEdge3AST11InstructionELm18446744073709551615EEEENKUlRS6_E_clES8_ = private unnamed_addr constant [10 x i64] [i64 1902313472, i64 1902313472, i64 1902313472, i64 1902313472, i64 1902313472, i64 1919090688, i64 1935867904, i64 1902313472, i64 1919090688, i64 1935867904], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST6ModuleE(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(705) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST6ModuleE(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(705) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.std::allocator.104", align 1
   %6 = alloca %"struct.spdlog::source_loc", align 8
@@ -1275,8 +1275,8 @@ _ZN8WasmEdge4LLVM4Core4initEv.exit:               ; preds = %_ZNSt11unique_lockI
 75:                                               ; preds = %72
   %76 = call ptr @LLVMGetHostCPUName() #16, !noalias !16
   %77 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #16
-  %78 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %76, i64 noundef %77) #16
-  call void @LLVMDisposeMessage(ptr noundef %76) #16
+  %78 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %76, i64 noundef %77) #16
+  call void @LLVMDisposeMessage(ptr noundef nonnull %76) #16
   br label %switch.lookup
 
 79:                                               ; preds = %72
@@ -1325,7 +1325,7 @@ switch.lookup:                                    ; preds = %79, %75
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @_ZN6spdlog6logger4log_IJSt17basic_string_viewIcSt11char_traitsIcEEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %98, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %4, i32 noundef 4, ptr nonnull @.str.6, i64 2, ptr noundef nonnull align 8 dereferenceable(16) %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @LLVMDisposeErrorMessage(ptr noundef %95) #16
+  call void @LLVMDisposeErrorMessage(ptr noundef nonnull %95) #16
   br label %99
 
 99:                                               ; preds = %94, %switch.lookup
@@ -1447,7 +1447,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %144, %_ZNSt6vectorI
 declare void @_ZN8WasmEdge4LLVM4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4LLVM8Compiler14CompileContextC2ENS0_7ContextERNS0_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) unnamed_addr #0 comdat align 2 {
@@ -1903,7 +1903,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit61: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST11TypeSectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST11TypeSectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x ptr], align 8
   %4 = alloca [1 x ptr], align 8
   %5 = alloca [1 x ptr], align 8
@@ -3000,7 +3000,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backEOS2_.exit119: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST13ImportSectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST13ImportSectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x ptr], align 8
   %4 = alloca [1 x ptr], align 8
   %5 = alloca [1 x ptr], align 8
@@ -3552,7 +3552,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST13GlobalSectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST13GlobalSectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.WasmEdge::LLVM::Type", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -3661,17 +3661,17 @@ _ZNSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE9push_backERKS2_.exit: ; preds = %18, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST13MemorySectionERKNS2_11DataSectionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %2) local_unnamed_addr #3 align 2 {
+define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST13MemorySectionERKNS2_11DataSectionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %2) local_unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST12TableSectionERKNS2_14ElementSectionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %2) local_unnamed_addr #3 align 2 {
+define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST12TableSectionERKNS2_14ElementSectionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %2) local_unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST15FunctionSectionERKNS2_11CodeSectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST15FunctionSectionERKNS2_11CodeSectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [2 x ptr], align 16
   %5 = alloca %"class.WasmEdge::LLVM::BasicBlock", align 8
   %6 = alloca %"class.WasmEdge::LLVM::BasicBlock", align 8
@@ -4881,7 +4881,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit: ; preds = %611, %_ZN12_GLOBAL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST13ExportSectionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST13ExportSectionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -4901,7 +4901,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZN8WasmEdge4LLVM4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr %1, i64 %.0.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %2) unnamed_addr #0 {
   %4 = alloca %"class.WasmEdge::LLVM::Type", align 8
   %5 = alloca %"class.std::vector.99", align 8
   %6 = alloca %"class.WasmEdge::LLVM::Type", align 8
@@ -5102,7 +5102,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4LLVM7Builder10createCallENS0_14Fun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7BuilderENS1_5ValueE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7BuilderENS1_5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %2, align 8, !noalias !721
   %5 = tail call ptr @LLVMTypeOf(ptr noundef %4) #16, !noalias !721
   %6 = tail call noundef i32 @LLVMCountStructElementTypes(ptr noundef %5) #16
@@ -5207,7 +5207,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backEOS2_.exit: ; preds = %20, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4LLVM8Compiler14CompileContext12getIntrinsicERNS0_7BuilderENS_10Executable10IntrinsicsENS0_4TypeE(ptr dead_on_unwind noalias writable sret(%"struct.WasmEdge::LLVM::FunctionCallee") align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 comdat align 2 {
@@ -5259,7 +5259,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4LLVM8Compiler14CompileContext12get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i8 %.2.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr %1, i8 %.2.val) unnamed_addr #0 {
   switch i8 %.2.val, label %14 [
     i8 127, label %3
     i8 126, label %5
@@ -5537,7 +5537,7 @@ declare void @LLVMInitializeX86AsmPrinter() local_unnamed_addr #5
 declare i32 @LLVMLookupIntrinsicID(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @LLVMGetEnumAttributeKindForName(ptr noundef, i64 noundef) local_unnamed_addr #5
 
@@ -5674,7 +5674,7 @@ declare void @LLVMPositionBuilderAtEnd(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @LLVMAppendBasicBlockInContext(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116toLLVMTypeVectorEN8WasmEdge4LLVM7ContextEN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr %1, ptr readonly %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116toLLVMTypeVectorEN8WasmEdge4LLVM7ContextEN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 24)) %0, ptr %1, ptr readonly %2, i64 %3) unnamed_addr #0 {
   %5 = alloca %"class.WasmEdge::LLVM::Type", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = icmp ugt i64 %3, 1152921504606846975
@@ -6008,10 +6008,10 @@ declare ptr @LLVMBuildAggregateRet(ptr noundef, ptr noundef, i32 noundef) local_
 declare ptr @LLVMBuildAlloca(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
@@ -6570,7 +6570,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit: ; preds = %61, %._crit_edg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler16updateInstrCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler16updateInstrCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -6609,7 +6609,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler16updateInstrCou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -6691,7 +6691,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backERKS2_.exit: ; preds = %7, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler7ControlD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler7ControlD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -20127,7 +20127,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10leaveBlockEv(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 9), (16, 136)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(200) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10leaveBlockEv(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 9), (16, 136)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(200) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector.89", align 8
   %4 = alloca %"class.WasmEdge::LLVM::BasicBlock", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -20455,7 +20455,7 @@ _ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler15setLableJumpPHIEj(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler15setLableJumpPHIEj(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %4 = alloca %"class.WasmEdge::LLVM::BasicBlock", align 8
   %5 = alloca %"class.std::vector.89", align 8
@@ -20918,7 +20918,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorISt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileCallOpEj(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileCallOpEj(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector.89", align 8
   %4 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %5 = load ptr, ptr %0, align 8
@@ -22067,7 +22067,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit96: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileReturnCallOpEj(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileReturnCallOpEj(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 328
@@ -24453,7 +24453,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4LLVM8Compiler14CompileContext9getG
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 align 2 {
   %5 = alloca [1 x ptr], align 8
   %6 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %7 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -24651,7 +24651,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca [1 x ptr], align 8
   %8 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %9 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -27259,7 +27259,7 @@ _ZNSt6vectorIP15LLVMOpaqueValueSaIS1_EED2Ev.exit: ; preds = %_ZSt9transformIPKmN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEjS3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i64 %.0.val, i32 noundef range(i32 0, 256) %1, i64 %.0.val1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEjS3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i64 %.0.val, i32 noundef range(i32 0, 256) %1, i64 %.0.val1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -27304,7 +27304,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i = load ptr, ptr %4, align 8, !noalias !4264
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -27374,7 +27374,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i64 %.0.val, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i64 %.0.val, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -27799,7 +27799,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @LLVMGetUndef(ptr noundef %4) #16, !noalias !4456
@@ -27842,7 +27842,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val, i32 noundef range(i32 32, 42) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val, i32 noundef range(i32 32, 42) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i = load ptr, ptr %3, align 8, !noalias !4488
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -27992,7 +27992,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val, i32 noundef range(i32 1, 15) %1, i64 %.0.val1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val, i32 noundef range(i32 1, 15) %1, i64 %.0.val1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i = load ptr, ptr %3, align 8, !noalias !4514
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -28143,7 +28143,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileVectorAnyTrueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileVectorAnyTrueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %4 = load i64, ptr %3, align 8
@@ -28181,7 +28181,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileVectorA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler16compileVectorAbsEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler16compileVectorAbsEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -28211,7 +28211,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler16compileVectorA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler16compileVectorNegEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler16compileVectorNegEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -28275,7 +28275,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileVectorAllTrueEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileVectorAllTrueEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = inttoptr i64 %.0.val to ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -28310,7 +28310,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileVectorA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileVectorBitMaskEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileVectorBitMaskEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = inttoptr i64 %.0.val to ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -28342,7 +28342,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileVectorB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorNarrowEN8WasmEdge4LLVM4TypeEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorNarrowEN8WasmEdge4LLVM4TypeEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %5 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %6 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -29271,7 +29271,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler20compileVectorShiftOpIZNS0_17compileVectorLS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorVectorAddEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorVectorAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i.i = load ptr, ptr %3, align 8, !noalias !4927
@@ -29623,7 +29623,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_25compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorVectorSubEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorVectorSubEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i.i = load ptr, ptr %3, align 8, !noalias !4978
@@ -29975,7 +29975,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_25compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorSMinEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorSMinEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i.i = load ptr, ptr %3, align 8, !noalias !5029
@@ -30140,7 +30140,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_23compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorUMinEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorUMinEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i.i = load ptr, ptr %3, align 8, !noalias !5059
@@ -30305,7 +30305,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_23compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorSMaxEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorSMaxEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i.i = load ptr, ptr %3, align 8, !noalias !5089
@@ -30470,7 +30470,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_23compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorUMaxEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorUMaxEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i.i = load ptr, ptr %3, align 8, !noalias !5119
@@ -30635,7 +30635,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_23compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorUAvgrEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorUAvgrEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.cxx20::span.134", align 8
   %4 = alloca [2 x %"class.WasmEdge::LLVM::Value"], align 8
   %5 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -30880,7 +30880,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_24compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %6 = load ptr, ptr %1, align 8, !noalias !5220
   %7 = tail call ptr @LLVMGetElementType(ptr noundef %6) #16, !noalias !5220
@@ -30989,7 +30989,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %46, %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorVectorMulEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorVectorMulEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i.i = load ptr, ptr %3, align 8, !noalias !5251
@@ -31152,7 +31152,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_22compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::vector.29", align 8
   %6 = alloca %class.anon.365, align 8
   %7 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -32126,7 +32126,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileVectorF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileVectorFNegEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileVectorFNegEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -32891,7 +32891,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_23compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorFMinEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorFMinEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i.i = load ptr, ptr %3, align 8, !noalias !5706
@@ -33085,7 +33085,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_23compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorFMaxEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorFMaxEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i.i = load ptr, ptr %3, align 8, !noalias !5768
@@ -33279,7 +33279,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_23compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorFPMinEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorFPMinEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i.i = load ptr, ptr %3, align 8, !noalias !5830
@@ -33444,7 +33444,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_24compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorFPMaxEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorFPMaxEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i64 %.0.val) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val4.i.i = load ptr, ptr %3, align 8, !noalias !5858
@@ -33717,7 +33717,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileVectorFNearestEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileVectorFNearestEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %4 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %5 = load i64, ptr %1, align 8
@@ -35873,7 +35873,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 %.0.val, ptr nocapture noundef nonnull readonly %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 %.0.val, ptr noundef nonnull readonly captures(none) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca [1 x ptr], align 8
   %8 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %9 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -35955,7 +35955,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 align 2 {
   %6 = alloca [1 x ptr], align 8
   %7 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %8 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -36063,7 +36063,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 7) %4, i64 %.0.val, ptr nocapture noundef nonnull readonly %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 7) %4, i64 %.0.val, ptr noundef nonnull readonly captures(none) %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = alloca [1 x ptr], align 8
   %9 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %10 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -36186,7 +36186,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 %.0.val, ptr nocapture noundef nonnull readonly %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 %.0.val, ptr noundef nonnull readonly captures(none) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca [1 x ptr], align 8
   %8 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %9 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -37350,7 +37350,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8WasmEdge4LLVM4Type22getPrimitiveSiz
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbbENKUlNS2_5ValueEE_clES4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbbENKUlNS2_5ValueEE_clES4_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
@@ -54575,7 +54575,7 @@ _ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6buffer
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %81
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %84, i64 %68)
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %83, ptr nonnull %0, i64 %..i.i.i.i.i.i)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %83, ptr nonnull %0, i64 %..i.i.i.i.i.i)
   %86 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %87 = icmp eq i64 %84, %68
   %or.cond.i.i.i.i = and i1 %87, %86
@@ -55409,7 +55409,7 @@ define linkonce_odr hidden void @_ZNK3fmt2v817basic_format_argsINS0_20basic_form
   br i1 %19, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %15
-  %bcmp.i.i = tail call i32 @bcmp(ptr %17, ptr %2, i64 %..i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %17, ptr %2, i64 %..i.i.i)
   %20 = icmp eq i32 %bcmp.i.i, 0
   %21 = icmp eq i64 %18, %3
   %or.cond.i = select i1 %20, i1 %21, i1 false
@@ -62676,7 +62676,7 @@ _ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presenta
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
 
 _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit: ; preds = %12, %16
-  %17 = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %0, ptr %1, i64 %13, ptr noundef nonnull align 4 dereferenceable(16) %2)
+  %17 = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %0, ptr nonnull %1, i64 %13, ptr noundef nonnull align 4 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %26
 
@@ -65292,7 +65292,7 @@ declare void @llvm.assume(i1 noundef) #12
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #13
@@ -65310,10 +65310,10 @@ declare double @llvm.fabs.f64(double) #13
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #13

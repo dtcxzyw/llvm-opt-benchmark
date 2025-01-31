@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @mmbit_keyshift_lut = external local_unnamed_addr constant [32 x i8], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecMpv_queueCompressState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #0 {
+define hidden noundef signext i8 @nfaExecMpv_queueCompressState(ptr noundef readonly captures(none) %nfa, ptr noundef readonly captures(none) %q, i64 noundef %loc) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
@@ -137,7 +137,7 @@ mpvStoreState.exit:                               ; preds = %partial_store_u64a.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecMpv_expandState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #1 {
+define hidden noundef signext i8 @nfaExecMpv_expandState(ptr noundef readonly captures(none) %nfa, ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #1 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %nfa, i64 64
   %add.ptr.i12 = getelementptr inbounds nuw i8, ptr %nfa, i64 128
@@ -280,7 +280,7 @@ mmbit_clear.exit:                                 ; preds = %mpvLoadState.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecMpv_reportCurrent(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #2 {
+define hidden noundef signext i8 @nfaExecMpv_reportCurrent(ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %q) local_unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
   %offset.i = getelementptr inbounds nuw i8, ptr %q, i64 32
@@ -1030,7 +1030,7 @@ processReports.exit:                              ; preds = %if.end19.i, %for.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecMpv_queueInitState(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #3 {
+define hidden noundef signext i8 @nfaExecMpv_queueInitState(ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %q) local_unnamed_addr #3 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
@@ -1122,7 +1122,7 @@ mmbit_clear.exit:                                 ; preds = %for.end, %mmbit_cle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMpv_initCompressedState(ptr nocapture noundef readonly %n, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #1 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMpv_initCompressedState(ptr noundef readonly captures(none) %n, i64 noundef %offset, ptr noundef writeonly captures(none) %state, i8 noundef zeroext %key) local_unnamed_addr #1 {
 entry:
   %active_offset = getelementptr inbounds nuw i8, ptr %n, i64 88
   %0 = load i32, ptr %active_offset, align 8
@@ -1421,10 +1421,10 @@ return:                                           ; preds = %next_level.i, %entr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMpv_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #5 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMpv_Q(ptr noundef %n, ptr noundef captures(none) %q, i64 noundef %end) local_unnamed_addr #5 {
 entry:
   %l.addr.i = alloca <2 x i64>, align 16
   %h.addr.i = alloca <2 x i64>, align 16
@@ -5769,7 +5769,7 @@ nfaExecMpv_Q_i.exit:                              ; preds = %if.end19.i387, %for
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @nfaExecMpv_QueueExecRaw(ptr noundef %nfa, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #5 {
+define hidden i64 @nfaExecMpv_QueueExecRaw(ptr noundef %nfa, ptr noundef captures(none) %q, i64 noundef %end) local_unnamed_addr #5 {
 entry:
   %l.addr.i = alloca <2 x i64>, align 16
   %h.addr.i = alloca <2 x i64>, align 16
@@ -10319,7 +10319,7 @@ return:                                           ; preds = %if.end19.i440, %for
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
@@ -10328,7 +10328,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fillLimits(ptr noundef %m, ptr nocapture noundef %active, ptr nocapture noundef %reporters, ptr nocapture noundef %dstate, ptr nocapture noundef %pq, ptr noundef %buf, i64 noundef %length) unnamed_addr #5 {
+define internal fastcc void @fillLimits(ptr noundef %m, ptr noundef captures(none) %active, ptr noundef captures(none) %reporters, ptr noundef captures(none) %dstate, ptr noundef captures(none) %pq, ptr noundef %buf, i64 noundef %length) unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq i64 %length, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -11936,7 +11936,7 @@ return:                                           ; preds = %entry, %do.end115
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @handleTopN(ptr noundef %m, i64 noundef %loc, ptr nocapture noundef %active, ptr nocapture noundef %reporters, ptr nocapture noundef %dstate, ptr nocapture noundef %pq, ptr noundef %buf, i64 noundef %length, i32 noundef %i) unnamed_addr #5 {
+define internal fastcc void @handleTopN(ptr noundef %m, i64 noundef %loc, ptr noundef captures(none) %active, ptr noundef captures(none) %reporters, ptr noundef captures(none) %dstate, ptr noundef captures(none) %pq, ptr noundef %buf, i64 noundef %length, i32 noundef %i) unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %m, align 32
   %cmp.i.i = icmp ult i32 %0, 257
@@ -12659,7 +12659,7 @@ if.end76:                                         ; preds = %if.end.i302, %do.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @normalize_counters(ptr nocapture noundef %dstate, ptr nocapture noundef readonly %m) unnamed_addr #1 {
+define internal fastcc void @normalize_counters(ptr noundef captures(none) %dstate, ptr noundef readonly captures(none) %m) unnamed_addr #1 {
 entry:
   %counter_adj = getelementptr inbounds nuw i8, ptr %dstate, i64 8
   %0 = load i64, ptr %counter_adj, align 8

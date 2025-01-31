@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @DIGIT_TABLE = internal unnamed_addr constant [200 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = bitcast double %0 to i64
   %4 = icmp slt i64 %3, 0
   %5 = and i64 %3, 4503599627370495
@@ -919,10 +919,10 @@ copy_special_str.exit:                            ; preds = %521, %506, %to_char
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @double_to_shortest_decimal_buf(double noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define i32 @double_to_shortest_decimal_buf(double noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr noundef %1)
   %4 = sext i32 %3 to i64
   %5 = getelementptr i8, ptr %1, i64 %4
@@ -943,7 +943,7 @@ define noundef ptr @double_to_shortest_decimal(double noundef %0) local_unnamed_
 declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

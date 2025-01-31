@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %this) local_unnamed_addr #0 align 2 {
+define noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(2) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i16, ptr %this, align 2
   %h_bits.signext.i = sext i16 %0 to i32
@@ -144,7 +144,7 @@ _ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK5arrow4util7Float168ToDoubleEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(2) %this) local_unnamed_addr #0 align 2 {
+define noundef double @_ZNK5arrow4util7Float168ToDoubleEv(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(2) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i16, ptr %this, align 2
   %conv.i = zext i16 %0 to i32

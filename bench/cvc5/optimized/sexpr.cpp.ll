@@ -201,7 +201,7 @@ _ZN10__gmp_exprIA1_12__mpq_structS1_ED2Ev.exit:   ; preds = %lpad
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal7toSExprERSoRKSt10unique_ptrINS0_18StatisticBaseValueESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sbv) local_unnamed_addr #3 {
+define hidden void @_ZN4cvc58internal7toSExprERSoRKSt10unique_ptrINS0_18StatisticBaseValueESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %sbv) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %sbv, align 8
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_18StatisticBaseValueE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(9) %0)

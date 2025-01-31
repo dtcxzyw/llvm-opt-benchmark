@@ -19,43 +19,43 @@ define void @_ZN20colvarproxy_replicasD0Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN20colvarproxy_replicas15replica_enabledEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN20colvarproxy_replicas15replica_enabledEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN20colvarproxy_replicas13replica_indexEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN20colvarproxy_replicas13replica_indexEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN20colvarproxy_replicas12num_replicasEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN20colvarproxy_replicas12num_replicasEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN20colvarproxy_replicas20replica_comm_barrierEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define void @_ZN20colvarproxy_replicas20replica_comm_barrierEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN20colvarproxy_replicas17replica_comm_recvEPcii(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, i32 %2, i32 %3) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN20colvarproxy_replicas17replica_comm_recvEPcii(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) unnamed_addr #1 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN20colvarproxy_replicas17replica_comm_sendEPcii(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, i32 %2, i32 %3) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN20colvarproxy_replicas17replica_comm_sendEPcii(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) unnamed_addr #1 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN20colvarproxy_replicasC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN20colvarproxy_replicasC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20colvarproxy_replicas, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN20colvarproxy_replicasD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define void @_ZN20colvarproxy_replicasD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret void
 }
 

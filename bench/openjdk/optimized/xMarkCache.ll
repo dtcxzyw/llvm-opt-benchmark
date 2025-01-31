@@ -40,7 +40,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN10XMarkCacheD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10XMarkCacheD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15XMarkCacheEntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15XMarkCacheEntryC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 12), (16, 24)) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -50,7 +50,7 @@ define hidden void @_ZN15XMarkCacheEntryC2Ev(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN10XMarkCacheC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24584) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN10XMarkCacheC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24584) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #1 align 2 {
   %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
   %4 = add nuw nsw i64 %3, 21
   store i64 %4, ptr %0, align 8
@@ -73,7 +73,7 @@ define hidden void @_ZN10XMarkCacheC2Em(ptr nocapture noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10XMarkCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24584) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN10XMarkCacheD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24584) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_756number12IntegerWidthC1Essb = unnamed_addr alias void (ptr, i16, i16, i1), ptr @_ZN6icu_756number12IntegerWidthC2Essb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number12IntegerWidthC2Essb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(9) initializes((0, 5), (8, 9)) %this, i16 noundef signext %minInt, i16 noundef signext %maxInt, i1 noundef zeroext %formatFailIfMoreThanMaxDigits) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number12IntegerWidthC2Essb(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(9) initializes((0, 5), (8, 9)) %this, i16 noundef signext %minInt, i16 noundef signext %maxInt, i1 noundef zeroext %formatFailIfMoreThanMaxDigits) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %formatFailIfMoreThanMaxDigits to i8
   %fHasError = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -49,10 +49,10 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i8 } @_ZN6icu_756number12IntegerWidth10truncateAtEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %this, i32 noundef %maxInt) local_unnamed_addr #1 align 2 {
+define { i64, i8 } @_ZN6icu_756number12IntegerWidth10truncateAtEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(9) %this, i32 noundef %maxInt) local_unnamed_addr #1 align 2 {
 entry:
   %retval = alloca %"class.icu_75::number::IntegerWidth", align 8
   %fHasError = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -101,7 +101,7 @@ return:                                           ; preds = %if.else9, %if.then8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number12IntegerWidth5applyERNS0_4impl15DecimalQuantityER10UErrorCode(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_756number12IntegerWidth5applyERNS0_4impl15DecimalQuantityER10UErrorCode(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -165,7 +165,7 @@ declare noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(pt
 declare void @_ZN6icu_756number4impl15DecimalQuantity15applyMaxIntegerEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_756number12IntegerWidtheqERKS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %other) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK6icu_756number12IntegerWidtheqERKS1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(9) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(9) %other) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   %1 = load i16, ptr %other, align 4

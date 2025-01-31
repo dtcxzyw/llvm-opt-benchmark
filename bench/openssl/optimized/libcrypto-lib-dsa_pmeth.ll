@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pkey_dsa_init(ptr nocapture noundef writeonly %ctx) #1 {
+define internal range(i32 0, 2) i32 @pkey_dsa_init(ptr noundef writeonly captures(none) %ctx) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 40) #6
   %cmp = icmp eq ptr %call, null
@@ -50,7 +50,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pkey_dsa_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #1 {
+define internal range(i32 0, 2) i32 @pkey_dsa_copy(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src) #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 40) #6
   %cmp.i = icmp eq ptr %call.i, null
@@ -92,7 +92,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pkey_dsa_cleanup(ptr nocapture noundef readonly %ctx) #1 {
+define internal void @pkey_dsa_cleanup(ptr noundef readonly captures(none) %ctx) #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -168,7 +168,7 @@ return:                                           ; preds = %if.then17, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_dsa_keygen(ptr nocapture noundef readonly %ctx, ptr noundef %pkey) #1 {
+define internal i32 @pkey_dsa_keygen(ptr noundef readonly captures(none) %ctx, ptr noundef %pkey) #1 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %pkey1, align 8
@@ -204,7 +204,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2) i32 @pkey_dsa_sign(ptr nocapture noundef readonly %ctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
+define internal range(i32 -2147483648, 2) i32 @pkey_dsa_sign(ptr noundef readonly captures(none) %ctx, ptr noundef %sig, ptr noundef writeonly captures(none) %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
 entry:
   %sltmp = alloca i32, align 4
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
@@ -241,7 +241,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_dsa_verify(ptr nocapture noundef readonly %ctx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
+define internal i32 @pkey_dsa_verify(ptr noundef readonly captures(none) %ctx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -271,7 +271,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @pkey_dsa_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 noundef %p1, ptr noundef %p2) #1 {
+define internal range(i32 -2, 2) i32 @pkey_dsa_ctrl(ptr noundef readonly captures(none) %ctx, i32 noundef %type, i32 noundef %p1, ptr noundef %p2) #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -422,7 +422,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_dsa_ctrl_str(ptr noundef %ctx, ptr nocapture noundef readonly %type, ptr noundef %value) #1 {
+define internal i32 @pkey_dsa_ctrl_str(ptr noundef %ctx, ptr noundef readonly captures(none) %type, ptr noundef %value) #1 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %type, ptr noundef nonnull dereferenceable(18) @.str.1) #7
   %cmp = icmp eq i32 %call, 0
@@ -511,10 +511,10 @@ declare i32 @DSA_verify(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 
 declare i32 @EVP_MD_get_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @EVP_PKEY_CTX_set_dsa_paramgen_bits(ptr noundef, i32 noundef) local_unnamed_addr #2
 

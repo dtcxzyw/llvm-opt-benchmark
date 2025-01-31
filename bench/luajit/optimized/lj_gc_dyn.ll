@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @gc_freefunc = internal unnamed_addr constant [9 x ptr] [ptr @lj_str_free, ptr @lj_func_freeuv, ptr @lj_state_free, ptr @lj_func_freeproto, ptr @lj_func_free, ptr @lj_trace_free, ptr @lj_cdata_free, ptr @lj_tab_free, ptr @lj_udata_free], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @lj_gc_separateudata(ptr nocapture noundef %g, i32 noundef %all) local_unnamed_addr #0 {
+define hidden i64 @lj_gc_separateudata(ptr noundef captures(none) %g, i32 noundef %all) local_unnamed_addr #0 {
 entry:
   %mainthref = getelementptr inbounds nuw i8, ptr %g, i64 192
   %0 = load i64, ptr %mainthref, align 8
@@ -312,7 +312,7 @@ if.end29:                                         ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gc_call_finalizer(ptr noundef %g, ptr noundef %L, ptr nocapture noundef nonnull readonly %mo, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc void @gc_call_finalizer(ptr noundef %g, ptr noundef %L, ptr noundef nonnull readonly captures(none) %mo, ptr noundef %o) unnamed_addr #0 {
 entry:
   %hookmask = getelementptr inbounds nuw i8, ptr %g, i64 145
   %0 = load i8, ptr %hookmask, align 1
@@ -1536,7 +1536,7 @@ lj_gc_step.exit:                                  ; preds = %if.then19.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lj_gc_step_jit(ptr nocapture noundef readonly %g, i32 noundef %steps) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lj_gc_step_jit(ptr noundef readonly captures(none) %g, i32 noundef %steps) local_unnamed_addr #0 {
 entry:
   %cur_L = getelementptr inbounds nuw i8, ptr %g, i64 368
   %0 = load i64, ptr %cur_L, align 8
@@ -1724,7 +1724,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lj_gc_barrierf(ptr noundef %g, ptr nocapture noundef %o, ptr noundef %v) local_unnamed_addr #2 {
+define hidden void @lj_gc_barrierf(ptr noundef %g, ptr noundef captures(none) %o, ptr noundef %v) local_unnamed_addr #2 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %g, i64 33
   %0 = load i8, ptr %state, align 1
@@ -1920,7 +1920,7 @@ if.end123:                                        ; preds = %tailrecurse, %tailr
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lj_gc_barrieruv(ptr noundef %g, ptr nocapture noundef %tv) local_unnamed_addr #2 {
+define hidden void @lj_gc_barrieruv(ptr noundef %g, ptr noundef captures(none) %tv) local_unnamed_addr #2 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %g, i64 33
   %0 = load i8, ptr %state, align 1
@@ -2031,7 +2031,7 @@ if.end42:                                         ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lj_gc_barriertrace(ptr nocapture noundef %g, i32 noundef %traceno) local_unnamed_addr #3 {
+define hidden void @lj_gc_barriertrace(ptr noundef captures(none) %g, i32 noundef %traceno) local_unnamed_addr #3 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %g, i64 33
   %0 = load i8, ptr %state, align 1
@@ -2133,7 +2133,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_mem_grow(ptr noundef %L, ptr noundef %p, ptr nocapture noundef %szp, i32 noundef %lim, i32 noundef %esz) local_unnamed_addr #0 {
+define hidden ptr @lj_mem_grow(ptr noundef %L, ptr noundef %p, ptr noundef captures(none) %szp, i32 noundef %lim, i32 noundef %esz) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %szp, align 4
   %shl = shl i32 %0, 1
@@ -2950,7 +2950,7 @@ declare hidden void @lj_str_resize(ptr noundef, i32 noundef) local_unnamed_addr 
 declare hidden void @lj_tab_rehash(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @gc_traverse_trace(ptr noundef %g, ptr nocapture noundef readonly %T) unnamed_addr #2 {
+define internal fastcc void @gc_traverse_trace(ptr noundef %g, ptr noundef readonly captures(none) %T) unnamed_addr #2 {
 entry:
   %traceno = getelementptr inbounds nuw i8, ptr %T, i64 104
   %0 = load i16, ptr %traceno, align 8
@@ -3127,13 +3127,13 @@ declare hidden void @lj_buf_shrink(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5

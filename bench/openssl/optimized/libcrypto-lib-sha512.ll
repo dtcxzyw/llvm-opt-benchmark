@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @sha512_224_init(ptr nocapture noundef writeonly initializes((0, 80), (208, 216)) %c) local_unnamed_addr #0 {
+define noundef i32 @sha512_224_init(ptr noundef writeonly captures(none) initializes((0, 80), (208, 216)) %c) local_unnamed_addr #0 {
 entry:
   store i64 -8341449602262348382, ptr %c, align 8
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %c, i64 8
@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @sha512_256_init(ptr nocapture noundef writeonly initializes((0, 80), (208, 216)) %c) local_unnamed_addr #0 {
+define noundef i32 @sha512_256_init(ptr noundef writeonly captures(none) initializes((0, 80), (208, 216)) %c) local_unnamed_addr #0 {
 entry:
   store i64 2463787394917988140, ptr %c, align 8
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %c, i64 8
@@ -58,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SHA384_Init(ptr nocapture noundef writeonly initializes((0, 80), (208, 216)) %c) local_unnamed_addr #0 {
+define noundef i32 @SHA384_Init(ptr noundef writeonly captures(none) initializes((0, 80), (208, 216)) %c) local_unnamed_addr #0 {
 entry:
   store i64 -3766243637369397544, ptr %c, align 8
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %c, i64 8
@@ -85,7 +85,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SHA512_Init(ptr nocapture noundef writeonly initializes((0, 80), (208, 216)) %c) local_unnamed_addr #0 {
+define noundef i32 @SHA512_Init(ptr noundef writeonly captures(none) initializes((0, 80), (208, 216)) %c) local_unnamed_addr #0 {
 entry:
   store i64 7640891576956012808, ptr %c, align 8
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %c, i64 8
@@ -404,7 +404,7 @@ return:                                           ; preds = %for.body180, %for.b
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @sha512_block_data_order(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -500,7 +500,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SHA384_Update(ptr noundef %c, ptr noundef %data, i64 noundef %len) local_unnamed_addr #1 {

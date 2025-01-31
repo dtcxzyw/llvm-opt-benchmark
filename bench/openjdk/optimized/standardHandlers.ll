@@ -34,7 +34,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @genericHandler(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #1 {
+define internal void @genericHandler(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #1 {
   %5 = load i32, ptr %2, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i8, ptr %6, align 4
@@ -43,7 +43,7 @@ define internal void @genericHandler(ptr nocapture readnone %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handleClassPrepare(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) #1 {
+define internal void @handleClassPrepare(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 @threadControl_isDebugThread(ptr noundef %6) #3
@@ -74,7 +74,7 @@ define internal void @handleClassPrepare(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handleClassUnload(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #1 {
+define internal void @handleClassUnload(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #1 {
   %5 = load ptr, ptr @gdata, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %6
@@ -94,7 +94,7 @@ define internal void @handleClassUnload(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handleFrameEvent(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #1 {
+define internal void @handleFrameEvent(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = load ptr, ptr @gdata, align 8

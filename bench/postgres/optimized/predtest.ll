@@ -1092,7 +1092,7 @@ predicate_refuted_by_simple_clause.exit:          ; preds = %284, %283, %281, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @predicate_classify(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @predicate_classify(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   switch i32 %3, label %.critedge [
     i32 1, label %4
@@ -1226,7 +1226,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @list_startup_fn(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 {
+define internal void @list_startup_fn(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   %.not.i = icmp eq ptr %0, null
@@ -1244,7 +1244,7 @@ list_head.exit:                                   ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal ptr @list_next_fn(ptr nocapture noundef %0) #3 {
+define internal ptr @list_next_fn(ptr noundef captures(none) %0) #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %14, label %4
@@ -1271,12 +1271,12 @@ define internal ptr @list_next_fn(ptr nocapture noundef %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @list_cleanup_fn(ptr nocapture readnone %0) #4 {
+define internal void @list_cleanup_fn(ptr readnone captures(none) %0) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @boolexpr_startup_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #3 {
+define internal void @boolexpr_startup_fn(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1300,7 +1300,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 declare i32 @ArrayGetNItems(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @arrayconst_startup_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal void @arrayconst_startup_fn(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = alloca i16, align 2
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -1381,7 +1381,7 @@ define internal void @arrayconst_startup_fn(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @arrayconst_next_fn(ptr nocapture noundef readonly %0) #5 {
+define internal ptr @arrayconst_next_fn(ptr noundef readonly captures(none) %0) #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %4 = load i32, ptr %3, align 8
@@ -1415,7 +1415,7 @@ define internal ptr @arrayconst_next_fn(ptr nocapture noundef readonly %0) #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @arrayconst_cleanup_fn(ptr nocapture noundef readonly %0) #0 {
+define internal void @arrayconst_cleanup_fn(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = load ptr, ptr %3, align 8
@@ -1431,7 +1431,7 @@ define internal void @arrayconst_cleanup_fn(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @arrayexpr_startup_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #0 {
+define internal void @arrayexpr_startup_fn(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #0 {
   %3 = tail call ptr @palloc(i64 noundef 56) #6
   store ptr %3, ptr %1, align 8
   store i32 15, ptr %3, align 8
@@ -1483,7 +1483,7 @@ list_head.exit:                                   ; preds = %2, %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @arrayexpr_next_fn(ptr nocapture noundef readonly %0) #5 {
+define internal ptr @arrayexpr_next_fn(ptr noundef readonly captures(none) %0) #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -1519,7 +1519,7 @@ define internal ptr @arrayexpr_next_fn(ptr nocapture noundef readonly %0) #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @arrayexpr_cleanup_fn(ptr nocapture noundef readonly %0) #0 {
+define internal void @arrayexpr_cleanup_fn(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8

@@ -226,7 +226,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.132 = private unnamed_addr constant [2 x i8] c"U\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @pysqlite_check_connection(ptr nocapture noundef readonly %con) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @pysqlite_check_connection(ptr noundef readonly captures(none) %con) local_unnamed_addr #0 {
 entry:
   %initialized = getelementptr inbounds nuw i8, ptr %con, i64 56
   %0 = load i32, ptr %initialized, align 8
@@ -267,7 +267,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @pysqlite_check_thread(ptr nocapture noundef readonly %self) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @pysqlite_check_thread(ptr noundef readonly captures(none) %self) local_unnamed_addr #0 {
 entry:
   %check_same_thread = getelementptr inbounds nuw i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread, align 4
@@ -1101,7 +1101,7 @@ return:                                           ; preds = %pysqlite_check_conn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @connection_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @connection_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val74 = load ptr, ptr %0, align 8
@@ -1273,7 +1273,7 @@ return:                                           ; preds = %if.then146, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @connection_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @connection_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %statement_cache = getelementptr inbounds nuw i8, ptr %self, i64 72
   %0 = load ptr, ptr %statement_cache, align 8
@@ -1559,7 +1559,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_WriteUnraisable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @connection_close(ptr nocapture noundef %self) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @connection_close(ptr noundef captures(none) %self) unnamed_addr #0 {
 entry:
   %db = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %db, align 8
@@ -1767,7 +1767,7 @@ declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @sqlite3_get_autocommit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @connection_exec_stmt(ptr nocapture noundef readonly %self, ptr noundef %sql) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @connection_exec_stmt(ptr noundef readonly captures(none) %self, ptr noundef %sql) unnamed_addr #0 {
 entry:
   %stmt = alloca ptr, align 8
   %call = tail call ptr @PyEval_SaveThread() #6
@@ -1776,7 +1776,7 @@ entry:
   %add = add i32 %conv, 1
   %db = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %db, align 8
-  %call2 = call i32 @sqlite3_prepare_v2(ptr noundef %0, ptr noundef %sql, i32 noundef %add, ptr noundef nonnull %stmt, ptr noundef null) #6
+  %call2 = call i32 @sqlite3_prepare_v2(ptr noundef %0, ptr noundef nonnull %sql, i32 noundef %add, ptr noundef nonnull %stmt, ptr noundef null) #6
   %cmp = icmp eq i32 %call2, 0
   br i1 %cmp, label %if.then, label %if.then8.critedge
 
@@ -1812,7 +1812,7 @@ declare i32 @sqlite3_close_v2(ptr noundef) local_unnamed_addr #1
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2235,7 +2235,7 @@ exit:                                             ; preds = %if.then67.i, %do.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_connection_close(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @pysqlite_connection_close(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %check_same_thread.i.i = getelementptr inbounds nuw i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread.i.i, align 4
@@ -2308,14 +2308,14 @@ pysqlite_connection_close_impl.exit:              ; preds = %pysqlite_check_thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_commit(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @pysqlite_connection_commit(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call fastcc ptr @pysqlite_connection_commit_impl(ptr noundef %self)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_create_aggregate(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @pysqlite_connection_create_aggregate(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %name_length = alloca i64, align 8
@@ -2402,7 +2402,7 @@ exit:                                             ; preds = %if.end27.split, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_create_collation(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @pysqlite_connection_create_collation(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %name_length = alloca i64, align 8
@@ -2619,7 +2619,7 @@ exit:                                             ; preds = %if.end20.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_create_function(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @pysqlite_connection_create_function(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %name_length = alloca i64, align 8
@@ -2861,7 +2861,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_enter(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @pysqlite_connection_enter(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %initialized.i.i = getelementptr inbounds nuw i8, ptr %self, i64 56
   %0 = load i32, ptr %initialized.i.i, align 8
@@ -2910,7 +2910,7 @@ pysqlite_connection_enter_impl.exit:              ; preds = %pysqlite_check_conn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_connection_executemany(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @pysqlite_connection_executemany(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -3033,7 +3033,7 @@ Py_XDECREF.exit:                                  ; preds = %Py_XDECREF.exit.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_connection_execute(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @pysqlite_connection_execute(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 2
@@ -3114,7 +3114,7 @@ exit:                                             ; preds = %Py_XDECREF.exit.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_exit(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @pysqlite_connection_exit(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 3
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -3200,7 +3200,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_interrupt(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @pysqlite_connection_interrupt(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %initialized.i.i = getelementptr inbounds nuw i8, ptr %self, i64 56
   %0 = load i32, ptr %initialized.i.i, align 8
@@ -3250,7 +3250,7 @@ pysqlite_connection_interrupt_impl.exit:          ; preds = %pysqlite_check_conn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_connection_iterdump(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @pysqlite_connection_iterdump(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %initialized.i.i = getelementptr inbounds nuw i8, ptr %self, i64 56
   %0 = load i32, ptr %initialized.i.i, align 8
@@ -3322,14 +3322,14 @@ pysqlite_connection_iterdump_impl.exit:           ; preds = %pysqlite_check_conn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_rollback(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @pysqlite_connection_rollback(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call fastcc ptr @pysqlite_connection_rollback_impl(ptr noundef %self)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_set_authorizer(ptr nocapture noundef %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @pysqlite_connection_set_authorizer(ptr noundef captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -3620,7 +3620,7 @@ exit:                                             ; preds = %free_callback_conte
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_set_progress_handler(ptr nocapture noundef %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @pysqlite_connection_set_progress_handler(ptr noundef captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -3670,7 +3670,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_set_trace_callback(ptr nocapture noundef %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @pysqlite_connection_set_trace_callback(ptr noundef captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -3902,7 +3902,7 @@ exit:                                             ; preds = %free_callback_conte
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @setlimit(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @setlimit(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -3946,7 +3946,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getlimit(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal ptr @getlimit(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #6
   %cmp = icmp eq i32 %call, -1
@@ -3968,7 +3968,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @serialize(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @serialize(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %size.i = alloca i64, align 8
   %argsbuf = alloca [1 x ptr], align 8
@@ -4127,7 +4127,7 @@ exit:                                             ; preds = %if.end20, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @deserialize(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @deserialize(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %data = alloca %struct.Py_buffer, align 8
@@ -4316,7 +4316,7 @@ if.end51:                                         ; preds = %if.then50, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @create_window_function(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @create_window_function(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %name_length = alloca i64, align 8
@@ -4568,7 +4568,7 @@ exit:                                             ; preds = %sqlite3_int64_conve
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @setconfig(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @setconfig(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %actual.i = alloca i32, align 4
   %0 = add i64 %nargs, -1
@@ -4702,7 +4702,7 @@ exit:                                             ; preds = %if.end11, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getconfig(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal ptr @getconfig(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #6
   %cmp = icmp eq i32 %call, -1
@@ -4767,7 +4767,7 @@ declare i32 @sqlite3_sleep(i32 noundef) local_unnamed_addr #1
 declare void @pysqlite_close_all_blobs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pysqlite_connection_commit_impl(ptr nocapture noundef readonly %self) unnamed_addr #0 {
+define internal fastcc noundef ptr @pysqlite_connection_commit_impl(ptr noundef readonly captures(none) %self) unnamed_addr #0 {
 entry:
   %check_same_thread.i = getelementptr inbounds nuw i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread.i, align 4
@@ -4859,7 +4859,7 @@ return:                                           ; preds = %pysqlite_check_conn
 declare i32 @PyErr_WarnEx(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pysqlite_connection_create_aggregate_impl(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef nonnull %name, i32 noundef %n_arg, ptr noundef %aggregate_class) unnamed_addr #0 {
+define internal fastcc noundef ptr @pysqlite_connection_create_aggregate_impl(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr noundef nonnull %name, i32 noundef %n_arg, ptr noundef %aggregate_class) unnamed_addr #0 {
 entry:
   %check_same_thread.i = getelementptr inbounds nuw i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread.i, align 4
@@ -4964,7 +4964,7 @@ return:                                           ; preds = %if.end, %pysqlite_c
 declare i32 @sqlite3_create_function_v2(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @step_callback(ptr noundef %context, i32 noundef %argc, ptr nocapture noundef readonly %params) #0 {
+define internal void @step_callback(ptr noundef %context, i32 noundef %argc, ptr noundef readonly captures(none) %params) #0 {
 entry:
   %call = tail call i32 @PyGILState_Ensure() #6
   %call1 = tail call ptr @sqlite3_user_data(ptr noundef %context) #6
@@ -5277,7 +5277,7 @@ print_or_clear_traceback.exit:                    ; preds = %if.then.i, %if.else
 declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_pysqlite_build_py_params(ptr noundef %context, i32 noundef %argc, ptr nocapture noundef readonly %argv) unnamed_addr #0 {
+define internal fastcc ptr @_pysqlite_build_py_params(ptr noundef %context, i32 noundef %argc, ptr noundef readonly captures(none) %argv) unnamed_addr #0 {
 entry:
   %conv = sext i32 %argc to i64
   %call = tail call ptr @PyTuple_New(i64 noundef %conv) #6
@@ -5592,7 +5592,7 @@ declare void @sqlite3_result_blob(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare i32 @sqlite3_create_collation_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @collation_callback(ptr nocapture noundef readonly %context, i32 noundef %text1_length, ptr noundef %text1_data, i32 noundef %text2_length, ptr noundef %text2_data) #0 {
+define internal i32 @collation_callback(ptr noundef readonly captures(none) %context, i32 noundef %text1_length, ptr noundef %text1_data, i32 noundef %text2_length, ptr noundef %text2_data) #0 {
 entry:
   %result = alloca i32, align 4
   %args = alloca [3 x ptr], align 16
@@ -5731,7 +5731,7 @@ declare i64 @PyLong_AsLongAndOverflow(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @func_callback(ptr noundef %context, i32 noundef %argc, ptr nocapture noundef readonly %argv) #0 {
+define internal void @func_callback(ptr noundef %context, i32 noundef %argc, ptr noundef readonly captures(none) %argv) #0 {
 entry:
   %call = tail call i32 @PyGILState_Ensure() #6
   %call1 = tail call fastcc ptr @_pysqlite_build_py_params(ptr noundef %context, i32 noundef %argc, ptr noundef %argv)
@@ -6039,7 +6039,7 @@ declare ptr @_pysqlite_query_execute(ptr noundef, i32 noundef, ptr noundef, ptr 
 declare ptr @PyObject_CallMethodObjArgs(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pysqlite_connection_rollback_impl(ptr nocapture noundef readonly %self) unnamed_addr #0 {
+define internal fastcc noundef ptr @pysqlite_connection_rollback_impl(ptr noundef readonly captures(none) %self) unnamed_addr #0 {
 entry:
   %check_same_thread.i = getelementptr inbounds nuw i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread.i, align 4
@@ -6133,7 +6133,7 @@ declare void @sqlite3_interrupt(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyImport_GetModuleAttrString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @authorizer_callback(ptr nocapture noundef readonly %ctx, i32 noundef %action, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dbname, ptr noundef %access_attempt_source) #0 {
+define internal i32 @authorizer_callback(ptr noundef readonly captures(none) %ctx, i32 noundef %action, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dbname, ptr noundef %access_attempt_source) #0 {
 entry:
   %call = tail call i32 @PyGILState_Ensure() #6
   %0 = load ptr, ptr %ctx, align 8
@@ -6218,7 +6218,7 @@ if.end13:                                         ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pysqlite_connection_set_progress_handler_impl(ptr nocapture noundef %self, ptr noundef %cls, ptr noundef %callable, i32 noundef %n) unnamed_addr #0 {
+define internal fastcc noundef ptr @pysqlite_connection_set_progress_handler_impl(ptr noundef captures(none) %self, ptr noundef %cls, ptr noundef %callable, i32 noundef %n) unnamed_addr #0 {
 entry:
   %check_same_thread.i = getelementptr inbounds nuw i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread.i, align 4
@@ -6424,7 +6424,7 @@ return:                                           ; preds = %if.else, %free_call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @progress_callback(ptr nocapture noundef readonly %ctx) #0 {
+define internal i32 @progress_callback(ptr noundef readonly captures(none) %ctx) #0 {
 entry:
   %call = tail call i32 @PyGILState_Ensure() #6
   %0 = load ptr, ptr %ctx, align 8
@@ -6478,7 +6478,7 @@ if.end5:                                          ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @trace_callback(i32 noundef %type, ptr nocapture noundef readonly %ctx, ptr noundef %stmt, ptr noundef %sql) #0 {
+define internal noundef i32 @trace_callback(i32 noundef %type, ptr noundef readonly captures(none) %ctx, ptr noundef %stmt, ptr noundef %sql) #0 {
 entry:
   %cmp.not = icmp eq i32 %type, 1
   br i1 %cmp.not, label %if.end, label %return
@@ -6609,7 +6609,7 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 declare void @sqlite3_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @setlimit_impl(ptr nocapture noundef readonly %self, i32 noundef %category, i32 noundef %limit) unnamed_addr #0 {
+define internal fastcc ptr @setlimit_impl(ptr noundef readonly captures(none) %self, i32 noundef %category, i32 noundef %limit) unnamed_addr #0 {
 entry:
   %check_same_thread.i = getelementptr inbounds nuw i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread.i, align 4
@@ -6690,19 +6690,19 @@ declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 declare ptr @sqlite3_serialize(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @PyBuffer_FillInfo(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @sqlite3_malloc64(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @sqlite3_deserialize(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_window_function_impl(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef nonnull %name, i32 noundef %num_params, ptr noundef %aggregate_class) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_window_function_impl(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr noundef nonnull %name, i32 noundef %num_params, ptr noundef %aggregate_class) unnamed_addr #0 {
 entry:
   %call = tail call i32 @sqlite3_libversion_number() #6
   %cmp = icmp slt i32 %call, 3025000
@@ -6890,7 +6890,7 @@ if.end8:                                          ; preds = %if.end8.sink.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @inverse_callback(ptr noundef %context, i32 noundef %argc, ptr nocapture noundef readonly %params) #0 {
+define internal void @inverse_callback(ptr noundef %context, i32 noundef %argc, ptr noundef readonly captures(none) %params) #0 {
 entry:
   %call = tail call i32 @PyGILState_Ensure() #6
   %call1 = tail call ptr @sqlite3_user_data(ptr noundef %context) #6
@@ -7149,7 +7149,7 @@ declare ptr @PyWeakref_NewRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @sqlite3_db_config(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @getconfig_impl(ptr nocapture noundef readonly %self, i32 noundef %op) unnamed_addr #0 {
+define internal fastcc i32 @getconfig_impl(ptr noundef readonly captures(none) %self, i32 noundef %op) unnamed_addr #0 {
 entry:
   %current = alloca i32, align 4
   %check_same_thread.i = getelementptr inbounds nuw i8, ptr %self, i64 52
@@ -7237,7 +7237,7 @@ return:                                           ; preds = %pysqlite_check_conn
 declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_connection_get_isolation_level(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @pysqlite_connection_get_isolation_level(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %initialized.i = getelementptr inbounds nuw i8, ptr %self, i64 56
   %0 = load i32, ptr %initialized.i, align 8
@@ -7286,7 +7286,7 @@ return:                                           ; preds = %pysqlite_check_conn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @pysqlite_connection_set_isolation_level(ptr nocapture noundef %self, ptr noundef %isolation_level, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @pysqlite_connection_set_isolation_level(ptr noundef captures(none) %self, ptr noundef %isolation_level, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %isolation_level, null
   br i1 %cmp, label %if.then, label %if.end
@@ -7375,7 +7375,7 @@ return:                                           ; preds = %isolation_level_con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_connection_get_total_changes(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @pysqlite_connection_get_total_changes(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %initialized.i = getelementptr inbounds nuw i8, ptr %self, i64 56
   %0 = load i32, ptr %initialized.i, align 8
@@ -7420,7 +7420,7 @@ return:                                           ; preds = %pysqlite_check_conn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_connection_get_in_transaction(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @pysqlite_connection_get_in_transaction(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %initialized.i = getelementptr inbounds nuw i8, ptr %self, i64 56
   %0 = load i32, ptr %initialized.i, align 8
@@ -7465,7 +7465,7 @@ return:                                           ; preds = %pysqlite_check_conn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_autocommit(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ctx) #0 {
+define internal ptr @get_autocommit(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ctx) #0 {
 entry:
   %check_same_thread.i = getelementptr inbounds nuw i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread.i, align 4
@@ -7539,7 +7539,7 @@ return:                                           ; preds = %pysqlite_check_conn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @set_autocommit(ptr nocapture noundef %self, ptr noundef %val, ptr nocapture readnone %_unused_ctx) #0 {
+define internal range(i32 -1, 1) i32 @set_autocommit(ptr noundef captures(none) %self, ptr noundef %val, ptr readnone captures(none) %_unused_ctx) #0 {
 entry:
   %check_same_thread.i = getelementptr inbounds nuw i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread.i, align 4
@@ -7681,10 +7681,10 @@ declare ptr @pysqlite_statement_create(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -82,7 +82,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5B2__cache_leaf_free_icr = private unnamed_addr constant [26 x i8] c"H5B2__cache_leaf_free_icr\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5B2__cache_hdr_get_initial_load_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5B2__cache_hdr_get_initial_load_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %3) #6
   %5 = zext i8 %4 to i64
@@ -96,7 +96,7 @@ define internal noundef i32 @H5B2__cache_hdr_get_initial_load_size(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5B2__cache_hdr_verify_chksum(ptr noundef %0, i64 noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 -1, 2) i32 @H5B2__cache_hdr_verify_chksum(ptr noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = call i32 @H5F_get_checksums(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
@@ -122,7 +122,7 @@ define internal range(i32 -1, 2) i32 @H5B2__cache_hdr_verify_chksum(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5B2__cache_hdr_deserialize(ptr noundef %0, i64 %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 {
+define internal ptr @H5B2__cache_hdr_deserialize(ptr noundef %0, i64 %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.H5B2_create_t, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
@@ -362,7 +362,7 @@ define internal ptr @H5B2__cache_hdr_deserialize(ptr noundef %0, i64 %1, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5B2__cache_hdr_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 {
+define internal noundef i32 @H5B2__cache_hdr_image_len(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -370,7 +370,7 @@ define internal noundef i32 @H5B2__cache_hdr_image_len(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5B2__cache_hdr_serialize(ptr noundef %0, ptr noundef initializes((0, 15)) %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @H5B2__cache_hdr_serialize(ptr noundef %0, ptr noundef initializes((0, 15)) %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   store i32 1145590850, ptr %1, align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -650,7 +650,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_hdr_free_icr(ptr noundef %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5B2__cache_int_get_initial_load_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
+define internal noundef i32 @H5B2__cache_int_get_initial_load_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 276
@@ -661,7 +661,7 @@ define internal noundef i32 @H5B2__cache_int_get_initial_load_size(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5B2__cache_int_verify_chksum(ptr noundef %0, i64 %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 2) i32 @H5B2__cache_int_verify_chksum(ptr noundef %0, i64 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -718,7 +718,7 @@ define internal range(i32 -1, 2) i32 @H5B2__cache_int_verify_chksum(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5B2__cache_int_deserialize(ptr noundef %0, i64 %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 {
+define internal ptr @H5B2__cache_int_deserialize(ptr noundef %0, i64 %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5B2_internal_t_reg_free_list) #6
   %7 = icmp eq ptr %6, null
@@ -1006,7 +1006,7 @@ define internal ptr @H5B2__cache_int_deserialize(ptr noundef %0, i64 %1, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5B2__cache_int_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
+define internal noundef i32 @H5B2__cache_int_image_len(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 276
@@ -1017,7 +1017,7 @@ define internal noundef i32 @H5B2__cache_int_image_len(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5B2__cache_int_serialize(ptr noundef %0, ptr noundef initializes((0, 6)) %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 -1, 1) i32 @H5B2__cache_int_serialize(ptr noundef %0, ptr noundef initializes((0, 6)) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   store i32 1313428546, ptr %1, align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1330,7 +1330,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_int_free_icr(ptr noundef %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5B2__cache_leaf_get_initial_load_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
+define internal noundef i32 @H5B2__cache_leaf_get_initial_load_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 276
@@ -1341,7 +1341,7 @@ define internal noundef i32 @H5B2__cache_leaf_get_initial_load_size(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5B2__cache_leaf_verify_chksum(ptr noundef %0, i64 %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 2) i32 @H5B2__cache_leaf_verify_chksum(ptr noundef %0, i64 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1377,7 +1377,7 @@ define internal range(i32 -1, 2) i32 @H5B2__cache_leaf_verify_chksum(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5B2__cache_leaf_deserialize(ptr noundef %0, i64 %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 {
+define internal ptr @H5B2__cache_leaf_deserialize(ptr noundef %0, i64 %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5B2_leaf_t_reg_free_list) #6
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
@@ -1536,7 +1536,7 @@ define internal ptr @H5B2__cache_leaf_deserialize(ptr noundef %0, i64 %1, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5B2__cache_leaf_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
+define internal noundef i32 @H5B2__cache_leaf_image_len(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 276
@@ -1547,7 +1547,7 @@ define internal noundef i32 @H5B2__cache_leaf_image_len(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5B2__cache_leaf_serialize(ptr nocapture readnone %0, ptr noundef initializes((0, 6)) %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 -1, 1) i32 @H5B2__cache_leaf_serialize(ptr readnone captures(none) %0, ptr noundef initializes((0, 6)) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   store i32 1179407426, ptr %1, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 5
@@ -1771,7 +1771,7 @@ declare noalias ptr @H5FL_fac_malloc(ptr noundef) local_unnamed_addr #3
 declare i32 @H5B2__internal_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @H5B2__create_flush_depend(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1780,7 +1780,7 @@ declare i32 @H5B2__destroy_flush_depend(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @H5B2__leaf_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

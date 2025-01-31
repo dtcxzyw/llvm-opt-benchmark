@@ -134,7 +134,7 @@ ecpg_get_connection_nr.exit:                      ; preds = %.lr.ph.i, %25, %.pr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #3
@@ -234,7 +234,7 @@ declare zeroext i1 @ecpg_init(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare void @ecpg_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare i32 @PQtransactionStatus(ptr noundef) local_unnamed_addr #1
 
@@ -358,7 +358,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 
 47:                                               ; preds = %44, %41
   %.0302 = phi ptr [ %46, %44 ], [ null, %41 ]
-  %48 = tail call ptr @last_dir_separator(ptr noundef %42) #8
+  %48 = tail call ptr @last_dir_separator(ptr noundef nonnull %42) #8
   %.not341 = icmp eq ptr %48, null
   br i1 %.not341, label %55, label %49
 
@@ -964,7 +964,7 @@ declare void @ecpg_init_sqlca(ptr noundef) local_unnamed_addr #1
 declare void @ecpg_clear_auto_mem() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @ecpg_alloc(i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -974,10 +974,10 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @last_dir_separator(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @newlocale(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -1098,7 +1098,7 @@ define internal fastcc void @ecpg_finish(ptr noundef %0) unnamed_addr #0 {
 declare ptr @PQsetNoticeReceiver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ECPGnoticeReceiver(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @ECPGnoticeReceiver(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 67) #8
   %4 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 77) #8
   %5 = tail call ptr @ECPGget_sqlca() #8
@@ -1180,7 +1180,7 @@ define noundef zeroext i1 @ECPGdisconnect(i32 noundef %0, ptr noundef %1) local_
 
 5:                                                ; preds = %2
   tail call void @ecpg_raise(i32 noundef %0, i32 noundef -12, ptr noundef nonnull @.str.6, ptr noundef null) #8
-  br label %35
+  br label %33
 
 6:                                                ; preds = %2
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @connections_mutex) #8
@@ -1203,60 +1203,56 @@ define noundef zeroext i1 @ECPGdisconnect(i32 noundef %0, ptr noundef %1) local_
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 14:                                               ; preds = %6
-  %15 = icmp eq ptr %1, null
-  br i1 %15, label %19, label %16
+  %15 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str) #9
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %.preheader.i
 
-16:                                               ; preds = %14
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str) #9
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %.preheader.i
-
-.preheader.i:                                     ; preds = %16
+.preheader.i:                                     ; preds = %14
   %.012.i = load ptr, ptr @all_connections, align 8
   %.not13.i = icmp eq ptr %.012.i, null
   br i1 %.not13.i, label %ecpg_get_connection_nr.exit, label %.lr.ph.i
 
-19:                                               ; preds = %16, %14
-  %20 = tail call i32 @pthread_once(ptr noundef nonnull @actual_connection_key_once, ptr noundef nonnull @ecpg_actual_connection_init) #8
-  %21 = load i32, ptr @actual_connection_key, align 4
-  %22 = tail call ptr @pthread_getspecific(i32 noundef %21) #8
-  %23 = icmp eq ptr %22, null
-  %24 = load ptr, ptr @actual_connection, align 8
-  %spec.select.i = select i1 %23, ptr %24, ptr %22
+17:                                               ; preds = %14
+  %18 = tail call i32 @pthread_once(ptr noundef nonnull @actual_connection_key_once, ptr noundef nonnull @ecpg_actual_connection_init) #8
+  %19 = load i32, ptr @actual_connection_key, align 4
+  %20 = tail call ptr @pthread_getspecific(i32 noundef %19) #8
+  %21 = icmp eq ptr %20, null
+  %22 = load ptr, ptr @actual_connection, align 8
+  %spec.select.i = select i1 %21, ptr %22, ptr %20
   br label %ecpg_get_connection_nr.exit
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %28
-  %.014.i = phi ptr [ %.0.i, %28 ], [ %.012.i, %.preheader.i ]
-  %25 = load ptr, ptr %.014.i, align 8
-  %26 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %25) #9
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %ecpg_get_connection_nr.exit, label %28
+.lr.ph.i:                                         ; preds = %.preheader.i, %26
+  %.014.i = phi ptr [ %.0.i, %26 ], [ %.012.i, %.preheader.i ]
+  %23 = load ptr, ptr %.014.i, align 8
+  %24 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %23) #9
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %ecpg_get_connection_nr.exit, label %26
 
-28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds nuw i8, ptr %.014.i, i64 40
-  %.0.i = load ptr, ptr %29, align 8
+26:                                               ; preds = %.lr.ph.i
+  %27 = getelementptr inbounds nuw i8, ptr %.014.i, i64 40
+  %.0.i = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %ecpg_get_connection_nr.exit, label %.lr.ph.i, !llvm.loop !4
 
-ecpg_get_connection_nr.exit:                      ; preds = %.lr.ph.i, %28, %.preheader.i, %19
-  %.09.i = phi ptr [ %spec.select.i, %19 ], [ null, %.preheader.i ], [ null, %28 ], [ %.014.i, %.lr.ph.i ]
-  %30 = tail call zeroext i1 @ecpg_init(ptr noundef %.09.i, ptr noundef %1, i32 noundef %0) #8
-  br i1 %30, label %33, label %31
+ecpg_get_connection_nr.exit:                      ; preds = %.lr.ph.i, %26, %.preheader.i, %17
+  %.09.i = phi ptr [ %spec.select.i, %17 ], [ null, %.preheader.i ], [ null, %26 ], [ %.014.i, %.lr.ph.i ]
+  %28 = tail call zeroext i1 @ecpg_init(ptr noundef %.09.i, ptr noundef nonnull %1, i32 noundef %0) #8
+  br i1 %28, label %31, label %29
+
+29:                                               ; preds = %ecpg_get_connection_nr.exit
+  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @connections_mutex) #8
+  br label %33
 
 31:                                               ; preds = %ecpg_get_connection_nr.exit
-  %32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @connections_mutex) #8
-  br label %35
-
-33:                                               ; preds = %ecpg_get_connection_nr.exit
   tail call fastcc void @ecpg_finish(ptr noundef %.09.i)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %10, %33
-  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @connections_mutex) #8
-  br label %35
+.loopexit:                                        ; preds = %.lr.ph, %10, %31
+  %32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @connections_mutex) #8
+  br label %33
 
-35:                                               ; preds = %.loopexit, %31, %5
-  %.0 = phi i1 [ false, %5 ], [ true, %.loopexit ], [ false, %31 ]
+33:                                               ; preds = %.loopexit, %29, %5
+  %.0 = phi i1 [ false, %5 ], [ true, %.loopexit ], [ false, %29 ]
   ret i1 %.0
 }
 
@@ -1286,10 +1282,10 @@ declare void @PQfinish(ptr noundef) local_unnamed_addr #1
 declare ptr @PQresultErrorField(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -79,7 +79,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [4 x ptr] [ptr @gmbus_wait.__UNIQUE_ID___addressable___SCK__preempt_schedule898, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched40, ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace832, ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__tp_func_i915_reg_rw831], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @intel_gmbus_is_valid_pin(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_gmbus_is_valid_pin(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 1025
@@ -198,10 +198,10 @@ define dso_local i32 @intel_gmbus_output_aksv(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @intel_display_power_get(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -210,7 +210,7 @@ declare dso_local i64 @intel_display_power_get(ptr noundef, i32 noundef) local_u
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_gmbus_xfer(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 2049) %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @do_gmbus_xfer(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 2049) %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 7184
@@ -1019,7 +1019,7 @@ define internal fastcc i32 @do_gmbus_xfer(ptr noundef %0, ptr nocapture noundef 
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_gmbus_setup(ptr noundef %0) local_unnamed_addr #1 align 16 {
@@ -1246,7 +1246,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @i2c_add_adapter(ptr noundef) local_unnamed_addr #4
@@ -1255,7 +1255,7 @@ declare dso_local i32 @i2c_add_adapter(ptr noundef) local_unnamed_addr #4
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gmbus_teardown(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_gmbus_teardown(ptr noundef captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   br label %3
 
@@ -1282,7 +1282,7 @@ define dso_local void @intel_gmbus_teardown(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @intel_gmbus_get_adapter(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local ptr @intel_gmbus_get_adapter(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = icmp ugt i32 %1, 14
   br i1 %3, label %10, label %4
 
@@ -1361,7 +1361,7 @@ define dso_local void @intel_gmbus_force_bit(ptr noundef %0, i1 noundef zeroext 
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @intel_gmbus_is_forced_bit(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 16 {
+define dso_local zeroext i1 @intel_gmbus_is_forced_bit(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %3 = load i32, ptr %2, align 8
   %4 = icmp ne i32 %3, 0
@@ -1382,7 +1382,7 @@ define dso_local void @intel_gmbus_irq_handler(ptr noundef %0) local_unnamed_add
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_read(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 67174400) %3) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_read(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 67174400) %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1747,7 +1747,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_read(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_write(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 67174400) %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_write(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 67174400) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2629,7 +2629,7 @@ define internal range(i32 0, 268402698) i32 @gmbus_func(ptr noundef %0) #1 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gmbus_lock_bus(ptr nocapture noundef readonly %0, i32 %1) #1 align 16 {
+define internal void @gmbus_lock_bus(ptr noundef readonly captures(none) %0, i32 %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2384
@@ -2638,7 +2638,7 @@ define internal void @gmbus_lock_bus(ptr nocapture noundef readonly %0, i32 %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @gmbus_trylock_bus(ptr nocapture noundef readonly %0, i32 %1) #1 align 16 {
+define internal i32 @gmbus_trylock_bus(ptr noundef readonly captures(none) %0, i32 %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2384
@@ -2647,7 +2647,7 @@ define internal i32 @gmbus_trylock_bus(ptr nocapture noundef readonly %0, i32 %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gmbus_unlock_bus(ptr nocapture noundef readonly %0, i32 %1) #1 align 16 {
+define internal void @gmbus_unlock_bus(ptr noundef readonly captures(none) %0, i32 %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2384
@@ -2659,7 +2659,7 @@ define internal void @gmbus_unlock_bus(ptr nocapture noundef readonly %0, i32 %1
 declare dso_local i32 @mutex_trylock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @set_data(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define internal void @set_data(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 7184
@@ -2697,7 +2697,7 @@ define internal void @set_data(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @set_clock(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define internal void @set_clock(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 7184
@@ -2735,7 +2735,7 @@ define internal void @set_clock(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @get_data(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 0, 2) i32 @get_data(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7184
@@ -2776,7 +2776,7 @@ define internal range(i32 0, 2) i32 @get_data(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @get_clock(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 0, 2) i32 @get_clock(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7184
@@ -2817,7 +2817,7 @@ define internal range(i32 0, 2) i32 @get_clock(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_gpio_pre_xfer(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @intel_gpio_pre_xfer(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2376
@@ -2915,7 +2915,7 @@ define internal noundef i32 @intel_gpio_pre_xfer(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_gpio_post_xfer(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @intel_gpio_post_xfer(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7184

@@ -7784,7 +7784,7 @@ _ZN8pybind116class_I26test_override_cache_helperJ37test_override_cache_helper_tr
 declare void @_ZN16test_initializerC1EPKcPFvRN8pybind117module_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind116class_I11ExampleVirtJ13PyExampleVirtEEC2IJEEENS_6handleEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, ptr noundef %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15924,7 +15924,7 @@ _ZNKR8pybind116handle7dec_refEv.exit:             ; preds = %3, %1, %6
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare ptr @PyThreadState_Get() local_unnamed_addr #5
 
@@ -18199,7 +18199,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #5
 
@@ -18443,7 +18443,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
           to label %9 unwind label %13
 
 9:                                                ; preds = %3
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %6)
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %6)
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
@@ -19179,7 +19179,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread3:             ; preds = %6, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 declare ptr @PyObject_CallFunctionObjArgs(ptr noundef, ...) local_unnamed_addr #5
 
@@ -27834,10 +27834,10 @@ _ZN8pybind117capsule35initialize_with_void_ptr_destructorEPKvPKcPFvPvE.exit: ; p
 declare ptr @PyCMethod_New(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #17
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #17
 
 declare ptr @PyInstanceMethod_New(ptr noundef) local_unnamed_addr #5
 
@@ -27878,7 +27878,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit:                 ; preds = %._crit_edge, %8
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @PyObject_Repr(ptr noundef) local_unnamed_addr #5
 
@@ -55744,7 +55744,7 @@ _ZN8pybind116detail15argument_loaderIJP6NCVirtiiEE9load_argsERNS0_13function_cal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ32test_submodule_virtual_functionsRNS_7module_EE3$_1iJP11ExampleVirtiEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ32test_submodule_virtual_functionsRNS_7module_EE3$_1iJP11ExampleVirtiEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.520", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -55831,7 +55831,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %29
 declare i32 @PyModule_AddObject(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZ32test_submodule_virtual_functionsRNS_7module_EE3$_2bJP11ExampleVirtEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZ32test_submodule_virtual_functionsRNS_7module_EE3$_2bJP11ExampleVirtEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.530", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -55896,7 +55896,7 @@ _ZN8pybind116detail15argument_loaderIJP11ExampleVirtEEC2Ev.exit.i: ; preds = %8,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZ32test_submodule_virtual_functionsRNS_7module_EE3$_3vJP11ExampleVirtEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZ32test_submodule_virtual_functionsRNS_7module_EE3$_3vJP11ExampleVirtEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.530", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -56538,7 +56538,7 @@ _ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE1AJZ32test_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE1AJZ32test_submodule_virtual_functionsS2_E3PyAEE7deallocERNS_6detail16value_and_holderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE1AJZ32test_submodule_virtual_functionsS2_E3PyAEE7deallocERNS_6detail16value_and_holderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.pybind11::error_scope", align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -56648,7 +56648,7 @@ _ZN8pybind1111error_scopeD2Ev.exit:               ; preds = %_ZN8pybind116detail
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ32test_submodule_virtual_functionsRNS_7module_EE1AJZ32test_submodule_virtual_functionsS9_E3PyAEEEJETnNSt9enable_ifIXaasrT_9has_aliassr3std16is_constructibleINSE_4typeEEE5valueEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES15_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ32test_submodule_virtual_functionsRNS_7module_EE1AJZ32test_submodule_virtual_functionsS9_E3PyAEEEJETnNSt9enable_ifIXaasrT_9has_aliassr3std16is_constructibleINSE_4typeEEE5valueEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES15_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %3, align 8
@@ -56713,7 +56713,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN1AD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #20 align 2 {
+define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN1AD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #20 align 2 {
   ret void
 }
 
@@ -56724,7 +56724,7 @@ define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN1A1fEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN1A1fEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN8pybind115printILNS_19return_value_policyE1EJRA6_KcEEEvDpOT0_(ptr noundef nonnull align 1 dereferenceable(6) @.str.214)
   ret void
 }
@@ -57010,7 +57010,7 @@ _ZN8pybind116detail16simple_collectorILNS_19return_value_policyE1EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN3PyAD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN3PyAD2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZ32test_submodule_virtual_functionsRN8pybind117module_EE3PyA, i64 16), ptr %0, align 8
   invoke void @_ZN8pybind115printILNS_19return_value_policyE1EJRA11_KcEEEvDpOT0_(ptr noundef nonnull align 1 dereferenceable(11) @.str.216)
           to label %2 unwind label %3
@@ -57682,7 +57682,7 @@ _ZNSt5arrayIN8pybind116objectELm1EED2Ev.exit:     ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IvZ32test_submodule_virtual_functionsRNS_7module_EE1AJEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_FT_DpT1_EDpRKT2_EUlPS5_E_vJSJ_EJS6_S7_S8_EEEvOSA_PFS9_SC_ESI_ENUlRNS_6detail13function_callEE_8__invokeESQ_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IvZ32test_submodule_virtual_functionsRNS_7module_EE1AJEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_FT_DpT1_EDpRKT2_EUlPS5_E_vJSJ_EJS6_S7_S8_EEEvOSA_PFS9_SC_ESI_ENUlRNS_6detail13function_callEE_8__invokeESQ_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.689", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -57781,7 +57781,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS0_C1IvZ32test_submodule_virtual_funct
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZ32test_submodule_virtual_functionsRNS_7module_EE3$_4vJPZ32test_submodule_virtual_functionsS3_E1AEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZ32test_submodule_virtual_functionsRNS_7module_EE3$_4vJPZ32test_submodule_virtual_functionsS3_E1AEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.689", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -58043,7 +58043,7 @@ _ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE2A2JZ32test
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE2A2JZ32test_submodule_virtual_functionsS2_E4PyA2EE7deallocERNS_6detail16value_and_holderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE2A2JZ32test_submodule_virtual_functionsS2_E4PyA2EE7deallocERNS_6detail16value_and_holderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.pybind11::error_scope", align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -58153,7 +58153,7 @@ _ZN8pybind1111error_scopeD2Ev.exit:               ; preds = %_ZN8pybind116detail
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl17alias_constructorIJEE7executeINS_6class_IZ32test_submodule_virtual_functionsRNS_7module_EE2A2JZ32test_submodule_virtual_functionsS9_E4PyA2EEEJETnNSt9enable_ifIXaasrT_9has_aliassr3std16is_constructibleINSE_10type_aliasEEE5valueEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES15_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl17alias_constructorIJEE7executeINS_6class_IZ32test_submodule_virtual_functionsRNS_7module_EE2A2JZ32test_submodule_virtual_functionsS9_E4PyA2EEEJETnNSt9enable_ifIXaasrT_9has_aliassr3std16is_constructibleINSE_10type_aliasEEE5valueEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES15_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %3, align 8
@@ -58297,7 +58297,7 @@ _ZN8pybind116detail16simple_collectorILNS_19return_value_policyE1EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN4PyA2D2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN4PyA2D2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZ32test_submodule_virtual_functionsRN8pybind117module_EE4PyA2, i64 16), ptr %0, align 8
   invoke void @_ZN8pybind115printILNS_19return_value_policyE1EJRA13_KcEEEvDpOT0_(ptr noundef nonnull align 1 dereferenceable(13) @.str.220)
           to label %2 unwind label %3
@@ -59066,7 +59066,7 @@ _ZN8pybind116detail16simple_collectorILNS_19return_value_policyE1EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZ32test_submodule_virtual_functionsRNS_7module_EE3$_5PFNS2_9void_typeEvEFPZ32test_submodule_virtual_functionsS6_E4PyA2iES9_E7executeINS_6class_IZ32test_submodule_virtual_functionsS6_E2A2JSB_EEEJEEEvRT_DpRKT0_EUlRNS2_16value_and_holderEiE_vJSQ_iEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSJ_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES17_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZ32test_submodule_virtual_functionsRNS_7module_EE3$_5PFNS2_9void_typeEvEFPZ32test_submodule_virtual_functionsS6_E4PyA2iES9_E7executeINS_6class_IZ32test_submodule_virtual_functionsS6_E2A2JSB_EEEJEEEvRT_DpRKT0_EUlRNS2_16value_and_holderEiE_vJSQ_iEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSJ_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES17_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::detail::argument_loader.493", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i32 0, ptr %2, align 8
@@ -59135,7 +59135,7 @@ common.resume.i:                                  ; preds = %23, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IvZ32test_submodule_virtual_functionsRNS_7module_EE2A2JEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_FT_DpT1_EDpRKT2_EUlPS5_E_vJSJ_EJS6_S7_S8_EEEvOSA_PFS9_SC_ESI_ENUlRNS_6detail13function_callEE_8__invokeESQ_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IvZ32test_submodule_virtual_functionsRNS_7module_EE2A2JEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_FT_DpT1_EDpRKT2_EUlPS5_E_vJSJ_EJS6_S7_S8_EEEvOSA_PFS9_SC_ESI_ENUlRNS_6detail13function_callEE_8__invokeESQ_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.725", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -59234,7 +59234,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS0_C1IvZ32test_submodule_virtual_funct
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZ32test_submodule_virtual_functionsRNS_7module_EE3$_6vJPZ32test_submodule_virtual_functionsS3_E2A2EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZ32test_submodule_virtual_functionsRNS_7module_EE3$_6vJPZ32test_submodule_virtual_functionsS3_E2A2EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.725", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -60295,7 +60295,7 @@ _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ32test_submodule_virtual_functionsRNS_7module_EE3$_7NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPK4BaseEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ32test_submodule_virtual_functionsRNS_7module_EE3$_7NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPK4BaseEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.757", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -64938,7 +64938,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail15argument_loa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRKN9AdderBase4DataEEZZ32test_submodule_virtual_functionsRN8pybind117module_EENK3$_0clES3_S3_S3_RKS0_RKSt8functionIS4_EEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #1 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRKN9AdderBase4DataEEZZ32test_submodule_virtual_functionsRN8pybind117module_EENK3$_0clES3_S3_S3_RKS0_RKSt8functionIS4_EEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #1 align 2 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %.val, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -64952,7 +64952,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN9AdderBase4DataEEZZ32test_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN9AdderBase4DataEEZZ32test_submodule_virtual_functionsRN8pybind117module_EENK3$_0clES3_S3_S3_RKS0_RKSt8functionIS4_EEUlS3_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN9AdderBase4DataEEZZ32test_submodule_virtual_functionsRN8pybind117module_EENK3$_0clES3_S3_S3_RKS0_RKSt8functionIS4_EEUlS3_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZ32test_submodule_virtual_functionsRN8pybind117module_EENK3$_0clERKN9AdderBase4DataES8_S8_RKS5_RKSt8functionIFvS8_EEEUlS8_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -65194,7 +65194,7 @@ _ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EEN12Override
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEJEE7deallocERNS_6detail16value_and_holderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEJEE7deallocERNS_6detail16value_and_holderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.pybind11::error_scope", align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -65302,7 +65302,7 @@ _ZN8pybind1111error_scopeD2Ev.exit:               ; preds = %_ZN8pybind116detail
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEJEE13def_readwriteIS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEERS7_PKcMT_T0_DpRKT1_EUlRKS6_E_RKSE_JSQ_EJNS_9is_methodEEEEvOSI_PFSJ_DpSL_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES15_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEJEE13def_readwriteIS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEERS7_PKcMT_T0_DpRKT1_EUlRKS6_E_RKSE_JSQ_EJNS_9is_methodEEEEvOSI_PFSJ_DpSL_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES15_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.891", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -65429,7 +65429,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ32test_submodule_virtual_fu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEJEE13def_readwriteIS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEERS7_PKcMT_T0_DpRKT1_EUlRS6_RKSE_E_vJSP_SR_EJNS_9is_methodEEEEvOSI_PFSJ_DpSL_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES14_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEJEE13def_readwriteIS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEERS7_PKcMT_T0_DpRKT1_EUlRS6_RKSE_E_vJSP_SR_EJNS_9is_methodEEEEvOSI_PFSJ_DpSL_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeES14_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.901", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -66506,7 +66506,7 @@ _ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE12OverrideT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE12OverrideTestJZ32test_submodule_virtual_functionsS2_E14PyOverrideTestEE7deallocERNS_6detail16value_and_holderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE12OverrideTestJZ32test_submodule_virtual_functionsS2_E14PyOverrideTestEE7deallocERNS_6detail16value_and_holderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.pybind11::error_scope", align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -66616,7 +66616,7 @@ _ZN8pybind1111error_scopeD2Ev.exit:               ; preds = %_ZN8pybind116detail
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7executeINS_6class_IZ32test_submodule_virtual_functionsRNS_7module_EE12OverrideTestJZ32test_submodule_virtual_functionsSH_E14PyOverrideTestEEEJETnNSt9enable_ifIXaasrT_9has_aliassr3std16is_constructibleINSM_4typeESC_EE5valueEiE4typeELi0EEEvRSM_DpRKT0_EUlRNS2_16value_and_holderESC_E_vJSW_SC_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSM_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES1D_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7executeINS_6class_IZ32test_submodule_virtual_functionsRNS_7module_EE12OverrideTestJZ32test_submodule_virtual_functionsSH_E14PyOverrideTestEEEJETnNSt9enable_ifIXaasrT_9has_aliassr3std16is_constructibleINSM_4typeESC_EE5valueEiE4typeELi0EEEvRSM_DpRKT0_EUlRNS2_16value_and_holderESC_E_vJSW_SC_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSM_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES1D_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::detail::argument_loader.924", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
@@ -67928,7 +67928,7 @@ define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind116detail9load_typeIZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEvEERNS0_11type_casterIT_T0_EESA_RKNS_6handleE(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind116detail9load_typeIZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEvEERNS0_11type_casterIT_T0_EESA_RKNS_6handleE(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -68026,7 +68026,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ32test_submodule_virtual_functionsRNS_7module_EE12OverrideTestJEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_FT_DpT1_EDpRKT2_EUlPSB_E_S8_JSP_EJSC_SD_SE_EEEvOSG_PFSF_SI_ESO_ENUlRNS_6detail13function_callEE_8__invokeESW_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ32test_submodule_virtual_functionsRNS_7module_EE12OverrideTestJEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_FT_DpT1_EDpRKT2_EUlPSB_E_S8_JSP_EJSC_SD_SE_EEEvOSG_PFSF_SI_ESO_ENUlRNS_6detail13function_callEE_8__invokeESW_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.932", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -68176,7 +68176,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS0_C1INSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AES5_JEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_FT_DpT1_EDpRKT2_EUlPS5_E_S6_JSK_EJS7_S8_S9_EEEvOSB_PFSA_SD_ESJ_ENUlRNS_6detail13function_callEE_8__invokeESR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AES5_JEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_FT_DpT1_EDpRKT2_EUlPS5_E_S6_JSK_EJS7_S8_S9_EEEvOSB_PFSA_SD_ESJ_ENUlRNS_6detail13function_callEE_8__invokeESR_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::object", align 8
   %3 = alloca %"struct.std::type_index", align 8
   %4 = alloca %"class.pybind11::detail::argument_loader.932", align 8
@@ -68423,7 +68423,7 @@ define internal noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIZ32t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IRZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AES5_JEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_FT_DpT1_EDpRKT2_EUlPS5_E_S7_JSL_EJS8_S9_SA_EEEvOSC_PFSB_SE_ESK_ENUlRNS_6detail13function_callEE_8__invokeESS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal ptr @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IRZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AES5_JEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_FT_DpT1_EDpRKT2_EUlPS5_E_S7_JSL_EJS8_S9_SA_EEEvOSC_PFSB_SE_ESK_ENUlRNS_6detail13function_callEE_8__invokeESS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.932", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -83120,13 +83120,13 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

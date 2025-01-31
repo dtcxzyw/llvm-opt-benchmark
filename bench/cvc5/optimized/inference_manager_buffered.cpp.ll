@@ -105,7 +105,7 @@ entry:
 declare void @_ZN4cvc58internal6theory22TheoryInferenceManagerC2ERNS0_3EnvERNS1_6TheoryERNS1_11TheoryStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef nonnull align 8 dereferenceable(576), ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory24InferenceManagerBuffered10hasPendingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory24InferenceManagerBuffered10hasPendingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_pendingFact.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %d_pendingFact.i, align 8
@@ -122,7 +122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory24InferenceManagerBuffered14hasPendingFactEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory24InferenceManagerBuffered14hasPendingFactEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_pendingFact = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %d_pendingFact, align 8
@@ -133,7 +133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory24InferenceManagerBuffered15hasPendingLemmaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory24InferenceManagerBuffered15hasPendingLemmaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_pendingLem = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %d_pendingLem, align 8
@@ -144,7 +144,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory24InferenceManagerBuffered15addPendingLemmaENS0_12NodeTemplateILb1EEENS1_11InferenceIdENS1_13LemmaPropertyEPNS0_14ProofGeneratorEb(ptr noundef nonnull align 8 dereferenceable(353) %this, ptr nocapture noundef readonly %lem, i32 noundef %id, i32 noundef %p, ptr noundef %pg, i1 noundef zeroext %checkCache) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory24InferenceManagerBuffered15addPendingLemmaENS0_12NodeTemplateILb1EEENS1_11InferenceIdENS1_13LemmaPropertyEPNS0_14ProofGeneratorEb(ptr noundef nonnull align 8 dereferenceable(353) %this, ptr noundef readonly captures(none) %lem, i32 noundef %id, i32 noundef %p, ptr noundef %pg, i1 noundef zeroext %checkCache) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lemr = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.315", align 8
@@ -417,7 +417,7 @@ declare void @_ZN4cvc58internal6theory17SimpleTheoryLemmaC1ENS1_11InferenceIdENS
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered15addPendingLemmaESt10unique_ptrINS1_15TheoryInferenceESt14default_deleteIS4_EE(ptr nocapture noundef nonnull align 8 dereferenceable(353) %this, ptr nocapture noundef %lemma) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered15addPendingLemmaESt10unique_ptrINS1_15TheoryInferenceESt14default_deleteIS4_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(353) %this, ptr noundef captures(none) %lemma) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_pendingLem = getelementptr inbounds nuw i8, ptr %this, i64 256
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 264
@@ -501,7 +501,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered14addPendingFactENS0_12NodeTemplateILb1EEENS1_11InferenceIdES4_PNS0_14ProofGeneratorE(ptr nocapture noundef nonnull align 8 dereferenceable(353) %this, ptr nocapture noundef readonly %conc, i32 noundef %id, ptr nocapture noundef readonly %exp, ptr noundef %pg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered14addPendingFactENS0_12NodeTemplateILb1EEENS1_11InferenceIdES4_PNS0_14ProofGeneratorE(ptr noundef nonnull align 8 captures(none) dereferenceable(353) %this, ptr noundef readonly captures(none) %conc, i32 noundef %id, ptr noundef readonly captures(none) %exp, ptr noundef %pg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp2 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -734,7 +734,7 @@ eh.resume:                                        ; preds = %ehcleanup9, %cleanu
 declare void @_ZN4cvc58internal6theory24SimpleTheoryInternalFactC1ENS1_11InferenceIdENS0_12NodeTemplateILb1EEES5_PNS0_14ProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered14addPendingFactESt10unique_ptrINS1_15TheoryInferenceESt14default_deleteIS4_EE(ptr nocapture noundef nonnull align 8 dereferenceable(353) %this, ptr nocapture noundef %fact) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered14addPendingFactESt10unique_ptrINS1_15TheoryInferenceESt14default_deleteIS4_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(353) %this, ptr noundef captures(none) %fact) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_pendingFact = getelementptr inbounds nuw i8, ptr %this, i64 280
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 288
@@ -1489,7 +1489,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE5c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered17clearPendingFactsEv(ptr nocapture noundef nonnull align 8 dereferenceable(353) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered17clearPendingFactsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(353) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_pendingFact = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %d_pendingFact, align 8
@@ -1526,7 +1526,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered18clearPendingLemmasEv(ptr nocapture noundef nonnull align 8 dereferenceable(353) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered18clearPendingLemmasEv(ptr noundef nonnull align 8 captures(none) dereferenceable(353) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_pendingLem = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %d_pendingLem, align 8
@@ -1591,7 +1591,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE5c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered16numPendingLemmasEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered16numPendingLemmasEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_pendingLem = getelementptr inbounds nuw i8, ptr %this, i64 256
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 264
@@ -1605,7 +1605,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered15numPendingFactsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered15numPendingFactsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_pendingFact = getelementptr inbounds nuw i8, ptr %this, i64 280
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 288
@@ -2549,7 +2549,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
@@ -2564,10 +2564,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

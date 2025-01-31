@@ -8456,7 +8456,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_gsm_map_lcs_LCSCodewordString = private unnamed_addr constant [5 x i32] [i32 44, i32 0, i32 6, i32 44, i32 6], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 6) i8 @dissect_cbs_data_coding_scheme(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 6) i8 @dissect_cbs_data_coding_scheme(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i16 %3 to i32
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #5
   %7 = zext i8 %6 to i32
@@ -9142,7 +9142,7 @@ define hidden i32 @dissect_gsm_map_AgeOfLocationInformation(i1 noundef zeroext %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_gsm_map_ISDN_AddressString_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden i32 @dissect_gsm_map_ISDN_AddressString_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @hf_gsm_map_gsm_map_ISDN_AddressString_PDU, align 4
@@ -10142,7 +10142,7 @@ define hidden i32 @dissect_gsm_map_lcs_VelocityEstimate(i1 noundef zeroext %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_gsm_map_lcs_LCS_ClientID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden i32 @dissect_gsm_map_lcs_LCS_ClientID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @hf_gsm_map_lcs_gsm_map_lcs_LCS_ClientID_PDU, align 4
@@ -10565,7 +10565,7 @@ declare void @register_ber_oid_dissector_handle(ptr noundef, ptr noundef, i32 no
 declare void @register_ber_oid_dissector(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_mapext_PlmnContainer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_gsm_mapext_PlmnContainer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_gsm_old_PlmnContainer_U, align 4
@@ -10575,7 +10575,7 @@ define internal i32 @dissect_gsm_mapext_PlmnContainer(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_IsdArgExtension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_IsdArgExtension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_IsdArgExt_U, align 4
@@ -10585,7 +10585,7 @@ define internal i32 @dissect_NokiaMAP_ext_IsdArgExtension(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_DsdArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_DsdArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_DsdArgExt_U, align 4
@@ -10595,7 +10595,7 @@ define internal i32 @dissect_NokiaMAP_ext_DsdArgExt(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_UlResExtension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_UlResExtension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_UlResExt_U, align 4
@@ -10605,7 +10605,7 @@ define internal i32 @dissect_NokiaMAP_ext_UlResExtension(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_SS_DataExtension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_SS_DataExtension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_SS_DataExtension_U, align 4
@@ -10615,7 +10615,7 @@ define internal i32 @dissect_NokiaMAP_ext_SS_DataExtension(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_SriExtension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_SriExtension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_SriExtension_U, align 4
@@ -10625,7 +10625,7 @@ define internal i32 @dissect_NokiaMAP_ext_SriExtension(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ExtraSignalInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ExtraSignalInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_ExtraSignalInfo_U, align 4
@@ -10635,7 +10635,7 @@ define internal i32 @dissect_NokiaMAP_ExtraSignalInfo(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_SriResExtension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_SriResExtension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_SriResExtension_U, align 4
@@ -10645,7 +10645,7 @@ define internal i32 @dissect_NokiaMAP_ext_SriResExtension(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_CanLocArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_CanLocArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_CanLocArgExt_U, align 4
@@ -10655,7 +10655,7 @@ define internal i32 @dissect_NokiaMAP_ext_CanLocArgExt(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_ATMargExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_ATMargExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_ATMargExt_U, align 4
@@ -10665,7 +10665,7 @@ define internal i32 @dissect_NokiaMAP_ext_ATMargExt(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_DTMargExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_DTMargExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_DTMargExt_U, align 4
@@ -10675,7 +10675,7 @@ define internal i32 @dissect_NokiaMAP_ext_DTMargExt(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_NumberPorted(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_NumberPorted(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = call i32 @dissect_ber_tagged_type(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef -1, i8 noundef signext 3, i32 noundef 20, i1 noundef zeroext true, ptr noundef nonnull @dissect_NokiaMAP_Extensions_NumberPorted_U) #5
@@ -10683,7 +10683,7 @@ define internal i32 @dissect_NokiaMAP_ext_NumberPorted(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_HOExtension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_HOExtension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_HO_Ext_U, align 4
@@ -10693,7 +10693,7 @@ define internal i32 @dissect_NokiaMAP_ext_HOExtension(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_ATMresExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_ATMresExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_ATMresExt_U, align 4
@@ -10703,7 +10703,7 @@ define internal i32 @dissect_NokiaMAP_ext_ATMresExt(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_AbsentSubscriberExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_AbsentSubscriberExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = call i32 @dissect_ber_tagged_type(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef -1, i8 noundef signext 3, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull @dissect_NokiaMAP_Extensions_AbsentSubscriberExt_U) #5
@@ -10711,7 +10711,7 @@ define internal i32 @dissect_NokiaMAP_ext_AbsentSubscriberExt(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_SriForSMArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_SriForSMArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_SriForSMArgExt_U, align 4
@@ -10721,7 +10721,7 @@ define internal i32 @dissect_NokiaMAP_ext_SriForSMArgExt(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_ReportSMDelStatArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_ReportSMDelStatArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_ReportSMDelStatArgExt_U, align 4
@@ -10731,7 +10731,7 @@ define internal i32 @dissect_NokiaMAP_ext_ReportSMDelStatArgExt(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_UdlArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_UdlArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_UdlArgExt_U, align 4
@@ -10741,7 +10741,7 @@ define internal i32 @dissect_NokiaMAP_ext_UdlArgExt(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_RoamNotAllowedExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_RoamNotAllowedExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_RoamNotAllowedExt_U, align 4
@@ -10751,7 +10751,7 @@ define internal i32 @dissect_NokiaMAP_ext_RoamNotAllowedExt(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_MO_ForwardSM_ArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_MO_ForwardSM_ArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_MO_ForwardSM_ArgExt_U, align 4
@@ -10761,7 +10761,7 @@ define internal i32 @dissect_NokiaMAP_ext_MO_ForwardSM_ArgExt(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_ErrOlcmInfoTableExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_ErrOlcmInfoTableExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_ErrOlcmInfoTableExt_U, align 4
@@ -10771,7 +10771,7 @@ define internal i32 @dissect_NokiaMAP_ext_ErrOlcmInfoTableExt(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_RoutingCategoryExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_RoutingCategoryExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_RoutingCategoryExt_U, align 4
@@ -10781,7 +10781,7 @@ define internal i32 @dissect_NokiaMAP_ext_RoutingCategoryExt(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_AnyTimeModArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_AnyTimeModArgExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_AnyTimeModArgExt_U, align 4
@@ -10791,7 +10791,7 @@ define internal i32 @dissect_NokiaMAP_ext_AnyTimeModArgExt(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_AccessTypeExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_AccessTypeExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_AccessTypeExt, align 4
@@ -10800,7 +10800,7 @@ define internal i32 @dissect_NokiaMAP_ext_AccessTypeExt(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_AccessSubscriptionListExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_AccessSubscriptionListExt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_AccessSubscriptionListExt, align 4
@@ -10809,7 +10809,7 @@ define internal i32 @dissect_NokiaMAP_ext_AccessSubscriptionListExt(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_NokiaMAP_ext_AllowedServiceData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_NokiaMAP_ext_AllowedServiceData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_NokiaMAP_Extensions_AllowedServiceData, align 4
@@ -10818,7 +10818,7 @@ define internal i32 @dissect_NokiaMAP_ext_AllowedServiceData(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_map_ericsson_ext_ExtensionType(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_gsm_map_ericsson_ext_ExtensionType(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @ett_gsm_map_ericsson_ExtensionType, align 4
@@ -10831,7 +10831,7 @@ define internal i32 @dissect_gsm_map_ericsson_ext_ExtensionType(ptr noundef %0, 
 declare void @range_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @range_delete_callback(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @range_delete_callback(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %5, label %3
 
@@ -10851,7 +10851,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @range_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @range_add_callback(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @range_add_callback(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %5, label %3
 
@@ -10988,7 +10988,7 @@ define internal void @gsm_map_stat_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gsm_map_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @gsm_map_stat_packet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
@@ -11108,7 +11108,7 @@ define internal void @gsm_map_stat_reset(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gsm_map_stat_free_table_item(ptr nocapture readnone %0, i32 %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @gsm_map_stat_free_table_item(ptr readnone captures(none) %0, i32 %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %.not = icmp eq i32 %2, 1
   br i1 %.not, label %5, label %8
 
@@ -11236,7 +11236,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_map_ms_SendAuthenticationInfoArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_gsm_map_ms_SendAuthenticationInfoArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @hf_gsm_map_ms_gsm_map_ms_SendAuthenticationInfoArg_PDU, align 4
@@ -11246,7 +11246,7 @@ define internal i32 @dissect_gsm_map_ms_SendAuthenticationInfoArg_PDU(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_map_ms_SendAuthenticationInfoRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_gsm_map_ms_SendAuthenticationInfoRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @hf_gsm_map_ms_gsm_map_ms_SendAuthenticationInfoRes_PDU, align 4
@@ -11255,7 +11255,7 @@ define internal i32 @dissect_gsm_map_ms_SendAuthenticationInfoRes_PDU(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_map_dialogue_MAP_DialoguePDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_gsm_map_dialogue_MAP_DialoguePDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
   %6 = load i32, ptr @hf_gsm_map_dialogue_gsm_map_dialogue_MAP_DialoguePDU_PDU, align 4
@@ -11310,7 +11310,7 @@ define internal i32 @dissect_gsm_map_T_extId(i1 noundef zeroext %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_map_T_extType(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
+define internal i32 @dissect_gsm_map_T_extType(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @ett_gsm_map_extension_data, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.4328) #5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 61
@@ -11674,7 +11674,7 @@ define internal i32 @dissect_gsm_map_sm_T_noSM_RP_DA(i1 noundef zeroext %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gsm_map_get_packet_info(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc ptr @gsm_map_get_packet_info(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %4 = tail call ptr @wmem_file_scope() #5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11803,7 +11803,7 @@ define internal i32 @dissect_gsm_map_LMSI(i1 noundef zeroext %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gsm_map_get_matching_tcap_info(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @gsm_map_get_matching_tcap_info(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -13442,7 +13442,7 @@ declare void @delete_itu_tcap_subdissector(i32 noundef, ptr noundef) local_unnam
 declare void @add_itu_tcap_subdissector(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @stat_tap_find_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -19997,10 +19997,10 @@ define internal i32 @dissect_gsm_map_dialogue_MAP_ProviderAbortReason(i1 noundef
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

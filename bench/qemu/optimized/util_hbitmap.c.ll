@@ -233,7 +233,7 @@ return:                                           ; preds = %trace_hbitmap_iter_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hbitmap_iter_init(ptr nocapture noundef writeonly initializes((0, 8)) %hbi, ptr noundef %hb, i64 noundef %first) local_unnamed_addr #0 {
+define dso_local void @hbitmap_iter_init(ptr noundef writeonly captures(none) initializes((0, 8)) %hbi, ptr noundef %hb, i64 noundef %first) local_unnamed_addr #0 {
 entry:
   store ptr %hb, ptr %hbi, align 8
   %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
@@ -405,7 +405,7 @@ return:                                           ; preds = %if.then.i, %hbitmap
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -1, -9223372036854775808) i64 @hbitmap_next_zero(ptr nocapture noundef readonly %hb, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @hbitmap_next_zero(ptr noundef readonly captures(none) %hb, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
@@ -514,7 +514,7 @@ return:                                           ; preds = %do.body, %if.end52,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @hbitmap_next_dirty_area(ptr noundef %hb, i64 noundef %start, i64 noundef %end, i64 noundef %max_dirty_count, ptr nocapture noundef writeonly %dirty_start, ptr nocapture noundef writeonly %dirty_count) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @hbitmap_next_dirty_area(ptr noundef %hb, i64 noundef %start, i64 noundef %end, i64 noundef %max_dirty_count, ptr noundef writeonly captures(none) %dirty_start, ptr noundef writeonly captures(none) %dirty_count) local_unnamed_addr #0 {
 entry:
   %0 = or i64 %end, %start
   %or.cond = icmp sgt i64 %0, -1
@@ -556,7 +556,7 @@ return:                                           ; preds = %if.end7, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @hbitmap_status(ptr noundef %hb, i64 noundef %start, i64 noundef %count, ptr nocapture noundef writeonly %pnum) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @hbitmap_status(ptr noundef %hb, i64 noundef %start, i64 noundef %count, ptr noundef writeonly captures(none) %pnum) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i64 %start, -1
   br i1 %cmp, label %if.end, label %if.else
@@ -629,7 +629,7 @@ return:                                           ; preds = %if.end18, %if.end8,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @hbitmap_empty(ptr nocapture noundef readonly %hb) local_unnamed_addr #2 {
+define dso_local zeroext i1 @hbitmap_empty(ptr noundef readonly captures(none) %hb) local_unnamed_addr #2 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %hb, i64 16
   %0 = load i64, ptr %count, align 8
@@ -638,7 +638,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @hbitmap_granularity(ptr nocapture noundef readonly %hb) local_unnamed_addr #2 {
+define dso_local i32 @hbitmap_granularity(ptr noundef readonly captures(none) %hb) local_unnamed_addr #2 {
 entry:
   %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
@@ -646,7 +646,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @hbitmap_count(ptr nocapture noundef readonly %hb) local_unnamed_addr #2 {
+define dso_local i64 @hbitmap_count(ptr noundef readonly captures(none) %hb) local_unnamed_addr #2 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %hb, i64 16
   %0 = load i64, ptr %count, align 8
@@ -1138,7 +1138,7 @@ if.end31:                                         ; preds = %entry, %if.then29, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @hbitmap_reset_all(ptr nocapture noundef %hb) local_unnamed_addr #3 {
+define dso_local void @hbitmap_reset_all(ptr noundef captures(none) %hb) local_unnamed_addr #3 {
 entry:
   %levels = getelementptr inbounds nuw i8, ptr %hb, i64 40
   %sizes = getelementptr inbounds nuw i8, ptr %hb, i64 96
@@ -1165,10 +1165,10 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @hbitmap_is_serializable(ptr nocapture noundef readonly %hb) local_unnamed_addr #2 {
+define dso_local zeroext i1 @hbitmap_is_serializable(ptr noundef readonly captures(none) %hb) local_unnamed_addr #2 {
 entry:
   %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
@@ -1177,7 +1177,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @hbitmap_get(ptr nocapture noundef readonly %hb, i64 noundef %item) local_unnamed_addr #0 {
+define dso_local zeroext i1 @hbitmap_get(ptr noundef readonly captures(none) %hb, i64 noundef %item) local_unnamed_addr #0 {
 entry:
   %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
@@ -1206,7 +1206,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @hbitmap_serialization_align(ptr nocapture noundef readonly %hb) local_unnamed_addr #0 {
+define dso_local i64 @hbitmap_serialization_align(ptr noundef readonly captures(none) %hb) local_unnamed_addr #0 {
 entry:
   %granularity.i = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity.i, align 8
@@ -1224,7 +1224,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 0, -7) i64 @hbitmap_serialization_size(ptr nocapture noundef readonly %hb, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
+define dso_local range(i64 0, -7) i64 @hbitmap_serialization_size(ptr noundef readonly captures(none) %hb, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   %el_count = alloca i64, align 8
   %cur = alloca ptr, align 8
@@ -1243,7 +1243,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @serialization_chunk(ptr nocapture noundef readonly %hb, i64 noundef %start, i64 noundef range(i64 1, 0) %count, ptr nocapture noundef nonnull writeonly %first_el, ptr nocapture noundef nonnull writeonly %el_count) unnamed_addr #0 {
+define internal fastcc void @serialization_chunk(ptr noundef readonly captures(none) %hb, i64 noundef %start, i64 noundef range(i64 1, 0) %count, ptr noundef nonnull writeonly captures(none) %first_el, ptr noundef nonnull writeonly captures(none) %el_count) unnamed_addr #0 {
 entry:
   %add = add i64 %start, -1
   %sub = add i64 %add, %count
@@ -1306,7 +1306,7 @@ if.end19:                                         ; preds = %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hbitmap_serialize_part(ptr nocapture noundef readonly %hb, ptr nocapture noundef writeonly %buf, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
+define dso_local void @hbitmap_serialize_part(ptr noundef readonly captures(none) %hb, ptr noundef writeonly captures(none) %buf, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   %el_count = alloca i64, align 8
   %cur = alloca ptr, align 8
@@ -1337,7 +1337,7 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hbitmap_deserialize_part(ptr noundef %hb, ptr nocapture noundef readonly %buf, i64 noundef %start, i64 noundef %count, i1 noundef zeroext %finish) local_unnamed_addr #0 {
+define dso_local void @hbitmap_deserialize_part(ptr noundef %hb, ptr noundef readonly captures(none) %buf, i64 noundef %start, i64 noundef %count, i1 noundef zeroext %finish) local_unnamed_addr #0 {
 entry:
   %el_count = alloca i64, align 8
   %cur = alloca ptr, align 8
@@ -2160,7 +2160,7 @@ return:                                           ; preds = %if.end7.i.i76, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @hbitmap_sha256(ptr nocapture noundef readonly %bitmap, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @hbitmap_sha256(ptr noundef readonly captures(none) %bitmap, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %hash = alloca ptr, align 8
   %arrayidx = getelementptr i8, ptr %bitmap, i64 144
@@ -2177,7 +2177,7 @@ entry:
 declare i32 @qcrypto_hash_digest(i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #5
 
@@ -2202,10 +2202,10 @@ declare i64 @llvm.smin.i64(i64, i64) #9
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

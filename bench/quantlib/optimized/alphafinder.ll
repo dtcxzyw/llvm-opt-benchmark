@@ -18,7 +18,7 @@ $_ZNSt6vectorIdSaIdEE17_M_default_appendEm = comdat any
 @_ZN8QuantLib11AlphaFinderC1EN5boost10shared_ptrINS_9AlphaFormEEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib11AlphaFinderC2EN5boost10shared_ptrINS_9AlphaFormEEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib11AlphaFinderC2EN5boost10shared_ptrINS_9AlphaFormEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((0, 16), (24, 120)) %this, ptr nocapture noundef %parametricform) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib11AlphaFinderC2EN5boost10shared_ptrINS_9AlphaFormEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(176) initializes((0, 16), (24, 120)) %this, ptr noundef captures(none) %parametricform) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %parametricform, align 8, !tbaa !3
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -33,7 +33,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib11AlphaFinder17computeLinearPartEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
+define noundef double @_ZN8QuantLib11AlphaFinder17computeLinearPartEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %0, null
@@ -111,16 +111,16 @@ _ZNK5boost10shared_ptrIN8QuantLib9AlphaFormEEdeEv.exit: ; preds = %for.body, %co
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib11AlphaFinder20computeQuadraticPartEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
+define noundef double @_ZN8QuantLib11AlphaFinder20computeQuadraticPartEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %0, null
@@ -186,7 +186,7 @@ _ZNK5boost10shared_ptrIN8QuantLib9AlphaFormEEdeEv.exit: ; preds = %for.body, %co
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib11AlphaFinder18homogeneityfailureEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
+define noundef double @_ZN8QuantLib11AlphaFinder18homogeneityfailureEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
 entry:
   %dum1 = alloca double, align 8
   %dum2 = alloca double, align 8
@@ -286,7 +286,7 @@ for.body:                                         ; preds = %_ZN8QuantLib11Alpha
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder9finalPartEdiRKSt6vectorIdSaIdEEdddRdS6_S6_RS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, double noundef %alphaFound, i32 noundef %stepindex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ratetwohomogeneousvols, double noundef %quadraticPart, double noundef %linearPart, double noundef %constantPart, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ratetwovols) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder9finalPartEdiRKSt6vectorIdSaIdEEdddRdS6_S6_RS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, double noundef %alphaFound, i32 noundef %stepindex, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %ratetwohomogeneousvols, double noundef %quadraticPart, double noundef %linearPart, double noundef %constantPart, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %b, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %ratetwovols) local_unnamed_addr #1 align 2 {
 entry:
   %q2 = alloca %"class.QuantLib::quadratic", align 8
   %y = alloca double, align 8
@@ -407,7 +407,7 @@ declare noundef zeroext i1 @_ZNK8QuantLib9quadratic5rootsERdS1_(ptr noundef nonn
 declare double @sqrt(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib11AlphaFinder19valueAtTurningPointEd(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
+define noundef double @_ZN8QuantLib11AlphaFinder19valueAtTurningPointEd(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
 entry:
   %q = alloca %"class.QuantLib::quadratic", align 8
   %call = tail call noundef double @_ZN8QuantLib11AlphaFinder17computeLinearPartEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %alpha)
@@ -488,7 +488,7 @@ _ZN8QuantLib11AlphaFinder20computeQuadraticPartEd.exit: ; preds = %_ZNK5boost10s
 declare noundef double @_ZNK8QuantLib9quadratic19valueAtTurningPointEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib11AlphaFinder24minusValueAtTurningPointEd(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
+define noundef double @_ZN8QuantLib11AlphaFinder24minusValueAtTurningPointEd(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef double @_ZN8QuantLib11AlphaFinder19valueAtTurningPointEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %alpha)
   %fneg = fneg double %call
@@ -496,7 +496,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder20testIfSolutionExistsEd(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder20testIfSolutionExistsEd(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, double noundef %alpha) local_unnamed_addr #1 align 2 {
 entry:
   %dum1 = alloca double, align 8
   %dum2 = alloca double, align 8
@@ -585,7 +585,7 @@ cleanup:                                          ; preds = %entry, %_ZN8QuantLi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder5solveEdiRKSt6vectorIdSaIdEES5_S5_ddddddiRdS6_S6_RS3_(ptr noundef nonnull align 8 dereferenceable(176) initializes((16, 20)) %this, double noundef %alpha0, i32 noundef %stepindex, ptr noundef nonnull align 8 dereferenceable(24) %rateonevols, ptr noundef nonnull align 8 dereferenceable(24) %ratetwohomogeneousvols, ptr noundef nonnull align 8 dereferenceable(24) %correlations, double noundef %w0, double noundef %w1, double noundef %targetVariance, double noundef %tolerance, double noundef %alphaMax, double noundef %alphaMin, i32 noundef %steps, ptr nocapture noundef nonnull align 8 dereferenceable(8) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ratetwovols) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder5solveEdiRKSt6vectorIdSaIdEES5_S5_ddddddiRdS6_S6_RS3_(ptr noundef nonnull align 8 dereferenceable(176) initializes((16, 20)) %this, double noundef %alpha0, i32 noundef %stepindex, ptr noundef nonnull align 8 dereferenceable(24) %rateonevols, ptr noundef nonnull align 8 dereferenceable(24) %ratetwohomogeneousvols, ptr noundef nonnull align 8 dereferenceable(24) %correlations, double noundef %w0, double noundef %w1, double noundef %targetVariance, double noundef %tolerance, double noundef %alphaMax, double noundef %alphaMin, i32 noundef %steps, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %b, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %ratetwovols) local_unnamed_addr #1 align 2 {
 entry:
   %stepindex_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %stepindex, ptr %stepindex_, align 8, !tbaa !13
@@ -961,7 +961,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder23solveWithMaxHomogeneityEdiRKSt6vectorIdSaIdEES5_S5_ddddddiRdS6_S6_RS3_(ptr noundef nonnull align 8 dereferenceable(176) initializes((16, 20)) %this, double noundef %alpha0, i32 noundef %stepindex, ptr noundef nonnull align 8 dereferenceable(24) %rateonevols, ptr noundef nonnull align 8 dereferenceable(24) %ratetwohomogeneousvols, ptr noundef nonnull align 8 dereferenceable(24) %correlations, double noundef %w0, double noundef %w1, double noundef %targetVariance, double noundef %tolerance, double noundef %alphaMax, double noundef %alphaMin, i32 noundef %steps, ptr nocapture noundef nonnull align 8 dereferenceable(8) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ratetwovols) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder23solveWithMaxHomogeneityEdiRKSt6vectorIdSaIdEES5_S5_ddddddiRdS6_S6_RS3_(ptr noundef nonnull align 8 dereferenceable(176) initializes((16, 20)) %this, double noundef %alpha0, i32 noundef %stepindex, ptr noundef nonnull align 8 dereferenceable(24) %rateonevols, ptr noundef nonnull align 8 dereferenceable(24) %ratetwohomogeneousvols, ptr noundef nonnull align 8 dereferenceable(24) %correlations, double noundef %w0, double noundef %w1, double noundef %targetVariance, double noundef %tolerance, double noundef %alphaMax, double noundef %alphaMin, i32 noundef %steps, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %b, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %ratetwovols) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stepindex_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %stepindex, ptr %stepindex_, align 8, !tbaa !13
@@ -1377,7 +1377,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #6
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
@@ -1492,13 +1492,13 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

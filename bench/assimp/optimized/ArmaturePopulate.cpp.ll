@@ -84,7 +84,7 @@ $_ZNSt8_Rb_treeIP6aiBoneSt4pairIKS1_P6aiNodeESt10_Select1stIS6_ESt4lessIS1_ESaIS
 @.str.10 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6Assimp16ArmaturePopulate8IsActiveEj(ptr nocapture nonnull readnone align 8 %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK6Assimp16ArmaturePopulate8IsActiveEj(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
 entry:
   %and = and i32 %pFlags, 16384
   %cmp = icmp ne i32 %and, 0
@@ -92,13 +92,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6Assimp16ArmaturePopulate15SetupPropertiesEPKNS_8ImporterE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define void @_ZN6Assimp16ArmaturePopulate15SetupPropertiesEPKNS_8ImporterE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp16ArmaturePopulate7ExecuteEP7aiScene(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp16ArmaturePopulate7ExecuteEP7aiScene(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %bones = alloca %"class.std::vector", align 8
@@ -356,7 +356,7 @@ _ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit20:         ; preds = %_ZNSt6vectorIP6aiNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp16ArmaturePopulate13BuildBoneListEP6aiNodePKS1_PK7aiSceneRSt6vectorIP6aiBoneSaISA_EE(ptr nocapture noundef readonly %current_node, ptr nocapture noundef readnone %root_node, ptr nocapture noundef readonly %scene, ptr nocapture noundef nonnull align 8 dereferenceable(24) %bones) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp16ArmaturePopulate13BuildBoneListEP6aiNodePKS1_PK7aiSceneRSt6vectorIP6aiBoneSaISA_EE(ptr noundef readonly captures(none) %current_node, ptr noundef readnone captures(none) %root_node, ptr noundef readonly captures(none) %scene, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %bones) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mNumChildren = getelementptr inbounds nuw i8, ptr %current_node, i64 1104
   %0 = load i32, ptr %mNumChildren, align 8
@@ -602,7 +602,7 @@ for.end31:                                        ; preds = %for.end28, %entry
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp16ArmaturePopulate13BuildNodeListEPK6aiNodeRSt6vectorIPS1_SaIS5_EE(ptr nocapture noundef readonly %current_node, ptr nocapture noundef nonnull align 8 dereferenceable(24) %nodes) local_unnamed_addr #1 align 2 {
+define void @_ZN6Assimp16ArmaturePopulate13BuildNodeListEPK6aiNodeRSt6vectorIPS1_SaIS5_EE(ptr noundef readonly captures(none) %current_node, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %nodes) local_unnamed_addr #1 align 2 {
 entry:
   %mNumChildren = getelementptr inbounds nuw i8, ptr %current_node, i64 1104
   %0 = load i32, ptr %mNumChildren, align 8
@@ -699,7 +699,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp16ArmaturePopulate14BuildBoneStackEPK6aiNodePK7aiSceneRKSt6vectorIP6aiBoneSaIS9_EERSt3mapIS9_PS1_St4lessIS9_ESaISt4pairIKS9_SF_EEERS7_ISF_SaISF_EE(ptr nocapture noundef readonly %root_node, ptr nocapture readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bones, ptr noundef nonnull align 8 dereferenceable(48) %bone_stack, ptr nocapture noundef nonnull align 8 dereferenceable(24) %node_stack) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp16ArmaturePopulate14BuildBoneStackEPK6aiNodePK7aiSceneRKSt6vectorIP6aiBoneSaIS9_EERSt3mapIS9_PS1_St4lessIS9_ESaISt4pairIKS9_SF_EEERS7_ISF_SaISF_EE(ptr noundef readonly captures(none) %root_node, ptr readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %bones, ptr noundef nonnull align 8 dereferenceable(48) %bone_stack, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %node_stack) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
@@ -869,7 +869,7 @@ lpad4:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6Assimp16ArmaturePopulate15GetArmatureRootEP6aiNodeRSt6vectorIP6aiBoneSaIS5_EE(ptr noundef %bone_node, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bone_list) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6Assimp16ArmaturePopulate15GetArmatureRootEP6aiNodeRSt6vectorIP6aiBoneSaIS5_EE(ptr noundef %bone_node, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %bone_list) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca ptr, align 8
   %cmp.not12 = icmp eq ptr %bone_node, null
@@ -951,7 +951,7 @@ _ZNSt8_Rb_treeIP6aiBoneSt4pairIKS1_P6aiNodeESt10_Select1stIS6_ESt4lessIS1_ESaIS6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6Assimp16ArmaturePopulate16GetNodeFromStackERK8aiStringRSt6vectorIP6aiNodeSaIS6_EE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1028) %node_name, ptr nocapture noundef nonnull align 8 dereferenceable(24) %nodes) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6Assimp16ArmaturePopulate16GetNodeFromStackERK8aiStringRSt6vectorIP6aiNodeSaIS6_EE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1028) %node_name, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %nodes) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp10 = alloca ptr, align 8
   %0 = load ptr, ptr %nodes, align 8
@@ -1480,7 +1480,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Assimp6Logger13formatMessageIJRA30_KcPS2_ES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS9_SA_EEOT0_DpOT_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(8) %u, ptr noundef nonnull align 1 dereferenceable(30) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1799,7 +1799,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 declare void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
@@ -1811,13 +1811,13 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

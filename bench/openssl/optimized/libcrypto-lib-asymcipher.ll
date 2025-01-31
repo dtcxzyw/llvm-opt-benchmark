@@ -590,7 +590,7 @@ return:                                           ; preds = %if.end32, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @evp_pkey_decrypt_alloc(ptr noundef %ctx, ptr nocapture noundef %outp, ptr noundef %outlenp, i64 noundef %expected_outlen, ptr noundef %in, i64 noundef %inlen) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @evp_pkey_decrypt_alloc(ptr noundef %ctx, ptr noundef captures(none) %outp, ptr noundef %outlenp, i64 noundef %expected_outlen, ptr noundef %in, i64 noundef %inlen) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_PKEY_decrypt(ptr noundef %ctx, ptr noundef null, ptr noundef %outlenp, ptr noundef %in, i64 noundef %inlen)
   %cmp = icmp slt i32 %call, 1
@@ -677,7 +677,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ossl_provider_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_ASYM_CIPHER_up_ref(ptr nocapture noundef %cipher) #2 {
+define noundef i32 @EVP_ASYM_CIPHER_up_ref(ptr noundef captures(none) %cipher) #2 {
 entry:
   %refcnt = getelementptr inbounds nuw i8, ptr %cipher, i64 32
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
@@ -685,7 +685,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_ASYM_CIPHER_get0_provider(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
+define ptr @EVP_ASYM_CIPHER_get0_provider(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #3 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %0 = load ptr, ptr %prov, align 8
@@ -981,7 +981,7 @@ entry:
 declare ptr @evp_generic_fetch_from_prov(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_ASYM_CIPHER_is_a(ptr nocapture noundef readonly %cipher, ptr noundef %name) local_unnamed_addr #0 {
+define i32 @EVP_ASYM_CIPHER_is_a(ptr noundef readonly captures(none) %cipher, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %0 = load ptr, ptr %prov, align 8
@@ -993,14 +993,14 @@ entry:
 declare i32 @evp_is_a(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @evp_asym_cipher_get_number(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
+define i32 @evp_asym_cipher_get_number(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %cipher, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_ASYM_CIPHER_get0_name(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
+define ptr @EVP_ASYM_CIPHER_get0_name(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #3 {
 entry:
   %type_name = getelementptr inbounds nuw i8, ptr %cipher, i64 8
   %0 = load ptr, ptr %type_name, align 8
@@ -1008,7 +1008,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_ASYM_CIPHER_get0_description(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
+define ptr @EVP_ASYM_CIPHER_get0_description(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #3 {
 entry:
   %description = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %0 = load ptr, ptr %description, align 8
@@ -1025,7 +1025,7 @@ entry:
 declare void @evp_generic_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_ASYM_CIPHER_names_do_all(ptr nocapture noundef readonly %cipher, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
+define i32 @EVP_ASYM_CIPHER_names_do_all(ptr noundef readonly captures(none) %cipher, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %0 = load ptr, ptr %prov, align 8

@@ -117,13 +117,13 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6google8protobuf8compiler23MultiFileErrorCollectorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8compiler23MultiFileErrorCollectorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6google8protobuf8compiler23MultiFileErrorCollectorD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN6google8protobuf8compiler23MultiFileErrorCollectorD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #26
   unreachable
@@ -481,19 +481,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24FindFileContainingSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_19FileDescriptorProtoE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %symbol_name, ptr nocapture readnone %output) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24FindFileContainingSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_19FileDescriptorProtoE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %symbol_name, ptr readnone captures(none) %output) unnamed_addr #3 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase27FindFileContainingExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPNS0_19FileDescriptorProtoE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %containing_type, i32 %field_number, ptr nocapture readnone %output) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase27FindFileContainingExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPNS0_19FileDescriptorProtoE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %containing_type, i32 %field_number, ptr readnone captures(none) %output) unnamed_addr #3 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollectorC2EPS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %owner) unnamed_addr #9 align 2 {
+define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollectorC2EPS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %owner) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollectorE, i64 16), ptr %this, align 8
   %owner_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -520,7 +520,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollector11RecordErrorESt17basic_string_viewIcSt11char_traitsIcEES7_PKNS0_7MessageENS0_14DescriptorPool14ErrorCollector13ErrorLocationES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %filename.coerce0, ptr %filename.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr noundef %descriptor, i32 noundef %location, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %message) unnamed_addr #6 align 2 {
+define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollector11RecordErrorESt17basic_string_viewIcSt11char_traitsIcEES7_PKNS0_7MessageENS0_14DescriptorPool14ErrorCollector13ErrorLocationES7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 %filename.coerce0, ptr %filename.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr noundef %descriptor, i32 noundef %location, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %message) unnamed_addr #6 align 2 {
 entry:
   %line = alloca i32, align 4
   %column = alloca i32, align 4
@@ -563,12 +563,12 @@ return:                                           ; preds = %entry, %if.end8
 declare noundef zeroext i1 @_ZNK6google8protobuf8compiler19SourceLocationTable10FindImportEPKNS0_7MessageESt17basic_string_viewIcSt11char_traitsIcEEPiSA_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i64, ptr, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare noundef zeroext i1 @_ZNK6google8protobuf8compiler19SourceLocationTable4FindEPKNS0_7MessageENS0_14DescriptorPool14ErrorCollector13ErrorLocationEPiS9_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollector13RecordWarningESt17basic_string_viewIcSt11char_traitsIcEES7_PKNS0_7MessageENS0_14DescriptorPool14ErrorCollector13ErrorLocationES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %filename.coerce0, ptr %filename.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr noundef %descriptor, i32 noundef %location, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %message) unnamed_addr #6 align 2 {
+define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollector13RecordWarningESt17basic_string_viewIcSt11char_traitsIcEES7_PKNS0_7MessageENS0_14DescriptorPool14ErrorCollector13ErrorLocationES7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 %filename.coerce0, ptr %filename.coerce1, i64 %element_name.coerce0, ptr %element_name.coerce1, ptr noundef %descriptor, i32 noundef %location, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %message) unnamed_addr #6 align 2 {
 entry:
   %line = alloca i32, align 4
   %column = alloca i32, align 4
@@ -684,20 +684,20 @@ entry:
 declare void @_ZN6google8protobuf14DescriptorPool27ClearUnusedImportTrackFilesEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6google8protobuf8compiler10SourceTreeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8compiler10SourceTreeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6google8protobuf8compiler10SourceTreeD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN6google8protobuf8compiler10SourceTreeD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #26
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler10SourceTree19GetLastErrorMessageB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler10SourceTree19GetLastErrorMessageB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.24", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #27
@@ -1491,7 +1491,7 @@ cleanup54:                                        ; preds = %for.inc, %if.then38
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compilerL12ApplyMappingESt17basic_string_viewIcSt11char_traitsIcEES5_S5_PNSt7__cxx1112basic_stringIcS4_SaIcEEE(i64 %filename.coerce0, ptr %filename.coerce1, i64 %old_prefix.coerce0, ptr nocapture readonly %old_prefix.coerce1, i64 %new_prefix.coerce0, ptr %new_prefix.coerce1, ptr noundef %result) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compilerL12ApplyMappingESt17basic_string_viewIcSt11char_traitsIcEES5_S5_PNSt7__cxx1112basic_stringIcS4_SaIcEEE(i64 %filename.coerce0, ptr %filename.coerce1, i64 %old_prefix.coerce0, ptr readonly captures(none) %old_prefix.coerce1, i64 %new_prefix.coerce0, ptr %new_prefix.coerce1, ptr noundef %result) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i45 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i39 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -1738,7 +1738,7 @@ eh.resume:                                        ; preds = %lpad71, %lpad73, %l
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #11
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -2099,7 +2099,7 @@ while.body.i.i.i:                                 ; preds = %if.end19.i.i.i, %wh
   %__len.022.i.i.i = phi i64 [ %path.coerce0, %while.body.lr.ph.i.i.i ], [ %sub.ptr.sub22.i.i.i, %if.end19.i.i.i ]
   %__first.021.i.i.i = phi ptr [ %path.coerce1, %while.body.lr.ph.i.i.i ], [ %incdec.ptr.i.i.i, %if.end19.i.i.i ]
   %add.i.i.i = add i64 %__len.022.i.i.i, -3
-  %call.i.i.i.i = tail call ptr @memchr(ptr noundef %__first.021.i.i.i, i32 noundef 47, i64 noundef %add.i.i.i) #27
+  %call.i.i.i.i = tail call ptr @memchr(ptr noundef nonnull %__first.021.i.i.i, i32 noundef 47, i64 noundef %add.i.i.i) #27
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %lor.end, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
@@ -2140,10 +2140,10 @@ declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr sret(
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #14
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
@@ -2464,10 +2464,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
@@ -2479,10 +2479,10 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -85,7 +85,7 @@ $_ZTV17DeadlyExportError = comdat any
 @_ZN6Assimp3FBX17FBXExportPropertyC1ERK12aiMatrix4x4tIfE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN6Assimp3FBX17FBXExportPropertyC2ERK12aiMatrix4x4tIfE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1), (8, 32)) %this, i1 noundef zeroext %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Eb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1), (8, 32)) %this, i1 noundef zeroext %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %v to i8
   store i8 67, ptr %this, align 8
@@ -105,7 +105,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Es(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1), (8, 32)) %this, i16 noundef signext %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Es(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1), (8, 32)) %this, i16 noundef signext %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 89, ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -122,7 +122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1), (8, 32)) %this, i32 noundef %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1), (8, 32)) %this, i32 noundef %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 73, ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -139,7 +139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1), (8, 32)) %this, float noundef %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Ef(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1), (8, 32)) %this, float noundef %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 70, ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -156,7 +156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1), (8, 32)) %this, double noundef %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2Ed(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1), (8, 32)) %this, double noundef %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 68, ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -173,7 +173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1), (8, 32)) %this, i64 noundef %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2El(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1), (8, 32)) %this, i64 noundef %v) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 76, ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -190,7 +190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2EPKcb(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %c, i1 noundef zeroext %raw) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2EPKcb(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef %c, i1 noundef zeroext %raw) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.0", align 1
@@ -255,7 +255,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 1)) %this, ptr noundef nonnull align 8 dereferenceable(32) %s, i1 noundef zeroext %raw) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 1)) %this, ptr noundef nonnull align 8 dereferenceable(32) %s, i1 noundef zeroext %raw) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cond = select i1 %raw, i8 82, i8 83
   store i8 %cond, ptr %this, align 8
@@ -326,7 +326,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1), (8, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIhSaIhEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1), (8, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 82, ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -379,7 +379,7 @@ _ZNSt6vectorIhSaIhEEC2ERKS1_.exit:                ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIiSaIiEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %va) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIiSaIiEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %va) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 105, ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -445,7 +445,7 @@ for.end:                                          ; preds = %for.body, %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIlSaIlEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %va) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIlSaIlEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %va) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 108, ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -511,7 +511,7 @@ for.end:                                          ; preds = %for.body, %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIfSaIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %va) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIfSaIfEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %va) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 102, ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -577,7 +577,7 @@ for.end:                                          ; preds = %for.body, %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %va) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERKSt6vectorIdSaIdEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %va) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 100, ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -643,7 +643,7 @@ for.end:                                          ; preds = %for.body, %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERK12aiMatrix4x4tIfE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1), (8, 32)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %vm) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERK12aiMatrix4x4tIfE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1), (8, 32)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %vm) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 100, ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -710,7 +710,7 @@ for.end13:                                        ; preds = %for.inc11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN6Assimp3FBX17FBXExportProperty4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i64 @_ZN6Assimp3FBX17FBXExportProperty4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   switch i8 %0, label %sw.default [
@@ -795,7 +795,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportProperty10DumpBinaryERNS_12StreamWriterILb0ELb0EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(56) %s) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportProperty10DumpBinaryERNS_12StreamWriterILb0ELb0EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(56) %s) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %err = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1655,7 +1655,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportProperty9DumpAsciiERNS_12StreamWriterILb0ELb0EEEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(56) %outstream, i32 noundef %indent) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportProperty9DumpAsciiERNS_12StreamWriterILb0ELb0EEEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(56) %outstream, i32 noundef %indent) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %agg.tmp.ensured = alloca %"class.std::locale", align 8
@@ -1721,7 +1721,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv()
 declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX17FBXExportProperty9DumpAsciiERSoi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, i32 noundef %indent) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17FBXExportProperty9DumpAsciiERSoi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, i32 noundef %indent) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %err = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2318,7 +2318,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #5
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
@@ -2383,7 +2383,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
@@ -2426,10 +2426,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN15DeadlyErrorBaseC2IJERA43_KcEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %f, ptr noundef nonnull align 1 dereferenceable(43) %u) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2655,10 +2655,10 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

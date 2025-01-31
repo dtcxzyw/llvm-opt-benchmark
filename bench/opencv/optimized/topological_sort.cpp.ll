@@ -95,7 +95,7 @@ $_ZTIN3ade7details8Metadata14MetadataHolderINS_6passes19TopologicalSortDataEEE =
 @_ZTIN3ade7details8Metadata14MetadataHolderINS_6passes19TopologicalSortDataEEE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3ade7details8Metadata14MetadataHolderINS_6passes19TopologicalSortDataEEE, ptr @_ZTIN3ade7details8Metadata18MetadataHolderBaseE }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ade6passes15TopologicalSortclENS0_16TypedPassContextIJNS0_19TopologicalSortDataEEEE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ade6passes15TopologicalSortclENS0_16TypedPassContextIJNS0_19TopologicalSortDataEEEE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.ade::details::MetadataId", align 8
   %5 = alloca %"class.std::vector", align 8
@@ -1264,27 +1264,27 @@ define hidden noundef nonnull ptr @_ZN3ade6passes19TopologicalSortData4nameEv() 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN3ade6passes26LazyTopologicalSortChecker11nodeCreatedERKNS_5GraphERKNS_6HandleINS_4NodeEEE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN3ade6passes26LazyTopologicalSortChecker11nodeCreatedERKNS_5GraphERKNS_6HandleINS_4NodeEEE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN3ade6passes26LazyTopologicalSortChecker22nodeAboutToBeDestroyedERKNS_5GraphERKNS_6HandleINS_4NodeEEE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN3ade6passes26LazyTopologicalSortChecker22nodeAboutToBeDestroyedERKNS_5GraphERKNS_6HandleINS_4NodeEEE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN3ade6passes26LazyTopologicalSortChecker11edgeCreatedERKNS_5GraphERKNS_6HandleINS_4EdgeEEE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN3ade6passes26LazyTopologicalSortChecker11edgeCreatedERKNS_5GraphERKNS_6HandleINS_4EdgeEEE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN3ade6passes26LazyTopologicalSortChecker22edgeAboutToBeDestroyedERKNS_5GraphERKNS_6HandleINS_4EdgeEEE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN3ade6passes26LazyTopologicalSortChecker22edgeAboutToBeDestroyedERKNS_5GraphERKNS_6HandleINS_4EdgeEEE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN3ade6passes26LazyTopologicalSortChecker21edgeAboutToBeRelinkedERKNS_5GraphERKNS_6HandleINS_4EdgeEEERKNS5_INS_4NodeEEESD_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN3ade6passes26LazyTopologicalSortChecker21edgeAboutToBeRelinkedERKNS_5GraphERKNS_6HandleINS_4EdgeEEERKNS5_INS_4NodeEEESD_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %4) local_unnamed_addr #2 align 2 {
   ret i1 false
 }
 
@@ -1735,7 +1735,7 @@ _ZNSt10_HashtableIPN3ade4NodeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ES
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @_ZN3ade5Graph5nodesEv(ptr dead_on_unwind writable sret(%"struct.ade::util::Range::MapRange") align 8, ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #3
 
@@ -2548,10 +2548,10 @@ declare void @llvm.assume(i1 noundef) #10
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

@@ -121,7 +121,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @cvCreateFileCaptureWithPreference(ptr nocapture readnone %0, i32 %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @cvCreateFileCaptureWithPreference(ptr readnone captures(none) %0, i32 %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
@@ -183,13 +183,13 @@ define noalias noundef ptr @cvCreateFileCaptureWithPreference(ptr nocapture read
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @cvCreateFileCapture(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
+define noalias noundef ptr @cvCreateFileCapture(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = tail call ptr @cvCreateFileCaptureWithPreference(ptr poison, i32 poison)
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @cvCreateVideoWriter(ptr nocapture noundef readnone %0, i32 noundef %1, double noundef %2, i64 %3, i32 noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @cvCreateVideoWriter(ptr noundef readnone captures(none) %0, i32 noundef %1, double noundef %2, i64 %3, i32 noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = tail call noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()

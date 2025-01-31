@@ -69,16 +69,16 @@ define dso_local ptr @pcie_port_find_device(ptr noundef %0, i32 noundef %1) #0 a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @device_for_each_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef range(i32 0, 2) i32 @find_service_iter(ptr noundef %0, ptr nocapture noundef %1) #4 align 16 {
+define internal noundef range(i32 0, 2) i32 @find_service_iter(ptr noundef %0, ptr noundef captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -111,7 +111,7 @@ define internal noundef range(i32 0, 2) i32 @find_service_iter(ptr noundef %0, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pcie_port_service_register(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -207,7 +207,7 @@ define internal noundef i32 @pcie_port_remove_service(ptr noundef %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @pcie_port_shutdown_service(ptr nocapture readnone %0) #5 align 16 {
+define internal void @pcie_port_shutdown_service(ptr readnone captures(none) %0) #5 align 16 {
   ret void
 }
 
@@ -225,7 +225,7 @@ define dso_local void @pcie_port_service_unregister(ptr noundef %0) local_unname
 declare dso_local void @driver_unregister(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @pcie_port_setup(ptr nocapture noundef readonly %0) #6 section ".init.text" align 16 {
+define internal noundef i32 @pcie_port_setup(ptr noundef readonly captures(none) %0) #6 section ".init.text" align 16 {
   %2 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(7) @.str, i64 noundef 6) #13
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %10, label %4
@@ -273,7 +273,7 @@ declare dso_local ptr @get_device(ptr noundef) local_unnamed_addr #3
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #3
@@ -285,7 +285,7 @@ declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr nound
 declare dso_local i32 @pcie_pme_init() local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @dmi_pcie_pme_disable_msi(ptr nocapture noundef readonly %0) #7 section ".init.text" align 16 {
+define internal noundef i32 @dmi_pcie_pme_disable_msi(ptr noundef readonly captures(none) %0) #7 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %3) #14
@@ -297,7 +297,7 @@ define internal noundef i32 @dmi_pcie_pme_disable_msi(ptr nocapture noundef read
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i32, align 4
   %5 = alloca [5 x i32], align 16
@@ -803,7 +803,7 @@ declare dso_local i32 @__pm_runtime_suspend(ptr noundef, i32 noundef) local_unna
 declare dso_local void @pm_runtime_forbid(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @remove_iter(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @remove_iter(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @pcie_port_bus_type
@@ -821,14 +821,14 @@ define internal noundef i32 @remove_iter(ptr noundef %0, ptr nocapture readnone 
 declare dso_local void @device_unregister(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef range(i32 2, 4) i32 @pcie_portdrv_error_detected(ptr nocapture readnone %0, i32 noundef %1) #5 align 16 {
+define internal noundef range(i32 2, 4) i32 @pcie_portdrv_error_detected(ptr readnone captures(none) %0, i32 noundef %1) #5 align 16 {
   %3 = icmp eq i32 %1, 2
   %4 = select i1 %3, i32 3, i32 2
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @pcie_portdrv_mmio_enabled(ptr nocapture readnone %0) #5 align 16 {
+define internal noundef i32 @pcie_portdrv_mmio_enabled(ptr readnone captures(none) %0) #5 align 16 {
   ret i32 5
 }
 
@@ -846,7 +846,7 @@ define internal noundef i32 @pcie_portdrv_slot_reset(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pcie_port_device_iter(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @pcie_port_device_iter(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
@@ -941,7 +941,7 @@ define internal i32 @pcie_port_device_runtime_resume(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 -16, 1) i32 @pcie_port_runtime_idle(ptr nocapture noundef readonly %0) #11 align 16 {
+define internal range(i32 -16, 1) i32 @pcie_port_runtime_idle(ptr noundef readonly captures(none) %0) #11 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -27
   %3 = load i24, ptr %2, align 1
   %4 = and i24 %3, 2048

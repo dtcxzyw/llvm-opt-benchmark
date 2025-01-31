@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [63 x i8] c"GradingPrimary black clamp should be smaller than white clamp.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %rhs) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %rhs) local_unnamed_addr #0 {
 entry:
   %0 = load double, ptr %lhs, align 8
   %1 = load double, ptr %rhs, align 8
@@ -61,7 +61,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_11GradingRGBMES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %rhs) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_11GradingRGBMES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %rhs) local_unnamed_addr #0 {
 entry:
   %0 = load double, ptr %lhs, align 8
   %1 = load double, ptr %rhs, align 8
@@ -98,7 +98,7 @@ _ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_.exit: ; preds = %entry, %land.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_14GradingPrimaryES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %rhs) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_14GradingPrimaryES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %rhs) local_unnamed_addr #0 {
 entry:
   %0 = load double, ptr %lhs, align 8
   %1 = load double, ptr %rhs, align 8
@@ -375,7 +375,7 @@ land.end:                                         ; preds = %land.lhs.true16, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_14GradingPrimaryES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %rhs) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_14GradingPrimaryES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %rhs) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_14GradingPrimaryES2_(ptr noundef nonnull align 8 dereferenceable(272) %lhs, ptr noundef nonnull align 8 dereferenceable(272) %rhs)
   %lnot = xor i1 %call, true

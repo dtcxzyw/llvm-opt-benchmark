@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [29 x i8] c"Failed to select dictionary\0A\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @COVER_sum(ptr nocapture noundef readonly %samplesSizes, i32 noundef %nbSamples) local_unnamed_addr #0 {
+define i64 @COVER_sum(ptr noundef readonly captures(none) %samplesSizes, i32 noundef %nbSamples) local_unnamed_addr #0 {
 entry:
   %cmp4.not = icmp eq i32 %nbSamples, 0
   br i1 %cmp4.not, label %for.end, label %for.body.preheader
@@ -99,10 +99,10 @@ if.end9:                                          ; preds = %entry, %if.then5
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i64 @COVER_computeEpochs(i32 noundef %maxDictSize, i32 noundef %nbDmers, i32 noundef %k, i32 noundef %passes) local_unnamed_addr #3 {
@@ -138,7 +138,7 @@ return:                                           ; preds = %cond.end, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_trainFromBuffer_cover(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr nocapture noundef byval(%struct.ZDICT_cover_params_t) align 8 initializes((16, 24)) %parameters) local_unnamed_addr #4 {
+define i64 @ZDICT_trainFromBuffer_cover(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 captures(none) initializes((16, 24)) %parameters) local_unnamed_addr #4 {
 entry:
   %ctx = alloca %struct.COVER_ctx_t, align 8
   %activeDmers = alloca %struct.COVER_map_s, align 8
@@ -827,7 +827,7 @@ return:                                           ; preds = %if.then17.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @COVER_buildDictionary(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %freqs, ptr nocapture noundef nonnull readonly %activeDmers, ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters.0.val, i32 %parameters.4.val) unnamed_addr #4 {
+define internal fastcc i64 @COVER_buildDictionary(ptr noundef readonly captures(none) %ctx, ptr noundef captures(none) %freqs, ptr noundef nonnull readonly captures(none) %activeDmers, ptr noundef writeonly captures(none) %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters.0.val, i32 %parameters.4.val) unnamed_addr #4 {
 entry:
   %conv = trunc i64 %dictBufferCapacity to i32
   %suffixSize = getelementptr inbounds nuw i8, ptr %ctx, i64 56
@@ -1265,7 +1265,7 @@ if.end93:                                         ; preds = %if.then90, %for.end
 declare i64 @ZDICT_finalizeDictionary(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef byval(%struct.ZDICT_params_t) align 8) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 %parameters, ptr nocapture noundef readonly %samplesSizes, ptr noundef %samples, ptr nocapture noundef readonly %offsets, i64 noundef %nbTrainSamples, i64 noundef %nbSamples, ptr noundef %dict, i64 noundef %dictBufferCapacity) local_unnamed_addr #4 {
+define i64 @COVER_checkTotalCompressedSize(ptr noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 captures(none) %parameters, ptr noundef readonly captures(none) %samplesSizes, ptr noundef %samples, ptr noundef readonly captures(none) %offsets, i64 noundef %nbTrainSamples, i64 noundef %nbSamples, ptr noundef %dict, i64 noundef %dictBufferCapacity) local_unnamed_addr #4 {
 entry:
   %splitPoint = getelementptr inbounds nuw i8, ptr %parameters, i64 16
   %0 = load double, ptr %splitPoint, align 8
@@ -1349,7 +1349,7 @@ declare i64 @ZSTD_freeCCtx(ptr noundef) local_unnamed_addr #5
 declare i64 @ZSTD_freeCDict(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define void @COVER_best_init(ptr noundef %best) local_unnamed_addr #4 {
@@ -1380,7 +1380,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #8
 declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define void @COVER_best_wait(ptr noundef %best) local_unnamed_addr #4 {
@@ -1491,7 +1491,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_best_finish(ptr noundef %best, ptr nocapture noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 %parameters, ptr nocapture noundef readonly byval(%struct.COVER_dictSelection) align 8 %selection) local_unnamed_addr #4 {
+define void @COVER_best_finish(ptr noundef %best, ptr noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 captures(none) %parameters, ptr noundef readonly byval(%struct.COVER_dictSelection) align 8 captures(none) %selection) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %selection, align 8
   %totalCompressedSize = getelementptr inbounds nuw i8, ptr %selection, i64 16
@@ -1577,13 +1577,13 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nounwind
 declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @COVER_dictSelectionError(ptr noalias nocapture writeonly sret(%struct.COVER_dictSelection) align 8 initializes((0, 24)) %agg.result, i64 noundef %error) local_unnamed_addr #11 {
+define void @COVER_dictSelectionError(ptr noalias writeonly sret(%struct.COVER_dictSelection) align 8 captures(none) initializes((0, 24)) %agg.result, i64 noundef %error) local_unnamed_addr #11 {
 entry:
   %totalCompressedSize.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
@@ -1592,7 +1592,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @COVER_dictSelectionIsError(ptr nocapture noundef readonly byval(%struct.COVER_dictSelection) align 8 %selection) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @COVER_dictSelectionIsError(ptr noundef readonly byval(%struct.COVER_dictSelection) align 8 captures(none) %selection) local_unnamed_addr #12 {
 entry:
   %totalCompressedSize = getelementptr inbounds nuw i8, ptr %selection, i64 16
   %0 = load i64, ptr %totalCompressedSize, align 8
@@ -1605,7 +1605,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @COVER_dictSelectionFree(ptr nocapture noundef readonly byval(%struct.COVER_dictSelection) align 8 %selection) local_unnamed_addr #13 {
+define void @COVER_dictSelectionFree(ptr noundef readonly byval(%struct.COVER_dictSelection) align 8 captures(none) %selection) local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr %selection, align 8
   tail call void @free(ptr noundef %0) #23
@@ -1613,7 +1613,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @COVER_selectDict(ptr noalias nocapture writeonly sret(%struct.COVER_dictSelection) align 8 %agg.result, ptr noundef %customDictContent, i64 noundef %dictBufferCapacity, i64 noundef %dictContentSize, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbFinalizeSamples, i64 noundef %nbCheckSamples, i64 noundef %nbSamples, ptr nocapture noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 %params, ptr nocapture noundef readonly %offsets, i64 %totalCompressedSize) local_unnamed_addr #4 {
+define void @COVER_selectDict(ptr noalias writeonly sret(%struct.COVER_dictSelection) align 8 captures(none) %agg.result, ptr noundef %customDictContent, i64 noundef %dictBufferCapacity, i64 noundef %dictContentSize, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbFinalizeSamples, i64 noundef %nbCheckSamples, i64 noundef %nbSamples, ptr noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 captures(none) %params, ptr noundef readonly captures(none) %offsets, i64 %totalCompressedSize) local_unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %customDictContent, i64 %dictContentSize
   %call = tail call noalias ptr @malloc(i64 noundef %dictBufferCapacity) #22
@@ -1755,7 +1755,7 @@ return:                                           ; preds = %while.end, %if.then
 declare i32 @ZDICT_isError(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr nocapture noundef %parameters) local_unnamed_addr #4 {
+define i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr noundef writeonly captures(none) %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef captures(none) %parameters) local_unnamed_addr #4 {
 entry:
   %best = alloca %struct.COVER_best_s, align 8
   %ctx = alloca %struct.COVER_ctx_t, align 8
@@ -2246,7 +2246,7 @@ declare void @POOL_free(ptr noundef) local_unnamed_addr #5
 declare void @POOL_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @COVER_tryParameters(ptr nocapture noundef %opaque) #4 {
+define internal void @COVER_tryParameters(ptr noundef captures(none) %opaque) #4 {
 entry:
   %parameters = alloca %struct.ZDICT_cover_params_t, align 8
   %activeDmers = alloca %struct.COVER_map_s, align 8
@@ -2451,7 +2451,7 @@ COVER_map_destroy.exit:                           ; preds = %COVER_best_finish.e
 declare i64 @clock() local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly %lp, ptr noundef readonly %rp) #15 {
@@ -2507,7 +2507,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @COVER_cmp8(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %lp, ptr nocapture noundef readonly %rp) unnamed_addr #15 {
+define internal range(i32 -1, 2) i32 @COVER_cmp8(ptr noundef readonly captures(none) %ctx, ptr noundef readonly captures(none) %lp, ptr noundef readonly captures(none) %rp) unnamed_addr #15 {
 entry:
   %d = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   %0 = load i32, ptr %d, align 8
@@ -2533,7 +2533,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @COVER_cmp(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %lp, ptr nocapture noundef readonly %rp) unnamed_addr #16 {
+define internal i32 @COVER_cmp(ptr noundef readonly captures(none) %ctx, ptr noundef readonly captures(none) %lp, ptr noundef readonly captures(none) %rp) unnamed_addr #16 {
 entry:
   %0 = load i32, ptr %lp, align 4
   %1 = load i32, ptr %rp, align 4
@@ -2550,7 +2550,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #17
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #18
@@ -2559,7 +2559,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #18
 declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

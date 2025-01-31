@@ -76,7 +76,7 @@ target triple = "x86_64-pc-linux-gnu"
 @packet_block_options_supported = internal constant [1 x %struct.supported_option_type] [%struct.supported_option_type { i32 2, i32 1 }], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @cllog_open(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [200 x i8], align 16
   %5 = tail call noalias dereferenceable_or_null(176) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 176) #9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -149,7 +149,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr nocapture noundef %0, ptr nou
   %25 = getelementptr [16 x %struct.headerLineParseMapping_t], ptr @headerLineParseMapping, i64 0, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 16
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #11
-  %28 = call i32 @strncmp(ptr noundef %.183, ptr noundef %26, i64 noundef %27) #11
+  %28 = call i32 @strncmp(ptr noundef %.183, ptr noundef nonnull %26, i64 noundef %27) #11
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %42
 
@@ -331,20 +331,20 @@ parseColumnHeaderFields.exit.thread:              ; preds = %.thread, %parseColu
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @file_gets(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cllog_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal range(i32 0, 2) i32 @cllog_read(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #10
   store i64 %8, ptr %5, align 8
@@ -354,7 +354,7 @@ define internal range(i32 0, 2) i32 @cllog_read(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cllog_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @cllog_seek_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #10
@@ -381,7 +381,7 @@ define hidden void @register_canlogger() local_unnamed_addr #0 {
 declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_type(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_type(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.16) #11
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %9
@@ -423,7 +423,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_type(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_hwrev(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_hwrev(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %6 = add i64 %5, 1
   %7 = icmp ult i64 %6, 6
@@ -431,7 +431,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_hwrev(ptr nocapture n
 
 checked_strcpy.exit.thread.i:                     ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr readonly align 1 %1, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %1, i64 %6, i1 false)
   br label %parseString.exit
 
 checked_strcpy.exit.i:                            ; preds = %4
@@ -445,7 +445,7 @@ parseString.exit:                                 ; preds = %checked_strcpy.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_fwrev(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_fwrev(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %6 = add i64 %5, 1
   %7 = icmp ult i64 %6, 6
@@ -453,7 +453,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_fwrev(ptr nocapture n
 
 checked_strcpy.exit.thread.i:                     ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr readonly align 1 %1, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %1, i64 %6, i1 false)
   br label %parseString.exit
 
 checked_strcpy.exit.i:                            ; preds = %4
@@ -467,7 +467,7 @@ parseString.exit:                                 ; preds = %checked_strcpy.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_id(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_id(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %6 = add i64 %5, 1
   %7 = icmp ult i64 %6, 21
@@ -475,7 +475,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_id(ptr nocapture noun
 
 checked_strcpy.exit.thread.i:                     ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr readonly align 1 %1, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %1, i64 %6, i1 false)
   br label %parseString.exit
 
 checked_strcpy.exit.i:                            ; preds = %4
@@ -489,7 +489,7 @@ parseString.exit:                                 ; preds = %checked_strcpy.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_sessionNo(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_sessionNo(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = call zeroext i1 @ws_strtou32(ptr noundef %1, ptr noundef null, ptr noundef nonnull %5) #10
@@ -513,7 +513,7 @@ parseUnsigned.exit:                               ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_splitNo(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_splitNo(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = call zeroext i1 @ws_strtou32(ptr noundef %1, ptr noundef null, ptr noundef nonnull %5) #10
@@ -537,7 +537,7 @@ parseUnsigned.exit:                               ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_time(ptr nocapture noundef writeonly initializes((48, 58)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_time(ptr noundef writeonly captures(none) initializes((48, 58)) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca %struct.tm, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -564,7 +564,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_time(ptr nocapture no
 
 checked_strcpy.exit.thread:                       ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr readonly align 1 %1, i64 %20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %1, i64 %20, i1 false)
   br label %24
 
 checked_strcpy.exit:                              ; preds = %4
@@ -578,7 +578,7 @@ checked_strcpy.exit:                              ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_valueSeparator(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_valueSeparator(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
@@ -623,7 +623,7 @@ parseSeparator.exit:                              ; preds = %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_timeFormat(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_timeFormat(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call zeroext i1 @ws_strtou32(ptr noundef %1, ptr noundef null, ptr noundef nonnull %5) #10
   br i1 %6, label %9, label %7
@@ -657,7 +657,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_timeFormat(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_timeSeparator(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_timeSeparator(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 86
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
@@ -702,7 +702,7 @@ parseSeparator.exit:                              ; preds = %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_timeSeparatorMs(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_timeSeparatorMs(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 87
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
@@ -747,7 +747,7 @@ parseSeparator.exit:                              ; preds = %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_dateSeparator(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_dateSeparator(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
@@ -792,7 +792,7 @@ parseSeparator.exit:                              ; preds = %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_timeAndDateSeparator(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_timeAndDateSeparator(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
@@ -837,7 +837,7 @@ parseSeparator.exit:                              ; preds = %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_bitRate(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_bitRate(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = call zeroext i1 @ws_strtou32(ptr noundef %1, ptr noundef null, ptr noundef nonnull %5) #10
@@ -861,7 +861,7 @@ parseUnsigned.exit:                               ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_silentMode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_silentMode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.38) #11
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %11, label %7
@@ -893,7 +893,7 @@ parseBoolean.exit:                                ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_cyclicMode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_cyclicMode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.38) #11
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %11, label %7
@@ -925,28 +925,28 @@ parseBoolean.exit:                                ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseFieldTS(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal noundef zeroext i1 @parseFieldTS(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = alloca %struct.tm, align 8
   %7 = alloca i32, align 4
   %8 = alloca [24 x i8], align 16
@@ -964,7 +964,7 @@ checked_strcpy.exit:                              ; preds = %5
   br label %110
 
 15:                                               ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr readonly align 1 %1, i64 %12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull readonly align 1 %1, i64 %12, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #11
   %18 = add i64 %17, 1
@@ -1152,7 +1152,7 @@ stripTimeStamp.exit27:                            ; preds = %stripTimeStamp.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseFieldLost(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal noundef zeroext i1 @parseFieldLost(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = call zeroext i1 @ws_strtou32(ptr noundef %1, ptr noundef null, ptr noundef nonnull %6) #10
   br i1 %7, label %10, label %8
@@ -1174,7 +1174,7 @@ define internal noundef zeroext i1 @parseFieldLost(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseFieldMsgType(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal noundef zeroext i1 @parseFieldMsgType(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = load i8, ptr %1, align 1
   switch i8 %6, label %15 [
     i8 48, label %7
@@ -1215,7 +1215,7 @@ define internal noundef zeroext i1 @parseFieldMsgType(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseFieldID(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal noundef zeroext i1 @parseFieldID(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = call zeroext i1 @ws_hexstrtou32(ptr noundef %1, ptr noundef null, ptr noundef nonnull %6) #10
   br i1 %7, label %10, label %8
@@ -1237,7 +1237,7 @@ define internal noundef zeroext i1 @parseFieldID(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseFieldLength(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal noundef zeroext i1 @parseFieldLength(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = call zeroext i1 @ws_strtou32(ptr noundef %1, ptr noundef null, ptr noundef nonnull %6) #10
   br i1 %7, label %10, label %8
@@ -1260,7 +1260,7 @@ define internal noundef zeroext i1 @parseFieldLength(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseFieldData(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((28, 29)) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal noundef zeroext i1 @parseFieldData(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((28, 29)) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i8 0, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 29
@@ -1330,7 +1330,7 @@ declare i32 @ws_xton(i8 noundef signext) local_unnamed_addr #3
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cllog_read_common(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cllog_read_common(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [200 x i8], align 16
   %8 = alloca %struct.cCLLog_message_t, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1373,7 +1373,7 @@ define internal fastcc range(i32 0, 2) i32 @cllog_read_common(ptr nocapture noun
   br i1 %.not.i, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = call zeroext i1 %28(ptr noundef nonnull %10, ptr noundef %.02128.i, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5) #10
+  %30 = call zeroext i1 %28(ptr noundef nonnull %10, ptr noundef nonnull %.02128.i, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5) #10
   br i1 %30, label %31, label %parseLogLine.exit
 
 31:                                               ; preds = %29, %26
@@ -1499,10 +1499,10 @@ declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_add
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

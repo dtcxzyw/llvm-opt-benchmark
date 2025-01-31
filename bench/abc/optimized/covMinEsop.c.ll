@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [67 x i8] c"Error: Min_CubesDistTwo() looks at two equal cubes or dist1 cubes!\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Min_EsopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Min_EsopMinimize(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 3
@@ -686,7 +686,7 @@ Min_EsopRewrite.exit:                             ; preds = %32
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Min_EsopAddCubeInt(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Min_EsopAddCubeInt(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1090,7 +1090,7 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Min_EsopAddCube(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Min_EsopAddCube(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -1110,7 +1110,7 @@ declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #3

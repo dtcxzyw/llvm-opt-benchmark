@@ -74,7 +74,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @i6300esb_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @i6300esb_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #6
@@ -251,7 +251,7 @@ if.end38:                                         ; preds = %if.end.i, %if.else3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @i6300esb_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @i6300esb_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 107, ptr noundef nonnull @__func__.WATCHDOG_I6300ESB_DEVICE) #6
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #7
@@ -431,7 +431,7 @@ declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @watchdog_perform_action() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 4609) i64 @i6300esb_mem_readfn(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4609) i64 @i6300esb_mem_readfn(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   switch i32 %size, label %do.body [
     i32 1, label %sw.epilog
@@ -460,7 +460,7 @@ sw.epilog:                                        ; preds = %if.then.i, %sw.bb1,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @i6300esb_mem_writefn(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %value, i32 noundef %size) #0 {
+define internal void @i6300esb_mem_writefn(ptr noundef captures(none) %opaque, i64 noundef %addr, i64 noundef %value, i32 noundef %size) #0 {
 entry:
   switch i32 %size, label %do.body [
     i32 1, label %sw.bb
@@ -636,10 +636,10 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

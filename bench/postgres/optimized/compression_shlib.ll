@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.validate_compress_specification.1 = private unnamed_addr constant [3 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2], align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @parse_compress_algorithm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @parse_compress_algorithm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str) #8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.sink.split, label %5
@@ -64,7 +64,7 @@ define noundef zeroext i1 @parse_compress_algorithm(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @get_compress_algorithm_name(i32 noundef %0) local_unnamed_addr #2 {
@@ -83,7 +83,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8), (24, 32)) %2) local_unnamed_addr #3 {
+define void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 8), (24, 32)) %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -410,19 +410,19 @@ expect_boolean_value.exit:                        ; preds = %.thread115, %99, %1
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #4
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @pfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @validate_compress_specification(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @validate_compress_specification(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -536,7 +536,7 @@ get_compress_algorithm_name.exit37:               ; preds = %33, %switch.lookup4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @parse_compress_options(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
+define void @parse_compress_options(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 10) #9
   %6 = load ptr, ptr %4, align 8
@@ -565,7 +565,7 @@ define void @parse_compress_options(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @pstrdup(ptr noundef %0) #9
+  %20 = tail call ptr @pstrdup(ptr noundef nonnull %0) #9
   store ptr %20, ptr %1, align 8
   br label %30
 
@@ -575,7 +575,7 @@ define void @parse_compress_options(ptr noundef %0, ptr nocapture noundef writeo
   %24 = sub i64 %22, %23
   %25 = add i64 %24, 1
   %26 = tail call ptr @palloc(i64 noundef %25) #9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %0, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull align 1 %0, i64 %24, i1 false)
   %27 = getelementptr i8, ptr %26, i64 %24
   store i8 0, ptr %27, align 1
   store ptr %26, ptr %1, align 8
@@ -595,10 +595,10 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

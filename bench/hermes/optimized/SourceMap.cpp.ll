@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden { i64, i64 } @_ZNK6hermes9SourceMap27getLocationForAddressFIndexEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %line, i32 noundef %column) local_unnamed_addr #0 align 2 {
+define hidden { i64, i64 } @_ZNK6hermes9SourceMap27getLocationForAddressFIndexEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, i32 noundef %line, i32 noundef %column) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i = icmp eq i32 %line, 0
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -119,7 +119,7 @@ return:                                           ; preds = %if.end8.i, %"_ZSt11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK6hermes9SourceMap20getSegmentForAddressEjj(ptr noalias nocapture writeonly sret(%"class.llvh::Optional.0") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %line, i32 noundef %column) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6hermes9SourceMap20getSegmentForAddressEjj(ptr noalias writeonly sret(%"class.llvh::Optional.0") align 4 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, i32 noundef %line, i32 noundef %column) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq i32 %line, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -316,7 +316,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4

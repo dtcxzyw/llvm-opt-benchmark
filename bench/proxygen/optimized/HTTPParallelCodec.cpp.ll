@@ -210,7 +210,7 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN8proxygen17HTTPParallelCodec12createStreamEv(ptr nocapture noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #5 align 2 {
+define noundef i64 @_ZN8proxygen17HTTPParallelCodec12createStreamEv(ptr noundef nonnull align 8 captures(none) dereferenceable(92) %this) unnamed_addr #5 align 2 {
 entry:
   %nextEgressStreamID_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %nextEgressStreamID_, align 8
@@ -220,7 +220,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8proxygen17HTTPParallelCodec16isWaitingToDrainEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %this) unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen17HTTPParallelCodec16isWaitingToDrainEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %this) unnamed_addr #6 align 2 {
 entry:
   %sessionClosing_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %sessionClosing_, align 8
@@ -272,7 +272,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen17HTTPParallelCodec23enableDoubleGoawayDrainEv(ptr nocapture noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen17HTTPParallelCodec23enableDoubleGoawayDrainEv(ptr noundef nonnull align 8 captures(none) dereferenceable(92) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.google::LogMessage", align 8
   %sessionClosing_ = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -329,7 +329,7 @@ declare void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 derefere
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN8proxygen17HTTPParallelCodec23onIngressUpgradeMessageERKNS_11HTTPMessageE(ptr nocapture noundef nonnull align 8 dereferenceable(92) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN8proxygen17HTTPParallelCodec23onIngressUpgradeMessageERKNS_11HTTPMessageE(ptr noundef nonnull align 8 captures(none) dereferenceable(92) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   %transportDirection_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i8, ptr %transportDirection_, align 8
@@ -657,7 +657,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -691,7 +691,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

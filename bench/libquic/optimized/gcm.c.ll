@@ -163,10 +163,10 @@ return:                                           ; preds = %if.then15, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @crypto_gcm_clmul_enabled() local_unnamed_addr #3 {
@@ -199,7 +199,7 @@ declare void @gcm_gmult_4bit(ptr noundef, ptr noundef) #4
 declare void @gcm_ghash_4bit(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_gcm128_setiv(ptr noundef initializes((0, 16), (48, 80), (368, 376)) %ctx, ptr noundef %key, ptr nocapture noundef readonly %iv, i64 noundef %len) local_unnamed_addr #0 {
+define hidden void @CRYPTO_gcm128_setiv(ptr noundef initializes((0, 16), (48, 80), (368, 376)) %ctx, ptr noundef %key, ptr noundef readonly captures(none) %iv, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %gmult = getelementptr inbounds nuw i8, ptr %ctx, i64 352
   %0 = load ptr, ptr %gmult, align 8
@@ -282,7 +282,7 @@ if.then43:                                        ; preds = %while.end, %for.end
   %xor46 = xor i64 %6, %5
   store i64 %xor46, ptr %arrayidx2, align 8
   %Htable54 = getelementptr inbounds nuw i8, ptr %ctx, i64 96
-  tail call void %0(ptr noundef %ctx, ptr noundef nonnull %Htable54) #6
+  tail call void %0(ptr noundef nonnull %ctx, ptr noundef nonnull %Htable54) #6
   %add.ptr60 = getelementptr inbounds nuw i8, ptr %ctx, i64 12
   %7 = load i8, ptr %add.ptr60, align 1
   %conv62 = zext i8 %7 to i32
@@ -447,7 +447,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt(ptr noundef %ctx, ptr noundef %key, ptr nocapture noundef readonly %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt(ptr noundef %ctx, ptr noundef %key, ptr noundef readonly captures(none) %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
@@ -722,7 +722,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef writeonly captures(none) %out, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
@@ -1558,7 +1558,7 @@ return:                                           ; preds = %if.then8, %if.then3
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_gcm128_tag(ptr noundef %ctx, ptr nocapture noundef writeonly %tag, i64 noundef %len) local_unnamed_addr #0 {
+define hidden void @CRYPTO_gcm128_tag(ptr noundef %ctx, ptr noundef writeonly captures(none) %tag, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %len1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load i64, ptr %len1.i, align 8

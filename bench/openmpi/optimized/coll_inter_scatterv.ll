@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_int = external global %struct.ompi_predefined_datatype_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_coll_inter_scatterv_inter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef readnone %9) local_unnamed_addr #0 {
+define i32 @mca_coll_inter_scatterv_inter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef readnone captures(none) %9) local_unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = getelementptr i8, ptr %8, i64 220
   %.val = load i32, ptr %12, align 4
@@ -117,7 +117,7 @@ opal_datatype_span.exit:                          ; preds = %37, %41
   %.177 = phi ptr [ %55, %57 ], [ null, %._crit_edge ], [ null, %.preheader ]
   %.1 = phi ptr [ %59, %57 ], [ null, %._crit_edge ], [ null, %.preheader ]
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
-  %61 = tail call i32 %60(ptr noundef %.1, i64 noundef %.080.lcssa119, ptr noundef %6, i32 noundef %7, i32 noundef -26, ptr noundef %8, ptr noundef null) #5
+  %61 = tail call i32 %60(ptr noundef %.1, i64 noundef %.080.lcssa119, ptr noundef %6, i32 noundef %7, i32 noundef -26, ptr noundef nonnull %8, ptr noundef null) #5
   %.not98 = icmp eq i32 %61, 0
   br i1 %.not98, label %62, label %96
 
@@ -215,7 +215,7 @@ opal_datatype_span.exit:                          ; preds = %37, %41
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @ompi_datatype_create_indexed(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 

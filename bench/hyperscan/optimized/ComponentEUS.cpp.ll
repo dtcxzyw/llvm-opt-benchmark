@@ -30,7 +30,7 @@ $_ZN3ue212ComponentEUS14buildFollowSetERNS_18GlushkovBuildStateERKSt6vectorINS_1
 @_ZN3ue212ComponentEUSD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3ue212ComponentEUSD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212ComponentEUSC2EjRKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %loc_in, ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %mode) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue212ComponentEUSC2EjRKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %loc_in, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(6) %mode) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue212ComponentEUSE, i64 16), ptr %this, align 8
@@ -71,7 +71,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef nonnull ptr @_ZNK3ue212ComponentEUS5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @_ZNK3ue212ComponentEUS5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #9
   %pos_begin.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -105,7 +105,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue212ComponentEUS5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue212ComponentEUS5firstEv(ptr noalias writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %position = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %position, align 8
@@ -123,7 +123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue212ComponentEUS4lastEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue212ComponentEUS4lastEv(ptr noalias writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %position = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %position, align 8
@@ -141,7 +141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212ComponentEUS13notePositionsERNS_18GlushkovBuildStateE(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((24, 28)) %this, ptr noundef nonnull align 8 dereferenceable(8) %bs) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue212ComponentEUS13notePositionsERNS_18GlushkovBuildStateE(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((24, 28)) %this, ptr noundef nonnull align 8 dereferenceable(8) %bs) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.ue2::CharReach", align 8
   %vtable = load ptr, ptr %bs, align 8
@@ -236,7 +236,7 @@ declare noundef zeroext i1 @_ZNK3ue29Component24checkEmbeddedStartAnchorEb(ptr n
 declare noundef zeroext i1 @_ZNK3ue29Component22checkEmbeddedEndAnchorEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

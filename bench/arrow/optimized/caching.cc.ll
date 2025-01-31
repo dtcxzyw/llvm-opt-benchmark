@@ -271,7 +271,7 @@ $_ZTSSt14default_deleteIN5arrow10FutureImplEE = comdat any
 @_ZN5arrow2io8internal14ReadRangeCacheD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5arrow2io8internal14ReadRangeCacheD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io12CacheOptions8DefaultsEv(ptr noalias nocapture writeonly sret(%"struct.arrow::io::CacheOptions") align 8 initializes((0, 17), (24, 32)) %agg.result) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io12CacheOptions8DefaultsEv(ptr noalias writeonly sret(%"struct.arrow::io::CacheOptions") align 8 captures(none) initializes((0, 17), (24, 32)) %agg.result) local_unnamed_addr #0 align 2 {
 entry:
   store i64 8192, ptr %agg.result, align 8
   %range_size_limit = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -284,7 +284,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io12CacheOptions12LazyDefaultsEv(ptr noalias nocapture writeonly sret(%"struct.arrow::io::CacheOptions") align 8 initializes((0, 17), (24, 32)) %agg.result) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io12CacheOptions12LazyDefaultsEv(ptr noalias writeonly sret(%"struct.arrow::io::CacheOptions") align 8 captures(none) initializes((0, 17), (24, 32)) %agg.result) local_unnamed_addr #0 align 2 {
 entry:
   store i64 8192, ptr %agg.result, align 8
   %range_size_limit = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -297,7 +297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io12CacheOptions22MakeFromNetworkMetricsElldl(ptr noalias nocapture writeonly sret(%"struct.arrow::io::CacheOptions") align 8 initializes((0, 17), (24, 32)) %agg.result, i64 noundef %time_to_first_byte_millis, i64 noundef %transfer_bandwidth_mib_per_sec, double noundef %ideal_bandwidth_utilization_frac, i64 noundef %max_ideal_request_size_mib) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io12CacheOptions22MakeFromNetworkMetricsElldl(ptr noalias writeonly sret(%"struct.arrow::io::CacheOptions") align 8 captures(none) initializes((0, 17), (24, 32)) %agg.result, i64 noundef %time_to_first_byte_millis, i64 noundef %transfer_bandwidth_mib_per_sec, double noundef %ideal_bandwidth_utilization_frac, i64 noundef %max_ideal_request_size_mib) local_unnamed_addr #0 align 2 {
 entry:
   %conv = sitofp i64 %time_to_first_byte_millis to double
   %div = fdiv double %conv, 1.000000e+03
@@ -328,7 +328,7 @@ entry:
 declare double @llvm.round.f64(double) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal14ReadRangeCacheC2ESt10shared_ptrINS0_16RandomAccessFileEEPS4_NS0_9IOContextENS0_12CacheOptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef %owned_file, ptr noundef %file, ptr nocapture noundef %ctx, ptr nocapture noundef readonly byval(%"struct.arrow::io::CacheOptions") align 8 %options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io8internal14ReadRangeCacheC2ESt10shared_ptrINS0_16RandomAccessFileEEPS4_NS0_9IOContextENS0_12CacheOptionsE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef captures(none) %owned_file, ptr noundef %file, ptr noundef captures(none) %ctx, ptr noundef readonly byval(%"struct.arrow::io::CacheOptions") align 8 captures(none) %options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lazy = getelementptr inbounds nuw i8, ptr %options, i64 16
   %0 = load i8, ptr %lazy, align 8
@@ -570,7 +570,7 @@ eh.resume:                                        ; preds = %lpad.i, %lpad.i.i
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -578,10 +578,10 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io8internal14ReadRangeCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io8internal14ReadRangeCacheD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -600,7 +600,7 @@ _ZNSt10unique_ptrIN5arrow2io8internal14ReadRangeCache4ImplESt14default_deleteIS4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal14ReadRangeCache5CacheESt6vectorINS0_9ReadRangeESaIS4_EE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef %ranges) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io8internal14ReadRangeCache5CacheESt6vectorINS0_9ReadRangeESaIS4_EE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef captures(none) %ranges) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::vector.5", align 8
   %0 = load ptr, ptr %this, align 8
@@ -649,7 +649,7 @@ _ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EED2Ev.exit3: ; preds = %lpad, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal14ReadRangeCache4ReadENS0_9ReadRangeE(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %range.coerce0, i64 %range.coerce1) local_unnamed_addr #2 align 2 {
+define void @_ZN5arrow2io8internal14ReadRangeCache4ReadENS0_9ReadRangeE(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %range.coerce0, i64 %range.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -660,7 +660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal14ReadRangeCache4WaitEv(ptr noalias sret(%"class.arrow::Future") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN5arrow2io8internal14ReadRangeCache4WaitEv(ptr noalias sret(%"class.arrow::Future") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -671,7 +671,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal14ReadRangeCache7WaitForESt6vectorINS0_9ReadRangeESaIS4_EE(ptr noalias sret(%"class.arrow::Future") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef %ranges) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io8internal14ReadRangeCache7WaitForESt6vectorINS0_9ReadRangeESaIS4_EE(ptr noalias sret(%"class.arrow::Future") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef captures(none) %ranges) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::vector.5", align 8
   %0 = load ptr, ptr %this, align 8
@@ -6001,7 +6001,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZN5arrow10FutureImpl4WaitEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #8
 
@@ -7341,7 +7341,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow4util13StringBuilderIJRA45_KcRlRA9_S2_S5_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(45) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 1 dereferenceable(9) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
@@ -8502,10 +8502,10 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

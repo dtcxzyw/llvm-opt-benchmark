@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [57 x i8] c"Error: A cycle is encountered while propagating buffers.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Aig_ObjCreateCi(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef ptr @Aig_ObjCreateCi(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @Aig_ManFetchMemory(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
@@ -105,7 +105,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @Aig_ManFetchMemory(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @Aig_ManFetchMemory(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %3) #13
@@ -448,7 +448,7 @@ Aig_ObjPhaseReal.exit36:                          ; preds = %Aig_ObjPhaseReal.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Aig_ObjCreate(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @Aig_ObjCreate(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @Aig_ManFetchMemory(ptr noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
@@ -691,7 +691,7 @@ declare void @Aig_ObjRemoveFanout(ptr noundef, ptr noundef, ptr noundef) local_u
 declare void @Aig_TableDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ObjDelete(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Aig_ObjDelete(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -947,7 +947,7 @@ Aig_ObjDelete.exit:                               ; preds = %22, %Vec_PtrRemove.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ObjDeletePo(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Aig_ObjDeletePo(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8
   %4 = ptrtoint ptr %.val to i64
@@ -1133,7 +1133,7 @@ Aig_ObjPhaseReal.exit:                            ; preds = %Aig_ObjLevelNew.exi
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Aig_ObjPrint(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @Aig_ObjPrint(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -1303,7 +1303,7 @@ define void @Aig_ObjPrint(ptr nocapture noundef readonly %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @Aig_NodeFixBufferFanins(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1541,7 +1541,7 @@ Aig_ObjDelete.exit:                               ; preds = %53, %Vec_PtrRemove.
   %116 = and i64 %115, -72057589742960641
   %117 = or disjoint i64 %116, %114
   store i64 %117, ptr %33, align 8
-  tail call void @Aig_ManUpdateLevel(ptr noundef nonnull %0, ptr noundef %1) #13
+  tail call void @Aig_ManUpdateLevel(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   br label %118
 
 118:                                              ; preds = %113, %Aig_ObjDelete.exit
@@ -1549,8 +1549,8 @@ Aig_ObjDelete.exit:                               ; preds = %53, %Vec_PtrRemove.
   br i1 %.not55, label %120, label %119
 
 119:                                              ; preds = %118
-  tail call void @Aig_ObjClearReverseLevel(ptr noundef nonnull %0, ptr noundef %1) #13
-  tail call void @Aig_ManUpdateReverseLevel(ptr noundef nonnull %0, ptr noundef %1) #13
+  tail call void @Aig_ObjClearReverseLevel(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
+  tail call void @Aig_ManUpdateReverseLevel(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   br label %120
 
 120:                                              ; preds = %118, %119, %46
@@ -1758,10 +1758,10 @@ declare void @Aig_ManUpdateReverseLevel(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @Aig_MmFixedEntryFetch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
@@ -1769,7 +1769,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 declare void @Aig_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

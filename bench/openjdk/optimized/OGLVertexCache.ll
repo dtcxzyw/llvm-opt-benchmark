@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @j2d_glTexSubImage2D = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @OGLVertexCache_InitVertexCache(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @OGLVertexCache_InitVertexCache(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @vertexCache, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %7
@@ -104,7 +104,7 @@ define hidden void @OGLVertexCache_RestoreColorState(ptr noundef %0) local_unnam
 declare void @OGLPaints_SetColor(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLVertexCache_EnableMaskCache(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @OGLVertexCache_EnableMaskCache(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = load ptr, ptr @vertexCache, align 8
   %4 = icmp eq ptr %3, null
@@ -224,7 +224,7 @@ OGLVertexCache_RestoreColorState.exit:            ; preds = %OGLVertexCache_Flus
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLVertexCache_AddMaskQuad(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define hidden void @OGLVertexCache_AddMaskQuad(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = load i32, ptr @maskCacheIndex, align 4
   %11 = icmp sgt i32 %10, 30
   %12 = load i32, ptr @vertexCacheIndex, align 4
@@ -387,7 +387,7 @@ OGLVertexCache_FlushVertexCache.exit:             ; preds = %14, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLVertexCache_AddGlyphQuad(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #0 {
+define hidden void @OGLVertexCache_AddGlyphQuad(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #0 {
   %10 = load i32, ptr @vertexCacheIndex, align 4
   %11 = icmp sgt i32 %10, 1023
   br i1 %11, label %OGLVertexCache_FlushVertexCache.exit, label %13
@@ -499,13 +499,13 @@ OGLVertexCache_FlushVertexCache.exit:             ; preds = %9
 declare i32 @OGLContext_CreateBlitTexture(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

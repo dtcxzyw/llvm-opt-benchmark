@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_memwrite(ptr nocapture noundef %req, ptr noundef %addr, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local void @v9fs_memwrite(ptr noundef captures(none) %req, ptr noundef %addr, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %t_msg = getelementptr inbounds nuw i8, ptr %req, i64 24
@@ -126,7 +126,7 @@ entry:
 declare void @qtest_memwrite(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @v9fs_memskip(ptr nocapture noundef %req, i64 noundef %len) local_unnamed_addr #3 {
+define dso_local void @v9fs_memskip(ptr noundef captures(none) %req, i64 noundef %len) local_unnamed_addr #3 {
 entry:
   %r_off = getelementptr inbounds nuw i8, ptr %req, i64 56
   %0 = load i64, ptr %r_off, align 8
@@ -136,7 +136,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_memread(ptr nocapture noundef %req, ptr noundef %addr, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local void @v9fs_memread(ptr noundef captures(none) %req, ptr noundef %addr, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %r_msg = getelementptr inbounds nuw i8, ptr %req, i64 40
@@ -154,7 +154,7 @@ entry:
 declare void @qtest_memread(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_uint8_read(ptr nocapture noundef %req, ptr noundef %val) local_unnamed_addr #1 {
+define dso_local void @v9fs_uint8_read(ptr noundef captures(none) %req, ptr noundef %val) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %r_msg.i = getelementptr inbounds nuw i8, ptr %req, i64 40
@@ -170,7 +170,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_uint16_write(ptr nocapture noundef %req, i16 noundef zeroext %val) local_unnamed_addr #1 {
+define dso_local void @v9fs_uint16_write(ptr noundef captures(none) %req, i16 noundef zeroext %val) local_unnamed_addr #1 {
 entry:
   %le_val = alloca i16, align 2
   store i16 %val, ptr %le_val, align 2
@@ -188,7 +188,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_uint16_read(ptr nocapture noundef %req, ptr noundef %val) local_unnamed_addr #1 {
+define dso_local void @v9fs_uint16_read(ptr noundef captures(none) %req, ptr noundef %val) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %r_msg.i = getelementptr inbounds nuw i8, ptr %req, i64 40
@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_uint32_write(ptr nocapture noundef %req, i32 noundef %val) local_unnamed_addr #1 {
+define dso_local void @v9fs_uint32_write(ptr noundef captures(none) %req, i32 noundef %val) local_unnamed_addr #1 {
 entry:
   %le_val = alloca i32, align 4
   store i32 %val, ptr %le_val, align 4
@@ -222,7 +222,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_uint64_write(ptr nocapture noundef %req, i64 noundef %val) local_unnamed_addr #1 {
+define dso_local void @v9fs_uint64_write(ptr noundef captures(none) %req, i64 noundef %val) local_unnamed_addr #1 {
 entry:
   %le_val = alloca i64, align 8
   store i64 %val, ptr %le_val, align 8
@@ -240,7 +240,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_uint32_read(ptr nocapture noundef %req, ptr noundef %val) local_unnamed_addr #1 {
+define dso_local void @v9fs_uint32_read(ptr noundef captures(none) %req, ptr noundef %val) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %r_msg.i = getelementptr inbounds nuw i8, ptr %req, i64 40
@@ -256,7 +256,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_uint64_read(ptr nocapture noundef %req, ptr noundef %val) local_unnamed_addr #1 {
+define dso_local void @v9fs_uint64_read(ptr noundef captures(none) %req, ptr noundef %val) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %r_msg.i = getelementptr inbounds nuw i8, ptr %req, i64 40
@@ -272,7 +272,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @v9fs_string_size(ptr nocapture noundef readonly %string) local_unnamed_addr #1 {
+define dso_local zeroext i16 @v9fs_string_size(ptr noundef readonly captures(none) %string) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #14
   %cmp = icmp slt i64 %call, 65534
@@ -290,12 +290,12 @@ do.end:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_string_write(ptr nocapture noundef %req, ptr noundef %string) local_unnamed_addr #1 {
+define dso_local void @v9fs_string_write(ptr noundef captures(none) %req, ptr noundef %string) local_unnamed_addr #1 {
 entry:
   %le_val.i = alloca i16, align 2
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #14
@@ -327,7 +327,7 @@ do.end:                                           ; preds = %if.else, %entry
   %4 = load ptr, ptr %req, align 8
   %5 = load i64, ptr %t_msg.i.i, align 8
   %add.i = add i64 %5, %add2.i.i
-  call void @qtest_memwrite(ptr noundef %4, i64 noundef %add.i, ptr noundef %string, i64 noundef %conv1) #13
+  call void @qtest_memwrite(ptr noundef %4, i64 noundef %add.i, ptr noundef nonnull %string, i64 noundef %conv1) #13
   %6 = load i64, ptr %t_off.i.i, align 8
   %add2.i = add i64 %6, %conv1
   store i64 %add2.i, ptr %t_off.i.i, align 8
@@ -335,7 +335,7 @@ do.end:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_string_read(ptr nocapture noundef %req, ptr noundef writeonly %len, ptr noundef %string) local_unnamed_addr #1 {
+define dso_local void @v9fs_string_read(ptr noundef captures(none) %req, ptr noundef writeonly %len, ptr noundef %string) local_unnamed_addr #1 {
 entry:
   %local_len = alloca i16, align 2
   %0 = load ptr, ptr %req, align 8
@@ -457,7 +457,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 declare i64 @guest_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_req_send(ptr nocapture noundef initializes((40, 56), (64, 68)) %req) local_unnamed_addr #1 {
+define dso_local void @v9fs_req_send(ptr noundef captures(none) initializes((40, 56), (64, 68)) %req) local_unnamed_addr #1 {
 entry:
   %v9p1 = getelementptr inbounds nuw i8, ptr %req, i64 8
   %0 = load ptr, ptr %v9p1, align 8
@@ -494,7 +494,7 @@ declare i32 @qvirtqueue_add(ptr noundef, ptr noundef, i64 noundef, i32 noundef, 
 declare void @qvirtqueue_kick(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_req_wait_for_reply(ptr nocapture noundef readonly %req, ptr noundef %len) local_unnamed_addr #1 {
+define dso_local void @v9fs_req_wait_for_reply(ptr noundef readonly captures(none) %req, ptr noundef %len) local_unnamed_addr #1 {
 entry:
   %v9p1 = getelementptr inbounds nuw i8, ptr %req, i64 8
   %0 = load ptr, ptr %v9p1, align 8
@@ -511,7 +511,7 @@ entry:
 declare void @qvirtio_wait_used_elem(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_req_recv(ptr nocapture noundef %req, i8 noundef zeroext %id) local_unnamed_addr #1 {
+define dso_local void @v9fs_req_recv(ptr noundef captures(none) %req, i8 noundef zeroext %id) local_unnamed_addr #1 {
 entry:
   %hdr = alloca %struct.P9Hdr, align 4
   %err = alloca i32, align 4
@@ -759,7 +759,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @v9fs_tversion(ptr nocapture noundef readonly byval(%struct.TVersionOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local noundef ptr @v9fs_tversion(ptr noundef readonly byval(%struct.TVersionOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i = alloca i32, align 4
   %err = alloca i32, align 4
@@ -1027,7 +1027,7 @@ if.end6:                                          ; preds = %do.end, %v9fs_strin
 declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @v9fs_tattach(ptr nocapture noundef readonly byval(%struct.TAttachOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local noundef ptr @v9fs_tattach(ptr noundef readonly byval(%struct.TAttachOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i20 = alloca i32, align 4
   %le_val.i15 = alloca i32, align 4
@@ -1221,7 +1221,7 @@ if.end43:                                         ; preds = %v9fs_rattach.exit, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare i32 @getuid() local_unnamed_addr #7
@@ -1260,7 +1260,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i32, ptr } @v9fs_twalk(ptr nocapture noundef byval(%struct.TWalkOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local { i32, ptr } @v9fs_twalk(ptr noundef byval(%struct.TWalkOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i30 = alloca i16, align 2
   %le_val.i25 = alloca i32, align 4
@@ -1644,7 +1644,7 @@ if.end7:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @v9fs_tgetattr(ptr nocapture noundef readonly byval(%struct.TGetAttrOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local noundef ptr @v9fs_tgetattr(ptr noundef readonly byval(%struct.TGetAttrOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i12 = alloca i64, align 8
   %le_val.i = alloca i32, align 4
@@ -1959,7 +1959,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @v9fs_treaddir(ptr nocapture noundef readonly byval(%struct.TReadDirOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local noundef ptr @v9fs_treaddir(ptr noundef readonly byval(%struct.TReadDirOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i19 = alloca i32, align 4
   %le_val.i14 = alloca i64, align 8
@@ -2298,7 +2298,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @v9fs_tlopen(ptr nocapture noundef readonly byval(%struct.TLOpenOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local noundef ptr @v9fs_tlopen(ptr noundef readonly byval(%struct.TLOpenOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i12 = alloca i32, align 4
   %le_val.i = alloca i32, align 4
@@ -2500,7 +2500,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { ptr, i32 } @v9fs_twrite(ptr nocapture noundef readonly byval(%struct.TWriteOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local { ptr, i32 } @v9fs_twrite(ptr noundef readonly byval(%struct.TWriteOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i20 = alloca i32, align 4
   %le_val.i15 = alloca i64, align 8
@@ -2688,7 +2688,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @v9fs_tflush(ptr nocapture noundef readonly byval(%struct.TFlushOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local noundef ptr @v9fs_tflush(ptr noundef readonly byval(%struct.TFlushOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i = alloca i32, align 4
   %hdr.i = alloca %struct.P9Hdr, align 4
@@ -2827,7 +2827,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @v9fs_tmkdir(ptr nocapture noundef readonly byval(%struct.TMkdirOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local noundef ptr @v9fs_tmkdir(ptr noundef readonly byval(%struct.TMkdirOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i22 = alloca i32, align 4
   %le_val.i17 = alloca i32, align 4
@@ -2920,7 +2920,7 @@ v9fs_string_size.exit:                            ; preds = %if.end24, %if.else.
   %add2.i.i = add i64 %14, 4
   store i64 %add2.i.i, ptr %t_off.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
-  call void @v9fs_string_write(ptr noundef nonnull %call42, ptr noundef %9)
+  call void @v9fs_string_write(ptr noundef nonnull %call42, ptr noundef nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i17)
   store i32 %spec.store.select, ptr %le_val.i17, align 4
   %15 = load ptr, ptr %call42, align 8
@@ -3076,7 +3076,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @v9fs_tlcreate(ptr nocapture noundef readonly byval(%struct.TlcreateOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local noundef ptr @v9fs_tlcreate(ptr noundef readonly byval(%struct.TlcreateOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i28 = alloca i32, align 4
   %le_val.i23 = alloca i32, align 4
@@ -3177,7 +3177,7 @@ v9fs_string_size.exit:                            ; preds = %if.end28, %if.else.
   %add2.i.i = add i64 %15, 4
   store i64 %add2.i.i, ptr %t_off.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
-  call void @v9fs_string_write(ptr noundef nonnull %call46, ptr noundef %10)
+  call void @v9fs_string_write(ptr noundef nonnull %call46, ptr noundef nonnull %10)
   %flags = getelementptr inbounds nuw i8, ptr %opt, i64 32
   %16 = load i32, ptr %flags, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i18)
@@ -3331,7 +3331,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @v9fs_tsymlink(ptr nocapture noundef readonly byval(%struct.TsymlinkOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local noundef ptr @v9fs_tsymlink(ptr noundef readonly byval(%struct.TsymlinkOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i23 = alloca i32, align 4
   %le_val.i = alloca i32, align 4
@@ -3433,8 +3433,8 @@ v9fs_string_size.exit22:                          ; preds = %v9fs_string_size.ex
   %add2.i.i = add i64 %15, 4
   store i64 %add2.i.i, ptr %t_off.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
-  call void @v9fs_string_write(ptr noundef nonnull %call44, ptr noundef %8)
-  call void @v9fs_string_write(ptr noundef nonnull %call44, ptr noundef %10)
+  call void @v9fs_string_write(ptr noundef nonnull %call44, ptr noundef nonnull %8)
+  call void @v9fs_string_write(ptr noundef nonnull %call44, ptr noundef nonnull %10)
   %gid = getelementptr inbounds nuw i8, ptr %opt, i64 40
   %16 = load i32, ptr %gid, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i23)
@@ -3584,7 +3584,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @v9fs_tlink(ptr nocapture noundef readonly byval(%struct.TlinkOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local noundef ptr @v9fs_tlink(ptr noundef readonly byval(%struct.TlinkOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i16 = alloca i32, align 4
   %le_val.i = alloca i32, align 4
@@ -3694,7 +3694,7 @@ v9fs_string_size.exit:                            ; preds = %if.end39, %if.else.
   %add2.i.i20 = add i64 %16, 8
   store i64 %add2.i.i20, ptr %t_off.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i16)
-  call void @v9fs_string_write(ptr noundef nonnull %call53, ptr noundef %11)
+  call void @v9fs_string_write(ptr noundef nonnull %call53, ptr noundef nonnull %11)
   %v9p1.i = getelementptr inbounds nuw i8, ptr %call53, i64 8
   %17 = load ptr, ptr %v9p1.i, align 8
   %18 = load ptr, ptr @alloc, align 8
@@ -3791,7 +3791,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @v9fs_tunlinkat(ptr nocapture noundef readonly byval(%struct.TunlinkatOpt) align 8 %opt) local_unnamed_addr #1 {
+define dso_local noundef ptr @v9fs_tunlinkat(ptr noundef readonly byval(%struct.TunlinkatOpt) align 8 captures(none) %opt) local_unnamed_addr #1 {
 entry:
   %le_val.i15 = alloca i32, align 4
   %le_val.i = alloca i32, align 4
@@ -3865,7 +3865,7 @@ v9fs_string_size.exit:                            ; preds = %if.end15, %if.else.
   %add2.i.i = add i64 %11, 4
   store i64 %add2.i.i, ptr %t_off.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
-  call void @v9fs_string_write(ptr noundef nonnull %call29, ptr noundef %6)
+  call void @v9fs_string_write(ptr noundef nonnull %call29, ptr noundef nonnull %6)
   %flags = getelementptr inbounds nuw i8, ptr %opt, i64 32
   %12 = load i32, ptr %flags, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i15)
@@ -3972,16 +3972,16 @@ entry:
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

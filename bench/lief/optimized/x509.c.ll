@@ -99,7 +99,7 @@ define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_alg(ptr n
 declare i32 @mbedtls_asn1_get_alg(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_rsassa_pss_params(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 4)) %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_rsassa_pss_params(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 4)) %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca %struct.mbedtls_asn1_buf, align 8
@@ -311,7 +311,7 @@ declare i32 @mbedtls_asn1_get_tag(ptr noundef, ptr noundef, ptr noundef, i32 nou
 declare i32 @mbedtls_oid_get_md_alg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147474688) i32 @x509_get_hash_alg(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147474688) i32 @x509_get_hash_alg(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.mbedtls_asn1_buf, align 8
   %5 = alloca i64, align 8
@@ -531,7 +531,7 @@ x509_get_attr_type_value.exit:                    ; preds = %37, %22, %14
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %1 to i64
@@ -743,7 +743,7 @@ x509_parse_time.exit:                             ; preds = %25, %47, %64, %81, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147474304) i32 @mbedtls_x509_get_sig(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2147474304) i32 @mbedtls_x509_get_sig(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %1 to i64
@@ -783,7 +783,7 @@ define hidden range(i32 -2147483648, 2147474304) i32 @mbedtls_x509_get_sig(ptr n
 declare i32 @mbedtls_asn1_get_bitstring_null(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_sig_alg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_sig_alg(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %28
@@ -845,7 +845,7 @@ define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_sig_alg(p
 declare i32 @mbedtls_oid_get_sig_alg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2147474176) i32 @mbedtls_x509_get_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -889,7 +889,7 @@ define hidden range(i32 -2147483648, 2147474176) i32 @mbedtls_x509_get_ext(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_dn_gets(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [256 x i8], align 16
   store ptr null, ptr %4, align 8
@@ -1058,15 +1058,15 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @mbedtls_oid_get_attr_short_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_x509_serial_gets(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 33
@@ -1172,7 +1172,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_sig_alg_gets(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_sig_alg_gets(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = call i32 @mbedtls_oid_get_sig_alg_desc(ptr noundef %2, ptr noundef nonnull %7) #12
@@ -1259,7 +1259,7 @@ md_type_to_string.exit47:                         ; preds = %md_type_to_string.e
 declare i32 @mbedtls_oid_get_sig_alg_desc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 -10624, 1) i32 @mbedtls_x509_key_size_helper(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define hidden range(i32 -10624, 1) i32 @mbedtls_x509_key_size_helper(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.14, ptr noundef %2) #12
   %5 = icmp sgt i32 %4, -1
   %6 = zext nneg i32 %4 to i64
@@ -1270,7 +1270,7 @@ define hidden range(i32 -10624, 1) i32 @mbedtls_x509_key_size_helper(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mbedtls_x509_time_is_past(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @mbedtls_x509_time_is_past(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
@@ -1367,7 +1367,7 @@ x509_check_time.exit:                             ; preds = %54, %50, %42, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mbedtls_x509_time_is_future(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @mbedtls_x509_time_is_future(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
@@ -1464,7 +1464,7 @@ x509_check_time.exit:                             ; preds = %55, %51, %43, %37, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -9216, 1) i32 @x509_parse_int(ptr nocapture noundef %0, i64 noundef range(i64 2, 5) %1, ptr nocapture noundef initializes((0, 4)) %2) unnamed_addr #7 {
+define internal fastcc range(i32 -9216, 1) i32 @x509_parse_int(ptr noundef captures(none) %0, i64 noundef range(i64 2, 5) %1, ptr noundef captures(none) initializes((0, 4)) %2) unnamed_addr #7 {
   store i32 0, ptr %2, align 4
   br label %4
 
@@ -1499,7 +1499,7 @@ define internal fastcc range(i32 -9216, 1) i32 @x509_parse_int(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 -9216, 1) i32 @x509_date_is_valid(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc range(i32 -9216, 1) i32 @x509_date_is_valid(ptr noundef readonly captures(none) %0) unnamed_addr #8 {
   %2 = load i32, ptr %0, align 4
   %or.cond = icmp ugt i32 %2, 9999
   br i1 %or.cond, label %26, label %3
@@ -1579,16 +1579,16 @@ declare i64 @time(ptr noundef) local_unnamed_addr #9
 declare ptr @mbedtls_platform_gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

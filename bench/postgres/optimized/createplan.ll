@@ -3753,7 +3753,7 @@ is_projection_capable_plan.exit.thread:           ; preds = %3, %is_projection_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @is_projection_capable_plan(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local zeroext i1 @is_projection_capable_plan(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   switch i32 %2, label %7 [
     i32 354, label %8
@@ -4099,7 +4099,7 @@ define dso_local noundef ptr @make_limit(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @is_projection_capable_path(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local zeroext i1 @is_projection_capable_path(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %15 [
@@ -6093,7 +6093,7 @@ create_gating_plan.exit:                          ; preds = %1086, %1089, %1093
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_projection_plan(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
+define internal fastcc ptr @create_projection_plan(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
   %4 = tail call fastcc zeroext i1 @use_physical_tlist(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -6239,7 +6239,7 @@ is_projection_capable_path.exit.thread:           ; preds = %22, %15, %15, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_minmaxagg_plan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_minmaxagg_plan(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -6372,7 +6372,7 @@ define internal fastcc noundef ptr @create_minmaxagg_plan(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_group_result_plan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_group_result_plan(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8
@@ -6417,7 +6417,7 @@ define internal fastcc noundef ptr @create_group_result_plan(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_upper_unique_plan(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_upper_unique_plan(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = or i32 %2, 4
@@ -6611,7 +6611,7 @@ make_unique_from_pathkeys.exit:                   ; preds = %.lr.ph, %78, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_unique_plan(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
+define internal fastcc ptr @create_unique_plan(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
   %4 = alloca %struct.Path, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -6890,7 +6890,7 @@ list_length.exit142:                              ; preds = %change_plan_targetl
   br i1 %138, label %.lr.ph226, label %._crit_edge219
 
 ._crit_edge219:                                   ; preds = %133, %.lr.ph218, %121
-  %139 = call fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef %1)
+  %139 = call fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef nonnull %1)
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %141 = load double, ptr %140, align 8
   %142 = call noundef ptr @palloc0(i64 noundef 184) #12
@@ -7125,7 +7125,7 @@ make_unique_from_sortclauses.exit:                ; preds = %.lr.ph47.i, %list_l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_groupingsets_plan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_groupingsets_plan(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -7610,7 +7610,7 @@ list_length.exit122:                              ; preds = %remap_groupColIdx.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_agg_plan(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_agg_plan(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @create_plan_recurse(ptr noundef %0, ptr noundef %4, i32 noundef 4)
@@ -7709,7 +7709,7 @@ list_length.exit:                                 ; preds = %2, %16
 declare ptr @list_concat_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @use_physical_tlist(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @use_physical_tlist(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 16) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = and i32 %2, 3
@@ -7929,7 +7929,7 @@ declare void @apply_pathtarget_labeling_to_tlist(ptr noundef, ptr noundef) local
 declare ptr @build_physical_tlist(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_path_tlist(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8023,7 +8023,7 @@ define internal fastcc ptr @build_path_tlist(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_indexscan_plan(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_indexscan_plan(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -8583,7 +8583,7 @@ declare ptr @extract_actual_clauses(ptr noundef, i1 noundef zeroext) local_unnam
 declare void @cost_qual_eval_node(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -8681,7 +8681,7 @@ declare i32 @get_opfamily_member(i32 noundef, i32 noundef, i32 noundef, i16 noun
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @fix_indexqual_clause(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @fix_indexqual_clause(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = tail call ptr @replace_nestloop_params_mutator(ptr noundef %3, ptr noundef %0)
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %56 [
@@ -8784,7 +8784,7 @@ define internal fastcc noundef ptr @fix_indexqual_clause(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fix_indexqual_operand(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @fix_indexqual_operand(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 25
   br i1 %5, label %6, label %9
@@ -8961,7 +8961,7 @@ declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @makeVar(i32 noundef, i16 noundef signext, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -9406,7 +9406,7 @@ declare ptr @list_difference(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @process_subquery_nestloop_params(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @bms_difference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -9504,7 +9504,7 @@ declare ptr @list_copy(ptr noundef) local_unnamed_addr #1
 declare void @CommuteOpExpr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly captures(none) %9) unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %1, null
@@ -9938,19 +9938,19 @@ declare zeroext i1 @has_stored_generated_columns(ptr noundef, i32 noundef) local
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9

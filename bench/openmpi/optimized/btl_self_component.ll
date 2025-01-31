@@ -205,7 +205,7 @@ define internal noundef i32 @mca_btl_self_component_register() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @mca_btl_self_component_init(ptr nocapture noundef writeonly %0, i1 zeroext %1, i1 zeroext %2) #0 {
+define internal noalias noundef ptr @mca_btl_self_component_init(ptr noundef writeonly captures(none) %0, i1 zeroext %1, i1 zeroext %2) #0 {
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_self, i64 8), align 8
   %5 = add i64 %4, 160
   %6 = load i32, ptr @opal_cache_line_size, align 4

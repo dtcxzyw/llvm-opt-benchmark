@@ -3322,7 +3322,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -3365,7 +3365,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
@@ -3886,7 +3886,7 @@ _ZNSt7__cxx1110_List_baseI10FileFormatSaIS1_EED2Ev.exit: ; preds = %.lr.ph.i.i, 
 declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5QListI7QStringE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4392,7 +4392,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeI10FileFormatEEED2Ev.exit: ; preds = %_Z
 declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16BaseMeshIOPluginC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16BaseMeshIOPluginC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4523,14 +4523,14 @@ define linkonce_odr void @_ZNK13MeshLabPlugin6vendorEv(ptr dead_on_unwind noalia
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16BaseMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
+define void @_ZNK16BaseMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.24, i32 noundef 6)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK16BaseMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define void @_ZTv0_n40_NK16BaseMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.24, i32 noundef 6), !noalias !13
   store ptr %3, ptr %0, align 8, !alias.scope !13
@@ -4538,7 +4538,7 @@ define void @_ZTv0_n40_NK16BaseMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16BaseMeshIOPlugin13importFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16BaseMeshIOPlugin13importFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [8 x %class.FileFormat], align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -5418,7 +5418,7 @@ _ZN7QStringD2Ev.exit222:                          ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK16BaseMeshIOPlugin13importFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture noundef readnone %1) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK16BaseMeshIOPlugin13importFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef readnone captures(none) %1) unnamed_addr #14 align 2 {
   tail call void @_ZNK16BaseMeshIOPlugin13importFormatsB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nonnull align 8 poison)
   ret void
 }
@@ -5426,7 +5426,7 @@ define void @_ZThn16_NK16BaseMeshIOPlugin13importFormatsB5cxx11Ev(ptr dead_on_un
 declare void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16BaseMeshIOPlugin13exportFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16BaseMeshIOPlugin13exportFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [6 x %class.FileFormat], align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -6098,13 +6098,13 @@ _ZN7QStringD2Ev.exit164:                          ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK16BaseMeshIOPlugin13exportFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture noundef readnone %1) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK16BaseMeshIOPlugin13exportFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef readnone captures(none) %1) unnamed_addr #14 align 2 {
   tail call void @_ZNK16BaseMeshIOPlugin13exportFormatsB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nonnull align 8 poison)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16BaseMeshIOPlugin18importImageFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16BaseMeshIOPlugin18importImageFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %0, ptr %3, align 8
   store ptr %0, ptr %0, align 8
@@ -6140,7 +6140,7 @@ _ZNSt7__cxx114listI10FileFormatSaIS1_EEC2ERKS3_.exit: ; preds = %.noexc.i, %2
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK16BaseMeshIOPlugin18importImageFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture noundef readnone %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_NK16BaseMeshIOPlugin18importImageFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef readnone captures(none) %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %0, ptr %3, align 8, !alias.scope !18
@@ -6177,7 +6177,7 @@ _ZNK16BaseMeshIOPlugin18importImageFormatsB5cxx11Ev.exit: ; preds = %.noexc.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16BaseMeshIOPlugin18exportImageFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16BaseMeshIOPlugin18exportImageFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %0, ptr %3, align 8
   store ptr %0, ptr %0, align 8
@@ -6213,7 +6213,7 @@ _ZNSt7__cxx114listI10FileFormatSaIS1_EEC2ERKS3_.exit: ; preds = %.noexc.i, %2
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK16BaseMeshIOPlugin18exportImageFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture noundef readnone %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_NK16BaseMeshIOPlugin18exportImageFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef readnone captures(none) %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %0, ptr %3, align 8, !alias.scope !21
@@ -6250,7 +6250,7 @@ _ZNK16BaseMeshIOPlugin18exportImageFormatsB5cxx11Ev.exit: ; preds = %.noexc.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16BaseMeshIOPlugin20importProjectFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16BaseMeshIOPlugin20importProjectFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [5 x %class.FileFormat], align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -6818,13 +6818,13 @@ _ZN7QStringD2Ev.exit136:                          ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK16BaseMeshIOPlugin20importProjectFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture noundef readnone %1) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK16BaseMeshIOPlugin20importProjectFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef readnone captures(none) %1) unnamed_addr #14 align 2 {
   tail call void @_ZNK16BaseMeshIOPlugin20importProjectFormatsB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nonnull align 8 poison)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16BaseMeshIOPlugin20exportProjectFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16BaseMeshIOPlugin20exportProjectFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [3 x %class.FileFormat], align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -7184,13 +7184,13 @@ _ZN7QStringD2Ev.exit80:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK16BaseMeshIOPlugin20exportProjectFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture noundef readnone %1) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK16BaseMeshIOPlugin20exportProjectFormatsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef readnone captures(none) %1) unnamed_addr #14 align 2 {
   tail call void @_ZNK16BaseMeshIOPlugin20exportProjectFormatsB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nonnull align 8 poison)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16BaseMeshIOPlugin20initPreOpenParameterERK7QString(ptr dead_on_unwind noalias nonnull writable sret(%class.RichParameterList) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16BaseMeshIOPlugin20initPreOpenParameterERK7QString(ptr dead_on_unwind noalias nonnull writable sret(%class.RichParameterList) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.RichInt, align 8
@@ -8599,7 +8599,7 @@ declare void @_ZN9RichFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(56))
 declare void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK16BaseMeshIOPlugin20initPreOpenParameterERK7QString(ptr dead_on_unwind noalias writable sret(%class.RichParameterList) align 8 %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK16BaseMeshIOPlugin20initPreOpenParameterERK7QString(ptr dead_on_unwind noalias writable sret(%class.RichParameterList) align 8 %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #14 align 2 {
   tail call void @_ZNK16BaseMeshIOPlugin20initPreOpenParameterERK7QString(ptr dead_on_unwind writable sret(%class.RichParameterList) align 8 %0, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %2)
   ret void
 }
@@ -23562,7 +23562,7 @@ define linkonce_odr void @_ZN3vcg3ply14PropDescriptorC2ENSt7__cxx1112basic_strin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #17 section ".text.startup" {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #17 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -23587,7 +23587,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.118(ptr nocapture readnone %0) #17 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.118(ptr readnone captures(none) %0) #17 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -30360,7 +30360,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 declare noundef i32 @_ZNK3vcg3ply7PlyFile10ElemNumberEi(ptr noundef nonnull align 8 dereferenceable(120), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef ptr @_ZN3vcg3ply7PlyFile8ElemNameEi(ptr noundef nonnull align 8 dereferenceable(120), i32 noundef) local_unnamed_addr #0
 
@@ -30518,7 +30518,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE9push_backEOi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #10 comdat align 2 {
@@ -30996,7 +30996,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit:        ; preds = %52, %49, %_ZNK3vcg4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.155(ptr nocapture readnone %0) #17 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.155(ptr readnone captures(none) %0) #17 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -31013,21 +31013,21 @@ define internal void @__cxx_global_array_dtor.155(ptr nocapture readnone %0) #17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.156(ptr nocapture readnone %0) #17 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.156(ptr readnone captures(none) %0) #17 section ".text.startup" {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI6CMeshOE12TristripDescEiE2qf, i64 32)) #33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN3vcg3tri2io11ImporterPLYI6CMeshOE12TristripDescEiE2qf) #33
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.157(ptr nocapture readnone %0) #17 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.157(ptr readnone captures(none) %0) #17 section ".text.startup" {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI6CMeshOE9RangeDescEiE11range_props, i64 32)) #33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN3vcg3tri2io11ImporterPLYI6CMeshOE9RangeDescEiE11range_props) #33
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.160(ptr nocapture readnone %0) #17 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.160(ptr readnone captures(none) %0) #17 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -32288,7 +32288,7 @@ _ZNSt12_Vector_baseI8CVertexOSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -35341,21 +35341,21 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ImporterSTLI6CMeshOE14Is
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #20
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #20
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ImporterSTLI6CMeshOE10OpenBinaryERS3_PKcRiPFbiS7_E(ptr noundef nonnull align 8 dereferenceable(1196) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -35770,10 +35770,10 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %65, %67
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #20
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
@@ -41083,7 +41083,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #12
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri2io11ImporterOBJI6CMeshOE14ObjIndexedFace3setERKi(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -44950,7 +44950,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(p
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #21
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #1
@@ -47599,10 +47599,10 @@ _ZN3vcg8Matrix44IfE6ImportIdEEvRKNS0_IT_EE.exit:  ; preds = %.loopexit631
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri12UpdateNormalI6CMeshOE17PerFaceNormalizedERS2_(ptr noundef nonnull align 8 dereferenceable(1196) %0) local_unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -67590,7 +67590,7 @@ _ZNSt12_Vector_baseIN3vcg3tri2io9DummyTypeILi1048576EEESaIS4_EE13_M_deallocateEP
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #24
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i32 } @_ZN3vcg3tri9AllocatorI6CMeshOE19AddPerFaceAttributeIcEENS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESE_SE_E22PerFaceAttributeHandleIT_EERS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1196) %0, ptr noundef %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -80142,7 +80142,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %.not199, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = call i64 @fwrite(ptr nonnull @.str.418, i64 2, i64 1, ptr %7)
+  %29 = call i64 @fwrite(ptr nonnull @.str.418, i64 2, i64 1, ptr nonnull %7)
   br label %30
 
 .loopexit:                                        ; preds = %.critedge.i
@@ -80166,7 +80166,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
-  %34 = call i64 @fwrite(ptr nonnull @.str.419, i64 13, i64 1, ptr %7)
+  %34 = call i64 @fwrite(ptr nonnull @.str.419, i64 13, i64 1, ptr nonnull %7)
   br label %35
 
 35:                                               ; preds = %33, %30
@@ -80179,7 +80179,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0149.0207, i64 16
   %43 = load float, ptr %42, align 4
   %44 = fpext float %43 to double
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.420, double noundef %38, double noundef %41, double noundef %44) #33
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.420, double noundef %38, double noundef %41, double noundef %44) #33
   store ptr %.sroa.0149.0207, ptr %6, align 8
   %46 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPK8CVertexOiSt4lessIS2_ESaISt4pairIKS2_iEEEixEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %47 unwind label %.loopexit.split-lp
@@ -80197,14 +80197,14 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %.not187, label %._crit_edge, label %.lr.ph, !llvm.loop !572
 
 ._crit_edge:                                      ; preds = %48, %9
-  %52 = call i64 @fwrite(ptr nonnull @.str.421, i64 23, i64 1, ptr %7)
+  %52 = call i64 @fwrite(ptr nonnull @.str.421, i64 23, i64 1, ptr nonnull %7)
   %53 = load i32, ptr %2, align 4
   %54 = and i32 %53, 4
   %.not = icmp eq i32 %54, 0
   br i1 %.not, label %94, label %55
 
 55:                                               ; preds = %._crit_edge
-  %56 = call i64 @fwrite(ptr nonnull @.str.422, i64 57, i64 1, ptr %7)
+  %56 = call i64 @fwrite(ptr nonnull @.str.422, i64 57, i64 1, ptr nonnull %7)
   %57 = load ptr, ptr %18, align 8
   %58 = load ptr, ptr %20, align 8
   %.not188209 = icmp eq ptr %57, %58
@@ -80226,7 +80226,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %.not190, label %67, label %65
 
 65:                                               ; preds = %63
-  %66 = call i64 @fwrite(ptr nonnull @.str.418, i64 2, i64 1, ptr %7)
+  %66 = call i64 @fwrite(ptr nonnull @.str.418, i64 2, i64 1, ptr nonnull %7)
   br label %67
 
 67:                                               ; preds = %65, %63
@@ -80247,14 +80247,14 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %67
-  %83 = call i64 @fwrite(ptr nonnull @.str.419, i64 13, i64 1, ptr %7)
+  %83 = call i64 @fwrite(ptr nonnull @.str.419, i64 13, i64 1, ptr nonnull %7)
   br label %84
 
 84:                                               ; preds = %82, %67
   %85 = fpext float %71 to double
   %86 = fpext float %75 to double
   %87 = fpext float %79 to double
-  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.420, double noundef %85, double noundef %86, double noundef %87) #33
+  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.420, double noundef %85, double noundef %86, double noundef %87) #33
   %.pre246 = load ptr, ptr %20, align 8
   br label %89
 
@@ -80266,7 +80266,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %.not188, label %._crit_edge214, label %.lr.ph213, !llvm.loop !573
 
 ._crit_edge214:                                   ; preds = %89, %55
-  %93 = call i64 @fwrite(ptr nonnull @.str.421, i64 23, i64 1, ptr %7)
+  %93 = call i64 @fwrite(ptr nonnull @.str.421, i64 23, i64 1, ptr nonnull %7)
   br label %159
 
 94:                                               ; preds = %._crit_edge
@@ -80279,7 +80279,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %or.cond.not, label %99, label %159
 
 99:                                               ; preds = %94
-  %100 = call i64 @fwrite(ptr nonnull @.str.428, i64 74, i64 1, ptr %7)
+  %100 = call i64 @fwrite(ptr nonnull @.str.428, i64 74, i64 1, ptr nonnull %7)
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -80303,7 +80303,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %109
-  %113 = call i64 @fwrite(ptr nonnull @.str.424, i64 11, i64 1, ptr %7)
+  %113 = call i64 @fwrite(ptr nonnull @.str.424, i64 11, i64 1, ptr nonnull %7)
   br label %114
 
 114:                                              ; preds = %112, %109
@@ -80326,7 +80326,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %129 = load float, ptr %128, align 4
   %130 = fpext float %129 to double
-  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.429, double noundef %127, double noundef %130) #33
+  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.429, double noundef %127, double noundef %130) #33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit200.loopexit, label %116, !llvm.loop !574
@@ -80343,7 +80343,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %.not191, label %._crit_edge221, label %.lr.ph220, !llvm.loop !575
 
 ._crit_edge221:                                   ; preds = %.loopexit200, %99
-  %135 = call i64 @fwrite(ptr nonnull @.str.430, i64 55, i64 1, ptr %7)
+  %135 = call i64 @fwrite(ptr nonnull @.str.430, i64 55, i64 1, ptr nonnull %7)
   %136 = load ptr, ptr %101, align 8
   %137 = load ptr, ptr %103, align 8
   %.not192224 = icmp eq ptr %136, %137
@@ -80366,7 +80366,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %142
-  %146 = call i64 @fwrite(ptr nonnull @.str.424, i64 11, i64 1, ptr %7)
+  %146 = call i64 @fwrite(ptr nonnull @.str.424, i64 11, i64 1, ptr nonnull %7)
   br label %147
 
 147:                                              ; preds = %145, %142
@@ -80376,12 +80376,12 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
 149:                                              ; preds = %147, %149
   %.1124222 = phi i32 [ %.0123226, %147 ], [ %150, %149 ]
   %150 = add i32 %.1124222, 1
-  %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.387, i32 noundef %.1124222) #33
+  %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.387, i32 noundef %.1124222) #33
   %exitcond241.not = icmp eq i32 %150, %148
   br i1 %exitcond241.not, label %152, label %149, !llvm.loop !576
 
 152:                                              ; preds = %149
-  %153 = call i64 @fwrite(ptr nonnull @.str.431, i64 3, i64 1, ptr %7)
+  %153 = call i64 @fwrite(ptr nonnull @.str.431, i64 3, i64 1, ptr nonnull %7)
   %.pre248 = load ptr, ptr %103, align 8
   br label %154
 
@@ -80394,11 +80394,11 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %.not192, label %._crit_edge230, label %.lr.ph229, !llvm.loop !577
 
 ._crit_edge230:                                   ; preds = %154, %._crit_edge221
-  %158 = call i64 @fwrite(ptr nonnull @.str.432, i64 11, i64 1, ptr %7)
+  %158 = call i64 @fwrite(ptr nonnull @.str.432, i64 11, i64 1, ptr nonnull %7)
   br label %159
 
 159:                                              ; preds = %._crit_edge230, %94, %._crit_edge214
-  %160 = call i64 @fwrite(ptr nonnull @.str.433, i64 28, i64 1, ptr %7)
+  %160 = call i64 @fwrite(ptr nonnull @.str.433, i64 28, i64 1, ptr nonnull %7)
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -80422,7 +80422,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %.not197, label %173, label %171
 
 171:                                              ; preds = %169
-  %172 = call i64 @fwrite(ptr nonnull @.str.418, i64 2, i64 1, ptr %7)
+  %172 = call i64 @fwrite(ptr nonnull @.str.418, i64 2, i64 1, ptr nonnull %7)
   br label %173
 
 173:                                              ; preds = %171, %169
@@ -80431,7 +80431,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterWRLI6CMeshOE4SaveERKS3_
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %173
-  %177 = call i64 @fwrite(ptr nonnull @.str.424, i64 11, i64 1, ptr %7)
+  %177 = call i64 @fwrite(ptr nonnull @.str.424, i64 11, i64 1, ptr nonnull %7)
   br label %178
 
 178:                                              ; preds = %176, %173
@@ -80524,13 +80524,13 @@ _ZNSt8_Rb_treeIPK8CVertexOSt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE1
   %.sroa.07.0.i = phi ptr [ %.19.i.i.i.i, %188 ], [ %191, %.thread.i.i ], [ %196, %209 ]
   %211 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 40
   %212 = load i32, ptr %211, align 4
-  %213 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.434, i32 noundef %212) #33
+  %213 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.434, i32 noundef %212) #33
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next243, 3
   br i1 %exitcond245.not, label %214, label %180, !llvm.loop !579
 
 214:                                              ; preds = %210
-  %215 = call i64 @fwrite(ptr nonnull @.str.426, i64 2, i64 1, ptr %7)
+  %215 = call i64 @fwrite(ptr nonnull @.str.426, i64 2, i64 1, ptr nonnull %7)
   %.pre249 = load ptr, ptr %163, align 8
   br label %216
 
@@ -80542,7 +80542,7 @@ _ZNSt8_Rb_treeIPK8CVertexOSt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE1
   br i1 %.not195, label %._crit_edge237, label %.lr.ph236, !llvm.loop !580
 
 ._crit_edge237:                                   ; preds = %216, %159
-  %220 = call i64 @fwrite(ptr nonnull @.str.435, i64 215, i64 1, ptr %7)
+  %220 = call i64 @fwrite(ptr nonnull @.str.435, i64 215, i64 1, ptr nonnull %7)
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %223 = load ptr, ptr %222, align 8
@@ -80552,15 +80552,15 @@ _ZNSt8_Rb_treeIPK8CVertexOSt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE1
 
 225:                                              ; preds = %._crit_edge237
   %226 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %224) #33
-  %227 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.436, ptr noundef %226) #33
+  %227 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.436, ptr noundef %226) #33
   br label %228
 
 228:                                              ; preds = %225, %._crit_edge237
-  %229 = call i64 @fwrite(ptr nonnull @.str.437, i64 20, i64 1, ptr %7)
-  %230 = call i32 @ferror(ptr noundef %7) #33
+  %229 = call i64 @fwrite(ptr nonnull @.str.437, i64 20, i64 1, ptr nonnull %7)
+  %230 = call i32 @ferror(ptr noundef nonnull %7) #33
   %.not134 = icmp eq i32 %230, 0
   %spec.store.select = select i1 %.not134, i32 0, i32 2
-  %231 = call i32 @fclose(ptr noundef %7)
+  %231 = call i32 @fclose(ptr noundef nonnull %7)
   %232 = load ptr, ptr %14, align 8
   invoke void @_ZNSt8_Rb_treeIPK8CVertexOSt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %232)
           to label %_ZNSt3mapIPK8CVertexOiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit unwind label %233
@@ -80714,7 +80714,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterOFFI6CMeshOE4SaveERS3_P
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0148, i64 16
   %49 = load float, ptr %48, align 4
   %50 = fpext float %49 to double
-  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.386, i32 noundef 7, double noundef %44, i32 noundef 7, double noundef %47, i32 noundef 7, double noundef %50) #33
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.386, i32 noundef 7, double noundef %44, i32 noundef 7, double noundef %47, i32 noundef 7, double noundef %50) #33
   br i1 %.not71, label %66, label %52
 
 52:                                               ; preds = %41
@@ -80730,7 +80730,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterOFFI6CMeshOE4SaveERS3_P
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0148, i64 43
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.388, i32 noundef %55, i32 noundef %58, i32 noundef %61, i32 noundef %64) #33
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.388, i32 noundef %55, i32 noundef %58, i32 noundef %61, i32 noundef %64) #33
   br label %66
 
 66:                                               ; preds = %52, %41
@@ -80746,7 +80746,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterOFFI6CMeshOE4SaveERS3_P
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0148, i64 32
   %75 = load float, ptr %74, align 4
   %76 = fpext float %75 to double
-  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.400, double noundef %70, double noundef %73, double noundef %76) #33
+  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.400, double noundef %70, double noundef %73, double noundef %76) #33
   br label %78
 
 78:                                               ; preds = %67, %66
@@ -80773,11 +80773,11 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterOFFI6CMeshOE4SaveERS3_P
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %95 = load float, ptr %94, align 4
   %96 = fpext float %95 to double
-  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.429, double noundef %93, double noundef %96) #33
+  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.429, double noundef %93, double noundef %96) #33
   br label %98
 
 98:                                               ; preds = %81, %78
-  %fputc83 = tail call i32 @fputc(i32 10, ptr %6)
+  %fputc83 = tail call i32 @fputc(i32 10, ptr nonnull %6)
   %.pre = load ptr, ptr %35, align 8
   br label %99
 
@@ -80906,7 +80906,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEEEv
   %146 = sub i64 %144, %145
   %147 = lshr exact i64 %146, 3
   %148 = trunc i64 %147 to i32
-  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.387, i32 noundef %148) #33
+  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.387, i32 noundef %148) #33
   %150 = load ptr, ptr %116, align 8
   %151 = load ptr, ptr %5, align 8
   %.not165 = icmp eq ptr %150, %151
@@ -80922,7 +80922,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEEEv
   %157 = ptrtoint ptr %155 to i64
   %158 = sub i64 %156, %157
   %159 = sdiv exact i64 %158, 48
-  %160 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.444, i64 noundef %159) #33
+  %160 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.444, i64 noundef %159) #33
   %161 = add nuw i64 %.068150, 1
   %162 = load ptr, ptr %116, align 8
   %163 = load ptr, ptr %5, align 8
@@ -80969,11 +80969,11 @@ _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit:         ; preds = %.body, %170
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 2
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i32
-  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.445, i32 noundef %184, i32 noundef %187, i32 noundef %190) #33
+  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.445, i32 noundef %184, i32 noundef %187, i32 noundef %190) #33
   br label %192
 
 192:                                              ; preds = %173, %._crit_edge153
-  %fputc79 = call i32 @fputc(i32 10, ptr %6)
+  %fputc79 = call i32 @fputc(i32 10, ptr nonnull %6)
   br label %193
 
 193:                                              ; preds = %119, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit, %192
@@ -81015,7 +81015,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit:         ; preds = %.body, %170
   br i1 %.not145, label %209, label %244
 
 209:                                              ; preds = %204
-  %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.393, i32 noundef 3) #33
+  %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.393, i32 noundef 3) #33
   %211 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0161, i64 8
   br label %212
 
@@ -81028,7 +81028,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit:         ; preds = %.body, %170
   %217 = ptrtoint ptr %215 to i64
   %218 = sub i64 %216, %217
   %219 = sdiv exact i64 %218, 48
-  %220 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.444, i64 noundef %219) #33
+  %220 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.444, i64 noundef %219) #33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %221, label %212, !llvm.loop !586
@@ -81057,11 +81057,11 @@ _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit:         ; preds = %.body, %170
   %239 = getelementptr inbounds nuw i8, ptr %233, i64 2
   %240 = load i8, ptr %239, align 1
   %241 = zext i8 %240 to i32
-  %242 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.445, i32 noundef %235, i32 noundef %238, i32 noundef %241) #33
+  %242 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.445, i32 noundef %235, i32 noundef %238, i32 noundef %241) #33
   br label %243
 
 243:                                              ; preds = %224, %221
-  %fputc76 = tail call i32 @fputc(i32 10, ptr %6)
+  %fputc76 = tail call i32 @fputc(i32 10, ptr nonnull %6)
   %.pre171 = load ptr, ptr %200, align 8
   br label %244
 
@@ -81072,10 +81072,10 @@ _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit:         ; preds = %.body, %170
   br i1 %.not144, label %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit102, label %204, !llvm.loop !587
 
 _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit102:      ; preds = %244, %102, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit, %197, %196, %._crit_edge158
-  %247 = call i32 @ferror(ptr noundef %6) #33
+  %247 = call i32 @ferror(ptr noundef nonnull %6) #33
   %.not77 = icmp eq i32 %247, 0
   %spec.store.select = select i1 %.not77, i32 0, i32 2
-  %248 = call i32 @fclose(ptr noundef %6)
+  %248 = call i32 @fclose(ptr noundef nonnull %6)
   br label %249
 
 249:                                              ; preds = %3, %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit102
@@ -83491,14 +83491,14 @@ _ZNSt6vectorIN3vcg3ply14PropDescriptorESaIS2_EE9push_backERKS2_.exit: ; preds = 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #20
 
 declare noundef ptr @_ZNK3vcg3ply14PropDescriptor11stotypenameEv(ptr noundef nonnull align 8 dereferenceable(108)) local_unnamed_addr #0
 
 declare noundef ptr @_ZNK3vcg3ply14PropDescriptor12stotype2nameEv(ptr noundef nonnull align 8 dereferenceable(108)) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i32 } @_ZN3vcg3tri9AllocatorI6CMeshOE22FindPerVertexAttributeIfEENS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESE_SE_E29ConstPerVertexAttributeHandleIT_EERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1196) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -84413,7 +84413,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNKSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -84549,7 +84549,7 @@ _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %21
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #26
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPK8CVertexOiSt4lessIS2_ESaISt4pairIKS2_iEEEixEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -93881,39 +93881,39 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ExporterDXFI6CMeshOE8Sav
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.485, i64 2, i64 1, ptr %3)
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.506, i64 5, i64 1, ptr %3)
-  %23 = tail call i64 @fwrite(ptr nonnull @.str.490, i64 2, i64 1, ptr %3)
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.485, i64 2, i64 1, ptr %3)
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.491, i64 3, i64 1, ptr %3)
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.485, i64 2, i64 1, ptr nonnull %3)
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.506, i64 5, i64 1, ptr nonnull %3)
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.490, i64 2, i64 1, ptr nonnull %3)
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.485, i64 2, i64 1, ptr nonnull %3)
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.491, i64 3, i64 1, ptr nonnull %3)
   %26 = fpext float %.sroa.032.0.copyload to double
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.492, double noundef %26) #33
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.493, i64 3, i64 1, ptr %3)
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.492, double noundef %26) #33
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.493, i64 3, i64 1, ptr nonnull %3)
   %29 = fpext float %.sroa.233.0.copyload to double
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.492, double noundef %29) #33
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.494, i64 3, i64 1, ptr %3)
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.492, double noundef %29) #33
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.494, i64 3, i64 1, ptr nonnull %3)
   %32 = fpext float %.sroa.334.0.copyload to double
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.492, double noundef %32) #33
-  %34 = tail call i64 @fwrite(ptr nonnull @.str.495, i64 3, i64 1, ptr %3)
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.492, double noundef %32) #33
+  %34 = tail call i64 @fwrite(ptr nonnull @.str.495, i64 3, i64 1, ptr nonnull %3)
   %35 = fpext float %.sroa.0.0.copyload to double
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.492, double noundef %35) #33
-  %37 = tail call i64 @fwrite(ptr nonnull @.str.496, i64 3, i64 1, ptr %3)
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.492, double noundef %35) #33
+  %37 = tail call i64 @fwrite(ptr nonnull @.str.496, i64 3, i64 1, ptr nonnull %3)
   %38 = fpext float %.sroa.2.0.copyload to double
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.492, double noundef %38) #33
-  %40 = tail call i64 @fwrite(ptr nonnull @.str.497, i64 3, i64 1, ptr %3)
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.492, double noundef %38) #33
+  %40 = tail call i64 @fwrite(ptr nonnull @.str.497, i64 3, i64 1, ptr nonnull %3)
   %41 = fpext float %.sroa.3.0.copyload to double
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.492, double noundef %41) #33
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.492, double noundef %41) #33
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.036.041, i64 48
   %44 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %43, %44
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !682
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %45 = tail call i64 @fwrite(ptr nonnull @.str.485, i64 2, i64 1, ptr %3)
-  %46 = tail call i64 @fwrite(ptr nonnull @.str.504, i64 7, i64 1, ptr %3)
-  %47 = tail call i64 @fwrite(ptr nonnull @.str.485, i64 2, i64 1, ptr %3)
-  %48 = tail call i64 @fwrite(ptr nonnull @.str.505, i64 4, i64 1, ptr %3)
-  %49 = tail call i32 @fclose(ptr noundef %3)
+  %45 = tail call i64 @fwrite(ptr nonnull @.str.485, i64 2, i64 1, ptr nonnull %3)
+  %46 = tail call i64 @fwrite(ptr nonnull @.str.504, i64 7, i64 1, ptr nonnull %3)
+  %47 = tail call i64 @fwrite(ptr nonnull @.str.485, i64 2, i64 1, ptr nonnull %3)
+  %48 = tail call i64 @fwrite(ptr nonnull @.str.505, i64 4, i64 1, ptr nonnull %3)
+  %49 = tail call i32 @fclose(ptr noundef nonnull %3)
   br label %50
 
 50:                                               ; preds = %2, %._crit_edge
@@ -94644,7 +94644,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt4pairIiiES0_IKS1_iESt10_Select1stIS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16BaseMeshIOPlugin9openImageERK7QStringS2_PFbiPKcE(ptr dead_on_unwind noalias nonnull writable sret(%class.QImage) align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture readnone %4) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16BaseMeshIOPlugin9openImageERK7QStringS2_PFbiPKcE(ptr dead_on_unwind noalias nonnull writable sret(%class.QImage) align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr readnone captures(none) %4) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QImage, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -95028,7 +95028,7 @@ _ZN7QStringD2Ev.exit55:                           ; preds = %_ZN7QStringD2Ev.exi
 declare void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16BaseMeshIOPlugin7loadTgaEPKc(ptr dead_on_unwind noalias nonnull writable sret(%class.QImage) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16BaseMeshIOPlugin7loadTgaEPKc(ptr dead_on_unwind noalias nonnull writable sret(%class.QImage) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %"class.std::basic_fstream", align 8
   %6 = alloca %class.QString, align 8
@@ -95633,7 +95633,7 @@ _ZN7QStringpLERKS_.exit:                          ; preds = %_ZN7QString8fromUtf
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N16BaseMeshIOPlugin9openImageERK7QStringS2_PFbiPKcE(ptr dead_on_unwind noalias writable sret(%class.QImage) align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef readnone %4) unnamed_addr #14 align 2 {
+define void @_ZThn16_N16BaseMeshIOPlugin9openImageERK7QStringS2_PFbiPKcE(ptr dead_on_unwind noalias writable sret(%class.QImage) align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #14 align 2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZN16BaseMeshIOPlugin9openImageERK7QStringS2_PFbiPKcE(ptr dead_on_unwind writable sret(%class.QImage) align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr poison)
   ret void
@@ -95646,7 +95646,7 @@ declare void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind writable sret
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16BaseMeshIOPlugin9saveImageERK7QStringS2_RK6QImageiPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, ptr nocapture readnone %5) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16BaseMeshIOPlugin9saveImageERK7QStringS2_RK6QImageiPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, ptr readnone captures(none) %5) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QString, align 8
@@ -95805,14 +95805,14 @@ _ZN7QStringD2Ev.exit29:                           ; preds = %_ZN7QStringD2Ev.exi
 declare noundef zeroext i1 @_ZNK6QImage4saveERK7QStringPKci(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N16BaseMeshIOPlugin9saveImageERK7QStringS2_RK6QImageiPFbiPKcE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, ptr nocapture noundef readnone %5) unnamed_addr #14 align 2 {
+define void @_ZThn16_N16BaseMeshIOPlugin9saveImageERK7QStringS2_RK6QImageiPFbiPKcE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, ptr noundef readnone captures(none) %5) unnamed_addr #14 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN16BaseMeshIOPlugin9saveImageERK7QStringS2_RK6QImageiPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, ptr poison)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16BaseMeshIOPlugin34projectFileRequiresAdditionalFilesB5cxx11ERK7QStringS2_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16BaseMeshIOPlugin34projectFileRequiresAdditionalFilesB5cxx11ERK7QStringS2_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca [1 x %class.FileFormat], align 8
   %7 = alloca %class.QString, align 8
@@ -95983,13 +95983,13 @@ _ZN7QStringD2Ev.exit29:                           ; preds = %_ZN9QtPrivate8RefCo
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N16BaseMeshIOPlugin34projectFileRequiresAdditionalFilesB5cxx11ERK7QStringS2_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %3) unnamed_addr #14 align 2 {
+define void @_ZThn16_N16BaseMeshIOPlugin34projectFileRequiresAdditionalFilesB5cxx11ERK7QStringS2_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %3) unnamed_addr #14 align 2 {
   tail call void @_ZN16BaseMeshIOPlugin34projectFileRequiresAdditionalFilesB5cxx11ERK7QStringS2_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nonnull align 8 poison)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16BaseMeshIOPlugin11openProjectERK7QStringRK11QStringListR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS9_EEPFbiPKcE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.1209") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16BaseMeshIOPlugin11openProjectERK7QStringRK11QStringListR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS9_EEPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.1209") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QString, align 8
   %10 = alloca %"class.std::vector.1209", align 8
@@ -97173,7 +97173,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringpLERKS_.
 declare void @_ZN7QString6numberEmi(ptr dead_on_unwind writable sret(%class.QString) align 8, i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N16BaseMeshIOPlugin11openProjectERK7QStringRK11QStringListR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS9_EEPFbiPKcE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.1209") align 8 initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #14 align 2 {
+define void @_ZThn16_N16BaseMeshIOPlugin11openProjectERK7QStringRK11QStringListR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS9_EEPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.1209") align 8 captures(none) initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #14 align 2 {
   %8 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZN16BaseMeshIOPlugin11openProjectERK7QStringRK11QStringListR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS9_EEPFbiPKcE(ptr dead_on_unwind writable sret(%"class.std::vector.1209") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
   ret void
@@ -97349,7 +97349,7 @@ define void @_ZThn16_N16BaseMeshIOPlugin11saveProjectERK7QStringS2_RK12MeshDocum
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16BaseMeshIOPlugin20exportMaskCapabilityERK7QStringRiS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16BaseMeshIOPlugin20exportMaskCapabilityERK7QStringRiS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -97750,13 +97750,13 @@ _ZN7QStringD2Ev.exit96:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK16BaseMeshIOPlugin20exportMaskCapabilityERK7QStringRiS3_(ptr nocapture noundef readnone %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK16BaseMeshIOPlugin20exportMaskCapabilityERK7QStringRiS3_(ptr noundef readnone captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #14 align 2 {
   tail call void @_ZNK16BaseMeshIOPlugin20exportMaskCapabilityERK7QStringRiS3_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16BaseMeshIOPlugin17initSaveParameterERK7QStringRK9MeshModel(ptr dead_on_unwind noalias nonnull writable sret(%class.RichParameterList) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(1288) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16BaseMeshIOPlugin17initSaveParameterERK7QStringRK9MeshModel(ptr dead_on_unwind noalias nonnull writable sret(%class.RichParameterList) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(1288) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -99808,7 +99808,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK16BaseMeshIOPlugin17initSaveParameterERK7QStringRK9MeshModel(ptr dead_on_unwind noalias writable sret(%class.RichParameterList) align 8 %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(1288) %3) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK16BaseMeshIOPlugin17initSaveParameterERK7QStringRK9MeshModel(ptr dead_on_unwind noalias writable sret(%class.RichParameterList) align 8 %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(1288) %3) unnamed_addr #14 align 2 {
   tail call void @_ZNK16BaseMeshIOPlugin17initSaveParameterERK7QStringRK9MeshModel(ptr dead_on_unwind writable sret(%class.RichParameterList) align 8 %0, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(1288) %3)
   ret void
 }
@@ -103867,10 +103867,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 declare void @llvm.assume(i1 noundef) #28
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #29
@@ -103882,13 +103882,13 @@ declare i64 @llvm.umax.i64(i64, i64) #29
 declare i64 @llvm.umin.i64(i64, i64) #29
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #29

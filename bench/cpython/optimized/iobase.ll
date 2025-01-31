@@ -955,7 +955,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PyExc_NotImplementedError = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_PyIOBase_check_closed(ptr noundef %self, ptr nocapture readnone %args) #0 {
+define hidden noundef ptr @_PyIOBase_check_closed(ptr noundef %self, ptr readnone captures(none) %args) #0 {
 entry:
   %res.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
@@ -1006,7 +1006,7 @@ iobase_check_closed.exit:                         ; preds = %entry, %Py_DECREF.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @_PyIOBase_cannot_pickle(ptr nocapture noundef readonly %self, ptr nocapture noundef readnone %args) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @_PyIOBase_cannot_pickle(ptr noundef readonly captures(none) %self, ptr noundef readnone captures(none) %args) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @PyExc_TypeError, align 8
   %1 = getelementptr i8, ptr %self, i64 8
@@ -1045,7 +1045,7 @@ declare i32 @PyObject_CallFinalizerFromDealloc(ptr noundef) local_unnamed_addr #
 declare void @PyObject_CallFinalizer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_PyIOBase_check_seekable(ptr nocapture noundef readonly %state, ptr noundef %self, ptr noundef readnone %args) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyIOBase_check_seekable(ptr noundef readonly captures(none) %state, ptr noundef %self, ptr noundef readnone %args) local_unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
@@ -1107,7 +1107,7 @@ return:                                           ; preds = %if.end7, %if.then9,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_PyIOBase_check_readable(ptr nocapture noundef readonly %state, ptr noundef %self, ptr noundef readnone %args) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyIOBase_check_readable(ptr noundef readonly captures(none) %state, ptr noundef %self, ptr noundef readnone %args) local_unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
@@ -1169,7 +1169,7 @@ return:                                           ; preds = %if.end7, %if.then9,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_PyIOBase_check_writable(ptr nocapture noundef readonly %state, ptr noundef %self, ptr noundef readnone %args) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyIOBase_check_writable(ptr noundef readonly captures(none) %state, ptr noundef %self, ptr noundef readnone %args) local_unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
@@ -1351,7 +1351,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @iobase_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @iobase_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val8 = load ptr, ptr %0, align 8
@@ -1383,7 +1383,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @iobase_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @iobase_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %dict = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %dict, align 8
@@ -1598,7 +1598,7 @@ declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #1
 declare i64 @PyObject_Size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_io__IOBase_seek(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noalias noundef ptr @_io__IOBase_seek(ptr readnone captures(none) %self, ptr noundef readonly captures(none) %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -1657,14 +1657,14 @@ exit:                                             ; preds = %land.lhs.true19, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io__IOBase_tell(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_io__IOBase_tell(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57384), ptr noundef nonnull @.str.27, i32 noundef 0, i32 noundef 1) #6
   ret ptr %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_io__IOBase_truncate(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noalias noundef ptr @_io__IOBase_truncate(ptr readnone captures(none) %self, ptr noundef readonly captures(none) %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -1694,7 +1694,7 @@ exit:                                             ; preds = %cond.end, %skip_opt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io__IOBase_flush(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io__IOBase_flush(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i.i = tail call i32 @PyObject_HasAttrWithError(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26328)) #6
   %tobool.not.i = icmp eq i32 %call.i.i, 0
@@ -1715,7 +1715,7 @@ _io__IOBase_flush_impl.exit:                      ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io__IOBase_close(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_io__IOBase_close(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i.i = tail call i32 @PyObject_HasAttrWithError(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26328)) #6
   %cmp.i = icmp slt i32 %call.i.i, 0
@@ -1742,19 +1742,19 @@ _io__IOBase_close_impl.exit:                      ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_io__IOBase_seekable(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #2 {
+define internal noundef nonnull ptr @_io__IOBase_seekable(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #2 {
 entry:
   ret ptr @_Py_FalseStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_io__IOBase_readable(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #2 {
+define internal noundef nonnull ptr @_io__IOBase_readable(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #2 {
 entry:
   ret ptr @_Py_FalseStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_io__IOBase_writable(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #2 {
+define internal noundef nonnull ptr @_io__IOBase_writable(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #2 {
 entry:
   ret ptr @_Py_FalseStruct
 }
@@ -1961,7 +1961,7 @@ _PyIOBase_check_writable.exit:                    ; preds = %entry, %do.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_io__IOBase_fileno(ptr nocapture readnone %self, ptr nocapture noundef readonly %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal noalias noundef ptr @_io__IOBase_fileno(ptr readnone captures(none) %self, ptr noundef readonly captures(none) %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1986,7 +1986,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io__IOBase_isatty(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io__IOBase_isatty(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %res.i.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i.i)
@@ -2037,7 +2037,7 @@ _io__IOBase_isatty_impl.exit:                     ; preds = %iobase_check_closed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @iobase_enter(ptr noundef %self, ptr nocapture readnone %args) #0 {
+define internal noundef ptr @iobase_enter(ptr noundef %self, ptr readnone captures(none) %args) #0 {
 entry:
   %res.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
@@ -2096,7 +2096,7 @@ return:                                           ; preds = %if.end.i.i3, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iobase_exit(ptr noundef %self, ptr nocapture readnone %args) #0 {
+define internal ptr @iobase_exit(ptr noundef %self, ptr readnone captures(none) %args) #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
@@ -2107,7 +2107,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io__IOBase_readline(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io__IOBase_readline(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %peek.i = alloca ptr, align 8
   %limit = alloca i64, align 8
@@ -2503,7 +2503,7 @@ exit:                                             ; preds = %if.end4, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io__IOBase_readlines(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io__IOBase_readlines(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %hint = alloca i64, align 8
   store i64 -1, ptr %hint, align 8
@@ -2876,7 +2876,7 @@ declare i32 @_PyIO_trap_eintr() local_unnamed_addr #1
 declare i32 @PyByteArray_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2893,7 +2893,7 @@ declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_GenericGetDict(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iobase_closed_get(ptr noundef %self, ptr nocapture readnone %context) #0 {
+define internal ptr @iobase_closed_get(ptr noundef %self, ptr readnone captures(none) %context) #0 {
 entry:
   %call.i = tail call i32 @PyObject_HasAttrWithError(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26328)) #6
   %cmp = icmp slt i32 %call.i, 0
@@ -2918,7 +2918,7 @@ declare void @PyErr_WriteUnraisable(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io__RawIOBase_read(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io__RawIOBase_read(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %self.addr.i.i = alloca ptr, align 8
   %or.cond = icmp ult i64 %nargs, 2
@@ -3071,7 +3071,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io__RawIOBase_readall(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_io__RawIOBase_readall(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyList_New(i64 noundef 0) #6
   %cmp.i = icmp eq ptr %call.i, null
@@ -3272,7 +3272,7 @@ _io__RawIOBase_readall_impl.exit:                 ; preds = %entry, %if.end6.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @rawiobase_readinto(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
+define internal noalias noundef ptr @rawiobase_readinto(ptr readnone captures(none) %self, ptr readnone captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_NotImplementedError, align 8
   tail call void @PyErr_SetNone(ptr noundef %0) #6
@@ -3280,7 +3280,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @rawiobase_write(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
+define internal noalias noundef ptr @rawiobase_write(ptr readnone captures(none) %self, ptr readnone captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_NotImplementedError, align 8
   tail call void @PyErr_SetNone(ptr noundef %0) #6
@@ -3300,10 +3300,10 @@ declare ptr @_PyBytes_Join(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @PyErr_SetNone(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

@@ -71,7 +71,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5C__json_write_remove_entry_log_msg = private unnamed_addr constant [37 x i8] c"H5C__json_write_remove_entry_log_msg\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C__log_json_set_up(ptr nocapture noundef writeonly initializes((8, 24)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5C__log_json_set_up(ptr noundef writeonly captures(none) initializes((8, 24)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @H5C_json_log_class_g, ptr %4, align 8
   %5 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #8
@@ -111,11 +111,11 @@ define range(i32 -1, 1) i32 @H5C__log_json_set_up(ptr nocapture noundef writeonl
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %19, i64 noundef %18, ptr noundef nonnull @.str.3, ptr noundef %1) #9
+  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %19, i64 noundef %18, ptr noundef nonnull @.str.3, ptr noundef nonnull %1) #9
   br label %31
 
 29:                                               ; preds = %25
-  %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %19, i64 noundef %18, ptr noundef nonnull @.str.4, i32 noundef %2, ptr noundef %1) #9
+  %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %19, i64 noundef %18, ptr noundef nonnull @.str.4, i32 noundef %2, ptr noundef nonnull %1) #9
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -170,21 +170,21 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare void @setbuf(ptr nocapture noundef, ptr noundef) local_unnamed_addr #4
+declare void @setbuf(ptr noundef captures(none), ptr noundef) local_unnamed_addr #4
 
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_tear_down_logging(ptr nocapture noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_tear_down_logging(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -214,7 +214,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_tear_down_logging(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_start_log_msg(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_start_log_msg(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @time(ptr noundef null) #9
@@ -223,7 +223,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_start_log_msg(ptr nocaptur
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
   %8 = trunc i64 %7 to i32
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %6) #9
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #9
   %.not.i = icmp eq i32 %10, %8
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %12
 
@@ -247,7 +247,7 @@ H5C__json_write_log_message.exit:                 ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_stop_log_msg(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_stop_log_msg(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @time(ptr noundef null) #9
@@ -256,7 +256,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_stop_log_msg(ptr nocapture
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
   %8 = trunc i64 %7 to i32
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %6) #9
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #9
   %.not.i = icmp eq i32 %10, %8
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %12
 
@@ -280,7 +280,7 @@ H5C__json_write_log_message.exit:                 ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_create_cache_log_msg(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_create_cache_log_msg(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @time(ptr noundef null) #9
@@ -289,7 +289,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_create_cache_log_msg(ptr n
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
   %9 = trunc i64 %8 to i32
   %10 = load ptr, ptr %0, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.3, ptr noundef %7) #9
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #9
   %.not.i = icmp eq i32 %11, %9
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %13
 
@@ -313,7 +313,7 @@ H5C__json_write_log_message.exit:                 ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_destroy_cache_log_msg(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_destroy_cache_log_msg(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @time(ptr noundef null) #9
@@ -322,7 +322,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_destroy_cache_log_msg(ptr 
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
   %8 = trunc i64 %7 to i32
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %6) #9
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #9
   %.not.i = icmp eq i32 %10, %8
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %12
 
@@ -346,7 +346,7 @@ H5C__json_write_log_message.exit:                 ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_evict_cache_log_msg(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_evict_cache_log_msg(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @time(ptr noundef null) #9
@@ -355,7 +355,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_evict_cache_log_msg(ptr no
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
   %9 = trunc i64 %8 to i32
   %10 = load ptr, ptr %0, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.3, ptr noundef %7) #9
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #9
   %.not.i = icmp eq i32 %11, %9
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %13
 
@@ -379,7 +379,7 @@ H5C__json_write_log_message.exit:                 ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_expunge_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_expunge_entry_log_msg(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @time(ptr noundef null) #9
@@ -388,7 +388,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_expunge_entry_log_msg(ptr 
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %9) #9
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #9
   %.not.i = icmp eq i32 %13, %11
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %15
 
@@ -412,7 +412,7 @@ H5C__json_write_log_message.exit:                 ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_flush_cache_log_msg(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_flush_cache_log_msg(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @time(ptr noundef null) #9
@@ -421,7 +421,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_flush_cache_log_msg(ptr no
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
   %9 = trunc i64 %8 to i32
   %10 = load ptr, ptr %0, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.3, ptr noundef %7) #9
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #9
   %.not.i = icmp eq i32 %11, %9
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %13
 
@@ -445,7 +445,7 @@ H5C__json_write_log_message.exit:                 ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_insert_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_insert_entry_log_msg(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @time(ptr noundef null) #9
@@ -455,7 +455,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_insert_entry_log_msg(ptr n
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #10
   %14 = trunc i64 %13 to i32
   %15 = load ptr, ptr %0, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.3, ptr noundef %12) #9
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.3, ptr noundef nonnull %12) #9
   %.not.i = icmp eq i32 %16, %14
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %18
 
@@ -479,7 +479,7 @@ H5C__json_write_log_message.exit:                 ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_mark_entry_dirty_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_mark_entry_dirty_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
@@ -490,7 +490,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_mark_entry_dirty_log_msg(p
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
   %12 = trunc i64 %11 to i32
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %10) #9
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef nonnull %10) #9
   %.not.i = icmp eq i32 %14, %12
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %16
 
@@ -514,7 +514,7 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_mark_entry_clean_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_mark_entry_clean_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
@@ -525,7 +525,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_mark_entry_clean_log_msg(p
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
   %12 = trunc i64 %11 to i32
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %10) #9
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef nonnull %10) #9
   %.not.i = icmp eq i32 %14, %12
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %16
 
@@ -549,7 +549,7 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_mark_unserialized_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_mark_unserialized_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
@@ -560,7 +560,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_mark_unserialized_entry_lo
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
   %12 = trunc i64 %11 to i32
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %10) #9
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef nonnull %10) #9
   %.not.i = icmp eq i32 %14, %12
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %16
 
@@ -584,7 +584,7 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_mark_serialized_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_mark_serialized_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
@@ -595,7 +595,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_mark_serialized_entry_log_
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
   %12 = trunc i64 %11 to i32
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %10) #9
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef nonnull %10) #9
   %.not.i = icmp eq i32 %14, %12
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %16
 
@@ -619,7 +619,7 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_move_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_move_entry_log_msg(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @time(ptr noundef null) #9
@@ -628,7 +628,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_move_entry_log_msg(ptr noc
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
   %12 = trunc i64 %11 to i32
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %10) #9
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef nonnull %10) #9
   %.not.i = icmp eq i32 %14, %12
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %16
 
@@ -652,7 +652,7 @@ H5C__json_write_log_message.exit:                 ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_pin_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_pin_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
@@ -663,7 +663,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_pin_entry_log_msg(ptr noca
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
   %12 = trunc i64 %11 to i32
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %10) #9
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef nonnull %10) #9
   %.not.i = icmp eq i32 %14, %12
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %16
 
@@ -687,7 +687,7 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_create_fd_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_create_fd_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @time(ptr noundef null) #9
@@ -700,7 +700,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_create_fd_log_msg(ptr noca
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #10
   %15 = trunc i64 %14 to i32
   %16 = load ptr, ptr %0, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.3, ptr noundef %13) #9
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.3, ptr noundef nonnull %13) #9
   %.not.i = icmp eq i32 %17, %15
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %19
 
@@ -724,7 +724,7 @@ H5C__json_write_log_message.exit:                 ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_protect_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_protect_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca [16 x i8], align 16
   %7 = icmp eq i32 %3, 128
   br i1 %7, label %8, label %9
@@ -751,7 +751,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_protect_entry_log_msg(ptr 
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #10
   %22 = trunc i64 %21 to i32
   %23 = load ptr, ptr %0, align 8
-  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.3, ptr noundef %20) #9
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.3, ptr noundef nonnull %20) #9
   %.not.i = icmp eq i32 %24, %22
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %26
 
@@ -775,7 +775,7 @@ H5C__json_write_log_message.exit:                 ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_resize_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_resize_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @time(ptr noundef null) #9
@@ -787,7 +787,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_resize_entry_log_msg(ptr n
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #10
   %14 = trunc i64 %13 to i32
   %15 = load ptr, ptr %0, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.3, ptr noundef %12) #9
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.3, ptr noundef nonnull %12) #9
   %.not.i = icmp eq i32 %16, %14
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %18
 
@@ -811,7 +811,7 @@ H5C__json_write_log_message.exit:                 ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_unpin_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_unpin_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
@@ -822,7 +822,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_unpin_entry_log_msg(ptr no
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
   %12 = trunc i64 %11 to i32
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %10) #9
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef nonnull %10) #9
   %.not.i = icmp eq i32 %14, %12
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %16
 
@@ -846,7 +846,7 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_destroy_fd_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_destroy_fd_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @time(ptr noundef null) #9
@@ -859,7 +859,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_destroy_fd_log_msg(ptr noc
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #10
   %15 = trunc i64 %14 to i32
   %16 = load ptr, ptr %0, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.3, ptr noundef %13) #9
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.3, ptr noundef nonnull %13) #9
   %.not.i = icmp eq i32 %17, %15
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %19
 
@@ -883,7 +883,7 @@ H5C__json_write_log_message.exit:                 ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_unprotect_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_unprotect_entry_log_msg(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @time(ptr noundef null) #9
@@ -892,7 +892,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_unprotect_entry_log_msg(pt
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
   %12 = trunc i64 %11 to i32
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %10) #9
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef nonnull %10) #9
   %.not.i = icmp eq i32 %14, %12
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %16
 
@@ -916,7 +916,7 @@ H5C__json_write_log_message.exit:                 ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_set_cache_config_log_msg(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_set_cache_config_log_msg(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
@@ -925,7 +925,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_set_cache_config_log_msg(p
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #10
   %10 = trunc i64 %9 to i32
   %11 = load ptr, ptr %0, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.3, ptr noundef %8) #9
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.3, ptr noundef nonnull %8) #9
   %.not.i = icmp eq i32 %12, %10
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %14
 
@@ -949,7 +949,7 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__json_write_remove_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__json_write_remove_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
@@ -960,7 +960,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_remove_entry_log_msg(ptr n
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
   %12 = trunc i64 %11 to i32
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %10) #9
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef nonnull %10) #9
   %.not.i = icmp eq i32 %14, %12
   br i1 %.not.i, label %H5C__json_write_log_message.exit, label %16
 
@@ -984,19 +984,19 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

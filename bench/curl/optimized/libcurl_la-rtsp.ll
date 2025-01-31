@@ -68,7 +68,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.55 = private unnamed_addr constant [69 x i8] c"Unable to read the interleaved parameter from Transport header: [%s]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @rtsp_setup_connection(ptr nocapture noundef writeonly initializes((392, 400)) %data, ptr noundef %conn) #0 {
+define internal range(i32 0, 28) i32 @rtsp_setup_connection(ptr noundef writeonly captures(none) initializes((392, 400)) %data, ptr noundef %conn) #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 128) #7
@@ -88,7 +88,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rtsp_do(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define internal i32 @rtsp_do(ptr noundef %data, ptr noundef writeonly captures(none) initializes((0, 1)) %done) #0 {
 entry:
   %req_buffer = alloca %struct.dynbuf, align 8
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
@@ -700,7 +700,7 @@ if.end8:                                          ; preds = %if.then5, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @rtsp_getsock_do(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly initializes((0, 4)) %socks) #1 {
+define internal noundef i32 @rtsp_getsock_do(ptr readnone captures(none) %data, ptr noundef readonly captures(none) %conn, ptr noundef writeonly captures(none) initializes((0, 4)) %socks) #1 {
 entry:
   %sock = getelementptr inbounds nuw i8, ptr %conn, i64 392
   %0 = load i32, ptr %sock, align 8
@@ -709,7 +709,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rtsp_disconnect(ptr nocapture readnone %data, ptr noundef %conn, i1 zeroext %dead) #0 {
+define internal noundef i32 @rtsp_disconnect(ptr readnone captures(none) %data, ptr noundef %conn, i1 zeroext %dead) #0 {
 entry:
   %proto = getelementptr inbounds nuw i8, ptr %conn, i64 856
   tail call void @Curl_dyn_free(ptr noundef nonnull %proto) #7
@@ -1135,15 +1135,15 @@ return:                                           ; preds = %if.else78, %if.end1
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1182,7 +1182,7 @@ declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_
 declare i32 @Curl_pgrsUpdate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %data, ptr noundef %buf, i64 noundef %blen, ptr nocapture noundef nonnull initializes((0, 8)) %pconsumed) unnamed_addr #0 {
+define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %data, ptr noundef %buf, i64 noundef %blen, ptr noundef nonnull captures(none) initializes((0, 8)) %pconsumed) unnamed_addr #0 {
 entry:
   %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
@@ -1601,10 +1601,10 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #5

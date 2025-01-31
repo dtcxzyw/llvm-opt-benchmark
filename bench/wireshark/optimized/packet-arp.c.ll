@@ -594,7 +594,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._address, align 8
   %6 = alloca %struct._address, align 8
   %7 = alloca i32, align 4
@@ -1512,7 +1512,7 @@ proto_item_set_generated.exit399:                 ; preds = %427, %424, %421, %p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_atmarp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_atmarp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._address, align 8
   %6 = alloca %struct._address, align 8
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #9
@@ -2133,7 +2133,7 @@ dissect_atm_number.exit345:                       ; preds = %311, %307, %304, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ax25arp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ax25arp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._address, align 8
   %6 = alloca %struct._address, align 8
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #9
@@ -2593,7 +2593,7 @@ define internal range(i32 0, 2) i32 @address_equal_func(ptr noundef readnone %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @duplicate_result_hash_func(ptr nocapture noundef readonly %0) #3 {
+define internal i32 @duplicate_result_hash_func(ptr noundef readonly captures(none) %0) #3 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -2602,7 +2602,7 @@ define internal i32 @duplicate_result_hash_func(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @duplicate_result_equal_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @duplicate_result_equal_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) %1, i64 8)
   %3 = icmp eq i32 %bcmp, 0
   %4 = zext i1 %3 to i32
@@ -2612,7 +2612,7 @@ define internal range(i32 0, 2) i32 @duplicate_result_equal_func(ptr nocapture n
 declare ptr @register_capture_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @capture_arp(ptr nocapture readnone %0, i32 %1, i32 %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal noundef i32 @capture_arp(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr @proto_arp, align 4
   tail call void @capture_dissector_increment_count(ptr noundef %3, i32 noundef %6) #9
   ret i32 1
@@ -2698,7 +2698,7 @@ declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare void @add_ether_byip(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 0) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca %struct._address, align 8
   %8 = alloca %struct._address, align 8
   %9 = alloca i32, align 4
@@ -2718,7 +2718,7 @@ define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr no
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 8
   %.not = icmp eq i16 %21, 0
-  br i1 %.not, label %22, label %57
+  br i1 %.not, label %22, label %55
 
 22:                                               ; preds = %6
   %23 = load ptr, ptr @address_hash_table, align 8
@@ -2726,7 +2726,7 @@ define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr no
   %25 = inttoptr i64 %24 to ptr
   %26 = tail call ptr @wmem_map_lookup(ptr noundef %23, ptr noundef nonnull %25) #9
   %.not45 = icmp eq ptr %26, null
-  br i1 %.not45, label %47, label %27
+  br i1 %.not45, label %45, label %27
 
 27:                                               ; preds = %22
   %28 = load i32, ptr %14, align 4
@@ -2757,152 +2757,149 @@ define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr no
   %42 = tail call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 24) #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %43 = load ptr, ptr @duplicate_result_hash_table, align 8
-  %44 = tail call ptr @wmem_map_insert(ptr noundef %43, ptr noundef nonnull %39, ptr noundef %42) #9
-  %45 = icmp ne ptr %42, null
-  %46 = zext i1 %45 to i32
-  br label %60
+  %44 = tail call ptr @wmem_map_insert(ptr noundef %43, ptr noundef nonnull %39, ptr noundef nonnull %42) #9
+  br label %58
 
-47:                                               ; preds = %22
-  %48 = tail call ptr @wmem_file_scope() #9
-  %49 = tail call noalias ptr @wmem_alloc(ptr noundef %48, i64 noundef 24) #9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %49, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
-  %50 = load i32, ptr %14, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i64 %53, ptr %54, align 8
-  %55 = load ptr, ptr @address_hash_table, align 8
-  %56 = tail call ptr @wmem_map_insert(ptr noundef %55, ptr noundef nonnull %25, ptr noundef %49) #9
+45:                                               ; preds = %22
+  %46 = tail call ptr @wmem_file_scope() #9
+  %47 = tail call noalias ptr @wmem_alloc(ptr noundef %46, i64 noundef 24) #9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %47, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
+  %48 = load i32, ptr %14, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i32 %48, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store i64 %51, ptr %52, align 8
+  %53 = load ptr, ptr @address_hash_table, align 8
+  %54 = tail call ptr @wmem_map_insert(ptr noundef %53, ptr noundef nonnull %25, ptr noundef nonnull %47) #9
   br label %.thread
 
-57:                                               ; preds = %6
-  %58 = load ptr, ptr @duplicate_result_hash_table, align 8
-  %59 = call ptr @wmem_map_lookup(ptr noundef %58, ptr noundef nonnull %10) #9
-  %.not56 = icmp eq ptr %59, null
-  br i1 %.not56, label %.thread, label %60
+55:                                               ; preds = %6
+  %56 = load ptr, ptr @duplicate_result_hash_table, align 8
+  %57 = call ptr @wmem_map_lookup(ptr noundef %56, ptr noundef nonnull %10) #9
+  %.not56 = icmp eq ptr %57, null
+  br i1 %.not56, label %.thread, label %58
 
-60:                                               ; preds = %.thread53, %57
-  %61 = phi i32 [ %46, %.thread53 ], [ 1, %57 ]
-  %.055 = phi ptr [ %42, %.thread53 ], [ %59, %57 ]
+58:                                               ; preds = %.thread53, %55
+  %.055 = phi ptr [ %42, %.thread53 ], [ %57, %55 ]
   store i32 1, ptr %12, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 6, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %3, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr null, ptr %64, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 6, ptr %59, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %3, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr null, ptr %61, align 8
   store i32 1, ptr %13, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 6, ptr %65, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %.055, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr null, ptr %67, align 8
-  %68 = load i32, ptr @ett_arp_duplicate_address, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %70 = load ptr, ptr %69, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 6, ptr %62, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %.055, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr null, ptr %64, align 8
+  %65 = load i32, ptr @ett_arp_duplicate_address, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %67 = load ptr, ptr %66, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store i32 2, ptr %8, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 4, ptr %71, align 4
-  %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %9, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr null, ptr %73, align 8
-  %74 = call ptr @address_to_str(ptr noundef %70, ptr noundef nonnull %8) #9
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 4, ptr %68, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %9, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr null, ptr %70, align 8
+  %71 = call ptr @address_to_str(ptr noundef %67, ptr noundef nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %75 = load ptr, ptr %69, align 8
-  %76 = call ptr @address_to_str(ptr noundef %75, ptr noundef nonnull %12) #9
-  %77 = load ptr, ptr %69, align 8
-  %78 = call ptr @address_to_str(ptr noundef %77, ptr noundef nonnull %13) #9
-  %79 = getelementptr inbounds nuw i8, ptr %.055, i64 8
-  %80 = load i32, ptr %79, align 8
-  %81 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %68, ptr noundef nonnull %11, ptr noundef nonnull @.str.292, ptr noundef %74, ptr noundef %76, ptr noundef %78, i32 noundef %80) #9
-  %82 = load ptr, ptr %11, align 8
-  %.not.i = icmp eq ptr %82, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %83
+  %72 = load ptr, ptr %66, align 8
+  %73 = call ptr @address_to_str(ptr noundef %72, ptr noundef nonnull %12) #9
+  %74 = load ptr, ptr %66, align 8
+  %75 = call ptr @address_to_str(ptr noundef %74, ptr noundef nonnull %13) #9
+  %76 = getelementptr inbounds nuw i8, ptr %.055, i64 8
+  %77 = load i32, ptr %76, align 8
+  %78 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %65, ptr noundef nonnull %11, ptr noundef nonnull @.str.292, ptr noundef %71, ptr noundef %73, ptr noundef %75, i32 noundef %77) #9
+  %79 = load ptr, ptr %11, align 8
+  %.not.i = icmp eq ptr %79, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %80
 
-83:                                               ; preds = %60
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  %85 = load ptr, ptr %84, align 8
-  %.not5.i = icmp eq ptr %85, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %86
+80:                                               ; preds = %58
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %82 = load ptr, ptr %81, align 8
+  %.not5.i = icmp eq ptr %82, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %83
 
-86:                                               ; preds = %83
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 28
-  %88 = load i32, ptr %87, align 4
-  %89 = or i32 %88, 2
-  store i32 %89, ptr %87, align 4
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 28
+  %85 = load i32, ptr %84, align 4
+  %86 = or i32 %85, 2
+  store i32 %86, ptr %84, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %60, %83, %86
-  %90 = load i32, ptr @hf_arp_duplicate_ip_address_earlier_frame, align 4
-  %91 = load i32, ptr %79, align 8
-  %92 = call ptr @proto_tree_add_uint(ptr noundef %81, i32 noundef %90, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %91) #9
-  store ptr %92, ptr %11, align 8
-  %.not.i46 = icmp eq ptr %92, null
-  br i1 %.not.i46, label %proto_item_set_generated.exit48, label %93
+proto_item_set_generated.exit:                    ; preds = %58, %80, %83
+  %87 = load i32, ptr @hf_arp_duplicate_ip_address_earlier_frame, align 4
+  %88 = load i32, ptr %76, align 8
+  %89 = call ptr @proto_tree_add_uint(ptr noundef %78, i32 noundef %87, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %88) #9
+  store ptr %89, ptr %11, align 8
+  %.not.i46 = icmp eq ptr %89, null
+  br i1 %.not.i46, label %proto_item_set_generated.exit48, label %90
 
-93:                                               ; preds = %proto_item_set_generated.exit
-  %94 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  %95 = load ptr, ptr %94, align 8
-  %.not5.i47 = icmp eq ptr %95, null
-  br i1 %.not5.i47, label %proto_item_set_generated.exit48, label %96
+90:                                               ; preds = %proto_item_set_generated.exit
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 32
+  %92 = load ptr, ptr %91, align 8
+  %.not5.i47 = icmp eq ptr %92, null
+  br i1 %.not5.i47, label %proto_item_set_generated.exit48, label %93
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 28
-  %98 = load i32, ptr %97, align 4
-  %99 = or i32 %98, 2
-  store i32 %99, ptr %97, align 4
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 28
+  %95 = load i32, ptr %94, align 4
+  %96 = or i32 %95, 2
+  store i32 %96, ptr %94, align 4
   br label %proto_item_set_generated.exit48
 
-proto_item_set_generated.exit48:                  ; preds = %proto_item_set_generated.exit, %93, %96
-  %100 = load ptr, ptr %69, align 8
+proto_item_set_generated.exit48:                  ; preds = %proto_item_set_generated.exit, %90, %93
+  %97 = load ptr, ptr %66, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store i32 2, ptr %7, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 4, ptr %101, align 4
-  %102 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %9, ptr %102, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr null, ptr %103, align 8
-  %104 = call ptr @address_to_str(ptr noundef %100, ptr noundef nonnull %7) #9
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 4, ptr %98, align 4
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %9, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr null, ptr %100, align 8
+  %101 = call ptr @address_to_str(ptr noundef %97, ptr noundef nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %105 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %0, ptr noundef %92, ptr noundef nonnull @ei_seq_arp_dup_ip, ptr noundef nonnull @.str.293, ptr noundef %104) #9
-  %106 = load i32, ptr @hf_arp_duplicate_ip_address_seconds_since_earlier_frame, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %.055, i64 16
-  %110 = load i64, ptr %109, align 8
-  %111 = sub i64 %108, %110
-  %112 = trunc i64 %111 to i32
-  %113 = call ptr @proto_tree_add_uint(ptr noundef %81, i32 noundef %106, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %112) #9
-  %.not.i49 = icmp eq ptr %113, null
-  br i1 %.not.i49, label %proto_item_set_generated.exit51, label %114
+  %102 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %0, ptr noundef %89, ptr noundef nonnull @ei_seq_arp_dup_ip, ptr noundef nonnull @.str.293, ptr noundef %101) #9
+  %103 = load i32, ptr @hf_arp_duplicate_ip_address_seconds_since_earlier_frame, align 4
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %105 = load i64, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %.055, i64 16
+  %107 = load i64, ptr %106, align 8
+  %108 = sub i64 %105, %107
+  %109 = trunc i64 %108 to i32
+  %110 = call ptr @proto_tree_add_uint(ptr noundef %78, i32 noundef %103, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %109) #9
+  %.not.i49 = icmp eq ptr %110, null
+  br i1 %.not.i49, label %proto_item_set_generated.exit51, label %111
 
-114:                                              ; preds = %proto_item_set_generated.exit48
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  %116 = load ptr, ptr %115, align 8
-  %.not5.i50 = icmp eq ptr %116, null
-  br i1 %.not5.i50, label %proto_item_set_generated.exit51, label %117
+111:                                              ; preds = %proto_item_set_generated.exit48
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  %113 = load ptr, ptr %112, align 8
+  %.not5.i50 = icmp eq ptr %113, null
+  br i1 %.not5.i50, label %proto_item_set_generated.exit51, label %114
 
-117:                                              ; preds = %114
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 28
-  %119 = load i32, ptr %118, align 4
-  %120 = or i32 %119, 2
-  store i32 %120, ptr %118, align 4
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 28
+  %116 = load i32, ptr %115, align 4
+  %117 = or i32 %116, 2
+  store i32 %117, ptr %115, align 4
   br label %proto_item_set_generated.exit51
 
-proto_item_set_generated.exit51:                  ; preds = %proto_item_set_generated.exit48, %114, %117
-  %121 = load i32, ptr %9, align 4
-  store i32 %121, ptr %5, align 4
+proto_item_set_generated.exit51:                  ; preds = %proto_item_set_generated.exit48, %111, %114
+  %118 = load i32, ptr %9, align 4
+  store i32 %118, ptr %5, align 4
   br label %.thread
 
-.thread:                                          ; preds = %47, %27, %34, %proto_item_set_generated.exit51, %57
-  %122 = phi i32 [ %61, %proto_item_set_generated.exit51 ], [ 0, %57 ], [ 0, %34 ], [ 0, %27 ], [ 0, %47 ]
-  ret i32 %122
+.thread:                                          ; preds = %45, %27, %34, %proto_item_set_generated.exit51, %55
+  %119 = phi i32 [ 1, %proto_item_set_generated.exit51 ], [ 0, %55 ], [ 0, %34 ], [ 0, %27 ], [ 0, %45 ]
+  ret i32 %119
 }
 
 declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -3051,7 +3048,7 @@ declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3074,18 +3071,18 @@ declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr nou
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @capture_dissector_increment_count(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

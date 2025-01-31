@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_fs_file_t = type { ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @lv_utils_bsearch(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define noundef ptr @lv_utils_bsearch(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %.not22 = icmp eq i64 %2, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
@@ -43,10 +43,10 @@ define noundef ptr @lv_utils_bsearch(ptr noundef %0, ptr noundef %1, i64 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @lv_draw_buf_save_to_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {

@@ -24,7 +24,7 @@ define void @osqp_algebra_free_libs() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @osqp_algebra_name(ptr nocapture noundef writeonly initializes((0, 9)) %0, i64 noundef %1) local_unnamed_addr #1 {
+define noundef i64 @osqp_algebra_name(ptr noundef writeonly captures(none) initializes((0, 9)) %0, i64 noundef %1) local_unnamed_addr #1 {
   store i8 66, ptr %0, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 117, ptr %3, align 1
@@ -46,13 +46,13 @@ define noundef i64 @osqp_algebra_name(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @osqp_algebra_device_name(ptr nocapture noundef writeonly initializes((0, 1)) %0, i64 noundef %1) local_unnamed_addr #1 {
+define noundef i64 @osqp_algebra_device_name(ptr noundef writeonly captures(none) initializes((0, 1)) %0, i64 noundef %1) local_unnamed_addr #1 {
   store i8 0, ptr %0, align 1
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @osqp_algebra_init_linsys_solver(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readnone %6, i64 noundef %7) local_unnamed_addr #2 {
+define i64 @osqp_algebra_init_linsys_solver(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(none) %5, ptr noundef readnone captures(none) %6, i64 noundef %7) local_unnamed_addr #2 {
   %9 = tail call i64 @init_linsys_solver_qdldl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %7) #4
   ret i64 %9
 }
@@ -60,7 +60,7 @@ define i64 @osqp_algebra_init_linsys_solver(ptr noundef %0, ptr noundef %1, ptr 
 declare i64 @init_linsys_solver_qdldl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @adjoint_derivative_linsys_solver(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #2 {
+define i64 @adjoint_derivative_linsys_solver(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = tail call i64 @adjoint_derivative_qdldl(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #4
   ret i64 %9
 }

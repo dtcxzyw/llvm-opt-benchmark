@@ -144,10 +144,10 @@ define dso_local ptr @__fl6_sock_lookup(ptr noundef %0, i32 noundef %1) #1 align
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @fl6_free_socklist(ptr noundef %0) local_unnamed_addr #1 align 16 {
@@ -270,7 +270,7 @@ define internal fastcc void @fl_release(ptr noundef initializes((80, 88)) %0) un
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local ptr @fl6_merge_options(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #3 align 16 {
+define dso_local ptr @fl6_merge_options(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %2, null
@@ -338,7 +338,7 @@ define dso_local ptr @fl6_merge_options(ptr noundef writeonly %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @ipv6_flowlabel_opt_get(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @ipv6_flowlabel_opt_get(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %5 = load volatile i8, ptr %4, align 2
   %6 = zext nneg i8 %5 to i32
@@ -448,7 +448,7 @@ define dso_local noundef range(i32 -2, 1) i32 @ipv6_flowlabel_opt_get(ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ipv6_flowlabel_opt(ptr noundef %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
@@ -1250,7 +1250,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ip6_flowlabel_init() local_unnamed_addr #1 align 16 {
@@ -1300,7 +1300,7 @@ declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #0
 declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @fl6_renew(ptr nocapture noundef %0, i64 noundef range(i64 0, 65536) %1, i64 noundef range(i64 0, 65536) %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @fl6_renew(ptr noundef captures(none) %0, i64 noundef range(i64 0, 65536) %1, i64 noundef range(i64 0, 65536) %2) unnamed_addr #1 align 16 {
   %4 = icmp samesign ult i64 %1, 6
   br i1 %4, label %11, label %5
 
@@ -1706,7 +1706,7 @@ declare dso_local i32 @get_random_u32() local_unnamed_addr #0
 declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -12, 1) i32 @ip6_flowlabel_proc_init(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 -12, 1) i32 @ip6_flowlabel_proc_init(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str.3, i16 noundef zeroext 292, ptr noundef %3, ptr noundef nonnull @ip6fl_seq_ops, i32 noundef 24, ptr noundef null) #13
@@ -1795,7 +1795,7 @@ define internal void @ip6_flowlabel_net_exit(ptr noundef readonly %0) #1 align 1
 declare dso_local ptr @proc_create_net_data(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @ip6fl_seq_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal ptr @ip6fl_seq_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1919,13 +1919,13 @@ define internal ptr @ip6fl_seq_start(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ip6fl_seq_stop(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 align 16 {
+define internal void @ip6fl_seq_stop(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   tail call void @__rcu_read_unlock() #13
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal ptr @ip6fl_seq_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) #12 align 16 {
+define internal ptr @ip6fl_seq_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #12 align 16 {
   %4 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
@@ -2106,7 +2106,7 @@ declare dso_local void @remove_proc_entry(ptr noundef, ptr noundef) local_unname
 declare dso_local i32 @timer_delete(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ip6_fl_gc(ptr nocapture readnone %0) #1 align 16 {
+define internal void @ip6_fl_gc(ptr readnone captures(none) %0) #1 align 16 {
   %2 = load volatile i64, ptr @jiffies, align 64
   tail call void @_raw_spin_lock(ptr noundef nonnull @ip6_fl_lock) #13
   br label %3

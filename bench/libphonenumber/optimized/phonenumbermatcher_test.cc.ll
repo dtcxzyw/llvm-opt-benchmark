@@ -1734,7 +1734,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers68PhoneNumberMatcherTest_ContainsMoreThanOneSlashInNationalNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers68PhoneNumberMatcherTest_ContainsMoreThanOneSlashInNationalNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -11172,7 +11172,7 @@ _ZN5boost14checked_deleteIN4i18n12phonenumbers18PhoneNumberMatcherEEEvPT_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberMatcherTest_IsLatinLetter_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberMatcherTest_IsLatinLetter_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -13237,7 +13237,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE9push_backEOS3_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13322,7 +13322,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE12emplace
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTest21FindMatchesInContextsERKSt6vectorINS0_12_GLOBAL__N_113NumberContextESaIS4_EEbb(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTest21FindMatchesInContextsERKSt6vectorINS0_12_GLOBAL__N_113NumberContextESaIS4_EEbb(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13412,7 +13412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit15: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -15385,7 +15385,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTest21FindMatchesInContextsERKSt6vectorINS0_12_GLOBAL__N_113NumberContextESaIS4_EEbbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTest21FindMatchesInContextsERKSt6vectorINS0_12_GLOBAL__N_113NumberContextESaIS4_EEbbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
   %8 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
@@ -16442,7 +16442,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers88PhoneNumberMatcherTest_MatchesMultiplePhoneNumbersSeparatedByPhoneNumberPunctuation_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers88PhoneNumberMatcherTest_MatchesMultiplePhoneNumbersSeparatedByPhoneNumberPunctuation_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17060,7 +17060,7 @@ declare noundef zeroext i1 @_ZNK4i18n12phonenumbers16PhoneNumberMatch6EqualsERKS
 declare void @_ZNK4i18n12phonenumbers16PhoneNumberMatch8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers85PhoneNumberMatcherTest_DoesNotMatchMultiplePhoneNumbersSeparatedWithNoWhiteSpace_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers85PhoneNumberMatcherTest_DoesNotMatchMultiplePhoneNumbersSeparatedWithNoWhiteSpace_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17275,7 +17275,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %21, %57, %_ZNKSt14d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #7 section ".text.startup" {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #7 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -17292,7 +17292,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #7 sect
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.204(ptr nocapture readnone %0) #7 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.204(ptr readnone captures(none) %0) #7 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -19112,7 +19112,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestC2ERKNSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.225(ptr nocapture readnone %0) #7 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.225(ptr readnone captures(none) %0) #7 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -19129,7 +19129,7 @@ define internal void @__cxx_global_array_dtor.225(ptr nocapture readnone %0) #7 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.234(ptr nocapture readnone %0) #7 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.234(ptr readnone captures(none) %0) #7 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -21513,7 +21513,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_110NumberTestC2ERKNSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.260(ptr nocapture readnone %0) #7 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.260(ptr readnone captures(none) %0) #7 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -21530,7 +21530,7 @@ define internal void @__cxx_global_array_dtor.260(ptr nocapture readnone %0) #7 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_MatchesWithPossibleLeniency_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_MatchesWithPossibleLeniency_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.54", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr null, ptr noundef nonnull @_ZN4i18n12phonenumbersL18kPossibleOnlyCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL18kPossibleOnlyCasesE, i64 320))
@@ -21590,7 +21590,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val6 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %.val6 to i64
@@ -21860,7 +21860,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest30DoTestNumberMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest30DoTestNumberMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::scoped_ptr.38", align 8
   %5 = alloca %"class.testing::AssertionResult", align 8
   %6 = alloca %"class.testing::Message", align 8
@@ -22256,7 +22256,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -22290,7 +22290,7 @@ _ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers58PhoneNumberMatcherTest_NonMatchesWithPossibleLeniency_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers58PhoneNumberMatcherTest_NonMatchesWithPossibleLeniency_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.54", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr null, ptr noundef nonnull @_ZN4i18n12phonenumbersL16kImpossibleCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL16kImpossibleCasesE, i64 1088))
@@ -22335,7 +22335,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest33DoTestNumberNonMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0, ptr %.0.val, ptr readnone %.8.val, i32 noundef range(i32 0, 4) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest33DoTestNumberNonMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr %.0.val, ptr readnone %.8.val, i32 noundef range(i32 0, 4) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::scoped_ptr.38", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
   %5 = alloca %"class.testing::Message", align 8
@@ -22545,7 +22545,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_MatchesWithValidLeniency_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_MatchesWithValidLeniency_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.54", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr null, ptr noundef nonnull @_ZN4i18n12phonenumbersL11kValidCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL11kValidCasesE, i64 1216))
@@ -22600,7 +22600,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_NonMatchesWithValidLeniency_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberMatcherTest_NonMatchesWithValidLeniency_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.54", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr null, ptr noundef nonnull @_ZN4i18n12phonenumbersL16kImpossibleCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL16kImpossibleCasesE, i64 1088))
@@ -22650,7 +22650,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers61PhoneNumberMatcherTest_MatchesWithStrictGroupingLeniency_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers61PhoneNumberMatcherTest_MatchesWithStrictGroupingLeniency_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.54", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr null, ptr noundef nonnull @_ZN4i18n12phonenumbersL20kStrictGroupingCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL20kStrictGroupingCasesE, i64 448))
@@ -22700,7 +22700,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers64PhoneNumberMatcherTest_NonMatchesWithStrictGroupingLeniency_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers64PhoneNumberMatcherTest_NonMatchesWithStrictGroupingLeniency_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.54", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr null, ptr noundef nonnull @_ZN4i18n12phonenumbersL16kImpossibleCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL16kImpossibleCasesE, i64 1088))
@@ -22755,7 +22755,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_MatchesWithExactGroupingLeniency_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers60PhoneNumberMatcherTest_MatchesWithExactGroupingLeniency_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.54", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr null, ptr noundef nonnull @_ZN4i18n12phonenumbersL19kExactGroupingCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL19kExactGroupingCasesE, i64 1600))
@@ -22800,7 +22800,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers63PhoneNumberMatcherTest_NonMatchesWithExactGroupingLeniency_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers63PhoneNumberMatcherTest_NonMatchesWithExactGroupingLeniency_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.54", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE6insertIPKS3_vEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENSA_IS8_S5_EET_SE_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr null, ptr noundef nonnull @_ZN4i18n12phonenumbersL16kImpossibleCasesE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL16kImpossibleCasesE, i64 1088))
@@ -23480,7 +23480,7 @@ _ZN7testing15AssertionResultD2Ev.exit93:          ; preds = %_ZN4i18n12phonenumb
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers57PhoneNumberMatcherTest_NonMatchingBracketsAreInvalid_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers57PhoneNumberMatcherTest_NonMatchingBracketsAreInvalid_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::scoped_ptr.38", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -24309,7 +24309,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_NoMatchIfRegionIsUnknown_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberMatcherTest_NoMatchIfRegionIsUnknown_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::scoped_ptr.38", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -24532,7 +24532,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberMatcherTest_NoMatchInEmptyString_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberMatcherTest_NoMatchInEmptyString_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::scoped_ptr.38", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -24957,7 +24957,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_NoMatchIfNoNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_NoMatchIfNoNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::scoped_ptr.38", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -25180,7 +25180,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_NoErrorWithSpecialCharacters_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_NoErrorWithSpecialCharacters_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25434,7 +25434,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers37PhoneNumberMatcherTest_Sequences_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers37PhoneNumberMatcherTest_Sequences_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25986,7 +25986,7 @@ _ZN7testing15AssertionResultD2Ev.exit77:          ; preds = %122, %150, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers38PhoneNumberMatcherTest_MaxMatches_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers38PhoneNumberMatcherTest_MaxMatches_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26586,7 +26586,7 @@ _ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_MaxMatchesInvalid_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberMatcherTest_MaxMatchesInvalid_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumberMatcher", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26796,7 +26796,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %25, %59, %_ZNKSt14d
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_MaxMatchesMixed_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_MaxMatchesMixed_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -27264,7 +27264,7 @@ _ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EED2Ev.exit60: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers74PhoneNumberMatcherTest_NonPlusPrefixedNumbersNotFoundForInvalidRegion_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers74PhoneNumberMatcherTest_NonPlusPrefixedNumbersNotFoundForInvalidRegion_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumberMatch", align 8
   %3 = alloca %"class.boost::scoped_ptr.38", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -27711,7 +27711,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers42PhoneNumberMatcherTest_EmptyIteration_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers42PhoneNumberMatcherTest_EmptyIteration_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumberMatch", align 8
   %3 = alloca %"class.boost::scoped_ptr.38", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28265,7 +28265,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_SingleIteration_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_SingleIteration_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumberMatch", align 8
   %3 = alloca %"class.boost::scoped_ptr.38", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28923,7 +28923,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_SingleIteration_WithNextOnly_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_SingleIteration_WithNextOnly_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumberMatch", align 8
   %3 = alloca %"class.boost::scoped_ptr.38", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -29262,7 +29262,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_DoubleIteration_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers43PhoneNumberMatcherTest_DoubleIteration_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumberMatch", align 8
   %3 = alloca %"class.boost::scoped_ptr.38", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30345,7 +30345,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_DoubleIteration_WithNextOnly_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberMatcherTest_DoubleIteration_WithNextOnly_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumberMatch", align 8
   %3 = alloca %"class.boost::scoped_ptr.38", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -31877,7 +31877,7 @@ declare noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv() lo
 declare void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -34482,7 +34482,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTest15DoTestInContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKSt6vectorINS0_12_GLOBAL__N_113NumberContextESaISC_EENS0_18PhoneNumberMatcher8LeniencyE(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTest15DoTestInContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKSt6vectorINS0_12_GLOBAL__N_113NumberContextESaISC_EENS0_18PhoneNumberMatcher8LeniencyE(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
@@ -46043,13 +46043,13 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

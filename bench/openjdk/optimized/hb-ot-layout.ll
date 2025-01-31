@@ -1303,7 +1303,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN3AAT22hb_aat_apply_context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2OT4GDEF14is_blocklistedEP9hb_blob_tP9hb_face_t(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK2OT4GDEF14is_blocklistedEP9hb_blob_tP9hb_face_t(ptr nonnull readnone align 1 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
@@ -1889,17 +1889,17 @@ _ZNK2OT4GDEF14get_lig_caretsEP9hb_font_t14hb_direction_tjjPjPi.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK2OT6Layout4GSUB14is_blocklistedEP9hb_blob_tP9hb_face_t(ptr nocapture noundef nonnull readnone align 1 dereferenceable(14) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK2OT6Layout4GSUB14is_blocklistedEP9hb_blob_tP9hb_face_t(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(14) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK2OT6Layout4GPOS14is_blocklistedEP9hb_blob_tP9hb_face_t(ptr nocapture noundef nonnull readnone align 1 dereferenceable(14) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK2OT6Layout4GPOS14is_blocklistedEP9hb_blob_tP9hb_face_t(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(14) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 65536) i32 @hb_ot_layout_table_get_script_tags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_layout_table_get_script_tags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   switch i32 %1, label %_ZL18get_gsubgpos_tableP9hb_face_tj.exit [
     i32 1196643650, label %6
     i32 1196445523, label %9
@@ -2479,7 +2479,7 @@ define hidden range(i32 0, 2) i32 @hb_ot_layout_table_choose_script(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_ot_layout_table_select_script(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @hb_ot_layout_table_select_script(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   switch i32 %1, label %_ZL18get_gsubgpos_tableP9hb_face_tj.exit [
     i32 1196643650, label %7
     i32 1196445523, label %10
@@ -2979,7 +2979,7 @@ _ZNK2OT8GSUBGPOS17find_script_indexEjPj.exit105.thread: ; preds = %_ZNK17hb_sort
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 65536) i32 @hb_ot_layout_table_get_feature_tags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_layout_table_get_feature_tags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   switch i32 %1, label %_ZL18get_gsubgpos_tableP9hb_face_tj.exit [
     i32 1196643650, label %6
     i32 1196445523, label %9
@@ -3266,7 +3266,7 @@ _ZNK2OT8GSUBGPOS15get_feature_tagEj.exit:         ; preds = %_ZNK2OT8GSUBGPOS16g
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 65536) i32 @hb_ot_layout_script_get_language_tags(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_layout_script_get_language_tags(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   switch i32 %1, label %_ZL18get_gsubgpos_tableP9hb_face_tj.exit [
     i32 1196643650, label %7
     i32 1196445523, label %10
@@ -3426,13 +3426,13 @@ define hidden range(i32 0, 2) i32 @hb_ot_layout_script_find_language(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_ot_layout_script_select_language(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @hb_ot_layout_script_select_language(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @hb_ot_layout_script_select_language2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef null)
   ret i32 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_ot_layout_script_select_language2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @hb_ot_layout_script_select_language2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   switch i32 %1, label %_ZL18get_gsubgpos_tableP9hb_face_tj.exit [
     i32 1196643650, label %8
     i32 1196445523, label %11
@@ -4039,7 +4039,7 @@ _ZNK2OT8GSUBGPOS15get_feature_tagEj.exit:         ; preds = %93, %_ZNK2OT13Recor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 65536) i32 @hb_ot_layout_language_get_feature_indexes(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_layout_language_get_feature_indexes(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   switch i32 %1, label %_ZL18get_gsubgpos_tableP9hb_face_tj.exit [
     i32 1196643650, label %8
     i32 1196445523, label %11
@@ -4800,13 +4800,13 @@ _ZNK2OT8GSUBGPOS15get_feature_tagEj.exit:         ; preds = %_ZNK2OT7LangSys17ge
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 65536) i32 @hb_ot_layout_feature_get_lookups(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_layout_feature_get_lookups(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = tail call i32 @hb_ot_layout_feature_with_variations_get_lookups(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 65536) i32 @hb_ot_layout_feature_with_variations_get_lookups(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_layout_feature_with_variations_get_lookups(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   switch i32 %1, label %_ZL18get_gsubgpos_tableP9hb_face_tj.exit [
     i32 1196643650, label %8
     i32 1196445523, label %11
@@ -7301,7 +7301,7 @@ _ZNK2OT6Layout9GSUB_impl11SubstLookup8dispatchINS_24hb_would_apply_context_tEJEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z29hb_ot_layout_substitute_startP9hb_font_tP11hb_buffer_t(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_Z29hb_ot_layout_substitute_startP9hb_font_tP11hb_buffer_t(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 272
@@ -9134,7 +9134,7 @@ define hidden range(i32 0, 2) i32 @hb_ot_layout_has_positioning(ptr noundef %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_Z27hb_ot_layout_position_startP9hb_font_tP11hb_buffer_t(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define hidden void @_Z27hb_ot_layout_position_startP9hb_font_tP11hb_buffer_t(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 0
@@ -9163,12 +9163,12 @@ _ZN2OT6Layout4GPOS14position_startEP9hb_font_tP11hb_buffer_t.exit: ; preds = %6,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_Z37hb_ot_layout_position_finish_advancesP9hb_font_tP11hb_buffer_t(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define hidden void @_Z37hb_ot_layout_position_finish_advancesP9hb_font_tP11hb_buffer_t(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z36hb_ot_layout_position_finish_offsetsP9hb_font_tP11hb_buffer_t(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @_Z36hb_ot_layout_position_finish_offsetsP9hb_font_tP11hb_buffer_t(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %4 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %1, ptr noundef nonnull %3)
@@ -9905,7 +9905,7 @@ _ZNK2OT8GSUBGPOS11get_featureEj.exit:             ; preds = %_ZNK2OT8GSUBGPOS16g
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 65536) i32 @hb_ot_layout_feature_get_characters(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_layout_feature_get_characters(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   switch i32 %1, label %_ZL18get_gsubgpos_tableP9hb_face_tj.exit [
     i32 1196643650, label %7
     i32 1196445523, label %10
@@ -11542,13 +11542,13 @@ _ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %408, %._crit_edge10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z30hb_ot_layout_substitute_lookupPN2OT21hb_ot_apply_context_tERKNS_6Layout9GSUB_impl11SubstLookupERKNS_33hb_ot_layout_lookup_accelerator_tE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %2) local_unnamed_addr #0 {
+define hidden void @_Z30hb_ot_layout_substitute_lookupPN2OT21hb_ot_apply_context_tERKNS_6Layout9GSUB_impl11SubstLookupERKNS_33hb_ot_layout_lookup_accelerator_tE(ptr noundef %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %2) local_unnamed_addr #0 {
   tail call fastcc void @_ZL12apply_stringI9GSUBProxyEbPN2OT21hb_ot_apply_context_tERKNT_6LookupERKNS1_33hb_ot_layout_lookup_accelerator_tE(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12apply_stringI9GSUBProxyEbPN2OT21hb_ot_apply_context_tERKNT_6LookupERKNS1_33hb_ot_layout_lookup_accelerator_tE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL12apply_stringI9GSUBProxyEbPN2OT21hb_ot_apply_context_tERKNT_6LookupERKNS1_33hb_ot_layout_lookup_accelerator_tE(ptr noundef %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -12880,7 +12880,7 @@ _ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchI29hb_position_single_dispatch_tJRP9h
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #7
@@ -13889,7 +13889,7 @@ _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK2OT17hb_kern_machine_tIN3AAT19KerxSubTableFormat0INS_20KernOTSubTableHeaderEE13accelerator_tEE4kernEP9hb_font_tP11hb_buffer_tjb(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17647,10 +17647,10 @@ _ZN24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES_IS0_ImLj0EE
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
@@ -22491,7 +22491,7 @@ _ZN12hb_bit_set_t6resizeEjbb.exit.thread:         ; preds = %42, %_ZN11hb_vector
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN11hb_vector_tI13hb_bit_page_tLb0EE6resizeEibb(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 comdat align 2 {
@@ -30281,7 +30281,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i: ; preds = %403, %384, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2OTL13collect_glyphEP8hb_set_tjPKv(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @_ZN2OTL13collect_glyphEP8hb_set_tjPKv(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN23hb_bit_set_invertible_t3addEj(ptr noundef nonnull align 8 dereferenceable(49) %4, i32 noundef %1)
   ret void
@@ -35089,7 +35089,7 @@ _ZNK2OT7RuleSetINS_6Layout10SmallTypesEE11would_applyEPNS_24hb_would_apply_conte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZN2OTL11match_glyphER15hb_glyph_info_tjPKv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, i32 noundef %1, ptr nocapture readnone %2) #16 {
+define internal noundef zeroext i1 @_ZN2OTL11match_glyphER15hb_glyph_info_tjPKv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr readnone captures(none) %2) #16 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, %1
   ret i1 %5
@@ -35481,7 +35481,7 @@ _ZNK2OT7RuleSetINS_6Layout10SmallTypesEE11would_applyEPNS_24hb_would_apply_conte
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL11match_classER15hb_glyph_info_tjPKv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef zeroext i1 @_ZN2OTL11match_classER15hb_glyph_info_tjPKv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr %0, align 4
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
@@ -35618,7 +35618,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %3, %_ZNK2OT17ClassD
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL14match_coverageER15hb_glyph_info_tjPKv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @_ZN2OTL14match_coverageER15hb_glyph_info_tjPKv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = and i32 %1, 65535
   %5 = icmp eq i32 %4, 0
   %6 = zext nneg i32 %4 to i64
@@ -39031,7 +39031,7 @@ _ZN11hb_vector_tIjLb0EED2Ev.exit150:              ; preds = %359, %_ZN12hb_bit_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @"_ZN12hb_bit_set_t3op_I4$_18EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.hb_vector_size_t) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) #17 align 2 {
+define internal void @"_ZN12hb_bit_set_t3op_I4$_18EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_size_t) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) #17 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
@@ -39055,7 +39055,7 @@ define internal void @"_ZN12hb_bit_set_t3op_I4$_18EE16hb_vector_size_tIyLj64EERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @"_ZN12hb_bit_set_t3op_I4$_17EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.hb_vector_size_t) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) #17 align 2 {
+define internal void @"_ZN12hb_bit_set_t3op_I4$_17EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_size_t) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) #17 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
@@ -39079,7 +39079,7 @@ define internal void @"_ZN12hb_bit_set_t3op_I4$_17EE16hb_vector_size_tIyLj64EERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @"_ZN12hb_bit_set_t3op_I4$_19EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.hb_vector_size_t) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) #17 align 2 {
+define internal void @"_ZN12hb_bit_set_t3op_I4$_19EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_size_t) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) #17 align 2 {
   %4 = alloca %struct.hb_vector_size_t, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
@@ -39122,7 +39122,7 @@ _ZNK16hb_vector_size_tIyLj64EEcoEv.exit.i:        ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @"_ZN12hb_bit_set_t3op_I4$_25EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.hb_vector_size_t) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) #17 align 2 {
+define internal void @"_ZN12hb_bit_set_t3op_I4$_25EE16hb_vector_size_tIyLj64EERKS3_S5_"(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_size_t) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) #17 align 2 {
   %4 = alloca %struct.hb_vector_size_t, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
@@ -41426,7 +41426,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_11HBGlyphID16EEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSJ_0EE9hb_sink_tIRSD_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSU_6item_tEEE5valueEvE4typeELSJ_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISU_Efp_EEEOSU_OSZ_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr %.0.val) unnamed_addr #0 {
+define internal fastcc void @"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_11HBGlyphID16EEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSJ_0EE9hb_sink_tIRSD_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSU_6item_tEEE5valueEvE4typeELSJ_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISU_Efp_EEEOSU_OSZ_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr %.0.val) unnamed_addr #0 {
   %.sroa.05.0.copyload = load i32, ptr %0, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.11.0.copyload = load ptr, ptr %.sroa.11.0..sroa_idx, align 8
@@ -41724,7 +41724,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_11HBGlyphID16EEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSK_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISK_Efp_EEEOSK_OSQ_"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr %.0.val, ptr %.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_11HBGlyphID16EEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSK_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISK_Efp_EEEOSK_OSQ_"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 64)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr %.0.val, ptr %.8.val) unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.0.val, ptr %3, align 8, !alias.scope !285
@@ -45213,7 +45213,7 @@ _ZN2OT20hb_closure_context_t19pop_cur_done_glyphsEv.exit: ; preds = %"_ZorI13hb_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @_ZN2OTL16intersects_glyphEPK8hb_set_tjPKvPv(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #18 {
+define internal noundef zeroext i1 @_ZN2OTL16intersects_glyphEPK8hb_set_tjPKvPv(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #18 {
   %5 = lshr i32 %1, 9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load atomic i32, ptr %6 monotonic, align 4
@@ -45310,7 +45310,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit: ; preds = %31, %._cr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2OTL17intersected_glyphEPK8hb_set_tPKvjPS0_Pv(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZN2OTL17intersected_glyphEPK8hb_set_tPKvjPS0_Pv(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %1, i64 %6
   %8 = load i8, ptr %7, align 1
@@ -45683,7 +45683,7 @@ define linkonce_odr hidden void @_ZNK2OT7RuleSetINS_6Layout10SmallTypesEE7closur
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2OTL31context_closure_recurse_lookupsINS_7IntTypeItLj2EEEEEvPNS_20hb_closure_context_tEjPKT_jPKNS_12LookupRecordEjNS_13ContextFormatEPKvPFvPK8hb_set_tSD_jPSE_PvESI_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr nocapture noundef readonly %8, ptr noundef %9) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2OTL31context_closure_recurse_lookupsINS_7IntTypeItLj2EEEEEvPNS_20hb_closure_context_tEjPKT_jPKNS_12LookupRecordEjNS_13ContextFormatEPKvPFvPK8hb_set_tSD_jPSE_PvESI_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr noundef %9) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %11 = alloca %struct.hb_set_t, align 8
   %12 = alloca %struct.hb_set_t, align 8
   %13 = alloca %struct.hb_set_t, align 8
@@ -50859,7 +50859,7 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit.thread: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2OTL27intersected_coverage_glyphsEPK8hb_set_tPKvjPS0_Pv(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZN2OTL27intersected_coverage_glyphsEPK8hb_set_tPKvjPS0_Pv(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = and i32 %2, 65535
   %7 = icmp eq i32 %6, 0
   %8 = zext nneg i32 %6 to i64
@@ -51886,7 +51886,7 @@ define linkonce_odr hidden void @_ZNK2OT12ChainRuleSetINS_6Layout10SmallTypesEE7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2OTL28chain_context_closure_lookupINS_7IntTypeItLj2EEEEEvPNS_20hb_closure_context_tEjPKT_jS7_jS7_jPKNS_12LookupRecordEjRNS_32ChainContextClosureLookupContextE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef nonnull readonly %6, i32 noundef %7, ptr nocapture noundef nonnull readonly %8, i32 noundef %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %10) unnamed_addr #0 {
+define internal fastcc void @_ZN2OTL28chain_context_closure_lookupINS_7IntTypeItLj2EEEEEvPNS_20hb_closure_context_tEjPKT_jS7_jS7_jPKNS_12LookupRecordEjRNS_32ChainContextClosureLookupContextE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef nonnull readonly %6, i32 noundef %7, ptr noundef nonnull readonly captures(none) %8, i32 noundef %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %10) unnamed_addr #0 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %10, align 8
@@ -53719,7 +53719,7 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit.thread: ; preds = %_
 declare ptr @hb_buffer_get_glyph_positions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN2OT6LayoutL28propagate_attachment_offsetsEP19hb_glyph_position_tjj14hb_direction_tj(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #19 {
+define internal fastcc void @_ZN2OT6LayoutL28propagate_attachment_offsetsEP19hb_glyph_position_tjj14hb_direction_tj(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #19 {
   %6 = zext i32 %2 to i64
   %7 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -68686,10 +68686,10 @@ _ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit: ; preds = %12
 declare void @_ZN11hb_buffer_t12delete_glyphEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_context_t8apply_toINS_6Layout9GSUB_impl23AlternateSubstFormat1_2INS2_10SmallTypesEEEEEbPKvPNS_21hb_ot_apply_context_tE(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
@@ -70666,7 +70666,7 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %301, %_ZN2OTL12liga
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN2OTL12match_alwaysER15hb_glyph_info_tjPKv(ptr nocapture nonnull readnone align 4 %0, i32 %1, ptr nocapture readnone %2) #3 {
+define internal noundef zeroext i1 @_ZN2OTL12match_alwaysER15hb_glyph_info_tjPKv(ptr nonnull readnone align 4 captures(none) %0, i32 %1, ptr readnone captures(none) %2) #3 {
   ret i1 true
 }
 
@@ -72185,7 +72185,7 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %238, %229, %.crited
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2OTL12apply_lookupEPNS_21hb_ot_apply_context_tEjPjjPKNS_12LookupRecordEj(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZN2OTL12apply_lookupEPNS_21hb_ot_apply_context_tEjPjjPKNS_12LookupRecordEj(ptr noundef %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 82
@@ -72794,7 +72794,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL18match_class_cachedER15hb_glyph_info_tjPKv(ptr nocapture noundef nonnull align 4 dereferenceable(20) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef zeroext i1 @_ZN2OTL18match_class_cachedER15hb_glyph_info_tjPKv(ptr noundef nonnull align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, -1
@@ -75983,7 +75983,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL19match_class_cached1ER15hb_glyph_info_tjPKv(ptr nocapture noundef nonnull align 4 dereferenceable(20) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef zeroext i1 @_ZN2OTL19match_class_cached1ER15hb_glyph_info_tjPKv(ptr noundef nonnull align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 15
@@ -76149,7 +76149,7 @@ _ZNK2OT8ClassDef9get_classEj.exit.thread:         ; preds = %_ZNK2OT8ClassDef9ge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL19match_class_cached2ER15hb_glyph_info_tjPKv(ptr nocapture noundef nonnull align 4 dereferenceable(20) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef zeroext i1 @_ZN2OTL19match_class_cached2ER15hb_glyph_info_tjPKv(ptr noundef nonnull align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   %6 = lshr i8 %5, 4
@@ -83840,7 +83840,7 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %315, %337, %197, %2
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN2OT6Layout9GPOS_implL28reverse_cursive_minor_offsetEP19hb_glyph_position_tj14hb_direction_tj(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #19 {
+define internal fastcc void @_ZN2OT6Layout9GPOS_implL28reverse_cursive_minor_offsetEP19hb_glyph_position_tj14hb_direction_tj(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #19 {
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -86591,7 +86591,7 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %252, %273, %313, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL13apply_forwardPN2OT21hb_ot_apply_context_tERKNS_33hb_ot_layout_lookup_accelerator_tEj(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL13apply_forwardPN2OT21hb_ot_apply_context_tERKNS_33hb_ot_layout_lookup_accelerator_tEj(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
   %.not.i = icmp eq i32 %5, -1
@@ -86907,7 +86907,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_conte
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL14apply_backwardPN2OT21hb_ot_apply_context_tERKNS_33hb_ot_layout_lookup_accelerator_tEj(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14apply_backwardPN2OT21hb_ot_apply_context_tERKNS_33hb_ot_layout_lookup_accelerator_tEj(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -89180,10 +89180,10 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 declare i32 @llvm.smin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #22

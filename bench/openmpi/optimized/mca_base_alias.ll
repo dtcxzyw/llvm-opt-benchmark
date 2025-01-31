@@ -153,14 +153,14 @@ opal_obj_run_destructors.exit12:                  ; preds = %.lr.ph.i9, %opal_li
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_base_alias_item_init(ptr nocapture noundef writeonly initializes((40, 48)) %0) #1 {
+define internal void @mca_base_alias_item_init(ptr noundef writeonly captures(none) initializes((40, 48)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @mca_base_alias_item_fini(ptr nocapture noundef readonly %0) #2 {
+define internal void @mca_base_alias_item_fini(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #12
@@ -168,7 +168,7 @@ define internal void @mca_base_alias_item_fini(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_alias_register(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @mca_base_alias_register(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp eq ptr %2, null
   br i1 %7, label %97, label %8
@@ -290,7 +290,7 @@ mca_base_alias_lookup_internal.exit.thread:       ; preds = %mca_base_alias_setu
 
 mca_base_alias_lookup_internal.exit:              ; preds = %mca_base_alias_setup.exit.thread
   %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #14
-  %50 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull %47, ptr noundef %46, i64 noundef %49, ptr noundef nonnull %6) #12
+  %50 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull %47, ptr noundef nonnull %46, i64 noundef %49, ptr noundef nonnull %6) #12
   %51 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %52 = icmp eq ptr %51, null
@@ -337,7 +337,7 @@ opal_obj_new.exit.thread:                         ; preds = %59
 opal_obj_new.exit.thread52:                       ; preds = %.lr.ph.i.i33, %60
   %67 = load ptr, ptr @alias_hash_table, align 8
   %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #14
-  %69 = call i32 @opal_hash_table_set_value_ptr(ptr noundef %67, ptr noundef %46, i64 noundef %68, ptr noundef nonnull %55) #12
+  %69 = call i32 @opal_hash_table_set_value_ptr(ptr noundef %67, ptr noundef nonnull %46, i64 noundef %68, ptr noundef nonnull %55) #12
   call void @free(ptr noundef %46) #12
   br label %70
 
@@ -411,7 +411,7 @@ opal_obj_new.exit42.thread53:                     ; preds = %.lr.ph.i.i39, %77
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noundef ptr @mca_base_alias_generate_name(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #3 {
+define internal fastcc noundef ptr @mca_base_alias_generate_name(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %4
 
@@ -476,15 +476,15 @@ define internal fastcc noundef ptr @mca_base_alias_generate_name(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @opal_hash_table_set_value_ptr(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define ptr @mca_base_alias_lookup(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
@@ -502,7 +502,7 @@ define ptr @mca_base_alias_lookup(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 10:                                               ; preds = %6
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #14
-  %12 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull %8, ptr noundef %7, i64 noundef %11, ptr noundef nonnull %4) #12
+  %12 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull %8, ptr noundef nonnull %7, i64 noundef %11, ptr noundef nonnull %4) #12
   %13 = load ptr, ptr %4, align 8
   br label %mca_base_alias_lookup_internal.exit
 
@@ -661,7 +661,7 @@ declare i32 @opal_hash_table_get_next_key_ptr(ptr noundef, ptr noundef, ptr noun
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @opal_hash_table_get_value_ptr(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
@@ -669,10 +669,10 @@ declare i32 @opal_hash_table_get_value_ptr(ptr noundef, ptr noundef, i64 noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

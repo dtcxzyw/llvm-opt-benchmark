@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [4 x i8] c"DHX\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_stored_namemap_new(ptr nocapture noundef readnone %libctx) local_unnamed_addr #0 {
+define ptr @ossl_stored_namemap_new(ptr noundef readnone captures(none) %libctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_namemap_new()
   %cmp.not = icmp eq ptr %call, null
@@ -143,7 +143,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_namemap_doall_names(ptr noundef readonly %namemap, i32 noundef %number, ptr nocapture noundef readonly %fn, ptr noundef %data) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_namemap_doall_names(ptr noundef readonly %namemap, i32 noundef %number, ptr noundef readonly captures(none) %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %cbdata = alloca %struct.doall_names_data_st, align 8
   store i32 %number, ptr %cbdata, align 8
@@ -222,7 +222,7 @@ declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @do_name(ptr nocapture noundef readonly %namenum, ptr nocapture noundef %data) #3 {
+define internal void @do_name(ptr noundef readonly captures(none) %namenum, ptr noundef captures(none) %data) #3 {
 entry:
   %number = getelementptr inbounds nuw i8, ptr %namenum, i64 8
   %0 = load i32, ptr %number, align 8
@@ -466,7 +466,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @do_num2name(ptr noundef %name, ptr nocapture noundef %vdata) #4 {
+define internal void @do_num2name(ptr noundef %name, ptr noundef captures(none) %vdata) #4 {
 entry:
   %0 = load i64, ptr %vdata, align 8
   %cmp.not = icmp eq i64 %0, 0
@@ -534,7 +534,7 @@ return:                                           ; preds = %if.end8, %if.end, %
 declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @namemap_add_name(ptr nocapture noundef nonnull %namemap, i32 noundef %number, ptr noundef nonnull %name) unnamed_addr #0 {
+define internal fastcc i32 @namemap_add_name(ptr noundef nonnull captures(none) %namemap, i32 noundef %number, ptr noundef nonnull %name) unnamed_addr #0 {
 entry:
   %namenum_tmpl.i = alloca %struct.NAMENUM_ENTRY, align 8
   %0 = getelementptr i8, ptr %namemap, i64 16
@@ -766,7 +766,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @ossl_lib_ctx_get_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -775,7 +775,7 @@ declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #2
 declare void @OBJ_NAME_do_all(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_legacy_cipher_names(ptr nocapture noundef readonly %on, ptr noundef %arg) #0 {
+define internal void @get_legacy_cipher_names(ptr noundef readonly captures(none) %on, ptr noundef %arg) #0 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %on, i64 8
   %0 = load ptr, ptr %name, align 8
@@ -794,7 +794,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_legacy_md_names(ptr nocapture noundef readonly %on, ptr noundef %arg) #0 {
+define internal void @get_legacy_md_names(ptr noundef readonly captures(none) %on, ptr noundef %arg) #0 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %on, i64 8
   %0 = load ptr, ptr %name, align 8
@@ -821,7 +821,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @namenum_hash(ptr nocapture noundef readonly %n) #0 {
+define internal i64 @namenum_hash(ptr noundef readonly captures(none) %n) #0 {
 entry:
   %0 = load ptr, ptr %n, align 8
   %call = tail call i64 @ossl_lh_strcasehash(ptr noundef %0) #7
@@ -829,7 +829,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @namenum_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @namenum_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -1117,10 +1117,10 @@ declare void @OPENSSL_LH_doall(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @OPENSSL_LH_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

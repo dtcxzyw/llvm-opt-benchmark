@@ -262,7 +262,7 @@ return:                                           ; preds = %for.inc80, %for.bod
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @save_attr(ptr noundef %ctxt, ptr noundef %a) unnamed_addr #0 {
@@ -536,7 +536,7 @@ return:                                           ; preds = %if.then.i109, %sw.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_box2i(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_box2i(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_box2i_t, align 1
@@ -562,7 +562,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_box2f(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_box2f(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_box2f_t, align 1
@@ -588,7 +588,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_chlist(ptr noundef %ctxt, ptr nocapture noundef readonly %a) unnamed_addr #0 {
+define internal fastcc i32 @save_chlist(ptr noundef %ctxt, ptr noundef readonly captures(none) %a) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %ptype = alloca i32, align 4
@@ -729,7 +729,7 @@ if.end57:                                         ; preds = %for.body11, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_chromaticities(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_chromaticities(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_chromaticities_t, align 1
@@ -807,7 +807,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_float_vector(ptr noundef %ctxt, ptr nocapture noundef readonly %a) unnamed_addr #0 {
+define internal fastcc i32 @save_float_vector(ptr noundef %ctxt, ptr noundef readonly captures(none) %a) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %0 = getelementptr inbounds nuw i8, ptr %a, i64 24
@@ -931,7 +931,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_keycode(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_keycode(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_keycode_t, align 1
@@ -957,7 +957,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_m33f(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_m33f(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_m33f_t, align 1
@@ -983,7 +983,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_m33d(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_m33d(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_m33d_t, align 1
@@ -1009,7 +1009,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_m44f(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_m44f(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_m44f_t, align 1
@@ -1035,7 +1035,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_m44d(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_m44d(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_m44d_t, align 1
@@ -1061,7 +1061,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_preview(ptr noundef %ctxt, ptr nocapture noundef readonly %a) unnamed_addr #0 {
+define internal fastcc i32 @save_preview(ptr noundef %ctxt, ptr noundef readonly captures(none) %a) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %sizes = alloca [2 x i32], align 4
@@ -1149,7 +1149,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_string(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_string(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %0 = load i32, ptr %a.24.val, align 8
@@ -1194,7 +1194,7 @@ if.end:                                           ; preds = %if.then, %save_attr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_string_vector(ptr noundef %ctxt, ptr nocapture noundef readonly %a) unnamed_addr #0 {
+define internal fastcc i32 @save_string_vector(ptr noundef %ctxt, ptr noundef readonly captures(none) %a) unnamed_addr #0 {
 entry:
   %isz.i18 = alloca i32, align 4
   %isz.i = alloca i32, align 4
@@ -1310,7 +1310,7 @@ for.end21:                                        ; preds = %save_attr_sz.exit29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_tiledesc(ptr noundef %ctxt, ptr nocapture noundef readonly %a) unnamed_addr #0 {
+define internal fastcc i32 @save_tiledesc(ptr noundef %ctxt, ptr noundef readonly captures(none) %a) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %sizes = alloca [2 x i32], align 4
@@ -1429,7 +1429,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v2d(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_v2d(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_v2d_t, align 1
@@ -1455,7 +1455,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v3i(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_v3i(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_v3i_t, align 1
@@ -1481,7 +1481,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v3f(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_v3f(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_v3f_t, align 1
@@ -1507,7 +1507,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_v3d(ptr noundef %ctxt, ptr nocapture readonly %a.24.val) unnamed_addr #0 {
+define internal fastcc i32 @save_v3d(ptr noundef %ctxt, ptr readonly captures(none) %a.24.val) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
   %tmp = alloca %struct.exr_attr_v3d_t, align 1
@@ -1588,15 +1588,15 @@ return:                                           ; preds = %save_attr_sz.exit, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @exr_attr_opaquedata_pack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

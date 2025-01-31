@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @merged_iter_vtable = internal global %struct.reftable_iterator_vtable { ptr @merged_iter_next_void, ptr @merged_iter_close }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, 1) i32 @reftable_new_merged_table(ptr nocapture noundef writeonly %dest, ptr noundef %stack, i32 noundef %n, i32 noundef %hash_id) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @reftable_new_merged_table(ptr noundef writeonly captures(none) %dest, ptr noundef %stack, i32 noundef %n, i32 noundef %hash_id) local_unnamed_addr #0 {
 entry:
   %cmp24 = icmp sgt i32 %n, 0
   br i1 %cmp24, label %for.body.preheader, label %for.end
@@ -82,7 +82,7 @@ declare i32 @reftable_table_hash_id(ptr noundef) local_unnamed_addr #1
 declare ptr @reftable_calloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @merged_table_release(ptr nocapture noundef initializes((8, 16)) %mt) local_unnamed_addr #2 {
+define dso_local void @merged_table_release(ptr noundef captures(none) initializes((8, 16)) %mt) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %mt, align 8
   tail call void @free(ptr noundef %0) #10
@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @reftable_merged_table_free(ptr noundef %mt) local_unnamed_addr #0 {
@@ -113,7 +113,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @reftable_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @reftable_merged_table_max_update_index(ptr nocapture noundef readonly %mt) local_unnamed_addr #4 {
+define dso_local i64 @reftable_merged_table_max_update_index(ptr noundef readonly captures(none) %mt) local_unnamed_addr #4 {
 entry:
   %max = getelementptr inbounds nuw i8, ptr %mt, i64 32
   %0 = load i64, ptr %max, align 8
@@ -121,7 +121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @reftable_merged_table_min_update_index(ptr nocapture noundef readonly %mt) local_unnamed_addr #4 {
+define dso_local i64 @reftable_merged_table_min_update_index(ptr noundef readonly captures(none) %mt) local_unnamed_addr #4 {
 entry:
   %min = getelementptr inbounds nuw i8, ptr %mt, i64 24
   %0 = load i64, ptr %min, align 8
@@ -129,7 +129,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_seek_ref(ptr nocapture noundef readonly %mt, ptr nocapture noundef writeonly %it, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_seek_ref(ptr noundef readonly captures(none) %mt, ptr noundef writeonly captures(none) %it, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %rec = alloca %struct.reftable_record, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec, i8 0, i64 96, i1 false)
@@ -141,10 +141,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @merged_table_seek_record(ptr nocapture noundef readonly %mt, ptr nocapture noundef writeonly %it, ptr noundef %rec) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @merged_table_seek_record(ptr noundef readonly captures(none) %mt, ptr noundef writeonly captures(none) %it, ptr noundef %rec) unnamed_addr #0 {
 entry:
   %rec.i = alloca %struct.reftable_record, align 8
   %e.i = alloca %struct.pq_entry, align 8
@@ -319,7 +319,7 @@ return:                                           ; preds = %if.else, %merged_it
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_seek_log_at(ptr nocapture noundef readonly %mt, ptr nocapture noundef writeonly %it, ptr noundef %name, i64 noundef %update_index) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_seek_log_at(ptr noundef readonly captures(none) %mt, ptr noundef writeonly captures(none) %it, ptr noundef %name, i64 noundef %update_index) local_unnamed_addr #0 {
 entry:
   %rec = alloca %struct.reftable_record, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec, i8 0, i64 96, i1 false)
@@ -333,7 +333,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_seek_log(ptr nocapture noundef readonly %mt, ptr nocapture noundef writeonly %it, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_seek_log(ptr noundef readonly captures(none) %mt, ptr noundef writeonly captures(none) %it, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %rec.i = alloca %struct.reftable_record, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %rec.i)
@@ -349,7 +349,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @reftable_merged_table_hash_id(ptr nocapture noundef readonly %mt) local_unnamed_addr #4 {
+define dso_local i32 @reftable_merged_table_hash_id(ptr noundef readonly captures(none) %mt) local_unnamed_addr #4 {
 entry:
   %hash_id = getelementptr inbounds nuw i8, ptr %mt, i64 16
   %0 = load i32, ptr %hash_id, align 8
@@ -357,7 +357,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @reftable_table_from_merged_table(ptr nocapture noundef writeonly initializes((0, 16)) %tab, ptr noundef %merged) local_unnamed_addr #6 {
+define dso_local void @reftable_table_from_merged_table(ptr noundef writeonly captures(none) initializes((0, 16)) %tab, ptr noundef %merged) local_unnamed_addr #6 {
 entry:
   store ptr @merged_table_vtable, ptr %tab, align 8
   %table_arg = getelementptr inbounds nuw i8, ptr %tab, i64 8
@@ -402,7 +402,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare ptr @reftable_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @reftable_new_record(ptr sret(%struct.reftable_record) align 8, i8 noundef zeroext) local_unnamed_addr #1
 
@@ -579,14 +579,14 @@ declare i32 @strbuf_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @iterator_is_null(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 1) i32 @reftable_merged_table_seek_void(ptr nocapture noundef readonly %tab, ptr nocapture noundef writeonly %it, ptr noundef %rec) #0 {
+define internal range(i32 -2147483648, 1) i32 @reftable_merged_table_seek_void(ptr noundef readonly captures(none) %tab, ptr noundef writeonly captures(none) %it, ptr noundef %rec) #0 {
 entry:
   %call = tail call fastcc i32 @merged_table_seek_record(ptr noundef %tab, ptr noundef %it, ptr noundef %rec)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @reftable_merged_table_hash_id_void(ptr nocapture noundef readonly %tab) #4 {
+define internal i32 @reftable_merged_table_hash_id_void(ptr noundef readonly captures(none) %tab) #4 {
 entry:
   %hash_id.i = getelementptr inbounds nuw i8, ptr %tab, i64 16
   %0 = load i32, ptr %hash_id.i, align 8
@@ -594,7 +594,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @reftable_merged_table_min_update_index_void(ptr nocapture noundef readonly %tab) #4 {
+define internal i64 @reftable_merged_table_min_update_index_void(ptr noundef readonly captures(none) %tab) #4 {
 entry:
   %min.i = getelementptr inbounds nuw i8, ptr %tab, i64 24
   %0 = load i64, ptr %min.i, align 8
@@ -602,7 +602,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @reftable_merged_table_max_update_index_void(ptr nocapture noundef readonly %tab) #4 {
+define internal i64 @reftable_merged_table_max_update_index_void(ptr noundef readonly captures(none) %tab) #4 {
 entry:
   %max.i = getelementptr inbounds nuw i8, ptr %tab, i64 32
   %0 = load i64, ptr %max.i, align 8
@@ -616,10 +616,10 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

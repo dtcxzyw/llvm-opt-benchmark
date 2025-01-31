@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8facebook5veloxL22localRuntimeStatWriterE = internal thread_local unnamed_addr global ptr null, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox13RuntimeMetric8addValueEl(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %value) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox13RuntimeMetric8addValueEl(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i64 noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %sum = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %sum, align 8
@@ -36,7 +36,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox13RuntimeMetric9aggregateEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((24, 40)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox13RuntimeMetric9aggregateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 40)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %count, align 8
@@ -52,7 +52,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox13RuntimeMetric5mergeERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox13RuntimeMetric5mergeERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %other) local_unnamed_addr #0 align 2 {
 entry:
   %sum = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i64, ptr %sum, align 8
@@ -82,7 +82,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox13RuntimeMetric11printMetricERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(128) %stream) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox13RuntimeMetric11printMetricERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(128) %stream) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8

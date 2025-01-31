@@ -5231,7 +5231,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_16BoundFramebufferENS0_14DefaultDeleterIN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8965,7 +8965,7 @@ declare void @glReadBuffer(i32 noundef) local_unnamed_addr #2
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9952,7 +9952,7 @@ _ZN3glw24BoundReadDrawFramebufferD2Ev.exit:       ; preds = %5, %_ZN3glw6detail1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #15
@@ -10254,7 +10254,7 @@ declare void @glMultMatrixf(ptr noundef) local_unnamed_addr #2
 declare void @glVertex3fv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN23VisibilityCheck_VMV20029iterationERSt6vectorIhSaIhEE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN23VisibilityCheck_VMV20029iterationERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
   tail call void @glClear(i32 noundef 16384)
   tail call void @glBegin(i32 noundef 0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10446,7 +10446,7 @@ declare void @glColor4ub(i8 noundef zeroext, i8 noundef zeroext, i8 noundef zero
 declare void @glReadPixels(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23VisibilityCheck_VMV20027releaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) local_unnamed_addr #1 align 2 {
+define void @_ZN23VisibilityCheck_VMV20027releaseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #1 align 2 {
   tail call void @glPushAttrib(i32 noundef 4096)
   tail call void @glMatrixMode(i32 noundef 5888)
   tail call void @glPopMatrix()
@@ -10627,7 +10627,7 @@ _ZN15VisibilityCheckD2Ev.exit:                    ; preds = %30, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN25VisibilityCheck_ShadowMap11initShadersEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN25VisibilityCheck_ShadowMap11initShadersEv(ptr noundef nonnull align 8 captures(none) dereferenceable(352) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.20", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10930,7 +10930,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_11SafeTextureENS0_14DefaultDeleterINS_10S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define void @_ZN25VisibilityCheck_ShadowMap18shadowProjMatricesEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN25VisibilityCheck_ShadowMap18shadowProjMatricesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(352) %0) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.vcg::Matrix44", align 4
   %3 = alloca %"class.vcg::Matrix44", align 4
   %4 = alloca %"class.vcg::Matrix44", align 4
@@ -12358,7 +12358,7 @@ define linkonce_odr void @_ZN3glw12BoundTexture6unbindEv(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN25VisibilityCheck_ShadowMap19updateShadowTextureEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN25VisibilityCheck_ShadowMap19updateShadowTextureEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.glw::RenderTarget", align 8
   %3 = alloca %"class.vcg::Matrix44", align 4
   %4 = alloca %"class.vcg::Matrix44", align 4
@@ -18829,10 +18829,10 @@ define internal void @_GLOBAL__sub_I_VisibilityCheck.cpp() #17 section ".text.st
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20

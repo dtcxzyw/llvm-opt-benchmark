@@ -268,7 +268,7 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -279,7 +279,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca %struct.FCOSConvRequestKey, align 8
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
@@ -1126,7 +1126,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #2
 declare ptr @wmem_file_scope() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fiveco_hash(ptr nocapture noundef readonly %0) #3 {
+define internal i32 @fiveco_hash(ptr noundef readonly captures(none) %0) #3 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
@@ -1143,7 +1143,7 @@ define internal i32 @fiveco_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @fiveco_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @fiveco_hash_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -1197,7 +1197,7 @@ define hidden void @proto_reg_handoff_FiveCoLegacy() local_unnamed_addr #0 {
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @dispType(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @dispType(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = lshr i32 %1, 16
   %4 = and i32 %1, 65535
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 18, ptr noundef nonnull @.str.111, i32 noundef %3, i32 noundef %4, i32 noundef %3, i32 noundef %4) #8
@@ -1205,7 +1205,7 @@ define internal void @dispType(ptr nocapture noundef writeonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @dispVersion(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @dispVersion(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = icmp ult i32 %1, 16777216
   br i1 %3, label %4, label %8
 
@@ -1229,7 +1229,7 @@ define internal void @dispVersion(ptr nocapture noundef writeonly %0, i32 nounde
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @dispMAC(ptr nocapture noundef writeonly %0, i64 noundef %1) #4 {
+define internal void @dispMAC(ptr noundef writeonly captures(none) %0, i64 noundef %1) #4 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %3 = lshr i32 %.sroa.0.0.extract.trunc, 8
   %4 = lshr i32 %.sroa.0.0.extract.trunc, 16
@@ -1248,7 +1248,7 @@ define internal void @dispMAC(ptr nocapture noundef writeonly %0, i64 noundef %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @dispIP(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @dispIP(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %.sroa.2.0.extract.shift = lshr i32 %1, 8
   %.sroa.3.0.extract.shift = lshr i32 %1, 16
   %.sroa.4.0.extract.shift = lshr i32 %1, 24
@@ -1260,7 +1260,7 @@ define internal void @dispIP(ptr nocapture noundef writeonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @dispMask(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @dispMask(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %.sroa.2.0.extract.shift = lshr i32 %1, 8
   %.sroa.3.0.extract.shift = lshr i32 %1, 16
   %.sroa.4.0.extract.shift = lshr i32 %1, 24
@@ -1272,7 +1272,7 @@ define internal void @dispMask(ptr nocapture noundef writeonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @dispTimeout(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @dispTimeout(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %5, label %3
 
@@ -1291,7 +1291,7 @@ define internal void @dispTimeout(ptr nocapture noundef writeonly %0, i32 nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
@@ -1340,13 +1340,13 @@ declare i32 @tvb_get_guint24(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

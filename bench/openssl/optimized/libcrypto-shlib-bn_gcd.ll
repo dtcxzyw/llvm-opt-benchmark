@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.BN_mod_inverse = private unnamed_addr constant [15 x i8] c"BN_mod_inverse\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @int_bn_mod_inverse(ptr noundef %in, ptr noundef %a, ptr noundef %n, ptr noundef %ctx, ptr nocapture noundef writeonly initializes((0, 4)) %pnoinv) local_unnamed_addr #0 {
+define ptr @int_bn_mod_inverse(ptr noundef %in, ptr noundef %a, ptr noundef %n, ptr noundef %ctx, ptr noundef writeonly captures(none) initializes((0, 4)) %pnoinv) local_unnamed_addr #0 {
 entry:
   %local_B.i = alloca %struct.bignum_st, align 8
   %local_A.i = alloca %struct.bignum_st, align 8
@@ -268,7 +268,7 @@ while.cond.preheader:                             ; preds = %land.lhs.true
 
 while.cond57:                                     ; preds = %while.cond.preheader, %while.cond57.backedge
   %shift.0 = phi i32 [ %shift.0.be, %while.cond57.backedge ], [ 0, %while.cond.preheader ]
-  %call58 = tail call i32 @BN_is_bit_set(ptr noundef %call11, i32 noundef %shift.0) #4
+  %call58 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %call11, i32 noundef %shift.0) #4
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %while.body61, label %while.end
 
@@ -297,7 +297,7 @@ while.end:                                        ; preds = %while.cond57
   br i1 %cmp74.not, label %while.cond81.preheader, label %if.then75
 
 if.then75:                                        ; preds = %while.end
-  %call76 = tail call i32 @BN_rshift(ptr noundef %call11, ptr noundef %call11, i32 noundef %shift.0) #4
+  %call76 = tail call i32 @BN_rshift(ptr noundef nonnull %call11, ptr noundef nonnull %call11, i32 noundef %shift.0) #4
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %err, label %while.cond81.preheader
 
@@ -336,7 +336,7 @@ if.then101:                                       ; preds = %while.end99
   br i1 %tobool103.not, label %err, label %if.end106
 
 if.end106:                                        ; preds = %if.then101, %while.end99
-  %call107 = tail call i32 @BN_ucmp(ptr noundef %call11, ptr noundef %call10) #4
+  %call107 = tail call i32 @BN_ucmp(ptr noundef nonnull %call11, ptr noundef %call10) #4
   %cmp108 = icmp sgt i32 %call107, -1
   br i1 %cmp108, label %if.then109, label %if.else118
 
@@ -346,7 +346,7 @@ if.then109:                                       ; preds = %if.end106
   br i1 %tobool111.not, label %err, label %if.end113
 
 if.end113:                                        ; preds = %if.then109
-  %call114 = tail call i32 @BN_usub(ptr noundef %call11, ptr noundef %call11, ptr noundef %call10) #4
+  %call114 = tail call i32 @BN_usub(ptr noundef nonnull %call11, ptr noundef nonnull %call11, ptr noundef %call10) #4
   %tobool115.not = icmp eq i32 %call114, 0
   br i1 %tobool115.not, label %err, label %if.end127
 
@@ -356,12 +356,12 @@ if.else118:                                       ; preds = %if.end106
   br i1 %tobool120.not, label %err, label %if.end122
 
 if.end122:                                        ; preds = %if.else118
-  %call123 = tail call i32 @BN_usub(ptr noundef %call10, ptr noundef %call10, ptr noundef %call11) #4
+  %call123 = tail call i32 @BN_usub(ptr noundef %call10, ptr noundef %call10, ptr noundef nonnull %call11) #4
   %tobool124.not = icmp eq i32 %call123, 0
   br i1 %tobool124.not, label %err, label %if.end127
 
 if.end127:                                        ; preds = %if.end122, %if.end113
-  %call55 = tail call i32 @BN_is_zero(ptr noundef %call11) #4
+  %call55 = tail call i32 @BN_is_zero(ptr noundef nonnull %call11) #4
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %while.cond57.backedge, label %if.then251
 
@@ -952,10 +952,10 @@ declare void @BN_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare i32 @llvm.smax.i32(i32, i32) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

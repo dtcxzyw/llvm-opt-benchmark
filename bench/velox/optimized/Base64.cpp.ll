@@ -75,7 +75,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox8encoding6Base646encodeEPKcmPc(ptr nocapture noundef readonly %data, i64 noundef %len, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 align 2 {
+define void @_ZN8facebook5velox8encoding6Base646encodeEPKcmPc(ptr noundef readonly captures(none) %data, i64 noundef %len, ptr noundef writeonly captures(none) %output) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i = icmp eq i64 %len, 0
   br i1 %cmp.i, label %_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5arrayIcLm64EEbPc.exit, label %for.cond.preheader.i
@@ -192,7 +192,7 @@ _ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5ar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox8encoding6Base649encodeUrlEPKcmPc(ptr nocapture noundef readonly %data, i64 noundef %len, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 align 2 {
+define void @_ZN8facebook5velox8encoding6Base649encodeUrlEPKcmPc(ptr noundef readonly captures(none) %data, i64 noundef %len, ptr noundef writeonly captures(none) %output) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i = icmp eq i64 %len, 0
   br i1 %cmp.i, label %_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5arrayIcLm64EEbPc.exit, label %for.cond.preheader.i
@@ -467,7 +467,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox8encoding6Base6410encodeImplINS1_12_GLOBAL__N_112IOBufWrapperEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr noalias align 8 %agg.result, ptr nonnull %data.0.val, ptr nocapture noundef nonnull readonly align 1 dereferenceable(64) %charset, i1 noundef zeroext %include_pad) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox8encoding6Base6410encodeImplINS1_12_GLOBAL__N_112IOBufWrapperEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr noalias align 8 %agg.result, ptr nonnull %data.0.val, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(64) %charset, i1 noundef zeroext %include_pad) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i.i81.i = alloca i8, align 1
   %val.i.i.i66.i = alloca i8, align 1
@@ -1346,7 +1346,7 @@ nrvo.skipdtor:                                    ; preds = %call.i.i.noexc
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox8encoding6Base646decodeERKSt4pairIPKciERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %payload, ptr noundef nonnull align 8 dereferenceable(32) %output) local_unnamed_addr #2 align 2 {
+define void @_ZN8facebook5velox8encoding6Base646decodeERKSt4pairIPKciERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %payload, ptr noundef nonnull align 8 dereferenceable(32) %output) local_unnamed_addr #2 align 2 {
 entry:
   %second = getelementptr inbounds nuw i8, ptr %payload, i64 8
   %0 = load i32, ptr %second, align 8
@@ -1371,7 +1371,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -2, -4611686018427387904) i64 @_ZN8facebook5velox8encoding6Base646decodeEPKcmPcm(ptr nocapture noundef readonly %src, i64 noundef %src_len, ptr nocapture noundef writeonly %dst, i64 noundef %dst_len) local_unnamed_addr #2 align 2 {
+define noundef range(i64 -2, -4611686018427387904) i64 @_ZN8facebook5velox8encoding6Base646decodeEPKcmPcm(ptr noundef readonly captures(none) %src, i64 noundef %src_len, ptr noundef writeonly captures(none) %dst, i64 noundef %dst_len) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef %src, i64 noundef %src_len, ptr noundef %dst, i64 noundef %dst_len, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
   ret i64 %call
@@ -1380,7 +1380,7 @@ entry:
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox8encoding6Base646decodeEPKcmPc(ptr nocapture noundef readonly %data, i64 noundef %size, ptr nocapture noundef writeonly %output) local_unnamed_addr #2 align 2 {
+define void @_ZN8facebook5velox8encoding6Base646decodeEPKcmPc(ptr noundef readonly captures(none) %data, i64 noundef %size, ptr noundef writeonly captures(none) %output) local_unnamed_addr #2 align 2 {
 entry:
   %div2 = lshr i64 %size, 2
   %mul = mul nuw i64 %div2, 3
@@ -1389,7 +1389,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 64) i8 @_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE(i8 noundef signext %p, ptr nocapture noundef nonnull readonly align 1 dereferenceable(256) %reverse_lookup) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 64) i8 @_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE(i8 noundef signext %p, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(256) %reverse_lookup) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = zext i8 %p to i64
   %arrayidx.i.i = getelementptr inbounds nuw [256 x i8], ptr %reverse_lookup, i64 0, i64 %conv
@@ -1422,7 +1422,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -2, -4611686018427387904) i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr nocapture noundef readonly %src, i64 noundef %src_len, ptr nocapture noundef writeonly %dst, i64 noundef %dst_len, ptr nocapture noundef nonnull readonly align 1 dereferenceable(256) %reverse_lookup, i1 noundef zeroext %include_pad) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2, -4611686018427387904) i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef readonly captures(none) %src, i64 noundef %src_len, ptr noundef writeonly captures(none) %dst, i64 noundef %dst_len, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(256) %reverse_lookup, i1 noundef zeroext %include_pad) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src_len.addr = alloca i64, align 8
   store i64 %src_len, ptr %src_len.addr, align 8
@@ -1650,7 +1650,7 @@ return:                                           ; preds = %_ZN8facebook5velox8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -2, -4611686018427387904) i64 @_ZN8facebook5velox8encoding6Base6420calculateDecodedSizeEPKcRmb(ptr nocapture noundef readonly %data, ptr nocapture noundef nonnull align 8 dereferenceable(8) %size, i1 noundef zeroext %withPadding) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2, -4611686018427387904) i64 @_ZN8facebook5velox8encoding6Base6420calculateDecodedSizeEPKcRmb(ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %size, i1 noundef zeroext %withPadding) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %0, 0
@@ -1898,7 +1898,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox8encoding6Base649decodeUrlEPKcmPcmb(ptr nocapture noundef readonly %src, i64 noundef %src_len, ptr nocapture noundef writeonly %dst, i64 noundef %dst_len, i1 noundef zeroext %hasPad) local_unnamed_addr #2 align 2 {
+define void @_ZN8facebook5velox8encoding6Base649decodeUrlEPKcmPcmb(ptr noundef readonly captures(none) %src, i64 noundef %src_len, ptr noundef writeonly captures(none) %dst, i64 noundef %dst_len, i1 noundef zeroext %hasPad) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef %src, i64 noundef %src_len, ptr noundef %dst, i64 noundef %dst_len, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL27kBase64UrlReverseIndexTableE, i1 noundef zeroext %hasPad)
   ret void
@@ -1944,7 +1944,7 @@ nrvo.skipdtor:                                    ; preds = %call3.i.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox8encoding6Base649decodeUrlERKSt4pairIPKciERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %payload, ptr noundef nonnull align 8 dereferenceable(32) %output) local_unnamed_addr #2 align 2 {
+define void @_ZN8facebook5velox8encoding6Base649decodeUrlERKSt4pairIPKciERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %payload, ptr noundef nonnull align 8 dereferenceable(32) %output) local_unnamed_addr #2 align 2 {
 entry:
   %second = getelementptr inbounds nuw i8, ptr %payload, i64 8
   %0 = load i32, ptr %second, align 8
@@ -1987,7 +1987,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: cold mustprogress noreturn uwtable
 define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef %args) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
@@ -2033,10 +2033,10 @@ entry:
 declare void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

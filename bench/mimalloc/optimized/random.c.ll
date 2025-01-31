@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [17 x i8] c"expand 32-byte k\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_random_split(ptr nocapture noundef readonly %ctx, ptr noundef %ctx_new) local_unnamed_addr #0 {
+define hidden void @_mi_random_split(ptr noundef readonly captures(none) %ctx, ptr noundef %ctx_new) local_unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %ctx_new to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ctx_new, i8 0, i64 136, i1 false)
@@ -21,12 +21,12 @@ entry:
   %conv8.i = trunc nuw i64 %shr.i to i32
   %arrayidx10.i = getelementptr inbounds nuw i8, ptr %ctx_new, i64 60
   store i32 %conv8.i, ptr %arrayidx10.i, align 4
-  tail call fastcc void @chacha_block(ptr noundef %ctx_new) #6
+  tail call fastcc void @chacha_block(ptr noundef nonnull %ctx_new) #6
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @_mi_random_next(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
+define hidden i64 @_mi_random_next(ptr noundef captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %output_available.i = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load i32, ptr %output_available.i, align 4
@@ -279,10 +279,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @chacha_block(ptr nocapture noundef %ctx) unnamed_addr #0 {
+define internal fastcc void @chacha_block(ptr noundef captures(none) %ctx) unnamed_addr #0 {
 entry:
   %x = alloca [16 x i32], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %x, ptr noundef nonnull align 4 dereferenceable(64) %ctx, i64 64, i1 false)
@@ -500,7 +500,7 @@ if.end43:                                         ; preds = %if.then, %if.then39
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare zeroext i1 @_mi_prim_random_buf(ptr noundef, i64 noundef) local_unnamed_addr #2
 

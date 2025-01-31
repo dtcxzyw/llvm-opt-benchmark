@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #0 {
 entry:
   %dummy_lh.sroa.0 = alloca ptr, align 8
   %s1 = alloca ptr, align 8
@@ -177,8 +177,7 @@ dummy_lh_insert.exit:                             ; preds = %for.body.i49
   store ptr %call22, ptr %cur.015.i, align 8
   %10 = load ptr, ptr %s1, align 8
   %cmp24.not = icmp eq ptr %10, null
-  %tobool35.not = icmp eq ptr %9, null
-  br i1 %cmp24.not, label %if.end34, label %land.lhs.true25
+  br i1 %cmp24.not, label %for.inc.sink.split, label %lor.lhs.false27
 
 dummy_lh_insert.exit.thread:                      ; preds = %for.inc.i, %rand_string.exit48
   %call5.i = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
@@ -190,22 +189,16 @@ dummy_lh_insert.exit.thread:                      ; preds = %for.inc.i, %rand_st
   %cmp24.not90 = icmp eq ptr %11, null
   br i1 %cmp24.not90, label %for.inc, label %if.then30
 
-land.lhs.true25:                                  ; preds = %dummy_lh_insert.exit
-  br i1 %tobool35.not, label %if.then30, label %lor.lhs.false27
-
-lor.lhs.false27:                                  ; preds = %land.lhs.true25
+lor.lhs.false27:                                  ; preds = %dummy_lh_insert.exit
   %call28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %9) #12
   %cmp29.not = icmp eq i32 %call28, 0
   br i1 %cmp29.not, label %for.inc.sink.split.sink.split, label %if.then30
 
-if.then30:                                        ; preds = %dummy_lh_insert.exit.thread, %lor.lhs.false27, %land.lhs.true25
+if.then30:                                        ; preds = %dummy_lh_insert.exit.thread, %lor.lhs.false27
   %12 = load ptr, ptr @stderr, align 8
   %13 = call i64 @fwrite(ptr nonnull @.str.2, i64 18, i64 1, ptr %12) #10
   call void @abort() #13
   unreachable
-
-if.end34:                                         ; preds = %dummy_lh_insert.exit
-  br i1 %tobool35.not, label %for.inc, label %for.inc.sink.split
 
 sw.bb38:                                          ; preds = %if.end7
   %call.i55 = call i32 @rand() #9
@@ -274,8 +267,7 @@ dummy_lh_delete.exit:                             ; preds = %dummy_lh_delete.exi
   call void @free(ptr noundef nonnull %cur.013.i77.lcssa) #9
   %.pr.pre = load ptr, ptr %s1, align 8
   %cmp42.not = icmp eq ptr %.pr.pre, null
-  %tobool54.not = icmp eq ptr %.lcssa, null
-  br i1 %cmp42.not, label %if.end53, label %land.lhs.true43
+  br i1 %cmp42.not, label %for.inc.sink.split.sink.split, label %lor.lhs.false45
 
 dummy_lh_delete.exit.thread144:                   ; preds = %if.end.i
   %cmp42.not147 = icmp eq ptr %call40, null
@@ -285,15 +277,12 @@ dummy_lh_delete.exit.thread:                      ; preds = %rand_string.exit75
   %cmp42.not108 = icmp eq ptr %call40, null
   br i1 %cmp42.not108, label %for.inc.sink.split, label %if.then48
 
-land.lhs.true43:                                  ; preds = %dummy_lh_delete.exit
-  br i1 %tobool54.not, label %if.then48, label %lor.lhs.false45
-
-lor.lhs.false45:                                  ; preds = %land.lhs.true43
+lor.lhs.false45:                                  ; preds = %dummy_lh_delete.exit
   %call46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr.pre, ptr noundef nonnull dereferenceable(1) %.lcssa) #12
   %cmp47.not = icmp eq i32 %call46, 0
   br i1 %cmp47.not, label %if.end53.thread, label %if.then48
 
-if.then48:                                        ; preds = %dummy_lh_delete.exit.thread144, %dummy_lh_delete.exit.thread, %lor.lhs.false45, %land.lhs.true43
+if.then48:                                        ; preds = %dummy_lh_delete.exit.thread144, %dummy_lh_delete.exit.thread, %lor.lhs.false45
   %19 = load ptr, ptr @stderr, align 8
   %20 = call i64 @fwrite(ptr nonnull @.str.2, i64 18, i64 1, ptr %19) #10
   call void @abort() #13
@@ -303,25 +292,22 @@ if.end53.thread:                                  ; preds = %lor.lhs.false45
   call void @free(ptr noundef nonnull %.pr.pre) #9
   br label %for.inc.sink.split.sink.split
 
-if.end53:                                         ; preds = %dummy_lh_delete.exit
-  br i1 %tobool54.not, label %for.inc.sink.split, label %for.inc.sink.split.sink.split
-
 sw.default:                                       ; preds = %if.end7
   call void @abort() #13
   unreachable
 
-for.inc.sink.split.sink.split:                    ; preds = %if.end53, %if.end53.thread, %lor.lhs.false27
-  %retval.0.i81.ph151.sink = phi ptr [ %10, %lor.lhs.false27 ], [ %.lcssa, %if.end53.thread ], [ %.lcssa, %if.end53 ]
-  %call2.i.sink.ph = phi ptr [ %9, %lor.lhs.false27 ], [ %call2.i60, %if.end53.thread ], [ %call2.i60, %if.end53 ]
+for.inc.sink.split.sink.split:                    ; preds = %dummy_lh_delete.exit, %if.end53.thread, %lor.lhs.false27
+  %retval.0.i81.ph151.sink = phi ptr [ %10, %lor.lhs.false27 ], [ %.lcssa, %if.end53.thread ], [ %.lcssa, %dummy_lh_delete.exit ]
+  %call2.i.sink.ph = phi ptr [ %9, %lor.lhs.false27 ], [ %call2.i60, %if.end53.thread ], [ %call2.i60, %dummy_lh_delete.exit ]
   call void @free(ptr noundef nonnull %retval.0.i81.ph151.sink) #9
   br label %for.inc.sink.split
 
-for.inc.sink.split:                               ; preds = %for.inc.sink.split.sink.split, %if.end53, %dummy_lh_delete.exit.thread, %dummy_lh_delete.exit.thread144, %if.end34, %dummy_lh_retrieve.exit, %lor.lhs.false
-  %call2.i.sink = phi ptr [ %call2.i, %lor.lhs.false ], [ %call2.i, %dummy_lh_retrieve.exit ], [ %9, %if.end34 ], [ %call2.i60, %dummy_lh_delete.exit.thread144 ], [ %call2.i60, %dummy_lh_delete.exit.thread ], [ %call2.i60, %if.end53 ], [ %call2.i.sink.ph, %for.inc.sink.split.sink.split ]
+for.inc.sink.split:                               ; preds = %for.inc.sink.split.sink.split, %dummy_lh_delete.exit.thread, %dummy_lh_delete.exit.thread144, %dummy_lh_insert.exit, %dummy_lh_retrieve.exit, %lor.lhs.false
+  %call2.i.sink = phi ptr [ %call2.i, %lor.lhs.false ], [ %call2.i, %dummy_lh_retrieve.exit ], [ %9, %dummy_lh_insert.exit ], [ %call2.i60, %dummy_lh_delete.exit.thread144 ], [ %call2.i60, %dummy_lh_delete.exit.thread ], [ %call2.i.sink.ph, %for.inc.sink.split.sink.split ]
   call void @free(ptr noundef %call2.i.sink) #9
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %dummy_lh_insert.exit.thread, %if.end34
+for.inc:                                          ; preds = %for.inc.sink.split, %dummy_lh_insert.exit.thread
   %inc = add nuw nsw i32 %i.0136, 1
   %exitcond.not = icmp eq i32 %inc, 100000
   br i1 %exitcond.not, label %for.end, label %for.bodythread-pre-split, !llvm.loop !13
@@ -364,18 +350,18 @@ declare i32 @rand() local_unnamed_addr #2
 declare ptr @lh_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #5
+declare void @free(ptr allocptr noundef captures(none)) #5
 
 declare i32 @lh_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare ptr @lh_delete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -387,10 +373,10 @@ declare void @lh_free(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

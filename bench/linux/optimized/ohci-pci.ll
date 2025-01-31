@@ -139,7 +139,7 @@ declare dso_local ptr @pci_match_id(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local i32 @ohci_setup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ohci_quirk_amd756(ptr nocapture noundef initializes((1664, 1672)) %0) #2 align 16 {
+define internal noundef i32 @ohci_quirk_amd756(ptr noundef captures(none) initializes((1664, 1672)) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   store i64 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -151,12 +151,12 @@ define internal noundef i32 @ohci_quirk_amd756(ptr nocapture noundef initializes
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @ohci_quirk_opti(ptr nocapture readnone %0) #3 align 16 {
+define internal noundef i32 @ohci_quirk_opti(ptr readnone captures(none) %0) #3 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ohci_quirk_ns(ptr nocapture noundef %0) #2 align 16 {
+define internal noundef i32 @ohci_quirk_ns(ptr noundef captures(none) %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 -168
   %4 = load ptr, ptr %3, align 8
@@ -193,7 +193,7 @@ define internal noundef i32 @ohci_quirk_ns(ptr nocapture noundef %0) #2 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @ohci_quirk_zfmicro(ptr nocapture noundef %0) #4 align 16 {
+define internal noundef i32 @ohci_quirk_zfmicro(ptr noundef captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %3 = load i64, ptr %2, align 8
   %4 = or i64 %3, 32
@@ -202,7 +202,7 @@ define internal noundef i32 @ohci_quirk_zfmicro(ptr nocapture noundef %0) #4 ali
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ohci_quirk_toshiba_scc(ptr nocapture noundef readonly %0) #5 align 16 {
+define internal noundef i32 @ohci_quirk_toshiba_scc(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = load ptr, ptr %0, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %2, ptr noundef nonnull @.str.2) #9
   ret i32 -6
@@ -226,7 +226,7 @@ define internal noundef i32 @ohci_quirk_nec(ptr noundef initializes((1728, 1736)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @broken_suspend(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef i32 @broken_suspend(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
@@ -236,7 +236,7 @@ define internal noundef i32 @broken_suspend(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ohci_quirk_amd700(ptr nocapture noundef %0) #2 align 16 {
+define internal noundef i32 @ohci_quirk_amd700(ptr noundef captures(none) %0) #2 align 16 {
   %2 = tail call zeroext i1 @usb_amd_quirk_pll_check() #8
   br i1 %2, label %3, label %._crit_edge
 
@@ -260,7 +260,7 @@ define internal noundef i32 @ohci_quirk_amd700(ptr nocapture noundef %0) #2 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @ohci_quirk_qemu(ptr nocapture noundef %0) #4 align 16 {
+define internal noundef i32 @ohci_quirk_qemu(ptr noundef captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %3 = load i64, ptr %2, align 8
   %4 = or i64 %3, 4096
@@ -313,7 +313,7 @@ declare dso_local zeroext i1 @usb_amd_prefetch_quirk() local_unnamed_addr #1
 declare dso_local i32 @ohci_resume(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ohci_pci_probe(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
+define internal i32 @ohci_pci_probe(ptr noundef %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = tail call i32 @usb_hcd_pci_probe(ptr noundef %0, ptr noundef nonnull @ohci_pci_hc_driver) #8
   ret i32 %3
 }

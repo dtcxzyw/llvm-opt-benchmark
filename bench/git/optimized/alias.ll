@@ -28,7 +28,7 @@ entry:
 declare void @read_early_config(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @config_alias_cb(ptr noundef %key, ptr noundef %value, ptr nocapture readnone %ctx, ptr noundef %d) #0 {
+define internal i32 @config_alias_cb(ptr noundef %key, ptr noundef %value, ptr readnone captures(none) %ctx, ptr noundef %d) #0 {
 entry:
   %scevgep.i = getelementptr i8, ptr %key, i64 6
   br label %do.body.i
@@ -279,7 +279,7 @@ for.end14:                                        ; preds = %strbuf_addch.exit72
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, 2147483647) i32 @split_cmdline(ptr noundef %cmdline, ptr nocapture noundef initializes((0, 8)) %argv) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 2147483647) i32 @split_cmdline(ptr noundef %cmdline, ptr noundef captures(none) initializes((0, 8)) %argv) local_unnamed_addr #0 {
 entry:
   %call1 = tail call ptr @xmalloc(i64 noundef 128) #8
   store ptr %call1, ptr %argv, align 8
@@ -482,7 +482,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local ptr @split_cmdline_strerror(i32 noundef %split_cmdline_errno) local_unnamed_addr #3 {
@@ -495,7 +495,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @git_config_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -507,7 +507,7 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @die(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7

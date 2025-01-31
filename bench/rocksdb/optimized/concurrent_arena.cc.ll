@@ -146,7 +146,7 @@ declare void @_ZN7rocksdb5ArenaC1EmPNS_12AllocTrackerEm(ptr noundef nonnull alig
 declare void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb15ConcurrentArena6RepickEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(2472) %this) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN7rocksdb15ConcurrentArena6RepickEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(2472) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
   %cmp.i = icmp slt i32 %call.i, 0
@@ -286,7 +286,7 @@ declare noundef i32 @_ZNSt6thread20hardware_concurrencyEv() local_unnamed_addr #
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv() local_unnamed_addr #1
 

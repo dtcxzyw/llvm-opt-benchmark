@@ -215,7 +215,7 @@ ompi_errcode_get_mpi_code.exit55:                 ; preds = %69, %65, %.preheade
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %97 = load i32, ptr %96, align 8
-  %98 = tail call i32 @ompi_errhandler_invoke(ptr noundef %95, ptr noundef %0, i32 noundef %97, i32 noundef %.0.i45, ptr noundef nonnull @FUNC_NAME) #4
+  %98 = tail call i32 @ompi_errhandler_invoke(ptr noundef %95, ptr noundef nonnull %0, i32 noundef %97, i32 noundef %.0.i45, ptr noundef nonnull @FUNC_NAME) #4
   br label %99
 
 99:                                               ; preds = %ompi_comm_iface_create_check.exit, %ompi_errcode_get_mpi_code.exit55, %ompi_errcode_get_mpi_code.exit, %50, %39, %31, %23, %ompi_comm_invalid.exit.thread

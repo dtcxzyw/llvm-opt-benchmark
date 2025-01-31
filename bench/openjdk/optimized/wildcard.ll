@@ -16,7 +16,7 @@ define hidden ptr @JLI_WildcardExpandClasspath(ptr noundef %0) local_unnamed_add
   br i1 %3, label %124, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @JLI_List_split(ptr noundef %0, i8 noundef signext 58) #7
+  %5 = tail call ptr @JLI_List_split(ptr noundef nonnull %0, i8 noundef signext 58) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
@@ -73,7 +73,7 @@ isWildcard.exit.i:                                ; preds = %22, %20
   br label %45
 
 39:                                               ; preds = %29
-  %40 = tail call ptr @JLI_StringDup(ptr noundef %32) #7
+  %40 = tail call ptr @JLI_StringDup(ptr noundef nonnull %32) #7
   %41 = add i64 %34, 4294967295
   %42 = and i64 %41, 4294967295
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
@@ -141,7 +141,7 @@ isJarFileName.exit.i.i:                           ; preds = %63, %58
   %71 = shl i64 %67, 32
   %sext11.i.i.i = add i64 %71, -4294967296
   %72 = ashr exact i64 %sext11.i.i.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr readonly align 1 %32, i64 %72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull readonly align 1 %32, i64 %72, i1 false)
   %73 = ashr exact i64 %71, 32
   %74 = getelementptr inbounds i8, ptr %70, i64 %73
   %75 = getelementptr inbounds i8, ptr %74, i64 -1
@@ -263,7 +263,7 @@ FileList_expandWildcards.exit.thread:             ; preds = %4, %FileList_expand
   br i1 %.not11, label %124, label %122
 
 122:                                              ; preds = %FileList_expandWildcards.exit.thread
-  %123 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0, ptr noundef %120)
+  %123 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %0, ptr noundef %120)
   br label %124
 
 124:                                              ; preds = %FileList_expandWildcards.exit.thread, %122, %1
@@ -281,27 +281,27 @@ declare ptr @JLI_List_join(ptr noundef, i8 noundef signext) local_unnamed_addr #
 declare void @JLI_List_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @JLI_MemFree(ptr noundef) local_unnamed_addr #2
 
 declare void @JLI_List_ensureCapacity(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
 
 declare ptr @JLI_List_new(i64 noundef) local_unnamed_addr #2
 
 declare void @JLI_List_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare ptr @JLI_StringDup(ptr noundef) local_unnamed_addr #2
 
@@ -310,13 +310,13 @@ declare ptr @JLI_MemAlloc(i64 noundef) local_unnamed_addr #2
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

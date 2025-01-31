@@ -180,10 +180,10 @@ return:                                           ; preds = %if.end34, %entry, %
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ubidi_getMemory_75(ptr nocapture noundef %bidiMem, ptr nocapture noundef %pSize, i8 noundef signext %mayAllocate, i32 noundef %sizeNeeded) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ubidi_getMemory_75(ptr noundef captures(none) %bidiMem, ptr noundef captures(none) %pSize, i8 noundef signext %mayAllocate, i32 noundef %sizeNeeded) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bidiMem, align 8
   %cmp = icmp eq ptr %0, null
@@ -502,7 +502,7 @@ declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #4
 declare i32 @u_charDirection_75(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @ubidi_getParaLevelAtIndex_75(ptr nocapture noundef readonly %pBiDi, i32 noundef %pindex) local_unnamed_addr #7 {
+define zeroext i8 @ubidi_getParaLevelAtIndex_75(ptr noundef readonly captures(none) %pBiDi, i32 noundef %pindex) local_unnamed_addr #7 {
 entry:
   %paraCount = getelementptr inbounds nuw i8, ptr %pBiDi, i64 200
   %0 = load i32, ptr %paraCount, align 8
@@ -2523,7 +2523,7 @@ return:                                           ; preds = %if.else78, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 3) i32 @_ZL21resolveExplicitLevelsP5UBiDiP10UErrorCode(ptr noundef nonnull %pBiDi, ptr nocapture noundef nonnull %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 3) i32 @_ZL21resolveExplicitLevelsP5UBiDiP10UErrorCode(ptr noundef nonnull %pBiDi, ptr noundef nonnull captures(none) %pErrorCode) unnamed_addr #0 {
 entry:
   %bracketData = alloca %struct.BracketData, align 8
   %stack = alloca [127 x i16], align 16
@@ -3744,7 +3744,7 @@ return:                                           ; preds = %if.end392, %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZL19checkExplicitLevelsP5UBiDiP10UErrorCode(ptr nocapture noundef nonnull initializes((324, 328)) %pBiDi, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL19checkExplicitLevelsP5UBiDiP10UErrorCode(ptr noundef nonnull captures(none) initializes((324, 328)) %pBiDi, ptr noundef nonnull writeonly captures(none) %pErrorCode) unnamed_addr #8 {
 entry:
   %dirProps1 = getelementptr inbounds nuw i8, ptr %pBiDi, i64 112
   %0 = load ptr, ptr %dirProps1, align 8
@@ -4516,7 +4516,7 @@ if.end231:                                        ; preds = %if.else230, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL14adjustWSLevelsP5UBiDi(ptr nocapture noundef nonnull readonly %pBiDi) unnamed_addr #8 {
+define internal fastcc void @_ZL14adjustWSLevelsP5UBiDi(ptr noundef nonnull readonly captures(none) %pBiDi) unnamed_addr #8 {
 entry:
   %dirProps1 = getelementptr inbounds nuw i8, ptr %pBiDi, i64 112
   %0 = load ptr, ptr %dirProps1, align 8
@@ -4736,7 +4736,7 @@ if.end76:                                         ; preds = %while.end, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8addPointP5UBiDiii(ptr nocapture noundef nonnull %pBiDi, i32 noundef %pos, i32 noundef range(i32 1, 5) %flag) unnamed_addr #0 {
+define internal fastcc void @_ZL8addPointP5UBiDiii(ptr noundef nonnull captures(none) %pBiDi, i32 noundef %pos, i32 noundef range(i32 1, 5) %flag) unnamed_addr #0 {
 entry:
   %insertPoints = getelementptr inbounds nuw i8, ptr %pBiDi, i64 416
   %0 = load i32, ptr %insertPoints, align 8
@@ -5472,7 +5472,7 @@ if.end5:                                          ; preds = %entry, %if.then4, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ubidi_getCustomizedClass_75(ptr nocapture noundef readonly %pBiDi, i32 noundef %c) local_unnamed_addr #0 {
+define i32 @ubidi_getCustomizedClass_75(ptr noundef readonly captures(none) %pBiDi, i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %fnClassCallback = getelementptr inbounds nuw i8, ptr %pBiDi, i64 448
   %0 = load ptr, ptr %fnClassCallback, align 8
@@ -5502,7 +5502,7 @@ declare i32 @ubidi_getClass_75(i32 noundef) local_unnamed_addr #4
 declare ptr @ubidi_getLevels_75(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare i32 @ubidi_writeReordered_75(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
@@ -6164,7 +6164,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr noundef nonnull %pBiDi, ptr nocapture noundef nonnull %pLevState, i8 noundef zeroext %_prop, i32 noundef %start, i32 noundef %limit) unnamed_addr #0 {
+define internal fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr noundef nonnull %pBiDi, ptr noundef nonnull captures(none) %pLevState, i8 noundef zeroext %_prop, i32 noundef %start, i32 noundef %limit) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pLevState, align 8
   %pImpAct2 = getelementptr inbounds nuw i8, ptr %pLevState, i64 8
@@ -7169,10 +7169,10 @@ declare i32 @llvm.smin.i32(i32, i32) #14
 declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #14

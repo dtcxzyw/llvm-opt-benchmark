@@ -160,7 +160,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [27 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_video_get_edid455, ptr @__UNIQUE_ID___addressable_acpi_video_get_levels454, ptr @__UNIQUE_ID___addressable_acpi_video_handles_brightness_key_presses459, ptr @__UNIQUE_ID___addressable_acpi_video_init461, ptr @__UNIQUE_ID___addressable_acpi_video_register456, ptr @__UNIQUE_ID___addressable_acpi_video_register_backlight458, ptr @__UNIQUE_ID___addressable_acpi_video_unregister457, ptr @__UNIQUE_ID_allow_duplicatestype447, ptr @__UNIQUE_ID_author442, ptr @__UNIQUE_ID_brightness_switch_enabledtype446, ptr @__UNIQUE_ID_description443, ptr @__UNIQUE_ID_device_id_schemetype452, ptr @__UNIQUE_ID_file444, ptr @__UNIQUE_ID_hw_changes_brightness451, ptr @__UNIQUE_ID_hw_changes_brightnesstype450, ptr @__UNIQUE_ID_license445, ptr @__UNIQUE_ID_only_lcdtype453, ptr @__UNIQUE_ID_report_key_events449, ptr @__UNIQUE_ID_report_key_eventstype448, ptr @__exitcall_acpi_video_exit, ptr @__param_allow_duplicates, ptr @__param_brightness_switch_enabled, ptr @__param_device_id_scheme, ptr @__param_hw_changes_brightness, ptr @__param_only_lcd, ptr @__param_report_key_events, ptr @acpi_video_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = alloca %struct.acpi_buffer, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -407,7 +407,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_handle_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -416,7 +416,7 @@ declare dso_local void @acpi_handle_printk(ptr noundef, ptr noundef, ptr noundef
 declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @acpi_video_cmp_level(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define internal i32 @acpi_video_cmp_level(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = sub i32 %3, %4
@@ -427,10 +427,10 @@ define internal i32 @acpi_video_cmp_level(ptr nocapture noundef readonly %0, ptr
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
   %5 = alloca %struct.acpi_buffer, align 8
   %6 = alloca %union.acpi_object, align 8
   %7 = alloca %struct.acpi_object_list, align 8
@@ -1397,28 +1397,28 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @video_set_bqc_offset(ptr nocapture readnone %0) #9 align 16 {
+define internal noundef i32 @video_set_bqc_offset(ptr readnone captures(none) %0) #9 align 16 {
   store i1 true, ptr @bqc_offset_aml_bug_workaround, align 4
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @video_set_device_id_scheme(ptr nocapture readnone %0) #9 align 16 {
+define internal noundef i32 @video_set_device_id_scheme(ptr readnone captures(none) %0) #9 align 16 {
   store i8 1, ptr @device_id_scheme, align 1
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @video_enable_only_lcd(ptr nocapture readnone %0) #9 align 16 {
+define internal noundef i32 @video_enable_only_lcd(ptr readnone captures(none) %0) #9 align 16 {
   store i32 1, ptr @only_lcd, align 4
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @video_set_report_key_events(ptr nocapture noundef readonly %0) #10 align 16 {
+define internal noundef i32 @video_set_report_key_events(ptr noundef readonly captures(none) %0) #10 align 16 {
   %2 = load i32, ptr @report_key_events, align 4
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %9
@@ -1436,7 +1436,7 @@ define internal noundef i32 @video_set_report_key_events(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @video_hw_changes_brightness(ptr nocapture readnone %0) #11 align 16 {
+define internal noundef i32 @video_hw_changes_brightness(ptr readnone captures(none) %0) #11 align 16 {
   %2 = load i32, ptr @hw_changes_brightness, align 4
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %5
@@ -1859,7 +1859,7 @@ define internal void @acpi_video_bus_remove(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @acpi_walk_namespace(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 16388) i32 @acpi_video_bus_match(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i32 0, 16388) i32 @acpi_video_bus_match(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %0
@@ -1886,7 +1886,7 @@ define internal range(i32 0, 16388) i32 @acpi_video_bus_match(ptr noundef %0, i3
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -2096,7 +2096,7 @@ select.unfold:                                    ; preds = %11, %5
 declare dso_local i32 @acpi_dev_install_notify_handler(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_video_bus_notify(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define internal void @acpi_video_bus_notify(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 608
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2362,7 +2362,7 @@ declare dso_local ptr @acpi_get_pci_dev(ptr noundef) local_unnamed_addr #2
 declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_video_device_enumerate(ptr nocapture noundef nonnull %0) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_video_device_enumerate(ptr noundef nonnull captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
   store i64 -1, ptr %2, align 8
@@ -2820,7 +2820,7 @@ declare dso_local ptr @acpi_format_exception(i32 noundef) local_unnamed_addr #2
 declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_video_switch_brightness(ptr nocapture noundef %0) #0 align 16 {
+define internal void @acpi_video_switch_brightness(ptr noundef captures(none) %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = getelementptr i8, ptr %0, i64 -32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
@@ -3021,7 +3021,7 @@ declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, pt
 declare dso_local void @delayed_work_timer_fn(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_video_device_lcd_get_level_current(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 24
@@ -3142,7 +3142,7 @@ declare dso_local i32 @acpi_execute_simple_method(ptr noundef, ptr noundef, i64 
 declare dso_local ptr @input_allocate_device() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @acpi_device_hid(ptr noundef) local_unnamed_addr #2
@@ -3160,7 +3160,7 @@ declare dso_local zeroext i1 @acpi_osi_is_win8() local_unnamed_addr #2
 declare dso_local i32 @acpi_install_notify_handler(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_video_device_notify(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define internal void @acpi_video_device_notify(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %51, label %5
 
@@ -3290,7 +3290,7 @@ declare dso_local void @thermal_cooling_device_unregister(ptr noundef) local_unn
 declare dso_local void @acpi_dev_remove_notify_handler(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @acpi_video_resume(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @acpi_video_resume(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   switch i64 %1, label %.loopexit [
     i64 2, label %4
     i64 4, label %4
@@ -3414,7 +3414,7 @@ declare dso_local i32 @acpi_get_parent(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local ptr @backlight_device_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 2147483646) i32 @acpi_video_get_brightness(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -2147483648, 2147483646) i32 @acpi_video_get_brightness(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
   store i64 0, ptr %2, align 8, !annotation !10
@@ -3469,7 +3469,7 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i32 @sysfs_create_link(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @acpi_video_set_brightness(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_video_set_brightness(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load i32, ptr %0, align 8
   %3 = add i32 %2, 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -3554,7 +3554,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %22, %40, %44, %.loo
 declare dso_local zeroext i1 @cancel_delayed_work(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @video_get_max_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #15 align 16 {
+define internal noundef i32 @video_get_max_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #15 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -3568,7 +3568,7 @@ define internal noundef i32 @video_get_max_state(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @video_get_cur_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @video_get_cur_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load ptr, ptr %4, align 8
@@ -3617,7 +3617,7 @@ define internal noundef range(i32 -22, 1) i32 @video_get_cur_state(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @video_set_cur_state(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @video_set_cur_state(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -3767,7 +3767,7 @@ declare dso_local ptr @pci_get_device(i32 noundef, i32 noundef, ptr noundef) loc
 declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #17

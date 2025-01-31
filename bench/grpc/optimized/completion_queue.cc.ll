@@ -207,7 +207,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
 ; Function Attrs: uwtable
-define range(i32 0, 2) i32 @grpc_completion_queue_thread_local_cache_flush(ptr noundef %cq, ptr nocapture noundef writeonly %tag, ptr nocapture noundef writeonly %ok) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @grpc_completion_queue_thread_local_cache_flush(ptr noundef %cq, ptr noundef writeonly captures(none) %tag, ptr noundef writeonly captures(none) %ok) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN12_GLOBAL__N_114g_cached_eventE)
@@ -463,7 +463,7 @@ if.end12:                                         ; preds = %_ZN9grpc_core7ExecC
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z20grpc_cq_internal_refP21grpc_completion_queue(ptr nocapture noundef %cq) local_unnamed_addr #6 {
+define void @_Z20grpc_cq_internal_refP21grpc_completion_queue(ptr noundef captures(none) %cq) local_unnamed_addr #6 {
 entry:
   %0 = atomicrmw add ptr %cq, i64 1 monotonic, align 8
   ret void
@@ -779,7 +779,7 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL24on_pollset_shutdown_donePvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture readnone %0) #7 {
+define internal void @_ZL24on_pollset_shutdown_donePvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr readnone captures(none) %0) #7 {
 entry:
   %1 = atomicrmw sub ptr %arg, i64 1 acq_rel, align 8
   %cmp.i.i = icmp eq i64 %1, 1
@@ -809,7 +809,7 @@ _Z22grpc_cq_internal_unrefP21grpc_completion_queue.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z27grpc_get_cq_completion_typeP21grpc_completion_queue(ptr nocapture noundef readonly %cq) local_unnamed_addr #9 {
+define noundef i32 @_Z27grpc_get_cq_completion_typeP21grpc_completion_queue(ptr noundef readonly captures(none) %cq) local_unnamed_addr #9 {
 entry:
   %vtable = getelementptr inbounds nuw i8, ptr %cq, i64 144
   %0 = load ptr, ptr %vtable, align 8
@@ -818,7 +818,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z20grpc_get_cq_poll_numP21grpc_completion_queue(ptr nocapture noundef readonly %cq) local_unnamed_addr #7 {
+define noundef i32 @_Z20grpc_get_cq_poll_numP21grpc_completion_queue(ptr noundef readonly captures(none) %cq) local_unnamed_addr #7 {
 entry:
   %mu = getelementptr inbounds nuw i8, ptr %cq, i64 72
   %0 = load ptr, ptr %mu, align 8
@@ -844,7 +844,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14grpc_cq_end_opP21grpc_completion_queuePvN4absl12lts_202308026StatusEPFvS1_P18grpc_cq_completionES1_S6_b(ptr noundef %cq, ptr noundef %tag, ptr nocapture noundef readonly %error, ptr noundef %done, ptr noundef %done_arg, ptr noundef %storage, i1 noundef zeroext %internal) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @_Z14grpc_cq_end_opP21grpc_completion_queuePvN4absl12lts_202308026StatusEPFvS1_P18grpc_cq_completionES1_S6_b(ptr noundef %cq, ptr noundef %tag, ptr noundef readonly captures(none) %error, ptr noundef %done, ptr noundef %done_arg, ptr noundef %storage, i1 noundef zeroext %internal) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %vtable = getelementptr inbounds nuw i8, ptr %cq, i64 144
@@ -929,7 +929,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define { i64, ptr } @grpc_completion_queue_pluck(ptr noundef %cq, ptr noundef %tag, i64 %deadline.coerce0, i64 %deadline.coerce1, ptr noundef %reserved) local_unnamed_addr #7 {
@@ -1519,7 +1519,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z18grpc_cq_can_listenP21grpc_completion_queue(ptr nocapture noundef readonly %cq) local_unnamed_addr #9 {
+define noundef zeroext i1 @_Z18grpc_cq_can_listenP21grpc_completion_queue(ptr noundef readonly captures(none) %cq) local_unnamed_addr #9 {
 entry:
   %poller_vtable = getelementptr inbounds nuw i8, ptr %cq, i64 216
   %0 = load ptr, ptr %poller_vtable, align 8
@@ -1737,12 +1737,12 @@ _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9gr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 declare i32 @gpr_cpu_current_cpu() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL12cq_init_nextPvP29grpc_completion_queue_functor(ptr noundef initializes((0, 120)) %data, ptr nocapture readnone %0) #17 {
+define internal void @_ZL12cq_init_nextPvP29grpc_completion_queue_functor(ptr noundef initializes((0, 120)) %data, ptr readnone captures(none) %0) #17 {
 entry:
   %queue_.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %stub_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 80
@@ -1902,7 +1902,7 @@ _ZN12_GLOBAL__N_112cq_next_dataD2Ev.exit:         ; preds = %do.body2.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZL20cq_begin_op_for_nextP21grpc_completion_queuePv(ptr nocapture noundef %cq, ptr nocapture readnone %0) #18 {
+define internal noundef zeroext i1 @_ZL20cq_begin_op_for_nextP21grpc_completion_queuePv(ptr noundef captures(none) %cq, ptr readnone captures(none) %0) #18 {
 entry:
   %pending_events = getelementptr inbounds nuw i8, ptr %cq, i64 368
   %1 = load atomic i64, ptr %pending_events acquire, align 8
@@ -2799,7 +2799,7 @@ ehcleanup143:                                     ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL13cq_init_pluckPvP29grpc_completion_queue_functor(ptr noundef initializes((48, 66), (68, 72)) %data, ptr nocapture readnone %0) #17 {
+define internal void @_ZL13cq_init_pluckPvP29grpc_completion_queue_functor(ptr noundef initializes((48, 66), (68, 72)) %data, ptr readnone captures(none) %0) #17 {
 entry:
   %pending_events.i = getelementptr inbounds nuw i8, ptr %data, i64 48
   store i64 1, ptr %pending_events.i, align 8
@@ -2938,7 +2938,7 @@ _ZN12_GLOBAL__N_113cq_pluck_dataD2Ev.exit:        ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZL21cq_begin_op_for_pluckP21grpc_completion_queuePv(ptr nocapture noundef %cq, ptr nocapture readnone %0) #18 {
+define internal noundef zeroext i1 @_ZL21cq_begin_op_for_pluckP21grpc_completion_queuePv(ptr noundef captures(none) %cq, ptr readnone captures(none) %0) #18 {
 entry:
   %pending_events = getelementptr inbounds nuw i8, ptr %cq, i64 312
   %1 = load atomic i64, ptr %pending_events acquire, align 8
@@ -3800,7 +3800,7 @@ ehcleanup134:                                     ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL16cq_init_callbackPvP29grpc_completion_queue_functor(ptr nocapture noundef writeonly initializes((0, 9), (16, 24)) %data, ptr noundef %shutdown_callback) #17 {
+define internal void @_ZL16cq_init_callbackPvP29grpc_completion_queue_functor(ptr noundef writeonly captures(none) initializes((0, 9), (16, 24)) %data, ptr noundef %shutdown_callback) #17 {
 entry:
   store i64 1, ptr %data, align 8
   %shutdown_called.i = getelementptr inbounds nuw i8, ptr %data, i64 8
@@ -3870,13 +3870,13 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL19cq_destroy_callbackPv(ptr nocapture readnone %data) #19 {
+define internal void @_ZL19cq_destroy_callbackPv(ptr readnone captures(none) %data) #19 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZL24cq_begin_op_for_callbackP21grpc_completion_queuePv(ptr nocapture noundef %cq, ptr nocapture readnone %0) #18 {
+define internal noundef zeroext i1 @_ZL24cq_begin_op_for_callbackP21grpc_completion_queuePv(ptr noundef captures(none) %cq, ptr readnone captures(none) %0) #18 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %cq, i64 264
   %1 = load atomic i64, ptr %add.ptr acquire, align 8
@@ -4324,7 +4324,7 @@ declare noundef ptr @_ZN9grpc_core32MultiProducerSingleConsumerQueue14PopAndChec
 declare noundef zeroext i1 @_ZN4absl12lts_202308026Status10EqualsSlowERKS1_S3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_pollset_worker(ptr nocapture noundef %cq, ptr noundef readnone %tag, ptr noundef nonnull readnone %worker) unnamed_addr #7 {
+define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_pollset_worker(ptr noundef captures(none) %cq, ptr noundef readnone %tag, ptr noundef nonnull readnone %worker) unnamed_addr #7 {
 entry:
   %__tmp.i = alloca %"struct.(anonymous namespace)::plucker", align 8
   %num_pluckers = getelementptr inbounds nuw i8, ptr %cq, i64 332
@@ -4727,7 +4727,7 @@ declare noundef zeroext i1 @_Z42grpc_iomgr_is_any_background_poller_threadv() lo
 declare void @_ZN9grpc_core8Executor3RunEP12grpc_closureN4absl12lts_202308026StatusENS_12ExecutorTypeENS_15ExecutorJobTypeE(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL16functor_callbackPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture noundef readonly %error) #7 {
+define internal void @_ZL16functor_callbackPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr noundef readonly captures(none) %error) #7 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   %1 = load i64, ptr %error, align 8
@@ -4809,7 +4809,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123non_polling_poller_initEP12grpc_pollsetPPl(ptr noundef %pollset, ptr nocapture noundef writeonly initializes((0, 8)) %mu) #7 {
+define internal void @_ZN12_GLOBAL__N_123non_polling_poller_initEP12grpc_pollsetPPl(ptr noundef %pollset, ptr noundef writeonly captures(none) initializes((0, 8)) %mu) #7 {
 entry:
   tail call void @gpr_mu_init(ptr noundef %pollset)
   store ptr %pollset, ptr %mu, align 8
@@ -4817,7 +4817,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123non_polling_poller_kickEP12grpc_pollsetP19grpc_pollset_worker(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef %pollset, ptr noundef %specific_worker) #7 {
+define internal void @_ZN12_GLOBAL__N_123non_polling_poller_kickEP12grpc_pollsetP19grpc_pollset_worker(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef captures(none) %pollset, ptr noundef %specific_worker) #7 {
 entry:
   %cmp = icmp eq ptr %specific_worker, null
   br i1 %cmp, label %if.end, label %if.then2
@@ -4851,7 +4851,7 @@ if.end6:                                          ; preds = %if.then2, %if.then3
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZN12_GLOBAL__N_123non_polling_poller_workEP12grpc_pollsetPP19grpc_pollset_workerN9grpc_core9TimestampE(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %pollset, ptr noundef writeonly %worker, i64 %deadline.coerce) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123non_polling_poller_workEP12grpc_pollsetPP19grpc_pollset_workerN9grpc_core9TimestampE(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, ptr noundef %pollset, ptr noundef writeonly %worker, i64 %deadline.coerce) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %deadline = alloca %"class.grpc_core::Timestamp", align 8
   %w = alloca %"struct.(anonymous namespace)::non_polling_worker", align 8
@@ -5017,7 +5017,7 @@ return:                                           ; preds = %if.end44, %if.then5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_127non_polling_poller_shutdownEP12grpc_pollsetP12grpc_closure(ptr nocapture noundef %pollset, ptr noundef %closure) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_127non_polling_poller_shutdownEP12grpc_pollsetP12grpc_closure(ptr noundef captures(none) %pollset, ptr noundef %closure) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -5129,10 +5129,10 @@ declare extern_weak void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E() #0
 declare extern_weak void @_ZTHN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E() #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

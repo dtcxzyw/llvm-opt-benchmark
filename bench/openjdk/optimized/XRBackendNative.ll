@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [161 x i8] c"WARNING: Linux < 3.5 detected.\0AThe pipeline will be enabled, but graphical artifacts can occur with old graphic drivers.\0ASee the release notes for more details.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRender(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRender(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -446,7 +446,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare ptr @XCreateImage(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_freeGC(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_freeGC(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @awt_display, align 8
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XFreeGC(ptr noundef %4, ptr noundef %5) #14
@@ -456,7 +456,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_freeGC(ptr nocapture noundef rea
 declare i32 @XFreeGC(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_java2d_xr_XRBackendNative_createGC(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_java2d_xr_XRBackendNative_createGC(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @awt_display, align 8
   %5 = sext i32 %2 to i64
   %6 = tail call ptr @XCreateGC(ptr noundef %4, i64 noundef %5, i64 noundef 0, ptr noundef null) #14
@@ -467,7 +467,7 @@ define i64 @Java_sun_java2d_xr_XRBackendNative_createGC(ptr nocapture noundef re
 declare ptr @XCreateGC(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_java2d_xr_XRBackendNative_createPixmap(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @Java_sun_java2d_xr_XRBackendNative_createPixmap(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr @awt_display, align 8
   %8 = sext i32 %2 to i64
   %9 = tail call i64 @XCreatePixmap(ptr noundef %7, i64 noundef %8, i32 noundef %4, i32 noundef %5, i32 noundef %3) #14
@@ -478,7 +478,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_createPixmap(ptr nocapture nounde
 declare i64 @XCreatePixmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_java2d_xr_XRBackendNative_createPictureNative(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define i32 @Java_sun_java2d_xr_XRBackendNative_createPictureNative(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._XRenderPictureAttributes, align 8
   %6 = load ptr, ptr @awt_display, align 8
   %7 = sext i32 %2 to i64
@@ -491,7 +491,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_createPictureNative(ptr nocapture
 declare i64 @XRenderCreatePicture(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_freePicture(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_freePicture(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @awt_display, align 8
   %5 = sext i32 %2 to i64
   tail call void @XRenderFreePicture(ptr noundef %4, i64 noundef %5) #14
@@ -501,7 +501,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_freePicture(ptr nocapture nounde
 declare void @XRenderFreePicture(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_freePixmap(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_freePixmap(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @awt_display, align 8
   %5 = sext i32 %2 to i64
   %6 = tail call i32 @XFreePixmap(ptr noundef %4, i64 noundef %5) #14
@@ -511,7 +511,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_freePixmap(ptr nocapture noundef
 declare i32 @XFreePixmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_setPictureRepeat(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_setPictureRepeat(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._XRenderPictureAttributes, align 8
   store i32 %3, ptr %5, align 8
   %6 = load ptr, ptr @awt_display, align 8
@@ -523,7 +523,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_setPictureRepeat(ptr nocapture n
 declare void @XRenderChangePicture(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_setGCExposures(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_setGCExposures(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @awt_display, align 8
   %6 = inttoptr i64 %2 to ptr
   %.not = icmp ne i8 %3, 0
@@ -535,7 +535,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_setGCExposures(ptr nocapture nou
 declare i32 @XSetGraphicsExposures(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_setGCForeground(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_setGCForeground(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @awt_display, align 8
   %6 = inttoptr i64 %2 to ptr
   %7 = sext i32 %3 to i64
@@ -546,7 +546,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_setGCForeground(ptr nocapture no
 declare i32 @XSetForeground(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_copyArea(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_copyArea(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = load ptr, ptr @awt_display, align 8
   %13 = sext i32 %2 to i64
   %14 = sext i32 %3 to i64
@@ -558,7 +558,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_copyArea(ptr nocapture noundef r
 declare i32 @XCopyArea(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_renderComposite(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i8 noundef signext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_renderComposite(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i8 noundef signext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #0 {
   %15 = load ptr, ptr @awt_display, align 8
   %16 = sext i8 %2 to i32
   %17 = sext i32 %3 to i64
@@ -571,7 +571,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_renderComposite(ptr nocapture no
 declare void @XRenderComposite(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_renderRectangle(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef signext %3, i16 noundef signext %4, i16 noundef signext %5, i16 noundef signext %6, i16 noundef signext %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_renderRectangle(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i8 noundef signext %3, i16 noundef signext %4, i16 noundef signext %5, i16 noundef signext %6, i16 noundef signext %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = alloca %struct.XRenderColor, align 2
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 6
   store i16 %7, ptr %14, align 2
@@ -590,7 +590,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_renderRectangle(ptr nocapture no
 declare void @XRenderFillRectangle(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_XRenderRectanglesNative(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef signext %3, i16 noundef signext %4, i16 noundef signext %5, i16 noundef signext %6, i16 noundef signext %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_XRenderRectanglesNative(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i8 noundef signext %3, i16 noundef signext %4, i16 noundef signext %5, i16 noundef signext %6, i16 noundef signext %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = alloca [256 x %struct.XRectangle], align 16
   %12 = alloca %struct.XRenderColor, align 2
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 6
@@ -686,12 +686,12 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderRectanglesNative(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @XRenderFillRectangles(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_XRSetTransformNative(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_XRSetTransformNative(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct._XTransform, align 4
   store i32 %3, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -719,7 +719,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRSetTransformNative(ptr nocaptu
 declare void @XRenderSetPictureTransform(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateLinearGradientPaintNative(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateLinearGradientPaintNative(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = alloca %struct._XRenderPictureAttributes, align 8
   %12 = alloca %struct._XLinearGradient, align 4
   %13 = icmp ugt i32 %8, 21842
@@ -861,7 +861,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateLinearGradientPaintNative
 declare i64 @XRenderCreateLinearGradient(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateRadialGradientPaintNative(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateRadialGradientPaintNative(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = alloca %struct._XRenderPictureAttributes, align 8
   %12 = alloca %struct._XRadialGradient, align 4
   %13 = icmp ugt i32 %4, 21842
@@ -1006,7 +1006,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateRadialGradientPaintNative
 declare i64 @XRenderCreateRadialGradient(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_setFilter(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_setFilter(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %switch.selectcmp = icmp eq i32 %3, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.5, ptr @.str.4
   %switch.selectcmp2 = icmp eq i32 %3, 2
@@ -1020,7 +1020,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_setFilter(ptr nocapture noundef 
 declare void @XRenderSetPictureFilter(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_XRSetClipNative(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i8 noundef zeroext %8) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_XRSetClipNative(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i8 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = alloca [256 x %struct.XRectangle], align 16
   %11 = alloca ptr, align 8
   store ptr %10, ptr %11, align 8
@@ -1065,7 +1065,7 @@ declare i32 @XSetClipRectangles(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare void @XRenderSetPictureClipRectangles(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_putMaskNative(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, float noundef %13, i64 noundef %14) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_putMaskNative(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, float noundef %13, i64 noundef %14) local_unnamed_addr #0 {
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1776
   %18 = load ptr, ptr %17, align 8
@@ -1223,7 +1223,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_putMaskNative(ptr noundef %0, pt
 declare i32 @XPutImage(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_XRAddGlyphsNative(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_XRAddGlyphsNative(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = icmp ugt i32 %4, 13105
   br i1 %8, label %76, label %9
 
@@ -1349,7 +1349,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRAddGlyphsNative(ptr noundef %0
 declare void @XRenderAddGlyphs(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_XRFreeGlyphsNative(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_XRFreeGlyphsNative(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [64 x i64], align 16
   %7 = icmp ugt i32 %4, 32763
   br i1 %7, label %31, label %8
@@ -1419,7 +1419,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRFreeGlyphsNative(ptr noundef %
 declare void @XRenderFreeGlyphs(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_java2d_xr_XRBackendNative_XRenderCreateGlyphSetNative(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_java2d_xr_XRBackendNative_XRenderCreateGlyphSetNative(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @awt_display, align 8
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i64 @XRenderCreateGlyphSet(ptr noundef %4, ptr noundef %5) #14
@@ -1430,7 +1430,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRenderCreateGlyphSetNative(ptr n
 declare i64 @XRenderCreateGlyphSet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = alloca [24 x %struct._XGlyphElt32], align 16
   %14 = alloca [256 x i32], align 16
   %15 = icmp ugt i32 %10, 8190
@@ -1609,7 +1609,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
 declare void @XRenderCompositeText32(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_setGCMode(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_setGCMode(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = icmp eq i8 %3, 1
   %7 = load ptr, ptr @awt_display, align 8
@@ -1621,7 +1621,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_setGCMode(ptr nocapture noundef 
 declare i32 @XSetFunction(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_xr_XRBackendNative_GCRectanglesNative(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_java2d_xr_XRBackendNative_GCRectanglesNative(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [256 x %struct.XRectangle], align 16
   %8 = icmp slt i32 %5, 257
   br i1 %8, label %16, label %9
@@ -1713,58 +1713,58 @@ declare i32 @XFillRectangles(ptr noundef, i64 noundef, ptr noundef, ptr noundef,
 declare i32 @XQueryExtension(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare i32 @dladdr(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.round.f32(float) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

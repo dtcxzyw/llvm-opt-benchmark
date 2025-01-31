@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @mpd_free = external hidden local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @std_trans(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i64 noundef %rows, i64 noundef %cols) local_unnamed_addr #0 {
+define hidden void @std_trans(ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %src, i64 noundef %rows, i64 noundef %cols) local_unnamed_addr #0 {
 entry:
   %cmp13.not = icmp eq i64 %rows, 0
   %cmp29.not = icmp eq i64 %cols, 0
@@ -47,7 +47,7 @@ for.end8:                                         ; preds = %for.cond1.for.inc6_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @transpose_pow2(ptr nocapture noundef %matrix, i64 noundef %rows, i64 noundef %cols) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @transpose_pow2(ptr noundef captures(none) %matrix, i64 noundef %rows, i64 noundef %cols) local_unnamed_addr #1 {
 entry:
   %umul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %cols, i64 %rows)
   %0 = extractvalue { i64, i1 } %umul.i, 1
@@ -144,7 +144,7 @@ return:                                           ; preds = %if.then9, %if.then3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @squaretrans_pow2(ptr nocapture noundef %matrix, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc void @squaretrans_pow2(ptr noundef captures(none) %matrix, i64 noundef %size) unnamed_addr #0 {
 entry:
   %buf1 = alloca [16384 x i64], align 16
   %buf2 = alloca [16384 x i64], align 16
@@ -322,7 +322,7 @@ for.end71:                                        ; preds = %for.inc69, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr nocapture noundef %matrix, i64 noundef %rows, i64 noundef %cols, i32 noundef range(i32 0, 2) %dir) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captures(none) %matrix, i64 noundef %rows, i64 noundef %cols, i32 noundef range(i32 0, 2) %dir) unnamed_addr #1 {
 entry:
   %buf1 = alloca [4096 x i64], align 16
   %buf2 = alloca [4096 x i64], align 16
@@ -463,24 +463,24 @@ return:                                           ; preds = %entry, %for.end53
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare hidden ptr @mpd_calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

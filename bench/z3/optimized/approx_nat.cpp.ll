@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN10approx_natC1Ej = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN10approx_natC2Ej
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10approx_natC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %val) unnamed_addr #0 align 2 {
+define hidden void @_ZN10approx_natC2Ej(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, i32 noundef %val) unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ugt i32 %val, 1073741823
   %cond = select i1 %cmp, i32 -1, i32 %val
@@ -66,7 +66,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK10approx_nat(ptr noundef nonnull returned align 8 dereferenceable(8) %target, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %w) local_unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK10approx_nat(ptr noundef nonnull returned align 8 dereferenceable(8) %target, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %w) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %w, align 4
   %cmp.i = icmp eq i32 %0, -1

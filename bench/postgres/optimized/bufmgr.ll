@@ -350,7 +350,7 @@ define dso_local range(i64 0, 4294967297) i64 @PrefetchSharedBuffer(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @BufTableHashCode(ptr noundef) local_unnamed_addr #2
 
@@ -363,7 +363,7 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @smgrprefetch(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @PrefetchBuffer(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i64 @PrefetchBuffer(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 114
@@ -728,7 +728,7 @@ BufferTagsEqual.exit.thread:                      ; preds = %40, %43, %47, %51, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @ResourceOwnerEnlarge(ptr noundef) local_unnamed_addr #2
 
@@ -788,7 +788,7 @@ GetPrivateRefCountEntry.exit:                     ; preds = %GetPrivateRefCountE
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 4194304, 0) i32 @LockBufHdr(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 4194304, 0) i32 @LockBufHdr(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SpinDelayStatus, align 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1070,7 +1070,7 @@ RelationGetSmgr.exit:                             ; preds = %33, %37
 declare void @pgstat_assoc_relation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ReadBuffer_common(ptr noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %6) unnamed_addr #0 {
+define internal fastcc i32 @ReadBuffer_common(ptr noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %6) unnamed_addr #0 {
   %8 = alloca %struct.SpinDelayStatus, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.SpinDelayStatus, align 8
@@ -1297,7 +1297,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %105
   %118 = or i32 %.lcssa.i.masked.i, %spec.select.v.i
   store volatile i32 %118, ptr %111, align 4
   call void @LWLockRelease(ptr noundef %73) #14
-  %119 = call fastcc zeroext i1 @StartBufferIO(ptr noundef %89, i1 noundef zeroext true)
+  %119 = call fastcc zeroext i1 @StartBufferIO(ptr noundef nonnull %89, i1 noundef zeroext true)
   %not..i = xor i1 %119, true
   %storemerge.i = zext i1 %not..i to i8
   br label %.sink.split.i
@@ -1573,7 +1573,7 @@ define dso_local i32 @ReadBufferWithoutRelcache(i64 %0, i32 %1, i32 noundef %2, 
 declare ptr @smgropen(i64, i32, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ExtendBufferedRel(ptr nocapture noundef readonly byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @ExtendBufferedRel(ptr noundef readonly byval(%struct.BufferManagerRelation) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.BufferManagerRelation, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1622,7 +1622,7 @@ ExtendBufferedRelBy.exit:                         ; preds = %4, %RelationGetSmgr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ExtendBufferedRelBy(ptr nocapture noundef byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define dso_local i32 @ExtendBufferedRelBy(ptr noundef byval(%struct.BufferManagerRelation) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -1664,7 +1664,7 @@ RelationGetSmgr.exit:                             ; preds = %11, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ExtendBufferedRelCommon(ptr nocapture noundef readonly byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc i32 @ExtendBufferedRelCommon(ptr noundef readonly byval(%struct.BufferManagerRelation) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca %struct.SpinDelayStatus, align 8
   %10 = alloca %struct.SpinDelayStatus, align 8
   %11 = alloca %struct.SpinDelayStatus, align 8
@@ -2165,7 +2165,7 @@ LockBufHdr.exit141.i:                             ; preds = %.lr.ph.i138.i, %230
   %236 = or i32 %.lcssa.i140.masked.i, %spec.select.v.i
   store volatile i32 %236, ptr %231, align 4
   call void @LWLockRelease(ptr noundef %157) #14
-  %237 = call fastcc zeroext i1 @StartBufferIO(ptr noundef %124, i1 noundef zeroext true)
+  %237 = call fastcc zeroext i1 @StartBufferIO(ptr noundef nonnull %124, i1 noundef zeroext true)
   br label %238
 
 238:                                              ; preds = %LockBufHdr.exit141.i, %StartBufferIO.exit.thread.i
@@ -2288,7 +2288,7 @@ ExtendBufferedRelShared.exit:                     ; preds = %72, %73, %._crit_ed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ExtendBufferedRelTo(ptr nocapture noundef byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @ExtendBufferedRelTo(ptr noundef byval(%struct.BufferManagerRelation) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca [64 x i32], align 16
   %9 = alloca i8, align 1
@@ -3159,7 +3159,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   %62 = load ptr, ptr @CurrentResourceOwner, align 8
   %63 = sext i32 %61 to i64
   call void @ResourceOwnerForget(ptr noundef %62, i64 noundef %63, ptr noundef nonnull @buffer_pin_resowner_desc) #14
-  call fastcc void @UnpinBufferNoOwner(ptr noundef %9)
+  call fastcc void @UnpinBufferNoOwner(ptr noundef nonnull %9)
   %64 = load i32, ptr @io_direct_flags, align 4
   %65 = and i32 %64, 1
   %.not.i29 = icmp eq i32 %65, 0
@@ -3726,7 +3726,7 @@ define dso_local i32 @BufferGetBlockNumber(i32 noundef %0) local_unnamed_addr #6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @BufferGetTag(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #7 {
+define dso_local void @BufferGetTag(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #7 {
   %5 = icmp slt i32 %0, 0
   br i1 %5, label %6, label %11
 
@@ -3913,7 +3913,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %.thread
 declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DropRelationBuffers(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.SpinDelayStatus, align 8
   %6 = alloca [3 x i32], align 4
   %.sroa.0.0.copyload62 = load i64, ptr %0, align 8
@@ -4448,7 +4448,7 @@ GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountE
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DropRelationsAllBuffers(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.SpinDelayStatus, align 8
   %4 = alloca %struct.RelFileLocator, align 8
   %5 = icmp eq i32 %1, 0
@@ -4784,7 +4784,7 @@ declare void @DropRelationAllLocalBuffers(i64, i32) local_unnamed_addr #2
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @rlocator_comparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @rlocator_comparator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %.sroa.04.0.copyload = load i32, ptr %0, align 4
   %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.36.0.copyload = load i32, ptr %.sroa.36.0..sroa_idx, align 4
@@ -4901,7 +4901,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @FlushRelationBuffers(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @FlushRelationBuffers(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SpinDelayStatus, align 8
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
@@ -5384,7 +5384,7 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @FlushRelationsAllBuffers(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @FlushRelationsAllBuffers(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.SpinDelayStatus, align 8
   %4 = alloca i8, align 1
   %5 = alloca %struct.RelFileLocator, align 8
@@ -7067,7 +7067,7 @@ declare void @perform_spin_delay(ptr noundef) local_unnamed_addr #2
 declare void @finish_spin_delay(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @WritebackContextInit(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr noundef %1) local_unnamed_addr #9 {
+define dso_local void @WritebackContextInit(ptr noundef writeonly captures(none) initializes((0, 12)) %0, ptr noundef %1) local_unnamed_addr #9 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -7075,7 +7075,7 @@ define dso_local void @WritebackContextInit(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ScheduleBufferTagForWriteback(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @ScheduleBufferTagForWriteback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @io_direct_flags, align 4
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -7669,7 +7669,7 @@ sort_pending_writebacks_swapn.exit205:            ; preds = %.lr.ph.i202, %sort_
   br i1 %176, label %177, label %178
 
 177:                                              ; preds = %175
-  tail call fastcc void @sort_pending_writebacks(ptr noundef %.0127.ph, i64 noundef %155)
+  tail call fastcc void @sort_pending_writebacks(ptr noundef nonnull %.0127.ph, i64 noundef %155)
   br label %178
 
 178:                                              ; preds = %177, %175
@@ -7905,7 +7905,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %2, %14, %16
   %60 = load ptr, ptr @CurrentResourceOwner, align 8
   %61 = sext i32 %59 to i64
   call void @ResourceOwnerForget(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @buffer_pin_resowner_desc) #14
-  call fastcc void @UnpinBufferNoOwner(ptr noundef %42)
+  call fastcc void @UnpinBufferNoOwner(ptr noundef nonnull %42)
   br label %41
 
 62:                                               ; preds = %56
@@ -8761,7 +8761,7 @@ sort_checkpoint_bufferids_swapn.exit169:          ; preds = %.lr.ph.i166, %sort_
   br i1 %191, label %192, label %193
 
 192:                                              ; preds = %190
-  tail call fastcc void @sort_checkpoint_bufferids(ptr noundef %.0127.ph, i64 noundef %170)
+  tail call fastcc void @sort_checkpoint_bufferids(ptr noundef nonnull %.0127.ph, i64 noundef %170)
   br label %193
 
 193:                                              ; preds = %192, %190
@@ -8796,7 +8796,7 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @ts_ckpt_progress_comparator(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #6 {
+define internal range(i32 -1, 2) i32 @ts_ckpt_progress_comparator(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #6 {
   %4 = inttoptr i64 %0 to ptr
   %5 = inttoptr i64 %1 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9344,10 +9344,10 @@ declare i32 @llvm.smax.i32(i32, i32) #12
 declare i64 @llvm.fshl.i64(i64, i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #12

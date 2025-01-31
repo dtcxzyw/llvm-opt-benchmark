@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_svg_node_class = constant { ptr, i32, [4 x i8], ptr, ptr } { ptr @lv_tree_node_class, i32 80, [4 x i8] zeroinitializer, ptr @lv_svg_node_constructor, ptr @lv_svg_node_destructor }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_svg_node_constructor(ptr nocapture readnone %0, ptr noundef initializes((32, 41)) %1) #0 {
+define internal void @lv_svg_node_constructor(ptr readnone captures(none) %0, ptr noundef initializes((32, 41)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -23,7 +23,7 @@ define internal void @lv_svg_node_constructor(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_svg_node_destructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_svg_node_destructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %.not = icmp eq ptr %4, null
@@ -104,7 +104,7 @@ define ptr @lv_svg_load_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @_lv_svg_parser_init(ptr noundef) local_unnamed_addr #2
 
@@ -121,7 +121,7 @@ declare zeroext i1 @_lv_svg_parser_is_finish(ptr noundef) local_unnamed_addr #2
 declare void @_lv_svg_parser_deinit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_svg_node_create(ptr noundef %0) local_unnamed_addr #0 {

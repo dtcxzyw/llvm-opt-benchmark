@@ -85,7 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.54 = private unnamed_addr constant [32 x i8] c"Failed to compare object tokens\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @print_objname(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @print_objname(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp ne i32 %4, 0
@@ -105,7 +105,7 @@ define range(i32 0, 2) i32 @print_objname(ptr nocapture noundef readonly %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define void @do_print_objname(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define void @do_print_objname(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
@@ -1467,30 +1467,30 @@ sub_0365:                                         ; preds = %.tail360
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i64 @h5tools_get_fapl(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @H5Epush2(i64 noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i64 @h5tools_fopen(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare void @trav_info_init(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @H5Lexists(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1501,7 +1501,7 @@ declare i32 @H5Oget_info_by_name3(i64 noundef, ptr noundef, ptr noundef, i32 nou
 declare void @trav_info_add(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @H5tools_get_symlink_info(i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -1746,7 +1746,7 @@ define internal range(i32 -1, -2147483648) i32 @trav_grp_symlinks(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_match_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef %5) unnamed_addr #1 {
+define internal fastcc void @build_match_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #1 {
   %7 = alloca [2 x i32], align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -1881,7 +1881,7 @@ sub_0155:                                         ; preds = %.tail, %.tail.threa
 
 75:                                               ; preds = %.lr.ph.i
   %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #16
-  %77 = call i32 @strncmp(ptr noundef %74, ptr noundef readonly %57, i64 noundef %76) #16
+  %77 = call i32 @strncmp(ptr noundef nonnull %74, ptr noundef nonnull readonly %57, i64 noundef %76) #16
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %88
 
@@ -1913,7 +1913,7 @@ sub_0155:                                         ; preds = %.tail, %.tail.threa
   %90 = getelementptr inbounds %struct.trav_path_t, ptr %54, i64 %.0181234, i32 1
   %91 = load i32, ptr %90, align 8
   %92 = load ptr, ptr %8, align 8
-  call void @trav_table_addflags(ptr noundef nonnull %7, ptr noundef %57, i32 noundef %91, ptr noundef %92) #13
+  call void @trav_table_addflags(ptr noundef nonnull %7, ptr noundef nonnull %57, i32 noundef %91, ptr noundef %92) #13
   %93 = load ptr, ptr %45, align 8
   %94 = getelementptr inbounds %struct.trav_path_t, ptr %93, i64 %.0181234
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
@@ -2009,7 +2009,7 @@ is_exclude_path.exit:                             ; preds = %79, %86, %.loopexit
 
 147:                                              ; preds = %.lr.ph.i109
   %148 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %146) #16
-  %149 = call i32 @strncmp(ptr noundef %146, ptr noundef readonly %57, i64 noundef %148) #16
+  %149 = call i32 @strncmp(ptr noundef nonnull %146, ptr noundef nonnull readonly %57, i64 noundef %148) #16
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %151, label %160
 
@@ -2041,7 +2041,7 @@ is_exclude_path.exit:                             ; preds = %79, %86, %.loopexit
   %162 = getelementptr inbounds %struct.trav_path_t, ptr %54, i64 %.0181234, i32 1
   %163 = load i32, ptr %162, align 8
   %164 = load ptr, ptr %8, align 8
-  call void @trav_table_addflags(ptr noundef nonnull %7, ptr noundef %57, i32 noundef %163, ptr noundef %164) #13
+  call void @trav_table_addflags(ptr noundef nonnull %7, ptr noundef nonnull %57, i32 noundef %163, ptr noundef %164) #13
   br label %is_exclude_path.exit114
 
 is_exclude_path.exit114:                          ; preds = %151, %158, %.loopexit160
@@ -2066,7 +2066,7 @@ is_exclude_path.exit114:                          ; preds = %151, %158, %.loopex
 
 172:                                              ; preds = %.lr.ph.i118
   %173 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %171) #16
-  %174 = call i32 @strncmp(ptr noundef %171, ptr noundef readonly %61, i64 noundef %173) #16
+  %174 = call i32 @strncmp(ptr noundef nonnull %171, ptr noundef nonnull readonly %61, i64 noundef %173) #16
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %185
 
@@ -2098,7 +2098,7 @@ is_exclude_path.exit114:                          ; preds = %151, %158, %.loopex
   %187 = getelementptr inbounds %struct.trav_path_t, ptr %58, i64 %.088180235, i32 1
   %188 = load i32, ptr %187, align 8
   %189 = load ptr, ptr %8, align 8
-  call void @trav_table_addflags(ptr noundef nonnull %7, ptr noundef %61, i32 noundef %188, ptr noundef %189) #13
+  call void @trav_table_addflags(ptr noundef nonnull %7, ptr noundef nonnull %61, i32 noundef %188, ptr noundef %189) #13
   br label %is_exclude_path.exit123
 
 is_exclude_path.exit123:                          ; preds = %176, %183, %.loopexit161
@@ -2155,7 +2155,7 @@ is_exclude_path.exit123:                          ; preds = %176, %183, %.loopex
 
 213:                                              ; preds = %.lr.ph.i127
   %214 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %212) #16
-  %215 = call i32 @strncmp(ptr noundef %212, ptr noundef readonly %204, i64 noundef %214) #16
+  %215 = call i32 @strncmp(ptr noundef nonnull %212, ptr noundef readonly %204, i64 noundef %214) #16
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %217, label %226
 
@@ -2235,7 +2235,7 @@ is_exclude_path.exit132:                          ; preds = %217, %224, %.loopex
 
 252:                                              ; preds = %.lr.ph.i136
   %253 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %251) #16
-  %254 = call i32 @strncmp(ptr noundef %251, ptr noundef readonly %243, i64 noundef %253) #16
+  %254 = call i32 @strncmp(ptr noundef nonnull %251, ptr noundef readonly %243, i64 noundef %253) #16
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %256, label %265
 
@@ -2293,7 +2293,7 @@ free_exclude_path_list.exit:                      ; preds = %.lr.ph.i142, %._cri
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @diff_match(i64 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
+define i64 @diff_match(i64 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
 sub_0101:
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -2411,7 +2411,7 @@ sub_1:                                            ; preds = %.tail100
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %65 = load ptr, ptr %64, align 8
-  %66 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.31, ptr noundef %.not, ptr noundef %65) #13
+  %66 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.31, ptr noundef nonnull %.not, ptr noundef %65) #13
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %68, label %84
 
@@ -2445,7 +2445,7 @@ sub_1:                                            ; preds = %.tail100
   %85 = load ptr, ptr %48, align 8
   %86 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %85, i64 %55, i32 3
   %87 = load ptr, ptr %86, align 8
-  %88 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.31, ptr noundef %.not84, ptr noundef %87) #13
+  %88 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.31, ptr noundef nonnull %.not84, ptr noundef %87) #13
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %94, label %.preheader
 
@@ -2621,7 +2621,7 @@ free_exclude_attr_list.exit.thread:               ; preds = %.loopexit, %free_ex
 declare void @trav_info_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @H5Eauto_is_v2(i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2638,7 +2638,7 @@ declare i32 @H5Fclose(i64 noundef) local_unnamed_addr #2
 declare i32 @H5Pclose(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @diff(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #1 {
+define i64 @diff(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #1 {
   %7 = alloca %struct.h5tool_link_info_t, align 8
   %8 = alloca %struct.h5tool_link_info_t, align 8
   %9 = alloca i32, align 4
@@ -3839,7 +3839,7 @@ declare i64 @H5Dopen2(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare i64 @diff_dataset(i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @is_exclude_attr(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @is_exclude_attr(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -3861,7 +3861,7 @@ define internal fastcc range(i32 0, 2) i32 @is_exclude_attr(ptr nocapture nounde
 
 12:                                               ; preds = %.lr.ph
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #16
-  %14 = tail call i32 @strncmp(ptr noundef %11, ptr noundef nonnull %0, i64 noundef %13) #16
+  %14 = tail call i32 @strncmp(ptr noundef nonnull %11, ptr noundef nonnull %0, i64 noundef %13) #16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %25
 
@@ -3919,20 +3919,20 @@ declare i32 @H5Lunpack_elink_val(ptr noundef, i64 noundef, ptr noundef, ptr noun
 declare void @trav_table_init(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @trav_table_addflags(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @H5Otoken_cmp(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

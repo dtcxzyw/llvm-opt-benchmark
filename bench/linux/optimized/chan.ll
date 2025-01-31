@@ -56,7 +56,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_it
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable_ieee80211_iter_chan_contexts_atomic3147, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29, ptr @trace_drv_add_chanctx.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1828, ptr @trace_drv_add_chanctx.__UNIQUE_ID___addressable___SCK__tp_func_drv_add_chanctx1827, ptr @trace_drv_change_chanctx.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1856, ptr @trace_drv_change_chanctx.__UNIQUE_ID___addressable___SCK__tp_func_drv_change_chanctx1855, ptr @trace_drv_remove_chanctx.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1842, ptr @trace_drv_remove_chanctx.__UNIQUE_ID___addressable___SCK__tp_func_drv_remove_chanctx1841, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace820, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_int819, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace806, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void805], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @ieee80211_chanctx_refcount(ptr nocapture noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ieee80211_chanctx_refcount(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %4
 
@@ -102,7 +102,7 @@ define dso_local void @ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #1 align 16 {
@@ -680,7 +680,7 @@ define internal fastcc void @drv_change_chanctx(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @ieee80211_is_radar_required(ptr noundef %0) local_unnamed_addr #1 align 16 {
@@ -1083,13 +1083,13 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #4
 declare dso_local i32 @ieee80211_hw_config(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_link_copy_chanctx_to_vlans(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 16 {
+define dso_local void @ieee80211_link_copy_chanctx_to_vlans(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 16 {
   tail call fastcc void @__ieee80211_link_copy_chanctx_to_vlans(ptr noundef %0, i1 noundef zeroext %1)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__ieee80211_link_copy_chanctx_to_vlans(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #1 align 16 {
+define internal fastcc void @__ieee80211_link_copy_chanctx_to_vlans(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -1164,7 +1164,7 @@ define internal fastcc void @__ieee80211_link_copy_chanctx_to_vlans(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @ieee80211_link_unreserve_chanctx(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_link_unreserve_chanctx(ptr noundef captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8
@@ -1675,7 +1675,7 @@ ieee80211_new_chanctx.exit.thread:                ; preds = %97, %ieee80211_new_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ieee80211_link_use_channel(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
@@ -4212,7 +4212,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @ieee80211_link_change_bandwidth(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_link_change_bandwidth(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %6 = load ptr, ptr %5, align 8
@@ -4400,7 +4400,7 @@ define dso_local void @ieee80211_link_release_channel(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_link_vlan_copy_chanctx(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @ieee80211_link_vlan_copy_chanctx(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -4442,7 +4442,7 @@ define dso_local void @ieee80211_link_vlan_copy_chanctx(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_iter_chan_contexts_atomic(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 align 16 {
+define dso_local void @ieee80211_iter_chan_contexts_atomic(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 align 16 {
   tail call void @__rcu_read_lock() #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4896
   %5 = load volatile ptr, ptr %4, align 8
@@ -4472,7 +4472,7 @@ define dso_local void @ieee80211_iter_chan_contexts_atomic(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ieee80211_chandef_downgrade(ptr noundef) local_unnamed_addr #4

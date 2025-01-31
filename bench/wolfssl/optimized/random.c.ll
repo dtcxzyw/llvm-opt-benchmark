@@ -131,7 +131,7 @@ return:                                           ; preds = %if.end, %if.end13, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 4) i32 @wc_RNG_TestSeed(ptr nocapture noundef readonly %seed, i32 noundef %seedSz) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @wc_RNG_TestSeed(ptr noundef readonly captures(none) %seed, i32 noundef %seedSz) local_unnamed_addr #1 {
 entry:
   %sub = add i32 %seedSz, -4
   %cmp13.not = icmp eq i32 %sub, 0
@@ -356,7 +356,7 @@ if.then31:                                        ; preds = %if.end29
   %heap1.i = getelementptr inbounds nuw i8, ptr %7, i64 120
   store ptr %8, ptr %heap1.i, align 8
   %V.i = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %call.i39 = call fastcc i32 @Hash_df(ptr noundef %7, ptr noundef nonnull %V.i, i8 noundef zeroext 4, ptr noundef nonnull %add.ptr, i32 noundef %sub.i, ptr noundef %nonce, i32 noundef %nonceSz)
+  %call.i39 = call fastcc i32 @Hash_df(ptr noundef nonnull %7, ptr noundef nonnull %V.i, i8 noundef zeroext 4, ptr noundef nonnull %add.ptr, i32 noundef %sub.i, ptr noundef %nonce, i32 noundef %nonceSz)
   %cmp.i40 = icmp eq i32 %call.i39, 0
   br i1 %cmp.i40, label %land.lhs.true.i, label %if.then38
 
@@ -847,7 +847,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @Hash_DRBG_Generate(ptr noundef %drbg, ptr nocapture noundef nonnull writeonly %out, i32 noundef range(i32 1, 0) %outSz) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @Hash_DRBG_Generate(ptr noundef %drbg, ptr noundef nonnull writeonly captures(none) %out, i32 noundef range(i32 1, 0) %outSz) unnamed_addr #0 {
 entry:
   %data.i = alloca [55 x i8], align 16
   %digest.i = alloca [32 x i8], align 16
@@ -1205,7 +1205,7 @@ if.end30:                                         ; preds = %ConstantCompare.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wc_GenerateSeed(ptr noundef %os, ptr nocapture noundef %output, i32 noundef %sz) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_GenerateSeed(ptr noundef %os, ptr noundef captures(none) %output, i32 noundef %sz) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %os, null
   br i1 %cmp, label %return, label %if.end
@@ -1399,18 +1399,18 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #4
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Hash_df(ptr noundef readnone %drbg, ptr nocapture noundef writeonly %out, i8 noundef zeroext range(i8 0, 5) %type, ptr noundef %inA, i32 noundef %inASz, ptr noundef %inB, i32 noundef %inBSz) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Hash_df(ptr noundef readnone %drbg, ptr noundef writeonly captures(none) %out, i8 noundef zeroext range(i8 0, 5) %type, ptr noundef %inA, i32 noundef %inASz, ptr noundef %inB, i32 noundef %inBSz) unnamed_addr #0 {
 entry:
   %type.addr = alloca i8, align 1
   %ctr = alloca i8, align 1
@@ -1531,7 +1531,7 @@ return:                                           ; preds = %entry, %ForceZero.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @wc_InitSha256(ptr noundef) local_unnamed_addr #2
 
@@ -1548,10 +1548,10 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

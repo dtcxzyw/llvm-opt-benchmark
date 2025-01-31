@@ -118,7 +118,7 @@ land.lhs.true:                                    ; preds = %if.then7
   br i1 %tobool11.not, label %if.else, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true
-  %call13 = call i64 @strtoull(ptr nocapture noundef nonnull %call9, ptr noundef null, i32 noundef 16) #12
+  %call13 = call i64 @strtoull(ptr noundef nonnull captures(none) %call9, ptr noundef null, i32 noundef 16) #12
   %2 = inttoptr i64 %call13 to ptr
   store ptr %2, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
   br label %if.end23
@@ -369,7 +369,7 @@ if.end6:                                          ; preds = %_ZN12_GLOBAL__N_122
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123AutoinitOSGlobalManagerD2Ev(ptr nocapture nonnull readnone align 1 %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123AutoinitOSGlobalManagerD2Ev(ptr nonnull readnone align 1 captures(none) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %uniqueName.i = alloca [96 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %uniqueName.i)
@@ -440,10 +440,10 @@ declare ptr @sem_open(ptr noundef, i32 noundef, ...) local_unnamed_addr #3
 declare i32 @sem_wait(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -472,7 +472,7 @@ declare noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef no
 declare noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unsetenv(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -500,10 +500,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -171,7 +171,7 @@ entry:
 declare void @blosc_cbuffer_sizes(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression13bloscCompressEPcRmmPKcm(ptr noundef %compressedBuffer, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %compressedBytes, i64 noundef %bufferBytes, ptr noundef %uncompressedBuffer, i64 noundef %uncompressedBytes) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression13bloscCompressEPcRmmPKcm(ptr noundef %compressedBuffer, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %compressedBytes, i64 noundef %bufferBytes, ptr noundef %uncompressedBuffer, i64 noundef %uncompressedBytes) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ostr = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %cmp = icmp ugt i64 %bufferBytes, 2147483631
@@ -324,7 +324,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @blosc_compress_ctx(i32 noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -340,7 +340,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression13bloscCompressEPKcmRmb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %buffer, i64 noundef %uncompressedBytes, ptr nocapture noundef nonnull align 8 dereferenceable(8) %compressedBytes, i1 noundef zeroext %resize) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression13bloscCompressEPKcmRmb(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef %buffer, i64 noundef %uncompressedBytes, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %compressedBytes, i1 noundef zeroext %resize) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = add i64 %uncompressedBytes, -48
   %or.cond = icmp ult i64 %0, 80
@@ -744,7 +744,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 declare i32 @blosc_decompress_ctx(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression15bloscDecompressEPKcmb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %buffer, i64 noundef %expectedBytes, i1 noundef zeroext %resize) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression15bloscDecompressEPKcmb(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %buffer, i64 noundef %expectedBytes, i1 noundef zeroext %resize) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %bytes.i = alloca i64, align 8
   %_1.i = alloca i64, align 8
@@ -790,14 +790,14 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_011compression4Page4loadEv(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) local_unnamed_addr #4 align 2 {
+define void @_ZNK7openvdb5v11_011compression4Page4loadEv(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNK7openvdb5v11_011compression4Page6doLoadEv(ptr noundef nonnull align 8 dereferenceable(17) %this)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_011compression4Page6doLoadEv(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_011compression4Page6doLoadEv(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bytes.i.i = alloca i64, align 8
   %_1.i.i = alloca i64, align 8
@@ -1084,7 +1084,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit32: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK7openvdb5v11_011compression4Page17uncompressedBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK7openvdb5v11_011compression4Page17uncompressedBytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %uncompressedBytes = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1093,7 +1093,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK7openvdb5v11_011compression4Page6bufferEi(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this, i32 noundef %index) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK7openvdb5v11_011compression4Page6bufferEi(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %this, i32 noundef %index) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
@@ -1112,7 +1112,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_011compression4Page11isOutOfCoreEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_011compression4Page11isOutOfCoreEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.i = icmp ne ptr %0, null
@@ -1120,7 +1120,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression4Page10readHeaderERSi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #4 align 2 {
+define void @_ZN7openvdb5v11_011compression4Page10readHeaderERSi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #4 align 2 {
 entry:
   %compressedSize = alloca i32, align 4
   %uncompressedSize = alloca i32, align 4
@@ -1156,7 +1156,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression4Page11readBuffersERSib(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i1 noundef zeroext %delayed) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression4Page11readBuffersERSib(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i1 noundef zeroext %delayed) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bytes.i.i = alloca i64, align 8
   %_1.i.i = alloca i64, align 8
@@ -1785,7 +1785,7 @@ _ZNSt12__shared_ptrIN7openvdb5v11_02io14StreamMetadataELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression4Page10decompressERKSt10unique_ptrIA_cSt14default_deleteIS4_EE(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %temp) local_unnamed_addr #4 align 2 {
+define void @_ZN7openvdb5v11_011compression4Page10decompressERKSt10unique_ptrIA_cSt14default_deleteIS4_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %temp) local_unnamed_addr #4 align 2 {
 entry:
   %bytes.i = alloca i64, align 8
   %_1.i = alloca i64, align 8
@@ -1820,7 +1820,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression4Page4copyERKSt10unique_ptrIA_cSt14default_deleteIS4_EEi(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %temp, i32 noundef %pageSize) local_unnamed_addr #4 align 2 {
+define void @_ZN7openvdb5v11_011compression4Page4copyERKSt10unique_ptrIA_cSt14default_deleteIS4_EEi(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %temp, i32 noundef %pageSize) local_unnamed_addr #4 align 2 {
 entry:
   %mData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %conv = sext i32 %pageSize to i64
@@ -2014,7 +2014,7 @@ _ZNSt12__shared_ptrISt15basic_streambufIcSt11char_traitsIcEELN9__gnu_cxx12_Lock_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN7openvdb5v11_011compression10PageHandleC2ERKSt10shared_ptrINS1_4PageEEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %page, i32 noundef %index, i32 noundef %size) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression10PageHandleC2ERKSt10shared_ptrINS1_4PageEEii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %page, i32 noundef %index, i32 noundef %size) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %page, align 8
   store ptr %0, ptr %this, align 8
@@ -2050,14 +2050,14 @@ _ZNSt10shared_ptrIN7openvdb5v11_011compression4PageEEC2ERKS4_.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(17) ptr @_ZN7openvdb5v11_011compression10PageHandle4pageEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(17) ptr @_ZN7openvdb5v11_011compression10PageHandle4pageEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression10PageHandle4readEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression10PageHandle4readEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %mSize, align 4
@@ -2098,7 +2098,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7openvdb5v11_011compression16PagedInputStreamC2ERSi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 33)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #12 align 2 {
+define void @_ZN7openvdb5v11_011compression16PagedInputStreamC2ERSi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(33) initializes((0, 33)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #12 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %mUncompressedBytes = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -2111,7 +2111,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression16PagedInputStream12createHandleEl(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.28") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %this, i64 noundef %n) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression16PagedInputStream12createHandleEl(ptr noalias writeonly sret(%"class.std::unique_ptr.28") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %this, i64 noundef %n) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %compressedSize.i = alloca i32, align 4
   %uncompressedSize.i = alloca i32, align 4
@@ -2298,7 +2298,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression16PagedInputStream4readERSt10unique_ptrINS1_10PageHandleESt14default_deleteIS4_EElb(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %pageHandle, i64 noundef %n, i1 noundef zeroext %delayed) local_unnamed_addr #4 align 2 {
+define void @_ZN7openvdb5v11_011compression16PagedInputStream4readERSt10unique_ptrINS1_10PageHandleESt14default_deleteIS4_EElb(ptr noundef nonnull align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %pageHandle, i64 noundef %n, i1 noundef zeroext %delayed) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %mUncompressedBytes = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -2328,7 +2328,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression17PagedOutputStreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 28), (32, 41)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression17PagedOutputStreamC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 28), (32, 41)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1048576) ptr @_Znam(i64 noundef 1048576) #21
   store ptr %call, ptr %this, align 8
@@ -2359,7 +2359,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit3: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression17PagedOutputStreamC2ERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 28), (32, 41)) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression17PagedOutputStreamC2ERSo(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 28), (32, 41)) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1048576) ptr @_Znam(i64 noundef 1048576) #21
   store ptr %call, ptr %this, align 8
@@ -2434,7 +2434,7 @@ if.end8:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression17PagedOutputStream5flushEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN7openvdb5v11_011compression17PagedOutputStream5flushEv(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mBytes = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2446,7 +2446,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression17PagedOutputStream16compressAndWriteEPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this, ptr noundef %buffer, i64 noundef %size) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression17PagedOutputStream16compressAndWriteEPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this, ptr noundef %buffer, i64 noundef %size) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %compressedBytes.i = alloca i64, align 8
   %size.addr = alloca i64, align 8
@@ -2579,7 +2579,7 @@ if.end29:                                         ; preds = %if.then18, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression17PagedOutputStream6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this, i64 noundef %size) local_unnamed_addr #4 align 2 {
+define void @_ZN7openvdb5v11_011compression17PagedOutputStream6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this, i64 noundef %size) local_unnamed_addr #4 align 2 {
 entry:
   %0 = add i64 %size, -48
   %or.cond = icmp ult i64 %0, 80
@@ -2623,7 +2623,7 @@ if.end9:                                          ; preds = %_ZNKSt14default_del
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #15 comdat {
@@ -2732,7 +2732,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -2791,7 +2791,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -3047,7 +3047,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_StreamCompression.cc() #19 section ".text.startup" {
@@ -3058,10 +3058,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

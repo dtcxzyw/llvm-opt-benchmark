@@ -582,7 +582,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @verify_signature(ptr nocapture noundef nonnull readonly %cmp_ctx, ptr nocapture noundef nonnull readonly %msg, ptr noundef nonnull %cert) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @verify_signature(ptr noundef nonnull readonly captures(none) %cmp_ctx, ptr noundef nonnull readonly captures(none) %msg, ptr noundef nonnull %cert) unnamed_addr #0 {
 entry:
   %prot_part = alloca %struct.ossl_cmp_protectedpart_st, align 8
   %call = tail call ptr @BIO_s_mem() #2
@@ -1003,7 +1003,7 @@ declare i32 @OSSL_CMP_CTX_set1_transactionID(ptr noundef, ptr noundef) local_unn
 declare i32 @ossl_cmp_ctx_set1_recipNonce(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cmp_verify_popo(ptr nocapture noundef readonly %ctx, ptr noundef readonly %msg, i32 noundef %acceptRAVerified) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_verify_popo(ptr noundef readonly captures(none) %ctx, ptr noundef readonly %msg, i32 noundef %acceptRAVerified) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %msg, null
   br i1 %cmp.not, label %return, label %land.rhs
@@ -1150,7 +1150,7 @@ declare void @ERR_add_error_txt(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cert_acceptable(ptr noundef nonnull %ctx, ptr noundef %desc1, ptr noundef %desc2, ptr noundef nonnull %cert, ptr noundef %already_checked1, ptr noundef %already_checked2, ptr nocapture noundef nonnull readonly %msg) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cert_acceptable(ptr noundef nonnull %ctx, ptr noundef %desc1, ptr noundef %desc2, ptr noundef nonnull %cert, ptr noundef %already_checked1, ptr noundef %already_checked2, ptr noundef nonnull readonly captures(none) %msg) unnamed_addr #0 {
 entry:
   %trusted = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %trusted, align 8
@@ -1371,7 +1371,7 @@ return:                                           ; preds = %if.end21.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_cert_path_3gpp(ptr noundef nonnull %ctx, ptr nocapture noundef nonnull readonly %msg, ptr noundef nonnull %scrt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_cert_path_3gpp(ptr noundef nonnull %ctx, ptr noundef nonnull readonly captures(none) %msg, ptr noundef nonnull %scrt) unnamed_addr #0 {
 entry:
   %permitTAInExtraCertsForIR = getelementptr inbounds nuw i8, ptr %ctx, i64 188
   %0 = load i32, ptr %permitTAInExtraCertsForIR, align 4
@@ -1461,7 +1461,7 @@ declare void @X509_free(ptr noundef) local_unnamed_addr #1
 declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_msg_with_certs(ptr noundef nonnull %ctx, ptr noundef %certs, ptr noundef %desc, ptr noundef %already_checked1, ptr noundef %already_checked2, ptr nocapture noundef nonnull readonly %msg, i32 noundef range(i32 0, 2) %mode_3gpp) unnamed_addr #0 {
+define internal fastcc i32 @check_msg_with_certs(ptr noundef nonnull %ctx, ptr noundef %certs, ptr noundef %desc, ptr noundef %already_checked1, ptr noundef %already_checked2, ptr noundef nonnull readonly captures(none) %msg, i32 noundef range(i32 0, 2) %mode_3gpp) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %already_checked1, null
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %certs) #2

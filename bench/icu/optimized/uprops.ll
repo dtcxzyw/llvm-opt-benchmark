@@ -356,7 +356,7 @@ return:                                           ; preds = %if.then25, %switch.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uprops_addPropertyStarts_75(i32 noundef %src, ptr nocapture noundef readonly %sa, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define void @uprops_addPropertyStarts_75(i32 noundef %src, ptr noundef readonly captures(none) %sa, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -944,7 +944,7 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UError
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL15defaultContainsRK14BinaryPropertyi9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %prop, i32 noundef %c, i32 %0) #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL15defaultContainsRK14BinaryPropertyi9UProperty(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %prop, i32 noundef %c, i32 %0) #0 {
 entry:
   %1 = load i32, ptr %prop, align 8
   %call = tail call i32 @u_getUnicodeProperties_75(i32 noundef %c, i32 noundef %1)
@@ -957,21 +957,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL13isBidiControlRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef signext i8 @_ZL13isBidiControlRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call signext i8 @ubidi_isBidiControl_75(i32 noundef %c)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL10isMirroredRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef signext i8 @_ZL10isMirroredRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call signext i8 @ubidi_isMirrored_75(i32 noundef %c)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL27hasFullCompositionExclusionRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL27hasFullCompositionExclusionRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
@@ -1055,14 +1055,14 @@ land.end:                                         ; preds = %_ZNK6icu_7515Normal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL13isJoinControlRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef signext i8 @_ZL13isJoinControlRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call signext i8 @ubidi_isJoinControl_75(i32 noundef %c)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL26caseBinaryPropertyContainsRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 noundef %which) #0 {
+define internal noundef signext i8 @_ZL26caseBinaryPropertyContainsRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 noundef %which) #0 {
 entry:
   %call = tail call i32 @ucase_hasBinaryProperty_75(i32 noundef %c, i32 noundef %which)
   %conv = trunc i32 %call to i8
@@ -1070,7 +1070,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL11isNormInertRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 noundef %which) #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL11isNormInertRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 noundef %which) #0 {
 entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
@@ -1095,7 +1095,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL21isCanonSegmentStarterRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL21isCanonSegmentStarterRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
@@ -1121,42 +1121,42 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL13isPOSIX_alnumRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef signext i8 @_ZL13isPOSIX_alnumRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call signext i8 @u_isalnumPOSIX_75(i32 noundef %c)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL13isPOSIX_blankRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef signext i8 @_ZL13isPOSIX_blankRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call signext i8 @u_isblank_75(i32 noundef %c)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL13isPOSIX_graphRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef signext i8 @_ZL13isPOSIX_graphRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call signext i8 @u_isgraphPOSIX_75(i32 noundef %c)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL13isPOSIX_printRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef signext i8 @_ZL13isPOSIX_printRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call signext i8 @u_isprintPOSIX_75(i32 noundef %c)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL14isPOSIX_xdigitRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef signext i8 @_ZL14isPOSIX_xdigitRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call signext i8 @u_isxdigit_75(i32 noundef %c)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL21changesWhenCasefoldedRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL21changesWhenCasefoldedRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %nfd = alloca %"class.icu_75::UnicodeString", align 8
   %errorCode = alloca i32, align 4
@@ -1323,7 +1323,7 @@ cleanup:                                          ; preds = %invoke.cont42, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL26changesWhenNFKC_CasefoldedRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL26changesWhenNFKC_CasefoldedRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %errorCode = alloca i32, align 4
   %src = alloca %"class.icu_75::UnicodeString", align 8
@@ -1492,14 +1492,14 @@ return:                                           ; preds = %entry, %land.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL16hasEmojiPropertyRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 noundef %which) #0 {
+define internal noundef signext i8 @_ZL16hasEmojiPropertyRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 noundef %which) #0 {
 entry:
   %call = tail call noundef signext i8 @_ZN6icu_7510EmojiProps17hasBinaryPropertyEi9UProperty(i32 noundef %c, i32 noundef %which)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL19isRegionalIndicatorRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL19isRegionalIndicatorRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #2 {
 entry:
   %2 = add i32 %c, -127462
   %3 = icmp ult i32 %2, 26
@@ -1508,7 +1508,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL18isIDSUnaryOperatorRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL18isIDSUnaryOperatorRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #2 {
 entry:
   %2 = and i32 %c, -2
   %3 = icmp eq i32 %2, 12286
@@ -1517,7 +1517,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL19isIDCompatMathStartRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL19isIDCompatMathStartRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #2 {
 entry:
   %cmp = icmp slt i32 %c, 8706
   br i1 %cmp, label %return, label %for.body
@@ -1540,7 +1540,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL22isIDCompatMathContinueRK14BinaryPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %prop, i32 noundef %c, i32 %0) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL22isIDCompatMathContinueRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %prop, i32 noundef %c, i32 %0) #2 {
 entry:
   br label %for.body
 
@@ -1677,21 +1677,21 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare noundef signext i8 @_ZN6icu_7510EmojiProps17hasBinaryPropertyEi9UProperty(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL12getBiDiClassRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef i32 @_ZL12getBiDiClassRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call i32 @u_charDirection_75(i32 noundef %c)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL15biDiGetMaxValueRK11IntProperty9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %which) #0 {
+define internal noundef i32 @_ZL15biDiGetMaxValueRK11IntProperty9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %which) #0 {
 entry:
   %call = tail call i32 @ubidi_getMaxValue_75(i32 noundef %which)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL15defaultGetValueRK11IntPropertyi9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %prop, i32 noundef %c, i32 %0) #0 {
+define internal noundef i32 @_ZL15defaultGetValueRK11IntPropertyi9UProperty(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %prop, i32 noundef %c, i32 %0) #0 {
 entry:
   %1 = load i32, ptr %prop, align 8
   %call = tail call i32 @u_getUnicodeProperties_75(i32 noundef %c, i32 noundef %1)
@@ -1705,7 +1705,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL18defaultGetMaxValueRK11IntProperty9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %prop, i32 %0) #0 {
+define internal noundef i32 @_ZL18defaultGetMaxValueRK11IntProperty9UProperty(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %prop, i32 %0) #0 {
 entry:
   %1 = load i32, ptr %prop, align 8
   %call = tail call i32 @uprv_getMaxValues_75(i32 noundef %1)
@@ -1719,7 +1719,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 256) i32 @_ZL17getCombiningClassRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef range(i32 0, 256) i32 @_ZL17getCombiningClassRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call zeroext i8 @u_getCombiningClass_75(i32 noundef %c)
   %conv = zext i8 %call to i32
@@ -1727,7 +1727,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL20getMaxValueFromShiftRK11IntProperty9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %prop, i32 %0) #7 {
+define internal noundef i32 @_ZL20getMaxValueFromShiftRK11IntProperty9UProperty(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %prop, i32 %0) #7 {
 entry:
   %shift = getelementptr inbounds nuw i8, ptr %prop, i64 8
   %1 = load i32, ptr %shift, align 8
@@ -1735,7 +1735,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -128, 128) i32 @_ZL18getGeneralCategoryRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef range(i32 -128, 128) i32 @_ZL18getGeneralCategoryRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call signext i8 @u_charType_75(i32 noundef %c)
   %conv = sext i8 %call to i32
@@ -1743,21 +1743,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL15getJoiningGroupRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef i32 @_ZL15getJoiningGroupRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call i32 @ubidi_getJoiningGroup_75(i32 noundef %c)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL14getJoiningTypeRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef i32 @_ZL14getJoiningTypeRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call i32 @ubidi_getJoiningType_75(i32 noundef %c)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL14getNumericTypeRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL14getNumericTypeRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call i32 @u_getMainProperties_75(i32 noundef %c)
   %cmp = icmp ult i32 %call, 64
@@ -1770,7 +1770,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL9getScriptRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef i32 @_ZL9getScriptRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
@@ -1779,7 +1779,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 1024) i32 @_ZL17scriptGetMaxValueRK11IntProperty9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 %1) #0 {
+define internal noundef range(i32 0, 1024) i32 @_ZL17scriptGetMaxValueRK11IntProperty9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 %1) #0 {
 entry:
   %call = tail call i32 @uprv_getMaxValues_75(i32 noundef 0)
   %and.i = lshr i32 %call, 12
@@ -1790,7 +1790,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL21getHangulSyllableTypeRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef i32 @_ZL21getHangulSyllableTypeRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call i32 @u_getUnicodeProperties_75(i32 noundef %c, i32 noundef 2)
   %and = lshr i32 %call, 5
@@ -1810,7 +1810,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL17getNormQuickCheckRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 noundef %which) #0 {
+define internal noundef i32 @_ZL17getNormQuickCheckRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 noundef %which) #0 {
 entry:
   %add = add nsw i32 %which, -4106
   %call = tail call i32 @unorm_getQuickCheck_75(i32 noundef %c, i32 noundef %add)
@@ -1818,7 +1818,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 256) i32 @_ZL21getLeadCombiningClassRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef range(i32 0, 256) i32 @_ZL21getLeadCombiningClassRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call zeroext i16 @unorm_getFCD16_75(i32 noundef %c)
   %2 = lshr i16 %call, 8
@@ -1827,7 +1827,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 256) i32 @_ZL22getTrailCombiningClassRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef range(i32 0, 256) i32 @_ZL22getTrailCombiningClassRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call zeroext i16 @unorm_getFCD16_75(i32 noundef %c)
   %2 = and i16 %call, 255
@@ -1836,14 +1836,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL24getBiDiPairedBracketTypeRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef i32 @_ZL24getBiDiPairedBracketTypeRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %call = tail call i32 @ubidi_getPairedBracketType_75(i32 noundef %c)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL7getInPCRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef i32 @_ZL7getInPCRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %errorCode.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
@@ -1866,7 +1866,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 256) i32 @_ZL17layoutGetMaxValueRK11IntProperty9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %which) #0 {
+define internal noundef range(i32 0, 256) i32 @_ZL17layoutGetMaxValueRK11IntProperty9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %which) #0 {
 entry:
   %errorCode.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
@@ -1901,7 +1901,7 @@ return:                                           ; preds = %if.end, %entry, %sw
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL7getInSCRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef i32 @_ZL7getInSCRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %errorCode.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
@@ -1924,7 +1924,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL5getVoRK11IntPropertyi9UProperty(ptr nocapture nonnull readnone align 8 %0, i32 noundef %c, i32 %1) #0 {
+define internal noundef i32 @_ZL5getVoRK11IntPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %c, i32 %1) #0 {
 entry:
   %errorCode.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
@@ -1977,7 +1977,7 @@ declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonn
 declare ptr @udata_openChoice_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZN12_GLOBAL__N_120ulayout_isAcceptableEPvPKcS2_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #7 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN12_GLOBAL__N_120ulayout_isAcceptableEPvPKcS2_PK9UDataInfo(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %pInfo) #7 {
 entry:
   %3 = load i16, ptr %pInfo, align 2
   %cmp = icmp ugt i16 %3, 19
@@ -2072,13 +2072,13 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

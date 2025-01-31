@@ -45,13 +45,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_ioport_register_types, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @unassigned_io_read(ptr nocapture readnone %opaque, i64 %addr, i32 %size) #0 {
+define internal noundef i64 @unassigned_io_read(ptr readnone captures(none) %opaque, i64 %addr, i32 %size) #0 {
 entry:
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @unassigned_io_write(ptr nocapture readnone %opaque, i64 %addr, i64 %val, i32 %size) #0 {
+define internal void @unassigned_io_write(ptr readnone captures(none) %opaque, i64 %addr, i64 %val, i32 %size) #0 {
 entry:
   ret void
 }
@@ -622,7 +622,7 @@ trace_cpu_in.exit:                                ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @portio_list_init(ptr nocapture noundef writeonly %piolist, ptr noundef %owner, ptr noundef %callbacks, ptr noundef %opaque, ptr noundef %name) local_unnamed_addr #1 {
+define dso_local void @portio_list_init(ptr noundef writeonly captures(none) %piolist, ptr noundef %owner, ptr noundef %callbacks, ptr noundef %opaque, ptr noundef %name) local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -659,7 +659,7 @@ while.end:                                        ; preds = %while.cond
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @portio_list_set_flush_coalesced(ptr nocapture noundef writeonly initializes((56, 57)) %piolist) local_unnamed_addr #4 {
+define dso_local void @portio_list_set_flush_coalesced(ptr noundef writeonly captures(none) initializes((56, 57)) %piolist) local_unnamed_addr #4 {
 entry:
   %flush_coalesced_mmio = getelementptr inbounds nuw i8, ptr %piolist, i64 56
   store i8 1, ptr %flush_coalesced_mmio, align 8
@@ -667,7 +667,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @portio_list_destroy(ptr nocapture noundef readonly %piolist) local_unnamed_addr #1 {
+define dso_local void @portio_list_destroy(ptr noundef readonly captures(none) %piolist) local_unnamed_addr #1 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %piolist, i64 24
   %0 = load i32, ptr %nr, align 8
@@ -706,7 +706,7 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @portio_list_add(ptr nocapture noundef initializes((16, 24)) %piolist, ptr noundef %address_space, i32 noundef %start) local_unnamed_addr #1 {
+define dso_local void @portio_list_add(ptr noundef captures(none) initializes((16, 24)) %piolist, ptr noundef %address_space, i32 noundef %start) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %piolist, align 8
   %address_space1 = getelementptr inbounds nuw i8, ptr %piolist, i64 16
@@ -793,7 +793,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @portio_list_add_1(ptr nocapture noundef %piolist, ptr nocapture noundef readonly %pio_init, i32 noundef %count, i32 noundef %start, i32 noundef %off_low, i32 noundef %off_high) unnamed_addr #1 {
+define internal fastcc void @portio_list_add_1(ptr noundef captures(none) %piolist, ptr noundef readonly captures(none) %pio_init, i32 noundef %count, i32 noundef %start, i32 noundef %off_low, i32 noundef %off_high) unnamed_addr #1 {
 entry:
   %call = tail call ptr @object_new(ptr noundef nonnull @.str.9) #11
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 44, ptr noundef nonnull @__func__.MEMORY_REGION_PORTIO_LIST) #11
@@ -887,7 +887,7 @@ if.end30:                                         ; preds = %if.then28, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @portio_list_del(ptr nocapture noundef readonly %piolist) local_unnamed_addr #1 {
+define dso_local void @portio_list_del(ptr noundef readonly captures(none) %piolist) local_unnamed_addr #1 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %piolist, i64 24
   %0 = load i32, ptr %nr, align 8
@@ -935,14 +935,14 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @flatview_translate(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32) local_unnamed_addr #2
 
@@ -962,7 +962,7 @@ declare ptr @object_new(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -983,7 +983,7 @@ declare void @memory_region_add_subregion(ptr noundef, i64 noundef, ptr noundef)
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, -9223372036854775808) i64 @portio_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #1 {
+define internal range(i64 0, -9223372036854775808) i64 @portio_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #1 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 328
   %opaque.val = load ptr, ptr %0, align 8
@@ -1121,7 +1121,7 @@ if.end37:                                         ; preds = %for.inc.i39, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @portio_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #1 {
+define internal void @portio_write(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #1 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 328
   %opaque.val = load ptr, ptr %0, align 8
@@ -1257,10 +1257,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

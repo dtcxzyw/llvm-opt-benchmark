@@ -127,7 +127,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.117 = private unnamed_addr constant [53 x i8] c"Binary literals cannot have a floating point suffix.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lexer_init(ptr nocapture noundef initializes((8, 56), (104, 106), (116, 120)) %0) local_unnamed_addr #0 {
+define dso_local void @lexer_init(ptr noundef captures(none) initializes((8, 56), (104, 106), (116, 120)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1322,7 +1322,7 @@ backtrack.exit233:                                ; preds = %284, %287
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_error_token_at_start(ptr nocapture noundef initializes((64, 80), (106, 116)) %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @add_error_token_at_start(ptr noundef captures(none) initializes((64, 80), (106, 116)) %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1413,7 +1413,7 @@ declare void @sema_verror_range(i64, ptr noundef, ptr noundef) local_unnamed_add
 declare void @llvm.va_end.p0(ptr) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @return_token(ptr nocapture noundef initializes((64, 88), (106, 116)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc void @return_token(ptr noundef captures(none) initializes((64, 88), (106, 116)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1474,7 +1474,7 @@ set_generic_token.exit:                           ; preds = %19, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scan_doc_line(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scan_doc_line(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1716,7 +1716,7 @@ lex_doc_directive.exit:                           ; preds = %47, %46, %40, %.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scan_ident(ptr nocapture noundef %0, i32 noundef range(i32 64, 74) %1, i32 noundef range(i32 65, 75) %2, i32 noundef range(i32 66, 76) %3, i8 noundef signext range(i8 0, 65) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scan_ident(ptr noundef captures(none) %0, i32 noundef range(i32 64, 74) %1, i32 noundef range(i32 65, 75) %2, i32 noundef range(i32 66, 76) %3, i8 noundef signext range(i8 0, 65) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
   %.not = icmp eq i8 %4, 0
@@ -1976,7 +1976,7 @@ return_token.exit:                                ; preds = %79, %89
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scan_char(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scan_char(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -2456,7 +2456,7 @@ set_generic_token.exit:                           ; preds = %196, %207
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scan_raw_string(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scan_raw_string(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted = load ptr, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2607,7 +2607,7 @@ return_token.exit:                                ; preds = %52, %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scan_string(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scan_string(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   br label %.backedge88
@@ -3207,7 +3207,7 @@ consume_to_end_quote.exit:                        ; preds = %273, %273, %33, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_error_token_at_current(ptr nocapture noundef initializes((64, 80), (106, 116)) %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @add_error_token_at_current(ptr noundef captures(none) initializes((64, 80), (106, 116)) %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3290,7 +3290,7 @@ set_generic_token.exit:                           ; preds = %33, %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @parse_doc_start(ptr nocapture noundef initializes((64, 88), (106, 116)) %0) unnamed_addr #4 {
+define internal fastcc void @parse_doc_start(ptr noundef captures(none) initializes((64, 88), (106, 116)) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3381,7 +3381,7 @@ return_token.exit:                                ; preds = %17, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scan_hex_array(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scan_hex_array(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -3578,7 +3578,7 @@ return_token.exit:                                ; preds = %74, %84
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scan_base64(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scan_base64(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -4699,7 +4699,7 @@ scan_dec.exit:                                    ; preds = %309, %323, %331, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_error_token(ptr nocapture noundef initializes((64, 80), (106, 116)) %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @add_error_token(ptr noundef captures(none) initializes((64, 80), (106, 116)) %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %4, align 8
@@ -4824,7 +4824,7 @@ define internal fastcc signext range(i8 -1, 121) i8 @char_is_valid_escape(i8 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_error_token_at(ptr nocapture noundef initializes((64, 80), (106, 116)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ...) unnamed_addr #0 {
+define internal void @add_error_token_at(ptr noundef captures(none) initializes((64, 80), (106, 116)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ...) unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4916,7 +4916,7 @@ declare { i64, i64 } @i128_add64(i64, i64, i64 noundef) local_unnamed_addr #2
 declare ptr @calloc_string(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scan_exponent(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scan_exponent(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -5047,7 +5047,7 @@ backtrack.exit:                                   ; preds = %41, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
@@ -5324,10 +5324,10 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }

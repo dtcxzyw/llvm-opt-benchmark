@@ -1188,7 +1188,7 @@ terminate.lpad:                                   ; preds = %_Z7deallocIN3euf21t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3euf14theory_checkerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf14theory_checkerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_map = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_map, align 8
@@ -1276,7 +1276,7 @@ _ZN17scoped_ptr_vectorIN3euf21theory_checker_pluginEED2Ev.exit: ; preds = %_ZN3m
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf14theory_checker15register_pluginERK6symbolPNS_21theory_checker_pluginE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %rule, ptr noundef %p) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf14theory_checker15register_pluginERK6symbolPNS_21theory_checker_pluginE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %rule, ptr noundef %p) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca %struct._key_data.158, align 8
   %m_map = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1291,7 +1291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3euf14theory_checker5checkEP4expr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %e) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3euf14theory_checker5checkEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %e) local_unnamed_addr #3 align 2 {
 entry:
   %tobool.not = icmp eq ptr %e, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -1413,7 +1413,7 @@ return:                                           ; preds = %for.body.i.i.i, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf14theory_checker6clauseEP4expr(ptr noalias sret(%class.ref_vector) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %e) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf14theory_checker6clauseEP4expr(ptr noalias sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %e) local_unnamed_addr #3 align 2 {
 entry:
   %m_map = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_decl.i.i = getelementptr inbounds nuw i8, ptr %e, i64 16
@@ -1587,7 +1587,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3euf14theory_checker2vcEP4exprRK10ref_vectorIS1_11ast_managerERS5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %e, ptr noundef nonnull align 8 dereferenceable(16) %clause, ptr noundef nonnull align 8 dereferenceable(16) %v) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3euf14theory_checker2vcEP4exprRK10ref_vectorIS1_11ast_managerERS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %e, ptr noundef nonnull align 8 dereferenceable(16) %clause, ptr noundef nonnull align 8 dereferenceable(16) %v) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
   %ref.tmp16 = alloca %struct.mk_pp, align 8
@@ -1777,7 +1777,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv() lo
 declare void @_Z14verbose_unlockv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3euf14theory_checker5checkERK10ref_vectorI4expr11ast_managerEPS2_RS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %clause1, ptr noundef %e, ptr noundef nonnull align 8 dereferenceable(16) %units) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3euf14theory_checker5checkERK10ref_vectorI4expr11ast_managerEPS2_RS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %clause1, ptr noundef %e, ptr noundef nonnull align 8 dereferenceable(16) %units) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %literals = alloca %class.obj_mark, align 8
   %clause2 = alloca %class.ref_vector, align 8
@@ -2470,7 +2470,7 @@ _ZN10bit_vectorD2Ev.exit:                         ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf25smt_theory_checker_plugin6clauseEP3app(ptr noalias sret(%class.ref_vector) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef readonly %jst) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf25smt_theory_checker_plugin6clauseEP3app(ptr noalias sret(%class.ref_vector) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly %jst) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m, align 8
@@ -2785,7 +2785,7 @@ declare void @_ZN3sat6solver11updt_paramsERK10params_ref(ptr noundef nonnull ali
 declare void @_ZN3sat4drat11updt_configEv(ptr noundef nonnull align 8 dereferenceable(664)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3mapI6symbolj16symbol_hash_proc14symbol_eq_procED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3365,7 +3365,7 @@ for.end:                                          ; preds = %_ZN6vectorIN3sat7li
 declare noundef zeroext i1 @_ZN3sat4drat7is_drupEjPKNS_7literalER7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(664), i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3euf17smt_proof_checker9check_rupEP4expr(ptr noundef nonnull align 8 dereferenceable(5220) %this, ptr nocapture noundef readonly %u) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3euf17smt_proof_checker9check_rupEP4expr(ptr noundef nonnull align 8 dereferenceable(5220) %this, ptr noundef readonly captures(none) %u) local_unnamed_addr #3 align 2 {
 entry:
   %m_check_rup = getelementptr inbounds nuw i8, ptr %this, i64 5160
   %0 = load i8, ptr %m_check_rup, align 8
@@ -4983,7 +4983,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3euf17smt_proof_checker18collect_statisticsER10statistics(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5220) %this, ptr noundef nonnull align 8 dereferenceable(16) %st) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK3euf17smt_proof_checker18collect_statisticsER10statistics(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5220) %this, ptr noundef nonnull align 8 dereferenceable(16) %st) local_unnamed_addr #3 align 2 {
 entry:
   %m_solver = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_solver, align 8
@@ -5160,7 +5160,7 @@ lpad:                                             ; preds = %if.then.i.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
@@ -9872,7 +9872,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -17292,10 +17292,10 @@ if.then35:                                        ; preds = %if.then33
   %call37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call36, ptr noundef nonnull @.str.49)
   %m = getelementptr inbounds nuw i8, ptr %this, i64 8
   %30 = load ptr, ptr %m, align 8
-  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %call37, ptr noundef nonnull align 8 dereferenceable(976) %30, ptr noundef %x, i32 noundef 3)
+  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %call37, ptr noundef nonnull align 8 dereferenceable(976) %30, ptr noundef nonnull %x, i32 noundef 3)
   %call39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call37, ptr noundef nonnull @.str.48)
   %31 = load ptr, ptr %m, align 8
-  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %call39, ptr noundef nonnull align 8 dereferenceable(976) %31, ptr noundef %y, i32 noundef 3)
+  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %call39, ptr noundef nonnull align 8 dereferenceable(976) %31, ptr noundef nonnull %y, i32 noundef 3)
   %call43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call39, ptr noundef nonnull @.str.2)
   tail call void @_Z14verbose_unlockv()
   br label %return
@@ -17305,10 +17305,10 @@ if.else44:                                        ; preds = %if.then33
   %call46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call45, ptr noundef nonnull @.str.49)
   %m48 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %32 = load ptr, ptr %m48, align 8
-  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %call46, ptr noundef nonnull align 8 dereferenceable(976) %32, ptr noundef %x, i32 noundef 3)
+  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %call46, ptr noundef nonnull align 8 dereferenceable(976) %32, ptr noundef nonnull %x, i32 noundef 3)
   %call50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call46, ptr noundef nonnull @.str.48)
   %33 = load ptr, ptr %m48, align 8
-  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %call50, ptr noundef nonnull align 8 dereferenceable(976) %33, ptr noundef %y, i32 noundef 3)
+  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %call50, ptr noundef nonnull align 8 dereferenceable(976) %33, ptr noundef nonnull %y, i32 noundef 3)
   %call54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call50, ptr noundef nonnull @.str.2)
   br label %return
 
@@ -20519,10 +20519,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

@@ -388,7 +388,7 @@ sub_122:                                          ; preds = %sub_0
   br label %.tail20
 
 37:                                               ; preds = %10
-  %38 = tail call ptr @pstrdup(ptr noundef %17) #11
+  %38 = tail call ptr @pstrdup(ptr noundef nonnull %17) #11
   store ptr %38, ptr %0, align 8
   br label %.tail20
 
@@ -406,7 +406,7 @@ declare zeroext i1 @plpgsql_parse_word(ptr noundef, ptr noundef, i1 noundef zero
 declare i32 @ScanKeywordLookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @plpgsql_push_back_token(i32 noundef %0) local_unnamed_addr #0 {
@@ -496,7 +496,7 @@ push_back_token.exit:                             ; preds = %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @plpgsql_peek2(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden void @plpgsql_peek2(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.TokenAuxData, align 8
   %6 = alloca %struct.TokenAuxData, align 8
   %7 = call fastcc i32 @internal_yylex(ptr noundef %5)
@@ -729,7 +729,7 @@ define hidden void @plpgsql_scanner_finish() local_unnamed_addr #0 {
 declare void @scanner_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 -65536, 65535) i32 @UnreservedPLKeywords_hash_func(ptr nocapture noundef readonly %0, i64 noundef %1) #9 {
+define internal range(i32 -65536, 65535) i32 @UnreservedPLKeywords_hash_func(ptr noundef readonly captures(none) %0, i64 noundef %1) #9 {
   %.not11 = icmp eq i64 %1, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -773,14 +773,14 @@ define internal range(i32 -65536, 65535) i32 @UnreservedPLKeywords_hash_func(ptr
 declare i32 @core_yylex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 -256, 255) i32 @ReservedPLKeywords_hash_func(ptr nocapture noundef readonly %0, i64 noundef %1) #9 {
+define internal range(i32 -256, 255) i32 @ReservedPLKeywords_hash_func(ptr noundef readonly captures(none) %0, i64 noundef %1) #9 {
   %.not11 = icmp eq i64 %1, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 

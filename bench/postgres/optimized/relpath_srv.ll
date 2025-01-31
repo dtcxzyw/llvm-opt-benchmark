@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [26 x i8] c"pg_tblspc/%u/%s/%u/t%d_%u\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @forkname_to_number(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @forkname_to_number(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %9
@@ -59,7 +59,7 @@ define dso_local range(i32 0, 4) i32 @forkname_to_number(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -73,7 +73,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @forkname_chars(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local i32 @forkname_chars(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   br label %3
 
 3:                                                ; preds = %2, %14
@@ -83,7 +83,7 @@ define dso_local i32 @forkname_chars(ptr nocapture noundef readonly %0, ptr noun
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #6
   %sext = shl i64 %6, 32
   %7 = ashr exact i64 %sext, 32
-  %8 = tail call i32 @strncmp(ptr noundef %5, ptr noundef %0, i64 noundef %7) #6
+  %8 = tail call i32 @strncmp(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %7) #6
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %14
 
@@ -117,10 +117,10 @@ define dso_local i32 @forkname_chars(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @GetDatabasePath(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {

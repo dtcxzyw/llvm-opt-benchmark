@@ -220,7 +220,7 @@ declare hidden void @_Z14luaD_reallocCIP9lua_Statei(ptr noundef, i32 noundef) lo
 declare hidden void @_Z17luaD_reallocstackP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z17lua_isthreadresetP9lua_State(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 2) i32 @_Z17lua_isthreadresetP9lua_State(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -341,12 +341,12 @@ define dso_local noundef ptr @_Z12lua_newstatePFPvS_S_mmES_(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare hidden noundef i32 @_Z20luaD_rawrunprotectedP9lua_StatePFvS0_PvES1_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL9f_luaopenP9lua_StatePv(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @_ZL9f_luaopenP9lua_StatePv(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -484,7 +484,7 @@ define internal fastcc void @_ZL11close_stateP9lua_State(ptr noundef %0) unnamed
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z9lua_closeP9lua_State(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @_Z9lua_closeP9lua_State(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2808

@@ -456,7 +456,7 @@ declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @data_sync_elevel(i32 noundef) local_unnamed_addr #1
 
@@ -567,7 +567,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 26
   store i8 0, ptr %54, align 2
   %55 = load ptr, ptr @pendingUnlinks, align 8
-  %56 = tail call ptr @lappend(ptr noundef %55, ptr noundef %51) #9
+  %56 = tail call ptr @lappend(ptr noundef %55, ptr noundef nonnull %51) #9
   store ptr %56, ptr @pendingUnlinks, align 8
   store ptr %50, ptr @CurrentMemoryContext, align 8
   br label %.thread
@@ -667,10 +667,10 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8

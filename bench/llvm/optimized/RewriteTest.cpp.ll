@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"</i>\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13DoRewriteTestERNS_12PreprocessorEPN4llvm11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3288) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang13DoRewriteTestERNS_12PreprocessorEPN4llvm11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3288) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %"class.clang::TokenRewriter", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88

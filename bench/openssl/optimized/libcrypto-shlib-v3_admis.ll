@@ -197,7 +197,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @i2r_ADMISSION_SYNTAX(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
+define internal range(i32 0, 2) i32 @i2r_ADMISSION_SYNTAX(ptr readnone captures(none) %method, ptr noundef readonly captures(none) %in, ptr noundef %bp, i32 noundef %ind) #1 {
 entry:
   %objbuf = alloca [128 x i8], align 16
   %0 = load ptr, ptr %in, align 8
@@ -429,14 +429,14 @@ return:                                           ; preds = %for.cond.loopexit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @NAMING_AUTHORITY_get0_authorityId(ptr nocapture noundef readonly %n) local_unnamed_addr #3 {
+define ptr @NAMING_AUTHORITY_get0_authorityId(ptr noundef readonly captures(none) %n) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %n, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @NAMING_AUTHORITY_set0_authorityId(ptr nocapture noundef %n, ptr noundef %id) local_unnamed_addr #1 {
+define void @NAMING_AUTHORITY_set0_authorityId(ptr noundef captures(none) %n, ptr noundef %id) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %n, align 8
   tail call void @ASN1_OBJECT_free(ptr noundef %0) #4
@@ -447,7 +447,7 @@ entry:
 declare void @ASN1_OBJECT_free(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @NAMING_AUTHORITY_get0_authorityURL(ptr nocapture noundef readonly %n) local_unnamed_addr #3 {
+define ptr @NAMING_AUTHORITY_get0_authorityURL(ptr noundef readonly captures(none) %n) local_unnamed_addr #3 {
 entry:
   %namingAuthorityUrl = getelementptr inbounds nuw i8, ptr %n, i64 8
   %0 = load ptr, ptr %namingAuthorityUrl, align 8
@@ -455,7 +455,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @NAMING_AUTHORITY_set0_authorityURL(ptr nocapture noundef %n, ptr noundef %u) local_unnamed_addr #1 {
+define void @NAMING_AUTHORITY_set0_authorityURL(ptr noundef captures(none) %n, ptr noundef %u) local_unnamed_addr #1 {
 entry:
   %namingAuthorityUrl = getelementptr inbounds nuw i8, ptr %n, i64 8
   %0 = load ptr, ptr %namingAuthorityUrl, align 8
@@ -467,7 +467,7 @@ entry:
 declare void @ASN1_IA5STRING_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @NAMING_AUTHORITY_get0_authorityText(ptr nocapture noundef readonly %n) local_unnamed_addr #3 {
+define ptr @NAMING_AUTHORITY_get0_authorityText(ptr noundef readonly captures(none) %n) local_unnamed_addr #3 {
 entry:
   %namingAuthorityText = getelementptr inbounds nuw i8, ptr %n, i64 16
   %0 = load ptr, ptr %namingAuthorityText, align 8
@@ -475,7 +475,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @NAMING_AUTHORITY_set0_authorityText(ptr nocapture noundef %n, ptr noundef %t) local_unnamed_addr #1 {
+define void @NAMING_AUTHORITY_set0_authorityText(ptr noundef captures(none) %n, ptr noundef %t) local_unnamed_addr #1 {
 entry:
   %namingAuthorityText = getelementptr inbounds nuw i8, ptr %n, i64 16
   %0 = load ptr, ptr %namingAuthorityText, align 8
@@ -485,14 +485,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ADMISSION_SYNTAX_get0_admissionAuthority(ptr nocapture noundef readonly %as) local_unnamed_addr #3 {
+define ptr @ADMISSION_SYNTAX_get0_admissionAuthority(ptr noundef readonly captures(none) %as) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %as, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ADMISSION_SYNTAX_set0_admissionAuthority(ptr nocapture noundef %as, ptr noundef %aa) local_unnamed_addr #1 {
+define void @ADMISSION_SYNTAX_set0_admissionAuthority(ptr noundef captures(none) %as, ptr noundef %aa) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %as, align 8
   tail call void @GENERAL_NAME_free(ptr noundef %0) #4
@@ -503,7 +503,7 @@ entry:
 declare void @GENERAL_NAME_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ADMISSION_SYNTAX_get0_contentsOfAdmissions(ptr nocapture noundef readonly %as) local_unnamed_addr #3 {
+define ptr @ADMISSION_SYNTAX_get0_contentsOfAdmissions(ptr noundef readonly captures(none) %as) local_unnamed_addr #3 {
 entry:
   %contentsOfAdmissions = getelementptr inbounds nuw i8, ptr %as, i64 8
   %0 = load ptr, ptr %contentsOfAdmissions, align 8
@@ -511,7 +511,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ADMISSION_SYNTAX_set0_contentsOfAdmissions(ptr nocapture noundef %as, ptr noundef %a) local_unnamed_addr #1 {
+define void @ADMISSION_SYNTAX_set0_contentsOfAdmissions(ptr noundef captures(none) %as, ptr noundef %a) local_unnamed_addr #1 {
 entry:
   %contentsOfAdmissions = getelementptr inbounds nuw i8, ptr %as, i64 8
   %0 = load ptr, ptr %contentsOfAdmissions, align 8
@@ -523,14 +523,14 @@ entry:
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ADMISSIONS_get0_admissionAuthority(ptr nocapture noundef readonly %a) local_unnamed_addr #3 {
+define ptr @ADMISSIONS_get0_admissionAuthority(ptr noundef readonly captures(none) %a) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %a, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ADMISSIONS_set0_admissionAuthority(ptr nocapture noundef %a, ptr noundef %aa) local_unnamed_addr #1 {
+define void @ADMISSIONS_set0_admissionAuthority(ptr noundef captures(none) %a, ptr noundef %aa) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %a, align 8
   tail call void @GENERAL_NAME_free(ptr noundef %0) #4
@@ -539,7 +539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ADMISSIONS_get0_namingAuthority(ptr nocapture noundef readonly %a) local_unnamed_addr #3 {
+define ptr @ADMISSIONS_get0_namingAuthority(ptr noundef readonly captures(none) %a) local_unnamed_addr #3 {
 entry:
   %namingAuthority = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %namingAuthority, align 8
@@ -547,7 +547,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ADMISSIONS_set0_namingAuthority(ptr nocapture noundef %a, ptr noundef %na) local_unnamed_addr #1 {
+define void @ADMISSIONS_set0_namingAuthority(ptr noundef captures(none) %a, ptr noundef %na) local_unnamed_addr #1 {
 entry:
   %namingAuthority = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %namingAuthority, align 8
@@ -557,7 +557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ADMISSIONS_get0_professionInfos(ptr nocapture noundef readonly %a) local_unnamed_addr #3 {
+define ptr @ADMISSIONS_get0_professionInfos(ptr noundef readonly captures(none) %a) local_unnamed_addr #3 {
 entry:
   %professionInfos = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load ptr, ptr %professionInfos, align 8
@@ -565,7 +565,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ADMISSIONS_set0_professionInfos(ptr nocapture noundef %a, ptr noundef %pi) local_unnamed_addr #1 {
+define void @ADMISSIONS_set0_professionInfos(ptr noundef captures(none) %a, ptr noundef %pi) local_unnamed_addr #1 {
 entry:
   %professionInfos = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load ptr, ptr %professionInfos, align 8
@@ -575,7 +575,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @PROFESSION_INFO_get0_addProfessionInfo(ptr nocapture noundef readonly %pi) local_unnamed_addr #3 {
+define ptr @PROFESSION_INFO_get0_addProfessionInfo(ptr noundef readonly captures(none) %pi) local_unnamed_addr #3 {
 entry:
   %addProfessionInfo = getelementptr inbounds nuw i8, ptr %pi, i64 32
   %0 = load ptr, ptr %addProfessionInfo, align 8
@@ -583,7 +583,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PROFESSION_INFO_set0_addProfessionInfo(ptr nocapture noundef %pi, ptr noundef %aos) local_unnamed_addr #1 {
+define void @PROFESSION_INFO_set0_addProfessionInfo(ptr noundef captures(none) %pi, ptr noundef %aos) local_unnamed_addr #1 {
 entry:
   %addProfessionInfo = getelementptr inbounds nuw i8, ptr %pi, i64 32
   %0 = load ptr, ptr %addProfessionInfo, align 8
@@ -595,14 +595,14 @@ entry:
 declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @PROFESSION_INFO_get0_namingAuthority(ptr nocapture noundef readonly %pi) local_unnamed_addr #3 {
+define ptr @PROFESSION_INFO_get0_namingAuthority(ptr noundef readonly captures(none) %pi) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %pi, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PROFESSION_INFO_set0_namingAuthority(ptr nocapture noundef %pi, ptr noundef %na) local_unnamed_addr #1 {
+define void @PROFESSION_INFO_set0_namingAuthority(ptr noundef captures(none) %pi, ptr noundef %na) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %pi, align 8
   tail call void @ASN1_item_free(ptr noundef %0, ptr noundef nonnull @NAMING_AUTHORITY_it.local_it) #4
@@ -611,7 +611,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @PROFESSION_INFO_get0_professionItems(ptr nocapture noundef readonly %pi) local_unnamed_addr #3 {
+define ptr @PROFESSION_INFO_get0_professionItems(ptr noundef readonly captures(none) %pi) local_unnamed_addr #3 {
 entry:
   %professionItems = getelementptr inbounds nuw i8, ptr %pi, i64 8
   %0 = load ptr, ptr %professionItems, align 8
@@ -619,7 +619,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PROFESSION_INFO_set0_professionItems(ptr nocapture noundef %pi, ptr noundef %as) local_unnamed_addr #1 {
+define void @PROFESSION_INFO_set0_professionItems(ptr noundef captures(none) %pi, ptr noundef %as) local_unnamed_addr #1 {
 entry:
   %professionItems = getelementptr inbounds nuw i8, ptr %pi, i64 8
   %0 = load ptr, ptr %professionItems, align 8
@@ -631,7 +631,7 @@ entry:
 declare void @ASN1_STRING_free(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @PROFESSION_INFO_get0_professionOIDs(ptr nocapture noundef readonly %pi) local_unnamed_addr #3 {
+define ptr @PROFESSION_INFO_get0_professionOIDs(ptr noundef readonly captures(none) %pi) local_unnamed_addr #3 {
 entry:
   %professionOIDs = getelementptr inbounds nuw i8, ptr %pi, i64 16
   %0 = load ptr, ptr %professionOIDs, align 8
@@ -639,7 +639,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PROFESSION_INFO_set0_professionOIDs(ptr nocapture noundef %pi, ptr noundef %po) local_unnamed_addr #1 {
+define void @PROFESSION_INFO_set0_professionOIDs(ptr noundef captures(none) %pi, ptr noundef %po) local_unnamed_addr #1 {
 entry:
   %professionOIDs = getelementptr inbounds nuw i8, ptr %pi, i64 16
   %0 = load ptr, ptr %professionOIDs, align 8
@@ -649,7 +649,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @PROFESSION_INFO_get0_registrationNumber(ptr nocapture noundef readonly %pi) local_unnamed_addr #3 {
+define ptr @PROFESSION_INFO_get0_registrationNumber(ptr noundef readonly captures(none) %pi) local_unnamed_addr #3 {
 entry:
   %registrationNumber = getelementptr inbounds nuw i8, ptr %pi, i64 24
   %0 = load ptr, ptr %registrationNumber, align 8
@@ -657,7 +657,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PROFESSION_INFO_set0_registrationNumber(ptr nocapture noundef %pi, ptr noundef %rn) local_unnamed_addr #1 {
+define void @PROFESSION_INFO_set0_registrationNumber(ptr noundef captures(none) %pi, ptr noundef %rn) local_unnamed_addr #1 {
 entry:
   %registrationNumber = getelementptr inbounds nuw i8, ptr %pi, i64 24
   %0 = load ptr, ptr %registrationNumber, align 8
@@ -689,7 +689,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @i2r_NAMING_AUTHORITY(ptr nocapture noundef nonnull readonly %in, ptr noundef %bp, i32 noundef %ind) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @i2r_NAMING_AUTHORITY(ptr noundef nonnull readonly captures(none) %in, ptr noundef %bp, i32 noundef %ind) unnamed_addr #1 {
 entry:
   %objbuf = alloca [128 x i8], align 16
   %0 = load ptr, ptr %in, align 8

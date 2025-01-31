@@ -80,7 +80,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_pool_deb
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_ttm_pool_alloc427, ptr @__UNIQUE_ID___addressable_ttm_pool_debugfs433, ptr @__UNIQUE_ID___addressable_ttm_pool_fini432, ptr @__UNIQUE_ID___addressable_ttm_pool_free428, ptr @__UNIQUE_ID___addressable_ttm_pool_init431, ptr @__UNIQUE_ID_page_pool_size416, ptr @__UNIQUE_ID_page_pool_sizetype417, ptr @__param_page_pool_size], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
@@ -654,7 +654,7 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %3, i64 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %3, i64 noundef %4) unnamed_addr #0 align 16 {
   %6 = icmp ult i64 %3, %4
   br i1 %6, label %7, label %.loopexit
 
@@ -870,7 +870,7 @@ define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ttm_pool_free(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @ttm_pool_free(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1444,7 +1444,7 @@ declare dso_local ptr @debugfs_create_file(ptr noundef, i16 noundef zeroext, ptr
 declare dso_local ptr @shrinker_alloc(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none)
-define internal i64 @ttm_pool_shrinker_count(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define internal i64 @ttm_pool_shrinker_count(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = load volatile i64, ptr @allocated_pages, align 8
   %4 = icmp eq i64 %3, 0
   %5 = select i1 %4, i64 -2, i64 %3
@@ -1452,7 +1452,7 @@ define internal i64 @ttm_pool_shrinker_count(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 0, 2147483649) i64 @ttm_pool_shrinker_scan(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
+define internal range(i64 0, 2147483649) i64 @ttm_pool_shrinker_scan(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   br label %3
 
 3:                                                ; preds = %6, %2
@@ -1593,7 +1593,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #1
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ttm_pool_debugfs_globals_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @ttm_pool_debugfs_globals_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @ttm_pool_debugfs_globals_show, ptr noundef %4) #7
@@ -1607,7 +1607,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #1
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ttm_pool_debugfs_globals_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @ttm_pool_debugfs_globals_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.11) #7
   br label %3
 
@@ -1741,7 +1741,7 @@ define internal noundef i32 @ttm_pool_debugfs_globals_show(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ttm_pool_debugfs_shrink_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @ttm_pool_debugfs_shrink_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @ttm_pool_debugfs_shrink_show, ptr noundef %4) #7
@@ -1749,7 +1749,7 @@ define internal i32 @ttm_pool_debugfs_shrink_open(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ttm_pool_debugfs_shrink_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @ttm_pool_debugfs_shrink_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = load volatile i64, ptr @allocated_pages, align 8
   br label %4
 

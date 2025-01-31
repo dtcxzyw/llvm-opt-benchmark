@@ -116,7 +116,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @fetch(ptr noundef %walker, ptr noundef %hash) #0 {
@@ -505,7 +505,7 @@ return:                                           ; preds = %http_fetch_pack.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fetch_ref(ptr nocapture noundef readonly %walker, ptr noundef %ref) #0 {
+define internal i32 @fetch_ref(ptr noundef readonly captures(none) %walker, ptr noundef %ref) #0 {
 entry:
   %0 = load ptr, ptr %walker, align 8
   %alt = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -516,7 +516,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @prefetch(ptr noundef %walker, ptr nocapture noundef readonly %sha1) #0 {
+define internal void @prefetch(ptr noundef %walker, ptr noundef readonly captures(none) %sha1) #0 {
 entry:
   %0 = load ptr, ptr %walker, align 8
   %call = tail call ptr @xmalloc(i64 noundef 88) #10
@@ -560,7 +560,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cleanup(ptr nocapture noundef %walker) #0 {
+define internal void @cleanup(ptr noundef captures(none) %walker) #0 {
 entry:
   %0 = load ptr, ptr %walker, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -594,7 +594,7 @@ if.end:                                           ; preds = %while.end, %entry
 declare void @add_fill_function(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fill_active_slot(ptr nocapture readnone %data) #0 {
+define internal range(i32 0, 2) i32 @fill_active_slot(ptr readnone captures(none) %data) #0 {
 entry:
   %0 = load ptr, ptr @object_queue_head, align 8
   %cmp.not10 = icmp eq ptr %0, @object_queue_head
@@ -759,7 +759,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare void @normalize_curl_result(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @loose_object_path(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -768,14 +768,14 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 declare void @release_http_object_request(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @find_sha1_pack(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @close_pack_index(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @new_http_pack_request(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -794,7 +794,7 @@ declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @get_active_slot() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @process_alternates_response(ptr nocapture noundef %callback_data) #0 {
+define internal void @process_alternates_response(ptr noundef captures(none) %callback_data) #0 {
 entry:
   %null_byte = alloca i8, align 1
   %target = alloca %struct.strbuf, align 8
@@ -1224,7 +1224,7 @@ declare i32 @curl_easy_setopt(ptr noundef, i32 noundef, ...) local_unnamed_addr 
 declare i64 @fwrite_buffer(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1363,16 +1363,16 @@ declare void @walker_say(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

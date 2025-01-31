@@ -42,13 +42,13 @@ define dso_local range(i32 0, 2) i32 @ruby_debug_print_indent(i32 noundef %0, i3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind sspstrong uwtable
-define dso_local void @ruby_debug_printf(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #2 {
+define dso_local void @ruby_debug_printf(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stderr, align 8
@@ -58,7 +58,7 @@ define dso_local void @ruby_debug_printf(ptr nocapture noundef readonly %0, ...)
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @ruby_debug_print_value(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef returned %3) local_unnamed_addr #3 {
@@ -147,7 +147,7 @@ define dso_local noundef ptr @ruby_debug_print_node(i32 noundef %0, i32 noundef 
 declare ptr @ruby_node_name(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nounwind sspstrong uwtable
-define dso_local void @ruby_debug_print_n(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local void @ruby_debug_print_n(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = load i64, ptr %0, align 8
   %4 = trunc i64 %3 to i32
@@ -177,7 +177,7 @@ define dso_local void @ruby_debug_breakpoint() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @ruby_env_debug_option(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @ruby_env_debug_option(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   switch i32 %1, label %20 [
@@ -297,7 +297,7 @@ sub_0:                                            ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare i64 @ruby_scan_digits(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -310,7 +310,7 @@ define dso_local void @ruby_set_debug_option(ptr noundef %0) local_unnamed_addr 
 declare void @ruby_each_words(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_debug_option(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) #3 {
+define internal void @set_debug_option(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #3 {
   %4 = tail call i32 @ruby_env_debug_option(ptr noundef %0, i32 noundef %1, ptr poison)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %8
@@ -331,10 +331,10 @@ declare void @llvm.va_start.p0(ptr) #8
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

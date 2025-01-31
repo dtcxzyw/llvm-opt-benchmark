@@ -608,7 +608,7 @@ eh.resume:                                        ; preds = %ehcleanup41, %clean
 declare void @_ZNK4pbrt13PhaseFunction8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt18SurfaceInteraction20ComputeDifferentialsERKNS_15RayDifferentialENS_6CameraEi(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %ray, ptr nocapture noundef readonly %camera, i32 noundef %samplesPerPixel) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4pbrt18SurfaceInteraction20ComputeDifferentialsERKNS_15RayDifferentialENS_6CameraEi(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %ray, ptr noundef readonly captures(none) %camera, i32 noundef %samplesPerPixel) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
   %disableTextureFiltering = getelementptr inbounds nuw i8, ptr %0, i64 7
@@ -925,10 +925,10 @@ return:                                           ; preds = %if.end90, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt18SurfaceInteraction16SkipIntersectionEPNS_15RayDifferentialEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, ptr nocapture noundef initializes((0, 12), (24, 28), (32, 40)) %ray, float noundef %t) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4pbrt18SurfaceInteraction16SkipIntersectionEPNS_15RayDifferentialEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this, ptr noundef captures(none) initializes((0, 12), (24, 28), (32, 40)) %ray, float noundef %t) local_unnamed_addr #3 align 2 {
 entry:
   %d = getelementptr inbounds nuw i8, ptr %ray, i64 12
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %d, align 4
@@ -1039,7 +1039,7 @@ if.end:                                           ; preds = %if.then, %_ZNK4pbrt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt18SurfaceInteraction8SpawnRayERKNS_15RayDifferentialERKNS_4BSDFENS_7Vector3IfEEif(ptr noalias nocapture sret(%"class.pbrt::RayDifferential") align 8 initializes((0, 28), (32, 41), (44, 92)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %rayi, ptr nocapture noundef nonnull readnone align 8 dereferenceable(44) %bsdf, <2 x float> %wi.coerce0, float %wi.coerce1, i32 noundef %flags, float noundef %eta) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4pbrt18SurfaceInteraction8SpawnRayERKNS_15RayDifferentialERKNS_4BSDFENS_7Vector3IfEEif(ptr noalias sret(%"class.pbrt::RayDifferential") align 8 captures(none) initializes((0, 28), (32, 41), (44, 92)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %rayi, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(44) %bsdf, <2 x float> %wi.coerce0, float %wi.coerce1, i32 noundef %flags, float noundef %eta) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %n.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1572,7 +1572,7 @@ if.end325:                                        ; preds = %if.then323, %lor.lh
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt18SurfaceInteraction7GetBSDFERKNS_15RayDifferentialERNS_18SampledWavelengthsENS_6CameraERNS_13ScratchBufferENS_7SamplerE(ptr noalias sret(%"class.pbrt::BSDF") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %ray, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr nocapture noundef readonly %camera, ptr noundef nonnull align 64 dereferenceable(40) %scratchBuffer, ptr nocapture noundef readonly %sampler) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4pbrt18SurfaceInteraction7GetBSDFERKNS_15RayDifferentialERNS_18SampledWavelengthsENS_6CameraERNS_13ScratchBufferENS_7SamplerE(ptr noalias sret(%"class.pbrt::BSDF") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %ray, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr noundef readonly captures(none) %camera, ptr noundef nonnull align 64 dereferenceable(40) %scratchBuffer, ptr noundef readonly captures(none) %sampler) local_unnamed_addr #3 align 2 {
 entry:
   %get.i162 = alloca %class.anon.66, align 1
   %get.i = alloca %class.anon.62, align 1
@@ -2466,7 +2466,7 @@ return:                                           ; preds = %if.end37, %land.lhs
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4pbrt9NormalMapERKNS_5ImageERKNS_21NormalBumpEvalContextEPNS_7Vector3IfEES8_(ptr noundef nonnull align 8 dereferenceable(152) %normalMap, ptr noundef nonnull align 4 dereferenceable(136) %ctx, ptr noundef %dpdu, ptr noundef %dpdv) local_unnamed_addr #3 comdat {
@@ -3116,7 +3116,7 @@ _ZN4pbrt13ScratchBuffer5AllocEmm.exit:            ; preds = %if.end.if.end14_cri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt18SurfaceInteraction9GetBSSRDFERKNS_15RayDifferentialERNS_18SampledWavelengthsENS_6CameraERNS_13ScratchBufferE(ptr noalias nocapture writeonly sret(%"class.pbrt::BSSRDF") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(92) %ray, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr nocapture noundef readnone %camera, ptr noundef nonnull align 64 dereferenceable(40) %scratchBuffer) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4pbrt18SurfaceInteraction9GetBSSRDFERKNS_15RayDifferentialERNS_18SampledWavelengthsENS_6CameraERNS_13ScratchBufferE(ptr noalias writeonly sret(%"class.pbrt::BSSRDF") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(248) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(92) %ray, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr noundef readnone captures(none) %camera, ptr noundef nonnull align 64 dereferenceable(40) %scratchBuffer) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %"class.pbrt::TabulatedBSSRDF", align 8
   %agg.tmp948 = alloca %"struct.pbrt::MaterialEvalContext", align 8
@@ -3435,7 +3435,7 @@ _ZNK4pbrt8Material9GetBSSRDFINS_25UniversalTextureEvaluatorEEENS_6BSSRDFET_NS_19
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt18SurfaceInteraction2LeENS_7Vector3IfEERKNS_18SampledWavelengthsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, <2 x float> %w.coerce0, float %w.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #3 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt18SurfaceInteraction2LeENS_7Vector3IfEERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this, <2 x float> %w.coerce0, float %w.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #3 align 2 {
 entry:
   %areaLight = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load i64, ptr %areaLight, align 8
@@ -4859,7 +4859,7 @@ ehcleanup48:                                      ; preds = %lpad39, %ehcleanup3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
@@ -19221,10 +19221,10 @@ declare i32 @llvm.bitreverse.i32(i32) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #13

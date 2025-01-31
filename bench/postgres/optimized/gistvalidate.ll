@@ -438,7 +438,7 @@ switch.early.test:                                ; preds = %217
 
 227:                                              ; preds = %226
   tail call void @ReleaseCatCacheList(ptr noundef %35) #4
-  tail call void @ReleaseCatCacheList(ptr noundef %34) #4
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %34) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %22) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #4
   ret i1 %.9

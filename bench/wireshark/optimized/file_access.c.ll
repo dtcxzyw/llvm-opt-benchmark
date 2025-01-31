@@ -637,7 +637,7 @@ set_heuristic_routine.exit:                       ; preds = %28, %13, %26
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 
@@ -1292,13 +1292,13 @@ heuristic_uses_extension.exit.thread:             ; preds = %147, %.heuristic_us
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #9
@@ -1341,13 +1341,13 @@ define internal fastcc noalias ptr @get_file_extension(ptr noundef %0) unnamed_a
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void @g_free(ptr noundef %4) #22
+  tail call void @g_free(ptr noundef nonnull %4) #22
   br label %37
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @ascii_strdown_inplace(ptr noundef %4) #22
-  %10 = tail call ptr @g_strsplit(ptr noundef %4, ptr noundef nonnull @.str.147, i32 noundef 0) #22
-  tail call void @g_free(ptr noundef %4) #22
+  %9 = tail call ptr @ascii_strdown_inplace(ptr noundef nonnull %4) #22
+  %10 = tail call ptr @g_strsplit(ptr noundef nonnull %4, ptr noundef nonnull @.str.147, i32 noundef 0) #22
+  tail call void @g_free(ptr noundef nonnull %4) #22
   br label %11
 
 11:                                               ; preds = %11, %8
@@ -1421,7 +1421,7 @@ define internal fastcc noalias ptr @get_file_extension(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @heuristic_uses_extension(i32 noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @heuristic_uses_extension(i32 noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #6 {
   %3 = load ptr, ptr @open_routines, align 8
   %4 = zext i32 %0 to i64
   %5 = getelementptr %struct.open_info, ptr %3, i64 %4
@@ -1456,7 +1456,7 @@ define internal fastcc range(i32 0, 2) i32 @heuristic_uses_extension(i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wtap_fdreopen(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_fdreopen(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
 sub_0:
   %3 = alloca %struct.stat, align 8
   %4 = load i8, ptr %1, align 1
@@ -1529,7 +1529,7 @@ sub_0:
   br i1 %.not16, label %34, label %32
 
 32:                                               ; preds = %28
-  tail call void @g_free(ptr noundef %30) #22
+  tail call void @g_free(ptr noundef nonnull %30) #22
   %33 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #22
   store ptr %33, ptr %29, align 8
   br label %34
@@ -1753,7 +1753,7 @@ define range(i32 -2147483648, 2147483647) i32 @wtap_name_to_file_type_subtype(pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
 define void @wtap_deregister_file_type_subtype(i32 noundef %0) local_unnamed_addr #0 {
@@ -1791,7 +1791,7 @@ define void @wtap_deregister_file_type_subtype(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @wtap_dump_required_file_encap_type(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @wtap_dump_required_file_encap_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -1862,7 +1862,7 @@ define range(i32 0, 2) i32 @wtap_dump_can_write_encap(i32 noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wtap_dump_can_write(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_dump_can_write(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -1889,7 +1889,7 @@ define range(i32 0, 2) i32 @wtap_dump_can_write(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @wtap_dump_can_write_format(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wtap_dump_can_write_format(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp slt i32 %0, 0
   br i1 %4, label %wtap_dump_can_open.exit.thread, label %5
 
@@ -2198,7 +2198,7 @@ wtap_dump_can_open.exit.thread:                   ; preds = %21, %38, %51, %68, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wtap_get_savable_file_types_subtypes_for_file(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @wtap_get_savable_file_types_subtypes_for_file(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2344,7 +2344,7 @@ define ptr @wtap_get_savable_file_types_subtypes_for_file(i32 noundef %0, ptr no
 declare void @g_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_file_type_subtypes_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal i32 @compare_file_type_subtypes_by_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
 wtap_file_type_subtype_name.exit:
   %2 = load i32, ptr %0, align 4
   %3 = load i32, ptr %1, align 4
@@ -2371,7 +2371,7 @@ wtap_file_type_subtype_name.exit:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_file_type_subtypes_by_description(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal i32 @compare_file_type_subtypes_by_description(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
 wtap_file_type_subtype_description.exit:
   %2 = load i32, ptr %0, align 4
   %3 = load i32, ptr %1, align 4
@@ -3149,7 +3149,7 @@ wtap_dump_file_close.exit:                        ; preds = %57, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @wtap_dump_init_dumper(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @wtap_dump_init_dumper(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -3358,7 +3358,7 @@ thread-pre-split.thread:                          ; preds = %31, %27, %thread-pr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @wtap_dump_open_tempfile(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef initializes((0, 4)) %6, ptr noundef initializes((0, 8)) %7) local_unnamed_addr #0 {
@@ -3700,7 +3700,7 @@ define i32 @wtap_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wtap_dump_flush(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_dump_flush(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
@@ -3742,7 +3742,7 @@ declare i32 @gzwfile_flush(ptr noundef) local_unnamed_addr #1
 declare i32 @gzwfile_geterr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @wtap_dump_close(ptr noundef %0, ptr noundef writeonly %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
@@ -3819,21 +3819,21 @@ wtap_dump_file_close.exit:                        ; preds = %15, %17
 declare void @wtap_block_array_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @wtap_dump_file_type_subtype(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @wtap_dump_file_type_subtype(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @wtap_get_bytes_dumped(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i64 @wtap_get_bytes_dumped(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @wtap_set_bytes_dumped(ptr nocapture noundef writeonly initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #15 {
+define void @wtap_set_bytes_dumped(ptr noundef writeonly captures(none) initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8
   ret void
@@ -3919,7 +3919,7 @@ wtap_file_type_subtype_supports_block.exit.thread: ; preds = %19, %11, %2, %3, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @wtap_dump_discard_name_resolution(ptr nocapture noundef %0) local_unnamed_addr #17 {
+define void @wtap_dump_discard_name_resolution(ptr noundef captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3937,7 +3937,7 @@ define void @wtap_dump_discard_name_resolution(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @wtap_dump_discard_decryption_secrets(ptr nocapture noundef %0) local_unnamed_addr #17 {
+define void @wtap_dump_discard_decryption_secrets(ptr noundef captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3955,7 +3955,7 @@ define void @wtap_dump_discard_decryption_secrets(ptr nocapture noundef %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @wtap_dump_discard_sysdig_meta_events(ptr nocapture noundef %0) local_unnamed_addr #17 {
+define hidden void @wtap_dump_discard_sysdig_meta_events(ptr noundef captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3973,7 +3973,7 @@ define hidden void @wtap_dump_discard_sysdig_meta_events(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wtap_dump_file_write(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_dump_file_write(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
@@ -4030,13 +4030,13 @@ define range(i32 0, 2) i32 @wtap_dump_file_write(ptr nocapture noundef %0, ptr n
 declare i32 @gzwfile_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 -1, 1) i64 @wtap_dump_file_seek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #19 {
+define range(i64 -1, 1) i64 @wtap_dump_file_seek(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #19 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
@@ -4064,10 +4064,10 @@ define range(i64 -1, 1) i64 @wtap_dump_file_seek(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
+declare noundef i32 @fseeko(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i64 @wtap_dump_file_tell(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #19 {
+define noundef i64 @wtap_dump_file_tell(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -4095,7 +4095,7 @@ define noundef i64 @wtap_dump_file_tell(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @ftello(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define hidden void @cleanup_open_routines() local_unnamed_addr #0 {
@@ -4340,7 +4340,7 @@ declare ptr @wtap_block_make_copy(ptr noundef) local_unnamed_addr #1
 declare ptr @wtap_dump_params_generate_idb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #10
@@ -4348,20 +4348,20 @@ declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #10
 declare ptr @gzwfile_open(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare ptr @gzwfile_fdopen(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare i32 @gzwfile_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21

@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [62 x i8] c"island regex from config has too many capture groups (max=%d)\00", align 1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @in_same_island(ptr nocapture noundef readonly %trg_oid, ptr nocapture noundef readonly %src_oid) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @in_same_island(ptr noundef readonly captures(none) %trg_oid, ptr noundef readonly captures(none) %src_oid) local_unnamed_addr #0 {
 entry:
   %byval-temp.i6 = alloca %struct.object_id, align 8
   %byval-temp35 = alloca %struct.object_id, align 8
@@ -269,10 +269,10 @@ return:                                           ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 2) i32 @island_delta_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @island_delta_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %byval-temp.i11 = alloca %struct.object_id, align 8
   %byval-temp310 = alloca %struct.object_id, align 8
@@ -564,7 +564,7 @@ return:                                           ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @resolve_tree_islands(ptr noundef %r, i32 noundef %progress, ptr nocapture noundef readonly %to_pack) local_unnamed_addr #2 {
+define dso_local void @resolve_tree_islands(ptr noundef %r, i32 noundef %progress, ptr noundef readonly captures(none) %to_pack) local_unnamed_addr #2 {
 entry:
   %byval-temp.i54 = alloca %struct.object_id, align 8
   %byval-temp.i4353 = alloca %struct.object_id, align 8
@@ -780,7 +780,7 @@ if.end41:                                         ; preds = %kh_get_oid_map.exit
   %idxprom42 = zext i32 %retval.0.i40 to i64
   %arrayidx43 = getelementptr inbounds nuw ptr, ptr %27, i64 %idxprom42
   %28 = load ptr, ptr %arrayidx43, align 8
-  %call46 = call ptr @lookup_tree(ptr noundef %r, ptr noundef %16) #16
+  %call46 = call ptr @lookup_tree(ptr noundef %r, ptr noundef nonnull %16) #16
   %tobool47.not = icmp eq ptr %call46, null
   br i1 %tobool47.not, label %if.then51, label %lor.lhs.false
 
@@ -791,7 +791,7 @@ lor.lhs.false:                                    ; preds = %if.end41
 
 if.then51:                                        ; preds = %lor.lhs.false, %if.end41
   %call52 = call fastcc ptr @_(ptr noundef nonnull @.str.1)
-  %call55 = call ptr @oid_to_hex(ptr noundef %16) #16
+  %call55 = call ptr @oid_to_hex(ptr noundef nonnull %16) #16
   call void (ptr, ...) @die(ptr noundef %call52, ptr noundef %call55) #17
   unreachable
 
@@ -1112,7 +1112,7 @@ return:                                           ; preds = %entry, %stop_progre
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @tree_depth_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal i32 @tree_depth_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #4 {
 entry:
   %depth = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %depth, align 8
@@ -1163,7 +1163,7 @@ declare void @free_tree_buffer(ptr noundef) local_unnamed_addr #3
 declare void @display_progress(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @load_delta_islands(ptr noundef %r, i32 noundef %progress) local_unnamed_addr #2 {
@@ -2038,12 +2038,12 @@ if.end:                                           ; preds = %_.exit, %free_remot
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @island_config_callback(ptr noundef %k, ptr noundef %v, ptr nocapture readnone %ctx, ptr nocapture noundef %cb) #2 {
+define internal i32 @island_config_callback(ptr noundef %k, ptr noundef %v, ptr readnone captures(none) %ctx, ptr noundef captures(none) %cb) #2 {
 entry:
   %re = alloca %struct.strbuf, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %k, ptr noundef nonnull dereferenceable(12) @.str.6) #18
@@ -2056,7 +2056,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %do.body
 
 if.then2:                                         ; preds = %if.then
-  %call3 = tail call i32 @config_error_nonbool(ptr noundef %k) #16
+  %call3 = tail call i32 @config_error_nonbool(ptr noundef nonnull %k) #16
   br label %return
 
 do.body:                                          ; preds = %if.then
@@ -2128,7 +2128,7 @@ if.end29:                                         ; preds = %strbuf_addch.exit, 
 if.then34:                                        ; preds = %if.end29
   %call35 = call fastcc ptr @_(ptr noundef nonnull @.str.7)
   %10 = load ptr, ptr %buf, align 8
-  call void (ptr, ...) @die(ptr noundef %call35, ptr noundef %k, ptr noundef %10) #17
+  call void (ptr, ...) @die(ptr noundef %call35, ptr noundef nonnull %k, ptr noundef %10) #17
   unreachable
 
 if.end37:                                         ; preds = %if.end29
@@ -2144,7 +2144,7 @@ if.end39:                                         ; preds = %entry
   br i1 %tobool41.not, label %if.then42, label %return
 
 if.then42:                                        ; preds = %if.end39
-  %call43 = tail call i32 @git_config_string(ptr noundef nonnull @core_island_name, ptr noundef %k, ptr noundef %v) #16
+  %call43 = tail call i32 @git_config_string(ptr noundef nonnull @core_island_name, ptr noundef nonnull %k, ptr noundef %v) #16
   br label %return
 
 return:                                           ; preds = %if.end39, %if.then42, %if.end37, %if.then2
@@ -2155,7 +2155,7 @@ return:                                           ; preds = %if.end39, %if.then4
 declare i32 @for_each_ref(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @find_island_for_ref(ptr noundef %refname, ptr noundef %oid, i32 %flags, ptr nocapture noundef readonly %cb) #2 {
+define internal noundef i32 @find_island_for_ref(ptr noundef %refname, ptr noundef %oid, i32 %flags, ptr noundef readonly captures(none) %cb) #2 {
 entry:
   %matches = alloca [16 x %struct.regmatch_t], align 16
   %island_name = alloca %struct.strbuf, align 8
@@ -2705,7 +2705,7 @@ return:                                           ; preds = %for.cond, %add_ref_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @propagate_island_marks(ptr noundef %commit) local_unnamed_addr #2 {
@@ -3071,7 +3071,7 @@ if.end10:                                         ; preds = %kh_destroy_oid_map.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 1, 3) i32 @compute_pack_layers(ptr nocapture noundef %to_pack) local_unnamed_addr #2 {
+define dso_local range(i32 1, 3) i32 @compute_pack_layers(ptr noundef captures(none) %to_pack) local_unnamed_addr #2 {
 entry:
   %byval-temp.i = alloca %struct.object_id, align 8
   %arrayidx9 = alloca %struct.object_id, align 8
@@ -3266,7 +3266,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare ptr @gettext(ptr noundef) local_unnamed_addr #10
@@ -3274,7 +3274,7 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #10
 declare i32 @parse_tree_gently(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @kh_put_oid_map(ptr nocapture noundef %h, ptr nocapture noundef readonly byval(%struct.object_id) align 8 %key, ptr nocapture noundef nonnull writeonly %ret) unnamed_addr #2 {
+define internal fastcc i32 @kh_put_oid_map(ptr noundef captures(none) %h, ptr noundef readonly byval(%struct.object_id) align 8 captures(none) %key, ptr noundef nonnull writeonly captures(none) %ret) unnamed_addr #2 {
 entry:
   %byval-temp = alloca %struct.object_id, align 8
   %n_occupied = getelementptr inbounds nuw i8, ptr %h, i64 8
@@ -3464,7 +3464,7 @@ if.end128:                                        ; preds = %if.else98, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kh_resize_oid_map(ptr nocapture noundef %h, i32 noundef %new_n_buckets) unnamed_addr #2 {
+define internal fastcc void @kh_resize_oid_map(ptr noundef captures(none) %h, i32 noundef %new_n_buckets) unnamed_addr #2 {
 entry:
   %key.sroa.5 = alloca [32 x i8], align 4
   %tmp.sroa.2 = alloca [32 x i8], align 4
@@ -3696,7 +3696,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare void @stop_progress_msg(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @config_error_nonbool(ptr noundef) local_unnamed_addr #3
 
@@ -3711,7 +3711,7 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @regexec(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -3730,16 +3730,16 @@ declare void @oid_array_clear(ptr noundef) local_unnamed_addr #3
 declare i32 @repo_parse_commit_gently(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

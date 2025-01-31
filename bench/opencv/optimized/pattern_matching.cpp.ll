@@ -12315,7 +12315,7 @@ declare void @_ZN3ade4Node8outNodesEv(ptr dead_on_unwind writable sret(%"struct.
 declare void @_ZN3ade4Node7inNodesEv(ptr dead_on_unwind writable sret(%"struct.ade::util::Range::MapRange.35") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt7__cxx114listISt4pairIN3ade6HandleINS2_4NodeEEES5_ESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12407,7 +12407,7 @@ declare void @_ZN3ade4Node8outEdgesEv(ptr dead_on_unwind writable sret(%"struct.
 declare void @_ZNK3ade4Edge7dstNodeEv(ptr dead_on_unwind writable sret(%"class.ade::Handle") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN12_GLOBAL__N_17labelOfERKN3ade6HandleINS0_4NodeEEERKNS1_INS0_4EdgeEEERKNS0_10TypedGraphIJN2cv5gimpl8NodeTypeENSC_5InputENSC_6OutputENSC_2OpENSC_4DataENSC_10ConstValueENSC_6IslandENSC_8ProtocolENSC_17OriginalInputMetaENSC_10OutputMetaENSC_7JournalENS0_6passes19TopologicalSortDataENSC_17DataObjectCounterENSC_11IslandModelENSC_14ActiveBackendsENSC_18CustomMetaFunctionENSC_9StreamingENSC_12DeserializedENSC_13HasIntrinsicsENSC_10DesyncPathENSC_10DesyncEdgeENSC_14DesynchronizedENSC_11CompileArgsEEEE(ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN12_GLOBAL__N_17labelOfERKN3ade6HandleINS0_4NodeEEERKNS1_INS0_4EdgeEEERKNS0_10TypedGraphIJN2cv5gimpl8NodeTypeENSC_5InputENSC_6OutputENSC_2OpENSC_4DataENSC_10ConstValueENSC_6IslandENSC_8ProtocolENSC_17OriginalInputMetaENSC_10OutputMetaENSC_7JournalENS0_6passes19TopologicalSortDataENSC_17DataObjectCounterENSC_11IslandModelENSC_14ActiveBackendsENSC_18CustomMetaFunctionENSC_9StreamingENSC_12DeserializedENSC_13HasIntrinsicsENSC_10DesyncPathENSC_10DesyncEdgeENSC_14DesynchronizedENSC_11CompileArgsEEEE(ptr %.0.val, ptr %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.ade::details::MetadataId", align 8
   %4 = alloca %"class.ade::Handle.78", align 8
   %5 = alloca %"class.ade::details::MetadataId", align 8
@@ -13010,7 +13010,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit4:              ; preds = %_ZN3ade6HandleINS_4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN3ade4Node7inEdgesEv(ptr dead_on_unwind writable sret(%"struct.ade::util::Range::MapRange.26") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
@@ -15202,7 +15202,7 @@ _ZNSt10_HashtableIN3ade6HandleINS0_4NodeEEESt4pairIKS3_St6vectorIS3_SaIS3_EEESaI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114compareOpNodesERKNSt7__cxx114listISt4pairIN3ade6HandleINS3_4NodeEEES6_ESaIS7_EEERKS6_St6vectorImSaImEERKNS3_13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENSJ_5InputENSJ_6OutputENSJ_2OpENSJ_4DataENSJ_10ConstValueENSJ_6IslandENSJ_8ProtocolENSJ_17OriginalInputMetaENSJ_10OutputMetaENSJ_7JournalENS3_6passes19TopologicalSortDataENSJ_17DataObjectCounterENSJ_11IslandModelENSJ_14ActiveBackendsENSJ_18CustomMetaFunctionENSJ_9StreamingENSJ_12DeserializedENSJ_13HasIntrinsicsENSJ_10DesyncPathENSJ_10DesyncEdgeENSJ_14DesynchronizedENSJ_11CompileArgsEEEESD_SG_S1A_Rb(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114compareOpNodesERKNSt7__cxx114listISt4pairIN3ade6HandleINS3_4NodeEEES6_ESaIS7_EEERKS6_St6vectorImSaImEERKNS3_13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENSJ_5InputENSJ_6OutputENSJ_2OpENSJ_4DataENSJ_10ConstValueENSJ_6IslandENSJ_8ProtocolENSJ_17OriginalInputMetaENSJ_10OutputMetaENSJ_7JournalENS3_6passes19TopologicalSortDataENSJ_17DataObjectCounterENSJ_11IslandModelENSJ_14ActiveBackendsENSJ_18CustomMetaFunctionENSJ_9StreamingENSJ_12DeserializedENSJ_13HasIntrinsicsENSJ_10DesyncPathENSJ_10DesyncEdgeENSJ_14DesynchronizedENSJ_11CompileArgsEEEESD_SG_S1A_Rb(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.ade::details::MetadataId", align 8
   %10 = alloca %"class.ade::details::MetadataId", align 8
   %11 = alloca %"class.ade::details::MetadataId", align 8
@@ -16247,7 +16247,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5_
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
@@ -17952,13 +17952,13 @@ declare void @llvm.assume(i1 noundef) #15
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

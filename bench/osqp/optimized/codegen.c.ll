@@ -315,10 +315,10 @@ define i64 @codegen_inc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare i64 @_osqp_error(i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -326,7 +326,7 @@ declare i64 @_osqp_error(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare ptr @ctime(ptr noundef) local_unnamed_addr #3
@@ -335,7 +335,7 @@ declare ptr @ctime(ptr noundef) local_unnamed_addr #3
 declare i32 @toupper(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @codegen_src(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -1367,7 +1367,7 @@ write_solver.exit:                                ; preds = %28, %write_settings
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @codegen_defines(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i64 @codegen_defines(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca i64, align 8
   %5 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %0) #8
@@ -1495,7 +1495,7 @@ define i64 @codegen_example(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i64 0, 11) i64 @write_OSQPVectorf(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #5 {
+define internal fastcc range(i64 0, 11) i64 @write_OSQPVectorf(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #5 {
   %4 = alloca [255 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %24, label %5
@@ -1545,7 +1545,7 @@ write_vecf.exit:                                  ; preds = %._crit_edge.i, %20
 declare i64 @_osqp_error_line(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i64 0, 11) i64 @write_OSQPVectori(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #5 {
+define internal fastcc range(i64 0, 11) i64 @write_OSQPVectori(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #5 {
   %4 = alloca [259 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %24, label %5
@@ -1593,7 +1593,7 @@ write_veci.exit:                                  ; preds = %._crit_edge.i, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @write_scaling(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @write_scaling(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [255 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %7
@@ -1675,7 +1675,7 @@ define internal fastcc i64 @write_scaling(ptr nocapture noundef nonnull %0, ptr 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i64 0, 11) i64 @write_OSQPMatrix(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #5 {
+define internal fastcc range(i64 0, 11) i64 @write_OSQPMatrix(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #5 {
   %4 = alloca [259 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %5
@@ -1702,7 +1702,7 @@ define internal fastcc range(i64 0, 11) i64 @write_OSQPMatrix(ptr nocapture noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i64 0, 11) i64 @write_csc(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #5 {
+define internal fastcc range(i64 0, 11) i64 @write_csc(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #5 {
   %4 = alloca [255 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %71, label %5
@@ -1829,13 +1829,13 @@ write_vecf.exit:                                  ; preds = %._crit_edge.i48, %5
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

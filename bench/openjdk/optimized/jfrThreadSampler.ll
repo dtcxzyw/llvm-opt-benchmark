@@ -232,7 +232,7 @@ declare noundef zeroext i1 @_ZN12JfrOptionSet17sample_protectionEv() local_unnam
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN21ThreadCrashProtectionC1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
@@ -248,7 +248,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15OSThreadSampler14protected_taskERK26SuspendedThreadTaskContext(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15OSThreadSampler14protected_taskERK26SuspendedThreadTaskContext(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JfrGetCallTrace, align 8
   %4 = alloca %class.frame, align 8
   %5 = load ptr, ptr %1, align 8
@@ -520,7 +520,7 @@ define hidden noundef zeroext i1 @_ZN22JfrThreadSampleClosure23sample_thread_in_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq i32 %1, 1
   br i1 %3, label %4, label %13
 
@@ -743,7 +743,7 @@ _ZN8JfrEventI23EventNativeMethodSampleE11write_eventEv.exit: ; preds = %9, %38, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN22JfrThreadSampleClosureC2EP20EventExecutionSampleP23EventNativeMethodSample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
+define hidden void @_ZN22JfrThreadSampleClosureC2EP20EventExecutionSampleP23EventNativeMethodSample(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -1028,7 +1028,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %14, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN16JfrThreadSampler11next_threadEP11ThreadsListP10JavaThreadS3_(ptr nocapture noundef nonnull align 8 dereferenceable(993) %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN16JfrThreadSampler11next_threadEP11ThreadsListP10JavaThreadS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(993) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
@@ -1218,7 +1218,7 @@ define hidden void @_ZN16JfrThreadSampler3runEv(ptr noundef nonnull align 8 dere
 declare void @_ZN2os11naked_sleepEl(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16JfrThreadSampler15task_stacktraceE13JfrSampleTypePP10JavaThread(ptr noundef nonnull align 8 dereferenceable(993) %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16JfrThreadSampler15task_stacktraceE13JfrSampleTypePP10JavaThread(ptr noundef nonnull align 8 dereferenceable(993) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [5 x %class.EventExecutionSample], align 16
   %5 = alloca [1 x %class.EventNativeMethodSample], align 16
   %6 = alloca %class.JfrThreadSampleClosure, align 8
@@ -1683,13 +1683,13 @@ _ZN17JfrThreadSamplingD2Ev.exit:                  ; preds = %2, %4, %8, %11
 declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17JfrThreadSamplingC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #10 align 2 {
+define hidden void @_ZN17JfrThreadSamplingC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #10 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JfrThreadSamplingD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17JfrThreadSamplingD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN16JfrThreadSampler9disenrollEv.exit, label %3
@@ -1717,7 +1717,7 @@ _ZN16JfrThreadSampler9disenrollEv.exit:           ; preds = %10, %7, %3, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JfrThreadSampling14create_samplerEll(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17JfrThreadSampling14create_samplerEll(ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -1803,7 +1803,7 @@ _ZN16JfrThreadSampler6enrollEv.exit:              ; preds = %_ZN16JfrThreadSampl
 declare noundef i32 @_ZN12JfrOptionSet10stackdepthEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JfrThreadSampling16update_run_stateEll(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17JfrThreadSampling16update_run_stateEll(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp sgt i64 %1, 0
   %5 = icmp sgt i64 %2, 0
   %or.cond = or i1 %4, %5
@@ -1874,7 +1874,7 @@ _ZL3logll.exit:                                   ; preds = %29, %26, %22, %20, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JfrThreadSampling19set_sampling_periodEbl(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17JfrThreadSampling19set_sampling_periodEbl(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %.not10 = icmp eq ptr %4, null
   br i1 %1, label %5, label %11
@@ -3635,13 +3635,13 @@ declare i64 @llvm.smax.i64(i64, i64) #15
 declare i64 @llvm.smin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

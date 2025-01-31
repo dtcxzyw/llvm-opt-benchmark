@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Group_from_session_pset_f08 = weak alias void (ptr, ptr, ptr, ptr, i32), ptr @ompi_group_from_session_pset_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_group_from_session_pset_f(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) #0 {
+define void @ompi_group_from_session_pset_f(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %0, align 4
@@ -152,7 +152,7 @@ declare i32 @PMPI_Group_from_session_pset(ptr noundef, ptr noundef, ptr noundef)
 declare i32 @PMPI_Group_c2f(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3

@@ -1625,7 +1625,7 @@ _equalGroupingFunc.exit:                          ; preds = %tailrecurse.backedg
 declare void @check_stack_depth() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlias(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlias(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1660,7 +1660,7 @@ define internal fastcc zeroext i1 @_equalAlias(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRangeVar(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRangeVar(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1755,7 +1755,7 @@ define internal fastcc zeroext i1 @_equalRangeVar(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalTableFunc(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalTableFunc(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1857,7 +1857,7 @@ define internal fastcc zeroext i1 @_equalTableFunc(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalIntoClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalIntoClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1955,7 +1955,7 @@ define internal fastcc zeroext i1 @_equalIntoClause(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalVar(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalVar(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2017,7 +2017,7 @@ define internal fastcc zeroext i1 @_equalVar(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalConst(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalConst(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2087,7 +2087,7 @@ define internal fastcc zeroext i1 @_equalConst(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @_equalParam(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
+define internal fastcc zeroext i1 @_equalParam(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2133,7 +2133,7 @@ define internal fastcc zeroext i1 @_equalParam(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAggref(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAggref(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2279,7 +2279,7 @@ define internal fastcc zeroext i1 @_equalAggref(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalWindowFunc(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalWindowFunc(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2361,7 +2361,7 @@ define internal fastcc zeroext i1 @_equalWindowFunc(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalSubscriptingRef(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalSubscriptingRef(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2439,7 +2439,7 @@ define internal fastcc zeroext i1 @_equalSubscriptingRef(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalFuncExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalFuncExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2505,7 +2505,7 @@ define internal fastcc zeroext i1 @_equalFuncExpr(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalNamedArgExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalNamedArgExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2548,7 +2548,7 @@ define internal fastcc zeroext i1 @_equalNamedArgExpr(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalOpExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalOpExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2616,7 +2616,7 @@ define internal fastcc zeroext i1 @_equalOpExpr(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalDistinctExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalDistinctExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2684,7 +2684,7 @@ define internal fastcc zeroext i1 @_equalDistinctExpr(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalNullIfExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalNullIfExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2752,7 +2752,7 @@ define internal fastcc zeroext i1 @_equalNullIfExpr(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalScalarArrayOpExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalScalarArrayOpExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2828,7 +2828,7 @@ define internal fastcc zeroext i1 @_equalScalarArrayOpExpr(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalSubLink(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalSubLink(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2874,7 +2874,7 @@ define internal fastcc zeroext i1 @_equalSubLink(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalSubPlan(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalSubPlan(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3027,7 +3027,7 @@ define internal fastcc zeroext i1 @_equalSubPlan(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalFieldSelect(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalFieldSelect(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3073,7 +3073,7 @@ define internal fastcc zeroext i1 @_equalFieldSelect(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalFieldStore(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalFieldStore(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3111,7 +3111,7 @@ define internal fastcc zeroext i1 @_equalFieldStore(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRelabelType(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRelabelType(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3149,7 +3149,7 @@ define internal fastcc zeroext i1 @_equalRelabelType(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCoerceViaIO(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCoerceViaIO(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3179,7 +3179,7 @@ define internal fastcc zeroext i1 @_equalCoerceViaIO(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalArrayCoerceExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalArrayCoerceExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3225,7 +3225,7 @@ define internal fastcc zeroext i1 @_equalArrayCoerceExpr(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCaseExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCaseExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3271,7 +3271,7 @@ define internal fastcc zeroext i1 @_equalCaseExpr(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCaseWhen(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCaseWhen(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3293,7 +3293,7 @@ define internal fastcc zeroext i1 @_equalCaseWhen(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalArrayExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalArrayExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3341,7 +3341,7 @@ define internal fastcc zeroext i1 @_equalArrayExpr(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRowExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRowExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3371,7 +3371,7 @@ define internal fastcc zeroext i1 @_equalRowExpr(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRowCompareExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRowCompareExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3425,7 +3425,7 @@ define internal fastcc zeroext i1 @_equalRowCompareExpr(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCoalesceExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCoalesceExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3455,7 +3455,7 @@ define internal fastcc zeroext i1 @_equalCoalesceExpr(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalMinMaxExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalMinMaxExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3501,7 +3501,7 @@ define internal fastcc zeroext i1 @_equalMinMaxExpr(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalXmlExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalXmlExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3594,7 +3594,7 @@ define internal fastcc zeroext i1 @_equalXmlExpr(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonReturning(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonReturning(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3624,7 +3624,7 @@ define internal fastcc zeroext i1 @_equalJsonReturning(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonValueExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonValueExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3654,7 +3654,7 @@ define internal fastcc zeroext i1 @_equalJsonValueExpr(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonConstructorExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonConstructorExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3720,7 +3720,7 @@ define internal fastcc zeroext i1 @_equalJsonConstructorExpr(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonIsPredicate(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonIsPredicate(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3760,7 +3760,7 @@ define internal fastcc zeroext i1 @_equalJsonIsPredicate(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalNullTest(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalNullTest(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3792,7 +3792,7 @@ define internal fastcc zeroext i1 @_equalNullTest(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalMergeAction(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalMergeAction(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3848,7 +3848,7 @@ define internal fastcc zeroext i1 @_equalMergeAction(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCoerceToDomain(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCoerceToDomain(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3886,7 +3886,7 @@ define internal fastcc zeroext i1 @_equalCoerceToDomain(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @_equalCurrentOfExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @_equalCurrentOfExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3929,7 +3929,7 @@ define internal fastcc zeroext i1 @_equalCurrentOfExpr(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalInferenceElem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalInferenceElem(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3959,7 +3959,7 @@ define internal fastcc zeroext i1 @_equalInferenceElem(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalTargetEntry(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalTargetEntry(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4036,7 +4036,7 @@ define internal fastcc zeroext i1 @_equalTargetEntry(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJoinExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJoinExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4116,7 +4116,7 @@ define internal fastcc zeroext i1 @_equalJoinExpr(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalFromExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalFromExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4138,7 +4138,7 @@ define internal fastcc zeroext i1 @_equalFromExpr(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalOnConflictExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalOnConflictExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4208,7 +4208,7 @@ define internal fastcc zeroext i1 @_equalOnConflictExpr(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalQuery(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4568,7 +4568,7 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalTypeName(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalTypeName(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4634,7 +4634,7 @@ define internal fastcc zeroext i1 @_equalTypeName(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalA_Expr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalA_Expr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4672,7 +4672,7 @@ define internal fastcc zeroext i1 @_equalA_Expr(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalTypeCast(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalTypeCast(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4694,7 +4694,7 @@ define internal fastcc zeroext i1 @_equalTypeCast(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCollateClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCollateClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4716,7 +4716,7 @@ define internal fastcc zeroext i1 @_equalCollateClause(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalRoleSpec(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalRoleSpec(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4754,7 +4754,7 @@ define internal fastcc noundef zeroext i1 @_equalRoleSpec(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalFuncCall(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalFuncCall(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4840,7 +4840,7 @@ define internal fastcc zeroext i1 @_equalFuncCall(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalA_Indices(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalA_Indices(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4872,7 +4872,7 @@ define internal fastcc zeroext i1 @_equalA_Indices(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalA_Indirection(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalA_Indirection(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4894,7 +4894,7 @@ define internal fastcc zeroext i1 @_equalA_Indirection(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalResTarget(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalResTarget(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4937,7 +4937,7 @@ define internal fastcc zeroext i1 @_equalResTarget(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalMultiAssignRef(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalMultiAssignRef(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4967,7 +4967,7 @@ define internal fastcc zeroext i1 @_equalMultiAssignRef(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalSortBy(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalSortBy(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5005,7 +5005,7 @@ define internal fastcc zeroext i1 @_equalSortBy(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalWindowDef(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalWindowDef(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -5093,7 +5093,7 @@ define internal fastcc zeroext i1 @_equalWindowDef(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRangeSubselect(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRangeSubselect(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5125,7 +5125,7 @@ define internal fastcc zeroext i1 @_equalRangeSubselect(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRangeFunction(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRangeFunction(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5185,7 +5185,7 @@ define internal fastcc zeroext i1 @_equalRangeFunction(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRangeTableFunc(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRangeTableFunc(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5241,7 +5241,7 @@ define internal fastcc zeroext i1 @_equalRangeTableFunc(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRangeTableFuncCol(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRangeTableFuncCol(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -5312,7 +5312,7 @@ define internal fastcc zeroext i1 @_equalRangeTableFuncCol(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRangeTableSample(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRangeTableSample(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5350,7 +5350,7 @@ define internal fastcc zeroext i1 @_equalRangeTableSample(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalColumnDef(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalColumnDef(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -5545,7 +5545,7 @@ define internal fastcc zeroext i1 @_equalColumnDef(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalTableLikeClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalTableLikeClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5575,7 +5575,7 @@ define internal fastcc zeroext i1 @_equalTableLikeClause(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalIndexElem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalIndexElem(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -5671,7 +5671,7 @@ define internal fastcc zeroext i1 @_equalIndexElem(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalDefElem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalDefElem(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -5735,7 +5735,7 @@ define internal fastcc zeroext i1 @_equalDefElem(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalLockingClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalLockingClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5765,7 +5765,7 @@ define internal fastcc zeroext i1 @_equalLockingClause(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalXmlSerialize(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalXmlSerialize(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5805,7 +5805,7 @@ define internal fastcc zeroext i1 @_equalXmlSerialize(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalPartitionElem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalPartitionElem(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -5856,7 +5856,7 @@ define internal fastcc zeroext i1 @_equalPartitionElem(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalPartitionBoundSpec(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalPartitionBoundSpec(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5920,7 +5920,7 @@ define internal fastcc zeroext i1 @_equalPartitionBoundSpec(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalPartitionCmd(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalPartitionCmd(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5952,7 +5952,7 @@ define internal fastcc zeroext i1 @_equalPartitionCmd(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6252,7 +6252,7 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRTEPermissionInfo(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRTEPermissionInfo(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6316,7 +6316,7 @@ define internal fastcc zeroext i1 @_equalRTEPermissionInfo(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRangeTblFunction(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRangeTblFunction(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6378,7 +6378,7 @@ define internal fastcc zeroext i1 @_equalRangeTblFunction(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalTableSampleClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalTableSampleClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6408,7 +6408,7 @@ define internal fastcc zeroext i1 @_equalTableSampleClause(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalWithCheckOption(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalWithCheckOption(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6482,7 +6482,7 @@ define internal fastcc zeroext i1 @_equalWithCheckOption(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @_equalSortGroupClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
+define internal fastcc zeroext i1 @_equalSortGroupClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6532,7 +6532,7 @@ define internal fastcc zeroext i1 @_equalSortGroupClause(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalWindowClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalWindowClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -6690,7 +6690,7 @@ define internal fastcc zeroext i1 @_equalWindowClause(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @_equalRowMarkClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
+define internal fastcc zeroext i1 @_equalRowMarkClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6730,7 +6730,7 @@ define internal fastcc zeroext i1 @_equalRowMarkClause(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_equalInferClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_equalInferClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6776,7 +6776,7 @@ define internal fastcc noundef zeroext i1 @_equalInferClause(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalOnConflictClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalOnConflictClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6814,7 +6814,7 @@ define internal fastcc zeroext i1 @_equalOnConflictClause(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_equalCTESearchClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_equalCTESearchClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6862,7 +6862,7 @@ define internal fastcc noundef zeroext i1 @_equalCTESearchClause(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCTECycleClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCTECycleClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6966,7 +6966,7 @@ define internal fastcc zeroext i1 @_equalCTECycleClause(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCommonTableExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCommonTableExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -7083,7 +7083,7 @@ define internal fastcc zeroext i1 @_equalCommonTableExpr(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalMergeWhenClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalMergeWhenClause(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -7139,7 +7139,7 @@ define internal fastcc zeroext i1 @_equalMergeWhenClause(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @_equalTriggerTransition(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @_equalTriggerTransition(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -7186,7 +7186,7 @@ define internal fastcc zeroext i1 @_equalTriggerTransition(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonOutput(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonOutput(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7208,7 +7208,7 @@ define internal fastcc zeroext i1 @_equalJsonOutput(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonKeyValue(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonKeyValue(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7230,7 +7230,7 @@ define internal fastcc zeroext i1 @_equalJsonKeyValue(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonParseExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonParseExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7262,7 +7262,7 @@ define internal fastcc zeroext i1 @_equalJsonParseExpr(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonScalarExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonScalarExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7284,7 +7284,7 @@ define internal fastcc zeroext i1 @_equalJsonScalarExpr(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonSerializeExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonSerializeExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7306,7 +7306,7 @@ define internal fastcc zeroext i1 @_equalJsonSerializeExpr(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonObjectConstructor(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonObjectConstructor(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7348,7 +7348,7 @@ define internal fastcc zeroext i1 @_equalJsonObjectConstructor(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonArrayConstructor(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonArrayConstructor(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7380,7 +7380,7 @@ define internal fastcc zeroext i1 @_equalJsonArrayConstructor(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonArrayQueryConstructor(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonArrayQueryConstructor(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7420,7 +7420,7 @@ define internal fastcc zeroext i1 @_equalJsonArrayQueryConstructor(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonAggConstructor(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonAggConstructor(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7458,7 +7458,7 @@ define internal fastcc zeroext i1 @_equalJsonAggConstructor(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonObjectAgg(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonObjectAgg(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7500,7 +7500,7 @@ define internal fastcc zeroext i1 @_equalJsonObjectAgg(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalJsonArrayAgg(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalJsonArrayAgg(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7532,7 +7532,7 @@ define internal fastcc zeroext i1 @_equalJsonArrayAgg(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalInsertStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalInsertStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7594,7 +7594,7 @@ define internal fastcc zeroext i1 @_equalInsertStmt(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalDeleteStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalDeleteStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7640,7 +7640,7 @@ define internal fastcc zeroext i1 @_equalDeleteStmt(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalUpdateStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalUpdateStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7694,7 +7694,7 @@ define internal fastcc zeroext i1 @_equalUpdateStmt(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalMergeStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalMergeStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7740,7 +7740,7 @@ define internal fastcc zeroext i1 @_equalMergeStmt(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalSelectStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalSelectStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7910,7 +7910,7 @@ define internal fastcc zeroext i1 @_equalSelectStmt(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalSetOperationStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalSetOperationStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -7982,7 +7982,7 @@ define internal fastcc zeroext i1 @_equalSetOperationStmt(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalPLAssignStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalPLAssignStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8033,7 +8033,7 @@ define internal fastcc zeroext i1 @_equalPLAssignStmt(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateSchemaStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateSchemaStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8086,7 +8086,7 @@ define internal fastcc zeroext i1 @_equalCreateSchemaStmt(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterTableStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterTableStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8126,7 +8126,7 @@ define internal fastcc zeroext i1 @_equalAlterTableStmt(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalReplicaIdentityStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalReplicaIdentityStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -8164,7 +8164,7 @@ define internal fastcc noundef zeroext i1 @_equalReplicaIdentityStmt(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterTableCmd(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterTableCmd(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -8251,7 +8251,7 @@ define internal fastcc zeroext i1 @_equalAlterTableCmd(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterDomainStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterDomainStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -8320,7 +8320,7 @@ define internal fastcc zeroext i1 @_equalAlterDomainStmt(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalGrantStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalGrantStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -8402,7 +8402,7 @@ define internal fastcc zeroext i1 @_equalGrantStmt(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalObjectWithArgs(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalObjectWithArgs(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8442,7 +8442,7 @@ define internal fastcc zeroext i1 @_equalObjectWithArgs(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAccessPriv(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAccessPriv(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8477,7 +8477,7 @@ define internal fastcc zeroext i1 @_equalAccessPriv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalGrantRoleStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalGrantRoleStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8533,7 +8533,7 @@ define internal fastcc zeroext i1 @_equalGrantRoleStmt(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterDefaultPrivilegesStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterDefaultPrivilegesStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8555,7 +8555,7 @@ define internal fastcc zeroext i1 @_equalAlterDefaultPrivilegesStmt(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCopyStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCopyStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8642,7 +8642,7 @@ define internal fastcc zeroext i1 @_equalCopyStmt(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalVariableSetStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalVariableSetStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -8695,7 +8695,7 @@ define internal fastcc zeroext i1 @_equalVariableSetStmt(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalVariableShowStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalVariableShowStmt(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -8723,7 +8723,7 @@ define internal fastcc noundef zeroext i1 @_equalVariableShowStmt(ptr readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8861,7 +8861,7 @@ define internal fastcc zeroext i1 @_equalCreateStmt(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalConstraint(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -9196,7 +9196,7 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateTableSpaceStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateTableSpaceStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9260,7 +9260,7 @@ define internal fastcc zeroext i1 @_equalCreateTableSpaceStmt(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @_equalDropTableSpaceStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @_equalDropTableSpaceStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9297,7 +9297,7 @@ define internal fastcc zeroext i1 @_equalDropTableSpaceStmt(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterTableSpaceOptionsStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterTableSpaceOptionsStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9342,7 +9342,7 @@ define internal fastcc zeroext i1 @_equalAlterTableSpaceOptionsStmt(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterTableMoveAllStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterTableMoveAllStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9416,7 +9416,7 @@ define internal fastcc zeroext i1 @_equalAlterTableMoveAllStmt(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateExtensionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateExtensionStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9461,7 +9461,7 @@ define internal fastcc zeroext i1 @_equalCreateExtensionStmt(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterExtensionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterExtensionStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9496,7 +9496,7 @@ define internal fastcc zeroext i1 @_equalAlterExtensionStmt(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterExtensionContentsStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterExtensionContentsStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9547,7 +9547,7 @@ define internal fastcc zeroext i1 @_equalAlterExtensionContentsStmt(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateFdwStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateFdwStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9590,7 +9590,7 @@ define internal fastcc zeroext i1 @_equalCreateFdwStmt(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterFdwStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterFdwStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9633,7 +9633,7 @@ define internal fastcc zeroext i1 @_equalAlterFdwStmt(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9741,7 +9741,7 @@ define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterForeignServerStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterForeignServerStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9807,7 +9807,7 @@ define internal fastcc zeroext i1 @_equalAlterForeignServerStmt(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9974,7 +9974,7 @@ define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateUserMappingStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateUserMappingStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10027,7 +10027,7 @@ define internal fastcc zeroext i1 @_equalCreateUserMappingStmt(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterUserMappingStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterUserMappingStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10070,7 +10070,7 @@ define internal fastcc zeroext i1 @_equalAlterUserMappingStmt(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalDropUserMappingStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalDropUserMappingStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10115,7 +10115,7 @@ define internal fastcc zeroext i1 @_equalDropUserMappingStmt(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalImportForeignSchemaStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalImportForeignSchemaStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10208,7 +10208,7 @@ define internal fastcc zeroext i1 @_equalImportForeignSchemaStmt(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreatePolicyStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreatePolicyStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10298,7 +10298,7 @@ define internal fastcc zeroext i1 @_equalCreatePolicyStmt(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterPolicyStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterPolicyStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10357,7 +10357,7 @@ define internal fastcc zeroext i1 @_equalAlterPolicyStmt(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateAmStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateAmStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10400,7 +10400,7 @@ define internal fastcc zeroext i1 @_equalCreateAmStmt(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -10549,7 +10549,7 @@ define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateEventTrigStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateEventTrigStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10613,7 +10613,7 @@ define internal fastcc zeroext i1 @_equalCreateEventTrigStmt(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @_equalAlterEventTrigStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @_equalAlterEventTrigStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10648,7 +10648,7 @@ define internal fastcc zeroext i1 @_equalAlterEventTrigStmt(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreatePLangStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreatePLangStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -10719,7 +10719,7 @@ define internal fastcc zeroext i1 @_equalCreatePLangStmt(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateRoleStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateRoleStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -10762,7 +10762,7 @@ define internal fastcc zeroext i1 @_equalCreateRoleStmt(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterRoleStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterRoleStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10792,7 +10792,7 @@ define internal fastcc zeroext i1 @_equalAlterRoleStmt(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterRoleSetStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterRoleSetStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10835,7 +10835,7 @@ define internal fastcc zeroext i1 @_equalAlterRoleSetStmt(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateSeqStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateSeqStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10885,7 +10885,7 @@ define internal fastcc zeroext i1 @_equalCreateSeqStmt(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterSeqStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterSeqStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10927,7 +10927,7 @@ define internal fastcc zeroext i1 @_equalAlterSeqStmt(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalDefineStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalDefineStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -10995,7 +10995,7 @@ define internal fastcc zeroext i1 @_equalDefineStmt(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateDomainStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateDomainStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11033,7 +11033,7 @@ define internal fastcc zeroext i1 @_equalCreateDomainStmt(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateOpClassStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateOpClassStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11102,7 +11102,7 @@ define internal fastcc zeroext i1 @_equalCreateOpClassStmt(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateOpClassItem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateOpClassItem(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -11156,7 +11156,7 @@ define internal fastcc zeroext i1 @_equalCreateOpClassItem(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_equalCreateOpFamilyStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_equalCreateOpFamilyStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11194,7 +11194,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateOpFamilyStmt(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterOpFamilyStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterOpFamilyStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11247,7 +11247,7 @@ define internal fastcc zeroext i1 @_equalAlterOpFamilyStmt(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalDropStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalDropStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11297,7 +11297,7 @@ define internal fastcc zeroext i1 @_equalDropStmt(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalTruncateStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalTruncateStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11329,7 +11329,7 @@ define internal fastcc zeroext i1 @_equalTruncateStmt(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_equalCommentStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_equalCommentStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -11375,7 +11375,7 @@ define internal fastcc noundef zeroext i1 @_equalCommentStmt(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_equalSecLabelStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_equalSecLabelStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -11442,7 +11442,7 @@ define internal fastcc noundef zeroext i1 @_equalSecLabelStmt(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalDeclareCursorStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalDeclareCursorStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -11485,7 +11485,7 @@ define internal fastcc zeroext i1 @_equalDeclareCursorStmt(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalClosePortalStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalClosePortalStmt(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -11513,7 +11513,7 @@ define internal fastcc noundef zeroext i1 @_equalClosePortalStmt(ptr readonly %.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @_equalFetchStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @_equalFetchStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -11566,7 +11566,7 @@ define internal fastcc zeroext i1 @_equalFetchStmt(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalIndexStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -11846,7 +11846,7 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateStatsStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateStatsStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11925,7 +11925,7 @@ define internal fastcc zeroext i1 @_equalCreateStatsStmt(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalStatsElem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalStatsElem(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -11960,7 +11960,7 @@ define internal fastcc zeroext i1 @_equalStatsElem(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterStatsStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterStatsStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11992,7 +11992,7 @@ define internal fastcc zeroext i1 @_equalAlterStatsStmt(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateFunctionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateFunctionStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -12058,7 +12058,7 @@ define internal fastcc zeroext i1 @_equalCreateFunctionStmt(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalFunctionParameter(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalFunctionParameter(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12109,7 +12109,7 @@ define internal fastcc zeroext i1 @_equalFunctionParameter(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterFunctionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterFunctionStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -12139,7 +12139,7 @@ define internal fastcc zeroext i1 @_equalAlterFunctionStmt(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCallStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCallStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12169,7 +12169,7 @@ define internal fastcc zeroext i1 @_equalCallStmt(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRenameStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRenameStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -12267,7 +12267,7 @@ define internal fastcc zeroext i1 @_equalRenameStmt(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterObjectDependsStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterObjectDependsStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -12315,7 +12315,7 @@ define internal fastcc zeroext i1 @_equalAlterObjectDependsStmt(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterObjectSchemaStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterObjectSchemaStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -12376,7 +12376,7 @@ define internal fastcc zeroext i1 @_equalAlterObjectSchemaStmt(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterOwnerStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterOwnerStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -12414,7 +12414,7 @@ define internal fastcc zeroext i1 @_equalAlterOwnerStmt(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterOperatorStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterOperatorStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12436,7 +12436,7 @@ define internal fastcc zeroext i1 @_equalAlterOperatorStmt(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterTypeStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterTypeStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12458,7 +12458,7 @@ define internal fastcc zeroext i1 @_equalAlterTypeStmt(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRuleStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRuleStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12537,7 +12537,7 @@ define internal fastcc zeroext i1 @_equalRuleStmt(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12588,7 +12588,7 @@ define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -12616,7 +12616,7 @@ define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly %.8.val
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalUnlistenStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalUnlistenStmt(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -12644,7 +12644,7 @@ define internal fastcc noundef zeroext i1 @_equalUnlistenStmt(ptr readonly %.8.v
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalTransactionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalTransactionStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -12718,7 +12718,7 @@ define internal fastcc zeroext i1 @_equalTransactionStmt(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCompositeTypeStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCompositeTypeStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12740,7 +12740,7 @@ define internal fastcc zeroext i1 @_equalCompositeTypeStmt(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateEnumStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateEnumStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12762,7 +12762,7 @@ define internal fastcc zeroext i1 @_equalCreateEnumStmt(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateRangeStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateRangeStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12784,7 +12784,7 @@ define internal fastcc zeroext i1 @_equalCreateRangeStmt(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterEnumStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterEnumStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12881,7 +12881,7 @@ define internal fastcc zeroext i1 @_equalAlterEnumStmt(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalViewStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalViewStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12937,7 +12937,7 @@ define internal fastcc zeroext i1 @_equalViewStmt(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalLoadStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalLoadStmt(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -12965,7 +12965,7 @@ define internal fastcc noundef zeroext i1 @_equalLoadStmt(ptr readonly %.8.val, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreatedbStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreatedbStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13000,7 +13000,7 @@ define internal fastcc zeroext i1 @_equalCreatedbStmt(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterDatabaseStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterDatabaseStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13035,7 +13035,7 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseStmt(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalAlterDatabaseRefreshCollStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalAlterDatabaseRefreshCollStmt(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -13063,7 +13063,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterDatabaseRefreshCollStmt(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterDatabaseSetStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterDatabaseSetStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13098,7 +13098,7 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseSetStmt(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalDropdbStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalDropdbStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13143,7 +13143,7 @@ define internal fastcc zeroext i1 @_equalDropdbStmt(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalClusterStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalClusterStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13186,7 +13186,7 @@ define internal fastcc zeroext i1 @_equalClusterStmt(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalVacuumStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalVacuumStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13218,7 +13218,7 @@ define internal fastcc zeroext i1 @_equalVacuumStmt(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalVacuumRelation(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalVacuumRelation(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13248,7 +13248,7 @@ define internal fastcc zeroext i1 @_equalVacuumRelation(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalExplainStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalExplainStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13270,7 +13270,7 @@ define internal fastcc zeroext i1 @_equalExplainStmt(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateTableAsStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateTableAsStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13320,7 +13320,7 @@ define internal fastcc zeroext i1 @_equalCreateTableAsStmt(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRefreshMatViewStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRefreshMatViewStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -13354,7 +13354,7 @@ define internal fastcc zeroext i1 @_equalRefreshMatViewStmt(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalLockStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalLockStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13386,7 +13386,7 @@ define internal fastcc zeroext i1 @_equalLockStmt(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalReindexStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalReindexStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -13437,7 +13437,7 @@ define internal fastcc zeroext i1 @_equalReindexStmt(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateConversionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateConversionStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13511,7 +13511,7 @@ define internal fastcc zeroext i1 @_equalCreateConversionStmt(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateCastStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateCastStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13559,7 +13559,7 @@ define internal fastcc zeroext i1 @_equalCreateCastStmt(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateTransformStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateTransformStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -13620,7 +13620,7 @@ define internal fastcc zeroext i1 @_equalCreateTransformStmt(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalPrepareStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalPrepareStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13663,7 +13663,7 @@ define internal fastcc zeroext i1 @_equalPrepareStmt(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalExecuteStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalExecuteStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13698,7 +13698,7 @@ define internal fastcc zeroext i1 @_equalExecuteStmt(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @_equalDeallocateStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @_equalDeallocateStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13735,7 +13735,7 @@ define internal fastcc zeroext i1 @_equalDeallocateStmt(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalReassignOwnedStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalReassignOwnedStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13757,7 +13757,7 @@ define internal fastcc zeroext i1 @_equalReassignOwnedStmt(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterTSDictionaryStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterTSDictionaryStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13779,7 +13779,7 @@ define internal fastcc zeroext i1 @_equalAlterTSDictionaryStmt(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterTSConfigurationStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterTSConfigurationStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -13847,7 +13847,7 @@ define internal fastcc zeroext i1 @_equalAlterTSConfigurationStmt(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalPublicationTable(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalPublicationTable(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13877,7 +13877,7 @@ define internal fastcc zeroext i1 @_equalPublicationTable(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalPublicationObjSpec(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalPublicationObjSpec(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -13920,7 +13920,7 @@ define internal fastcc zeroext i1 @_equalPublicationObjSpec(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreatePublicationStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreatePublicationStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13973,7 +13973,7 @@ define internal fastcc zeroext i1 @_equalCreatePublicationStmt(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterPublicationStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterPublicationStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14034,7 +14034,7 @@ define internal fastcc zeroext i1 @_equalAlterPublicationStmt(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalCreateSubscriptionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalCreateSubscriptionStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14098,7 +14098,7 @@ define internal fastcc zeroext i1 @_equalCreateSubscriptionStmt(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAlterSubscriptionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAlterSubscriptionStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -14170,7 +14170,7 @@ define internal fastcc zeroext i1 @_equalAlterSubscriptionStmt(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @_equalDropSubscriptionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @_equalDropSubscriptionStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14215,7 +14215,7 @@ define internal fastcc zeroext i1 @_equalDropSubscriptionStmt(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @_equalPathKey(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
+define internal fastcc zeroext i1 @_equalPathKey(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -14255,7 +14255,7 @@ define internal fastcc zeroext i1 @_equalPathKey(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalPathKeyInfo(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalPathKeyInfo(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -14277,7 +14277,7 @@ define internal fastcc zeroext i1 @_equalPathKeyInfo(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalRestrictInfo(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalRestrictInfo(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -14361,7 +14361,7 @@ define internal fastcc zeroext i1 @_equalRestrictInfo(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalPlaceHolderVar(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalPlaceHolderVar(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -14391,7 +14391,7 @@ define internal fastcc zeroext i1 @_equalPlaceHolderVar(ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -14523,7 +14523,7 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalAppendRelInfo(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalAppendRelInfo(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -14596,7 +14596,7 @@ define internal fastcc zeroext i1 @_equalAppendRelInfo(ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_equalPlaceHolderInfo(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_equalPlaceHolderInfo(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -14684,7 +14684,7 @@ define internal fastcc zeroext i1 @_equalExtensibleNode(ptr noundef nonnull %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -14712,7 +14712,7 @@ define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly %.8.val, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalString(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalString(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -14740,7 +14740,7 @@ define internal fastcc noundef zeroext i1 @_equalString(ptr readonly %.8.val, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalBitString(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalBitString(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -14768,7 +14768,7 @@ define internal fastcc noundef zeroext i1 @_equalBitString(ptr readonly %.8.val,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_equalList(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, %4
@@ -14964,7 +14964,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare zeroext i1 @bms_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -14976,7 +14976,7 @@ declare ptr @GetExtensibleNodeMethods(ptr noundef, i1 noundef zeroext) local_unn
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

@@ -4,14 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ustr_init(ptr nocapture noundef writeonly initializes((0, 16)) %s) local_unnamed_addr #0 {
+define dso_local void @ustr_init(ptr noundef writeonly captures(none) initializes((0, 16)) %s) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_initChars(ptr nocapture noundef %s, ptr noundef %source, i32 noundef %length, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define dso_local void @ustr_initChars(ptr noundef captures(none) %s, ptr noundef %source, i32 noundef %length, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %charToAppend = alloca i16, align 2
   %0 = load i32, ptr %status, align 4
@@ -142,12 +142,12 @@ for.end:                                          ; preds = %ustr_ucat.exit, %if
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_ucat(ptr nocapture noundef %dst, i16 noundef zeroext %c, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define dso_local void @ustr_ucat(ptr noundef captures(none) %dst, i16 noundef zeroext %c, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp = icmp sgt i32 %0, 0
@@ -231,7 +231,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_cpy(ptr noundef %dst, ptr noundef readonly %src, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define dso_local void @ustr_cpy(ptr noundef %dst, ptr noundef readonly %src, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp = icmp sgt i32 %0, 0
@@ -304,7 +304,7 @@ return:                                           ; preds = %if.end10, %lor.lhs.
 declare ptr @u_memcpy_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_setlen(ptr nocapture noundef %s, i32 noundef %len, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define dso_local void @ustr_setlen(ptr noundef captures(none) %s, i32 noundef %len, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp = icmp sgt i32 %0, 0
@@ -362,7 +362,7 @@ return:                                           ; preds = %ustr_resize.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_cat(ptr noundef %dst, ptr noundef readonly %src, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define dso_local void @ustr_cat(ptr noundef %dst, ptr noundef readonly %src, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %fLength = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i32, ptr %fLength, align 8
@@ -438,7 +438,7 @@ ustr_ncat.exit:                                   ; preds = %entry, %ustr_resize
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_ncat(ptr noundef %dst, ptr noundef readonly %src, i32 noundef %n, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define dso_local void @ustr_ncat(ptr noundef %dst, ptr noundef readonly %src, i32 noundef %n, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp = icmp sgt i32 %0, 0
@@ -513,10 +513,10 @@ return:                                           ; preds = %ustr_resize.exit, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_u32cat(ptr nocapture noundef %dst, i32 noundef %c, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define dso_local void @ustr_u32cat(ptr noundef captures(none) %dst, i32 noundef %c, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %cmp = icmp sgt i32 %c, 1114111
   br i1 %cmp, label %if.then, label %if.end
@@ -716,7 +716,7 @@ if.end5:                                          ; preds = %ustr_resize.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_uscat(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src, i32 noundef %len, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define dso_local void @ustr_uscat(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %len, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp = icmp sgt i32 %0, 0
@@ -789,7 +789,7 @@ return:                                           ; preds = %ustr_resize.exit, %
 declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

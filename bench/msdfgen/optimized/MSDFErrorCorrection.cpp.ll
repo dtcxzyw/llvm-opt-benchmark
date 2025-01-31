@@ -775,7 +775,7 @@ declare { double, double } @_ZNK7msdfgen10Projection15unprojectVectorERKNS_7Vect
 declare float @llvm.fabs.f32(float) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 0, 8) i32 @_ZN7msdfgenL17edgeBetweenTexelsEPKfS1_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZN7msdfgenL17edgeBetweenTexelsEPKfS1_(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) unnamed_addr #3 {
 entry:
   %0 = load float, ptr %a, align 4
   %conv.i = fpext float %0 to double
@@ -2624,7 +2624,7 @@ for.end119:                                       ; preds = %for.inc117, %for.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %artifactClassifier, float noundef %am, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %d) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %artifactClassifier, float noundef %am, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readonly captures(none) %c, ptr noundef readonly captures(none) %d) unnamed_addr #0 {
 entry:
   %l = alloca [3 x float], align 4
   %q = alloca [3 x float], align 4
@@ -4886,10 +4886,10 @@ declare i32 @__gxx_personality_v0(...)
 declare { double, double } @_ZNK7msdfgen10Projection9unprojectERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_fPKfS9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %d) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_fPKfS9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readonly captures(none) %c, ptr noundef readonly captures(none) %d) unnamed_addr #0 {
 entry:
   %l = alloca [3 x float], align 4
   %q = alloca [3 x float], align 4
@@ -6135,7 +6135,7 @@ _ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EED2Ev.exit318: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_fPKfS9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %d) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_fPKfS9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readonly captures(none) %c, ptr noundef readonly captures(none) %d) unnamed_addr #0 {
 entry:
   %l = alloca [3 x float], align 4
   %q = alloca [3 x float], align 4
@@ -7425,7 +7425,7 @@ lpad:                                             ; preds = %_ZN7msdfgen19ShapeD
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_fPKfS9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %d) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_fPKfS9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readonly captures(none) %c, ptr noundef readonly captures(none) %d) unnamed_addr #0 {
 entry:
   %l = alloca [3 x float], align 4
   %q = alloca [3 x float], align 4
@@ -8751,7 +8751,7 @@ lpad:                                             ; preds = %_ZN7msdfgen19ShapeD
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_fPKfS9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %d) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_fPKfS9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readonly captures(none) %c, ptr noundef readonly captures(none) %d) unnamed_addr #0 {
 entry:
   %l = alloca [3 x float], align 4
   %q = alloca [3 x float], align 4
@@ -9033,7 +9033,7 @@ entry:
 declare void @_ZN7msdfgen10ProjectionC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN7msdfgen19MSDFErrorCorrectionC2ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stencil, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %projection, double noundef %range) unnamed_addr #6 align 2 {
+define dso_local void @_ZN7msdfgen19MSDFErrorCorrectionC2ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 72)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stencil, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %projection, double noundef %range) unnamed_addr #6 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %stencil, i64 16, i1 false)
   %projection3 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9058,10 +9058,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen19MSDFErrorCorrection20setMinDeviationRatioEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((56, 64)) %this, double noundef %minDeviationRatio) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN7msdfgen19MSDFErrorCorrection20setMinDeviationRatioEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((56, 64)) %this, double noundef %minDeviationRatio) local_unnamed_addr #8 align 2 {
 entry:
   %minDeviationRatio2 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store double %minDeviationRatio, ptr %minDeviationRatio2, align 8
@@ -9069,7 +9069,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen19MSDFErrorCorrection18setMinImproveRatioEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((64, 72)) %this, double noundef %minImproveRatio) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN7msdfgen19MSDFErrorCorrection18setMinImproveRatioEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((64, 72)) %this, double noundef %minImproveRatio) local_unnamed_addr #8 align 2 {
 entry:
   %minImproveRatio2 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store double %minImproveRatio, ptr %minImproveRatio2, align 8
@@ -9077,7 +9077,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen19MSDFErrorCorrection14protectCornersERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %shape) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN7msdfgen19MSDFErrorCorrection14protectCornersERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %shape) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp29 = alloca %"struct.msdfgen::Vector2", align 8
   %0 = load ptr, ptr %shape, align 8
@@ -9264,7 +9264,7 @@ declare { double, double } @_ZNK7msdfgen10Projection7projectERKNS_7Vector2E(ptr 
 declare double @llvm.floor.f64(double) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN7msdfgen19MSDFErrorCorrection10protectAllEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN7msdfgen19MSDFErrorCorrection10protectAllEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %width = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -9291,7 +9291,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { ptr, i64 } @_ZNK7msdfgen19MSDFErrorCorrection10getStencilEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
+define dso_local { ptr, i64 } @_ZNK7msdfgen19MSDFErrorCorrection10getStencilEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %width3.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -9382,7 +9382,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN7msdf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %artifactClassifier.0.val, i8 %artifactClassifier.8.val, float noundef %am, float noundef %bm, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, float noundef %dA, float noundef %dB) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff(double %artifactClassifier.0.val, i8 %artifactClassifier.8.val, float noundef %am, float noundef %bm, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, float noundef %dA, float noundef %dB) unnamed_addr #3 {
 entry:
   %conv = fpext float %dA to double
   %sub = fsub float %dA, %dB
@@ -9486,7 +9486,7 @@ return:                                           ; preds = %land.lhs.true23.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL24hasDiagonalArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_S6_fffdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %artifactClassifier, float noundef %am, float noundef %dm, ptr nocapture noundef readonly %a, ptr nocapture noundef nonnull readonly %l, ptr nocapture noundef nonnull readonly %q, float noundef %dA, float noundef %dBC, float noundef %dD, double noundef %tEx0, double noundef %tEx1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL24hasDiagonalArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_S6_fffdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %artifactClassifier, float noundef %am, float noundef %dm, ptr noundef readonly captures(none) %a, ptr noundef nonnull readonly captures(none) %l, ptr noundef nonnull readonly captures(none) %q, float noundef %dA, float noundef %dBC, float noundef %dD, double noundef %tEx0, double noundef %tEx1) unnamed_addr #0 {
 entry:
   %t = alloca [2 x double], align 16
   %tEnd = alloca [2 x double], align 16
@@ -9921,7 +9921,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @_ZN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheC1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %bm, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, float noundef %dA, float noundef %dB) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %bm, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, float noundef %dA, float noundef %dB) unnamed_addr #0 {
 entry:
   %conv = fpext float %dA to double
   %sub = fsub float %dA, %dB
@@ -10159,7 +10159,7 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN7msdfgenL11interpolateIfLi3EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E(ptr nocapture noundef nonnull writeonly %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, double %pos.coerce0, double %pos.coerce1) unnamed_addr #15 {
+define internal fastcc void @_ZN7msdfgenL11interpolateIfLi3EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E(ptr noundef nonnull writeonly captures(none) %output, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bitmap, double %pos.coerce0, double %pos.coerce1) unnamed_addr #15 {
 entry:
   %sub.i = fadd double %pos.coerce0, -5.000000e-01
   %sub4.i = fadd double %pos.coerce1, -5.000000e-01
@@ -10351,7 +10351,7 @@ declare void @_ZN7msdfgen22PseudoDistanceSelector7addEdgeERNS_26PseudoDistanceSe
 declare noundef double @_ZNK7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEE8distanceEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL24hasDiagonalArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_S9_fffdd(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %dm, ptr nocapture noundef readonly %a, ptr nocapture noundef nonnull readonly %l, ptr nocapture noundef nonnull readonly %q, float noundef %dA, float noundef %dBC, float noundef %dD, double noundef %tEx0, double noundef %tEx1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL24hasDiagonalArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_S9_fffdd(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %dm, ptr noundef readonly captures(none) %a, ptr noundef nonnull readonly captures(none) %l, ptr noundef nonnull readonly captures(none) %q, float noundef %dA, float noundef %dBC, float noundef %dD, double noundef %tEx0, double noundef %tEx1) unnamed_addr #0 {
 entry:
   %t = alloca [2 x double], align 16
   %tEnd = alloca [2 x double], align 16
@@ -10687,7 +10687,7 @@ return:                                           ; preds = %if.end68, %for.inc,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %bm, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, float noundef %dA, float noundef %dB) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %bm, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, float noundef %dA, float noundef %dB) unnamed_addr #0 {
 entry:
   %conv = fpext float %dA to double
   %sub = fsub float %dA, %dB
@@ -10925,7 +10925,7 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN7msdfgenL11interpolateIfLi4EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E(ptr nocapture noundef nonnull writeonly %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, double %pos.coerce0, double %pos.coerce1) unnamed_addr #15 {
+define internal fastcc void @_ZN7msdfgenL11interpolateIfLi4EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E(ptr noundef nonnull writeonly captures(none) %output, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bitmap, double %pos.coerce0, double %pos.coerce1) unnamed_addr #15 {
 entry:
   %sub.i = fadd double %pos.coerce0, -5.000000e-01
   %sub4.i = fadd double %pos.coerce1, -5.000000e-01
@@ -11027,7 +11027,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL24hasDiagonalArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_S9_fffdd(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %dm, ptr nocapture noundef readonly %a, ptr nocapture noundef nonnull readonly %l, ptr nocapture noundef nonnull readonly %q, float noundef %dA, float noundef %dBC, float noundef %dD, double noundef %tEx0, double noundef %tEx1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL24hasDiagonalArtifactInnerINS_20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_S9_fffdd(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %dm, ptr noundef readonly captures(none) %a, ptr noundef nonnull readonly captures(none) %l, ptr noundef nonnull readonly captures(none) %q, float noundef %dA, float noundef %dBC, float noundef %dD, double noundef %tEx0, double noundef %tEx1) unnamed_addr #0 {
 entry:
   %t = alloca [2 x double], align 16
   %tEnd = alloca [2 x double], align 16
@@ -11365,7 +11365,7 @@ return:                                           ; preds = %if.end68, %for.inc,
 declare void @_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEC1ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(25)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %bm, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, float noundef %dA, float noundef %dB) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %bm, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, float noundef %dA, float noundef %dB) unnamed_addr #0 {
 entry:
   %conv = fpext float %dA to double
   %sub = fsub float %dA, %dB
@@ -11688,7 +11688,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN7msdfgen26Overlappin
 declare noundef double @_ZNK7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEE8distanceEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL24hasDiagonalArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_S9_fffdd(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %dm, ptr nocapture noundef readonly %a, ptr nocapture noundef nonnull readonly %l, ptr nocapture noundef nonnull readonly %q, float noundef %dA, float noundef %dBC, float noundef %dD, double noundef %tEx0, double noundef %tEx1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL24hasDiagonalArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE18ArtifactClassifierEEEbRKT_ffPKfS9_S9_fffdd(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %dm, ptr noundef readonly captures(none) %a, ptr noundef nonnull readonly captures(none) %l, ptr noundef nonnull readonly captures(none) %q, float noundef %dA, float noundef %dBC, float noundef %dD, double noundef %tEx0, double noundef %tEx1) unnamed_addr #0 {
 entry:
   %t = alloca [2 x double], align 16
   %tEnd = alloca [2 x double], align 16
@@ -12024,7 +12024,7 @@ return:                                           ; preds = %if.end68, %for.inc,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %bm, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, float noundef %dA, float noundef %dB) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL22hasLinearArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_ff(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %bm, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, float noundef %dA, float noundef %dB) unnamed_addr #0 {
 entry:
   %conv = fpext float %dA to double
   %sub = fsub float %dA, %dB
@@ -12262,7 +12262,7 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL24hasDiagonalArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_S9_fffdd(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %dm, ptr nocapture noundef readonly %a, ptr nocapture noundef nonnull readonly %l, ptr nocapture noundef nonnull readonly %q, float noundef %dA, float noundef %dBC, float noundef %dD, double noundef %tEx0, double noundef %tEx1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL24hasDiagonalArtifactInnerINS_20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE18ArtifactClassifierEEEbRKT_ffPKfS9_S9_fffdd(ptr noundef nonnull align 8 dereferenceable(40) %artifactClassifier, float noundef %am, float noundef %dm, ptr noundef readonly captures(none) %a, ptr noundef nonnull readonly captures(none) %l, ptr noundef nonnull readonly captures(none) %q, float noundef %dA, float noundef %dBC, float noundef %dD, double noundef %tEx0, double noundef %tEx1) unnamed_addr #0 {
 entry:
   %t = alloca [2 x double], align 16
   %tEnd = alloca [2 x double], align 16
@@ -12604,10 +12604,10 @@ declare i32 @llvm.ctpop.i32(i32) #16
 declare double @llvm.sqrt.f64(double) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18

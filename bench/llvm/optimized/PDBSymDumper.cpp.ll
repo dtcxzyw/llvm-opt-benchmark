@@ -41,7 +41,7 @@ $_ZN4llvm3pdb12PDBSymDumper9dumpRightERKNS0_24PDBSymbolTypeVTableShapeE = comdat
 @_ZN4llvm3pdb12PDBSymDumperD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb12PDBSymDumperD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumperC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumperC2Eb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 9)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN4llvm3pdb12PDBSymDumperE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -50,7 +50,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumperC2Eb(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumperD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumperD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret void
 }
 
@@ -65,7 +65,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumperD0Ev(ptr noundef nonnull align 
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_19PDBSymbolAnnotationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_19PDBSymbolAnnotationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -75,7 +75,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_19PDBSymbolAnnotati
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_14PDBSymbolBlockE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_14PDBSymbolBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -85,7 +85,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_14PDBSymbolBlockE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_18PDBSymbolCompilandE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_18PDBSymbolCompilandE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -95,7 +95,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_18PDBSymbolCompilan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_25PDBSymbolCompilandDetailsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_25PDBSymbolCompilandDetailsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -105,7 +105,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_25PDBSymbolCompilan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_21PDBSymbolCompilandEnvE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_21PDBSymbolCompilandEnvE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -115,7 +115,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_21PDBSymbolCompilan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_15PDBSymbolCustomE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_15PDBSymbolCustomE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -125,7 +125,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_15PDBSymbolCustomE(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_13PDBSymbolDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_13PDBSymbolDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -135,7 +135,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_13PDBSymbolDataE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_12PDBSymbolExeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_12PDBSymbolExeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -145,7 +145,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_12PDBSymbolExeE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_13PDBSymbolFuncE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_13PDBSymbolFuncE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -155,7 +155,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_13PDBSymbolFuncE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_21PDBSymbolFuncDebugEndE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_21PDBSymbolFuncDebugEndE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -165,7 +165,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_21PDBSymbolFuncDebu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_23PDBSymbolFuncDebugStartE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_23PDBSymbolFuncDebugStartE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -175,7 +175,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_23PDBSymbolFuncDebu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_14PDBSymbolLabelE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_14PDBSymbolLabelE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -185,7 +185,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_14PDBSymbolLabelE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_21PDBSymbolPublicSymbolE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_21PDBSymbolPublicSymbolE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -195,7 +195,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_21PDBSymbolPublicSy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_14PDBSymbolThunkE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_14PDBSymbolThunkE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -205,7 +205,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_14PDBSymbolThunkE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_18PDBSymbolTypeArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_18PDBSymbolTypeArrayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -215,7 +215,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_18PDBSymbolTypeArra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_22PDBSymbolTypeBaseClassE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_22PDBSymbolTypeBaseClassE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -225,7 +225,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_22PDBSymbolTypeBase
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_20PDBSymbolTypeBuiltinE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_20PDBSymbolTypeBuiltinE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -235,7 +235,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_20PDBSymbolTypeBuil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_19PDBSymbolTypeCustomE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_19PDBSymbolTypeCustomE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -245,7 +245,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_19PDBSymbolTypeCust
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_22PDBSymbolTypeDimensionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_22PDBSymbolTypeDimensionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -255,7 +255,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_22PDBSymbolTypeDime
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_17PDBSymbolTypeEnumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_17PDBSymbolTypeEnumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -265,7 +265,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_17PDBSymbolTypeEnum
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_19PDBSymbolTypeFriendE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_19PDBSymbolTypeFriendE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -275,7 +275,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_19PDBSymbolTypeFrie
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_24PDBSymbolTypeFunctionArgE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_24PDBSymbolTypeFunctionArgE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -285,7 +285,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_24PDBSymbolTypeFunc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_24PDBSymbolTypeFunctionSigE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_24PDBSymbolTypeFunctionSigE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -295,7 +295,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_24PDBSymbolTypeFunc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_20PDBSymbolTypeManagedE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_20PDBSymbolTypeManagedE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -305,7 +305,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_20PDBSymbolTypeMana
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_20PDBSymbolTypePointerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_20PDBSymbolTypePointerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -315,7 +315,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_20PDBSymbolTypePoin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_20PDBSymbolTypeTypedefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_20PDBSymbolTypeTypedefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -325,7 +325,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_20PDBSymbolTypeType
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_16PDBSymbolTypeUDTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_16PDBSymbolTypeUDTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -335,7 +335,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_16PDBSymbolTypeUDTE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_19PDBSymbolTypeVTableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_19PDBSymbolTypeVTableE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -345,7 +345,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_19PDBSymbolTypeVTab
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_24PDBSymbolTypeVTableShapeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_24PDBSymbolTypeVTableShapeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -355,7 +355,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_24PDBSymbolTypeVTab
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_16PDBSymbolUnknownE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_16PDBSymbolUnknownE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -365,7 +365,7 @@ define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_16PDBSymbolUnknownE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_23PDBSymbolUsingNamespaceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb12PDBSymDumper4dumpERKNS0_23PDBSymbolUsingNamespaceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1

@@ -221,7 +221,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @proj_errno_reset(ptr noundef) local_unnamed_addr #2
 

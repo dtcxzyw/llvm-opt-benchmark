@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5boost4urls13encoding_optsC1Ebbb = unnamed_addr alias void (ptr, i1, i1, i1), ptr @_ZN5boost4urls13encoding_optsC2Ebbb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost4urls13encoding_optsC2Ebbb(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define void @_ZN5boost4urls13encoding_optsC2Ebbb(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %1 to i8
   %6 = zext i1 %2 to i8
   %7 = zext i1 %3 to i8

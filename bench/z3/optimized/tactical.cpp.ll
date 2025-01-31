@@ -1397,7 +1397,7 @@ _Z8and_thenP6tacticS0_.exit:                      ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z8and_thenjPKP6tactic(i32 noundef %num, ptr nocapture noundef readonly %ts) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z8and_thenjPKP6tactic(i32 noundef %num, ptr noundef readonly captures(none) %ts) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add i32 %num, -1
   %idxprom = zext i32 %sub to i64
@@ -1451,7 +1451,7 @@ while.end:                                        ; preds = %_Z8and_thenP6tactic
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z7or_elsejPKP6tactic(i32 noundef %num, ptr nocapture noundef readonly %ts) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z7or_elsejPKP6tactic(i32 noundef %num, ptr noundef readonly captures(none) %ts) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -2304,7 +2304,7 @@ _Z7or_elsejPKP6tactic.exit:                       ; preds = %for.inc.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z3parjPKP6tactic(i32 noundef %num, ptr nocapture noundef readonly %ts) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z3parjPKP6tactic(i32 noundef %num, ptr noundef readonly captures(none) %ts) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 64)
   %m_ref_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -2462,7 +2462,7 @@ _ZN21par_and_then_tacticalC2EP6tacticS1_.exit:    ; preds = %invoke.cont.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z12par_and_thenjPKP6tactic(i32 noundef %num, ptr nocapture noundef readonly %ts) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z12par_and_thenjPKP6tactic(i32 noundef %num, ptr noundef readonly captures(none) %ts) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add i32 %num, -1
   %idxprom = zext i32 %sub to i64
@@ -5126,7 +5126,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -7714,7 +7714,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6vectorIP6tacticLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19590,10 +19590,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

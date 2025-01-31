@@ -458,7 +458,7 @@ qdev_class_has_alias.exit.i:                      ; preds = %if.end.i.i.i
   br i1 %.not.i, label %if.end8.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %qdev_class_has_alias.exit.i
-  %call.i.i = tail call ptr @object_class_get_name(ptr noundef %call3) #8
+  %call.i.i = tail call ptr @object_class_get_name(ptr noundef nonnull %call3) #8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.then5.i
@@ -1596,7 +1596,7 @@ declare ptr @qemu_opts_to_qdict(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qemu_opts_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_info_qtree(ptr noundef %mon, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {
+define dso_local void @hmp_info_qtree(ptr noundef %mon, ptr noundef readnone captures(none) %qdict) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sysbus_get_default() #8
   %tobool.not = icmp eq ptr %call, null
@@ -1804,14 +1804,14 @@ for.end:                                          ; preds = %qdev_print.exit, %e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_info_qdm(ptr nocapture noundef readnone %mon, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {
+define dso_local void @hmp_info_qdm(ptr noundef readnone captures(none) %mon, ptr noundef readnone captures(none) %qdict) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @qdev_print_devinfos(i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_device_add(ptr noundef %qdict, ptr nocapture readnone %ret_data, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_device_add(ptr noundef %qdict, ptr readnone captures(none) %ret_data, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str.16) #8
   %call1 = tail call ptr @qemu_opts_from_qdict(ptr noundef %call, ptr noundef %qdict, ptr noundef %errp) #8
@@ -2169,7 +2169,7 @@ while.body:                                       ; preds = %if.end, %if.end6
 
 if.then4:                                         ; preds = %while.body
   %call5 = tail call ptr @object_class_get_name(ptr noundef nonnull %call2) #8
-  tail call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %call5) #8
+  tail call void @readline_add_completion_of(ptr noundef %rs, ptr noundef nonnull %str, ptr noundef %call5) #8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %while.body
@@ -2187,7 +2187,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @readline_set_completion_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2231,7 +2231,7 @@ for.body.i:                                       ; preds = %if.end, %cond.end.i
   br i1 %tobool4.not.i, label %cond.end.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef nonnull %2) #8
+  call void @readline_add_completion_of(ptr noundef %rs, ptr noundef nonnull %str, ptr noundef nonnull %2) #8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then5.i, %for.body.i
@@ -2340,7 +2340,7 @@ return:                                           ; preds = %lor.lhs.false18, %i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @qemu_opts_create(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2351,7 +2351,7 @@ declare ptr @qemu_opts_parse_noisily(ptr noundef, ptr noundef, i1 noundef zeroex
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qmp_command_available(ptr nocapture noundef readonly %cmd, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qmp_command_available(ptr noundef readonly captures(none) %cmd, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @phase_check(i32 noundef 4) #8
   br i1 %call, label %return, label %land.lhs.true
@@ -2374,7 +2374,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @module_load_qom_all() local_unnamed_addr #1
 
@@ -2455,7 +2455,7 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 declare i32 @object_child_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qdev_add_hotpluggable_device(ptr noundef %obj, ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @qdev_add_hotpluggable_device(ptr noundef %obj, ptr noundef captures(none) %opaque) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.16) #8
   %cmp = icmp eq ptr %call, null
@@ -2489,10 +2489,10 @@ declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

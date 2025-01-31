@@ -98,7 +98,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 declare void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @YGNodeClone(ptr nocapture noundef readonly %oldNodeRef) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @YGNodeClone(ptr noundef readonly captures(none) %oldNodeRef) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.facebook::yoga::Event::Data", align 8
   %ref.tmp = alloca %"struct.facebook::yoga::Event::TypedData", align 8
@@ -255,7 +255,7 @@ declare noundef zeroext i1 @_ZN8facebook4yoga4Node11removeChildEPS1_(ptr noundef
 declare void @_ZN8facebook4yoga4Node13clearChildrenEv(ptr noundef nonnull align 8 dereferenceable(640)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @YGNodeGetConfig(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define ptr @YGNodeGetConfig(ptr noundef readonly captures(none) %node) local_unnamed_addr #4 {
 entry:
   %config_.i = getelementptr inbounds nuw i8, ptr %node, i64 616
   %0 = load ptr, ptr %config_.i, align 8
@@ -517,7 +517,7 @@ entry:
 declare void @_ZN8facebook4yoga15calculateLayoutEPNS0_4NodeEffNS0_9DirectionE(ptr noundef, float noundef, float noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @YGNodeGetHasNewLayout(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define zeroext i1 @YGNodeGetHasNewLayout(ptr noundef readonly captures(none) %node) local_unnamed_addr #4 {
 entry:
   %bf.load.i = load i8, ptr %node, align 8
   %bf.cast.i = trunc i8 %bf.load.i to i1
@@ -525,7 +525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @YGNodeSetHasNewLayout(ptr nocapture noundef %node, i1 noundef zeroext %hasNewLayout) local_unnamed_addr #5 {
+define void @YGNodeSetHasNewLayout(ptr noundef captures(none) %node, i1 noundef zeroext %hasNewLayout) local_unnamed_addr #5 {
 entry:
   %frombool.i = zext i1 %hasNewLayout to i8
   %bf.load.i = load i8, ptr %node, align 8
@@ -536,7 +536,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @YGNodeIsDirty(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define zeroext i1 @YGNodeIsDirty(ptr noundef readonly captures(none) %node) local_unnamed_addr #4 {
 entry:
   %bf.load.i = load i8, ptr %node, align 8
   %0 = and i8 %bf.load.i, 4
@@ -560,7 +560,7 @@ declare void @_ZN8facebook4yoga19assertFatalWithNodeEPKNS0_4NodeEbPKc(ptr nounde
 declare void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(640)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @YGNodeSetDirtiedFunc(ptr nocapture noundef writeonly initializes((40, 48)) %node, ptr noundef %dirtiedFunc) local_unnamed_addr #6 {
+define void @YGNodeSetDirtiedFunc(ptr noundef writeonly captures(none) initializes((40, 48)) %node, ptr noundef %dirtiedFunc) local_unnamed_addr #6 {
 entry:
   %dirtiedFunc_.i = getelementptr inbounds nuw i8, ptr %node, i64 40
   store ptr %dirtiedFunc, ptr %dirtiedFunc_.i, align 8
@@ -568,7 +568,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @YGNodeGetDirtiedFunc(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define ptr @YGNodeGetDirtiedFunc(ptr noundef readonly captures(none) %node) local_unnamed_addr #4 {
 entry:
   %dirtiedFunc_.i = getelementptr inbounds nuw i8, ptr %node, i64 40
   %0 = load ptr, ptr %dirtiedFunc_.i, align 8
@@ -606,7 +606,7 @@ entry:
 declare void @_ZN8facebook4yoga4Node12replaceChildEPS1_m(ptr noundef nonnull align 8 dereferenceable(640), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeRemoveAllChildren(ptr noundef %ownerRef) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -757,7 +757,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit28: ; preds = %lpad, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @YGNodeSetChildren(ptr noundef %ownerRef, ptr nocapture noundef readonly %childrenRefs, i64 noundef %count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @YGNodeSetChildren(ptr noundef %ownerRef, ptr noundef readonly captures(none) %childrenRefs, i64 noundef %count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %childrenVector = alloca %"class.std::vector", align 8
   %ref.tmp15 = alloca %"struct.facebook::yoga::LayoutResults", align 4
@@ -1138,7 +1138,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i89, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @YGNodeGetChild(ptr nocapture noundef readonly %nodeRef, i64 noundef %index) local_unnamed_addr #8 {
+define ptr @YGNodeGetChild(ptr noundef readonly captures(none) %nodeRef, i64 noundef %index) local_unnamed_addr #8 {
 entry:
   %children_.i = getelementptr inbounds nuw i8, ptr %nodeRef, i64 592
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %nodeRef, i64 600
@@ -1162,7 +1162,7 @@ return:                                           ; preds = %entry, %_ZNK8facebo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 -1152921504606846976, 1152921504606846976) i64 @YGNodeGetChildCount(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define range(i64 -1152921504606846976, 1152921504606846976) i64 @YGNodeGetChildCount(ptr noundef readonly captures(none) %node) local_unnamed_addr #4 {
 entry:
   %children_.i = getelementptr inbounds nuw i8, ptr %node, i64 592
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %node, i64 600
@@ -1176,7 +1176,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @YGNodeGetOwner(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define ptr @YGNodeGetOwner(ptr noundef readonly captures(none) %node) local_unnamed_addr #4 {
 entry:
   %owner_.i = getelementptr inbounds nuw i8, ptr %node, i64 584
   %0 = load ptr, ptr %owner_.i, align 8
@@ -1184,7 +1184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @YGNodeGetParent(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define ptr @YGNodeGetParent(ptr noundef readonly captures(none) %node) local_unnamed_addr #4 {
 entry:
   %owner_.i = getelementptr inbounds nuw i8, ptr %node, i64 584
   %0 = load ptr, ptr %owner_.i, align 8
@@ -1201,7 +1201,7 @@ entry:
 declare void @_ZN8facebook4yoga4Node9setConfigEPNS0_6ConfigE(ptr noundef nonnull align 8 dereferenceable(640), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @YGNodeSetContext(ptr nocapture noundef writeonly initializes((8, 16)) %node, ptr noundef %context) local_unnamed_addr #6 {
+define void @YGNodeSetContext(ptr noundef writeonly captures(none) initializes((8, 16)) %node, ptr noundef %context) local_unnamed_addr #6 {
 entry:
   %context_.i = getelementptr inbounds nuw i8, ptr %node, i64 8
   store ptr %context, ptr %context_.i, align 8
@@ -1209,7 +1209,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @YGNodeGetContext(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define ptr @YGNodeGetContext(ptr noundef readonly captures(none) %node) local_unnamed_addr #4 {
 entry:
   %context_.i = getelementptr inbounds nuw i8, ptr %node, i64 8
   %0 = load ptr, ptr %context_.i, align 8
@@ -1226,7 +1226,7 @@ entry:
 declare void @_ZN8facebook4yoga4Node14setMeasureFuncEPF6YGSizePK6YGNodef13YGMeasureModefS6_E(ptr noundef nonnull align 8 dereferenceable(640), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @YGNodeHasMeasureFunc(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define zeroext i1 @YGNodeHasMeasureFunc(ptr noundef readonly captures(none) %node) local_unnamed_addr #4 {
 entry:
   %measureFunc_.i = getelementptr inbounds nuw i8, ptr %node, i64 16
   %0 = load ptr, ptr %measureFunc_.i, align 8
@@ -1235,7 +1235,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @YGNodeSetBaselineFunc(ptr nocapture noundef writeonly initializes((24, 32)) %node, ptr noundef %baselineFunc) local_unnamed_addr #6 {
+define void @YGNodeSetBaselineFunc(ptr noundef writeonly captures(none) initializes((24, 32)) %node, ptr noundef %baselineFunc) local_unnamed_addr #6 {
 entry:
   %baselineFunc_.i = getelementptr inbounds nuw i8, ptr %node, i64 24
   store ptr %baselineFunc, ptr %baselineFunc_.i, align 8
@@ -1243,7 +1243,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @YGNodeHasBaselineFunc(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define zeroext i1 @YGNodeHasBaselineFunc(ptr noundef readonly captures(none) %node) local_unnamed_addr #4 {
 entry:
   %baselineFunc_.i = getelementptr inbounds nuw i8, ptr %node, i64 24
   %0 = load ptr, ptr %baselineFunc_.i, align 8
@@ -1273,7 +1273,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @YGNodeIsReferenceBaseline(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define zeroext i1 @YGNodeIsReferenceBaseline(ptr noundef readonly captures(none) %node) local_unnamed_addr #4 {
 entry:
   %bf.load.i = load i8, ptr %node, align 8
   %0 = and i8 %bf.load.i, 2
@@ -1282,7 +1282,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @YGNodeSetNodeType(ptr nocapture noundef %node, i32 noundef %nodeType) local_unnamed_addr #5 {
+define void @YGNodeSetNodeType(ptr noundef captures(none) %node, i32 noundef %nodeType) local_unnamed_addr #5 {
 entry:
   %conv.i = trunc i32 %nodeType to i8
   %bf.load.i = load i8, ptr %node, align 8
@@ -1295,7 +1295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @YGNodeGetNodeType(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @YGNodeGetNodeType(ptr noundef readonly captures(none) %node) local_unnamed_addr #4 {
 entry:
   %bf.load.i = load i8, ptr %node, align 8
   %bf.lshr.i = lshr i8 %bf.load.i, 3
@@ -1305,7 +1305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @YGNodeSetPrintFunc(ptr nocapture noundef writeonly initializes((32, 40)) %node, ptr noundef %printFunc) local_unnamed_addr #6 {
+define void @YGNodeSetPrintFunc(ptr noundef writeonly captures(none) initializes((32, 40)) %node, ptr noundef %printFunc) local_unnamed_addr #6 {
 entry:
   %printFunc_.i = getelementptr inbounds nuw i8, ptr %node, i64 32
   store ptr %printFunc, ptr %printFunc_.i, align 8
@@ -1374,13 +1374,13 @@ switch.lookup25:                                  ; preds = %switch.lookup19
 declare noundef zeroext i1 @_ZN8facebook4yoga23canUseCachedMeasurementENS0_10SizingModeEfS1_fS1_fS1_fffffPKNS0_6ConfigE(i32 noundef, float noundef, i32 noundef, float noundef, i32 noundef, float noundef, i32 noundef, float noundef, float noundef, float noundef, float noundef, float noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: noreturn
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #10
@@ -1505,10 +1505,10 @@ declare void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef) local_unnamed
 declare void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

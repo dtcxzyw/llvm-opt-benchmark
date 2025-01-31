@@ -181,13 +181,13 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define { i64, ptr } @_ZNK9grpc_core36XdsRouteLookupClusterSpecifierPlugin15ConfigProtoNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, ptr } @_ZNK9grpc_core36XdsRouteLookupClusterSpecifierPlugin15ConfigProtoNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   ret { i64, ptr } { i64 42, ptr @.str }
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core36XdsRouteLookupClusterSpecifierPlugin14PopulateSymtabEP11upb_DefPool(ptr nocapture nonnull readnone align 8 %this, ptr noundef %symtab) unnamed_addr #4 align 2 {
+define void @_ZNK9grpc_core36XdsRouteLookupClusterSpecifierPlugin14PopulateSymtabEP11upb_DefPool(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %symtab) unnamed_addr #4 align 2 {
 entry:
   %call.i = tail call zeroext i1 @_upb_DefPool_LoadDefInit(ptr noundef %symtab, ptr noundef nonnull @src_proto_grpc_lookup_v1_rls_config_proto_upbdefinit)
   %call1.i = tail call ptr @upb_DefPool_FindMessageByName(ptr noundef %symtab, ptr noundef nonnull @.str.13)
@@ -195,7 +195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core36XdsRouteLookupClusterSpecifierPlugin33GenerateLoadBalancingPolicyConfigENS_12XdsExtensionEP9upb_ArenaP11upb_DefPoolPNS_16ValidationErrorsE(ptr noalias sret(%"class.grpc_core::experimental::Json") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %extension, ptr noundef %arena, ptr noundef %symtab, ptr noundef %errors) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core36XdsRouteLookupClusterSpecifierPlugin33GenerateLoadBalancingPolicyConfigENS_12XdsExtensionEP9upb_ArenaP11upb_DefPoolPNS_16ValidationErrorsE(ptr noalias sret(%"class.grpc_core::experimental::Json") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %extension, ptr noundef %arena, ptr noundef %symtab, ptr noundef %errors) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i229 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %__an.i203 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
@@ -387,7 +387,7 @@ invoke.cont35:                                    ; preds = %if.end.i48, %if.the
   %retval.0.i49 = phi ptr [ %call2.i, %if.then.i50 ], [ %18, %if.end.i48 ]
   %call32 = call i64 @upb_JsonEncode(ptr noundef nonnull %7, ptr noundef %call1.i45, ptr noundef %symtab, i32 noundef 0, ptr noundef %retval.0.i49, i64 noundef %add, ptr noundef nonnull %status)
   %call.i.i51 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i49) #20
-  call void @_ZN9grpc_core9JsonParseESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %json, i64 %call.i.i51, ptr %retval.0.i49)
+  call void @_ZN9grpc_core9JsonParseESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %json, i64 %call.i.i51, ptr nonnull %retval.0.i49)
   %19 = load i64, ptr %json, align 8
   %cmp.i.i53 = icmp eq i64 %19, 0
   br i1 %cmp.i.i53, label %invoke.cont55, label %if.then37
@@ -1291,7 +1291,7 @@ eh.resume:                                        ; preds = %ehcleanup247, %lpad
 declare void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -2022,7 +2022,7 @@ ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core33XdsClusterSpecifierPluginRegistry14RegisterPluginESt10unique_ptrINS_29XdsClusterSpecifierPluginImplESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef %plugin) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core33XdsClusterSpecifierPluginRegistry14RegisterPluginESt10unique_ptrINS_29XdsClusterSpecifierPluginImplESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef captures(none) %plugin) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::basic_string_view", align 8
   %0 = load ptr, ptr %plugin, align 8
@@ -2166,7 +2166,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK9grpc_core33XdsClusterSpecifierPluginRegistry16GetPluginForTypeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %config_proto_type_name.coerce0, ptr nocapture readonly %config_proto_type_name.coerce1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK9grpc_core33XdsClusterSpecifierPluginRegistry16GetPluginForTypeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %config_proto_type_name.coerce0, ptr readonly captures(none) %config_proto_type_name.coerce1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -2298,7 +2298,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare zeroext i1 @_upb_DefPool_LoadDefInit(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -2307,10 +2307,10 @@ declare ptr @upb_DefPool_FindMessageByName(ptr noundef, ptr noundef) local_unnam
 declare i32 @upb_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 declare void @_ZN9grpc_core16ValidationErrors9PushFieldESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72), i64, ptr) local_unnamed_addr #0
 
@@ -4408,10 +4408,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #18

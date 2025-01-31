@@ -77,10 +77,10 @@ define dso_local ptr @expr_negate_expr(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @expr_in_int_range(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @expr_in_int_range(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Int, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
@@ -104,7 +104,7 @@ declare zeroext i1 @int_fits(ptr noundef byval(%struct.Int) align 8, i32 noundef
 declare i64 @int_to_i64(ptr noundef byval(%struct.Int) align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @expr_is_unwrapped_ident(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local zeroext i1 @expr_is_unwrapped_ident(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 255
@@ -157,7 +157,7 @@ define dso_local zeroext i1 @expr_is_unwrapped_ident(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @expr_may_addr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @expr_may_addr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
@@ -366,7 +366,7 @@ define internal fastcc ptr @decl_raw(ptr noundef readonly %0) unnamed_addr #4 {
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @expr_is_constant_eval(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @expr_is_constant_eval(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, -2
   %or.cond = icmp eq i32 %3, 2
   %.not80 = icmp eq i32 %1, 0
@@ -801,7 +801,7 @@ expr_list_is_constant_eval.exit:                  ; preds = %.lr.ph, %.lr.ph140,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @expr_binary_is_constant_eval(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @expr_binary_is_constant_eval(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = icmp ugt i8 %4, 19
@@ -832,7 +832,7 @@ define internal fastcc zeroext i1 @expr_binary_is_constant_eval(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @expr_cast_is_constant_eval(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @expr_cast_is_constant_eval(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   switch i8 %4, label %23 [
@@ -939,7 +939,7 @@ define internal fastcc zeroext i1 @expr_cast_is_constant_eval(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp eq i32 %1, 3
   br i1 %3, label %45, label %4
 
@@ -1052,7 +1052,7 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @expr_insert_addr(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @expr_insert_addr(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 255
@@ -1182,7 +1182,7 @@ define dso_local ptr @expr_new(i32 noundef %0, i64 %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @expr_may_splat_as_vararg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define dso_local zeroext i1 @expr_may_splat_as_vararg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1215,7 +1215,7 @@ define dso_local zeroext i1 @expr_may_splat_as_vararg(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @expr_is_compile_time(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @expr_is_compile_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %trunc = trunc i16 %3 to i8
@@ -1254,7 +1254,7 @@ define dso_local noundef zeroext i1 @expr_is_compile_time(ptr nocapture noundef 
 declare zeroext i1 @ast_is_compile_time(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @expr_rewrite_to_const_zero(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @expr_rewrite_to_const_zero(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, -256
@@ -1488,7 +1488,7 @@ type_flatten.exit90:                              ; preds = %33
 declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %1, align 8
   switch i32 %6, label %45 [
     i32 0, label %initializer_for_index.exit.thread24
@@ -2028,7 +2028,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @expr_is_simple(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @expr_is_simple(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr @expr_arena, align 8
   br i1 %1, label %tailrecurse.us, label %tailrecurse
 
@@ -2319,7 +2319,7 @@ define dso_local noundef ptr @expr_new_const_bool(i64 %0, ptr noundef %1, i1 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @expr_rewrite_to_builtin_access(ptr nocapture noundef initializes((0, 8), (24, 25), (28, 32)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @expr_rewrite_to_builtin_access(ptr noundef captures(none) initializes((0, 8), (24, 25), (28, 32)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
@@ -2420,7 +2420,7 @@ define dso_local ptr @expr_variable(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @expr_rewrite_to_variable(ptr nocapture noundef initializes((32, 33)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define dso_local void @expr_rewrite_to_variable(ptr noundef captures(none) initializes((32, 33)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, -256
@@ -2458,7 +2458,7 @@ define dso_local void @expr_rewrite_to_variable(ptr nocapture noundef initialize
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @expr_rewrite_insert_deref(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @expr_rewrite_insert_deref(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 255
@@ -2553,7 +2553,7 @@ thread-pre-split:                                 ; preds = %22
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @expr_rewrite_to_string(ptr nocapture noundef initializes((0, 8), (32, 44)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define dso_local void @expr_rewrite_to_string(ptr noundef captures(none) initializes((0, 8), (32, 44)) %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, -256
@@ -2579,10 +2579,10 @@ define dso_local void @expr_rewrite_to_string(ptr nocapture noundef initializes(
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @expr_rewrite_to_binary(ptr nocapture noundef initializes((24, 33)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #10 {
+define dso_local void @expr_rewrite_to_binary(ptr noundef captures(none) initializes((24, 33)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr @expr_arena, align 8
   %7 = ptrtoint ptr %1 to i64
@@ -2611,7 +2611,7 @@ define dso_local void @expr_rewrite_to_binary(ptr nocapture noundef initializes(
 declare ptr @type_get_optional(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare ptr @vmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 

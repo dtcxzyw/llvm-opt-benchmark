@@ -492,7 +492,7 @@ target triple = "x86_64-pc-linux-gnu"
 @dissect_ntlmssp_verf.catch_spec = internal constant [1 x %struct.except_id_t] [%struct.except_id_t { i64 1, i64 0 }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @get_md4pass_list(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define hidden i32 @get_md4pass_list(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca [256 x i8], align 16
   %5 = load ptr, ptr @ntlmssp_option_nt_password, align 8
@@ -634,20 +634,20 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %21
 declare void @read_keytab_file_from_preferences() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @gcry_md_hash_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ntlmssp_create_session_key(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define hidden void @ntlmssp_create_session_key(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca [512 x i8], align 16
   %10 = alloca [256 x i8], align 16
   %11 = alloca [768 x i8], align 16
@@ -664,7 +664,7 @@ define hidden void @ntlmssp_create_session_key(ptr noundef %0, ptr noundef %1, p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %22 = load i16, ptr %6, align 8
   %23 = icmp ugt i16 %22, 24
-  br i1 %23, label %24, label %236
+  br i1 %23, label %24, label %234
 
 24:                                               ; preds = %8
   %25 = icmp ugt i16 %22, 39
@@ -877,130 +877,126 @@ ansi_to_unicode.exit93.i:                         ; preds = %.lr.ph.i90.i, %66
 118:                                              ; preds = %117, %115, %107
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 16 dereferenceable(16) %21, i64 16, i1 false)
-  %120 = icmp eq ptr %85, null
-  br i1 %120, label %create_ntlmssp_v2_key.exit, label %121
-
-121:                                              ; preds = %118
-  %122 = call ptr @proto_tree_get_parent(ptr noundef %1) #12
-  %123 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %124 = load i8, ptr %85, align 1
-  %125 = zext i8 %124 to i32
-  %126 = getelementptr i8, ptr %85, i64 1
-  %127 = load i8, ptr %126, align 1
-  %128 = zext i8 %127 to i32
-  %129 = getelementptr i8, ptr %85, i64 2
-  %130 = load i8, ptr %129, align 1
-  %131 = zext i8 %130 to i32
-  %132 = getelementptr i8, ptr %85, i64 3
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i32
-  %135 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %122, ptr noundef nonnull @ei_ntlmssp_auth_nthash, ptr noundef nonnull @.str.257, ptr noundef nonnull %123, i32 noundef %125, i32 noundef %128, i32 noundef %131, i32 noundef %134) #12
-  %136 = call ptr @proto_tree_get_parent(ptr noundef %1) #12
-  %137 = load i8, ptr %15, align 16
-  %138 = zext i8 %137 to i32
-  %139 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  %140 = load i8, ptr %139, align 1
-  %141 = zext i8 %140 to i32
-  %142 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  %143 = load i8, ptr %142, align 2
-  %144 = zext i8 %143 to i32
-  %145 = getelementptr inbounds nuw i8, ptr %15, i64 3
-  %146 = load i8, ptr %145, align 1
-  %147 = zext i8 %146 to i32
-  %148 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %149 = load i8, ptr %148, align 4
-  %150 = zext i8 %149 to i32
-  %151 = getelementptr inbounds nuw i8, ptr %15, i64 5
-  %152 = load i8, ptr %151, align 1
-  %153 = zext i8 %152 to i32
-  %154 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %155 = load i8, ptr %154, align 2
-  %156 = zext i8 %155 to i32
-  %157 = getelementptr inbounds nuw i8, ptr %15, i64 7
-  %158 = load i8, ptr %157, align 1
-  %159 = zext i8 %158 to i32
-  %160 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %161 = load i8, ptr %160, align 8
-  %162 = zext i8 %161 to i32
-  %163 = getelementptr inbounds nuw i8, ptr %15, i64 9
-  %164 = load i8, ptr %163, align 1
-  %165 = zext i8 %164 to i32
-  %166 = getelementptr inbounds nuw i8, ptr %15, i64 10
-  %167 = load i8, ptr %166, align 2
-  %168 = zext i8 %167 to i32
-  %169 = getelementptr inbounds nuw i8, ptr %15, i64 11
-  %170 = load i8, ptr %169, align 1
-  %171 = zext i8 %170 to i32
-  %172 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %173 = load i8, ptr %172, align 4
-  %174 = zext i8 %173 to i32
-  %175 = getelementptr inbounds nuw i8, ptr %15, i64 13
-  %176 = load i8, ptr %175, align 1
-  %177 = zext i8 %176 to i32
-  %178 = getelementptr inbounds nuw i8, ptr %15, i64 14
-  %179 = load i8, ptr %178, align 2
-  %180 = zext i8 %179 to i32
-  %181 = getelementptr inbounds nuw i8, ptr %15, i64 15
-  %182 = load i8, ptr %181, align 1
-  %183 = zext i8 %182 to i32
-  %184 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %136, ptr noundef nonnull @ei_ntlmssp_sessionbasekey, ptr noundef nonnull @.str.258, i32 noundef %138, i32 noundef %141, i32 noundef %144, i32 noundef %147, i32 noundef %150, i32 noundef %153, i32 noundef %156, i32 noundef %159, i32 noundef %162, i32 noundef %165, i32 noundef %168, i32 noundef %171, i32 noundef %174, i32 noundef %177, i32 noundef %180, i32 noundef %183) #12
+  %120 = call ptr @proto_tree_get_parent(ptr noundef %1) #12
+  %121 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %122 = load i8, ptr %85, align 1
+  %123 = zext i8 %122 to i32
+  %124 = getelementptr i8, ptr %85, i64 1
+  %125 = load i8, ptr %124, align 1
+  %126 = zext i8 %125 to i32
+  %127 = getelementptr i8, ptr %85, i64 2
+  %128 = load i8, ptr %127, align 1
+  %129 = zext i8 %128 to i32
+  %130 = getelementptr i8, ptr %85, i64 3
+  %131 = load i8, ptr %130, align 1
+  %132 = zext i8 %131 to i32
+  %133 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %120, ptr noundef nonnull @ei_ntlmssp_auth_nthash, ptr noundef nonnull @.str.257, ptr noundef nonnull %121, i32 noundef %123, i32 noundef %126, i32 noundef %129, i32 noundef %132) #12
+  %134 = call ptr @proto_tree_get_parent(ptr noundef %1) #12
+  %135 = load i8, ptr %15, align 16
+  %136 = zext i8 %135 to i32
+  %137 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  %138 = load i8, ptr %137, align 1
+  %139 = zext i8 %138 to i32
+  %140 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %141 = load i8, ptr %140, align 2
+  %142 = zext i8 %141 to i32
+  %143 = getelementptr inbounds nuw i8, ptr %15, i64 3
+  %144 = load i8, ptr %143, align 1
+  %145 = zext i8 %144 to i32
+  %146 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %147 = load i8, ptr %146, align 4
+  %148 = zext i8 %147 to i32
+  %149 = getelementptr inbounds nuw i8, ptr %15, i64 5
+  %150 = load i8, ptr %149, align 1
+  %151 = zext i8 %150 to i32
+  %152 = getelementptr inbounds nuw i8, ptr %15, i64 6
+  %153 = load i8, ptr %152, align 2
+  %154 = zext i8 %153 to i32
+  %155 = getelementptr inbounds nuw i8, ptr %15, i64 7
+  %156 = load i8, ptr %155, align 1
+  %157 = zext i8 %156 to i32
+  %158 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %159 = load i8, ptr %158, align 8
+  %160 = zext i8 %159 to i32
+  %161 = getelementptr inbounds nuw i8, ptr %15, i64 9
+  %162 = load i8, ptr %161, align 1
+  %163 = zext i8 %162 to i32
+  %164 = getelementptr inbounds nuw i8, ptr %15, i64 10
+  %165 = load i8, ptr %164, align 2
+  %166 = zext i8 %165 to i32
+  %167 = getelementptr inbounds nuw i8, ptr %15, i64 11
+  %168 = load i8, ptr %167, align 1
+  %169 = zext i8 %168 to i32
+  %170 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %171 = load i8, ptr %170, align 4
+  %172 = zext i8 %171 to i32
+  %173 = getelementptr inbounds nuw i8, ptr %15, i64 13
+  %174 = load i8, ptr %173, align 1
+  %175 = zext i8 %174 to i32
+  %176 = getelementptr inbounds nuw i8, ptr %15, i64 14
+  %177 = load i8, ptr %176, align 2
+  %178 = zext i8 %177 to i32
+  %179 = getelementptr inbounds nuw i8, ptr %15, i64 15
+  %180 = load i8, ptr %179, align 1
+  %181 = zext i8 %180 to i32
+  %182 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %134, ptr noundef nonnull @ei_ntlmssp_sessionbasekey, ptr noundef nonnull @.str.258, i32 noundef %136, i32 noundef %139, i32 noundef %142, i32 noundef %145, i32 noundef %148, i32 noundef %151, i32 noundef %154, i32 noundef %157, i32 noundef %160, i32 noundef %163, i32 noundef %166, i32 noundef %169, i32 noundef %172, i32 noundef %175, i32 noundef %178, i32 noundef %181) #12
   %bcmp87.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %15, ptr noundef nonnull dereferenceable(16) %21, i64 16)
-  %185 = icmp eq i32 %bcmp87.i, 0
-  br i1 %185, label %create_ntlmssp_v2_key.exit, label %186
+  %183 = icmp eq i32 %bcmp87.i, 0
+  br i1 %183, label %create_ntlmssp_v2_key.exit, label %184
 
-186:                                              ; preds = %121
-  %187 = call ptr @proto_tree_get_parent(ptr noundef %1) #12
-  %188 = load i8, ptr %21, align 16
-  %189 = zext i8 %188 to i32
-  %190 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %191 = load i8, ptr %190, align 1
-  %192 = zext i8 %191 to i32
-  %193 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  %194 = load i8, ptr %193, align 2
-  %195 = zext i8 %194 to i32
-  %196 = getelementptr inbounds nuw i8, ptr %21, i64 3
-  %197 = load i8, ptr %196, align 1
-  %198 = zext i8 %197 to i32
-  %199 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %200 = load i8, ptr %199, align 4
-  %201 = zext i8 %200 to i32
-  %202 = getelementptr inbounds nuw i8, ptr %21, i64 5
-  %203 = load i8, ptr %202, align 1
-  %204 = zext i8 %203 to i32
-  %205 = getelementptr inbounds nuw i8, ptr %21, i64 6
-  %206 = load i8, ptr %205, align 2
-  %207 = zext i8 %206 to i32
-  %208 = getelementptr inbounds nuw i8, ptr %21, i64 7
-  %209 = load i8, ptr %208, align 1
-  %210 = zext i8 %209 to i32
-  %211 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %212 = load i8, ptr %211, align 8
-  %213 = zext i8 %212 to i32
-  %214 = getelementptr inbounds nuw i8, ptr %21, i64 9
-  %215 = load i8, ptr %214, align 1
-  %216 = zext i8 %215 to i32
-  %217 = getelementptr inbounds nuw i8, ptr %21, i64 10
-  %218 = load i8, ptr %217, align 2
-  %219 = zext i8 %218 to i32
-  %220 = getelementptr inbounds nuw i8, ptr %21, i64 11
-  %221 = load i8, ptr %220, align 1
-  %222 = zext i8 %221 to i32
-  %223 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %224 = load i8, ptr %223, align 4
-  %225 = zext i8 %224 to i32
-  %226 = getelementptr inbounds nuw i8, ptr %21, i64 13
-  %227 = load i8, ptr %226, align 1
-  %228 = zext i8 %227 to i32
-  %229 = getelementptr inbounds nuw i8, ptr %21, i64 14
-  %230 = load i8, ptr %229, align 2
-  %231 = zext i8 %230 to i32
-  %232 = getelementptr inbounds nuw i8, ptr %21, i64 15
-  %233 = load i8, ptr %232, align 1
-  %234 = zext i8 %233 to i32
-  %235 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %187, ptr noundef nonnull @ei_ntlmssp_sessionkey, ptr noundef nonnull @.str.259, i32 noundef %189, i32 noundef %192, i32 noundef %195, i32 noundef %198, i32 noundef %201, i32 noundef %204, i32 noundef %207, i32 noundef %210, i32 noundef %213, i32 noundef %216, i32 noundef %219, i32 noundef %222, i32 noundef %225, i32 noundef %228, i32 noundef %231, i32 noundef %234) #12
+184:                                              ; preds = %118
+  %185 = call ptr @proto_tree_get_parent(ptr noundef %1) #12
+  %186 = load i8, ptr %21, align 16
+  %187 = zext i8 %186 to i32
+  %188 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  %189 = load i8, ptr %188, align 1
+  %190 = zext i8 %189 to i32
+  %191 = getelementptr inbounds nuw i8, ptr %21, i64 2
+  %192 = load i8, ptr %191, align 2
+  %193 = zext i8 %192 to i32
+  %194 = getelementptr inbounds nuw i8, ptr %21, i64 3
+  %195 = load i8, ptr %194, align 1
+  %196 = zext i8 %195 to i32
+  %197 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %198 = load i8, ptr %197, align 4
+  %199 = zext i8 %198 to i32
+  %200 = getelementptr inbounds nuw i8, ptr %21, i64 5
+  %201 = load i8, ptr %200, align 1
+  %202 = zext i8 %201 to i32
+  %203 = getelementptr inbounds nuw i8, ptr %21, i64 6
+  %204 = load i8, ptr %203, align 2
+  %205 = zext i8 %204 to i32
+  %206 = getelementptr inbounds nuw i8, ptr %21, i64 7
+  %207 = load i8, ptr %206, align 1
+  %208 = zext i8 %207 to i32
+  %209 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %210 = load i8, ptr %209, align 8
+  %211 = zext i8 %210 to i32
+  %212 = getelementptr inbounds nuw i8, ptr %21, i64 9
+  %213 = load i8, ptr %212, align 1
+  %214 = zext i8 %213 to i32
+  %215 = getelementptr inbounds nuw i8, ptr %21, i64 10
+  %216 = load i8, ptr %215, align 2
+  %217 = zext i8 %216 to i32
+  %218 = getelementptr inbounds nuw i8, ptr %21, i64 11
+  %219 = load i8, ptr %218, align 1
+  %220 = zext i8 %219 to i32
+  %221 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %222 = load i8, ptr %221, align 4
+  %223 = zext i8 %222 to i32
+  %224 = getelementptr inbounds nuw i8, ptr %21, i64 13
+  %225 = load i8, ptr %224, align 1
+  %226 = zext i8 %225 to i32
+  %227 = getelementptr inbounds nuw i8, ptr %21, i64 14
+  %228 = load i8, ptr %227, align 2
+  %229 = zext i8 %228 to i32
+  %230 = getelementptr inbounds nuw i8, ptr %21, i64 15
+  %231 = load i8, ptr %230, align 1
+  %232 = zext i8 %231 to i32
+  %233 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %185, ptr noundef nonnull @ei_ntlmssp_sessionkey, ptr noundef nonnull @.str.259, i32 noundef %187, i32 noundef %190, i32 noundef %193, i32 noundef %196, i32 noundef %199, i32 noundef %202, i32 noundef %205, i32 noundef %208, i32 noundef %211, i32 noundef %214, i32 noundef %217, i32 noundef %220, i32 noundef %223, i32 noundef %226, i32 noundef %229, i32 noundef %232) #12
   br label %create_ntlmssp_v2_key.exit
 
-create_ntlmssp_v2_key.exit:                       ; preds = %83, %84, %87, %90, %31, %._crit_edge.i, %103, %118, %121, %186
+create_ntlmssp_v2_key.exit:                       ; preds = %83, %84, %87, %90, %31, %._crit_edge.i, %103, %118, %184
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %11)
@@ -1012,33 +1008,33 @@ create_ntlmssp_v2_key.exit:                       ; preds = %83, %84, %87, %90, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  br label %247
+  br label %245
 
-236:                                              ; preds = %8
-  %237 = icmp eq i16 %22, 24
-  br i1 %237, label %238, label %247
+234:                                              ; preds = %8
+  %235 = icmp eq i16 %22, 24
+  br i1 %235, label %236, label %245
 
-238:                                              ; preds = %236
-  %239 = load i16, ptr %7, align 8
-  %240 = icmp eq i16 %239, 24
-  br i1 %240, label %241, label %247
+236:                                              ; preds = %234
+  %237 = load i16, ptr %7, align 8
+  %238 = icmp eq i16 %237, 24
+  br i1 %238, label %239, label %245
 
-241:                                              ; preds = %238
-  %242 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %243 = load ptr, ptr %242, align 8
-  %244 = load i64, ptr %243, align 1
-  store i64 %244, ptr %20, align 8
-  %245 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %246 = load ptr, ptr %245, align 8
-  call fastcc void @create_ntlmssp_v1_key(ptr noundef %4, ptr noundef nonnull %20, ptr noundef %21, ptr noundef %5, i32 noundef %3, ptr noundef %246, ptr noundef %2, ptr noundef %0, ptr noundef %1)
-  br label %247
+239:                                              ; preds = %236
+  %240 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %241 = load ptr, ptr %240, align 8
+  %242 = load i64, ptr %241, align 1
+  store i64 %242, ptr %20, align 8
+  %243 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %244 = load ptr, ptr %243, align 8
+  call fastcc void @create_ntlmssp_v1_key(ptr noundef %4, ptr noundef nonnull %20, ptr noundef %21, ptr noundef %5, i32 noundef %3, ptr noundef %244, ptr noundef %2, ptr noundef %0, ptr noundef %1)
+  br label %245
 
-247:                                              ; preds = %236, %238, %241, %create_ntlmssp_v2_key.exit
+245:                                              ; preds = %234, %236, %239, %create_ntlmssp_v2_key.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_ntlmssp_v1_key(ptr noundef %0, ptr noundef %1, ptr noundef nonnull initializes((0, 16)) %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef readonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @create_ntlmssp_v1_key(ptr noundef %0, ptr noundef %1, ptr noundef nonnull initializes((0, 16)) %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef writeonly captures(none) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [16 x i8], align 16
   %11 = alloca [24 x i8], align 16
   %12 = alloca [21 x i8], align 16
@@ -1479,7 +1475,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @dissect_nt_64bit_time(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ntlmssp_target_info_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_ntlmssp_target_info_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = zext i16 %4 to i32
@@ -1720,7 +1716,7 @@ declare void @prefs_register_string_preference(ptr noundef, ptr noundef, ptr nou
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ntlmssp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ntlmssp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2526,7 +2522,7 @@ dissect_ntlmssp_auth.exit:                        ; preds = %325, %328, %329, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ntlmssp_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ntlmssp_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca [16 x i8], align 16
@@ -2841,7 +2837,7 @@ define internal i32 @dissect_ntlmssp_payload_only(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ntlmssp_verf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ntlmssp_verf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3036,7 +3032,7 @@ declare signext i8 @g_ascii_toupper(i8 noundef signext) local_unnamed_addr #5
 declare i32 @ws_hmac_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_keyexchange_key(ptr noundef nonnull initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @get_keyexchange_key(ptr noundef nonnull initializes((0, 16)) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca [24 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -3126,7 +3122,7 @@ define internal i32 @header_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @header_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @header_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) %1, i64 16)
   %.not = icmp eq i32 %bcmp, 0
   %. = zext i1 %.not to i32
@@ -3168,7 +3164,7 @@ declare ptr @except_pop() local_unnamed_addr #1
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ntlmssp_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_ntlmssp_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1) #12
   %10 = add i32 %1, 2
   %11 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %10) #12
@@ -3286,7 +3282,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @ntlmssp_sessions_destroy_cb(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef zeroext i1 @ntlmssp_sessions_destroy_cb(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @gcry_cipher_close(ptr noundef %5) #12
@@ -3297,7 +3293,7 @@ define internal noundef zeroext i1 @ntlmssp_sessions_destroy_cb(ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_sealing_rc4key(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef nonnull initializes((0, 4)) %2, ptr noundef nonnull initializes((0, 16)) %3, ptr noundef nonnull initializes((0, 16)) %4) unnamed_addr #0 {
+define internal fastcc void @get_sealing_rc4key(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) initializes((0, 4)) %2, ptr noundef nonnull initializes((0, 16)) %3, ptr noundef nonnull initializes((0, 16)) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -3405,7 +3401,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ntlmssp_blob(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5, ptr nocapture noundef writeonly initializes((0, 2), (8, 16)) %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_ntlmssp_blob(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef writeonly captures(none) initializes((0, 2), (8, 16)) %6) unnamed_addr #0 {
   %8 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %3) #12
   %9 = add i32 %3, 2
   %10 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %9) #12
@@ -4000,7 +3996,7 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wrap_dissect_ntlmssp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @wrap_dissect_ntlmssp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) #12
   %8 = tail call i32 @dissect_ntlmssp(ptr noundef %7, ptr noundef %2, ptr noundef %3, ptr poison)
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #12
@@ -4008,7 +4004,7 @@ define internal i32 @wrap_dissect_ntlmssp(ptr noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wrap_dissect_ntlmssp_verf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @wrap_dissect_ntlmssp_verf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) #12
   %8 = tail call i32 @dissect_ntlmssp_verf(ptr noundef %7, ptr noundef %2, ptr noundef %3, ptr poison)
   ret i32 %8
@@ -4019,7 +4015,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @wrap_dissect_ntlmssp_payload_only(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal ptr @wrap_dissect_ntlmssp_payload_only(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = alloca ptr, align 8
   %8 = call i32 @dissect_ntlmssp_payload_only(ptr noundef %1, ptr noundef %4, ptr noundef null, ptr noundef nonnull %7)
   call fastcc void @decrypt_verifier(ptr noundef %1, ptr noundef %4)
@@ -4028,7 +4024,7 @@ define internal ptr @wrap_dissect_ntlmssp_payload_only(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
@@ -4043,10 +4039,10 @@ declare i32 @llvm.umax.i32(i32, i32) #10
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

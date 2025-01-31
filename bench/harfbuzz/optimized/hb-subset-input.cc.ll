@@ -43,7 +43,7 @@ $_ZN12hb_hashmap_tIj6TripleLb0EE13set_with_hashIjS0_EEbOT_jOT0_b = comdat any
 @_ZN17hb_subset_input_tC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17hb_subset_input_tC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17hb_subset_input_tC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((0, 16), (84, 86)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN17hb_subset_input_tC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(184) initializes((0, 16), (84, 86)) %this) unnamed_addr #0 align 2 {
 entry:
   %default_drop_tables = alloca [18 x i32], align 16
   %default_no_subset_tables = alloca [5 x i32], align 16
@@ -374,7 +374,7 @@ declare void @hb_set_add_range(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare void @hb_set_add(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @hb_subset_input_create_or_fail() local_unnamed_addr #0 {
@@ -513,10 +513,10 @@ _ZL19hb_object_referenceI17hb_subset_input_tEPT_S2_.exit: ; preds = %entry, %lor
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @hb_subset_input_unicode_set(ptr nocapture noundef readonly %input) local_unnamed_addr #5 {
+define dso_local ptr @hb_subset_input_unicode_set(ptr noundef readonly captures(none) %input) local_unnamed_addr #5 {
 entry:
   %unicodes = getelementptr inbounds nuw i8, ptr %input, i64 24
   %0 = load ptr, ptr %unicodes, align 8
@@ -524,7 +524,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @hb_subset_input_glyph_set(ptr nocapture noundef readonly %input) local_unnamed_addr #5 {
+define dso_local ptr @hb_subset_input_glyph_set(ptr noundef readonly captures(none) %input) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %input, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -532,7 +532,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define dso_local ptr @hb_subset_input_set(ptr nocapture noundef readonly %input, i32 noundef %set_type) local_unnamed_addr #6 {
+define dso_local ptr @hb_subset_input_set(ptr noundef readonly captures(none) %input, i32 noundef %set_type) local_unnamed_addr #6 {
 entry:
   %cmp.not.i.i = icmp ult i32 %set_type, 8
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -556,7 +556,7 @@ _ZN9hb_iter_tI10hb_array_tIN2hb10shared_ptrI8hb_set_tEEERS4_EixEj.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @hb_subset_input_get_flags(ptr nocapture noundef readonly %input) local_unnamed_addr #5 {
+define dso_local i32 @hb_subset_input_get_flags(ptr noundef readonly captures(none) %input) local_unnamed_addr #5 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %input, i64 80
   %0 = load i32, ptr %flags, align 8
@@ -564,7 +564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @hb_subset_input_set_flags(ptr nocapture noundef writeonly initializes((80, 84)) %input, i32 noundef %value) local_unnamed_addr #7 {
+define dso_local void @hb_subset_input_set_flags(ptr noundef writeonly captures(none) initializes((80, 84)) %input, i32 noundef %value) local_unnamed_addr #7 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %input, i64 80
   store i32 %value, ptr %flags, align 8
@@ -683,7 +683,7 @@ _ZL23hb_object_get_user_dataIK17hb_subset_input_tEPvPT_P18hb_user_data_key_t.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @hb_subset_input_keep_everything(ptr nocapture noundef %input) local_unnamed_addr #0 {
+define dso_local void @hb_subset_input_keep_everything(ptr noundef captures(none) %input) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr @_hb_NullPool, align 16
   %1 = inttoptr i64 %0 to ptr
@@ -1298,7 +1298,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN11hb_vector_tI13hb_bit_page_tLb0EE6resizeEibb(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %size_, i1 noundef zeroext %initialize, i1 noundef zeroext %exact) local_unnamed_addr #0 comdat align 2 {
@@ -1404,10 +1404,10 @@ return:                                           ; preds = %entry, %_ZN11hb_vec
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11

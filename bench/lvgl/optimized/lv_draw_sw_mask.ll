@@ -34,7 +34,7 @@ define void @lv_draw_sw_mask_deinit() local_unnamed_addr #0 {
 declare i32 @lv_mutex_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @lv_draw_sw_mask_apply(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @lv_draw_sw_mask_apply(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %.not25 = icmp eq ptr %6, null
   br i1 %.not25, label %.loopexit, label %.lr.ph
@@ -68,13 +68,13 @@ define range(i32 0, 3) i32 @lv_draw_sw_mask_apply(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_sw_mask_free_param(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @lv_draw_sw_mask_free_param(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @lv_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 556)) #7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !12
@@ -305,7 +305,7 @@ default.unreachable:                              ; preds = %57
 declare void @lv_point_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @lv_draw_mask_line(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal range(i32 0, 3) i32 @lv_draw_mask_line(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load i32, ptr %7, align 4, !tbaa !32
@@ -1129,7 +1129,7 @@ define void @lv_draw_sw_mask_angle_init(ptr noundef initializes((24, 32), (160, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !44
@@ -1441,7 +1441,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_sw_mask_radius_init(ptr nocapture noundef initializes((0, 12), (16, 36)) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define void @lv_draw_sw_mask_radius_init(ptr noundef captures(none) initializes((0, 12), (16, 36)) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
   %7 = tail call i32 @lv_area_get_width(ptr noundef %1) #7
@@ -2005,7 +2005,7 @@ declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #1
 declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.lv_area_t, align 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -2366,7 +2366,7 @@ mask_mix.exit230:                                 ; preds = %185, %190, %192
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_draw_sw_mask_fade_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 42)) %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #3 {
+define void @lv_draw_sw_mask_fade_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 42)) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %1, align 4, !tbaa !48
   store i32 %8, ptr %7, align 4, !tbaa !48
@@ -2397,7 +2397,7 @@ define void @lv_draw_sw_mask_fade_init(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 1, 3) i32 @lv_draw_mask_fade(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) #4 {
+define internal range(i32 1, 3) i32 @lv_draw_mask_fade(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !77
@@ -2571,7 +2571,7 @@ mask_mix.exit78:                                  ; preds = %.lr.ph89.split, %ma
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_draw_sw_mask_map_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 40)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @lv_draw_sw_mask_map_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %1, align 4, !tbaa !48
   store i32 %5, ptr %4, align 4, !tbaa !48
@@ -2596,7 +2596,7 @@ define void @lv_draw_sw_mask_map_init(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 3) i32 @lv_draw_mask_map(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal range(i32 1, 3) i32 @lv_draw_mask_map(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !89
@@ -2714,7 +2714,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

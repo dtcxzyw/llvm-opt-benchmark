@@ -32,7 +32,7 @@ define dso_local void @lifebook_module_init() local_unnamed_addr #0 section ".in
 declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local range(i32 -6, 1) i32 @lifebook_detect(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -6, 1) i32 @lifebook_detect(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 16 {
   %3 = load i8, ptr @lifebook_present, align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %20, label %5
@@ -68,7 +68,7 @@ define dso_local range(i32 -6, 1) i32 @lifebook_detect(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @lifebook_init(ptr noundef %0) local_unnamed_addr #4 align 16 {
@@ -179,7 +179,7 @@ define dso_local i32 @lifebook_init(ptr noundef %0) local_unnamed_addr #4 align 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @lifebook_absolute_mode(ptr noundef %0) #4 align 16 {
@@ -436,16 +436,16 @@ define internal void @lifebook_disconnect(ptr noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @lifebook_limit_serio3(ptr nocapture readnone %0) #6 align 16 {
+define internal noundef i32 @lifebook_limit_serio3(ptr readnone captures(none) %0) #6 align 16 {
   store ptr @.str.2, ptr @desired_serio_phys, align 8
   ret i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @lifebook_set_6byte_proto(ptr nocapture readnone %0) #6 align 16 {
+define internal noundef i32 @lifebook_set_6byte_proto(ptr readnone captures(none) %0) #6 align 16 {
   store i1 true, ptr @lifebook_use_6byte_proto, align 1
   ret i32 1
 }
@@ -457,13 +457,13 @@ declare dso_local i32 @psmouse_reset(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @ps2_command(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @input_allocate_device() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @input_register_device(ptr noundef) local_unnamed_addr #1

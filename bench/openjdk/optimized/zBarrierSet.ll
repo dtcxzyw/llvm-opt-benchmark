@@ -105,7 +105,7 @@ define hidden void @_ZN11ZBarrierSetC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierSetC2P17BarrierSetNMethodP20BarrierSetStackChunkRK15FakeRttiSupportIS_NS_4NameEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #2
 
@@ -126,7 +126,7 @@ _Z17is_reference_type9BasicTypeb.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZBarrierSet16on_thread_createEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef initializes((40, 104)) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZBarrierSet16on_thread_createEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef initializes((40, 104)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %3, i8 0, i64 56, i1 false)
@@ -150,7 +150,7 @@ _ZN16ZThreadLocalData6createEP6Thread.exit:       ; preds = %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZBarrierSet17on_thread_destroyEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZBarrierSet17on_thread_destroyEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -167,7 +167,7 @@ _ZN16ZThreadLocalData7destroyEP6Thread.exit:      ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZBarrierSet16on_thread_attachEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef initializes((40, 80), (88, 96)) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZBarrierSet16on_thread_attachEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef initializes((40, 80), (88, 96)) %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr @ZPointerLoadBadMask, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %3, ptr %4, align 8
@@ -211,7 +211,7 @@ declare void @_ZN17StackWatermarkSet13add_watermarkEP10JavaThreadP14StackWaterma
 declare void @_ZN19ZStoreBarrierBuffer10initializeEv(ptr noundef nonnull align 8 dereferenceable(832)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZBarrierSet16on_thread_detachEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZBarrierSet16on_thread_detachEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   tail call void @_ZN5ZHeap19mark_flush_and_freeEP6Thread(ptr noundef nonnull align 64 dereferenceable(15937) %3, ptr noundef %1) #7
   ret void
@@ -220,7 +220,7 @@ define hidden void @_ZN11ZBarrierSet16on_thread_detachEP6Thread(ptr nocapture no
 declare void @_ZN5ZHeap19mark_flush_and_freeEP6Thread(ptr noundef nonnull align 64 dereferenceable(15937), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZBarrierSet27on_slowpath_allocation_exitEP10JavaThreadP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZBarrierSet27on_slowpath_allocation_exitEP10JavaThreadP7oopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %5 = ptrtoint ptr %2 to i64
   %6 = load i64, ptr @ZAddressOffsetMask, align 8
@@ -560,7 +560,7 @@ _ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11ZBarrierSet8print_onEP12outputStream(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define hidden void @_ZNK11ZBarrierSet8print_onEP12outputStream(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #7
   ret void
 }

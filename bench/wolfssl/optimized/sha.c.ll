@@ -199,10 +199,10 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @Transform(ptr nocapture noundef nonnull %sha, ptr nocapture noundef nonnull readonly %data) unnamed_addr #3 {
+define internal fastcc void @Transform(ptr noundef nonnull captures(none) %sha, ptr noundef nonnull readonly captures(none) %data) unnamed_addr #3 {
 entry:
   %digest = getelementptr inbounds nuw i8, ptr %sha, i64 76
   %0 = load i32, ptr %digest, align 4
@@ -1419,7 +1419,7 @@ return:                                           ; preds = %if.end, %entry, %By
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define range(i32 -173, 1) i32 @wc_InitSha(ptr noundef writeonly %sha) local_unnamed_addr #0 {
@@ -1453,7 +1453,7 @@ wc_InitSha_ex.exit:                               ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @wc_ShaFree(ptr nocapture noundef readnone %sha) local_unnamed_addr #5 {
+define void @wc_ShaFree(ptr noundef readnone captures(none) %sha) local_unnamed_addr #5 {
 entry:
   ret void
 }

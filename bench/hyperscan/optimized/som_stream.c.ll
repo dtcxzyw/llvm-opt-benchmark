@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @mmbit_root_offset_from_level = external local_unnamed_addr constant [7 x i32], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @storeSomToStream(ptr nocapture noundef readonly %scratch, i64 noundef %offset) local_unnamed_addr #0 {
+define hidden void @storeSomToStream(ptr noundef readonly captures(none) %scratch, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %rose1 = getelementptr inbounds nuw i8, ptr %scratch, i64 248
   %0 = load ptr, ptr %rose1, align 8
@@ -611,7 +611,7 @@ for.end:                                          ; preds = %if.end19.i, %for.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @loadSomFromStream(ptr nocapture noundef readonly %scratch, i64 noundef %offset) local_unnamed_addr #0 {
+define hidden void @loadSomFromStream(ptr noundef readonly captures(none) %scratch, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %rose1 = getelementptr inbounds nuw i8, ptr %scratch, i64 248
   %0 = load ptr, ptr %rose1, align 8

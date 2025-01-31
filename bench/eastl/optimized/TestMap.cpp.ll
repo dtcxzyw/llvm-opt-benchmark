@@ -1344,7 +1344,7 @@ _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(41) ptr @_ZN5eastl3mapIiiNS_4lessIiEENS_9allocatorEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(41) %x) local_unnamed_addr #1 comdat align 2 {
@@ -21353,25 +21353,18 @@ invoke.cont381:                                   ; preds = %if.end16.i915, %lan
           to label %call.i.i918.noexc unwind label %lpad215.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i918.noexc:                                ; preds = %invoke.cont381
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i914, ptr noundef nonnull align 8 dereferenceable(41) %call194)
-          to label %.noexc920 unwind label %lpad215.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i914, ptr noundef nonnull align 8 dereferenceable(41) %call194)
+          to label %delete.notnull.i.i.i unwind label %lpad215.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc920:                                        ; preds = %call.i.i918.noexc
-  %isnull.i.i.i = icmp eq ptr %storemerge.i914, null
-  br i1 %isnull.i.i.i, label %invoke.cont385, label %delete.notnull.i.i.i
-
-delete.notnull.i.i.i:                             ; preds = %.noexc920
+delete.notnull.i.i.i:                             ; preds = %call.i.i918.noexc
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i914) #15, !noalias !728
-  br label %invoke.cont385
-
-invoke.cont385:                                   ; preds = %delete.notnull.i.i.i, %.noexc920
   %251 = load ptr, ptr %_M_parent.i.i.i.i.i641, align 8
   %cmp.not5.i.i.i923 = icmp eq ptr %251, null
   br i1 %cmp.not5.i.i.i923, label %invoke.cont392, label %while.body.i.i.i925
 
-while.body.i.i.i925:                              ; preds = %invoke.cont385, %while.body.i.i.i925
-  %__x.addr.07.i.i.i926 = phi ptr [ %__x.addr.1.i.i.i933, %while.body.i.i.i925 ], [ %251, %invoke.cont385 ]
-  %__y.addr.06.i.i.i927 = phi ptr [ %__y.addr.1.i.i.i930, %while.body.i.i.i925 ], [ %200, %invoke.cont385 ]
+while.body.i.i.i925:                              ; preds = %delete.notnull.i.i.i, %while.body.i.i.i925
+  %__x.addr.07.i.i.i926 = phi ptr [ %__x.addr.1.i.i.i933, %while.body.i.i.i925 ], [ %251, %delete.notnull.i.i.i ]
+  %__y.addr.06.i.i.i927 = phi ptr [ %__y.addr.1.i.i.i930, %while.body.i.i.i925 ], [ %200, %delete.notnull.i.i.i ]
   %_M_storage.i.i.i.i.i928 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i926, i64 32
   %252 = load i32, ptr %_M_storage.i.i.i.i.i928, align 4
   %cmp.i.i.i.i929 = icmp slt i32 %252, 1
@@ -21393,8 +21386,8 @@ lor.lhs.false.i.i937:                             ; preds = %_ZNSt8_Rb_treeIiSt4
   %spec.select.i.i940 = select i1 %cmp.i4.i.i939, ptr %200, ptr %__y.addr.1.i.i.i930
   br label %invoke.cont392
 
-invoke.cont392:                                   ; preds = %invoke.cont385, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i935, %lor.lhs.false.i.i937
-  %retval.sroa.0.0.i.i941 = phi ptr [ %200, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i935 ], [ %200, %invoke.cont385 ], [ %spec.select.i.i940, %lor.lhs.false.i.i937 ]
+invoke.cont392:                                   ; preds = %delete.notnull.i.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i935, %lor.lhs.false.i.i937
+  %retval.sroa.0.0.i.i941 = phi ptr [ %200, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i935 ], [ %200, %delete.notnull.i.i.i ], [ %spec.select.i.i940, %lor.lhs.false.i.i937 ]
   %call.i1.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i941, ptr noundef nonnull align 8 dereferenceable(32) %200) #17
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #15
   %254 = load i64, ptr %_M_node_count.i.i.i.i.i644, align 8
@@ -21582,25 +21575,18 @@ invoke.cont446:                                   ; preds = %if.end16.i1034, %la
           to label %call.i.i1038.noexc unwind label %lpad215.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1038.noexc:                               ; preds = %invoke.cont446
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1033, ptr noundef nonnull align 8 dereferenceable(41) %call194)
-          to label %.noexc1042 unwind label %lpad215.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1033, ptr noundef nonnull align 8 dereferenceable(41) %call194)
+          to label %delete.notnull.i.i.i1040 unwind label %lpad215.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc1042:                                       ; preds = %call.i.i1038.noexc
-  %isnull.i.i.i1039 = icmp eq ptr %storemerge.i1033, null
-  br i1 %isnull.i.i.i1039, label %invoke.cont450, label %delete.notnull.i.i.i1040
-
-delete.notnull.i.i.i1040:                         ; preds = %.noexc1042
+delete.notnull.i.i.i1040:                         ; preds = %call.i.i1038.noexc
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1033) #15, !noalias !737
-  br label %invoke.cont450
-
-invoke.cont450:                                   ; preds = %delete.notnull.i.i.i1040, %.noexc1042
   %275 = load ptr, ptr %_M_parent.i.i.i.i.i641, align 8
   %cmp.not5.i.i.i1046 = icmp eq ptr %275, null
   br i1 %cmp.not5.i.i.i1046, label %invoke.cont457, label %while.body.i.i.i1048
 
-while.body.i.i.i1048:                             ; preds = %invoke.cont450, %while.body.i.i.i1048
-  %__x.addr.07.i.i.i1049 = phi ptr [ %__x.addr.1.i.i.i1056, %while.body.i.i.i1048 ], [ %275, %invoke.cont450 ]
-  %__y.addr.06.i.i.i1050 = phi ptr [ %__y.addr.1.i.i.i1053, %while.body.i.i.i1048 ], [ %200, %invoke.cont450 ]
+while.body.i.i.i1048:                             ; preds = %delete.notnull.i.i.i1040, %while.body.i.i.i1048
+  %__x.addr.07.i.i.i1049 = phi ptr [ %__x.addr.1.i.i.i1056, %while.body.i.i.i1048 ], [ %275, %delete.notnull.i.i.i1040 ]
+  %__y.addr.06.i.i.i1050 = phi ptr [ %__y.addr.1.i.i.i1053, %while.body.i.i.i1048 ], [ %200, %delete.notnull.i.i.i1040 ]
   %_M_storage.i.i.i.i.i1051 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i1049, i64 32
   %276 = load i32, ptr %_M_storage.i.i.i.i.i1051, align 4
   %cmp.i.i.i.i1052 = icmp slt i32 %276, 5
@@ -21622,8 +21608,8 @@ lor.lhs.false.i.i1060:                            ; preds = %_ZNSt8_Rb_treeIiSt4
   %spec.select.i.i1063 = select i1 %cmp.i4.i.i1062, ptr %200, ptr %__y.addr.1.i.i.i1053
   br label %invoke.cont457
 
-invoke.cont457:                                   ; preds = %invoke.cont450, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1058, %lor.lhs.false.i.i1060
-  %retval.sroa.0.0.i.i1064 = phi ptr [ %200, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1058 ], [ %200, %invoke.cont450 ], [ %spec.select.i.i1063, %lor.lhs.false.i.i1060 ]
+invoke.cont457:                                   ; preds = %delete.notnull.i.i.i1040, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1058, %lor.lhs.false.i.i1060
+  %retval.sroa.0.0.i.i1064 = phi ptr [ %200, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1058 ], [ %200, %delete.notnull.i.i.i1040 ], [ %spec.select.i.i1063, %lor.lhs.false.i.i1060 ]
   %call.i1.i.i1068 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i1064, ptr noundef nonnull align 8 dereferenceable(32) %200) #17
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i1068) #15
   %278 = load i64, ptr %_M_node_count.i.i.i.i.i644, align 8
@@ -21974,25 +21960,18 @@ invoke.cont544:                                   ; preds = %if.end16.i1231, %la
           to label %call.i.i1235.noexc unwind label %lpad215.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1235.noexc:                               ; preds = %invoke.cont544
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1230, ptr noundef nonnull align 8 dereferenceable(41) %call194)
-          to label %.noexc1239 unwind label %lpad215.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1230, ptr noundef nonnull align 8 dereferenceable(41) %call194)
+          to label %delete.notnull.i.i.i1237 unwind label %lpad215.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc1239:                                       ; preds = %call.i.i1235.noexc
-  %isnull.i.i.i1236 = icmp eq ptr %storemerge.i1230, null
-  br i1 %isnull.i.i.i1236, label %invoke.cont548, label %delete.notnull.i.i.i1237
-
-delete.notnull.i.i.i1237:                         ; preds = %.noexc1239
+delete.notnull.i.i.i1237:                         ; preds = %call.i.i1235.noexc
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1230) #15, !noalias !756
-  br label %invoke.cont548
-
-invoke.cont548:                                   ; preds = %delete.notnull.i.i.i1237, %.noexc1239
   %311 = load ptr, ptr %_M_parent.i.i.i.i.i641, align 8
   %cmp.not5.i.i.i1243 = icmp eq ptr %311, null
   br i1 %cmp.not5.i.i.i1243, label %invoke.cont555, label %while.body.i.i.i1245
 
-while.body.i.i.i1245:                             ; preds = %invoke.cont548, %while.body.i.i.i1245
-  %__x.addr.07.i.i.i1246 = phi ptr [ %__x.addr.1.i.i.i1253, %while.body.i.i.i1245 ], [ %311, %invoke.cont548 ]
-  %__y.addr.06.i.i.i1247 = phi ptr [ %__y.addr.1.i.i.i1250, %while.body.i.i.i1245 ], [ %200, %invoke.cont548 ]
+while.body.i.i.i1245:                             ; preds = %delete.notnull.i.i.i1237, %while.body.i.i.i1245
+  %__x.addr.07.i.i.i1246 = phi ptr [ %__x.addr.1.i.i.i1253, %while.body.i.i.i1245 ], [ %311, %delete.notnull.i.i.i1237 ]
+  %__y.addr.06.i.i.i1247 = phi ptr [ %__y.addr.1.i.i.i1250, %while.body.i.i.i1245 ], [ %200, %delete.notnull.i.i.i1237 ]
   %_M_storage.i.i.i.i.i1248 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i1246, i64 32
   %312 = load i32, ptr %_M_storage.i.i.i.i.i1248, align 4
   %cmp.i.i.i.i1249 = icmp slt i32 %312, 60
@@ -22014,8 +21993,8 @@ lor.lhs.false.i.i1257:                            ; preds = %_ZNSt8_Rb_treeIiSt4
   %spec.select.i.i1260 = select i1 %cmp.i4.i.i1259, ptr %200, ptr %__y.addr.1.i.i.i1250
   br label %invoke.cont555
 
-invoke.cont555:                                   ; preds = %invoke.cont548, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1255, %lor.lhs.false.i.i1257
-  %retval.sroa.0.0.i.i1261 = phi ptr [ %200, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1255 ], [ %200, %invoke.cont548 ], [ %spec.select.i.i1260, %lor.lhs.false.i.i1257 ]
+invoke.cont555:                                   ; preds = %delete.notnull.i.i.i1237, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1255, %lor.lhs.false.i.i1257
+  %retval.sroa.0.0.i.i1261 = phi ptr [ %200, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1255 ], [ %200, %delete.notnull.i.i.i1237 ], [ %spec.select.i.i1260, %lor.lhs.false.i.i1257 ]
   %call.i1.i.i1265 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i1261, ptr noundef nonnull align 8 dereferenceable(32) %200) #17
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i1265) #15
   %314 = load i64, ptr %_M_node_count.i.i.i.i.i644, align 8
@@ -26501,7 +26480,7 @@ invoke.cont507:                                   ; preds = %if.end16.i1841, %la
           to label %call.i.i1845.noexc unwind label %_ZN10TestObjectD2Ev.exit3279
 
 call.i.i1845.noexc:                               ; preds = %invoke.cont507
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1840, ptr noundef nonnull align 8 dereferenceable(41) %call213)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1840, ptr noundef nonnull align 8 dereferenceable(41) %call213)
           to label %.noexc1847 unwind label %_ZN10TestObjectD2Ev.exit3279
 
 .noexc1847:                                       ; preds = %call.i.i1845.noexc
@@ -26913,7 +26892,7 @@ invoke.cont608:                                   ; preds = %if.end16.i2148, %la
           to label %call.i.i2152.noexc unwind label %_ZN10TestObjectD2Ev.exit3359
 
 call.i.i2152.noexc:                               ; preds = %invoke.cont608
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2147, ptr noundef nonnull align 8 dereferenceable(41) %call213)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i2147, ptr noundef nonnull align 8 dereferenceable(41) %call213)
           to label %.noexc2165 unwind label %_ZN10TestObjectD2Ev.exit3359
 
 .noexc2165:                                       ; preds = %call.i.i2152.noexc
@@ -27435,7 +27414,7 @@ invoke.cont748:                                   ; preds = %if.end16.i2557, %la
           to label %call.i.i2561.noexc unwind label %_ZN10TestObjectD2Ev.exit3455
 
 call.i.i2561.noexc:                               ; preds = %invoke.cont748
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2556, ptr noundef nonnull align 8 dereferenceable(41) %call213)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i2556, ptr noundef nonnull align 8 dereferenceable(41) %call213)
           to label %.noexc2574 unwind label %_ZN10TestObjectD2Ev.exit3455
 
 .noexc2574:                                       ; preds = %call.i.i2561.noexc
@@ -31411,25 +31390,18 @@ invoke.cont379:                                   ; preds = %if.end16.i918, %lan
           to label %call.i.i921.noexc unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i921.noexc:                                ; preds = %invoke.cont379
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i917, ptr noundef nonnull align 8 dereferenceable(41) %call190)
-          to label %.noexc923 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i917, ptr noundef nonnull align 8 dereferenceable(41) %call190)
+          to label %delete.notnull.i.i.i unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc923:                                        ; preds = %call.i.i921.noexc
-  %isnull.i.i.i = icmp eq ptr %storemerge.i917, null
-  br i1 %isnull.i.i.i, label %invoke.cont383, label %delete.notnull.i.i.i
-
-delete.notnull.i.i.i:                             ; preds = %.noexc923
+delete.notnull.i.i.i:                             ; preds = %call.i.i921.noexc
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i917) #15, !noalias !955
-  br label %invoke.cont383
-
-invoke.cont383:                                   ; preds = %delete.notnull.i.i.i, %.noexc923
   %244 = load ptr, ptr %_M_parent.i.i.i.i.i644, align 8
   %cmp.not5.i.i.i926 = icmp eq ptr %244, null
   br i1 %cmp.not5.i.i.i926, label %invoke.cont386, label %while.body.i.i.i928
 
-while.body.i.i.i928:                              ; preds = %invoke.cont383, %while.body.i.i.i928
-  %__x.addr.07.i.i.i929 = phi ptr [ %__x.addr.1.i.i.i936, %while.body.i.i.i928 ], [ %244, %invoke.cont383 ]
-  %__y.addr.06.i.i.i930 = phi ptr [ %__y.addr.1.i.i.i933, %while.body.i.i.i928 ], [ %204, %invoke.cont383 ]
+while.body.i.i.i928:                              ; preds = %delete.notnull.i.i.i, %while.body.i.i.i928
+  %__x.addr.07.i.i.i929 = phi ptr [ %__x.addr.1.i.i.i936, %while.body.i.i.i928 ], [ %244, %delete.notnull.i.i.i ]
+  %__y.addr.06.i.i.i930 = phi ptr [ %__y.addr.1.i.i.i933, %while.body.i.i.i928 ], [ %204, %delete.notnull.i.i.i ]
   %_M_storage.i.i.i.i.i931 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i929, i64 32
   %245 = load i32, ptr %_M_storage.i.i.i.i.i931, align 4
   %cmp.i.i.i.i932 = icmp slt i32 %245, 1
@@ -31451,8 +31423,8 @@ lor.lhs.false.i.i940:                             ; preds = %_ZNSt8_Rb_treeIiSt4
   %spec.select.i.i943 = select i1 %cmp.i4.i.i942, ptr %204, ptr %__y.addr.1.i.i.i933
   br label %invoke.cont386
 
-invoke.cont386:                                   ; preds = %lor.lhs.false.i.i940, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i938, %invoke.cont383
-  %retval.sroa.0.0.i.i944 = phi ptr [ %204, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i938 ], [ %204, %invoke.cont383 ], [ %spec.select.i.i943, %lor.lhs.false.i.i940 ]
+invoke.cont386:                                   ; preds = %lor.lhs.false.i.i940, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i938, %delete.notnull.i.i.i
+  %retval.sroa.0.0.i.i944 = phi ptr [ %204, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i938 ], [ %204, %delete.notnull.i.i.i ], [ %spec.select.i.i943, %lor.lhs.false.i.i940 ]
   %call.i1.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i944, ptr noundef nonnull align 8 dereferenceable(32) %204) #17
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #15
   %247 = load i64, ptr %_M_node_count.i.i.i.i.i647, align 8
@@ -31608,25 +31580,18 @@ invoke.cont444:                                   ; preds = %if.end16.i1023, %la
           to label %call.i.i1027.noexc unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1027.noexc:                               ; preds = %invoke.cont444
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1022, ptr noundef nonnull align 8 dereferenceable(41) %call190)
-          to label %.noexc1031 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1022, ptr noundef nonnull align 8 dereferenceable(41) %call190)
+          to label %delete.notnull.i.i.i1029 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc1031:                                       ; preds = %call.i.i1027.noexc
-  %isnull.i.i.i1028 = icmp eq ptr %storemerge.i1022, null
-  br i1 %isnull.i.i.i1028, label %invoke.cont448, label %delete.notnull.i.i.i1029
-
-delete.notnull.i.i.i1029:                         ; preds = %.noexc1031
+delete.notnull.i.i.i1029:                         ; preds = %call.i.i1027.noexc
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1022) #15, !noalias !964
-  br label %invoke.cont448
-
-invoke.cont448:                                   ; preds = %delete.notnull.i.i.i1029, %.noexc1031
   %261 = load ptr, ptr %_M_parent.i.i.i.i.i644, align 8
   %cmp.not5.i.i.i1035 = icmp eq ptr %261, null
   br i1 %cmp.not5.i.i.i1035, label %invoke.cont451, label %while.body.i.i.i1037
 
-while.body.i.i.i1037:                             ; preds = %invoke.cont448, %while.body.i.i.i1037
-  %__x.addr.07.i.i.i1038 = phi ptr [ %__x.addr.1.i.i.i1045, %while.body.i.i.i1037 ], [ %261, %invoke.cont448 ]
-  %__y.addr.06.i.i.i1039 = phi ptr [ %__y.addr.1.i.i.i1042, %while.body.i.i.i1037 ], [ %204, %invoke.cont448 ]
+while.body.i.i.i1037:                             ; preds = %delete.notnull.i.i.i1029, %while.body.i.i.i1037
+  %__x.addr.07.i.i.i1038 = phi ptr [ %__x.addr.1.i.i.i1045, %while.body.i.i.i1037 ], [ %261, %delete.notnull.i.i.i1029 ]
+  %__y.addr.06.i.i.i1039 = phi ptr [ %__y.addr.1.i.i.i1042, %while.body.i.i.i1037 ], [ %204, %delete.notnull.i.i.i1029 ]
   %_M_storage.i.i.i.i.i1040 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i1038, i64 32
   %262 = load i32, ptr %_M_storage.i.i.i.i.i1040, align 4
   %cmp.i.i.i.i1041 = icmp slt i32 %262, 5
@@ -31648,8 +31613,8 @@ lor.lhs.false.i.i1049:                            ; preds = %_ZNSt8_Rb_treeIiSt4
   %spec.select.i.i1052 = select i1 %cmp.i4.i.i1051, ptr %204, ptr %__y.addr.1.i.i.i1042
   br label %invoke.cont451
 
-invoke.cont451:                                   ; preds = %lor.lhs.false.i.i1049, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1047, %invoke.cont448
-  %retval.sroa.0.0.i.i1053 = phi ptr [ %204, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1047 ], [ %204, %invoke.cont448 ], [ %spec.select.i.i1052, %lor.lhs.false.i.i1049 ]
+invoke.cont451:                                   ; preds = %lor.lhs.false.i.i1049, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1047, %delete.notnull.i.i.i1029
+  %retval.sroa.0.0.i.i1053 = phi ptr [ %204, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1047 ], [ %204, %delete.notnull.i.i.i1029 ], [ %spec.select.i.i1052, %lor.lhs.false.i.i1049 ]
   %call.i1.i.i1057 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i1053, ptr noundef nonnull align 8 dereferenceable(32) %204) #17
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i1057) #15
   %264 = load i64, ptr %_M_node_count.i.i.i.i.i647, align 8
@@ -31968,25 +31933,18 @@ invoke.cont542:                                   ; preds = %if.end16.i1199, %la
           to label %call.i.i1203.noexc unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1203.noexc:                               ; preds = %invoke.cont542
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1198, ptr noundef nonnull align 8 dereferenceable(41) %call190)
-          to label %.noexc1207 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1198, ptr noundef nonnull align 8 dereferenceable(41) %call190)
+          to label %delete.notnull.i.i.i1205 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc1207:                                       ; preds = %call.i.i1203.noexc
-  %isnull.i.i.i1204 = icmp eq ptr %storemerge.i1198, null
-  br i1 %isnull.i.i.i1204, label %invoke.cont546, label %delete.notnull.i.i.i1205
-
-delete.notnull.i.i.i1205:                         ; preds = %.noexc1207
+delete.notnull.i.i.i1205:                         ; preds = %call.i.i1203.noexc
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1198) #15, !noalias !982
-  br label %invoke.cont546
-
-invoke.cont546:                                   ; preds = %delete.notnull.i.i.i1205, %.noexc1207
   %290 = load ptr, ptr %_M_parent.i.i.i.i.i644, align 8
   %cmp.not5.i.i.i1211 = icmp eq ptr %290, null
   br i1 %cmp.not5.i.i.i1211, label %invoke.cont549, label %while.body.i.i.i1213
 
-while.body.i.i.i1213:                             ; preds = %invoke.cont546, %while.body.i.i.i1213
-  %__x.addr.07.i.i.i1214 = phi ptr [ %__x.addr.1.i.i.i1221, %while.body.i.i.i1213 ], [ %290, %invoke.cont546 ]
-  %__y.addr.06.i.i.i1215 = phi ptr [ %__y.addr.1.i.i.i1218, %while.body.i.i.i1213 ], [ %204, %invoke.cont546 ]
+while.body.i.i.i1213:                             ; preds = %delete.notnull.i.i.i1205, %while.body.i.i.i1213
+  %__x.addr.07.i.i.i1214 = phi ptr [ %__x.addr.1.i.i.i1221, %while.body.i.i.i1213 ], [ %290, %delete.notnull.i.i.i1205 ]
+  %__y.addr.06.i.i.i1215 = phi ptr [ %__y.addr.1.i.i.i1218, %while.body.i.i.i1213 ], [ %204, %delete.notnull.i.i.i1205 ]
   %_M_storage.i.i.i.i.i1216 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i1214, i64 32
   %291 = load i32, ptr %_M_storage.i.i.i.i.i1216, align 4
   %cmp.i.i.i.i1217 = icmp slt i32 %291, 60
@@ -32008,8 +31966,8 @@ lor.lhs.false.i.i1225:                            ; preds = %_ZNSt8_Rb_treeIiSt4
   %spec.select.i.i1228 = select i1 %cmp.i4.i.i1227, ptr %204, ptr %__y.addr.1.i.i.i1218
   br label %invoke.cont549
 
-invoke.cont549:                                   ; preds = %lor.lhs.false.i.i1225, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1223, %invoke.cont546
-  %retval.sroa.0.0.i.i1229 = phi ptr [ %204, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1223 ], [ %204, %invoke.cont546 ], [ %spec.select.i.i1228, %lor.lhs.false.i.i1225 ]
+invoke.cont549:                                   ; preds = %lor.lhs.false.i.i1225, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1223, %delete.notnull.i.i.i1205
+  %retval.sroa.0.0.i.i1229 = phi ptr [ %204, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1223 ], [ %204, %delete.notnull.i.i.i1205 ], [ %spec.select.i.i1228, %lor.lhs.false.i.i1225 ]
   %call.i1.i.i1233 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i1229, ptr noundef nonnull align 8 dereferenceable(32) %204) #17
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i1233) #15
   %293 = load i64, ptr %_M_node_count.i.i.i.i.i647, align 8
@@ -36586,7 +36544,7 @@ invoke.cont505:                                   ; preds = %if.end16.i1839, %la
           to label %call.i.i1843.noexc unwind label %_ZN10TestObjectD2Ev.exit3275
 
 call.i.i1843.noexc:                               ; preds = %invoke.cont505
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1838, ptr noundef nonnull align 8 dereferenceable(41) %call209)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1838, ptr noundef nonnull align 8 dereferenceable(41) %call209)
           to label %.noexc1845 unwind label %_ZN10TestObjectD2Ev.exit3275
 
 .noexc1845:                                       ; preds = %call.i.i1843.noexc
@@ -36998,7 +36956,7 @@ invoke.cont606:                                   ; preds = %if.end16.i2146, %la
           to label %call.i.i2150.noexc unwind label %_ZN10TestObjectD2Ev.exit3355
 
 call.i.i2150.noexc:                               ; preds = %invoke.cont606
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2145, ptr noundef nonnull align 8 dereferenceable(41) %call209)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i2145, ptr noundef nonnull align 8 dereferenceable(41) %call209)
           to label %.noexc2163 unwind label %_ZN10TestObjectD2Ev.exit3355
 
 .noexc2163:                                       ; preds = %call.i.i2150.noexc
@@ -37520,7 +37478,7 @@ invoke.cont746:                                   ; preds = %if.end16.i2555, %la
           to label %call.i.i2559.noexc unwind label %_ZN10TestObjectD2Ev.exit3451
 
 call.i.i2559.noexc:                               ; preds = %invoke.cont746
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2554, ptr noundef nonnull align 8 dereferenceable(41) %call209)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i2554, ptr noundef nonnull align 8 dereferenceable(41) %call209)
           to label %.noexc2572 unwind label %_ZN10TestObjectD2Ev.exit3451
 
 .noexc2572:                                       ; preds = %call.i.i2559.noexc
@@ -47230,25 +47188,18 @@ invoke.cont420:                                   ; preds = %if.end16.i929, %lan
           to label %call.i.i932.noexc unwind label %lpad219.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i932.noexc:                                ; preds = %invoke.cont420
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i928, ptr noundef nonnull align 8 dereferenceable(41) %call198)
-          to label %.noexc934 unwind label %lpad219.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i928, ptr noundef nonnull align 8 dereferenceable(41) %call198)
+          to label %delete.notnull.i.i.i unwind label %lpad219.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc934:                                        ; preds = %call.i.i932.noexc
-  %isnull.i.i.i = icmp eq ptr %storemerge.i928, null
-  br i1 %isnull.i.i.i, label %invoke.cont424, label %delete.notnull.i.i.i
-
-delete.notnull.i.i.i:                             ; preds = %.noexc934
+delete.notnull.i.i.i:                             ; preds = %call.i.i932.noexc
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i928) #15, !noalias !1518
-  br label %invoke.cont424
-
-invoke.cont424:                                   ; preds = %delete.notnull.i.i.i, %.noexc934
   %231 = load ptr, ptr %_M_parent.i.i.i.i.i650, align 8
   %cmp.not5.i.i.i937 = icmp eq ptr %231, null
   br i1 %cmp.not5.i.i.i937, label %invoke.cont432, label %while.body.i.i.i939
 
-while.body.i.i.i939:                              ; preds = %invoke.cont424, %while.body.i.i.i939
-  %__x.addr.07.i.i.i940 = phi ptr [ %__x.addr.1.i.i.i947, %while.body.i.i.i939 ], [ %231, %invoke.cont424 ]
-  %__y.addr.06.i.i.i941 = phi ptr [ %__y.addr.1.i.i.i944, %while.body.i.i.i939 ], [ %196, %invoke.cont424 ]
+while.body.i.i.i939:                              ; preds = %delete.notnull.i.i.i, %while.body.i.i.i939
+  %__x.addr.07.i.i.i940 = phi ptr [ %__x.addr.1.i.i.i947, %while.body.i.i.i939 ], [ %231, %delete.notnull.i.i.i ]
+  %__y.addr.06.i.i.i941 = phi ptr [ %__y.addr.1.i.i.i944, %while.body.i.i.i939 ], [ %196, %delete.notnull.i.i.i ]
   %_M_storage.i.i.i.i.i942 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i940, i64 64
   %232 = load i32, ptr %_M_storage.i.i.i.i.i942, align 64
   %cmp.i.i.i.i.i943 = icmp slt i32 %232, 1
@@ -47270,8 +47221,8 @@ lor.lhs.false.i.i951:                             ; preds = %_ZNSt8_Rb_treeI7Ali
   %spec.select.i.i954 = select i1 %cmp.i.i.i.i953, ptr %196, ptr %__y.addr.1.i.i.i944
   br label %invoke.cont432
 
-invoke.cont432:                                   ; preds = %invoke.cont424, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i949, %lor.lhs.false.i.i951
-  %retval.sroa.0.0.i.i955 = phi ptr [ %196, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i949 ], [ %196, %invoke.cont424 ], [ %spec.select.i.i954, %lor.lhs.false.i.i951 ]
+invoke.cont432:                                   ; preds = %delete.notnull.i.i.i, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i949, %lor.lhs.false.i.i951
+  %retval.sroa.0.0.i.i955 = phi ptr [ %196, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i949 ], [ %196, %delete.notnull.i.i.i ], [ %spec.select.i.i954, %lor.lhs.false.i.i951 ]
   %call.i1.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i955, ptr noundef nonnull align 8 dereferenceable(32) %196) #17
   call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %call.i1.i.i, i64 noundef 64) #15
   %234 = load i64, ptr %_M_node_count.i.i.i.i.i653, align 8
@@ -47427,25 +47378,18 @@ invoke.cont499:                                   ; preds = %if.end16.i1036, %la
           to label %call.i.i1040.noexc unwind label %lpad219.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1040.noexc:                               ; preds = %invoke.cont499
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1035, ptr noundef nonnull align 8 dereferenceable(41) %call198)
-          to label %.noexc1044 unwind label %lpad219.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1035, ptr noundef nonnull align 8 dereferenceable(41) %call198)
+          to label %delete.notnull.i.i.i1042 unwind label %lpad219.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc1044:                                       ; preds = %call.i.i1040.noexc
-  %isnull.i.i.i1041 = icmp eq ptr %storemerge.i1035, null
-  br i1 %isnull.i.i.i1041, label %invoke.cont503, label %delete.notnull.i.i.i1042
-
-delete.notnull.i.i.i1042:                         ; preds = %.noexc1044
+delete.notnull.i.i.i1042:                         ; preds = %call.i.i1040.noexc
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1035) #15, !noalias !1527
-  br label %invoke.cont503
-
-invoke.cont503:                                   ; preds = %delete.notnull.i.i.i1042, %.noexc1044
   %248 = load ptr, ptr %_M_parent.i.i.i.i.i650, align 8
   %cmp.not5.i.i.i1048 = icmp eq ptr %248, null
   br i1 %cmp.not5.i.i.i1048, label %invoke.cont511, label %while.body.i.i.i1050
 
-while.body.i.i.i1050:                             ; preds = %invoke.cont503, %while.body.i.i.i1050
-  %__x.addr.07.i.i.i1051 = phi ptr [ %__x.addr.1.i.i.i1058, %while.body.i.i.i1050 ], [ %248, %invoke.cont503 ]
-  %__y.addr.06.i.i.i1052 = phi ptr [ %__y.addr.1.i.i.i1055, %while.body.i.i.i1050 ], [ %196, %invoke.cont503 ]
+while.body.i.i.i1050:                             ; preds = %delete.notnull.i.i.i1042, %while.body.i.i.i1050
+  %__x.addr.07.i.i.i1051 = phi ptr [ %__x.addr.1.i.i.i1058, %while.body.i.i.i1050 ], [ %248, %delete.notnull.i.i.i1042 ]
+  %__y.addr.06.i.i.i1052 = phi ptr [ %__y.addr.1.i.i.i1055, %while.body.i.i.i1050 ], [ %196, %delete.notnull.i.i.i1042 ]
   %_M_storage.i.i.i.i.i1053 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i1051, i64 64
   %249 = load i32, ptr %_M_storage.i.i.i.i.i1053, align 64
   %cmp.i.i.i.i.i1054 = icmp slt i32 %249, 5
@@ -47467,8 +47411,8 @@ lor.lhs.false.i.i1062:                            ; preds = %_ZNSt8_Rb_treeI7Ali
   %spec.select.i.i1065 = select i1 %cmp.i.i.i.i1064, ptr %196, ptr %__y.addr.1.i.i.i1055
   br label %invoke.cont511
 
-invoke.cont511:                                   ; preds = %invoke.cont503, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1060, %lor.lhs.false.i.i1062
-  %retval.sroa.0.0.i.i1066 = phi ptr [ %196, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1060 ], [ %196, %invoke.cont503 ], [ %spec.select.i.i1065, %lor.lhs.false.i.i1062 ]
+invoke.cont511:                                   ; preds = %delete.notnull.i.i.i1042, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1060, %lor.lhs.false.i.i1062
+  %retval.sroa.0.0.i.i1066 = phi ptr [ %196, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1060 ], [ %196, %delete.notnull.i.i.i1042 ], [ %spec.select.i.i1065, %lor.lhs.false.i.i1062 ]
   %call.i1.i.i1070 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i1066, ptr noundef nonnull align 8 dereferenceable(32) %196) #17
   call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %call.i1.i.i1070, i64 noundef 64) #15
   %251 = load i64, ptr %_M_node_count.i.i.i.i.i653, align 8
@@ -47785,25 +47729,18 @@ invoke.cont613:                                   ; preds = %if.end16.i1215, %la
           to label %call.i.i1219.noexc unwind label %lpad219.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1219.noexc:                               ; preds = %invoke.cont613
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1214, ptr noundef nonnull align 8 dereferenceable(41) %call198)
-          to label %.noexc1223 unwind label %lpad219.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1214, ptr noundef nonnull align 8 dereferenceable(41) %call198)
+          to label %delete.notnull.i.i.i1221 unwind label %lpad219.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc1223:                                       ; preds = %call.i.i1219.noexc
-  %isnull.i.i.i1220 = icmp eq ptr %storemerge.i1214, null
-  br i1 %isnull.i.i.i1220, label %invoke.cont617, label %delete.notnull.i.i.i1221
-
-delete.notnull.i.i.i1221:                         ; preds = %.noexc1223
+delete.notnull.i.i.i1221:                         ; preds = %call.i.i1219.noexc
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1214) #15, !noalias !1545
-  br label %invoke.cont617
-
-invoke.cont617:                                   ; preds = %delete.notnull.i.i.i1221, %.noexc1223
   %277 = load ptr, ptr %_M_parent.i.i.i.i.i650, align 8
   %cmp.not5.i.i.i1227 = icmp eq ptr %277, null
   br i1 %cmp.not5.i.i.i1227, label %invoke.cont625, label %while.body.i.i.i1229
 
-while.body.i.i.i1229:                             ; preds = %invoke.cont617, %while.body.i.i.i1229
-  %__x.addr.07.i.i.i1230 = phi ptr [ %__x.addr.1.i.i.i1237, %while.body.i.i.i1229 ], [ %277, %invoke.cont617 ]
-  %__y.addr.06.i.i.i1231 = phi ptr [ %__y.addr.1.i.i.i1234, %while.body.i.i.i1229 ], [ %196, %invoke.cont617 ]
+while.body.i.i.i1229:                             ; preds = %delete.notnull.i.i.i1221, %while.body.i.i.i1229
+  %__x.addr.07.i.i.i1230 = phi ptr [ %__x.addr.1.i.i.i1237, %while.body.i.i.i1229 ], [ %277, %delete.notnull.i.i.i1221 ]
+  %__y.addr.06.i.i.i1231 = phi ptr [ %__y.addr.1.i.i.i1234, %while.body.i.i.i1229 ], [ %196, %delete.notnull.i.i.i1221 ]
   %_M_storage.i.i.i.i.i1232 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i1230, i64 64
   %278 = load i32, ptr %_M_storage.i.i.i.i.i1232, align 64
   %cmp.i.i.i.i.i1233 = icmp slt i32 %278, 60
@@ -47825,8 +47762,8 @@ lor.lhs.false.i.i1241:                            ; preds = %_ZNSt8_Rb_treeI7Ali
   %spec.select.i.i1244 = select i1 %cmp.i.i.i.i1243, ptr %196, ptr %__y.addr.1.i.i.i1234
   br label %invoke.cont625
 
-invoke.cont625:                                   ; preds = %invoke.cont617, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1239, %lor.lhs.false.i.i1241
-  %retval.sroa.0.0.i.i1245 = phi ptr [ %196, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1239 ], [ %196, %invoke.cont617 ], [ %spec.select.i.i1244, %lor.lhs.false.i.i1241 ]
+invoke.cont625:                                   ; preds = %delete.notnull.i.i.i1221, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1239, %lor.lhs.false.i.i1241
+  %retval.sroa.0.0.i.i1245 = phi ptr [ %196, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1239 ], [ %196, %delete.notnull.i.i.i1221 ], [ %spec.select.i.i1244, %lor.lhs.false.i.i1241 ]
   %call.i1.i.i1249 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i1245, ptr noundef nonnull align 8 dereferenceable(32) %196) #17
   call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %call.i1.i.i1249, i64 noundef 64) #15
   %280 = load i64, ptr %_M_node_count.i.i.i.i.i653, align 8
@@ -51099,25 +51036,18 @@ invoke.cont409:                                   ; preds = %if.end16.i876, %lan
           to label %call.i.i879.noexc unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i879.noexc:                                ; preds = %invoke.cont409
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i875, ptr noundef nonnull align 8 dereferenceable(41) %call192)
-          to label %.noexc881 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i875, ptr noundef nonnull align 8 dereferenceable(41) %call192)
+          to label %delete.notnull.i.i.i unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc881:                                        ; preds = %call.i.i879.noexc
-  %isnull.i.i.i = icmp eq ptr %storemerge.i875, null
-  br i1 %isnull.i.i.i, label %invoke.cont413, label %delete.notnull.i.i.i
-
-delete.notnull.i.i.i:                             ; preds = %.noexc881
+delete.notnull.i.i.i:                             ; preds = %call.i.i879.noexc
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i875) #15, !noalias !1637
-  br label %invoke.cont413
-
-invoke.cont413:                                   ; preds = %delete.notnull.i.i.i, %.noexc881
   %238 = load ptr, ptr %_M_parent.i.i.i.i.i600, align 8
   %cmp.not5.i.i.i884 = icmp eq ptr %238, null
   br i1 %cmp.not5.i.i.i884, label %invoke.cont417, label %while.body.i.i.i886
 
-while.body.i.i.i886:                              ; preds = %invoke.cont413, %while.body.i.i.i886
-  %__x.addr.07.i.i.i887 = phi ptr [ %__x.addr.1.i.i.i894, %while.body.i.i.i886 ], [ %238, %invoke.cont413 ]
-  %__y.addr.06.i.i.i888 = phi ptr [ %__y.addr.1.i.i.i891, %while.body.i.i.i886 ], [ %192, %invoke.cont413 ]
+while.body.i.i.i886:                              ; preds = %delete.notnull.i.i.i, %while.body.i.i.i886
+  %__x.addr.07.i.i.i887 = phi ptr [ %__x.addr.1.i.i.i894, %while.body.i.i.i886 ], [ %238, %delete.notnull.i.i.i ]
+  %__y.addr.06.i.i.i888 = phi ptr [ %__y.addr.1.i.i.i891, %while.body.i.i.i886 ], [ %192, %delete.notnull.i.i.i ]
   %_M_storage.i.i.i.i.i889 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i887, i64 64
   %239 = load i32, ptr %_M_storage.i.i.i.i.i889, align 64
   %cmp.i.i.i.i.i890 = icmp slt i32 %239, 1
@@ -51139,8 +51069,8 @@ lor.lhs.false.i.i898:                             ; preds = %_ZNSt8_Rb_treeI7Ali
   %spec.select.i.i901 = select i1 %cmp.i.i.i.i900, ptr %192, ptr %__y.addr.1.i.i.i891
   br label %invoke.cont417
 
-invoke.cont417:                                   ; preds = %lor.lhs.false.i.i898, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i896, %invoke.cont413
-  %retval.sroa.0.0.i.i902 = phi ptr [ %192, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i896 ], [ %192, %invoke.cont413 ], [ %spec.select.i.i901, %lor.lhs.false.i.i898 ]
+invoke.cont417:                                   ; preds = %lor.lhs.false.i.i898, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i896, %delete.notnull.i.i.i
+  %retval.sroa.0.0.i.i902 = phi ptr [ %192, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i896 ], [ %192, %delete.notnull.i.i.i ], [ %spec.select.i.i901, %lor.lhs.false.i.i898 ]
   %call.i1.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i902, ptr noundef nonnull align 8 dereferenceable(32) %192) #17
   call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %call.i1.i.i, i64 noundef 64) #15
   %241 = load i64, ptr %_M_node_count.i.i.i.i.i603, align 8
@@ -51328,25 +51258,18 @@ invoke.cont486:                                   ; preds = %if.end16.i997, %lan
           to label %call.i.i1001.noexc unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1001.noexc:                               ; preds = %invoke.cont486
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i996, ptr noundef nonnull align 8 dereferenceable(41) %call192)
-          to label %.noexc1005 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i996, ptr noundef nonnull align 8 dereferenceable(41) %call192)
+          to label %delete.notnull.i.i.i1003 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc1005:                                       ; preds = %call.i.i1001.noexc
-  %isnull.i.i.i1002 = icmp eq ptr %storemerge.i996, null
-  br i1 %isnull.i.i.i1002, label %invoke.cont490, label %delete.notnull.i.i.i1003
-
-delete.notnull.i.i.i1003:                         ; preds = %.noexc1005
+delete.notnull.i.i.i1003:                         ; preds = %call.i.i1001.noexc
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i996) #15, !noalias !1646
-  br label %invoke.cont490
-
-invoke.cont490:                                   ; preds = %delete.notnull.i.i.i1003, %.noexc1005
   %261 = load ptr, ptr %_M_parent.i.i.i.i.i600, align 8
   %cmp.not5.i.i.i1009 = icmp eq ptr %261, null
   br i1 %cmp.not5.i.i.i1009, label %invoke.cont494, label %while.body.i.i.i1011
 
-while.body.i.i.i1011:                             ; preds = %invoke.cont490, %while.body.i.i.i1011
-  %__x.addr.07.i.i.i1012 = phi ptr [ %__x.addr.1.i.i.i1019, %while.body.i.i.i1011 ], [ %261, %invoke.cont490 ]
-  %__y.addr.06.i.i.i1013 = phi ptr [ %__y.addr.1.i.i.i1016, %while.body.i.i.i1011 ], [ %192, %invoke.cont490 ]
+while.body.i.i.i1011:                             ; preds = %delete.notnull.i.i.i1003, %while.body.i.i.i1011
+  %__x.addr.07.i.i.i1012 = phi ptr [ %__x.addr.1.i.i.i1019, %while.body.i.i.i1011 ], [ %261, %delete.notnull.i.i.i1003 ]
+  %__y.addr.06.i.i.i1013 = phi ptr [ %__y.addr.1.i.i.i1016, %while.body.i.i.i1011 ], [ %192, %delete.notnull.i.i.i1003 ]
   %_M_storage.i.i.i.i.i1014 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i1012, i64 64
   %262 = load i32, ptr %_M_storage.i.i.i.i.i1014, align 64
   %cmp.i.i.i.i.i1015 = icmp slt i32 %262, 5
@@ -51368,8 +51291,8 @@ lor.lhs.false.i.i1023:                            ; preds = %_ZNSt8_Rb_treeI7Ali
   %spec.select.i.i1026 = select i1 %cmp.i.i.i.i1025, ptr %192, ptr %__y.addr.1.i.i.i1016
   br label %invoke.cont494
 
-invoke.cont494:                                   ; preds = %lor.lhs.false.i.i1023, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1021, %invoke.cont490
-  %retval.sroa.0.0.i.i1027 = phi ptr [ %192, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1021 ], [ %192, %invoke.cont490 ], [ %spec.select.i.i1026, %lor.lhs.false.i.i1023 ]
+invoke.cont494:                                   ; preds = %lor.lhs.false.i.i1023, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1021, %delete.notnull.i.i.i1003
+  %retval.sroa.0.0.i.i1027 = phi ptr [ %192, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1021 ], [ %192, %delete.notnull.i.i.i1003 ], [ %spec.select.i.i1026, %lor.lhs.false.i.i1023 ]
   %call.i1.i.i1031 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i1027, ptr noundef nonnull align 8 dereferenceable(32) %192) #17
   call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %call.i1.i.i1031, i64 noundef 64) #15
   %264 = load i64, ptr %_M_node_count.i.i.i.i.i603, align 8
@@ -51718,25 +51641,18 @@ invoke.cont598:                                   ; preds = %if.end16.i1196, %la
           to label %call.i.i1200.noexc unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1200.noexc:                               ; preds = %invoke.cont598
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1195, ptr noundef nonnull align 8 dereferenceable(41) %call192)
-          to label %.noexc1204 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1195, ptr noundef nonnull align 8 dereferenceable(41) %call192)
+          to label %delete.notnull.i.i.i1202 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc1204:                                       ; preds = %call.i.i1200.noexc
-  %isnull.i.i.i1201 = icmp eq ptr %storemerge.i1195, null
-  br i1 %isnull.i.i.i1201, label %invoke.cont602, label %delete.notnull.i.i.i1202
-
-delete.notnull.i.i.i1202:                         ; preds = %.noexc1204
+delete.notnull.i.i.i1202:                         ; preds = %call.i.i1200.noexc
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1195) #15, !noalias !1665
-  br label %invoke.cont602
-
-invoke.cont602:                                   ; preds = %delete.notnull.i.i.i1202, %.noexc1204
   %296 = load ptr, ptr %_M_parent.i.i.i.i.i600, align 8
   %cmp.not5.i.i.i1208 = icmp eq ptr %296, null
   br i1 %cmp.not5.i.i.i1208, label %invoke.cont606, label %while.body.i.i.i1210
 
-while.body.i.i.i1210:                             ; preds = %invoke.cont602, %while.body.i.i.i1210
-  %__x.addr.07.i.i.i1211 = phi ptr [ %__x.addr.1.i.i.i1218, %while.body.i.i.i1210 ], [ %296, %invoke.cont602 ]
-  %__y.addr.06.i.i.i1212 = phi ptr [ %__y.addr.1.i.i.i1215, %while.body.i.i.i1210 ], [ %192, %invoke.cont602 ]
+while.body.i.i.i1210:                             ; preds = %delete.notnull.i.i.i1202, %while.body.i.i.i1210
+  %__x.addr.07.i.i.i1211 = phi ptr [ %__x.addr.1.i.i.i1218, %while.body.i.i.i1210 ], [ %296, %delete.notnull.i.i.i1202 ]
+  %__y.addr.06.i.i.i1212 = phi ptr [ %__y.addr.1.i.i.i1215, %while.body.i.i.i1210 ], [ %192, %delete.notnull.i.i.i1202 ]
   %_M_storage.i.i.i.i.i1213 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i1211, i64 64
   %297 = load i32, ptr %_M_storage.i.i.i.i.i1213, align 64
   %cmp.i.i.i.i.i1214 = icmp slt i32 %297, 60
@@ -51758,8 +51674,8 @@ lor.lhs.false.i.i1222:                            ; preds = %_ZNSt8_Rb_treeI7Ali
   %spec.select.i.i1225 = select i1 %cmp.i.i.i.i1224, ptr %192, ptr %__y.addr.1.i.i.i1215
   br label %invoke.cont606
 
-invoke.cont606:                                   ; preds = %lor.lhs.false.i.i1222, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1220, %invoke.cont602
-  %retval.sroa.0.0.i.i1226 = phi ptr [ %192, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1220 ], [ %192, %invoke.cont602 ], [ %spec.select.i.i1225, %lor.lhs.false.i.i1222 ]
+invoke.cont606:                                   ; preds = %lor.lhs.false.i.i1222, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1220, %delete.notnull.i.i.i1202
+  %retval.sroa.0.0.i.i1226 = phi ptr [ %192, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1220 ], [ %192, %delete.notnull.i.i.i1202 ], [ %spec.select.i.i1225, %lor.lhs.false.i.i1222 ]
   %call.i1.i.i1230 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i1226, ptr noundef nonnull align 8 dereferenceable(32) %192) #17
   call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %call.i1.i.i1230, i64 noundef 64) #15
   %299 = load i64, ptr %_M_node_count.i.i.i.i.i603, align 8
@@ -65806,7 +65722,7 @@ _ZN10TestObjectD2Ev.exit221:                      ; preds = %invoke.cont112
   %70 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i220 = add nsw i64 %70, 1
   store i64 %inc3.i220, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.239") align 8 %ref.tmp122, ptr noundef nonnull align 8 dereferenceable(41) %toMap, ptr %call.i.i.i.i.i.i3057, ptr noundef nonnull align 8 dereferenceable(32) %value51)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.239") align 8 %ref.tmp122, ptr noundef nonnull align 8 dereferenceable(41) %toMap, ptr nonnull %call.i.i.i.i.i.i3057, ptr noundef nonnull align 8 dereferenceable(32) %value51)
           to label %invoke.cont126 unwind label %lpad123.loopexit.split-lp
 
 invoke.cont126:                                   ; preds = %_ZN10TestObjectD2Ev.exit221
@@ -67092,7 +67008,7 @@ _ZN10TestObjectD2Ev.exit829:                      ; preds = %invoke.cont381
   %209 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i828 = add nsw i64 %209, 1
   store i64 %inc3.i828, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.239") align 8 %ref.tmp391, ptr noundef nonnull align 8 dereferenceable(41) %toMap, ptr %call.i.i.i.i.i.i3242, ptr noundef nonnull align 8 dereferenceable(32) %value91)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.239") align 8 %ref.tmp391, ptr noundef nonnull align 8 dereferenceable(41) %toMap, ptr nonnull %call.i.i.i.i.i.i3242, ptr noundef nonnull align 8 dereferenceable(32) %value91)
           to label %invoke.cont397 unwind label %lpad393.loopexit.split-lp
 
 invoke.cont397:                                   ; preds = %_ZN10TestObjectD2Ev.exit829
@@ -74049,7 +73965,7 @@ while.end:                                        ; preds = %_ZN5eastl6rbtreeIiN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef %pNodeSource, ptr noundef %pNodeDest) local_unnamed_addr #1 comdat align 2 {
@@ -79485,7 +79401,7 @@ _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9u
 declare noundef i32 @_ZN2EA8UnitTest11GetRandSeedEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
@@ -90641,10 +90557,10 @@ return:                                           ; preds = %_ZN5eastl6rbtreeIiN
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

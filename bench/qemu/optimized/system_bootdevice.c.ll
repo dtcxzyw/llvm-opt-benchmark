@@ -117,7 +117,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @validate_bootdevices(ptr nocapture noundef readonly %devices, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local void @validate_bootdevices(ptr noundef readonly captures(none) %devices, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %devices, align 1
   %cmp.not13 = icmp eq i8 %0, 0
@@ -554,7 +554,7 @@ if.end3:                                          ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @get_boot_devices_list(ptr nocapture noundef writeonly %size) local_unnamed_addr #1 {
+define dso_local ptr @get_boot_devices_list(ptr noundef writeonly captures(none) %size) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @qdev_get_machine() #11
   %call.i = tail call ptr @object_get_class(ptr noundef %call) #11
@@ -590,8 +590,8 @@ if.end:                                           ; preds = %if.then, %for.body
   %add7 = add i64 %add, %total.028
   %call8 = tail call ptr @g_realloc(ptr noundef %list.027, i64 noundef %add7) #11
   %arrayidx9 = getelementptr i8, ptr %call8, i64 %total.028
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx9, ptr align 1 %call4, i64 %add, i1 false)
-  tail call void @g_free(ptr noundef %call4) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx9, ptr nonnull align 1 %call4, i64 %add, i1 false)
+  tail call void @g_free(ptr noundef nonnull %call4) #11
   %i.0 = load ptr, ptr %i.029, align 8
   %tobool2.not = icmp eq ptr %i.0, null
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !11
@@ -687,12 +687,12 @@ if.end21:                                         ; preds = %if.end21.sink.split
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @device_add_bootindex_property(ptr noundef %obj, ptr noundef %bootindex, ptr noundef %name, ptr noundef %suffix, ptr noundef %dev) local_unnamed_addr #1 {
@@ -714,7 +714,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #9
 declare ptr @object_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @device_get_bootindex(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #1 {
+define internal void @device_get_bootindex(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #1 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef %name, ptr noundef %0, ptr noundef %errp) #11
@@ -722,7 +722,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @device_set_bootindex(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #1 {
+define internal void @device_set_bootindex(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #1 {
 entry:
   %boot_index = alloca i32, align 4
   %local_err = alloca ptr, align 8
@@ -775,7 +775,7 @@ return:                                           ; preds = %entry, %if.end2, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_release_bootindex(ptr nocapture readnone %obj, ptr nocapture readnone %name, ptr noundef %opaque) #1 {
+define internal void @property_release_bootindex(ptr readnone captures(none) %obj, ptr readnone captures(none) %name, ptr noundef %opaque) #1 {
 entry:
   %dev = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %dev, align 8
@@ -979,7 +979,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @get_boot_devices_lchs_list(ptr nocapture noundef writeonly %size) local_unnamed_addr #1 {
+define dso_local ptr @get_boot_devices_lchs_list(ptr noundef writeonly captures(none) %size) local_unnamed_addr #1 {
 entry:
   %i.020 = load ptr, ptr @fw_lchs, align 8
   %tobool.not21 = icmp eq ptr %i.020, null
@@ -1016,8 +1016,8 @@ if.end:                                           ; preds = %if.then, %for.body
   %add4 = add i64 %add, %total.023
   %call5 = tail call ptr @g_realloc(ptr noundef %list.022, i64 noundef %add4) #11
   %arrayidx6 = getelementptr i8, ptr %call5, i64 %total.023
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx6, ptr align 1 %call1, i64 %add, i1 false)
-  tail call void @g_free(ptr noundef %call1) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx6, ptr nonnull align 1 %call1, i64 %add, i1 false)
+  tail call void @g_free(ptr noundef nonnull %call1) #11
   tail call void @g_free(ptr noundef %call) #11
   %i.0 = load ptr, ptr %i.024, align 8
   %tobool.not = icmp eq ptr %i.0, null
@@ -1043,7 +1043,7 @@ declare ptr @qdev_get_own_fw_dev_path_from_handler(ptr noundef, ptr noundef) loc
 declare zeroext i1 @visit_type_int32(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

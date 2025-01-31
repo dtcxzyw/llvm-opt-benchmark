@@ -33,7 +33,7 @@ entry:
 declare hidden void @luaX_syntaxerror(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @luaK_exp2const(ptr nocapture noundef readonly %fs, ptr nocapture noundef readonly %e, ptr noundef writeonly %v) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @luaK_exp2const(ptr noundef readonly captures(none) %fs, ptr noundef readonly captures(none) %e, ptr noundef writeonly %v) local_unnamed_addr #2 {
 entry:
   %t = getelementptr inbounds nuw i8, ptr %e, i64 16
   %0 = load i32, ptr %t, align 8
@@ -112,10 +112,10 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_nil(ptr nocapture noundef %fs, i32 noundef %from, i32 noundef %n) local_unnamed_addr #4 {
+define hidden void @luaK_nil(ptr noundef captures(none) %fs, i32 noundef %from, i32 noundef %n) local_unnamed_addr #4 {
 entry:
   %add = add nsw i32 %n, %from
   %sub = add i32 %add, 255
@@ -189,7 +189,7 @@ return:                                           ; preds = %if.end27, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codeABCk(ptr nocapture noundef %fs, i32 noundef %o, i32 noundef %a, i32 noundef %b, i32 noundef %c, i32 noundef %k) local_unnamed_addr #4 {
+define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codeABCk(ptr noundef captures(none) %fs, i32 noundef %o, i32 noundef %a, i32 noundef %b, i32 noundef %c, i32 noundef %k) local_unnamed_addr #4 {
 entry:
   %shl1 = shl i32 %a, 7
   %or = or i32 %shl1, %o
@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_concat(ptr nocapture noundef readonly %fs, ptr nocapture noundef %l1, i32 noundef %l2) local_unnamed_addr #4 {
+define hidden void @luaK_concat(ptr noundef readonly captures(none) %fs, ptr noundef captures(none) %l1, i32 noundef %l2) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq i32 %l2, -1
   br i1 %cmp, label %if.end5, label %if.else
@@ -265,14 +265,14 @@ if.end5:                                          ; preds = %if.then2, %fixjump.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147483647) i32 @luaK_jump(ptr nocapture noundef %fs) local_unnamed_addr #4 {
+define hidden range(i32 -2147483648, 2147483647) i32 @luaK_jump(ptr noundef captures(none) %fs) local_unnamed_addr #4 {
 entry:
   %call.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_ret(ptr nocapture noundef %fs, i32 noundef %first, i32 noundef %nret) local_unnamed_addr #4 {
+define hidden void @luaK_ret(ptr noundef captures(none) %fs, i32 noundef %first, i32 noundef %nret) local_unnamed_addr #4 {
 entry:
   %switch.selectcmp = icmp eq i32 %nret, 1
   %switch.select = select i1 %switch.selectcmp, i32 72, i32 70
@@ -288,7 +288,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @luaK_getlabel(ptr nocapture noundef initializes((36, 40)) %fs) local_unnamed_addr #5 {
+define hidden i32 @luaK_getlabel(ptr noundef captures(none) initializes((36, 40)) %fs) local_unnamed_addr #5 {
 entry:
   %pc = getelementptr inbounds nuw i8, ptr %fs, i64 32
   %0 = load i32, ptr %pc, align 8
@@ -298,14 +298,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_patchlist(ptr nocapture noundef readonly %fs, i32 noundef %list, i32 noundef %target) local_unnamed_addr #4 {
+define hidden void @luaK_patchlist(ptr noundef readonly captures(none) %fs, i32 noundef %list, i32 noundef %target) local_unnamed_addr #4 {
 entry:
   tail call fastcc void @patchlistaux(ptr noundef %fs, i32 noundef %list, i32 noundef %target, i32 noundef 255, i32 noundef %target)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @patchlistaux(ptr nocapture noundef readonly %fs, i32 noundef %list, i32 noundef %vtarget, i32 noundef %reg, i32 noundef %dtarget) unnamed_addr #4 {
+define internal fastcc void @patchlistaux(ptr noundef readonly captures(none) %fs, i32 noundef %list, i32 noundef %vtarget, i32 noundef %reg, i32 noundef %dtarget) unnamed_addr #4 {
 entry:
   %invariant.op = add i32 %dtarget, 16777215
   %invariant.op33 = add i32 %vtarget, 16777215
@@ -435,7 +435,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_patchtohere(ptr nocapture noundef initializes((36, 40)) %fs, i32 noundef %list) local_unnamed_addr #4 {
+define hidden void @luaK_patchtohere(ptr noundef captures(none) initializes((36, 40)) %fs, i32 noundef %list) local_unnamed_addr #4 {
 entry:
   %pc.i = getelementptr inbounds nuw i8, ptr %fs, i64 32
   %0 = load i32, ptr %pc.i, align 8
@@ -446,7 +446,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr nocapture noundef %fs, i32 noundef %i) local_unnamed_addr #4 {
+define hidden range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef captures(none) %fs, i32 noundef %i) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %ls = getelementptr inbounds nuw i8, ptr %fs, i64 16
@@ -535,7 +535,7 @@ savelineinfo.exit:                                ; preds = %lor.lhs.false.i, %i
 declare hidden ptr @luaM_growaux_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codeABx(ptr nocapture noundef %fs, i32 noundef %o, i32 noundef %a, i32 noundef %bc) local_unnamed_addr #4 {
+define hidden range(i32 -2147483648, 2147483647) i32 @luaK_codeABx(ptr noundef captures(none) %fs, i32 noundef %o, i32 noundef %a, i32 noundef %bc) local_unnamed_addr #4 {
 entry:
   %shl1 = shl i32 %a, 7
   %or = or i32 %shl1, %o
@@ -546,7 +546,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_checkstack(ptr nocapture noundef readonly %fs, i32 noundef %n) local_unnamed_addr #4 {
+define hidden void @luaK_checkstack(ptr noundef readonly captures(none) %fs, i32 noundef %n) local_unnamed_addr #4 {
 entry:
   %freereg = getelementptr inbounds nuw i8, ptr %fs, i64 68
   %0 = load i8, ptr %freereg, align 4
@@ -579,7 +579,7 @@ if.end9:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_reserveregs(ptr nocapture noundef %fs, i32 noundef %n) local_unnamed_addr #4 {
+define hidden void @luaK_reserveregs(ptr noundef captures(none) %fs, i32 noundef %n) local_unnamed_addr #4 {
 entry:
   %freereg.i = getelementptr inbounds nuw i8, ptr %fs, i64 68
   %0 = load i8, ptr %freereg.i, align 4
@@ -617,7 +617,7 @@ luaK_checkstack.exit:                             ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_int(ptr nocapture noundef %fs, i32 noundef %reg, i64 noundef %i) local_unnamed_addr #4 {
+define hidden void @luaK_int(ptr noundef captures(none) %fs, i32 noundef %reg, i64 noundef %i) local_unnamed_addr #4 {
 entry:
   %o.i = alloca %struct.TValue, align 8
   %0 = add i64 %i, -65537
@@ -665,7 +665,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_setreturns(ptr nocapture noundef %fs, ptr nocapture noundef readonly %e, i32 noundef %nresults) local_unnamed_addr #4 {
+define hidden void @luaK_setreturns(ptr noundef captures(none) %fs, ptr noundef readonly captures(none) %e, i32 noundef %nresults) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %code = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -726,7 +726,7 @@ if.end:                                           ; preds = %entry, %luaK_reserv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaK_setoneret(ptr nocapture noundef readonly %fs, ptr nocapture noundef %e) local_unnamed_addr #7 {
+define hidden void @luaK_setoneret(ptr noundef readonly captures(none) %fs, ptr noundef captures(none) %e) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %e, align 8
   switch i32 %0, label %if.end18 [
@@ -769,7 +769,7 @@ if.end18:                                         ; preds = %entry, %if.then5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_dischargevars(ptr noundef %fs, ptr nocapture noundef %e) local_unnamed_addr #4 {
+define hidden void @luaK_dischargevars(ptr noundef %fs, ptr noundef captures(none) %e) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %e, align 8
   switch i32 %0, label %sw.epilog [
@@ -1030,7 +1030,7 @@ sw.epilog:                                        ; preds = %entry, %if.then5.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_exp2nextreg(ptr noundef %fs, ptr nocapture noundef %e) local_unnamed_addr #4 {
+define hidden void @luaK_exp2nextreg(ptr noundef %fs, ptr noundef captures(none) %e) local_unnamed_addr #4 {
 entry:
   tail call void @luaK_dischargevars(ptr noundef %fs, ptr noundef %e)
   %0 = load i32, ptr %e, align 8
@@ -1087,7 +1087,7 @@ luaK_reserveregs.exit:                            ; preds = %freeexp.exit, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exp2reg(ptr noundef %fs, ptr nocapture noundef %e, i32 noundef %reg) unnamed_addr #4 {
+define internal fastcc void @exp2reg(ptr noundef %fs, ptr noundef captures(none) %e, i32 noundef %reg) unnamed_addr #4 {
 entry:
   tail call fastcc void @discharge2reg(ptr noundef %fs, ptr noundef %e, i32 noundef %reg)
   %0 = load i32, ptr %e, align 8
@@ -1308,7 +1308,7 @@ if.end18:                                         ; preds = %if.end14, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaK_exp2anyreg(ptr noundef %fs, ptr nocapture noundef %e) local_unnamed_addr #4 {
+define hidden i32 @luaK_exp2anyreg(ptr noundef %fs, ptr noundef captures(none) %e) local_unnamed_addr #4 {
 entry:
   tail call void @luaK_dischargevars(ptr noundef %fs, ptr noundef %e)
   %0 = load i32, ptr %e, align 8
@@ -1399,7 +1399,7 @@ return:                                           ; preds = %if.then, %luaK_exp2
 declare hidden i32 @luaY_nvarstack(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_exp2anyregup(ptr noundef %fs, ptr nocapture noundef %e) local_unnamed_addr #4 {
+define hidden void @luaK_exp2anyregup(ptr noundef %fs, ptr noundef captures(none) %e) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %e, align 8
   %cmp.not = icmp eq i32 %0, 10
@@ -1422,7 +1422,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_exp2val(ptr noundef %fs, ptr nocapture noundef %e) local_unnamed_addr #4 {
+define hidden void @luaK_exp2val(ptr noundef %fs, ptr noundef captures(none) %e) local_unnamed_addr #4 {
 entry:
   %t = getelementptr inbounds nuw i8, ptr %e, i64 16
   %0 = load i32, ptr %t, align 8
@@ -1444,7 +1444,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_storevar(ptr noundef %fs, ptr nocapture noundef readonly %var, ptr nocapture noundef %ex) local_unnamed_addr #4 {
+define hidden void @luaK_storevar(ptr noundef %fs, ptr noundef readonly captures(none) %var, ptr noundef captures(none) %ex) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %var, align 8
   switch i32 %0, label %sw.epilog [
@@ -1633,7 +1633,7 @@ return:                                           ; preds = %if.then.i.i78, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_self(ptr noundef %fs, ptr nocapture noundef %e, ptr nocapture noundef %key) local_unnamed_addr #4 {
+define hidden void @luaK_self(ptr noundef %fs, ptr noundef captures(none) %e, ptr noundef captures(none) %key) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @luaK_exp2anyreg(ptr noundef %fs, ptr noundef %e)
   %u = getelementptr inbounds nuw i8, ptr %e, i64 8
@@ -1732,7 +1732,7 @@ freeexp.exit24:                                   ; preds = %codeABRK.exit, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_goiftrue(ptr noundef %fs, ptr nocapture noundef %e) local_unnamed_addr #4 {
+define hidden void @luaK_goiftrue(ptr noundef %fs, ptr noundef captures(none) %e) local_unnamed_addr #4 {
 entry:
   tail call void @luaK_dischargevars(ptr noundef %fs, ptr noundef %e)
   %0 = load i32, ptr %e, align 8
@@ -1853,7 +1853,7 @@ luaK_concat.exit:                                 ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147483647) i32 @jumponcond(ptr noundef %fs, ptr nocapture noundef %e, i32 noundef range(i32 0, 2) %cond) unnamed_addr #4 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @jumponcond(ptr noundef %fs, ptr noundef captures(none) %e, i32 noundef range(i32 0, 2) %cond) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %e, align 8
   switch i32 %0, label %entry.if.then.i_crit_edge [
@@ -1988,7 +1988,7 @@ return:                                           ; preds = %freeexp.exit, %remo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_goiffalse(ptr noundef %fs, ptr nocapture noundef %e) local_unnamed_addr #4 {
+define hidden void @luaK_goiffalse(ptr noundef %fs, ptr noundef captures(none) %e) local_unnamed_addr #4 {
 entry:
   tail call void @luaK_dischargevars(ptr noundef %fs, ptr noundef %e)
   %0 = load i32, ptr %e, align 8
@@ -2077,7 +2077,7 @@ luaK_concat.exit:                                 ; preds = %entry, %entry, %sw.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_indexed(ptr noundef %fs, ptr nocapture noundef %t, ptr nocapture noundef %k) local_unnamed_addr #4 {
+define hidden void @luaK_indexed(ptr noundef %fs, ptr noundef captures(none) %t, ptr noundef captures(none) %k) local_unnamed_addr #4 {
 entry:
   %o.i.i = alloca %struct.TValue, align 8
   %0 = load i32, ptr %k, align 8
@@ -2242,7 +2242,7 @@ if.end51:                                         ; preds = %if.then27, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_prefix(ptr noundef %fs, i32 noundef %opr, ptr nocapture noundef %e, i32 noundef %line) local_unnamed_addr #4 {
+define hidden void @luaK_prefix(ptr noundef %fs, i32 noundef %opr, ptr noundef captures(none) %e, i32 noundef %line) local_unnamed_addr #4 {
 entry:
   tail call void @luaK_dischargevars(ptr noundef %fs, ptr noundef %e)
   switch i32 %opr, label %sw.epilog [
@@ -2549,7 +2549,7 @@ sw.epilog:                                        ; preds = %patchtestreg.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @constfolding(ptr nocapture noundef readonly %fs, i32 noundef %op, ptr nocapture noundef %e1, ptr nocapture noundef readonly %e2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @constfolding(ptr noundef readonly captures(none) %fs, i32 noundef %op, ptr noundef captures(none) %e1, ptr noundef readonly captures(none) %e2) unnamed_addr #4 {
 entry:
   %i.i = alloca i64, align 8
   %v1 = alloca %struct.TValue, align 8
@@ -2677,7 +2677,7 @@ return:                                           ; preds = %sw.bb3.i23, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_infix(ptr noundef %fs, i32 noundef %op, ptr nocapture noundef %v) local_unnamed_addr #4 {
+define hidden void @luaK_infix(ptr noundef %fs, i32 noundef %op, ptr noundef captures(none) %v) local_unnamed_addr #4 {
 entry:
   %i.i = alloca i64, align 8
   tail call void @luaK_dischargevars(ptr noundef %fs, ptr noundef %v)
@@ -2857,7 +2857,7 @@ sw.epilog:                                        ; preds = %if.end.i20, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_posfix(ptr noundef %fs, i32 noundef %opr, ptr nocapture noundef %e1, ptr noundef %e2, i32 noundef %line) local_unnamed_addr #4 {
+define hidden void @luaK_posfix(ptr noundef %fs, i32 noundef %opr, ptr noundef captures(none) %e1, ptr noundef %e2, i32 noundef %line) local_unnamed_addr #4 {
 entry:
   %i.i17.i = alloca i64, align 8
   %i.i.i191 = alloca i64, align 8
@@ -3745,7 +3745,7 @@ sw.epilog:                                        ; preds = %codebinNoK.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @finishbinexpneg(ptr noundef %fs, ptr nocapture noundef %e1, ptr nocapture noundef readonly %e2, i32 noundef range(i32 21, 33) %op, i32 noundef %line, i32 noundef range(i32 7, 17) %event) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @finishbinexpneg(ptr noundef %fs, ptr noundef captures(none) %e1, ptr noundef readonly captures(none) %e2, i32 noundef range(i32 21, 33) %op, i32 noundef %line, i32 noundef range(i32 7, 17) %event) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %e2, align 8
   %cmp.i = icmp eq i32 %0, 6
@@ -3795,7 +3795,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @codearith(ptr noundef %fs, i32 noundef %opr, ptr nocapture noundef %e1, ptr nocapture noundef %e2, i32 noundef range(i32 0, 2) %flip, i32 noundef %line) unnamed_addr #4 {
+define internal fastcc void @codearith(ptr noundef %fs, i32 noundef %opr, ptr noundef captures(none) %e1, ptr noundef captures(none) %e2, i32 noundef range(i32 0, 2) %flip, i32 noundef %line) unnamed_addr #4 {
 entry:
   %temp.i.i = alloca %struct.expdesc, align 8
   %t.i = getelementptr inbounds nuw i8, ptr %e2, i64 16
@@ -3848,7 +3848,7 @@ if.end:                                           ; preds = %codebinNoK.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @codebinexpval(ptr noundef %fs, i32 noundef %opr, ptr nocapture noundef %e1, ptr nocapture noundef %e2, i32 noundef %line) unnamed_addr #4 {
+define internal fastcc void @codebinexpval(ptr noundef %fs, i32 noundef %opr, ptr noundef captures(none) %e1, ptr noundef captures(none) %e2, i32 noundef %line) unnamed_addr #4 {
 entry:
   %add.i = add nsw i32 %opr, 34
   %call1 = tail call i32 @luaK_exp2anyreg(ptr noundef %fs, ptr noundef %e2)
@@ -3858,7 +3858,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_fixline(ptr nocapture noundef %fs, i32 noundef %line) local_unnamed_addr #4 {
+define hidden void @luaK_fixline(ptr noundef captures(none) %fs, i32 noundef %line) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %pc2.i = getelementptr inbounds nuw i8, ptr %fs, i64 32
@@ -3958,7 +3958,7 @@ savelineinfo.exit:                                ; preds = %lor.lhs.false.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_settablesize(ptr nocapture noundef readonly %fs, i32 noundef %pc, i32 noundef %ra, i32 noundef %asize, i32 noundef %hsize) local_unnamed_addr #4 {
+define hidden void @luaK_settablesize(ptr noundef readonly captures(none) %fs, i32 noundef %pc, i32 noundef %ra, i32 noundef %asize, i32 noundef %hsize) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %code = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3996,7 +3996,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare hidden i32 @luaO_ceillog2(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_setlist(ptr nocapture noundef %fs, i32 noundef %base, i32 noundef %nelems, i32 noundef %tostore) local_unnamed_addr #4 {
+define hidden void @luaK_setlist(ptr noundef captures(none) %fs, i32 noundef %base, i32 noundef %nelems, i32 noundef %tostore) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq i32 %tostore, -1
   %cmp1 = icmp slt i32 %nelems, 256
@@ -4031,7 +4031,7 @@ if.end5:                                          ; preds = %if.else, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_finish(ptr nocapture noundef readonly %fs) local_unnamed_addr #4 {
+define hidden void @luaK_finish(ptr noundef readonly captures(none) %fs) local_unnamed_addr #4 {
 entry:
   %pc = getelementptr inbounds nuw i8, ptr %fs, i64 32
   %0 = load i32, ptr %pc, align 8
@@ -4167,7 +4167,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @addk(ptr nocapture noundef %fs, ptr noundef nonnull %key, ptr noundef nonnull %v) unnamed_addr #4 {
+define internal fastcc i32 @addk(ptr noundef captures(none) %fs, ptr noundef nonnull %key, ptr noundef nonnull %v) unnamed_addr #4 {
 entry:
   %val = alloca %struct.TValue, align 8
   %ls = getelementptr inbounds nuw i8, ptr %fs, i64 16
@@ -4301,7 +4301,7 @@ declare hidden void @luaH_finishset(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare hidden void @luaC_barrier_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @discharge2reg(ptr noundef %fs, ptr nocapture noundef %e, i32 noundef %reg) unnamed_addr #4 {
+define internal fastcc void @discharge2reg(ptr noundef %fs, ptr noundef captures(none) %e, i32 noundef %reg) unnamed_addr #4 {
 entry:
   %o.i.i40 = alloca %struct.TValue, align 8
   %ik.i.i = alloca i64, align 8
@@ -4571,7 +4571,7 @@ declare hidden i32 @luaO_rawarith(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare hidden i32 @luaV_tointegerns(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @luaK_exp2K(ptr nocapture noundef %fs, ptr nocapture noundef %e) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @luaK_exp2K(ptr noundef captures(none) %fs, ptr noundef captures(none) %e) unnamed_addr #4 {
 entry:
   %o.i26 = alloca %struct.TValue, align 8
   %o.i23 = alloca %struct.TValue, align 8
@@ -4713,7 +4713,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @finishbinexpval(ptr noundef %fs, ptr nocapture noundef %e1, ptr nocapture noundef readonly %e2, i32 noundef range(i32 -2147483626, -2147483648) %op, i32 noundef %v2, i32 noundef range(i32 0, 2) %flip, i32 noundef %line, i32 noundef range(i32 46, 49) %mmop, i32 noundef range(i32 -2147483642, -2147483648) %event) unnamed_addr #4 {
+define internal fastcc void @finishbinexpval(ptr noundef %fs, ptr noundef captures(none) %e1, ptr noundef readonly captures(none) %e2, i32 noundef range(i32 -2147483626, -2147483648) %op, i32 noundef %v2, i32 noundef range(i32 0, 2) %flip, i32 noundef %line, i32 noundef range(i32 46, 49) %mmop, i32 noundef range(i32 -2147483642, -2147483648) %event) unnamed_addr #4 {
 entry:
   %call = tail call i32 @luaK_exp2anyreg(ptr noundef %fs, ptr noundef %e1)
   %shl2.i = shl i32 %call, 16
@@ -4808,10 +4808,10 @@ freeexps.exit:                                    ; preds = %freereg.exit.i.i, %
 declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10

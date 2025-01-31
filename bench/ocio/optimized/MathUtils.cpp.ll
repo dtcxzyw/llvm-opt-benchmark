@@ -677,7 +677,7 @@ _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15VecContainsZeroEPKfi(ptr nocapture noundef readonly %v, i32 noundef %size) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15VecContainsZeroEPKfi(ptr noundef readonly captures(none) %v, i32 noundef %size) local_unnamed_addr #5 {
 entry:
   %cmp4 = icmp sgt i32 %size, 0
   br i1 %cmp4, label %for.body.preheader, label %return
@@ -721,7 +721,7 @@ return:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev14VecContainsOneEPKfi(ptr nocapture noundef readonly %v, i32 noundef %size) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev14VecContainsOneEPKfi(ptr noundef readonly captures(none) %v, i32 noundef %size) local_unnamed_addr #5 {
 entry:
   %cmp4 = icmp sgt i32 %size, 0
   br i1 %cmp4, label %for.body.preheader, label %return
@@ -852,7 +852,7 @@ return:                                           ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev13GetM44InverseEPfPKf(ptr nocapture noundef writeonly %inverse_out, ptr nocapture noundef readonly %m_) local_unnamed_addr #6 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev13GetM44InverseEPfPKf(ptr noundef writeonly captures(none) %inverse_out, ptr noundef readonly captures(none) %m_) local_unnamed_addr #6 {
 entry:
   %m = alloca [16 x double], align 16
   br label %for.body
@@ -1093,7 +1093,7 @@ return:                                           ; preds = %_ZN19OpenColorIO_v2
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16GetM44M44ProductEPfPKfS2_(ptr nocapture noundef writeonly initializes((0, 64)) %mout, ptr nocapture noundef readonly %m1_, ptr nocapture noundef readonly %m2_) local_unnamed_addr #8 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16GetM44M44ProductEPfPKfS2_(ptr noundef writeonly captures(none) initializes((0, 64)) %mout, ptr noundef readonly captures(none) %m1_, ptr noundef readonly captures(none) %m2_) local_unnamed_addr #8 {
 entry:
   %m1.sroa.0.0.copyload = load float, ptr %m1_, align 4
   %m1.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 4
@@ -1256,13 +1256,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev13GetMxbCombineEPfS0_PKfS2_S2_S2_(ptr nocapture noundef writeonly initializes((0, 64)) %mout, ptr nocapture noundef initializes((0, 16)) %vout, ptr nocapture noundef readonly %m1_, ptr nocapture noundef readonly %v1_, ptr nocapture noundef readonly %m2_, ptr nocapture noundef readonly %v2_) local_unnamed_addr #6 {
+define hidden void @_ZN19OpenColorIO_v2_4dev13GetMxbCombineEPfS0_PKfS2_S2_S2_(ptr noundef writeonly captures(none) initializes((0, 64)) %mout, ptr noundef captures(none) initializes((0, 16)) %vout, ptr noundef readonly captures(none) %m1_, ptr noundef readonly captures(none) %v1_, ptr noundef readonly captures(none) %m2_, ptr noundef readonly captures(none) %v2_) local_unnamed_addr #6 {
 entry:
   %v2 = alloca [4 x float], align 16
   %m1.sroa.0.0.copyload = load float, ptr %m1_, align 4
@@ -1472,7 +1472,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18GetV4SumEPfPKfS3_.exit: ; preds = %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev13GetMxbInverseEPfS0_PKfS2_(ptr nocapture noundef %mout, ptr nocapture noundef writeonly %vout, ptr nocapture noundef readonly %m_, ptr nocapture noundef readonly %v_) local_unnamed_addr #6 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev13GetMxbInverseEPfS0_PKfS2_(ptr noundef captures(none) %mout, ptr noundef writeonly captures(none) %vout, ptr noundef readonly captures(none) %m_, ptr noundef readonly captures(none) %v_) local_unnamed_addr #6 {
 entry:
   %m = alloca [16 x float], align 16
   %v = alloca [4 x float], align 16

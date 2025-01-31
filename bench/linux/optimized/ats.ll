@@ -45,7 +45,7 @@ define dso_local void @pci_ats_init(ptr noundef %0) local_unnamed_addr #0 align 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @pci_ats_disabled() local_unnamed_addr #2
@@ -54,10 +54,10 @@ declare dso_local zeroext i1 @pci_ats_disabled() local_unnamed_addr #2
 declare dso_local zeroext i16 @pci_find_ext_capability(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @pci_ats_supported(ptr nocapture noundef readonly %0) #3 align 16 {
+define dso_local zeroext i1 @pci_ats_supported(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2016
   %3 = load i16, ptr %2, align 8
   %4 = icmp eq i16 %3, 0
@@ -495,7 +495,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_reset_pri(ptr noundef %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 2) i32 @pci_prg_resp_pasid_required(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 2) i32 @pci_prg_resp_pasid_required(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2028
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 1
@@ -504,7 +504,7 @@ define dso_local range(i32 0, 2) i32 @pci_prg_resp_pasid_required(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @pci_pri_supported(ptr nocapture noundef readonly %0) #3 align 16 {
+define dso_local zeroext i1 @pci_pri_supported(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2020
   %3 = load i16, ptr %2, align 4
   %4 = icmp ne i16 %3, 0

@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [16 x i8] c"numElements=%d\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z10init_blockP7t_block(ptr nocapture noundef writeonly initializes((0, 4), (8, 20)) %0) local_unnamed_addr #0 {
+define void @_Z10init_blockP7t_block(ptr noundef writeonly captures(none) initializes((0, 4), (8, 20)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %2, align 8
@@ -43,7 +43,7 @@ define void @_Z10init_blockP7t_block(ptr nocapture noundef writeonly initializes
 declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11init_blockaP8t_blocka(ptr nocapture noundef writeonly initializes((0, 4), (8, 20), (24, 40)) %0) local_unnamed_addr #0 {
+define void @_Z11init_blockaP8t_blocka(ptr noundef writeonly captures(none) initializes((0, 4), (8, 20), (24, 40)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
@@ -61,7 +61,7 @@ define void @_Z11init_blockaP8t_blocka(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z10done_blockP7t_block(ptr nocapture noundef initializes((0, 4), (16, 20)) %0) local_unnamed_addr #0 {
+define void @_Z10done_blockP7t_block(ptr noundef captures(none) initializes((0, 4), (16, 20)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -75,7 +75,7 @@ define void @_Z10done_blockP7t_block(ptr nocapture noundef initializes((0, 4), (
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11done_blockaP8t_blocka(ptr nocapture noundef initializes((0, 4), (16, 20), (32, 40)) %0) local_unnamed_addr #0 {
+define void @_Z11done_blockaP8t_blocka(ptr noundef captures(none) initializes((0, 4), (16, 20), (32, 40)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
@@ -91,7 +91,7 @@ define void @_Z11done_blockaP8t_blocka(ptr nocapture noundef initializes((0, 4),
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17stupid_fill_blockP7t_blockib(ptr nocapture noundef initializes((16, 20)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define void @_Z17stupid_fill_blockP7t_blockib(ptr noundef captures(none) initializes((16, 20)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   br i1 %2, label %4, label %11
 
 4:                                                ; preds = %3
@@ -238,7 +238,7 @@ _ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit: ; preds = %7, %9
 declare noundef zeroext i1 @_Z9availableP8_IO_FILEPKviPKc(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -454,13 +454,13 @@ _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #5

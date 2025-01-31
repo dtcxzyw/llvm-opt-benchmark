@@ -452,7 +452,7 @@ declare ptr @H5SL_search(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @H5SL_create(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__efc_remove_ent(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__efc_remove_ent(ptr noundef captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @H5SL_remove(ptr noundef %3, ptr noundef %4) #4
@@ -559,7 +559,7 @@ declare i32 @H5F_try_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F_efc_close(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F_efc_close(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -629,14 +629,14 @@ define range(i32 -1, 1) i32 @H5F_efc_close(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @H5F__efc_max_nfiles(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @H5F__efc_max_nfiles(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F__efc_release(ptr nocapture noundef initializes((36, 40)) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F__efc_release(ptr noundef captures(none) initializes((36, 40)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 -2, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -786,7 +786,7 @@ define range(i32 -1, 1) i32 @H5F__efc_destroy(ptr noundef %0) local_unnamed_addr
 declare i32 @H5SL_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F__efc_try_close(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F__efc_try_close(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1047,7 +1047,7 @@ H5F__efc_release_real.exit66:                     ; preds = %115, %100
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5F__efc_try_close_tag1(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 {
+define internal fastcc void @H5F__efc_try_close_tag1(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1130,7 +1130,7 @@ define internal fastcc void @H5F__efc_try_close_tag1(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5F__efc_try_close_tag2(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 {
+define internal fastcc void @H5F__efc_try_close_tag2(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -874,7 +874,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Loc
 @_ZTVN6duckdb9ExceptionE = external unnamed_addr constant { [6 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb6Equals9OperationIfEEbRKT_S4_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %left, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %right) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb6Equals9OperationIfEEbRKT_S4_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %left, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %right) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load float, ptr %left, align 4, !tbaa !3
   %1 = load float, ptr %right, align 4, !tbaa !3
@@ -895,7 +895,7 @@ _ZN6duckdb11EqualsFloatIfEEbT_S1_.exit:           ; preds = %if.end.i, %land.rhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb6Equals9OperationIdEEbRKT_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %right) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb6Equals9OperationIdEEbRKT_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %left, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %right) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load double, ptr %left, align 8, !tbaa !8
   %1 = load double, ptr %right, align 8, !tbaa !8
@@ -916,7 +916,7 @@ _ZN6duckdb11EqualsFloatIdEEbT_S1_.exit:           ; preds = %if.end.i, %land.rhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb11GreaterThan9OperationIfEEbRKT_S4_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %left, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %right) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb11GreaterThan9OperationIfEEbRKT_S4_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %left, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %right) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load float, ptr %left, align 4, !tbaa !3
   %1 = load float, ptr %right, align 4, !tbaa !3
@@ -935,7 +935,7 @@ _ZN6duckdb16GreaterThanFloatIfEEbT_S1_.exit:      ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb11GreaterThan9OperationIdEEbRKT_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %right) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb11GreaterThan9OperationIdEEbRKT_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %left, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %right) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load double, ptr %left, align 8, !tbaa !8
   %1 = load double, ptr %right, align 8, !tbaa !8
@@ -954,7 +954,7 @@ _ZN6duckdb16GreaterThanFloatIdEEbT_S1_.exit:      ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb17GreaterThanEquals9OperationIfEEbRKT_S4_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %left, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %right) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb17GreaterThanEquals9OperationIfEEbRKT_S4_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %left, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %right) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load float, ptr %left, align 4, !tbaa !3
   %1 = load float, ptr %right, align 4, !tbaa !3
@@ -973,7 +973,7 @@ _ZN6duckdb22GreaterThanEqualsFloatIfEEbT_S1_.exit: ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb17GreaterThanEquals9OperationIdEEbRKT_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %right) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb17GreaterThanEquals9OperationIdEEbRKT_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %left, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %right) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load double, ptr %left, align 8, !tbaa !8
   %1 = load double, ptr %right, align 8, !tbaa !8
@@ -4686,10 +4686,10 @@ declare noundef zeroext i1 @_ZN6duckdb5Value5IsNanIfEEbT_(float noundef) local_u
 declare noundef zeroext i1 @_ZN6duckdb5Value5IsNanIdEEbT_(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -6414,7 +6414,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
@@ -6426,7 +6426,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZN6duckdb12ValidityMask7CombineERKS0_m(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
@@ -26403,7 +26403,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_8string_tES2_bNS_35BinarySingleArgumentOperatorWrapperENS_6EqualsEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_(ptr noalias noundef %ldata, ptr noalias noundef %rdata, ptr noalias noundef %result_data, i64 noundef %count, ptr noundef nonnull align 8 dereferenceable(32) %mask, i1 noundef zeroext %fun) local_unnamed_addr #0 comdat align 2 {
@@ -94289,7 +94289,7 @@ declare void @llvm.assume(i1 noundef) #12
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #13

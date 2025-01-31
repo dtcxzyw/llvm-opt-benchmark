@@ -135,7 +135,7 @@ declare void @guest_free(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qvirtio_pci_device_enable(ptr nocapture noundef initializes((80, 89)) %d) local_unnamed_addr #0 {
+define dso_local void @qvirtio_pci_device_enable(ptr noundef captures(none) initializes((80, 89)) %d) local_unnamed_addr #0 {
 entry:
   %pdev = getelementptr inbounds nuw i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev, align 8
@@ -158,7 +158,7 @@ declare void @qpci_device_enable(ptr noundef) local_unnamed_addr #2
 declare { i64, i8 } @qpci_iomap(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qvirtio_pci_device_disable(ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
+define dso_local void @qvirtio_pci_device_disable(ptr noundef readonly captures(none) %d) local_unnamed_addr #0 {
 entry:
   %pdev = getelementptr inbounds nuw i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev, align 8
@@ -173,7 +173,7 @@ entry:
 declare void @qpci_iounmap(ptr noundef, i64, i8) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qvirtqueue_pci_msix_setup(ptr noundef %d, ptr nocapture noundef %vqpci, ptr noundef %alloc, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
+define dso_local void @qvirtqueue_pci_msix_setup(ptr noundef %d, ptr noundef captures(none) %vqpci, ptr noundef %alloc, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
 entry:
   %pdev = getelementptr inbounds nuw i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev, align 8
@@ -352,7 +352,7 @@ do.end26:                                         ; preds = %if.else22, %do.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qvirtio_pci_destructor(ptr nocapture noundef readonly %obj) #0 {
+define dso_local void @qvirtio_pci_destructor(ptr noundef readonly captures(none) %obj) #0 {
 entry:
   %pdev.i = getelementptr inbounds nuw i8, ptr %obj, i64 72
   %0 = load ptr, ptr %pdev.i, align 8
@@ -390,7 +390,7 @@ entry:
 declare void @qvirtio_start_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_pci_init(ptr noundef initializes((72, 80), (104, 106)) %dev, ptr noundef %bus, ptr nocapture noundef readonly %addr) local_unnamed_addr #0 {
+define dso_local void @virtio_pci_init(ptr noundef initializes((72, 80), (104, 106)) %dev, ptr noundef %bus, ptr noundef readonly captures(none) %addr) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %addr, align 4
   %call = tail call ptr @qpci_device_find(ptr noundef %bus, i32 noundef %0) #7
@@ -450,7 +450,7 @@ declare ptr @qpci_device_find(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @virtio_pci_new(ptr noundef %bus, ptr nocapture noundef readonly %addr) local_unnamed_addr #0 {
+define dso_local noundef ptr @virtio_pci_new(ptr noundef %bus, ptr noundef readonly captures(none) %addr) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %addr, align 4
   %call = tail call ptr @qpci_device_find(ptr noundef %bus, i32 noundef %0) #7
@@ -512,7 +512,7 @@ declare zeroext i16 @qpci_config_readw(ptr noundef, i8 noundef zeroext) local_un
 declare zeroext i1 @qtest_big_endian(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i8 @qvirtio_pci_config_readb(ptr nocapture noundef readonly %d, i64 noundef %off) #0 {
+define internal zeroext i8 @qvirtio_pci_config_readb(ptr noundef readonly captures(none) %d, i64 noundef %off) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -593,7 +593,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 4294967296) i64 @qvirtio_pci_get_features(ptr nocapture noundef readonly %d) #0 {
+define internal range(i64 0, 4294967296) i64 @qvirtio_pci_get_features(ptr noundef readonly captures(none) %d) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -607,7 +607,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qvirtio_pci_set_features(ptr nocapture noundef readonly %d, i64 noundef %features) #0 {
+define internal void @qvirtio_pci_set_features(ptr noundef readonly captures(none) %d, i64 noundef %features) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -621,7 +621,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 4294967296) i64 @qvirtio_pci_get_guest_features(ptr nocapture noundef readonly %d) #0 {
+define internal range(i64 0, 4294967296) i64 @qvirtio_pci_get_guest_features(ptr noundef readonly captures(none) %d) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -635,7 +635,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i8 @qvirtio_pci_get_status(ptr nocapture noundef readonly %d) #0 {
+define internal zeroext i8 @qvirtio_pci_get_status(ptr noundef readonly captures(none) %d) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -648,7 +648,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qvirtio_pci_set_status(ptr nocapture noundef readonly %d, i8 noundef zeroext %status) #0 {
+define internal void @qvirtio_pci_set_status(ptr noundef readonly captures(none) %d, i8 noundef zeroext %status) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -661,7 +661,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @qvirtio_pci_get_queue_isr_status(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %vq) #0 {
+define internal zeroext i1 @qvirtio_pci_get_queue_isr_status(ptr noundef readonly captures(none) %d, ptr noundef readonly captures(none) %vq) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -719,7 +719,7 @@ return:                                           ; preds = %if.else11, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qvirtio_pci_wait_config_isr_status(ptr nocapture noundef readonly %d, i64 noundef %timeout_us) #0 {
+define internal void @qvirtio_pci_wait_config_isr_status(ptr noundef readonly captures(none) %d, i64 noundef %timeout_us) #0 {
 entry:
   %call = tail call i64 @g_get_monotonic_time() #7
   %call24 = tail call i64 @g_get_monotonic_time() #7
@@ -801,7 +801,7 @@ do.end5:                                          ; preds = %if.else22.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qvirtio_pci_queue_select(ptr nocapture noundef readonly %d, i16 noundef zeroext %index) #0 {
+define internal void @qvirtio_pci_queue_select(ptr noundef readonly captures(none) %d, i16 noundef zeroext %index) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -815,7 +815,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i16 @qvirtio_pci_get_queue_size(ptr nocapture noundef readonly %d) #0 {
+define internal zeroext i16 @qvirtio_pci_get_queue_size(ptr noundef readonly captures(none) %d) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -828,7 +828,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qvirtio_pci_set_queue_address(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %vq) #0 {
+define internal void @qvirtio_pci_set_queue_address(ptr noundef readonly captures(none) %d, ptr noundef readonly captures(none) %vq) #0 {
 entry:
   %desc = getelementptr inbounds nuw i8, ptr %vq, i64 8
   %0 = load i64, ptr %desc, align 8
@@ -845,7 +845,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qvirtio_pci_virtqueue_kick(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %vq) #0 {
+define internal void @qvirtio_pci_virtqueue_kick(ptr noundef readonly captures(none) %d, ptr noundef readonly captures(none) %vq) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -893,7 +893,7 @@ declare i64 @qtest_clock_step(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @qpci_io_writew(ptr noundef, i64, i8, i64 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qvirtio_pci_set_config_vector(ptr nocapture noundef readonly %d, i16 noundef zeroext %entry1) #0 {
+define internal void @qvirtio_pci_set_config_vector(ptr noundef readonly captures(none) %d, i16 noundef zeroext %entry1) #0 {
 entry:
   %pdev = getelementptr inbounds nuw i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev, align 8
@@ -918,7 +918,7 @@ do.end:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qvirtio_pci_set_queue_vector(ptr nocapture noundef readonly %d, i16 noundef zeroext %vq_idx, i16 noundef zeroext %entry1) #0 {
+define internal void @qvirtio_pci_set_queue_vector(ptr noundef readonly captures(none) %d, i16 noundef zeroext %vq_idx, i16 noundef zeroext %entry1) #0 {
 entry:
   %pdev.i = getelementptr i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev.i, align 8

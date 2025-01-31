@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ompi_grequest_construct(ptr nocapture noundef writeonly initializes((56, 60), (120, 136), (152, 160), (192, 194)) %0) #0 {
+define internal void @ompi_grequest_construct(ptr noundef writeonly captures(none) initializes((56, 60), (120, 136), (152, 160), (192, 194)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @ompi_grequest_free, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -70,7 +70,7 @@ define internal void @ompi_grequest_destruct(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @ompi_grequest_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @ompi_grequest_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_grequest_t_class, i64 56), align 8
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #9
   %8 = load i32, ptr @opal_class_init_epoch, align 4
@@ -144,7 +144,7 @@ opal_obj_new.exit.thread:                         ; preds = %11, %opal_thread_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_grequest_complete(ptr noundef %0) local_unnamed_addr #1 {
@@ -321,10 +321,10 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %71
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_grequest_invoke_query(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define i32 @ompi_grequest_invoke_query(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca [6 x i32], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -374,7 +374,7 @@ declare i32 @MPI_Status_c2f(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @MPI_Status_f2c(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ompi_grequest_free(ptr nocapture noundef %0) #1 {
+define internal i32 @ompi_grequest_free(ptr noundef captures(none) %0) #1 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 193
@@ -491,7 +491,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ompi_grequest_cancel(ptr nocapture noundef readonly %0, i32 %1) #1 {
+define internal i32 @ompi_grequest_cancel(ptr noundef readonly captures(none) %0, i32 %1) #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -549,10 +549,10 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #6
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

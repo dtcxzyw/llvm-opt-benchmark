@@ -278,7 +278,7 @@ declare i32 @CMS_signed_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @CMS_ReceiptRequest_get0_values(ptr nocapture noundef readonly %rr, ptr noundef writeonly %pcid, ptr noundef writeonly %pallorfirst, ptr noundef writeonly %plist, ptr noundef writeonly %prto) local_unnamed_addr #2 {
+define void @CMS_ReceiptRequest_get0_values(ptr noundef readonly captures(none) %rr, ptr noundef writeonly %pcid, ptr noundef writeonly %pallorfirst, ptr noundef writeonly %plist, ptr noundef writeonly %prto) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %pcid, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -346,7 +346,7 @@ if.end21:                                         ; preds = %if.then20, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_msgSigDigest_add1(ptr noundef %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_msgSigDigest_add1(ptr noundef %dest, ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %dig = alloca [64 x i8], align 16
   %diglen = alloca i32, align 4
@@ -374,7 +374,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_msgSigDigest(ptr nocapture noundef readonly %si, ptr noundef nonnull %dig, ptr noundef nonnull %diglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_msgSigDigest(ptr noundef readonly captures(none) %si, ptr noundef nonnull %dig, ptr noundef nonnull %diglen) unnamed_addr #0 {
 entry:
   %digestAlgorithm = getelementptr inbounds nuw i8, ptr %si, i64 16
   %0 = load ptr, ptr %digestAlgorithm, align 8
@@ -712,7 +712,7 @@ declare ptr @ossl_cms_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 declare ptr @ossl_cms_ctx_get0_propq(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #3
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

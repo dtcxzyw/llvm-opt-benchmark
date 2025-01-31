@@ -21,7 +21,7 @@ define hidden void @register_tap_listener_sv() local_unnamed_addr #0 {
 declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @svstat_init(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal void @svstat_init(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull @sv_packet, ptr noundef null, ptr noundef null) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -40,7 +40,7 @@ define internal void @svstat_init(ptr nocapture readnone %0, ptr nocapture readn
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sv_packet(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @sv_packet(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = tail call double @nstime_to_sec(ptr noundef nonnull %6) #5
   %8 = load i16, ptr %3, align 4
@@ -79,7 +79,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare double @nstime_to_sec(ptr noundef) local_unnamed_addr #1
 

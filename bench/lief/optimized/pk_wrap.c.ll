@@ -257,10 +257,10 @@ mbedtls_pk_error_from_psa.exit32:                 ; preds = %44, %switch.lookup,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i64 @mbedtls_rsa_get_len(ptr noundef) local_unnamed_addr #4
 
@@ -317,7 +317,7 @@ define internal i32 @rsa_verify_wrap(ptr noundef %0, i32 noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_sign_wrap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6, ptr noundef %7, ptr noundef %8) #1 {
+define internal i32 @rsa_sign_wrap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = icmp eq i32 %1, 0
   %11 = icmp ugt i64 %3, 4294967295
   %or.cond = and i1 %10, %11
@@ -355,7 +355,7 @@ define internal i32 @rsa_decrypt_wrap(ptr noundef %0, ptr noundef %1, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_encrypt_wrap(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
+define internal i32 @rsa_encrypt_wrap(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = tail call i64 @mbedtls_rsa_get_len(ptr noundef %0) #10
   store i64 %9, ptr %4, align 8
   %10 = icmp ugt i64 %9, %5
@@ -371,7 +371,7 @@ define internal i32 @rsa_encrypt_wrap(ptr noundef %0, ptr noundef %1, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_check_pair_wrap(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #1 {
+define internal i32 @rsa_check_pair_wrap(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call i32 @mbedtls_rsa_check_pub_priv(ptr noundef %0, ptr noundef %1) #10
   ret i32 %5
 }
@@ -398,7 +398,7 @@ define internal void @rsa_free_wrap(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @rsa_debug(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 28), (32, 48)) %1) #5 {
+define internal void @rsa_debug(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4), (8, 28), (32, 48)) %1) #5 {
   store i32 1, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str.5, ptr %3, align 8
@@ -416,7 +416,7 @@ define internal void @rsa_debug(ptr noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @eckey_get_bitlen(ptr nocapture noundef readonly %0) #6 {
+define internal i64 @eckey_get_bitlen(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -498,7 +498,7 @@ define internal void @eckey_free_wrap(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @eckey_debug(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 24)) %1) #5 {
+define internal void @eckey_debug(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4), (8, 24)) %1) #5 {
   store i32 2, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str.7, ptr %3, align 8
@@ -559,7 +559,7 @@ define internal void @ecdsa_free_wrap(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 0, -7) i64 @rsa_alt_get_bitlen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i64 0, -7) i64 @rsa_alt_get_bitlen(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -576,7 +576,7 @@ define internal range(i32 0, 2) i32 @rsa_alt_can_do(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_alt_sign_wrap(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6, ptr noundef %7, ptr noundef %8) #1 {
+define internal i32 @rsa_alt_sign_wrap(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = icmp ugt i64 %3, 4294967295
   br i1 %10, label %25, label %11
 
@@ -607,7 +607,7 @@ define internal i32 @rsa_alt_sign_wrap(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_alt_decrypt_wrap(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture readnone %6, ptr nocapture readnone %7) #1 {
+define internal i32 @rsa_alt_decrypt_wrap(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %0, align 8
@@ -628,7 +628,7 @@ define internal i32 @rsa_alt_decrypt_wrap(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_alt_check_pair(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal i32 @rsa_alt_check_pair(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [32 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -708,7 +708,7 @@ declare void @mbedtls_rsa_init(ptr noundef) local_unnamed_addr #4
 declare void @mbedtls_rsa_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @mbedtls_ecdsa_init(ptr noundef) local_unnamed_addr #4
 

@@ -2959,7 +2959,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 -128, 128) i32 @_PyUnicode_ToLowerFull(i32 noundef %ch, ptr nocapture noundef writeonly %res) local_unnamed_addr #1 {
+define hidden range(i32 -128, 128) i32 @_PyUnicode_ToLowerFull(i32 noundef %ch, ptr noundef writeonly captures(none) %res) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -3023,7 +3023,7 @@ return:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 -128, 128) i32 @_PyUnicode_ToTitleFull(i32 noundef %ch, ptr nocapture noundef writeonly %res) local_unnamed_addr #1 {
+define hidden range(i32 -128, 128) i32 @_PyUnicode_ToTitleFull(i32 noundef %ch, ptr noundef writeonly captures(none) %res) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -3087,7 +3087,7 @@ return:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 -128, 128) i32 @_PyUnicode_ToUpperFull(i32 noundef %ch, ptr nocapture noundef writeonly %res) local_unnamed_addr #1 {
+define hidden range(i32 -128, 128) i32 @_PyUnicode_ToUpperFull(i32 noundef %ch, ptr noundef writeonly captures(none) %res) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
@@ -3150,7 +3150,7 @@ return:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 -128, 128) i32 @_PyUnicode_ToFoldedFull(i32 noundef %ch, ptr nocapture noundef writeonly %res) local_unnamed_addr #1 {
+define hidden range(i32 -128, 128) i32 @_PyUnicode_ToFoldedFull(i32 noundef %ch, ptr noundef writeonly captures(none) %res) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
   br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i

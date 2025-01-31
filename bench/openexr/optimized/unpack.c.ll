@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @internal_exr_match_decode.init_cpu_check = internal unnamed_addr global i1 false, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define hidden nonnull ptr @internal_exr_match_decode(ptr nocapture noundef readonly %decode, i32 noundef %isdeep, i32 noundef %chanstofill, i32 noundef %chanstounpack, i32 noundef %sametype, i32 noundef %sameouttype, i32 noundef %samebpc, i32 noundef %sameoutbpc, i32 noundef %hassampling, i32 noundef %hastypechange, i32 noundef %sameoutinc, i32 noundef %simpinterleave, i32 noundef %simpinterleaverev, i32 noundef %simplineoff) local_unnamed_addr #0 {
+define hidden nonnull ptr @internal_exr_match_decode(ptr noundef readonly captures(none) %decode, i32 noundef %isdeep, i32 noundef %chanstofill, i32 noundef %chanstounpack, i32 noundef %sametype, i32 noundef %sameouttype, i32 noundef %samebpc, i32 noundef %sameoutbpc, i32 noundef %hassampling, i32 noundef %hastypechange, i32 noundef %sameoutinc, i32 noundef %simpinterleave, i32 noundef %simpinterleaverev, i32 noundef %simplineoff) local_unnamed_addr #0 {
 entry:
   %.b = load i1, ptr @internal_exr_match_decode.init_cpu_check, align 4
   br i1 %.b, label %if.end, label %if.then
@@ -159,7 +159,7 @@ return:                                           ; preds = %if.end126, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr nocapture noundef readonly %decode) #1 {
+define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %unpacked_buffer = getelementptr inbounds nuw i8, ptr %decode, i64 112
   %0 = load ptr, ptr %unpacked_buffer, align 8
@@ -742,7 +742,7 @@ return:                                           ; preds = %for.end200.us, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @generic_unpack_deep(ptr nocapture noundef readonly %decode) #1 {
+define internal range(i32 0, 4) i32 @generic_unpack_deep(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %unpacked_buffer = getelementptr inbounds nuw i8, ptr %decode, i64 112
   %0 = load ptr, ptr %unpacked_buffer, align 8
@@ -1326,7 +1326,7 @@ return:                                           ; preds = %for.end208.us, %for
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_half_to_float_4chan_interleave(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_half_to_float_4chan_interleave(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %0 = load ptr, ptr %decode, align 8
   %width = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1546,7 +1546,7 @@ for.end37:                                        ; preds = %for.cond11.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_half_to_float_3chan_interleave(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_half_to_float_3chan_interleave(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %0 = load ptr, ptr %decode, align 8
   %width = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1724,7 +1724,7 @@ for.end30:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_half_to_float_4chan_interleave_rev(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_half_to_float_4chan_interleave_rev(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %0 = load ptr, ptr %decode, align 8
   %width = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1944,7 +1944,7 @@ for.end37:                                        ; preds = %for.cond11.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_half_to_float_3chan_interleave_rev(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_half_to_float_3chan_interleave_rev(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %0 = load ptr, ptr %decode, align 8
   %width = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2122,7 +2122,7 @@ for.end30:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_half_to_float_4chan_planar(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_half_to_float_4chan_planar(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %0 = load ptr, ptr %decode, align 8
   %width = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2188,7 +2188,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_half_to_float_3chan_planar(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_half_to_float_3chan_planar(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %0 = load ptr, ptr %decode, align 8
   %width = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2245,7 +2245,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @generic_unpack(ptr nocapture noundef readonly %decode) #1 {
+define internal range(i32 0, 4) i32 @generic_unpack(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %height = getelementptr inbounds nuw i8, ptr %decode, i64 36
   %0 = load i32, ptr %height, align 4
@@ -2838,7 +2838,7 @@ return:                                           ; preds = %for.inc185, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_16bit_4chan_interleave(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_16bit_4chan_interleave(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %0 = load ptr, ptr %decode, align 8
   %width = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2913,7 +2913,7 @@ for.end30:                                        ; preds = %for.cond11.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_16bit_3chan_interleave(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_16bit_3chan_interleave(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %0 = load ptr, ptr %decode, align 8
   %width = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2980,7 +2980,7 @@ for.end27:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_16bit_4chan_interleave_rev(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_16bit_4chan_interleave_rev(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %0 = load ptr, ptr %decode, align 8
   %width = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -3055,7 +3055,7 @@ for.end30:                                        ; preds = %for.cond11.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_16bit_3chan_interleave_rev(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_16bit_3chan_interleave_rev(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %0 = load ptr, ptr %decode, align 8
   %width = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -3122,7 +3122,7 @@ for.end27:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_16bit_4chan_planar(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_16bit_4chan_planar(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %height = getelementptr inbounds nuw i8, ptr %decode, i64 36
   %0 = load i32, ptr %height, align 4
@@ -3189,7 +3189,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_16bit_3chan_planar(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_16bit_3chan_planar(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %height = getelementptr inbounds nuw i8, ptr %decode, i64 36
   %0 = load i32, ptr %height, align 4
@@ -3247,7 +3247,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_16bit_4chan(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_16bit_4chan(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %0 = load ptr, ptr %decode, align 8
   %width = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -3376,7 +3376,7 @@ for.end93:                                        ; preds = %for.end82.us, %for.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_16bit_3chan(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_16bit_3chan(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %0 = load ptr, ptr %decode, align 8
   %width = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -3483,7 +3483,7 @@ for.end68:                                        ; preds = %for.cond48.for.end5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_16bit(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_16bit(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %height = getelementptr inbounds nuw i8, ptr %decode, i64 36
   %0 = load i32, ptr %height, align 4
@@ -3572,7 +3572,7 @@ for.end26:                                        ; preds = %for.inc24, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @unpack_32bit(ptr nocapture noundef readonly %decode) #1 {
+define internal noundef i32 @unpack_32bit(ptr noundef readonly captures(none) %decode) #1 {
 entry:
   %channel_count = getelementptr inbounds nuw i8, ptr %decode, i64 8
   %0 = load i16, ptr %channel_count, align 8
@@ -3654,7 +3654,7 @@ for.end26:                                        ; preds = %for.cond3.for.inc24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
@@ -3663,7 +3663,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 declare float @llvm.fabs.f32(float) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @half_to_float_buffer(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %in, i32 noundef %w) unnamed_addr #4 {
+define internal fastcc void @half_to_float_buffer(ptr noundef writeonly captures(none) %out, ptr noundef readonly captures(none) %in, i32 noundef %w) unnamed_addr #4 {
 entry:
   %cmp290 = icmp sgt i32 %w, 7
   br i1 %cmp290, label %while.body, label %while.end
@@ -4212,7 +4212,7 @@ sw.epilog:                                        ; preds = %half_to_float.exit2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @half_to_float4(ptr nocapture noundef writeonly initializes((0, 16)) %out, ptr nocapture noundef readonly %src) unnamed_addr #5 {
+define internal fastcc void @half_to_float4(ptr noundef writeonly captures(none) initializes((0, 16)) %out, ptr noundef readonly captures(none) %src) unnamed_addr #5 {
 entry:
   %0 = load i16, ptr %src, align 2
   %conv.i.i = zext i16 %0 to i32

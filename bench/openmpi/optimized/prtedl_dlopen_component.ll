@@ -38,7 +38,7 @@ define internal noundef i32 @dlopen_component_close() #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @dlopen_component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #2 {
+define internal noundef i32 @dlopen_component_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #2 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_prtedl_dlopen_component, i64 224), align 8
   store i32 %3, ptr %1, align 4
   store ptr @prte_prtedl_dlopen_module, ptr %0, align 8

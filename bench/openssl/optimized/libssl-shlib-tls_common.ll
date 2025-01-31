@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.tls_new_record_layer = private unnamed_addr constant [21 x i8] c"tls_new_record_layer\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_tls_buffer_release(ptr nocapture noundef %b) local_unnamed_addr #0 {
+define void @ossl_tls_buffer_release(ptr noundef captures(none) %b) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %b, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 28) #12
@@ -73,7 +73,7 @@ entry:
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_tls_rl_record_set_seq_num(ptr nocapture noundef writeonly initializes((58, 66)) %r, ptr nocapture noundef readonly %seq_num) local_unnamed_addr #2 {
+define void @ossl_tls_rl_record_set_seq_num(ptr noundef writeonly captures(none) initializes((58, 66)) %r, ptr noundef readonly captures(none) %seq_num) local_unnamed_addr #2 {
 entry:
   %seq_num1 = getelementptr inbounds nuw i8, ptr %r, i64 58
   %0 = load i64, ptr %seq_num, align 1
@@ -82,10 +82,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_rlayer_fatal(ptr nocapture noundef writeonly initializes((4104, 4108)) %rl, i32 noundef %al, i32 noundef %reason, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define void @ossl_rlayer_fatal(ptr noundef writeonly captures(none) initializes((4104, 4108)) %rl, i32 noundef %al, i32 noundef %reason, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
@@ -198,7 +198,7 @@ declare i32 @EVP_MD_get_type(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_MD_CTX_get0_md(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_setup_write_buffer(ptr nocapture noundef %rl, i64 noundef %numwpipes, i64 noundef %firstlen, i64 noundef %nextlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_setup_write_buffer(ptr noundef captures(none) %rl, i64 noundef %numwpipes, i64 noundef %firstlen, i64 noundef %nextlen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %firstlen, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -363,10 +363,10 @@ return:                                           ; preds = %tls_release_write_b
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_setup_read_buffer(ptr nocapture noundef %rl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_setup_read_buffer(ptr noundef captures(none) %rl) local_unnamed_addr #0 {
 entry:
   %rbuf = getelementptr inbounds nuw i8, ptr %rl, i64 1696
   %0 = load ptr, ptr %rbuf, align 8
@@ -443,7 +443,7 @@ return:                                           ; preds = %entry, %if.end22, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -3, 2) i32 @tls_default_read_n(ptr nocapture noundef %rl, i64 noundef %n, i64 noundef %max, i32 noundef %extend, i32 noundef %clearold, ptr nocapture noundef writeonly %readbytes) local_unnamed_addr #0 {
+define range(i32 -3, 2) i32 @tls_default_read_n(ptr noundef captures(none) %rl, i64 noundef %n, i64 noundef %max, i32 noundef %extend, i32 noundef %clearold, ptr noundef writeonly captures(none) %readbytes) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %n, 0
   br i1 %cmp, label %return, label %if.end
@@ -679,7 +679,7 @@ return:                                           ; preds = %if.then108, %land.l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
@@ -693,7 +693,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tls_release_read_buffer(ptr nocapture noundef %rl) unnamed_addr #0 {
+define internal fastcc void @tls_release_read_buffer(ptr noundef captures(none) %rl) unnamed_addr #0 {
 entry:
   %rbuf = getelementptr inbounds nuw i8, ptr %rl, i64 1696
   %options = getelementptr inbounds nuw i8, ptr %rl, i64 80
@@ -1460,7 +1460,7 @@ declare i32 @ERR_clear_last_mark() local_unnamed_addr #1
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rlayer_early_data_count_ok(ptr nocapture noundef %rl, i64 noundef %length, i64 noundef range(i64 0, 105) %overhead) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rlayer_early_data_count_ok(ptr noundef captures(none) %rl, i64 noundef %length, i64 noundef range(i64 0, 105) %overhead) unnamed_addr #0 {
 entry:
   %max_early_data1 = getelementptr inbounds nuw i8, ptr %rl, i64 4168
   %0 = load i32, ptr %max_early_data1, align 8
@@ -1499,7 +1499,7 @@ return:                                           ; preds = %if.end10, %if.then7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_default_validate_record_header(ptr nocapture noundef %rl, ptr nocapture noundef readonly %rec) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_default_validate_record_header(ptr noundef captures(none) %rl, ptr noundef readonly captures(none) %rec) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %rec, align 8
   %version = getelementptr inbounds nuw i8, ptr %rl, i64 20
@@ -1535,7 +1535,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_do_compress(ptr nocapture noundef readonly %rl, ptr nocapture noundef %wr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_do_compress(ptr noundef readonly captures(none) %rl, ptr noundef captures(none) %wr) local_unnamed_addr #0 {
 entry:
   %compctx = getelementptr inbounds nuw i8, ptr %rl, i64 4152
   %0 = load ptr, ptr %compctx, align 8
@@ -1566,7 +1566,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @COMP_compress_block(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_do_uncompress(ptr nocapture noundef readonly %rl, ptr nocapture noundef %rec) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_do_uncompress(ptr noundef readonly captures(none) %rl, ptr noundef captures(none) %rec) local_unnamed_addr #0 {
 entry:
   %comp = getelementptr inbounds nuw i8, ptr %rec, i64 48
   %0 = load ptr, ptr %comp, align 8
@@ -1607,7 +1607,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 declare i32 @COMP_expand_block(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_default_post_process_record(ptr nocapture noundef %rl, ptr nocapture noundef %rec) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_default_post_process_record(ptr noundef captures(none) %rl, ptr noundef captures(none) %rec) local_unnamed_addr #0 {
 entry:
   %compctx = getelementptr inbounds nuw i8, ptr %rl, i64 4152
   %0 = load ptr, ptr %compctx, align 8
@@ -1684,7 +1684,7 @@ return:                                           ; preds = %if.end5, %if.then8,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls13_common_post_process_record(ptr nocapture noundef %rl, ptr noundef %rec) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls13_common_post_process_record(ptr noundef captures(none) %rl, ptr noundef %rec) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %rec, i64 4
   %0 = load i32, ptr %type, align 4
@@ -1733,7 +1733,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tls_read_record(ptr noundef %rl, ptr nocapture noundef writeonly %rechandle, ptr nocapture noundef writeonly %rversion, ptr nocapture noundef writeonly %type, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %datalen, ptr nocapture noundef writeonly %epoch, ptr nocapture noundef writeonly %seq_num) #0 {
+define i32 @tls_read_record(ptr noundef %rl, ptr noundef writeonly captures(none) %rechandle, ptr noundef writeonly captures(none) %rversion, ptr noundef writeonly captures(none) %type, ptr noundef writeonly captures(none) %data, ptr noundef writeonly captures(none) %datalen, ptr noundef writeonly captures(none) %epoch, ptr noundef writeonly captures(none) %seq_num) #0 {
 entry:
   %curr_rec = getelementptr inbounds nuw i8, ptr %rl, i64 4056
   %num_recs = getelementptr inbounds nuw i8, ptr %rl, i64 4048
@@ -1990,7 +1990,7 @@ declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @tls_int_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, ptr nocapture readnone %key, i64 %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr nocapture readnone %mackey, i64 %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 %mactype, ptr noundef %md, ptr nocapture readnone %comp, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr nocapture readnone %local, ptr nocapture readnone %peer, ptr noundef %settings, ptr noundef %options, ptr noundef readonly %fns, ptr noundef %cbarg, ptr nocapture noundef writeonly initializes((0, 8)) %retrl) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @tls_int_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, ptr readnone captures(none) %key, i64 %keylen, ptr readnone captures(none) %iv, i64 %ivlen, ptr readnone captures(none) %mackey, i64 %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 %mactype, ptr noundef %md, ptr readnone captures(none) %comp, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr readnone captures(none) %local, ptr readnone captures(none) %peer, ptr noundef %settings, ptr noundef %options, ptr noundef readonly %fns, ptr noundef %cbarg, ptr noundef writeonly captures(none) initializes((0, 8)) %retrl) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 4432, ptr noundef nonnull @.str, i32 noundef 1235) #12
   store ptr null, ptr %retrl, align 8
@@ -2242,12 +2242,12 @@ return:                                           ; preds = %entry, %err, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_set1_bio(ptr nocapture noundef %rl, ptr noundef %bio) #0 {
+define range(i32 0, 2) i32 @tls_set1_bio(ptr noundef captures(none) %rl, ptr noundef %bio) #0 {
 entry:
   %cmp.not = icmp eq ptr %bio, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -2399,7 +2399,7 @@ return:                                           ; preds = %entry, %if.end5
 declare i32 @BIO_write_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @tls_unprocessed_read_pending(ptr nocapture noundef readonly %rl) #7 {
+define range(i32 0, 2) i32 @tls_unprocessed_read_pending(ptr noundef readonly captures(none) %rl) #7 {
 entry:
   %left = getelementptr inbounds nuw i8, ptr %rl, i64 1728
   %0 = load i64, ptr %left, align 8
@@ -2409,7 +2409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @tls_processed_read_pending(ptr nocapture noundef readonly %rl) #7 {
+define range(i32 0, 2) i32 @tls_processed_read_pending(ptr noundef readonly captures(none) %rl) #7 {
 entry:
   %curr_rec = getelementptr inbounds nuw i8, ptr %rl, i64 4056
   %0 = load i64, ptr %curr_rec, align 8
@@ -2421,7 +2421,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @tls_app_data_pending(ptr nocapture noundef readonly %rl) #8 {
+define i64 @tls_app_data_pending(ptr noundef readonly captures(none) %rl) #8 {
 entry:
   %curr_rec = getelementptr inbounds nuw i8, ptr %rl, i64 4056
   %0 = load i64, ptr %curr_rec, align 8
@@ -2454,7 +2454,7 @@ return:                                           ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tls_get_max_records_default(ptr nocapture noundef readonly %rl, i8 noundef zeroext %type, i64 noundef %len, i64 noundef %maxfrag, ptr nocapture noundef readonly %preffrag) local_unnamed_addr #0 {
+define i64 @tls_get_max_records_default(ptr noundef readonly captures(none) %rl, i8 noundef zeroext %type, i64 noundef %len, i64 noundef %maxfrag, ptr noundef readonly captures(none) %preffrag) local_unnamed_addr #0 {
 entry:
   %max_pipelines = getelementptr inbounds nuw i8, ptr %rl, i64 4416
   %0 = load i64, ptr %max_pipelines, align 8
@@ -2519,14 +2519,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_allocate_write_buffers_default(ptr nocapture noundef %rl, ptr nocapture noundef readnone %templates, i64 noundef %numtempl, ptr nocapture noundef readnone %prefix) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_allocate_write_buffers_default(ptr noundef captures(none) %rl, ptr noundef readnone captures(none) %templates, i64 noundef %numtempl, ptr noundef readnone captures(none) %prefix) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @tls_setup_write_buffer(ptr noundef %rl, i64 noundef %numtempl, i64 noundef 0, i64 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_initialise_write_packets_default(ptr nocapture noundef writeonly %rl, ptr nocapture noundef readonly %templates, i64 noundef %numtempl, ptr nocapture noundef readnone %prefixtempl, ptr noundef %pkt, ptr nocapture noundef %bufs, ptr nocapture noundef %wpinited) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_initialise_write_packets_default(ptr noundef writeonly captures(none) %rl, ptr noundef readonly captures(none) %templates, i64 noundef %numtempl, ptr noundef readnone captures(none) %prefixtempl, ptr noundef %pkt, ptr noundef captures(none) %bufs, ptr noundef captures(none) %wpinited) local_unnamed_addr #0 {
 entry:
   %cmp15.not = icmp eq i64 %numtempl, 0
   br i1 %cmp15.not, label %return, label %for.body
@@ -2582,7 +2582,7 @@ declare i32 @WPACKET_init_static_len(ptr noundef, ptr noundef, i64 noundef, i64 
 declare i32 @WPACKET_allocate_bytes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_prepare_record_header_default(ptr nocapture noundef %rl, ptr noundef %thispkt, ptr nocapture noundef readonly %templ, i8 noundef zeroext %rectype, ptr noundef initializes((0, 8)) %recdata) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_prepare_record_header_default(ptr noundef captures(none) %rl, ptr noundef %thispkt, ptr noundef readonly captures(none) %templ, i8 noundef zeroext %rectype, ptr noundef initializes((0, 8)) %recdata) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %recdata, align 8
   %buflen = getelementptr inbounds nuw i8, ptr %templ, i64 16
@@ -2720,7 +2720,7 @@ declare i32 @WPACKET_get_length(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @WPACKET_get_curr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_post_encryption_processing_default(ptr noundef %rl, i64 noundef %mac_size, ptr nocapture noundef readonly %thistempl, ptr noundef %thispkt, ptr noundef %thiswr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_post_encryption_processing_default(ptr noundef %rl, i64 noundef %mac_size, ptr noundef readonly captures(none) %thistempl, ptr noundef %thispkt, ptr noundef %thiswr) local_unnamed_addr #0 {
 entry:
   %origlen = alloca i64, align 8
   %len = alloca i64, align 8
@@ -3455,7 +3455,7 @@ return:                                           ; preds = %if.then5, %return.s
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @tls_get_alert_code(ptr nocapture noundef readonly %rl) #7 {
+define i32 @tls_get_alert_code(ptr noundef readonly captures(none) %rl) #7 {
 entry:
   %alert = getelementptr inbounds nuw i8, ptr %rl, i64 4104
   %0 = load i32, ptr %alert, align 8
@@ -3463,7 +3463,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @tls_default_set_protocol_version(ptr nocapture noundef readonly %rl, i32 noundef %version) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @tls_default_set_protocol_version(ptr noundef readonly captures(none) %rl, i32 noundef %version) local_unnamed_addr #7 {
 entry:
   %version1 = getelementptr inbounds nuw i8, ptr %rl, i64 20
   %0 = load i32, ptr %version1, align 4
@@ -3484,7 +3484,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @tls_set_plain_alerts(ptr nocapture noundef writeonly initializes((4284, 4288)) %rl, i32 noundef %allow) #9 {
+define void @tls_set_plain_alerts(ptr noundef writeonly captures(none) initializes((4284, 4288)) %rl, i32 noundef %allow) #9 {
 entry:
   %allow_plain_alerts = getelementptr inbounds nuw i8, ptr %rl, i64 4284
   store i32 %allow, ptr %allow_plain_alerts, align 4
@@ -3492,7 +3492,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @tls_set_first_handshake(ptr nocapture noundef writeonly initializes((4160, 4164)) %rl, i32 noundef %first) #9 {
+define void @tls_set_first_handshake(ptr noundef writeonly captures(none) initializes((4160, 4164)) %rl, i32 noundef %first) #9 {
 entry:
   %is_first_handshake = getelementptr inbounds nuw i8, ptr %rl, i64 4160
   store i32 %first, ptr %is_first_handshake, align 8
@@ -3500,7 +3500,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @tls_set_max_pipelines(ptr nocapture noundef writeonly initializes((4416, 4424)) %rl, i64 noundef %max_pipelines) #9 {
+define void @tls_set_max_pipelines(ptr noundef writeonly captures(none) initializes((4416, 4424)) %rl, i64 noundef %max_pipelines) #9 {
 entry:
   %max_pipelines1 = getelementptr inbounds nuw i8, ptr %rl, i64 4416
   store i64 %max_pipelines, ptr %max_pipelines1, align 8
@@ -3517,7 +3517,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @tls_get_state(ptr nocapture noundef readonly %rl, ptr noundef writeonly %shortstr, ptr noundef writeonly %longstr) #2 {
+define void @tls_get_state(ptr noundef readonly captures(none) %rl, ptr noundef writeonly %shortstr, ptr noundef writeonly %longstr) #2 {
 entry:
   %rstate = getelementptr inbounds nuw i8, ptr %rl, i64 4072
   %0 = load i32, ptr %rstate, align 8
@@ -3555,7 +3555,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @tls_get_compression(ptr nocapture noundef readonly %rl) #0 {
+define ptr @tls_get_compression(ptr noundef readonly captures(none) %rl) #0 {
 entry:
   %compctx = getelementptr inbounds nuw i8, ptr %rl, i64 4152
   %0 = load ptr, ptr %compctx, align 8
@@ -3574,7 +3574,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 declare ptr @COMP_CTX_get_method(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @tls_set_max_frag_len(ptr nocapture noundef writeonly initializes((4164, 4168)) %rl, i64 noundef %max_frag_len) #9 {
+define void @tls_set_max_frag_len(ptr noundef writeonly captures(none) initializes((4164, 4168)) %rl, i64 noundef %max_frag_len) #9 {
 entry:
   %conv = trunc i64 %max_frag_len to i32
   %max_frag_len1 = getelementptr inbounds nuw i8, ptr %rl, i64 4164
@@ -3583,7 +3583,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_increment_sequence_ctr(ptr nocapture noundef %rl) #0 {
+define range(i32 0, 2) i32 @tls_increment_sequence_ctr(ptr noundef captures(none) %rl) #0 {
 entry:
   %sequence = getelementptr inbounds nuw i8, ptr %rl, i64 4096
   br label %for.cond
@@ -3614,7 +3614,7 @@ return:                                           ; preds = %for.body, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_alloc_buffers(ptr nocapture noundef %rl) #0 {
+define range(i32 0, 2) i32 @tls_alloc_buffers(ptr noundef captures(none) %rl) #0 {
 entry:
   %direction = getelementptr inbounds nuw i8, ptr %rl, i64 28
   %0 = load i32, ptr %direction, align 4
@@ -3663,7 +3663,7 @@ return:                                           ; preds = %if.end5, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_free_buffers(ptr nocapture noundef %rl) #0 {
+define range(i32 0, 2) i32 @tls_free_buffers(ptr noundef captures(none) %rl) #0 {
 entry:
   %direction = getelementptr inbounds nuw i8, ptr %rl, i64 28
   %0 = load i32, ptr %direction, align 4
@@ -3764,7 +3764,7 @@ return:                                           ; preds = %if.end11, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, i16 zeroext %epoch, ptr nocapture readnone %secret, i64 %secretlen, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef %comp, ptr nocapture readnone %kdfdigest, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr nocapture readnone %local, ptr nocapture readnone %peer, ptr noundef %settings, ptr noundef %options, ptr noundef %fns, ptr noundef %cbarg, ptr nocapture readnone %rlarg, ptr nocapture noundef initializes((0, 8)) %retrl) #0 {
+define internal i32 @tls_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, i16 zeroext %epoch, ptr readnone captures(none) %secret, i64 %secretlen, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef %comp, ptr readnone captures(none) %kdfdigest, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr readnone captures(none) %local, ptr readnone captures(none) %peer, ptr noundef %settings, ptr noundef %options, ptr noundef %fns, ptr noundef %cbarg, ptr readnone captures(none) %rlarg, ptr noundef captures(none) initializes((0, 8)) %retrl) #0 {
 entry:
   %call = tail call i32 @tls_int_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, ptr poison, i64 poison, ptr poison, i64 poison, ptr poison, i64 poison, ptr noundef %ciph, i64 noundef %taglen, i32 poison, ptr noundef %md, ptr poison, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr poison, ptr poison, ptr noundef %settings, ptr noundef %options, ptr noundef %fns, ptr noundef %cbarg, ptr noundef %retrl)
   %cmp.not = icmp eq i32 %call, 1

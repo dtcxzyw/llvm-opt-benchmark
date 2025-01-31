@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @mmbit_root_offset_from_level = external local_unnamed_addr constant [7 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @handleSomInternal(ptr nocapture noundef %scratch, ptr nocapture noundef readonly %ri, i64 noundef %to_offset) local_unnamed_addr #0 {
+define hidden void @handleSomInternal(ptr noundef captures(none) %scratch, ptr noundef readonly captures(none) %ri, i64 noundef %to_offset) local_unnamed_addr #0 {
 entry:
   %from_offset.i479 = alloca i64, align 8
   %from_offset.i445 = alloca i64, align 8
@@ -2766,7 +2766,7 @@ return:                                           ; preds = %if.end.i4715, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @runRevNfa(ptr nocapture noundef readonly %scratch, i64 %ri.8.val, i64 noundef %to_offset, ptr noundef nonnull initializes((0, 8)) %from_offset) unnamed_addr #0 {
+define internal fastcc void @runRevNfa(ptr noundef readonly captures(none) %scratch, i64 %ri.8.val, i64 noundef %to_offset, ptr noundef nonnull initializes((0, 8)) %from_offset) unnamed_addr #0 {
 entry:
   %rose = getelementptr inbounds nuw i8, ptr %scratch, i64 248
   %0 = load ptr, ptr %rose, align 8
@@ -2817,7 +2817,7 @@ do.end18:                                         ; preds = %if.then, %if.then14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @handleSomExternal(ptr nocapture noundef readonly %scratch, ptr nocapture noundef readonly %ri, i64 noundef %to_offset) local_unnamed_addr #0 {
+define hidden i64 @handleSomExternal(ptr noundef readonly captures(none) %scratch, ptr noundef readonly captures(none) %ri, i64 noundef %to_offset) local_unnamed_addr #0 {
 entry:
   %from_offset = alloca i64, align 8
   %0 = load i8, ptr %ri, align 8
@@ -2906,7 +2906,7 @@ return:                                           ; preds = %entry, %runRevNfa.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @setSomFromSomAware(ptr nocapture noundef %scratch, ptr nocapture noundef readonly %ri, i64 noundef %from_offset, i64 noundef %to_offset) local_unnamed_addr #1 {
+define hidden void @setSomFromSomAware(ptr noundef captures(none) %scratch, ptr noundef readonly captures(none) %ri, i64 noundef %from_offset, i64 noundef %to_offset) local_unnamed_addr #1 {
 entry:
   %rose1 = getelementptr inbounds nuw i8, ptr %scratch, i64 248
   %0 = load ptr, ptr %rose1, align 8
@@ -3586,7 +3586,7 @@ if.end42:                                         ; preds = %do.body.i1116, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @flushStoredSomMatches_i(ptr nocapture noundef %scratch, i64 noundef %offset) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @flushStoredSomMatches_i(ptr noundef captures(none) %scratch, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %current_report_offset = getelementptr inbounds nuw i8, ptr %scratch, i64 392
   %0 = load i64, ptr %current_report_offset, align 8
@@ -5322,7 +5322,7 @@ return:                                           ; preds = %clearSomLog.exit130
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
@@ -5330,7 +5330,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 declare signext i8 @nfaBlockExecReverse(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @somRevCallback(i64 %start, i64 noundef %end, i32 noundef %id, ptr nocapture noundef %ctx) #5 {
+define internal noundef i32 @somRevCallback(i64 %start, i64 noundef %end, i32 noundef %id, ptr noundef captures(none) %ctx) #5 {
 entry:
   %0 = load i64, ptr %ctx, align 8
   %conv = zext i32 %id to i64

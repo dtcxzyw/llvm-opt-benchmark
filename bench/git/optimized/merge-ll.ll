@@ -310,7 +310,7 @@ if.end27:                                         ; preds = %for.body.i59, %for.
 declare void @git_check_attr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @ll_merge_marker_size(ptr noundef %istate, ptr noundef %path) local_unnamed_addr #0 {
@@ -349,22 +349,22 @@ if.end9:                                          ; preds = %if.then2, %if.end
 declare ptr @attr_check_initl(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @renormalize_buffer(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @read_merge_config(ptr noundef %var, ptr noundef %value, ptr nocapture readnone %ctx, ptr nocapture readnone %cb) #0 {
+define internal i32 @read_merge_config(ptr noundef %var, ptr noundef %value, ptr readnone captures(none) %ctx, ptr readnone captures(none) %cb) #0 {
 entry:
   %key = alloca ptr, align 8
   %name = alloca ptr, align 8
@@ -374,11 +374,11 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @git_config_string(ptr noundef nonnull @default_ll_merge, ptr noundef %var, ptr noundef %value) #13
+  %call1 = tail call i32 @git_config_string(ptr noundef nonnull @default_ll_merge, ptr noundef nonnull %var, ptr noundef %value) #13
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call i32 @parse_config_key(ptr noundef %var, ptr noundef nonnull @.str.1, ptr noundef nonnull %name, ptr noundef nonnull %namelen, ptr noundef nonnull %key) #13
+  %call2 = call i32 @parse_config_key(ptr noundef nonnull %var, ptr noundef nonnull @.str.1, ptr noundef nonnull %name, ptr noundef nonnull %namelen, ptr noundef nonnull %key) #13
   %cmp = icmp sgt i32 %call2, -1
   %0 = load ptr, ptr %name, align 8
   %tobool3 = icmp ne ptr %0, null
@@ -436,7 +436,7 @@ if.end21:                                         ; preds = %land.lhs.true, %if.
 
 if.then24:                                        ; preds = %if.end21
   %description = getelementptr inbounds nuw i8, ptr %fn.1, i64 8
-  %call25 = call i32 @git_config_string(ptr noundef nonnull %description, ptr noundef %var, ptr noundef %value) #13
+  %call25 = call i32 @git_config_string(ptr noundef nonnull %description, ptr noundef nonnull %var, ptr noundef %value) #13
   br label %return
 
 if.end26:                                         ; preds = %if.end21
@@ -449,7 +449,7 @@ if.then29:                                        ; preds = %if.end26
   br i1 %tobool30.not, label %if.then31, label %if.end34
 
 if.then31:                                        ; preds = %if.then29
-  %call32 = call i32 @config_error_nonbool(ptr noundef %var) #13
+  %call32 = call i32 @config_error_nonbool(ptr noundef nonnull %var) #13
   br label %return
 
 if.end34:                                         ; preds = %if.then29
@@ -465,7 +465,7 @@ if.end36:                                         ; preds = %if.end26
 
 if.then39:                                        ; preds = %if.end36
   %recursive = getelementptr inbounds nuw i8, ptr %fn.1, i64 24
-  %call40 = call i32 @git_config_string(ptr noundef nonnull %recursive, ptr noundef %var, ptr noundef %value) #13
+  %call40 = call i32 @git_config_string(ptr noundef nonnull %recursive, ptr noundef nonnull %var, ptr noundef %value) #13
   br label %return
 
 return:                                           ; preds = %if.end36, %if.end, %if.then39, %if.end34, %if.then31, %if.then24, %if.then
@@ -478,14 +478,14 @@ declare i32 @git_config_string(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @parse_config_key(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @ll_ext_merge(ptr nocapture noundef readonly %fn, ptr nocapture noundef %result, ptr noundef %path, ptr nocapture noundef readonly %orig, ptr nocapture readnone %orig_name, ptr nocapture noundef readonly %src1, ptr nocapture readnone %name1, ptr nocapture noundef readonly %src2, ptr nocapture readnone %name2, ptr nocapture readnone %opts, i32 noundef %marker_size) #0 {
+define internal range(i32 -1, 2) i32 @ll_ext_merge(ptr noundef readonly captures(none) %fn, ptr noundef captures(none) %result, ptr noundef %path, ptr noundef readonly captures(none) %orig, ptr readnone captures(none) %orig_name, ptr noundef readonly captures(none) %src1, ptr readnone captures(none) %name1, ptr noundef readonly captures(none) %src2, ptr readnone captures(none) %name2, ptr readnone captures(none) %opts, i32 noundef %marker_size) #0 {
 entry:
   %temp = alloca [3 x [50 x i8]], align 16
   %cmd = alloca %struct.strbuf, align 8
@@ -829,10 +829,10 @@ declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @run_command(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #7
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @xmallocz(i64 noundef) local_unnamed_addr #1
 
@@ -858,10 +858,10 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 3) i32 @ll_binary_merge(ptr nocapture readnone %drv, ptr nocapture noundef writeonly initializes((0, 16)) %result, ptr nocapture readnone %path, ptr nocapture noundef %orig, ptr nocapture readnone %orig_name, ptr nocapture noundef %src1, ptr nocapture readnone %name1, ptr nocapture noundef %src2, ptr nocapture readnone %name2, ptr nocapture noundef readonly %opts, i32 %marker_size) #9 {
+define internal range(i32 0, 3) i32 @ll_binary_merge(ptr readnone captures(none) %drv, ptr noundef writeonly captures(none) initializes((0, 16)) %result, ptr readnone captures(none) %path, ptr noundef captures(none) %orig, ptr readnone captures(none) %orig_name, ptr noundef captures(none) %src1, ptr readnone captures(none) %name1, ptr noundef captures(none) %src2, ptr readnone captures(none) %name2, ptr noundef readonly captures(none) %opts, i32 %marker_size) #9 {
 entry:
   %bf.load = load i8, ptr %opts, align 8
   %bf.clear = and i8 %bf.load, 1
@@ -896,7 +896,7 @@ if.end:                                           ; preds = %if.else, %entry, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 3) i32 @ll_xdl_merge(ptr nocapture readnone %drv_unused, ptr noundef %result, ptr nocapture readnone %path, ptr noundef %orig, ptr noundef %orig_name, ptr noundef %src1, ptr noundef %name1, ptr noundef %src2, ptr noundef %name2, ptr nocapture noundef readonly %opts, i32 noundef %marker_size) #0 {
+define internal range(i32 -2147483648, 3) i32 @ll_xdl_merge(ptr readnone captures(none) %drv_unused, ptr noundef %result, ptr readnone captures(none) %path, ptr noundef %orig, ptr noundef %orig_name, ptr noundef %src1, ptr noundef %name1, ptr noundef %src2, ptr noundef %name2, ptr noundef readonly captures(none) %opts, i32 noundef %marker_size) #0 {
 entry:
   %xmp = alloca %struct.s_xmparam, align 8
   %size = getelementptr inbounds nuw i8, ptr %orig, i64 8
@@ -1017,7 +1017,7 @@ return:                                           ; preds = %if.end25, %ll_binar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 3) i32 @ll_union_merge(ptr nocapture readnone %drv_unused, ptr noundef %result, ptr nocapture readnone %path, ptr noundef %orig, ptr noundef %orig_name, ptr noundef %src1, ptr noundef %name1, ptr noundef %src2, ptr noundef %name2, ptr nocapture noundef readonly %opts, i32 noundef %marker_size) #0 {
+define internal range(i32 -2147483648, 3) i32 @ll_union_merge(ptr readnone captures(none) %drv_unused, ptr noundef %result, ptr readnone captures(none) %path, ptr noundef %orig, ptr noundef %orig_name, ptr noundef %src1, ptr noundef %name1, ptr noundef %src2, ptr noundef %name2, ptr noundef readonly captures(none) %opts, i32 noundef %marker_size) #0 {
 entry:
   %o = alloca %struct.ll_merge_options, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %o, ptr noundef nonnull align 8 dereferenceable(16) %opts, i64 16, i1 false)
@@ -1031,7 +1031,7 @@ entry:
 declare i32 @buffer_is_binary(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare i32 @xdl_merge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1039,10 +1039,10 @@ declare i32 @xdl_merge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr n
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

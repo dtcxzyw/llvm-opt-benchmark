@@ -466,7 +466,7 @@ Io_ReadBlifFile.exit.thread:                      ; preds = %2, %Io_ReadBlifCrea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_ReadBlifFree(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @Io_ReadBlifFree(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @Extra_FileReaderFree(ptr noundef %3) #15
@@ -557,12 +557,12 @@ declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #1
 declare i32 @Abc_NtkCheckRead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Io_ReadBlifReorderFormalNames(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_ReadBlifReorderFormalNames(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %4, align 4
   %.val.fr = freeze i32 %.val
@@ -604,7 +604,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifReorderFormalNames(ptr nocapture noundef 
   %21 = load ptr, ptr %20, align 8
   %sext = shl i64 %18, 32
   %22 = ashr exact i64 %sext, 32
-  %23 = tail call i32 @strncmp(ptr noundef %17, ptr noundef %21, i64 noundef %22) #17
+  %23 = tail call i32 @strncmp(ptr noundef nonnull %17, ptr noundef %21, i64 noundef %22) #17
   %.not127 = icmp eq i32 %23, 0
   br i1 %.not127, label %24, label %._crit_edge.loopexit
 
@@ -661,7 +661,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifReorderFormalNames(ptr nocapture noundef 
   %indvars.iv191 = phi i64 [ 2, %.lr.ph174.us ], [ %indvars.iv.next192, %48 ]
   %41 = getelementptr inbounds nuw ptr, ptr %.val146.us, i64 %indvars.iv191
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @strncmp(ptr noundef %37, ptr noundef %42, i64 noundef %39) #17
+  %43 = tail call i32 @strncmp(ptr noundef nonnull %37, ptr noundef %42, i64 noundef %39) #17
   %.not142.us = icmp eq i32 %43, 0
   br i1 %.not142.us, label %44, label %48
 
@@ -734,7 +734,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrPush.exit.us
   %indvars.iv195 = phi i64 [ 2, %.lr.ph182 ], [ %indvars.iv.next196, %93 ]
   %72 = getelementptr inbounds nuw ptr, ptr %.val147, i64 %indvars.iv195
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call i32 @strncmp(ptr noundef %66, ptr noundef %73, i64 noundef %70) #17
+  %74 = tail call i32 @strncmp(ptr noundef nonnull %66, ptr noundef %73, i64 noundef %70) #17
   %.not139 = icmp eq i32 %74, 0
   br i1 %.not139, label %75, label %93
 
@@ -832,7 +832,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
   %119 = load ptr, ptr %118, align 8
   %sext133 = shl i64 %114, 32
   %120 = ashr exact i64 %sext133, 32
-  %121 = tail call i32 @strncmp(ptr noundef %113, ptr noundef %119, i64 noundef %120) #17
+  %121 = tail call i32 @strncmp(ptr noundef nonnull %113, ptr noundef %119, i64 noundef %120) #17
   %.not134 = icmp eq i32 %121, 0
   br i1 %.not134, label %122, label %127
 
@@ -854,7 +854,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
   %131 = load ptr, ptr %130, align 8
   %sext135 = shl i64 %129, 32
   %132 = ashr exact i64 %sext135, 32
-  %133 = tail call i32 @strncmp(ptr noundef %128, ptr noundef %131, i64 noundef %132) #17
+  %133 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef %131, i64 noundef %132) #17
   %.not136 = icmp eq i32 %133, 0
   br i1 %.not136, label %134, label %174
 
@@ -892,7 +892,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
   %155 = load ptr, ptr %154, align 8
   %sext129 = shl i64 %150, 32
   %156 = ashr exact i64 %sext129, 32
-  %157 = tail call i32 @strncmp(ptr noundef %149, ptr noundef %155, i64 noundef %156) #17
+  %157 = tail call i32 @strncmp(ptr noundef nonnull %149, ptr noundef %155, i64 noundef %156) #17
   %.not130 = icmp eq i32 %157, 0
   br i1 %.not130, label %158, label %174
 
@@ -911,7 +911,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
   %167 = load ptr, ptr %166, align 8
   %sext131 = shl i64 %164, 32
   %168 = ashr exact i64 %sext131, 32
-  %169 = tail call i32 @strncmp(ptr noundef %163, ptr noundef %167, i64 noundef %168) #17
+  %169 = tail call i32 @strncmp(ptr noundef nonnull %163, ptr noundef %167, i64 noundef %168) #17
   %.not132 = icmp eq i32 %169, 0
   br i1 %.not132, label %170, label %174
 
@@ -934,15 +934,15 @@ declare ptr @Mio_GateReadPins(ptr noundef) local_unnamed_addr #1
 declare ptr @Mio_PinReadName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @Mio_PinReadNext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_PtrPush(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @Vec_PtrPush(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -1015,7 +1015,7 @@ Vec_PtrGrow.exit11:                               ; preds = %.Vec_PtrGrow.exit11
 declare ptr @Mio_GateReadOutName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Io_ReadFindCiId(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define range(i32 -2147483648, 2147483647) i32 @Io_ReadFindCiId(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 56
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 4
@@ -1051,7 +1051,7 @@ define range(i32 -2147483648, 2147483647) i32 @Io_ReadFindCiId(ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Io_ReadFindCoId(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define range(i32 -2147483648, 2147483647) i32 @Io_ReadFindCoId(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 4
@@ -1198,7 +1198,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %55, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %58 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %44) #15
+  %58 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %44) #15
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store i32 1, ptr %59, align 8
   %60 = load i32, ptr %56, align 8
@@ -1513,7 +1513,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %217, ptr %218, align 8
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %220 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %219, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %206) #15
+  %220 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %219, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %206) #15
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store i32 1, ptr %221, align 8
   %222 = load i32, ptr %218, align 8
@@ -1758,7 +1758,7 @@ Io_ReadBlifPrintErrorMessage.exit:                ; preds = %316, %314, %287, %2
 declare i32 @stmm_lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @Abc_NtkFindNet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1767,7 +1767,7 @@ declare ptr @Abc_NtkFindOrCreateNet(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOne(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1821,7 +1821,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOne(ptr noundef %0, pt
 declare void @Abc_NtkFinalizeRead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Io_ReadBlifGetTokens(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2204,7 +2204,7 @@ Vec_PtrPush.exit72:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull initializes((24, 32)) %0) unnamed_addr #0 {
@@ -5051,7 +5051,7 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1257, %1259, %1278,
   %1463 = load ptr, ptr %0, align 8
   %1464 = load ptr, ptr %73, align 8
   %1465 = tail call i32 @Extra_FileReaderGetLineNumber(ptr noundef %1464, i32 noundef 0) #15
-  %1466 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %1463, i32 noundef %1465, ptr noundef %107)
+  %1466 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %1463, i32 noundef %1465, ptr noundef nonnull %107)
   br label %Io_ReadBlifNetworkNames.exit
 
 Io_ReadBlifNetworkNames.exit:                     ; preds = %.lr.ph.i144, %.lr.ph.i140, %771, %757, %754, %753, %752, %748, %746, %726, %715, %713, %696, %691, %674, %667, %665, %636, %634, %605, %603, %584, %582, %570, %568, %555, %553, %267, %265, %153, %151, %122, %120, %315, %317, %Io_ReadBlifNetworkInputArrival.exit, %Io_ReadBlifNetworkDefaultInputArrival.exit, %Io_ReadBlifNetworkInputDrive.exit, %1442, %1450, %1462, %1460, %1446, %1438, %Io_ReadBlifNetworkDefaultOutputRequired.exit, %Io_ReadBlifNetworkOutputRequired.exit
@@ -5107,7 +5107,7 @@ declare i32 @Extra_FileReaderGetFileSize(ptr noundef) local_unnamed_addr #1
 declare i32 @Extra_FileReaderGetCurPosition(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5493,7 +5493,7 @@ Io_ReadBlifPrintErrorMessage.exit:                ; preds = %85, %83, %49, %47, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultInputDrive(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultInputDrive(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5593,7 +5593,7 @@ Io_ReadBlifPrintErrorMessage.exit:                ; preds = %57, %55, %20, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultOutputLoad(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultOutputLoad(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5693,7 +5693,7 @@ Io_ReadBlifPrintErrorMessage.exit:                ; preds = %57, %55, %20, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkAndGateDelay(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkAndGateDelay(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -5794,7 +5794,7 @@ declare i32 @Abc_SopGetVarNum(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
@@ -5808,14 +5808,14 @@ declare ptr @Mio_GateReadTwin(ptr noundef) local_unnamed_addr #1
 declare ptr @Io_ReadCreateLatch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @Io_ReadCreatePi(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @Io_ReadCreatePo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #10
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @Abc_NtkTimeSetArrival(ptr noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #1
 
@@ -5826,7 +5826,7 @@ declare ptr @Extra_FileReaderAlloc(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @Extra_FileReaderFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @Abc_NtkTimeSetDefaultArrival(ptr noundef, float noundef, float noundef) local_unnamed_addr #1
 
@@ -5841,19 +5841,19 @@ declare void @Abc_NtkTimeSetInputDrive(ptr noundef, i32 noundef, float noundef, 
 declare void @Abc_NtkTimeSetOutputLoad(ptr noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

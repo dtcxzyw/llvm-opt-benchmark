@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [69 x i8] c"Excessive server response line length received, %zd bytes. Stripping\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @Curl_pp_state_timeout(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %pp, i1 noundef zeroext %disconnecting) local_unnamed_addr #0 {
+define hidden i64 @Curl_pp_state_timeout(ptr noundef readonly captures(none) %data, ptr noundef readonly captures(none) %pp, i1 noundef zeroext %disconnecting) local_unnamed_addr #0 {
 entry:
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -73,7 +73,7 @@ declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #1
 declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_pp_statemach(ptr noundef %data, ptr nocapture noundef readonly %pp, i1 noundef zeroext %block, i1 noundef zeroext %disconnecting) local_unnamed_addr #0 {
+define hidden i32 @Curl_pp_statemach(ptr noundef %data, ptr noundef readonly captures(none) %pp, i1 noundef zeroext %block, i1 noundef zeroext %disconnecting) local_unnamed_addr #0 {
 entry:
   %conn2 = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn2, align 8
@@ -220,7 +220,7 @@ declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare zeroext i1 @Curl_conn_data_pending(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @Curl_pp_moredata(ptr nocapture noundef readonly %pp) local_unnamed_addr #2 {
+define hidden zeroext i1 @Curl_pp_moredata(ptr noundef readonly captures(none) %pp) local_unnamed_addr #2 {
 entry:
   %sendleft = getelementptr inbounds nuw i8, ptr %pp, i64 48
   %0 = load i64, ptr %sendleft, align 8
@@ -252,7 +252,7 @@ declare i32 @Curl_pgrsUpdate(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_speedcheck(ptr noundef, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_pp_init(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly initializes((16, 33), (64, 76)) %pp) local_unnamed_addr #0 {
+define hidden void @Curl_pp_init(ptr noundef readonly captures(none) %data, ptr noundef writeonly captures(none) initializes((16, 33), (64, 76)) %pp) local_unnamed_addr #0 {
 entry:
   %nread_resp = getelementptr inbounds nuw i8, ptr %pp, i64 16
   store i64 0, ptr %nread_resp, align 8
@@ -273,7 +273,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_pp_setup(ptr noundef %pp) local_unnamed_addr #0 {
@@ -385,7 +385,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_pp_readresp(ptr noundef %data, i32 noundef %sockfd, ptr nocapture noundef %pp, ptr noundef initializes((0, 4)) %code, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #0 {
+define hidden i32 @Curl_pp_readresp(ptr noundef %data, i32 noundef %sockfd, ptr noundef captures(none) %pp, ptr noundef initializes((0, 4)) %code, ptr noundef writeonly captures(none) initializes((0, 8)) %size) local_unnamed_addr #0 {
 entry:
   %gotbytes = alloca i64, align 8
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
@@ -617,14 +617,14 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @Curl_memdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 1, 65537) i32 @Curl_pp_getsock(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %pp, ptr nocapture noundef writeonly initializes((0, 4)) %socks) local_unnamed_addr #5 {
+define hidden range(i32 1, 65537) i32 @Curl_pp_getsock(ptr noundef readonly captures(none) %data, ptr noundef readonly captures(none) %pp, ptr noundef writeonly captures(none) initializes((0, 4)) %socks) local_unnamed_addr #5 {
 entry:
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -639,7 +639,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_pp_flushsend(ptr noundef %data, ptr nocapture noundef %pp) local_unnamed_addr #0 {
+define hidden i32 @Curl_pp_flushsend(ptr noundef %data, ptr noundef captures(none) %pp) local_unnamed_addr #0 {
 entry:
   %written = alloca i64, align 8
   %sendthis = getelementptr inbounds nuw i8, ptr %pp, i64 40
@@ -708,7 +708,7 @@ declare i64 @llvm.smin.i64(i64, i64) #7
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

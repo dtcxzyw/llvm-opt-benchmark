@@ -31,7 +31,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN12G1MMUTrackerC1Edd = hidden unnamed_addr alias void (ptr, double, double), ptr @_ZN12G1MMUTrackerC2Edd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12G1MMUTrackerC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1052) initializes((0, 1052)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN12G1MMUTrackerC2Edd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1052) initializes((0, 1052)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %4, align 8
@@ -45,7 +45,7 @@ define hidden void @_ZN12G1MMUTrackerC2Edd(ptr nocapture noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12G1MMUTracker22remove_expired_entriesEd(ptr nocapture noundef nonnull align 8 dereferenceable(1052) %0, double noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN12G1MMUTracker22remove_expired_entriesEd(ptr noundef nonnull align 8 captures(none) dereferenceable(1052) %0, double noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = fsub double %1, %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -97,7 +97,7 @@ define hidden void @_ZN12G1MMUTracker22remove_expired_entriesEd(ptr nocapture no
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZN12G1MMUTracker17calculate_gc_timeEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1052) %0, double noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef double @_ZN12G1MMUTracker17calculate_gc_timeEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1052) %0, double noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = fsub double %1, %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -151,7 +151,7 @@ define hidden noundef double @_ZN12G1MMUTracker17calculate_gc_timeEd(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12G1MMUTracker9add_pauseEdd(ptr nocapture noundef nonnull align 8 dereferenceable(1052) %0, double noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN12G1MMUTracker9add_pauseEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(1052) %0, double noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load double, ptr %0, align 8
   %5 = fsub double %2, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -334,7 +334,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_88ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZNK12G1MMUTracker8when_secEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1052) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef double @_ZNK12G1MMUTracker8when_secEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1052) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fcmp olt double %2, %5
@@ -425,7 +425,7 @@ declare void @llvm.va_end.p0(ptr) #6
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

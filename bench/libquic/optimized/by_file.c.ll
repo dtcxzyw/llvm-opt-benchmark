@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_load_cert_file(ptr nocapture noundef readonly %ctx, ptr noundef %file, i32 noundef %type) local_unnamed_addr #1 {
+define hidden i32 @X509_load_cert_file(ptr noundef readonly captures(none) %ctx, ptr noundef %file, i32 noundef %type) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -146,7 +146,7 @@ declare ptr @d2i_X509_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_load_crl_file(ptr nocapture noundef readonly %ctx, ptr noundef %file, i32 noundef %type) local_unnamed_addr #1 {
+define hidden i32 @X509_load_crl_file(ptr noundef readonly captures(none) %ctx, ptr noundef %file, i32 noundef %type) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -261,7 +261,7 @@ declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #2
 declare ptr @d2i_X509_CRL_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_load_cert_crl_file(ptr nocapture noundef readonly %ctx, ptr noundef %file, i32 noundef %type) local_unnamed_addr #1 {
+define hidden i32 @X509_load_cert_crl_file(ptr noundef readonly captures(none) %ctx, ptr noundef %file, i32 noundef %type) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq i32 %type, 1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -355,7 +355,7 @@ declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @X509_INFO_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @by_file_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture readnone %ret) #1 {
+define internal range(i32 0, 2) i32 @by_file_ctrl(ptr noundef readonly captures(none) %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr readnone captures(none) %ret) #1 {
 entry:
   %cond = icmp eq i32 %cmd, 1
   br i1 %cond, label %sw.bb, label %sw.epilog
@@ -404,7 +404,7 @@ sw.epilog:                                        ; preds = %if.then10, %if.end,
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @X509_get_default_cert_file_env() local_unnamed_addr #2
 

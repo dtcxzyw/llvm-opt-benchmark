@@ -158,7 +158,7 @@ declare ptr @gres_g_get_devices(ptr noundef, i1 noundef zeroext, i16 noundef zer
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.cgroup_limits_t, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -341,7 +341,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 declare void @cgroup_init_limits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @cgroup_g_constrain_set(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

@@ -282,7 +282,7 @@ declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 declare void @zend_throw_exception_object(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @pdo_raise_impl_error(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @pdo_raise_impl_error(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
@@ -357,7 +357,7 @@ define void @pdo_raise_impl_error(ptr noundef %0, ptr noundef %1, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @pdo_sqlstate_state_to_description(ptr noundef) local_unnamed_addr #1
 
@@ -542,7 +542,7 @@ declare ptr @zend_strpprintf(i64 noundef, ptr noundef, ...) local_unnamed_addr #
 declare void @zend_update_property_str(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_PDO___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @internal_construct(ptr noundef %0, ptr noundef %4, ptr noundef %4, ptr noundef null)
@@ -550,7 +550,7 @@ define hidden void @zim_PDO___construct(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @internal_construct(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @internal_construct(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -764,7 +764,7 @@ dsn_from_uri.exit.thread:                         ; preds = %77, %dsn_from_uri.e
   %93 = ptrtoint ptr %.4 to i64
   %94 = sub i64 %92, %93
   %95 = trunc i64 %94 to i32
-  %96 = call ptr @pdo_find_driver(ptr noundef %.4, i32 noundef %95) #11
+  %96 = call ptr @pdo_find_driver(ptr noundef nonnull %.4, i32 noundef %95) #11
   %.not407 = icmp eq ptr %96, null
   br i1 %.not407, label %97, label %102
 
@@ -972,7 +972,7 @@ create_driver_specific_pdo_object.exit:           ; preds = %152, %144, %134
   %.not415 = icmp eq ptr %.0375.ph, null
   %198 = select i1 %.not415, ptr @.str.39, ptr %.0375.ph
   %199 = getelementptr inbounds nuw i8, ptr %194, i64 24
-  %200 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull @.str.38, ptr noundef %.4, ptr noundef nonnull %197, ptr noundef nonnull %198, ptr noundef nonnull %199) #11
+  %200 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull @.str.38, ptr noundef nonnull %.4, ptr noundef nonnull %197, ptr noundef nonnull %198, ptr noundef nonnull %199) #11
   br label %213
 
 thread-pre-split:                                 ; preds = %189, %.critedge
@@ -999,7 +999,7 @@ thread-pre-split:                                 ; preds = %189, %.critedge
   %210 = select i1 %.not416, ptr @.str.39, ptr %.0372.ph
   %.not417 = icmp eq ptr %.0375.ph, null
   %211 = select i1 %.not417, ptr @.str.39, ptr %.0375.ph
-  %212 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull @.str.40, ptr noundef %.4, ptr noundef nonnull %210, ptr noundef nonnull %211) #11
+  %212 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %.4, ptr noundef nonnull %210, ptr noundef nonnull %211) #11
   br i1 %.not229, label %.thread95, label %213
 
 213:                                              ; preds = %.thread89, %208
@@ -1763,7 +1763,7 @@ declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @zend_lookup_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pdo_stmt_construct(ptr %.88.val, ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @pdo_stmt_construct(ptr %.88.val, ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   store ptr %.88.val, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.88.val, i64 4
@@ -1823,10 +1823,10 @@ define internal fastcc void @pdo_stmt_construct(ptr %.88.val, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO_beginTransaction(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PDO_beginTransaction(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -8
@@ -1940,7 +1940,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO_commit(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PDO_commit(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -8
@@ -2038,7 +2038,7 @@ pdo_is_in_transaction.exit:                       ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO_rollBack(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PDO_rollBack(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -8
@@ -2136,7 +2136,7 @@ pdo_is_in_transaction.exit:                       ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO_inTransaction(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PDO_inTransaction(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -8
@@ -2240,7 +2240,7 @@ define noundef zeroext i1 @pdo_get_long_param(ptr noundef %0, ptr noundef %1) lo
 declare zeroext i8 @is_numeric_str_function(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @pdo_get_bool_param(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @pdo_get_bool_param(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8
   switch i8 %4, label %11 [
@@ -2277,7 +2277,7 @@ define noundef zeroext i1 @pdo_get_bool_param(ptr nocapture noundef writeonly %0
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO_setAttribute(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PDO_setAttribute(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3103,7 +3103,7 @@ define hidden void @zim_PDO_getAttribute(ptr noundef %0, ptr noundef %1) #0 {
 declare i32 @add_next_index_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO_exec(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PDO_exec(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3228,7 +3228,7 @@ define hidden void @zim_PDO_exec(ptr noundef %0, ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO_lastInsertId(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PDO_lastInsertId(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3361,7 +3361,7 @@ define hidden void @zim_PDO_lastInsertId(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO_errorCode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PDO_errorCode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -8
@@ -3458,10 +3458,10 @@ define hidden void @zim_PDO_errorCode(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO_errorInfo(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_PDO_errorInfo(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -8
@@ -3555,12 +3555,12 @@ define hidden void @zim_PDO_errorInfo(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @add_next_index_null(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO_query(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_PDO_query(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -3850,7 +3850,7 @@ declare zeroext i1 @pdo_stmt_setup_fetch_mode(ptr noundef, i64 noundef, i32 noun
 declare zeroext i1 @pdo_stmt_describe_columns(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO_quote(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PDO_quote(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3997,7 +3997,7 @@ define hidden void @zim_PDO_quote(ptr noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDO_getAvailableDrivers(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_PDO_getAvailableDrivers(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -4050,7 +4050,7 @@ define hidden void @zim_PDO_getAvailableDrivers(ptr nocapture noundef readonly %
 declare i32 @add_next_index_stringl(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @pdo_hash_methods(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pdo_hash_methods(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zend_internal_function, align 8
   %5 = load ptr, ptr %0, align 8
@@ -4157,7 +4157,7 @@ define hidden noundef zeroext i1 @pdo_hash_methods(ptr nocapture noundef readonl
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i64 %49, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr align 1 %48, i64 %49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr nonnull align 1 %48, i64 %49, i1 false)
   %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %49
   store i8 0, ptr %66, align 1
   store ptr %59, ptr %33, align 8
@@ -4299,7 +4299,7 @@ declare noalias ptr @_emalloc_56() local_unnamed_addr #1
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @cls_method_pdtor(ptr nocapture noundef readonly %0) #6 {
+define internal void @cls_method_pdtor(ptr noundef readonly captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -4342,7 +4342,7 @@ define internal void @cls_method_pdtor(ptr nocapture noundef readonly %0) #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cls_method_dtor(ptr nocapture noundef readonly %0) #0 {
+define internal void @cls_method_dtor(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -4385,7 +4385,7 @@ define internal void @cls_method_dtor(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i64 @zend_internal_run_time_cache_reserved_size() local_unnamed_addr #1
 
@@ -7623,7 +7623,7 @@ define internal ptr @dbh_method_get(ptr noundef %0, ptr noundef %1, ptr noundef 
 declare i32 @zend_objects_not_comparable(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dbh_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @dbh_get_gc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 -8
   %.val = load ptr, ptr %4, align 8
   %5 = tail call ptr @zend_get_gc_buffer_create() #11
@@ -7695,7 +7695,7 @@ declare void @object_properties_init(ptr noundef, ptr noundef) local_unnamed_add
 declare void @rebuild_object_properties(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_pdo_pdbh_dtor(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @php_pdo_pdbh_dtor(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -7890,7 +7890,7 @@ define internal fastcc void @dbh_free(ptr noundef nonnull %0, i1 noundef zeroext
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4

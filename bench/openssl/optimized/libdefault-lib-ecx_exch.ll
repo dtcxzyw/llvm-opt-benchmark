@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ecx_dupctx = private unnamed_addr constant [11 x i8] c"ecx_dupctx\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @x25519_newctx(ptr nocapture readnone %provctx) #0 {
+define internal noalias ptr @x25519_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -34,7 +34,7 @@ ecx_newctx.exit:                                  ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecx_init(ptr noundef %vecxctx, ptr noundef %vkey, ptr nocapture readnone %params) #0 {
+define internal range(i32 0, 2) i32 @ecx_init(ptr noundef %vecxctx, ptr noundef %vkey, ptr readnone captures(none) %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -77,7 +77,7 @@ return:                                           ; preds = %entry, %if.end9, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecx_derive(ptr nocapture noundef readonly %vecxctx, ptr noundef %secret, ptr noundef %secretlen, i64 noundef %outlen) #0 {
+define internal i32 @ecx_derive(ptr noundef readonly captures(none) %vecxctx, ptr noundef %secret, ptr noundef %secretlen, i64 noundef %outlen) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -154,7 +154,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ecx_dupctx(ptr nocapture noundef readonly %vecxctx) #0 {
+define internal ptr @ecx_dupctx(ptr noundef readonly captures(none) %vecxctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -213,7 +213,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @x448_newctx(ptr nocapture readnone %provctx) #0 {
+define internal noalias ptr @x448_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -252,7 +252,7 @@ declare i32 @ossl_ecx_compute_key(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

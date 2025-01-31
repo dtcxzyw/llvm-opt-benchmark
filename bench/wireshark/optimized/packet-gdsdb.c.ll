@@ -404,7 +404,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gdsdb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_gdsdb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %.loopexit, label %7
@@ -491,13 +491,13 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_dummy(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3) #0 {
+define internal i32 @gdsdb_dummy(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_connect(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_connect(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 16
   br i1 %6, label %.loopexit, label %7
@@ -614,7 +614,7 @@ add_uint_string.exit79:                           ; preds = %add_uint_string.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gdsdb_accept(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @gdsdb_accept(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 12
   br i1 %6, label %17, label %7
@@ -637,7 +637,7 @@ define internal noundef i32 @gdsdb_accept(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gdsdb_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @gdsdb_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
@@ -760,7 +760,7 @@ gdsdb_status_vector.exit:                         ; preds = %.lr.ph.i, %add_uint
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_attach(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_attach(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 12
   br i1 %6, label %add_uint_string.exit40, label %7
@@ -838,7 +838,7 @@ add_uint_string.exit40:                           ; preds = %48, %add_uint_strin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_release(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_release(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 4
   br i1 %6, label %11, label %7
@@ -855,7 +855,7 @@ define internal i32 @gdsdb_release(ptr noundef %0, ptr nocapture readnone %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_compile(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_compile(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 8
   br i1 %6, label %add_uint_string.exit, label %7
@@ -895,7 +895,7 @@ add_uint_string.exit:                             ; preds = %23, %12, %7, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gdsdb_receive(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @gdsdb_receive(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 20
   br i1 %6, label %.loopexit, label %7
@@ -938,7 +938,7 @@ define internal noundef i32 @gdsdb_receive(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gdsdb_send(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @gdsdb_send(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 20
   br i1 %6, label %23, label %7
@@ -967,7 +967,7 @@ define internal noundef i32 @gdsdb_send(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_reconnect(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_reconnect(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %7 = icmp slt i32 %6, 8
@@ -1015,7 +1015,7 @@ add_byte_array.exit:                              ; preds = %13, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gdsdb_open_blob2(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @gdsdb_open_blob2(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 12
   br i1 %6, label %29, label %7
@@ -1062,7 +1062,7 @@ add_uint_string.exit:                             ; preds = %11, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gdsdb_open_blob(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @gdsdb_open_blob(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 8
   br i1 %6, label %14, label %7
@@ -1082,7 +1082,7 @@ define internal noundef i32 @gdsdb_open_blob(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_segment(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_segment(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 12
   br i1 %6, label %9, label %7
@@ -1097,7 +1097,7 @@ define internal i32 @gdsdb_segment(ptr noundef %0, ptr nocapture readnone %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gdsdb_info(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @gdsdb_info(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 16
   br i1 %6, label %55, label %7
@@ -1186,7 +1186,7 @@ add_uint_string.exit45:                           ; preds = %49, %40, %add_uint_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_event(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_event(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 20
   br i1 %6, label %9, label %7
@@ -1201,7 +1201,7 @@ define internal i32 @gdsdb_event(ptr noundef %0, ptr nocapture readnone %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_cancel_events(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_cancel_events(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 8
   br i1 %6, label %9, label %7
@@ -1216,7 +1216,7 @@ define internal i32 @gdsdb_cancel_events(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gdsdb_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @gdsdb_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 16
   br i1 %6, label %17, label %7
@@ -1239,7 +1239,7 @@ define internal noundef i32 @gdsdb_request(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_ddl(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_ddl(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 12
   br i1 %6, label %9, label %7
@@ -1254,7 +1254,7 @@ define internal i32 @gdsdb_ddl(ptr noundef %0, ptr nocapture readnone %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_slice(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_slice(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 20
   br i1 %6, label %9, label %7
@@ -1269,7 +1269,7 @@ define internal i32 @gdsdb_slice(ptr noundef %0, ptr nocapture readnone %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_slice_response(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_slice_response(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 4
   br i1 %6, label %9, label %7
@@ -1284,7 +1284,7 @@ define internal i32 @gdsdb_slice_response(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_seek_blob(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_seek_blob(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 12
   br i1 %6, label %9, label %7
@@ -1299,7 +1299,7 @@ define internal i32 @gdsdb_seek_blob(ptr noundef %0, ptr nocapture readnone %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_execute(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_execute(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 16
   br i1 %6, label %20, label %7
@@ -1325,7 +1325,7 @@ define internal i32 @gdsdb_execute(ptr noundef %0, ptr nocapture readnone %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gdsdb_prepare(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @gdsdb_prepare(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 20
   br i1 %6, label %42, label %7
@@ -1386,7 +1386,7 @@ add_uint_string.exit:                             ; preds = %12, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_fetch(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_fetch(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 12
   br i1 %6, label %9, label %7
@@ -1401,7 +1401,7 @@ define internal i32 @gdsdb_fetch(ptr noundef %0, ptr nocapture readnone %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_fetch_response(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_fetch_response(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 8
   br i1 %6, label %9, label %7
@@ -1416,7 +1416,7 @@ define internal i32 @gdsdb_fetch_response(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gdsdb_free_statement(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @gdsdb_free_statement(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 8
   br i1 %6, label %14, label %7
@@ -1436,7 +1436,7 @@ define internal noundef i32 @gdsdb_free_statement(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_cursor(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_cursor(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 12
   br i1 %6, label %9, label %7
@@ -1451,7 +1451,7 @@ define internal i32 @gdsdb_cursor(ptr noundef %0, ptr nocapture readnone %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_exec_immediate2(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_exec_immediate2(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 40
   br i1 %6, label %9, label %7
@@ -1466,7 +1466,7 @@ define internal i32 @gdsdb_exec_immediate2(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_insert(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_insert(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 12
   br i1 %6, label %9, label %7
@@ -1481,7 +1481,7 @@ define internal i32 @gdsdb_insert(ptr noundef %0, ptr nocapture readnone %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_sql_response(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_sql_response(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 4
   br i1 %6, label %9, label %7
@@ -1496,7 +1496,7 @@ define internal i32 @gdsdb_sql_response(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gdsdb_transact(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @gdsdb_transact(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 8
   br i1 %6, label %14, label %7
@@ -1516,7 +1516,7 @@ define internal noundef i32 @gdsdb_transact(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gdsdb_transact_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @gdsdb_transact_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 4
   br i1 %6, label %11, label %7
@@ -1533,7 +1533,7 @@ define internal noundef i32 @gdsdb_transact_response(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gdsdb_service_start(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #0 {
+define internal i32 @gdsdb_service_start(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #3
   %6 = icmp slt i32 %5, 16
   br i1 %6, label %9, label %7
@@ -1558,10 +1558,10 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

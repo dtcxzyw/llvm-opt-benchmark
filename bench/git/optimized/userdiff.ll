@@ -367,17 +367,17 @@ declare i32 @parse_config_key(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @git_config_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @userdiff_find_by_name(ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
+define dso_local noundef ptr @userdiff_find_by_name(ptr noundef readonly captures(none) %name) local_unnamed_addr #0 {
 entry:
   %re.i = alloca %struct.re_pattern_buffer, align 8
   %match.i = alloca %struct.regmatch_t, align 4
@@ -405,7 +405,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds nuw %struct.userdiff_driver, ptr %0, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %call.i3.i = tail call i32 @strncmp(ptr noundef %2, ptr noundef readonly %name, i64 noundef %conv1) #9
+  %call.i3.i = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull readonly %name, i64 noundef %conv1) #9
   %tobool.not.i4.i = icmp eq i32 %call.i3.i, 0
   br i1 %tobool.not.i4.i, label %land.lhs.true.i6.i, label %for.cond.i.i.i
 
@@ -419,7 +419,7 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i.pre
   %indvars.iv.i8.i.i = phi i64 [ %indvars.iv.next.i14.i.i, %userdiff_find_by_namelen_cb.exit.i ], [ 0, %for.body.i7.i.i.preheader ]
   %add.ptr.i9.i.i = getelementptr inbounds nuw %struct.userdiff_driver, ptr @builtin_drivers, i64 %indvars.iv.i8.i.i
   %4 = load ptr, ptr %add.ptr.i9.i.i, align 8
-  %call.i.i = tail call i32 @strncmp(ptr noundef %4, ptr noundef readonly %name, i64 noundef %conv1) #9
+  %call.i.i = tail call i32 @strncmp(ptr noundef %4, ptr noundef nonnull readonly %name, i64 noundef %conv1) #9
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %userdiff_find_by_namelen_cb.exit.i
 
@@ -496,7 +496,7 @@ if.end9:                                          ; preds = %userdiff_find_by_na
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @userdiff_find_by_path(ptr noundef %istate, ptr noundef %path) local_unnamed_addr #0 {
@@ -588,7 +588,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -597,7 +597,7 @@ declare void @notes_cache_init(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @for_each_userdiff_driver(ptr nocapture noundef readonly %fn, ptr noundef %cb_data) local_unnamed_addr #0 {
+define dso_local i32 @for_each_userdiff_driver(ptr noundef readonly captures(none) %fn, ptr noundef %cb_data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @drivers, align 8
   %1 = load i32, ptr @ndrivers, align 4
@@ -639,13 +639,13 @@ return:                                           ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @git_config_bool(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -659,10 +659,10 @@ declare i32 @regexec(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 nou
 declare void @regfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

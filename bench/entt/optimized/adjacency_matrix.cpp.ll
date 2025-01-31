@@ -800,7 +800,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -935,13 +935,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN27AdjacencyMatrix_Resize_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN27AdjacencyMatrix_Resize_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp11 = alloca %"class.testing::Message", align 8
@@ -1688,7 +1688,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 declare void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN33AdjacencyMatrix_Constructors_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN33AdjacencyMatrix_Constructors_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp6 = alloca %"class.testing::Message", align 8
@@ -2499,7 +2499,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit560: ; preds = %_ZN4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN25AdjacencyMatrix_Copy_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN25AdjacencyMatrix_Copy_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp13 = alloca %"class.testing::Message", align 8
@@ -4015,7 +4015,7 @@ ehcleanup339:                                     ; preds = %if.then.i.i.i.i871,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN25AdjacencyMatrix_Move_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN25AdjacencyMatrix_Move_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp11 = alloca %"class.testing::Message", align 8
@@ -5311,7 +5311,7 @@ if.then.i.i.i.i879:                               ; preds = %ehcleanup323, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN25AdjacencyMatrix_Swap_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN25AdjacencyMatrix_Swap_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp11 = alloca %"class.testing::Message", align 8
@@ -6272,7 +6272,7 @@ ehcleanup290:                                     ; preds = %ehcleanup273, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35AdjacencyMatrix_InsertDirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35AdjacencyMatrix_InsertDirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   %first = alloca %"struct.std::pair", align 8
   %other = alloca %"struct.std::pair", align 8
@@ -7307,7 +7307,7 @@ ehcleanup323:                                     ; preds = %ehcleanup314, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN37AdjacencyMatrix_InsertUndirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN37AdjacencyMatrix_InsertUndirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   %first = alloca %"struct.std::pair", align 8
   %other = alloca %"struct.std::pair", align 8
@@ -8345,7 +8345,7 @@ ehcleanup322:                                     ; preds = %ehcleanup313, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34AdjacencyMatrix_EraseDirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34AdjacencyMatrix_EraseDirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i350:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp82 = alloca %"class.testing::Message", align 8
@@ -9013,7 +9013,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit531: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN36AdjacencyMatrix_EraseUndirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN36AdjacencyMatrix_EraseUndirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i347:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp82 = alloca %"class.testing::Message", align 8
@@ -9683,7 +9683,7 @@ _ZN4entt16adjacency_matrixINS_14undirected_tagESaImEED2Ev.exit528: ; preds = %eh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN26AdjacencyMatrix_Clear_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN26AdjacencyMatrix_Clear_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i371:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp83 = alloca %"class.testing::Message", align 8
@@ -9983,7 +9983,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit552: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35AdjacencyMatrix_VertexIterator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35AdjacencyMatrix_VertexIterator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %end = alloca %"class.entt::iota_iterator", align 8
   %begin = alloca %"class.entt::iota_iterator", align 8
@@ -11181,10 +11181,10 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit553: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN33AdjacencyMatrix_EdgeIterator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN33AdjacencyMatrix_EdgeIterator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit:
   %orig.i = alloca %"class.entt::internal::edge_iterator", align 8
   %__tmp.i = alloca %"class.entt::internal::edge_iterator", align 8
@@ -12513,7 +12513,7 @@ ehcleanup238:                                     ; preds = %ehcleanup236, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN29AdjacencyMatrix_Vertices_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN29AdjacencyMatrix_Vertices_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp7 = alloca %"class.testing::Message", align 8
@@ -13598,7 +13598,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit567: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34AdjacencyMatrix_EdgesDirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34AdjacencyMatrix_EdgesDirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -14498,7 +14498,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit478: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN46AdjacencyMatrix_EdgesBackwardOnlyDirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN46AdjacencyMatrix_EdgesBackwardOnlyDirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -15230,7 +15230,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit351: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN36AdjacencyMatrix_EdgesUndirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN36AdjacencyMatrix_EdgesUndirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -16533,7 +16533,7 @@ _ZN4entt16adjacency_matrixINS_14undirected_tagESaImEED2Ev.exit702: ; preds = %eh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN48AdjacencyMatrix_EdgesBackwardOnlyUndirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN48AdjacencyMatrix_EdgesBackwardOnlyUndirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -17463,7 +17463,7 @@ _ZN4entt16adjacency_matrixINS_14undirected_tagESaImEED2Ev.exit464: ; preds = %eh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN37AdjacencyMatrix_OutEdgesDirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN37AdjacencyMatrix_OutEdgesDirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -18390,7 +18390,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit474: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN49AdjacencyMatrix_OutEdgesBackwardOnlyDirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN49AdjacencyMatrix_OutEdgesBackwardOnlyDirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -19252,7 +19252,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit446: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN39AdjacencyMatrix_OutEdgesUndirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN39AdjacencyMatrix_OutEdgesUndirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -20565,7 +20565,7 @@ _ZN4entt16adjacency_matrixINS_14undirected_tagESaImEED2Ev.exit669: ; preds = %eh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN51AdjacencyMatrix_OutEdgesBackwardOnlyUndirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN51AdjacencyMatrix_OutEdgesBackwardOnlyUndirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -21811,7 +21811,7 @@ _ZN4entt16adjacency_matrixINS_14undirected_tagESaImEED2Ev.exit641: ; preds = %eh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN36AdjacencyMatrix_InEdgesDirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN36AdjacencyMatrix_InEdgesDirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -22691,7 +22691,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit477: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN48AdjacencyMatrix_InEdgesBackwardOnlyDirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN48AdjacencyMatrix_InEdgesBackwardOnlyDirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -23590,7 +23590,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit447: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN38AdjacencyMatrix_InEdgesUndirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN38AdjacencyMatrix_InEdgesUndirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -25059,7 +25059,7 @@ _ZN4entt16adjacency_matrixINS_14undirected_tagESaImEED2Ev.exit785: ; preds = %eh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN50AdjacencyMatrix_InEdgesBackwardOnlyUndirected_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN50AdjacencyMatrix_InEdgesBackwardOnlyUndirected_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -26342,7 +26342,7 @@ _ZN4entt16adjacency_matrixINS_14undirected_tagESaImEED2Ev.exit642: ; preds = %eh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN38AdjacencyMatrix_ThrowingAllocator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN38AdjacencyMatrix_ThrowingAllocator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca i32, align 4
   %adjacency_matrix = alloca %"class.entt::adjacency_matrix.45", align 8
@@ -27646,7 +27646,7 @@ terminate.lpad:                                   ; preds = %ehcleanup114, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv() local_unnamed_addr #0
 
@@ -29170,7 +29170,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -29178,7 +29178,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #0
 
@@ -29632,7 +29632,7 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7testing8internal18CmpHelperOpFailureIN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEESD_EENS_15AssertionResultEPKcSG_RKT_RKT0_SG_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %expr1, ptr noundef %expr2, ptr noundef nonnull align 8 dereferenceable(40) %val1, ptr noundef nonnull align 8 dereferenceable(40) %val2, ptr noundef %op) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -30347,7 +30347,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %if.end
-  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i64 noundef %call.i.i)
+  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3, i64 noundef %call.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -32120,7 +32120,7 @@ if.end44:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorImN4test18throwing_allocatorImEEEC2EmRKS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %__n, ptr noundef nonnull align 8 dereferenceable(24) %__a) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {

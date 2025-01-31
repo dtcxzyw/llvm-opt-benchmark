@@ -83,7 +83,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [42 x ptr] [ptr @__UNIQUE_ID___addressable_cubictcp_register933, ptr @__UNIQUE_ID_author934, ptr @__UNIQUE_ID_beta906, ptr @__UNIQUE_ID_betatype905, ptr @__UNIQUE_ID_bic_scale910, ptr @__UNIQUE_ID_bic_scaletype909, ptr @__UNIQUE_ID_description937, ptr @__UNIQUE_ID_fast_convergence904, ptr @__UNIQUE_ID_fast_convergencetype903, ptr @__UNIQUE_ID_file935, ptr @__UNIQUE_ID_hystart914, ptr @__UNIQUE_ID_hystart_ack_delta_us920, ptr @__UNIQUE_ID_hystart_ack_delta_ustype919, ptr @__UNIQUE_ID_hystart_detect916, ptr @__UNIQUE_ID_hystart_detecttype915, ptr @__UNIQUE_ID_hystart_low_window918, ptr @__UNIQUE_ID_hystart_low_windowtype917, ptr @__UNIQUE_ID_hystarttype913, ptr @__UNIQUE_ID_initial_ssthresh908, ptr @__UNIQUE_ID_initial_ssthreshtype907, ptr @__UNIQUE_ID_license936, ptr @__UNIQUE_ID_tcp_friendliness912, ptr @__UNIQUE_ID_tcp_friendlinesstype911, ptr @__UNIQUE_ID_version938, ptr @__exitcall_cubictcp_unregister, ptr @__modver_attr, ptr @__param_beta, ptr @__param_bic_scale, ptr @__param_fast_convergence, ptr @__param_hystart, ptr @__param_hystart_ack_delta_us, ptr @__param_hystart_detect, ptr @__param_hystart_low_window, ptr @__param_initial_ssthresh, ptr @__param_tcp_friendliness, ptr @cubictcp_acked, ptr @cubictcp_cong_avoid, ptr @cubictcp_cwnd_event, ptr @cubictcp_init, ptr @cubictcp_recalc_ssthresh, ptr @cubictcp_state, ptr @cubictcp_unregister], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @cubictcp_init(ptr nocapture noundef initializes((1264, 1304), (1307, 1308)) %0) #0 align 16 {
+define internal void @cubictcp_init(ptr noundef captures(none) initializes((1264, 1304), (1307, 1308)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1307
@@ -125,7 +125,7 @@ define internal void @cubictcp_init(ptr nocapture noundef initializes((1264, 130
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal void @cubictcp_cwnd_event(ptr nocapture noundef %0, i32 noundef %1) #1 align 16 {
+define internal void @cubictcp_cwnd_event(ptr noundef captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %20
 
@@ -434,7 +434,7 @@ declare dso_local i32 @tcp_slow_start(ptr noundef, i32 noundef) local_unnamed_ad
 declare dso_local void @tcp_cong_avoid_ai(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal range(i32 2, 4194304) i32 @cubictcp_recalc_ssthresh(ptr nocapture noundef initializes((1292, 1296)) %0) #0 align 16 {
+define internal range(i32 2, 4194304) i32 @cubictcp_recalc_ssthresh(ptr noundef captures(none) initializes((1292, 1296)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1420
@@ -458,7 +458,7 @@ define internal range(i32 2, 4194304) i32 @cubictcp_recalc_ssthresh(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @cubictcp_state(ptr nocapture noundef %0, i8 noundef zeroext %1) #4 align 16 {
+define internal void @cubictcp_state(ptr noundef captures(none) %0, i8 noundef zeroext %1) #4 align 16 {
   %3 = icmp eq i8 %1, 4
   br i1 %3, label %4, label %17
 
@@ -489,7 +489,7 @@ define internal void @cubictcp_state(ptr nocapture noundef %0, i8 noundef zeroex
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal void @cubictcp_acked(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
@@ -728,7 +728,7 @@ define internal i32 @cubictcp_register() #5 section ".init.text" align 16 {
 declare dso_local i64 @__modver_version_show(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @__usecs_to_jiffies(i32 noundef) local_unnamed_addr #3

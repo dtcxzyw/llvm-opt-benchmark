@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [25 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @cbw_co_preadv, ptr @.str.15, ptr @.str.16, i32 82, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @cbw_co_preadv_snapshot, ptr @.str.15, ptr @.str.16, i32 260, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @cbw_snapshot_read_unlock, ptr @.str.15, ptr @.str.16, i32 244, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @cbw_co_pwrite_zeroes, ptr @.str.15, ptr @.str.16, i32 164, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_unlock, ptr @.str.15, ptr @.str.17, i32 152, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv_part, ptr @.str.15, ptr @.str.18, i32 50, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @cbw_do_copy_before_write, ptr @.str.15, ptr @.str.16, i32 104, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_unref, ptr @.str.19, ptr @.str.20, i32 238, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_open_child, ptr @.str.19, ptr @.str.20, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite_zeroes, ptr @.str.15, ptr @.str.21, i32 74, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_block_status, ptr @.str.15, ptr @.str.21, i32 132, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @cbw_co_pdiscard_snapshot, ptr @.str.15, ptr @.str.16, i32 325, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @block_copy, ptr @.str.15, ptr @.str.22, i32 43, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pdiscard, ptr @.str.15, ptr @.str.21, i32 113, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @reqlist_wait_all, ptr @.str.15, ptr @.str.23, i32 61, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @cbw_snapshot_read_lock, ptr @.str.15, ptr @.str.16, i32 207, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwritev, ptr @.str.15, ptr @.str.18, i32 53, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @cbw_co_pdiscard, ptr @.str.15, ptr @.str.16, i32 153, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @cbw_co_flush, ptr @.str.15, ptr @.str.16, i32 187, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @cbw_co_snapshot_block_status, ptr @.str.15, ptr @.str.16, i32 292, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_flush, ptr @.str.15, ptr @.str.21, i32 111, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @cbw_co_pwritev, ptr @.str.15, ptr @.str.16, i32 176, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock, ptr @.str.15, ptr @.str.17, i32 146, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv, ptr @.str.15, ptr @.str.18, i32 47, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @reqlist_remove_req, ptr @.str.15, ptr @.str.23, i32 73, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_cbw_append(ptr noundef %source, ptr noundef %target, ptr noundef %filter_node_name, ptr nocapture noundef writeonly %bcs, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @bdrv_cbw_append(ptr noundef %source, ptr noundef %target, ptr noundef %filter_node_name, ptr noundef writeonly captures(none) %bcs, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %total_sectors = getelementptr inbounds nuw i8, ptr %source, i64 16888
   %0 = load i64, ptr %total_sectors, align 8
@@ -324,7 +324,7 @@ glib_autoptr_cleanup_BlockdevOptions.exit:        ; preds = %cbw_parse_options.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cbw_close(ptr nocapture noundef readonly %bs) #0 {
+define internal void @cbw_close(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -393,7 +393,7 @@ if.end7:                                          ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cbw_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
+define internal i32 @cbw_co_preadv(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -456,7 +456,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @cbw_co_preadv_snapshot(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset) #0 {
+define internal range(i32 -2147483648, 1) i32 @cbw_co_preadv_snapshot(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset) #0 {
 entry:
   %file = alloca ptr, align 8
   %cur_bytes = alloca i64, align 8
@@ -520,7 +520,7 @@ return:                                           ; preds = %while.body, %cbw_sn
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cbw_co_snapshot_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum, ptr noundef %map, ptr noundef %file) #0 {
+define internal i32 @cbw_co_snapshot_block_status(ptr noundef readonly captures(none) %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum, ptr noundef %map, ptr noundef %file) #0 {
 entry:
   %cur_bytes = alloca i64, align 8
   %child = alloca ptr, align 8
@@ -577,7 +577,7 @@ return:                                           ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cbw_co_pdiscard_snapshot(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
+define internal i32 @cbw_co_pdiscard_snapshot(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 qemu_lockable_auto_unlock.exit.us:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -596,7 +596,7 @@ qemu_lockable_auto_unlock.exit.us:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cbw_co_flush(ptr nocapture noundef readonly %bs) #0 {
+define internal i32 @cbw_co_flush(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -783,7 +783,7 @@ declare i32 @bdrv_co_pwrite_zeroes(ptr noundef, i64 noundef, i64 noundef, i32 no
 declare i32 @bdrv_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @cbw_snapshot_read_lock(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum, ptr nocapture noundef writeonly %file) #0 {
+define internal noundef ptr @cbw_snapshot_read_lock(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum, ptr noundef writeonly captures(none) %file) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -844,7 +844,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end15, %if.then6
 declare i32 @bdrv_co_preadv_part(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cbw_snapshot_read_unlock(ptr nocapture noundef readonly %bs, ptr noundef %req) #0 {
+define internal void @cbw_snapshot_read_unlock(ptr noundef readonly captures(none) %bs, ptr noundef %req) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -884,7 +884,7 @@ declare i64 @bdrv_dirty_bitmap_next_zero(ptr noundef, i64 noundef, i64 noundef) 
 declare zeroext i1 @bdrv_dirty_bitmap_status(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @reqlist_init_req(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -899,10 +899,10 @@ declare void @block_copy_reset(ptr noundef, i64 noundef, i64 noundef) local_unna
 declare i32 @bdrv_co_flush(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

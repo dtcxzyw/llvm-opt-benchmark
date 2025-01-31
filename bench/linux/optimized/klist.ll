@@ -184,10 +184,10 @@ define dso_local void @klist_add_behind(ptr noundef %0, ptr noundef %1) #1 align
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @klist_add_before(ptr noundef %0, ptr noundef %1) #1 align 16 {
@@ -346,7 +346,7 @@ define dso_local void @klist_remove(ptr noundef %0) #1 align 16 {
 declare dso_local void @schedule() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 2) i32 @klist_node_attached(ptr nocapture noundef readonly %0) #4 align 16 {
+define dso_local range(i32 0, 2) i32 @klist_node_attached(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp ne ptr %2, null
   %4 = zext i1 %3 to i32
@@ -354,7 +354,7 @@ define dso_local range(i32 0, 2) i32 @klist_node_attached(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @klist_iter_init_node(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr noundef %2) #1 align 16 {
+define dso_local void @klist_iter_init_node(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef %2) #1 align 16 {
   store ptr %0, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %4, align 8
@@ -406,7 +406,7 @@ define dso_local void @klist_iter_init_node(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @klist_iter_init(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 align 16 {
+define dso_local void @klist_iter_init(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #5 align 16 {
   store ptr %0, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %3, align 8
@@ -414,7 +414,7 @@ define dso_local void @klist_iter_init(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @klist_iter_exit(ptr nocapture noundef %0) #1 align 16 {
+define dso_local void @klist_iter_exit(ptr noundef captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -448,7 +448,7 @@ define dso_local void @klist_iter_exit(ptr nocapture noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @klist_prev(ptr nocapture noundef %0) #1 align 16 {
+define dso_local ptr @klist_prev(ptr noundef captures(none) %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -622,7 +622,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @klist_dec_and_del(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @klist_next(ptr nocapture noundef %0) #1 align 16 {
+define dso_local ptr @klist_next(ptr noundef captures(none) %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8

@@ -341,7 +341,7 @@ define i32 @epan_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @wmem_init_scopes() local_unnamed_addr #3
 
@@ -398,7 +398,7 @@ declare void @conversation_filters_init() local_unnamed_addr #3
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @epan_plugin_init(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal void @epan_plugin_init(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   tail call void %3() #15
   ret void
@@ -419,7 +419,7 @@ declare void @print_cache_field_handles() local_unnamed_addr #3
 declare void @expert_packet_init() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @epan_plugin_post_init(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal void @epan_plugin_post_init(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4() #15
@@ -504,7 +504,7 @@ define void @epan_cleanup() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @epan_plugin_cleanup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal void @epan_plugin_cleanup(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   tail call void %4() #15
@@ -562,7 +562,7 @@ declare void @wmem_cleanup_scopes() local_unnamed_addr #3
 declare void @plugins_cleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @epan_new(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define noalias noundef ptr @epan_new(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc0(i64 noundef 40) #18
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -575,12 +575,12 @@ define noalias noundef ptr @epan_new(ptr noundef %0, ptr nocapture noundef reado
 declare noalias ptr @g_slice_alloc0(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare void @init_dissection() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @epan_get_modified_block(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define ptr @epan_get_modified_block(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -597,7 +597,7 @@ define ptr @epan_get_modified_block(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @epan_get_interface_name(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define ptr @epan_get_interface_name(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -614,7 +614,7 @@ define ptr @epan_get_interface_name(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @epan_get_interface_description(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define ptr @epan_get_interface_description(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -745,7 +745,7 @@ define void @epan_dissect_init(ptr noundef initializes((0, 8), (24, 464)) %0, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare ptr @wmem_allocator_new(i32 noundef) local_unnamed_addr #3
 
@@ -754,7 +754,7 @@ declare ptr @proto_tree_create_root(ptr noundef) local_unnamed_addr #3
 declare i32 @proto_tree_set_visible(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @epan_plugin_dissect_init(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
+define internal void @epan_plugin_dissect_init(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef %1) #15
@@ -994,7 +994,7 @@ define void @epan_dissect_cleanup(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @epan_plugin_dissect_cleanup(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
+define internal void @epan_plugin_dissect_cleanup(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef %1) #15
@@ -1013,7 +1013,7 @@ define void @epan_dissect_free(ptr noundef %0) local_unnamed_addr #2 {
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @epan_dissect_prime_with_dfilter(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @epan_dissect_prime_with_dfilter(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @dfilter_prime_proto_tree(ptr noundef %1, ptr noundef %4) #15
@@ -1023,7 +1023,7 @@ define void @epan_dissect_prime_with_dfilter(ptr nocapture noundef readonly %0, 
 declare void @dfilter_prime_proto_tree(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @epan_dissect_prime_with_hfid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @epan_dissect_prime_with_hfid(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @proto_tree_prime_with_hfid(ptr noundef %4, i32 noundef %1) #15
@@ -1033,7 +1033,7 @@ define void @epan_dissect_prime_with_hfid(ptr nocapture noundef readonly %0, i32
 declare void @proto_tree_prime_with_hfid(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @epan_dissect_prime_with_hfid_array(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @epan_dissect_prime_with_hfid_array(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -1061,7 +1061,7 @@ define void @epan_dissect_prime_with_hfid_array(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @epan_custom_set(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define hidden ptr @epan_custom_set(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @proto_custom_set(ptr noundef %8, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #15

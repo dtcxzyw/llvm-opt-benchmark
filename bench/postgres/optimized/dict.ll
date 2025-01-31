@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.DictSubState = type { i8, i8, ptr }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @ts_lexize(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.DictSubState, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -210,7 +210,7 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @lookup_ts_dictionary_cache(i32 noundef) local_unnamed_addr #1
 

@@ -27,13 +27,13 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_osc_rdma_component = external global %struct.ompi_osc_rdma_component_t, align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_rdma_sync(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @ompi_osc_rdma_sync(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @opal_progress() #7
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @ompi_osc_rdma_flush(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_rdma_flush(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -271,7 +271,7 @@ ompi_osc_rdma_sync_rdma_complete.exit:            ; preds = %104, %100, %75, %.c
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @ompi_osc_rdma_flush_all(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_rdma_flush_all(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -409,13 +409,13 @@ declare i32 @opal_hash_table_get_first_key_uint32(ptr noundef, ptr noundef, ptr 
 declare i32 @opal_hash_table_get_next_key_uint32(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @ompi_osc_rdma_flush_local(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_rdma_flush_local(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @ompi_osc_rdma_flush(i32 noundef %0, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @ompi_osc_rdma_flush_local_all(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_rdma_flush_local_all(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @ompi_osc_rdma_flush_all(ptr noundef %0)
   ret i32 %2
 }
@@ -878,7 +878,7 @@ ompi_osc_rdma_lock_release_shared.exit:           ; preds = %130, %138, %146, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @ompi_osc_rdma_lock_atomic(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_rdma_lock_atomic(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %7 = load ptr, ptr %6, align 8
@@ -1064,10 +1064,10 @@ define internal fastcc void @opal_obj_run_destructors(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @ompi_osc_rdma_unlock_atomic(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_rdma_unlock_atomic(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %5 = load ptr, ptr %4, align 8
@@ -1386,7 +1386,7 @@ ompi_osc_rdma_lock_release_shared.exit13:         ; preds = %54, %62
 declare void @ompi_osc_rdma_sync_return(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2, 1) i32 @ompi_osc_rdma_lock_all_atomic(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @ompi_osc_rdma_lock_all_atomic(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 310
@@ -1585,7 +1585,7 @@ ompi_osc_rdma_lock_release_shared.exit:           ; preds = %33, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @ompi_osc_rdma_unlock_all_atomic(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_rdma_unlock_all_atomic(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr @opal_uses_threads, align 1
@@ -1773,7 +1773,7 @@ declare zeroext i1 @ompi_osc_rdma_sync_pscw_peer(ptr noundef, i32 noundef, ptr n
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -18, 1) i32 @ompi_osc_rdma_frag_alloc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -18, 1) i32 @ompi_osc_rdma_frag_alloc(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %.sroa.22.i.i.i.i = alloca i64, align 8
@@ -2610,10 +2610,10 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %115
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

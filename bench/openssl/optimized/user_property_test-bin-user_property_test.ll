@@ -122,7 +122,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @testprov_provider_init(ptr noundef %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %provctx) #2 {
+define internal noundef i32 @testprov_provider_init(ptr noundef %handle, ptr readnone captures(none) %in, ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %provctx) #2 {
 entry:
   store ptr %handle, ptr %provctx, align 8
   store ptr @testprov_dispatch_table, ptr %out, align 8
@@ -142,7 +142,7 @@ declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @testprov_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly initializes((0, 4)) %no_cache) #2 {
+define internal noundef ptr @testprov_query(ptr readnone captures(none) %provctx, i32 noundef %operation_id, ptr noundef writeonly captures(none) initializes((0, 4)) %no_cache) #2 {
 entry:
   store i32 0, ptr %no_cache, align 4
   %cmp = icmp eq i32 %operation_id, 1
@@ -181,7 +181,7 @@ return:                                           ; preds = %land.lhs.true4, %la
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @tmpmd_digest(ptr nocapture readnone %provctx, ptr nocapture readnone %in, i64 %inl, ptr nocapture readnone %out, ptr nocapture readnone %outl, i64 %outsz) #3 {
+define internal noundef i32 @tmpmd_digest(ptr readnone captures(none) %provctx, ptr readnone captures(none) %in, i64 %inl, ptr readnone captures(none) %out, ptr readnone captures(none) %outl, i64 %outsz) #3 {
 entry:
   ret i32 0
 }

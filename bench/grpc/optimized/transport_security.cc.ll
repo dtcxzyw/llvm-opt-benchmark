@@ -369,7 +369,7 @@ return:                                           ; preds = %if.end6.i, %lor.lhs
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z37tsi_handshaker_create_frame_protectorP14tsi_handshakerPmPP19tsi_frame_protector(ptr noundef %self, ptr noundef %max_output_protected_frame_size, ptr noundef %protector) local_unnamed_addr #2 {
@@ -676,14 +676,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z22tsi_init_peer_propertyv(ptr noalias nocapture writeonly sret(%struct.tsi_peer_property) align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #4 {
+define void @_Z22tsi_init_peer_propertyv(ptr noalias writeonly sret(%struct.tsi_peer_property) align 8 captures(none) initializes((0, 24)) %agg.result) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26tsi_peer_property_destructP17tsi_peer_property(ptr nocapture noundef initializes((16, 24)) %property) local_unnamed_addr #2 {
+define void @_Z26tsi_peer_property_destructP17tsi_peer_property(ptr noundef captures(none) initializes((16, 24)) %property) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %property, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -711,7 +711,7 @@ if.end6:                                          ; preds = %if.then3, %if.end
 declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z17tsi_peer_destructP8tsi_peer(ptr noundef %self) local_unnamed_addr #2 {
@@ -772,7 +772,7 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z44tsi_construct_allocated_string_peer_propertyPKcmP17tsi_peer_property(ptr noundef %name, i64 noundef %value_length, ptr nocapture noundef writeonly initializes((0, 24)) %property) local_unnamed_addr #2 {
+define noundef i32 @_Z44tsi_construct_allocated_string_peer_propertyPKcmP17tsi_peer_property(ptr noundef %name, i64 noundef %value_length, ptr noundef writeonly captures(none) initializes((0, 24)) %property) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %property, i8 0, i64 24, i1 false)
   %cmp.not = icmp eq ptr %name, null
@@ -804,7 +804,7 @@ declare ptr @gpr_strdup(ptr noundef) local_unnamed_addr #0
 declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef %name, ptr nocapture noundef readonly %value, ptr nocapture noundef writeonly initializes((0, 24)) %property) local_unnamed_addr #2 {
+define noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef %name, ptr noundef readonly captures(none) %value, ptr noundef writeonly captures(none) initializes((0, 24)) %property) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %property, i8 0, i64 24, i1 false)
@@ -826,7 +826,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
   store ptr %call4.i.i, ptr %value.i.i, align 8
   %length.i.i = getelementptr inbounds nuw i8, ptr %property, i64 16
   store i64 %call, ptr %length.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i.i, ptr readonly align 1 %value, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i.i, ptr nonnull readonly align 1 %value, i64 %call, i1 false)
   br label %_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property.exit
 
 _Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property.exit: ; preds = %if.end.i.i, %if.then2.i
@@ -834,7 +834,7 @@ _Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef %name, ptr nocapture noundef readonly %value, i64 noundef %value_length, ptr nocapture noundef writeonly initializes((0, 24)) %property) local_unnamed_addr #2 {
+define noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef %name, ptr noundef readonly captures(none) %value, i64 noundef %value_length, ptr noundef writeonly captures(none) initializes((0, 24)) %property) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %property, i8 0, i64 24, i1 false)
   %cmp.not.i = icmp eq ptr %name, null
@@ -863,10 +863,10 @@ return:                                           ; preds = %if.end.i, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z18tsi_construct_peermP8tsi_peer(i64 noundef %property_count, ptr nocapture noundef writeonly initializes((0, 16)) %peer) local_unnamed_addr #2 {
+define noundef i32 @_Z18tsi_construct_peermP8tsi_peer(i64 noundef %property_count, ptr noundef writeonly captures(none) initializes((0, 16)) %peer) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %peer, i8 0, i64 16, i1 false)
   %cmp.not = icmp eq i64 %property_count, 0
@@ -936,7 +936,7 @@ return:                                           ; preds = %land.lhs.true11, %f
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_transport_security.cc() #8 section ".text.startup" {

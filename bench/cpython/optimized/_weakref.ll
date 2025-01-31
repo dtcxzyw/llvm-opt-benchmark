@@ -50,7 +50,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_weakref_getweakrefcount(ptr nocapture readnone %module, ptr noundef %object) #0 {
+define internal ptr @_weakref_getweakrefcount(ptr readnone captures(none) %module, ptr noundef %object) #0 {
 entry:
   %0 = getelementptr i8, ptr %object, i64 8
   %object.val.i = load ptr, ptr %0, align 8
@@ -109,7 +109,7 @@ exit:                                             ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_weakref__remove_dead_weakref(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_weakref__remove_dead_weakref(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -156,7 +156,7 @@ exit:                                             ; preds = %if.then2.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_weakref_getweakrefs(ptr nocapture readnone %module, ptr noundef %object) #0 {
+define internal ptr @_weakref_getweakrefs(ptr readnone captures(none) %module, ptr noundef %object) #0 {
 entry:
   %0 = getelementptr i8, ptr %object, i64 8
   %object.val.i = load ptr, ptr %0, align 8
@@ -240,7 +240,7 @@ _weakref_getweakrefs_impl.exit:                   ; preds = %_Py_NewRef.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_weakref_proxy(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_weakref_proxy(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 2
@@ -289,7 +289,7 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @_PyDict_DelItemIf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @is_dead_weakref(ptr nocapture noundef readonly %value) #0 {
+define internal range(i32 -1, 2) i32 @is_dead_weakref(ptr noundef readonly captures(none) %value) #0 {
 entry:
   %0 = getelementptr i8, ptr %value, i64 8
   %value.val5 = load ptr, ptr %0, align 8

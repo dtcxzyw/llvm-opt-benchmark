@@ -42,7 +42,7 @@ define hidden i32 @av1_get_upscale_convolve_step(i32 noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_resize_plane(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+define hidden void @av1_resize_plane(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = sext i32 %6 to i64
   %10 = sext i32 %1 to i64
   %11 = mul nsw i64 %9, %10
@@ -208,7 +208,7 @@ fill_col_to_arr.exit:                             ; preds = %.lr.ph64.thread, %f
 declare ptr @aom_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @resize_multistep(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #3 {
+define internal fastcc void @resize_multistep(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, ptr noundef nonnull captures(none) %4) unnamed_addr #3 {
   %6 = icmp eq i32 %1, %3
   br i1 %6, label %7, label %.preheader
 
@@ -705,7 +705,7 @@ down2_symodd.exit:                                ; preds = %149, %59, %263, %18
 declare void @aom_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_upscale_plane_double_prec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+define hidden void @av1_upscale_plane_double_prec(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = sext i32 %6 to i64
   %10 = sext i32 %1 to i64
   %11 = shl nsw i64 %10, 3
@@ -865,7 +865,7 @@ fill_col_to_arr_double_prec.exit:                 ; preds = %.lr.ph53.thread, %f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @upscale_multistep_double_prec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc void @upscale_multistep_double_prec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef %3) unnamed_addr #4 {
   %5 = shl nsw i32 %3, 4
   %.not.i.i = icmp slt i32 %3, %1
   br i1 %.not.i.i, label %6, label %choose_interp_filter.exit.i
@@ -1291,7 +1291,7 @@ highbd_fill_col_to_arr.exit:                      ; preds = %.lr.ph66.split, %hi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @highbd_resize_multistep(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3, ptr nocapture noundef nonnull %4, i32 noundef %5) unnamed_addr #3 {
+define internal fastcc void @highbd_resize_multistep(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, i32 noundef %5) unnamed_addr #3 {
   %7 = icmp eq i32 %1, %3
   br i1 %7, label %8, label %.preheader
 
@@ -1936,7 +1936,7 @@ highbd_down2_symodd.exit:                         ; preds = %clip_pixel_highbd.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_resize_frame420(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef writeonly %7, i32 noundef %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #1 {
+define hidden void @av1_resize_frame420(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, ptr noundef writeonly captures(none) %9, ptr noundef writeonly captures(none) %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #1 {
   tail call void @av1_resize_plane(ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %1, ptr noundef %7, i32 noundef %12, i32 noundef %13, i32 noundef %8)
   %15 = sdiv i32 %5, 2
   %16 = sdiv i32 %6, 2
@@ -1948,7 +1948,7 @@ define hidden void @av1_resize_frame420(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_resize_frame422(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef writeonly %7, i32 noundef %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #1 {
+define hidden void @av1_resize_frame422(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, ptr noundef writeonly captures(none) %9, ptr noundef writeonly captures(none) %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #1 {
   tail call void @av1_resize_plane(ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %1, ptr noundef %7, i32 noundef %12, i32 noundef %13, i32 noundef %8)
   %15 = sdiv i32 %6, 2
   %16 = sdiv i32 %13, 2
@@ -1958,7 +1958,7 @@ define hidden void @av1_resize_frame422(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_resize_frame444(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef writeonly %7, i32 noundef %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #1 {
+define hidden void @av1_resize_frame444(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, ptr noundef writeonly captures(none) %9, ptr noundef writeonly captures(none) %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #1 {
   tail call void @av1_resize_plane(ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %1, ptr noundef %7, i32 noundef %12, i32 noundef %13, i32 noundef %8)
   tail call void @av1_resize_plane(ptr noundef %2, i32 noundef %5, i32 noundef %6, i32 noundef %4, ptr noundef %9, i32 noundef %12, i32 noundef %13, i32 noundef %11)
   tail call void @av1_resize_plane(ptr noundef %3, i32 noundef %5, i32 noundef %6, i32 noundef %4, ptr noundef %10, i32 noundef %12, i32 noundef %13, i32 noundef %11)
@@ -1996,7 +1996,7 @@ define hidden void @av1_highbd_resize_frame444(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_resize_and_extend_frame_c(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @av1_resize_and_extend_frame_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca [3 x ptr], align 16
   %7 = alloca [3 x i32], align 4
   %8 = alloca [3 x ptr], align 16
@@ -2141,7 +2141,7 @@ define hidden void @av1_resize_and_extend_frame_c(ptr nocapture noundef readonly
 declare void @aom_scaled_2d_c(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_resize_and_extend_frame_nonnormative(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden void @av1_resize_and_extend_frame_nonnormative(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -2357,7 +2357,7 @@ define hidden void @av1_upscale_normative_rows(ptr noundef %0, ptr noundef %1, i
   %gep101.i = getelementptr i16, ptr %invariant.gep100.i, i64 %95
   %97 = load i16, ptr %gep101.i, align 2
   %98 = zext i16 %97 to i32
-  %99 = call ptr @aom_memset16(ptr noundef %96, i32 noundef %98, i64 noundef 5) #11
+  %99 = call ptr @aom_memset16(ptr noundef nonnull %96, i32 noundef %98, i64 noundef 5) #11
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count.i
   br i1 %exitcond86.not.i, label %.loopexit.i, label %.lr.ph75.i, !llvm.loop !67
@@ -2569,7 +2569,7 @@ highbd_upscale_normative_rect.exit:               ; preds = %highbd_upscale_norm
 declare void @av1_tile_set_col(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_upscale_normative_and_extend_frame(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden void @av1_upscale_normative_and_extend_frame(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %0, i64 25261
   %.val = load i8, ptr %4, align 1
   %.not.i = icmp eq i8 %.val, 0
@@ -2608,7 +2608,7 @@ define hidden void @av1_upscale_normative_and_extend_frame(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @av1_scale_if_required(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
+define hidden noundef ptr @av1_scale_if_required(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8
   br i1 %6, label %10, label %18
@@ -2717,7 +2717,7 @@ av1_resize_and_extend_frame_nonnormative.exit:    ; preds = %64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_calculate_scaled_size(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @av1_calculate_scaled_size(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %.not.i = icmp eq i32 %2, 8
   br i1 %.not.i, label %calculate_scaled_size_helper.exit5, label %4
 
@@ -2744,7 +2744,7 @@ calculate_scaled_size_helper.exit5:               ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_calculate_scaled_superres_size(ptr nocapture noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @av1_calculate_scaled_superres_size(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %.not.i = icmp eq i32 %2, 8
   br i1 %.not.i, label %calculate_scaled_size_helper.exit, label %4
 
@@ -2764,7 +2764,7 @@ calculate_scaled_size_helper.exit:                ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_calculate_unscaled_superres_size(ptr nocapture noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden void @av1_calculate_unscaled_superres_size(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %.not = icmp eq i32 %2, 8
   br i1 %.not, label %8, label %4
 
@@ -2971,7 +2971,7 @@ av1_upscale_normative_and_extend_frame.exit:      ; preds = %104
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @aom_alloc_frame_buffer(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2984,10 +2984,10 @@ declare i32 @aom_realloc_frame_buffer(ptr noundef, i32 noundef, i32 noundef, i32
 declare i32 @aom_free_frame_buffer(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @interpolate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc void @interpolate(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef %3) unnamed_addr #4 {
   %5 = shl nsw i32 %3, 4
   %.not.i = icmp slt i32 %3, %1
   br i1 %.not.i, label %6, label %choose_interp_filter.exit
@@ -3267,7 +3267,7 @@ interpolate_core.exit:                            ; preds = %137, %57, %.prehead
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @highbd_interpolate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc void @highbd_interpolate(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
   %6 = shl nsw i32 %3, 4
   %.not.i = icmp slt i32 %3, %1
   br i1 %.not.i, label %7, label %choose_interp_filter.exit

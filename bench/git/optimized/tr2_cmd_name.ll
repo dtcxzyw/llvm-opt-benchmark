@@ -63,14 +63,14 @@ strbuf_addch.exit:                                ; preds = %if.then, %if.then.i
 
 if.end:                                           ; preds = %strbuf_addch.exit, %land.lhs.true, %strbuf_setlen.exit
   %call.i3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #7
-  tail call void @strbuf_add(ptr noundef nonnull @tr2cmdname_hierarchy, ptr noundef %name, i64 noundef %call.i3) #6
+  tail call void @strbuf_add(ptr noundef nonnull @tr2cmdname_hierarchy, ptr noundef nonnull %name, i64 noundef %call.i3) #6
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tr2cmdname_hierarchy, i64 16), align 8
   %call2 = tail call i32 @setenv(ptr noundef nonnull @.str, ptr noundef %8, i32 noundef 1) #6
   ret void
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -94,7 +94,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #4
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #4
 

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN19JfrAllocationTracerC1EPK5KlassPP12HeapWordImplmbP10JavaThread = hidden unnamed_addr alias void (ptr, ptr, ptr, i64, i1, ptr), ptr @_ZN19JfrAllocationTracerC2EPK5KlassPP12HeapWordImplmbP10JavaThread
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19JfrAllocationTracerC2EPK5KlassPP12HeapWordImplmbP10JavaThread(ptr nocapture nonnull readnone align 1 %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN19JfrAllocationTracerC2EPK5KlassPP12HeapWordImplmbP10JavaThread(ptr nonnull readnone align 1 captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = tail call noundef zeroext i1 @_ZN12LeakProfiler10is_runningEv() #2
   br i1 %7, label %8, label %9
 

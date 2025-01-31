@@ -88,7 +88,7 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
 34:                                               ; preds = %31, %.loopexit
   %.1 = phi ptr [ %.046, %.loopexit ], [ %33, %31 ]
   %35 = load ptr, ptr @fileset_filename_match_pattern.regex, align 8
-  %36 = call i32 @g_regex_match(ptr noundef %35, ptr noundef %16, i32 noundef 0, ptr noundef nonnull %5) #9
+  %36 = call i32 @g_regex_match(ptr noundef %35, ptr noundef nonnull %16, i32 noundef 0, ptr noundef nonnull %5) #9
   %37 = load ptr, ptr %5, align 8
   %38 = call i32 @g_match_info_matches(ptr noundef %37) #9
   %.not60 = icmp eq i32 %38, 0
@@ -122,7 +122,7 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   %49 = load ptr, ptr %5, align 8
   call void @g_match_info_free(ptr noundef %49) #9
   %50 = load ptr, ptr @fileset_filename_match_pattern.regex2, align 8
-  %51 = call i32 @g_regex_match(ptr noundef %50, ptr noundef %16, i32 noundef 0, ptr noundef nonnull %5) #9
+  %51 = call i32 @g_regex_match(ptr noundef %50, ptr noundef nonnull %16, i32 noundef 0, ptr noundef nonnull %5) #9
   %52 = load ptr, ptr %5, align 8
   %53 = call i32 @g_match_info_matches(ptr noundef %52) #9
   %.not64 = icmp eq i32 %53, 0
@@ -162,7 +162,7 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   %.148 = phi i32 [ 2, %47 ], [ 0, %48 ], [ 1, %62 ], [ %.148.ph, %.thread.sink.split ]
   %64 = load ptr, ptr %5, align 8
   call void @g_match_info_free(ptr noundef %64) #9
-  call void @g_free(ptr noundef %16) #9
+  call void @g_free(ptr noundef nonnull %16) #9
   ret i32 %.148
 }
 
@@ -184,7 +184,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @g_slist_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @g_regex_match(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -237,15 +237,15 @@ define hidden void @fileset_update_file(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #3
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fileset_find_by_path(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal i32 @fileset_find_by_path(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @g_strcmp0(ptr noundef %3, ptr noundef %1) #9
   ret i32 %4
@@ -493,7 +493,7 @@ define internal fastcc void @fileset_add_file(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @g_dir_close(ptr noundef) local_unnamed_addr #1
 
@@ -502,7 +502,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @fileset_sort_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal i32 @fileset_sort_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -616,7 +616,7 @@ define hidden void @fileset_delete() local_unnamed_addr #0 {
 declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @fileset_entry_delete(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @fileset_entry_delete(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %3) #9
   store ptr null, ptr %0, align 8
@@ -640,10 +640,10 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

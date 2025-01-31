@@ -621,7 +621,7 @@ ddJumpingDown.exit:                               ; preds = %ddJumpingDown.exit.
   %68 = load i32, ptr %.139.i, align 8
   %69 = getelementptr inbounds nuw i8, ptr %.139.i, i64 4
   %70 = load i32, ptr %69, align 4
-  %71 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %68, i32 noundef %70) #8
+  %71 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %68, i32 noundef %70) #8
   %.not34.i = icmp eq i32 %71, 0
   br i1 %.not34.i, label %.lr.ph, label %72
 
@@ -746,7 +746,7 @@ ddJumpingUp.exit:                                 ; preds = %ddJumpingUp.exit.pr
   %129 = load i32, ptr %.139.i79, align 8
   %130 = getelementptr inbounds nuw i8, ptr %.139.i79, i64 4
   %131 = load i32, ptr %130, align 4
-  %132 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %129, i32 noundef %131) #8
+  %132 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %129, i32 noundef %131) #8
   %.not34.i80 = icmp eq i32 %132, 0
   br i1 %.not34.i80, label %.lr.ph, label %133
 
@@ -806,7 +806,7 @@ siftBackwardProb.exit.thread:                     ; preds = %133, %72, %124, %11
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @log(double noundef) local_unnamed_addr #4
@@ -826,13 +826,13 @@ declare double @exp(double noundef) local_unnamed_addr #4
 declare double @llvm.log.f64(double) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

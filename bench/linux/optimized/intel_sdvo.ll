@@ -291,7 +291,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.219 = private unnamed_addr constant [29 x i8] c"initialising LVDS type 0x%x\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_sdvo_port_enabled(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_sdvo_port_enabled(ptr noundef %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %6 = load ptr, ptr %5, align 8
@@ -321,10 +321,10 @@ define dso_local zeroext i1 @intel_sdvo_port_enabled(ptr noundef %0, i32 %1, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @intel_sdvo_init(ptr noundef %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
@@ -770,7 +770,7 @@ declare dso_local zeroext i1 @assert_port_valid(ptr noundef, i32 noundef) local_
 declare dso_local i32 @drm_encoder_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -1047,18 +1047,18 @@ define internal i32 @intel_sdvo_compute_config(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @pch_disable_sdvo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #4 align 16 {
+define internal void @pch_disable_sdvo(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #4 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pch_post_disable_sdvo(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define internal void @pch_post_disable_sdvo(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   tail call void @intel_disable_sdvo(ptr poison, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_disable_sdvo(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define internal void @intel_disable_sdvo(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i16, align 2
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %2, align 8
@@ -1112,7 +1112,7 @@ define internal void @intel_disable_sdvo(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_sdvo_pre_enable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal void @intel_sdvo_pre_enable(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca %struct.intel_sdvo_tv_format, align 4
   %7 = alloca i8, align 1
@@ -2057,7 +2057,7 @@ intel_sdvo_get_dtd_from_mode.exit7:               ; preds = %396, %386
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_enable_sdvo(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define internal void @intel_enable_sdvo(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
 .critedge:
   %4 = alloca i16, align 2
   %5 = alloca %struct.intel_sdvo_get_trained_inputs_response, align 1
@@ -2133,7 +2133,7 @@ define internal void @intel_enable_sdvo(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_sdvo_enable_audio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
+define internal void @intel_sdvo_enable_audio(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 877
@@ -2178,7 +2178,7 @@ define internal void @intel_sdvo_enable_audio(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_sdvo_disable_audio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
+define internal void @intel_sdvo_disable_audio(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 877
   %6 = load i8, ptr %5, align 1, !range !16, !noundef !17
@@ -2204,7 +2204,7 @@ define internal void @intel_sdvo_disable_audio(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @intel_sdvo_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 align 16 {
+define internal zeroext i1 @intel_sdvo_get_hw_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #13
@@ -2252,7 +2252,7 @@ define internal zeroext i1 @intel_sdvo_get_hw_state(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_sdvo_get_config(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @intel_sdvo_get_config(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [17 x i8], align 16
   %5 = alloca %struct.intel_sdvo_dtd, align 1
@@ -3024,7 +3024,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_output_setup(ptr noundef n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @intel_sdvo_set_target_input(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @intel_sdvo_set_target_input(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.intel_sdvo_set_target_input_args, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #13
   store i8 0, ptr %2, align 1
@@ -3042,7 +3042,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_set_target_input(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @intel_sdvo_get_input_pixel_clock_range(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @intel_sdvo_get_input_pixel_clock_range(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.intel_sdvo_pixel_clock_range, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   %5 = tail call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef nonnull %0, i8 noundef zeroext 29, ptr noundef null, i32 noundef 0, i1 noundef zeroext true)
@@ -3151,7 +3151,7 @@ declare dso_local ptr @intel_gmbus_get_adapter(ptr noundef, i32 noundef) local_u
 declare dso_local void @intel_gmbus_force_bit(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @i2c_transfer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -3163,7 +3163,7 @@ declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) l
 declare dso_local zeroext i1 @intel_fdi_compute_pipe_bpp(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @intel_sdvo_set_output_timings_from_mode(ptr nocapture noundef readonly %0, i16 %.2720.val, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @intel_sdvo_set_output_timings_from_mode(ptr noundef readonly captures(none) %0, i16 %.2720.val, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca %struct.intel_sdvo_dtd, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
@@ -3312,7 +3312,7 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_sdvo_get_preferred_input_mode(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_sdvo_get_preferred_input_mode(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.drm_display_mode, align 8
   %6 = alloca %struct.intel_sdvo_preferred_input_timing_args, align 2
   %7 = alloca %struct.intel_sdvo_set_target_input_args, align 1
@@ -3538,7 +3538,7 @@ declare dso_local i32 @intel_panel_compute_config(ptr noundef, ptr noundef) loca
 declare dso_local zeroext i1 @intel_audio_compute_config(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @intel_sdvo_read_response(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 9) %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @intel_sdvo_read_response(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 9) %2) unnamed_addr #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca [2 x %struct.i2c_msg], align 16
   %6 = alloca i8, align 1
@@ -3777,7 +3777,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_read_response(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 2, -96) %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 9) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef readonly captures(none) %0, i8 noundef zeroext range(i8 2, -96) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 9) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca [64 x i8], align 16
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #13
@@ -4052,7 +4052,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @__i2c_transfer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #2
@@ -4061,7 +4061,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #2
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @intel_sdvo_get_value(ptr nocapture noundef nonnull readonly %0, i8 noundef zeroext range(i8 77, 124) %1, ptr noundef %2, i32 noundef range(i32 2, 5) %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @intel_sdvo_get_value(ptr noundef nonnull readonly captures(none) %0, i8 noundef zeroext range(i8 77, 124) %1, ptr noundef %2, i32 noundef range(i32 2, 5) %3) unnamed_addr #0 align 16 {
   %5 = tail call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef nonnull %0, i8 noundef zeroext %1, ptr noundef null, i32 noundef 0, i1 noundef zeroext true)
   br i1 %5, label %6, label %8
 
@@ -4096,7 +4096,7 @@ declare dso_local void @drm_hdmi_avi_infoframe_quant_range(ptr noundef, ptr noun
 declare dso_local i32 @hdmi_avi_infoframe_check(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_sdvo_write_sdvox(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_sdvo_write_sdvox(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8112
   %5 = load i32, ptr %4, align 8
@@ -4186,7 +4186,7 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i64 @hdmi_infoframe_pack_only(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_sdvo_write_infoframe(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, i8 noundef zeroext range(i8 -64, 1) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_sdvo_write_infoframe(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i8 noundef zeroext range(i8 -64, 1) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca i8, align 1
   %7 = alloca [2 x i8], align 2
   %8 = alloca i8, align 1
@@ -4292,7 +4292,7 @@ define internal fastcc void @intel_sdvo_write_infoframe(ptr nocapture noundef re
 declare dso_local void @intel_crtc_wait_for_next_vblank(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -6, 256) i64 @intel_sdvo_read_infoframe(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef range(i32 17, 129) %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -6, 256) i64 @intel_sdvo_read_infoframe(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef range(i32 17, 129) %3) unnamed_addr #0 align 16 {
   %5 = alloca [2 x i8], align 2
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -4412,7 +4412,7 @@ declare dso_local i32 @hdmi_infoframe_unpack(ptr noundef, ptr noundef, i64 nound
 declare dso_local i32 @i2c_add_adapter(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_sdvo_ddc_proxy_xfer(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal i32 @intel_sdvo_ddc_proxy_xfer(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -4444,7 +4444,7 @@ define internal i32 @intel_sdvo_ddc_proxy_xfer(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_sdvo_ddc_proxy_func(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal i32 @intel_sdvo_ddc_proxy_func(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1024
@@ -4460,7 +4460,7 @@ define internal i32 @intel_sdvo_ddc_proxy_func(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @proxy_lock_bus(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal void @proxy_lock_bus(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1024
@@ -4475,7 +4475,7 @@ define internal void @proxy_lock_bus(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proxy_trylock_bus(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal i32 @proxy_trylock_bus(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1024
@@ -4491,7 +4491,7 @@ define internal i32 @proxy_trylock_bus(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @proxy_unlock_bus(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal void @proxy_unlock_bus(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1024
@@ -4647,7 +4647,7 @@ declare dso_local i32 @intel_encoder_hotplug(ptr noundef, ptr noundef) local_unn
 declare dso_local i32 @drm_connector_init_with_ddc(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @intel_sdvo_connector_get_hw_state(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal zeroext i1 @intel_sdvo_connector_get_hw_state(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca i16, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %4 = load ptr, ptr %3, align 8
@@ -5378,7 +5378,7 @@ define internal fastcc ptr @intel_sdvo_get_analog_edid(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @intel_sdvo_connector_matches_edid(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @intel_sdvo_connector_matches_edid(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = tail call zeroext i1 @drm_edid_is_digital(ptr noundef nonnull %1) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2720
   %5 = load i16, ptr %4, align 8
@@ -5761,7 +5761,7 @@ declare dso_local void @intel_attach_broadcast_rgb_property(ptr noundef) local_u
 declare dso_local void @intel_attach_aspect_ratio_property(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @intel_sdvo_create_enhance_property(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @intel_sdvo_create_enhance_property(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca [2 x i16], align 4
   %5 = alloca i16, align 2
@@ -6587,7 +6587,7 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

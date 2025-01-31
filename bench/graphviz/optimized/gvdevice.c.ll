@@ -218,7 +218,7 @@ agxbsizeof.exit.i.i27.i:                          ; preds = %76
   %80 = ptrtoint ptr %63 to i64
   %81 = sub i64 %79, %80
   %82 = trunc i64 %81 to i32
-  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @auto_output_filename.buf, ptr noundef nonnull @.str.18, i32 noundef %82, ptr noundef %63)
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @auto_output_filename.buf, ptr noundef nonnull @.str.18, i32 noundef %82, ptr noundef nonnull %63)
   %.val.i.i.i24.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @auto_output_filename.buf, i64 31), align 1
   %.not.i.i.i25.i = icmp eq i8 %.val.i.i.i24.i, -1
   %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @auto_output_filename.buf, i64 8), align 8
@@ -344,7 +344,7 @@ auto_output_filename.exit:                        ; preds = %agxbclear.exit.thre
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #2
@@ -562,7 +562,7 @@ define noundef i64 @gvwrite(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 declare i64 @deflateBound(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #6 {
@@ -573,7 +573,7 @@ define internal fastcc void @graphviz_exit() unnamed_addr #6 {
 declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define noundef i32 @gvferror(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define noundef i32 @gvferror(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %4 = load ptr, ptr %3, align 8
@@ -598,19 +598,19 @@ define noundef i32 @gvferror(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define noundef range(i32 -1, 2) i32 @gvputs(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
-  %4 = tail call i64 @gvwrite(ptr noundef %0, ptr noundef %1, i64 noundef %3)
+  %4 = tail call i64 @gvwrite(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3)
   %.not = icmp eq i64 %4, %3
   %. = select i1 %.not, i32 1, i32 -1
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define i32 @gvputs_xml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -619,12 +619,12 @@ define i32 @gvputs_xml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare i32 @xml_escape(ptr noundef, i32, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @gvputs_nonascii(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @gvputs_nonascii(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   br label %4
 
@@ -676,7 +676,7 @@ define noundef i32 @gvputc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gvprintf(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
+define void @gvprintf(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca %struct.agxbuf, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -761,7 +761,7 @@ agxbfree.exit:                                    ; preds = %34, %agxbuse.exit, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @gvflush(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define noundef i32 @gvflush(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -790,7 +790,7 @@ define noundef i32 @gvflush(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @gvdevice_format(ptr noundef %0) local_unnamed_addr #0 {
@@ -1017,12 +1017,12 @@ gvdevice_close.exit:                              ; preds = %91, %84, %81, %gvfl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @vagxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @vagxbprint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_copy.p0(ptr nonnull %4, ptr nonnull %2)
   %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %4) #20
@@ -1268,7 +1268,7 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %57
   %59 = phi ptr [ %58, %57 ], [ %2, %agxbclear.exit.thread.i ]
   %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #21
-  %61 = call i64 @gvwrite(ptr noundef %0, ptr noundef %59, i64 noundef %60)
+  %61 = call i64 @gvwrite(ptr noundef %0, ptr noundef nonnull %59, i64 noundef %60)
   %.val2 = load i8, ptr %3, align 1
   %62 = icmp eq i8 %.val2, -1
   br i1 %62, label %63, label %agxbfree.exit
@@ -1283,7 +1283,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call fastcc i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %3)
@@ -1349,7 +1349,7 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %20
   %22 = phi ptr [ %21, %20 ], [ %3, %agxbclear.exit.thread.i ]
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #21
-  %24 = call i64 @gvwrite(ptr noundef %0, ptr noundef %22, i64 noundef %23)
+  %24 = call i64 @gvwrite(ptr noundef %0, ptr noundef nonnull %22, i64 noundef %23)
   %25 = call i64 @gvwrite(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef 1)
   call fastcc void @gvprintnum(ptr noundef %3, double noundef %2)
   %.val.i.i.i8 = load i8, ptr %4, align 1
@@ -1409,7 +1409,7 @@ agxbclear.exit.thread.i21:                        ; preds = %agxbputc.exit.i18
 agxbuse.exit23:                                   ; preds = %agxbclear.exit.thread.i21, %42
   %44 = phi ptr [ %43, %42 ], [ %3, %agxbclear.exit.thread.i21 ]
   %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #21
-  %46 = call i64 @gvwrite(ptr noundef %0, ptr noundef %44, i64 noundef %45)
+  %46 = call i64 @gvwrite(ptr noundef %0, ptr noundef nonnull %44, i64 noundef %45)
   %.val7 = load i8, ptr %4, align 1
   %47 = icmp eq i8 %.val7, -1
   br i1 %47, label %48, label %agxbfree.exit
@@ -1424,7 +1424,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit23, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gvprintnum(ptr nocapture noundef nonnull %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc void @gvprintnum(ptr noundef nonnull captures(none) %0, double noundef %1) unnamed_addr #0 {
   %3 = fcmp olt double %1, -1.000000e+15
   br i1 %3, label %4, label %32
 
@@ -1844,7 +1844,7 @@ agxbput.exit:                                     ; preds = %55, %49, %34, %25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gvprintpointflist(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @gvprintpointflist(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1867,7 +1867,7 @@ define void @gvprintpointflist(ptr noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -1942,31 +1942,31 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #16
+declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #17
@@ -1981,10 +1981,10 @@ declare void @llvm.va_copy.p0(ptr, ptr) #17
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

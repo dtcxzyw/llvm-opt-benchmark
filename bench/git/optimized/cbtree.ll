@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @cb_insert(ptr nocapture noundef %t, ptr noundef %node, i64 noundef %klen) local_unnamed_addr #0 {
+define dso_local ptr @cb_insert(ptr noundef captures(none) %t, ptr noundef %node, i64 noundef %klen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %t, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -172,7 +172,7 @@ return:                                           ; preds = %for.inc, %cb_intern
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @cb_lookup(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %k, i64 noundef %klen) local_unnamed_addr #1 {
+define dso_local ptr @cb_lookup(ptr noundef readonly captures(none) %t, ptr noundef readonly captures(none) %k, i64 noundef %klen) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %t, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -229,7 +229,7 @@ cond.end:                                         ; preds = %land.lhs.true, %cb_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cb_each(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %kpfx, i64 noundef %klen, ptr nocapture noundef readonly %fn, ptr noundef %arg) local_unnamed_addr #2 {
+define dso_local void @cb_each(ptr noundef readonly captures(none) %t, ptr noundef readonly captures(none) %kpfx, i64 noundef %klen, ptr noundef readonly captures(none) %fn, ptr noundef %arg) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %t, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -307,7 +307,7 @@ return:                                           ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cb_descend(ptr noundef %p, ptr nocapture noundef readonly %fn, ptr noundef %arg) unnamed_addr #2 {
+define internal fastcc i32 @cb_descend(ptr noundef %p, ptr noundef readonly captures(none) %fn, ptr noundef %arg) unnamed_addr #2 {
 entry:
   %0 = ptrtoint ptr %p to i64
   %and10 = and i64 %0, 1
@@ -342,7 +342,7 @@ return:                                           ; preds = %if.then, %if.else
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #3
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

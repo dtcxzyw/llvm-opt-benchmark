@@ -163,7 +163,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
 .preheader:                                       ; preds = %91, %130
   %112 = phi i64 [ %140, %130 ], [ 1, %91 ]
   %113 = load ptr, ptr %32, align 8
-  %114 = tail call ptr %113(ptr noundef %5, i32 noundef 4096) #7
+  %114 = tail call ptr %113(ptr noundef nonnull %5, i32 noundef 4096) #7
   %115 = icmp ugt ptr %114, inttoptr (i64 -4096 to ptr)
   br i1 %115, label %116, label %119
 
@@ -173,7 +173,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
   br label %.thread
 
 119:                                              ; preds = %.preheader
-  %120 = tail call i32 @map_pt_dma(ptr noundef %5, ptr noundef %114) #7
+  %120 = tail call i32 @map_pt_dma(ptr noundef nonnull %5, ptr noundef %114) #7
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %130, label %122
 
@@ -270,7 +270,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
 
 170:                                              ; preds = %.thread39
   %171 = load ptr, ptr %32, align 8
-  %172 = tail call ptr %171(ptr noundef %5, i32 noundef 4096) #7
+  %172 = tail call ptr %171(ptr noundef nonnull %5, i32 noundef 4096) #7
   store ptr %172, ptr %168, align 8
   %173 = icmp ugt ptr %172, inttoptr (i64 -4096 to ptr)
   br i1 %173, label %174, label %177
@@ -282,7 +282,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
   br label %190
 
 177:                                              ; preds = %170
-  %178 = tail call i32 @map_pt_dma(ptr noundef %5, ptr noundef %172) #7
+  %178 = tail call i32 @map_pt_dma(ptr noundef nonnull %5, ptr noundef %172) #7
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %180, label %190
 
@@ -302,7 +302,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
 
 190:                                              ; preds = %177, %174
   %191 = phi i32 [ %176, %174 ], [ %178, %177 ]
-  tail call void @free_px(ptr noundef %5, ptr noundef nonnull %168, i32 noundef 1) #7
+  tail call void @free_px(ptr noundef nonnull %5, ptr noundef nonnull %168, i32 noundef 1) #7
   %192 = sext i32 %191 to i64
   %193 = inttoptr i64 %192 to ptr
   br label %194
@@ -346,18 +346,18 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
 
 216:                                              ; preds = %207, %205
   %217 = phi i32 [ 0, %205 ], [ %214, %207 ]
-  %218 = tail call ptr @alloc_pd(ptr noundef %5) #7
+  %218 = tail call ptr @alloc_pd(ptr noundef nonnull %5) #7
   %219 = icmp ugt ptr %218, inttoptr (i64 -4096 to ptr)
   br i1 %219, label %224, label %220
 
 220:                                              ; preds = %216
   %221 = load ptr, ptr %218, align 8
-  %222 = tail call i32 @map_pt_dma(ptr noundef %5, ptr noundef %221) #7
+  %222 = tail call i32 @map_pt_dma(ptr noundef nonnull %5, ptr noundef %221) #7
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %207, label %.thread45
 
 .thread45:                                        ; preds = %220
-  tail call void @free_px(ptr noundef %5, ptr noundef %218, i32 noundef 1) #7
+  tail call void @free_px(ptr noundef nonnull %5, ptr noundef %218, i32 noundef 1) #7
   br label %.thread40
 
 .thread44:                                        ; preds = %207
@@ -376,7 +376,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
   br i1 %230, label %231, label %232
 
 231:                                              ; preds = %228
-  tail call fastcc void @gen8_ppgtt_notify_vgt(ptr noundef %5, i1 noundef zeroext true)
+  tail call fastcc void @gen8_ppgtt_notify_vgt(ptr noundef nonnull %5, i1 noundef zeroext true)
   br label %232
 
 232:                                              ; preds = %231, %228
@@ -401,7 +401,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
   br label %.thread50
 
 245:                                              ; preds = %239
-  %246 = tail call ptr @i915_vma_instance(ptr noundef %240, ptr noundef %5, ptr noundef null) #7
+  %246 = tail call ptr @i915_vma_instance(ptr noundef %240, ptr noundef nonnull %5, ptr noundef null) #7
   %247 = icmp ugt ptr %246, inttoptr (i64 -4096 to ptr)
   br i1 %247, label %248, label %251
 
@@ -560,7 +560,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
 
 .thread40:                                        ; preds = %88, %.thread45, %.thread50, %224, %.thread41, %156
   %322 = phi i32 [ %129, %156 ], [ %199, %.thread41 ], [ %320, %.thread50 ], [ %226, %224 ], [ %222, %.thread45 ], [ %89, %88 ]
-  %323 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5, i32 -1, ptr elementtype(i32) %5) #7, !srcloc !11
+  %323 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, i32 -1, ptr nonnull elementtype(i32) %5) #7, !srcloc !11
   %324 = icmp eq i32 %323, 1
   br i1 %324, label %328, label %325
 
@@ -569,12 +569,12 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
   br i1 %326, label %.thread53, label %327, !prof !7
 
 327:                                              ; preds = %325
-  call void @refcount_warn_saturate(ptr noundef %5, i32 noundef 3) #7
+  call void @refcount_warn_saturate(ptr noundef nonnull %5, i32 noundef 3) #7
   br label %.thread53
 
 328:                                              ; preds = %.thread40
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
-  call void @i915_vm_release(ptr noundef %5) #7, !callees !13
+  call void @i915_vm_release(ptr noundef nonnull %5) #7, !callees !13
   br label %.thread53
 
 .thread53:                                        ; preds = %325, %327, %328
@@ -588,7 +588,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ppgtt_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -651,7 +651,7 @@ define internal noundef range(i64 16, 0) i64 @gen8_pte_encode(i64 noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen8_ppgtt_insert(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define internal void @gen8_ppgtt_insert(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %6 = load ptr, ptr %5, align 8, !noalias !22
   %7 = load ptr, ptr %6, align 8, !noalias !22
@@ -1326,7 +1326,7 @@ define internal void @gen8_ppgtt_insert(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xehpsdv_ppgtt_insert_entry(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define internal void @xehpsdv_ppgtt_insert_entry(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = and i32 %4, 2
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %58, label %8
@@ -1450,7 +1450,7 @@ define internal void @xehpsdv_ppgtt_insert_entry(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen8_ppgtt_insert_entry(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define internal void @gen8_ppgtt_insert_entry(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = lshr i64 %2, 12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 537
   %8 = load i8, ptr %7, align 1
@@ -1501,7 +1501,7 @@ define internal void @gen8_ppgtt_insert_entry(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen8_ppgtt_alloc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
+define internal void @gen8_ppgtt_alloc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = lshr i64 %2, 12
   store i64 %6, ptr %5, align 8
@@ -1531,7 +1531,7 @@ define internal void @gen8_ppgtt_clear(ptr noundef %0, i64 noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen8_ppgtt_foreach(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) #0 align 16 {
+define internal void @gen8_ppgtt_foreach(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) #0 align 16 {
   %6 = alloca i64, align 8
   %7 = lshr i64 %1, 12
   store i64 %7, ptr %6, align 8
@@ -1613,7 +1613,7 @@ define internal void @gen8_ppgtt_cleanup(ptr noundef %0) #0 align 16 {
 declare dso_local zeroext i1 @intel_vgpu_active(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gen8_ppgtt_notify_vgt(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @gen8_ppgtt_notify_vgt(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -1712,13 +1712,13 @@ define internal fastcc void @gen8_ppgtt_notify_vgt(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @__px_vaddr(ptr noundef) local_unnamed_addr #2
@@ -1727,7 +1727,7 @@ declare dso_local ptr @__px_vaddr(ptr noundef) local_unnamed_addr #2
 declare dso_local void @drm_clflush_virt_range(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__gen8_ppgtt_alloc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3, i64 noundef range(i64 0, 9007199254740991) %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc void @__gen8_ppgtt_alloc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3, i64 noundef range(i64 0, 9007199254740991) %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = load i64, ptr %3, align 8
   %8 = add i32 %5, -1
   %9 = mul i32 %5, 9
@@ -2095,7 +2095,7 @@ declare dso_local zeroext i1 @release_pd_entry(ptr noundef, i16 noundef zeroext,
 declare dso_local void @free_px(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__gen8_ppgtt_foreach(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef range(i64 0, 9007199254740991) %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc void @__gen8_ppgtt_foreach(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i64 noundef range(i64 0, 9007199254740991) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = load i64, ptr %2, align 8
   %9 = add i32 %4, -1
   %10 = mul i32 %4, 9

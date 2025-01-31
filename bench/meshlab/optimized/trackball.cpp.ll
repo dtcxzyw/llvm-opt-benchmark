@@ -70,7 +70,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3vcg9TransformC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #3 align 2 {
+define void @_ZN3vcg9TransformC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 1.000000e+00, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -88,7 +88,7 @@ define void @_ZN3vcg9TransformC2Ev(ptr nocapture noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #5
@@ -564,7 +564,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN3vcg9TrackModeES2_St9_IdentityIS2_ESt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -967,7 +967,7 @@ define void @_ZN3vcg9Trackball5ResetEv(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg9Trackball11SetPositionERKNS_6Point3IfEEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(597) initializes((32, 44)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #14 align 2 {
+define void @_ZN3vcg9Trackball11SetPositionERKNS_6Point3IfEEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(597) initializes((32, 44)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   ret void
@@ -1671,7 +1671,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK3vcg9Trackball6MatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Matrix44") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(597) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3vcg9Trackball6MatrixEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.vcg::Matrix44") align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(597) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Matrix44", align 4
   %4 = alloca %"class.vcg::Matrix44", align 4
   %5 = alloca %"class.vcg::Matrix44", align 4
@@ -2019,7 +2019,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit54:              ; preds = %181
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3vcg9Trackball13InverseMatrixEv(ptr dead_on_unwind noalias writable sret(%"class.vcg::Matrix44") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(597) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3vcg9Trackball13InverseMatrixEv(ptr dead_on_unwind noalias writable sret(%"class.vcg::Matrix44") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(597) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Matrix44", align 4
   call void @_ZNK3vcg9Trackball6MatrixEv(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %3, ptr noundef nonnull align 8 dereferenceable(597) %1)
   call void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_unwind writable sret(%"class.vcg::Matrix44") align 4 %0, ptr noundef nonnull align 4 dereferenceable(64) %3)
@@ -2027,7 +2027,7 @@ define void @_ZNK3vcg9Trackball13InverseMatrixEv(ptr dead_on_unwind noalias writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg9Trackball5ScaleEf(ptr nocapture noundef nonnull align 8 dereferenceable(597) %0, float noundef %1) local_unnamed_addr #14 align 2 {
+define void @_ZN3vcg9Trackball5ScaleEf(ptr noundef nonnull align 8 captures(none) dereferenceable(597) %0, float noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load float, ptr %3, align 4
   %5 = fmul float %1, %4
@@ -2036,7 +2036,7 @@ define void @_ZN3vcg9Trackball5ScaleEf(ptr nocapture noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg9Trackball9TranslateENS_6Point3IfEE(ptr nocapture noundef nonnull align 8 dereferenceable(597) initializes((16, 28)) %0, <2 x float> %1, float %2) local_unnamed_addr #18 align 2 {
+define void @_ZN3vcg9Trackball9TranslateENS_6Point3IfEE(ptr noundef nonnull align 8 captures(none) dereferenceable(597) initializes((16, 28)) %0, <2 x float> %1, float %2) local_unnamed_addr #18 align 2 {
   %.sroa.027.0.copyload = load float, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
@@ -2114,7 +2114,7 @@ define void @_ZN3vcg9Trackball9TranslateENS_6Point3IfEE(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3vcg9Trackball7ToAsciiEPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(597) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #19 align 2 {
+define void @_ZN3vcg9Trackball7ToAsciiEPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(597) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #19 align 2 {
   %3 = load float, ptr %0, align 8
   %4 = fpext float %3 to double
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2143,10 +2143,10 @@ define void @_ZN3vcg9Trackball7ToAsciiEPc(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3vcg9Trackball12SetFromAsciiEPKc(ptr noundef nonnull align 8 dereferenceable(597) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #19 align 2 {
+define noundef zeroext i1 @_ZN3vcg9Trackball12SetFromAsciiEPKc(ptr noundef nonnull align 8 dereferenceable(597) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2160,7 +2160,7 @@ define noundef zeroext i1 @_ZN3vcg9Trackball12SetFromAsciiEPKc(ptr noundef nonnu
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3vcg9Trackball9MouseDownEi(ptr noundef nonnull align 8 dereferenceable(597) %0, i32 noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -3325,7 +3325,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %_ZNKSt3mapIiPN3vcg9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg9Trackball4UndoEv(ptr nocapture noundef nonnull align 8 dereferenceable(597) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN3vcg9Trackball4UndoEv(ptr noundef nonnull align 8 captures(none) dereferenceable(597) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -3345,12 +3345,12 @@ define void @_ZN3vcg9Trackball4UndoEv(ptr nocapture noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3vcg9Trackball12SetSpinnableEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(597) %0, i1 noundef zeroext %1) local_unnamed_addr #21 align 2 {
+define void @_ZN3vcg9Trackball12SetSpinnableEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(597) %0, i1 noundef zeroext %1) local_unnamed_addr #21 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN3vcg9Trackball11IsSpinnableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(597) %0) local_unnamed_addr #22 align 2 {
+define noundef zeroext i1 @_ZN3vcg9Trackball11IsSpinnableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(597) %0) local_unnamed_addr #22 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 564
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -3358,17 +3358,17 @@ define noundef zeroext i1 @_ZN3vcg9Trackball11IsSpinnableEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3vcg9Trackball11SetSpinningERNS_10QuaternionIfEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(597) %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(16) %1) local_unnamed_addr #21 align 2 {
+define void @_ZN3vcg9Trackball11SetSpinningERNS_10QuaternionIfEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(597) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #21 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3vcg9Trackball12StopSpinningEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(597) %0) local_unnamed_addr #21 align 2 {
+define void @_ZN3vcg9Trackball12StopSpinningEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(597) %0) local_unnamed_addr #21 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN3vcg9Trackball10IsSpinningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(597) %0) local_unnamed_addr #22 align 2 {
+define noundef zeroext i1 @_ZN3vcg9Trackball10IsSpinningEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(597) %0) local_unnamed_addr #22 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 565
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -3376,22 +3376,22 @@ define noundef zeroext i1 @_ZN3vcg9Trackball10IsSpinningEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3vcg9Trackball4BackEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(597) %0) local_unnamed_addr #21 align 2 {
+define void @_ZN3vcg9Trackball4BackEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(597) %0) local_unnamed_addr #21 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3vcg9Trackball7ForwardEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(597) %0) local_unnamed_addr #21 align 2 {
+define void @_ZN3vcg9Trackball7ForwardEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(597) %0) local_unnamed_addr #21 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3vcg9Trackball4HomeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(597) %0) local_unnamed_addr #21 align 2 {
+define void @_ZN3vcg9Trackball4HomeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(597) %0) local_unnamed_addr #21 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3vcg9Trackball11HistorySizeEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(597) %0, i32 noundef %1) local_unnamed_addr #21 align 2 {
+define void @_ZN3vcg9Trackball11HistorySizeEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(597) %0, i32 noundef %1) local_unnamed_addr #21 align 2 {
   ret void
 }
 
@@ -3406,10 +3406,10 @@ define internal void @_GLOBAL__sub_I_trackball.cpp() #23 section ".text.startup"
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

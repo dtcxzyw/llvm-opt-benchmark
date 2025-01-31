@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @php_hash_4tiger192_ops = hidden local_unnamed_addr constant %struct._php_hash_ops { ptr @.str.6, ptr @PHP_4TIGERInit, ptr @PHP_TIGERUpdate, ptr @PHP_TIGER192Final, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_tiger_unserialize, ptr @.str.1, i64 24, i64 64, i64 104, i8 1 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_3TIGERInit(ptr nocapture noundef writeonly initializes((0, 104)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_3TIGERInit(ptr noundef writeonly captures(none) initializes((0, 104)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 0, i64 80, i1 false)
   store i64 81985529216486895, ptr %0, align 8
@@ -33,10 +33,10 @@ define void @PHP_3TIGERInit(ptr nocapture noundef writeonly initializes((0, 104)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_4TIGERInit(ptr nocapture noundef writeonly initializes((0, 104)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_4TIGERInit(ptr noundef writeonly captures(none) initializes((0, 104)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 0, i64 80, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -50,7 +50,7 @@ define void @PHP_4TIGERInit(ptr nocapture noundef writeonly initializes((0, 104)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 {
+define void @PHP_TIGERUpdate(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
@@ -2947,13 +2947,13 @@ define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_TIGER128Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
+define void @PHP_TIGER128Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #2 {
   tail call fastcc void @TigerFinalize(ptr noundef %1)
   br label %3
 
@@ -2979,7 +2979,7 @@ TigerDigest.exit:                                 ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @TigerFinalize(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @TigerFinalize(ptr noundef captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -5854,7 +5854,7 @@ define internal fastcc void @TigerFinalize(ptr nocapture noundef %0) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_TIGER160Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
+define void @PHP_TIGER160Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #2 {
   tail call fastcc void @TigerFinalize(ptr noundef %1)
   br label %3
 
@@ -5880,7 +5880,7 @@ TigerDigest.exit:                                 ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_TIGER192Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
+define void @PHP_TIGER192Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #2 {
   tail call fastcc void @TigerFinalize(ptr noundef %1)
   br label %3
 

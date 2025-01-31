@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_led_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_led_constructor, ptr null, ptr @lv_led_event, ptr null, ptr @.str, i32 26, i32 26, i8 -128, i8 4, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_led_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_led_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = tail call i24 @lv_theme_get_color_primary(ptr noundef %1) #5
   store i24 %4, ptr %3, align 8
@@ -25,7 +25,7 @@ define internal void @lv_led_constructor(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_led_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_led_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_draw_rect_dsc_t, align 8
   %4 = tail call i32 @lv_event_get_code(ptr noundef %1) #5
   %5 = add i32 %4, -31
@@ -155,14 +155,14 @@ define noundef ptr @lv_led_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_led_set_color(ptr noundef initializes((64, 67)) %0, i24 %1) local_unnamed_addr #0 {
@@ -235,7 +235,7 @@ define void @lv_led_toggle(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i8 @lv_led_get_brightness(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i8 @lv_led_get_brightness(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 67
   %3 = load i8, ptr %2, align 1, !tbaa !3
   ret i8 %3

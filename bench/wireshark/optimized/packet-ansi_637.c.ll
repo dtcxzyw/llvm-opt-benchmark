@@ -731,14 +731,14 @@ define hidden void @proto_register_ansi_637() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ansi_637_tele(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ansi_637_tele(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -913,7 +913,7 @@ dissect_ansi_637_tele_message.exit:               ; preds = %dissect_ansi_637_te
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ansi_637_trans(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ansi_637_trans(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1041,7 +1041,7 @@ dissect_ansi_637_trans_param.exit:                ; preds = %39, %60, %62, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ansi_637_trans_app(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ansi_637_trans_app(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.443) #6
@@ -1120,7 +1120,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_user_data_cmas(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @tele_param_user_data_cmas(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %7 = icmp ult i32 %3, 2
   br i1 %7, label %8, label %10
 
@@ -1382,7 +1382,7 @@ switch.lookup:                                    ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_msg_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal void @tele_param_msg_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 3
   br i1 %.not, label %9, label %7
 
@@ -1417,7 +1417,7 @@ define internal void @tele_param_msg_id(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #0 {
+define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
@@ -1661,7 +1661,7 @@ define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_rsp_code(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_rsp_code(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %9, label %7
 
@@ -1679,7 +1679,7 @@ define internal void @tele_param_rsp_code(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_message_center_timestamp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_message_center_timestamp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 6
   br i1 %.not, label %9, label %7
 
@@ -1702,7 +1702,7 @@ define internal void @tele_param_message_center_timestamp(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_validity_period_abs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_validity_period_abs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 6
   br i1 %.not, label %9, label %7
 
@@ -1725,7 +1725,7 @@ define internal void @tele_param_validity_period_abs(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_validity_period_rel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_validity_period_rel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %9, label %7
 
@@ -1743,7 +1743,7 @@ define internal void @tele_param_validity_period_rel(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_deferred_del_abs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_deferred_del_abs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 6
   br i1 %.not, label %9, label %7
 
@@ -1766,7 +1766,7 @@ define internal void @tele_param_deferred_del_abs(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_deferred_del_rel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_deferred_del_rel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %9, label %7
 
@@ -1784,7 +1784,7 @@ define internal void @tele_param_deferred_del_rel(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_pri_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_pri_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %9, label %7
 
@@ -1804,7 +1804,7 @@ define internal void @tele_param_pri_ind(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_priv_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_priv_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %9, label %7
 
@@ -1824,7 +1824,7 @@ define internal void @tele_param_priv_ind(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_reply_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_reply_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %9, label %7
 
@@ -1850,7 +1850,7 @@ define internal void @tele_param_reply_opt(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_num_messages(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_num_messages(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %9, label %7
 
@@ -1874,7 +1874,7 @@ define internal void @tele_param_num_messages(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_alert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_alert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %9, label %7
 
@@ -1894,7 +1894,7 @@ define internal void @tele_param_alert(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_lang_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_lang_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %9, label %7
 
@@ -1915,7 +1915,7 @@ define internal void @tele_param_lang_ind(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_cb_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_cb_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = icmp ult i32 %3, 2
   br i1 %7, label %8, label %10
 
@@ -2057,7 +2057,7 @@ define internal void @tele_param_cb_num(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_disp_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_disp_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %9, label %7
 
@@ -2077,7 +2077,7 @@ define internal void @tele_param_disp_mode(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca [3 x %struct.crumb_spec_t], align 16
@@ -2222,7 +2222,7 @@ define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_msg_deposit_idx(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_msg_deposit_idx(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 2
   br i1 %.not, label %9, label %7
 
@@ -2240,7 +2240,7 @@ define internal void @tele_param_msg_deposit_idx(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca [3 x %struct.crumb_spec_t], align 16
@@ -2403,7 +2403,7 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_srvc_cat_prog_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_srvc_cat_prog_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = icmp ugt i32 %3, 2
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2450,7 +2450,7 @@ define internal void @tele_param_srvc_cat_prog_results(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_msg_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_msg_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %9, label %7
 
@@ -2555,7 +2555,7 @@ switch.lookup:                                    ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tele_param_tp_failure_cause(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @tele_param_tp_failure_cause(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %9, label %7
 
@@ -2838,7 +2838,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @trans_param_tele_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) #0 {
+define internal void @trans_param_tele_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) #0 {
   %.not = icmp eq i32 %3, 2
   br i1 %.not, label %10, label %8
 
@@ -2925,7 +2925,7 @@ define internal void @trans_param_tele_id(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @trans_param_srvc_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) #0 {
+define internal void @trans_param_srvc_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) #0 {
   %.not = icmp eq i32 %3, 2
   br i1 %.not, label %10, label %8
 
@@ -2956,7 +2956,7 @@ define internal void @trans_param_srvc_cat(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @trans_param_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal void @trans_param_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = alloca i64, align 8
   %9 = icmp ult i32 %3, 2
   br i1 %9, label %10, label %12
@@ -3170,7 +3170,7 @@ define internal void @trans_param_address(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @trans_param_subaddress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal void @trans_param_subaddress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = icmp ult i32 %3, 2
   br i1 %8, label %9, label %11
 
@@ -3223,7 +3223,7 @@ define internal void @trans_param_subaddress(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @trans_param_bearer_reply_opt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) #0 {
+define internal void @trans_param_bearer_reply_opt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) #0 {
   %8 = load i32, ptr @hf_ansi_637_trans_bearer_reply_seq_num, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #6
   %10 = load i32, ptr @hf_ansi_637_reserved_bits_8_03, align 4
@@ -3237,7 +3237,7 @@ define internal void @trans_param_bearer_reply_opt(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @trans_param_cause_codes(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) #0 {
+define internal void @trans_param_cause_codes(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) #0 {
   %8 = load i32, ptr @hf_ansi_637_trans_cause_codes_seq_num, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #6
   %10 = load i32, ptr @hf_ansi_637_trans_cause_codes_error_class, align 4
@@ -3422,7 +3422,7 @@ define internal void @trans_param_cause_codes(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @trans_param_bearer_data(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal void @trans_param_bearer_data(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %4, i32 noundef %3) #6
   %9 = load ptr, ptr @tele_dissector_table, align 8
   %10 = load i32, ptr @ansi_637_trans_tele_id, align 4
@@ -3434,7 +3434,7 @@ define internal void @trans_param_bearer_data(ptr noundef %0, ptr noundef %1, pt
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -3446,10 +3446,10 @@ declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i8 @llvm.fshl.i8(i8, i8, i8) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

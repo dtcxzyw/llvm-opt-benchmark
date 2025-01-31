@@ -380,7 +380,7 @@ tcg_malloc.exit:                                  ; preds = %if.end27.i.i, %if.e
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %memop) local_unnamed_addr #0 {
@@ -431,10 +431,10 @@ return:                                           ; preds = %if.end, %entry, %at
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @tb_target_set_jmp_target(ptr nocapture noundef readonly %tb, i32 noundef %n, i64 noundef %jmp_rx, i64 noundef %jmp_rw) local_unnamed_addr #4 {
+define dso_local void @tb_target_set_jmp_target(ptr noundef readonly captures(none) %tb, i32 noundef %n, i64 noundef %jmp_rx, i64 noundef %jmp_rw) local_unnamed_addr #4 {
 entry:
   %jmp_target_addr = getelementptr inbounds nuw i8, ptr %tb, i64 112
   %idxprom = sext i32 %n to i64
@@ -2416,7 +2416,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @tcg_malloc_internal(ptr nocapture noundef %s, i32 noundef %size) local_unnamed_addr #0 {
+define dso_local nonnull ptr @tcg_malloc_internal(ptr noundef captures(none) %s, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %size, 32768
   br i1 %cmp, label %if.then, label %if.else
@@ -2493,7 +2493,7 @@ return:                                           ; preds = %if.end27, %if.then
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_pool_reset(ptr nocapture noundef %s) local_unnamed_addr #0 {
+define dso_local void @tcg_pool_reset(ptr noundef captures(none) %s) local_unnamed_addr #0 {
 entry:
   %pool_first_large = getelementptr inbounds nuw i8, ptr %s, i64 32
   %0 = load ptr, ptr %pool_first_large, align 8
@@ -3924,7 +3924,7 @@ do.body30:                                        ; preds = %tcg_target_qemu_pro
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2, 1) i32 @tcg_out_pool_finalize(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @tcg_out_pool_finalize(ptr noundef captures(none) %s) unnamed_addr #0 {
 entry:
   %pool_labels = getelementptr inbounds nuw i8, ptr %s, i64 200
   %0 = load ptr, ptr %pool_labels, align 8
@@ -4064,7 +4064,7 @@ declare void @perf_report_prologue(ptr noundef, i64 noundef) local_unnamed_addr 
 declare ptr @qemu_log_trylock() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare void @disas(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
@@ -5971,7 +5971,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_gen_callN(ptr noundef %info, ptr noundef %ret, ptr nocapture noundef readonly %args) unnamed_addr #0 {
+define internal fastcc void @tcg_gen_callN(ptr noundef %info, ptr noundef %ret, ptr noundef readonly captures(none) %args) unnamed_addr #0 {
 entry:
   %extend_free = alloca [7 x ptr], align 16
   %init = getelementptr inbounds nuw i8, ptr %info, i64 16
@@ -6450,7 +6450,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_op_remove(ptr nocapture noundef %s, ptr noundef %op) local_unnamed_addr #0 {
+define dso_local void @tcg_op_remove(ptr noundef captures(none) %s, ptr noundef %op) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %op, align 8
   %trunc = trunc i32 %bf.load to i8
@@ -6845,7 +6845,7 @@ found:                                            ; preds = %if.else.i, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @tcg_op_insert_before(ptr nocapture noundef readnone %s, ptr noundef %old_op, i32 noundef %opc, i32 noundef %nargs) local_unnamed_addr #0 {
+define dso_local noundef ptr @tcg_op_insert_before(ptr noundef readnone captures(none) %s, ptr noundef %old_op, i32 noundef %opc, i32 noundef %nargs) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @tcg_op_alloc(i32 noundef %opc, i32 noundef %nargs)
   %tql_prev = getelementptr inbounds nuw i8, ptr %old_op, i64 16
@@ -6861,7 +6861,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @tcg_op_insert_after(ptr nocapture noundef writeonly %s, ptr noundef %old_op, i32 noundef %opc, i32 noundef %nargs) local_unnamed_addr #0 {
+define dso_local noundef ptr @tcg_op_insert_after(ptr noundef writeonly captures(none) %s, ptr noundef %old_op, i32 noundef %opc, i32 noundef %nargs) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @tcg_op_alloc(i32 noundef %opc, i32 noundef %nargs)
   %link = getelementptr inbounds nuw i8, ptr %old_op, i64 8
@@ -6889,7 +6889,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @tcg_gen_code(ptr noundef %s, ptr nocapture noundef %tb, i64 noundef %pc_start) local_unnamed_addr #0 {
+define dso_local i32 @tcg_gen_code(ptr noundef %s, ptr noundef captures(none) %tb, i64 noundef %pc_start) local_unnamed_addr #0 {
 entry:
   %mov.i.i9.i = alloca [4 x %struct.TCGMovExtend], align 16
   %mov.i14.i.i = alloca [2 x %struct.TCGMovExtend], align 16
@@ -14076,7 +14076,7 @@ return:                                           ; preds = %if.end135, %sw.epil
 declare zeroext i1 @qemu_log_in_addr_range(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_dump_ops(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull %f, i1 noundef zeroext %have_prefs) unnamed_addr #0 {
+define internal fastcc void @tcg_dump_ops(ptr noundef readonly captures(none) %s, ptr noundef nonnull captures(none) %f, i1 noundef zeroext %have_prefs) unnamed_addr #0 {
 entry:
   %buf = alloca [128 x i8], align 16
   %ops = getelementptr inbounds nuw i8, ptr %s, i64 29336
@@ -14967,7 +14967,7 @@ for.end591:                                       ; preds = %if.end588, %entry
 declare void @tcg_optimize(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @liveness_pass_1(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc void @liveness_pass_1(ptr noundef captures(none) %s) unnamed_addr #0 {
 entry:
   %nb_globals1 = getelementptr inbounds nuw i8, ptr %s, i64 44
   %0 = load i32, ptr %nb_globals1, align 4
@@ -16423,7 +16423,7 @@ declare void @tcg_gen_umax_vec(i32 noundef, ptr noundef, ptr noundef, ptr nounde
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @init_call_layout(ptr nocapture noundef %info) unnamed_addr #0 {
+define internal fastcc void @init_call_layout(ptr noundef captures(none) %info) unnamed_addr #0 {
 entry:
   %typemask1 = getelementptr inbounds nuw i8, ptr %info, i64 24
   %bf.load = load i64, ptr %typemask1, align 8
@@ -16572,7 +16572,7 @@ if.end128:                                        ; preds = %if.end.thread, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @sort_constraints(ptr nocapture noundef readonly %def, i32 noundef range(i32 0, 256) %start, i32 noundef range(i32 0, 256) %n) unnamed_addr #0 {
+define internal fastcc void @sort_constraints(ptr noundef readonly captures(none) %def, i32 noundef range(i32 0, 256) %start, i32 noundef range(i32 0, 256) %n) unnamed_addr #0 {
 entry:
   %args_ct = getelementptr inbounds nuw i8, ptr %def, i64 16
   %0 = load ptr, ptr %args_ct, align 8
@@ -16765,7 +16765,7 @@ for.end63:                                        ; preds = %for.cond3.loopexit,
 declare ptr @g_ptr_array_new_with_free_func(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_plugin_insn_cleanup_fn(ptr nocapture noundef readonly %data) #0 {
+define internal void @qemu_plugin_insn_cleanup_fn(ptr noundef readonly captures(none) %data) #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %call = tail call ptr @g_byte_array_free(ptr noundef %0, i32 noundef 1) #28
@@ -16775,7 +16775,7 @@ entry:
 declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_movi(ptr nocapture noundef %s, i32 noundef range(i32 0, 2) %type, i32 noundef %ret, i64 noundef %arg) unnamed_addr #0 {
+define internal fastcc void @tcg_out_movi(ptr noundef captures(none) %s, i32 noundef range(i32 0, 2) %type, i32 noundef %ret, i64 noundef %arg) unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %ret, 16
   br i1 %cmp, label %if.then, label %if.else
@@ -17068,7 +17068,7 @@ sw.epilog:                                        ; preds = %if.end3.i, %tcg_out
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_mov(ptr nocapture noundef %s, i32 noundef %type, i32 noundef %ret, i32 noundef %arg) unnamed_addr #0 {
+define internal fastcc void @tcg_out_mov(ptr noundef captures(none) %s, i32 noundef %type, i32 noundef %ret, i32 noundef %arg) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %arg, %ret
   br i1 %cmp, label %return, label %if.end
@@ -17325,7 +17325,7 @@ return:                                           ; preds = %tcg_out_vex_opc.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
-define internal fastcc void @tcg_out_modrm(ptr nocapture noundef %s, i32 noundef range(i32 3, 135614) %opc, i32 noundef %r, i32 noundef %rm) unnamed_addr #15 {
+define internal fastcc void @tcg_out_modrm(ptr noundef captures(none) %s, i32 noundef range(i32 3, 135614) %opc, i32 noundef %r, i32 noundef %rm) unnamed_addr #15 {
 entry:
   %and.i = and i32 %opc, 32768
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -17444,7 +17444,7 @@ tcg_out_opc.exit:                                 ; preds = %if.end37.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_vex_opc(ptr nocapture noundef %s, i32 noundef %opc, i32 noundef %r, i32 noundef %v, i32 noundef %rm, i32 noundef %index) unnamed_addr #0 {
+define internal fastcc void @tcg_out_vex_opc(ptr noundef captures(none) %s, i32 noundef %opc, i32 noundef %r, i32 noundef %v, i32 noundef %rm, i32 noundef %index) unnamed_addr #0 {
 entry:
   %and = and i32 %opc, 32768
   %tobool.not = icmp eq i32 %and, 0
@@ -17575,7 +17575,7 @@ if.end58:                                         ; preds = %if.else51, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
-define internal fastcc void @tcg_out_opc(ptr nocapture noundef %s, i32 noundef %opc, i32 noundef %r, i32 noundef %rm, i32 noundef %x) unnamed_addr #15 {
+define internal fastcc void @tcg_out_opc(ptr noundef captures(none) %s, i32 noundef %opc, i32 noundef %r, i32 noundef %rm, i32 noundef %x) unnamed_addr #15 {
 entry:
   %and = and i32 %opc, 32768
   %tobool.not = icmp eq i32 %and, 0
@@ -17697,7 +17697,7 @@ if.end50:                                         ; preds = %if.end50.sink.split
 declare i32 @arch_prctl(i32 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_vex_modrm(ptr nocapture noundef %s, i32 noundef %opc, i32 noundef %r, i32 noundef %v, i32 noundef %rm) unnamed_addr #0 {
+define internal fastcc void @tcg_out_vex_modrm(ptr noundef captures(none) %s, i32 noundef %opc, i32 noundef %r, i32 noundef %v, i32 noundef %rm) unnamed_addr #0 {
 entry:
   %and = and i32 %opc, 1048576
   %tobool.not = icmp eq i32 %and, 0
@@ -17794,7 +17794,7 @@ if.end:                                           ; preds = %if.else, %tcg_out_e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @new_pool_label(ptr nocapture noundef %s, i64 noundef %d, ptr noundef %label) unnamed_addr #0 {
+define internal fastcc void @new_pool_label(ptr noundef captures(none) %s, i64 noundef %d, ptr noundef %label) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -17904,10 +17904,10 @@ new_pool_insert.exit:                             ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tgen_arithi(ptr nocapture noundef %s, i32 noundef range(i32 0, 4104) %c, i32 noundef %r0, i64 noundef %val, i32 noundef range(i32 0, 2) %cf) unnamed_addr #0 {
+define internal fastcc void @tgen_arithi(ptr noundef captures(none) %s, i32 noundef range(i32 0, 4104) %c, i32 noundef %r0, i64 noundef %val, i32 noundef range(i32 0, 2) %cf) unnamed_addr #0 {
 entry:
   %and = and i32 %c, 8184
   %and1 = and i32 %c, 7
@@ -18114,7 +18114,7 @@ do.end:                                           ; preds = %if.then52, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tcg_out_ext16u(ptr nocapture noundef %s, i32 noundef %dest, i32 noundef %src) unnamed_addr #17 {
+define internal fastcc void @tcg_out_ext16u(ptr noundef captures(none) %s, i32 noundef %dest, i32 noundef %src) unnamed_addr #17 {
 entry:
   %and18.i.i = lshr i32 %dest, 1
   %shr.i.i = and i32 %and18.i.i, 4
@@ -18182,12 +18182,12 @@ declare void @tcg_gen_extu_i32_i64(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @temp_load(ptr noundef %s, ptr noundef %ts, i32 noundef %desired_regs, i32 noundef %allocated_regs, i32 noundef %preferred_regs) unnamed_addr #0 {
@@ -18448,7 +18448,7 @@ return:                                           ; preds = %do.body13.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @temp_allocate_frame(ptr noundef %s, ptr nocapture noundef %ts) unnamed_addr #0 {
+define internal fastcc void @temp_allocate_frame(ptr noundef %s, ptr noundef captures(none) %ts) unnamed_addr #0 {
 entry:
   %bf.load = load i64, ptr %ts, align 8
   %0 = trunc i64 %bf.load to i32
@@ -18551,7 +18551,7 @@ if.end52:                                         ; preds = %for.body, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_st(ptr nocapture noundef %s, i32 noundef %type, i32 noundef %arg, i32 noundef %arg1, i64 noundef %arg2) unnamed_addr #0 {
+define internal fastcc void @tcg_out_st(ptr noundef captures(none) %s, i32 noundef %type, i32 noundef %arg, i32 noundef %arg1, i64 noundef %arg2) unnamed_addr #0 {
 entry:
   switch i32 %type, label %do.body24 [
     i32 0, label %sw.bb
@@ -19113,7 +19113,7 @@ if.end47:                                         ; preds = %set_temp_val_nonreg
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_ld(ptr nocapture noundef %s, i32 noundef range(i32 0, 259) %type, i32 noundef %ret, i32 noundef %arg1, i64 noundef %arg2) unnamed_addr #0 {
+define internal fastcc void @tcg_out_ld(ptr noundef captures(none) %s, i32 noundef range(i32 0, 259) %type, i32 noundef %ret, i32 noundef %arg1, i64 noundef %arg2) unnamed_addr #0 {
 entry:
   switch i32 %type, label %do.body21 [
     i32 0, label %sw.bb
@@ -19354,7 +19354,7 @@ sw.epilog:                                        ; preds = %tcg_out_modrm_offse
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_modrm_offset(ptr nocapture noundef %s, i32 noundef %opc, i32 noundef %r, i32 noundef %rm, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @tcg_out_modrm_offset(ptr noundef captures(none) %s, i32 noundef %opc, i32 noundef %r, i32 noundef %rm, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %cond.i = tail call i32 @llvm.smax.i32(i32 %rm, i32 0)
   %and.i = and i32 %opc, 32768
@@ -19473,7 +19473,7 @@ tcg_out_opc.exit:                                 ; preds = %if.end37.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_modrm_sib_offset(ptr nocapture noundef %s, i32 noundef %opc, i32 noundef %r, i32 noundef %rm, i32 noundef %index, i32 noundef %shift, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @tcg_out_modrm_sib_offset(ptr noundef captures(none) %s, i32 noundef %opc, i32 noundef %r, i32 noundef %rm, i32 noundef %index, i32 noundef %shift, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %cond = tail call i32 @llvm.smax.i32(i32 %rm, i32 0)
   %cond5 = tail call i32 @llvm.smax.i32(i32 %index, i32 0)
@@ -19483,7 +19483,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_sib_offset(ptr nocapture noundef %s, i32 noundef %r, i32 noundef %rm, i32 noundef %index, i32 noundef %shift, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @tcg_out_sib_offset(ptr noundef captures(none) %s, i32 noundef %r, i32 noundef %rm, i32 noundef %index, i32 noundef %shift, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %index, 0
   %0 = and i32 %index, %rm
@@ -19648,7 +19648,7 @@ if.end90:                                         ; preds = %if.else84, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_vex_modrm_sib_offset(ptr nocapture noundef %s, i32 noundef %opc, i32 noundef %r, i32 noundef %v, i32 noundef %rm, i32 noundef %index, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @tcg_out_vex_modrm_sib_offset(ptr noundef captures(none) %s, i32 noundef %opc, i32 noundef %r, i32 noundef %v, i32 noundef %rm, i32 noundef %index, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %cond = tail call i32 @llvm.smax.i32(i32 %rm, i32 0)
   %cond5 = tail call i32 @llvm.smax.i32(i32 %index, i32 0)
@@ -19658,7 +19658,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_dup_vec(ptr nocapture noundef %s, i32 noundef range(i32 3, 259) %type, i32 noundef range(i32 0, 256) %vece, i32 noundef %r, i32 noundef %a) unnamed_addr #0 {
+define internal fastcc void @tcg_out_dup_vec(ptr noundef captures(none) %s, i32 noundef range(i32 3, 259) %type, i32 noundef range(i32 0, 256) %vece, i32 noundef %r, i32 noundef %a) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @cpuinfo, align 4
   %and = and i32 %0, 1024
@@ -19912,7 +19912,7 @@ if.end:                                           ; preds = %tcg_out_vex_opc.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_dupm_vec(ptr nocapture noundef %s, i32 noundef range(i32 3, 259) %type, i32 noundef range(i32 0, 256) %vece, i32 noundef %r, i32 noundef %base, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @tcg_out_dupm_vec(ptr noundef captures(none) %s, i32 noundef range(i32 3, 259) %type, i32 noundef range(i32 0, 256) %vece, i32 noundef %r, i32 noundef %base, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @cpuinfo, align 4
   %and = and i32 %0, 1024
@@ -20207,7 +20207,7 @@ do.body44:                                        ; preds = %for.inc42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tcg_out_ext32s(ptr nocapture noundef %s, i32 noundef %dest, i32 noundef %src) unnamed_addr #17 {
+define internal fastcc void @tcg_out_ext32s(ptr noundef captures(none) %s, i32 noundef %dest, i32 noundef %src) unnamed_addr #17 {
 entry:
   %and18.i.i = lshr i32 %dest, 1
   %shr.i.i = and i32 %and18.i.i, 4
@@ -20238,7 +20238,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_jxx(ptr nocapture noundef %s, i32 noundef range(i32 -1, 256) %opc, ptr nocapture noundef %l, i1 noundef zeroext %small) unnamed_addr #0 {
+define internal fastcc void @tcg_out_jxx(ptr noundef captures(none) %s, i32 noundef range(i32 -1, 256) %opc, ptr noundef captures(none) %l, i1 noundef zeroext %small) unnamed_addr #0 {
 entry:
   %has_value = getelementptr inbounds nuw i8, ptr %l, i64 1
   %0 = load i8, ptr %has_value, align 1
@@ -20546,7 +20546,7 @@ if.end45:                                         ; preds = %tcg_out_reloc.exit,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite) uwtable
-define internal fastcc void @tcg_out_shifti(ptr nocapture noundef %s, i32 noundef range(i32 0, 4104) %subopc, i32 noundef %reg, i32 noundef %count) unnamed_addr #15 {
+define internal fastcc void @tcg_out_shifti(ptr noundef captures(none) %s, i32 noundef range(i32 0, 4104) %subopc, i32 noundef %reg, i32 noundef %count) unnamed_addr #15 {
 entry:
   %and = and i32 %subopc, 8184
   %and1 = and i32 %subopc, 7
@@ -20574,7 +20574,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @tcg_out_ctz(ptr nocapture noundef %s, i32 noundef range(i32 0, 4097) %rexw, i32 noundef %dest, i32 noundef %arg1, i64 noundef %arg2, i1 noundef zeroext %const_a2) unnamed_addr #19 {
+define internal fastcc void @tcg_out_ctz(ptr noundef captures(none) %s, i32 noundef range(i32 0, 4097) %rexw, i32 noundef %dest, i32 noundef %arg1, i64 noundef %arg2, i1 noundef zeroext %const_a2) unnamed_addr #19 {
 entry:
   %0 = load i32, ptr @cpuinfo, align 4
   %and = and i32 %0, 32
@@ -20618,7 +20618,7 @@ if.end25:                                         ; preds = %do.body, %do.body6,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_clz(ptr nocapture noundef %s, i32 noundef range(i32 0, 4097) %rexw, i32 noundef %dest, i32 noundef %arg1, i64 noundef %arg2, i1 noundef zeroext %const_a2) unnamed_addr #0 {
+define internal fastcc void @tcg_out_clz(ptr noundef captures(none) %s, i32 noundef range(i32 0, 4097) %rexw, i32 noundef %dest, i32 noundef %arg1, i64 noundef %arg2, i1 noundef zeroext %const_a2) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @cpuinfo, align 4
   %and = and i32 %0, 8
@@ -20672,7 +20672,7 @@ if.end41:                                         ; preds = %do.body, %do.body6,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_brcond(ptr nocapture noundef %s, i32 noundef range(i32 0, 4097) %rexw, i32 noundef %cond, i64 noundef %arg1, i64 noundef %arg2, i32 noundef %const_arg2, ptr nocapture noundef %label) unnamed_addr #0 {
+define internal fastcc void @tcg_out_brcond(ptr noundef captures(none) %s, i32 noundef range(i32 0, 4097) %rexw, i32 noundef %cond, i64 noundef %arg1, i64 noundef %arg2, i32 noundef %const_arg2, ptr noundef captures(none) %label) unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq i32 %const_arg2, 0
   %conv7.i = trunc i64 %arg1 to i32
@@ -20713,7 +20713,7 @@ tcg_out_cmp.exit:                                 ; preds = %if.then1.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_setcond(ptr nocapture noundef %s, i32 noundef range(i32 0, 4097) %rexw, i32 noundef %cond, i64 noundef %dest, i64 noundef %arg1, i64 noundef %arg2, i32 noundef %const_arg2, i1 noundef zeroext %neg) unnamed_addr #0 {
+define internal fastcc void @tcg_out_setcond(ptr noundef captures(none) %s, i32 noundef range(i32 0, 4097) %rexw, i32 noundef %cond, i64 noundef %dest, i64 noundef %arg1, i64 noundef %arg2, i32 noundef %const_arg2, i1 noundef zeroext %neg) unnamed_addr #0 {
 entry:
   switch i32 %cond, label %sw.epilog [
     i32 9, label %sw.bb
@@ -21285,7 +21285,7 @@ if.end78:                                         ; preds = %tcg_out_modrm.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_movcond(ptr nocapture noundef %s, i32 noundef range(i32 0, 4097) %rexw, i32 noundef %cond, i32 noundef %dest, i32 noundef %c1, i64 noundef %c2, i32 noundef %const_c2, i32 noundef %v1) unnamed_addr #0 {
+define internal fastcc void @tcg_out_movcond(ptr noundef captures(none) %s, i32 noundef range(i32 0, 4097) %rexw, i32 noundef %cond, i32 noundef %dest, i32 noundef %c1, i64 noundef %c2, i32 noundef %const_c2, i32 noundef %v1) unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq i32 %const_c2, 0
   br i1 %tobool.not.i, label %if.else5.i, label %if.then.i
@@ -21327,7 +21327,7 @@ tcg_out_cmp.exit:                                 ; preds = %if.then1.i, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tcg_out_rolw_8(ptr nocapture noundef %s, i32 noundef %reg) unnamed_addr #17 {
+define internal fastcc void @tcg_out_rolw_8(ptr noundef captures(none) %s, i32 noundef %reg) unnamed_addr #17 {
 entry:
   %code_ptr.i29.i.i = getelementptr inbounds nuw i8, ptr %s, i64 128
   %0 = load ptr, ptr %code_ptr.i29.i.i, align 8
@@ -21365,7 +21365,7 @@ tcg_out_modrm.exit:                               ; preds = %entry, %if.then35.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_qemu_ld(ptr nocapture noundef %s, i32 noundef %datalo, i32 noundef %datahi, i32 noundef %addrlo, i32 noundef %oi, i32 noundef range(i32 0, 3) %data_type) unnamed_addr #0 {
+define internal fastcc void @tcg_out_qemu_ld(ptr noundef captures(none) %s, i32 noundef %datalo, i32 noundef %datahi, i32 noundef %addrlo, i32 noundef %oi, i32 noundef range(i32 0, 3) %data_type) unnamed_addr #0 {
 entry:
   %h = alloca %struct.HostAddress, align 8
   %call = call fastcc ptr @prepare_host_addr(ptr noundef %s, ptr noundef %h, i32 noundef %addrlo, i32 noundef %oi, i1 noundef zeroext true)
@@ -21784,7 +21784,7 @@ if.end:                                           ; preds = %if.then, %tcg_out_q
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_qemu_st(ptr nocapture noundef %s, i32 noundef %datalo, i32 noundef %datahi, i32 noundef %addrlo, i32 noundef %oi, i32 noundef range(i32 0, 3) %data_type) unnamed_addr #0 {
+define internal fastcc void @tcg_out_qemu_st(ptr noundef captures(none) %s, i32 noundef %datalo, i32 noundef %datahi, i32 noundef %addrlo, i32 noundef %oi, i32 noundef range(i32 0, 3) %data_type) unnamed_addr #0 {
 entry:
   %h = alloca %struct.HostAddress, align 8
   %call = call fastcc ptr @prepare_host_addr(ptr noundef %s, ptr noundef %h, i32 noundef %addrlo, i32 noundef %oi, i1 noundef zeroext false)
@@ -22226,7 +22226,7 @@ if.end:                                           ; preds = %if.then, %tcg_out_q
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tcg_out_mb(ptr nocapture noundef %s, i64 noundef %a0) unnamed_addr #17 {
+define internal fastcc void @tcg_out_mb(ptr noundef captures(none) %s, i64 noundef %a0) unnamed_addr #17 {
 entry:
   %and = and i64 %a0, 2
   %tobool.not = icmp eq i64 %and, 0
@@ -22261,7 +22261,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @prepare_host_addr(ptr nocapture noundef %s, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %h, i32 noundef %addrlo, i32 noundef %oi, i1 noundef zeroext %is_ld) unnamed_addr #0 {
+define internal fastcc noundef ptr @prepare_host_addr(ptr noundef captures(none) %s, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %h, i32 noundef %addrlo, i32 noundef %oi, i1 noundef zeroext %is_ld) unnamed_addr #0 {
 entry:
   %frombool = zext i1 %is_ld to i8
   %shr.i = lshr i32 %oi, 4
@@ -22825,7 +22825,7 @@ if.end65:                                         ; preds = %if.else49, %tcg_out
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tcg_out_testi(ptr nocapture noundef %s, i32 noundef %r, i32 noundef range(i32 1, 0) %i) unnamed_addr #17 {
+define internal fastcc void @tcg_out_testi(ptr noundef captures(none) %s, i32 noundef %r, i32 noundef range(i32 1, 0) %i) unnamed_addr #17 {
 entry:
   %cmp = icmp ult i32 %i, 256
   br i1 %cmp, label %if.then, label %if.else
@@ -22905,7 +22905,7 @@ if.end:                                           ; preds = %tcg_out_modrm.exit2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_helper_load_slots(ptr nocapture noundef %s, i32 noundef range(i32 1, 5) %nmov, ptr nocapture noundef nonnull %mov) unnamed_addr #0 {
+define internal fastcc void @tcg_out_helper_load_slots(ptr noundef captures(none) %s, i32 noundef range(i32 1, 5) %nmov, ptr noundef nonnull captures(none) %mov) unnamed_addr #0 {
 entry:
   %0 = zext nneg i32 %nmov to i64
   br label %for.body
@@ -23090,7 +23090,7 @@ sw.epilog:                                        ; preds = %if.end, %if.then61.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_helper_load_common_args(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %ldst, ptr nocapture noundef readonly %info, i32 noundef range(i32 2, 6) %next_arg) unnamed_addr #0 {
+define internal fastcc void @tcg_out_helper_load_common_args(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %ldst, ptr noundef readonly captures(none) %info, i32 noundef range(i32 2, 6) %next_arg) unnamed_addr #0 {
 entry:
   %ptr_mov = alloca %struct.TCGMovExtend, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ptr_mov, ptr noundef nonnull align 4 dereferenceable(20) @__const.tcg_out_helper_load_common_args.ptr_mov, i64 20, i1 false)
@@ -23181,7 +23181,7 @@ if.end22:                                         ; preds = %if.then19, %tcg_out
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_movext1_new_src(ptr nocapture noundef %s, ptr nocapture noundef readonly %i, i32 noundef %src) unnamed_addr #0 {
+define internal fastcc void @tcg_out_movext1_new_src(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %i, i32 noundef %src) unnamed_addr #0 {
 entry:
   %dst_type = getelementptr inbounds nuw i8, ptr %i, i64 8
   %0 = load i32, ptr %dst_type, align 4
@@ -23533,7 +23533,7 @@ tcg_out_movext.exit:                              ; preds = %tcg_out_ext8u.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tcg_out_movext2(ptr nocapture noundef %s, ptr nocapture noundef readonly %i1, ptr nocapture noundef readonly %i2) unnamed_addr #0 {
+define internal fastcc void @tcg_out_movext2(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %i1, ptr noundef readonly captures(none) %i2) unnamed_addr #0 {
 entry:
   %src = getelementptr inbounds nuw i8, ptr %i1, i64 4
   %0 = load i32, ptr %src, align 4
@@ -23605,10 +23605,10 @@ declare void @helper_stq_mmu(ptr noundef, i64 noundef, i64 noundef, i32 noundef,
 declare void @helper_st16_mmu(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #20
@@ -23629,13 +23629,13 @@ declare i32 @llvm.umax.i32(i32, i32) #22
 declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #23
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #23
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22
@@ -23644,10 +23644,10 @@ declare i32 @llvm.smax.i32(i32, i32) #22
 declare i32 @llvm.ctpop.i32(i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

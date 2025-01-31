@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13JVMFlagLookup9find_implEPKcm(ptr nocapture noundef nonnull readonly align 2 dereferenceable(5446) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK13JVMFlagLookup9find_implEPKcm(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(5446) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %.not6.i = icmp eq i64 %2, 0
   br i1 %.not6.i, label %_ZN13JVMFlagLookup9hash_codeEPKcm.exit, label %.lr.ph.i
 
@@ -78,10 +78,10 @@ _ZN13JVMFlagLookup9hash_codeEPKcm.exit:           ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN13JVMFlagLookup4findEPKcm(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13JVMFlagLookup4findEPKcm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %.not6.i.i = icmp eq i64 %1, 0
   br i1 %.not6.i.i, label %_ZN13JVMFlagLookup9hash_codeEPKcm.exit.i, label %.lr.ph.i.i
 

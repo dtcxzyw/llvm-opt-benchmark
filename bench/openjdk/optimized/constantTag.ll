@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 6, 13) i8 @_ZNK11constantTag10basic_typeEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext range(i8 6, 13) i8 @_ZNK11constantTag10basic_typeEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %7 [
     i8 3, label %9
@@ -77,7 +77,7 @@ define hidden noundef zeroext range(i8 6, 13) i8 @_ZNK11constantTag10basic_typeE
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef signext range(i8 107, 103) i8 @_ZNK11constantTag15non_error_valueEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef signext range(i8 107, 103) i8 @_ZNK11constantTag15non_error_valueEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #2 align 2 {
   %2 = load i8, ptr %0, align 1
   %switch.tableidx = add i8 %2, -103
   %3 = icmp ult i8 %switch.tableidx, 4
@@ -90,7 +90,7 @@ define hidden noundef signext range(i8 107, 103) i8 @_ZNK11constantTag15non_erro
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef signext range(i8 103, 107) i8 @_ZNK11constantTag11error_valueEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef signext range(i8 103, 107) i8 @_ZNK11constantTag11error_valueEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %6 [
     i8 100, label %8
@@ -120,7 +120,7 @@ define hidden noundef signext range(i8 103, 107) i8 @_ZNK11constantTag11error_va
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK11constantTag13internal_nameEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZNK11constantTag13internal_nameEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %25 [
     i8 0, label %27

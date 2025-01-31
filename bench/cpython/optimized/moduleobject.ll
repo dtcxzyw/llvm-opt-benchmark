@@ -934,7 +934,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.40 = private unnamed_addr constant [4 x i8] c"str\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyModule_IsExtension(ptr nocapture noundef readonly %obj) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyModule_IsExtension(ptr noundef readonly captures(none) %obj) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -1058,7 +1058,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @module_init_dict(ptr nocapture noundef %mod, ptr noundef %md_dict, ptr noundef %name, ptr noundef %doc) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @module_init_dict(ptr noundef captures(none) %mod, ptr noundef %md_dict, ptr noundef %name, ptr noundef %doc) unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyDict_SetItem(ptr noundef %md_dict, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31712), ptr noundef %name) #4
   %cmp1.not = icmp eq i32 %call, 0
@@ -1416,7 +1416,7 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @PyModule_AddFunctions(ptr noundef %m, ptr noundef %functions) local_unnamed_addr #0 {
@@ -1931,7 +1931,7 @@ if.end:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyModule_ExecDef(ptr noundef %module, ptr nocapture noundef readonly %def) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyModule_ExecDef(ptr noundef %module, ptr noundef readonly captures(none) %def) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetNameObject(ptr noundef readonly %module)
   %cmp.i = icmp eq ptr %call.i, null
@@ -2042,7 +2042,7 @@ return:                                           ; preds = %for.inc, %land.rhs,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyModule_GetName(ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
+define dso_local ptr @PyModule_GetName(ptr noundef readonly captures(none) %m) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyModule_GetNameObject(ptr noundef %m)
   %cmp = icmp eq ptr %call, null
@@ -2074,7 +2074,7 @@ return:                                           ; preds = %entry, %Py_DECREF.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyModule_GetNameObject(ptr nocapture noundef readonly %mod) local_unnamed_addr #0 {
+define dso_local ptr @PyModule_GetNameObject(ptr noundef readonly captures(none) %mod) local_unnamed_addr #0 {
 entry:
   %name = alloca ptr, align 8
   %0 = getelementptr i8, ptr %mod, i64 8
@@ -2155,7 +2155,7 @@ return:                                           ; preds = %if.end10, %error, %
 declare i32 @PyObject_SetAttr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyModule_GetDict(ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
+define dso_local ptr @PyModule_GetDict(ptr noundef readonly captures(none) %m) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 8
   %m.val = load ptr, ptr %0, align 8
@@ -2188,7 +2188,7 @@ declare i32 @PyErr_BadArgument() local_unnamed_addr #1
 declare i32 @PyDict_GetItemRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyModule_GetFilenameObject(ptr nocapture noundef readonly %mod) local_unnamed_addr #0 {
+define dso_local ptr @PyModule_GetFilenameObject(ptr noundef readonly captures(none) %mod) local_unnamed_addr #0 {
 entry:
   %fileobj = alloca ptr, align 8
   %0 = getelementptr i8, ptr %mod, i64 8
@@ -2258,7 +2258,7 @@ return:                                           ; preds = %if.end7, %error, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyModule_GetFilename(ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
+define dso_local ptr @PyModule_GetFilename(ptr noundef readonly captures(none) %m) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyModule_GetFilenameObject(ptr noundef %m)
   %cmp = icmp eq ptr %call, null
@@ -2287,7 +2287,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyModule_GetDef(ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
+define dso_local ptr @PyModule_GetDef(ptr noundef readonly captures(none) %m) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 8
   %m.val = load ptr, ptr %0, align 8
@@ -2314,7 +2314,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyModule_GetState(ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
+define dso_local ptr @PyModule_GetState(ptr noundef readonly captures(none) %m) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 8
   %m.val = load ptr, ptr %0, align 8
@@ -2341,7 +2341,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyModule_Clear(ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
+define hidden void @_PyModule_Clear(ptr noundef readonly captures(none) %m) local_unnamed_addr #0 {
 entry:
   %md_dict = getelementptr inbounds nuw i8, ptr %m, i64 16
   %0 = load ptr, ptr %md_dict, align 8
@@ -3273,7 +3273,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @module___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @module___init__(ptr noundef captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %0 = getelementptr i8, ptr %args, i64 16
@@ -3353,7 +3353,7 @@ exit:                                             ; preds = %if.end4.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @new_module(ptr noundef %mt, ptr nocapture readnone %args, ptr nocapture readnone %kws) #0 {
+define internal ptr @new_module(ptr noundef %mt, ptr readnone captures(none) %args, ptr readnone captures(none) %kws) #0 {
 entry:
   %call.i = tail call ptr @_PyType_AllocNoTrack(ptr noundef %mt, i64 noundef 0) #4
   %cmp.i = icmp eq ptr %call.i, null
@@ -3423,7 +3423,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyImport_ImportlibModuleRepr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @module_dir(ptr noundef %self, ptr nocapture readnone %args) #0 {
+define internal ptr @module_dir(ptr noundef %self, ptr readnone captures(none) %args) #0 {
 entry:
   %call = tail call ptr @PyObject_GetAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28360)) #4
   %cmp.not = icmp eq ptr %call, null
@@ -3518,7 +3518,7 @@ declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @module_get_annotations(ptr noundef %m, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @module_get_annotations(ptr noundef %m, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %annotations = alloca ptr, align 8
   %call = tail call ptr @PyObject_GetAttr(ptr noundef %m, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28360)) #4
@@ -3616,7 +3616,7 @@ return:                                           ; preds = %if.end.i33, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @module_set_annotations(ptr noundef %m, ptr noundef %value, ptr nocapture readnone %_unused_ignored) #0 {
+define internal i32 @module_set_annotations(ptr noundef %m, ptr noundef %value, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @PyObject_GetAttr(ptr noundef %m, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28360)) #4
   %cmp = icmp eq ptr %call, null

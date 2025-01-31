@@ -797,7 +797,7 @@ define dso_local i32 @serio_interrupt(ptr noundef %0, i8 noundef zeroext %1, i32
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal noundef range(i32 0, 2) i32 @serio_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define internal noundef range(i32 0, 2) i32 @serio_bus_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -144
   %4 = load i8, ptr %3, align 8, !range !15, !noundef !16
   %5 = icmp eq i8 %4, 0
@@ -1072,7 +1072,7 @@ define internal void @serio_release_port(ptr noundef %0) #0 align 16 {
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @type_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -143
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
@@ -1082,10 +1082,10 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @type_show(ptr no
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @proto_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @proto_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -140
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
@@ -1095,7 +1095,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @proto_show(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @id_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @id_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -141
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
@@ -1105,7 +1105,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @id_show(ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @extra_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @extra_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -142
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
@@ -1115,7 +1115,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @extra_show(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -143
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
@@ -1134,7 +1134,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @modalias_show(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @serio_show_description(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @serio_show_description(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -336
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %4) #10
   %6 = sext i32 %5 to i64
@@ -1142,7 +1142,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @serio_show_descr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @drvctl_store(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -344
   %6 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull @serio_mutex) #10
   %7 = icmp eq i32 %6, 0
@@ -1546,7 +1546,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr nocapture readnone %1, ptr
 declare dso_local i32 @mutex_lock_interruptible(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @driver_find(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1660,7 +1660,7 @@ define internal fastcc void @serio_disconnect_driver(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @serio_show_bind_mode(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @serio_show_bind_mode(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -144
   %5 = load i8, ptr %4, align 8, !range !15, !noundef !16
   %6 = icmp eq i8 %5, 0
@@ -1671,7 +1671,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @serio_show_bind_
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal range(i64 -2147483648, 2147483648) i64 @serio_set_bind_mode(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #9 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @serio_set_bind_mode(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #9 align 16 {
   %5 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull @.str.22, i64 noundef %3) #10
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %10, label %7
@@ -1695,7 +1695,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @serio_set_bind_mode(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @firmware_id_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @firmware_id_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -272
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %4) #10
   %6 = sext i32 %5 to i64
@@ -1724,7 +1724,7 @@ declare dso_local i32 @device_attach(ptr noundef) local_unnamed_addr #1
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @description_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @description_show(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -80
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1735,7 +1735,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @description_show
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @bind_mode_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @bind_mode_show(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -64
   %4 = load i8, ptr %3, align 8, !range !15, !noundef !16
   %5 = icmp eq i8 %4, 0
@@ -1746,7 +1746,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @bind_mode_show(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal range(i64 -2147483648, 2147483648) i64 @bind_mode_store(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #9 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @bind_mode_store(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #9 align 16 {
   %4 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.22, i64 noundef %2) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %9, label %6
@@ -1842,7 +1842,7 @@ define internal noundef i32 @serio_resume(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @serio_handle_event(ptr nocapture readnone %0) #0 align 16 {
+define internal void @serio_handle_event(ptr readnone captures(none) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @serio_mutex) #10
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
   %3 = load volatile ptr, ptr @serio_event_list, align 8

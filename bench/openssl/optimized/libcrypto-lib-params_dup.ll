@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_param_set_secure_block(ptr nocapture noundef writeonly initializes((0, 12), (16, 32)) %last, ptr noundef %secure_buffer, i64 noundef %secure_buffer_sz) local_unnamed_addr #1 {
+define void @ossl_param_set_secure_block(ptr noundef writeonly captures(none) initializes((0, 12), (16, 32)) %last, ptr noundef %secure_buffer, i64 noundef %secure_buffer_sz) local_unnamed_addr #1 {
 entry:
   store ptr null, ptr %last, align 8
   %data_size = getelementptr inbounds nuw i8, ptr %last, i64 24
@@ -202,7 +202,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -373,10 +373,10 @@ return:                                           ; preds = %do.body44, %do.body
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @compare_params(ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #2 {
+define internal i32 @compare_params(ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #2 {
 entry:
   %0 = load ptr, ptr %left, align 8
   %1 = load ptr, ptr %right, align 8
@@ -389,7 +389,7 @@ entry:
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 

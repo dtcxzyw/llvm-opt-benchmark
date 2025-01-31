@@ -24,7 +24,7 @@ $_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHol
 @_ZN3ue210RevAccInfoC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3ue210RevAccInfoC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define hidden void @_ZN3ue224buildReverseAccelerationEP3NFARKNS_10RevAccInfoEjb(ptr nocapture noundef writeonly %nfa, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %rev_info, i32 noundef %min_width, i1 noundef zeroext %eod_only) local_unnamed_addr #0 {
+define hidden void @_ZN3ue224buildReverseAccelerationEP3NFARKNS_10RevAccInfoEjb(ptr noundef writeonly captures(none) %nfa, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %rev_info, i32 noundef %min_width, i1 noundef zeroext %eod_only) local_unnamed_addr #0 {
 entry:
   %cr.i = alloca %"class.ue2::CharReach", align 8
   %cr2.i = alloca %"class.ue2::CharReach", align 8
@@ -1210,7 +1210,7 @@ if.end21:                                         ; preds = %_ZN3ue2L17lookForEo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue231populateReverseAccelerationInfoERNS_10RevAccInfoERKNS_8NGHolderE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %rai, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g) local_unnamed_addr #1 {
+define hidden void @_ZN3ue231populateReverseAccelerationInfoERNS_10RevAccInfoERKNS_8NGHolderE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %rai, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g) local_unnamed_addr #1 {
 entry:
   %accept = getelementptr inbounds nuw i8, ptr %g, i64 104
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %accept, align 8
@@ -1225,7 +1225,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %terminal.coerce0, ptr nocapture noundef nonnull readonly %reach) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly %terminal.coerce0, ptr noundef nonnull readonly captures(none) %reach) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 invoke.cont1:
   %vset = alloca %"class.std::set", align 8
   %v = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
@@ -1620,10 +1620,10 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ue228mergeReverseAccelerationInfoERNS_10RevAccInfoERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %vic) local_unnamed_addr #3 {
+define hidden void @_ZN3ue228mergeReverseAccelerationInfoERNS_10RevAccInfoERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %vic) local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %vic, align 8
   %1 = and i8 %0, 1
@@ -1699,7 +1699,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue210RevAccInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 1), (8, 56)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue210RevAccInfoC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 1), (8, 56)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8
   %acceptReach = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1926,7 +1926,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #12
@@ -1935,10 +1935,10 @@ declare i64 @llvm.ctpop.i64(i64) #12
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

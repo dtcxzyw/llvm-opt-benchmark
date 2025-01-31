@@ -8,25 +8,25 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.48da9bdbeb346c6f4c10058a8aadb103.2 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"struct Scope" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_RNvXNvXNvNtCslX9QWl1u5N5_20turborepo_vercel_api5tokens_1__NtB7_21ResponseTokenMetadataNtNtCs7yHavx6RIsz_5serde2de11Deserialize11deserializeNtB2_14___FieldVisitorNtB1o_7Visitor9expecting(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define noundef zeroext i1 @_RNvXNvXNvNtCslX9QWl1u5N5_20turborepo_vercel_api5tokens_1__NtB7_21ResponseTokenMetadataNtNtCs7yHavx6RIsz_5serde2de11Deserialize11deserializeNtB2_14___FieldVisitorNtB1o_7Visitor9expecting(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hdb8bda1f756875eeE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.48da9bdbeb346c6f4c10058a8aadb103.0, i64 noundef 16)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_RNvXs0_NvXNvNtCslX9QWl1u5N5_20turborepo_vercel_api5tokens_1__NtBa_21ResponseTokenMetadataNtNtCs7yHavx6RIsz_5serde2de11Deserialize11deserializeNtB5_9___VisitorNtB1r_7Visitor9expecting(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define noundef zeroext i1 @_RNvXs0_NvXNvNtCslX9QWl1u5N5_20turborepo_vercel_api5tokens_1__NtBa_21ResponseTokenMetadataNtNtCs7yHavx6RIsz_5serde2de11Deserialize11deserializeNtB5_9___VisitorNtB1r_7Visitor9expecting(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hdb8bda1f756875eeE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.48da9bdbeb346c6f4c10058a8aadb103.1, i64 noundef 28)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_RNvXNvXNvNtCslX9QWl1u5N5_20turborepo_vercel_api5tokens1_1__NtB7_5ScopeNtNtCs7yHavx6RIsz_5serde2de11Deserialize11deserializeNtB2_14___FieldVisitorNtB18_7Visitor9expecting(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define noundef zeroext i1 @_RNvXNvXNvNtCslX9QWl1u5N5_20turborepo_vercel_api5tokens1_1__NtB7_5ScopeNtNtCs7yHavx6RIsz_5serde2de11Deserialize11deserializeNtB2_14___FieldVisitorNtB18_7Visitor9expecting(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hdb8bda1f756875eeE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.48da9bdbeb346c6f4c10058a8aadb103.0, i64 noundef 16)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_RNvXs0_NvXNvNtCslX9QWl1u5N5_20turborepo_vercel_api5tokens1_1__NtBa_5ScopeNtNtCs7yHavx6RIsz_5serde2de11Deserialize11deserializeNtB5_9___VisitorNtB1b_7Visitor9expecting(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define noundef zeroext i1 @_RNvXs0_NvXNvNtCslX9QWl1u5N5_20turborepo_vercel_api5tokens1_1__NtBa_5ScopeNtNtCs7yHavx6RIsz_5serde2de11Deserialize11deserializeNtB5_9___VisitorNtB1b_7Visitor9expecting(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hdb8bda1f756875eeE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.48da9bdbeb346c6f4c10058a8aadb103.2, i64 noundef 12)
   ret i1 %3
 }

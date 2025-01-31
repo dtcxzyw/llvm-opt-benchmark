@@ -13,17 +13,17 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN2EA6Thread9ConditionD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN2EA6Thread9ConditionD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN15EAConditionDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN15EAConditionDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA6Thread19ConditionParametersC2EbPKc(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(17) initializes((0, 1)) %this, i1 noundef zeroext %bIntraProcess, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA6Thread19ConditionParametersC2EbPKc(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(17) initializes((0, 1)) %this, i1 noundef zeroext %bIntraProcess, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %bIntraProcess to i8
   store i8 %frombool, ptr %this, align 1
@@ -280,10 +280,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

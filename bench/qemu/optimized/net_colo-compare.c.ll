@@ -150,7 +150,7 @@ entry:
 declare void @notifier_remove(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @colo_notify_compares_event(ptr nocapture noundef readnone %opaque, i32 noundef %event, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local void @colo_notify_compares_event(ptr noundef readnone captures(none) %opaque, i32 noundef %event, ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -595,7 +595,7 @@ if.end177:                                        ; preds = %if.then175, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @colo_compare_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @colo_compare_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.17, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #16
   %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -606,7 +606,7 @@ entry:
 declare ptr @object_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @compare_get_pri_indev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @compare_get_pri_indev(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
   %pri_indev = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -616,7 +616,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @compare_set_pri_indev(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @compare_set_pri_indev(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
   %pri_indev = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -628,7 +628,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @compare_get_sec_indev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @compare_get_sec_indev(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
   %sec_indev = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -638,7 +638,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @compare_set_sec_indev(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @compare_set_sec_indev(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
   %sec_indev = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -650,7 +650,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @compare_get_outdev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @compare_get_outdev(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
   %outdev = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -660,7 +660,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @compare_set_outdev(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @compare_set_outdev(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
   %outdev = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -676,7 +676,7 @@ declare ptr @object_property_add_link(ptr noundef, ptr noundef, ptr noundef, ptr
 declare void @object_property_allow_set_link(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @compare_get_notify_dev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @compare_get_notify_dev(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
   %notify_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 64
@@ -686,7 +686,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @compare_set_notify_dev(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @compare_set_notify_dev(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
   %notify_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 64
@@ -700,7 +700,7 @@ entry:
 declare ptr @object_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @compare_get_timeout(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @compare_get_timeout(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
@@ -712,7 +712,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @compare_set_timeout(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @compare_set_timeout(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
@@ -740,7 +740,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @compare_get_expired_scan_cycle(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @compare_get_expired_scan_cycle(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
@@ -752,7 +752,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @compare_set_expired_scan_cycle(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @compare_set_expired_scan_cycle(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
@@ -779,7 +779,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @get_max_queue_size(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @get_max_queue_size(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr @max_queue_size, align 4
@@ -789,7 +789,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_max_queue_size(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @set_max_queue_size(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #16
@@ -817,7 +817,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 declare ptr @object_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @compare_get_vnet_hdr(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @compare_get_vnet_hdr(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
   %vnet_hdr = getelementptr inbounds nuw i8, ptr %call.i, i64 209400
@@ -827,7 +827,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @compare_set_vnet_hdr(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @compare_set_vnet_hdr(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
@@ -965,7 +965,7 @@ declare noalias ptr @g_slice_alloc(i64 noundef) local_unnamed_addr #3
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @g_queue_push_tail(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1305,10 +1305,10 @@ return:                                           ; preds = %if.then58, %lor.lhs
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @find_and_check_chardev(ptr nocapture noundef nonnull initializes((0, 8)) %chr, ptr noundef %chr_name, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @find_and_check_chardev(ptr noundef nonnull captures(none) initializes((0, 8)) %chr, ptr noundef %chr_name, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_chr_find(ptr noundef %chr_name) #16
   store ptr %call, ptr %chr, align 8
@@ -1626,7 +1626,7 @@ declare ptr @qemu_chr_find(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @qemu_chr_has_feature(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @packet_enqueue(ptr noundef %s, i32 noundef range(i32 0, 2) %mode, ptr nocapture noundef nonnull writeonly %con) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @packet_enqueue(ptr noundef %s, i32 noundef range(i32 0, 2) %mode, ptr noundef nonnull writeonly captures(none) %con) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %key = alloca %struct.ConnectionKey, align 1
@@ -1755,14 +1755,14 @@ if.end.lr.ph.i:                                   ; preds = %sw.bb
   br label %if.end.i
 
 if.end.i:                                         ; preds = %pri.backedge.i, %if.end.lr.ph.i
-  %call4.i = tail call ptr @g_queue_pop_tail(ptr noundef %opaque) #16
+  %call4.i = tail call ptr @g_queue_pop_tail(ptr noundef nonnull %opaque) #16
   %call5144.i = tail call i32 @g_queue_is_empty(ptr noundef nonnull %secondary_list.i) #16
   %tobool6.not145.i = icmp eq i32 %call5144.i, 0
   br i1 %tobool6.not145.i, label %if.end9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i, %sec.backedge.i
   %ppkt.0.lcssa.i = phi ptr [ %ppkt.2.i, %sec.backedge.i ], [ %call4.i, %if.end.i ]
-  tail call void @g_queue_push_tail(ptr noundef %opaque, ptr noundef %ppkt.0.lcssa.i) #16
+  tail call void @g_queue_push_tail(ptr noundef nonnull %opaque, ptr noundef %ppkt.0.lcssa.i) #16
   br label %sw.epilog
 
 if.end9.i:                                        ; preds = %if.end.i, %sec.backedge.i
@@ -1892,7 +1892,7 @@ if.then42.i:                                      ; preds = %if.end40.i
   br label %pri.backedge.i
 
 pri.backedge.i:                                   ; preds = %trace_colo_compare_main.exit80.i, %if.then26.i, %if.then80.i, %if.then65.i, %if.then42.i
-  %call.i = tail call i32 @g_queue_is_empty(ptr noundef %opaque) #16
+  %call.i = tail call i32 @g_queue_is_empty(ptr noundef nonnull %opaque) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %sw.epilog
 
@@ -2151,7 +2151,7 @@ declare void @fill_connection_key(ptr noundef, ptr noundef, i1 noundef zeroext) 
 declare ptr @connection_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @colo_insert_packet(ptr noundef %queue, ptr noundef %pkt, ptr nocapture noundef writeonly %max_ack) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @colo_insert_packet(ptr noundef %queue, ptr noundef %pkt, ptr noundef writeonly captures(none) %max_ack) unnamed_addr #0 {
 entry:
   %call = tail call i32 @g_queue_get_length(ptr noundef %queue) #16
   %0 = load i32, ptr @max_queue_size, align 4
@@ -2226,7 +2226,7 @@ declare i32 @g_queue_get_length(ptr noundef) local_unnamed_addr #1
 declare void @g_queue_insert_sorted(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @seq_sorter(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture readnone %data) #7 {
+define internal i32 @seq_sorter(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr readnone captures(none) %data) #7 {
 entry:
   %tcp_seq = getelementptr inbounds nuw i8, ptr %b, i64 44
   %0 = load i32, ptr %tcp_seq, align 4
@@ -2240,7 +2240,7 @@ entry:
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2322,7 +2322,7 @@ while.end:                                        ; preds = %land.rhs, %if.then,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @colo_packet_compare_udp(ptr nocapture noundef readonly %spkt, ptr nocapture noundef readonly %ppkt) #0 {
+define internal range(i32 -1, 1) i32 @colo_packet_compare_udp(ptr noundef readonly captures(none) %spkt, ptr noundef readonly captures(none) %ppkt) #0 {
 entry:
   %_now.i.i39 = alloca %struct.timeval, align 8
   %_now.i.i25 = alloca %struct.timeval, align 8
@@ -2503,7 +2503,7 @@ return:                                           ; preds = %if.end, %trace_colo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @colo_packet_compare_icmp(ptr nocapture noundef readonly %spkt, ptr nocapture noundef readonly %ppkt) #0 {
+define internal range(i32 -1, 1) i32 @colo_packet_compare_icmp(ptr noundef readonly captures(none) %spkt, ptr noundef readonly captures(none) %ppkt) #0 {
 entry:
   %_now.i.i39 = alloca %struct.timeval, align 8
   %_now.i.i25 = alloca %struct.timeval, align 8
@@ -2684,7 +2684,7 @@ return:                                           ; preds = %if.end, %trace_colo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @colo_packet_compare_other(ptr nocapture noundef readonly %spkt, ptr nocapture noundef readonly %ppkt) #0 {
+define internal i32 @colo_packet_compare_other(ptr noundef readonly captures(none) %spkt, ptr noundef readonly captures(none) %ppkt) #0 {
 entry:
   %_now.i.i7 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2921,7 +2921,7 @@ if.end:                                           ; preds = %if.then.i, %compare
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @colo_compare_packet_payload(ptr nocapture noundef readonly %ppkt, ptr nocapture noundef readonly %spkt, i16 noundef zeroext %poffset, i16 noundef zeroext %soffset, i16 noundef zeroext %len) unnamed_addr #0 {
+define internal fastcc i32 @colo_compare_packet_payload(ptr noundef readonly captures(none) %ppkt, ptr noundef readonly captures(none) %spkt, i16 noundef zeroext %poffset, i16 noundef zeroext %soffset, i16 noundef zeroext %len) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %pri_ip_src = alloca [20 x i8], align 16
@@ -3011,13 +3011,13 @@ if.end:                                           ; preds = %trace_colo_compare_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare ptr @inet_ntoa(i32) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare void @notifier_list_notify(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3034,7 +3034,7 @@ declare ptr @iothread_get_g_main_context(ptr noundef) local_unnamed_addr #1
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @compare_chr_can_read(ptr nocapture readnone %opaque) #11 {
+define internal noundef i32 @compare_chr_can_read(ptr readnone captures(none) %opaque) #11 {
 entry:
   ret i32 69632
 }
@@ -3192,7 +3192,7 @@ return:                                           ; preds = %if.end5, %if.then8,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @colo_old_packet_check_one(ptr nocapture noundef readonly %pkt, ptr nocapture noundef readonly %check_time) #0 {
+define internal range(i32 0, 2) i32 @colo_old_packet_check_one(ptr noundef readonly captures(none) %pkt, ptr noundef readonly captures(none) %check_time) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #16
@@ -3251,16 +3251,16 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 declare void @qemu_cond_broadcast(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

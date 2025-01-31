@@ -419,7 +419,7 @@ lor.end179:                                       ; preds = %for.end
   br i1 %cmp177, label %if.end195, label %if.then182
 
 if.then182:                                       ; preds = %lor.end179
-  %call183 = call fastcc i32 @parallels_fill_used_bitmap(ptr noundef %bs)
+  %call183 = call fastcc i32 @parallels_fill_used_bitmap(ptr noundef nonnull %bs)
   %cmp184 = icmp eq i32 %call183, -12
   br i1 %cmp184, label %fail, label %if.end187
 
@@ -435,7 +435,7 @@ if.end195:                                        ; preds = %for.end, %if.end187
   br i1 %brmerge106, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then203
 
 if.then203:                                       ; preds = %if.end195
-  %call204 = call i32 @bdrv_check(ptr noundef %bs, ptr noundef nonnull %res, i32 noundef 3) #16
+  %call204 = call i32 @bdrv_check(ptr noundef nonnull %bs, ptr noundef nonnull %res, i32 noundef 3) #16
   %cmp205 = icmp slt i32 %call204, 0
   br i1 %cmp205, label %if.then207, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
@@ -475,7 +475,7 @@ return:                                           ; preds = %parallels_opts_prea
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @parallels_close(ptr nocapture noundef readonly %bs) #0 {
+define internal void @parallels_close(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -532,7 +532,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @parallels_co_create(ptr nocapture noundef readonly %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @parallels_co_create(ptr noundef readonly captures(none) %opts, ptr noundef %errp) #0 {
 entry:
   %tmp = alloca [512 x i8], align 16
   %0 = load i32, ptr %opts, align 8
@@ -672,7 +672,7 @@ return:                                           ; preds = %if.end16, %out, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @parallels_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @parallels_co_create_opts(ptr readnone captures(none) %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
@@ -757,7 +757,7 @@ declare i32 @bdrv_has_zero_init_1(ptr noundef) #1
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 101) i32 @parallels_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #2 {
+define internal range(i32 0, 101) i32 @parallels_probe(ptr noundef readonly captures(none) %buf, i32 noundef %buf_size, ptr readnone captures(none) %filename) #2 {
 entry:
   %cmp = icmp ult i32 %buf_size, 64
   br i1 %cmp, label %return, label %if.end
@@ -787,7 +787,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @parallels_co_readv(ptr nocapture noundef readonly %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef %qiov) #0 {
+define internal i32 @parallels_co_readv(ptr noundef readonly captures(none) %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef %qiov) #0 {
 entry:
   %hd_qiov = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -980,14 +980,14 @@ while.end:                                        ; preds = %if.end9, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @parallels_co_pwrite_zeroes(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, i32 %flags) #0 {
+define internal i32 @parallels_co_pwrite_zeroes(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, i32 %flags) #0 {
 entry:
   %call = tail call i32 @parallels_co_pdiscard(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @parallels_co_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
+define internal i32 @parallels_co_pdiscard(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1092,7 +1092,7 @@ return:                                           ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 6) i32 @parallels_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal range(i32 0, 6) i32 @parallels_co_block_status(ptr noundef readonly captures(none) %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr noundef writeonly captures(none) %pnum, ptr noundef writeonly captures(none) %map, ptr noundef writeonly captures(none) %file) #0 {
 entry:
   %or = or i64 %bytes, %offset
   %rem = and i64 %or, 511
@@ -1200,7 +1200,7 @@ return:                                           ; preds = %block_status.exit, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @parallels_co_flush_to_os(ptr nocapture noundef readonly %bs) #0 {
+define internal range(i32 -2147483648, 1) i32 @parallels_co_flush_to_os(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1313,7 +1313,7 @@ return:                                           ; preds = %while.body, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @parallels_co_check(ptr noundef %bs, ptr nocapture noundef %res, i32 noundef %fix) #0 {
+define internal i32 @parallels_co_check(ptr noundef %bs, ptr noundef captures(none) %res, i32 noundef %fix) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1438,7 +1438,7 @@ for.inc.i:                                        ; preds = %if.end18.i, %lor.lh
 
 qemu_lockable_auto_unlock.exit:                   ; preds = %for.inc.i, %if.end14
   tail call void @qemu_co_mutex_unlock(ptr noundef %0) #16
-  %call15 = tail call i32 @bdrv_co_flush(ptr noundef %bs) #16
+  %call15 = tail call i32 @bdrv_co_flush(ptr noundef nonnull %bs) #16
   %cmp16 = icmp slt i32 %call15, 0
   br i1 %cmp16, label %if.then17, label %return
 
@@ -1460,7 +1460,7 @@ return:                                           ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @parallels_is_support_dirty_bitmaps(ptr nocapture readnone %bs) #3 {
+define internal noundef zeroext i1 @parallels_is_support_dirty_bitmaps(ptr readnone captures(none) %bs) #3 {
 entry:
   ret i1 true
 }
@@ -1478,7 +1478,7 @@ declare i64 @bdrv_opt_mem_align(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_try_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @parallels_test_data_off(ptr nocapture noundef readonly %s, i64 noundef range(i64 0, -9223372036854775808) %file_nb_sectors, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %correct_offset) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @parallels_test_data_off(ptr noundef readonly captures(none) %s, i64 noundef range(i64 0, -9223372036854775808) %file_nb_sectors, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %correct_offset) unnamed_addr #4 {
 entry:
   %header = getelementptr inbounds nuw i8, ptr %s, i64 48
   %0 = load ptr, ptr %header, align 8
@@ -1536,7 +1536,7 @@ declare void @warn_report(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @parallels_read_format_extension(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @parallels_update_header(ptr nocapture noundef readonly %bs) unnamed_addr #0 {
+define internal fastcc i32 @parallels_update_header(ptr noundef readonly captures(none) %bs) unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1582,7 +1582,7 @@ declare i32 @migrate_add_blocker_normal(ptr noundef, ptr noundef) local_unnamed_
 declare void @qemu_co_mutex_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @parallels_fill_used_bitmap(ptr nocapture noundef readonly %bs) unnamed_addr #0 {
+define internal fastcc i32 @parallels_fill_used_bitmap(ptr noundef readonly captures(none) %bs) unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1762,10 +1762,10 @@ declare ptr @blk_co_new_with_bs(ptr noundef, i64 noundef, i64 noundef, ptr nound
 declare void @blk_set_allow_write_beyond_eof(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare i32 @blk_co_pwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
@@ -1812,7 +1812,7 @@ declare i64 @qemu_iovec_memset(ptr noundef, i64 noundef, i32 noundef, i64 nounde
 declare void @qemu_iovec_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -4294967294, -4294967296) i64 @allocate_clusters(ptr noundef %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr nocapture noundef writeonly initializes((0, 4)) %pnum) #0 {
+define internal range(i64 -4294967294, -4294967296) i64 @allocate_clusters(ptr noundef %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef writeonly captures(none) initializes((0, 4)) %pnum) #0 {
 entry:
   %qiov.i111 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
@@ -2270,7 +2270,7 @@ declare i32 @bdrv_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #1
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @parallels_check_data_off(ptr nocapture noundef readonly %bs, ptr nocapture noundef %res, i32 noundef %fix) #0 {
+define internal i32 @parallels_check_data_off(ptr noundef readonly captures(none) %bs, ptr noundef captures(none) %res, i32 noundef %fix) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2381,7 +2381,7 @@ return:                                           ; preds = %if.end24.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @parallels_check_outside_image(ptr nocapture noundef readonly %bs, ptr nocapture noundef %res, i32 noundef %fix) #0 {
+define internal i32 @parallels_check_outside_image(ptr noundef readonly captures(none) %bs, ptr noundef captures(none) %res, i32 noundef %fix) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2542,7 +2542,7 @@ return:                                           ; preds = %if.then24, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @parallels_check_leak(ptr nocapture noundef readonly %bs, ptr nocapture noundef %res, i32 noundef %fix, i1 noundef zeroext %explicit) #0 {
+define internal i32 @parallels_check_leak(ptr noundef readonly captures(none) %bs, ptr noundef captures(none) %res, i32 noundef %fix, i1 noundef zeroext %explicit) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -2634,7 +2634,7 @@ return:                                           ; preds = %if.end, %if.end30, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @parallels_check_duplicate(ptr noundef %bs, ptr nocapture noundef %res, i32 noundef %fix) #0 {
+define internal i32 @parallels_check_duplicate(ptr noundef %bs, ptr noundef captures(none) %res, i32 noundef %fix) #0 {
 entry:
   %local_err.i = alloca ptr, align 8
   %qiov.i77 = alloca %struct.QEMUIOVector, align 8
@@ -2993,7 +2993,7 @@ return:                                           ; preds = %entry, %out_free
 declare i32 @bdrv_co_flush(ptr noundef) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 declare i64 @bdrv_co_nb_sectors(ptr noundef) #1
 
@@ -3002,7 +3002,7 @@ declare i64 @bdrv_co_getlength(ptr noundef) #1
 declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
@@ -3014,10 +3014,10 @@ declare i32 @llvm.smin.i32(i32, i32) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #14

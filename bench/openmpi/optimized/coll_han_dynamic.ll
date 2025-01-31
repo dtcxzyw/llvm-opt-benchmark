@@ -84,7 +84,7 @@ define range(i32 -1, 7) i32 @mca_coll_han_component_name_to_id(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @mca_coll_han_get_all_coll_modules(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
@@ -392,7 +392,7 @@ define internal fastcc ptr @get_module(i32 noundef range(i32 0, 16) %0, i64 noun
 declare ptr @mca_coll_base_colltype_to_str(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_algorithm(i32 noundef range(i32 0, 16) %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #3 {
+define internal fastcc i32 @get_algorithm(i32 noundef range(i32 0, 16) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #3 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr i8, ptr %2, i64 220
@@ -1558,10 +1558,10 @@ declare ptr @mca_coll_han_algorithm_id_to_name(i32 noundef, i32 noundef) local_u
 declare i32 @mca_base_var_get_value(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6

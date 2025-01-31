@@ -152,7 +152,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_folio_wait_s
 @llvm.compiler.used = appending global [34 x ptr] [ptr @__UNIQUE_ID___addressable___folio_cancel_dirty975, ptr @__UNIQUE_ID___addressable___folio_start_writeback979, ptr @__UNIQUE_ID___addressable_balance_dirty_pages_ratelimited958, ptr @__UNIQUE_ID___addressable_balance_dirty_pages_ratelimited_flags957, ptr @__UNIQUE_ID___addressable_bdi_set_max_ratio880, ptr @__UNIQUE_ID___addressable_dirty_writeback_interval869, ptr @__UNIQUE_ID___addressable_filemap_dirty_folio971, ptr @__UNIQUE_ID___addressable_folio_clear_dirty_for_io976, ptr @__UNIQUE_ID___addressable_folio_mark_dirty973, ptr @__UNIQUE_ID___addressable_folio_redirty_for_writepage972, ptr @__UNIQUE_ID___addressable_folio_wait_stable982, ptr @__UNIQUE_ID___addressable_folio_wait_writeback980, ptr @__UNIQUE_ID___addressable_folio_wait_writeback_killable981, ptr @__UNIQUE_ID___addressable_laptop_mode870, ptr @__UNIQUE_ID___addressable_noop_dirty_folio968, ptr @__UNIQUE_ID___addressable_set_page_dirty_lock974, ptr @__UNIQUE_ID___addressable_tag_pages_for_writeback962, ptr @__UNIQUE_ID___addressable_wb_writeout_inc879, ptr @__UNIQUE_ID___addressable_write_cache_pages964, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched201, ptr @balance_dirty_pages_ratelimited_flags.__UNIQUE_ID___addressable___SCK__preempt_schedule956, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_balance_dirty_pages.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace746, ptr @trace_balance_dirty_pages.__UNIQUE_ID___addressable___SCK__tp_func_balance_dirty_pages745, ptr @trace_bdi_dirty_ratelimit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace732, ptr @trace_bdi_dirty_ratelimit.__UNIQUE_ID___addressable___SCK__tp_func_bdi_dirty_ratelimit731, ptr @trace_folio_wait_writeback.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace494, ptr @trace_folio_wait_writeback.__UNIQUE_ID___addressable___SCK__tp_func_folio_wait_writeback493, ptr @trace_global_dirty_state.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace718, ptr @trace_global_dirty_state.__UNIQUE_ID___addressable___SCK__tp_func_global_dirty_state717, ptr @trace_wbc_writepage.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace690, ptr @trace_wbc_writepage.__UNIQUE_ID___addressable___SCK__tp_func_wbc_writepage689, ptr @trace_writeback_dirty_folio.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace480, ptr @trace_writeback_dirty_folio.__UNIQUE_ID___addressable___SCK__tp_func_writeback_dirty_folio479], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @global_dirty_limits(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @global_dirty_limits(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.dirty_throttle_control, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
@@ -181,13 +181,13 @@ define dso_local void @global_dirty_limits(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @domain_dirty_limits(ptr nocapture noundef initializes((32, 48)) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @domain_dirty_limits(ptr noundef captures(none) initializes((32, 48)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr @vm_dirty_bytes, align 8
@@ -282,7 +282,7 @@ define internal fastcc void @domain_dirty_limits(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @node_dirty_ok(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -464,7 +464,7 @@ define internal void @writeout_period(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @fprop_global_init(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio_no_scale(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio_no_scale(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp ugt i32 %1, 1000000
   br i1 %3, label %19, label %4
 
@@ -502,7 +502,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio_no_scale(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_ratio_no_scale(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_ratio_no_scale(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp ugt i32 %1, 1000000
   br i1 %3, label %15, label %4
 
@@ -533,7 +533,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_ratio_no_scale(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = mul i32 %1, 10000
   %4 = icmp ugt i32 %3, 1000000
   br i1 %4, label %20, label %5
@@ -572,7 +572,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_ratio(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_ratio(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = mul i32 %1, 10000
   %4 = icmp ugt i32 %3, 1000000
   br i1 %4, label %16, label %5
@@ -604,7 +604,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_ratio(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 0, 18446744073710) i64 @bdi_get_min_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 18446744073710) i64 @bdi_get_min_bytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.dirty_throttle_control, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
@@ -635,7 +635,7 @@ define dso_local range(i64 0, 18446744073710) i64 @bdi_get_min_bytes(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_bytes(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_bytes(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.dirty_throttle_control, align 8
   %4 = lshr i64 %1, 12
   %5 = load volatile i64, ptr @vm_zone_stat, align 16
@@ -711,7 +711,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_bytes(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 0, 18446744073710) i64 @bdi_get_max_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 18446744073710) i64 @bdi_get_max_bytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.dirty_throttle_control, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
@@ -742,7 +742,7 @@ define dso_local range(i64 0, 18446744073710) i64 @bdi_get_max_bytes(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_bytes(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_bytes(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.dirty_throttle_control, align 8
   %4 = lshr i64 %1, 12
   %5 = load volatile i64, ptr @vm_zone_stat, align 16
@@ -811,7 +811,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_bytes(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @bdi_set_strict_limit(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_strict_limit(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp ugt i32 %1, 1
   br i1 %3, label %11, label %4
 
@@ -885,7 +885,7 @@ define dso_local void @wb_update_bandwidth(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @__wb_update_bandwidth(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load volatile i64, ptr @jiffies, align 64
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -1168,7 +1168,7 @@ define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -11, 1) i32 @balance_dirty_pages_ratelimited_flags(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 -11, 1) i32 @balance_dirty_pages_ratelimited_flags(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @inode_to_bdi(ptr noundef %3) #10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 68
@@ -1940,7 +1940,7 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @balance_dirty_pages_ratelimited(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @balance_dirty_pages_ratelimited(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = tail call i32 @balance_dirty_pages_ratelimited_flags(ptr noundef %0, i32 noundef 0), !range !38
   ret void
 }
@@ -2295,7 +2295,7 @@ declare dso_local void @xas_set_mark(ptr noundef, i32 noundef) local_unnamed_add
 declare dso_local void @xas_pause(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @write_cache_pages(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 align 16 {
+define dso_local i32 @write_cache_pages(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = alloca %struct.folio_batch, align 8
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #10
@@ -2931,7 +2931,7 @@ declare dso_local void @blk_finish_plug(ptr noundef) local_unnamed_addr #3
 declare dso_local void @reclaim_throttle(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @noop_dirty_folio(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local zeroext i1 @noop_dirty_folio(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load volatile i64, ptr %1, align 8
   %4 = and i64 %3, 16
   %5 = icmp eq i64 %4, 0
@@ -3203,7 +3203,7 @@ define dso_local noundef zeroext i1 @filemap_dirty_folio(ptr noundef %0, ptr nou
 declare dso_local void @__mark_inode_dirty(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @folio_redirty_for_writepage(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef zeroext i1 @folio_redirty_for_writepage(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load volatile i64, ptr %1, align 8
@@ -3933,7 +3933,7 @@ declare dso_local i32 @__SCT__tp_func_bdi_dirty_ratelimit(ptr noundef, ptr nound
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @wb_dirty_limits(ptr nocapture noundef initializes((48, 72)) %0) unnamed_addr #8 align 16 {
+define internal fastcc void @wb_dirty_limits(ptr noundef captures(none) initializes((48, 72)) %0) unnamed_addr #8 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %0, align 8

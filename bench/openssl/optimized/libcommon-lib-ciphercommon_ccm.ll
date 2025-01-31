@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ccm_init = private unnamed_addr constant [9 x i8] c"ccm_init\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ccm_set_ctx_params(ptr nocapture noundef %vctx, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ccm_set_ctx_params(ptr noundef captures(none) %vctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
   %cmp = icmp eq ptr %params, null
@@ -274,7 +274,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -574,7 +574,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ccm_stream_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ccm_stream_update(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %outsize, %inl
   br i1 %cmp, label %return.sink.split, label %if.end
@@ -598,7 +598,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ccm_cipher_internal(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %padlen, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ccm_cipher_internal(ptr noundef %ctx, ptr noundef %out, ptr noundef writeonly captures(none) %padlen, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
 entry:
   %hw1 = getelementptr inbounds nuw i8, ptr %ctx, i64 144
   %0 = load ptr, ptr %hw1, align 8
@@ -831,7 +831,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ccm_stream_final(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ccm_stream_final(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outsize) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -854,7 +854,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ccm_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ccm_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -885,7 +885,7 @@ return:                                           ; preds = %if.end2, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_ccm_initctx(ptr nocapture noundef initializes((8, 40), (144, 152)) %ctx, i64 noundef %keybits, ptr noundef %hw) local_unnamed_addr #3 {
+define void @ossl_ccm_initctx(ptr noundef captures(none) initializes((8, 40), (144, 152)) %ctx, i64 noundef %keybits, ptr noundef %hw) local_unnamed_addr #3 {
 entry:
   %div9 = lshr i64 %keybits, 3
   %keylen = getelementptr inbounds nuw i8, ptr %ctx, i64 24

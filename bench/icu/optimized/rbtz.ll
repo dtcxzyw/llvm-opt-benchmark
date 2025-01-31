@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7517RuleBasedTimeZone17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7517RuleBasedTimeZone17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7517RuleBasedTimeZone16getStaticClassIDEvE7classID
 }
@@ -119,7 +119,7 @@ declare void @_ZN6icu_7513BasicTimeZoneC2ERKS0_(ptr noundef nonnull align 8 dere
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7517RuleBasedTimeZone9copyRulesEPNS_7UVectorE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %source) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7517RuleBasedTimeZone9copyRulesEPNS_7UVectorE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %source) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ec = alloca i32, align 4
   %cmp = icmp eq ptr %source, null
@@ -224,7 +224,7 @@ eh.resume:                                        ; preds = %delete.notnull.i25,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517RuleBasedTimeZone8completeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517RuleBasedTimeZone8completeER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(105) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tt = alloca double, align 8
   %curName = alloca %"class.icu_75::UnicodeString", align 8
@@ -989,7 +989,7 @@ _ZN6icu_7517RuleBasedTimeZone11deleteRulesEv.exit: ; preds = %if.end.i, %delete.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(105) %this) local_unnamed_addr #4 align 2 {
 entry:
   %fHistoricTransitions = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %fHistoricTransitions, align 8
@@ -1021,7 +1021,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7517RuleBasedTimeZone11deleteRulesEv(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN6icu_7517RuleBasedTimeZone11deleteRulesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(105) %this) local_unnamed_addr #4 align 2 {
 entry:
   %fInitialRule = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %fInitialRule, align 8
@@ -1321,7 +1321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517RuleBasedTimeZone17addTransitionRuleEPNS_12TimeZoneRuleER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this, ptr noundef %rule, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517RuleBasedTimeZone17addTransitionRuleEPNS_12TimeZoneRuleER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(105) %this, ptr noundef %rule, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1512,7 +1512,7 @@ declare void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr nound
 declare void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7517RuleBasedTimeZone13completeConstER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7517RuleBasedTimeZone13completeConstER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(105) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1640,7 +1640,7 @@ return:                                           ; preds = %entry, %_ZN6icu_755
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7517RuleBasedTimeZone9getOffsetEhiiihiiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 zeroext %0, i32 noundef %millis, i32 %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7517RuleBasedTimeZone9getOffsetEhiiihiiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 zeroext %0, i32 noundef %millis, i32 %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %rawOffset = alloca i32, align 4
   %dstOffset = alloca i32, align 4
@@ -1677,7 +1677,7 @@ declare noundef double @_ZN6icu_755Grego11fieldsToDayEiii(i32 noundef, i32 nound
 declare double @llvm.fmuladd.f64(double, double, double) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7517RuleBasedTimeZone17getOffsetInternalEdaiiRiS1_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %date, i8 noundef signext %local, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %rawOffset, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dstOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7517RuleBasedTimeZone17getOffsetInternalEdaiiRiS1_R10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, double noundef %date, i8 noundef signext %local, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %rawOffset, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %dstOffset, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   store i32 0, ptr %rawOffset, align 4
   store i32 0, ptr %dstOffset, align 4
@@ -1785,21 +1785,21 @@ if.end47:                                         ; preds = %entry, %if.then44, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7517RuleBasedTimeZone9getOffsetEdaRiS1_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %date, i8 noundef signext %local, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %rawOffset, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dstOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7517RuleBasedTimeZone9getOffsetEdaRiS1_R10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, double noundef %date, i8 noundef signext %local, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %rawOffset, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %dstOffset, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK6icu_7517RuleBasedTimeZone17getOffsetInternalEdaiiRiS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %date, i8 noundef signext %local, i32 noundef 4, i32 noundef 12, ptr noundef nonnull align 4 dereferenceable(4) %rawOffset, ptr noundef nonnull align 4 dereferenceable(4) %dstOffset, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7517RuleBasedTimeZone18getOffsetFromLocalEd20UTimeZoneLocalOptionS1_RiS2_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %date, i32 noundef %nonExistingTimeOpt, i32 noundef %duplicatedTimeOpt, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %rawOffset, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dstOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7517RuleBasedTimeZone18getOffsetFromLocalEd20UTimeZoneLocalOptionS1_RiS2_R10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, double noundef %date, i32 noundef %nonExistingTimeOpt, i32 noundef %duplicatedTimeOpt, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %rawOffset, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %dstOffset, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK6icu_7517RuleBasedTimeZone17getOffsetInternalEdaiiRiS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %date, i8 noundef signext 1, i32 noundef %nonExistingTimeOpt, i32 noundef %duplicatedTimeOpt, ptr noundef nonnull align 4 dereferenceable(4) %rawOffset, ptr noundef nonnull align 4 dereferenceable(4) %dstOffset, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK6icu_7517RuleBasedTimeZone17getTransitionTimeEPNS_10TransitionEaii(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %transition, i8 noundef signext %local, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt) local_unnamed_addr #1 align 2 {
+define noundef double @_ZNK6icu_7517RuleBasedTimeZone17getTransitionTimeEPNS_10TransitionEaii(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %transition, i8 noundef signext %local, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load double, ptr %transition, align 8
   %tobool.not = icmp eq i8 %local, 0
@@ -1885,7 +1885,7 @@ if.end:                                           ; preds = %_ZNK6icu_7517RuleBa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7517RuleBasedTimeZone15findRuleInFinalEdaii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %date, i8 noundef signext %local, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK6icu_7517RuleBasedTimeZone15findRuleInFinalEdaii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, double noundef %date, i8 noundef signext %local, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt) local_unnamed_addr #1 align 2 {
 entry:
   %start0 = alloca double, align 8
   %start1 = alloca double, align 8
@@ -2084,7 +2084,7 @@ return:                                           ; preds = %if.then37, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7517RuleBasedTimeZone12setRawOffsetEi(ptr nocapture nonnull readnone align 8 %this, i32 %0) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7517RuleBasedTimeZone12setRawOffsetEi(ptr nonnull readnone align 8 captures(none) %this, i32 %0) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
@@ -2146,7 +2146,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %transitionTime, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %fromRule, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %toRule) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %transitionTime, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %fromRule, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %toRule) local_unnamed_addr #1 align 2 {
 entry:
   %start0 = alloca double, align 8
   %start1 = alloca double, align 8
@@ -2470,7 +2470,7 @@ return:                                           ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone17getNextTransitionEdaRNS_18TimeZoneTransitionE(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone17getNextTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 captures(none) dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #1 align 2 {
 if.end.i:
   %status = alloca i32, align 4
   %transitionTime = alloca double, align 8
@@ -2519,7 +2519,7 @@ declare void @_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr no
 declare void @_ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone21getPreviousTransitionEdaRNS_18TimeZoneTransitionE(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone21getPreviousTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 captures(none) dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #1 align 2 {
 if.end.i:
   %status = alloca i32, align 4
   %transitionTime = alloca double, align 8
@@ -2562,7 +2562,7 @@ return:                                           ; preds = %if.end, %_ZNK6icu_7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone8findPrevEdaRdRPNS_12TimeZoneRuleES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %transitionTime, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %fromRule, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %toRule) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone8findPrevEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %transitionTime, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %fromRule, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %toRule) local_unnamed_addr #1 align 2 {
 entry:
   %start0 = alloca double, align 8
   %start1 = alloca double, align 8
@@ -2718,7 +2718,7 @@ return:                                           ; preds = %if.else, %if.then20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7517RuleBasedTimeZone20countTransitionRulesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK6icu_7517RuleBasedTimeZone20countTransitionRulesER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #10 align 2 {
 entry:
   %fHistoricRules = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %fHistoricRules, align 8
@@ -2749,7 +2749,7 @@ if.end8:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7517RuleBasedTimeZone16getTimeZoneRulesERPKNS_19InitialTimeZoneRuleEPPKNS_12TimeZoneRuleERiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %initial, ptr nocapture noundef writeonly %trsrules, ptr nocapture noundef nonnull align 4 dereferenceable(4) %trscount, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7517RuleBasedTimeZone16getTimeZoneRulesERPKNS_19InitialTimeZoneRuleEPPKNS_12TimeZoneRuleERiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %initial, ptr noundef writeonly captures(none) %trsrules, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %trscount, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2837,7 +2837,7 @@ return:                                           ; preds = %entry, %if.end31
 declare void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK6icu_7517RuleBasedTimeZone13getLocalDeltaEiiiiii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(105) %this, i32 noundef %rawBefore, i32 noundef %dstBefore, i32 noundef %rawAfter, i32 noundef %dstAfter, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK6icu_7517RuleBasedTimeZone13getLocalDeltaEiiiiii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(105) %this, i32 noundef %rawBefore, i32 noundef %dstBefore, i32 noundef %rawAfter, i32 noundef %dstAfter, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt) local_unnamed_addr #0 align 2 {
 entry:
   %add = add nsw i32 %dstBefore, %rawBefore
   %add2 = add nsw i32 %dstAfter, %rawAfter
@@ -2910,14 +2910,14 @@ declare void @_ZNK6icu_7513BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTime
 declare noundef nonnull align 8 dereferenceable(72) ptr @_ZN6icu_758TimeZoneaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #2
 
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

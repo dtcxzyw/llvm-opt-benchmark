@@ -25,7 +25,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN5nlsat9ineq_atomC2ENS_4atom4kindEjPKPN10polynomial10polynomialEPKbj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, i32 noundef %k, i32 noundef %sz, ptr nocapture noundef readonly %ps, ptr nocapture noundef readonly %is_even, i32 noundef %max_var) unnamed_addr #3 align 2 {
+define hidden void @_ZN5nlsat9ineq_atomC2ENS_4atom4kindEjPKPN10polynomial10polynomialEPKbj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 20)) %this, i32 noundef %k, i32 noundef %sz, ptr noundef readonly captures(none) %ps, ptr noundef readonly captures(none) %is_even, i32 noundef %max_var) unnamed_addr #3 align 2 {
 entry:
   store i32 %k, ptr %this, align 8
   %m_ref_count.i = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -66,7 +66,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK5nlsat9ineq_atom9hash_procclEPKS0_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr noundef %a) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK5nlsat9ineq_atom9hash_procclEPKS0_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef %a) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp = alloca %"struct.nlsat::ineq_atom::khasher", align 1
   %ref.tmp2 = alloca %"struct.nlsat::ineq_atom::chasher", align 1
@@ -432,7 +432,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK5nlsat9ineq_atom7eq_procclEPKS0_S3_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef readonly %a1, ptr nocapture noundef readonly %a2) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK5nlsat9ineq_atom7eq_procclEPKS0_S3_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly captures(none) %a1, ptr noundef readonly captures(none) %a2) local_unnamed_addr #5 align 2 {
 entry:
   %m_size = getelementptr inbounds nuw i8, ptr %a1, i64 16
   %0 = load i32, ptr %m_size, align 8
@@ -475,7 +475,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5nlsat9root_atomC2ENS_4atom4kindEjjPN10polynomial10polynomialE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, i32 noundef %k, i32 noundef %x, i32 noundef %i, ptr noundef %p) unnamed_addr #6 align 2 {
+define hidden void @_ZN5nlsat9root_atomC2ENS_4atom4kindEjjPN10polynomial10polynomialE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, i32 noundef %k, i32 noundef %x, i32 noundef %i, ptr noundef %p) unnamed_addr #6 align 2 {
 entry:
   store i32 %k, ptr %this, align 8
   %m_ref_count.i = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -494,7 +494,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK5nlsat9root_atom9hash_procclEPKS0_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef readonly %a) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK5nlsat9root_atom9hash_procclEPKS0_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly captures(none) %a) local_unnamed_addr #4 align 2 {
 entry:
   %m_x = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load i32, ptr %m_x, align 8
@@ -548,7 +548,7 @@ entry:
 declare noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK5nlsat9root_atom7eq_procclEPKS0_S3_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef readonly %a1, ptr nocapture noundef readonly %a2) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK5nlsat9root_atom7eq_procclEPKS0_S3_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly captures(none) %a1, ptr noundef readonly captures(none) %a2) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %a1, align 8
   %1 = load i32, ptr %a2, align 8

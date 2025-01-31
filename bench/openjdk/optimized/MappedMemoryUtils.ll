@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [36 x i8] c"msync with parameter MS_SYNC failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_nio_MappedMemoryUtils_isLoaded0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_nio_MappedMemoryUtils_isLoaded0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = add nsw i64 %4, 1
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #5
   %8 = icmp eq ptr %7, null
@@ -69,10 +69,10 @@ declare i32 @mincore(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #
 declare void @JNU_ThrowIOExceptionWithLastError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_nio_MappedMemoryUtils_load0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_java_nio_MappedMemoryUtils_load0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @madvise(ptr noundef %5, i64 noundef %3, i32 noundef 3) #6
   %7 = icmp eq i32 %6, -1
@@ -92,7 +92,7 @@ declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare void @JNU_ThrowIOExceptionWithMessageAndLastError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_nio_MappedMemoryUtils_unload0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_java_nio_MappedMemoryUtils_unload0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @madvise(ptr noundef %5, i64 noundef %3, i32 noundef 4) #6
   %7 = icmp eq i32 %6, -1
@@ -107,7 +107,7 @@ define void @Java_java_nio_MappedMemoryUtils_unload0(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_nio_MappedMemoryUtils_force0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_java_nio_MappedMemoryUtils_force0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %3 to ptr
   %7 = tail call i32 @msync(ptr noundef %6, i64 noundef %4, i32 noundef 4) #6
   %8 = icmp eq i32 %7, -1

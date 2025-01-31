@@ -35,7 +35,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_find_next_cl
 @llvm.compiler.used = appending global [14 x ptr] [ptr @__UNIQUE_ID___addressable___find_nth_and_andnot_bit25, ptr @__UNIQUE_ID___addressable___find_nth_and_bit19, ptr @__UNIQUE_ID___addressable___find_nth_andnot_bit22, ptr @__UNIQUE_ID___addressable___find_nth_bit16, ptr @__UNIQUE_ID___addressable__find_first_and_bit7, ptr @__UNIQUE_ID___addressable__find_first_bit4, ptr @__UNIQUE_ID___addressable__find_first_zero_bit10, ptr @__UNIQUE_ID___addressable__find_last_bit38, ptr @__UNIQUE_ID___addressable__find_next_and_bit28, ptr @__UNIQUE_ID___addressable__find_next_andnot_bit31, ptr @__UNIQUE_ID___addressable__find_next_bit13, ptr @__UNIQUE_ID___addressable__find_next_or_bit34, ptr @__UNIQUE_ID___addressable__find_next_zero_bit37, ptr @__UNIQUE_ID___addressable_find_next_clump839], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i64 @_find_first_bit(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local i64 @_find_first_bit(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -71,7 +71,7 @@ define dso_local i64 @_find_first_bit(ptr nocapture noundef readonly %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i64 @_find_first_and_bit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local i64 @_find_first_and_bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -112,7 +112,7 @@ define dso_local i64 @_find_first_and_bit(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i64 @_find_first_zero_bit(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local i64 @_find_first_zero_bit(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -149,7 +149,7 @@ define dso_local i64 @_find_first_zero_bit(ptr nocapture noundef readonly %0, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i64 @_find_next_bit(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local i64 @_find_next_bit(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = icmp ult i64 %2, %1
   br i1 %4, label %5, label %.loopexit, !prof !11
 
@@ -194,7 +194,7 @@ define dso_local i64 @_find_next_bit(ptr nocapture noundef readonly %0, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__find_nth_bit(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local i64 @__find_nth_bit(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
   %4 = alloca i64, align 8
   %5 = icmp ult i64 %1, 64
   br i1 %5, label %.loopexit9, label %.preheader
@@ -281,7 +281,7 @@ define dso_local i64 @__find_nth_bit(ptr nocapture noundef readonly %0, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__find_nth_and_bit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local i64 @__find_nth_and_bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca i64, align 8
   %6 = icmp ult i64 %2, 64
   br i1 %6, label %.loopexit9, label %.preheader
@@ -374,7 +374,7 @@ define dso_local i64 @__find_nth_and_bit(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__find_nth_andnot_bit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local i64 @__find_nth_andnot_bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca i64, align 8
   %6 = icmp ult i64 %2, 64
   br i1 %6, label %.loopexit9, label %.preheader
@@ -469,7 +469,7 @@ define dso_local i64 @__find_nth_andnot_bit(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__find_nth_and_andnot_bit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
+define dso_local i64 @__find_nth_and_andnot_bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
   %6 = alloca i64, align 8
   %7 = icmp ult i64 %3, 64
   br i1 %7, label %.loopexit9, label %.preheader
@@ -570,7 +570,7 @@ define dso_local i64 @__find_nth_and_andnot_bit(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i64 @_find_next_and_bit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local i64 @_find_next_and_bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = icmp ult i64 %3, %2
   br i1 %5, label %6, label %.loopexit, !prof !11
 
@@ -621,7 +621,7 @@ define dso_local i64 @_find_next_and_bit(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i64 @_find_next_andnot_bit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local i64 @_find_next_andnot_bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = icmp ult i64 %3, %2
   br i1 %5, label %6, label %.loopexit, !prof !11
 
@@ -674,7 +674,7 @@ define dso_local i64 @_find_next_andnot_bit(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i64 @_find_next_or_bit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local i64 @_find_next_or_bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = icmp ult i64 %3, %2
   br i1 %5, label %6, label %.loopexit, !prof !11
 
@@ -725,7 +725,7 @@ define dso_local i64 @_find_next_or_bit(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i64 @_find_next_zero_bit(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local i64 @_find_next_zero_bit(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = icmp ult i64 %2, %1
   br i1 %4, label %5, label %.loopexit, !prof !11
 
@@ -775,7 +775,7 @@ define dso_local i64 @_find_next_zero_bit(ptr nocapture noundef readonly %0, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i64 @_find_last_bit(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local i64 @_find_last_bit(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.thread, label %4
 
@@ -813,7 +813,7 @@ define dso_local i64 @_find_last_bit(ptr nocapture noundef readonly %0, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define dso_local i64 @find_next_clump8(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) #2 align 16 {
+define dso_local i64 @find_next_clump8(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) #2 align 16 {
   %5 = icmp ult i64 %3, %2
   br i1 %5, label %6, label %.thread, !prof !11
 
@@ -872,10 +872,10 @@ define dso_local i64 @find_next_clump8(ptr nocapture noundef writeonly %0, ptr n
 declare i64 @llvm.umin.i64(i64, i64) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

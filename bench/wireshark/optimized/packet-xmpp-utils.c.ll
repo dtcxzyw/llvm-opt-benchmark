@@ -57,7 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [6 x i8] c"%s:%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_iq_reqresp_track(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @xmpp_iq_reqresp_track(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef nonnull @.str) #8
@@ -118,7 +118,7 @@ xmpp_get_attr.exit.thread:                        ; preds = %10, %7, %24, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @xmpp_get_attr(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @xmpp_get_attr(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %1) #8
@@ -153,7 +153,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @wmem_tree_insert_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_jingle_session_track(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @xmpp_jingle_session_track(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @wmem_packet_scope() #8
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 64) #8
   %6 = tail call ptr @wmem_packet_scope() #8
@@ -228,7 +228,7 @@ define hidden void @xmpp_jingle_session_track(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_gtalk_session_track(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @xmpp_gtalk_session_track(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @wmem_packet_scope() #8
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 64) #8
   %6 = tail call ptr @wmem_packet_scope() #8
@@ -324,10 +324,10 @@ xmpp_get_attr.exit.thread:                        ; preds = %23, %26
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_ibb_session_track(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @xmpp_ibb_session_track(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.6) #9
   %6 = icmp eq i32 %5, 0
@@ -468,7 +468,7 @@ xmpp_get_attr.exit39:                             ; preds = %xmpp_get_attr.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @xmpp_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.041 = load ptr, ptr %5, align 8
   %.not42 = icmp eq ptr %.041, null
@@ -523,7 +523,7 @@ define hidden void @xmpp_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %exitcond.not.i, label %xmpp_ep_string_upcase.exit, label %.lr.ph.i, !llvm.loop !4
 
 xmpp_ep_string_upcase.exit:                       ; preds = %.lr.ph.i, %12
-  %31 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %13, ptr noundef %1, i32 noundef %15, i32 noundef %17, ptr noundef %18, ptr noundef nonnull @.str.11, ptr noundef %24) #8
+  %31 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %13, ptr noundef %1, i32 noundef %15, i32 noundef %17, ptr noundef nonnull %18, ptr noundef nonnull @.str.11, ptr noundef %24) #8
   %32 = load i32, ptr @ett_unknown, align 16
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #8
   %34 = load ptr, ptr %3, align 8
@@ -614,7 +614,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xmpp_unknown_items(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @xmpp_unknown_items(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -716,7 +716,7 @@ xmpp_ep_string_upcase.exit:                       ; preds = %.lr.ph.i, %27
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_cdata(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @xmpp_cdata(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -766,7 +766,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_simple_cdata_elem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @xmpp_simple_cdata_elem(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr @hf_xmpp_cdata, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i32, ptr %6, align 8
@@ -851,7 +851,7 @@ define hidden noalias noundef ptr @xmpp_ep_init_attr_t(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @xmpp_steal_element_by_name(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @xmpp_steal_element_by_name(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @wmem_packet_scope() #8
   %4 = tail call noalias ptr @wmem_alloc(ptr noundef %3, i64 noundef 64) #8
   %5 = tail call ptr @wmem_packet_scope() #8
@@ -875,7 +875,7 @@ define hidden ptr @xmpp_steal_element_by_name(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @xmpp_steal_element_by_names(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @xmpp_steal_element_by_names(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %xmpp_steal_element_by_name.exit._crit_edge
 
@@ -915,7 +915,7 @@ xmpp_steal_element_by_name.exit._crit_edge:       ; preds = %xmpp_steal_element_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @xmpp_steal_element_by_attr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden ptr @xmpp_steal_element_by_attr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.025 = load ptr, ptr %4, align 8
   %.not26 = icmp eq ptr %.025, null
@@ -969,7 +969,7 @@ xmpp_get_attr.exit.thread21:                      ; preds = %9, %16, %xmpp_get_a
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @xmpp_steal_element_by_name_and_attr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden ptr @xmpp_steal_element_by_name_and_attr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.027 = load ptr, ptr %5, align 8
   %.not28 = icmp eq ptr %.027, null
@@ -1029,7 +1029,7 @@ xmpp_get_attr.exit.thread23:                      ; preds = %10, %21, %17, %xmpp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @xmpp_get_first_element(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden ptr @xmpp_get_first_element(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1049,7 +1049,7 @@ define hidden ptr @xmpp_get_first_element(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.except_stacknode, align 8
   %6 = alloca %struct.except_cleanup, align 8
   %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef 64) #8
@@ -1267,7 +1267,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @except_setup_clean(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @xmpp_element_t_cleanup(ptr nocapture noundef readonly %0) #0 {
+define internal void @xmpp_element_t_cleanup(ptr noundef readonly captures(none) %0) #0 {
   tail call void @xmpp_element_t_tree_free(ptr noundef %0)
   ret void
 }
@@ -1285,14 +1285,14 @@ declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare ptr @ws_ascii_strcasestr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @except_pop() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_element_t_tree_free(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @xmpp_element_t_tree_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1328,7 +1328,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_hash_table_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @attr_find_pred(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 0, 2) i32 @attr_find_pred(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.4) #9
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %9
@@ -1347,7 +1347,7 @@ define internal range(i32 0, 2) i32 @attr_find_pred(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @xmpp_element_to_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden ptr @xmpp_element_to_string(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 52
@@ -1382,7 +1382,7 @@ define hidden void @xmpp_proto_tree_hide_first_child(ptr noundef %0) local_unnam
 declare void @proto_tree_children_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @children_foreach_hide_func(ptr noundef readonly %0, ptr nocapture noundef %1) #4 {
+define internal void @children_foreach_hide_func(ptr noundef readonly %0, ptr noundef captures(none) %1) #4 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp ne i32 %3, 0
   %.not.i = icmp eq ptr %0, null
@@ -1419,7 +1419,7 @@ define hidden void @xmpp_proto_tree_show_first_child(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @children_foreach_show_func(ptr noundef readonly %0, ptr nocapture noundef %1) #4 {
+define internal void @children_foreach_show_func(ptr noundef readonly %0, ptr noundef captures(none) %1) #4 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp ne i32 %3, 0
   %.not.i = icmp eq ptr %0, null
@@ -1474,7 +1474,7 @@ define hidden noalias ptr @proto_item_get_text(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @xmpp_display_attrs(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %0) #8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -1643,7 +1643,7 @@ define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef rea
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.except_stacknode, align 8
   %7 = alloca %struct.except_cleanup, align 8
   %8 = alloca %struct.except_stacknode, align 8
@@ -1705,7 +1705,7 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   br label %64
 
 39:                                               ; preds = %27
-  %40 = call ptr @ws_ascii_strcasestr(ptr noundef %28, ptr noundef nonnull @.str.29) #8
+  %40 = call ptr @ws_ascii_strcasestr(ptr noundef nonnull %28, ptr noundef nonnull @.str.29) #8
   %.not57 = icmp eq ptr %40, null
   br i1 %.not57, label %52, label %41
 
@@ -1775,7 +1775,7 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %0) #8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -1841,11 +1841,11 @@ define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr nocapture noundef
   br i1 %39, label %43, label %41
 
 41:                                               ; preds = %37
-  %42 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %40, ptr noundef nonnull @.str.32, ptr noundef nonnull %35, ptr noundef %34) #8
+  %42 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %40, ptr noundef nonnull @.str.32, ptr noundef nonnull %35, ptr noundef nonnull %34) #8
   br label %48
 
 43:                                               ; preds = %37
-  %44 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %40, ptr noundef nonnull @.str.32, ptr noundef %34, ptr noundef nonnull %35) #8
+  %44 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %40, ptr noundef nonnull @.str.32, ptr noundef nonnull %34, ptr noundef nonnull %35) #8
   br label %48
 
 45:                                               ; preds = %32
@@ -2048,7 +2048,7 @@ define hidden noalias noundef ptr @xmpp_name_attr_struct(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_display_elems(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @xmpp_display_elems(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = icmp ne ptr %4, null
   %8 = icmp ne i32 %5, 0
   %9 = and i1 %7, %8
@@ -2287,7 +2287,7 @@ select.unfold120:                                 ; preds = %105
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_val_enum_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @xmpp_val_enum_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -2324,7 +2324,7 @@ define hidden void @xmpp_val_enum_list(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_change_elem_to_attrib(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @xmpp_change_elem_to_attrib(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @wmem_packet_scope() #8
   %7 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef 64) #8
   %8 = tail call ptr @wmem_packet_scope() #8
@@ -2355,7 +2355,7 @@ define hidden void @xmpp_change_elem_to_attrib(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @xmpp_transform_func_cdata(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @xmpp_transform_func_cdata(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2392,7 +2392,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @xmpp_element_t_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal i32 @xmpp_element_t_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #9
@@ -2428,7 +2428,7 @@ define internal void @cleanup_glist_cb(ptr noundef %0) #0 {
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

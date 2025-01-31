@@ -659,7 +659,7 @@ return:                                           ; preds = %if.else140, %cond.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -680,7 +680,7 @@ declare i32 @delete_ref(ptr noundef, ptr noundef, ptr noundef, i32 noundef) loca
 declare i32 @update_ref(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @ref_transaction_begin(ptr noundef) local_unnamed_addr #2
 
@@ -689,7 +689,7 @@ declare i32 @strbuf_getwholeline(ptr noundef, ptr noundef, i32 noundef) local_un
 declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @strbuf_appendwholeline(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1019,7 +1019,7 @@ if.end12:                                         ; preds = %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_option(ptr nocapture readnone %transaction, ptr noundef %next, ptr nocapture readnone %end) #0 {
+define internal void @parse_cmd_option(ptr readnone captures(none) %transaction, ptr noundef %next, ptr readnone captures(none) %end) #0 {
 entry:
   %scevgep.i = getelementptr i8, ptr %next, i64 8
   br label %do.body.i
@@ -1061,7 +1061,7 @@ if.else:                                          ; preds = %land.lhs.true, %ski
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_start(ptr nocapture readnone %transaction, ptr noundef %next, ptr nocapture readnone %end) #0 {
+define internal void @parse_cmd_start(ptr readnone captures(none) %transaction, ptr noundef %next, ptr readnone captures(none) %end) #0 {
 entry:
   %0 = load i8, ptr %next, align 1
   %conv = sext i8 %0 to i32
@@ -1083,7 +1083,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_prepare(ptr noundef %transaction, ptr noundef %next, ptr nocapture readnone %end) #0 {
+define internal void @parse_cmd_prepare(ptr noundef %transaction, ptr noundef %next, ptr readnone captures(none) %end) #0 {
 entry:
   %error = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %error, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
@@ -1118,7 +1118,7 @@ if.end4:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_abort(ptr noundef %transaction, ptr noundef %next, ptr nocapture readnone %end) #0 {
+define internal void @parse_cmd_abort(ptr noundef %transaction, ptr noundef %next, ptr readnone captures(none) %end) #0 {
 entry:
   %error = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %error, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
@@ -1153,7 +1153,7 @@ if.end4:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_commit(ptr noundef %transaction, ptr noundef %next, ptr nocapture readnone %end) #0 {
+define internal void @parse_cmd_commit(ptr noundef %transaction, ptr noundef %next, ptr readnone captures(none) %end) #0 {
 entry:
   %error = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %error, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
@@ -1189,7 +1189,7 @@ if.end4:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_refname(ptr nocapture noundef nonnull %next) unnamed_addr #0 {
+define internal fastcc ptr @parse_refname(ptr noundef nonnull captures(none) %next) unnamed_addr #0 {
 entry:
   %ref = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
@@ -1205,7 +1205,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
-  call void @strbuf_add(ptr noundef nonnull %ref, ptr noundef %0, i64 noundef %call.i) #11
+  call void @strbuf_add(ptr noundef nonnull %ref, ptr noundef nonnull %0, i64 noundef %call.i) #11
   %len = getelementptr inbounds nuw i8, ptr %ref, i64 8
   %1 = load i64, ptr %len, align 8
   %2 = load ptr, ptr %next, align 8
@@ -1245,7 +1245,7 @@ return:                                           ; preds = %if.end9, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_next_oid(ptr nocapture noundef nonnull %next, ptr noundef readnone %end, ptr noundef nonnull %oid, ptr noundef %command, ptr noundef nonnull %refname, i32 noundef range(i32 0, 3) %flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_next_oid(ptr noundef nonnull captures(none) %next, ptr noundef readnone %end, ptr noundef nonnull %oid, ptr noundef %command, ptr noundef nonnull %refname, i32 noundef range(i32 0, 3) %flags) unnamed_addr #0 {
 entry:
   %arg = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arg, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
@@ -1370,7 +1370,7 @@ return:                                           ; preds = %if.then1, %if.then1
 declare i32 @ref_transaction_update(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_arg(ptr noundef %next, ptr noundef nonnull %arg) unnamed_addr #0 {
@@ -1482,26 +1482,26 @@ declare i32 @ref_transaction_delete(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare i32 @ref_transaction_verify(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @ref_transaction_prepare(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @null_oid() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

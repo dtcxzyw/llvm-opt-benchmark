@@ -422,7 +422,7 @@ list_length.exit125:                              ; preds = %212, %213
 223:                                              ; preds = %220, %218, %list_length.exit125
   %.10 = phi i1 [ %.9, %list_length.exit125 ], [ false, %218 ], [ false, %220 ]
   tail call void @ReleaseCatCacheList(ptr noundef %33) #4
-  tail call void @ReleaseCatCacheList(ptr noundef %32) #4
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %32) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %20) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #4
   ret i1 %.10

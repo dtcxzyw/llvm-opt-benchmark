@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [14 x i8] c"%u.%u.%u.%u%n\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @Check_IPV4_Field(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal zeroext i1 @Check_IPV4_Field(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -88,7 +88,7 @@ define internal zeroext i1 @Check_IPV4_Field(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @Check_IPV4_Character(i32 noundef %0, ptr nocapture readnone %1) #1 {
+define internal zeroext i1 @Check_IPV4_Character(i32 noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call ptr @__ctype_b_loc() #6
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %0 to i64
@@ -107,7 +107,7 @@ declare ptr @field_buffer(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

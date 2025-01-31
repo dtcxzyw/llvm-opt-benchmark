@@ -86,7 +86,7 @@ define hidden void @png_set_bKGD(ptr noalias noundef readnone %0, ptr noalias no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @png_set_cHRM_fixed(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 {
@@ -337,7 +337,7 @@ png_set_gAMA_fixed.exit:                          ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_set_hIST(ptr noalias noundef %0, ptr noalias noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define hidden void @png_set_hIST(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -597,7 +597,7 @@ define hidden void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef %1,
   br label %77
 
 35:                                               ; preds = %._crit_edge
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %2, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %2, i64 %19, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %37 = load i32, ptr %36, align 4
   %38 = or i32 %37, 128
@@ -625,7 +625,7 @@ define hidden void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef %1,
   br label %77
 
 51:                                               ; preds = %35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %7, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull align 1 %7, i64 %46, i1 false)
   %52 = shl nuw nsw i32 %6, 3
   %53 = add nuw nsw i32 %52, 8
   %54 = zext nneg i32 %53 to i64
@@ -687,14 +687,14 @@ define hidden void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @png_chunk_report(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare i32 @png_check_fp_string(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @png_set_sCAL_s(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
@@ -1635,7 +1635,7 @@ define hidden void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1,
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28, %25
-  tail call void @png_app_error(ptr noundef %0, ptr noundef nonnull @.str.39) #12
+  tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.39) #12
   br label %62
 
 33:                                               ; preds = %28
@@ -1645,7 +1645,7 @@ define hidden void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1,
   store i8 %35, ptr %36, align 8
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #13
   %38 = add i64 %37, 1
-  %39 = tail call noalias ptr @png_malloc_base(ptr noundef %0, i64 noundef %38) #12
+  %39 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %38) #12
   store ptr %39, ptr %.053, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.loopexit, label %41
@@ -1655,7 +1655,7 @@ define hidden void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1,
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %42, i64 %38, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %44 = load i32, ptr %43, align 8
-  %45 = tail call noalias ptr @png_malloc_array(ptr noundef %0, i32 noundef %44, i64 noundef 10) #12
+  %45 = tail call noalias ptr @png_malloc_array(ptr noundef nonnull %0, i32 noundef %44, i64 noundef 10) #12
   %46 = getelementptr inbounds nuw i8, ptr %.053, i64 16
   store ptr %45, ptr %46, align 8
   %47 = icmp eq ptr %45, null
@@ -1663,7 +1663,7 @@ define hidden void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1,
 
 48:                                               ; preds = %41
   %49 = load ptr, ptr %.053, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %49) #12
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %49) #12
   store ptr null, ptr %.053, align 8
   br label %.loopexit
 
@@ -1698,7 +1698,7 @@ define hidden void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1,
 
 .thread.sink.split:                               ; preds = %.loopexit, %9
   %.str.40.sink = phi ptr [ @.str.38, %9 ], [ @.str.40, %.loopexit ]
-  tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull %.str.40.sink, i32 noundef 1) #12
+  tail call void @png_chunk_report(ptr noundef nonnull %0, ptr noundef nonnull %.str.40.sink, i32 noundef 1) #12
   br label %.thread
 
 .thread:                                          ; preds = %62, %.thread.sink.split, %4, %.loopexit
@@ -2309,7 +2309,7 @@ define hidden void @png_set_chunk_malloc_max(ptr noalias noundef writeonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @png_set_benign_errors(ptr noalias nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @png_set_benign_errors(ptr noalias noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load i32, ptr %3, align 8
@@ -2321,7 +2321,7 @@ define hidden void @png_set_benign_errors(ptr noalias nocapture noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @png_set_check_for_invalid_index(ptr noalias nocapture noundef writeonly initializes((508, 512)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @png_set_check_for_invalid_index(ptr noalias noundef writeonly captures(none) initializes((508, 512)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp slt i32 %1, 1
   %spec.select = sext i1 %3 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 508
@@ -2330,7 +2330,7 @@ define hidden void @png_set_check_for_invalid_index(ptr noalias nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define hidden range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca [8 x [32 x i8]], align 16
   %5 = icmp eq ptr %1, null
   br i1 %5, label %7, label %.preheader
@@ -2448,16 +2448,16 @@ declare void @png_app_warning(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

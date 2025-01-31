@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [26 x i8] c"unmatched paren in format\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_Py_convert_optional_to_ssize_t(ptr noundef %obj, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_Py_convert_optional_to_ssize_t(ptr noundef %obj, ptr noundef writeonly captures(none) %result) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   br i1 %cmp, label %return, label %if.else
@@ -250,7 +250,7 @@ va_build_value.exit:                              ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_VaBuildStack(ptr noundef %small_stack, i64 noundef %small_stack_len, ptr noundef %format, ptr noundef %va, ptr nocapture noundef writeonly %p_nargs) local_unnamed_addr #0 {
+define hidden ptr @_Py_VaBuildStack(ptr noundef %small_stack, i64 noundef %small_stack_len, ptr noundef %format, ptr noundef %va, ptr noundef writeonly captures(none) %p_nargs) local_unnamed_addr #0 {
 entry:
   %f = alloca ptr, align 8
   %lva = alloca [1 x %struct.__va_list_tag], align 16
@@ -385,7 +385,7 @@ return:                                           ; preds = %if.then15, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @countformat(ptr nocapture noundef readonly %format, i8 noundef signext range(i8 0, 126) %endchar) unnamed_addr #0 {
+define internal fastcc i64 @countformat(ptr noundef readonly captures(none) %format, i8 noundef signext range(i8 0, 126) %endchar) unnamed_addr #0 {
 entry:
   %.pr15 = load i8, ptr %format, align 1
   %cmp2.not16 = icmp eq i8 %.pr15, %endchar
@@ -682,7 +682,7 @@ declare i32 @PyType_Ready(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyType_Name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @do_mkvalue(ptr nocapture noundef nonnull %p_format, ptr noundef nonnull %p_va) unnamed_addr #0 {
+define internal fastcc ptr @do_mkvalue(ptr noundef nonnull captures(none) %p_format, ptr noundef nonnull %p_va) unnamed_addr #0 {
 entry:
   %p = alloca [1 x i8], align 1
   %p_format.promoted = load ptr, ptr %p_format, align 8
@@ -1661,7 +1661,7 @@ return:                                           ; preds = %if.end.i.i81, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @do_mktuple(ptr nocapture noundef nonnull %p_format, ptr noundef nonnull %p_va, i8 noundef signext range(i8 0, 42) %endchar, i64 noundef %n) unnamed_addr #0 {
+define internal fastcc ptr @do_mktuple(ptr noundef nonnull captures(none) %p_format, ptr noundef nonnull %p_va, i8 noundef signext range(i8 0, 42) %endchar, i64 noundef %n) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %n, 0
   br i1 %cmp, label %return, label %if.end
@@ -1775,7 +1775,7 @@ declare ptr @PyLong_FromLongLong(i64 noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromUnsignedLongLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PyUnicode_FromWideChar(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1788,14 +1788,14 @@ declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_a
 declare ptr @PyUnicode_FromOrdinal(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_ignore(ptr nocapture noundef nonnull %p_format, ptr noundef nonnull %p_va, i8 noundef signext range(i8 0, 126) %endchar, i64 noundef %n) unnamed_addr #0 {
+define internal fastcc void @do_ignore(ptr noundef nonnull captures(none) %p_format, ptr noundef nonnull %p_va, i8 noundef signext range(i8 0, 126) %endchar, i64 noundef %n) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyTuple_New(i64 noundef %n) #5
   %call.fr = freeze ptr %call
@@ -1914,7 +1914,7 @@ check_end.exit:                                   ; preds = %if.then.i14, %while
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_end(ptr nocapture noundef nonnull %p_format, i8 noundef signext range(i8 0, 126) %endchar) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_end(ptr noundef nonnull captures(none) %p_format, i8 noundef signext range(i8 0, 126) %endchar) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %p_format, align 8
   %1 = load i8, ptr %0, align 1
@@ -1981,10 +1981,10 @@ declare void @llvm.va_end.p0(ptr) #3
 declare void @llvm.va_copy.p0(ptr, ptr) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

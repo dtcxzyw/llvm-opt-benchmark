@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [11 x i8] c"HB_NODEVTX\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @jdk_hb_shape(float noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, float noundef %9, float noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13, ptr nocapture noundef readonly %14) local_unnamed_addr #0 {
+define i32 @jdk_hb_shape(float noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, float noundef %9, float noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef readonly captures(none) %14) local_unnamed_addr #0 {
   %16 = alloca i32, align 4
   %17 = and i32 %11, 1
   %.not = icmp eq i32 %17, 0
@@ -115,7 +115,7 @@ euclidianDistance.exit:                           ; preds = %22, %31, %33
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @jdk_font_create_hbp(ptr noundef, float noundef, float noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -153,7 +153,7 @@ declare void @hb_buffer_destroy(ptr noundef) local_unnamed_addr #2
 declare void @hb_font_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #5

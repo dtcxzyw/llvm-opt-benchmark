@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.pg_ls_tmpdir = private unnamed_addr constant [13 x i8] c"pg_ls_tmpdir\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_read_file(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_read_file(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -193,7 +193,7 @@ define internal fastcc noundef ptr @convert_and_check_filename(ptr noundef %0) u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_read_file_off_len(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_read_file_off_len(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -253,7 +253,7 @@ read_text_file.exit:                              ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_read_file_off_len_missing(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_read_file_off_len_missing(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -284,7 +284,7 @@ define dso_local i64 @pg_read_file_off_len_missing(ptr nocapture noundef %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_read_file_all(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_read_file_all(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -314,7 +314,7 @@ define dso_local i64 @pg_read_file_all(ptr nocapture noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_read_file_all_missing(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_read_file_all_missing(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -347,7 +347,7 @@ define dso_local i64 @pg_read_file_all_missing(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_read_binary_file_off_len(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_read_binary_file_off_len(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -388,7 +388,7 @@ pg_read_binary_file_common.exit:                  ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_read_binary_file_off_len_missing(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_read_binary_file_off_len_missing(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -432,7 +432,7 @@ pg_read_binary_file_common.exit:                  ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_read_binary_file_all(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_read_binary_file_all(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -457,7 +457,7 @@ define dso_local i64 @pg_read_binary_file_all(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_read_binary_file_all_missing(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_read_binary_file_all_missing(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -485,7 +485,7 @@ define dso_local i64 @pg_read_binary_file_all_missing(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_file(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_file(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca [6 x i64], align 16
   %4 = alloca [6 x i8], align 1
@@ -583,7 +583,7 @@ define dso_local i64 @pg_stat_file(ptr nocapture noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4
@@ -597,7 +597,7 @@ declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, 
 declare ptr @BlessTupleDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i64 @time_t_to_timestamptz(i64 noundef) local_unnamed_addr #1
 
@@ -606,7 +606,7 @@ declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_file_1arg(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_file_1arg(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @pg_stat_file(ptr noundef %0)
   ret i64 %2
 }
@@ -1127,20 +1127,20 @@ declare zeroext i1 @pg_verifymbstr(ptr noundef, i32 noundef, i1 noundef zeroext)
 declare ptr @AllocateFile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @fseeko(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #3
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #1
 

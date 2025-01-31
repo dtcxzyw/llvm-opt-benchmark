@@ -799,35 +799,35 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN18OpenImageIO_v2_6_03pvtL28canon_camerasettings_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 noundef zeroext %swapendian, i32 noundef %offset_adjustment) #5 {
+define internal void @_ZN18OpenImageIO_v2_6_03pvtL28canon_camerasettings_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 noundef zeroext %swapendian, i32 noundef %offset_adjustment) #5 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_03pvt13array_to_specIsEEvRNS_9ImageSpecERK12TIFFDirEntryNS_4spanIKhLln1EEENS7_IKNS0_10LabelIndexELln1EEEibi(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr nonnull @_ZN18OpenImageIO_v2_6_03pvtL28canon_camerasettings_indicesE, i64 37, i32 noundef %offset_adjustment, i1 noundef zeroext %swapendian, i32 noundef -1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 noundef zeroext %swapendian, i32 noundef %offset_adjustment) #5 {
+define internal void @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 noundef zeroext %swapendian, i32 noundef %offset_adjustment) #5 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_03pvt13array_to_specItEEvRNS_9ImageSpecERK12TIFFDirEntryNS_4spanIKhLln1EEENS7_IKNS0_10LabelIndexELln1EEEibi(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr nonnull @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_indicesE, i64 4, i32 noundef %offset_adjustment, i1 noundef zeroext %swapendian, i32 noundef 2147483647)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN18OpenImageIO_v2_6_03pvtL22canon_shotinfo_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 noundef zeroext %swapendian, i32 noundef %offset_adjustment) #5 {
+define internal void @_ZN18OpenImageIO_v2_6_03pvtL22canon_shotinfo_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 noundef zeroext %swapendian, i32 noundef %offset_adjustment) #5 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_03pvt13array_to_specIsEEvRNS_9ImageSpecERK12TIFFDirEntryNS_4spanIKhLln1EEENS7_IKNS0_10LabelIndexELln1EEEibi(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr nonnull @_ZN18OpenImageIO_v2_6_03pvtL22canon_shotinfo_indicesE, i64 29, i32 noundef %offset_adjustment, i1 noundef zeroext %swapendian, i32 noundef 2147483647)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN18OpenImageIO_v2_6_03pvtL22canon_panorama_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 noundef zeroext %swapendian, i32 noundef %offset_adjustment) #5 {
+define internal void @_ZN18OpenImageIO_v2_6_03pvtL22canon_panorama_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 noundef zeroext %swapendian, i32 noundef %offset_adjustment) #5 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_03pvt13array_to_specIsEEvRNS_9ImageSpecERK12TIFFDirEntryNS_4spanIKhLln1EEENS7_IKNS0_10LabelIndexELln1EEEibi(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr nonnull @_ZN18OpenImageIO_v2_6_03pvtL22canon_panorama_indicesE, i64 2, i32 noundef %offset_adjustment, i1 noundef zeroext %swapendian, i32 noundef 2147483647)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN18OpenImageIO_v2_6_03pvtL24canon_sensorinfo_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 noundef zeroext %swapendian, i32 noundef %offset_adjustment) #5 {
+define internal void @_ZN18OpenImageIO_v2_6_03pvtL24canon_sensorinfo_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 noundef zeroext %swapendian, i32 noundef %offset_adjustment) #5 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_03pvt13array_to_specItEEvRNS_9ImageSpecERK12TIFFDirEntryNS_4spanIKhLln1EEENS7_IKNS0_10LabelIndexELln1EEEibi(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull align 4 dereferenceable(12) %dir, ptr %buf.coerce0, i64 %buf.coerce1, ptr nonnull @_ZN18OpenImageIO_v2_6_03pvtL24canon_sensorinfo_indicesE, i64 10, i32 noundef %offset_adjustment, i1 noundef zeroext %swapendian, i32 noundef 2147483647)
   ret void
@@ -1282,7 +1282,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 declare void @_ZN18OpenImageIO_v2_6_03pvt18explain_labeltableB5cxx11ERKNS_10ParamValueEPKv(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(39), ptr noundef) #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN18OpenImageIO_v2_6_03pvtL23explain_canon_flashbitsB5cxx11ERKNS_10ParamValueEPKv(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(39) %p, ptr nocapture readnone %0) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN18OpenImageIO_v2_6_03pvtL23explain_canon_flashbitsB5cxx11ERKNS_10ParamValueEPKv(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(39) %p, ptr readnone captures(none) %0) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.22", align 1
   %bits = alloca %"class.std::vector.4", align 8
@@ -1785,7 +1785,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -3460,7 +3460,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
@@ -3469,10 +3469,10 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

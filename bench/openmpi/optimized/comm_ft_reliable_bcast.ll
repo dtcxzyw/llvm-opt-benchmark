@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_communicators = external global %struct.opal_pointer_array_t, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ompi_comm_rbcast_null(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #0 {
+define internal noundef i32 @ompi_comm_rbcast_null(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #0 {
   ret i32 0
 }
 
@@ -86,7 +86,7 @@ define range(i32 -5, 1) i32 @ompi_comm_rbcast_unregister_cb_type(i32 noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @ompi_comm_rbcast_send_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define range(i32 -2147483648, 1) i32 @ompi_comm_rbcast_send_msg(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -207,7 +207,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 declare ptr @ompi_pmix_print_name(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_rbcast_bml_send_complete_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 noundef %3) #3 {
+define internal void @ompi_rbcast_bml_send_complete_cb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3) #3 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %11, label %5
 
@@ -227,7 +227,7 @@ define internal void @ompi_rbcast_bml_send_complete_cb(ptr nocapture readnone %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_comm_rbcast_register_params() local_unnamed_addr #3 {
@@ -275,7 +275,7 @@ define i32 @ompi_comm_rbcast_init() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 1) i32 @ompi_comm_rbcast_bmg(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
+define internal range(i32 -2147483648, 1) i32 @ompi_comm_rbcast_bmg(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -495,7 +495,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %100, %98, %84, %76,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 1) i32 @ompi_comm_rbcast_n2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
+define internal range(i32 -2147483648, 1) i32 @ompi_comm_rbcast_n2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %.not28 = icmp eq ptr %5, null
@@ -589,7 +589,7 @@ select.unfold:                                    ; preds = %40, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_comm_rbcast_bml_recv_cb(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @ompi_comm_rbcast_bml_recv_cb(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

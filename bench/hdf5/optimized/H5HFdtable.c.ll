@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @LogTable256 = internal unnamed_addr constant [256 x i8] c"\00\00\01\01\02\02\02\02\03\03\03\03\03\03\03\03\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07", align 16
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__dtable_init(ptr nocapture noundef initializes((44, 68), (72, 88)) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HF__dtable_init(ptr noundef captures(none) initializes((44, 68), (72, 88)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = mul i64 %3, 125613361
@@ -149,7 +149,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF__dtable_lookup(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #3 {
+define noundef i32 @H5HF__dtable_lookup(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %1, %6
@@ -278,7 +278,7 @@ H5VM_log2_gen.exit:                               ; preds = %17, %23, %29, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5HF__dtable_dest(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @H5HF__dtable_dest(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @H5MM_xfree(ptr noundef %3) #7
@@ -297,7 +297,7 @@ define noundef i32 @H5HF__dtable_dest(ptr nocapture noundef readonly %0) local_u
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @H5HF__dtable_size_to_row(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 {
+define i32 @H5HF__dtable_size_to_row(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %1, %4
@@ -324,7 +324,7 @@ define i32 @H5HF__dtable_size_to_row(ptr nocapture noundef readonly %0, i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @H5HF__dtable_size_to_rows(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 {
+define i32 @H5HF__dtable_size_to_rows(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = lshr i64 %1, 32
   %.not.i = icmp ult i64 %1, 4294967296
   br i1 %.not.i, label %30, label %4
@@ -424,7 +424,7 @@ H5VM_log2_gen.exit:                               ; preds = %7, %13, %19, %25, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @H5HF__dtable_span_size(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define i64 @H5HF__dtable_span_size(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = load i32, ptr %0, align 8
   %6 = mul i32 %5, %1
   %7 = add i32 %2, -1

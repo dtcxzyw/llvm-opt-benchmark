@@ -88,13 +88,13 @@ define dso_local i64 @acpi_pci_root_get_mcfg_addr(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -845,12 +845,12 @@ declare dso_local i32 @acpi_is_root_bridge(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @acpi_get_parent(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef zeroext i1 @pciehp_is_native(ptr nocapture noundef readnone %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef zeroext i1 @pciehp_is_native(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 align 16 {
   ret i1 false
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @shpchp_is_native(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local zeroext i1 @shpchp_is_native(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %3 = load i40, ptr %2, align 1
   %4 = and i40 %3, 33554432
@@ -868,7 +868,7 @@ define dso_local i32 @pci_acpi_add_bus_pm_notifier(ptr noundef %0) local_unnamed
 declare dso_local i32 @acpi_add_pm_notifier(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pci_acpi_wake_bus(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @pci_acpi_wake_bus(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -885,7 +885,7 @@ define dso_local i32 @pci_acpi_add_pm_notifier(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pci_acpi_wake_dev(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @pci_acpi_wake_dev(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -184
@@ -1111,7 +1111,7 @@ declare dso_local i32 @acpi_evaluate_object(ptr noundef, ptr noundef, ptr nounde
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @acpi_pci_power_manageable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @acpi_pci_power_manageable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %3) #9
@@ -1357,7 +1357,7 @@ define internal fastcc void @acpi_pci_config_space_access(ptr %.816.val) unnamed
 declare dso_local i32 @acpi_device_set_power(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_pci_get_power_state(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_pci_get_power_state(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %3) #9
@@ -1391,7 +1391,7 @@ define dso_local i32 @acpi_pci_get_power_state(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_pci_refresh_power_state(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_pci_refresh_power_state(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %3) #9
@@ -1491,7 +1491,7 @@ declare dso_local zeroext i1 @acpi_pm_device_can_wakeup(ptr noundef) local_unnam
 declare dso_local i32 @acpi_pm_set_device_wakeup(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @acpi_pci_need_resume(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @acpi_pci_need_resume(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @acpi_pci_disabled, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %53
@@ -1659,7 +1659,7 @@ define dso_local void @acpi_pci_add_bus(ptr noundef %0) local_unnamed_addr #0 al
 declare dso_local ptr @pci_find_host_bridge(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @acpi_pci_remove_bus(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local void @acpi_pci_remove_bus(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   ret void
 }
 
@@ -2008,7 +2008,7 @@ define internal noundef i32 @acpi_pci_init() #7 section ".init.text" align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @program_hpx_type0(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {

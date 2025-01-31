@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @intel_gt_mcr_wait_for_reg.__UNIQUE_ID___addressable___SCK__preempt_schedule561, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_mcr_init(ptr nocapture noundef initializes((4940, 4944)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_mcr_init(ptr noundef captures(none) initializes((4940, 4944)) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4940
   store i32 0, ptr %3, align 4
@@ -404,7 +404,7 @@ define dso_local void @intel_gt_mcr_init(ptr nocapture noundef initializes((4940
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i16 @intel_slicemask_from_xehp_dssmask(i64, i32 noundef) local_unnamed_addr #2
@@ -419,10 +419,10 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_mcr_lock(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_mcr_lock(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 7176
@@ -578,7 +578,7 @@ define dso_local void @intel_gt_mcr_unlock(ptr noundef %0, i64 noundef %1) local
 declare dso_local void @intel_uncore_forcewake_put(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_mcr_lock_sanitize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_mcr_lock_sanitize(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7176
   %4 = load i8, ptr %3, align 8
@@ -741,7 +741,7 @@ define dso_local void @intel_gt_mcr_multicast_write(ptr noundef %0, i32 %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_mcr_multicast_write_fw(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_mcr_multicast_write_fw(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 7176
   %6 = load i8, ptr %5, align 8
@@ -907,7 +907,7 @@ define dso_local i32 @intel_gt_mcr_read_any(ptr noundef %0, i32 %1) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_mcr_get_nonterminated_steering(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_mcr_get_nonterminated_steering(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 16 {
   %.fr10 = freeze i32 %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4880
   %6 = icmp ult i32 %.fr10, 262144
@@ -1006,7 +1006,7 @@ define dso_local void @intel_gt_mcr_get_nonterminated_steering(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @get_nonterminated_steering(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) unnamed_addr #0 align 16 {
+define internal fastcc void @get_nonterminated_steering(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #0 align 16 {
   switch i32 %1, label %54 [
     i32 0, label %5
     i32 1, label %11
@@ -1109,7 +1109,7 @@ define internal fastcc void @get_nonterminated_steering(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_gt_mcr_read_any_fw(ptr nocapture noundef readonly %0, i32 %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_gt_mcr_read_any_fw(ptr noundef readonly captures(none) %0, i32 %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %.fr10 = freeze i32 %1
@@ -1230,7 +1230,7 @@ define dso_local i32 @intel_gt_mcr_read_any_fw(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rw_with_mcr_steering_fw(ptr nocapture readonly %.24.val, i32 %0, i8 noundef zeroext range(i8 1, 3) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @rw_with_mcr_steering_fw(ptr readonly captures(none) %.24.val, i32 %0, i8 noundef zeroext range(i8 1, 3) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %.24.val, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 7176
@@ -1397,7 +1397,7 @@ define internal fastcc i32 @rw_with_mcr_steering_fw(ptr nocapture readonly %.24.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_mcr_report_steering(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_mcr_report_steering(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = load ptr, ptr %1, align 8
@@ -1613,7 +1613,7 @@ report_steering_type.exit3:                       ; preds = %.preheader.i2, %.pr
 declare dso_local void @drm_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @intel_gt_mcr_get_ss_steering(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #4 align 16 {
+define dso_local void @intel_gt_mcr_get_ss_steering(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #4 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr i8, ptr %5, i64 7188
   %7 = load i32, ptr %6, align 4

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN21ThreadCrashProtectionC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN21ThreadCrashProtectionC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @_ZN21ThreadCrashProtectionC2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ThreadCrashProtectionC2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr @_ZN21ThreadCrashProtection17_protected_threadE, align 8

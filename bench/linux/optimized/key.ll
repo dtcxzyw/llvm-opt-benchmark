@@ -192,10 +192,10 @@ define dso_local ptr @key_user_lookup(i32 %0) local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -615,7 +615,7 @@ define dso_local ptr @key_alloc(ptr noundef %0, ptr noundef %1, i32 %2, i32 %3, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
 declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
@@ -815,7 +815,7 @@ define dso_local i32 @key_instantiate_and_link(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__key_link_lock(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1188,7 +1188,7 @@ define dso_local noundef ptr @key_lookup(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @key_type_lookup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @key_type_lookup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   tail call void @down_read(ptr noundef nonnull @key_types_sem) #12
   br label %2
 
@@ -1222,7 +1222,7 @@ define dso_local ptr @key_type_lookup(ptr nocapture noundef readonly %0) local_u
 declare dso_local void @down_read(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @up_read(ptr noundef) local_unnamed_addr #2
@@ -1254,19 +1254,19 @@ declare dso_local void @down_write(ptr noundef) local_unnamed_addr #2
 declare dso_local void @up_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @key_type_put(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 16 {
+define dso_local void @key_type_put(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 align 16 {
   tail call void @up_read(ptr noundef nonnull @key_types_sem) #12
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @key_create_or_update(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i64 noundef %6) #0 align 16 {
+define dso_local ptr @key_create_or_update(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i64 noundef %6) #0 align 16 {
   %8 = tail call fastcc ptr @__key_create_or_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext true)
   ret ptr %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__key_create_or_update(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__key_create_or_update(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #0 align 16 {
   %9 = alloca %struct.keyring_index_key, align 8
   %10 = alloca %struct.key_preparsed_payload, align 8
   %11 = alloca ptr, align 8
@@ -1587,7 +1587,7 @@ thread-pre-split:                                 ; preds = %121, %124
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @key_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i64 noundef %6) #0 align 16 {
+define dso_local ptr @key_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i64 noundef %6) #0 align 16 {
   %8 = tail call fastcc ptr @__key_create_or_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext false)
   ret ptr %8
 }
@@ -1729,7 +1729,7 @@ declare dso_local void @key_schedule_gc(i64 noundef) local_unnamed_addr #2
 declare dso_local void @key_schedule_gc_links() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -122, 1) i32 @generic_key_instantiate(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -122, 1) i32 @generic_key_instantiate(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32

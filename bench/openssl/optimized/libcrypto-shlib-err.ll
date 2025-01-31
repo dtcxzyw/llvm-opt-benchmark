@@ -1112,7 +1112,7 @@ if.end28:                                         ; preds = %if.then12, %if.then
   br i1 %cmp31, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %if.end28
-  %call34 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %buf, i64 noundef %len, ptr noundef nonnull @.str.4, i64 noundef %e, i64 noundef %conv, i64 noundef 0, i64 noundef %conv9) #9
+  %call34 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef %len, ptr noundef nonnull @.str.4, i64 noundef %e, i64 noundef %conv, i64 noundef 0, i64 noundef %conv9) #9
   br label %if.end35
 
 if.end35:                                         ; preds = %entry, %if.then33, %if.end28
@@ -1221,7 +1221,7 @@ return:                                           ; preds = %if.then12, %cond.fa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @ERR_error_string_n(i64 noundef %e, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
@@ -1246,7 +1246,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @ERR_remove_thread_state(ptr nocapture noundef readnone %dummy) local_unnamed_addr #2 {
+define void @ERR_remove_thread_state(ptr noundef readnone captures(none) %dummy) local_unnamed_addr #2 {
 entry:
   ret void
 }
@@ -1280,7 +1280,7 @@ declare ptr @OSSL_ERR_STATE_new() local_unnamed_addr #1
 declare i32 @ossl_init_thread_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @err_delete_thread_state(ptr nocapture readnone %unused) #0 {
+define internal void @err_delete_thread_state(ptr readnone captures(none) %unused) #0 {
 entry:
   %call = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @err_thread_local) #9
   %cmp = icmp eq ptr %call, null
@@ -1353,7 +1353,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @err_shelve_state(ptr nocapture noundef writeonly %state) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @err_shelve_state(ptr noundef writeonly captures(none) %state) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @__errno_location() #10
   %0 = load i32, ptr %call, align 4
@@ -1501,7 +1501,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ERR_add_error_vdata(i32 noundef %num, ptr nocapture noundef %args) local_unnamed_addr #0 {
+define void @ERR_add_error_vdata(i32 noundef %num, ptr noundef captures(none) %args) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_err_get_state_int()
   %cmp = icmp eq ptr %call, null
@@ -1733,7 +1733,7 @@ declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #1
 declare ptr @OPENSSL_LH_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @err_string_data_hash(ptr nocapture noundef readonly %a) #5 {
+define internal i64 @err_string_data_hash(ptr noundef readonly captures(none) %a) #5 {
 entry:
   %0 = load i64, ptr %a, align 8
   %and.i = and i64 %0, 2147483648
@@ -1749,7 +1749,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @err_string_data_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal range(i32 -1, 2) i32 @err_string_data_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
@@ -1775,10 +1775,10 @@ declare void @llvm.va_end.p0(ptr) #6
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

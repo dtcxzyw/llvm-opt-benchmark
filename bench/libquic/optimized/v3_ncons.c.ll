@@ -153,7 +153,7 @@ return:                                           ; preds = %for.cond, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @i2r_NAME_CONSTRAINTS(ptr nocapture readnone %method, ptr nocapture noundef readonly %a, ptr noundef %bp, i32 noundef %ind) #0 {
+define internal noundef i32 @i2r_NAME_CONSTRAINTS(ptr readnone captures(none) %method, ptr noundef readonly captures(none) %a, ptr noundef %bp, i32 noundef %ind) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   tail call fastcc void @do_i2r_name_constraints(ptr noundef %0, ptr noundef %bp, i32 noundef %ind, ptr noundef nonnull @.str.10)
@@ -196,7 +196,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 54) i32 @NAME_CONSTRAINTS_check(ptr noundef %x, ptr nocapture noundef readonly %nc) local_unnamed_addr #0 {
+define hidden range(i32 0, 54) i32 @NAME_CONSTRAINTS_check(ptr noundef %x, ptr noundef readonly captures(none) %nc) local_unnamed_addr #0 {
 entry:
   %gntmp = alloca %struct.GENERAL_NAME_st, align 8
   %call = tail call ptr @X509_get_subject_name(ptr noundef %x) #5
@@ -268,7 +268,7 @@ declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_NAME_entry_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 54) i32 @nc_match(ptr nocapture noundef readonly %gen, ptr nocapture noundef readonly %nc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 54) i32 @nc_match(ptr noundef readonly captures(none) %gen, ptr noundef readonly captures(none) %nc) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %call29 = tail call i64 @sk_num(ptr noundef %0) #5
@@ -386,7 +386,7 @@ declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -516,7 +516,7 @@ declare i32 @GENERAL_NAME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr nocapture noundef readonly %gen, ptr nocapture noundef readonly %base) unnamed_addr #0 {
+define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonly captures(none) %gen, ptr noundef readonly captures(none) %base) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %base, align 8
   switch i32 %0, label %return [
@@ -643,7 +643,7 @@ if.then9.i:                                       ; preds = %if.then5.i
   %sub.i24 = sub nsw i32 %22, %23
   %idx.ext.i25 = sext i32 %sub.i24 to i64
   %add.ptr.i26 = getelementptr inbounds i8, ptr %20, i64 %idx.ext.i25
-  %call12.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %19, ptr noundef %add.ptr.i26) #5
+  %call12.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %19, ptr noundef nonnull %add.ptr.i26) #5
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %return, label %if.end16.i
 
@@ -665,7 +665,7 @@ if.then22.i:                                      ; preds = %if.then19.i
   br i1 %cmp26.not.i, label %if.end29.i, label %return
 
 if.end29.i:                                       ; preds = %if.then22.i
-  %call33.i = tail call i32 @strncmp(ptr noundef %19, ptr noundef %20, i64 noundef %sub.ptr.sub.i) #6
+  %call33.i = tail call i32 @strncmp(ptr noundef nonnull %19, ptr noundef nonnull %20, i64 noundef %sub.ptr.sub.i) #6
   %tobool34.not.i = icmp eq i32 %call33.i, 0
   br i1 %tobool34.not.i, label %if.end37.i, label %return
 
@@ -783,7 +783,7 @@ declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @OPENSSL_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -791,7 +791,7 @@ declare i32 @OPENSSL_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_un
 declare i32 @llvm.umax.i32(i32, i32) #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -100,7 +100,7 @@ invoke.cont1.i:                                   ; preds = %entry
 
 invoke.cont2.i:                                   ; preds = %invoke.cont1.i
   %call6.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3.i) #17, !noalias !4
-  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.4, ptr noundef %call3.i, i64 noundef %call6.i)
+  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull %call3.i, i64 noundef %call6.i)
           to label %_ZN9grpc_core12_GLOBAL__N_115MakeAuthContextEv.exit unwind label %lpad.i, !noalias !4
 
 lpad.i:                                           ; preds = %invoke.cont2.i, %invoke.cont1.i, %entry
@@ -114,7 +114,7 @@ _ZN9grpc_core12_GLOBAL__N_115MakeAuthContextEv.exit: ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core32InsecureChannelSecurityConnector13CheckCallHostESt17basic_string_viewIcSt11char_traitsIcEEP17grpc_auth_context(ptr noalias nocapture writeonly sret(%"class.grpc_core::ArenaPromise") align 16 initializes((0, 8), (16, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 %.coerce0, ptr nocapture readnone %.coerce1, ptr nocapture readnone %0) unnamed_addr #4 align 2 {
+define void @_ZN9grpc_core32InsecureChannelSecurityConnector13CheckCallHostESt17basic_string_viewIcSt11char_traitsIcEEP17grpc_auth_context(ptr noalias writeonly sret(%"class.grpc_core::ArenaPromise") align 16 captures(none) initializes((0, 8), (16, 24)) %agg.result, ptr nonnull readnone align 8 captures(none) %this, i64 %.coerce0, ptr readnone captures(none) %.coerce1, ptr readnone captures(none) %0) unnamed_addr #4 align 2 {
 entry:
   %arg.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 0, ptr %arg.i, align 16
@@ -123,7 +123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core32InsecureChannelSecurityConnector15add_handshakersERKNS_11ChannelArgsEP16grpc_pollset_setPNS_16HandshakeManagerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr nocapture readnone %0, ptr noundef %handshake_manager) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core32InsecureChannelSecurityConnector15add_handshakersERKNS_11ChannelArgsEP16grpc_pollset_setPNS_16HandshakeManagerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr readnone captures(none) %0, ptr noundef %handshake_manager) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %handshaker = alloca ptr, align 8
   %agg.tmp = alloca %"class.grpc_core::RefCountedPtr.3", align 8
@@ -199,7 +199,7 @@ declare void @_ZN9grpc_core24SecurityHandshakerCreateEP14tsi_handshakerP23grpc_s
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core32InsecureChannelSecurityConnector10check_peerE8tsi_peerP13grpc_endpointRKNS_11ChannelArgsEPNS_13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure(ptr nocapture nonnull readnone align 8 %this, ptr %peer.coerce0, i64 %peer.coerce1, ptr nocapture readnone %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef %auth_context, ptr noundef %on_peer_checked) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core32InsecureChannelSecurityConnector10check_peerE8tsi_peerP13grpc_endpointRKNS_11ChannelArgsEPNS_13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure(ptr nonnull readnone align 8 captures(none) %this, ptr %peer.coerce0, i64 %peer.coerce1, ptr readnone captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef captures(none) %auth_context, ptr noundef %on_peer_checked) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %peer = alloca %struct.tsi_peer, align 8
   %ref.tmp = alloca %"class.grpc_core::RefCountedPtr", align 8
@@ -224,7 +224,7 @@ invoke.cont1.i:                                   ; preds = %entry
 
 invoke.cont2.i:                                   ; preds = %invoke.cont1.i
   %call6.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3.i) #17, !noalias !11
-  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.4, ptr noundef %call3.i, i64 noundef %call6.i)
+  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull %call3.i, i64 noundef %call6.i)
           to label %_ZN9grpc_core12_GLOBAL__N_115MakeAuthContextEv.exit unwind label %lpad.i, !noalias !11
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -360,7 +360,7 @@ entry:
 declare noundef i32 @_ZNK31grpc_channel_security_connector30channel_security_connector_cmpEPKS_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core31InsecureServerSecurityConnector15add_handshakersERKNS_11ChannelArgsEP16grpc_pollset_setPNS_16HandshakeManagerE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr nocapture readnone %0, ptr noundef %handshake_manager) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core31InsecureServerSecurityConnector15add_handshakersERKNS_11ChannelArgsEP16grpc_pollset_setPNS_16HandshakeManagerE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr readnone captures(none) %0, ptr noundef %handshake_manager) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %handshaker = alloca ptr, align 8
   %agg.tmp = alloca %"class.grpc_core::RefCountedPtr.3", align 8
@@ -425,7 +425,7 @@ _ZN9grpc_core13RefCountedPtrINS_10HandshakerEED2Ev.exit8: ; preds = %lpad, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core31InsecureServerSecurityConnector10check_peerE8tsi_peerP13grpc_endpointRKNS_11ChannelArgsEPNS_13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure(ptr nocapture nonnull readnone align 8 %this, ptr %peer.coerce0, i64 %peer.coerce1, ptr nocapture readnone %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef %auth_context, ptr noundef %on_peer_checked) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core31InsecureServerSecurityConnector10check_peerE8tsi_peerP13grpc_endpointRKNS_11ChannelArgsEPNS_13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure(ptr nonnull readnone align 8 captures(none) %this, ptr %peer.coerce0, i64 %peer.coerce1, ptr readnone captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef captures(none) %auth_context, ptr noundef %on_peer_checked) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %peer = alloca %struct.tsi_peer, align 8
   %ref.tmp = alloca %"class.grpc_core::RefCountedPtr", align 8
@@ -450,7 +450,7 @@ invoke.cont1.i:                                   ; preds = %entry
 
 invoke.cont2.i:                                   ; preds = %invoke.cont1.i
   %call6.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3.i) #17, !noalias !21
-  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.4, ptr noundef %call3.i, i64 noundef %call6.i)
+  invoke void @grpc_auth_context_add_property(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull %call3.i, i64 noundef %call6.i)
           to label %_ZN9grpc_core12_GLOBAL__N_115MakeAuthContextEv.exit unwind label %lpad.i, !noalias !21
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -742,7 +742,7 @@ declare noundef ptr @_Z28tsi_security_level_to_string18tsi_security_level(i32 no
 declare void @grpc_auth_context_add_property(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
@@ -751,7 +751,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {

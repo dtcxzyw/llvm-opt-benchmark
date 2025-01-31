@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [41 x i8] c"virtio_blk_data_plane_stop dataplane %p\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_blk_data_plane_notify(ptr nocapture noundef readonly %s, ptr noundef %vq) local_unnamed_addr #0 {
+define dso_local void @virtio_blk_data_plane_notify(ptr noundef readonly captures(none) %s, ptr noundef %vq) local_unnamed_addr #0 {
 entry:
   %vdev = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load ptr, ptr %vdev, align 8
@@ -49,7 +49,7 @@ entry:
 declare void @virtio_notify_irqfd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @virtio_blk_data_plane_create(ptr noundef %vdev, ptr noundef %conf, ptr nocapture noundef writeonly initializes((0, 8)) %dataplane, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @virtio_blk_data_plane_create(ptr noundef %vdev, ptr noundef %conf, ptr noundef writeonly captures(none) initializes((0, 8)) %dataplane, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #6
@@ -439,7 +439,7 @@ declare void @memory_region_transaction_begin() local_unnamed_addr #1
 declare i32 @virtio_bus_set_host_notifier(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @memory_region_transaction_commit() local_unnamed_addr #1
 
@@ -608,7 +608,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @aio_wait_bh_oneshot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_blk_data_plane_stop_bh(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @virtio_blk_data_plane_stop_bh(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %conf = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %conf, align 8
@@ -651,7 +651,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -662,10 +662,10 @@ declare void @virtio_queue_aio_detach_host_notifier(ptr noundef, ptr noundef) lo
 declare void @virtio_queue_host_notifier_read(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -51,7 +51,7 @@ entry:
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z3nlzjPKj(i32 noundef %sz, ptr nocapture noundef readonly %data) local_unnamed_addr #5 {
+define hidden noundef i32 @_Z3nlzjPKj(i32 noundef %sz, ptr noundef readonly captures(none) %data) local_unnamed_addr #5 {
 entry:
   %cmp.not7 = icmp eq i32 %sz, 0
   br i1 %cmp.not7, label %return, label %while.body.preheader
@@ -96,7 +96,7 @@ entry:
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z3ntzjPKj(i32 noundef %sz, ptr nocapture noundef readonly %data) local_unnamed_addr #5 {
+define hidden noundef i32 @_Z3ntzjPKj(i32 noundef %sz, ptr noundef readonly captures(none) %data) local_unnamed_addr #5 {
 entry:
   %cmp7.not = icmp eq i32 %sz, 0
   br i1 %cmp7.not, label %return, label %for.body.preheader
@@ -131,7 +131,7 @@ return:                                           ; preds = %if.then, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Z4copyjPKjjPj(i32 noundef %src_sz, ptr nocapture noundef readonly %src, i32 noundef %dst_sz, ptr nocapture noundef writeonly %dst) local_unnamed_addr #6 {
+define hidden void @_Z4copyjPKjjPj(i32 noundef %src_sz, ptr noundef readonly captures(none) %src, i32 noundef %dst_sz, ptr noundef writeonly captures(none) %dst) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp ult i32 %dst_sz, %src_sz
   br i1 %cmp.not, label %for.cond13.preheader, label %for.cond.preheader
@@ -193,7 +193,7 @@ if.end:                                           ; preds = %for.body15, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_Z7is_zerojPKj(i32 noundef %sz, ptr nocapture noundef readonly %data) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @_Z7is_zerojPKj(i32 noundef %sz, ptr noundef readonly captures(none) %data) local_unnamed_addr #5 {
 entry:
   %cmp3 = icmp eq i32 %sz, 0
   br i1 %cmp3, label %return, label %for.body.preheader
@@ -218,7 +218,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_Z5resetjPj(i32 noundef %sz, ptr nocapture noundef writeonly %data) local_unnamed_addr #7 {
+define hidden void @_Z5resetjPj(i32 noundef %sz, ptr noundef writeonly captures(none) %data) local_unnamed_addr #7 {
 entry:
   %cmp3.not = icmp eq i32 %sz, 0
   br i1 %cmp3.not, label %for.end, label %for.body.preheader
@@ -234,7 +234,7 @@ for.end:                                          ; preds = %for.body.preheader,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Z3shljPKjjjPj(i32 noundef %src_sz, ptr nocapture noundef readonly %src, i32 noundef %k, i32 noundef %dst_sz, ptr nocapture noundef %dst) local_unnamed_addr #6 {
+define hidden void @_Z3shljPKjjjPj(i32 noundef %src_sz, ptr noundef readonly captures(none) %src, i32 noundef %k, i32 noundef %dst_sz, ptr noundef captures(none) %dst) local_unnamed_addr #6 {
 entry:
   %div64 = lshr i32 %k, 5
   %0 = and i32 %k, 31
@@ -388,7 +388,7 @@ if.end93:                                         ; preds = %for.body37, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Z3shrjPKjjPj(i32 noundef %sz, ptr nocapture noundef readonly %src, i32 noundef %k, ptr nocapture noundef writeonly %dst) local_unnamed_addr #6 {
+define hidden void @_Z3shrjPKjjPj(i32 noundef %sz, ptr noundef readonly captures(none) %src, i32 noundef %k, ptr noundef writeonly captures(none) %dst) local_unnamed_addr #6 {
 entry:
   %div61 = lshr i32 %k, 5
   %cmp.not = icmp ult i32 %div61, %sz
@@ -538,7 +538,7 @@ if.end80:                                         ; preds = %for.body44.preheade
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Z3shrjPKjjjPj(i32 noundef %src_sz, ptr nocapture noundef readonly %src, i32 noundef %k, i32 noundef %dst_sz, ptr nocapture noundef writeonly %dst) local_unnamed_addr #6 {
+define hidden void @_Z3shrjPKjjjPj(i32 noundef %src_sz, ptr noundef readonly captures(none) %src, i32 noundef %k, i32 noundef %dst_sz, ptr noundef writeonly captures(none) %dst) local_unnamed_addr #6 {
 entry:
   %div82 = lshr i32 %k, 5
   %cmp.not = icmp ult i32 %div82, %src_sz
@@ -714,7 +714,7 @@ for.end110:                                       ; preds = %for.body105.prehead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_Z23has_one_at_first_k_bitsjPKjj(i32 noundef %sz, ptr nocapture noundef readonly %data, i32 noundef %k) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @_Z23has_one_at_first_k_bitsjPKjj(i32 noundef %sz, ptr noundef readonly captures(none) %data, i32 noundef %k) local_unnamed_addr #5 {
 entry:
   %div10 = lshr i32 %k, 5
   %spec.select = tail call i32 @llvm.umin.i32(i32 %div10, i32 %sz)
@@ -758,7 +758,7 @@ return:                                           ; preds = %for.body, %for.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_Z3incjPj(i32 noundef %sz, ptr nocapture noundef %data) local_unnamed_addr #6 {
+define hidden noundef zeroext i1 @_Z3incjPj(i32 noundef %sz, ptr noundef captures(none) %data) local_unnamed_addr #6 {
 entry:
   %cmp5.not = icmp eq i32 %sz, 0
   br i1 %cmp5.not, label %return, label %for.body.preheader
@@ -785,7 +785,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_Z3decjPj(i32 noundef %sz, ptr nocapture noundef %data) local_unnamed_addr #6 {
+define hidden noundef zeroext i1 @_Z3decjPj(i32 noundef %sz, ptr noundef captures(none) %data) local_unnamed_addr #6 {
 entry:
   %cmp5.not = icmp eq i32 %sz, 0
   br i1 %cmp5.not, label %return, label %for.body.preheader
@@ -812,7 +812,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_Z2ltjPjS_(i32 noundef %sz, ptr nocapture noundef readonly %data1, ptr nocapture noundef readonly %data2) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @_Z2ltjPjS_(i32 noundef %sz, ptr noundef readonly captures(none) %data1, ptr noundef readonly captures(none) %data2) local_unnamed_addr #5 {
 entry:
   %0 = zext i32 %sz to i64
   br label %while.cond
@@ -841,7 +841,7 @@ return:                                           ; preds = %while.cond, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_Z3addjPKjS0_Pj(i32 noundef %sz, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef writeonly %c) local_unnamed_addr #6 {
+define hidden noundef zeroext i1 @_Z3addjPKjS0_Pj(i32 noundef %sz, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef writeonly captures(none) %c) local_unnamed_addr #6 {
 entry:
   %cmp13.not = icmp eq i32 %sz, 0
   br i1 %cmp13.not, label %for.end, label %for.body.preheader
@@ -887,7 +887,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #10

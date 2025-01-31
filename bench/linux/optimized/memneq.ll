@@ -9,7 +9,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___crypto_mem
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable___crypto_memneq303], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i64 @__crypto_memneq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local i64 @__crypto_memneq(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i64 %2, 16
   br i1 %4, label %5, label %17
 

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.1" = type { ptr }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4Luau7CodeGen26NativeProtoExecDataDeleterclEPKj(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -32
   tail call void @_ZdaPv(ptr noundef nonnull %3) #6
   ret void
@@ -25,7 +25,7 @@ define dso_local void @_ZN4Luau7CodeGen26destroyNativeProtoExecDataEPKj(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen25createNativeProtoExecDataEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen25createNativeProtoExecDataEj(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit:
   %2 = zext i32 %1 to i64
   %3 = shl nuw nsw i64 %2, 2
@@ -57,7 +57,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeG
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @__gxx_personality_v0(...)
 

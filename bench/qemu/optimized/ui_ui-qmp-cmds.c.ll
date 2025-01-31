@@ -69,7 +69,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [3 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_write_all, ptr @.str.34, ptr @.str.35, i32 482, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_console_co_wait_update, ptr @.str.36, ptr @.str.37, i32 438, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qmp_screendump, ptr @.str.36, ptr @.str.38, i32 331, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_set_password(ptr nocapture noundef readonly %opts, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_set_password(ptr noundef readonly captures(none) %opts, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %opts, align 8
   switch i32 %0, label %if.else9 [
@@ -140,7 +140,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare i32 @vnc_display_password(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_expire_password(ptr nocapture noundef readonly %opts, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_expire_password(ptr noundef readonly captures(none) %opts, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %num = alloca i64, align 8
   %time = getelementptr inbounds nuw i8, ptr %opts, i64 8
@@ -227,7 +227,7 @@ if.end38:                                         ; preds = %qemu_using_spice.ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #4
@@ -282,7 +282,7 @@ return:                                           ; preds = %qemu_using_spice.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qmp_add_client_vnc(i32 noundef %fd, i1 noundef zeroext %has_skipauth, i1 noundef zeroext %skipauth, i1 noundef zeroext %has_tls, i1 noundef zeroext %tls, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qmp_add_client_vnc(i32 noundef %fd, i1 noundef zeroext %has_skipauth, i1 noundef zeroext %skipauth, i1 noundef zeroext %has_tls, i1 noundef zeroext %tls, ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %narrow = and i1 %has_skipauth, %skipauth
   tail call void @vnc_display_add_client(ptr noundef null, i32 noundef %fd, i1 noundef zeroext %narrow) #9
@@ -313,7 +313,7 @@ return:                                           ; preds = %qemu_using_dbus_dis
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_display_reload(ptr nocapture noundef readonly %arg, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_display_reload(ptr noundef readonly captures(none) %arg, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %arg, align 4
   %cond = icmp eq i32 %0, 0
@@ -368,7 +368,7 @@ sw.default:                                       ; preds = %entry
 declare zeroext i1 @vnc_display_update(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_client_migrate_info(ptr nocapture noundef readonly %protocol, ptr noundef %hostname, i1 noundef zeroext %has_port, i64 noundef %port, i1 noundef zeroext %has_tls_port, i64 noundef %tls_port, ptr noundef %cert_subject, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_client_migrate_info(ptr noundef readonly captures(none) %protocol, ptr noundef %hostname, i1 noundef zeroext %has_port, i64 noundef %port, i1 noundef zeroext %has_tls_port, i64 noundef %tls_port, ptr noundef %cert_subject, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %protocol, ptr noundef nonnull dereferenceable(6) @.str.9) #11
   %cmp = icmp eq i32 %call, 0
@@ -602,7 +602,7 @@ trace_ppm_save.exit.i:                            ; preds = %if.else.i.i.i, %if.
   %call3.i21 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.29, i32 noundef %call.i18, i32 noundef %call1.i19, i32 noundef 255) #9
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2.i20, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   %call5.i22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3.i21) #11
-  %call6.i23 = tail call i32 @qio_channel_write_all(ptr noundef %call.i.i, ptr noundef %call3.i21, i64 noundef %call5.i22, ptr noundef %errp) #9
+  %call6.i23 = tail call i32 @qio_channel_write_all(ptr noundef %call.i.i, ptr noundef nonnull %call3.i21, i64 noundef %call5.i22, ptr noundef %errp) #9
   %cmp.i = icmp slt i32 %call6.i23, 0
   br i1 %cmp.i, label %glib_autoptr_cleanup_pixman_image_t.exit.i, label %if.end.i24
 
@@ -636,7 +636,7 @@ if.then.i.i12.i:                                  ; preds = %cleanup.i27
 
 glib_autoptr_cleanup_pixman_image_t.exit.i:       ; preds = %if.then.i.i12.i, %cleanup.i27, %trace_ppm_save.exit.i
   %retval.021.i = phi i1 [ %cmp8.lcssa.i, %cleanup.i27 ], [ %cmp8.lcssa.i, %if.then.i.i12.i ], [ false, %trace_ppm_save.exit.i ]
-  tail call void @g_free(ptr noundef %call3.i21) #9
+  tail call void @g_free(ptr noundef nonnull %call3.i21) #9
   %tobool.not.i.i13.i = icmp eq ptr %call2.i20, null
   br i1 %tobool.not.i.i13.i, label %ppm_save.exit, label %if.then.i.i14.i
 
@@ -696,14 +696,14 @@ declare ptr @qemu_pixman_linebuf_create(i32 noundef, i32 noundef) local_unnamed_
 declare ptr @pixman_image_get_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare noalias ptr @png_create_write_struct(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noalias ptr @png_create_info_struct(ptr noundef) local_unnamed_addr #2
 
@@ -728,7 +728,7 @@ declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @qio_channel_write_all(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @pixman_image_get_stride(ptr noundef) local_unnamed_addr #2
 
@@ -737,7 +737,7 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -746,10 +746,10 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

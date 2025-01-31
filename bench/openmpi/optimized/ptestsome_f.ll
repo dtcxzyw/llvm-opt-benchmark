@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Testsome_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr), ptr @ompi_testsome_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_testsome_f(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) #0 {
+define void @ompi_testsome_f(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) #0 {
   %7 = load i32, ptr %0, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
@@ -159,7 +159,7 @@ declare i32 @PMPI_Testsome(i32 noundef, ptr noundef, ptr noundef, ptr noundef, p
 declare i32 @PMPI_Status_c2f(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

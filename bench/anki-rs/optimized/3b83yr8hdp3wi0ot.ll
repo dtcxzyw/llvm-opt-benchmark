@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN9itertools9Itertools13partition_map28_$u7b$$u7b$closure$u7d$$u7d$17h858ceede07737babE"(ptr nocapture readonly align 8 %0, ptr %1, i32 %2) unnamed_addr #0 {
+define void @"_ZN9itertools9Itertools13partition_map28_$u7b$$u7b$closure$u7d$$u7d$17h858ceede07737babE"(ptr readonly align 8 captures(none) %0, ptr %1, i32 %2) unnamed_addr #0 {
   %4 = alloca { ptr, [11 x i64] }, align 8
   %5 = alloca { ptr, [8 x i64] }, align 8
   %6 = alloca { ptr, [11 x i64] }, align 8
@@ -39,7 +39,7 @@ define void @"_ZN9itertools9Itertools13partition_map28_$u7b$$u7b$closure$u7d$$u7
 declare hidden void @"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$17h8f5899abb398856aE"(ptr sret({ ptr, [11 x i64] }) align 8, ptr align 1, ptr, i32) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @"_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17h35c18438668b57b0E"(ptr align 8, ptr align 8) unnamed_addr #0

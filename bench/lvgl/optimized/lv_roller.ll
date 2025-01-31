@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_text_encoded_next = external local_unnamed_addr constant ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_roller_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 76)) %1) #0 {
+define internal void @lv_roller_constructor(ptr readnone captures(none) %0, ptr noundef initializes((64, 76)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, -4
@@ -81,7 +81,7 @@ lv_roller_set_options.exit:                       ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_roller_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_roller_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_point_t, align 4
   %4 = alloca i32, align 4
   %5 = alloca %struct.lv_point_t, align 8
@@ -420,7 +420,7 @@ lv_roller_set_selected.exit.i:                    ; preds = %169, %148, %142
   %177 = getelementptr inbounds nuw i8, ptr %12, i64 68
   %178 = load i32, ptr %177, align 4, !tbaa !12
   store i32 %178, ptr %6, align 4, !tbaa !22
-  %179 = call i32 @lv_obj_send_event(ptr noundef %12, i32 noundef 35, ptr noundef nonnull %6) #6
+  %179 = call i32 @lv_obj_send_event(ptr noundef nonnull %12, i32 noundef 35, ptr noundef nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
   br label %release_handler.exit
 
@@ -569,7 +569,7 @@ release_handler.exit:                             ; preds = %176, %63, %180, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_roller_label_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_roller_label_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct.lv_draw_label_dsc_t, align 8
   %5 = alloca %struct.lv_area_t, align 4
@@ -748,14 +748,14 @@ define noundef ptr @lv_roller_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_roller_set_options(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1101,7 +1101,7 @@ define void @lv_roller_set_visible_row_count(ptr noundef %0, i32 noundef %1) loc
 declare void @lv_obj_set_height(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_roller_get_selected(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_roller_get_selected(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 3
@@ -1130,7 +1130,7 @@ define i32 @lv_roller_get_selected(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_roller_get_selected_str(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_roller_get_selected_str(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @lv_obj_get_child(ptr noundef %0, i32 noundef 0) #6
   %5 = tail call ptr @lv_label_get_text(ptr noundef %4) #6
   %6 = tail call i64 @lv_strlen(ptr noundef %5) #6
@@ -1237,7 +1237,7 @@ define ptr @lv_roller_get_options(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_roller_get_option_count(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_roller_get_option_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 3
@@ -1578,7 +1578,7 @@ declare void @lv_indev_get_point(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @lv_label_get_letter_on(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #2
 
@@ -1627,7 +1627,7 @@ declare void @lv_anim_set_duration(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @scroll_anim_completed_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @scroll_anim_completed_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !55
   %3 = tail call ptr @lv_obj_get_parent(ptr noundef %2) #6
   tail call fastcc void @inf_normalize(ptr noundef %3)

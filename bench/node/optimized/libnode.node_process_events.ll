@@ -47,7 +47,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node11ProcessEmitEPNS_11EnvironmentEPKcN2v85LocalINS4_5ValueEEE(ptr nocapture noundef readonly %env, ptr noundef %event, ptr %message.coerce) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node11ProcessEmitEPNS_11EnvironmentEPKcN2v85LocalINS4_5ValueEEE(ptr noundef readonly captures(none) %env, ptr noundef %event, ptr %message.coerce) local_unnamed_addr #3 {
 entry:
   %argv = alloca [2 x %"class.v8::Local"], align 16
   %isolate_.i = getelementptr inbounds nuw i8, ptr %env, i64 88
@@ -79,7 +79,7 @@ declare ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(
 declare ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKciPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef, ptr, ptr noundef, i32 noundef, ptr noundef, double, double) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 258) i16 @_ZN4node25ProcessEmitWarningGenericEPNS_11EnvironmentEPKcS3_S3_(ptr nocapture noundef readonly %env, ptr noundef %warning, ptr noundef %type, ptr noundef %code) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node25ProcessEmitWarningGenericEPNS_11EnvironmentEPKcS3_S3_(ptr noundef readonly captures(none) %env, ptr noundef %warning, ptr noundef %type, ptr noundef %code) local_unnamed_addr #3 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %args = alloca [3 x %"class.v8::Local"], align 16
@@ -205,7 +205,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 258) i16 @_ZN4node30ProcessEmitExperimentalWarningEPNS_11EnvironmentEPKc(ptr nocapture noundef readonly %env, ptr noundef %warning) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node30ProcessEmitExperimentalWarningEPNS_11EnvironmentEPKc(ptr noundef readonly captures(none) %env, ptr noundef %warning) local_unnamed_addr #3 {
 entry:
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.78", align 1
@@ -304,7 +304,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 258) i16 @_ZN4node29ProcessEmitDeprecationWarningEPNS_11EnvironmentEPKcS3_(ptr nocapture noundef readonly %env, ptr noundef %warning, ptr noundef %deprecation_code) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node29ProcessEmitDeprecationWarningEPNS_11EnvironmentEPKcS3_(ptr noundef readonly captures(none) %env, ptr noundef %warning, ptr noundef %deprecation_code) local_unnamed_addr #3 {
 entry:
   %call = tail call i16 @_ZN4node25ProcessEmitWarningGenericEPNS_11EnvironmentEPKcS3_S3_(ptr noundef %env, ptr noundef %warning, ptr noundef nonnull @.str.4, ptr noundef %deprecation_code)
   ret i16 %call
@@ -378,7 +378,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -495,7 +495,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

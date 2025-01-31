@@ -71,7 +71,7 @@ define noundef i32 @Nflock(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5_make_time(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define i64 @H5_make_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %.b6 = load i1, ptr @H5_ntzset, align 1
   br i1 %.b6, label %3, label %2
 
@@ -106,12 +106,12 @@ define i64 @H5_make_time(ptr nocapture noundef %0) local_unnamed_addr #0 {
 declare void @tzset() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 47
@@ -243,16 +243,16 @@ declare noalias ptr @H5MM_strdup(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
@@ -260,7 +260,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5_combine_path(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5_combine_path(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %4
 
@@ -277,7 +277,7 @@ define range(i32 -1, 1) i32 @H5_combine_path(ptr noundef %0, ptr noundef %1, ptr
   br i1 %11, label %.thread, label %18
 
 .thread:                                          ; preds = %3, %9, %4
-  %12 = tail call noalias ptr @H5MM_strdup(ptr noundef %1) #15
+  %12 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull %1) #15
   store ptr %12, ptr %2, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %34
@@ -317,7 +317,7 @@ define range(i32 -1, 1) i32 @H5_combine_path(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @H5_nanosleep(i64 noundef %0) local_unnamed_addr #0 {
@@ -480,7 +480,7 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly %1
 declare noalias ptr @H5MM_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
@@ -616,7 +616,7 @@ define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = load i32, ptr @H5_get_option.sp, align 4
   %6 = icmp eq i32 %5, 1
   %.pre = load i32, ptr @H5_optind, align 4
@@ -739,7 +739,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr nocapture nou
 57:                                               ; preds = %55
   %58 = load ptr, ptr @stderr, align 8
   %59 = load ptr, ptr %1, align 8
-  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.16, ptr noundef %59, ptr noundef %23) #19
+  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.16, ptr noundef %59, ptr noundef nonnull %23) #19
   br label %.loopexit
 
 61:                                               ; preds = %.lr.ph105
@@ -928,19 +928,19 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define noundef ptr @H5_strcasestr(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+define noundef ptr @H5_strcasestr(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %3 = load i8, ptr %1, align 1
   %.fr = freeze i8 %3
   %4 = sext i8 %.fr to i32
@@ -989,7 +989,7 @@ define noundef ptr @H5_strcasestr(ptr noundef readonly %0, ptr nocapture noundef
 declare i32 @tolower(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -306,7 +306,7 @@ define internal noundef i32 @parse_lapic(ptr noundef readonly %0) #0 section ".i
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @setup_apicpmtimer(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @setup_apicpmtimer(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   %2 = tail call i32 @notsc_setup(ptr noundef null) #17
   ret i32 1
 }
@@ -336,10 +336,10 @@ define dso_local void @native_apic_icr_write(i32 noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @native_apic_icr_read() local_unnamed_addr #1 align 16 {
@@ -496,7 +496,7 @@ define dso_local void @lapic_update_tsc_freq() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__lapic_update_tsc_freq(ptr nocapture readnone %0) #1 align 16 {
+define internal void @__lapic_update_tsc_freq(ptr readnone captures(none) %0) #1 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @lapic_events) #19, !srcloc !18
   %3 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @cpu_info, i64 56)) #19, !srcloc !19
   %4 = and i64 %3, 16777216
@@ -1055,7 +1055,7 @@ define dso_local void @sysvec_apic_timer_interrupt(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i8 @irqentry_enter(ptr noundef) local_unnamed_addr #5 section ".noinstr.text"
@@ -1991,7 +1991,7 @@ define dso_local void @spurious_interrupt(ptr noundef %0, i64 noundef %1) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__spurious_interrupt(ptr nocapture readnone %0, i32 noundef %1) #1 align 16 {
+define internal void @__spurious_interrupt(ptr readnone captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = trunc i32 %1 to i8
   tail call fastcc void @handle_spurious_interrupt(i8 noundef zeroext %3)
   ret void
@@ -2036,7 +2036,7 @@ define dso_local void @sysvec_spurious_apic_interrupt(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__sysvec_spurious_apic_interrupt(ptr nocapture readnone %0) #1 align 16 {
+define internal void @__sysvec_spurious_apic_interrupt(ptr readnone captures(none) %0) #1 align 16 {
   tail call fastcc void @handle_spurious_interrupt(i8 noundef zeroext -1)
   ret void
 }
@@ -2080,7 +2080,7 @@ define dso_local void @sysvec_error_interrupt(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__sysvec_error_interrupt(ptr nocapture readnone %0) #1 align 16 {
+define internal void @__sysvec_error_interrupt(ptr readnone captures(none) %0) #1 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_error_apic_entry, i64 8), i32 2) #17
           to label %22 [label %2], !srcloc !39
 
@@ -2472,7 +2472,7 @@ define dso_local range(i32 -22, -2147483648) i32 @generic_processor_info(i32 nou
 declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__irq_msi_compose_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
+define dso_local void @__irq_msi_compose_msg(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i64 0, ptr %4, align 4
   store i32 -18874368, ptr %1, align 4
@@ -2521,7 +2521,7 @@ define dso_local void @__irq_msi_compose_msg(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @x86_msi_msg_get_destid(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #12 align 16 {
+define dso_local i32 @x86_msi_msg_get_destid(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #12 align 16 {
   %3 = load i32, ptr %0, align 4
   %4 = lshr i32 %3, 12
   %5 = and i32 %4, 255
@@ -2571,33 +2571,33 @@ define dso_local range(i32 0, 2) i32 @apic_is_clustered_box() local_unnamed_addr
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @setup_disableapic(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @setup_disableapic(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   store i8 1, ptr @apic_is_disabled, align 1
   tail call void @setup_clear_cpu_cap(i32 noundef 9) #17
   ret i32 0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @setup_nolapic(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @setup_nolapic(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   store i8 1, ptr @apic_is_disabled, align 1
   tail call void @setup_clear_cpu_cap(i32 noundef 9) #17
   ret i32 0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @parse_lapic_timer_c2_ok(ptr nocapture readnone %0) #13 section ".init.text" align 16 {
+define internal noundef i32 @parse_lapic_timer_c2_ok(ptr readnone captures(none) %0) #13 section ".init.text" align 16 {
   store i32 1, ptr @local_apic_timer_c2_ok, align 4
   ret i32 0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @parse_disable_apic_timer(ptr nocapture readnone %0) #13 section ".init.text" align 16 {
+define internal noundef i32 @parse_disable_apic_timer(ptr readnone captures(none) %0) #13 section ".init.text" align 16 {
   store i1 true, ptr @disable_apic_timer, align 4
   ret i32 0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @parse_nolapic_timer(ptr nocapture readnone %0) #13 section ".init.text" align 16 {
+define internal noundef i32 @parse_nolapic_timer(ptr readnone captures(none) %0) #13 section ".init.text" align 16 {
   store i1 true, ptr @disable_apic_timer, align 4
   ret i32 0
 }
@@ -2755,7 +2755,7 @@ sub_24:                                           ; preds = %sub_13
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @notsc_setup(ptr noundef) local_unnamed_addr #5
@@ -2776,14 +2776,14 @@ declare dso_local void @on_each_cpu_cond_mask(ptr noundef, ptr noundef, ptr noun
 declare dso_local i32 @clockevents_update_freq(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @lapic_next_event(i64 noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal noundef i32 @lapic_next_event(i64 noundef %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = trunc i64 %0 to i32
   tail call void @__SCT__apic_call_write(i32 noundef 896, i32 noundef %3) #17
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @lapic_timer_set_periodic(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @lapic_timer_set_periodic(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16
@@ -2806,7 +2806,7 @@ define internal noundef i32 @lapic_timer_set_periodic(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @lapic_timer_set_oneshot(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @lapic_timer_set_oneshot(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16
@@ -2837,7 +2837,7 @@ define internal noundef i32 @lapic_timer_set_oneshot(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @lapic_timer_shutdown(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @lapic_timer_shutdown(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16
@@ -2876,10 +2876,10 @@ define internal fastcc void @__setup_APIC_LVTT() unnamed_addr #1 align 16 {
 declare dso_local void @__SCT__apic_call_send_IPI_mask(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @lapic_next_deadline(i64 noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal noundef i32 @lapic_next_deadline(i64 noundef %0, ptr readnone captures(none) %1) #1 align 16 {
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09mfence; lfence\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 0) << 16) $| ((11*32+27)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !114
   %3 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !26
   %4 = extractvalue { i64, i64 } %3, 0
@@ -2941,7 +2941,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @lapic_init_clockevent() unn
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal void @lapic_cal_handler(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal void @lapic_cal_handler(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   %2 = tail call i32 @__SCT__apic_call_read(i32 noundef 912) #17
   %3 = zext i32 %2 to i64
   %4 = load i32, ptr @pmtmr_ioport, align 4
@@ -3006,7 +3006,7 @@ define internal void @lapic_cal_handler(ptr nocapture readnone %0) #0 section ".
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -1, 1) i32 @calibrate_by_pmtimer(i64 noundef range(i64 -16777215, 33554432) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @calibrate_by_pmtimer(i64 noundef range(i64 -16777215, 33554432) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = load i32, ptr @apic_verbosity, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %8
@@ -3540,7 +3540,7 @@ define internal void @lapic_resume() #1 align 16 {
 declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @set_multi(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @set_multi(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = load i1, ptr @multi, align 4
   br i1 %2, label %7, label %3
 
@@ -3556,7 +3556,7 @@ define internal noundef i32 @set_multi(ptr nocapture noundef readonly %0) #1 ali
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @insert_resource(ptr noundef, ptr noundef) local_unnamed_addr #5

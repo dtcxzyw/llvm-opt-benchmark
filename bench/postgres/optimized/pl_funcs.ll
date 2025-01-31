@@ -204,7 +204,7 @@ define hidden void @plpgsql_ns_push(ptr noundef readonly %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @plpgsql_ns_additem(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @plpgsql_ns_additem(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
   %5 = add i64 %4, 17
   %6 = tail call ptr @palloc(i64 noundef %5) #16
@@ -253,13 +253,13 @@ define hidden ptr @plpgsql_ns_top() local_unnamed_addr #3 {
 declare ptr @palloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr noundef readnone %4, ptr noundef writeonly %5) local_unnamed_addr #7 {
+define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readnone %4, ptr noundef writeonly %5) local_unnamed_addr #7 {
   %.not61 = icmp eq ptr %0, null
   br i1 %.not61, label %._crit_edge63, label %.preheader45.lr.ph
 
@@ -417,10 +417,10 @@ define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly %0, i1 noundef zeroex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @plpgsql_ns_lookup_label(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define hidden noundef ptr @plpgsql_ns_lookup_label(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -476,7 +476,7 @@ define hidden noundef ptr @plpgsql_ns_find_nearest_loop(ptr noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define nonnull ptr @plpgsql_stmt_typename(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define nonnull ptr @plpgsql_stmt_typename(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load i32, ptr %0, align 4
   switch i32 %2, label %45 [
     i32 0, label %46
@@ -627,7 +627,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @plpgsql_free_function_memory(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden void @plpgsql_free_function_memory(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -835,7 +835,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @plpgsql_dumptree(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden void @plpgsql_dumptree(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.49, ptr noundef %2) #16
   %4 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.50) #16
@@ -1053,7 +1053,7 @@ define hidden void @plpgsql_dumptree(ptr nocapture noundef readonly %0) local_un
 declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dump_block(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc void @dump_block(ptr noundef readonly captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1230,12 +1230,12 @@ dump_ind.exit38:                                  ; preds = %.lr.ph.i36, %.threa
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare i32 @SPI_freeplan(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_stmt(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc void @free_stmt(ptr noundef readonly captures(none) %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 4
   switch i32 %2, label %532 [
     i32 0, label %3
@@ -4716,7 +4716,7 @@ dump_return_query.exit:                           ; preds = %1037, %1035, %._cri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dump_cursor_direction(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc void @dump_cursor_direction(ptr noundef readonly captures(none) %0) unnamed_addr #1 {
   %2 = load i32, ptr @dump_indent, align 4
   %3 = add i32 %2, 2
   store i32 %3, ptr @dump_indent, align 4

@@ -298,13 +298,13 @@ define dso_local void @mminit_verify_zonelist() local_unnamed_addr #0 section ".
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @mminit_verify_pageflags_layout() local_unnamed_addr #0 section ".init.text" align 16 {
@@ -683,7 +683,7 @@ define dso_local void @reserve_bootmem_region(i64 noundef %0, i64 noundef %1, i3
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @memmap_init_range(i64 noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4, i32 noundef %5, ptr nocapture readnone %6, i32 noundef %7) local_unnamed_addr #0 section ".meminit.text" align 16 {
+define dso_local void @memmap_init_range(i64 noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4, i32 noundef %5, ptr readnone captures(none) %6, i32 noundef %7) local_unnamed_addr #0 section ".meminit.text" align 16 {
   %9 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
   %10 = add i64 %3, %0
@@ -768,7 +768,7 @@ define dso_local void @memmap_init_range(i64 noundef %0, i32 noundef %1, i64 nou
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef zeroext i1 @overlap_memmap_init(i64 noundef %0, ptr nocapture noundef %1) unnamed_addr #6 section ".meminit.text" align 16 {
+define internal fastcc noundef zeroext i1 @overlap_memmap_init(i64 noundef %0, ptr noundef captures(none) %1) unnamed_addr #6 section ".meminit.text" align 16 {
   %3 = load i8, ptr @mirrored_kernelcore, align 1, !range !27, !noundef !28
   %4 = icmp ne i8 %3, 0
   %5 = icmp eq i64 %0, 3
@@ -1000,7 +1000,7 @@ declare dso_local ptr @memblock_alloc_exact_nid_raw(i64 noundef, i64 noundef, i6
 declare dso_local ptr @memblock_alloc_try_nid_raw(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @get_pfn_range_for_nid(i32 noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local void @get_pfn_range_for_nid(i32 noundef %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -1066,7 +1066,7 @@ define dso_local void @setup_nr_node_ids() local_unnamed_addr #9 section ".init.
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @free_area_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local void @free_area_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
@@ -1317,7 +1317,7 @@ define dso_local void @free_area_init(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @memblock_start_of_DRAM() local_unnamed_addr #7
@@ -2453,7 +2453,7 @@ declare dso_local ptr @kobject_create_and_add(ptr noundef, ptr noundef) local_un
 declare dso_local zeroext i1 @parse_option_str(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -22, 1) i32 @cmdline_parse_core(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @cmdline_parse_core(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
@@ -2582,7 +2582,7 @@ declare dso_local zeroext i1 @memblock_has_mirror() local_unnamed_addr #7
 declare dso_local ptr @memblock_alloc_try_nid(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @calculate_node_totalpages(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @calculate_node_totalpages(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 13120
@@ -2710,7 +2710,7 @@ define internal fastcc void @free_area_init_core(ptr noundef %0) unnamed_addr #0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc i64 @zone_spanned_pages_in_node(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef initializes((0, 8)) %4, ptr nocapture noundef initializes((0, 8)) %5) unnamed_addr #18 section ".init.text" align 16 {
+define internal fastcc i64 @zone_spanned_pages_in_node(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(none) initializes((0, 8)) %4, ptr noundef captures(none) initializes((0, 8)) %5) unnamed_addr #18 section ".init.text" align 16 {
   %7 = getelementptr [4 x i64], ptr @arch_zone_lowest_possible_pfn, i64 0, i64 %1
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr [4 x i64], ptr @arch_zone_highest_possible_pfn, i64 0, i64 %1
@@ -2830,7 +2830,7 @@ define internal fastcc i64 @zone_absent_pages_in_node(i32 noundef %0, i64 nounde
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @adjust_zone_range_for_zone_movable(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #18 section ".init.text" align 16 {
+define internal fastcc void @adjust_zone_range_for_zone_movable(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #18 section ".init.text" align 16 {
   %6 = sext i32 %0 to i64
   %7 = getelementptr [64 x i64], ptr @zone_movable_pfn, i64 0, i64 %6
   %8 = load i64, ptr %7, align 8
@@ -2916,7 +2916,7 @@ declare dso_local void @lruvec_init(ptr noundef) local_unnamed_addr #7
 declare dso_local void @zone_pcp_init(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @memmap_init_zone_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @memmap_init_zone_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load i64, ptr %5, align 64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144

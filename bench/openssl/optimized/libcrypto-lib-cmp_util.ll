@@ -44,7 +44,7 @@ entry:
 declare i32 @OSSL_trace_set_channel(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_cmp_log_parse_metadata(ptr noundef %buf, ptr nocapture noundef writeonly initializes((0, 4)) %level, ptr nocapture noundef writeonly initializes((0, 8)) %func, ptr nocapture noundef writeonly initializes((0, 8)) %file, ptr nocapture noundef writeonly initializes((0, 4)) %line) local_unnamed_addr #1 {
+define ptr @ossl_cmp_log_parse_metadata(ptr noundef %buf, ptr noundef writeonly captures(none) initializes((0, 4)) %level, ptr noundef writeonly captures(none) initializes((0, 8)) %func, ptr noundef writeonly captures(none) initializes((0, 8)) %file, ptr noundef writeonly captures(none) initializes((0, 4)) %line) local_unnamed_addr #1 {
 entry:
   %p_level_tmp = alloca ptr, align 8
   %cmp = icmp eq ptr %buf, null
@@ -153,7 +153,7 @@ if.end8:                                          ; preds = %if.end
   %add = shl i64 %sub.ptr.sub, 32
   %sext = add i64 %add, 4294967296
   %conv9 = ashr exact i64 %sext, 32
-  %call10 = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %level_copy, ptr noundef %spec.select, i64 noundef %conv9) #6
+  %call10 = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %level_copy, ptr noundef nonnull %spec.select, i64 noundef %conv9) #6
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %level_copy, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %cmp13 = icmp eq i32 %bcmp, 0
   br i1 %cmp13, label %return, label %cond.false
@@ -200,12 +200,12 @@ return:                                           ; preds = %if.end8, %cond.fals
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare noalias ptr @CRYPTO_strndup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_print_to_bio(ptr noundef %bio, ptr nocapture noundef readnone %component, ptr nocapture noundef readnone %file, i32 noundef %line, i32 noundef %level, ptr noundef %msg) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_print_to_bio(ptr noundef %bio, ptr noundef readnone captures(none) %component, ptr noundef readnone captures(none) %file, i32 noundef %line, i32 noundef %level, ptr noundef %msg) local_unnamed_addr #1 {
 entry:
   %0 = icmp ult i32 %level, 6
   br i1 %0, label %switch.lookup, label %cond.false15
@@ -576,15 +576,15 @@ declare ptr @ASN1_OCTET_STRING_new() local_unnamed_addr #2
 declare i32 @ASN1_OCTET_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

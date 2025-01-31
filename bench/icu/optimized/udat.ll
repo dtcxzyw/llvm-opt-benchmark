@@ -93,7 +93,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_registerOpener_75(ptr noundef %opener, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define void @udat_registerOpener_75(ptr noundef %opener, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -126,7 +126,7 @@ declare void @umtx_lock_75(ptr noundef) local_unnamed_addr #2
 declare void @umtx_unlock_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udat_unregisterOpener_75(ptr noundef readnone %opener, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define ptr @udat_unregisterOpener_75(ptr noundef readnone %opener, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -410,7 +410,7 @@ delete.end:                                       ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @udat_clone_75(ptr noundef %fmt, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define noundef ptr @udat_clone_75(ptr noundef %fmt, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -831,7 +831,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @udat_parse_75(ptr noundef %format, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr nocapture noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef double @udat_parse_75(ptr noundef %format, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef captures(none) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %src = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -925,7 +925,7 @@ declare noundef double @_ZNK6icu_7510DateFormat5parseERKNS_13UnicodeStringERNS_1
 declare void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_parseCalendar_75(ptr noundef %format, ptr noundef %calendar, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr nocapture noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @udat_parseCalendar_75(ptr noundef %format, ptr noundef %calendar, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef captures(none) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %src = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1218,7 +1218,7 @@ entry:
 declare i32 @uloc_countAvailable_75() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define double @udat_get2DigitYearStart_75(ptr noundef readonly %fmt, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define double @udat_get2DigitYearStart_75(ptr noundef readonly %fmt, ptr noundef captures(none) %status) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp sgt i32 %0, 0

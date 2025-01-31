@@ -254,7 +254,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mtp3_pc_to_str_buf(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mtp3_pc_to_str_buf(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @mtp3_standard, align 4
   switch i32 %4, label %61 [
     i32 1, label %5
@@ -382,7 +382,7 @@ define hidden range(i32 0, 2) i32 @mtp3_pc_structured() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mtp3_pc_hash(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden i32 @mtp3_pc_hash(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %cond = icmp eq i32 %2, 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -509,7 +509,7 @@ declare i32 @tvb_get_letoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -581,7 +581,7 @@ define internal void @mtp3_stat_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = alloca [6 x %struct._stat_tap_table_item_type], align 16
   %7 = alloca [256 x i8], align 16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -758,7 +758,7 @@ define internal void @mtp3_stat_reset(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mtp3_stat_free_table_item(ptr nocapture readnone %0, i32 %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @mtp3_stat_free_table_item(ptr readnone captures(none) %0, i32 %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   switch i32 %2, label %11 [
     i32 0, label %5
     i32 1, label %5
@@ -786,7 +786,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mtp3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_mtp3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @wmem_packet_scope() #13
   %6 = tail call noalias ptr @wmem_alloc0(ptr noundef %5, i64 noundef 28) #13
   %7 = load i32, ptr @mtp3_standard, align 4
@@ -1260,7 +1260,7 @@ dissect_mtp3_routing_label.exit:                  ; preds = %138, %163, %166, %1
   %251 = getelementptr inbounds nuw i8, ptr %6, i64 26
   store i16 %250, ptr %251, align 2
   %252 = load i32, ptr @mtp3_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %252, ptr noundef nonnull %1, ptr noundef %6) #13
+  tail call void @tap_queue_packet(i32 noundef %252, ptr noundef nonnull %1, ptr noundef nonnull %6) #13
   %253 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #13
   %254 = load i32, ptr @mtp3_standard, align 4
   %switch.tableidx61 = add i32 %254, -1
@@ -1306,7 +1306,7 @@ declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mtp3_addr_to_str(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
+define internal i32 @mtp3_addr_to_str(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @mtp3_addr_to_str_buf(ptr noundef %5, ptr noundef %1, i32 noundef %2)
@@ -1317,19 +1317,19 @@ define internal i32 @mtp3_addr_to_str(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mtp3_str_addr_len(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @mtp3_str_addr_len(ptr readnone captures(none) %0) #4 {
   ret i32 50
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @mtp3_addr_col_filter_str(ptr nocapture readnone %0, i32 noundef %1) #4 {
+define internal noundef nonnull ptr @mtp3_addr_col_filter_str(ptr readnone captures(none) %0, i32 noundef %1) #4 {
   %.not = icmp eq i32 %1, 0
   %.str.47..str.35 = select i1 %.not, ptr @.str.47, ptr @.str.35
   ret ptr %.str.47..str.35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mtp3_addr_name_res_str(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @mtp3_addr_name_res_str(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1398,12 +1398,12 @@ declare void @stat_tap_add_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @stat_tap_get_field_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @stat_tap_init_table_row(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mtp3_addr_to_str_buf(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mtp3_addr_to_str_buf(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @mtp3_addr_fmt, align 4
   switch i32 %4, label %67 [
     i32 1, label %5
@@ -1565,7 +1565,7 @@ declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
@@ -1590,7 +1590,7 @@ declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr nound
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @get_hostname_ss7pc(i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
@@ -1599,7 +1599,7 @@ declare void @fill_unresolved_ss7pc(ptr noundef, i8 noundef zeroext, i32 noundef
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

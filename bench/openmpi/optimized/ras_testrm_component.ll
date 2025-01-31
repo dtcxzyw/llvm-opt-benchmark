@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @prte_ras_testrm_module = external global %struct.prte_ras_base_module_2_0_0_t, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @ras_testrm_component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal range(i32 -1, 1) i32 @ras_testrm_component_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_testrm_component, i64 224), align 8
   %.not = icmp eq ptr %3, null
   %.prte_ras_testrm_module = select i1 %.not, ptr null, ptr @prte_ras_testrm_module

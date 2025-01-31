@@ -29,42 +29,42 @@ define i32 @get_srt_proto_id(ptr noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_srt_tap_listener_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @get_srt_tap_listener_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @get_srt_max_tables(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @get_srt_max_tables(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_srt_packet_func(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @get_srt_packet_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @set_srt_table_param_data(ptr nocapture noundef writeonly initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @set_srt_table_param_data(ptr noundef writeonly captures(none) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_srt_table_param_data(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @get_srt_table_param_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @free_srt_table_data(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @free_srt_table_data(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -105,7 +105,7 @@ define void @free_srt_table_data(ptr nocapture noundef %0) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @free_srt_table(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @free_srt_table(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -169,7 +169,7 @@ free_srt_table_data.exit:                         ; preds = %12, %.lr.ph
 declare ptr @g_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @reset_srt_table(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @reset_srt_table(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -226,7 +226,7 @@ define ptr @get_srt_table_by_name(ptr noundef %0) local_unnamed_addr #2 {
 declare ptr @wmem_tree_lookup_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @srt_table_get_tap_string(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @srt_table_get_tap_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8
   %3 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %2) #8
   %4 = tail call ptr @g_string_new(ptr noundef %3) #8
@@ -244,7 +244,7 @@ declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @srt_table_get_filter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #2 {
+define void @srt_table_get_filter(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #2 {
   %5 = load i32, ptr %0, align 8
   %6 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %5) #8
   %7 = tail call ptr @g_string_new(ptr noundef %6) #8
@@ -255,7 +255,7 @@ define void @srt_table_get_filter(ptr noundef %0, ptr noundef %1, ptr nocapture 
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   %12 = and i64 %10, 4294967295
-  %13 = tail call i32 @strncmp(ptr noundef %1, ptr noundef %9, i64 noundef %12) #9
+  %13 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %9, i64 noundef %12) #9
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %30
 
@@ -292,7 +292,7 @@ define void @srt_table_get_filter(ptr noundef %0, ptr noundef %1, ptr nocapture 
   br label %30
 
 30:                                               ; preds = %23, %28, %4
-  tail call void @g_free(ptr noundef %9) #8
+  tail call void @g_free(ptr noundef nonnull %9) #8
   br label %31
 
 31:                                               ; preds = %17, %30
@@ -300,10 +300,10 @@ define void @srt_table_get_filter(ptr noundef %0, ptr noundef %1, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @srt_table_dissector_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -453,7 +453,7 @@ declare void @time_stat_init(ptr noundef) local_unnamed_addr #3
 declare ptr @g_array_insert_vals(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @init_srt_table_row(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define void @init_srt_table_row(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %1, %5
@@ -510,7 +510,7 @@ define void @init_srt_table_row(ptr nocapture noundef %0, i32 noundef %1, ptr no
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @add_srt_table_data(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define void @add_srt_table_data(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -525,7 +525,7 @@ define void @add_srt_table_data(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 

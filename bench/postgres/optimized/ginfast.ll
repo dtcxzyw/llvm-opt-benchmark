@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.writeListPage = private unnamed_addr constant [14 x i8] c"writeListPage\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginHeapTupleFastInsert(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ginHeapTupleFastInsert(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ginxlogUpdateMeta, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -160,7 +160,7 @@ BufferGetPage.exit:                               ; preds = %32, %38
   br i1 %72, label %73, label %84
 
 73:                                               ; preds = %.lr.ph.i
-  %74 = tail call i32 @GinNewBuffer(ptr noundef %4) #9
+  %74 = tail call i32 @GinNewBuffer(ptr noundef nonnull %4) #9
   %.not.i = icmp eq i32 %.04245.i, 0
   br i1 %.not.i, label %82, label %75
 
@@ -170,7 +170,7 @@ BufferGetPage.exit:                               ; preds = %32, %38
   %78 = getelementptr ptr, ptr %70, i64 %77
   %79 = sub i32 %.04046.i, %.049.i
   %80 = tail call i32 @BufferGetBlockNumber(i32 noundef %74) #9
-  %81 = tail call fastcc i32 @writeListPage(ptr noundef %4, i32 noundef %.04245.i, ptr noundef readonly %78, i32 noundef %79, i32 noundef %80)
+  %81 = tail call fastcc i32 @writeListPage(ptr noundef nonnull %4, i32 noundef %.04245.i, ptr noundef readonly %78, i32 noundef %79, i32 noundef %80)
   br label %84
 
 82:                                               ; preds = %73
@@ -216,10 +216,10 @@ makeSublist.exit:                                 ; preds = %makeSublist.exit.lo
   %100 = sext i32 %.0.lcssa.i to i64
   %101 = getelementptr ptr, ptr %70, i64 %100
   %102 = sub i32 %69, %.0.lcssa.i
-  %103 = tail call fastcc i32 @writeListPage(ptr noundef %4, i32 noundef %.035.lcssa.i, ptr noundef readonly %101, i32 noundef %102, i32 noundef -1)
+  %103 = tail call fastcc i32 @writeListPage(ptr noundef nonnull %4, i32 noundef %.035.lcssa.i, ptr noundef readonly %101, i32 noundef %102, i32 noundef -1)
   tail call void @LockBuffer(i32 noundef %30, i32 noundef 2) #9
   %104 = getelementptr i8, ptr %.0.i.i, i64 24
-  tail call void @CheckForSerializableConflictIn(ptr noundef %4, ptr noundef null, i32 noundef 0) #9
+  tail call void @CheckForSerializableConflictIn(ptr noundef nonnull %4, ptr noundef null, i32 noundef 0) #9
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %105, -1
   br i1 %106, label %107, label %115
@@ -248,7 +248,7 @@ makeSublist.exit:                                 ; preds = %makeSublist.exit.lo
   %117 = load i32, ptr %116, align 4
   store i32 %117, ptr %28, align 8
   store i32 %.sroa.0.2, ptr %29, align 4
-  %118 = tail call i32 @ReadBuffer(ptr noundef %4, i32 noundef %117) #9
+  %118 = tail call i32 @ReadBuffer(ptr noundef nonnull %4, i32 noundef %117) #9
   tail call void @LockBuffer(i32 noundef %118, i32 noundef 2) #9
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %120, label %126
@@ -504,14 +504,14 @@ BufferGetPage.exit119:                            ; preds = %151, %157
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @ReadBuffer(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1162,7 +1162,7 @@ BufferGetPage.exit83.backedge:                    ; preds = %310, %316
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginHeapTupleFastCollect(ptr noundef %0, ptr nocapture noundef %1, i16 noundef zeroext %2, i64 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define dso_local void @ginHeapTupleFastCollect(ptr noundef %0, ptr noundef captures(none) %1, i16 noundef zeroext %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = call ptr @ginExtractEntries(ptr noundef %0, i16 noundef zeroext %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef nonnull %8, ptr noundef nonnull %7) #9
@@ -1289,7 +1289,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare void @ginInitBA(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @processPendingPage(ptr noundef nonnull %0, ptr nocapture noundef nonnull initializes((16, 20)) %1, ptr noundef %2, i16 noundef zeroext range(i16 1, 16379) %3) unnamed_addr #0 {
+define internal fastcc void @processPendingPage(ptr noundef nonnull %0, ptr noundef nonnull captures(none) initializes((16, 20)) %1, ptr noundef %2, i16 noundef zeroext range(i16 1, 16379) %3) unnamed_addr #0 {
   %5 = alloca %struct.ItemPointerData, align 2
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1421,7 +1421,7 @@ declare void @IndexFreeSpaceMapVacuum(ptr noundef) local_unnamed_addr #2
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @gin_clean_pending_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @gin_clean_pending_list(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.IndexBulkDeleteResult, align 8
   %3 = alloca %struct.GinState, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1552,7 +1552,7 @@ declare void @index_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @GinNewBuffer(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @writeListPage(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @writeListPage(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %union.PGAlignedBlock, align 8
   %7 = alloca %struct.ginxlogInsertListPage, align 4
   %8 = icmp slt i32 %1, 0
@@ -1728,10 +1728,10 @@ declare void @llvm.assume(i1 noundef) #6
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7

@@ -146,7 +146,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5HF__sect_indirect_free = private unnamed_addr constant [25 x i8] c"H5HF__sect_indirect_free\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5HF__sect_single_add(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 1) i32 @H5HF__sect_single_add(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr %1, align 4
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -184,7 +184,7 @@ define internal range(i32 -1, 1) i32 @H5HF__sect_single_add(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @H5HF__sect_single_deserialize(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 noundef %2, i64 noundef %3, ptr nocapture readnone %4) #0 {
+define internal noalias ptr @H5HF__sect_single_deserialize(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5HF_free_section_t_reg_free_list) #14
   %7 = icmp eq ptr %6, null
   br i1 %7, label %11, label %H5FS__sect_node_new.exit
@@ -213,7 +213,7 @@ H5FS__sect_node_new.exit:                         ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @H5HF__sect_single_can_merge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal range(i32 0, 2) i32 @H5HF__sect_single_can_merge(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = load i64, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
@@ -233,7 +233,7 @@ define internal range(i32 0, 2) i32 @H5HF__sect_single_can_merge(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5HF__sect_single_merge(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 1) i32 @H5HF__sect_single_merge(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -311,7 +311,7 @@ define internal range(i32 -1, 1) i32 @H5HF__sect_single_merge(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @H5HF__sect_single_can_shrink(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @H5HF__sect_single_can_shrink(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %5 = load i32, ptr %4, align 8
@@ -346,7 +346,7 @@ define internal range(i32 0, 2) i32 @H5HF__sect_single_can_shrink(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5HF__sect_single_shrink(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5HF__sect_single_shrink(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -508,7 +508,7 @@ H5HF__sect_node_free.exit:                        ; preds = %1, %5, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5HF__sect_single_valid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @H5HF__sect_single_valid(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
@@ -580,7 +580,7 @@ H5HF__sect_single_dblock_info.exit:               ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5HF__sect_row_init_cls(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5HF__sect_row_init_cls(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9
@@ -636,7 +636,7 @@ H5FS__sect_init_cls.exit:                         ; preds = %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5HF__sect_row_term_cls(ptr nocapture noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @H5HF__sect_row_term_cls(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -664,7 +664,7 @@ H5FS__sect_term_cls.exit:                         ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5HF__sect_row_serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 {
+define internal noundef i32 @H5HF__sect_row_serialize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -786,7 +786,7 @@ H5HF__sect_indirect_serialize.exit:               ; preds = %.lr.ph.i, %.loopexi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5HF__sect_row_deserialize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef %4) #0 {
+define internal ptr @H5HF__sect_row_deserialize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
@@ -914,7 +914,7 @@ H5HF__sect_indirect_deserialize.exit:             ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @H5HF__sect_row_can_merge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #4 {
+define internal range(i32 0, 2) i32 @H5HF__sect_row_can_merge(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   br label %tailrecurse.i
@@ -994,7 +994,7 @@ H5HF__sect_indirect_iblock_off.exit22:            ; preds = %H5HF__sect_indirect
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5HF__sect_row_merge(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 1) i32 @H5HF__sect_row_merge(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %2, align 8
@@ -1488,7 +1488,7 @@ H5HF__sect_indirect_merge_row.exit:               ; preds = %H5HF__sect_indirect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @H5HF__sect_row_can_shrink(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @H5HF__sect_row_can_shrink(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load i64, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 520
@@ -1499,7 +1499,7 @@ define internal range(i32 0, 2) i32 @H5HF__sect_row_can_shrink(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5HF__sect_row_shrink(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5HF__sect_row_shrink(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1557,7 +1557,7 @@ define internal range(i32 -1, 1) i32 @H5HF__sect_row_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5HF__sect_row_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal noundef i32 @H5HF__sect_row_valid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -1584,7 +1584,7 @@ H5HF__sect_indirect_top.exit:                     ; preds = %tailrecurse.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5HF__sect_row_debug(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #6 {
+define internal noundef i32 @H5HF__sect_row_debug(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef %2, ptr noundef nonnull @.str.51, i32 noundef %3, ptr noundef nonnull @.str.52, i32 noundef %6) #14
@@ -1622,7 +1622,7 @@ define internal noundef i32 @H5HF__sect_row_debug(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5HF__sect_indirect_init_cls(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5HF__sect_indirect_init_cls(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9
@@ -1668,7 +1668,7 @@ H5FS__sect_init_cls.exit:                         ; preds = %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5HF__sect_indirect_term_cls(ptr nocapture noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @H5HF__sect_indirect_term_cls(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1752,7 +1752,7 @@ declare i32 @H5HF__iblock_incr(ptr noundef) local_unnamed_addr #7
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__sect_single_revive(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HF__sect_single_revive(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
@@ -1840,7 +1840,7 @@ H5HF__sect_single_locate_parent.exit:             ; preds = %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF__sect_single_dblock_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #8 {
+define noundef i32 @H5HF__sect_single_dblock_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
@@ -1945,7 +1945,7 @@ H5HF__sect_single_free.exit:                      ; preds = %7, %11, %14
 declare i32 @H5HF__space_add(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__sect_row_revive(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HF__sect_row_revive(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2083,7 +2083,7 @@ H5HF__sect_indirect_revive_row.exit:              ; preds = %66, %69
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_row_parent_removed(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_row_parent_removed(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2144,7 +2144,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_row_parent_removed(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__sect_row_reduce(ptr noundef %0, ptr noundef initializes((44, 45)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HF__sect_row_reduce(ptr noundef %0, ptr noundef initializes((44, 45)) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i8 1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2579,7 +2579,7 @@ H5HF__sect_row_free.exit:                         ; preds = %245
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @H5HF__sect_row_get_iblock(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @H5HF__sect_row_get_iblock(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 24
@@ -3040,7 +3040,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
 170:                                              ; preds = %163
   %171 = load i32, ptr %17, align 8
   %172 = add i32 %171, -1
-  %173 = call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef %164, i1 noundef zeroext %.2227, ptr noundef %.2145226, i32 noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %139, i32 noundef %172)
+  %173 = call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef nonnull %0, ptr noundef %164, i1 noundef zeroext %.2227, ptr noundef %.2145226, i32 noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %139, i32 noundef %172)
   %174 = icmp slt i32 %173, 0
   br i1 %174, label %175, label %179
 
@@ -3506,7 +3506,7 @@ declare i32 @H5HF__space_remove(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare ptr @H5MM_realloc(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_decr(ptr noundef %0) unnamed_addr #0 {
@@ -3553,7 +3553,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_decr(ptr nounde
 declare i32 @H5HF__man_iblock_parent_info(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc void @H5HF__sect_indirect_valid(ptr nocapture noundef readonly %0) unnamed_addr #5 {
+define internal fastcc void @H5HF__sect_indirect_valid(ptr noundef readonly captures(none) %0) unnamed_addr #5 {
 .loopexit42:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %2 = load i32, ptr %1, align 8
@@ -3580,7 +3580,7 @@ define internal fastcc void @H5HF__sect_indirect_valid(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare i64 @H5HF__dtable_span_size(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
@@ -3591,7 +3591,7 @@ declare i32 @H5HF__man_iblock_entry_addr(ptr noundef, i32 noundef, ptr noundef) 
 declare ptr @H5HF__man_iblock_protect(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_revive(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_revive(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @H5HF__iblock_incr(ptr noundef %2) #14
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
@@ -3937,7 +3937,7 @@ H5HF__sect_indirect_is_first.exit:                ; preds = %tailrecurse.i, %24
   store i32 %174, ptr %175, align 8
   %176 = load ptr, ptr %147, align 8
   %177 = load ptr, ptr %176, align 8
-  %178 = tail call fastcc i32 @H5HF__sect_indirect_first(ptr noundef %0, ptr noundef %177)
+  %178 = tail call fastcc i32 @H5HF__sect_indirect_first(ptr noundef nonnull %0, ptr noundef %177)
   %179 = icmp slt i32 %178, 0
   br i1 %179, label %180, label %191
 
@@ -3990,7 +3990,7 @@ H5HF__sect_indirect_is_first.exit:                ; preds = %tailrecurse.i, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_first(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_first(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -4044,7 +4044,7 @@ H5HF__sect_row_first.exit.thread:                 ; preds = %14, %12, %24, %30, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 declare i32 @H5HF__space_sect_change_class(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #7
 
@@ -4052,10 +4052,10 @@ declare i32 @H5HF__space_sect_change_class(ptr noundef, ptr noundef, i16 noundef
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12

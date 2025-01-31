@@ -133,7 +133,7 @@ define internal range(i32 -2147483648, 1) i32 @nf_conntrack_ftp_init() #0 sectio
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @nf_ct_helper_init(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -511,7 +511,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nf_ct_ftp_from_nlattr(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define internal noundef i32 @nf_ct_ftp_from_nlattr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -557,16 +557,16 @@ declare dso_local i32 @nf_conntrack_helpers_register(ptr noundef, i32 noundef) l
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @nf_ct_helper_log(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -593,10 +593,10 @@ declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 
 declare dso_local void @_raw_spin_lock_bh(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare dso_local i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare dso_local i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal i32 @try_rfc959(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext %3, ptr nocapture readnone %4) #9 align 16 {
+define internal i32 @try_rfc959(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3, ptr readnone captures(none) %4) #9 align 16 {
   %6 = alloca [6 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
   %7 = icmp eq i64 %1, 0
@@ -686,7 +686,7 @@ define internal i32 @try_rfc959(ptr nocapture noundef readonly %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8 zeroext %3, ptr nocapture readnone %4) #3 align 16 {
+define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8 zeroext %3, ptr readnone captures(none) %4) #3 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca [4 x i32], align 16
   %8 = icmp ult i64 %1, 4
@@ -886,7 +886,7 @@ select.unfold11:                                  ; preds = %84, %.thread
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal i32 @try_rfc1123(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i8 zeroext %3, ptr nocapture noundef %4) #9 align 16 {
+define internal i32 @try_rfc1123(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 zeroext %3, ptr noundef captures(none) %4) #9 align 16 {
   %6 = alloca [6 x i32], align 16
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %.loopexit, label %.preheader
@@ -1006,7 +1006,7 @@ define internal i32 @try_rfc1123(ptr nocapture noundef readonly %0, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal i32 @try_epsv_response(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i8 zeroext %3, ptr nocapture readnone %4) #9 align 16 {
+define internal i32 @try_epsv_response(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 zeroext %3, ptr readnone captures(none) %4) #9 align 16 {
   %6 = icmp ult i64 %1, 4
   br i1 %6, label %.loopexit, label %7
 
@@ -1087,7 +1087,7 @@ declare dso_local i32 @nf_ct_expect_related_report(ptr noundef, i32 noundef, i32
 declare dso_local void @_raw_spin_unlock_bh(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

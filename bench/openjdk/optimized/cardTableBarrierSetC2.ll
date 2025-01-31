@@ -70,7 +70,7 @@ $_ZNK18ModRefBarrierSetC211pre_barrierEP8GraphKitbP4NodeS3_S3_jS3_PK10TypeOopPtr
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK21CardTableBarrierSetC218byte_map_base_nodeEP8GraphKit(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK21CardTableBarrierSetC218byte_map_base_nodeEP8GraphKit(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z21ci_card_table_addressv() #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
@@ -98,7 +98,7 @@ declare noundef ptr @_Z21ci_card_table_addressv() local_unnamed_addr #1
 declare noundef ptr @_ZN10TypeRawPtr4makeEPh(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK21CardTableBarrierSetC212post_barrierEP8GraphKitP4NodeS3_S3_S3_jS3_9BasicTypeb(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr noundef %4, ptr noundef %5, i32 %6, ptr noundef %7, i8 zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 align 2 {
+define hidden void @_ZNK21CardTableBarrierSetC212post_barrierEP8GraphKitP4NodeS3_S3_S3_jS3_9BasicTypeb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef %4, ptr noundef %5, i32 %6, ptr noundef %7, i8 zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 align 2 {
   %11 = alloca %class.IdealKit, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %25, label %12
@@ -332,7 +332,7 @@ _ZN8IdealKit4AddPEP4NodeS1_S1_.exit:              ; preds = %_ZN4NodenwEm.exit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK21CardTableBarrierSetC226use_ReduceInitialCardMarksEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK21CardTableBarrierSetC226use_ReduceInitialCardMarksEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load i8, ptr @ReduceInitialCardMarks, align 1
   %3 = trunc i8 %2 to i1
   ret i1 %3
@@ -385,7 +385,7 @@ define hidden void @_ZNK21CardTableBarrierSetC25cloneEP8GraphKitP4NodeS3_S3_b(pt
 declare void @_ZNK12BarrierSetC25cloneEP8GraphKitP4NodeS3_S3_b(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK21CardTableBarrierSetC218is_gc_barrier_nodeEP4Node(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK21CardTableBarrierSetC218is_gc_barrier_nodeEP4Node(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(52) %1) #4
@@ -394,7 +394,7 @@ define hidden noundef zeroext i1 @_ZNK21CardTableBarrierSetC218is_gc_barrier_nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK21CardTableBarrierSetC220eliminate_gc_barrierEP16PhaseMacroExpandP4Node(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define hidden void @_ZNK21CardTableBarrierSetC220eliminate_gc_barrierEP16PhaseMacroExpandP4Node(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -458,7 +458,7 @@ define hidden void @_ZNK21CardTableBarrierSetC220eliminate_gc_barrierEP16PhaseMa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK21CardTableBarrierSetC231array_copy_requires_gc_barriersEb9BasicTypebbN12BarrierSetC214ArrayCopyPhaseE(ptr nocapture nonnull readnone align 8 %0, i1 noundef zeroext %1, i8 noundef zeroext %2, i1 zeroext %3, i1 zeroext %4, i32 %5) unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK21CardTableBarrierSetC231array_copy_requires_gc_barriersEb9BasicTypebbN12BarrierSetC214ArrayCopyPhaseE(ptr nonnull readnone align 8 captures(none) %0, i1 noundef zeroext %1, i8 noundef zeroext %2, i1 zeroext %3, i1 zeroext %4, i32 %5) unnamed_addr #2 align 2 {
   %7 = and i8 %2, -2
   %or.cond.i = icmp eq i8 %7, 12
   %brmerge.not = and i1 %or.cond.i, %1

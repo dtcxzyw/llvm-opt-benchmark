@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [42 x i8] c"sub_size_t(): overflow: check the context\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i64 0, 2) i64 @_mpd_baseadd(ptr nocapture noundef writeonly %w, ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %v, i64 noundef %m, i64 noundef %n) local_unnamed_addr #0 {
+define hidden range(i64 0, 2) i64 @_mpd_baseadd(ptr noundef writeonly captures(none) %w, ptr noundef readonly captures(none) %u, ptr noundef readonly captures(none) %v, i64 noundef %m, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp31.not = icmp eq i64 %n, 0
   br i1 %cmp31.not, label %for.cond28.preheader, label %for.body
@@ -82,7 +82,7 @@ for.end36:                                        ; preds = %for.body31, %for.co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mpd_baseaddto(ptr nocapture noundef %w, ptr nocapture noundef readonly %u, i64 noundef %n) local_unnamed_addr #0 {
+define hidden void @_mpd_baseaddto(ptr noundef captures(none) %w, ptr noundef readonly captures(none) %u, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %n, 0
   br i1 %cmp, label %for.end26, label %for.body
@@ -126,7 +126,7 @@ for.end26:                                        ; preds = %for.body12, %for.co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i64 0, 2) i64 @_mpd_shortadd(ptr nocapture noundef %w, i64 noundef %m, i64 noundef %v) local_unnamed_addr #0 {
+define hidden range(i64 0, 2) i64 @_mpd_shortadd(ptr noundef captures(none) %w, i64 noundef %m, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %w, align 8
   %add = add i64 %0, %v
@@ -160,7 +160,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i64 0, 2) i64 @_mpd_baseincr(ptr nocapture noundef %u, i64 noundef %n) local_unnamed_addr #0 {
+define hidden range(i64 0, 2) i64 @_mpd_baseincr(ptr noundef captures(none) %u, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp9.not = icmp eq i64 %n, 0
   br i1 %cmp9.not, label %for.end, label %for.body
@@ -188,7 +188,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mpd_basesub(ptr nocapture noundef writeonly %w, ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %v, i64 noundef %m, i64 noundef %n) local_unnamed_addr #0 {
+define hidden void @_mpd_basesub(ptr noundef writeonly captures(none) %w, ptr noundef readonly captures(none) %u, ptr noundef readonly captures(none) %v, i64 noundef %m, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp29.not = icmp eq i64 %n, 0
   br i1 %cmp29.not, label %for.cond27.preheader, label %for.body
@@ -251,7 +251,7 @@ for.end35:                                        ; preds = %for.body30, %for.co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mpd_basesubfrom(ptr nocapture noundef %w, ptr nocapture noundef readonly %u, i64 noundef %n) local_unnamed_addr #0 {
+define hidden void @_mpd_basesubfrom(ptr noundef captures(none) %w, ptr noundef readonly captures(none) %u, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %n, 0
   br i1 %cmp, label %for.end25, label %for.body
@@ -293,7 +293,7 @@ for.end25:                                        ; preds = %for.body10, %for.co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mpd_shortmul(ptr nocapture noundef writeonly %w, ptr nocapture noundef readonly %u, i64 noundef %n, i64 noundef %v) local_unnamed_addr #0 {
+define hidden void @_mpd_shortmul(ptr noundef writeonly captures(none) %w, ptr noundef readonly captures(none) %u, i64 noundef %n, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp9.not = icmp eq i64 %n, 0
   br i1 %cmp9.not, label %for.end, label %for.body.lr.ph
@@ -361,7 +361,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mpd_basemul(ptr nocapture noundef %w, ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %v, i64 noundef %m, i64 noundef %n) local_unnamed_addr #0 {
+define hidden void @_mpd_basemul(ptr noundef captures(none) %w, ptr noundef readonly captures(none) %u, ptr noundef readonly captures(none) %v, i64 noundef %m, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %invariant.gep24 = getelementptr i64, ptr %w, i64 %m
   %cmp26.not = icmp eq i64 %n, 0
@@ -452,7 +452,7 @@ for.end22:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @_mpd_shortdiv(ptr nocapture noundef writeonly %w, ptr nocapture noundef readonly %u, i64 noundef %n, i64 noundef %v) local_unnamed_addr #0 {
+define hidden i64 @_mpd_shortdiv(ptr noundef writeonly captures(none) %w, ptr noundef readonly captures(none) %u, i64 noundef %n, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp.not12 = icmp eq i64 %n, 0
   br i1 %cmp.not12, label %for.end, label %for.body.lr.ph
@@ -495,7 +495,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @_mpd_basedivmod(ptr nocapture noundef writeonly %q, ptr noundef writeonly %r, ptr nocapture noundef readonly %uconst, ptr nocapture noundef readonly %vconst, i64 noundef %nplusm, i64 noundef %n) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @_mpd_basedivmod(ptr noundef writeonly captures(none) %q, ptr noundef writeonly %r, ptr noundef readonly captures(none) %uconst, ptr noundef readonly captures(none) %vconst, i64 noundef %nplusm, i64 noundef %n) local_unnamed_addr #1 {
 entry:
   %ustatic = alloca [64 x i64], align 16
   %vstatic = alloca [64 x i64], align 16
@@ -988,7 +988,7 @@ return:                                           ; preds = %return.sink.split, 
 declare hidden ptr @mpd_alloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mpd_baseshiftl(ptr noundef %dest, ptr nocapture noundef readonly %src, i64 noundef %n, i64 noundef %m, i64 noundef %shift) local_unnamed_addr #1 {
+define hidden void @_mpd_baseshiftl(ptr noundef %dest, ptr noundef readonly captures(none) %src, i64 noundef %n, i64 noundef %m, i64 noundef %shift) local_unnamed_addr #1 {
 entry:
   %l = alloca i64, align 8
   %lprev = alloca i64, align 8
@@ -1071,7 +1071,7 @@ if.end21:                                         ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_mpd_divmod_pow10(ptr nocapture noundef nonnull writeonly %q, ptr nocapture noundef nonnull writeonly %r, i64 noundef %v, i64 noundef %exp) unnamed_addr #3 {
+define internal fastcc void @_mpd_divmod_pow10(ptr noundef nonnull writeonly captures(none) %q, ptr noundef nonnull writeonly captures(none) %r, i64 noundef %v, i64 noundef %exp) unnamed_addr #3 {
 entry:
   %cmp = icmp ult i64 %exp, 10
   br i1 %cmp, label %if.then, label %if.else37
@@ -1273,7 +1273,7 @@ if.end84:                                         ; preds = %if.end84.sink.split
 declare hidden void @mpd_uint_zero(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @_mpd_baseshiftr(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i64 noundef %slen, i64 noundef %shift) local_unnamed_addr #0 {
+define hidden i64 @_mpd_baseshiftr(ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %src, i64 noundef %slen, i64 noundef %shift) local_unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %h = alloca i64, align 8
@@ -1428,7 +1428,7 @@ cond.end:                                         ; preds = %if.end44, %cond.tru
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i64 0, 2) i64 @_mpd_shortadd_b(ptr nocapture noundef %w, i64 noundef %m, i64 noundef %v, i64 noundef %b) local_unnamed_addr #0 {
+define hidden range(i64 0, 2) i64 @_mpd_shortadd_b(ptr noundef captures(none) %w, i64 noundef %m, i64 noundef %v, i64 noundef %b) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %w, align 8
   %add = add i64 %0, %v
@@ -1462,7 +1462,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @_mpd_shortmul_c(ptr nocapture noundef writeonly %w, ptr nocapture noundef readonly %u, i64 noundef %n, i64 noundef %v) local_unnamed_addr #0 {
+define hidden i64 @_mpd_shortmul_c(ptr noundef writeonly captures(none) %w, ptr noundef readonly captures(none) %u, i64 noundef %n, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp7.not = icmp eq i64 %n, 0
   br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
@@ -1528,7 +1528,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @_mpd_shortmul_b(ptr nocapture noundef writeonly %w, ptr nocapture noundef readonly %u, i64 noundef %n, i64 noundef %v, i64 noundef %b) local_unnamed_addr #0 {
+define hidden i64 @_mpd_shortmul_b(ptr noundef writeonly captures(none) %w, ptr noundef readonly captures(none) %u, i64 noundef %n, i64 noundef %v, i64 noundef %b) local_unnamed_addr #0 {
 entry:
   %cmp11.not = icmp eq i64 %n, 0
   br i1 %cmp11.not, label %for.end, label %for.body.lr.ph
@@ -1572,7 +1572,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @_mpd_shortdiv_b(ptr nocapture noundef writeonly %w, ptr nocapture noundef readonly %u, i64 noundef %n, i64 noundef %v, i64 noundef %b) local_unnamed_addr #0 {
+define hidden i64 @_mpd_shortdiv_b(ptr noundef writeonly captures(none) %w, ptr noundef readonly captures(none) %u, i64 noundef %n, i64 noundef %v, i64 noundef %b) local_unnamed_addr #0 {
 entry:
   %cmp.not13 = icmp eq i64 %n, 0
   br i1 %cmp.not13, label %for.end, label %for.body.lr.ph
@@ -1616,19 +1616,19 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8

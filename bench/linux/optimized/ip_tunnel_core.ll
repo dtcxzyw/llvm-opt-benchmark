@@ -218,13 +218,13 @@ define dso_local void @iptunnel_xmit(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @skb_scrub_packet(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @skb_push(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -236,7 +236,7 @@ declare dso_local void @__ip_select_ident(ptr noundef, ptr noundef, i32 noundef)
 declare dso_local i32 @ip_local_out(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__iptunnel_pull_header(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) #0 align 16 {
@@ -457,7 +457,7 @@ define dso_local ptr @iptunnel_metadata_reply(ptr noundef readonly %0, i32 nound
 declare dso_local ptr @metadata_dst_alloc(i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @iptunnel_handle_offloads(ptr noundef %0, i32 noundef %1) #0 align 16 {
@@ -1098,7 +1098,7 @@ define dso_local void @ip_tunnel_unneed_metadata() #0 align 16 {
 declare dso_local void @static_key_slow_dec(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local noundef zeroext range(i16 -8826, 9) i16 @ip_tunnel_parse_protocol(ptr nocapture noundef readonly %0) #6 align 16 {
+define dso_local noundef zeroext range(i16 -8826, 9) i16 @ip_tunnel_parse_protocol(ptr noundef readonly captures(none) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -1143,7 +1143,7 @@ define dso_local noundef zeroext range(i16 -8826, 9) i16 @ip_tunnel_parse_protoc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @ip_tunnel_netlink_encap_parms(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #7 align 16 {
+define dso_local noundef zeroext i1 @ip_tunnel_netlink_encap_parms(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #7 align 16 {
   store i64 0, ptr %1, align 2
   %3 = icmp eq ptr %0, null
   br i1 %3, label %37, label %4
@@ -1207,7 +1207,7 @@ define dso_local noundef zeroext i1 @ip_tunnel_netlink_encap_parms(ptr noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @ip_tunnel_netlink_parms(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #7 align 16 {
+define dso_local void @ip_tunnel_netlink_parms(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #7 align 16 {
   %3 = getelementptr i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

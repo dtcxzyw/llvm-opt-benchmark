@@ -47,7 +47,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr noundef readonly captures(none) %fns) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_get_static_state() #8
   %0 = load ptr, ptr %fns, align 8
@@ -130,7 +130,7 @@ declare i32 @ENGINE_free(ptr noundef) local_unnamed_addr #2
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @bind_dasync(ptr noundef %e) unnamed_addr #1 {
@@ -748,7 +748,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_pkey_meths(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @dasync_pkey(ptr nocapture readnone %e, ptr noundef writeonly %pmeth, ptr nocapture noundef writeonly %pnids, i32 noundef %nid) #4 {
+define internal range(i32 0, 2) i32 @dasync_pkey(ptr readnone captures(none) %e, ptr noundef writeonly %pmeth, ptr noundef writeonly captures(none) %pnids, i32 noundef %nid) #4 {
 entry:
   %cmp = icmp eq ptr %pmeth, null
   br i1 %cmp, label %if.then, label %if.end
@@ -778,7 +778,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 declare i32 @ENGINE_set_digests(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dasync_digests(ptr nocapture readnone %e, ptr noundef writeonly %digest, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
+define internal i32 @dasync_digests(ptr readnone captures(none) %e, ptr noundef writeonly %digest, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
 entry:
   %tobool.not = icmp eq ptr %digest, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -839,7 +839,7 @@ return:                                           ; preds = %if.end, %dasync_dig
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @dasync_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #4 {
+define internal range(i32 0, 4) i32 @dasync_ciphers(ptr readnone captures(none) %e, ptr noundef writeonly %cipher, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #4 {
 entry:
   %cmp = icmp eq ptr %cipher, null
   br i1 %cmp, label %if.then, label %if.end
@@ -882,7 +882,7 @@ return:                                           ; preds = %sw.bb, %sw.bb1, %sw
 declare i32 @ENGINE_set_destroy_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dasync_destroy(ptr nocapture readnone %e) #1 {
+define internal noundef i32 @dasync_destroy(ptr readnone captures(none) %e) #1 {
 entry:
   %0 = load ptr, ptr @_hidden_sha1_md, align 8
   tail call void @EVP_MD_meth_free(ptr noundef %0) #8
@@ -914,7 +914,7 @@ ERR_unload_DASYNC_strings.exit:                   ; preds = %entry, %if.then.i
 declare i32 @ENGINE_set_init_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dasync_init(ptr nocapture readnone %e) #0 {
+define internal noundef i32 @dasync_init(ptr readnone captures(none) %e) #0 {
 entry:
   ret i32 1
 }
@@ -922,7 +922,7 @@ entry:
 declare i32 @ENGINE_set_finish_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dasync_finish(ptr nocapture readnone %e) #0 {
+define internal noundef i32 @dasync_finish(ptr readnone captures(none) %e) #0 {
 entry:
   ret i32 1
 }
@@ -1247,7 +1247,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @ASYNC_WAIT_CTX_set_wait_fd(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @wait_cleanup(ptr nocapture readnone %ctx, ptr nocapture readnone %key, i32 noundef %readfd, ptr noundef %pvwritefd) #1 {
+define internal void @wait_cleanup(ptr readnone captures(none) %ctx, ptr readnone captures(none) %key, i32 noundef %readfd, ptr noundef %pvwritefd) #1 {
 entry:
   %call = tail call i32 @close(i32 noundef %readfd) #8
   %0 = load i32, ptr %pvwritefd, align 4
@@ -1257,10 +1257,10 @@ entry:
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
@@ -1556,7 +1556,7 @@ return:                                           ; preds = %if.end6, %sw.bb9, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @EVP_aes_128_cbc_hmac_sha1() local_unnamed_addr #2
 

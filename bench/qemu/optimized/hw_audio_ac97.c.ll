@@ -97,7 +97,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 declare void @deprecated_register_soundhw(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ac97_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ac97_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #7
@@ -234,7 +234,7 @@ declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 -1, 4294967296) i64 @nam_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #2 {
+define internal range(i64 -1, 4294967296) i64 @nam_read(ptr noundef captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #2 {
 entry:
   %conv = zext i32 %size to i64
   %div = udiv i64 %addr, %conv
@@ -857,10 +857,10 @@ if.end:                                           ; preds = %sw.bb14, %sw.bb18, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @reset_voices(ptr noundef initializes((3008, 3012)) %s, ptr nocapture noundef nonnull readonly %active) unnamed_addr #0 {
+define internal fastcc void @reset_voices(ptr noundef initializes((3008, 3012)) %s, ptr noundef nonnull readonly captures(none) %active) unnamed_addr #0 {
 entry:
   %as.i40 = alloca %struct.audsettings, align 4
   %as.i22 = alloca %struct.audsettings, align 4
@@ -1491,7 +1491,7 @@ declare i64 @AUD_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 -1, 4294967296) i64 @nabm_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #2 {
+define internal range(i64 -1, 4294967296) i64 @nabm_read(ptr noundef captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #2 {
 entry:
   %conv = zext i32 %size to i64
   %div = udiv i64 %addr, %conv
@@ -2375,7 +2375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @is_version_2(ptr nocapture readnone %opaque, i32 noundef %version_id) #4 {
+define internal noundef zeroext i1 @is_version_2(ptr readnone captures(none) %opaque, i32 noundef %version_id) #4 {
 entry:
   %cmp = icmp eq i32 %version_id, 2
   ret i1 %cmp
@@ -2388,10 +2388,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

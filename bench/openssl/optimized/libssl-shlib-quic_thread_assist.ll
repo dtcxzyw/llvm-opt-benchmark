@@ -50,7 +50,7 @@ declare ptr @ossl_crypto_condvar_new() local_unnamed_addr #1
 declare ptr @ossl_crypto_thread_native_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @assist_thread_main(ptr nocapture noundef readonly %arg) #0 {
+define internal noundef i32 @assist_thread_main(ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   %call = tail call ptr @ossl_quic_channel_get_mutex(ptr noundef %0) #3
@@ -107,7 +107,7 @@ for.end:                                          ; preds = %if.end33, %if.end28
 declare void @ossl_crypto_condvar_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_thread_assist_stop_async(ptr nocapture noundef %qta) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_thread_assist_stop_async(ptr noundef captures(none) %qta) local_unnamed_addr #0 {
 entry:
   %teardown = getelementptr inbounds nuw i8, ptr %qta, i64 24
   %0 = load i32, ptr %teardown, align 8
@@ -128,7 +128,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @ossl_crypto_condvar_signal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_thread_assist_wait_stopped(ptr nocapture noundef %qta) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_thread_assist_wait_stopped(ptr noundef captures(none) %qta) local_unnamed_addr #0 {
 entry:
   %rv = alloca i32, align 4
   %0 = load ptr, ptr %qta, align 8
@@ -205,7 +205,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ossl_crypto_thread_native_clean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_thread_assist_notify_deadline_changed(ptr nocapture noundef readonly %qta) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_thread_assist_notify_deadline_changed(ptr noundef readonly captures(none) %qta) local_unnamed_addr #0 {
 entry:
   %teardown = getelementptr inbounds nuw i8, ptr %qta, i64 24
   %0 = load i32, ptr %teardown, align 8

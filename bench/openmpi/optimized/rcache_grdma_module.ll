@@ -305,7 +305,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %23
 declare void @mca_rcache_base_module_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mca_rcache_grdma_register(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal i32 @mca_rcache_grdma_register(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) #0 {
   %7 = alloca ptr, align 8
   %.sroa.22.i.i.i = alloca i64, align 8
   %8 = alloca ptr, align 8
@@ -690,7 +690,7 @@ opal_free_list_return_mt.exit:                    ; preds = %187, %184, %181, %o
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mca_rcache_grdma_find(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @mca_rcache_grdma_find(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @opal_getpagesize() #7
   %6 = sext i32 %5 to i64
   %7 = ptrtoint ptr %1 to i64
@@ -799,7 +799,7 @@ define internal i32 @mca_rcache_grdma_find(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mca_rcache_grdma_deregister(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal i32 @mca_rcache_grdma_deregister(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = atomicrmw volatile add ptr %3, i32 -1 monotonic, align 4
   %5 = add i32 %4, -1
@@ -927,7 +927,7 @@ dereg_mem.exit:                                   ; preds = %75, %72, %69, %opal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mca_rcache_grdma_invalidate_range(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i32 @mca_rcache_grdma_invalidate_range(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.gc_add_args_t, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1054,7 +1054,7 @@ opal_obj_run_destructors.exit23:                  ; preds = %.lr.ph.i20, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @mca_rcache_grdma_evict(ptr nocapture noundef readonly %0) #0 {
+define internal noundef zeroext i1 @mca_rcache_grdma_evict(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -1198,12 +1198,12 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_free_list_init(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @mca_rcache_base_vma_module_alloc() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
@@ -1219,7 +1219,7 @@ declare i32 @opal_getpagesize() local_unnamed_addr #1
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_unregistration_gc(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @do_unregistration_gc(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.sroa.22.i.i = alloca i64, align 8
   %3 = alloca ptr, align 8
@@ -1398,7 +1398,7 @@ dereg_mem.exit:                                   ; preds = %41, %opal_lifo_push
 declare i32 @mca_rcache_base_vma_iterate(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mca_rcache_grdma_check_cached(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 0, 2) i32 @mca_rcache_grdma_check_cached(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -1470,7 +1470,7 @@ declare i32 @mca_rcache_base_vma_insert(ptr noundef, ptr noundef, i64 noundef) l
 declare i32 @mca_rcache_base_vma_find(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @gc_add(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @gc_add(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load volatile i32, ptr %3, align 4
   %5 = and i32 %4, 128
@@ -1591,7 +1591,7 @@ opal_lifo_push_atomic.exit:                       ; preds = %opal_atomic_compare
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_rcache_grdma_remove_from_lru(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @mca_rcache_grdma_remove_from_lru(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 92
   br label %4
 
@@ -1646,10 +1646,10 @@ declare i64 @mca_rcache_base_vma_size(ptr noundef) local_unnamed_addr #1
 declare void @mca_rcache_base_module_fini(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

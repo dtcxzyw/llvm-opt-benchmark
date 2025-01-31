@@ -67,7 +67,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_metadata_dst
 @llvm.compiler.used = appending global [18 x ptr] [ptr @__UNIQUE_ID___addressable___dst_destroy_metrics_generic853, ptr @__UNIQUE_ID___addressable_dst_alloc846, ptr @__UNIQUE_ID___addressable_dst_blackhole_mtu856, ptr @__UNIQUE_ID___addressable_dst_blackhole_redirect855, ptr @__UNIQUE_ID___addressable_dst_blackhole_update_pmtu854, ptr @__UNIQUE_ID___addressable_dst_cow_metrics_generic852, ptr @__UNIQUE_ID___addressable_dst_default_metrics844, ptr @__UNIQUE_ID___addressable_dst_destroy847, ptr @__UNIQUE_ID___addressable_dst_dev_put848, ptr @__UNIQUE_ID___addressable_dst_discard_out843, ptr @__UNIQUE_ID___addressable_dst_init845, ptr @__UNIQUE_ID___addressable_dst_release849, ptr @__UNIQUE_ID___addressable_dst_release_immediate850, ptr @__UNIQUE_ID___addressable_metadata_dst_alloc857, ptr @__UNIQUE_ID___addressable_metadata_dst_alloc_percpu859, ptr @__UNIQUE_ID___addressable_metadata_dst_free858, ptr @__UNIQUE_ID___addressable_metadata_dst_free_percpu860, ptr @rcuref_put.__UNIQUE_ID___addressable___SCK__preempt_schedule509], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dst_discard_out(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef i32 @dst_discard_out(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   tail call void @kfree_skb_reason(ptr noundef %2, i32 noundef 2) #13
   ret i32 0
 }
@@ -614,7 +614,7 @@ define dso_local ptr @dst_cow_metrics_generic(ptr noundef %0, i64 noundef %1) #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
@@ -638,32 +638,32 @@ define dso_local void @__dst_destroy_metrics_generic(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noalias noundef ptr @dst_blackhole_check(ptr nocapture readnone %0, i32 %1) #4 align 16 {
+define dso_local noalias noundef ptr @dst_blackhole_check(ptr readnone captures(none) %0, i32 %1) #4 align 16 {
   ret ptr null
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noalias noundef ptr @dst_blackhole_cow_metrics(ptr nocapture readnone %0, i64 %1) #4 align 16 {
+define dso_local noalias noundef ptr @dst_blackhole_cow_metrics(ptr readnone captures(none) %0, i64 %1) #4 align 16 {
   ret ptr null
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noalias noundef ptr @dst_blackhole_neigh_lookup(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #4 align 16 {
+define dso_local noalias noundef ptr @dst_blackhole_neigh_lookup(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #4 align 16 {
   ret ptr null
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @dst_blackhole_update_pmtu(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3, i1 zeroext %4) #4 align 16 {
+define dso_local void @dst_blackhole_update_pmtu(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, i1 zeroext %4) #4 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @dst_blackhole_redirect(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #4 align 16 {
+define dso_local void @dst_blackhole_redirect(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #4 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @dst_blackhole_mtu(ptr nocapture noundef readonly %0) #5 align 16 {
+define dso_local i32 @dst_blackhole_mtu(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, -4
@@ -953,7 +953,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #12

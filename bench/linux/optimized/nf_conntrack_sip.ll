@@ -165,7 +165,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [31 x ptr] [ptr @__UNIQUE_ID___addressable_ct_sip_get_header1023, ptr @__UNIQUE_ID___addressable_ct_sip_get_sdp_header1030, ptr @__UNIQUE_ID___addressable_ct_sip_parse_address_param1027, ptr @__UNIQUE_ID___addressable_ct_sip_parse_header_uri1026, ptr @__UNIQUE_ID___addressable_ct_sip_parse_numerical_param1028, ptr @__UNIQUE_ID___addressable_ct_sip_parse_request1022, ptr @__UNIQUE_ID___addressable_nf_conntrack_sip_init1049, ptr @__UNIQUE_ID___addressable_nf_nat_sip_hooks1020, ptr @__UNIQUE_ID_alias1008, ptr @__UNIQUE_ID_alias1009, ptr @__UNIQUE_ID_author1006, ptr @__UNIQUE_ID_description1007, ptr @__UNIQUE_ID_file1004, ptr @__UNIQUE_ID_license1005, ptr @__UNIQUE_ID_ports1011, ptr @__UNIQUE_ID_portstype1010, ptr @__UNIQUE_ID_sip_direct_media1017, ptr @__UNIQUE_ID_sip_direct_mediatype1016, ptr @__UNIQUE_ID_sip_direct_signalling1015, ptr @__UNIQUE_ID_sip_direct_signallingtype1014, ptr @__UNIQUE_ID_sip_external_media1019, ptr @__UNIQUE_ID_sip_external_mediatype1018, ptr @__UNIQUE_ID_sip_timeout1013, ptr @__UNIQUE_ID_sip_timeouttype1012, ptr @__exitcall_nf_conntrack_sip_fini, ptr @__param_ports, ptr @__param_sip_direct_media, ptr @__param_sip_direct_signalling, ptr @__param_sip_external_media, ptr @__param_sip_timeout, ptr @nf_conntrack_sip_fini], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -1, 2) i32 @ct_sip_parse_request(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr nocapture noundef writeonly %6) #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @ct_sip_parse_request(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, ptr noundef writeonly captures(none) %6) #0 align 16 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %union.nf_inet_addr, align 4
@@ -519,13 +519,13 @@ sip_parse_addr.exit13.thread:                     ; preds = %139, %151, %148, %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare dso_local i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @skp_epaddr_len(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i32 @skp_epaddr_len(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca %union.nf_inet_addr, align 4
   %7 = load i32, ptr %3, align 4
@@ -694,10 +694,10 @@ declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) loc
 declare i16 @llvm.bswap.i16(i16) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -1, 2) i32 @ct_sip_get_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @ct_sip_get_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) #0 align 16 {
   %8 = alloca i32, align 4
   %9 = zext i32 %4 to i64
   %10 = getelementptr [9 x %struct.sip_header], ptr @ct_sip_hdrs, i64 0, i64 %9
@@ -1042,7 +1042,7 @@ thread-pre-split:                                 ; preds = %15, %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define internal fastcc noundef ptr @ct_sip_header_search(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #6 align 16 {
+define internal fastcc noundef ptr @ct_sip_header_search(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #6 align 16 {
   %5 = zext i32 %3 to i64
   %6 = sub nsw i64 0, %5
   %7 = getelementptr i8, ptr %1, i64 %6
@@ -1138,7 +1138,7 @@ thread-pre-split:                                 ; preds = %17, %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -1, 2) i32 @ct_sip_parse_header_uri(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7, ptr noundef %8, ptr nocapture noundef writeonly %9) #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @ct_sip_parse_header_uri(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef %8, ptr noundef writeonly captures(none) %9) #0 align 16 {
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
@@ -1539,7 +1539,7 @@ sip_parse_addr.exit.thread:                       ; preds = %156, %164, %172, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @ct_sip_parse_address_param(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7, i1 noundef zeroext %8) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ct_sip_parse_address_param(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef %7, i1 noundef zeroext %8) #0 align 16 {
   %10 = alloca ptr, align 8
   %11 = zext i32 %3 to i64
   %12 = getelementptr i8, ptr %1, i64 %11
@@ -1831,10 +1831,10 @@ ct_sip_header_search.exit5.thread:                ; preds = %.loopexit.i4, %101,
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -1, 2) i32 @ct_sip_parse_numerical_param(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr nocapture noundef writeonly %7) #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @ct_sip_parse_numerical_param(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly captures(none) %7) #0 align 16 {
   %9 = alloca ptr, align 8
   %10 = zext i32 %3 to i64
   %11 = getelementptr i8, ptr %1, i64 %10
@@ -2061,7 +2061,7 @@ ct_sip_header_search.exit9.thread:                ; preds = %.loopexit.i8, %100,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -1, 2) i32 @ct_sip_get_sdp_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @ct_sip_get_sdp_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) #0 align 16 {
   %9 = alloca i32, align 4
   %10 = zext i32 %3 to i64
   %11 = getelementptr i8, ptr %1, i64 %10
@@ -2338,7 +2338,7 @@ define internal range(i32 -2147483648, 1) i32 @nf_conntrack_sip_init() #8 sectio
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @epaddr_len(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal i32 @epaddr_len(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca %union.nf_inet_addr, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
@@ -2471,10 +2471,10 @@ sip_parse_addr.exit.thread:                       ; preds = %4, %11, %23, %20, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal i32 @digits_len(ptr nocapture readnone %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr nocapture readnone %3) #5 align 16 {
+define internal i32 @digits_len(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr readnone captures(none) %3) #5 align 16 {
   %5 = icmp ult ptr %1, %2
   br i1 %5, label %6, label %.loopexit
 
@@ -2513,7 +2513,7 @@ declare dso_local i32 @in4_pton(ptr noundef, i32 noundef, ptr noundef, i32 nound
 declare dso_local i32 @in6_pton(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal i32 @callid_len(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #5 align 16 {
+define internal i32 @callid_len(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #5 align 16 {
   %5 = tail call fastcc i32 @word_len(ptr noundef %1, ptr noundef %2)
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %1, i64 %6
@@ -2612,7 +2612,7 @@ define internal fastcc i32 @word_len(ptr noundef readonly %0, ptr noundef readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @sdp_addr_len(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal i32 @sdp_addr_len(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca %union.nf_inet_addr, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
@@ -2663,7 +2663,7 @@ define internal i32 @sdp_addr_len(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal i32 @media_len(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #5 align 16 {
+define internal i32 @media_len(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #5 align 16 {
   %5 = icmp ult ptr %1, %2
   br i1 %5, label %6, label %.loopexit6
 
@@ -2744,7 +2744,7 @@ define internal i32 @media_len(ptr nocapture readnone %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @nf_ct_helper_init(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -4424,7 +4424,7 @@ define internal i32 @process_prack_response(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @process_bye_request(ptr nocapture noundef readonly %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 align 16 {
+define internal noundef i32 @process_bye_request(ptr noundef readonly captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, -8
@@ -4900,7 +4900,7 @@ ct_sip_header_search.exit13:                      ; preds = %169
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @process_register_response(ptr noundef %0, i32 %1, i32 %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
+define internal range(i32 0, 2) i32 @process_register_response(ptr noundef %0, i32 %1, i32 %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
   %8 = alloca ptr, align 8
   %9 = alloca %union.nf_inet_addr, align 4
   %10 = alloca i16, align 2
@@ -5453,7 +5453,7 @@ declare dso_local void @_raw_spin_lock_bh(ptr noundef) local_unnamed_addr #3 sec
 declare dso_local void @_raw_spin_unlock_bh(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @nf_ip_route(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
@@ -5483,7 +5483,7 @@ declare dso_local i32 @__nf_ip6_route(ptr noundef, ptr noundef, ptr noundef, i1 
 declare dso_local i32 @nf_ct_expect_related_report(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define internal fastcc noundef range(i32 0, 2) i32 @ct_sip_parse_transport(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #13 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ct_sip_parse_transport(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #13 align 16 {
   %6 = zext i32 %3 to i64
   %7 = getelementptr i8, ptr %1, i64 %6
   %8 = zext i32 %2 to i64

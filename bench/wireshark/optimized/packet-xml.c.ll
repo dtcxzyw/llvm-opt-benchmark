@@ -303,7 +303,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.254 = private unnamed_addr constant [5 x i8] c"UTF8\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @xml_get_tag(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @xml_get_tag(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.017 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %.017, null
@@ -354,10 +354,10 @@ define noundef ptr @xml_get_tag(ptr nocapture noundef readonly %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @xml_get_attrib(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @xml_get_attrib(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.013 = load ptr, ptr %3, align 8
   %.not14 = icmp eq ptr %.013, null
@@ -392,7 +392,7 @@ define noundef ptr @xml_get_attrib(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @xml_get_cdata(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define noundef ptr @xml_get_cdata(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.07 = load ptr, ptr %2, align 8
   %.not8 = icmp eq ptr %.07, null
@@ -1234,7 +1234,7 @@ define internal void @xml_cleanup_protocol() #3 {
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_xml(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #3 {
+define internal i32 @dissect_xml(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #3 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr @dissect_xml.stack, align 8
   %.not = icmp eq ptr %6, null
@@ -1271,7 +1271,7 @@ define internal i32 @dissect_xml(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %22 = tail call ptr @tvb_get_string_enc(ptr noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef %21, i32 noundef 4) #10
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #9
   %24 = trunc i64 %23 to i32
-  %25 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %22, i32 noundef %24, i32 noundef %24) #10
+  %25 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %22, i32 noundef %24, i32 noundef %24) #10
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %25, ptr noundef nonnull @.str.225) #10
   br label %75
 
@@ -1282,7 +1282,7 @@ define internal i32 @dissect_xml(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %30 = tail call ptr @tvb_get_string_enc(ptr noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef %29, i32 noundef -2147483644) #10
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #9
   %32 = trunc i64 %31 to i32
-  %33 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %30, i32 noundef %32, i32 noundef %32) #10
+  %33 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %30, i32 noundef %32, i32 noundef %32) #10
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %33, ptr noundef nonnull @.str.226) #10
   br label %75
 
@@ -1348,7 +1348,7 @@ get_char_encoding.exit:                           ; preds = %60, %64
   %69 = call ptr @tvb_get_string_enc(ptr noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef %68, i32 noundef %.017.i) #10
   %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %69) #9
   %71 = trunc i64 %70 to i32
-  %72 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %69, i32 noundef %71, i32 noundef %71) #10
+  %72 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %69, i32 noundef %71, i32 noundef %71) #10
   %73 = load ptr, ptr %35, align 8
   %74 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %73, ptr noundef nonnull @.str.227, ptr noundef %storemerge.i) #10
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %72, ptr noundef %74) #10
@@ -1457,7 +1457,7 @@ define hidden void @proto_reg_handoff_xml() local_unnamed_addr #3 {
 declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_dissector_media(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #3 {
+define internal void @add_dissector_media(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #3 {
   %4 = load ptr, ptr @xml_handle, align 8
   tail call void @dissector_add_string(ptr noundef nonnull @.str.253, ptr noundef %0, ptr noundef %4) #10
   ret void
@@ -1468,7 +1468,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_xml_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #3 {
+define internal range(i32 0, 2) i32 @dissect_xml_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @want_ignore, align 8
@@ -1494,7 +1494,7 @@ define internal range(i32 0, 2) i32 @dissect_xml_heur(ptr noundef %0, ptr nounde
   %17 = tail call ptr @tvb_get_string_enc(ptr noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef %16, i32 noundef %switch.select31) #10
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #9
   %19 = trunc i64 %18 to i32
-  %20 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %17, i32 noundef %19, i32 noundef %19) #10
+  %20 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %19, i32 noundef %19) #10
   %21 = load ptr, ptr %5, align 8
   %22 = load ptr, ptr @want_ignore, align 8
   %23 = tail call ptr @tvbparse_init(ptr noundef %21, ptr noundef %20, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %22) #10
@@ -1528,7 +1528,7 @@ declare i32 @g_str_hash(ptr noundef) #4
 declare i32 @g_str_equal(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @xml_new_namespace(ptr noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #3 {
+define internal void @xml_new_namespace(ptr noundef %0, ptr readnone captures(none) %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call ptr @wmem_epan_scope() #10
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 56) #10
@@ -1607,7 +1607,7 @@ declare ptr @g_string_new(ptr noundef) local_unnamed_addr #4
 declare ptr @g_dir_read_name(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -1698,7 +1698,7 @@ declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_xmlpi_namespace(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #3 {
+define internal void @add_xmlpi_namespace(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #3 {
   %4 = alloca %struct.hf_register_info, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct._attr_reg_data, align 8
@@ -1758,7 +1758,7 @@ declare ptr @g_ptr_array_remove_index(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_elements(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
+define internal void @free_elements(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1785,7 +1785,7 @@ define internal void @free_elements(ptr nocapture readnone %0, ptr nocapture nou
 declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_xml_hier(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #3 {
+define internal fastcc ptr @make_xml_hier(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #3 {
   %9 = alloca %struct.hf_register_info, align 8
   %10 = alloca %struct.hf_register_info, align 8
   %11 = alloca ptr, align 8
@@ -1965,7 +1965,7 @@ fully_qualified_name.exit:                        ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_xml_attribute_names(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @add_xml_attribute_names(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = alloca %struct.hf_register_info, align 8
   %5 = tail call ptr @wmem_epan_scope() #10
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1998,7 +1998,7 @@ define internal void @add_xml_attribute_names(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @duplicate_element(ptr nocapture noundef readonly %0) unnamed_addr #3 {
+define internal fastcc noalias ptr @duplicate_element(ptr noundef readonly captures(none) %0) unnamed_addr #3 {
   %2 = tail call ptr @wmem_epan_scope() #10
   %3 = tail call noalias ptr @wmem_alloc(ptr noundef %2, i64 noundef 56) #10
   %4 = tail call ptr @wmem_epan_scope() #10
@@ -2052,7 +2052,7 @@ define internal fastcc noalias ptr @duplicate_element(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @copy_attrib_item(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #3 {
+define internal void @copy_attrib_item(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #3 {
   %4 = tail call ptr @wmem_epan_scope() #10
   %5 = tail call noalias ptr @wmem_strdup(ptr noundef %4, ptr noundef %0) #10
   %6 = tail call ptr @wmem_epan_scope() #10
@@ -2127,7 +2127,7 @@ declare ptr @tvbparse_char(i32 noundef, ptr noundef, ptr noundef, ptr noundef, p
 declare ptr @tvbparse_set_oneof(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @get_attrib_value(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef initializes((32, 40)) %2) #5 {
+define internal void @get_attrib_value(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) initializes((32, 40)) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2142,7 +2142,7 @@ declare void @tvbparse_shrink_token_cb(ptr noundef, ptr noundef, ptr noundef) #4
 declare ptr @tvbparse_some(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @after_attrib(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @after_attrib(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -2274,7 +2274,7 @@ insert_xml_frame.exit:                            ; preds = %75, %76
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @after_open_tag(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #3 {
+define internal void @after_open_tag(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -2291,7 +2291,7 @@ define internal void @after_open_tag(ptr nocapture noundef readonly %0, ptr noca
 declare ptr @tvbparse_string(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @after_closed_tag(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @after_closed_tag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -2330,7 +2330,7 @@ define internal void @after_closed_tag(ptr noundef %0, ptr nocapture readnone %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @after_xmlpi(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @after_xmlpi(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -2371,7 +2371,7 @@ define internal void @after_xmlpi(ptr noundef %0, ptr nocapture readnone %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @after_token(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @after_token(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -2483,7 +2483,7 @@ insert_xml_frame.exit:                            ; preds = %50, %51
 declare ptr @tvbparse_until(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @before_xmpli(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @before_xmpli(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -2591,7 +2591,7 @@ insert_xml_frame.exit:                            ; preds = %57, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @after_untag(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @after_untag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -2648,7 +2648,7 @@ define internal void @after_untag(ptr noundef %0, ptr nocapture readnone %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @before_dtd_doctype(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @before_dtd_doctype(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -2755,7 +2755,7 @@ insert_xml_frame.exit:                            ; preds = %57, %58
 declare ptr @tvbparse_casestring(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @pop_stack(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @pop_stack(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -1
@@ -2789,7 +2789,7 @@ define internal void @pop_stack(ptr noundef %0, ptr nocapture readnone %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @before_tag(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @before_tag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -2962,7 +2962,7 @@ insert_xml_frame.exit:                            ; preds = %103, %104
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @after_dtd_close(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @after_dtd_close(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -3005,7 +3005,7 @@ define internal void @after_dtd_close(ptr noundef %0, ptr nocapture readnone %1,
 declare ptr @tvbparse_not_chars(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @unrecognized_token(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @unrecognized_token(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -3054,13 +3054,13 @@ declare void @llvm.va_start.p0(ptr) #6
 declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

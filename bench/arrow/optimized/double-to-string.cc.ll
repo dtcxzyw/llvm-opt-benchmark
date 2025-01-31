@@ -48,7 +48,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %value, ptr nocapture noundef %result_builder) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %value, ptr noundef captures(none) %result_builder) local_unnamed_addr #2 align 2 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %value)
   %1 = fcmp oeq double %0, 0x7FF0000000000000
@@ -95,7 +95,7 @@ return.sink.split:                                ; preds = %if.end7, %if.end, %
   %arrayidx.i.i.i8 = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i.i7
   %sext.i9 = shl i64 %call.i.i4, 32
   %conv.i2.i10 = ashr exact i64 %sext.i9, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8, ptr align 1 %.sink18, i64 %conv.i2.i10, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8, ptr nonnull align 1 %.sink18, i64 %conv.i2.i10, i1 false)
   %9 = load i32, ptr %position_.i.i6, align 8
   %add.i.i11 = add nsw i32 %9, %conv.i.i5
   store i32 %add.i.i11, ptr %position_.i.i6, align 8
@@ -107,7 +107,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %decimal_digits, i32 noundef %length, i32 noundef %exponent, ptr nocapture noundef %result_builder) local_unnamed_addr #3 align 2 {
+define void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(none) %decimal_digits, i32 noundef %length, i32 noundef %exponent, ptr noundef captures(none) %result_builder) local_unnamed_addr #3 align 2 {
 entry:
   %buffer = alloca [6 x i8], align 1
   %0 = load i8, ptr %decimal_digits, align 1
@@ -300,7 +300,7 @@ while.end38:                                      ; preds = %while.end38.loopexi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %decimal_digits, i32 noundef %length, i32 noundef %decimal_point, i32 noundef %digits_after_point, ptr nocapture noundef %result_builder) local_unnamed_addr #3 align 2 {
+define void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(none) %decimal_digits, i32 noundef %length, i32 noundef %decimal_point, i32 noundef %digits_after_point, ptr noundef captures(none) %result_builder) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i32 %decimal_point, 1
   br i1 %cmp, label %if.then, label %if.else
@@ -512,7 +512,7 @@ if.end30:                                         ; preds = %for.body.i79, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS0_13StringBuilderENS1_8DtoaModeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %value, ptr nocapture noundef %result_builder, i32 noundef %mode) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS0_13StringBuilderENS1_8DtoaModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %value, ptr noundef captures(none) %result_builder, i32 noundef %mode) local_unnamed_addr #4 align 2 {
 entry:
   %decimal_point = alloca i32, align 4
   %sign = alloca i8, align 1
@@ -565,7 +565,7 @@ return.sink.split.i:                              ; preds = %if.end7.i, %if.then
   %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i.i7.i
   %sext.i9.i = shl i64 %call.i.i4.i, 32
   %conv.i2.i10.i = ashr exact i64 %sext.i9.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr nonnull align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
   %8 = load i32, ptr %position_.i.i6.i, align 8
   %add.i.i11.i = add nsw i32 %8, %conv.i.i5.i
   store i32 %add.i.i11.i, ptr %position_.i.i6.i, align 8
@@ -624,7 +624,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %v, i32 noundef %mode, i32 noundef %requested_digits, ptr noundef %buffer, i32 noundef %buffer_length, ptr nocapture noundef writeonly initializes((0, 1)) %sign, ptr noundef %length, ptr noundef %point) local_unnamed_addr #4 align 2 {
+define void @_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %v, i32 noundef %mode, i32 noundef %requested_digits, ptr noundef %buffer, i32 noundef %buffer_length, ptr noundef writeonly captures(none) initializes((0, 1)) %sign, ptr noundef %length, ptr noundef %point) local_unnamed_addr #4 align 2 {
 entry:
   %0 = bitcast double %v to i64
   %.lobit = lshr i64 %0, 63
@@ -694,7 +694,7 @@ return:                                           ; preds = %sw.bb12, %sw.bb16, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter7ToFixedEdiPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %value, i32 noundef %requested_digits, ptr nocapture noundef %result_builder) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter7ToFixedEdiPNS0_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %value, i32 noundef %requested_digits, ptr noundef captures(none) %result_builder) local_unnamed_addr #4 align 2 {
 entry:
   %decimal_point = alloca i32, align 4
   %decimal_rep = alloca [161 x i8], align 16
@@ -750,7 +750,7 @@ return.sink.split.i:                              ; preds = %if.end7.i, %if.then
   %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i.i.i7.i
   %sext.i9.i = shl i64 %call.i.i4.i, 32
   %conv.i2.i10.i = ashr exact i64 %sext.i9.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr nonnull align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
   %10 = load i32, ptr %position_.i.i6.i, align 8
   %add.i.i11.i = add nsw i32 %10, %conv.i.i5.i
   store i32 %add.i.i11.i, ptr %position_.i.i6.i, align 8
@@ -820,7 +820,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter13ToExponentialEdiPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %value, i32 noundef %requested_digits, ptr nocapture noundef %result_builder) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter13ToExponentialEdiPNS0_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %value, i32 noundef %requested_digits, ptr noundef captures(none) %result_builder) local_unnamed_addr #4 align 2 {
 entry:
   %decimal_point = alloca i32, align 4
   %decimal_rep = alloca [122 x i8], align 16
@@ -876,7 +876,7 @@ return.sink.split.i:                              ; preds = %if.end7.i, %if.then
   %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i.i.i7.i
   %sext.i9.i = shl i64 %call.i.i4.i, 32
   %conv.i2.i10.i = ashr exact i64 %sext.i9.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr nonnull align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
   %10 = load i32, ptr %position_.i.i6.i, align 8
   %add.i.i11.i = add nsw i32 %10, %conv.i.i5.i
   store i32 %add.i.i11.i, ptr %position_.i.i6.i, align 8
@@ -997,7 +997,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter11ToPrecisionEdiPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %value, i32 noundef %precision, ptr nocapture noundef %result_builder) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter11ToPrecisionEdiPNS0_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %value, i32 noundef %precision, ptr noundef captures(none) %result_builder) local_unnamed_addr #4 align 2 {
 entry:
   %decimal_point = alloca i32, align 4
   %decimal_rep = alloca [121 x i8], align 16
@@ -1053,7 +1053,7 @@ return.sink.split.i:                              ; preds = %if.end7.i, %if.then
   %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i.i.i7.i
   %sext.i9.i = shl i64 %call.i.i4.i, 32
   %conv.i2.i10.i = ashr exact i64 %sext.i9.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr nonnull align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
   %10 = load i32, ptr %position_.i.i6.i, align 8
   %add.i.i11.i = add nsw i32 %10, %conv.i.i5.i
   store i32 %add.i.i11.i, ptr %position_.i.i6.i, align 8
@@ -1239,10 +1239,10 @@ declare void @abort() local_unnamed_addr #6
 declare void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef, i32 noundef, i32 noundef, ptr, i32, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #9
@@ -1251,10 +1251,10 @@ declare double @llvm.fabs.f64(double) #9
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

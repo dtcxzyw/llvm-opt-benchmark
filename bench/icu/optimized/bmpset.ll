@@ -22,7 +22,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_756BMPSetD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_756BMPSetD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_756BMPSetC2EPKii(ptr nocapture noundef nonnull align 8 dereferenceable(868) initializes((0, 264), (268, 780), (856, 868)) %this, ptr noundef %parentList, i32 noundef %parentListLength) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756BMPSetC2EPKii(ptr noundef nonnull align 8 captures(none) dereferenceable(868) initializes((0, 264), (268, 780), (856, 868)) %this, ptr noundef %parentList, i32 noundef %parentListLength) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756BMPSetE, i64 16), ptr %this, align 8
   %list = getelementptr inbounds nuw i8, ptr %this, i64 856
@@ -241,10 +241,10 @@ _ZN6icu_756BMPSet15overrideIllegalEv.exit:        ; preds = %for.body13.i, %for.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_756BMPSet13findCodePointEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(868) %this, i32 noundef %c, i32 noundef %lo, i32 noundef %hi) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK6icu_756BMPSet13findCodePointEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(868) %this, i32 noundef %c, i32 noundef %lo, i32 noundef %hi) local_unnamed_addr #2 align 2 {
 entry:
   %list = getelementptr inbounds nuw i8, ptr %this, i64 856
   %0 = load ptr, ptr %list, align 8
@@ -344,7 +344,7 @@ _ZNK6icu_756BMPSet13findCodePointEiii.exit:       ; preds = %if.else.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_756BMPSet8initBitsEv(ptr nocapture noundef nonnull align 8 dereferenceable(868) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_756BMPSet8initBitsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(868) %this) local_unnamed_addr #0 align 2 {
 entry:
   %list = getelementptr inbounds nuw i8, ptr %this, i64 856
   %listLength = getelementptr inbounds nuw i8, ptr %this, i64 864
@@ -788,7 +788,7 @@ while.end115:                                     ; preds = %if.end114, %if.end9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756BMPSet15overrideIllegalEv(ptr nocapture noundef nonnull align 8 dereferenceable(868) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN6icu_756BMPSet15overrideIllegalEv(ptr noundef nonnull align 8 captures(none) dereferenceable(868) %this) local_unnamed_addr #4 align 2 {
 entry:
   %containsFFFD = getelementptr inbounds nuw i8, ptr %this, i64 264
   %0 = load i8, ptr %containsFFFD, align 8
@@ -853,7 +853,7 @@ if.end:                                           ; preds = %for.body13, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756BMPSetC2ERKS0_PKii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(868) initializes((0, 265), (268, 852), (856, 868)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(868) %otherBMPSet, ptr noundef %newParentList, i32 noundef %newParentListLength) unnamed_addr #5 align 2 {
+define void @_ZN6icu_756BMPSetC2ERKS0_PKii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(868) initializes((0, 265), (268, 852), (856, 868)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(868) %otherBMPSet, ptr noundef %newParentList, i32 noundef %newParentListLength) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756BMPSetE, i64 16), ptr %this, align 8
   %containsFFFD = getelementptr inbounds nuw i8, ptr %this, i64 264
@@ -880,10 +880,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_756BMPSetD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_756BMPSetD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -900,7 +900,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_756BMPSet8containsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(868) %this, i32 noundef %c) unnamed_addr #2 align 2 {
+define noundef signext i8 @_ZNK6icu_756BMPSet8containsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(868) %this, i32 noundef %c) unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp ult i32 %c, 256
   br i1 %cmp, label %if.then, label %if.else
@@ -1070,7 +1070,7 @@ return:                                           ; preds = %if.else29, %_ZNK6ic
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6icu_756BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nocapture noundef nonnull readonly align 8 dereferenceable(868) %this, ptr noundef readonly %s, ptr noundef readnone %limit, i32 noundef %spanCondition) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK6icu_756BMPSet4spanEPKDsS2_17USetSpanCondition(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(868) %this, ptr noundef readonly %s, ptr noundef readnone %limit, i32 noundef %spanCondition) local_unnamed_addr #2 align 2 {
 entry:
   %tobool.not = icmp eq i32 %spanCondition, 0
   %table7FF103 = getelementptr inbounds nuw i8, ptr %this, i64 268
@@ -1504,7 +1504,7 @@ if.end199:                                        ; preds = %do.cond, %if.then2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6icu_756BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr nocapture noundef nonnull readonly align 8 dereferenceable(868) %this, ptr noundef readnone %s, ptr noundef readonly %limit, i32 noundef %spanCondition) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK6icu_756BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(868) %this, ptr noundef readnone %s, ptr noundef readonly %limit, i32 noundef %spanCondition) local_unnamed_addr #2 align 2 {
 entry:
   %tobool.not = icmp eq i32 %spanCondition, 0
   %arrayidx184 = getelementptr inbounds nuw i8, ptr %this, i64 844
@@ -2313,7 +2313,7 @@ return:                                           ; preds = %do.body, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_756BMPSet12spanBackUTF8EPKhi17USetSpanCondition(ptr nocapture noundef nonnull readonly align 8 dereferenceable(868) %this, ptr noundef %s, i32 noundef %length, i32 noundef %spanCondition) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_756BMPSet12spanBackUTF8EPKhi17USetSpanCondition(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(868) %this, ptr noundef %s, i32 noundef %length, i32 noundef %spanCondition) local_unnamed_addr #9 align 2 {
 entry:
   %length.addr = alloca i32, align 4
   %cmp.not = icmp ne i32 %spanCondition, 0

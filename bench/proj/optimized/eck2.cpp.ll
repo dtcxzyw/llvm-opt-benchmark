@@ -105,7 +105,7 @@ define internal { double, double } @_ZL14eck2_s_inverse5PJ_XYP8PJconsts(double %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal { double, double } @_ZL14eck2_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
+define internal { double, double } @_ZL14eck2_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr readnone captures(none) %2) #3 {
   %4 = tail call double @llvm.fabs.f64(double %1)
   %5 = tail call double @sin(double noundef %4) #6
   %6 = tail call double @llvm.fmuladd.f64(double %5, double -3.000000e+00, double 4.000000e+00)

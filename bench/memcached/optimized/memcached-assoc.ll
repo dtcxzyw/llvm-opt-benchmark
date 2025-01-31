@@ -77,7 +77,7 @@ if.end4:                                          ; preds = %if.end
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
@@ -87,7 +87,7 @@ declare void @STATS_LOCK() local_unnamed_addr #4
 declare void @STATS_UNLOCK() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @assoc_find(ptr nocapture noundef readonly %key, i64 noundef %nkey, i32 noundef %hv) local_unnamed_addr #5 {
+define dso_local ptr @assoc_find(ptr noundef readonly captures(none) %key, i64 noundef %nkey, i32 noundef %hv) local_unnamed_addr #5 {
 entry:
   %.b8 = load i1, ptr @expanding, align 1
   %.pre = load i32, ptr @hashpower, align 4
@@ -238,7 +238,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @assoc_delete(ptr nocapture noundef readonly %key, i64 noundef %nkey, i32 noundef %hv) local_unnamed_addr #8 {
+define dso_local void @assoc_delete(ptr noundef readonly captures(none) %key, i64 noundef %nkey, i32 noundef %hv) local_unnamed_addr #8 {
 entry:
   %.b8.i = load i1, ptr @expanding, align 1
   %.pre.i = load i32, ptr @hashpower, align 4
@@ -348,16 +348,16 @@ return:                                           ; preds = %if.end10, %if.then7
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @assoc_maintenance_thread(ptr nocapture readnone %arg) #0 {
+define internal noundef ptr @assoc_maintenance_thread(ptr readnone captures(none) %arg) #0 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @maintenance_lock) #18
   %0 = load volatile i32, ptr @do_run_maintenance_thread, align 4
@@ -586,7 +586,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @assoc_iterate(ptr nocapture noundef %iterp, ptr nocapture noundef writeonly initializes((0, 8)) %it) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @assoc_iterate(ptr noundef captures(none) %iterp, ptr noundef writeonly captures(none) initializes((0, 8)) %it) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %it, align 8
   %bucket_locked = getelementptr inbounds nuw i8, ptr %iterp, i64 24
@@ -670,7 +670,7 @@ declare void @item_unlock(i32 noundef) local_unnamed_addr #4
 declare void @item_lock(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assoc_iterate_final(ptr nocapture noundef %iterp) local_unnamed_addr #0 {
+define dso_local void @assoc_iterate_final(ptr noundef captures(none) %iterp) local_unnamed_addr #0 {
 entry:
   %bucket_locked = getelementptr inbounds nuw i8, ptr %iterp, i64 24
   %0 = load i8, ptr %bucket_locked, align 8
@@ -690,7 +690,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @item_trylock(i32 noundef) local_unnamed_addr #4
 
@@ -703,10 +703,10 @@ declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @pause_threads(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

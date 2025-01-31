@@ -420,7 +420,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.313 = private unnamed_addr constant [7 x i8] c"PNIORW\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @init_pnio_rtc1_station(ptr nocapture noundef writeonly initializes((48, 88)) %0) local_unnamed_addr #0 {
+define hidden void @init_pnio_rtc1_station(ptr noundef writeonly captures(none) initializes((48, 88)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @wmem_file_scope() #5
   %3 = tail call noalias ptr @wmem_list_new(ptr noundef %2) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -449,7 +449,7 @@ declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %8 = zext i8 %7 to i32
   %9 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %8) #5
@@ -470,7 +470,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_pn_uint16_ret_item(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_pn_uint16_ret_item(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1) #5
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %9) #5
@@ -497,7 +497,7 @@ define hidden noundef i32 @dissect_pn_uint16_ret_item(ptr noundef %0, i32 nounde
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1) #5
   %8 = zext i16 %7 to i32
   %9 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %8) #5
@@ -514,7 +514,7 @@ define hidden noundef i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_pn_int16(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_pn_int16(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1) #5
   %8 = sext i16 %7 to i32
   %9 = tail call ptr @proto_tree_add_int(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %8) #5
@@ -533,7 +533,7 @@ define hidden noundef i32 @dissect_pn_int16(ptr noundef %0, i32 noundef %1, ptr 
 declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_pn_oid(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_pn_oid(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %1) #5
   %8 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef %7) #5
   %.not = icmp eq ptr %5, null
@@ -551,7 +551,7 @@ define hidden noundef i32 @dissect_pn_oid(ptr noundef %0, i32 noundef %1, ptr no
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca [6 x i8], align 1
   %8 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %1, i64 noundef 6) #5
   %9 = call ptr @proto_tree_add_ether(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 6, ptr noundef nonnull %7) #5
@@ -572,10 +572,10 @@ declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare ptr @proto_tree_add_ether(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_pn_ipv4(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_pn_ipv4(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %1) #5
   %8 = tail call ptr @proto_tree_add_ipv4(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %7) #5
   %.not = icmp eq ptr %5, null
@@ -618,7 +618,7 @@ declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_pn_user_data_bytes(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_pn_user_data_bytes(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq i32 %5, 2
   %hf_pn_frag_bytes.val = load i32, ptr @hf_pn_frag_bytes, align 4
   %hf_pn_user_bytes.val = load i32, ptr @hf_pn_user_bytes, align 4
@@ -631,7 +631,7 @@ define hidden noundef i32 @dissect_pn_user_data_bytes(ptr noundef %0, i32 nounde
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %7
 
@@ -646,7 +646,7 @@ define hidden noundef i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_pn_malformed(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_pn_malformed(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_pn_malformed, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 10000, i32 noundef 0) #5
   %8 = add i32 %4, %1
@@ -654,7 +654,7 @@ define hidden noundef i32 @dissect_pn_malformed(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_pn_padding, align 4
   %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef %4) #5
   %8 = add i32 %4, %1
@@ -662,7 +662,7 @@ define hidden noundef i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = srem i32 %1, 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
@@ -1020,7 +1020,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pn_append_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @pn_append_info(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_append_str(ptr noundef %5, i32 noundef 25, ptr noundef %2) #5
@@ -1049,7 +1049,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @wmem_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pn_find_aruuid_frame_setup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @pn_find_aruuid_frame_setup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @aruuid_frame_setup_list, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %3
@@ -1089,7 +1089,7 @@ declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pn_find_dcp_station_info(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @pn_find_dcp_station_info(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @proto_pn_dcp, align 4
   %4 = tail call ptr @conversation_get_proto_data(ptr noundef %1, i32 noundef %3) #5
   %.not = icmp eq ptr %4, null
@@ -1172,7 +1172,7 @@ define hidden void @pn_find_dcp_station_info(ptr nocapture noundef %0, ptr nound
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1194,7 +1194,7 @@ declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @pn_fgets(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @pn_fgets(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @fgets(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7
@@ -1240,7 +1240,7 @@ define hidden noundef ptr @pn_fgets(ptr noundef %0, i32 noundef %1, ptr nocaptur
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.thread43
-  %30 = tail call i64 @g_strlcat(ptr noundef %0, ptr noundef %25, i64 noundef %14) #5
+  %30 = tail call i64 @g_strlcat(ptr noundef nonnull %0, ptr noundef nonnull %25, i64 noundef %14) #5
   br label %.thread
 
 31:                                               ; preds = %.thread43
@@ -1253,20 +1253,20 @@ define hidden noundef ptr @pn_fgets(ptr noundef %0, i32 noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

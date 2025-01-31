@@ -142,7 +142,7 @@ define hidden void @_ZN34ShenandoahLoadReferenceBarrierStub9emit_codeEP13LIR_Ass
 declare void @_ZN29ShenandoahBarrierSetAssembler31gen_load_reference_barrier_stubEP13LIR_AssemblerP34ShenandoahLoadReferenceBarrierStub(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22ShenandoahBarrierSetC1C2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN22ShenandoahBarrierSetC1C2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTV22ShenandoahBarrierSetC1, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
@@ -150,7 +150,7 @@ define hidden void @_ZN22ShenandoahBarrierSetC1C2Ev(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ShenandoahBarrierSetC111pre_barrierEP12LIRGeneratorP12CodeEmitInfom7LIR_OprS4_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i64 %4, i64 %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22ShenandoahBarrierSetC111pre_barrierEP12LIRGeneratorP12CodeEmitInfom7LIR_OprS4_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i64 %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = and i64 %3, 2147483648
   %.not = icmp eq i64 %7, 0
   %8 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
@@ -1122,7 +1122,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %38, %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN22ShenandoahBarrierSetC122load_reference_barrierEP12LIRGenerator7LIR_OprS2_m(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0, ptr noundef %1, i64 %2, i64 %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden i64 @_ZN22ShenandoahBarrierSetC122load_reference_barrierEP12LIRGenerator7LIR_OprS2_m(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, i64 %2, i64 %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load i8, ptr @ShenandoahLoadRefBarrier, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -1137,7 +1137,7 @@ define hidden i64 @_ZN22ShenandoahBarrierSetC122load_reference_barrierEP12LIRGen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN22ShenandoahBarrierSetC127load_reference_barrier_implEP12LIRGenerator7LIR_OprS2_m(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i64 %2, i64 %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden i64 @_ZN22ShenandoahBarrierSetC127load_reference_barrier_implEP12LIRGenerator7LIR_OprS2_m(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i64 %2, i64 %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = and i64 %2, 7
   switch i64 %6, label %7 [
     i64 5, label %_ZN22ShenandoahBarrierSetC118ensure_in_registerEP12LIRGenerator7LIR_Opr9BasicType.exit
@@ -1499,7 +1499,7 @@ _ZN22CompilationResourceObjnwEm.exit72:           ; preds = %157, %159
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN22ShenandoahBarrierSetC118ensure_in_registerEP12LIRGenerator7LIR_Opr9BasicType(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0, ptr noundef %1, i64 %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden i64 @_ZN22ShenandoahBarrierSetC118ensure_in_registerEP12LIRGenerator7LIR_Opr9BasicType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, i64 %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = and i64 %2, 7
   switch i64 %5, label %6 [
     i64 5, label %20
@@ -1645,7 +1645,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %43, %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN22ShenandoahBarrierSetC110iu_barrierEP12LIRGenerator7LIR_OprP12CodeEmitInfom(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i64 %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden i64 @_ZN22ShenandoahBarrierSetC110iu_barrierEP12LIRGenerator7LIR_OprP12CodeEmitInfom(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i64 %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load i8, ptr @ShenandoahIUBarrier, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %24
@@ -1881,7 +1881,7 @@ declare noundef zeroext i1 @_ZN20ShenandoahBarrierSet27need_load_reference_barri
 declare noundef zeroext i1 @_ZN20ShenandoahBarrierSet23need_keep_alive_barrierEm9BasicType(i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ShenandoahBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN22ShenandoahBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.C1ShenandoahPreBarrierCodeGenClosure, align 8
   %4 = alloca %class.C1ShenandoahLoadReferenceBarrierCodeGenClosure, align 8
   %5 = alloca %class.C1ShenandoahLoadReferenceBarrierCodeGenClosure, align 8
@@ -2907,7 +2907,7 @@ declare i32 @llvm.ctpop.i32(i32) #6
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

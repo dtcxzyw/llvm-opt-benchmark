@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.qrx_validate_hdr_late = private unnamed_addr constant [4 x i32] [i32 2, i32 1, i32 0, i32 2], align 4
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @ossl_qrx_new(ptr nocapture noundef readonly %args) local_unnamed_addr #0 {
+define noalias ptr @ossl_qrx_new(ptr noundef readonly captures(none) %args) local_unnamed_addr #0 {
 entry:
   %demux = getelementptr inbounds nuw i8, ptr %args, i64 16
   %0 = load ptr, ptr %demux, align 8
@@ -345,7 +345,7 @@ return:                                           ; preds = %entry, %for.end
 declare void @ossl_quic_demux_unregister_by_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @qrx_on_rx(ptr noundef initializes((32, 48), (280, 281)) %urxe, ptr nocapture noundef %arg) #0 {
+define internal void @qrx_on_rx(ptr noundef initializes((32, 48), (280, 281)) %urxe, ptr noundef captures(none) %arg) #0 {
 entry:
   %processed.i = getelementptr inbounds nuw i8, ptr %urxe, i64 32
   %deferred.i = getelementptr inbounds nuw i8, ptr %urxe, i64 280
@@ -406,7 +406,7 @@ declare void @ossl_qrl_enc_level_set_discard(ptr noundef, i32 noundef) local_unn
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_qrx_inject_urxe(ptr nocapture noundef %qrx, ptr noundef initializes((32, 48), (280, 281)) %urxe) local_unnamed_addr #0 {
+define void @ossl_qrx_inject_urxe(ptr noundef captures(none) %qrx, ptr noundef initializes((32, 48), (280, 281)) %urxe) local_unnamed_addr #0 {
 entry:
   %processed = getelementptr inbounds nuw i8, ptr %urxe, i64 32
   %deferred = getelementptr inbounds nuw i8, ptr %urxe, i64 280
@@ -474,7 +474,7 @@ entry:
 declare i32 @ossl_quic_demux_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_qrx_remove_dst_conn_id(ptr nocapture noundef readonly %qrx, ptr noundef %dst_conn_id) local_unnamed_addr #0 {
+define i32 @ossl_qrx_remove_dst_conn_id(ptr noundef readonly captures(none) %qrx, ptr noundef %dst_conn_id) local_unnamed_addr #0 {
 entry:
   %demux = getelementptr inbounds nuw i8, ptr %qrx, i64 16
   %0 = load ptr, ptr %demux, align 8
@@ -608,7 +608,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_qrx_processed_read_pending(ptr nocapture noundef readonly %qrx) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_qrx_processed_read_pending(ptr noundef readonly captures(none) %qrx) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %qrx, i64 136
   %rx_pending.val = load i64, ptr %0, align 8
@@ -618,7 +618,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_qrx_unprocessed_read_pending(ptr nocapture noundef readonly %qrx) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_qrx_unprocessed_read_pending(ptr noundef readonly captures(none) %qrx) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %qrx, i64 64
   %urx_pending.val = load i64, ptr %0, align 8
@@ -638,7 +638,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_qrx_read_pkt(ptr noundef %qrx, ptr nocapture noundef writeonly %ppkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qrx_read_pkt(ptr noundef %qrx, ptr noundef writeonly captures(none) %ppkt) local_unnamed_addr #0 {
 entry:
   %l.i = alloca i32, align 4
   %l2.i = alloca i32, align 4
@@ -1669,7 +1669,7 @@ return:                                           ; preds = %if.then, %if.end8, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @BIO_ADDR_family(ptr noundef) local_unnamed_addr #1
 
@@ -1730,7 +1730,7 @@ if.end3:                                          ; preds = %entry, %qrx_recycle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_qrx_pkt_up_ref(ptr nocapture noundef %pkt) local_unnamed_addr #5 {
+define void @ossl_qrx_pkt_up_ref(ptr noundef captures(none) %pkt) local_unnamed_addr #5 {
 entry:
   %refcount = getelementptr inbounds nuw i8, ptr %pkt, i64 96
   %0 = load i64, ptr %refcount, align 8
@@ -1740,7 +1740,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ossl_qrx_get_bytes_received(ptr nocapture noundef %qrx, i32 noundef %clear) local_unnamed_addr #5 {
+define i64 @ossl_qrx_get_bytes_received(ptr noundef captures(none) %qrx, i32 noundef %clear) local_unnamed_addr #5 {
 entry:
   %bytes_received = getelementptr inbounds nuw i8, ptr %qrx, i64 1000
   %0 = load i64, ptr %bytes_received, align 8
@@ -1756,7 +1756,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_qrx_set_late_validation_cb(ptr nocapture noundef writeonly initializes((1024, 1040)) %qrx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #6 {
+define noundef i32 @ossl_qrx_set_late_validation_cb(ptr noundef writeonly captures(none) initializes((1024, 1040)) %qrx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #6 {
 entry:
   %validation_cb = getelementptr inbounds nuw i8, ptr %qrx, i64 1024
   store ptr %cb, ptr %validation_cb, align 8
@@ -1766,7 +1766,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_qrx_set_key_update_cb(ptr nocapture noundef writeonly initializes((1040, 1056)) %qrx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #6 {
+define noundef i32 @ossl_qrx_set_key_update_cb(ptr noundef writeonly captures(none) initializes((1040, 1056)) %qrx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #6 {
 entry:
   %key_update_cb = getelementptr inbounds nuw i8, ptr %qrx, i64 1040
   store ptr %cb, ptr %key_update_cb, align 8
@@ -1841,7 +1841,7 @@ declare i32 @ossl_qrl_enc_level_set_key_update_done(ptr noundef, i32 noundef) lo
 declare i32 @ossl_qrl_enc_level_set_key_cooldown_done(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_qrx_get_cur_forged_pkt_count(ptr nocapture noundef readonly %qrx) local_unnamed_addr #2 {
+define i64 @ossl_qrx_get_cur_forged_pkt_count(ptr noundef readonly captures(none) %qrx) local_unnamed_addr #2 {
 entry:
   %forged_pkt_count = getelementptr inbounds nuw i8, ptr %qrx, i64 1008
   %0 = load i64, ptr %forged_pkt_count, align 8
@@ -1870,7 +1870,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 declare i64 @ossl_qrl_get_suite_max_forged_pkt(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ossl_qrx_allow_1rtt_processing(ptr nocapture noundef %qrx) local_unnamed_addr #7 {
+define void @ossl_qrx_allow_1rtt_processing(ptr noundef captures(none) %qrx) local_unnamed_addr #7 {
 entry:
   %allow_1rtt = getelementptr inbounds nuw i8, ptr %qrx, i64 1057
   %0 = load i8, ptr %allow_1rtt, align 1
@@ -1966,7 +1966,7 @@ return:                                           ; preds = %ossl_list_urxe_inse
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_qrx_set_msg_callback(ptr nocapture noundef writeonly initializes((1064, 1072), (1080, 1088)) %qrx, ptr noundef %msg_callback, ptr noundef %msg_callback_ssl) local_unnamed_addr #6 {
+define void @ossl_qrx_set_msg_callback(ptr noundef writeonly captures(none) initializes((1064, 1072), (1080, 1088)) %qrx, ptr noundef %msg_callback, ptr noundef %msg_callback_ssl) local_unnamed_addr #6 {
 entry:
   %msg_callback1 = getelementptr inbounds nuw i8, ptr %qrx, i64 1064
   store ptr %msg_callback, ptr %msg_callback1, align 8
@@ -1976,7 +1976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_qrx_set_msg_callback_arg(ptr nocapture noundef writeonly initializes((1072, 1080)) %qrx, ptr noundef %msg_callback_arg) local_unnamed_addr #6 {
+define void @ossl_qrx_set_msg_callback_arg(ptr noundef writeonly captures(none) initializes((1072, 1080)) %qrx, ptr noundef %msg_callback_arg) local_unnamed_addr #6 {
 entry:
   %msg_callback_arg1 = getelementptr inbounds nuw i8, ptr %qrx, i64 1072
   store ptr %msg_callback_arg, ptr %msg_callback_arg1, align 8
@@ -1984,7 +1984,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ossl_list_rxe_remove(ptr nocapture noundef %list, ptr noundef %elem) unnamed_addr #8 {
+define internal fastcc void @ossl_list_rxe_remove(ptr noundef captures(none) %list, ptr noundef %elem) unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %list, align 8
   %cmp = icmp eq ptr %0, %elem
@@ -2040,14 +2040,14 @@ if.end28:                                         ; preds = %if.then21, %if.end1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @ossl_quic_demux_release_urxe(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @qrx_reserve_rxe(ptr nocapture noundef %rxl, ptr noundef %rxe, i64 noundef %n) unnamed_addr #0 {
+define internal fastcc ptr @qrx_reserve_rxe(ptr noundef captures(none) %rxl, ptr noundef %rxe, i64 noundef %n) unnamed_addr #0 {
 entry:
   %alloc_len = getelementptr inbounds nuw i8, ptr %rxe, i64 88
   %0 = load i64, ptr %alloc_len, align 8
@@ -2252,7 +2252,7 @@ declare i32 @ossl_qrl_enc_level_set_have_el(ptr noundef, i32 noundef) local_unna
 declare i32 @ossl_quic_hdr_protector_decrypt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @qrx_validate_hdr_late(ptr nocapture noundef readonly %qrx, ptr nocapture noundef readonly %rxe) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @qrx_validate_hdr_late(ptr noundef readonly captures(none) %qrx, ptr noundef readonly captures(none) %rxe) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %rxe, i64 104
   %rxe.val = load i32, ptr %0, align 8
@@ -2336,13 +2336,13 @@ declare i32 @EVP_CipherFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare i32 @ossl_qrl_enc_level_set_key_update(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

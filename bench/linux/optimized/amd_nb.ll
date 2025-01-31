@@ -213,10 +213,10 @@ define dso_local noundef zeroext i1 @early_is_amd_nb(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @amd_get_mmconfig_range(ptr noundef writeonly %0) local_unnamed_addr #1 align 16 {
@@ -881,7 +881,7 @@ declare dso_local ptr @pci_match_id(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__fix_erratum_688(ptr nocapture readnone %0) #1 align 16 {
+define internal void @__fix_erratum_688(ptr readnone captures(none) %0) #1 align 16 {
   %2 = tail call i32 @msr_set_bit(i32 noundef -1073672159, i8 noundef zeroext 3) #8
   %3 = tail call i32 @msr_set_bit(i32 noundef -1073672159, i8 noundef zeroext 14) #8
   ret void

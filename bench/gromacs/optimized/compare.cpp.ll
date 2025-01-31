@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [22 x i8] c"%s (%16.9e - %16.9e)\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z7cmp_intP8_IO_FILEPKciii(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @_Z7cmp_intP8_IO_FILEPKciii(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %11, label %6
 
@@ -42,10 +42,10 @@ define void @_Z7cmp_intP8_IO_FILEPKciii(ptr nocapture noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z9cmp_int64P8_IO_FILEPKcll(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @_Z9cmp_int64P8_IO_FILEPKcll(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, %3
   br i1 %.not, label %11, label %5
 
@@ -62,7 +62,7 @@ define void @_Z9cmp_int64P8_IO_FILEPKcll(ptr nocapture noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z6cmp_usP8_IO_FILEPKcitt(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define void @_Z6cmp_usP8_IO_FILEPKcitt(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = zext i16 %3 to i32
   %7 = zext i16 %4 to i32
   %.not = icmp eq i16 %3, %4
@@ -85,7 +85,7 @@ define void @_Z6cmp_usP8_IO_FILEPKcitt(ptr nocapture noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z6cmp_ucP8_IO_FILEPKcihh(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define void @_Z6cmp_ucP8_IO_FILEPKcihh(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = zext i8 %3 to i32
   %7 = zext i8 %4 to i32
   %.not = icmp eq i8 %3, %4
@@ -108,7 +108,7 @@ define void @_Z6cmp_ucP8_IO_FILEPKcihh(ptr nocapture noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = xor i1 %3, %4
   br i1 %6, label %7, label %14
 
@@ -132,7 +132,7 @@ define noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z7cmp_strP8_IO_FILEPKciS2_S2_(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @_Z7cmp_strP8_IO_FILEPKciS2_S2_(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #7
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
@@ -142,11 +142,11 @@ define void @_Z7cmp_strP8_IO_FILEPKciS2_S2_(ptr nocapture noundef %0, ptr nounde
   br i1 %.not11, label %10, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #6
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   br label %12
 
 10:                                               ; preds = %7
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %1, ptr noundef %3, ptr noundef %4) #6
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   br label %12
 
 12:                                               ; preds = %8, %10, %5
@@ -154,7 +154,7 @@ define void @_Z7cmp_strP8_IO_FILEPKciS2_S2_(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext i1 @_Z10equal_realffff(float noundef %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #3 {
@@ -210,7 +210,7 @@ define noundef zeroext i1 @_Z12equal_doubleddff(double noundef %0, double nounde
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z8cmp_realP8_IO_FILEPKciffff(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #0 {
+define void @_Z8cmp_realP8_IO_FILEPKciffff(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #0 {
   %8 = fsub float %3, %4
   %9 = tail call noundef float @llvm.fabs.f32(float %8)
   %10 = fmul float %9, 2.000000e+00
@@ -242,7 +242,7 @@ define void @_Z8cmp_realP8_IO_FILEPKciffff(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z9cmp_floatP8_IO_FILEPKciffff(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #0 {
+define void @_Z9cmp_floatP8_IO_FILEPKciffff(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #0 {
   %8 = fsub float %3, %4
   %9 = tail call noundef float @llvm.fabs.f32(float %8)
   %10 = fmul float %9, 2.000000e+00
@@ -274,7 +274,7 @@ define void @_Z9cmp_floatP8_IO_FILEPKciffff(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z10cmp_doubleP8_IO_FILEPKcidddd(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
+define void @_Z10cmp_doubleP8_IO_FILEPKcidddd(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
   %8 = fptrunc double %5 to float
   %9 = fptrunc double %6 to float
   %10 = fsub double %3, %4
@@ -308,7 +308,7 @@ define void @_Z10cmp_doubleP8_IO_FILEPKcidddd(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

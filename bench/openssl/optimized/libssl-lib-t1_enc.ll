@@ -495,7 +495,7 @@ return:                                           ; preds = %if.then1, %if.else,
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_generate_master_secret(ptr noundef %s, ptr noundef %out, ptr noundef %p, i64 noundef %len, ptr nocapture noundef writeonly %secret_size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls1_generate_master_secret(ptr noundef %s, ptr noundef %out, ptr noundef %p, i64 noundef %len, ptr noundef writeonly captures(none) %secret_size) local_unnamed_addr #0 {
 entry:
   %hash = alloca [128 x i8], align 16
   %hashlen = alloca i64, align 8
@@ -545,7 +545,7 @@ return:                                           ; preds = %if.else, %do.body, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_export_keying_material(ptr noundef %s, ptr noundef %out, i64 noundef %olen, ptr nocapture noundef readonly %label, i64 noundef %llen, ptr noundef readonly %context, i64 noundef %contextlen, i32 noundef %use_context) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls1_export_keying_material(ptr noundef %s, ptr noundef %out, i64 noundef %olen, ptr noundef readonly captures(none) %label, i64 noundef %llen, ptr noundef readonly %context, i64 noundef %contextlen, i32 noundef %use_context) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %contextlen, 65535
   br i1 %cmp, label %if.then, label %if.end
@@ -647,7 +647,7 @@ return:                                           ; preds = %ret, %if.then
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -724,7 +724,7 @@ declare i32 @EVP_KDF_derive(ptr noundef, ptr noundef, i64 noundef, ptr noundef) 
 declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -464,7 +464,7 @@ declare ptr @prte_util_print_name_args(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @PMIx_Check_procid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #3
@@ -787,7 +787,7 @@ pmix_obj_run_destructors.exit108:                 ; preds = %.lr.ph.i105, %115
 .lr.ph.i111:                                      ; preds = %163, %.lr.ph.i111
   %169 = phi ptr [ %171, %.lr.ph.i111 ], [ %168, %163 ]
   %.07.i112 = phi ptr [ %170, %.lr.ph.i111 ], [ %167, %163 ]
-  tail call void %169(ptr noundef %.0121) #7
+  tail call void %169(ptr noundef nonnull %.0121) #7
   %170 = getelementptr inbounds nuw i8, ptr %.07.i112, i64 8
   %171 = load ptr, ptr %170, align 8
   %.not.i113 = icmp eq ptr %171, null
@@ -871,7 +871,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4

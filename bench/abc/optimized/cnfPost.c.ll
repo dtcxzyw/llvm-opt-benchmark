@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [30 x i8] c"Total gain = %d.  Vars = %d.\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Cnf_ManPostprocess_old(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Cnf_ManPostprocess_old(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -100,7 +100,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.pre
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Cnf_ManTransferCuts(ptr noundef %0) local_unnamed_addr #2 {
@@ -167,7 +167,7 @@ declare void @Aig_MmFlexRestart(ptr noundef) local_unnamed_addr #3
 declare ptr @Cnf_CutCreate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Cnf_ManFreeCuts(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Cnf_ManFreeCuts(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8

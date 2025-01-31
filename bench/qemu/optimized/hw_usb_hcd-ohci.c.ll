@@ -405,7 +405,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ohci_soft_reset(ptr nocapture noundef %ohci) unnamed_addr #0 {
+define internal fastcc void @ohci_soft_reset(ptr noundef captures(none) %ohci) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %name = getelementptr inbounds nuw i8, ptr %ohci, i64 496
@@ -597,7 +597,7 @@ ohci_stop_endpoints.exit:                         ; preds = %for.inc14.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ohci_bus_stop(ptr nocapture noundef readonly %ohci) local_unnamed_addr #0 {
+define dso_local void @ohci_bus_stop(ptr noundef readonly captures(none) %ohci) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %name = getelementptr inbounds nuw i8, ptr %ohci, i64 496
@@ -752,7 +752,7 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   %indvars.iv38 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next39, %for.body15 ]
   %arrayidx19 = getelementptr [15 x %struct.OHCIPort], ptr %rhport17, i64 0, i64 %indvars.iv38
   %7 = trunc nuw nsw i64 %indvars.iv38 to i32
-  tail call void @usb_register_port(ptr noundef %ohci, ptr noundef %arrayidx19, ptr noundef %ohci, i32 noundef %7, ptr noundef nonnull @ohci_port_ops, i32 noundef 3) #8
+  tail call void @usb_register_port(ptr noundef nonnull %ohci, ptr noundef %arrayidx19, ptr noundef nonnull %ohci, i32 noundef %7, ptr noundef nonnull @ohci_port_ops, i32 noundef 3) #8
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
   br i1 %exitcond42.not, label %if.end24, label %for.body15, !llvm.loop !10
@@ -1070,7 +1070,7 @@ if.end65:                                         ; preds = %if.end65.sink.split
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ohci_sysbus_die(ptr nocapture noundef %ohci) #0 {
+define dso_local void @ohci_sysbus_die(ptr noundef captures(none) %ohci) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1142,7 +1142,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1151,7 +1151,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare void @usb_port_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ohci_attach(ptr nocapture noundef readonly %port1) #0 {
+define internal void @ohci_attach(ptr noundef readonly captures(none) %port1) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %port1, i64 40
@@ -1258,7 +1258,7 @@ if.end14:                                         ; preds = %if.then13, %trace_u
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ohci_detach(ptr nocapture noundef readonly %port1) #0 {
+define internal void @ohci_detach(ptr noundef readonly captures(none) %port1) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %port1, i64 40
@@ -1380,7 +1380,7 @@ if.end17:                                         ; preds = %if.then16, %trace_u
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ohci_child_detach(ptr nocapture noundef readonly %port1, ptr noundef readnone %dev) #0 {
+define internal void @ohci_child_detach(ptr noundef readonly captures(none) %port1, ptr noundef readnone %dev) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %port1, i64 40
   %0 = load ptr, ptr %opaque, align 8
@@ -1415,7 +1415,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ohci_wakeup(ptr nocapture noundef readonly %port1) #0 {
+define internal void @ohci_wakeup(ptr noundef readonly captures(none) %port1) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %port1, i64 40
@@ -1494,7 +1494,7 @@ if.end:                                           ; preds = %trace_usb_ohci_port
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ohci_async_complete_packet(ptr nocapture readnone %port, ptr noundef initializes((8332, 8333)) %packet) #0 {
+define internal void @ohci_async_complete_packet(ptr readnone captures(none) %port, ptr noundef initializes((8332, 8333)) %packet) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1539,7 +1539,7 @@ trace_usb_ohci_async_complete.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @ohci_resume(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ohci_resume(ptr noundef captures(none) %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %ctl = getelementptr inbounds nuw i8, ptr %s, i64 520
@@ -3730,7 +3730,7 @@ _nocheck__trace_usb_ohci_iso_td_bad_cc_overrun.exit: ; preds = %entry, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ohci_td_pkt(ptr noundef %msg, ptr nocapture noundef readonly %buf, i64 noundef range(i64 0, 4294967296) %len) unnamed_addr #0 {
+define internal fastcc void @ohci_td_pkt(ptr noundef %msg, ptr noundef readonly captures(none) %buf, i64 noundef range(i64 0, 4294967296) %len) unnamed_addr #0 {
 entry:
   %_now.i.i14 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -4148,12 +4148,12 @@ _nocheck__trace_usb_ohci_td_bad_device_response.exit: ; preds = %entry, %land.lh
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @usb_find_device(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @ohci_put_iso_td(ptr nocapture noundef readonly %ohci, i64 noundef range(i64 1, 4294967281) %addr, ptr nocapture noundef nonnull readonly %td) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ohci_put_iso_td(ptr noundef readonly captures(none) %ohci, i64 noundef range(i64 1, 4294967281) %addr, ptr noundef nonnull readonly captures(none) %td) unnamed_addr #0 {
 entry:
   %tmp.i4 = alloca i16, align 2
   %tmp.i = alloca i32, align 4
@@ -4228,7 +4228,7 @@ lor.end:                                          ; preds = %put_dwords.exit, %p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @ohci_copy_iso_td(ptr nocapture noundef readonly %ohci, i32 noundef %start_addr, i32 noundef %end_addr, ptr noundef nonnull %buf, i32 noundef %len, i32 noundef range(i32 0, 2) %dir) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ohci_copy_iso_td(ptr noundef readonly captures(none) %ohci, i32 noundef %start_addr, i32 noundef %end_addr, ptr noundef nonnull %buf, i32 noundef %len, i32 noundef range(i32 0, 2) %dir) unnamed_addr #0 {
 entry:
   %conv = zext i32 %start_addr to i64
   %and = and i64 %conv, 4095
@@ -4482,7 +4482,7 @@ _nocheck__trace_usb_ohci_iso_td_bad_response.exit: ; preds = %entry, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 4294967296) i64 @ohci_mem_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @ohci_mem_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i59 = alloca %struct.timeval, align 8
   %_now.i.i45 = alloca %struct.timeval, align 8
@@ -5460,7 +5460,7 @@ sw.epilog:                                        ; preds = %if.then34.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, -2147418112) i32 @ohci_get_frame_remaining(ptr nocapture noundef readonly %ohci) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147418112) i32 @ohci_get_frame_remaining(ptr noundef readonly captures(none) %ohci) unnamed_addr #0 {
 entry:
   %ctl = getelementptr inbounds nuw i8, ptr %ohci, i64 520
   %0 = load i32, ptr %ctl, align 8
@@ -5730,7 +5730,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb8, %tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ohci_intr_update(ptr nocapture noundef readonly %ohci) unnamed_addr #0 {
+define internal fastcc void @ohci_intr_update(ptr noundef readonly captures(none) %ohci) unnamed_addr #0 {
 entry:
   %intr = getelementptr inbounds nuw i8, ptr %ohci, i64 532
   %0 = load i32, ptr %intr, align 4
@@ -5754,7 +5754,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ohci_set_frame_interval(ptr nocapture noundef %ohci, i16 noundef zeroext %val) unnamed_addr #0 {
+define internal fastcc void @ohci_set_frame_interval(ptr noundef captures(none) %ohci, i16 noundef zeroext %val) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = and i16 %val, 16383
@@ -5810,7 +5810,7 @@ if.end:                                           ; preds = %trace_usb_ohci_set_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ohci_set_hub_status(ptr nocapture noundef %ohci, i32 noundef %val) unnamed_addr #0 {
+define internal fastcc void @ohci_set_hub_status(ptr noundef captures(none) %ohci, i32 noundef %val) unnamed_addr #0 {
 entry:
   %_now.i.i23 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -6046,7 +6046,7 @@ declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @ohci_eof_timer_needed(ptr nocapture noundef readonly %opaque) #0 {
+define internal zeroext i1 @ohci_eof_timer_needed(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %eof_timer = getelementptr inbounds nuw i8, ptr %opaque, i64 504
   %0 = load ptr, ptr %eof_timer, align 8
@@ -6059,7 +6059,7 @@ declare zeroext i1 @timer_pending(ptr noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ohci_sysbus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ohci_sysbus_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.192, ptr noundef nonnull @.str.193, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
   %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
@@ -6144,13 +6144,13 @@ declare i32 @llvm.umin.i32(i32, i32) #5
 declare i64 @llvm.smax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

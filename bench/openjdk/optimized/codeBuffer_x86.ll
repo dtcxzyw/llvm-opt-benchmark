@@ -130,7 +130,7 @@ declare void @_ZN14MacroAssembler21emit_static_call_stubEv(ptr noundef nonnull a
 declare void @_ZN17AbstractAssembler10end_a_stubEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZZ27emit_shared_stubs_to_interpI14MacroAssemblerLi0EEbP10CodeBufferP13GrowableArrayI25SharedStubToInterpRequestEENUlPS4_S7_E_8__invokeES7_S7_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {

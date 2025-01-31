@@ -4073,29 +4073,23 @@ define linkonce_odr dso_local void @_ZN14LinkIncVisitor11insertOnTopEP7AstNode(p
   %18 = tail call noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %17)
   %19 = load ptr, ptr %3, align 8
   %.not12 = icmp eq ptr %19, null
-  br i1 %.not12, label %22, label %20
+  br i1 %.not12, label %20, label %_ZN12AstNodeFTask9addStmtspEP7AstNode.exit
+
+_ZN12AstNodeFTask9addStmtspEP7AstNode.exit:       ; preds = %16
+  tail call void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(240) %19, ptr noundef nonnull %1)
+  br label %23
 
 20:                                               ; preds = %16
-  %.not.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i, label %_ZN12AstNodeFTask9addStmtspEP7AstNode.exit, label %21
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load ptr, ptr %21, align 8
+  %.not13 = icmp eq ptr %22, null
+  br i1 %.not13, label %23, label %_ZN13AstNodeModule9addStmtspEP7AstNode.exit
 
-21:                                               ; preds = %20
-  tail call void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(240) %19, ptr noundef nonnull %1)
-  br label %_ZN12AstNodeFTask9addStmtspEP7AstNode.exit
+_ZN13AstNodeModule9addStmtspEP7AstNode.exit:      ; preds = %20
+  tail call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(257) %22, ptr noundef nonnull %1)
+  br label %23
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8
-  %.not13 = icmp eq ptr %24, null
-  %.not.i.i14 = icmp eq ptr %1, null
-  %or.cond = or i1 %.not.i.i14, %.not13
-  br i1 %or.cond, label %_ZN12AstNodeFTask9addStmtspEP7AstNode.exit, label %25
-
-25:                                               ; preds = %22
-  tail call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(257) %24, ptr noundef nonnull %1)
-  br label %_ZN12AstNodeFTask9addStmtspEP7AstNode.exit
-
-_ZN12AstNodeFTask9addStmtspEP7AstNode.exit:       ; preds = %25, %21, %20, %22
+23:                                               ; preds = %20, %_ZN13AstNodeModule9addStmtspEP7AstNode.exit, %_ZN12AstNodeFTask9addStmtspEP7AstNode.exit
   ret void
 }
 
@@ -4772,13 +4766,13 @@ define internal void @_GLOBAL__sub_I_V3LinkInc.cpp() #12 section ".text.startup"
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

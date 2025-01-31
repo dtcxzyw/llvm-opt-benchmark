@@ -514,7 +514,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh3ARM13getDefaultFPUENS_9StringRefENS0_8ArchKindE(ptr nocapture readonly %CPU.coerce0, i64 %CPU.coerce1, i32 noundef %AK) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh3ARM13getDefaultFPUENS_9StringRefENS0_8ArchKindE(ptr readonly captures(none) %CPU.coerce0, i64 %CPU.coerce1, i32 noundef %AK) local_unnamed_addr #1 {
 entry:
   switch i64 %CPU.coerce1, label %return [
     i64 7, label %if.end.i2499
@@ -966,10 +966,10 @@ return:                                           ; preds = %entry, %if.end.i258
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh3ARM20getDefaultExtensionsENS_9StringRefENS0_8ArchKindE(ptr nocapture readonly %CPU.coerce0, i64 %CPU.coerce1, i32 noundef %AK) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh3ARM20getDefaultExtensionsENS_9StringRefENS0_8ArchKindE(ptr readonly captures(none) %CPU.coerce0, i64 %CPU.coerce1, i32 noundef %AK) local_unnamed_addr #1 {
 entry:
   %cmp.i2573 = icmp eq i64 %CPU.coerce1, 7
   br i1 %cmp.i2573, label %if.end.i2581, label %land.lhs.true.i1649
@@ -1484,7 +1484,7 @@ return:                                           ; preds = %if.end.i2606, %if.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvh3ARM16getHWDivFeaturesEjRSt6vectorINS_9StringRefESaIS2_EE(i32 noundef %HWDivKind, ptr nocapture noundef nonnull align 8 dereferenceable(24) %Features) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_ZN4llvh3ARM16getHWDivFeaturesEjRSt6vectorINS_9StringRefESaIS2_EE(i32 noundef %HWDivKind, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %Features) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ne i32 %HWDivKind, 0
   br i1 %cmp, label %if.end, label %return
@@ -1786,7 +1786,7 @@ return:                                           ; preds = %_ZNSt6vectorIN4llvh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvh3ARM20getExtensionFeaturesEjRSt6vectorINS_9StringRefESaIS2_EE(i32 noundef %Extensions, ptr nocapture noundef nonnull align 8 dereferenceable(24) %Features) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_ZN4llvh3ARM20getExtensionFeaturesEjRSt6vectorINS_9StringRefESaIS2_EE(i32 noundef %Extensions, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %Features) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i32 %Extensions, 0
   br i1 %cmp, label %return, label %if.end
@@ -5044,7 +5044,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden { ptr, i64 } @_ZN4llvh3ARM17getArchExtFeatureENS_9StringRefE(ptr nocapture readonly %ArchExt.coerce0, i64 %ArchExt.coerce1) local_unnamed_addr #1 {
+define hidden { ptr, i64 } @_ZN4llvh3ARM17getArchExtFeatureENS_9StringRefE(ptr readonly captures(none) %ArchExt.coerce0, i64 %ArchExt.coerce1) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp ugt i64 %ArchExt.coerce1, 1
   br i1 %cmp.i, label %if.end.i99, label %if.end8
@@ -5358,7 +5358,7 @@ _ZN4llvh3ARM17getFPURestrictionEj.exit:           ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh7AArch6413getDefaultFPUENS_9StringRefENS0_8ArchKindE(ptr nocapture readonly %CPU.coerce0, i64 %CPU.coerce1, i32 noundef %AK) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh7AArch6413getDefaultFPUENS_9StringRefENS0_8ArchKindE(ptr readonly captures(none) %CPU.coerce0, i64 %CPU.coerce1, i32 noundef %AK) local_unnamed_addr #1 {
 entry:
   switch i64 %CPU.coerce1, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread [
     i64 7, label %if.end.i639
@@ -5496,7 +5496,7 @@ return:                                           ; preds = %if.end.i646, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh7AArch6420getDefaultExtensionsENS_9StringRefENS0_8ArchKindE(ptr nocapture readonly %CPU.coerce0, i64 %CPU.coerce1, i32 noundef %AK) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh7AArch6420getDefaultExtensionsENS_9StringRefENS0_8ArchKindE(ptr readonly captures(none) %CPU.coerce0, i64 %CPU.coerce1, i32 noundef %AK) local_unnamed_addr #1 {
 entry:
   switch i64 %CPU.coerce1, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread [
     i64 7, label %if.end.i659
@@ -5634,7 +5634,7 @@ return:                                           ; preds = %if.end.i783, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 5) i32 @_ZN4llvh7AArch6414getCPUArchKindENS_9StringRefE(ptr nocapture readonly %CPU.coerce0, i64 %CPU.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 5) i32 @_ZN4llvh7AArch6414getCPUArchKindENS_9StringRefE(ptr readonly captures(none) %CPU.coerce0, i64 %CPU.coerce1) local_unnamed_addr #5 {
 entry:
   switch i64 %CPU.coerce1, label %_ZN4llvh12StringSwitchINS_7AArch648ArchKindES2_E4CaseENS_13StringLiteralES2_.exit.thread [
     i64 7, label %if.end.i639
@@ -6797,7 +6797,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvh7AArch6415getArchFeaturesENS0_8ArchKindERSt6vectorINS_9StringRefESaIS3_EE(i32 noundef %AK, ptr nocapture noundef nonnull align 8 dereferenceable(24) %Features) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_ZN4llvh7AArch6415getArchFeaturesENS0_8ArchKindERSt6vectorINS_9StringRefESaIS3_EE(i32 noundef %AK, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %Features) local_unnamed_addr #3 {
 entry:
   switch i32 %AK, label %if.end16 [
     i32 2, label %if.then
@@ -7260,7 +7260,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden { ptr, i64 } @_ZN4llvh7AArch6417getArchExtFeatureENS_9StringRefE(ptr nocapture readonly %ArchExt.coerce0, i64 %ArchExt.coerce1) local_unnamed_addr #1 {
+define hidden { ptr, i64 } @_ZN4llvh7AArch6417getArchExtFeatureENS_9StringRefE(ptr readonly captures(none) %ArchExt.coerce0, i64 %ArchExt.coerce1) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp ugt i64 %ArchExt.coerce1, 1
   br i1 %cmp.i, label %if.end.i99, label %if.end8
@@ -7507,7 +7507,7 @@ return:                                           ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 10) i32 @_ZN4llvh7AArch6416checkArchVersionENS_9StringRefE(ptr nocapture readonly %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #6 {
+define hidden noundef range(i32 0, 10) i32 @_ZN4llvh7AArch6416checkArchVersionENS_9StringRefE(ptr readonly captures(none) %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #6 {
 entry:
   %cmp = icmp ugt i64 %Arch.coerce1, 1
   br i1 %cmp, label %land.lhs.true, label %return
@@ -7698,7 +7698,7 @@ return:                                           ; preds = %if.end44.thread, %_
 declare noundef i64 @_ZNK4llvh9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh3ARM10parseHWDivENS_9StringRefE(ptr nocapture readonly %HWDiv.coerce0, i64 %HWDiv.coerce1) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh3ARM10parseHWDivENS_9StringRefE(ptr readonly captures(none) %HWDiv.coerce0, i64 %HWDiv.coerce1) local_unnamed_addr #1 {
 entry:
   %cmp.i.i.i = icmp eq i64 %HWDiv.coerce1, 9
   br i1 %cmp.i.i.i, label %if.end.i.i.i, label %_ZN4llvh12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit.thread.i
@@ -7749,7 +7749,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh3ARM8parseFPUENS_9StringRefE(ptr nocapture readonly %FPU.coerce0, i64 %FPU.coerce1) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh3ARM8parseFPUENS_9StringRefE(ptr readonly captures(none) %FPU.coerce0, i64 %FPU.coerce1) local_unnamed_addr #1 {
 entry:
   switch i64 %FPU.coerce1, label %land.lhs.true.i.thread.i [
     i64 3, label %if.end.i.i.i.i
@@ -8059,7 +8059,7 @@ _ZN4llvh12StringSwitchINS_9StringRefES1_E7DefaultES1_.exit: ; preds = %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh3ARM12parseArchExtENS_9StringRefE(ptr nocapture readonly %ArchExt.coerce0, i64 %ArchExt.coerce1) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh3ARM12parseArchExtENS_9StringRefE(ptr readonly captures(none) %ArchExt.coerce0, i64 %ArchExt.coerce1) local_unnamed_addr #1 {
 entry:
   %cmp.i5 = icmp eq i64 %ArchExt.coerce1, 0
   br label %for.body
@@ -8097,7 +8097,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh3ARM12parseCPUArchENS_9StringRefE(ptr nocapture readonly %CPU.coerce0, i64 %CPU.coerce1) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh3ARM12parseCPUArchENS_9StringRefE(ptr readonly captures(none) %CPU.coerce0, i64 %CPU.coerce1) local_unnamed_addr #1 {
 entry:
   %cmp.i5 = icmp eq i64 %CPU.coerce1, 0
   br label %for.body
@@ -8239,7 +8239,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN4llvh3ARM12parseArchISAENS_9StringRefE(ptr nocapture readonly %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh3ARM12parseArchISAENS_9StringRefE(ptr readonly captures(none) %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #5 {
 entry:
   %cmp.i.i72.not = icmp ult i64 %Arch.coerce1, 7
   br i1 %cmp.i.i72.not, label %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit81, label %if.end.i89
@@ -8279,7 +8279,7 @@ _ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E7DefaultES2_.exit: ; preds = %if.end.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 3) i32 @_ZN4llvh3ARM15parseArchEndianENS_9StringRefE(ptr nocapture readonly %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 3) i32 @_ZN4llvh3ARM15parseArchEndianENS_9StringRefE(ptr readonly captures(none) %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #5 {
 entry:
   %cmp.i133 = icmp ugt i64 %Arch.coerce1, 4
   br i1 %cmp.i133, label %if.end.i154, label %_ZN4llvh9StringRefC2EPKc.exit49
@@ -8461,7 +8461,7 @@ return:                                           ; preds = %for.inc.i, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i64 } @_ZN4llvh3ARM23computeDefaultTargetABIERKNS_6TripleENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %TT, ptr nocapture readonly %CPU.coerce0, i64 %CPU.coerce1) local_unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN4llvh3ARM23computeDefaultTargetABIERKNS_6TripleENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %TT, ptr readonly captures(none) %CPU.coerce0, i64 %CPU.coerce1) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq i64 %CPU.coerce1, 0
   br i1 %cmp.i, label %cond.true, label %for.body.i
@@ -8593,14 +8593,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh7AArch648parseFPUENS_9StringRefE(ptr nocapture readonly %FPU.coerce0, i64 %FPU.coerce1) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh7AArch648parseFPUENS_9StringRefE(ptr readonly captures(none) %FPU.coerce0, i64 %FPU.coerce1) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef i32 @_ZN4llvh3ARM8parseFPUENS_9StringRefE(ptr %FPU.coerce0, i64 %FPU.coerce1)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh7AArch6412parseArchExtENS_9StringRefE(ptr nocapture readonly %ArchExt.coerce0, i64 %ArchExt.coerce1) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh7AArch6412parseArchExtENS_9StringRefE(ptr readonly captures(none) %ArchExt.coerce0, i64 %ArchExt.coerce1) local_unnamed_addr #1 {
 entry:
   %cmp.i5 = icmp eq i64 %ArchExt.coerce1, 0
   br label %for.body
@@ -8638,7 +8638,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh7AArch6412parseCPUArchENS_9StringRefE(ptr nocapture readonly %CPU.coerce0, i64 %CPU.coerce1) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh7AArch6412parseCPUArchENS_9StringRefE(ptr readonly captures(none) %CPU.coerce0, i64 %CPU.coerce1) local_unnamed_addr #1 {
 entry:
   %cmp.i5 = icmp eq i64 %CPU.coerce1, 0
   br label %for.body
@@ -8676,7 +8676,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN4llvh7AArch6412parseArchISAENS_9StringRefE(ptr nocapture readonly %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh7AArch6412parseArchISAENS_9StringRefE(ptr readonly captures(none) %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #5 {
 entry:
   %cmp.i.i72.not.i = icmp ult i64 %Arch.coerce1, 7
   br i1 %cmp.i.i72.not.i, label %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit81.i, label %if.end.i89.i
@@ -8716,7 +8716,7 @@ _ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit:   ; preds = %if.end.i89.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 3) i32 @_ZN4llvh7AArch6415parseArchEndianENS_9StringRefE(ptr nocapture readonly %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 3) i32 @_ZN4llvh7AArch6415parseArchEndianENS_9StringRefE(ptr readonly captures(none) %Arch.coerce0, i64 %Arch.coerce1) local_unnamed_addr #5 {
 entry:
   %call = tail call noundef i32 @_ZN4llvh3ARM15parseArchEndianENS_9StringRefE(ptr %Arch.coerce0, i64 %Arch.coerce1)
   ret i32 %call
@@ -8737,7 +8737,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN4llvh7AArch6422isX18ReservedByDefaultERKNS_6TripleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %TT) local_unnamed_addr #6 {
+define hidden noundef zeroext i1 @_ZN4llvh7AArch6422isX18ReservedByDefaultERKNS_6TripleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %TT) local_unnamed_addr #6 {
 entry:
   %Environment.i.i = getelementptr inbounds nuw i8, ptr %TT, i64 48
   %0 = load i32, ptr %Environment.i.i, align 8
@@ -8851,7 +8851,7 @@ return:                                           ; preds = %_ZN12_GLOBAL__N_112
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE(ptr nocapture readonly %CPU.coerce0, i64 %CPU.coerce1) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE(ptr readonly captures(none) %CPU.coerce0, i64 %CPU.coerce1) local_unnamed_addr #1 {
 entry:
   %cmp.i4 = icmp eq i64 %CPU.coerce1, 0
   br label %for.body
@@ -8889,7 +8889,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4llvh6AMDGPU13parseArchR600ENS_9StringRefE(ptr nocapture readonly %CPU.coerce0, i64 %CPU.coerce1) local_unnamed_addr #1 {
+define hidden noundef i32 @_ZN4llvh6AMDGPU13parseArchR600ENS_9StringRefE(ptr readonly captures(none) %CPU.coerce0, i64 %CPU.coerce1) local_unnamed_addr #1 {
 entry:
   %cmp.i4 = icmp eq i64 %CPU.coerce1, 0
   br label %for.body
@@ -9079,7 +9079,7 @@ for.end:                                          ; preds = %_ZN4llvh23SmallVect
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden { i64, i32 } @_ZN4llvh6AMDGPU13getIsaVersionENS_9StringRefE(ptr nocapture readonly %GPU.coerce0, i64 %GPU.coerce1) local_unnamed_addr #1 {
+define hidden { i64, i32 } @_ZN4llvh6AMDGPU13getIsaVersionENS_9StringRefE(ptr readonly captures(none) %GPU.coerce0, i64 %GPU.coerce1) local_unnamed_addr #1 {
 entry:
   %GPU.coerce1.fr = freeze i64 %GPU.coerce1
   switch i64 %GPU.coerce1.fr, label %for.body.i.preheader [
@@ -9158,7 +9158,7 @@ return:                                           ; preds = %for.inc.i.us, %for.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
@@ -9172,7 +9172,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

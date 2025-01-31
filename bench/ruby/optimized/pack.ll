@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [23 x i8] c"non associated pointer\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 1, 7) i32 @rb_uv_to_utf8(ptr nocapture noundef nonnull writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 1, 7) i32 @rb_uv_to_utf8(ptr noundef nonnull writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i64 %1, 128
   br i1 %3, label %4, label %6
 
@@ -227,7 +227,7 @@ define hidden void @Init_builtin_pack() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pack_pack(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal i64 @pack_pack(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -2048,7 +2048,7 @@ RSTRING_PTR.exit527:                              ; preds = %._crit_edge, %746
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pack_unpack(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal i64 @pack_unpack(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = tail call i32 @rb_block_given_p() #14
   %6 = and i64 %3, 1
   %.not.i = icmp eq i64 %6, 0
@@ -2071,7 +2071,7 @@ rb_num2long_inline.exit:                          ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pack_unpack1(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal i64 @pack_unpack1(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = and i64 %3, 1
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %8, label %6
@@ -2132,7 +2132,7 @@ declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare i64 @rb_to_int(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @encodes(i64 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef range(i32 -128, 128) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @encodes(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef range(i32 -128, 128) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [4097 x i8], align 16
   %7 = icmp eq i32 %3, 117
   %8 = select i1 %7, ptr @uu_table, ptr @b64_table
@@ -2375,7 +2375,7 @@ declare void @rb_enc_set_index(i64 noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @rb_utf8_encindex() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #8
@@ -4922,13 +4922,13 @@ declare i64 @llvm.smin.i64(i64, i64) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

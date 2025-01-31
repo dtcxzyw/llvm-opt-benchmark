@@ -110,7 +110,7 @@ _ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_s
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z36grpc_chttp2_list_pop_writable_streamP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr nocapture noundef writeonly %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z36grpc_chttp2_list_pop_writable_streamP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr noundef writeonly captures(none) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %lists.i = getelementptr inbounds nuw i8, ptr %t, i64 480
   %0 = load ptr, ptr %lists.i, align 8
@@ -289,7 +289,7 @@ _ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z37grpc_chttp2_list_have_writing_streamsP21grpc_chttp2_transport(ptr nocapture noundef readonly %t) local_unnamed_addr #5 {
+define noundef zeroext i1 @_Z37grpc_chttp2_list_have_writing_streamsP21grpc_chttp2_transport(ptr noundef readonly captures(none) %t) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr i8, ptr %t, i64 496
   %t.val = load ptr, ptr %0, align 8
@@ -298,7 +298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z35grpc_chttp2_list_pop_writing_streamP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr nocapture noundef writeonly %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z35grpc_chttp2_list_pop_writing_streamP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr noundef writeonly captures(none) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %t, i64 496
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -412,7 +412,7 @@ _ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z44grpc_chttp2_list_pop_waiting_for_concurrencyP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr nocapture noundef writeonly %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z44grpc_chttp2_list_pop_waiting_for_concurrencyP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr noundef writeonly captures(none) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %t, i64 544
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -592,7 +592,7 @@ _ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z41grpc_chttp2_list_pop_stalled_by_transportP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr nocapture noundef writeonly %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z41grpc_chttp2_list_pop_stalled_by_transportP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr noundef writeonly captures(none) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %t, i64 512
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -772,7 +772,7 @@ _ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z38grpc_chttp2_list_pop_stalled_by_streamP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr nocapture noundef writeonly %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z38grpc_chttp2_list_pop_stalled_by_streamP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr noundef writeonly captures(none) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %t, i64 528
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -920,7 +920,7 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_stream_lists.cc() #8 section ".text.startup" {

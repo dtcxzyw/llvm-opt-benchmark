@@ -27,7 +27,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN17GCOverheadCheckerC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17GCOverheadCheckerC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17GCOverheadCheckerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 1), (4, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17GCOverheadCheckerC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 1), (4, 8)) %0) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -35,7 +35,7 @@ define hidden void @_ZN17GCOverheadCheckerC2Ev(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17GCOverheadChecker23check_gc_overhead_limitEP16GCOverheadTesterS1_bN7GCCause5CauseEP13SoftRefPolicy(ptr nocapture noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17GCOverheadChecker23check_gc_overhead_limitEP16GCOverheadTesterS1_bN7GCCause5CauseEP13SoftRefPolicy(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #1 align 2 {
   br i1 %3, label %7, label %8
 
 7:                                                ; preds = %6

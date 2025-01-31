@@ -63,7 +63,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @llvm.used = appending global [4 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @Perf_Attach(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden noundef ptr @Perf_Attach(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -254,7 +254,7 @@ _ZN21ThreadStateTransition22transition_from_nativeEP10JavaThread15JavaThreadStat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @Perf_Detach(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden void @Perf_Detach(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
   %6 = inttoptr i64 %5 to ptr
@@ -399,7 +399,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %47, %53
 declare void @_ZN10PerfMemory6detachEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @Perf_CreateLong(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) #0 {
+define hidden noundef ptr @Perf_CreateLong(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) #0 {
   %7 = ptrtoint ptr %0 to i64
   %8 = add nsw i64 %7, -960
   %9 = inttoptr i64 %8 to ptr
@@ -703,7 +703,7 @@ declare noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8Pe
 declare noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @Perf_CreateByteArray(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) #0 {
+define hidden noundef ptr @Perf_CreateByteArray(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) #0 {
   %8 = alloca %class.ThreadToNativeFromVM, align 8
   %9 = ptrtoint ptr %0 to i64
   %10 = add nsw i64 %9, -960
@@ -990,7 +990,7 @@ declare noundef ptr @_ZN15PerfDataManager22create_string_constantE9CounterNSPKcS
 declare noundef ptr @_ZN15PerfDataManager22create_string_variableE9CounterNSPKciS2_P10JavaThread(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @Perf_HighResCounter(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i64 @Perf_HighResCounter(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = ptrtoint ptr %0 to i64
   %4 = add nsw i64 %3, -960
   %5 = inttoptr i64 %4 to ptr
@@ -1082,7 +1082,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
 declare noundef i64 @_ZN2os15elapsed_counterEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @Perf_HighResFrequency(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i64 @Perf_HighResFrequency(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = ptrtoint ptr %0 to i64
   %4 = add nsw i64 %3, -960
   %5 = inttoptr i64 %4 to ptr

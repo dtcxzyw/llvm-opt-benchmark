@@ -53,7 +53,7 @@ declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
 declare ptr @g_byte_array_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @json_writer_get(ptr nocapture noundef readonly %writer) local_unnamed_addr #0 {
+define dso_local ptr @json_writer_get(ptr noundef readonly captures(none) %writer) local_unnamed_addr #0 {
 entry:
   %container_is_array = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %0 = load ptr, ptr %container_is_array, align 8
@@ -117,7 +117,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @json_writer_start_object(ptr nocapture noundef %writer, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local void @json_writer_start_object(ptr noundef captures(none) %writer, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
   %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
@@ -163,7 +163,7 @@ g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @maybe_comma_name(ptr nocapture noundef %writer, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @maybe_comma_name(ptr noundef captures(none) %writer, ptr noundef %name) unnamed_addr #0 {
 entry:
   %need_comma = getelementptr inbounds nuw i8, ptr %writer, i64 1
   %0 = load i8, ptr %need_comma, align 1
@@ -286,7 +286,7 @@ if.end10:                                         ; preds = %if.end5, %if.then7,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @json_writer_end_object(ptr nocapture noundef %writer) local_unnamed_addr #0 {
+define dso_local void @json_writer_end_object(ptr noundef captures(none) %writer) local_unnamed_addr #0 {
 entry:
   %container_is_array.i = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %0 = load ptr, ptr %container_is_array.i, align 8
@@ -361,7 +361,7 @@ g_string_append_c_inline.exit:                    ; preds = %if.then.i11, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @json_writer_start_array(ptr nocapture noundef %writer, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local void @json_writer_start_array(ptr noundef captures(none) %writer, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
   %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
@@ -407,7 +407,7 @@ g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @json_writer_end_array(ptr nocapture noundef %writer) local_unnamed_addr #0 {
+define dso_local void @json_writer_end_array(ptr noundef captures(none) %writer) local_unnamed_addr #0 {
 entry:
   %container_is_array.i = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %0 = load ptr, ptr %container_is_array.i, align 8
@@ -482,7 +482,7 @@ g_string_append_c_inline.exit:                    ; preds = %if.then.i11, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @json_writer_bool(ptr nocapture noundef %writer, ptr noundef %name, i1 noundef zeroext %val) local_unnamed_addr #0 {
+define dso_local void @json_writer_bool(ptr noundef captures(none) %writer, ptr noundef %name, i1 noundef zeroext %val) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
   %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
@@ -495,7 +495,7 @@ entry:
 declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @json_writer_null(ptr nocapture noundef %writer, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local void @json_writer_null(ptr noundef captures(none) %writer, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
   %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
@@ -505,7 +505,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @json_writer_int64(ptr nocapture noundef %writer, ptr noundef %name, i64 noundef %val) local_unnamed_addr #0 {
+define dso_local void @json_writer_int64(ptr noundef captures(none) %writer, ptr noundef %name, i64 noundef %val) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
   %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
@@ -517,7 +517,7 @@ entry:
 declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @json_writer_uint64(ptr nocapture noundef %writer, ptr noundef %name, i64 noundef %val) local_unnamed_addr #0 {
+define dso_local void @json_writer_uint64(ptr noundef captures(none) %writer, ptr noundef %name, i64 noundef %val) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
   %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
@@ -527,7 +527,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @json_writer_double(ptr nocapture noundef %writer, ptr noundef %name, double noundef %val) local_unnamed_addr #0 {
+define dso_local void @json_writer_double(ptr noundef captures(none) %writer, ptr noundef %name, double noundef %val) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
   %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
@@ -537,7 +537,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @json_writer_str(ptr nocapture noundef %writer, ptr noundef %name, ptr noundef %str) local_unnamed_addr #0 {
+define dso_local void @json_writer_str(ptr noundef captures(none) %writer, ptr noundef %name, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
   tail call fastcc void @quoted_str(ptr noundef %writer, ptr noundef %str)
@@ -545,7 +545,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @quoted_str(ptr nocapture noundef readonly %writer, ptr noundef %str) unnamed_addr #0 {
+define internal fastcc void @quoted_str(ptr noundef readonly captures(none) %writer, ptr noundef %str) unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8

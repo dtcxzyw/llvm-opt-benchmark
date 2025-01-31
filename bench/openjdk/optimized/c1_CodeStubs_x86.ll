@@ -126,7 +126,7 @@ $_ZN18NewObjectArrayStub5visitEP16LIR_OpVisitState = comdat any
 @_ZN18NewObjectArrayStubC1E7LIR_OprS0_S0_P12CodeEmitInfo = hidden unnamed_addr alias void (ptr, i64, i64, i64, ptr), ptr @_ZN18NewObjectArrayStubC2E7LIR_OprS0_S0_P12CodeEmitInfo
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19C1SafepointPollStub9emit_codeEP13LIR_Assembler(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19C1SafepointPollStub9emit_codeEP13LIR_Assembler(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.InternalAddress, align 8
   %4 = alloca %class.AddressLiteral, align 8
   %5 = alloca %class.Address, align 8
@@ -203,7 +203,7 @@ declare void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 de
 declare void @_ZN14MacroAssembler3leaE8Register14AddressLiteral(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32) local_unnamed_addr #1
 
@@ -381,7 +381,7 @@ declare void @_ZN13LIR_Assembler15store_parameterE8Registeri(ptr noundef nonnull
 declare i32 @_ZNK7LIR_Opr11as_registerEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19PredicateFailedStubC2EP12CodeEmitInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 96)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19PredicateFailedStubC2EP12CodeEmitInfo(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 96)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -528,7 +528,7 @@ define hidden void @_ZN13DivByZeroStub9emit_codeEP13LIR_Assembler(ptr noundef no
 declare void @_ZN22ImplicitExceptionTable6appendEjj(ptr noundef nonnull align 8 dereferenceable(17), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15NewInstanceStubC2E7LIR_OprS0_P15ciInstanceKlassP12CodeEmitInfoN8Runtime16StubIDE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(124) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 124)) %0, i64 %1, i64 %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN15NewInstanceStubC2E7LIR_OprS0_P15ciInstanceKlassP12CodeEmitInfoN8Runtime16StubIDE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(124) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 124)) %0, i64 %1, i64 %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -638,7 +638,7 @@ define hidden void @_ZN15NewInstanceStub9emit_codeEP13LIR_Assembler(ptr noundef 
 declare void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16NewTypeArrayStubC2E7LIR_OprS0_S0_P12CodeEmitInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 120)) %0, i64 %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN16NewTypeArrayStubC2E7LIR_OprS0_S0_P12CodeEmitInfo(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(120) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 120)) %0, i64 %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -738,7 +738,7 @@ define hidden void @_ZN16NewTypeArrayStub9emit_codeEP13LIR_Assembler(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18NewObjectArrayStubC2E7LIR_OprS0_S0_P12CodeEmitInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 120)) %0, i64 %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN18NewObjectArrayStubC2E7LIR_OprS0_S0_P12CodeEmitInfo(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(120) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 120)) %0, i64 %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -937,7 +937,7 @@ define hidden void @_ZN15MonitorExitStub9emit_codeEP13LIR_Assembler(ptr noundef 
 declare void @_ZN13LIR_Assembler15monitor_addressEi7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12PatchingStub16align_patch_siteEP14MacroAssembler(ptr nocapture noundef nonnull readnone align 8 dereferenceable(252) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12PatchingStub16align_patch_siteEP14MacroAssembler(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(252) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN14MacroAssembler5alignEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 8) #6
   ret void
 }
@@ -2937,10 +2937,10 @@ declare noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr no
 declare void @_ZN9Assembler4cmpqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

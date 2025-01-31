@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_lang_Module_defineModule0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define void @Java_java_lang_Module_defineModule0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   tail call void @JVM_DefineModule(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #2
   ret void
 }
@@ -12,7 +12,7 @@ define void @Java_java_lang_Module_defineModule0(ptr noundef %0, ptr nocapture n
 declare void @JVM_DefineModule(ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_lang_Module_addReads0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_java_lang_Module_addReads0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call void @JVM_AddReadsModule(ptr noundef %0, ptr noundef %2, ptr noundef %3) #2
   ret void
 }
@@ -20,7 +20,7 @@ define void @Java_java_lang_Module_addReads0(ptr noundef %0, ptr nocapture nound
 declare void @JVM_AddReadsModule(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_lang_Module_addExports0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @Java_java_lang_Module_addExports0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   tail call void @JVM_AddModuleExports(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2
   ret void
 }
@@ -28,7 +28,7 @@ define void @Java_java_lang_Module_addExports0(ptr noundef %0, ptr nocapture nou
 declare void @JVM_AddModuleExports(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_lang_Module_addExportsToAll0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_java_lang_Module_addExportsToAll0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call void @JVM_AddModuleExportsToAll(ptr noundef %0, ptr noundef %2, ptr noundef %3) #2
   ret void
 }
@@ -36,7 +36,7 @@ define void @Java_java_lang_Module_addExportsToAll0(ptr noundef %0, ptr nocaptur
 declare void @JVM_AddModuleExportsToAll(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_lang_Module_addExportsToAllUnnamed0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_java_lang_Module_addExportsToAllUnnamed0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call void @JVM_AddModuleExportsToAllUnnamed(ptr noundef %0, ptr noundef %2, ptr noundef %3) #2
   ret void
 }

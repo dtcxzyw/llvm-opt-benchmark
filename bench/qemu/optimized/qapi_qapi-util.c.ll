@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [28 x i8] c"%s %s %s disabled by policy\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @compat_policy_input_ok(i32 noundef %special_features, ptr nocapture noundef readonly %policy, i32 noundef %error_class, ptr noundef %kind, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @compat_policy_input_ok(i32 noundef %special_features, ptr noundef readonly captures(none) %policy, i32 noundef %error_class, ptr noundef %kind, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %and = and i32 %special_features, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -74,7 +74,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qapi_enum_lookup(ptr nocapture noundef readonly %lookup, i32 noundef %val) local_unnamed_addr #0 {
+define dso_local ptr @qapi_enum_lookup(ptr noundef readonly captures(none) %lookup, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %val, -1
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -101,7 +101,7 @@ if.end:                                           ; preds = %land.lhs.true
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qapi_enum_parse(ptr nocapture noundef readonly %lookup, ptr noundef %buf, i32 noundef %def, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @qapi_enum_parse(ptr noundef readonly captures(none) %lookup, ptr noundef %buf, i32 noundef %def, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %buf, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
@@ -144,12 +144,12 @@ return:                                           ; preds = %return.loopexit, %e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qapi_bool_parse(ptr noundef %name, ptr noundef %value, ptr nocapture noundef writeonly %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qapi_bool_parse(ptr noundef %name, ptr noundef %value, ptr noundef writeonly captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.5) #8
   %tobool.not = icmp eq i32 %call, 0

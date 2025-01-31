@@ -680,7 +680,7 @@ define hidden void @proto_register_vrt() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_hertz(ptr nocapture noundef writeonly %0, i64 noundef %1) #1 {
+define internal void @format_hertz(ptr noundef writeonly captures(none) %0, i64 noundef %1) #1 {
   %3 = sitofp i64 %1 to double
   %4 = fmul double %3, 0x3EB0000000000000
   %5 = tail call double @llvm.fabs.f64(double %4)
@@ -739,7 +739,7 @@ get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_decibel_milliwatt(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #1 {
+define internal void @format_decibel_milliwatt(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #1 {
   %3 = sitofp i16 %1 to double
   %4 = fmul double %3, 7.812500e-03
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.411, double noundef %4) #8
@@ -747,7 +747,7 @@ define internal void @format_decibel_milliwatt(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_decibel(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #1 {
+define internal void @format_decibel(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #1 {
   %3 = sitofp i16 %1 to double
   %4 = fmul double %3, 7.812500e-03
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.412, double noundef %4) #8
@@ -755,7 +755,7 @@ define internal void @format_decibel(ptr nocapture noundef writeonly %0, i16 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_second(ptr nocapture noundef writeonly %0, i64 noundef %1) #1 {
+define internal void @format_second(ptr noundef writeonly captures(none) %0, i64 noundef %1) #1 {
   %3 = sitofp i64 %1 to double
   %4 = fmul double %3, 1.000000e-15
   %5 = tail call double @llvm.fabs.f64(double %4)
@@ -814,7 +814,7 @@ get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_celsius(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #1 {
+define internal void @format_celsius(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #1 {
   %3 = sitofp i16 %1 to double
   %4 = fmul double %3, 1.562500e-02
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.414, double noundef %4) #8
@@ -822,7 +822,7 @@ define internal void @format_celsius(ptr nocapture noundef writeonly %0, i16 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_degrees(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @format_degrees(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
   %4 = fmul double %3, 0x3E90000000000000
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.439, double noundef %4) #8
@@ -830,7 +830,7 @@ define internal void @format_degrees(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_meter(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @format_meter(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
   %4 = fmul double %3, 3.125000e-02
   %5 = tail call double @llvm.fabs.f64(double %4)
@@ -889,7 +889,7 @@ get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_meters_per_second(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @format_meters_per_second(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
   %4 = fmul double %3, 0x3EF0000000000000
   %5 = tail call double @llvm.fabs.f64(double %4)
@@ -948,7 +948,7 @@ get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_radian_phase(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #1 {
+define internal void @format_radian_phase(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #1 {
   %3 = sitofp i16 %1 to double
   %4 = fmul double %3, 7.812500e-03
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.442, double noundef %4) #8
@@ -956,7 +956,7 @@ define internal void @format_radian_phase(ptr nocapture noundef writeonly %0, i1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_radian_pol(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #1 {
+define internal void @format_radian_pol(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #1 {
   %3 = sitofp i16 %1 to double
   %4 = fmul double %3, 0x3F20000000000000
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.442, double noundef %4) #8
@@ -964,7 +964,7 @@ define internal void @format_radian_pol(ptr nocapture noundef writeonly %0, i16 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_meter_unsigned(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @format_meter_unsigned(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = fmul double %3, 1.562500e-02
   %5 = tail call double @log10(double noundef %4) #8
@@ -1030,7 +1030,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_vrt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_vrt(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [8 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1502,7 +1502,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @log10(double noundef) local_unnamed_addr #4
@@ -1532,7 +1532,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1824,7 +1824,7 @@ define internal noundef i32 @dissect_context_ref_level(ptr noundef %0, ptr nound
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_context_ephemeris(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_context_ephemeris(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1897,7 +1897,7 @@ define internal fastcc void @dissect_context_ephemeris(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_context_formatted_gps_ins(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_context_formatted_gps_ins(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1977,7 +1977,7 @@ define internal noundef i32 @dissect_context_ver(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, -3) i32 @dissect_context_array_of_records(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 0, -3) i32 @dissect_context_array_of_records(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #8
   %5 = shl i32 %4, 2
   ret i32 %5
@@ -2003,10 +2003,10 @@ define internal noundef i32 @dissect_context_phase_offset(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

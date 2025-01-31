@@ -172,7 +172,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @qdev_connect_gpio_out_named(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @sysbus_has_mmio(ptr nocapture noundef readonly %dev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local zeroext i1 @sysbus_has_mmio(ptr noundef readonly captures(none) %dev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %num_mmio = getelementptr inbounds nuw i8, ptr %dev, i64 160
   %0 = load i32, ptr %num_mmio, align 8
@@ -181,7 +181,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @sysbus_mmio_unmap(ptr nocapture noundef %dev, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local void @sysbus_mmio_unmap(ptr noundef captures(none) %dev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %n, -1
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -224,7 +224,7 @@ declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unname
 declare ptr @get_system_memory() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @sysbus_mmio_map(ptr nocapture noundef %dev, i32 noundef %n, i64 noundef %addr) local_unnamed_addr #0 {
+define dso_local void @sysbus_mmio_map(ptr noundef captures(none) %dev, i32 noundef %n, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp sgt i32 %n, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
@@ -271,7 +271,7 @@ sysbus_mmio_map_common.exit:                      ; preds = %if.end.i, %if.end15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @sysbus_mmio_map_overlap(ptr nocapture noundef %dev, i32 noundef %n, i64 noundef %addr, i32 noundef %priority) local_unnamed_addr #0 {
+define dso_local void @sysbus_mmio_map_overlap(ptr noundef captures(none) %dev, i32 noundef %n, i64 noundef %addr, i32 noundef %priority) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp sgt i32 %n, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
@@ -339,7 +339,7 @@ entry:
 declare void @qdev_pass_gpios(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @sysbus_init_mmio(ptr nocapture noundef %dev, ptr noundef %memory) local_unnamed_addr #0 {
+define dso_local void @sysbus_init_mmio(ptr noundef captures(none) %dev, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %num_mmio = getelementptr inbounds nuw i8, ptr %dev, i64 160
   %0 = load i32, ptr %num_mmio, align 8
@@ -363,7 +363,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @sysbus_mmio_get_region(ptr nocapture noundef readonly %dev, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local ptr @sysbus_mmio_get_region(ptr noundef readonly captures(none) %dev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %or.cond = icmp ult i32 %n, 32
   br i1 %or.cond, label %if.end, label %if.else
@@ -383,7 +383,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @sysbus_init_ioports(ptr nocapture noundef %dev, i32 noundef %ioport, i32 noundef %size) local_unnamed_addr #0 {
+define dso_local void @sysbus_init_ioports(ptr noundef captures(none) %dev, i32 noundef %ioport, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp4.not = icmp eq i32 %size, 0
   br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
@@ -609,7 +609,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare zeroext i1 @qdev_realize_and_unref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @sysbus_add_io(ptr nocapture noundef readnone %dev, i64 noundef %addr, ptr noundef %mem) local_unnamed_addr #0 {
+define dso_local void @sysbus_add_io(ptr noundef readnone captures(none) %dev, i64 noundef %addr, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @get_system_io() #7
   tail call void @memory_region_add_subregion(ptr noundef %call, i64 noundef %addr, ptr noundef %mem) #7
@@ -621,7 +621,7 @@ declare void @memory_region_add_subregion(ptr noundef, i64 noundef, ptr noundef)
 declare ptr @get_system_io() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @sysbus_address_space(ptr nocapture noundef readnone %dev) local_unnamed_addr #0 {
+define dso_local ptr @sysbus_address_space(ptr noundef readnone captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @get_system_memory() #7
   ret ptr %call
@@ -662,7 +662,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 declare void @qbus_init(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @system_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @system_bus_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #7
   %print_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -771,7 +771,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sysbus_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @sysbus_device_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
@@ -784,7 +784,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @sysbus_device_realize(ptr nocapture readnone %dev, ptr nocapture readnone %errp) #5 {
+define internal void @sysbus_device_realize(ptr readnone captures(none) %dev, ptr readnone captures(none) %errp) #5 {
 entry:
   ret void
 }

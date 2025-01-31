@@ -442,7 +442,7 @@ declare void @cfile_close_failure_message(ptr noundef, i32 noundef, ptr noundef)
 declare void @cmdarg_err_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal void @mergecap_cmdarg_err(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
+define internal void @mergecap_cmdarg_err(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 10, i64 1, ptr %3) #10
   %5 = load ptr, ptr @stderr, align 8
@@ -453,7 +453,7 @@ define internal void @mergecap_cmdarg_err(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal void @mergecap_cmdarg_err_cont(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
+define internal void @mergecap_cmdarg_err_cont(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef %1) #9
   %5 = load ptr, ptr @stderr, align 8
@@ -474,7 +474,7 @@ declare void @init_process_policies() local_unnamed_addr #1
 declare ptr @configuration_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
@@ -519,7 +519,7 @@ define internal fastcc void @list_capture_types() unnamed_addr #4 {
 declare void @show_help_header(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_usage(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @print_usage(ptr noundef captures(none) %0) unnamed_addr #5 {
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %2 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 65, i64 1, ptr %0)
   %fputc17 = tail call i32 @fputc(i32 10, ptr %0)
@@ -568,7 +568,7 @@ declare void @show_version() local_unnamed_addr #1
 declare i32 @wtap_pcapng_file_type_subtype() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @merge_callback(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture readnone %4) #0 {
+define internal noundef i32 @merge_callback(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr readnone captures(none) %4) #0 {
   switch i32 %0, label %.loopexit [
     i32 0, label %.preheader
     i32 1, label %14
@@ -689,7 +689,7 @@ declare void @wtap_cleanup() local_unnamed_addr #1
 declare void @free_progdirs() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 declare ptr @wtap_get_writable_file_types_subtypes(i32 noundef) local_unnamed_addr #1
 
@@ -710,10 +710,10 @@ declare ptr @wtap_encap_description(i32 noundef) local_unnamed_addr #1
 declare ptr @wtap_encap_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

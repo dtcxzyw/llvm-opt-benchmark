@@ -30,19 +30,19 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_inetpeer_inv
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_inet_getpeer742, ptr @__UNIQUE_ID___addressable_inet_peer_base_init732, ptr @__UNIQUE_ID___addressable_inet_peer_xrlim_allow745, ptr @__UNIQUE_ID___addressable_inet_putpeer744, ptr @__UNIQUE_ID___addressable_inetpeer_invalidate_tree746, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched203], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @inet_peer_base_init(ptr nocapture noundef writeonly initializes((0, 20)) %0) #0 align 16 {
+define dso_local void @inet_peer_base_init(ptr noundef writeonly captures(none) initializes((0, 20)) %0) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @inet_initpeers() local_unnamed_addr #3 section ".init.text" align 16 {
@@ -63,7 +63,7 @@ define dso_local void @inet_initpeers() local_unnamed_addr #3 section ".init.tex
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @inet_getpeer(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #5 align 16 {
+define dso_local ptr @inet_getpeer(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 align 16 {
   %4 = alloca [32 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #10
   tail call void @__rcu_read_lock() #10
@@ -415,7 +415,7 @@ lookup.exit16:                                    ; preds = %113, %66, %107, %se
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #4

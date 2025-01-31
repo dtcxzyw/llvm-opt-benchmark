@@ -426,7 +426,7 @@ declare i32 @lua_setmetatable(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @lua_replace(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @luaEngineCreate(ptr nocapture noundef readonly %engine_ctx, ptr noundef %li, ptr noundef %blob, i64 noundef %timeout, ptr nocapture noundef writeonly %err) #0 {
+define internal range(i32 -1, 1) i32 @luaEngineCreate(ptr noundef readonly captures(none) %engine_ctx, ptr noundef %li, ptr noundef %blob, i64 noundef %timeout, ptr noundef writeonly captures(none) %err) #0 {
 entry:
   %load_ctx = alloca %struct.loadCtx, align 8
   %err_info = alloca %struct.errorInfo, align 8
@@ -540,7 +540,7 @@ done:                                             ; preds = %cond.end, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @luaEngineCall(ptr noundef %run_ctx, ptr nocapture noundef readonly %engine_ctx, ptr nocapture noundef readonly %compiled_function, ptr noundef %keys, i64 noundef %nkeys, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal void @luaEngineCall(ptr noundef %run_ctx, ptr noundef readonly captures(none) %engine_ctx, ptr noundef readonly captures(none) %compiled_function, ptr noundef %keys, i64 noundef %nkeys, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %0 = load ptr, ptr %engine_ctx, align 8
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull @.str.3) #8
@@ -563,7 +563,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @luaEngineGetUsedMemoy(ptr nocapture noundef readonly %engine_ctx) #0 {
+define internal i64 @luaEngineGetUsedMemoy(ptr noundef readonly captures(none) %engine_ctx) #0 {
 entry:
   %0 = load ptr, ptr %engine_ctx, align 8
   %call = tail call i64 @luaMemory(ptr noundef %0) #8
@@ -585,7 +585,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @luaEngineFreeFunction(ptr nocapture noundef readonly %engine_ctx, ptr noundef %compiled_function) #0 {
+define internal void @luaEngineFreeFunction(ptr noundef readonly captures(none) %engine_ctx, ptr noundef %compiled_function) #0 {
 entry:
   %0 = load ptr, ptr %engine_ctx, align 8
   %1 = load i32, ptr %compiled_function, align 4
@@ -597,7 +597,7 @@ entry:
 declare i32 @functionsRegisterEngine(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @luaGetFromRegistry(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -622,7 +622,7 @@ declare i32 @lua_isstring(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @luaGetStringSds(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -652,7 +652,7 @@ declare void @abort() local_unnamed_addr #5
 declare i32 @lua_sethook(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @luaEngineLoadHook(ptr noundef %lua, ptr nocapture readnone %ar) #0 {
+define internal void @luaEngineLoadHook(ptr noundef %lua, ptr readnone captures(none) %ar) #0 {
 entry:
   %call = tail call ptr @luaGetFromRegistry(ptr noundef %lua, ptr noundef nonnull @.str.10) #8
   %tobool.not = icmp eq ptr %call, null

@@ -121,7 +121,7 @@ define hidden void @rb_free_shared_fiber_pool() local_unnamed_addr #0 {
 declare void @ruby_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden ptr @rb_fiber_threadptr(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden ptr @rb_fiber_threadptr(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -187,7 +187,7 @@ define dso_local range(i64 0, 21) i64 @rb_obj_is_fiber(i64 noundef %0) local_unn
 declare i32 @rb_typeddata_is_kind_of(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_jit_cont_each_iseq(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @rb_jit_cont_each_iseq(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.01324 = load ptr, ptr @first_jit_cont, align 8
   %.not25 = icmp eq ptr %.01324, null
   br i1 %.not25, label %._crit_edge, label %.lr.ph27
@@ -333,7 +333,7 @@ define hidden void @rb_jit_cont_finish() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @rb_native_mutex_destroy(ptr noundef) local_unnamed_addr #1
 
@@ -344,14 +344,14 @@ define hidden nonnull ptr @rb_fiberptr_get_ec(ptr noundef readnone %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @rb_fiberptr_self(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden i64 @rb_fiberptr_self(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @rb_fiberptr_blocking(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @rb_fiberptr_blocking(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load i8, ptr %2, align 8
   %4 = lshr i8 %3, 3
@@ -394,7 +394,7 @@ declare ptr @rb_st_init_numtable() local_unnamed_addr #1
 declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_fiber_inherit_storage(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((160, 168)) %1) local_unnamed_addr #0 {
+define hidden i64 @rb_fiber_inherit_storage(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((160, 168)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %5 = tail call i64 @rb_obj_dup(i64 noundef %4) #9
@@ -871,7 +871,7 @@ declare void @rb_threadptr_pending_interrupt_enque(ptr noundef, i64 noundef) loc
 declare i64 @rb_vm_make_jump_tag_but_local_jump(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @rb_fiber_terminate(ptr nocapture noundef initializes((56, 64), (72, 80)) %0, i32 noundef range(i32 0, 2) %1, i64 noundef %2) unnamed_addr #6 {
+define internal fastcc void @rb_fiber_terminate(ptr noundef captures(none) initializes((56, 64), (72, 80)) %0, i32 noundef range(i32 0, 2) %1, i64 noundef %2) unnamed_addr #6 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store i64 %2, ptr %4, align 8
@@ -1032,10 +1032,10 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #11
 declare ptr @rb_errno_ptr() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_threadptr_root_fiber_release(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @rb_threadptr_root_fiber_release(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1101,7 +1101,7 @@ define internal void @fiber_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_threadptr_root_fiber_terminate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @rb_threadptr_root_fiber_terminate(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1908,7 +1908,7 @@ fiber_ptr.exit:                                   ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden void @rb_fiber_close(ptr nocapture noundef %0) local_unnamed_addr #13 {
+define hidden void @rb_fiber_close(ptr noundef captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load i8, ptr %2, align 8
   %4 = or i8 %3, 3
@@ -2158,7 +2158,7 @@ return_fiber.exit:                                ; preds = %fiber_current.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @rb_fiber_reset_root_local_storage(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define hidden void @rb_fiber_reset_root_local_storage(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2292,7 +2292,7 @@ fiber_raise.exit:                                 ; preds = %fiber_transfer_kw.e
 declare i64 @rb_make_exception(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @rb_fiber_atfork(ptr nocapture noundef %0) local_unnamed_addr #14 {
+define hidden void @rb_fiber_atfork(ptr noundef captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2444,10 +2444,10 @@ define hidden void @Init_Cont() local_unnamed_addr #0 {
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #15
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: cold
 declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #17
@@ -3990,7 +3990,7 @@ declare i64 @rb_id_table_memsize(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_obj_memsize_of(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @cont_memsize(ptr nocapture noundef readonly %0) #2 {
+define internal i64 @cont_memsize(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4090,7 +4090,7 @@ declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #22
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #22
 
 declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4428,7 +4428,7 @@ declare i32 @rb_signal_buff_size() local_unnamed_addr #1
 declare void @rb_ec_initialize_vm_stack(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal void @fiber_entry(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @fiber_entry(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -4622,7 +4622,7 @@ declare i64 @rb_fiber_scheduler_current() local_unnamed_addr #1
 declare i64 @rb_fiber_scheduler_fiber(i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rollback_ensure_stack(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @rollback_ensure_stack(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %.not63 = icmp eq ptr %0, null
@@ -5079,13 +5079,13 @@ declare i64 @llvm.umin.i64(i64, i64) #29
 declare i64 @llvm.umax.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #30
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

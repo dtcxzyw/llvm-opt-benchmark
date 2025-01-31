@@ -85,7 +85,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [17 x ptr] [ptr @__UNIQUE_ID___addressable_is_virtio_device376, ptr @__UNIQUE_ID___addressable_register_virtio_device375, ptr @__UNIQUE_ID___addressable_register_virtio_driver368, ptr @__UNIQUE_ID___addressable_unregister_virtio_device377, ptr @__UNIQUE_ID___addressable_unregister_virtio_driver369, ptr @__UNIQUE_ID___addressable_virtio_add_status361, ptr @__UNIQUE_ID___addressable_virtio_check_driver_offered_feature359, ptr @__UNIQUE_ID___addressable_virtio_config_changed360, ptr @__UNIQUE_ID___addressable_virtio_device_freeze378, ptr @__UNIQUE_ID___addressable_virtio_device_restore379, ptr @__UNIQUE_ID___addressable_virtio_init381, ptr @__UNIQUE_ID___addressable_virtio_reset_device362, ptr @__UNIQUE_ID_file382, ptr @__UNIQUE_ID_license383, ptr @__exitcall_virtio_exit, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5, ptr @virtio_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_check_driver_offered_feature(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local void @virtio_check_driver_offered_feature(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -334,7 +334,7 @@ declare dso_local i32 @device_add(ptr noundef) local_unnamed_addr #1
 declare dso_local void @ida_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @is_virtio_device(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local zeroext i1 @is_virtio_device(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @virtio_bus
@@ -715,7 +715,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal noundef range(i32 0, 2) i32 @virtio_dev_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define internal noundef range(i32 0, 2) i32 @virtio_dev_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -762,7 +762,7 @@ define internal noundef range(i32 0, 2) i32 @virtio_dev_match(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @virtio_uevent(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @virtio_uevent(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 728
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 732
@@ -1051,7 +1051,7 @@ define internal void @virtio_dev_remove(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @device_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @device_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 728
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %5) #8
@@ -1063,7 +1063,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @device_show(ptr nocaptur
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @vendor_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @vendor_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 732
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %5) #8
@@ -1072,7 +1072,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vendor_show(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @status_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @status_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -16
   %5 = getelementptr i8, ptr %0, i64 736
   %6 = load ptr, ptr %5, align 8
@@ -1086,7 +1086,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @status_show(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 728
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 732
@@ -1097,7 +1097,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @features_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal i64 @features_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 768
   br label %5
 

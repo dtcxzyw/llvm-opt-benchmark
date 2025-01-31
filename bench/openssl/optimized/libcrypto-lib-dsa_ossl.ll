@@ -232,7 +232,7 @@ declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #4
 declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dsa_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr %rp.0.val, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @dsa_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr noundef captures(none) %kinvp, ptr %rp.0.val, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #3 {
 entry:
   %params = getelementptr inbounds nuw i8, ptr %dsa, i64 8
   %0 = load ptr, ptr %params, align 8
@@ -354,12 +354,12 @@ do.body.preheader:                                ; preds = %lor.lhs.false62
 
 do.body.us:                                       ; preds = %do.body.preheader, %do.cond.us
   %11 = load ptr, ptr %q, align 8
-  %call92.us = tail call i32 @BN_priv_rand_range_ex(ptr noundef %call38, ptr noundef %11, i32 noundef 0, ptr noundef nonnull %ctx.1) #7
+  %call92.us = tail call i32 @BN_priv_rand_range_ex(ptr noundef nonnull %call38, ptr noundef %11, i32 noundef 0, ptr noundef nonnull %ctx.1) #7
   %tobool93.not.us = icmp eq i32 %call92.us, 0
   br i1 %tobool93.not.us, label %if.then161, label %do.cond.us
 
 do.cond.us:                                       ; preds = %do.body.us
-  %call97.us = tail call i32 @BN_is_zero(ptr noundef %call38) #7
+  %call97.us = tail call i32 @BN_is_zero(ptr noundef nonnull %call38) #7
   %tobool98.not.us = icmp eq i32 %call97.us, 0
   br i1 %tobool98.not.us, label %do.end, label %do.body.us, !llvm.loop !6
 
@@ -370,30 +370,30 @@ do.body.preheader.split:                          ; preds = %do.body.preheader
 do.body.us8:                                      ; preds = %do.body.preheader.split, %do.cond.us9
   %12 = load ptr, ptr %q, align 8
   %13 = load ptr, ptr %priv_key, align 8
-  %call75.us = tail call i32 @ossl_gen_deterministic_nonce_rfc6979(ptr noundef %call38, ptr noundef %12, ptr noundef %13, ptr noundef nonnull %dgst, i64 noundef %conv83, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) #7
+  %call75.us = tail call i32 @ossl_gen_deterministic_nonce_rfc6979(ptr noundef nonnull %call38, ptr noundef %12, ptr noundef %13, ptr noundef nonnull %dgst, i64 noundef %conv83, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) #7
   %tobool76.not.us = icmp eq i32 %call75.us, 0
   br i1 %tobool76.not.us, label %if.then161, label %do.cond.us9
 
 do.cond.us9:                                      ; preds = %do.body.us8
-  %call97.us10 = tail call i32 @BN_is_zero(ptr noundef %call38) #7
+  %call97.us10 = tail call i32 @BN_is_zero(ptr noundef nonnull %call38) #7
   %tobool98.not.us11 = icmp eq i32 %call97.us10, 0
   br i1 %tobool98.not.us11, label %do.end, label %do.body.us8, !llvm.loop !6
 
 do.body:                                          ; preds = %do.body.preheader.split, %do.cond
   %14 = load ptr, ptr %q, align 8
   %15 = load ptr, ptr %priv_key, align 8
-  %call84 = tail call i32 @BN_generate_dsa_nonce(ptr noundef %call38, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %dgst, i64 noundef %conv83, ptr noundef nonnull %ctx.1) #7
+  %call84 = tail call i32 @BN_generate_dsa_nonce(ptr noundef nonnull %call38, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %dgst, i64 noundef %conv83, ptr noundef nonnull %ctx.1) #7
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %if.then161, label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %call97 = tail call i32 @BN_is_zero(ptr noundef %call38) #7
+  %call97 = tail call i32 @BN_is_zero(ptr noundef nonnull %call38) #7
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %do.end, label %do.body, !llvm.loop !6
 
 do.end:                                           ; preds = %do.cond, %do.cond.us9, %do.cond.us
-  tail call void @BN_set_flags(ptr noundef %call38, i32 noundef 4) #7
-  tail call void @BN_set_flags(ptr noundef %call39, i32 noundef 4) #7
+  tail call void @BN_set_flags(ptr noundef nonnull %call38, i32 noundef 4) #7
+  tail call void @BN_set_flags(ptr noundef nonnull %call39, i32 noundef 4) #7
   %flags = getelementptr inbounds nuw i8, ptr %dsa, i64 120
   %16 = load i32, ptr %flags, align 8
   %and = and i32 %16, 1
@@ -411,20 +411,20 @@ if.then100:                                       ; preds = %do.end
 
 if.end107:                                        ; preds = %if.then100, %do.end
   %19 = load ptr, ptr %q, align 8
-  %call110 = tail call i32 @BN_add(ptr noundef %call39, ptr noundef %call38, ptr noundef %19) #7
+  %call110 = tail call i32 @BN_add(ptr noundef nonnull %call39, ptr noundef nonnull %call38, ptr noundef %19) #7
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %if.then161, label %lor.lhs.false112
 
 lor.lhs.false112:                                 ; preds = %if.end107
   %20 = load ptr, ptr %q, align 8
-  %call115 = tail call i32 @BN_add(ptr noundef %call38, ptr noundef %call39, ptr noundef %20) #7
+  %call115 = tail call i32 @BN_add(ptr noundef nonnull %call38, ptr noundef nonnull %call39, ptr noundef %20) #7
   %tobool116.not = icmp eq i32 %call115, 0
   br i1 %tobool116.not, label %if.then161, label %if.end118
 
 if.end118:                                        ; preds = %lor.lhs.false112
-  %call119 = tail call i32 @BN_is_bit_set(ptr noundef %call39, i32 noundef %call54) #7
+  %call119 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %call39, i32 noundef %call54) #7
   %conv120 = sext i32 %call119 to i64
-  tail call void @BN_consttime_swap(i64 noundef %conv120, ptr noundef %call38, ptr noundef %call39, i32 noundef %add) #7
+  tail call void @BN_consttime_swap(i64 noundef %conv120, ptr noundef nonnull %call38, ptr noundef nonnull %call39, i32 noundef %add) #7
   %meth = getelementptr inbounds nuw i8, ptr %dsa, i64 160
   %21 = load ptr, ptr %meth, align 8
   %bn_mod_exp = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -437,12 +437,12 @@ if.end118:                                        ; preds = %lor.lhs.false112
   br i1 %cmp122.not, label %if.else136, label %if.then124
 
 if.then124:                                       ; preds = %if.end118
-  %call132 = tail call i32 %22(ptr noundef nonnull %dsa, ptr noundef %rp.0.val, ptr noundef %23, ptr noundef %call38, ptr noundef %24, ptr noundef nonnull %ctx.1, ptr noundef %25) #7
+  %call132 = tail call i32 %22(ptr noundef nonnull %dsa, ptr noundef %rp.0.val, ptr noundef %23, ptr noundef nonnull %call38, ptr noundef %24, ptr noundef nonnull %ctx.1, ptr noundef %25) #7
   %tobool133.not = icmp eq i32 %call132, 0
   br i1 %tobool133.not, label %if.then161, label %if.end146
 
 if.else136:                                       ; preds = %if.end118
-  %call142 = tail call i32 @BN_mod_exp_mont(ptr noundef %rp.0.val, ptr noundef %23, ptr noundef %call38, ptr noundef %24, ptr noundef nonnull %ctx.1, ptr noundef %25) #7
+  %call142 = tail call i32 @BN_mod_exp_mont(ptr noundef %rp.0.val, ptr noundef %23, ptr noundef nonnull %call38, ptr noundef %24, ptr noundef nonnull %ctx.1, ptr noundef %25) #7
   %tobool143.not = icmp eq i32 %call142, 0
   br i1 %tobool143.not, label %if.then161, label %if.end146
 
@@ -527,7 +527,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dsa_sign_setup_no_digest(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef readonly %rp) #3 {
+define internal range(i32 0, 2) i32 @dsa_sign_setup_no_digest(ptr noundef %dsa, ptr noundef %ctx_in, ptr noundef captures(none) %kinvp, ptr noundef readonly captures(none) %rp) #3 {
 entry:
   %rp.val = load ptr, ptr %rp, align 8
   %call = tail call fastcc i32 @dsa_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr noundef %kinvp, ptr %rp.val, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -740,7 +740,7 @@ return:                                           ; preds = %if.end124, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @dsa_init(ptr nocapture noundef %dsa) #5 {
+define internal noundef i32 @dsa_init(ptr noundef captures(none) %dsa) #5 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %dsa, i64 120
   %0 = load i32, ptr %flags, align 8
@@ -754,7 +754,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_finish(ptr nocapture noundef readonly %dsa) #3 {
+define internal noundef i32 @dsa_finish(ptr noundef readonly captures(none) %dsa) #3 {
 entry:
   %method_mont_p = getelementptr inbounds nuw i8, ptr %dsa, i64 128
   %0 = load ptr, ptr %method_mont_p, align 8

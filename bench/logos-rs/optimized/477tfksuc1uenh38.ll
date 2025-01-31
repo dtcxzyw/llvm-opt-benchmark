@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.bef61f983d4a6c39990a3ef2792f4b31.8 = private unnamed_addr constant <{ [6 x i8] }> <{ [6 x i8] c"<skip>" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN112_$LT$logos_codegen..leaf..Callback$u20$as$u20$core..convert..From$LT$logos_codegen..leaf..InlineCallback$GT$$GT$4from17ha686d2c27c6be570E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN112_$LT$logos_codegen..leaf..Callback$u20$as$u20$core..convert..From$LT$logos_codegen..leaf..InlineCallback$GT$$GT$4from17ha686d2c27c6be570E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hb0a9e51216425750E(i64 64, i64 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heeac89dad39edf8cE.exit" unwind label %4
 
@@ -80,7 +80,7 @@ define hidden i32 @_ZN13logos_codegen4leaf8Callback4span17h5b024c4801b0fb97E(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13logos_codegen4leaf4Leaf3new17h79eb671fa539b92eE(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 8), (32, 40), (64, 84)) %0, ptr align 8 %1, i32 %2) unnamed_addr #1 {
+define hidden void @_ZN13logos_codegen4leaf4Leaf3new17h79eb671fa539b92eE(ptr writeonly sret([88 x i8]) align 8 captures(none) initializes((0, 8), (32, 40), (64, 84)) %0, ptr align 8 %1, i32 %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -94,7 +94,7 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf3new17h79eb671fa539b92eE(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13logos_codegen4leaf4Leaf8new_skip17h8b12259d6eff5f2aE(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 8), (32, 44), (64, 84)) %0, i32 %1) unnamed_addr #1 {
+define hidden void @_ZN13logos_codegen4leaf4Leaf8new_skip17h8b12259d6eff5f2aE(ptr writeonly sret([88 x i8]) align 8 captures(none) initializes((0, 8), (32, 44), (64, 84)) %0, i32 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -110,7 +110,7 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf8new_skip17h8b12259d6eff5f2aE(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen4leaf4Leaf8callback17h5b8bdc242d8f9725E(ptr nocapture writeonly sret([88 x i8]) align 8 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen4leaf4Leaf8callback17h5b8bdc242d8f9725E(ptr writeonly sret([88 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$logos_codegen..leaf..Callback$GT$$GT$17h09cb59c003ba9d3eE"(ptr nonnull align 8 %4)
           to label %7 unwind label %5
@@ -138,7 +138,7 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf8callback17h5b8bdc242d8f9725E(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen4leaf4Leaf5field17ha98d5bd5c131053dE(ptr nocapture writeonly sret([88 x i8]) align 8 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen4leaf4Leaf5field17ha98d5bd5c131053dE(ptr writeonly sret([88 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   invoke void @"_ZN4core3ptr51drop_in_place$LT$logos_codegen..util..MaybeVoid$GT$17hc2221d2e905299a1E"(ptr align 8 %1)
           to label %6 unwind label %4
 
@@ -165,7 +165,7 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf5field17ha98d5bd5c131053dE(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13logos_codegen4leaf4Leaf8priority17h2a20124f23cd1c1eE(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 88)) %0, ptr nocapture align 8 initializes((72, 80)) %1, i64 %2) unnamed_addr #2 {
+define hidden void @_ZN13logos_codegen4leaf4Leaf8priority17h2a20124f23cd1c1eE(ptr writeonly sret([88 x i8]) align 8 captures(none) initializes((0, 88)) %0, ptr align 8 captures(none) initializes((72, 80)) %1, i64 %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
@@ -173,7 +173,7 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf8priority17h2a20124f23cd1c1eE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define range(i8 -1, 2) i8 @"_ZN80_$LT$logos_codegen..leaf..Leaf$u20$as$u20$logos_codegen..graph..Disambiguate$GT$3cmp17hf7332b0b5d8bbf93E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define range(i8 -1, 2) i8 @"_ZN80_$LT$logos_codegen..leaf..Leaf$u20$as$u20$logos_codegen..graph..Disambiguate$GT$3cmp17hf7332b0b5d8bbf93E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -258,7 +258,7 @@ define zeroext i1 @"_ZN62_$LT$logos_codegen..leaf..Leaf$u20$as$u20$core..fmt..De
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN64_$LT$logos_codegen..leaf..Leaf$u20$as$u20$core..fmt..Display$GT$3fmt17ha117e80b5be25287E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN64_$LT$logos_codegen..leaf..Leaf$u20$as$u20$core..fmt..Display$GT$3fmt17ha117e80b5be25287E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -284,7 +284,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 declare hidden ptr @_ZN5alloc5alloc15exchange_malloc17hb0a9e51216425750E(i64, i64) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr56drop_in_place$LT$logos_codegen..leaf..InlineCallback$GT$17hbfc6c0213298ff43E"(ptr align 8) unnamed_addr #0

@@ -631,7 +631,7 @@ declare noundef ptr @_ZN5arrow8internal7CpuInfo11GetInstanceEv() local_unnamed_a
 declare noundef i32 @_ZNK5arrow7compute10SwissTable22extract_group_ids_avx2EiPKjPKhPjiii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow7compute10SwissTable13init_slot_idsEiPKtPKjPKhS7_Pj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %num_keys, ptr nocapture noundef readonly %selection, ptr nocapture noundef readonly %hashes, ptr nocapture noundef readonly %local_slots, ptr nocapture noundef readonly %match_bitvector, ptr nocapture noundef writeonly %out_slot_ids) local_unnamed_addr #2 align 2 {
+define void @_ZNK5arrow7compute10SwissTable13init_slot_idsEiPKtPKjPKhS7_Pj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %num_keys, ptr noundef readonly captures(none) %selection, ptr noundef readonly captures(none) %hashes, ptr noundef readonly captures(none) %local_slots, ptr noundef readonly captures(none) %match_bitvector, ptr noundef writeonly captures(none) %out_slot_ids) local_unnamed_addr #2 align 2 {
 entry:
   %log_blocks_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %log_blocks_, align 4
@@ -711,7 +711,7 @@ if.end:                                           ; preds = %for.body14, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK5arrow7compute10SwissTable26init_slot_ids_for_new_keysEjPKtPKjPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %num_ids, ptr nocapture noundef readonly %ids, ptr nocapture noundef readonly %hashes, ptr nocapture noundef writeonly %slot_ids) local_unnamed_addr #3 align 2 {
+define void @_ZNK5arrow7compute10SwissTable26init_slot_ids_for_new_keysEjPKtPKjPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %num_ids, ptr noundef readonly captures(none) %ids, ptr noundef readonly captures(none) %hashes, ptr noundef writeonly captures(none) %slot_ids) local_unnamed_addr #3 align 2 {
 entry:
   %log_blocks_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %log_blocks_, align 4
@@ -829,7 +829,7 @@ if.end42:                                         ; preds = %for.end31, %for.bod
 declare i64 @llvm.ctpop.i64(i64) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK5arrow7compute10SwissTable16early_filter_impEiPKjPhS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %num_keys, ptr nocapture noundef readonly %hashes, ptr nocapture noundef %out_match_bitvector, ptr nocapture noundef writeonly %out_local_slots) local_unnamed_addr #3 align 2 {
+define void @_ZNK5arrow7compute10SwissTable16early_filter_impEiPKjPhS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %num_keys, ptr noundef readonly captures(none) %hashes, ptr noundef captures(none) %out_match_bitvector, ptr noundef writeonly captures(none) %out_local_slots) local_unnamed_addr #3 align 2 {
 entry:
   %add = add nsw i32 %num_keys, 7
   %div = sdiv i32 %add, 8
@@ -908,7 +908,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5arrow7compute10SwissTable12early_filterEiPKjPhS4_(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %num_keys, ptr noundef %hashes, ptr noundef %out_match_bitvector, ptr noundef %out_local_slots) local_unnamed_addr #0 align 2 {
@@ -1042,7 +1042,7 @@ declare noundef i32 @_ZNK5arrow7compute10SwissTable25early_filter_imp_avx2_x32Ei
 declare noundef i32 @_ZNK5arrow7compute10SwissTable24early_filter_imp_avx2_x8EiPKjPhS4_(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow7compute10SwissTable15run_comparisonsEiPKtPKhPKjPiPtRKSt8functionIFviS3_S7_PjS9_PvEESC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %num_keys, ptr noundef %optional_selection_ids, ptr noundef %optional_selection_bitvector, ptr noundef %groupids, ptr noundef %out_num_not_equal, ptr noundef %out_not_equal_selection, ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef %callback_ctx) local_unnamed_addr #0 align 2 {
+define void @_ZNK5arrow7compute10SwissTable15run_comparisonsEiPKtPKhPKjPiPtRKSt8functionIFviS3_S7_PjS9_PvEESC_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %num_keys, ptr noundef %optional_selection_ids, ptr noundef %optional_selection_bitvector, ptr noundef %groupids, ptr noundef %out_num_not_equal, ptr noundef %out_not_equal_selection, ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef %callback_ctx) local_unnamed_addr #0 align 2 {
 entry:
   %__args.addr.i37 = alloca i32, align 4
   %__args.addr2.i38 = alloca ptr, align 8
@@ -1824,7 +1824,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute10SwissTable19map_new_keys_helperEPKjPjPtPbS4_S4_PNS_4util15TempVectorStackERKSt8functionIFviPKtS3_S4_S5_PvEERKSA_IFNS_6StatusEiSC_SD_EESD_(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %hashes, ptr nocapture noundef %inout_num_selected, ptr noundef %inout_selection, ptr nocapture noundef writeonly %out_need_resize, ptr noundef %out_group_ids, ptr noundef %inout_next_slot_ids, ptr noundef nonnull %temp_stack, ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef nonnull align 8 dereferenceable(32) %append_impl, ptr noundef %callback_ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute10SwissTable19map_new_keys_helperEPKjPjPtPbS4_S4_PNS_4util15TempVectorStackERKSt8functionIFviPKtS3_S4_S5_PvEERKSA_IFNS_6StatusEiSC_SD_EESD_(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef readonly captures(none) %hashes, ptr noundef captures(none) %inout_num_selected, ptr noundef %inout_selection, ptr noundef writeonly captures(none) %out_need_resize, ptr noundef %out_group_ids, ptr noundef %inout_next_slot_ids, ptr noundef nonnull %temp_stack, ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef nonnull align 8 dereferenceable(32) %append_impl, ptr noundef %callback_ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i37.i = alloca i32, align 4
   %__args.addr2.i38.i = alloca ptr, align 8
@@ -2019,7 +2019,7 @@ invoke.cont66:                                    ; preds = %for.end
   store i32 0, ptr %num_temp_ids, align 4
   %hardware_flags_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %39 = load i64, ptr %hardware_flags_, align 8
-  invoke void @_ZN5arrow4util8bit_util19bits_filter_indexesEiliPKhPKtPiPti(i32 noundef 0, i64 noundef %39, i32 noundef %num_processed.1, ptr noundef %2, ptr noundef %inout_selection, ptr noundef nonnull %num_temp_ids, ptr noundef %38, i32 noundef 0)
+  invoke void @_ZN5arrow4util8bit_util19bits_filter_indexesEiliPKhPKtPiPti(i32 noundef 0, i64 noundef %39, i32 noundef %num_processed.1, ptr noundef nonnull %2, ptr noundef %inout_selection, ptr noundef nonnull %num_temp_ids, ptr noundef %38, i32 noundef 0)
           to label %do.body unwind label %lpad67
 
 lpad67:                                           ; preds = %if.then.i46.i.invoke, %_ZNKSt8functionIFviPKtPKjPjPtPvEEclEiS1_S3_S4_S5_S6_.exit47.i, %if.end.i, %_ZN5arrow6StatusD2Ev.exit112, %invoke.cont66
@@ -2063,7 +2063,7 @@ _ZN5arrow6StatusD2Ev.exit112:                     ; preds = %_ZN5arrow6StatusD2E
   %add94 = add i32 %44, %num_inserted_new.1
   store i32 %add94, ptr %num_inserted_93, align 8
   %45 = load i64, ptr %hardware_flags_, align 8
-  invoke void @_ZN5arrow4util8bit_util19bits_filter_indexesEiliPKhPKtPiPti(i32 noundef 1, i64 noundef %45, i32 noundef %num_processed.1, ptr noundef %2, ptr noundef %inout_selection, ptr noundef nonnull %num_temp_ids, ptr noundef %38, i32 noundef 0)
+  invoke void @_ZN5arrow4util8bit_util19bits_filter_indexesEiliPKhPKtPiPti(i32 noundef 1, i64 noundef %45, i32 noundef %num_processed.1, ptr noundef nonnull %2, ptr noundef %inout_selection, ptr noundef nonnull %num_temp_ids, ptr noundef %38, i32 noundef 0)
           to label %invoke.cont96 unwind label %lpad67
 
 invoke.cont96:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit112
@@ -2198,10 +2198,10 @@ ehcleanup118:                                     ; preds = %lpad.loopexit, %lpa
 declare void @_ZN5arrow4util8bit_util19bits_filter_indexesEiliPKhPKtPiPti(i32 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow4util16TempVectorHolderIhED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2226,7 +2226,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute10SwissTable12map_new_keysEjPtPKjPjPNS_4util15TempVectorStackERKSt8functionIFviPKtS4_S5_S2_PvEERKS9_IFNS_6StatusEiSB_SC_EESC_(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %num_ids, ptr noundef %ids, ptr nocapture noundef readonly %hashes, ptr noundef %group_ids, ptr noundef %temp_stack, ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef nonnull align 8 dereferenceable(32) %append_impl, ptr noundef %callback_ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute10SwissTable12map_new_keysEjPtPKjPjPNS_4util15TempVectorStackERKSt8functionIFviPKtS4_S5_S2_PvEERKS9_IFNS_6StatusEiSB_SC_EESC_(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %num_ids, ptr noundef %ids, ptr noundef readonly captures(none) %hashes, ptr noundef %group_ids, ptr noundef %temp_stack, ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef nonnull align 8 dereferenceable(32) %append_impl, ptr noundef %callback_ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_ids.addr = alloca i32, align 4
   %slot_ids_buf = alloca %"class.arrow::util::TempVectorHolder.5", align 8
@@ -2467,7 +2467,7 @@ return:                                           ; preds = %cleanup82, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute10SwissTable11grow_doubleEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute10SwissTable11grow_doubleEv(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i165 = alloca %"class.std::__shared_ptr", align 8
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr", align 8
@@ -3348,7 +3348,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute10SwissTable4initElPNS_10MemoryPoolEib(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 12), (48, 64)) %this, i64 noundef %hardware_flags, ptr noundef %pool, i32 noundef %log_blocks, i1 noundef zeroext %no_hash_array) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute10SwissTable4initElPNS_10MemoryPoolEib(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 12), (48, 64)) %this, i64 noundef %hardware_flags, ptr noundef %pool, i32 noundef %log_blocks, i1 noundef zeroext %no_hash_array) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i88 = alloca %"class.std::__shared_ptr", align 8
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr", align 8
@@ -3898,7 +3898,7 @@ ehcleanup66:                                      ; preds = %lpad, %lpad4.i, %eh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow7compute10SwissTable7cleanupEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((4, 12)) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute10SwissTable7cleanupEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((4, 12)) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %blocks_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %blocks_, align 8
@@ -4451,13 +4451,13 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

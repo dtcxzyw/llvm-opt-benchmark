@@ -25,7 +25,7 @@ $_ZNSt6vectorIjSaIjEE17_M_default_appendEm = comdat any
 @_ZN5arrow7compute12RowTableImplC1Ev = unnamed_addr alias void (ptr), ptr @_ZN5arrow7compute12RowTableImplC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK5arrow7compute16RowTableMetadata18num_varbinary_colsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK5arrow7compute16RowTableMetadata18num_varbinary_colsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #0 align 2 {
 entry:
   %column_metadatas = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %column_metadatas, align 8
@@ -52,10 +52,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK5arrow7compute16RowTableMetadata13is_compatibleERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %other) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5arrow7compute16RowTableMetadata13is_compatibleERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %other) local_unnamed_addr #0 align 2 {
 entry:
   %column_metadatas.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %other, i64 32
@@ -133,7 +133,7 @@ return:                                           ; preds = %for.body, %if.end20
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS0_17KeyColumnMetadataESaIS3_EEii(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cols, i32 noundef %in_row_alignment, i32 noundef %in_string_alignment) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS0_17KeyColumnMetadataESaIS3_EEii(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cols, i32 noundef %in_row_alignment, i32 noundef %in_string_alignment) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %column_metadatas = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %cols, i64 8
@@ -578,7 +578,7 @@ while.end110:                                     ; preds = %while.cond103
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow7compute12RowTableImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(209) initializes((0, 8), (32, 152), (184, 200)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute12RowTableImplC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(209) initializes((0, 8), (32, 152), (184, 200)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %column_metadatas.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -589,7 +589,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute12RowTableImpl4InitEPNS_10MemoryPoolERKNS0_16RowTableMetadataE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(209) initializes((0, 32)) %this, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(120) %metadata) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute12RowTableImpl4InitEPNS_10MemoryPoolERKNS0_16RowTableMetadataE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(209) initializes((0, 32)) %this, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(120) %metadata) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.arrow::Result", align 8
   %ref.tmp28 = alloca %"class.arrow::Result", align 8
@@ -1162,7 +1162,7 @@ ehcleanup141:                                     ; preds = %lpad102.body, %ehcl
 declare void @_ZN5arrow23AllocateResizableBufferElPNS_10MemoryPoolE(ptr sret(%"class.arrow::Result") align 8, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -9223372036854775744, -9223372036854775808) i64 @_ZNK5arrow7compute12RowTableImpl15size_null_masksEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %this, i64 noundef %num_rows) local_unnamed_addr #5 align 2 {
+define noundef range(i64 -9223372036854775744, -9223372036854775808) i64 @_ZNK5arrow7compute12RowTableImpl15size_null_masksEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(209) %this, i64 noundef %num_rows) local_unnamed_addr #5 align 2 {
 entry:
   %null_masks_bytes_per_row = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %null_masks_bytes_per_row, align 4
@@ -1175,10 +1175,10 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i64 68, 65) i64 @_ZNK5arrow7compute12RowTableImpl12size_offsetsEl(ptr nocapture noundef nonnull readnone align 8 dereferenceable(209) %this, i64 noundef %num_rows) local_unnamed_addr #7 align 2 {
+define noundef range(i64 68, 65) i64 @_ZNK5arrow7compute12RowTableImpl12size_offsetsEl(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(209) %this, i64 noundef %num_rows) local_unnamed_addr #7 align 2 {
 entry:
   %add = shl i64 %num_rows, 2
   %add2 = add i64 %add, 68
@@ -1186,7 +1186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i64 -9223372036854775744, -9223372036854775808) i64 @_ZNK5arrow7compute12RowTableImpl24size_rows_varying_lengthEl(ptr nocapture noundef nonnull readnone align 8 dereferenceable(209) %this, i64 noundef %num_bytes) local_unnamed_addr #7 align 2 {
+define noundef range(i64 -9223372036854775744, -9223372036854775808) i64 @_ZNK5arrow7compute12RowTableImpl24size_rows_varying_lengthEl(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(209) %this, i64 noundef %num_bytes) local_unnamed_addr #7 align 2 {
 entry:
   %add = add nsw i64 %num_bytes, 64
   ret i64 %add
@@ -1302,7 +1302,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -9223372036854775744, -9223372036854775808) i64 @_ZNK5arrow7compute12RowTableImpl22size_rows_fixed_lengthEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %this, i64 noundef %num_rows) local_unnamed_addr #5 align 2 {
+define noundef range(i64 -9223372036854775744, -9223372036854775808) i64 @_ZNK5arrow7compute12RowTableImpl22size_rows_fixed_lengthEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(209) %this, i64 noundef %num_rows) local_unnamed_addr #5 align 2 {
 entry:
   %fixed_length = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %fixed_length, align 4
@@ -1313,7 +1313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute12RowTableImpl20UpdateBufferPointersEv(ptr nocapture noundef nonnull align 8 dereferenceable(209) initializes((152, 176)) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN5arrow7compute12RowTableImpl20UpdateBufferPointersEv(ptr noundef nonnull align 8 captures(none) dereferenceable(209) initializes((152, 176)) %this) local_unnamed_addr #9 align 2 {
 entry:
   %null_masks_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %null_masks_, align 8
@@ -1387,7 +1387,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute12RowTableImpl5CleanEv(ptr nocapture noundef nonnull align 8 dereferenceable(209) initializes((176, 184), (200, 209)) %this) local_unnamed_addr #10 align 2 {
+define void @_ZN5arrow7compute12RowTableImpl5CleanEv(ptr noundef nonnull align 8 captures(none) dereferenceable(209) initializes((176, 184), (200, 209)) %this) local_unnamed_addr #10 align 2 {
 entry:
   %num_rows_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   store i64 0, ptr %num_rows_, align 8
@@ -1421,7 +1421,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute12RowTableImpl24ResizeFixedLengthBuffersEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(209) %this, i64 noundef %num_extra_rows) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute12RowTableImpl24ResizeFixedLengthBuffersEl(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(209) %this, i64 noundef %num_extra_rows) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.arrow::Status", align 8
   %ref.tmp32 = alloca %"class.arrow::Status", align 8
@@ -1650,7 +1650,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute12RowTableImpl33ResizeOptionalVaryingLengthBufferEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(209) %this, i64 noundef %num_extra_bytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute12RowTableImpl33ResizeOptionalVaryingLengthBufferEl(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(209) %this, i64 noundef %num_extra_bytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.arrow::Status", align 8
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -1790,7 +1790,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute12RowTableImpl19AppendSelectionFromERKS1_jPKt(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(209) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %from, i32 noundef %num_rows_to_append, ptr noundef readonly %source_row_ids) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute12RowTableImpl19AppendSelectionFromERKS1_jPKt(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(209) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(209) %from, i32 noundef %num_rows_to_append, ptr noundef readonly %source_row_ids) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp40 = alloca %"class.arrow::Status", align 8
@@ -2174,7 +2174,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute12RowTableImpl11AppendEmptyEjj(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(209) %this, i32 noundef %num_rows_to_append, i32 noundef %num_extra_bytes_to_append) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute12RowTableImpl11AppendEmptyEjj(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(209) %this, i32 noundef %num_rows_to_append, i32 noundef %num_extra_bytes_to_append) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp12 = alloca %"class.arrow::Status", align 8
@@ -2236,7 +2236,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5arrow7compute12RowTableImpl13has_any_nullsEPKNS0_12LightContextE(ptr nocapture noundef nonnull align 8 dereferenceable(209) %this, ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK5arrow7compute12RowTableImpl13has_any_nullsEPKNS0_12LightContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(209) %this, ptr noundef readonly captures(none) %ctx) local_unnamed_addr #2 align 2 {
 entry:
   %has_any_nulls_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load i8, ptr %has_any_nulls_, align 8
@@ -2513,7 +2513,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #11
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
@@ -2736,7 +2736,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElNS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce) unnamed_addr #15 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElNS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr readonly captures(none) %__comp.coerce) unnamed_addr #15 {
 entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.lhs.cast.i13 = ptrtoint ptr %__last.coerce to i64
@@ -3388,7 +3388,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_SK_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, i32 noundef %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #16 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_SK_T1_T2_"(ptr captures(none) %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, i32 noundef %__value, ptr readonly captures(none) %__comp.coerce) unnamed_addr #16 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -3623,7 +3623,7 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce, ptr nocapture readonly %__comp.coerce) unnamed_addr #16 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_SJ_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce, ptr readonly captures(none) %__comp.coerce) unnamed_addr #16 {
 entry:
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i, label %for.end, label %for.cond.preheader

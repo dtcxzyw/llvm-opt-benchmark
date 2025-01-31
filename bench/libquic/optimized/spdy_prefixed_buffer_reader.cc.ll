@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net24SpdyPrefixedBufferReaderC1EPKcmS2_m = dso_local unnamed_addr alias void (ptr, ptr, i64, ptr, i64), ptr @_ZN3net24SpdyPrefixedBufferReaderC2EPKcmS2_m
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net24SpdyPrefixedBufferReaderC2EPKcmS2_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %prefix, i64 noundef %prefix_length, ptr noundef %suffix, i64 noundef %suffix_length) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net24SpdyPrefixedBufferReaderC2EPKcmS2_m(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef %prefix, i64 noundef %prefix_length, ptr noundef %suffix, i64 noundef %suffix_length) unnamed_addr #0 align 2 {
 entry:
   store ptr %prefix, ptr %this, align 8
   %suffix_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN3net24SpdyPrefixedBufferReader9AvailableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZN3net24SpdyPrefixedBufferReader9AvailableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
 entry:
   %prefix_length_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %prefix_length_, align 8
@@ -30,7 +30,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %count, ptr nocapture noundef writeonly %out) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i64 noundef %count, ptr noundef writeonly captures(none) %out) local_unnamed_addr #2 align 2 {
 entry:
   %prefix_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %prefix_length_.i, align 8
@@ -106,7 +106,7 @@ return:                                           ; preds = %entry, %_ZSt4copyIP
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPNS_23SpdyPinnableBufferPieceE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %count, ptr nocapture noundef %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPNS_23SpdyPinnableBufferPieceE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i64 noundef %count, ptr noundef captures(none) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %prefix_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %prefix_length_.i, align 8
@@ -241,7 +241,7 @@ return:                                           ; preds = %_ZSt4copyIPKcPcET0_
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @__gxx_personality_v0(...)
 

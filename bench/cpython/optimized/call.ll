@@ -109,7 +109,7 @@ declare ptr @_PyErr_Format(ptr noundef, ptr noundef, ptr noundef, ...) local_unn
 declare ptr @_PyErr_FormatFromCauseTstate(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_Py_CheckSlotResult(ptr nocapture noundef readonly %obj, ptr noundef %slot_name, i32 noundef %success) local_unnamed_addr #0 {
+define hidden noundef i32 @_Py_CheckSlotResult(ptr noundef readonly captures(none) %obj, ptr noundef %slot_name, i32 noundef %success) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -349,7 +349,7 @@ return:                                           ; preds = %if.else, %if.end13,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @PyVectorcall_Function(ptr nocapture noundef readonly %callable) local_unnamed_addr #3 {
+define dso_local ptr @PyVectorcall_Function(ptr noundef readonly captures(none) %callable) local_unnamed_addr #3 {
 entry:
   %0 = getelementptr i8, ptr %callable, i64 8
   %callable.val.i = load ptr, ptr %0, align 8
@@ -501,7 +501,7 @@ return:                                           ; preds = %if.end.i41, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyStack_UnpackDict(ptr noundef %tstate, ptr nocapture noundef readonly %args, i64 noundef %nargs, ptr noundef %kwargs, ptr nocapture noundef writeonly %p_kwnames) local_unnamed_addr #0 {
+define hidden ptr @_PyStack_UnpackDict(ptr noundef %tstate, ptr noundef readonly captures(none) %args, i64 noundef %nargs, ptr noundef %kwargs, ptr noundef writeonly captures(none) %p_kwnames) local_unnamed_addr #0 {
 entry:
   %pos = alloca i64, align 8
   %key = alloca ptr, align 8
@@ -917,10 +917,10 @@ return:                                           ; preds = %if.end9, %if.then5,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_PyVectorcall_Call(ptr noundef %tstate, ptr nocapture noundef nonnull readonly %func, ptr noundef %callable, ptr noundef %tuple, ptr noundef %kwargs) unnamed_addr #0 {
+define internal fastcc ptr @_PyVectorcall_Call(ptr noundef %tstate, ptr noundef nonnull readonly captures(none) %func, ptr noundef %callable, ptr noundef %tuple, ptr noundef %kwargs) unnamed_addr #0 {
 entry:
   %kwnames = alloca ptr, align 8
   %0 = getelementptr i8, ptr %tuple, i64 16
@@ -1452,7 +1452,7 @@ _PyObject_VectorcallTstate.exit:                  ; preds = %if.then12.i, %_PyEr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_PyObject_Call_Prepend(ptr noundef %tstate, ptr noundef %callable, ptr noundef %obj, ptr nocapture noundef readonly %args, ptr noundef %kwargs) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyObject_Call_Prepend(ptr noundef %tstate, ptr noundef %callable, ptr noundef %obj, ptr noundef readonly captures(none) %args, ptr noundef %kwargs) local_unnamed_addr #0 {
 entry:
   %small_stack = alloca [5 x ptr], align 16
   %0 = getelementptr i8, ptr %args, i64 16

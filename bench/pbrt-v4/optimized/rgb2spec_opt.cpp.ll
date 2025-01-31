@@ -159,7 +159,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef double @_Z10cie_interpPKdd(ptr nocapture noundef readonly %data, double noundef %x) local_unnamed_addr #3 {
+define dso_local noundef double @_Z10cie_interpPKdd(ptr noundef readonly captures(none) %data, double noundef %x) local_unnamed_addr #3 {
 entry:
   %sub = fadd double %x, -3.600000e+02
   %mul = fmul double %sub, 2.000000e-01
@@ -181,7 +181,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z12LUPDecomposePPdidPi(ptr nocapture noundef %A, i32 noundef %N, double noundef %Tol, ptr nocapture noundef %P) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 2) i32 @_Z12LUPDecomposePPdidPi(ptr noundef captures(none) %A, i32 noundef %N, double noundef %Tol, ptr noundef captures(none) %P) local_unnamed_addr #4 {
 entry:
   %cmp.not57 = icmp slt i32 %N, 0
   br i1 %cmp.not57, label %return, label %for.body.preheader
@@ -319,7 +319,7 @@ return:                                           ; preds = %for.end14, %for.con
 declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z8LUPSolvePPdPKiPKdiS_(ptr nocapture noundef readonly %A, ptr nocapture noundef readonly %P, ptr nocapture noundef readonly %b, i32 noundef %N, ptr nocapture noundef %x) local_unnamed_addr #6 {
+define dso_local void @_Z8LUPSolvePPdPKiPKdiS_(ptr noundef readonly captures(none) %A, ptr noundef readonly captures(none) %P, ptr noundef readonly captures(none) %b, i32 noundef %N, ptr noundef captures(none) %x) local_unnamed_addr #6 {
 entry:
   %cmp33 = icmp sgt i32 %N, 0
   br i1 %cmp33, label %for.body.preheader, label %for.end50
@@ -448,7 +448,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z7cie_labPd(ptr nocapture noundef %p) local_unnamed_addr #8 {
+define dso_local void @_Z7cie_labPd(ptr noundef captures(none) %p) local_unnamed_addr #8 {
 entry:
   %0 = load double, ptr @xyz_whitepoint, align 16
   %1 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 8), align 8
@@ -739,10 +739,10 @@ for.end59:                                        ; preds = %for.inc57
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -759,7 +759,7 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z13eval_residualPKdS0_Pd(ptr nocapture noundef readonly %coeffs, ptr nocapture noundef readonly %rgb, ptr nocapture noundef %residual) local_unnamed_addr #8 {
+define dso_local void @_Z13eval_residualPKdS0_Pd(ptr noundef readonly captures(none) %coeffs, ptr noundef readonly captures(none) %rgb, ptr noundef captures(none) %residual) local_unnamed_addr #8 {
 entry:
   %out = alloca [3 x double], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %out, i8 0, i64 24, i1 false)
@@ -814,7 +814,7 @@ for.inc21:                                        ; preds = %for.body9
 for.end23:                                        ; preds = %for.inc21
   call void @_Z7cie_labPd(ptr noundef nonnull %out)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %residual, ptr noundef nonnull align 8 dereferenceable(24) %rgb, i64 24, i1 false)
-  tail call void @_Z7cie_labPd(ptr noundef %residual)
+  tail call void @_Z7cie_labPd(ptr noundef nonnull %residual)
   br label %for.body27
 
 for.body27:                                       ; preds = %for.end23, %for.body27
@@ -834,7 +834,7 @@ for.end35:                                        ; preds = %for.body27
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z13eval_jacobianPKdS0_PPd(ptr nocapture noundef readonly %coeffs, ptr nocapture noundef readonly %rgb, ptr nocapture noundef readonly %jac) local_unnamed_addr #13 {
+define dso_local void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(none) %coeffs, ptr noundef readonly captures(none) %rgb, ptr noundef readonly captures(none) %jac) local_unnamed_addr #13 {
 entry:
   %out.i11 = alloca [3 x double], align 16
   %out.i = alloca [3 x double], align 16
@@ -1022,7 +1022,7 @@ for.end22:                                        ; preds = %for.inc20
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z12gauss_newtonPKdPdi(ptr nocapture noundef readonly %rgb, ptr nocapture noundef %coeffs, i32 noundef %it) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z12gauss_newtonPKdPdi(ptr noundef readonly captures(none) %rgb, ptr noundef captures(none) %coeffs, i32 noundef %it) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %out.i = alloca [3 x double], align 16
   %J0 = alloca [3 x double], align 16
@@ -1118,7 +1118,7 @@ for.body27.i:                                     ; preds = %for.body27.i, %for.
 
 _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %for.body27.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
-  call void @_Z13eval_jacobianPKdS0_PPd(ptr noundef %coeffs, ptr noundef %rgb, ptr noundef nonnull %J)
+  call void @_Z13eval_jacobianPKdS0_PPd(ptr noundef %coeffs, ptr noundef nonnull %rgb, ptr noundef nonnull %J)
   br label %for.body.i24
 
 for.body.i24:                                     ; preds = %for.body.i24, %_Z13eval_residualPKdS0_Pd.exit
@@ -1876,7 +1876,7 @@ declare void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 
 declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ThreadPool12AddToJobListEP11ParallelJob(ptr noalias nocapture writeonly sret(%"class.std::unique_lock") align 8 initializes((0, 9)) %agg.result, ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef %job) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10ThreadPool12AddToJobListEP11ParallelJob(ptr noalias writeonly sret(%"class.std::unique_lock") align 8 captures(none) initializes((0, 9)) %agg.result, ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef %job) local_unnamed_addr #9 align 2 {
 entry:
   %jobListMutex = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %jobListMutex, ptr %agg.result, align 8
@@ -1913,7 +1913,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt11un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ThreadPool17RemoveFromJobListEP11ParallelJob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(121) %this, ptr nocapture noundef initializes((28, 29)) %job) local_unnamed_addr #18 align 2 {
+define dso_local void @_ZN10ThreadPool17RemoveFromJobListEP11ParallelJob(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(121) %this, ptr noundef captures(none) initializes((28, 29)) %job) local_unnamed_addr #18 align 2 {
 entry:
   %prev = getelementptr inbounds nuw i8, ptr %job, i64 8
   %0 = load ptr, ptr %prev, align 8
@@ -2035,7 +2035,7 @@ if.end9:                                          ; preds = %_ZNSt11unique_lockI
 declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17ParallelForLoop1D7RunStepEPSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr nocapture noundef %lock) unnamed_addr #9 align 2 {
+define dso_local void @_ZN17ParallelForLoop1D7RunStepEPSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef captures(none) %lock) unnamed_addr #9 align 2 {
 entry:
   %__args.addr.i = alloca i64, align 8
   %__args.addr2.i = alloca i64, align 8
@@ -2133,7 +2133,7 @@ _ZNKSt8functionIFvllEEclEll.exit:                 ; preds = %_ZNSt11unique_lockI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z11ParallelForllSt8functionIFvllEEPKc(i64 noundef %start, i64 noundef %end, ptr nocapture noundef %func, ptr nocapture readnone %progressName) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z11ParallelForllSt8functionIFvllEEPKc(i64 noundef %start, i64 noundef %end, ptr noundef captures(none) %func, ptr readnone captures(none) %progressName) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %loop = alloca %class.ParallelForLoop1D, align 8
   %agg.tmp.sroa.0 = alloca { i64, i64 }, align 8
@@ -2346,7 +2346,7 @@ _ZNSt8functionIFvllEED2Ev.exit:                   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #19 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::function", align 8
   %res = alloca i32, align 4
@@ -2757,28 +2757,28 @@ _ZNSt10unique_ptrI10ThreadPoolSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #20
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #22
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #20
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17ParallelForLoop1DD0Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2840,7 +2840,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @llvm.trap() #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #22
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #26
@@ -2979,7 +2979,7 @@ _ZNSt6thread8_InvokerISt5tupleIJM10ThreadPoolFviEPS2_iEEEclEv.exit: ; preds = %m
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #9 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #9 align 2 {
 entry:
   %coeffs.i.i.i = alloca [3 x double], align 16
   %rgb.i.i.i = alloca [3 x double], align 16
@@ -3203,7 +3203,7 @@ for.inc140.i.i.i:                                 ; preds = %for.inc140.loopexit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #9 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #9 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -3257,19 +3257,19 @@ declare i32 @llvm.smax.i32(i32, i32) #29
 declare i32 @llvm.umin.i32(i32, i32) #29
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #29

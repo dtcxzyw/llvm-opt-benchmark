@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [9 x i8] c"strength\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_RAND_enable_locking(ptr nocapture noundef readonly %rand) local_unnamed_addr #0 {
+define i32 @EVP_RAND_enable_locking(ptr noundef readonly captures(none) %rand) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rand, align 8
   %enable_locking = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -568,7 +568,7 @@ evp_rand_free.exit:                               ; preds = %entry, %CRYPTO_DOWN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @evp_rand_get_number(ptr nocapture noundef readonly %rand) local_unnamed_addr #3 {
+define i32 @evp_rand_get_number(ptr noundef readonly captures(none) %rand) local_unnamed_addr #3 {
 entry:
   %name_id = getelementptr inbounds nuw i8, ptr %rand, i64 8
   %0 = load i32, ptr %name_id, align 8
@@ -576,7 +576,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_RAND_get0_name(ptr nocapture noundef readonly %rand) local_unnamed_addr #3 {
+define ptr @EVP_RAND_get0_name(ptr noundef readonly captures(none) %rand) local_unnamed_addr #3 {
 entry:
   %type_name = getelementptr inbounds nuw i8, ptr %rand, i64 16
   %0 = load ptr, ptr %type_name, align 8
@@ -584,7 +584,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_RAND_get0_description(ptr nocapture noundef readonly %rand) local_unnamed_addr #3 {
+define ptr @EVP_RAND_get0_description(ptr noundef readonly captures(none) %rand) local_unnamed_addr #3 {
 entry:
   %description = getelementptr inbounds nuw i8, ptr %rand, i64 24
   %0 = load ptr, ptr %description, align 8
@@ -614,14 +614,14 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @evp_is_a(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_RAND_get0_provider(ptr nocapture noundef readonly %rand) local_unnamed_addr #3 {
+define ptr @EVP_RAND_get0_provider(ptr noundef readonly captures(none) %rand) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %rand, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_RAND_get_params(ptr nocapture noundef readonly %rand, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_RAND_get_params(ptr noundef readonly captures(none) %rand, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %get_params = getelementptr inbounds nuw i8, ptr %rand, i64 152
   %0 = load ptr, ptr %get_params, align 8
@@ -638,7 +638,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_RAND_CTX_up_ref(ptr nocapture noundef %ctx) local_unnamed_addr #2 {
+define noundef i32 @EVP_RAND_CTX_up_ref(ptr noundef captures(none) %ctx) local_unnamed_addr #2 {
 entry:
   %refcnt = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
@@ -789,14 +789,14 @@ return:                                           ; preds = %EVP_RAND_free.exit,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_RAND_CTX_get0_rand(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
+define ptr @EVP_RAND_CTX_get0_rand(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_RAND_CTX_get_params(ptr nocapture noundef readonly %ctx, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_RAND_CTX_get_params(ptr noundef readonly captures(none) %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -839,7 +839,7 @@ return:                                           ; preds = %if.then.i6, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_RAND_CTX_set_params(ptr nocapture noundef readonly %ctx, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_RAND_CTX_set_params(ptr noundef readonly captures(none) %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -892,7 +892,7 @@ return:                                           ; preds = %if.then.i9, %evp_ra
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_RAND_gettable_params(ptr nocapture noundef readonly %rand) local_unnamed_addr #0 {
+define ptr @EVP_RAND_gettable_params(ptr noundef readonly captures(none) %rand) local_unnamed_addr #0 {
 entry:
   %gettable_params = getelementptr inbounds nuw i8, ptr %rand, i64 128
   %0 = load ptr, ptr %gettable_params, align 8
@@ -911,7 +911,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_RAND_gettable_ctx_params(ptr nocapture noundef readonly %rand) local_unnamed_addr #0 {
+define ptr @EVP_RAND_gettable_ctx_params(ptr noundef readonly captures(none) %rand) local_unnamed_addr #0 {
 entry:
   %gettable_ctx_params = getelementptr inbounds nuw i8, ptr %rand, i64 136
   %0 = load ptr, ptr %gettable_ctx_params, align 8
@@ -931,7 +931,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_RAND_settable_ctx_params(ptr nocapture noundef readonly %rand) local_unnamed_addr #0 {
+define ptr @EVP_RAND_settable_ctx_params(ptr noundef readonly captures(none) %rand) local_unnamed_addr #0 {
 entry:
   %settable_ctx_params = getelementptr inbounds nuw i8, ptr %rand, i64 144
   %0 = load ptr, ptr %settable_ctx_params, align 8
@@ -951,7 +951,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_RAND_CTX_gettable_params(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define ptr @EVP_RAND_CTX_gettable_params(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %gettable_ctx_params = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -976,7 +976,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_RAND_CTX_settable_params(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define ptr @EVP_RAND_CTX_settable_params(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %settable_ctx_params = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1010,7 +1010,7 @@ entry:
 declare void @evp_generic_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_RAND_names_do_all(ptr nocapture noundef readonly %rand, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
+define i32 @EVP_RAND_names_do_all(ptr noundef readonly captures(none) %rand, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rand, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -1030,7 +1030,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_RAND_instantiate(ptr nocapture noundef readonly %ctx, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %pstr, i64 noundef %pstr_len, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_RAND_instantiate(ptr noundef readonly captures(none) %ctx, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %pstr, i64 noundef %pstr_len, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1073,7 +1073,7 @@ return:                                           ; preds = %if.then.i6, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_RAND_uninstantiate(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @EVP_RAND_uninstantiate(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1116,7 +1116,7 @@ return:                                           ; preds = %if.then.i6, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_RAND_generate(ptr nocapture noundef readonly %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %addin, i64 noundef %addin_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_RAND_generate(ptr noundef readonly captures(none) %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %addin, i64 noundef %addin_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1151,7 +1151,7 @@ return:                                           ; preds = %if.then.i4, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @evp_rand_generate_locked(ptr nocapture noundef readonly %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %addin, i64 noundef %addin_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @evp_rand_generate_locked(ptr noundef readonly captures(none) %ctx, ptr noundef %out, i64 noundef %outlen, i32 noundef %strength, i32 noundef %prediction_resistance, ptr noundef %addin, i64 noundef %addin_len) unnamed_addr #0 {
 entry:
   %max_request = alloca i64, align 8
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -1211,7 +1211,7 @@ return:                                           ; preds = %if.end6, %return.si
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_RAND_reseed(ptr nocapture noundef readonly %ctx, i32 noundef %prediction_resistance, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %addin, i64 noundef %addin_len) local_unnamed_addr #0 {
+define i32 @EVP_RAND_reseed(ptr noundef readonly captures(none) %ctx, i32 noundef %prediction_resistance, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %addin, i64 noundef %addin_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1264,7 +1264,7 @@ return:                                           ; preds = %if.then.i9, %evp_ra
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_RAND_get_strength(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @EVP_RAND_get_strength(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
   %strength.i = alloca i32, align 4
@@ -1320,7 +1320,7 @@ return:                                           ; preds = %if.then.i5, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_RAND_nonce(ptr nocapture noundef readonly %ctx, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_RAND_nonce(ptr noundef readonly captures(none) %ctx, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #0 {
 entry:
   %params.i.i = alloca [2 x %struct.ossl_param_st], align 16
   %strength.i.i = alloca i32, align 4
@@ -1394,7 +1394,7 @@ return:                                           ; preds = %if.then.i5, %evp_ra
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_RAND_get_state(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @EVP_RAND_get_state(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %state = alloca i32, align 4
@@ -1450,15 +1450,15 @@ if.end:                                           ; preds = %EVP_RAND_CTX_get_pa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @OSSL_PARAM_construct_int(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_RAND_verify_zeroization(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @EVP_RAND_verify_zeroization(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1511,7 +1511,7 @@ return:                                           ; preds = %if.then.i9, %evp_ra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @evp_rand_can_seed(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @evp_rand_can_seed(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %get_seed = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1522,7 +1522,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @evp_rand_get_seed(ptr nocapture noundef readonly %ctx, ptr noundef %buffer, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance, ptr noundef %adin, i64 noundef %adin_len) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @evp_rand_get_seed(ptr noundef readonly captures(none) %ctx, ptr noundef %buffer, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance, ptr noundef %adin, i64 noundef %adin_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1577,7 +1577,7 @@ return:                                           ; preds = %if.then.i9, %evp_ra
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evp_rand_clear_seed(ptr nocapture noundef readonly %ctx, ptr noundef %buffer, i64 noundef %b_len) local_unnamed_addr #0 {
+define void @evp_rand_clear_seed(ptr noundef readonly captures(none) %ctx, ptr noundef %buffer, i64 noundef %b_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1641,10 +1641,10 @@ declare void @OSSL_PARAM_construct_uint(ptr sret(%struct.ossl_param_st) align 8,
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

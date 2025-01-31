@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kBrotliLog2Table = external hidden local_unnamed_addr constant [256 x double], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliCompareAndPushToQueueLiteral(ptr nocapture noundef readonly %out, ptr noundef %tmp, ptr nocapture noundef readonly %cluster_size, i32 noundef %idx1, i32 noundef %idx2, i64 noundef %max_num_pairs, ptr nocapture noundef %pairs, ptr nocapture noundef %num_pairs) local_unnamed_addr #0 {
+define hidden void @BrotliCompareAndPushToQueueLiteral(ptr noundef readonly captures(none) %out, ptr noundef %tmp, ptr noundef readonly captures(none) %cluster_size, i32 noundef %idx1, i32 noundef %idx2, i64 noundef %max_num_pairs, ptr noundef captures(none) %pairs, ptr noundef captures(none) %num_pairs) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %idx1, %idx2
   br i1 %cmp, label %if.end84, label %if.end
@@ -207,12 +207,12 @@ if.end84:                                         ; preds = %HistogramAddHistogr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare hidden double @BrotliPopulationCostLiteral(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @BrotliHistogramCombineLiteral(ptr nocapture noundef %out, ptr noundef %tmp, ptr nocapture noundef %cluster_size, ptr nocapture noundef %symbols, ptr nocapture noundef %clusters, ptr nocapture noundef %pairs, i64 noundef %num_clusters, i64 noundef %symbols_size, i64 noundef %max_clusters, i64 noundef %max_num_pairs) local_unnamed_addr #0 {
+define hidden i64 @BrotliHistogramCombineLiteral(ptr noundef captures(none) %out, ptr noundef %tmp, ptr noundef captures(none) %cluster_size, ptr noundef captures(none) %symbols, ptr noundef captures(none) %clusters, ptr noundef captures(none) %pairs, i64 noundef %num_clusters, i64 noundef %symbols_size, i64 noundef %max_clusters, i64 noundef %max_num_pairs) local_unnamed_addr #0 {
 entry:
   %front = alloca %struct.HistogramPair, align 8
   %cmp213.not = icmp eq i64 %num_clusters, 0
@@ -807,10 +807,10 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden double @BrotliHistogramBitCostDistanceLiteral(ptr nocapture noundef readonly %histogram, ptr nocapture noundef readonly %candidate, ptr noundef %tmp) local_unnamed_addr #0 {
+define hidden double @BrotliHistogramBitCostDistanceLiteral(ptr noundef readonly captures(none) %histogram, ptr noundef readonly captures(none) %candidate, ptr noundef %tmp) local_unnamed_addr #0 {
 entry:
   %total_count_ = getelementptr inbounds nuw i8, ptr %histogram, i64 1024
   %0 = load i64, ptr %total_count_, align 8
@@ -852,7 +852,7 @@ return:                                           ; preds = %entry, %HistogramAd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliHistogramRemapLiteral(ptr nocapture noundef readonly %in, i64 noundef %in_size, ptr nocapture noundef readonly %clusters, i64 noundef %num_clusters, ptr nocapture noundef %out, ptr noundef %tmp, ptr nocapture noundef %symbols) local_unnamed_addr #0 {
+define hidden void @BrotliHistogramRemapLiteral(ptr noundef readonly captures(none) %in, i64 noundef %in_size, ptr noundef readonly captures(none) %clusters, i64 noundef %num_clusters, ptr noundef captures(none) %out, ptr noundef %tmp, ptr noundef captures(none) %symbols) local_unnamed_addr #0 {
 entry:
   %cmp66.not = icmp eq i64 %in_size, 0
   br i1 %cmp66.not, label %for.cond19.preheader, label %for.body.lr.ph
@@ -1099,7 +1099,7 @@ for.end37:                                        ; preds = %for.inc35, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 4294967296) i64 @BrotliHistogramReindexLiteral(ptr noundef %m, ptr nocapture noundef %out, ptr nocapture noundef %symbols, i64 noundef %length) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @BrotliHistogramReindexLiteral(ptr noundef %m, ptr noundef captures(none) %out, ptr noundef captures(none) %symbols, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %length, 0
   br i1 %cmp.not, label %for.end45.thread, label %for.body4.preheader
@@ -1209,7 +1209,7 @@ declare hidden ptr @BrotliAllocate(ptr noundef, i64 noundef) local_unnamed_addr 
 declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliClusterHistogramsLiteral(ptr noundef %m, ptr noundef %in, i64 noundef %in_size, i64 noundef %max_histograms, ptr nocapture noundef %out, ptr nocapture noundef writeonly %out_size, ptr nocapture noundef %histogram_symbols) local_unnamed_addr #0 {
+define hidden void @BrotliClusterHistogramsLiteral(ptr noundef %m, ptr noundef %in, i64 noundef %in_size, i64 noundef %max_histograms, ptr noundef captures(none) %out, ptr noundef writeonly captures(none) %out_size, ptr noundef captures(none) %histogram_symbols) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %in_size, 0
   br i1 %cmp.not, label %cond.true9, label %cond.true2
@@ -1240,7 +1240,7 @@ for.body20:                                       ; preds = %for.body, %for.body
   %arrayidx21 = getelementptr inbounds %struct.HistogramLiteral, ptr %out, i64 %i.199
   %arrayidx22 = getelementptr inbounds %struct.HistogramLiteral, ptr %in, i64 %i.199
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx21, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx22, i64 1040, i1 false)
-  %call24 = tail call double @BrotliPopulationCostLiteral(ptr noundef %arrayidx22) #7
+  %call24 = tail call double @BrotliPopulationCostLiteral(ptr noundef nonnull %arrayidx22) #7
   %bit_cost_ = getelementptr inbounds nuw i8, ptr %arrayidx21, i64 1032
   store double %call24, ptr %bit_cost_, align 8
   %conv = trunc i64 %i.199 to i32
@@ -1300,7 +1300,7 @@ cond.true72:                                      ; preds = %while.cond
   %mul73 = mul i64 %_new_size.0, 24
   %call74 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul73) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49152) %call74, ptr noundef nonnull align 8 dereferenceable(49152) %call12, i64 49152, i1 false)
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call12) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %call12) #7
   br label %if.end82
 
 if.end82:                                         ; preds = %cond.true72, %for.end52
@@ -1317,7 +1317,7 @@ if.end82:                                         ; preds = %cond.true72, %for.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliCompareAndPushToQueueCommand(ptr nocapture noundef readonly %out, ptr noundef %tmp, ptr nocapture noundef readonly %cluster_size, i32 noundef %idx1, i32 noundef %idx2, i64 noundef %max_num_pairs, ptr nocapture noundef %pairs, ptr nocapture noundef %num_pairs) local_unnamed_addr #0 {
+define hidden void @BrotliCompareAndPushToQueueCommand(ptr noundef readonly captures(none) %out, ptr noundef %tmp, ptr noundef readonly captures(none) %cluster_size, i32 noundef %idx1, i32 noundef %idx2, i64 noundef %max_num_pairs, ptr noundef captures(none) %pairs, ptr noundef captures(none) %num_pairs) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %idx1, %idx2
   br i1 %cmp, label %if.end84, label %if.end
@@ -1515,7 +1515,7 @@ if.end84:                                         ; preds = %HistogramAddHistogr
 declare hidden double @BrotliPopulationCostCommand(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @BrotliHistogramCombineCommand(ptr nocapture noundef %out, ptr noundef %tmp, ptr nocapture noundef %cluster_size, ptr nocapture noundef %symbols, ptr nocapture noundef %clusters, ptr nocapture noundef %pairs, i64 noundef %num_clusters, i64 noundef %symbols_size, i64 noundef %max_clusters, i64 noundef %max_num_pairs) local_unnamed_addr #0 {
+define hidden i64 @BrotliHistogramCombineCommand(ptr noundef captures(none) %out, ptr noundef %tmp, ptr noundef captures(none) %cluster_size, ptr noundef captures(none) %symbols, ptr noundef captures(none) %clusters, ptr noundef captures(none) %pairs, i64 noundef %num_clusters, i64 noundef %symbols_size, i64 noundef %max_clusters, i64 noundef %max_num_pairs) local_unnamed_addr #0 {
 entry:
   %front = alloca %struct.HistogramPair, align 8
   %cmp213.not = icmp eq i64 %num_clusters, 0
@@ -2110,7 +2110,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden double @BrotliHistogramBitCostDistanceCommand(ptr nocapture noundef readonly %histogram, ptr nocapture noundef readonly %candidate, ptr noundef %tmp) local_unnamed_addr #0 {
+define hidden double @BrotliHistogramBitCostDistanceCommand(ptr noundef readonly captures(none) %histogram, ptr noundef readonly captures(none) %candidate, ptr noundef %tmp) local_unnamed_addr #0 {
 entry:
   %total_count_ = getelementptr inbounds nuw i8, ptr %histogram, i64 2816
   %0 = load i64, ptr %total_count_, align 8
@@ -2152,7 +2152,7 @@ return:                                           ; preds = %entry, %HistogramAd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliHistogramRemapCommand(ptr nocapture noundef readonly %in, i64 noundef %in_size, ptr nocapture noundef readonly %clusters, i64 noundef %num_clusters, ptr nocapture noundef %out, ptr noundef %tmp, ptr nocapture noundef %symbols) local_unnamed_addr #0 {
+define hidden void @BrotliHistogramRemapCommand(ptr noundef readonly captures(none) %in, i64 noundef %in_size, ptr noundef readonly captures(none) %clusters, i64 noundef %num_clusters, ptr noundef captures(none) %out, ptr noundef %tmp, ptr noundef captures(none) %symbols) local_unnamed_addr #0 {
 entry:
   %cmp66.not = icmp eq i64 %in_size, 0
   br i1 %cmp66.not, label %for.cond19.preheader, label %for.body.lr.ph
@@ -2399,7 +2399,7 @@ for.end37:                                        ; preds = %for.inc35, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 4294967296) i64 @BrotliHistogramReindexCommand(ptr noundef %m, ptr nocapture noundef %out, ptr nocapture noundef %symbols, i64 noundef %length) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @BrotliHistogramReindexCommand(ptr noundef %m, ptr noundef captures(none) %out, ptr noundef captures(none) %symbols, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %length, 0
   br i1 %cmp.not, label %for.end45.thread, label %for.body4.preheader
@@ -2505,7 +2505,7 @@ for.end55:                                        ; preds = %for.body50, %for.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliClusterHistogramsCommand(ptr noundef %m, ptr noundef %in, i64 noundef %in_size, i64 noundef %max_histograms, ptr nocapture noundef %out, ptr nocapture noundef writeonly %out_size, ptr nocapture noundef %histogram_symbols) local_unnamed_addr #0 {
+define hidden void @BrotliClusterHistogramsCommand(ptr noundef %m, ptr noundef %in, i64 noundef %in_size, i64 noundef %max_histograms, ptr noundef captures(none) %out, ptr noundef writeonly captures(none) %out_size, ptr noundef captures(none) %histogram_symbols) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %in_size, 0
   br i1 %cmp.not, label %cond.true9, label %cond.true2
@@ -2536,7 +2536,7 @@ for.body20:                                       ; preds = %for.body, %for.body
   %arrayidx21 = getelementptr inbounds %struct.HistogramCommand, ptr %out, i64 %i.199
   %arrayidx22 = getelementptr inbounds %struct.HistogramCommand, ptr %in, i64 %i.199
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx21, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx22, i64 2832, i1 false)
-  %call24 = tail call double @BrotliPopulationCostCommand(ptr noundef %arrayidx22) #7
+  %call24 = tail call double @BrotliPopulationCostCommand(ptr noundef nonnull %arrayidx22) #7
   %bit_cost_ = getelementptr inbounds nuw i8, ptr %arrayidx21, i64 2824
   store double %call24, ptr %bit_cost_, align 8
   %conv = trunc i64 %i.199 to i32
@@ -2596,7 +2596,7 @@ cond.true72:                                      ; preds = %while.cond
   %mul73 = mul i64 %_new_size.0, 24
   %call74 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul73) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49152) %call74, ptr noundef nonnull align 8 dereferenceable(49152) %call12, i64 49152, i1 false)
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call12) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %call12) #7
   br label %if.end82
 
 if.end82:                                         ; preds = %cond.true72, %for.end52
@@ -2613,7 +2613,7 @@ if.end82:                                         ; preds = %cond.true72, %for.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliCompareAndPushToQueueDistance(ptr nocapture noundef readonly %out, ptr noundef %tmp, ptr nocapture noundef readonly %cluster_size, i32 noundef %idx1, i32 noundef %idx2, i64 noundef %max_num_pairs, ptr nocapture noundef %pairs, ptr nocapture noundef %num_pairs) local_unnamed_addr #0 {
+define hidden void @BrotliCompareAndPushToQueueDistance(ptr noundef readonly captures(none) %out, ptr noundef %tmp, ptr noundef readonly captures(none) %cluster_size, i32 noundef %idx1, i32 noundef %idx2, i64 noundef %max_num_pairs, ptr noundef captures(none) %pairs, ptr noundef captures(none) %num_pairs) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %idx1, %idx2
   br i1 %cmp, label %if.end84, label %if.end
@@ -2811,7 +2811,7 @@ if.end84:                                         ; preds = %HistogramAddHistogr
 declare hidden double @BrotliPopulationCostDistance(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @BrotliHistogramCombineDistance(ptr nocapture noundef %out, ptr noundef %tmp, ptr nocapture noundef %cluster_size, ptr nocapture noundef %symbols, ptr nocapture noundef %clusters, ptr nocapture noundef %pairs, i64 noundef %num_clusters, i64 noundef %symbols_size, i64 noundef %max_clusters, i64 noundef %max_num_pairs) local_unnamed_addr #0 {
+define hidden i64 @BrotliHistogramCombineDistance(ptr noundef captures(none) %out, ptr noundef %tmp, ptr noundef captures(none) %cluster_size, ptr noundef captures(none) %symbols, ptr noundef captures(none) %clusters, ptr noundef captures(none) %pairs, i64 noundef %num_clusters, i64 noundef %symbols_size, i64 noundef %max_clusters, i64 noundef %max_num_pairs) local_unnamed_addr #0 {
 entry:
   %front = alloca %struct.HistogramPair, align 8
   %cmp213.not = icmp eq i64 %num_clusters, 0
@@ -3406,7 +3406,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden double @BrotliHistogramBitCostDistanceDistance(ptr nocapture noundef readonly %histogram, ptr nocapture noundef readonly %candidate, ptr noundef %tmp) local_unnamed_addr #0 {
+define hidden double @BrotliHistogramBitCostDistanceDistance(ptr noundef readonly captures(none) %histogram, ptr noundef readonly captures(none) %candidate, ptr noundef %tmp) local_unnamed_addr #0 {
 entry:
   %total_count_ = getelementptr inbounds nuw i8, ptr %histogram, i64 2176
   %0 = load i64, ptr %total_count_, align 8
@@ -3448,7 +3448,7 @@ return:                                           ; preds = %entry, %HistogramAd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliHistogramRemapDistance(ptr nocapture noundef readonly %in, i64 noundef %in_size, ptr nocapture noundef readonly %clusters, i64 noundef %num_clusters, ptr nocapture noundef %out, ptr noundef %tmp, ptr nocapture noundef %symbols) local_unnamed_addr #0 {
+define hidden void @BrotliHistogramRemapDistance(ptr noundef readonly captures(none) %in, i64 noundef %in_size, ptr noundef readonly captures(none) %clusters, i64 noundef %num_clusters, ptr noundef captures(none) %out, ptr noundef %tmp, ptr noundef captures(none) %symbols) local_unnamed_addr #0 {
 entry:
   %cmp66.not = icmp eq i64 %in_size, 0
   br i1 %cmp66.not, label %for.cond19.preheader, label %for.body.lr.ph
@@ -3695,7 +3695,7 @@ for.end37:                                        ; preds = %for.inc35, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 4294967296) i64 @BrotliHistogramReindexDistance(ptr noundef %m, ptr nocapture noundef %out, ptr nocapture noundef %symbols, i64 noundef %length) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @BrotliHistogramReindexDistance(ptr noundef %m, ptr noundef captures(none) %out, ptr noundef captures(none) %symbols, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %length, 0
   br i1 %cmp.not, label %for.end45.thread, label %for.body4.preheader
@@ -3801,7 +3801,7 @@ for.end55:                                        ; preds = %for.body50, %for.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliClusterHistogramsDistance(ptr noundef %m, ptr noundef %in, i64 noundef %in_size, i64 noundef %max_histograms, ptr nocapture noundef %out, ptr nocapture noundef writeonly %out_size, ptr nocapture noundef %histogram_symbols) local_unnamed_addr #0 {
+define hidden void @BrotliClusterHistogramsDistance(ptr noundef %m, ptr noundef %in, i64 noundef %in_size, i64 noundef %max_histograms, ptr noundef captures(none) %out, ptr noundef writeonly captures(none) %out_size, ptr noundef captures(none) %histogram_symbols) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %in_size, 0
   br i1 %cmp.not, label %cond.true9, label %cond.true2
@@ -3832,7 +3832,7 @@ for.body20:                                       ; preds = %for.body, %for.body
   %arrayidx21 = getelementptr inbounds %struct.HistogramDistance, ptr %out, i64 %i.199
   %arrayidx22 = getelementptr inbounds %struct.HistogramDistance, ptr %in, i64 %i.199
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx21, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx22, i64 2192, i1 false)
-  %call24 = tail call double @BrotliPopulationCostDistance(ptr noundef %arrayidx22) #7
+  %call24 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %arrayidx22) #7
   %bit_cost_ = getelementptr inbounds nuw i8, ptr %arrayidx21, i64 2184
   store double %call24, ptr %bit_cost_, align 8
   %conv = trunc i64 %i.199 to i32
@@ -3892,7 +3892,7 @@ cond.true72:                                      ; preds = %while.cond
   %mul73 = mul i64 %_new_size.0, 24
   %call74 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul73) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49152) %call74, ptr noundef nonnull align 8 dereferenceable(49152) %call12, i64 49152, i1 false)
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call12) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %call12) #7
   br label %if.end82
 
 if.end82:                                         ; preds = %cond.true72, %for.end52
@@ -3915,7 +3915,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 declare double @log2(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

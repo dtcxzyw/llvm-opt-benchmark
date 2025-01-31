@@ -42,7 +42,7 @@ $_ZTVN5boost9container9bad_allocE = comdat any
 @_ZN5boost9container3pmr13pool_resourceD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5boost9container3pmr13pool_resourceD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resource17priv_limit_optionERmmm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5boost9container3pmr13pool_resource17priv_limit_optionERmmm(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load i64, ptr %0, align 8, !tbaa !3
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %8, label %5
@@ -77,7 +77,7 @@ define hidden noundef i64 @_ZN5boost9container3pmr13pool_resource15priv_pool_blo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resource16priv_fix_optionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5boost9container3pmr13pool_resource16priv_fix_optionsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
 _ZN5boost9container3pmr13pool_resource17priv_limit_optionERmmm.exit:
   %1 = load i64, ptr %0, align 8, !tbaa !3
   %.not.i = icmp eq i64 %1, 0
@@ -108,7 +108,7 @@ _ZN5boost9container3pmr13pool_resource17priv_limit_optionERmmm.exit4: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resource15priv_init_poolsEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((40, 48)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9container3pmr13pool_resource15priv_init_poolsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((40, 48)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 .lr.ph.preheader:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8, !tbaa !7
@@ -148,7 +148,7 @@ define hidden void @_ZN5boost9container3pmr13pool_resource15priv_init_poolsEv(pt
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resource21priv_constructor_bodyEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5boost9container3pmr13pool_resource21priv_constructor_bodyEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !3
   %.not.i.i = icmp eq i64 %2, 0
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 32)
@@ -178,7 +178,7 @@ _ZN5boost9container3pmr13pool_resource16priv_fix_optionsEv.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_optionsEPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_optionsEPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %4, align 8, !tbaa !26
@@ -217,7 +217,7 @@ define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_option
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
@@ -291,7 +291,7 @@ define hidden void @_ZN5boost9container3pmr13pool_resourceC2EPNS1_15memory_resou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_optionsE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_optionsE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef ptr @_ZN5boost9container3pmr20get_default_resourceEv() #18
@@ -532,14 +532,14 @@ _ZN5boost9container3pmr11pool_data_t7releaseERNS1_15memory_resourceE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK5boost9container3pmr13pool_resource17upstream_resourceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZNK5boost9container3pmr13pool_resource17upstream_resourceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden { i64, i64 } @_ZNK5boost9container3pmr13pool_resource7optionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #9 align 2 {
+define hidden { i64, i64 } @_ZNK5boost9container3pmr13pool_resource7optionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #9 align 2 {
   %.sroa.0.0.copyload = load i64, ptr %0, align 8, !tbaa !3
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3
@@ -719,7 +719,7 @@ _ZN5boost9container3pmr11pool_data_t14allocate_blockEv.exit20: ; preds = %86, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resource13do_deallocateEPvmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9container3pmr13pool_resource13do_deallocateEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !7
   %7 = icmp ugt i64 %2, %6
@@ -769,7 +769,7 @@ _ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE10deallocateEP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource10pool_countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource10pool_countEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %.not = icmp eq ptr %3, null
@@ -795,7 +795,7 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource10pool_countEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource10pool_indexEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource10pool_indexEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = icmp ugt i64 %1, %4
@@ -832,7 +832,7 @@ _ZNK5boost9container3pmr13pool_resource10pool_countEv.exit: ; preds = %12, %9, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource26pool_next_blocks_per_chunkEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #10 align 2 {
+define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource26pool_next_blocks_per_chunkEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %.not = icmp ne ptr %4, null
@@ -853,13 +853,13 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource26pool_next_bl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource10pool_blockEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource10pool_blockEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = shl i64 16, %1
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource18pool_cached_blocksEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #10 align 2 {
+define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource18pool_cached_blocksEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %.not = icmp ne ptr %4, null
@@ -890,7 +890,7 @@ _ZNK5boost9container3pmr11pool_data_t11cache_countEv.exit: ; preds = %11, %2
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZN5boost9container15throw_bad_allocEv() local_unnamed_addr #13 comdat personality ptr @__gxx_personality_v0 {

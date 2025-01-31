@@ -14993,7 +14993,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilderC2EPNS_13TargetMachineENS_21PipelineTuningOptionsESt8optionalINS_10PGOOptionsEEPNS_28PassInstrumentationCallbacksE(ptr noundef nonnull align 8 dereferenceable(2208) initializes((0, 36), (192, 193)) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%"class.llvm::PipelineTuningOptions") align 8 %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilderC2EPNS_13TargetMachineENS_21PipelineTuningOptionsESt8optionalINS_10PGOOptionsEEPNS_28PassInstrumentationCallbacksE(ptr noundef nonnull align 8 dereferenceable(2208) initializes((0, 36), (192, 193)) %0, ptr noundef %1, ptr noundef readonly byval(%"class.llvm::PipelineTuningOptions") align 8 captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca i64, align 8
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15162,7 +15162,7 @@ _ZNSt8optionalIN4llvm10PGOOptionsEEC2ERKS2_.exit: ; preds = %5, %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm11PassBuilder22registerModuleAnalysesERNS_15AnalysisManagerINS_6ModuleEJEEE(ptr noundef nonnull align 8 dereferenceable(2208) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #0 align 2 {
@@ -21469,7 +21469,7 @@ _ZNKSt8functionIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder21parseSinglePassOptionENS_9StringRefES1_S1_(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr noundef byval(%"class.llvm::StringRef") align 8 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder21parseSinglePassOptionENS_9StringRefES1_S1_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected") align 8 captures(none) %0, ptr %1, i64 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef byval(%"class.llvm::StringRef") align 8 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::raw_string_ostream", align 8
   %9 = alloca i8, align 1
@@ -21676,7 +21676,7 @@ declare { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() local_unnamed_addr #2
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder17parsePipelineTextENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.399") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder17parsePipelineTextENS_9StringRefE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.399") align 8 captures(none) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.std::vector.405", align 8
   %6 = alloca %"class.llvm::SmallVector.414", align 8
@@ -21899,7 +21899,7 @@ _ZNSt6vectorIN4llvm11PassBuilder15PipelineElementESaIS2_EED2Ev.exit: ; preds = %
 declare noundef i64 @_ZNK4llvm9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
@@ -23465,7 +23465,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analy
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit1874
 
 _ZN4llvmeqENS_9StringRefES0_.exit1856:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit1818
-  %bcmp.i1855 = call i32 @bcmp(ptr %.sroa.0896.0.copyload, ptr nonnull @.str.20, i64 %.sroa.2897.0.copyload)
+  %bcmp.i1855 = call i32 @bcmp(ptr nonnull %.sroa.0896.0.copyload, ptr nonnull @.str.20, i64 %.sroa.2897.0.copyload)
   %895 = icmp eq i32 %bcmp.i1855, 0
   br i1 %895, label %_ZN4llvmeqENS_9StringRefES0_.exit1856.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit1863.thread7186
 
@@ -27320,7 +27320,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3234:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3238:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3008
-  %bcmp.i3237 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.198, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3237 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.198, i64 %.sroa.2525.0.copyload)
   %1815 = icmp eq i32 %bcmp.i3237, 0
   br i1 %1815, label %_ZN4llvmeqENS_9StringRefES0_.exit3238.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit3256
 
@@ -27378,7 +27378,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3252:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3256:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3238
-  %bcmp.i3255 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.200, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3255 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.200, i64 %.sroa.2525.0.copyload)
   %1831 = icmp eq i32 %bcmp.i3255, 0
   br i1 %1831, label %_ZN4llvmeqENS_9StringRefES0_.exit3256.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit3727
 
@@ -28901,7 +28901,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3723:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3727:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3256
-  %bcmp.i3726 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.250, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3726 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.250, i64 %.sroa.2525.0.copyload)
   %2256 = icmp eq i32 %bcmp.i3726, 0
   br i1 %2256, label %_ZN4llvmeqENS_9StringRefES0_.exit3727.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit3745
 
@@ -28961,7 +28961,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3741:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3745:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3727
-  %bcmp.i3744 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.252, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3744 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.252, i64 %.sroa.2525.0.copyload)
   %2273 = icmp eq i32 %bcmp.i3744, 0
   br i1 %2273, label %_ZN4llvmeqENS_9StringRefES0_.exit3745.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit3835
 
@@ -29250,7 +29250,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3831:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3835:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3745
-  %bcmp.i3834 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.262, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3834 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.262, i64 %.sroa.2525.0.copyload)
   %2351 = icmp eq i32 %bcmp.i3834, 0
   br i1 %2351, label %_ZN4llvmeqENS_9StringRefES0_.exit3835.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit4191
 
@@ -30400,7 +30400,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit4187:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit4191:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3835
-  %bcmp.i4190 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.297, i64 %.sroa.2525.0.copyload)
+  %bcmp.i4190 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.297, i64 %.sroa.2525.0.copyload)
   %2693 = icmp eq i32 %bcmp.i4190, 0
   br i1 %2693, label %_ZN4llvmeqENS_9StringRefES0_.exit4191.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit4527.thread8087
 
@@ -33245,7 +33245,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit5070:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit5074:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit5038
-  %bcmp.i5073 = tail call i32 @bcmp(ptr %.sroa.099.0.copyload, ptr nonnull @.str.355, i64 %.sroa.2100.0.copyload)
+  %bcmp.i5073 = tail call i32 @bcmp(ptr nonnull %.sroa.099.0.copyload, ptr nonnull @.str.355, i64 %.sroa.2100.0.copyload)
   %3608 = icmp eq i32 %bcmp.i5073, 0
   br i1 %3608, label %_ZN4llvmeqENS_9StringRefES0_.exit5074.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit5263.thread8165
 
@@ -34653,7 +34653,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt8functionIFbN4llvm9StringRe
 declare noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12), ptr, i64, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc { i64, i8 } @_ZL13parseOptLevelN4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) unnamed_addr #7 {
+define internal fastcc { i64, i8 } @_ZL13parseOptLevelN4llvm9StringRefE(ptr readonly captures(none) %0, i64 %1) unnamed_addr #7 {
   %.not.i.i = icmp eq i64 %1, 2
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread156
 
@@ -38332,7 +38332,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %4, %_ZNK4llvm9Strin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120parseASanPassOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.727") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120parseASanPassOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.727") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i8, align 1
@@ -38533,7 +38533,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123parseGlobalMergeOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.737") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123parseGlobalMergeOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.737") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i64, align 8
@@ -38795,7 +38795,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128parseEmbedBitcodePassOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.743") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_128parseEmbedBitcodePassOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.743") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i8, align 1
@@ -39211,7 +39211,7 @@ _ZN4llvm11SmallPtrSetIPNS_11GlobalValueELj32EED2Ev.exit13: ; preds = %_ZN4llvm8D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122parseHWASanPassOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.800") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_122parseHWASanPassOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.800") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i8, align 1
@@ -39835,7 +39835,7 @@ _ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118parseIPSCCPOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.822") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118parseIPSCCPOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.822") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i8, align 1
@@ -40313,7 +40313,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120parseMSanPassOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.839") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120parseMSanPassOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.839") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -41800,7 +41800,7 @@ _ZN4llvm9MapVectorIPNS_14GlobalVariableENS_8tlshoist12TLSCandidateENS_8DenseMapI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123parseCFGuardPassOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1177") align 8 initializes((0, 4)) %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123parseCFGuardPassOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1177") align 8 captures(none) initializes((0, 4)) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -42029,7 +42029,7 @@ _ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %80, %_ZN4llvmeqENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_142parseFunctionSimplificationPipelineOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1190") align 8 initializes((0, 8)) %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_142parseFunctionSimplificationPipelineOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1190") align 8 captures(none) initializes((0, 8)) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
@@ -42132,7 +42132,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %33, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115parseGVNOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1195") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115parseGVNOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1195") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i8, align 1
@@ -42475,7 +42475,7 @@ _ZN4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124parseHardwareLoopOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1262") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124parseHardwareLoopOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1262") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i64, align 8
@@ -42866,7 +42866,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123parseInstCombineOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1269") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123parseInstCombineOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1269") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -43189,7 +43189,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManager
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122parseLoopUnrollOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1282") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_122parseLoopUnrollOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1282") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i64, align 8
@@ -43420,7 +43420,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit37:              ; preds = %_ZN4llvm9StringRef1
   br i1 %77, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit52
 
 _ZN4llvmeqENS_9StringRefES0_.exit41:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit31
-  %bcmp.i40 = call i32 @bcmp(ptr %.sroa.07.0.copyload, ptr nonnull @.str.714, i64 %.sroa.28.0.copyload)
+  %bcmp.i40 = call i32 @bcmp(ptr nonnull %.sroa.07.0.copyload, ptr nonnull @.str.714, i64 %.sroa.28.0.copyload)
   %78 = icmp eq i32 %bcmp.i40, 0
   br i1 %78, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit52
 
@@ -43542,7 +43542,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125parseLoopVectorizeOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1289") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125parseLoopVectorizeOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1289") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i8, align 1
@@ -43719,7 +43719,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_133parseMergedLoadStoreMotionOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_133parseMergedLoadStoreMotionOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i8, align 1
@@ -43878,7 +43878,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %44, %_ZN4llvmeqENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125parseStackLifetimeOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1307") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125parseStackLifetimeOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1307") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i8, align 1
@@ -44026,7 +44026,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123parseSimplifyCFGOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1316") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123parseSimplifyCFGOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1316") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
@@ -44180,7 +44180,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit41.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %108
 
 _ZN4llvmeqENS_9StringRefES0_.exit45:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
-  %bcmp.i44 = call i32 @bcmp(ptr %.sroa.017.0.copyload, ptr nonnull @.str.732, i64 %.sroa.218.0.copyload)
+  %bcmp.i44 = call i32 @bcmp(ptr nonnull %.sroa.017.0.copyload, ptr nonnull @.str.732, i64 %.sroa.218.0.copyload)
   %52 = icmp eq i32 %bcmp.i44, 0
   br i1 %52, label %_ZN4llvmeqENS_9StringRefES0_.exit45.thread, label %_ZN4llvm5ErrorD2Ev.exit75
 
@@ -44427,7 +44427,7 @@ _ZN4llvm5ErrorD2Ev.exit75:                        ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116parseSROAOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1326") align 8 initializes((0, 1)) %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116parseSROAOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1326") align 8 captures(none) initializes((0, 1)) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
@@ -46355,7 +46355,7 @@ define linkonce_odr hidden void @_ZN4llvm31createFunctionToLoopPassAdaptorINS_19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116parseLICMOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1379") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116parseLICMOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1379") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i8, align 1
@@ -46770,7 +46770,7 @@ _ZN4llvm6detail9PassModelINS_4LoopENS_11PassManagerIS2_NS_15AnalysisManagerIS2_J
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122parseLoopRotateOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1389") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_122parseLoopRotateOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1389") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i8, align 1
@@ -46988,7 +46988,7 @@ define linkonce_odr hidden void @_ZN4llvm31createFunctionToLoopPassAdaptorINS_14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124parseLoopUnswitchOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1389") align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124parseLoopUnswitchOptionsEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.1389") align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i8, align 1
@@ -70410,7 +70410,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_8FunctionENS0_15AnalysisManager
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder13parseLoopPassERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS5_RNS_10LPMUpdaterEEEERKNS0_15PipelineElementE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder13parseLoopPassERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS2_JRNS_27LoopStandardAnalysisResultsEEEEJS5_RNS_10LPMUpdaterEEEERKNS0_15PipelineElementE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::ArrayRef.424", align 8
   %7 = alloca %"class.std::unique_ptr.2282", align 8
@@ -72792,7 +72792,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr.1497", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
@@ -74473,7 +74473,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_15MachineFunctionENS0_15Analysi
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm11PassBuilder19parsePassParametersIZNS0_16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS3_JEEEJEEERKNS0_15PipelineElementEE3$_0EEDTclfp_tlNS_9StringRefEEEEOT_SC_SC_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm11PassBuilder19parsePassParametersIZNS0_16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS3_JEEEJEEERKNS0_15PipelineElementEE3$_0EEDTclfp_tlNS_9StringRefEEEEOT_SC_SC_"(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr %.0.val, ptr %1, i64 %2, ptr readonly captures(none) %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::raw_string_ostream", align 8
   %.sroa.0.i.i.i.i.i = alloca { i64, i64 }, align 8
@@ -75308,7 +75308,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPFvRNS_8FunctionERNS_15AnalysisManagerIS1_JEEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder20crossRegisterProxiesERNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEERNS1_INS_8FunctionEJEEERNS1_INS_13LazyCallGraph3SCCEJRSA_EEERNS1_INS_6ModuleEJEEEPNS1_INS_15MachineFunctionEJEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2208) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder20crossRegisterProxiesERNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEERNS1_INS_8FunctionEJEEERNS1_INS_13LazyCallGraph3SCCEJRSA_EEERNS1_INS_6ModuleEJEEEPNS1_INS_15MachineFunctionEJEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2208) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -79720,7 +79720,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14isLoopPassNameIN4llvm11SmallVectorISt8functionIFbNS0_9StringRefERNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS5_JRNS0_27LoopStandardAnalysisResultsEEEEJS8_RNS0_10LPMUpdaterEEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEELj2EEEEbS3_RT_Rb(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14isLoopPassNameIN4llvm11SmallVectorISt8functionIFbNS0_9StringRefERNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS5_JRNS0_27LoopStandardAnalysisResultsEEEEJS8_RNS0_10LPMUpdaterEEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEELj2EEEEbS3_RT_Rb(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %.not.i.i.i = icmp ult i64 %1, 4
   br i1 %.not.i.i.i, label %_ZN4llvm11PassBuilder25checkParametrizedPassNameENS_9StringRefES1_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
@@ -80867,7 +80867,7 @@ _ZNSt8optionalISt6vectorIN4llvm11PassBuilder15PipelineElementESaIS3_EEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder15parseAAPipelineERNS_9AAManagerENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder15parseAAPipelineERNS_9AAManagerENS_9StringRefE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::raw_string_ostream", align 8
   %8 = alloca i8, align 1
@@ -81025,7 +81025,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit5:                 ; preds = %_ZN4llvmeqENS_9Stri
 declare void @_ZN4llvm11PassBuilder22buildDefaultAAPipelineEv(ptr dead_on_unwind writable sret(%"class.llvm::AAManager") align 8, ptr noundef nonnull align 8 dereferenceable(2208)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder19parseRegAllocFilterENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.1839") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder19parseRegAllocFilterENS_9StringRefE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.1839") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.std::function.1804", align 8
   %.not.i = icmp eq i64 %3, 3
@@ -81099,7 +81099,7 @@ _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8R
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder14printPassNamesERNS_11raw_ostreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2208) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder14printPassNamesERNS_11raw_ostreamE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2208) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -109083,10 +109083,10 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -109102,7 +109102,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZN4llvm10PGOOptionsC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(152)) unnamed_addr #2
 
@@ -110136,7 +110136,7 @@ _ZN4llvm15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5
 declare void @_ZN4llvm15InternalizePassC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm11GlobalValueEEZZNS0_11PassBuilder15parseModulePassERNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS7_JEEEJEEERKNS5_15PipelineElementEENK3$_0clENS0_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm11GlobalValueEEZZNS0_11PassBuilder15parseModulePassERNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS7_JEEEJEEERKNS5_15PipelineElementEENK3$_0clENS0_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #0 align 2 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %.val, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.val) #25
@@ -110174,7 +110174,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.i.i.i: ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm11GlobalValueEEZZNS0_11PassBuilder15parseModulePassERNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS7_JEEEJEEERKNS5_15PipelineElementEENK3$_0clENS0_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlS3_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm11GlobalValueEEZZNS0_11PassBuilder15parseModulePassERNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS7_JEEEJEEERKNS5_15PipelineElementEENK3$_0clENS0_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlS3_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN4llvm11PassBuilder15parseModulePassERNS1_11PassManagerINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEERKNS2_15PipelineElementEENK3$_0clENS1_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEUlRKNS1_11GlobalValueEE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit" [
     i32 1, label %4
@@ -168320,7 +168320,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_6Mo
 declare void @_ZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind writable sret(%"class.llvm::PreservedAnalyses") align 8, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(857), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122TriggerCrashModulePassENS_15AnalysisManagerIS2_JEEEJEED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122TriggerCrashModulePassENS_15AnalysisManagerIS2_JEEEJEED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -168331,13 +168331,13 @@ define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122Trig
 }
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122TriggerCrashModulePassENS_15AnalysisManagerIS2_JEEEJEE3runERS2_RS6_(ptr dead_on_unwind noalias nocapture readnone sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #15 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122TriggerCrashModulePassENS_15AnalysisManagerIS2_JEEEJEE3runERS2_RS6_(ptr dead_on_unwind noalias readnone sret(%"class.llvm::PreservedAnalyses") align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #15 align 2 {
   tail call void @abort() #28
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122TriggerCrashModulePassENS_15AnalysisManagerIS2_JEEEJEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefESB_EEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122TriggerCrashModulePassENS_15AnalysisManagerIS2_JEEEJEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefESB_EEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr readonly captures(none) %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = tail call { ptr, i64 } %2(i64 noundef %3, ptr nonnull @.str.793, i64 22) #25
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = extractvalue { ptr, i64 } %5, 1
@@ -168371,12 +168371,12 @@ _ZN4llvm13PassInfoMixinIN12_GLOBAL__N_122TriggerCrashModulePassEE13printPipeline
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { ptr, i64 } @_ZNK4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122TriggerCrashModulePassENS_15AnalysisManagerIS2_JEEEJEE4nameEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal { ptr, i64 } @_ZNK4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122TriggerCrashModulePassENS_15AnalysisManagerIS2_JEEEJEE4nameEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret { ptr, i64 } { ptr @.str.793, i64 22 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122TriggerCrashModulePassENS_15AnalysisManagerIS2_JEEEJEE10isRequiredEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_122TriggerCrashModulePassENS_15AnalysisManagerIS2_JEEEJEE10isRequiredEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret i1 false
 }
 
@@ -168384,7 +168384,7 @@ define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_6ModuleEN12_GL
 declare void @abort() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -168395,7 +168395,7 @@ define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124Trig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE3runERS2_RS6_(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 initializes((24, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE3runERS2_RS6_(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 initializes((24, 96)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3736)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
@@ -168432,7 +168432,7 @@ define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124Trig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefESB_EEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefESB_EEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr readonly captures(none) %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = tail call { ptr, i64 } %2(i64 noundef %3, ptr nonnull @.str.794, i64 24) #25
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = extractvalue { ptr, i64 } %5, 1
@@ -168466,12 +168466,12 @@ _ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipeli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { ptr, i64 } @_ZNK4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE4nameEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal { ptr, i64 } @_ZNK4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE4nameEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret { ptr, i64 } { ptr @.str.794, i64 24 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE10isRequiredEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_6ModuleEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE10isRequiredEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret i1 false
 }
 
@@ -201949,7 +201949,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_8Fu
 declare void @_ZN4llvm29WarnMissedTransformationsPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind writable sret(%"class.llvm::PreservedAnalyses") align 8, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerCrashFunctionPassENS_15AnalysisManagerIS2_JEEEJEED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerCrashFunctionPassENS_15AnalysisManagerIS2_JEEEJEED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -201960,13 +201960,13 @@ define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124Tr
 }
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerCrashFunctionPassENS_15AnalysisManagerIS2_JEEEJEE3runERS2_RS6_(ptr dead_on_unwind noalias nocapture readnone sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #15 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerCrashFunctionPassENS_15AnalysisManagerIS2_JEEEJEE3runERS2_RS6_(ptr dead_on_unwind noalias readnone sret(%"class.llvm::PreservedAnalyses") align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #15 align 2 {
   tail call void @abort() #28
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerCrashFunctionPassENS_15AnalysisManagerIS2_JEEEJEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefESB_EEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerCrashFunctionPassENS_15AnalysisManagerIS2_JEEEJEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefESB_EEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr readonly captures(none) %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = tail call { ptr, i64 } %2(i64 noundef %3, ptr nonnull @.str.796, i64 24) #25
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = extractvalue { ptr, i64 } %5, 1
@@ -202000,17 +202000,17 @@ _ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerCrashFunctionPassEE13printPipeli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { ptr, i64 } @_ZNK4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerCrashFunctionPassENS_15AnalysisManagerIS2_JEEEJEE4nameEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal { ptr, i64 } @_ZNK4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerCrashFunctionPassENS_15AnalysisManagerIS2_JEEEJEE4nameEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret { ptr, i64 } { ptr @.str.796, i64 24 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerCrashFunctionPassENS_15AnalysisManagerIS2_JEEEJEE10isRequiredEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerCrashFunctionPassENS_15AnalysisManagerIS2_JEEEJEE10isRequiredEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -202021,7 +202021,7 @@ define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124Tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE3runERS2_RS6_(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 initializes((24, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE3runERS2_RS6_(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 initializes((24, 96)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3990)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load ptr, ptr %5, align 8, !noalias !3990
@@ -202068,7 +202068,7 @@ _ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15Analysis
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefESB_EEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefESB_EEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr readonly captures(none) %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = tail call { ptr, i64 } %2(i64 noundef %3, ptr nonnull @.str.794, i64 24) #25
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = extractvalue { ptr, i64 } %5, 1
@@ -202102,12 +202102,12 @@ _ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipeli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { ptr, i64 } @_ZNK4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE4nameEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal { ptr, i64 } @_ZNK4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE4nameEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret { ptr, i64 } { ptr @.str.794, i64 24 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE10isRequiredEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE10isRequiredEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret i1 false
 }
 
@@ -213103,7 +213103,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_13L
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr nocapture readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_0EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr readonly captures(none) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.llvm::PassBuilder::PipelineElement", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -213237,7 +213237,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4llvm11PassBuilde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr nocapture readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11PassBuilder17parseFunctionPassERNS2_11PassManagerINS2_8FunctionENS2_15AnalysisManagerIS5_JEEEJEEERKNS3_15PipelineElementEE3$_1EclINS_17__normal_iteratorIPSB_St6vectorISA_SaISA_EEEEEEbT_"(ptr readonly captures(none) %0) unnamed_addr #0 align 2 {
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
@@ -238557,7 +238557,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_15M
 declare void @_ZN4llvm22SlotIndexesPrinterPass3runERNS_15MachineFunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind writable sret(%"class.llvm::PreservedAnalyses") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(1041), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassENS_15AnalysisManagerIS2_JEEEJEED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassENS_15AnalysisManagerIS2_JEEEJEED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -238568,7 +238568,7 @@ define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassENS_15AnalysisManagerIS2_JEEEJEE3runERS2_RS6_(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 initializes((24, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #18 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassENS_15AnalysisManagerIS2_JEEEJEE3runERS2_RS6_(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 initializes((24, 96)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #18 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 72, i1 false), !alias.scope !5327
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -238590,7 +238590,7 @@ define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassENS_15AnalysisManagerIS2_JEEEJEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefESB_EEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassENS_15AnalysisManagerIS2_JEEEJEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefESB_EEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr readonly captures(none) %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = tail call { ptr, i64 } %2(i64 noundef %3, ptr nonnull @.str.797, i64 39) #25
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = extractvalue { ptr, i64 } %5, 1
@@ -238624,17 +238624,17 @@ _ZN4llvm13PassInfoMixinIN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPass
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { ptr, i64 } @_ZNK4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassENS_15AnalysisManagerIS2_JEEEJEE4nameEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal { ptr, i64 } @_ZNK4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassENS_15AnalysisManagerIS2_JEEEJEE4nameEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret { ptr, i64 } { ptr @.str.797, i64 39 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassENS_15AnalysisManagerIS2_JEEEJEE10isRequiredEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_139RequireAllMachineFunctionPropertiesPassENS_15AnalysisManagerIS2_JEEEJEE10isRequiredEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret void
 }
 
@@ -238645,7 +238645,7 @@ define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE3runERS2_RS6_(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull align 8 dereferenceable(1041) %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE3runERS2_RS6_(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(1041) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5332)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8, !noalias !5332
@@ -238680,7 +238680,7 @@ define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefESB_EEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefESB_EEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr readonly captures(none) %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = tail call { ptr, i64 } %2(i64 noundef %3, ptr nonnull @.str.794, i64 24) #25
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = extractvalue { ptr, i64 } %5, 1
@@ -238714,12 +238714,12 @@ _ZN4llvm13PassInfoMixinIN12_GLOBAL__N_124TriggerVerifierErrorPassEE13printPipeli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { ptr, i64 } @_ZNK4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE4nameEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal { ptr, i64 } @_ZNK4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE4nameEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret { ptr, i64 } { ptr @.str.794, i64 24 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE10isRequiredEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define internal noundef zeroext i1 @_ZNK4llvm6detail9PassModelINS_15MachineFunctionEN12_GLOBAL__N_124TriggerVerifierErrorPassENS_15AnalysisManagerIS2_JEEEJEE10isRequiredEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
   ret i1 false
 }
 
@@ -243475,7 +243475,7 @@ define internal void @_GLOBAL__sub_I_PassBuilder.cpp() #19 section ".text.startu
 declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #22
@@ -243490,10 +243490,10 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22

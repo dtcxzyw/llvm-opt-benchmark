@@ -69,7 +69,7 @@ define noalias noundef ptr @wmem_strbuf_new_len(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
@@ -129,10 +129,10 @@ wmem_strbuf_new_len.exit6:                        ; preds = %20, %13, %.split4.p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @wmem_strbuf_dup(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @wmem_strbuf_dup(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #12
@@ -158,7 +158,7 @@ define noalias noundef ptr @wmem_strbuf_dup(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_strbuf_append(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @wmem_strbuf_append(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %35, label %3
 
@@ -222,7 +222,7 @@ wmem_strbuf_grow.exit:                            ; preds = %6, %20, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_strbuf_append_len(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @wmem_strbuf_append_len(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne i64 %2, 0
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %4
@@ -282,7 +282,7 @@ wmem_strbuf_grow.exit:                            ; preds = %6, %19, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_strbuf_append_vprintf(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @wmem_strbuf_append_vprintf(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_copy.p0(ptr nonnull %4, ptr %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -404,7 +404,7 @@ _strbuf_vsnprintf.exit10:                         ; preds = %62, %59, %52, %_str
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_strbuf_append_printf(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
+define void @wmem_strbuf_append_printf(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @wmem_strbuf_append_vprintf(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
@@ -413,7 +413,7 @@ define void @wmem_strbuf_append_printf(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_strbuf_append_c(ptr nocapture noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
+define void @wmem_strbuf_append_c(ptr noundef captures(none) %0, i8 noundef signext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -462,7 +462,7 @@ wmem_strbuf_grow.exit:                            ; preds = %2, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_strbuf_append_c_count(ptr nocapture noundef %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @wmem_strbuf_append_c_count(ptr noundef captures(none) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -526,7 +526,7 @@ wmem_strbuf_grow.exit:                            ; preds = %3, %16, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_strbuf_append_unichar(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @wmem_strbuf_append_unichar(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [6 x i8], align 1
   %4 = call i32 @g_unichar_to_utf8(i32 noundef %1, ptr noundef nonnull %3) #12
   %5 = sext i32 %4 to i64
@@ -582,7 +582,7 @@ wmem_strbuf_grow.exit:                            ; preds = %2, %18, %20
 declare i32 @g_unichar_to_utf8(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_strbuf_append_unichar_validated(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @wmem_strbuf_append_unichar_validated(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [6 x i8], align 1
   %4 = alloca [6 x i8], align 1
   %5 = tail call i32 @g_unichar_validate(i32 noundef %1) #14
@@ -701,7 +701,7 @@ wmem_strbuf_append_unichar.exit6:                 ; preds = %36, %49, %51
 declare i32 @g_unichar_validate(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_strbuf_append_hex(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+define void @wmem_strbuf_append_hex(ptr noundef captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -777,7 +777,7 @@ wmem_strbuf_grow.exit:                            ; preds = %2, %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 4, 11) i64 @wmem_strbuf_append_hex_unichar(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 4, 11) i64 @wmem_strbuf_append_hex_unichar(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %4, label %50
 
@@ -1093,7 +1093,7 @@ append_hex_any.exit:                              ; preds = %116, %122, %124
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @wmem_strbuf_truncate(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define void @wmem_strbuf_truncate(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %.not = icmp ult i64 %1, %4
@@ -1112,21 +1112,21 @@ define void @wmem_strbuf_truncate(ptr nocapture noundef %0, i64 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @wmem_strbuf_get_str(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define ptr @wmem_strbuf_get_str(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @wmem_strbuf_get_len(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define i64 @wmem_strbuf_get_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @wmem_strbuf_strcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define i32 @wmem_strbuf_strcmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1155,7 +1155,7 @@ _memcmp_len.exit:                                 ; preds = %2, %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wmem_strbuf_strstr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @wmem_strbuf_strstr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1215,7 +1215,7 @@ define void @wmem_strbuf_destroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @wmem_strbuf_utf8_validate(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define zeroext i1 @wmem_strbuf_utf8_validate(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1291,7 +1291,7 @@ define internal fastcc zeroext i1 @string_utf8_validate(ptr noundef %0, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_strbuf_utf8_make_valid(ptr nocapture noundef initializes((24, 32)) %0) local_unnamed_addr #0 {
+define void @wmem_strbuf_utf8_make_valid(ptr noundef captures(none) initializes((24, 32)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1319,7 +1319,7 @@ define void @wmem_strbuf_utf8_make_valid(ptr nocapture noundef initializes((24, 
 declare ptr @ws_utf8_make_valid_strbuf(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
 declare void @g_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1330,7 +1330,7 @@ declare ptr @g_strerror(i32 noundef) local_unnamed_addr #4
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @g_utf8_validate(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1347,10 +1347,10 @@ declare void @llvm.va_start.p0(ptr) #9
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

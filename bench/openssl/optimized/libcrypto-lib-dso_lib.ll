@@ -205,7 +205,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @DSO_load(ptr noundef %dso, ptr noundef %filename, ptr nocapture readnone %meth, i32 noundef %flags) local_unnamed_addr #0 {
+define ptr @DSO_load(ptr noundef %dso, ptr noundef %filename, ptr readnone captures(none) %meth, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %dso, null
   br i1 %cmp.not, label %if.then, label %if.end8

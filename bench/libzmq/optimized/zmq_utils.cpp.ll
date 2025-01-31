@@ -52,17 +52,17 @@ do.end:                                           ; preds = %entry, %if.then
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
 declare noundef i64 @_ZN3zmq7clock_t6now_usEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i64 @zmq_stopwatch_intermediate(ptr nocapture noundef readonly %watch_) local_unnamed_addr #0 {
+define i64 @zmq_stopwatch_intermediate(ptr noundef readonly captures(none) %watch_) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_ZN3zmq7clock_t6now_usEv()
   %0 = load i64, ptr %watch_, align 8
@@ -71,7 +71,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @zmq_stopwatch_stop(ptr nocapture noundef %watch_) local_unnamed_addr #0 {
+define i64 @zmq_stopwatch_stop(ptr noundef captures(none) %watch_) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noundef i64 @_ZN3zmq7clock_t6now_usEv()
   %0 = load i64, ptr %watch_, align 8
@@ -81,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @zmq_threadstart(ptr noundef %func_, ptr noundef %arg_) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -160,7 +160,7 @@ declare void @_ZN3zmq8thread_t4stopEv(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @zmq_z85_encode(ptr noundef writeonly %dest_, ptr nocapture noundef readonly %data_, i64 noundef %size_) local_unnamed_addr #7 {
+define noundef ptr @zmq_z85_encode(ptr noundef writeonly %dest_, ptr noundef readonly captures(none) %data_, i64 noundef %size_) local_unnamed_addr #7 {
 entry:
   %rem = and i64 %size_, 3
   %cmp.not = icmp eq i64 %rem, 0
@@ -236,7 +236,7 @@ return:                                           ; preds = %while.end16, %if.th
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @zmq_z85_decode(ptr noundef writeonly %dest_, ptr nocapture noundef readonly %string_) local_unnamed_addr #9 {
+define noundef ptr @zmq_z85_decode(ptr noundef writeonly %dest_, ptr noundef readonly captures(none) %string_) local_unnamed_addr #9 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string_) #25
   %cmp = icmp ugt i64 %call, 4
@@ -325,10 +325,10 @@ return:                                           ; preds = %while.cond.preheade
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define noundef i32 @zmq_curve_keypair(ptr nocapture noundef readnone %z85_public_key_, ptr nocapture noundef readnone %z85_secret_key_) local_unnamed_addr #11 {
+define noundef i32 @zmq_curve_keypair(ptr noundef readnone captures(none) %z85_public_key_, ptr noundef readnone captures(none) %z85_secret_key_) local_unnamed_addr #11 {
 entry:
   %call = tail call ptr @__errno_location() #24
   store i32 95, ptr %call, align 4
@@ -336,7 +336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define noundef i32 @zmq_curve_public(ptr nocapture noundef readnone %z85_public_key_, ptr nocapture noundef readnone %z85_secret_key_) local_unnamed_addr #11 {
+define noundef i32 @zmq_curve_public(ptr noundef readnone captures(none) %z85_public_key_, ptr noundef readnone captures(none) %z85_secret_key_) local_unnamed_addr #11 {
 entry:
   %call = tail call ptr @__errno_location() #24
   store i32 95, ptr %call, align 4
@@ -367,21 +367,21 @@ do.end:                                           ; preds = %new.cont, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zmq_atomic_counter_set(ptr nocapture noundef writeonly %counter_, i32 noundef %value_) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define void @zmq_atomic_counter_set(ptr noundef writeonly captures(none) %counter_, i32 noundef %value_) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   store atomic i32 %value_, ptr %counter_ seq_cst, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @zmq_atomic_counter_inc(ptr nocapture noundef %counter_) local_unnamed_addr #12 {
+define i32 @zmq_atomic_counter_inc(ptr noundef captures(none) %counter_) local_unnamed_addr #12 {
 entry:
   %0 = atomicrmw add ptr %counter_, i32 1 acq_rel, align 4
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @zmq_atomic_counter_dec(ptr nocapture noundef %counter_) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @zmq_atomic_counter_dec(ptr noundef captures(none) %counter_) local_unnamed_addr #12 {
 entry:
   %0 = atomicrmw sub ptr %counter_, i32 1 acq_rel, align 4
   %cmp.i = icmp ne i32 %0, 1
@@ -390,14 +390,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @zmq_atomic_counter_value(ptr nocapture noundef readonly %counter_) local_unnamed_addr #12 {
+define i32 @zmq_atomic_counter_value(ptr noundef readonly captures(none) %counter_) local_unnamed_addr #12 {
 entry:
   %0 = load atomic i32, ptr %counter_ seq_cst, align 4
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @zmq_atomic_counter_destroy(ptr nocapture noundef %counter_p_) local_unnamed_addr #13 {
+define void @zmq_atomic_counter_destroy(ptr noundef captures(none) %counter_p_) local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr %counter_p_, align 8
   %isnull = icmp eq ptr %0, null
@@ -413,7 +413,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #15 comdat {

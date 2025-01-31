@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.inet_opr_codenum = private unnamed_addr constant [17 x i8] c"inet_opr_codenum\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @networksel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @networksel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.VariableStatData, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
@@ -209,7 +209,7 @@ declare double @mcv_selectivity(ptr noundef, ptr noundef, i32 noundef, i64 nound
 declare zeroext i1 @get_attstatsslot(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @inet_hist_value_sel(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i32 noundef range(i32 -2, 3) %3) unnamed_addr #0 {
+define internal fastcc double @inet_hist_value_sel(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i32 noundef range(i32 -2, 3) %3) unnamed_addr #0 {
   %5 = icmp slt i32 %1, 2
   br i1 %5, label %._crit_edge, label %6
 
@@ -586,7 +586,7 @@ declare void @free_attstatsslot(ptr noundef) local_unnamed_addr #1
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @networkjoinsel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @networkjoinsel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.FmgrInfo, align 8
   %3 = alloca %struct.AttStatsSlot, align 8
   %4 = alloca %struct.AttStatsSlot, align 8
@@ -1070,7 +1070,7 @@ networkjoinsel_inner.exit:                        ; preds = %188, %189
 declare void @get_join_variables(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @networkjoinsel_semi(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc double @networkjoinsel_semi(i32 noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.FmgrInfo, align 8
   %5 = alloca %struct.AttStatsSlot, align 8
   %6 = alloca %struct.AttStatsSlot, align 8
@@ -1423,7 +1423,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1449,10 +1449,10 @@ declare i32 @llvm.smin.i32(i32, i32) #6
 declare i8 @llvm.umin.i8(i8, i8) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

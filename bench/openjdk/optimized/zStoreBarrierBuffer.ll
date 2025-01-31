@@ -128,10 +128,10 @@ define hidden void @_ZN19ZStoreBarrierBufferC2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN19ZStoreBarrierBuffer10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(832) initializes((512, 528)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN19ZStoreBarrierBuffer10initializeEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(832) initializes((512, 528)) %0) local_unnamed_addr #3 align 2 {
   %2 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i64 %2, ptr %3, align 8
@@ -141,14 +141,14 @@ define hidden void @_ZN19ZStoreBarrierBuffer10initializeEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19ZStoreBarrierBuffer5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(832) initializes((824, 832)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19ZStoreBarrierBuffer5clearEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(832) initializes((824, 832)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store i64 512, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierBuffer8is_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(832) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierBuffer8is_emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(832) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 512
@@ -156,7 +156,7 @@ define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierBuffer8is_emptyEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ZStoreBarrierBuffer27install_base_pointers_innerEv(ptr nocapture noundef nonnull align 8 dereferenceable(832) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19ZStoreBarrierBuffer27install_base_pointers_innerEv(ptr noundef nonnull align 8 captures(none) dereferenceable(832) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %3 = load i64, ptr %2, align 8
   %4 = lshr i64 %3, 4
@@ -296,7 +296,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %11, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ZStoreBarrierBuffer21on_new_phase_relocateEi(ptr nocapture noundef nonnull align 8 dereferenceable(832) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19ZStoreBarrierBuffer21on_new_phase_relocateEi(ptr noundef nonnull align 8 captures(none) dereferenceable(832) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %5 = load i64, ptr %4, align 8
@@ -399,7 +399,7 @@ _ZL14make_load_goodPV8zpointer15zaddress_unsafem.exit: ; preds = %15, %19, %_ZN8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ZStoreBarrierBuffer21on_new_phase_rememberEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(832) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19ZStoreBarrierBuffer21on_new_phase_rememberEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(832) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %0, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -469,7 +469,7 @@ _ZN16ZGenerationYoung8rememberEPV8zpointer.exit:  ; preds = %49, %47, %2, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierBuffer11is_old_markEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(832) %0) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierBuffer11is_old_markEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(832) %0) local_unnamed_addr #7 align 2 {
   %2 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 3216
   %4 = load i32, ptr %3, align 16
@@ -478,7 +478,7 @@ define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierBuffer11is_old_markEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierBuffer22stored_during_old_markEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(832) %0) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierBuffer22stored_during_old_markEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(832) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 3072
@@ -488,7 +488,7 @@ define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierBuffer22stored_during_old_m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ZStoreBarrierBuffer17on_new_phase_markEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(832) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19ZStoreBarrierBuffer17on_new_phase_markEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(832) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %0, i64 0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -740,7 +740,7 @@ _ZN19ZStoreBarrierBuffer21on_new_phase_rememberEi.exit: ; preds = %65, %67, %21,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ZStoreBarrierBuffer8on_errorEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(832) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19ZStoreBarrierBuffer8on_errorEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(832) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %4 = load i64, ptr %3, align 8
@@ -1766,10 +1766,10 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

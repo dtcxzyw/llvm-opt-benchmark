@@ -521,7 +521,7 @@ $_ZTSSt6vectorIiSaIiEE = comdat any
 declare void @_ZN4pbrt14StatRegistererC1EPFvRNS_16StatsAccumulatorEEPFvNS_6Point2IiEEiRNS_21PixelStatsAccumulatorEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt12TriangleMeshC2ERKNS_9TransformEbSt6vectorIiSaIiEES4_INS_6Point3IfEESaIS8_EES4_INS_7Vector3IfEESaISC_EES4_INS_7Normal3IfEESaISG_EES4_INS_6Point2IfEESaISK_EES6_N4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull align 8 dereferenceable(58) initializes((0, 56)) %this, ptr noundef nonnull align 4 dereferenceable(128) %renderFromObject, i1 noundef zeroext %reverseOrientation, ptr nocapture noundef readonly %indices, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %uv, ptr nocapture noundef readonly %faceIndices, i64 %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt12TriangleMeshC2ERKNS_9TransformEbSt6vectorIiSaIiEES4_INS_6Point3IfEESaIS8_EES4_INS_7Vector3IfEESaISC_EES4_INS_7Normal3IfEESaISG_EES4_INS_6Point2IfEESaISK_EES6_N4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 captures(none) dereferenceable(58) initializes((0, 56)) %this, ptr noundef nonnull align 4 dereferenceable(128) %renderFromObject, i1 noundef zeroext %reverseOrientation, ptr noundef readonly captures(none) %indices, ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %uv, ptr noundef readonly captures(none) %faceIndices, i64 %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %va = alloca i64, align 8
   %vb = alloca i32, align 4
@@ -1228,7 +1228,7 @@ return:                                           ; preds = %_ZN4pbrt11BufferCac
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %this, <2 x float> %p.coerce0, float %p.coerce1) local_unnamed_addr #1 comdat align 2 {
@@ -3279,7 +3279,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4pbrt12TriangleMesh8WritePLYENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(58) %this, ptr noundef %filename) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4pbrt12TriangleMesh8WritePLYENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(58) %this, ptr noundef %filename) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3375,7 +3375,7 @@ lpad:                                             ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4pbrt8WritePLYENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd4spanIKiEES9_NS7_IKNS_6Point3IfEEEENS7_IKNS_7Normal3IfEEEENS7_IKNS_6Point2IfEEEES9_(ptr noundef nonnull %filename, ptr nocapture readonly %triIndices.coerce0, i64 %triIndices.coerce1, ptr nocapture readonly %quadIndices.coerce0, i64 %quadIndices.coerce1, ptr nocapture noundef readonly byval(%"class.pstd::span.51") align 8 %p, ptr nocapture noundef readonly byval(%"class.pstd::span.93") align 8 %n, ptr nocapture noundef readonly byval(%"class.pstd::span.71") align 8 %uv, ptr nocapture noundef readonly byval(%"class.pstd::span") align 8 %faceIndices) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN4pbrt8WritePLYENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd4spanIKiEES9_NS7_IKNS_6Point3IfEEEENS7_IKNS_7Normal3IfEEEENS7_IKNS_6Point2IfEEEES9_(ptr noundef nonnull %filename, ptr readonly captures(none) %triIndices.coerce0, i64 %triIndices.coerce1, ptr readonly captures(none) %quadIndices.coerce0, i64 %quadIndices.coerce1, ptr noundef readonly byval(%"class.pstd::span.51") align 8 captures(none) %p, ptr noundef readonly byval(%"class.pstd::span.93") align 8 captures(none) %n, ptr noundef readonly byval(%"class.pstd::span.71") align 8 captures(none) %uv, ptr noundef readonly byval(%"class.pstd::span") align 8 captures(none) %faceIndices) local_unnamed_addr #4 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #23
   %call1 = tail call noundef ptr @_Z10ply_createPKc19e_ply_storage_mode_PFvP6t_ply_S0_ElPv(ptr noundef %call, i32 noundef 3, ptr noundef nonnull @_ZN4pbrtL16PlyErrorCallbackEP6t_ply_PKc, i64 noundef 0, ptr noundef null)
@@ -3453,15 +3453,15 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %arrayidx.i.us.us = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %4, i64 %indvars.iv111
   %7 = load float, ptr %arrayidx.i.us.us, align 4
   %conv34.us.us = fpext float %7 to double
-  %call35.us.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv34.us.us)
+  %call35.us.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv34.us.us)
   %y.us.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us.us, i64 4
   %8 = load float, ptr %y.us.us, align 4
   %conv38.us.us = fpext float %8 to double
-  %call39.us.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv38.us.us)
+  %call39.us.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv38.us.us)
   %z.us.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us.us, i64 8
   %9 = load float, ptr %z.us.us, align 4
   %conv42.us.us = fpext float %9 to double
-  %call43.us.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv42.us.us)
+  %call43.us.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv42.us.us)
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
   br i1 %exitcond115.not, label %for.cond76.preheader, label %for.body.us.us, !llvm.loop !7
@@ -3471,23 +3471,23 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %arrayidx.i.us = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %4, i64 %indvars.iv106
   %10 = load float, ptr %arrayidx.i.us, align 4
   %conv34.us = fpext float %10 to double
-  %call35.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv34.us)
+  %call35.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv34.us)
   %y.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 4
   %11 = load float, ptr %y.us, align 4
   %conv38.us = fpext float %11 to double
-  %call39.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv38.us)
+  %call39.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv38.us)
   %z.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 8
   %12 = load float, ptr %z.us, align 4
   %conv42.us = fpext float %12 to double
-  %call43.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv42.us)
+  %call43.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv42.us)
   %arrayidx.i74.us = getelementptr inbounds nuw %"class.pbrt::Point2", ptr %6, i64 %indvars.iv106
   %13 = load float, ptr %arrayidx.i74.us, align 4
   %conv67.us = fpext float %13 to double
-  %call68.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv67.us)
+  %call68.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv67.us)
   %y71.us = getelementptr inbounds nuw i8, ptr %arrayidx.i74.us, i64 4
   %14 = load float, ptr %y71.us, align 4
   %conv72.us = fpext float %14 to double
-  %call73.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv72.us)
+  %call73.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv72.us)
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count114
   br i1 %exitcond110.not, label %for.cond76.preheader, label %for.body.us, !llvm.loop !7
@@ -3505,20 +3505,20 @@ for.body78.lr.ph:                                 ; preds = %for.cond76.preheade
 
 for.body78.us:                                    ; preds = %for.body78.lr.ph, %for.body78.us
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %for.body78.us ], [ 0, %for.body78.lr.ph ]
-  %call79.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef 3.000000e+00)
+  %call79.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef 3.000000e+00)
   %16 = mul nuw nsw i64 %indvars.iv122, 3
   %arrayidx.i76.us = getelementptr inbounds nuw i32, ptr %triIndices.coerce0, i64 %16
   %17 = load i32, ptr %arrayidx.i76.us, align 4
   %conv82.us = sitofp i32 %17 to double
-  %call83.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv82.us)
+  %call83.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv82.us)
   %gep.us = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %16
   %18 = load i32, ptr %gep.us, align 4
   %conv88.us = sitofp i32 %18 to double
-  %call89.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv88.us)
+  %call89.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv88.us)
   %gep97.us = getelementptr inbounds nuw i32, ptr %invariant.gep96, i64 %16
   %19 = load i32, ptr %gep97.us, align 4
   %conv94.us = sitofp i32 %19 to double
-  %call95.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv94.us)
+  %call95.us = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv94.us)
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count126
   br i1 %exitcond127.not, label %for.cond107.preheader, label %for.body78.us, !llvm.loop !8
@@ -3528,38 +3528,38 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i = getelementptr inbounds nuw %"class.pbrt::Point3", ptr %4, i64 %indvars.iv
   %20 = load float, ptr %arrayidx.i, align 4
   %conv34 = fpext float %20 to double
-  %call35 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv34)
+  %call35 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv34)
   %y = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %21 = load float, ptr %y, align 4
   %conv38 = fpext float %21 to double
-  %call39 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv38)
+  %call39 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv38)
   %z = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %22 = load float, ptr %z, align 4
   %conv42 = fpext float %22 to double
-  %call43 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv42)
+  %call43 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv42)
   %arrayidx.i69 = getelementptr inbounds nuw %"class.pbrt::Normal3", ptr %5, i64 %indvars.iv
   %23 = load float, ptr %arrayidx.i69, align 4
   %conv49 = fpext float %23 to double
-  %call50 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv49)
+  %call50 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv49)
   %y53 = getelementptr inbounds nuw i8, ptr %arrayidx.i69, i64 4
   %24 = load float, ptr %y53, align 4
   %conv54 = fpext float %24 to double
-  %call55 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv54)
+  %call55 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv54)
   %z58 = getelementptr inbounds nuw i8, ptr %arrayidx.i69, i64 8
   %25 = load float, ptr %z58, align 4
   %conv59 = fpext float %25 to double
-  %call60 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv59)
+  %call60 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv59)
   br i1 %cmp.i60, label %for.inc, label %if.then63
 
 if.then63:                                        ; preds = %for.body
   %arrayidx.i74 = getelementptr inbounds nuw %"class.pbrt::Point2", ptr %6, i64 %indvars.iv
   %26 = load float, ptr %arrayidx.i74, align 4
   %conv67 = fpext float %26 to double
-  %call68 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv67)
+  %call68 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv67)
   %y71 = getelementptr inbounds nuw i8, ptr %arrayidx.i74, i64 4
   %27 = load float, ptr %y71, align 4
   %conv72 = fpext float %27 to double
-  %call73 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv72)
+  %call73 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv72)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then63
@@ -3578,58 +3578,58 @@ for.body109.lr.ph:                                ; preds = %for.cond107.prehead
 
 for.body78:                                       ; preds = %for.body78.lr.ph, %for.body78
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %for.body78 ], [ 0, %for.body78.lr.ph ]
-  %call79 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef 3.000000e+00)
+  %call79 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef 3.000000e+00)
   %29 = mul nuw nsw i64 %indvars.iv116, 3
   %arrayidx.i76 = getelementptr inbounds nuw i32, ptr %triIndices.coerce0, i64 %29
   %30 = load i32, ptr %arrayidx.i76, align 4
   %conv82 = sitofp i32 %30 to double
-  %call83 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv82)
+  %call83 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv82)
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %29
   %31 = load i32, ptr %gep, align 4
   %conv88 = sitofp i32 %31 to double
-  %call89 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv88)
+  %call89 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv88)
   %gep97 = getelementptr inbounds nuw i32, ptr %invariant.gep96, i64 %29
   %32 = load i32, ptr %gep97, align 4
   %conv94 = sitofp i32 %32 to double
-  %call95 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv94)
+  %call95 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv94)
   %arrayidx.i81 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv116
   %33 = load i32, ptr %arrayidx.i81, align 4
   %conv100 = sitofp i32 %33 to double
-  %call101 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv100)
+  %call101 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv100)
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count126
   br i1 %exitcond121.not, label %for.cond107.preheader, label %for.body78, !llvm.loop !8
 
 for.body109:                                      ; preds = %for.body109.lr.ph, %for.inc141
   %indvars.iv128 = phi i64 [ 0, %for.body109.lr.ph ], [ %indvars.iv.next129, %for.inc141 ]
-  %call110 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef 4.000000e+00)
+  %call110 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef 4.000000e+00)
   %34 = shl nsw i64 %indvars.iv128, 2
   %arrayidx.i82 = getelementptr inbounds nuw i32, ptr %quadIndices.coerce0, i64 %34
   %35 = load i32, ptr %arrayidx.i82, align 4
   %conv114 = sitofp i32 %35 to double
-  %call115 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv114)
+  %call115 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv114)
   %36 = or disjoint i64 %34, 1
   %arrayidx.i83 = getelementptr inbounds nuw i32, ptr %quadIndices.coerce0, i64 %36
   %37 = load i32, ptr %arrayidx.i83, align 4
   %conv120 = sitofp i32 %37 to double
-  %call121 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv120)
+  %call121 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv120)
   %38 = or disjoint i64 %34, 2
   %arrayidx.i84 = getelementptr inbounds nuw i32, ptr %quadIndices.coerce0, i64 %38
   %39 = load i32, ptr %arrayidx.i84, align 4
   %conv126 = sitofp i32 %39 to double
-  %call127 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv126)
+  %call127 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv126)
   %40 = or disjoint i64 %34, 3
   %arrayidx.i85 = getelementptr inbounds nuw i32, ptr %quadIndices.coerce0, i64 %40
   %41 = load i32, ptr %arrayidx.i85, align 4
   %conv132 = sitofp i32 %41 to double
-  %call133 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv132)
+  %call133 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv132)
   br i1 %cmp.i64, label %for.inc141, label %if.then135
 
 if.then135:                                       ; preds = %for.body109
   %arrayidx.i88 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv128
   %42 = load i32, ptr %arrayidx.i88, align 4
   %conv138 = sitofp i32 %42 to double
-  %call139 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv138)
+  %call139 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef nonnull %call1, double noundef %conv138)
   br label %for.inc141
 
 for.inc141:                                       ; preds = %for.body109, %if.then135
@@ -3638,7 +3638,7 @@ for.inc141:                                       ; preds = %for.body109, %if.th
   br i1 %exitcond136.not, label %for.end143, label %for.body109, !llvm.loop !9
 
 for.end143:                                       ; preds = %for.inc141, %for.cond107.preheader
-  %call144 = tail call noundef i32 @_Z9ply_closeP6t_ply_(ptr noundef %call1)
+  %call144 = tail call noundef i32 @_Z9ply_closeP6t_ply_(ptr noundef nonnull %call1)
   br label %return
 
 return:                                           ; preds = %entry, %for.end143
@@ -3651,7 +3651,7 @@ declare noundef ptr @_Z10ply_createPKc19e_ply_storage_mode_PFvP6t_ply_S0_ElPv(pt
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4pbrtL16PlyErrorCallbackEP6t_ply_PKc(ptr nocapture readnone %0, ptr noundef %message) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4pbrtL16PlyErrorCallbackEP6t_ply_PKc(ptr readnone captures(none) %0, ptr noundef %message) #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %message.addr = alloca ptr, align 8
@@ -3700,7 +3700,7 @@ declare noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef, double noundef) local_un
 declare noundef i32 @_Z9ply_closeP6t_ply_(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17BilinearPatchMeshC2ERKNS_9TransformEbSt6vectorIiSaIiEES4_INS_6Point3IfEESaIS8_EES4_INS_7Normal3IfEESaISC_EES4_INS_6Point2IfEESaISG_EES6_PNS_19PiecewiseConstant2DEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 2), (4, 12), (16, 64)) %this, ptr noundef nonnull align 4 dereferenceable(128) %renderFromObject, i1 noundef zeroext %reverseOrientation, ptr nocapture noundef readonly %indices, ptr nocapture noundef readonly %P, ptr nocapture noundef readonly %N, ptr nocapture noundef readonly %UV, ptr nocapture noundef readonly %fIndices, ptr noundef %imageDist, i64 %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt17BilinearPatchMeshC2ERKNS_9TransformEbSt6vectorIiSaIiEES4_INS_6Point3IfEESaIS8_EES4_INS_7Normal3IfEESaISC_EES4_INS_6Point2IfEESaISG_EES6_PNS_19PiecewiseConstant2DEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 2), (4, 12), (16, 64)) %this, ptr noundef nonnull align 4 dereferenceable(128) %renderFromObject, i1 noundef zeroext %reverseOrientation, ptr noundef readonly captures(none) %indices, ptr noundef readonly captures(none) %P, ptr noundef readonly captures(none) %N, ptr noundef readonly captures(none) %UV, ptr noundef readonly captures(none) %fIndices, ptr noundef %imageDist, i64 %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %va = alloca i64, align 8
   %vb = alloca i32, align 4
@@ -4262,7 +4262,7 @@ eh.resume:                                        ; preds = %ehcleanup66, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt21rply_message_callbackEP6t_ply_PKc(ptr nocapture readnone %ply, ptr noundef %message) #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt21rply_message_callbackEP6t_ply_PKc(ptr readnone captures(none) %ply, ptr noundef %message) #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %message.addr = alloca ptr, align 8
@@ -4922,7 +4922,7 @@ while.cond.outer:                                 ; preds = %invoke.cont3, %if.t
 while.cond:                                       ; preds = %while.cond.outer, %if.else
   %element.0 = phi ptr [ %call9, %if.else ], [ %element.0.ph, %while.cond.outer ]
   %faceCount.0 = phi i64 [ %spec.select, %if.else ], [ %faceCount.0.ph, %while.cond.outer ]
-  %call9 = invoke noundef ptr @_Z20ply_get_next_elementP6t_ply_P14t_ply_element_(ptr noundef %call1, ptr noundef %element.0)
+  %call9 = invoke noundef ptr @_Z20ply_get_next_elementP6t_ply_P14t_ply_element_(ptr noundef nonnull %call1, ptr noundef %element.0)
           to label %invoke.cont8 unwind label %lpad.loopexit
 
 invoke.cont8:                                     ; preds = %while.cond
@@ -4962,7 +4962,7 @@ if.end25:                                         ; preds = %while.end
 
 invoke.cont26:                                    ; preds = %if.end25
   %4 = load ptr, ptr %agg.result, align 8
-  %call30 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %4, i64 noundef 48)
+  %call30 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %4, i64 noundef 48)
           to label %invoke.cont29 unwind label %lpad.loopexit.split-lp
 
 invoke.cont29:                                    ; preds = %invoke.cont26
@@ -4971,7 +4971,7 @@ invoke.cont29:                                    ; preds = %invoke.cont26
 
 lor.lhs.false32:                                  ; preds = %invoke.cont29
   %5 = load ptr, ptr %agg.result, align 8
-  %call36 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.25, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %5, i64 noundef 49)
+  %call36 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.25, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %5, i64 noundef 49)
           to label %invoke.cont35 unwind label %lpad.loopexit.split-lp
 
 invoke.cont35:                                    ; preds = %lor.lhs.false32
@@ -4980,7 +4980,7 @@ invoke.cont35:                                    ; preds = %lor.lhs.false32
 
 lor.lhs.false38:                                  ; preds = %invoke.cont35
   %6 = load ptr, ptr %agg.result, align 8
-  %call42 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.26, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %6, i64 noundef 50)
+  %call42 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.26, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %6, i64 noundef 50)
           to label %invoke.cont41 unwind label %lpad.loopexit.split-lp
 
 invoke.cont41:                                    ; preds = %lor.lhs.false38
@@ -4994,7 +4994,7 @@ if.end46:                                         ; preds = %invoke.cont41
 
 invoke.cont47:                                    ; preds = %if.end46
   %7 = load ptr, ptr %n, align 8
-  %call51 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.27, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %7, i64 noundef 48)
+  %call51 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.27, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %7, i64 noundef 48)
           to label %invoke.cont50 unwind label %lpad.loopexit.split-lp
 
 invoke.cont50:                                    ; preds = %invoke.cont47
@@ -5003,7 +5003,7 @@ invoke.cont50:                                    ; preds = %invoke.cont47
 
 lor.lhs.false53:                                  ; preds = %invoke.cont50
   %8 = load ptr, ptr %n, align 8
-  %call57 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.28, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %8, i64 noundef 49)
+  %call57 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.28, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %8, i64 noundef 49)
           to label %invoke.cont56 unwind label %lpad.loopexit.split-lp
 
 invoke.cont56:                                    ; preds = %lor.lhs.false53
@@ -5012,7 +5012,7 @@ invoke.cont56:                                    ; preds = %lor.lhs.false53
 
 lor.lhs.false59:                                  ; preds = %invoke.cont56
   %9 = load ptr, ptr %n, align 8
-  %call63 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.29, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %9, i64 noundef 50)
+  %call63 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.29, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %9, i64 noundef 50)
           to label %invoke.cont62 unwind label %lpad.loopexit.split-lp
 
 invoke.cont62:                                    ; preds = %lor.lhs.false59
@@ -5037,7 +5037,7 @@ if.end68:                                         ; preds = %invoke.cont.i.i, %i
 
 invoke.cont69:                                    ; preds = %if.end68
   %12 = load ptr, ptr %uv, align 8
-  %call73 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.30, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %12, i64 noundef 32)
+  %call73 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.30, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %12, i64 noundef 32)
           to label %invoke.cont72 unwind label %lpad.loopexit.split-lp
 
 invoke.cont72:                                    ; preds = %invoke.cont69
@@ -5046,7 +5046,7 @@ invoke.cont72:                                    ; preds = %invoke.cont69
 
 land.lhs.true:                                    ; preds = %invoke.cont72
   %13 = load ptr, ptr %uv, align 8
-  %call78 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.31, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %13, i64 noundef 33)
+  %call78 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.31, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %13, i64 noundef 33)
           to label %invoke.cont77 unwind label %lpad.loopexit.split-lp
 
 invoke.cont77:                                    ; preds = %land.lhs.true
@@ -5055,7 +5055,7 @@ invoke.cont77:                                    ; preds = %land.lhs.true
 
 lor.lhs.false80:                                  ; preds = %invoke.cont77, %invoke.cont72
   %14 = load ptr, ptr %uv, align 8
-  %call84 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.52, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %14, i64 noundef 32)
+  %call84 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.52, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %14, i64 noundef 32)
           to label %invoke.cont83 unwind label %lpad.loopexit.split-lp
 
 invoke.cont83:                                    ; preds = %lor.lhs.false80
@@ -5064,7 +5064,7 @@ invoke.cont83:                                    ; preds = %lor.lhs.false80
 
 land.lhs.true86:                                  ; preds = %invoke.cont83
   %15 = load ptr, ptr %uv, align 8
-  %call90 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.53, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %15, i64 noundef 33)
+  %call90 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.53, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %15, i64 noundef 33)
           to label %invoke.cont89 unwind label %lpad.loopexit.split-lp
 
 invoke.cont89:                                    ; preds = %land.lhs.true86
@@ -5073,7 +5073,7 @@ invoke.cont89:                                    ; preds = %land.lhs.true86
 
 lor.lhs.false92:                                  ; preds = %invoke.cont89, %invoke.cont83
   %16 = load ptr, ptr %uv, align 8
-  %call96 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.54, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %16, i64 noundef 32)
+  %call96 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.54, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %16, i64 noundef 32)
           to label %invoke.cont95 unwind label %lpad.loopexit.split-lp
 
 invoke.cont95:                                    ; preds = %lor.lhs.false92
@@ -5082,7 +5082,7 @@ invoke.cont95:                                    ; preds = %lor.lhs.false92
 
 land.lhs.true98:                                  ; preds = %invoke.cont95
   %17 = load ptr, ptr %uv, align 8
-  %call102 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.55, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %17, i64 noundef 33)
+  %call102 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.55, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %17, i64 noundef 33)
           to label %invoke.cont101 unwind label %lpad.loopexit.split-lp
 
 invoke.cont101:                                   ; preds = %land.lhs.true98
@@ -5091,7 +5091,7 @@ invoke.cont101:                                   ; preds = %land.lhs.true98
 
 lor.lhs.false104:                                 ; preds = %invoke.cont101, %invoke.cont95
   %18 = load ptr, ptr %uv, align 8
-  %call108 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.56, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %18, i64 noundef 32)
+  %call108 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.56, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %18, i64 noundef 32)
           to label %invoke.cont107 unwind label %lpad.loopexit.split-lp
 
 invoke.cont107:                                   ; preds = %lor.lhs.false104
@@ -5100,7 +5100,7 @@ invoke.cont107:                                   ; preds = %lor.lhs.false104
 
 land.lhs.true110:                                 ; preds = %invoke.cont107
   %19 = load ptr, ptr %uv, align 8
-  %call114 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.57, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %19, i64 noundef 33)
+  %call114 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.57, ptr noundef nonnull @_ZN4pbrt20rply_vertex_callbackEP15t_ply_argument_, ptr noundef %19, i64 noundef 33)
           to label %invoke.cont113 unwind label %lpad.loopexit.split-lp
 
 invoke.cont113:                                   ; preds = %land.lhs.true110
@@ -5154,7 +5154,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i62: ; preds = %_ZNSt12_Vect
   br label %invoke.cont124
 
 invoke.cont124:                                   ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i62, %if.end.i46
-  %call126 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @_ZN4pbrt18rply_face_callbackEP15t_ply_argument_, ptr noundef nonnull %context, i64 noundef 0)
+  %call126 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @_ZN4pbrt18rply_face_callbackEP15t_ply_argument_, ptr noundef nonnull %context, i64 noundef 0)
           to label %invoke.cont125 unwind label %lpad121
 
 invoke.cont125:                                   ; preds = %invoke.cont124
@@ -5169,7 +5169,7 @@ lpad121:                                          ; preds = %if.then141.invoke, 
 
 if.end130:                                        ; preds = %invoke.cont125
   %faceIndices = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
-  %call132 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef %call1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.34, ptr noundef nonnull @_ZN4pbrt23rply_faceindex_callbackEP15t_ply_argument_, ptr noundef nonnull %faceIndices, i64 noundef 0)
+  %call132 = invoke noundef i64 @_Z15ply_set_read_cbP6t_ply_PKcS2_PFiP15t_ply_argument_EPvl(ptr noundef nonnull %call1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.34, ptr noundef nonnull @_ZN4pbrt23rply_faceindex_callbackEP15t_ply_argument_, ptr noundef nonnull %faceIndices, i64 noundef 0)
           to label %invoke.cont131 unwind label %lpad121
 
 invoke.cont131:                                   ; preds = %if.end130
@@ -5231,7 +5231,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i88: ; preds = %if.then.i.i8
   br label %if.end137
 
 if.end137:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i88, %if.end.i72, %invoke.cont131
-  %call139 = invoke noundef i32 @_Z8ply_readP6t_ply_(ptr noundef %call1)
+  %call139 = invoke noundef i32 @_Z8ply_readP6t_ply_(ptr noundef nonnull %call1)
           to label %invoke.cont138 unwind label %lpad121
 
 invoke.cont138:                                   ; preds = %if.end137
@@ -5287,7 +5287,7 @@ if.then.i.i.i.i.i102:                             ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEEaSEOS1_.exit103
 
 _ZNSt6vectorIiSaIiEEaSEOS1_.exit103:              ; preds = %_ZNSt6vectorIiSaIiEEaSEOS1_.exit, %if.then.i.i.i.i.i102
-  %call151 = invoke noundef i32 @_Z9ply_closeP6t_ply_(ptr noundef %call1)
+  %call151 = invoke noundef i32 @_Z9ply_closeP6t_ply_(ptr noundef nonnull %call1)
           to label %invoke.cont150 unwind label %lpad121
 
 invoke.cont150:                                   ; preds = %_ZNSt6vectorIiSaIiEEaSEOS1_.exit103
@@ -5432,7 +5432,7 @@ declare noundef ptr @_Z20ply_get_next_elementP6t_ply_P14t_ply_element_(ptr nound
 declare noundef i32 @_Z20ply_get_element_infoP14t_ply_element_PPKcPl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5856,7 +5856,7 @@ _ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit:  ; preds = %_ZNSt6vectorIN4pbrt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11TriQuadMesh22ConvertToOnlyTrianglesEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt11TriQuadMesh22ConvertToOnlyTrianglesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %quadIndices = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %quadIndices, align 8
@@ -6940,7 +6940,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 declare void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
@@ -8168,7 +8168,7 @@ return:                                           ; preds = %lor.lhs.false.i.i, 
 declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #6
@@ -8532,7 +8532,7 @@ _ZNSt10_HashtableIN4pbrt11BufferCacheIiE6BufferES3_SaIS3_ENSt8__detail9_Identity
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_6Point3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -20538,16 +20538,16 @@ entry:
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21

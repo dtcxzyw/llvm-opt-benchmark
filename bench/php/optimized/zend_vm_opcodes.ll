@@ -241,7 +241,7 @@ define i32 @zend_get_opcode_flags(i8 noundef zeroext %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define zeroext range(i8 0, -46) i8 @zend_get_opcode_id(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define zeroext range(i8 0, -46) i8 @zend_get_opcode_id(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %2, %9
@@ -271,7 +271,7 @@ define zeroext range(i8 0, -46) i8 @zend_get_opcode_id(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

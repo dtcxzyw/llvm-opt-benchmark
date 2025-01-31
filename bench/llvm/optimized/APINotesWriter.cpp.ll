@@ -751,7 +751,7 @@ _ZN4llvm11SmallVectorIcLj0EED2Ev.exit:            ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriter14Implementation19writeBlockInfoBlockERN4llvm15BitstreamWriterE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(152) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriter14Implementation19writeBlockInfoBlockERN4llvm15BitstreamWriterE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) local_unnamed_addr #0 align 2 {
 _ZN5clang9api_notes12_GLOBAL__N_111emitBlockIDERN4llvm15BitstreamWriterEjNS2_9StringRefE.exit:
   %2 = alloca %"class.llvm::SmallVector.327", align 8
   %3 = alloca %"class.llvm::ArrayRef.312", align 8
@@ -13178,10 +13178,10 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriterC2EN4llvm9StringRefEPKNS_9FileEntryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriterC2EN4llvm9StringRefEPKNS_9FileEntryE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator.10", align 1
   %7 = tail call noalias noundef nonnull dereferenceable(904) ptr @_Znwm(i64 noundef 904) #20
@@ -13242,7 +13242,7 @@ define dso_local void @_ZN5clang9api_notes14APINotesWriterC2EN4llvm9StringRefEPK
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5clang9api_notes14APINotesWriter14ImplementationESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN5clang9api_notes14APINotesWriter14ImplementationEEclEPS3_.exit.i
@@ -13258,14 +13258,14 @@ _ZNSt10unique_ptrIN5clang9api_notes14APINotesWriter14ImplementationESt14default_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriter13writeToStreamERN4llvm11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriter13writeToStreamERN4llvm11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   tail call void @_ZN5clang9api_notes14APINotesWriter14Implementation13writeToStreamERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(904) %3, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZN5clang9api_notes14APINotesWriter10addContextESt8optionalINS0_9ContextIDEEN4llvm9StringRefENS0_11ContextKindERKNS0_11ContextInfoENS5_12VersionTupleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i64 %1, ptr %2, i64 %3, i8 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(153) %5, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %6) local_unnamed_addr #0 align 2 {
+define dso_local i32 @_ZN5clang9api_notes14APINotesWriter10addContextESt8optionalINS0_9ContextIDEEN4llvm9StringRefENS0_11ContextKindERKNS0_11ContextInfoENS5_12VersionTupleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 %1, ptr %2, i64 %3, i8 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(153) %5, ptr noundef readonly byval(%"class.llvm::VersionTuple") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %.sroa.0.i.i.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %8 = alloca %"struct.std::pair.338", align 8
@@ -14025,7 +14025,7 @@ _ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEEC2EOS5_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriter15addObjCPropertyENS0_9ContextIDEN4llvm9StringRefEbRKNS0_16ObjCPropertyInfoENS3_12VersionTupleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 %1, ptr %2, i64 %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(113) %5, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriter15addObjCPropertyENS0_9ContextIDEN4llvm9StringRefEbRKNS0_16ObjCPropertyInfoENS3_12VersionTupleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 %1, ptr %2, i64 %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(113) %5, ptr noundef readonly byval(%"class.llvm::VersionTuple") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"struct.std::pair.338", align 8
   %9 = alloca %"class.std::tuple.108", align 4
   %10 = alloca %"struct.std::pair.255", align 8
@@ -14148,7 +14148,7 @@ _ZN5clang9api_notes14APINotesWriter14Implementation13getIdentifierEN4llvm9String
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriter13addObjCMethodENS0_9ContextIDENS0_15ObjCSelectorRefEbRKNS0_14ObjCMethodInfoEN4llvm12VersionTupleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 %1, ptr nocapture noundef readonly byval(%"struct.clang::api_notes::ObjCSelectorRef") align 8 %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(145) %4, i64 %5, i64 %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriter13addObjCMethodENS0_9ContextIDENS0_15ObjCSelectorRefEbRKNS0_14ObjCMethodInfoEN4llvm12VersionTupleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 %1, ptr noundef readonly byval(%"struct.clang::api_notes::ObjCSelectorRef") align 8 captures(none) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(145) %4, i64 %5, i64 %6) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %8 = alloca %"class.clang::api_notes::ContextID", align 4
   %9 = alloca %"class.std::tuple.108", align 4
@@ -14832,7 +14832,7 @@ _ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit: ; preds = %_ZNSt4pairIN5clang9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriter12addCXXMethodENS0_9ContextIDEN4llvm9StringRefERKNS0_13CXXMethodInfoENS3_12VersionTupleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriter12addCXXMethodENS0_9ContextIDEN4llvm9StringRefERKNS0_13CXXMethodInfoENS3_12VersionTupleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef readonly byval(%"class.llvm::VersionTuple") align 8 captures(none) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"struct.std::pair.338", align 8
   %8 = alloca %"struct.clang::api_notes::SingleDeclTableKey", align 4
   %9 = alloca %"struct.std::pair.264", align 8
@@ -14956,7 +14956,7 @@ _ZN5clang9api_notes14APINotesWriter14Implementation13getIdentifierEN4llvm9String
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriter8addFieldENS0_9ContextIDEN4llvm9StringRefERKNS0_9FieldInfoENS3_12VersionTupleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriter8addFieldENS0_9ContextIDEN4llvm9StringRefERKNS0_9FieldInfoENS3_12VersionTupleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef readonly byval(%"class.llvm::VersionTuple") align 8 captures(none) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"struct.std::pair.338", align 8
   %8 = alloca %"struct.clang::api_notes::SingleDeclTableKey", align 4
   %9 = alloca %"struct.std::pair.266", align 8
@@ -15068,7 +15068,7 @@ _ZN5clang9api_notes14APINotesWriter14Implementation13getIdentifierEN4llvm9String
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriter17addGlobalVariableESt8optionalINS0_7ContextEEN4llvm9StringRefERKNS0_18GlobalVariableInfoENS5_12VersionTupleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i64 %1, i8 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(112) %5, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriter17addGlobalVariableESt8optionalINS0_7ContextEEN4llvm9StringRefERKNS0_18GlobalVariableInfoENS5_12VersionTupleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 %1, i8 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef readonly byval(%"class.llvm::VersionTuple") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"struct.std::pair.338", align 8
   %9 = alloca %"struct.clang::api_notes::SingleDeclTableKey", align 4
   %10 = alloca %"struct.std::pair.276", align 8
@@ -15183,7 +15183,7 @@ _ZN5clang9api_notes14APINotesWriter14Implementation13getIdentifierEN4llvm9String
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriter17addGlobalFunctionESt8optionalINS0_7ContextEEN4llvm9StringRefERKNS0_18GlobalFunctionInfoENS5_12VersionTupleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i64 %1, i8 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriter17addGlobalFunctionESt8optionalINS0_7ContextEEN4llvm9StringRefERKNS0_18GlobalFunctionInfoENS5_12VersionTupleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 %1, i8 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef readonly byval(%"class.llvm::VersionTuple") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"struct.std::pair.338", align 8
   %9 = alloca %"struct.clang::api_notes::SingleDeclTableKey", align 4
   %10 = alloca %"struct.std::pair.278", align 8
@@ -15310,7 +15310,7 @@ _ZN5clang9api_notes14APINotesWriter14Implementation13getIdentifierEN4llvm9String
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriter15addEnumConstantEN4llvm9StringRefERKNS0_16EnumConstantInfoENS2_12VersionTupleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriter15addEnumConstantEN4llvm9StringRefERKNS0_16EnumConstantInfoENS2_12VersionTupleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"struct.std::pair.338", align 8
   %8 = alloca i32, align 4
   %9 = alloca %"struct.std::pair.280", align 8
@@ -15462,7 +15462,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorISt4pairINS_12VersionTupleE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriter6addTagESt8optionalINS0_7ContextEEN4llvm9StringRefERKNS0_7TagInfoENS5_12VersionTupleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i64 %1, i8 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(328) %5, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriter6addTagESt8optionalINS0_7ContextEEN4llvm9StringRefERKNS0_7TagInfoENS5_12VersionTupleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 %1, i8 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(328) %5, ptr noundef readonly byval(%"class.llvm::VersionTuple") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"struct.std::pair.338", align 8
   %9 = alloca %"struct.clang::api_notes::SingleDeclTableKey", align 4
   %10 = alloca %"struct.std::pair.282", align 8
@@ -15584,7 +15584,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes7Ta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriter10addTypedefESt8optionalINS0_7ContextEEN4llvm9StringRefERKNS0_11TypedefInfoENS5_12VersionTupleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i64 %1, i8 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(160) %5, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriter10addTypedefESt8optionalINS0_7ContextEEN4llvm9StringRefERKNS0_11TypedefInfoENS5_12VersionTupleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 %1, i8 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef readonly byval(%"class.llvm::VersionTuple") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"struct.std::pair.338", align 8
   %9 = alloca %"struct.clang::api_notes::SingleDeclTableKey", align 4
   %10 = alloca %"struct.std::pair.292", align 8
@@ -17844,7 +17844,7 @@ _ZN4llvm15BitstreamWriter20EmitAbbreviatedFieldIjEEvRKNS_15BitCodeAbbrevOpET_.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter20EmitAbbreviatedFieldIjEEvRKNS_15BitCodeAbbrevOpET_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
@@ -19011,7 +19011,7 @@ _ZN4llvm15SmallVectorImplIhE7reserveEm.exit:      ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter9ExitBlockEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #0 comdat align 2 {
@@ -20113,7 +20113,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -25067,7 +25067,7 @@ _ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit: ; preds = %_ZN4llvm20BumpPtrA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -25442,7 +25442,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %5, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -25525,7 +25525,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -27559,7 +27559,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %6, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -29257,7 +29257,7 @@ _ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_119ObjCM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -31612,7 +31612,7 @@ _ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_118CXXMe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -33282,7 +33282,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -34767,7 +34767,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -34851,7 +34851,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -36423,7 +36423,7 @@ _ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_123Globa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -38093,7 +38093,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -39625,7 +39625,7 @@ _ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_112TagTa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -41163,7 +41163,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -53419,10 +53419,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11T
 declare i2 @llvm.bitreverse.i2(i2) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

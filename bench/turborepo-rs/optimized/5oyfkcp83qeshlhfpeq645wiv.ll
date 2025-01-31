@@ -28,12 +28,12 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBp_ENCINvXsq_B6_Bp_NtNtB25_6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB25_9character8complete6digit1Bp_B20_E0B20_E0EB10_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i8 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBp_ENCINvXsq_B6_Bp_NtNtB25_6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB25_9character8complete6digit1Bp_B20_E0B20_E0EB10_(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i8 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.428 = alloca i64, align 8
   %.sroa.930 = alloca i64, align 8
   %4 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtBJ_9character8complete6digit1INtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE0INtB3H_5ErrorBp_EEB2W_(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i8 noundef %2)
+  call void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtBJ_9character8complete6digit1INtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE0INtB3H_5ErrorBp_EEB2W_(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i8 noundef %2)
   %5 = load ptr, ptr %4, align 8, !noundef !4
   %6 = icmp eq ptr %5, null
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -161,12 +161,12 @@ _RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBp_ENCINvXsq_B6_Bp_NtNtB25_6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB25_5bytes8complete6is_notReBp_B20_E00B20_E0EB10_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBp_ENCINvXsq_B6_Bp_NtNtB25_6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB25_5bytes8complete6is_notReBp_B20_E00B20_E0EB10_(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.428 = alloca i64, align 8
   %.sroa.930 = alloca i64, align 8
   %5 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtBJ_5bytes8complete6is_notReINtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE00INtB3H_5ErrorBp_EEB2W_(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i8 noundef %3)
+  call void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtBJ_5bytes8complete6is_notReINtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE00INtB3H_5ErrorBp_EEB2W_(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i8 noundef %3)
   %6 = load ptr, ptr %5, align 8, !noundef !4
   %7 = icmp eq ptr %6, null
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -294,7 +294,7 @@ _RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCs68wO5nsWeTG_5alloc3vec13in_place_drop24InPlaceDstDataSrcBufDropINtBL_3VecNtNtCseG2FYMysgNb_3wax5token5TokenEB1Q_EEB24_(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCs68wO5nsWeTG_5alloc3vec13in_place_drop24InPlaceDstDataSrcBufDropINtBL_3VecNtNtCseG2FYMysgNb_3wax5token5TokenEB1Q_EEB24_(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %2 = load ptr, ptr %0, align 8, !alias.scope !82, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -362,7 +362,7 @@ _RNvXs0_NtNtCs68wO5nsWeTG_5alloc3vec13in_place_dropINtB5_24InPlaceDstDataSrcBufD
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCs68wO5nsWeTG_5alloc3vec13in_place_drop24InPlaceDstDataSrcBufDropNtNtCseG2FYMysgNb_3wax5token5TokenB1Q_EEB1U_(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCs68wO5nsWeTG_5alloc3vec13in_place_drop24InPlaceDstDataSrcBufDropNtNtCseG2FYMysgNb_3wax5token5TokenB1Q_EEB1U_(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %2 = load ptr, ptr %0, align 8, !alias.scope !95, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -430,7 +430,7 @@ _RNvXs0_NtNtCs68wO5nsWeTG_5alloc3vec13in_place_dropINtB5_24InPlaceDstDataSrcBufD
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCs68wO5nsWeTG_5alloc3vec13in_place_drop24InPlaceDstDataSrcBufDropNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryB1Q_EEB1W_(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCs68wO5nsWeTG_5alloc3vec13in_place_drop24InPlaceDstDataSrcBufDropNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryB1Q_EEB1W_(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %2 = load ptr, ptr %0, align 8, !alias.scope !108, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -468,7 +468,7 @@ _RNvXs0_NtNtCs68wO5nsWeTG_5alloc3vec13in_place_dropINtB5_24InPlaceDstDataSrcBufD
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCs68wO5nsWeTG_5alloc3vec13in_place_drop24InPlaceDstDataSrcBufDropTINtCs4DJqE8qduBp_4pori8StatefulINtB1U_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom5error16VerboseErrorKindENtB2F_10ErrorEntryEEB2J_(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCs68wO5nsWeTG_5alloc3vec13in_place_drop24InPlaceDstDataSrcBufDropTINtCs4DJqE8qduBp_4pori8StatefulINtB1U_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom5error16VerboseErrorKindENtB2F_10ErrorEntryEEB2J_(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %2 = load ptr, ptr %0, align 8, !alias.scope !121, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -576,7 +576,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3wax5token5pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvNtCslyFhtC9DD08_9itertools10tuple_impl13tuple_windowsINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB4_11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB2a_4WalkTjjEENCNvNtB2c_4rule8boundary0ENCNCB32_s_00ETRNtB2a_5TokenB3E_EEB2c_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RINvNtCslyFhtC9DD08_9itertools10tuple_impl13tuple_windowsINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB4_11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB2a_4WalkTjjEENCNvNtB2c_4rule8boundary0ENCNCB32_s_00ETRNtB2a_5TokenB3E_EEB2c_(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [40 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
@@ -610,7 +610,7 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
   %12 = load ptr, ptr %11, align 8, !alias.scope !146, !noalias !143, !nonnull !4, !align !149, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8, !alias.scope !146, !noalias !143, !noundef !4
-  invoke void @_RNvMs3_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_7GroupByNtNtCseG2FYMysgNb_3wax5token8PositionINtBY_4WalkTjjEENCNvNtB10_4rule8boundary0E4stepB10_(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 %12, i64 noundef %14)
+  invoke void @_RNvMs3_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_7GroupByNtNtCseG2FYMysgNb_3wax5token8PositionINtBY_4WalkTjjEENCNvNtB10_4rule8boundary0E4stepB10_(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull align 8 %12, i64 noundef %14)
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.i
@@ -655,7 +655,7 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
   store ptr %.sroa.4.0.copyload.i, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !160, !noalias !162
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %1, ptr %22, align 8, !alias.scope !164, !noalias !165
-  %23 = invoke { ptr, ptr } @_RINvXsp_NtCslyFhtC9DD08_9itertools10tuple_implTRNtNtCseG2FYMysgNb_3wax5token5TokenBJ_ENtB6_12TupleCollect24collect_from_iter_no_bufINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainIB26_INtNtNtB2c_7sources4once4OnceBJ_EB32_EQINtNtB2a_3map3MapINtNtB8_11groupbylazy5GroupNtBM_8PositionINtBM_4WalkTjjEENCNvNtBO_4rule8boundary0ENCNCB4T_s_00EEEBO_(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4)
+  %23 = invoke { ptr, ptr } @_RINvXsp_NtCslyFhtC9DD08_9itertools10tuple_implTRNtNtCseG2FYMysgNb_3wax5token5TokenBJ_ENtB6_12TupleCollect24collect_from_iter_no_bufINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainIB26_INtNtNtB2c_7sources4once4OnceBJ_EB32_EQINtNtB2a_3map3MapINtNtB8_11groupbylazy5GroupNtBM_8PositionINtBM_4WalkTjjEENCNvNtBO_4rule8boundary0ENCNCB4T_s_00EEEBO_(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4)
           to label %24 unwind label %19
 
 24:                                               ; preds = %21
@@ -674,7 +674,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtB4_4iter8adapters3map3MapI
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvNtNtCs68wO5nsWeTG_5alloc3vec16in_place_collect18from_iter_in_placeINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB4_9into_iter8IntoIterINtB4_3VecNtNtCseG2FYMysgNb_3wax5token5TokenEENCNvMsi_B2x_INtB2x_11AlternativeTjjEE10into_owned0EB2l_EB2z_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RINvNtNtCs68wO5nsWeTG_5alloc3vec16in_place_collect18from_iter_in_placeINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB4_9into_iter8IntoIterINtB4_3VecNtNtCseG2FYMysgNb_3wax5token5TokenEENCNvMsi_B2x_INtB2x_11AlternativeTjjEE10into_owned0EB2l_EB2z_(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -808,7 +808,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtB4_4iter8adapters3map3MapI
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvNtNtCs68wO5nsWeTG_5alloc3vec16in_place_collect18from_iter_in_placeINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB4_9into_iter8IntoIterNtNtCseG2FYMysgNb_3wax5token5TokenENvMs1_B2n_B2l_10into_ownedEB2l_EB2p_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RINvNtNtCs68wO5nsWeTG_5alloc3vec16in_place_collect18from_iter_in_placeINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB4_9into_iter8IntoIterNtNtCseG2FYMysgNb_3wax5token5TokenENvMs1_B2n_B2l_10into_ownedEB2l_EB2p_(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -913,7 +913,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtB4_4iter8adapters3map3MapI
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvNtNtCs68wO5nsWeTG_5alloc3vec16in_place_collect18from_iter_in_placeINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB4_9into_iter8IntoIterNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryENvMB2n_B2l_10into_ownedEB2l_EB2r_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RINvNtNtCs68wO5nsWeTG_5alloc3vec16in_place_collect18from_iter_in_placeINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB4_9into_iter8IntoIterNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryENvMB2n_B2l_10into_ownedEB2l_EB2r_(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1016,7 +1016,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtB4_4iter8adapters3map3MapI
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvNtNtCs68wO5nsWeTG_5alloc3vec16in_place_collect18from_iter_in_placeINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB4_9into_iter8IntoIterTINtCs4DJqE8qduBp_4pori8StatefulINtB2p_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom5error16VerboseErrorKindEENvYNtB3a_10ErrorEntryINtNtB1f_7convert4FromB2l_E4fromEB4L_EB3e_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RINvNtNtCs68wO5nsWeTG_5alloc3vec16in_place_collect18from_iter_in_placeINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB4_9into_iter8IntoIterTINtCs4DJqE8qduBp_4pori8StatefulINtB2p_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom5error16VerboseErrorKindEENvYNtB3a_10ErrorEntryINtNtB1f_7convert4FromB2l_E4fromEB4L_EB3e_(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1131,7 +1131,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtB4_4iter8adapters3map3MapI
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB5_6ClonedINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEENtNtNtB9_6traits8iterator8Iterator4folduNCINvNvXs_NtB7_9enumerateINtB3O_9EnumeratepEB30_4fold9enumerateB22_uNCINvNvB30_8for_each4callTjB22_ENCINvMs1_B17_INtB17_8VecDequeB22_E10write_iterBP_E0E0E0EB28_(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB5_6ClonedINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEENtNtNtB9_6traits8iterator8Iterator4folduNCINvNvXs_NtB7_9enumerateINtB3O_9EnumeratepEB30_4fold9enumerateB22_uNCINvNvB30_8for_each4callTjB22_ENCINvMs1_B17_INtB17_8VecDequeB22_E10write_iterBP_E0E0E0EB28_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %.sroa.07.0.copyload = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1151,7 +1151,7 @@ define void @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB5_6Cloned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB5_6ClonedINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEENtNtNtB9_6traits8iterator8Iterator8try_folduNCINvNvXs_NtB7_4takeINtB3S_4TakepEB30_8try_fold5checkB22_uINtNtNtBb_3ops9try_trait17NeverShortCircuituENCINvMB4H_B4E_10wrap_mut_2uB22_NCINvNvXs_NtB7_9enumerateINtB62_9EnumeratepEB30_4fold9enumerateB22_uNCINvNvB30_8for_each4callTjB22_ENCINvMs1_B17_INtB17_8VecDequeB22_E10write_iterIB43_INtNtB7_12by_ref_sized10ByRefSizedBP_EEE0E0E0E0E0INtNtB4J_12control_flow11ControlFlowB4E_EEB28_(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB5_6ClonedINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEENtNtNtB9_6traits8iterator8Iterator8try_folduNCINvNvXs_NtB7_4takeINtB3S_4TakepEB30_8try_fold5checkB22_uINtNtNtBb_3ops9try_trait17NeverShortCircuituENCINvMB4H_B4E_10wrap_mut_2uB22_NCINvNvXs_NtB7_9enumerateINtB62_9EnumeratepEB30_4fold9enumerateB22_uNCINvNvB30_8for_each4callTjB22_ENCINvMs1_B17_INtB17_8VecDequeB22_E10write_iterIB43_INtNtB7_12by_ref_sized10ByRefSizedBP_EEE0E0E0E0E0INtNtB4J_12control_flow11ControlFlowB4E_EEB28_(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
@@ -1199,7 +1199,7 @@ _RINvXs1_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iterINtB6_4IterNtNtNt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtBJ_9character8complete6digit1INtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE0INtB3H_5ErrorBp_EEB2W_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtBJ_9character8complete6digit1INtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE0INtB3H_5ErrorBp_EEB2W_(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
   %5 = load ptr, ptr %1, align 8, !alias.scope !255, !nonnull !4, !align !258, !noundef !4
@@ -1343,7 +1343,7 @@ define void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtBJ_5bytes8complete6is_notReINtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE00INtB3H_5ErrorBp_EEB2W_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtBJ_5bytes8complete6is_notReINtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE00INtB3H_5ErrorBp_EEB2W_(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
   %6 = load ptr, ptr %1, align 8, !alias.scope !287, !noalias !290, !nonnull !4, !align !258, !noundef !4
@@ -1486,25 +1486,25 @@ define void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvXsq_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB1M_9character8complete6digit1Bp_INtNtB1M_5error12VerboseErrorBp_EE0B3F_EB10_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i8 noundef %2) unnamed_addr #0 {
-  tail call void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBp_ENCINvXsq_B6_Bp_NtNtB25_6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB25_9character8complete6digit1Bp_B20_E0B20_E0EB10_(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i8 noundef %2)
+define void @_RINvXsq_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB1M_9character8complete6digit1Bp_INtNtB1M_5error12VerboseErrorBp_EE0B3F_EB10_(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i8 noundef %2) unnamed_addr #0 {
+  tail call void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBp_ENCINvXsq_B6_Bp_NtNtB25_6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB25_9character8complete6digit1Bp_B20_E0B20_E0EB10_(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i8 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvXsq_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB1M_5bytes8complete6is_notReBp_INtNtB1M_5error12VerboseErrorBp_EE00B3F_EB10_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2, i8 noundef %3) unnamed_addr #0 {
-  tail call void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBp_ENCINvXsq_B6_Bp_NtNtB25_6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB25_5bytes8complete6is_notReBp_B20_E00B20_E0EB10_(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i8 noundef %3)
+define void @_RINvXsq_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB1M_5bytes8complete6is_notReBp_INtNtB1M_5error12VerboseErrorBp_EE00B3F_EB10_(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2, i8 noundef %3) unnamed_addr #0 {
+  tail call void @_RINvMsg_Cs4DJqE8qduBp_4poriINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBp_ENCINvXsq_B6_Bp_NtNtB25_6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB25_5bytes8complete6is_notReBp_B20_E00B20_E0EB10_(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i8 noundef %3)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator3zipB3_ECseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable sret([56 x i8]) align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
-  tail call void @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterhEBW_EINtB5_7ZipImplBW_BW_E3newCs5g6BnGVOFtV_12regex_syntax(ptr noalias nocapture noundef nonnull sret([56 x i8]) align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4)
+define hidden void @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator3zipB3_ECseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+  tail call void @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterhEBW_EINtB5_7ZipImplBW_BW_E3newCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden { i64, i64 } @_RINvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3zip3ZipINtNtNtBc_5slice4iter4IterhEBR_ENtNtNtBa_6traits8iterator8Iterator8try_folduNCINvNvB1n_8position5checkTRhB2w_ENCNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB2L_7CompareB3c_E7compare0E0INtNtNtBc_3ops12control_flow11ControlFlowjEECseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr noalias nocapture noundef align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @_RINvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3zip3ZipINtNtNtBc_5slice4iter4IterhEBR_ENtNtNtBa_6traits8iterator8Iterator8try_folduNCINvNvB1n_8position5checkTRhB2w_ENCNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB2L_7CompareB3c_E7compare0E0INtNtNtBc_3ops12control_flow11ControlFlowjEECseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr noalias noundef align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !alias.scope !327, !noundef !4
@@ -1552,13 +1552,13 @@ _RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8position5chec
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RINvYINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3mapB13_NvYB13_NtNtB28_5clone5Clone5cloneEB19_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
+define hidden void @_RINvYINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3mapB13_NvYB13_NtNtB28_5clone5Clone5cloneEB19_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNCINvNtB2c_6branch3altBs_B1L_B27_TNCIB2V_Bs_B27_NCINvNtB2c_10combinator3mapBs_Bs_B1L_B27_NCINvNtNtB2c_5bytes8complete3tagReBs_B27_E0NCINvB3X_8wildcardINvB5h_3eofBs_B27_EE0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_TbBs_EB1L_B27_NCINvB3l_5tupleBs_B7H_B27_TNCIB2V_Bs_B27_NCIB5f_Bs_TbuEbB27_NCIB4t_Bs_B8K_B27_TNCIB7Y_Bs_B8K_B27_TNCINvB5h_5valueBs_bBs_B27_B5R_E0B3V_EE0NCIB7Y_Bs_B8K_B27_TNCIB9y_Bs_bBs_B27_NvB3X_3boeE0B3V_EE0EE0NCB6A_s_0E0bE0NCINvB3l_10terminatedBs_Bs_Bs_B27_B5R_NCIB2V_Bs_B27_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_TuBs_EBs_B27_NCIB7Y_Bs_BcB_B27_TB3V_B5R_EE0NCB6A_s0_0E0B6Q_EE0Bs_E0E0EE0NCB6A_s1_0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_Bs_B1L_B27_NCIBbm_Bs_Bs_Bs_B27_B5R_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_BcB_Bs_B27_NCINvB5h_4peekBs_BcB_B27_NCIB7Y_Bs_BcB_B27_TNvB3X_19flags_without_stateNCIB2V_Bs_B27_NCINvB5W_6is_notB6n_Bs_B27_E0Bs_E0EE0E0NCB6A_s2_0E0B6Q_EE0E0NCB6A_s3_0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_Bs_B1L_B27_NCIBbm_Bs_Bs_Bs_B27_B5R_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_BcB_Bs_B27_BfD_NCB6A_s4_0E0B6Q_EE0E0NCB6A_s5_0E0B1L_E0EE0E0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(288) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNCINvNtB2c_6branch3altBs_B1L_B27_TNCIB2V_Bs_B27_NCINvNtB2c_10combinator3mapBs_Bs_B1L_B27_NCINvNtNtB2c_5bytes8complete3tagReBs_B27_E0NCINvB3X_8wildcardINvB5h_3eofBs_B27_EE0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_TbBs_EB1L_B27_NCINvB3l_5tupleBs_B7H_B27_TNCIB2V_Bs_B27_NCIB5f_Bs_TbuEbB27_NCIB4t_Bs_B8K_B27_TNCIB7Y_Bs_B8K_B27_TNCINvB5h_5valueBs_bBs_B27_B5R_E0B3V_EE0NCIB7Y_Bs_B8K_B27_TNCIB9y_Bs_bBs_B27_NvB3X_3boeE0B3V_EE0EE0NCB6A_s_0E0bE0NCINvB3l_10terminatedBs_Bs_Bs_B27_B5R_NCIB2V_Bs_B27_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_TuBs_EBs_B27_NCIB7Y_Bs_BcB_B27_TB3V_B5R_EE0NCB6A_s0_0E0B6Q_EE0Bs_E0E0EE0NCB6A_s1_0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_Bs_B1L_B27_NCIBbm_Bs_Bs_Bs_B27_B5R_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_BcB_Bs_B27_NCINvB5h_4peekBs_BcB_B27_NCIB7Y_Bs_BcB_B27_TNvB3X_19flags_without_stateNCIB2V_Bs_B27_NCINvB5W_6is_notB6n_Bs_B27_E0Bs_E0EE0E0NCB6A_s2_0E0B6Q_EE0E0NCB6A_s3_0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_Bs_B1L_B27_NCIBbm_Bs_Bs_Bs_B27_B5R_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_BcB_Bs_B27_BfD_NCB6A_s4_0E0B6Q_EE0E0NCB6A_s5_0E0B1L_E0EE0E0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(288) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1566,7 +1566,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !337
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !342
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardINvB4Q_3eofBC_B2b_EE0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7d_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8f_B2b_TNCIB7u_BC_B8f_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7u_BC_B8f_B2b_TNCIB93_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7u_BC_Bc5_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaR_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc5_BC_B2b_NCINvB4Q_4peekBC_Bc5_B2b_NCIB7u_BC_Bc5_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaR_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc5_BC_B2b_Bf6_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !343
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardINvB4Q_3eofBC_B2b_EE0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7d_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8f_B2b_TNCIB7u_BC_B8f_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7u_BC_B8f_B2b_TNCIB93_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7u_BC_Bc5_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaR_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc5_BC_B2b_NCINvB4Q_4peekBC_Bc5_B2b_NCIB7u_BC_Bc5_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaR_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc5_BC_B2b_Bf6_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !343
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !337
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i64, ptr %8, align 8, !range !344, !noundef !4
@@ -1603,7 +1603,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNCINvNtB2c_6branch3altBs_B1L_B27_TNCIB2V_Bs_B27_NCINvNtB2c_10combinator3mapBs_Bs_B1L_B27_NCINvNtNtB2c_5bytes8complete3tagReBs_B27_E0NCINvB3X_8wildcardNCNvB3X_10repetition0E0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_TbBs_EB1L_B27_NCINvB3l_5tupleBs_B7J_B27_TNCIB2V_Bs_B27_NCIB5f_Bs_TbuEbB27_NCIB4t_Bs_B8M_B27_TNCIB80_Bs_B8M_B27_TNCINvB5h_5valueBs_bBs_B27_B5R_E0B3V_EE0NCIB80_Bs_B8M_B27_TNCIB9A_Bs_bBs_B27_NvB3X_3boeE0B3V_EE0EE0NCB6A_s_0E0bE0NCINvB3l_10terminatedBs_Bs_Bs_B27_B5R_NCIB2V_Bs_B27_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_TuBs_EBs_B27_NCIB80_Bs_BcD_B27_TB3V_B5R_EE0NCB6A_s0_0E0B6Q_EE0Bs_E0E0EE0NCB6A_s1_0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_Bs_B1L_B27_NCIBbo_Bs_Bs_Bs_B27_B5R_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_BcD_Bs_B27_NCINvB5h_4peekBs_BcD_B27_NCIB80_Bs_BcD_B27_TNvB3X_19flags_without_stateNCIB2V_Bs_B27_NCINvB5W_6is_notB6n_Bs_B27_E0Bs_E0EE0E0NCB6A_s2_0E0B6Q_EE0E0NCB6A_s3_0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_Bs_B1L_B27_NCIBbo_Bs_Bs_Bs_B27_B5R_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_BcD_Bs_B27_BfF_NCB6A_s4_0E0B6Q_EE0E0NCB6A_s5_0E0B1L_E0EE0E0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(288) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNCINvNtB2c_6branch3altBs_B1L_B27_TNCIB2V_Bs_B27_NCINvNtB2c_10combinator3mapBs_Bs_B1L_B27_NCINvNtNtB2c_5bytes8complete3tagReBs_B27_E0NCINvB3X_8wildcardNCNvB3X_10repetition0E0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_TbBs_EB1L_B27_NCINvB3l_5tupleBs_B7J_B27_TNCIB2V_Bs_B27_NCIB5f_Bs_TbuEbB27_NCIB4t_Bs_B8M_B27_TNCIB80_Bs_B8M_B27_TNCINvB5h_5valueBs_bBs_B27_B5R_E0B3V_EE0NCIB80_Bs_B8M_B27_TNCIB9A_Bs_bBs_B27_NvB3X_3boeE0B3V_EE0EE0NCB6A_s_0E0bE0NCINvB3l_10terminatedBs_Bs_Bs_B27_B5R_NCIB2V_Bs_B27_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_TuBs_EBs_B27_NCIB80_Bs_BcD_B27_TB3V_B5R_EE0NCB6A_s0_0E0B6Q_EE0Bs_E0E0EE0NCB6A_s1_0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_Bs_B1L_B27_NCIBbo_Bs_Bs_Bs_B27_B5R_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_BcD_Bs_B27_NCINvB5h_4peekBs_BcD_B27_NCIB80_Bs_BcD_B27_TNvB3X_19flags_without_stateNCIB2V_Bs_B27_NCINvB5W_6is_notB6n_Bs_B27_E0Bs_E0EE0E0NCB6A_s2_0E0B6Q_EE0E0NCB6A_s3_0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_Bs_B1L_B27_NCIBbo_Bs_Bs_Bs_B27_B5R_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_BcD_Bs_B27_BfF_NCB6A_s4_0E0B6Q_EE0E0NCB6A_s5_0E0B1L_E0EE0E0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(288) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1611,7 +1611,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !350
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !355
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardNCNvB3x_10repetition0E0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7f_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8h_B2b_TNCIB7w_BC_B8h_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7w_BC_B8h_B2b_TNCIB95_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7w_BC_Bc7_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaT_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc7_BC_B2b_NCINvB4Q_4peekBC_Bc7_B2b_NCIB7w_BC_Bc7_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaT_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc7_BC_B2b_Bf8_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !356
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardNCNvB3x_10repetition0E0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7f_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8h_B2b_TNCIB7w_BC_B8h_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7w_BC_B8h_B2b_TNCIB95_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7w_BC_Bc7_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaT_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc7_BC_B2b_NCINvB4Q_4peekBC_Bc7_B2b_NCIB7w_BC_Bc7_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaT_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc7_BC_B2b_Bf8_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !356
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !350
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i64, ptr %8, align 8, !range !344, !noundef !4
@@ -1648,7 +1648,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNCINvNtB2c_6branch3altBs_B1L_B27_TNCIB2V_Bs_B27_NCINvNtB2c_10combinator3mapBs_Bs_B1L_B27_NCINvNtNtB2c_5bytes8complete3tagReBs_B27_E0NCINvB3X_8wildcardNCNvB3X_11alternative0E0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_TbBs_EB1L_B27_NCINvB3l_5tupleBs_B7K_B27_TNCIB2V_Bs_B27_NCIB5f_Bs_TbuEbB27_NCIB4t_Bs_B8N_B27_TNCIB81_Bs_B8N_B27_TNCINvB5h_5valueBs_bBs_B27_B5R_E0B3V_EE0NCIB81_Bs_B8N_B27_TNCIB9B_Bs_bBs_B27_NvB3X_3boeE0B3V_EE0EE0NCB6A_s_0E0bE0NCINvB3l_10terminatedBs_Bs_Bs_B27_B5R_NCIB2V_Bs_B27_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_TuBs_EBs_B27_NCIB81_Bs_BcE_B27_TB3V_B5R_EE0NCB6A_s0_0E0B6Q_EE0Bs_E0E0EE0NCB6A_s1_0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_Bs_B1L_B27_NCIBbp_Bs_Bs_Bs_B27_B5R_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_BcE_Bs_B27_NCINvB5h_4peekBs_BcE_B27_NCIB81_Bs_BcE_B27_TNvB3X_19flags_without_stateNCIB2V_Bs_B27_NCINvB5W_6is_notB6n_Bs_B27_E0Bs_E0EE0E0NCB6A_s2_0E0B6Q_EE0E0NCB6A_s3_0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_Bs_B1L_B27_NCIBbp_Bs_Bs_Bs_B27_B5R_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_BcE_Bs_B27_BfG_NCB6A_s4_0E0B6Q_EE0E0NCB6A_s5_0E0B1L_E0EE0E0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(288) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNCINvNtB2c_6branch3altBs_B1L_B27_TNCIB2V_Bs_B27_NCINvNtB2c_10combinator3mapBs_Bs_B1L_B27_NCINvNtNtB2c_5bytes8complete3tagReBs_B27_E0NCINvB3X_8wildcardNCNvB3X_11alternative0E0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_TbBs_EB1L_B27_NCINvB3l_5tupleBs_B7K_B27_TNCIB2V_Bs_B27_NCIB5f_Bs_TbuEbB27_NCIB4t_Bs_B8N_B27_TNCIB81_Bs_B8N_B27_TNCINvB5h_5valueBs_bBs_B27_B5R_E0B3V_EE0NCIB81_Bs_B8N_B27_TNCIB9B_Bs_bBs_B27_NvB3X_3boeE0B3V_EE0EE0NCB6A_s_0E0bE0NCINvB3l_10terminatedBs_Bs_Bs_B27_B5R_NCIB2V_Bs_B27_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_TuBs_EBs_B27_NCIB81_Bs_BcE_B27_TB3V_B5R_EE0NCB6A_s0_0E0B6Q_EE0Bs_E0E0EE0NCB6A_s1_0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_Bs_B1L_B27_NCIBbp_Bs_Bs_Bs_B27_B5R_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_BcE_Bs_B27_NCINvB5h_4peekBs_BcE_B27_NCIB81_Bs_BcE_B27_TNvB3X_19flags_without_stateNCIB2V_Bs_B27_NCINvB5W_6is_notB6n_Bs_B27_E0Bs_E0EE0E0NCB6A_s2_0E0B6Q_EE0E0NCB6A_s3_0E0B1L_E0NCIB2V_Bs_B27_NCIB5f_Bs_Bs_B1L_B27_NCIBbp_Bs_Bs_Bs_B27_B5R_NCIB4t_Bs_Bs_B27_TNCIB5f_Bs_BcE_Bs_B27_BfG_NCB6A_s4_0E0B6Q_EE0E0NCB6A_s5_0E0B1L_E0EE0E0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(288) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1656,7 +1656,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !362
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !367
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardNCNvB3x_11alternative0E0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7g_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8i_B2b_TNCIB7x_BC_B8i_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7x_BC_B8i_B2b_TNCIB96_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7x_BC_Bc8_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaU_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc8_BC_B2b_NCINvB4Q_4peekBC_Bc8_B2b_NCIB7x_BC_Bc8_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaU_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc8_BC_B2b_Bf9_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !368
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardNCNvB3x_11alternative0E0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7g_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8i_B2b_TNCIB7x_BC_B8i_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7x_BC_B8i_B2b_TNCIB96_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7x_BC_Bc8_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaU_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc8_BC_B2b_NCINvB4Q_4peekBC_Bc8_B2b_NCIB7x_BC_Bc8_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaU_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc8_BC_B2b_Bf9_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !368
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !362
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i64, ptr %8, align 8, !range !344, !noundef !4
@@ -1693,7 +1693,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNvB3X_10repetitionE0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNvB3X_10repetitionE0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1701,7 +1701,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !374
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !379
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_10repetitionE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !380
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_10repetitionE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !380
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !374
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i64, ptr %8, align 8, !range !344, !noundef !4
@@ -1738,7 +1738,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNvB3X_11alternativeE0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNvB3X_11alternativeE0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1746,7 +1746,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !386
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !391
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_11alternativeE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !392
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_11alternativeE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !392
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !386
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i64, ptr %8, align 8, !range !344, !noundef !4
@@ -1783,7 +1783,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNvB3X_5classE0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNvB3X_5classE0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1791,7 +1791,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !398
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !403
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_5classE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !404
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_5classE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !404
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !398
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i64, ptr %8, align 8, !range !344, !noundef !4
@@ -1828,7 +1828,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNvB3X_7literalE0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNvB3X_7literalE0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1836,7 +1836,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !410
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !415
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_7literalE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !416
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_7literalE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !416
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !410
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i64, ptr %8, align 8, !range !344, !noundef !4
@@ -1873,7 +1873,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNvB3X_9separatorE0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB11_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBs_ENCINvB2a_7contextBs_B27_NCINvNtB2c_8sequence8precededBs_uB1L_B27_NvNvBZ_5parse16flags_with_stateNvB3X_9separatorE0B1L_E0E0B13_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32), (56, 64)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1881,7 +1881,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !422
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !427
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_9separatorE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !428
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_9separatorE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !428
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !422
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i64, ptr %8, align 8, !range !344, !noundef !4
@@ -1918,7 +1918,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
-define hidden void @_RNCINvMNtNtCs1LoaDTb72WA_4core3ops9try_traitINtB5_17NeverShortCircuituE10wrap_mut_2uNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNCINvNvXs_NtNtNtB9_4iter8adapters9enumerateINtB2q_9EnumeratepENtNtNtB2u_6traits8iterator8Iterator4fold9enumerateB1k_uNCINvNvB3g_8for_each4callTjB1k_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB4O_8VecDequeB1k_E10write_iterINtNtB2s_4take4TakeINtNtB2s_12by_ref_sized10ByRefSizedINtNtB2s_6cloned6ClonedINtNtB4O_4iter4IterB1k_EEEEE0E0E0E0B1q_.llvm.8413233830278194149(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvMNtNtCs1LoaDTb72WA_4core3ops9try_traitINtB5_17NeverShortCircuituE10wrap_mut_2uNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNCINvNvXs_NtNtNtB9_4iter8adapters9enumerateINtB2q_9EnumeratepENtNtNtB2u_6traits8iterator8Iterator4fold9enumerateB1k_uNCINvNvB3g_8for_each4callTjB1k_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB4O_8VecDequeB1k_E10write_iterINtNtB2s_4take4TakeINtNtB2s_12by_ref_sized10ByRefSizedINtNtB2s_6cloned6ClonedINtNtB4O_4iter4IterB1k_EEEEE0E0E0E0B1q_.llvm.8413233830278194149(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !429)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !alias.scope !429, !noalias !432, !noundef !4
@@ -1944,7 +1944,7 @@ define hidden void @_RNCINvMNtNtCs1LoaDTb72WA_4core3ops9try_traitINtB5_17NeverSh
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBr_ENCINvXsq_B8_Br_NtNtB27_6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB27_9character8complete6digit1Br_B22_E0B22_E0E0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBr_ENCINvXsq_B8_Br_NtNtB27_6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB27_9character8complete6digit1Br_B22_E0B22_E0E0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !149, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8, !alias.scope !446, !noundef !4
@@ -1981,7 +1981,7 @@ _RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBr_ENCINvXsq_B8_Br_NtNtB27_6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB27_9character8complete6digit1Br_B22_E0B22_E0Es0_0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBr_ENCINvXsq_B8_Br_NtNtB27_6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB27_9character8complete6digit1Br_B22_E0B22_E0Es0_0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %2, align 8, !range !456, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   switch i64 %4, label %default.unreachable21 [
@@ -2075,7 +2075,7 @@ _RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBr_ENCINvXsq_B8_Br_NtNtB27_6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB27_9character8complete6digit1Br_B22_E0B22_E0Es_0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) initializes((0, 33), (40, 73)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBr_ENCINvXsq_B8_Br_NtNtB27_6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB27_9character8complete6digit1Br_B22_E0B22_E0Es_0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) initializes((0, 33), (40, 73)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -2096,7 +2096,7 @@ define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7Locatede
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBr_ENCINvXsq_B8_Br_NtNtB27_6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB27_5bytes8complete6is_notReBr_B22_E00B22_E0E0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBr_ENCINvXsq_B8_Br_NtNtB27_6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB27_5bytes8complete6is_notReBr_B22_E00B22_E0E0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !149, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8, !alias.scope !488, !noundef !4
@@ -2133,7 +2133,7 @@ _RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBr_ENCINvXsq_B8_Br_NtNtB27_6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB27_5bytes8complete6is_notReBr_B22_E00B22_E0Es0_0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBr_ENCINvXsq_B8_Br_NtNtB27_6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB27_5bytes8complete6is_notReBr_B22_E00B22_E0Es0_0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %2, align 8, !range !456, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   switch i64 %4, label %default.unreachable21 [
@@ -2227,7 +2227,7 @@ _RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBr_ENCINvXsq_B8_Br_NtNtB27_6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB27_5bytes8complete6is_notReBr_B22_E00B22_E0Es_0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) initializes((0, 33), (40, 73)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateE16clone_map_resultINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBr_ENCINvXsq_B8_Br_NtNtB27_6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB27_5bytes8complete6is_notReBr_B22_E00B22_E0Es_0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) initializes((0, 33), (40, 73)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -2248,7 +2248,7 @@ define hidden void @_RNCINvMsg_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7Locatede
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6cloned14clone_try_foldNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuINtNtNtBa_3ops12control_flow11ControlFlowINtNtB26_9try_trait17NeverShortCircuituEENCINvNvXs_NtB6_4takeINtB3v_4TakepENtNtNtB8_6traits8iterator8Iterator8try_fold5checkB14_uB2G_NCINvMB2J_B2G_10wrap_mut_2uB14_NCINvNvXs_NtB6_9enumerateINtB5u_9EnumeratepEB3T_4fold9enumerateB14_uNCINvNvB3T_8for_each4callTjB14_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB75_8VecDequeB14_E10write_iterIB3G_INtNtB6_12by_ref_sized10ByRefSizedINtB4_6ClonedINtNtB75_4iter4IterB14_EEEEE0E0E0E0E0E0B1a_.llvm.8413233830278194149(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6cloned14clone_try_foldNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuINtNtNtBa_3ops12control_flow11ControlFlowINtNtB26_9try_trait17NeverShortCircuituEENCINvNvXs_NtB6_4takeINtB3v_4TakepENtNtNtB8_6traits8iterator8Iterator8try_fold5checkB14_uB2G_NCINvMB2J_B2G_10wrap_mut_2uB14_NCINvNvXs_NtB6_9enumerateINtB5u_9EnumeratepEB3T_4fold9enumerateB14_uNCINvNvB3T_8for_each4callTjB14_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB75_8VecDequeB14_E10write_iterIB3G_INtNtB6_12by_ref_sized10ByRefSizedINtB4_6ClonedINtNtB75_4iter4IterB14_EEEEE0E0E0E0E0E0B1a_.llvm.8413233830278194149(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !528)
@@ -2269,7 +2269,7 @@ define hidden noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters
 
 14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !540
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate_inCs5g6BnGVOFtV_12regex_syntax(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, i64 noundef %13, i1 noundef zeroext false), !noalias !540
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate_inCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %13, i1 noundef zeroext false), !noalias !540
   %15 = load i64, ptr %4, align 8, !range !531, !noalias !540, !noundef !4
   %trunc.i.i.i.i = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2298,7 +2298,7 @@ define hidden noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters
 
 27:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !554
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate_inCs5g6BnGVOFtV_12regex_syntax(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, i64 noundef %26, i1 noundef zeroext false), !noalias !554
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate_inCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %26, i1 noundef zeroext false), !noalias !554
   %28 = load i64, ptr %3, align 8, !range !531, !noalias !554, !noundef !4
   %trunc.i.i.i1.i = trunc nuw i64 %28 to i1
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2362,7 +2362,7 @@ _RNvXsE_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_17InvariantFragmentNtNtCs1LoaD
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
-define hidden noundef zeroext i1 @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4takeINtB9_4TakepENtNtNtBd_6traits8iterator8Iterator8try_fold5checkNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuINtNtNtBf_3ops9try_trait17NeverShortCircuituENCINvMB2R_B2O_10wrap_mut_2uB1R_NCINvNvXs_NtBb_9enumerateINtB4c_9EnumeratepEB14_4fold9enumerateB1R_uNCINvNvB14_8for_each4callTjB1R_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5N_8VecDequeB1R_E10write_iterIBS_INtNtBb_12by_ref_sized10ByRefSizedINtNtBb_6cloned6ClonedINtNtB5N_4iter4IterB1R_EEEEE0E0E0E0E0B1X_.llvm.8413233830278194149(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4takeINtB9_4TakepENtNtNtBd_6traits8iterator8Iterator8try_fold5checkNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuINtNtNtBf_3ops9try_trait17NeverShortCircuituENCINvMB2R_B2O_10wrap_mut_2uB1R_NCINvNvXs_NtBb_9enumerateINtB4c_9EnumeratepEB14_4fold9enumerateB1R_uNCINvNvB14_8for_each4callTjB1R_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5N_8VecDequeB1R_E10write_iterIBS_INtNtBb_12by_ref_sized10ByRefSizedINtNtBb_6cloned6ClonedINtNtB5N_4iter4IterB1R_EEEEE0E0E0E0E0B1X_.llvm.8413233830278194149(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !149, !noundef !4
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = add i64 %4, -1
@@ -2396,7 +2396,7 @@ define hidden noundef zeroext i1 @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8ada
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
-define hidden void @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuNCINvNvB1e_8for_each4callTjB21_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB3D_8VecDequeB21_E10write_iterINtNtBb_4take4TakeINtNtBb_12by_ref_sized10ByRefSizedINtNtBb_6cloned6ClonedINtNtB3D_4iter4IterB21_EEEEE0E0E0B27_.llvm.8413233830278194149(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuNCINvNvB1e_8for_each4callTjB21_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB3D_8VecDequeB21_E10write_iterINtNtBb_4take4TakeINtNtBb_12by_ref_sized10ByRefSizedINtNtBb_6cloned6ClonedINtNtB3D_4iter4IterB21_EEEEE0E0E0B27_.llvm.8413233830278194149(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !612)
@@ -2421,19 +2421,19 @@ define hidden void @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerat
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvXsq_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB1O_9character8complete6digit1Br_INtNtB1O_5error12VerboseErrorBr_EE0B3H_E0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, i8 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
-  tail call void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtBJ_9character8complete6digit1INtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE0INtB3H_5ErrorBp_EEB2W_(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i8 noundef %1)
+define hidden void @_RNCINvXsq_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtB1O_9character8complete6digit1Br_INtNtB1O_5error12VerboseErrorBr_EE0B3H_E0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, i8 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
+  tail call void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCINvNtNtBJ_9character8complete6digit1INtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE0INtB3H_5ErrorBp_EEB2W_(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i8 noundef %1)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNCINvXsq_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB1O_5bytes8complete6is_notReBr_INtNtB1O_5error12VerboseErrorBr_EE00B3H_E0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 {
-  tail call void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtBJ_5bytes8complete6is_notReINtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE00INtB3H_5ErrorBp_EEB2W_(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, i8 noundef %2)
+define hidden void @_RNCINvXsq_Cs4DJqE8qduBp_4poriINtB8_8StatefulINtB8_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtB1O_5bytes8complete6is_notReBr_INtNtB1O_5error12VerboseErrorBr_EE00B3H_E0B12_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 {
+  tail call void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits19InputTakeAtPosition27split_at_position1_completeNCNCINvNtNtBJ_5bytes8complete6is_notReINtB6_8StatefulBp_NtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtBJ_5error12VerboseErrorB2y_EE00INtB3H_5ErrorBp_EEB2W_(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, i8 noundef %2)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNCINvNtB2e_6branch3altBu_B1N_B29_TNCIB2X_Bu_B29_NCINvNtB2e_10combinator3mapBu_Bu_B1N_B29_NCINvNtNtB2e_5bytes8complete3tagReBu_B29_E0NCINvB3Z_8wildcardINvB5k_3eofBu_B29_EE0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_TbBu_EB1N_B29_NCINvB3n_5tupleBu_B7K_B29_TNCIB2X_Bu_B29_NCIB5i_Bu_TbuEbB29_NCIB4w_Bu_B8N_B29_TNCIB81_Bu_B8N_B29_TNCINvB5k_5valueBu_bBu_B29_B5U_E0B3X_EE0NCIB81_Bu_B8N_B29_TNCIB9B_Bu_bBu_B29_NvB3Z_3boeE0B3X_EE0EE0NCB6D_s_0E0bE0NCINvB3n_10terminatedBu_Bu_Bu_B29_B5U_NCIB2X_Bu_B29_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_TuBu_EBu_B29_NCIB81_Bu_BcE_B29_TB3X_B5U_EE0NCB6D_s0_0E0B6T_EE0Bu_E0E0EE0NCB6D_s1_0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_Bu_B1N_B29_NCIBbp_Bu_Bu_Bu_B29_B5U_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_BcE_Bu_B29_NCINvB5k_4peekBu_BcE_B29_NCIB81_Bu_BcE_B29_TNvB3Z_19flags_without_stateNCIB2X_Bu_B29_NCINvB5Z_6is_notB6q_Bu_B29_E0Bu_E0EE0E0NCB6D_s2_0E0B6T_EE0E0NCB6D_s3_0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_Bu_B1N_B29_NCIBbp_Bu_Bu_Bu_B29_B5U_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_BcE_Bu_B29_BfG_NCB6D_s4_0E0B6T_EE0E0NCB6D_s5_0E0B1N_E0EE0E0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNCINvNtB2e_6branch3altBu_B1N_B29_TNCIB2X_Bu_B29_NCINvNtB2e_10combinator3mapBu_Bu_B1N_B29_NCINvNtNtB2e_5bytes8complete3tagReBu_B29_E0NCINvB3Z_8wildcardINvB5k_3eofBu_B29_EE0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_TbBu_EB1N_B29_NCINvB3n_5tupleBu_B7K_B29_TNCIB2X_Bu_B29_NCIB5i_Bu_TbuEbB29_NCIB4w_Bu_B8N_B29_TNCIB81_Bu_B8N_B29_TNCINvB5k_5valueBu_bBu_B29_B5U_E0B3X_EE0NCIB81_Bu_B8N_B29_TNCIB9B_Bu_bBu_B29_NvB3Z_3boeE0B3X_EE0EE0NCB6D_s_0E0bE0NCINvB3n_10terminatedBu_Bu_Bu_B29_B5U_NCIB2X_Bu_B29_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_TuBu_EBu_B29_NCIB81_Bu_BcE_B29_TB3X_B5U_EE0NCB6D_s0_0E0B6T_EE0Bu_E0E0EE0NCB6D_s1_0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_Bu_B1N_B29_NCIBbp_Bu_Bu_Bu_B29_B5U_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_BcE_Bu_B29_NCINvB5k_4peekBu_BcE_B29_NCIB81_Bu_BcE_B29_TNvB3Z_19flags_without_stateNCIB2X_Bu_B29_NCINvB5Z_6is_notB6q_Bu_B29_E0Bu_E0EE0E0NCB6D_s2_0E0B6T_EE0E0NCB6D_s3_0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_Bu_B1N_B29_NCIBbp_Bu_Bu_Bu_B29_B5U_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_BcE_Bu_B29_BfG_NCB6D_s4_0E0B6T_EE0E0NCB6D_s5_0E0B1N_E0EE0E0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx4, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2454,7 +2454,7 @@ define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7Locat
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNCINvNtB2e_6branch3altBu_B1N_B29_TNCIB2X_Bu_B29_NCINvNtB2e_10combinator3mapBu_Bu_B1N_B29_NCINvNtNtB2e_5bytes8complete3tagReBu_B29_E0NCINvB3Z_8wildcardNCNvB3Z_10repetition0E0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_TbBu_EB1N_B29_NCINvB3n_5tupleBu_B7M_B29_TNCIB2X_Bu_B29_NCIB5i_Bu_TbuEbB29_NCIB4w_Bu_B8P_B29_TNCIB83_Bu_B8P_B29_TNCINvB5k_5valueBu_bBu_B29_B5U_E0B3X_EE0NCIB83_Bu_B8P_B29_TNCIB9D_Bu_bBu_B29_NvB3Z_3boeE0B3X_EE0EE0NCB6D_s_0E0bE0NCINvB3n_10terminatedBu_Bu_Bu_B29_B5U_NCIB2X_Bu_B29_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_TuBu_EBu_B29_NCIB83_Bu_BcG_B29_TB3X_B5U_EE0NCB6D_s0_0E0B6T_EE0Bu_E0E0EE0NCB6D_s1_0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_Bu_B1N_B29_NCIBbr_Bu_Bu_Bu_B29_B5U_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_BcG_Bu_B29_NCINvB5k_4peekBu_BcG_B29_NCIB83_Bu_BcG_B29_TNvB3Z_19flags_without_stateNCIB2X_Bu_B29_NCINvB5Z_6is_notB6q_Bu_B29_E0Bu_E0EE0E0NCB6D_s2_0E0B6T_EE0E0NCB6D_s3_0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_Bu_B1N_B29_NCIBbr_Bu_Bu_Bu_B29_B5U_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_BcG_Bu_B29_BfI_NCB6D_s4_0E0B6T_EE0E0NCB6D_s5_0E0B1N_E0EE0E0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNCINvNtB2e_6branch3altBu_B1N_B29_TNCIB2X_Bu_B29_NCINvNtB2e_10combinator3mapBu_Bu_B1N_B29_NCINvNtNtB2e_5bytes8complete3tagReBu_B29_E0NCINvB3Z_8wildcardNCNvB3Z_10repetition0E0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_TbBu_EB1N_B29_NCINvB3n_5tupleBu_B7M_B29_TNCIB2X_Bu_B29_NCIB5i_Bu_TbuEbB29_NCIB4w_Bu_B8P_B29_TNCIB83_Bu_B8P_B29_TNCINvB5k_5valueBu_bBu_B29_B5U_E0B3X_EE0NCIB83_Bu_B8P_B29_TNCIB9D_Bu_bBu_B29_NvB3Z_3boeE0B3X_EE0EE0NCB6D_s_0E0bE0NCINvB3n_10terminatedBu_Bu_Bu_B29_B5U_NCIB2X_Bu_B29_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_TuBu_EBu_B29_NCIB83_Bu_BcG_B29_TB3X_B5U_EE0NCB6D_s0_0E0B6T_EE0Bu_E0E0EE0NCB6D_s1_0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_Bu_B1N_B29_NCIBbr_Bu_Bu_Bu_B29_B5U_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_BcG_Bu_B29_NCINvB5k_4peekBu_BcG_B29_NCIB83_Bu_BcG_B29_TNvB3Z_19flags_without_stateNCIB2X_Bu_B29_NCINvB5Z_6is_notB6q_Bu_B29_E0Bu_E0EE0E0NCB6D_s2_0E0B6T_EE0E0NCB6D_s3_0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_Bu_B1N_B29_NCIBbr_Bu_Bu_Bu_B29_B5U_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_BcG_Bu_B29_BfI_NCB6D_s4_0E0B6T_EE0E0NCB6D_s5_0E0B1N_E0EE0E0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx4, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2475,7 +2475,7 @@ define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7Locat
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNCINvNtB2e_6branch3altBu_B1N_B29_TNCIB2X_Bu_B29_NCINvNtB2e_10combinator3mapBu_Bu_B1N_B29_NCINvNtNtB2e_5bytes8complete3tagReBu_B29_E0NCINvB3Z_8wildcardNCNvB3Z_11alternative0E0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_TbBu_EB1N_B29_NCINvB3n_5tupleBu_B7N_B29_TNCIB2X_Bu_B29_NCIB5i_Bu_TbuEbB29_NCIB4w_Bu_B8Q_B29_TNCIB84_Bu_B8Q_B29_TNCINvB5k_5valueBu_bBu_B29_B5U_E0B3X_EE0NCIB84_Bu_B8Q_B29_TNCIB9E_Bu_bBu_B29_NvB3Z_3boeE0B3X_EE0EE0NCB6D_s_0E0bE0NCINvB3n_10terminatedBu_Bu_Bu_B29_B5U_NCIB2X_Bu_B29_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_TuBu_EBu_B29_NCIB84_Bu_BcH_B29_TB3X_B5U_EE0NCB6D_s0_0E0B6T_EE0Bu_E0E0EE0NCB6D_s1_0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_Bu_B1N_B29_NCIBbs_Bu_Bu_Bu_B29_B5U_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_BcH_Bu_B29_NCINvB5k_4peekBu_BcH_B29_NCIB84_Bu_BcH_B29_TNvB3Z_19flags_without_stateNCIB2X_Bu_B29_NCINvB5Z_6is_notB6q_Bu_B29_E0Bu_E0EE0E0NCB6D_s2_0E0B6T_EE0E0NCB6D_s3_0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_Bu_B1N_B29_NCIBbs_Bu_Bu_Bu_B29_B5U_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_BcH_Bu_B29_BfJ_NCB6D_s4_0E0B6T_EE0E0NCB6D_s5_0E0B1N_E0EE0E0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNCINvNtB2e_6branch3altBu_B1N_B29_TNCIB2X_Bu_B29_NCINvNtB2e_10combinator3mapBu_Bu_B1N_B29_NCINvNtNtB2e_5bytes8complete3tagReBu_B29_E0NCINvB3Z_8wildcardNCNvB3Z_11alternative0E0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_TbBu_EB1N_B29_NCINvB3n_5tupleBu_B7N_B29_TNCIB2X_Bu_B29_NCIB5i_Bu_TbuEbB29_NCIB4w_Bu_B8Q_B29_TNCIB84_Bu_B8Q_B29_TNCINvB5k_5valueBu_bBu_B29_B5U_E0B3X_EE0NCIB84_Bu_B8Q_B29_TNCIB9E_Bu_bBu_B29_NvB3Z_3boeE0B3X_EE0EE0NCB6D_s_0E0bE0NCINvB3n_10terminatedBu_Bu_Bu_B29_B5U_NCIB2X_Bu_B29_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_TuBu_EBu_B29_NCIB84_Bu_BcH_B29_TB3X_B5U_EE0NCB6D_s0_0E0B6T_EE0Bu_E0E0EE0NCB6D_s1_0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_Bu_B1N_B29_NCIBbs_Bu_Bu_Bu_B29_B5U_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_BcH_Bu_B29_NCINvB5k_4peekBu_BcH_B29_NCIB84_Bu_BcH_B29_TNvB3Z_19flags_without_stateNCIB2X_Bu_B29_NCINvB5Z_6is_notB6q_Bu_B29_E0Bu_E0EE0E0NCB6D_s2_0E0B6T_EE0E0NCB6D_s3_0E0B1N_E0NCIB2X_Bu_B29_NCIB5i_Bu_Bu_B1N_B29_NCIBbs_Bu_Bu_Bu_B29_B5U_NCIB4w_Bu_Bu_B29_TNCIB5i_Bu_BcH_Bu_B29_BfJ_NCB6D_s4_0E0B6T_EE0E0NCB6D_s5_0E0B1N_E0EE0E0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx4, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2496,7 +2496,7 @@ define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7Locat
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNvB3Z_10repetitionE0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNvB3Z_10repetitionE0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx4, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2517,7 +2517,7 @@ define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7Locat
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNvB3Z_11alternativeE0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNvB3Z_11alternativeE0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx4, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2538,7 +2538,7 @@ define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7Locat
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNvB3Z_5classE0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNvB3Z_5classE0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx4, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2559,7 +2559,7 @@ define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7Locat
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNvB3Z_7literalE0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNvB3Z_7literalE0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx4, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2580,7 +2580,7 @@ define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7Locat
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNvB3Z_9separatorE0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB13_9TokenKindTjjEEINtNtCsaPKTPzkFU9s_3nom5error12VerboseErrorBu_ENCINvB2c_7contextBu_B29_NCINvNtB2e_8sequence8precededBu_uB1N_B29_NvNvB11_5parse16flags_with_stateNvB3Z_9separatorE0B1N_E0E00B15_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 104)) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx4, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2601,7 +2601,7 @@ define hidden void @_RNCNCINvCs4DJqE8qduBp_4pori4spanINtB6_8StatefulINtB6_7Locat
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define hidden noalias noundef nonnull align 8 ptr @_RNvMNtCs68wO5nsWeTG_5alloc5boxedINtB2_3BoxNtNtCseG2FYMysgNb_3wax4walk9WalkErrorE3newBI_.llvm.8413233830278194149(ptr noalias nocapture noundef align 8 dereferenceable(64) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull align 8 ptr @_RNvMNtCs68wO5nsWeTG_5alloc5boxedINtB2_3BoxNtNtCseG2FYMysgNb_3wax4walk9WalkErrorE3newBI_.llvm.8413233830278194149(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 64, i64 noundef 8) #34
   %4 = icmp eq ptr %3, null
@@ -2635,7 +2635,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax4walk9WalkErr
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { ptr, i64 } @_RNvMs2S_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhE10make_sliceCseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define hidden { ptr, i64 } @_RNvMs2S_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhE10make_sliceCseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
@@ -2648,7 +2648,7 @@ define hidden { ptr, i64 } @_RNvMs2S_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4It
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr noalias noundef align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #1 {
+define hidden void @_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = load i64, ptr %0, align 8, !noundef !4
@@ -2679,7 +2679,7 @@ define hidden void @_RNvXs0_NtNtCs1LoaDTb72WA_4core3ops9try_traitINtB5_17NeverSh
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(64) ptr @_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB1K_4WalkTjjEENCNvNtB1M_4rule8boundary0ENCNCB2C_s_00ENtNtNtB9_6traits8iterator8Iterator4nextB1M_.llvm.8413233830278194149(ptr noalias nocapture noundef align 8 dereferenceable(48) %0) unnamed_addr #1 {
+define hidden noundef align 8 dereferenceable_or_null(64) ptr @_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB1K_4WalkTjjEENCNvNtB1M_4rule8boundary0ENCNCB2C_s_00ENtNtNtB9_6traits8iterator8Iterator4nextB1M_.llvm.8413233830278194149(ptr noalias noundef align 8 captures(none) dereferenceable(48) %0) unnamed_addr #1 {
   %2 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !623)
@@ -2700,7 +2700,7 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
   %5 = load ptr, ptr %4, align 8, !alias.scope !626, !noalias !623, !nonnull !4, !align !149, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8, !alias.scope !626, !noalias !623, !noundef !4
-  call void @_RNvMs3_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_7GroupByNtNtCseG2FYMysgNb_3wax5token8PositionINtBY_4WalkTjjEENCNvNtB10_4rule8boundary0E4stepB10_(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 %5, i64 noundef %7), !noalias !626
+  call void @_RNvMs3_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_7GroupByNtNtCseG2FYMysgNb_3wax5token8PositionINtBY_4WalkTjjEENCNvNtB10_4rule8boundary0E4stepB10_(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull align 8 %5, i64 noundef %7), !noalias !626
   %.pr = load i64, ptr %2, align 8
   %8 = icmp eq i64 %.pr, 2
   br i1 %8, label %10, label %9
@@ -2717,7 +2717,7 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_RNvXs1_NtCs1LoaDTb72WA_4core7convertReINtB5_4IntoINtCs4DJqE8qduBp_4pori7LocatedeEE4intoCseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #8 {
+define hidden void @_RNvXs1_NtCs1LoaDTb72WA_4core7convertReINtB5_4IntoINtCs4DJqE8qduBp_4pori7LocatedeEE4intoCseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #8 {
   store ptr %1, ptr %0, align 8, !alias.scope !629, !noalias !632
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8, !alias.scope !629, !noalias !632
@@ -2727,20 +2727,20 @@ define hidden void @_RNvXs1_NtCs1LoaDTb72WA_4core7convertReINtB5_4IntoINtCs4DJqE
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_RNvXs1_NtNtCs1LoaDTb72WA_4core5clone5implsRNtNtCseG2FYMysgNb_3wax5token5TokenNtB7_5Clone5cloneBJ_.llvm.8413233830278194149(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_RNvXs1_NtNtCs1LoaDTb72WA_4core5clone5implsRNtNtCseG2FYMysgNb_3wax5token5TokenNtB7_5Clone5cloneBJ_.llvm.8413233830278194149(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !149, !noundef !4
   ret ptr %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_RNvXs1_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNCINvNtNtNtBb_4iter8adapters6cloned14clone_try_foldNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuINtNtB9_12control_flow11ControlFlowINtNtB9_9try_trait17NeverShortCircuituEENCINvNvXs_NtBV_4takeINtB3X_4TakepENtNtNtBX_6traits8iterator8Iterator8try_fold5checkB1D_uB39_NCINvMB3c_B39_10wrap_mut_2uB1D_NCINvNvXs_NtBV_9enumerateINtB5W_9EnumeratepEB4l_4fold9enumerateB1D_uNCINvNvB4l_8for_each4callTjB1D_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB7x_8VecDequeB1D_E10write_iterIB48_INtNtBV_12by_ref_sized10ByRefSizedINtBT_6ClonedINtNtB7x_4iter4IterB1D_EEEEE0E0E0E0E0E0INtB7_5FnMutTuRB1D_EE8call_mutB1J_(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
+define noundef zeroext i1 @_RNvXs1_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNCINvNtNtNtBb_4iter8adapters6cloned14clone_try_foldNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuINtNtB9_12control_flow11ControlFlowINtNtB9_9try_trait17NeverShortCircuituEENCINvNvXs_NtBV_4takeINtB3X_4TakepENtNtNtBX_6traits8iterator8Iterator8try_fold5checkB1D_uB39_NCINvMB3c_B39_10wrap_mut_2uB1D_NCINvNvXs_NtBV_9enumerateINtB5W_9EnumeratepEB4l_4fold9enumerateB1D_uNCINvNvB4l_8for_each4callTjB1D_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB7x_8VecDequeB1D_E10write_iterIB48_INtNtBV_12by_ref_sized10ByRefSizedINtBT_6ClonedINtNtB7x_4iter4IterB1D_EEEEE0E0E0E0E0E0INtB7_5FnMutTuRB1D_EE8call_mutB1J_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !149, !noundef !4
   %4 = tail call noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters6cloned14clone_try_foldNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuINtNtNtBa_3ops12control_flow11ControlFlowINtNtB26_9try_trait17NeverShortCircuituEENCINvNvXs_NtB6_4takeINtB3v_4TakepENtNtNtB8_6traits8iterator8Iterator8try_fold5checkB14_uB2G_NCINvMB2J_B2G_10wrap_mut_2uB14_NCINvNvXs_NtB6_9enumerateINtB5u_9EnumeratepEB3T_4fold9enumerateB14_uNCINvNvB3T_8for_each4callTjB14_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB75_8VecDequeB14_E10write_iterIB3G_INtNtB6_12by_ref_sized10ByRefSizedINtB4_6ClonedINtNtB75_4iter4IterB14_EEEEE0E0E0E0E0E0B1a_.llvm.8413233830278194149(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
   ret i1 %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNvXs1_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iterINtB5_4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator9size_hintB1e_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
+define hidden void @_RNvXs1_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iterINtB5_4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator9size_hintB1e_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !634, !nonnull !4, !noundef !4
   %5 = load ptr, ptr %1, align 8, !alias.scope !634, !nonnull !4, !noundef !4
@@ -2771,7 +2771,7 @@ define noundef zeroext i1 @_RNvXs1f_NtCs1LoaDTb72WA_4core3fmtTjjENtB6_5Debug3fmt
   %4 = alloca [8 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @_ZN4core3fmt9Formatter11debug_tuple17h943a653e1ce6fafaE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
+  call void @_ZN4core3fmt9Formatter11debug_tuple17h943a653e1ce6fafaE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -2787,7 +2787,7 @@ define noundef zeroext i1 @_RNvXs1f_NtCs1LoaDTb72WA_4core3fmtTjjENtB6_5Debug3fmt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, ptr } @_RNvXs1j_NtCs68wO5nsWeTG_5alloc5boxedINtB6_3BoxDNtNtCs1LoaDTb72WA_4core5error5ErrorNtNtBN_6marker4SyncNtB1k_4SendEL_EINtNtBN_7convert4FromNtNtCseG2FYMysgNb_3wax4walk9WalkErrorE4fromB2f_(ptr noalias nocapture noundef align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define { ptr, ptr } @_RNvXs1j_NtCs68wO5nsWeTG_5alloc5boxedINtB6_3BoxDNtNtCs1LoaDTb72WA_4core5error5ErrorNtNtBN_6marker4SyncNtB1k_4SendEL_EINtNtBN_7convert4FromNtNtCseG2FYMysgNb_3wax4walk9WalkErrorE4fromB2f_(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !642
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 64, i64 noundef 8) #34, !noalias !642
   %4 = icmp eq ptr %3, null
@@ -2823,7 +2823,7 @@ _RNvMNtCs68wO5nsWeTG_5alloc5boxedINtB2_3BoxNtNtCseG2FYMysgNb_3wax4walk9WalkError
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i8 0, 3) i8 @_RNvXs2_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCsaPKTPzkFU9s_3nom6traits7CompareReE7compareCseG2FYMysgNb_3wax(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef range(i8 0, 3) i8 @_RNvXs2_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCsaPKTPzkFU9s_3nom6traits7CompareReE7compareCseG2FYMysgNb_3wax(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [56 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !645)
   %5 = load ptr, ptr %0, align 8, !alias.scope !645, !noalias !648, !nonnull !4, !align !258, !noundef !4
@@ -2832,7 +2832,7 @@ define noundef range(i8 0, 3) i8 @_RNvXs2_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINt
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !650
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterhEBW_EINtB5_7ZipImplBW_BW_E3newCs5g6BnGVOFtV_12regex_syntax(ptr noalias nocapture noundef nonnull sret([56 x i8]) align 8 dereferenceable(56) %4, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull readonly align 1 %1, ptr noundef nonnull readonly %9), !noalias !654
+  call void @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterhEBW_EINtB5_7ZipImplBW_BW_E3newCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %4, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull readonly align 1 %1, ptr noundef nonnull readonly %9), !noalias !654
   tail call void @llvm.experimental.noalias.scope.decl(metadata !655)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -2877,7 +2877,7 @@ _RNvXsn_NtCsaPKTPzkFU9s_3nom6traitsReINtB5_7CompareBw_E7compare.llvm.84132338302
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNCNvXs0_NtCseG2FYMysgNb_3wax7captureNtBW_9OwnedTextINtNtBb_7convert4FromRNtNtNtCsaz5AFKTGGYY_5regex5regex6string8CapturesE4from0INtB7_6FnOnceTINtNtBb_6option6OptionNtB21_5MatchEEE9call_onceBY_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #9 {
+define void @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNCNvXs0_NtCseG2FYMysgNb_3wax7captureNtBW_9OwnedTextINtNtBb_7convert4FromRNtNtNtCsaz5AFKTGGYY_5regex5regex6string8CapturesE4from0INtB7_6FnOnceTINtNtBb_6option6OptionNtB21_5MatchEEE9call_onceBY_(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #9 {
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %.sroa.0.0.copyload, null
   br i1 %4, label %_RNCNvXs0_NtCseG2FYMysgNb_3wax7captureNtB7_9OwnedTextINtNtCs1LoaDTb72WA_4core7convert4FromRNtNtNtCsaz5AFKTGGYY_5regex5regex6string8CapturesE4from0B9_.llvm.8413233830278194149.exit, label %5
@@ -2900,7 +2900,7 @@ _RNCNvXs0_NtCseG2FYMysgNb_3wax7captureNtB7_9OwnedTextINtNtCs1LoaDTb72WA_4core7co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_RNvXs4_NtCsaPKTPzkFU9s_3nom6traitsReNtB5_6Offset6offset.llvm.8413233830278194149(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #10 {
+define hidden noundef i64 @_RNvXs4_NtCsaPKTPzkFU9s_3nom6traitsReNtB5_6Offset6offset.llvm.8413233830278194149(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #10 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !258, !noundef !4
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !258, !noundef !4
   %5 = ptrtoint ptr %4 to i64
@@ -2910,7 +2910,7 @@ define hidden noundef i64 @_RNvXs4_NtCsaPKTPzkFU9s_3nom6traitsReNtB5_6Offset6off
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, ptr } @_RNvXs4_NtCslyFhtC9DD08_9itertools10tuple_implINtB5_12TupleWindowsINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB7_11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB2i_4WalkTjjEENCNvNtB2k_4rule8boundary0ENCNCB3a_s_00ETRNtB2i_5TokenB3M_EENtNtNtB18_6traits8iterator8Iterator4nextB2k_(ptr noalias nocapture noundef align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define { ptr, ptr } @_RNvXs4_NtCslyFhtC9DD08_9itertools10tuple_implINtB5_12TupleWindowsINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB7_11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB2i_4WalkTjjEENCNvNtB2k_4rule8boundary0ENCNCB3a_s_00ETRNtB2i_5TokenB3M_EENtNtNtB18_6traits8iterator8Iterator4nextB2k_(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -2945,7 +2945,7 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
   %12 = load ptr, ptr %11, align 8, !alias.scope !679, !noalias !674, !nonnull !4, !align !149, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8, !alias.scope !679, !noalias !674, !noundef !4
-  call void @_RNvMs3_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_7GroupByNtNtCseG2FYMysgNb_3wax5token8PositionINtBY_4WalkTjjEENCNvNtB10_4rule8boundary0E4stepB10_(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 %12, i64 noundef %14), !noalias !679
+  call void @_RNvMs3_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_7GroupByNtNtCseG2FYMysgNb_3wax5token8PositionINtBY_4WalkTjjEENCNvNtB10_4rule8boundary0E4stepB10_(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull align 8 %12, i64 noundef %14), !noalias !679
   %.pr.i = load i64, ptr %2, align 8, !noalias !671
   %15 = icmp eq i64 %.pr.i, 2
   br i1 %15, label %_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB1K_4WalkTjjEENCNvNtB1M_4rule8boundary0ENCNCB2C_s_00ENtNtNtB9_6traits8iterator8Iterator4nextB1M_.llvm.8413233830278194149.exit.thread, label %16
@@ -2966,7 +2966,7 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtCslyFhtC9DD08_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXs6_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits10ExtendInto11extend_intoCseG2FYMysgNb_3wax(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define void @_RNvXs6_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits10ExtendInto11extend_intoCseG2FYMysgNb_3wax(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !686)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !689)
   %3 = load ptr, ptr %0, align 8, !alias.scope !686, !noalias !689, !nonnull !4, !align !258, !noundef !4
@@ -2997,7 +2997,7 @@ _RNvXsF_NtCsaPKTPzkFU9s_3nom6traitsReNtB5_10ExtendInto11extend_into.llvm.8413233
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_RNvXs6_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits10ExtendInto11new_builderCseG2FYMysgNb_3wax(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #11 {
+define void @_RNvXs6_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits10ExtendInto11new_builderCseG2FYMysgNb_3wax(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #11 {
   store i64 0, ptr %0, align 8, !alias.scope !698
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !698
@@ -3007,7 +3007,7 @@ define void @_RNvXs6_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #1 {
+define hidden void @_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %1) unnamed_addr #1 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   store i64 2, ptr %1, align 8
   %3 = icmp eq i64 %.sroa.0.0.copyload, 2
@@ -3025,7 +3025,7 @@ define hidden void @_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupN
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !149, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i64, ptr %8, align 8, !noundef !4
-  tail call void @_RNvMs3_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_7GroupByNtNtCseG2FYMysgNb_3wax5token8PositionINtBY_4WalkTjjEENCNvNtB10_4rule8boundary0E4stepB10_(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %7, i64 noundef %9)
+  tail call void @_RNvMs3_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_7GroupByNtNtCseG2FYMysgNb_3wax5token8PositionINtBY_4WalkTjjEENCNvNtB10_4rule8boundary0E4stepB10_(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %7, i64 noundef %9)
   br label %10
 
 10:                                               ; preds = %5, %4
@@ -3033,7 +3033,7 @@ define hidden void @_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_RNvXs8_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCs1LoaDTb72WA_4core7convert4FromReE4fromCseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #11 {
+define hidden void @_RNvXs8_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCs1LoaDTb72WA_4core7convert4FromReE4fromCseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #11 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -3043,7 +3043,7 @@ define hidden void @_RNvXs8_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCs1LoaDTb72W
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { ptr, ptr } @_RNvXs9_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits9InputIter13iter_elementsCseG2FYMysgNb_3wax(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #10 {
+define { ptr, ptr } @_RNvXs9_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits9InputIter13iter_elementsCseG2FYMysgNb_3wax(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #10 {
   %2 = load ptr, ptr %0, align 8, !alias.scope !701, !nonnull !4, !align !258, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !701, !noundef !4
@@ -3054,7 +3054,7 @@ define { ptr, ptr } @_RNvXs9_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNvXsF_NtCsaPKTPzkFU9s_3nom6traitsReNtB5_10ExtendInto11extend_into.llvm.8413233830278194149(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @_RNvXsF_NtCsaPKTPzkFU9s_3nom6traitsReNtB5_10ExtendInto11extend_into.llvm.8413233830278194149(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !258, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -3083,7 +3083,7 @@ _ZN5alloc6string6String8push_str17h394e518918c1ef53E.llvm.8413233830278194149.ex
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_RNvXsF_NtCsaPKTPzkFU9s_3nom6traitsReNtB5_10ExtendInto11new_builder.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #8 {
+define hidden void @_RNvXsF_NtCsaPKTPzkFU9s_3nom6traitsReNtB5_10ExtendInto11new_builder.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #8 {
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
@@ -3093,31 +3093,31 @@ define hidden void @_RNvXsF_NtCsaPKTPzkFU9s_3nom6traitsReNtB5_10ExtendInto11new_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsM_NtCs68wO5nsWeTG_5alloc5boxedINtB5_3BoxDINtNtNtCs1LoaDTb72WA_4core3ops8function2FnuEp6OutputNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheNtNtNtBP_5panic11unwind_safe13RefUnwindSafeNtNtBP_6marker4SyncNtB2r_10UnwindSafeNtB38_4SendEL_EIBJ_uE4callCseG2FYMysgNb_3wax(ptr dead_on_unwind noalias nocapture noundef writable sret([1400 x i8]) align 8 dereferenceable(1400) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 {
+define void @_RNvXsM_NtCs68wO5nsWeTG_5alloc5boxedINtB5_3BoxDINtNtNtCs1LoaDTb72WA_4core3ops8function2FnuEp6OutputNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheNtNtNtBP_5panic11unwind_safe13RefUnwindSafeNtNtBP_6marker4SyncNtB2r_10UnwindSafeNtB38_4SendEL_EIBJ_uE4callCseG2FYMysgNb_3wax(ptr dead_on_unwind noalias noundef writable sret([1400 x i8]) align 8 captures(none) dereferenceable(1400) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !nonnull !4, !align !258, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !149, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8, !invariant.load !4, !nonnull !4
-  tail call void %7(ptr noalias nocapture noundef nonnull sret([1400 x i8]) align 8 dereferenceable(1400) %0, ptr noundef nonnull align 1 %3)
+  tail call void %7(ptr noalias noundef nonnull sret([1400 x i8]) align 8 captures(none) dereferenceable(1400) %0, ptr noundef nonnull align 1 %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRReNtB5_5Debug3fmtCseG2FYMysgNb_3wax(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRReNtB5_5Debug3fmtCseG2FYMysgNb_3wax(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !149, !noundef !4
   %4 = tail call noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtReNtB5_5Debug3fmtCs8gqnHeStjJc_6memchr(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRTjjENtB5_5Debug3fmtCseG2FYMysgNb_3wax(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRTjjENtB5_5Debug3fmtCseG2FYMysgNb_3wax(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = load ptr, ptr %0, align 8, !nonnull !4, !align !149, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !711
-  call void @_ZN4core3fmt9Formatter11debug_tuple17h943a653e1ce6fafaE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0), !noalias !715
+  call void @_ZN4core3fmt9Formatter11debug_tuple17h943a653e1ce6fafaE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0), !noalias !715
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !711
   store ptr %6, ptr %4, align 8, !noalias !711
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !711
@@ -3133,7 +3133,7 @@ define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRTjjENtB5_5Debug3fmt
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_RNvXs_NtCsaPKTPzkFU9s_3nom6traitsReNtB4_11InputLength9input_len.llvm.8413233830278194149(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
+define hidden noundef i64 @_RNvXs_NtCsaPKTPzkFU9s_3nom6traitsReNtB4_11InputLength9input_len.llvm.8413233830278194149(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   ret i64 %3
@@ -3145,7 +3145,7 @@ define hidden void @_RNvXs_NtNtCs1LoaDTb72WA_4core3ops9try_traitINtB4_17NeverSho
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEENtNtNtB8_6traits8iterator8Iterator9size_hintB27_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #14 {
+define void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEENtNtNtB8_6traits8iterator8Iterator9size_hintB27_(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #14 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !716)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !719)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3173,14 +3173,14 @@ define void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_RNvXsa_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits11InputLength9input_lenCseG2FYMysgNb_3wax(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #10 {
+define noundef i64 @_RNvXsa_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits11InputLength9input_lenCseG2FYMysgNb_3wax(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !alias.scope !729, !noundef !4
   ret i64 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNCINvNtB7_6branch3altB11_B2k_B2G_TNCIB3g_B11_B2G_NCINvNtB7_10combinator3mapB11_B11_B2k_B2G_NCINvNtNtB7_5bytes8complete3tagReB11_B2G_E0NCINvB4j_8wildcardINvB5F_3eofB11_B2G_EE0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_TbB11_EB2k_B2G_NCINvB3H_5tupleB11_B89_B2G_TNCIB3g_B11_B2G_NCIB5D_B11_TbuEbB2G_NCIB4Q_B11_B9g_B2G_TNCIB8r_B11_B9g_B2G_TNCINvB5F_5valueB11_bB11_B2G_B6g_E0B4h_EE0NCIB8r_B11_B9g_B2G_TNCIBa6_B11_bB11_B2G_NvB4j_3boeE0B4h_EE0EE0NCB6Z_s_0E0bE0NCINvB3H_10terminatedB11_B11_B11_B2G_B6g_NCIB3g_B11_B2G_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_TuB11_EB11_B2G_NCIB8r_B11_Bdl_B2G_TB4h_B6g_EE0NCB6Z_s0_0E0B7f_EE0B11_E0E0EE0NCB6Z_s1_0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_B11_B2k_B2G_NCIBbZ_B11_B11_B11_B2G_B6g_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_Bdl_B11_B2G_NCINvB5F_4peekB11_Bdl_B2G_NCIB8r_B11_Bdl_B2G_TNvB4j_19flags_without_stateNCIB3g_B11_B2G_NCINvB6l_6is_notB6L_B11_B2G_E0B11_E0EE0E0NCB6Z_s2_0E0B7f_EE0E0NCB6Z_s3_0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_B11_B2k_B2G_NCIBbZ_B11_B11_B11_B2G_B6g_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_Bdl_B11_B2G_BgB_NCB6Z_s4_0E0B7f_EE0E0NCB6Z_s5_0E0B2k_E0EE0E0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(288) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNCINvNtB7_6branch3altB11_B2k_B2G_TNCIB3g_B11_B2G_NCINvNtB7_10combinator3mapB11_B11_B2k_B2G_NCINvNtNtB7_5bytes8complete3tagReB11_B2G_E0NCINvB4j_8wildcardINvB5F_3eofB11_B2G_EE0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_TbB11_EB2k_B2G_NCINvB3H_5tupleB11_B89_B2G_TNCIB3g_B11_B2G_NCIB5D_B11_TbuEbB2G_NCIB4Q_B11_B9g_B2G_TNCIB8r_B11_B9g_B2G_TNCINvB5F_5valueB11_bB11_B2G_B6g_E0B4h_EE0NCIB8r_B11_B9g_B2G_TNCIBa6_B11_bB11_B2G_NvB4j_3boeE0B4h_EE0EE0NCB6Z_s_0E0bE0NCINvB3H_10terminatedB11_B11_B11_B2G_B6g_NCIB3g_B11_B2G_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_TuB11_EB11_B2G_NCIB8r_B11_Bdl_B2G_TB4h_B6g_EE0NCB6Z_s0_0E0B7f_EE0B11_E0E0EE0NCB6Z_s1_0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_B11_B2k_B2G_NCIBbZ_B11_B11_B11_B2G_B6g_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_Bdl_B11_B2G_NCINvB5F_4peekB11_Bdl_B2G_NCIB8r_B11_Bdl_B2G_TNvB4j_19flags_without_stateNCIB3g_B11_B2G_NCINvB6l_6is_notB6L_B11_B2G_E0B11_E0EE0E0NCB6Z_s2_0E0B7f_EE0E0NCB6Z_s3_0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_B11_B2k_B2G_NCIBbZ_B11_B11_B11_B2G_B6g_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_Bdl_B11_B2G_BgB_NCB6Z_s4_0E0B7f_EE0E0NCB6Z_s5_0E0B2k_E0EE0E0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(288) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3194,7 +3194,7 @@ define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !noalias !743
   %.sroa.4.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx1, align 8, !noalias !743
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardINvB4Q_3eofBC_B2b_EE0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7d_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8f_B2b_TNCIB7u_BC_B8f_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7u_BC_B8f_B2b_TNCIB93_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7u_BC_Bc5_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaR_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc5_BC_B2b_NCINvB4Q_4peekBC_Bc5_B2b_NCIB7u_BC_Bc5_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaR_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc5_BC_B2b_Bf6_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !744
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardINvB4Q_3eofBC_B2b_EE0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7d_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8f_B2b_TNCIB7u_BC_B8f_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7u_BC_B8f_B2b_TNCIB93_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7u_BC_Bc5_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaR_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc5_BC_B2b_NCINvB4Q_4peekBC_Bc5_B2b_NCIB7u_BC_Bc5_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaR_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc5_BC_B2b_Bf6_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !744
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !732
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8, !range !344, !noalias !742, !noundef !4
@@ -3231,7 +3231,7 @@ _RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgN
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNCINvNtB7_6branch3altB11_B2k_B2G_TNCIB3g_B11_B2G_NCINvNtB7_10combinator3mapB11_B11_B2k_B2G_NCINvNtNtB7_5bytes8complete3tagReB11_B2G_E0NCINvB4j_8wildcardNCNvB4j_10repetition0E0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_TbB11_EB2k_B2G_NCINvB3H_5tupleB11_B8a_B2G_TNCIB3g_B11_B2G_NCIB5D_B11_TbuEbB2G_NCIB4Q_B11_B9h_B2G_TNCIB8s_B11_B9h_B2G_TNCINvB5F_5valueB11_bB11_B2G_B6g_E0B4h_EE0NCIB8s_B11_B9h_B2G_TNCIBa7_B11_bB11_B2G_NvB4j_3boeE0B4h_EE0EE0NCB6Z_s_0E0bE0NCINvB3H_10terminatedB11_B11_B11_B2G_B6g_NCIB3g_B11_B2G_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_TuB11_EB11_B2G_NCIB8s_B11_Bdm_B2G_TB4h_B6g_EE0NCB6Z_s0_0E0B7f_EE0B11_E0E0EE0NCB6Z_s1_0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_B11_B2k_B2G_NCIBc0_B11_B11_B11_B2G_B6g_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_Bdm_B11_B2G_NCINvB5F_4peekB11_Bdm_B2G_NCIB8s_B11_Bdm_B2G_TNvB4j_19flags_without_stateNCIB3g_B11_B2G_NCINvB6l_6is_notB6L_B11_B2G_E0B11_E0EE0E0NCB6Z_s2_0E0B7f_EE0E0NCB6Z_s3_0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_B11_B2k_B2G_NCIBc0_B11_B11_B11_B2G_B6g_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_Bdm_B11_B2G_BgC_NCB6Z_s4_0E0B7f_EE0E0NCB6Z_s5_0E0B2k_E0EE0E0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(288) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNCINvNtB7_6branch3altB11_B2k_B2G_TNCIB3g_B11_B2G_NCINvNtB7_10combinator3mapB11_B11_B2k_B2G_NCINvNtNtB7_5bytes8complete3tagReB11_B2G_E0NCINvB4j_8wildcardNCNvB4j_10repetition0E0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_TbB11_EB2k_B2G_NCINvB3H_5tupleB11_B8a_B2G_TNCIB3g_B11_B2G_NCIB5D_B11_TbuEbB2G_NCIB4Q_B11_B9h_B2G_TNCIB8s_B11_B9h_B2G_TNCINvB5F_5valueB11_bB11_B2G_B6g_E0B4h_EE0NCIB8s_B11_B9h_B2G_TNCIBa7_B11_bB11_B2G_NvB4j_3boeE0B4h_EE0EE0NCB6Z_s_0E0bE0NCINvB3H_10terminatedB11_B11_B11_B2G_B6g_NCIB3g_B11_B2G_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_TuB11_EB11_B2G_NCIB8s_B11_Bdm_B2G_TB4h_B6g_EE0NCB6Z_s0_0E0B7f_EE0B11_E0E0EE0NCB6Z_s1_0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_B11_B2k_B2G_NCIBc0_B11_B11_B11_B2G_B6g_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_Bdm_B11_B2G_NCINvB5F_4peekB11_Bdm_B2G_NCIB8s_B11_Bdm_B2G_TNvB4j_19flags_without_stateNCIB3g_B11_B2G_NCINvB6l_6is_notB6L_B11_B2G_E0B11_E0EE0E0NCB6Z_s2_0E0B7f_EE0E0NCB6Z_s3_0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_B11_B2k_B2G_NCIBc0_B11_B11_B11_B2G_B6g_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_Bdm_B11_B2G_BgC_NCB6Z_s4_0E0B7f_EE0E0NCB6Z_s5_0E0B2k_E0EE0E0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(288) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3245,7 +3245,7 @@ define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !noalias !757
   %.sroa.4.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx1, align 8, !noalias !757
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardNCNvB3x_10repetition0E0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7f_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8h_B2b_TNCIB7w_BC_B8h_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7w_BC_B8h_B2b_TNCIB95_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7w_BC_Bc7_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaT_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc7_BC_B2b_NCINvB4Q_4peekBC_Bc7_B2b_NCIB7w_BC_Bc7_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaT_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc7_BC_B2b_Bf8_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !758
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardNCNvB3x_10repetition0E0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7f_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8h_B2b_TNCIB7w_BC_B8h_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7w_BC_B8h_B2b_TNCIB95_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7w_BC_Bc7_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaT_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc7_BC_B2b_NCINvB4Q_4peekBC_Bc7_B2b_NCIB7w_BC_Bc7_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaT_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc7_BC_B2b_Bf8_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !758
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !746
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8, !range !344, !noalias !756, !noundef !4
@@ -3282,7 +3282,7 @@ _RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgN
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNCINvNtB7_6branch3altB11_B2k_B2G_TNCIB3g_B11_B2G_NCINvNtB7_10combinator3mapB11_B11_B2k_B2G_NCINvNtNtB7_5bytes8complete3tagReB11_B2G_E0NCINvB4j_8wildcardNCNvB4j_11alternative0E0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_TbB11_EB2k_B2G_NCINvB3H_5tupleB11_B8b_B2G_TNCIB3g_B11_B2G_NCIB5D_B11_TbuEbB2G_NCIB4Q_B11_B9i_B2G_TNCIB8t_B11_B9i_B2G_TNCINvB5F_5valueB11_bB11_B2G_B6g_E0B4h_EE0NCIB8t_B11_B9i_B2G_TNCIBa8_B11_bB11_B2G_NvB4j_3boeE0B4h_EE0EE0NCB6Z_s_0E0bE0NCINvB3H_10terminatedB11_B11_B11_B2G_B6g_NCIB3g_B11_B2G_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_TuB11_EB11_B2G_NCIB8t_B11_Bdn_B2G_TB4h_B6g_EE0NCB6Z_s0_0E0B7f_EE0B11_E0E0EE0NCB6Z_s1_0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_B11_B2k_B2G_NCIBc1_B11_B11_B11_B2G_B6g_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_Bdn_B11_B2G_NCINvB5F_4peekB11_Bdn_B2G_NCIB8t_B11_Bdn_B2G_TNvB4j_19flags_without_stateNCIB3g_B11_B2G_NCINvB6l_6is_notB6L_B11_B2G_E0B11_E0EE0E0NCB6Z_s2_0E0B7f_EE0E0NCB6Z_s3_0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_B11_B2k_B2G_NCIBc1_B11_B11_B11_B2G_B6g_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_Bdn_B11_B2G_BgD_NCB6Z_s4_0E0B7f_EE0E0NCB6Z_s5_0E0B2k_E0EE0E0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(288) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNCINvNtB7_6branch3altB11_B2k_B2G_TNCIB3g_B11_B2G_NCINvNtB7_10combinator3mapB11_B11_B2k_B2G_NCINvNtNtB7_5bytes8complete3tagReB11_B2G_E0NCINvB4j_8wildcardNCNvB4j_11alternative0E0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_TbB11_EB2k_B2G_NCINvB3H_5tupleB11_B8b_B2G_TNCIB3g_B11_B2G_NCIB5D_B11_TbuEbB2G_NCIB4Q_B11_B9i_B2G_TNCIB8t_B11_B9i_B2G_TNCINvB5F_5valueB11_bB11_B2G_B6g_E0B4h_EE0NCIB8t_B11_B9i_B2G_TNCIBa8_B11_bB11_B2G_NvB4j_3boeE0B4h_EE0EE0NCB6Z_s_0E0bE0NCINvB3H_10terminatedB11_B11_B11_B2G_B6g_NCIB3g_B11_B2G_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_TuB11_EB11_B2G_NCIB8t_B11_Bdn_B2G_TB4h_B6g_EE0NCB6Z_s0_0E0B7f_EE0B11_E0E0EE0NCB6Z_s1_0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_B11_B2k_B2G_NCIBc1_B11_B11_B11_B2G_B6g_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_Bdn_B11_B2G_NCINvB5F_4peekB11_Bdn_B2G_NCIB8t_B11_Bdn_B2G_TNvB4j_19flags_without_stateNCIB3g_B11_B2G_NCINvB6l_6is_notB6L_B11_B2G_E0B11_E0EE0E0NCB6Z_s2_0E0B7f_EE0E0NCB6Z_s3_0E0B2k_E0NCIB3g_B11_B2G_NCIB5D_B11_B11_B2k_B2G_NCIBc1_B11_B11_B11_B2G_B6g_NCIB4Q_B11_B11_B2G_TNCIB5D_B11_Bdn_B11_B2G_BgD_NCB6Z_s4_0E0B7f_EE0E0NCB6Z_s5_0E0B2k_E0EE0E0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(288) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3296,7 +3296,7 @@ define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !noalias !771
   %.sroa.4.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx1, align 8, !noalias !771
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardNCNvB3x_11alternative0E0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7g_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8i_B2b_TNCIB7x_BC_B8i_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7x_BC_B8i_B2b_TNCIB96_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7x_BC_Bc8_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaU_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc8_BC_B2b_NCINvB4Q_4peekBC_Bc8_B2b_NCIB7x_BC_Bc8_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaU_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc8_BC_B2b_Bf9_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !772
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardNCNvB3x_11alternative0E0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7g_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8i_B2b_TNCIB7x_BC_B8i_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7x_BC_B8i_B2b_TNCIB96_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7x_BC_Bc8_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaU_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc8_BC_B2b_NCINvB4Q_4peekBC_Bc8_B2b_NCIB7x_BC_Bc8_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaU_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc8_BC_B2b_Bf9_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(288) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !772
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !760
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8, !range !344, !noalias !770, !noundef !4
@@ -3333,7 +3333,7 @@ _RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgN
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNvB4j_10repetitionE0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNvB4j_10repetitionE0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3347,7 +3347,7 @@ define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !noalias !785
   %.sroa.4.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx1, align 8, !noalias !785
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_10repetitionE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !786
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_10repetitionE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !786
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !774
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8, !range !344, !noalias !784, !noundef !4
@@ -3384,7 +3384,7 @@ _RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgN
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNvB4j_11alternativeE0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNvB4j_11alternativeE0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3398,7 +3398,7 @@ define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !noalias !799
   %.sroa.4.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx1, align 8, !noalias !799
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_11alternativeE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !800
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_11alternativeE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !800
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !788
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8, !range !344, !noalias !798, !noundef !4
@@ -3435,7 +3435,7 @@ _RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgN
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNvB4j_5classE0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNvB4j_5classE0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3449,7 +3449,7 @@ define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !noalias !813
   %.sroa.4.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx1, align 8, !noalias !813
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_5classE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !814
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_5classE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !814
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !802
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8, !range !344, !noalias !812, !noundef !4
@@ -3486,7 +3486,7 @@ _RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgN
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNvB4j_7literalE0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNvB4j_7literalE0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3500,7 +3500,7 @@ define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !noalias !827
   %.sroa.4.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx1, align 8, !noalias !827
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_7literalE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !828
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_7literalE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !828
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !816
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8, !range !344, !noalias !826, !noundef !4
@@ -3537,7 +3537,7 @@ _RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgN
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNvB4j_9separatorE0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanINtBD_8StatefulINtBD_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB1A_9TokenKindTjjEEINtNtB7_5error12VerboseErrorB11_ENCINvB2J_7contextB11_B2G_NCINvNtB7_8sequence8precededB11_uB2k_B2G_NvNvB1y_5parse16flags_with_stateNvB4j_9separatorE0B2k_E0E0INtB5_6ParserB11_TB2B_B2k_EB2G_E5parseB1C_(ptr dead_on_unwind noalias noundef writable writeonly sret([104 x i8]) align 8 captures(none) dereferenceable(104) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3551,7 +3551,7 @@ define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvCs4DJqE8qduBp_4pori4spanI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !noalias !841
   %.sroa.4.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx1, align 8, !noalias !841
-  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_9separatorE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !842
+  call void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_9separatorE0B35_E0B1t_.llvm.7487603102172960304(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !842
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !830
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8, !range !344, !noalias !840, !noundef !4
@@ -3588,7 +3588,7 @@ _RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7LocatedeENtNtNtCseG2FYMysgN
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsb_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits9InputTake10take_splitCseG2FYMysgNb_3wax(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #0 {
+define void @_RNvXsb_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits9InputTake10take_splitCseG2FYMysgNb_3wax(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @_RNvXs24_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2), !noalias !844
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
@@ -3624,14 +3624,14 @@ define void @_RNvXsb_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_RNvXsd_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtB5_8Location8locationCseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #10 {
+define hidden noundef i64 @_RNvXsd_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtB5_8Location8locationCseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !4
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_RNvXse_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits6Offset6offsetCseG2FYMysgNb_3wax(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #10 {
+define noundef i64 @_RNvXse_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits6Offset6offsetCseG2FYMysgNb_3wax(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3641,7 +3641,7 @@ define noundef i64 @_RNvXse_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsf_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCsaPKTPzkFU9s_3nom6traits5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5sliceCseG2FYMysgNb_3wax(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #0 {
+define void @_RNvXsf_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCsaPKTPzkFU9s_3nom6traits5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5sliceCseG2FYMysgNb_3wax(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef %2)
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
@@ -3663,7 +3663,7 @@ define void @_RNvXsf_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCsaPKTPzkFU9s_3nom6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsf_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCsaPKTPzkFU9s_3nom6traits5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5sliceCseG2FYMysgNb_3wax(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #0 {
+define void @_RNvXsf_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCsaPKTPzkFU9s_3nom6traits5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5sliceCseG2FYMysgNb_3wax(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @_RNvXs24_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef %2)
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
@@ -3685,7 +3685,7 @@ define void @_RNvXsf_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCsaPKTPzkFU9s_3nom6
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { ptr, ptr } @_RNvXsf_NtCsaPKTPzkFU9s_3nom6traitsReNtB5_9InputIter13iter_elements.llvm.8413233830278194149(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
+define hidden { ptr, ptr } @_RNvXsf_NtCsaPKTPzkFU9s_3nom6traitsReNtB5_9InputIter13iter_elements.llvm.8413233830278194149(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !258, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
@@ -3696,7 +3696,7 @@ define hidden { ptr, ptr } @_RNvXsf_NtCsaPKTPzkFU9s_3nom6traitsReNtB5_9InputIter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i8 0, 3) i8 @_RNvXsj_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtCsaPKTPzkFU9s_3nom6traits7CompareReE7compareBZ_(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef range(i8 0, 3) i8 @_RNvXsj_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtCsaPKTPzkFU9s_3nom6traits7CompareReE7compareBZ_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [56 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !867)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !870)
@@ -3706,7 +3706,7 @@ define noundef range(i8 0, 3) i8 @_RNvXsj_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !877
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterhEBW_EINtB5_7ZipImplBW_BW_E3newCs5g6BnGVOFtV_12regex_syntax(ptr noalias nocapture noundef nonnull sret([56 x i8]) align 8 dereferenceable(56) %4, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull readonly align 1 %1, ptr noundef nonnull readonly %9), !noalias !881
+  call void @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterhEBW_EINtB5_7ZipImplBW_BW_E3newCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %4, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull readonly align 1 %1, ptr noundef nonnull readonly %9), !noalias !881
   tail call void @llvm.experimental.noalias.scope.decl(metadata !882)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -3751,7 +3751,7 @@ _RNvXs2_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCsaPKTPzkFU9s_3nom6traits7Compar
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define hidden noundef range(i8 0, 3) i8 @_RNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB5_7CompareBw_E7compare.llvm.8413233830278194149(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @_RNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB5_7CompareBw_E7compare.llvm.8413233830278194149(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca [56 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !258, !noundef !4
@@ -3759,7 +3759,7 @@ define hidden noundef range(i8 0, 3) i8 @_RNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShI
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterhEBW_EINtB5_7ZipImplBW_BW_E3newCs5g6BnGVOFtV_12regex_syntax(ptr noalias nocapture noundef nonnull sret([56 x i8]) align 8 dereferenceable(56) %4, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %9)
+  call void @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterhEBW_EINtB5_7ZipImplBW_BW_E3newCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %4, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !893)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -3804,7 +3804,7 @@ _RINvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3zip3ZipINtNtNtBc_5slice4iter4It
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsm_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits10ExtendInto11extend_intoBZ_(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define void @_RNvXsm_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits10ExtendInto11extend_intoBZ_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !904)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !907)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !909)
@@ -3837,7 +3837,7 @@ _RNvXs6_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6traits10Extend
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_RNvXsm_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits10ExtendInto11new_builderBZ_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #11 {
+define void @_RNvXsm_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits10ExtendInto11new_builderBZ_(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #11 {
   store i64 0, ptr %0, align 8, !alias.scope !923
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !923
@@ -3847,7 +3847,7 @@ define void @_RNvXsm_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCse
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { ptr, ptr } @_RNvXsn_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits9InputIter13iter_elementsBZ_(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define { ptr, ptr } @_RNvXsn_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits9InputIter13iter_elementsBZ_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #10 {
   %2 = load ptr, ptr %0, align 8, !alias.scope !928, !nonnull !4, !align !258, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !928, !noundef !4
@@ -3858,7 +3858,7 @@ define { ptr, ptr } @_RNvXsn_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeEN
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define hidden noundef range(i8 0, 3) i8 @_RNvXsn_NtCsaPKTPzkFU9s_3nom6traitsReINtB5_7CompareBw_E7compare.llvm.8413233830278194149(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @_RNvXsn_NtCsaPKTPzkFU9s_3nom6traitsReINtB5_7CompareBw_E7compare.llvm.8413233830278194149(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca [56 x i8], align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !258, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3866,7 +3866,7 @@ define hidden noundef range(i8 0, 3) i8 @_RNvXsn_NtCsaPKTPzkFU9s_3nom6traitsReIN
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !933
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = getelementptr inbounds i8, ptr %1, i64 %2
-  call void @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterhEBW_EINtB5_7ZipImplBW_BW_E3newCs5g6BnGVOFtV_12regex_syntax(ptr noalias nocapture noundef nonnull sret([56 x i8]) align 8 dereferenceable(56) %4, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull readonly align 1 %1, ptr noundef nonnull readonly %9), !noalias !937
+  call void @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterhEBW_EINtB5_7ZipImplBW_BW_E3newCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %4, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull readonly align 1 %1, ptr noundef nonnull readonly %9), !noalias !937
   tail call void @llvm.experimental.noalias.scope.decl(metadata !938)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -3911,14 +3911,14 @@ _RNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB5_7CompareBw_E7compare.llvm.8413233830
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_RNvXso_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits11InputLength9input_lenBZ_(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define noundef i64 @_RNvXso_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits11InputLength9input_lenBZ_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !alias.scope !949, !noundef !4
   ret i64 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXsp_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits9InputTake10take_splitBZ_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) initializes((0, 33), (40, 73)) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvXsp_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits9InputTake10take_splitBZ_(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) initializes((0, 33), (40, 73)) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = tail call { ptr, i64 } @_RNvXs24_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2), !noalias !954
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
@@ -3971,14 +3971,14 @@ define hidden noundef i64 @_RNvXsp_NtCslyFhtC9DD08_9itertools10tuple_implTRNtNtC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_RNvXsr_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtB5_8Location8locationBZ_(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define noundef i64 @_RNvXsr_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtB5_8Location8locationBZ_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !alias.scope !973, !noundef !4
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define noundef i64 @_RNvXss_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits6Offset6offsetBZ_(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #16 {
+define noundef i64 @_RNvXss_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateENtNtCsaPKTPzkFU9s_3nom6traits6Offset6offsetBZ_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #16 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !976)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !979)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3990,7 +3990,7 @@ define noundef i64 @_RNvXss_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXst_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtCsaPKTPzkFU9s_3nom6traits5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5sliceBZ_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 33)) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvXst_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtNtCsaPKTPzkFU9s_3nom6traits5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5sliceBZ_(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) initializes((0, 33)) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = tail call { ptr, i64 } @_RNvXs24_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2), !noalias !981
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
@@ -4020,7 +4020,7 @@ define void @_RNvXst_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCse
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters7flatten7FlattenINtNtB7_10take_while9TakeWhileINtNtB7_3map3MapINtNtCslyFhtC9DD08_9itertools8adaptors8BatchingINtNtB7_8peekable8PeekableIB2u_INtNtNtBb_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENCINvB3q_10componentsTjjEB2T_E0ENCINvNtB3q_8variance21invariant_text_prefixB4k_B2Y_Es_0ENvMNtBb_6optionINtB5s_6OptionNtNtCs68wO5nsWeTG_5alloc6string6StringE7is_someEENtB1N_9Itertools4joinB3s_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters7flatten7FlattenINtNtB7_10take_while9TakeWhileINtNtB7_3map3MapINtNtCslyFhtC9DD08_9itertools8adaptors8BatchingINtNtB7_8peekable8PeekableIB2u_INtNtNtBb_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENCINvB3q_10componentsTjjEB2T_E0ENCINvNtB3q_8variance21invariant_text_prefixB4k_B2Y_Es_0ENvMNtBb_6optionINtB5s_6OptionNtNtCs68wO5nsWeTG_5alloc6string6StringE7is_someEENtB1N_9Itertools4joinB3s_(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
@@ -4183,7 +4183,7 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools8adaptorsINtB5_8BatchingINtNtNtNtCs1LoaDTb72WA
   store i64 1, ptr %12, align 8, !alias.scope !1066, !noalias !1069
   store ptr %.sroa.06.13.i.i.i.i.i.i.i.i.i, ptr %30, align 8, !alias.scope !1066, !noalias !1069
   store ptr %1, ptr %31, align 8, !alias.scope !1066, !noalias !1069
-  call void @_RNvXNtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB4_3VecRNtNtCseG2FYMysgNb_3wax5token5TokenEINtB2_18SpecFromIterNestedB11_INtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtB2e_6option8IntoIterB11_EINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB2a_8peekable8PeekableIB4x_INtNtNtB2e_5slice4iter4IterB12_EEENCNCNCINvB14_10componentsTjjEB4X_E000EEE9from_iterB16_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12), !noalias !1037
+  call void @_RNvXNtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB4_3VecRNtNtCseG2FYMysgNb_3wax5token5TokenEINtB2_18SpecFromIterNestedB11_INtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtB2e_6option8IntoIterB11_EINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB2a_8peekable8PeekableIB4x_INtNtNtB2e_5slice4iter4IterB12_EEENCNCNCINvB14_10componentsTjjEB4X_E000EEE9from_iterB16_(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12), !noalias !1037
   %.sroa.0.0.copyload1.pr.i.i.i.i.i.i.i = load i64, ptr %13, align 8, !noalias !1059
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !1048
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx2.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !1059
@@ -4200,7 +4200,7 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtCslyFhtC9DD08_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !1072
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.45.0..sroa_idx.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !1072
   store i64 %.sroa.0.0.copyload110.i.i.i.i.i.i.i, ptr %11, align 8, !noalias !1073
-  call void @_RNCINvNtNtCseG2FYMysgNb_3wax5token8variance21invariant_text_prefixTjjEINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtB6_5TokenEEs_0B8_.llvm.5393772610634076635(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 1 %25, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11), !noalias !1021
+  call void @_RNCINvNtNtCseG2FYMysgNb_3wax5token8variance21invariant_text_prefixTjjEINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtB6_5TokenEEs_0B8_.llvm.5393772610634076635(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 1 %25, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11), !noalias !1021
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1072
   %.pr.i.i.i.i.i.i = load i64, ptr %14, align 8, !noalias !1026
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i.i.i.i.i.i.i)
@@ -4262,7 +4262,7 @@ _RNvXs8_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4fuseINtB5_4FuseINtNtB7_10take_wh
   store i64 %.pr.i.i.i.i.i.i, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
-  invoke void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate_inCs5g6BnGVOFtV_12regex_syntax(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %16, i64 noundef 0, i1 noundef zeroext false)
+  invoke void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate_inCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, i64 noundef 0, i1 noundef zeroext false)
           to label %79 unwind label %76
 
 79:                                               ; preds = %78
@@ -4295,7 +4295,7 @@ _RNvXs8_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4fuseINtB5_4FuseINtNtB7_10take_wh
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !1084
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !1084
-  %86 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.5a434f28bf8ce2e78fede9c78811777f.12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
+  %86 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.5a434f28bf8ce2e78fede9c78811777f.12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
           to label %_RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCseG2FYMysgNb_3wax.exit unwind label %.loopexit.split-lp
 
 87:                                               ; preds = %79
@@ -4361,7 +4361,7 @@ _RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6st
   store ptr %25, ptr %99, align 8, !noalias !1114
   call void @llvm.experimental.noalias.scope.decl(metadata !1119)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !1122
-  invoke void @_RNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjEINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBT_5slice4iter4IterNtB4_5TokenEEE0B6_.llvm.11100904734654111133(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 1 %25, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  invoke void @_RNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjEINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBT_5slice4iter4IterNtB4_5TokenEEE0B6_.llvm.11100904734654111133(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 1 %25, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
           to label %.noexc13 unwind label %.loopexit.split-lp
 
 .noexc13:                                         ; preds = %97
@@ -4375,12 +4375,12 @@ _RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6st
   call void @llvm.experimental.noalias.scope.decl(metadata !1128)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1124
   %101 = load ptr, ptr %99, align 8, !alias.scope !1129, !noalias !1130, !nonnull !4, !align !258, !noundef !4
-  invoke void @_RNCINvNtNtCseG2FYMysgNb_3wax5token8variance21invariant_text_prefixTjjEINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtB6_5TokenEEs_0B8_.llvm.11100904734654111133(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 1 %101, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
+  invoke void @_RNCINvNtNtCseG2FYMysgNb_3wax5token8variance21invariant_text_prefixTjjEINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtB6_5TokenEEs_0B8_.llvm.11100904734654111133(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 1 %101, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
           to label %.noexc14 unwind label %.loopexit
 
 .noexc14:                                         ; preds = %.lr.ph.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1124
-  %102 = invoke noundef zeroext i1 @_RNCINvNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters10take_whileINtBa_9TakeWhileppENtNtNtBe_6traits8iterator8Iterator8try_fold5checkINtNtBg_6option6OptionNtNtCs68wO5nsWeTG_5alloc6string6StringEuINtNtNtBg_3ops9try_trait17NeverShortCircuituENvMB28_B25_7is_someNCINvNtBc_7flatten15try_flatten_oneB25_uB35_NCINvMB38_B35_10wrap_mut_2uB2r_NCINvNvB1i_8for_each4callB2r_NCNvYINtB4c_7FlattenIB10_INtNtBc_3map3MapINtNtCslyFhtC9DD08_9itertools8adaptors8BatchingINtNtBc_8peekable8PeekableIB7e_INtNtNtBg_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENCINvB8a_10componentsTjjEB7D_E0ENCINvNtB8a_8variance21invariant_text_prefixB94_B7I_Es_0EB3O_EENtB6x_9Itertools4join0E0E0E0E0B8c_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(40) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
+  %102 = invoke noundef zeroext i1 @_RNCINvNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters10take_whileINtBa_9TakeWhileppENtNtNtBe_6traits8iterator8Iterator8try_fold5checkINtNtBg_6option6OptionNtNtCs68wO5nsWeTG_5alloc6string6StringEuINtNtNtBg_3ops9try_trait17NeverShortCircuituENvMB28_B25_7is_someNCINvNtBc_7flatten15try_flatten_oneB25_uB35_NCINvMB38_B35_10wrap_mut_2uB2r_NCINvNvB1i_8for_each4callB2r_NCNvYINtB4c_7FlattenIB10_INtNtBc_3map3MapINtNtCslyFhtC9DD08_9itertools8adaptors8BatchingINtNtBc_8peekable8PeekableIB7e_INtNtNtBg_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENCINvB8a_10componentsTjjEB7D_E0ENCINvNtB8a_8variance21invariant_text_prefixB94_B7I_Es_0EB3O_EENtB6x_9Itertools4join0E0E0E0E0B8c_.llvm.11100904734654111133(ptr noalias noundef nonnull align 8 dereferenceable(40) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
           to label %.noexc15 unwind label %.loopexit
 
 .noexc15:                                         ; preds = %.noexc14
@@ -4390,7 +4390,7 @@ _RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6st
 
 103:                                              ; preds = %.noexc15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !1122
-  invoke void @_RNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjEINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBT_5slice4iter4IterNtB4_5TokenEEE0B6_.llvm.11100904734654111133(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 1 %25, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+  invoke void @_RNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjEINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBT_5slice4iter4IterNtB4_5TokenEEE0B6_.llvm.11100904734654111133(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 1 %25, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
           to label %.noexc16 unwind label %.loopexit
 
 .noexc16:                                         ; preds = %103
@@ -4448,22 +4448,22 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden { ptr, i64 } @_RNvYNtNtCseG2FYMysgNb_3wax4walk9WalkErrorNtNtCs1LoaDTb72WA_4core5error5Error11descriptionB6_.llvm.8413233830278194149(ptr noalias nocapture readonly align 8 %0) unnamed_addr #15 {
+define hidden { ptr, i64 } @_RNvYNtNtCseG2FYMysgNb_3wax4walk9WalkErrorNtNtCs1LoaDTb72WA_4core5error5Error11descriptionB6_.llvm.8413233830278194149(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #15 {
   ret { ptr, i64 } { ptr @anon.5a434f28bf8ce2e78fede9c78811777f.16, i64 40 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden { ptr, ptr } @_RNvYNtNtCseG2FYMysgNb_3wax4walk9WalkErrorNtNtCs1LoaDTb72WA_4core5error5Error6sourceB6_.llvm.8413233830278194149(ptr noalias nocapture readonly align 8 %0) unnamed_addr #15 {
+define hidden { ptr, ptr } @_RNvYNtNtCseG2FYMysgNb_3wax4walk9WalkErrorNtNtCs1LoaDTb72WA_4core5error5Error6sourceB6_.llvm.8413233830278194149(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #15 {
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @_RNvYNtNtCseG2FYMysgNb_3wax4walk9WalkErrorNtNtCs1LoaDTb72WA_4core5error5Error7provideB6_.llvm.8413233830278194149(ptr noalias nocapture readonly align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noalias nocapture readonly align 8 %2) unnamed_addr #15 {
+define hidden void @_RNvYNtNtCseG2FYMysgNb_3wax4walk9WalkErrorNtNtCs1LoaDTb72WA_4core5error5Error7provideB6_.llvm.8413233830278194149(ptr noalias readonly align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noalias readonly align 8 captures(none) %2) unnamed_addr #15 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { ptr, ptr } @_RNvYTRNtNtCseG2FYMysgNb_3wax5token5TokenB3_ENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneB8_.llvm.8413233830278194149(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_RNvYTRNtNtCseG2FYMysgNb_3wax5token5TokenB3_ENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneB8_.llvm.8413233830278194149(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !1131, !nonnull !4, !align !149, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1134, !nonnull !4, !align !149, !noundef !4
@@ -4511,7 +4511,7 @@ define hidden { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17h0e97992
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h3eae6e4e67609a68E"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal noundef zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h3eae6e4e67609a68E"(ptr noalias nonnull readonly align 1 captures(none) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hdb8bda1f756875eeE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.5a434f28bf8ce2e78fede9c78811777f.26, i64 noundef 5)
   ret i1 %3
 }
@@ -4633,7 +4633,7 @@ _ZN5alloc6string6String4push17h2eefef5338b5c74cE.exit: ; preds = %_RNvMs_NtCs68w
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h055051e5d139fe2aE"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h055051e5d139fe2aE"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1149, !noalias !1154, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !1149, !noalias !1154, !noundef !4
@@ -4690,7 +4690,7 @@ _ZN5alloc5alloc6Global10alloc_impl17hbeba4d10f82f4783E.llvm.8413233830278194149.
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hbeba4d10f82f4783E.llvm.8413233830278194149(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #17 {
+define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hbeba4d10f82f4783E.llvm.8413233830278194149(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #17 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %6, label %10
 
@@ -4727,7 +4727,7 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hbeba4d10f82f478
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN5alloc6string6String8push_str17h394e518918c1ef53E.llvm.8413233830278194149(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define hidden void @_ZN5alloc6string6String8push_str17h394e518918c1ef53E.llvm.8413233830278194149(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1156, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !1156, !noundef !4
@@ -4753,7 +4753,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCseG2FYMysgNb_3wax
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h4ef59da2ce0d282aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h4ef59da2ce0d282aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4763,7 +4763,7 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNCNvXs0_NtCseG2FYMysgNb_3wax7captureNtB7_9OwnedTextINtNtCs1LoaDTb72WA_4core7convert4FromRNtNtNtCsaz5AFKTGGYY_5regex5regex6string8CapturesE4from0B9_.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #3 {
+define hidden void @_RNCNvXs0_NtCseG2FYMysgNb_3wax7captureNtB7_9OwnedTextINtNtCs1LoaDTb72WA_4core7convert4FromRNtNtNtCsaz5AFKTGGYY_5regex5regex6string8CapturesE4from0B9_.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #3 {
   %4 = load ptr, ptr %2, align 8, !noundef !4
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6
@@ -4786,7 +4786,7 @@ define hidden void @_RNCNvXs0_NtCseG2FYMysgNb_3wax7captureNtB7_9OwnedTextINtNtCs
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i64, i1 } @_RNvXsa_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_11ParserStateNtNtCs1LoaDTb72WA_4core5clone5Clone5clone.llvm.8413233830278194149(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
+define hidden { i64, i1 } @_RNvXsa_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_11ParserStateNtNtCs1LoaDTb72WA_4core5clone5Clone5clone.llvm.8413233830278194149(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #12 {
   %2 = load i64, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8, !range !13, !noundef !4
@@ -4797,7 +4797,7 @@ define hidden { i64, i1 } @_RNvXsa_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_11Pars
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_RNvXsE_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_17InvariantFragmentNtNtCs1LoaDTb72WA_4core5clone5Clone5clone.llvm.8413233830278194149(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @_RNvXsE_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_17InvariantFragmentNtNtCs1LoaDTb72WA_4core5clone5Clone5clone.llvm.8413233830278194149(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %1, align 8, !range !531, !noundef !4
@@ -4817,7 +4817,7 @@ define hidden void @_RNvXsE_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_17Invarian
 
 14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1164
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate_inCs5g6BnGVOFtV_12regex_syntax(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, i64 noundef %13, i1 noundef zeroext false), !noalias !1164
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate_inCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %13, i1 noundef zeroext false), !noalias !1164
   %15 = load i64, ptr %4, align 8, !range !531, !noalias !1164, !noundef !4
   %trunc.i.i.i = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4846,7 +4846,7 @@ define hidden void @_RNvXsE_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_17Invarian
 
 27:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1177
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate_inCs5g6BnGVOFtV_12regex_syntax(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, i64 noundef %26, i1 noundef zeroext false), !noalias !1177
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate_inCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %26, i1 noundef zeroext false), !noalias !1177
   %28 = load i64, ptr %3, align 8, !range !531, !noalias !1177, !noundef !4
   %trunc.i.i.i1 = trunc nuw i64 %28 to i1
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4892,7 +4892,7 @@ define hidden noundef zeroext i1 @_RNvXsq_NtCseG2FYMysgNb_3wax4walkNtB5_9WalkErr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: nounwind nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #19
@@ -4907,7 +4907,7 @@ declare void @llvm.assume(i1 noundef) #21
 declare void @_ZN5alloc5alloc18handle_alloc_error17haae8a1acffa1c90cE(i64 noundef, i64 noundef) unnamed_addr #22
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterhEBW_EINtB5_7ZipImplBW_BW_E3newCs5g6BnGVOFtV_12regex_syntax(ptr dead_on_unwind noalias nocapture noundef writable sret([56 x i8]) align 8 dereferenceable(56), ptr noundef nonnull, ptr noundef, ptr noundef nonnull, ptr noundef) unnamed_addr #0
+declare void @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterhEBW_EINtB5_7ZipImplBW_BW_E3newCs5g6BnGVOFtV_12regex_syntax(ptr dead_on_unwind noalias noundef writable sret([56 x i8]) align 8 captures(none) dereferenceable(56), ptr noundef nonnull, ptr noundef, ptr noundef nonnull, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #23
@@ -4922,7 +4922,7 @@ declare void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve2
 declare void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN4core3fmt9Formatter11debug_tuple17h943a653e1ce6fafaE(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare void @_ZN4core3fmt9Formatter11debug_tuple17h943a653e1ce6fafaE(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRjNtB5_5Debug3fmtCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
@@ -4946,10 +4946,10 @@ declare { ptr, ptr } @_RNvYNtNtCseG2FYMysgNb_3wax4walk9WalkErrorNtNtCs1LoaDTb72W
 declare noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtReNtB5_5Debug3fmtCs8gqnHeStjJc_6memchr(ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @_RNvYNtNtCs68wO5nsWeTG_5alloc6string6StringNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #0
+declare noundef zeroext i1 @_RNvYNtNtCs68wO5nsWeTG_5alloc6string6StringNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(48), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #0
+declare noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(48), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef readonly align 8 dereferenceable(16), i64 noundef) unnamed_addr #0
@@ -4958,7 +4958,7 @@ declare { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtC
 declare { ptr, i64 } @_RNvXs24_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5slice(ptr noalias noundef readonly align 8 dereferenceable(16), i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate_inCs5g6BnGVOFtV_12regex_syntax(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), i64 noundef, i1 noundef zeroext) unnamed_addr #0
+declare void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate_inCs5g6BnGVOFtV_12regex_syntax(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), i64 noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN5alloc7raw_vec12handle_error17had94eb94ada9491aE(i64 noundef, i64) unnamed_addr #22
@@ -4997,10 +4997,10 @@ declare noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCseG2FYMysgNb_
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h21c4b4256b66f6a9E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #29
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #29
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #29
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECseG2FYMysgNb_3wax(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
@@ -5069,16 +5069,16 @@ declare void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3
 declare hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtBb_4iter6traits8iterator8Iterator4folduQNCINvNtNtB1T_8adapters3map8map_foldRBQ_BQ_uNvYBQ_NtNtBb_5clone5Clone5cloneNCINvNvXs_NtB2G_9enumerateINtB3V_9EnumeratepEB1N_4fold9enumerateBQ_uNCINvNvB1N_8for_each4callTjBQ_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5v_8VecDequeBQ_E10write_iterINtNtB2G_6cloned6ClonedINtNtB5v_4iter4IterBQ_EEE0E0E0E0EBW_.llvm.4870895441494037529(ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_RNvMs3_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_7GroupByNtNtCseG2FYMysgNb_3wax5token8PositionINtBY_4WalkTjjEENCNvNtB10_4rule8boundary0E4stepB10_(ptr dead_on_unwind noalias nocapture noundef writable sret([32 x i8]) align 8 dereferenceable(32), ptr noundef nonnull align 8, i64 noundef) unnamed_addr #0
+declare void @_RNvMs3_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_7GroupByNtNtCseG2FYMysgNb_3wax5token8PositionINtBY_4WalkTjjEENCNvNtB10_4rule8boundary0E4stepB10_(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), ptr noundef nonnull align 8, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_RNvXNtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB4_3VecRNtNtCseG2FYMysgNb_3wax5token5TokenEINtB2_18SpecFromIterNestedB11_INtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtB2e_6option8IntoIterB11_EINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB2a_8peekable8PeekableIB4x_INtNtNtB2e_5slice4iter4IterB12_EEENCNCNCINvB14_10componentsTjjEB4X_E000EEE9from_iterB16_(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #0
+declare void @_RNvXNtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB4_3VecRNtNtCseG2FYMysgNb_3wax5token5TokenEINtB2_18SpecFromIterNestedB11_INtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtB2e_6option8IntoIterB11_EINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtB2a_8peekable8PeekableIB4x_INtNtNtB2e_5slice4iter4IterB12_EEENCNCNCINvB14_10componentsTjjEB4X_E000EEE9from_iterB16_(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryEBN_.llvm.15969390215716056838(ptr noalias noundef nonnull align 8, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare { ptr, ptr } @_RINvXsp_NtCslyFhtC9DD08_9itertools10tuple_implTRNtNtCseG2FYMysgNb_3wax5token5TokenBJ_ENtB6_12TupleCollect24collect_from_iter_no_bufINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainIB26_INtNtNtB2c_7sources4once4OnceBJ_EB32_EQINtNtB2a_3map3MapINtNtB8_11groupbylazy5GroupNtBM_8PositionINtBM_4WalkTjjEENCNvNtBO_4rule8boundary0ENCNCB4T_s_00EEEBO_(ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #0
+declare { ptr, ptr } @_RINvXsp_NtCslyFhtC9DD08_9itertools10tuple_implTRNtNtCseG2FYMysgNb_3wax5token5TokenBJ_ENtB6_12TupleCollect24collect_from_iter_no_bufINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainIB26_INtNtNtB2c_7sources4once4OnceBJ_EB32_EQINtNtB2a_3map3MapINtNtB8_11groupbylazy5GroupNtBM_8PositionINtBM_4WalkTjjEENCNvNtBO_4rule8boundary0ENCNCB4T_s_00EEEBO_(ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden { i32, i32 } @_RINvNtNtCs1LoaDTb72WA_4core3str11validations15next_code_pointINtNtNtB6_5slice4iter4IterhEECseG2FYMysgNb_3wax.llvm.16596560796952818888(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #1
@@ -5090,40 +5090,40 @@ declare noundef zeroext i1 @_RNvXsu_NtCsaPKTPzkFU9s_3nom6traitsReINtB5_9FindToke
 declare hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hbeba4d10f82f4783E.llvm.7487603102172960304(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardINvB4Q_3eofBC_B2b_EE0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7d_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8f_B2b_TNCIB7u_BC_B8f_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7u_BC_B8f_B2b_TNCIB93_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7u_BC_Bc5_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaR_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc5_BC_B2b_NCINvB4Q_4peekBC_Bc5_B2b_NCIB7u_BC_Bc5_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaR_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc5_BC_B2b_Bf6_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias nocapture noundef writable sret([88 x i8]) align 8 dereferenceable(88), ptr noalias noundef align 8 dereferenceable(288), ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #1
+declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardINvB4Q_3eofBC_B2b_EE0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7d_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8f_B2b_TNCIB7u_BC_B8f_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7u_BC_B8f_B2b_TNCIB93_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7u_BC_Bc5_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaR_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc5_BC_B2b_NCINvB4Q_4peekBC_Bc5_B2b_NCIB7u_BC_Bc5_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaR_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc5_BC_B2b_Bf6_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias noundef writable sret([88 x i8]) align 8 captures(none) dereferenceable(88), ptr noalias noundef align 8 dereferenceable(288), ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardNCNvB3x_10repetition0E0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7f_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8h_B2b_TNCIB7w_BC_B8h_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7w_BC_B8h_B2b_TNCIB95_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7w_BC_Bc7_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaT_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc7_BC_B2b_NCINvB4Q_4peekBC_Bc7_B2b_NCIB7w_BC_Bc7_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaT_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc7_BC_B2b_Bf8_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias nocapture noundef writable sret([88 x i8]) align 8 dereferenceable(88), ptr noalias noundef align 8 dereferenceable(288), ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #1
+declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardNCNvB3x_10repetition0E0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7f_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8h_B2b_TNCIB7w_BC_B8h_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7w_BC_B8h_B2b_TNCIB95_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7w_BC_Bc7_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaT_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc7_BC_B2b_NCINvB4Q_4peekBC_Bc7_B2b_NCIB7w_BC_Bc7_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaT_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc7_BC_B2b_Bf8_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias noundef writable sret([88 x i8]) align 8 captures(none) dereferenceable(88), ptr noalias noundef align 8 dereferenceable(288), ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardNCNvB3x_11alternative0E0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7g_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8i_B2b_TNCIB7x_BC_B8i_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7x_BC_B8i_B2b_TNCIB96_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7x_BC_Bc8_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaU_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc8_BC_B2b_NCINvB4Q_4peekBC_Bc8_B2b_NCIB7x_BC_Bc8_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaU_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc8_BC_B2b_Bf9_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias nocapture noundef writable sret([88 x i8]) align 8 dereferenceable(88), ptr noalias noundef align 8 dereferenceable(288), ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #1
+declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNCINvNtB6_6branch3altBC_B35_B2b_TNCIB2_BC_B2b_NCINvNtB6_10combinator3mapBC_BC_B35_B2b_NCINvNtNtB6_5bytes8complete3tagReBC_B2b_E0NCINvB3x_8wildcardNCNvB3x_11alternative0E0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_TbBC_EB35_B2b_NCINvB2E_5tupleBC_B7g_B2b_TNCIB2_BC_B2b_NCIB4O_BC_TbuEbB2b_NCIB44_BC_B8i_B2b_TNCIB7x_BC_B8i_B2b_TNCINvB4Q_5valueBC_bBC_B2b_B5p_E0B3v_EE0NCIB7x_BC_B8i_B2b_TNCIB96_BC_bBC_B2b_NvB3x_3boeE0B3v_EE0EE0NCB67_s_0E0bE0NCINvB2E_10terminatedBC_BC_BC_B2b_B5p_NCIB2_BC_B2b_NCIB44_BC_BC_B2b_TNCIB4O_BC_TuBC_EBC_B2b_NCIB7x_BC_Bc8_B2b_TB3v_B5p_EE0NCB67_s0_0E0B6n_EE0BC_E0E0EE0NCB67_s1_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaU_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc8_BC_B2b_NCINvB4Q_4peekBC_Bc8_B2b_NCIB7x_BC_Bc8_B2b_TNvB3x_19flags_without_stateNCIB2_BC_B2b_NCINvB5u_6is_notB5U_BC_B2b_E0BC_E0EE0E0NCB67_s2_0E0B6n_EE0E0NCB67_s3_0E0B35_E0NCIB2_BC_B2b_NCIB4O_BC_BC_B35_B2b_NCIBaU_BC_BC_BC_B2b_B5p_NCIB44_BC_BC_B2b_TNCIB4O_BC_Bc8_BC_B2b_Bf9_NCB67_s4_0E0B6n_EE0E0NCB67_s5_0E0B35_E0EE0E0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias noundef writable sret([88 x i8]) align 8 captures(none) dereferenceable(88), ptr noalias noundef align 8 dereferenceable(288), ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_10repetitionE0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias nocapture noundef writable sret([88 x i8]) align 8 dereferenceable(88), ptr noalias noundef align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #1
+declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_10repetitionE0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias noundef writable sret([88 x i8]) align 8 captures(none) dereferenceable(88), ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_11alternativeE0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias nocapture noundef writable sret([88 x i8]) align 8 dereferenceable(88), ptr noalias noundef align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #1
+declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_11alternativeE0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias noundef writable sret([88 x i8]) align 8 captures(none) dereferenceable(88), ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_5classE0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias nocapture noundef writable sret([88 x i8]) align 8 dereferenceable(88), ptr noalias noundef align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #1
+declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_5classE0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias noundef writable sret([88 x i8]) align 8 captures(none) dereferenceable(88), ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_7literalE0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias nocapture noundef writable sret([88 x i8]) align 8 dereferenceable(88), ptr noalias noundef align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #1
+declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_7literalE0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias noundef writable sret([88 x i8]) align 8 captures(none) dereferenceable(88), ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_9separatorE0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias nocapture noundef writable sret([88 x i8]) align 8 dereferenceable(88), ptr noalias noundef align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #1
+declare hidden void @_RNCINvNtCsaPKTPzkFU9s_3nom5error7contextINtCs4DJqE8qduBp_4pori8StatefulINtBF_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEINtB4_12VerboseErrorBC_ENCINvNtB6_8sequence8precededBC_uINtB1r_9TokenKindTjjEEB2b_NvNvB1p_5parse16flags_with_stateNvB3x_9separatorE0B35_E0B1t_.llvm.7487603102172960304(ptr dead_on_unwind noalias noundef writable sret([88 x i8]) align 8 captures(none) dereferenceable(88), ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_RNCINvNtNtCseG2FYMysgNb_3wax5token8variance21invariant_text_prefixTjjEINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtB6_5TokenEEs_0B8_.llvm.5393772610634076635(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias noundef nonnull align 1, ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #1
+declare hidden void @_RNCINvNtNtCseG2FYMysgNb_3wax5token8variance21invariant_text_prefixTjjEINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtB6_5TokenEEs_0B8_.llvm.5393772610634076635(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull align 1, ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_RNCINvNtNtCseG2FYMysgNb_3wax5token8variance21invariant_text_prefixTjjEINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtB6_5TokenEEs_0B8_.llvm.11100904734654111133(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias noundef nonnull align 1, ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #1
+declare hidden void @_RNCINvNtNtCseG2FYMysgNb_3wax5token8variance21invariant_text_prefixTjjEINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtB6_5TokenEEs_0B8_.llvm.11100904734654111133(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull align 1, ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden noundef zeroext i1 @_RNCINvNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters10take_whileINtBa_9TakeWhileppENtNtNtBe_6traits8iterator8Iterator8try_fold5checkINtNtBg_6option6OptionNtNtCs68wO5nsWeTG_5alloc6string6StringEuINtNtNtBg_3ops9try_trait17NeverShortCircuituENvMB28_B25_7is_someNCINvNtBc_7flatten15try_flatten_oneB25_uB35_NCINvMB38_B35_10wrap_mut_2uB2r_NCINvNvB1i_8for_each4callB2r_NCNvYINtB4c_7FlattenIB10_INtNtBc_3map3MapINtNtCslyFhtC9DD08_9itertools8adaptors8BatchingINtNtBc_8peekable8PeekableIB7e_INtNtNtBg_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENCINvB8a_10componentsTjjEB7D_E0ENCINvNtB8a_8variance21invariant_text_prefixB94_B7I_Es_0EB3O_EENtB6x_9Itertools4join0E0E0E0E0B8c_.llvm.11100904734654111133(ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #1
+declare hidden noundef zeroext i1 @_RNCINvNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters10take_whileINtBa_9TakeWhileppENtNtNtBe_6traits8iterator8Iterator8try_fold5checkINtNtBg_6option6OptionNtNtCs68wO5nsWeTG_5alloc6string6StringEuINtNtNtBg_3ops9try_trait17NeverShortCircuituENvMB28_B25_7is_someNCINvNtBc_7flatten15try_flatten_oneB25_uB35_NCINvMB38_B35_10wrap_mut_2uB2r_NCINvNvB1i_8for_each4callB2r_NCNvYINtB4c_7FlattenIB10_INtNtBc_3map3MapINtNtCslyFhtC9DD08_9itertools8adaptors8BatchingINtNtBc_8peekable8PeekableIB7e_INtNtNtBg_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENCINvB8a_10componentsTjjEB7D_E0ENCINvNtB8a_8variance21invariant_text_prefixB94_B7I_Es_0EB3O_EENtB6x_9Itertools4join0E0E0E0E0B8c_.llvm.11100904734654111133(ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_RNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjEINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBT_5slice4iter4IterNtB4_5TokenEEE0B6_.llvm.11100904734654111133(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias noundef nonnull align 1, ptr noalias noundef align 8 dereferenceable(48)) unnamed_addr #1
+declare hidden void @_RNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjEINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBT_5slice4iter4IterNtB4_5TokenEEE0B6_.llvm.11100904734654111133(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull align 1, ptr noalias noundef align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, ptr } @_RINvXs3_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtB6_8IntoIterINtB8_3VecNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8try_foldINtNtB8_13in_place_drop11InPlaceDropBX_ENCINvNtNtB1N_8adapters3map12map_try_foldBX_BX_B2L_INtNtB1P_6result6ResultB2L_zENCNvMsi_B19_INtB19_11AlternativeTjjEE10into_owned0NCINvNtB8_16in_place_collect24write_in_place_with_dropBX_E0E0B4d_EB1b_(ptr noalias noundef align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noalias noundef nonnull align 1, ptr noundef) unnamed_addr #0

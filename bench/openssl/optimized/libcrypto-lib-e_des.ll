@@ -50,7 +50,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @des_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
+define internal noundef i32 @des_init_key(ptr noundef %ctx, ptr noundef %key, ptr readnone captures(none) %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #4
   %stream = getelementptr inbounds nuw i8, ptr %call, i64 128
@@ -118,7 +118,7 @@ declare i32 @EVP_CIPHER_set_asn1_iv(ptr noundef, ptr noundef) #2
 declare i32 @EVP_CIPHER_get_asn1_iv(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @des_ctrl(ptr nocapture readnone %c, i32 noundef %type, i32 %arg, ptr noundef %ptr) #1 {
+define internal range(i32 -1, 2) i32 @des_ctrl(ptr readnone captures(none) %c, i32 noundef %type, i32 %arg, ptr noundef %ptr) #1 {
 entry:
   %cond = icmp eq i32 %type, 6
   br i1 %cond, label %sw.bb, label %return
@@ -291,7 +291,7 @@ declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #2
 declare void @DES_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @des_cfb1_cipher(ptr noundef %ctx, ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i64 noundef %inl) #1 {
+define internal noundef i32 @des_cfb1_cipher(ptr noundef %ctx, ptr noundef captures(none) %out, ptr noundef readonly captures(none) %in, i64 noundef %inl) #1 {
 entry:
   %c = alloca [1 x i8], align 1
   %d = alloca [1 x i8], align 1

@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [3 x i8] c"OK\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashmap_get(ptr nocapture noundef readonly %map, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local ptr @hashmap_get(ptr noundef readonly captures(none) %map, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
   %conv = trunc i64 %call to i32
@@ -79,7 +79,7 @@ land.lhs.true3.i.i.i:                             ; preds = %for.body.i.i
   br i1 %cmp5.i10.i.i, label %match.exit.i.i, label %if.end6.i.i
 
 match.exit.i.i:                                   ; preds = %land.lhs.true3.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr readonly %key, i64 %conv.i11.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr nonnull readonly %key, i64 %conv.i11.i.i)
   %cmp7.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp7.i.i.i, label %cond.true.i, label %if.end6.i.i
 
@@ -107,7 +107,7 @@ hashmap_get2.exit:                                ; preds = %for.body.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashmap_get2(ptr nocapture noundef readonly %map, ptr nocapture noundef readonly %key, i32 noundef %keylen) local_unnamed_addr #0 {
+define dso_local ptr @hashmap_get2(ptr noundef readonly captures(none) %map, ptr noundef readonly captures(none) %key, i32 noundef %keylen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %map, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -192,19 +192,19 @@ cond.end:                                         ; preds = %if.end6.i, %for.bod
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashmap_put(ptr nocapture noundef %map, ptr noundef %key, ptr noundef %val) local_unnamed_addr #0 {
+define dso_local void @hashmap_put(ptr noundef captures(none) %map, ptr noundef %key, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
   %conv = trunc i64 %call to i32
-  tail call void @hashmap_put2(ptr noundef %map, ptr noundef %key, i32 noundef %conv, ptr noundef %val)
+  tail call void @hashmap_put2(ptr noundef %map, ptr noundef nonnull %key, i32 noundef %conv, ptr noundef %val)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashmap_put2(ptr nocapture noundef %map, ptr noundef %key, i32 noundef %keylen, ptr noundef %val) local_unnamed_addr #0 {
+define dso_local void @hashmap_put2(ptr noundef captures(none) %map, ptr noundef %key, i32 noundef %keylen, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %map2.i = alloca %struct.HashMap, align 8
   %0 = load ptr, ptr %map, align 8
@@ -423,7 +423,7 @@ get_or_insert_entry.exit:                         ; preds = %match.exit, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashmap_delete(ptr nocapture noundef readonly %map, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local void @hashmap_delete(ptr noundef readonly captures(none) %map, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
   %conv = trunc i64 %call to i32
@@ -483,7 +483,7 @@ land.lhs.true3.i.i.i:                             ; preds = %for.body.i.i
   br i1 %cmp5.i10.i.i, label %match.exit.i.i, label %if.end6.i.i
 
 match.exit.i.i:                                   ; preds = %land.lhs.true3.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr readonly %key, i64 %conv.i11.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr nonnull readonly %key, i64 %conv.i11.i.i)
   %cmp7.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp7.i.i.i, label %if.then.i, label %if.end6.i.i
 
@@ -509,7 +509,7 @@ hashmap_delete2.exit:                             ; preds = %for.body.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashmap_delete2(ptr nocapture noundef readonly %map, ptr nocapture noundef readonly %key, i32 noundef %keylen) local_unnamed_addr #0 {
+define dso_local void @hashmap_delete2(ptr noundef readonly captures(none) %map, ptr noundef readonly captures(none) %key, i32 noundef %keylen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %map, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -604,7 +604,7 @@ for.body:                                         ; preds = %entry, %for.body
   %1 = inttoptr i64 %indvars.iv to ptr
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call1) #10
   %conv.i = trunc i64 %call.i to i32
-  tail call void @hashmap_put2(ptr noundef %call, ptr noundef %call1, i32 noundef %conv.i, ptr noundef %1)
+  tail call void @hashmap_put2(ptr noundef %call, ptr noundef nonnull %call1, i32 noundef %conv.i, ptr noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5000
   br i1 %exitcond.not, label %for.body6, label %for.body, !llvm.loop !14
@@ -624,7 +624,7 @@ for.body15:                                       ; preds = %for.body6, %for.bod
   %3 = inttoptr i64 %indvars.iv57 to ptr
   %call.i38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call16) #10
   %conv.i39 = trunc i64 %call.i38 to i32
-  tail call void @hashmap_put2(ptr noundef %call, ptr noundef %call16, i32 noundef %conv.i39, ptr noundef nonnull %3)
+  tail call void @hashmap_put2(ptr noundef %call, ptr noundef nonnull %call16, i32 noundef %conv.i39, ptr noundef nonnull %3)
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 1600
   br i1 %exitcond60.not, label %for.body25, label %for.body15, !llvm.loop !16
@@ -636,7 +636,7 @@ for.body25:                                       ; preds = %for.body15, %for.bo
   %5 = inttoptr i64 %indvars.iv61 to ptr
   %call.i40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26) #10
   %conv.i41 = trunc i64 %call.i40 to i32
-  tail call void @hashmap_put2(ptr noundef %call, ptr noundef %call26, i32 noundef %conv.i41, ptr noundef nonnull %5)
+  tail call void @hashmap_put2(ptr noundef %call, ptr noundef nonnull %call26, i32 noundef %conv.i41, ptr noundef nonnull %5)
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 7000
   br i1 %exitcond64.not, label %for.body35, label %for.body25, !llvm.loop !17
@@ -747,7 +747,7 @@ for.body122:                                      ; preds = %for.cond105, %for.b
   %13 = inttoptr i64 %indvars.iv80 to ptr
   %call.i42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call123) #10
   %conv.i43 = trunc i64 %call.i42 to i32
-  tail call void @hashmap_put2(ptr noundef %call, ptr noundef %call123, i32 noundef %conv.i43, ptr noundef nonnull %13)
+  tail call void @hashmap_put2(ptr noundef %call, ptr noundef nonnull %call123, i32 noundef %conv.i43, ptr noundef nonnull %13)
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, 7000
   br i1 %exitcond83.not, label %for.end127, label %for.body122, !llvm.loop !24
@@ -778,19 +778,19 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @error(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -237,7 +237,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z8tcp_sendiPK6msghdrPii(i32 noundef %fd, ptr noundef %msg, ptr nocapture noundef writeonly %saved_errno, i32 noundef %additional_flags) local_unnamed_addr #3 {
+define noundef i64 @_Z8tcp_sendiPK6msghdrPii(i32 noundef %fd, ptr noundef %msg, ptr noundef writeonly captures(none) %saved_errno, i32 noundef %additional_flags) local_unnamed_addr #3 {
 entry:
   %or = or i32 %additional_flags, 16384
   br label %do.body
@@ -267,7 +267,7 @@ declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN9grpc_core21TcpZerocopySendRecord12PopulateIovsEPmS1_S1_P5iovec(ptr nocapture noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef writeonly initializes((0, 8)) %unwind_slice_idx, ptr nocapture noundef writeonly initializes((0, 8)) %unwind_byte_idx, ptr nocapture noundef %sending_length, ptr nocapture noundef writeonly %iov) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZN9grpc_core21TcpZerocopySendRecord12PopulateIovsEPmS1_S1_P5iovec(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %unwind_slice_idx, ptr noundef writeonly captures(none) initializes((0, 8)) %unwind_byte_idx, ptr noundef captures(none) %sending_length, ptr noundef writeonly captures(none) %iov) local_unnamed_addr #5 align 2 {
 entry:
   %out_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %0 = load i64, ptr %out_offset_, align 8
@@ -352,7 +352,7 @@ for.end:                                          ; preds = %cond.end46, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9grpc_core21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm(ptr nocapture noundef nonnull align 8 dereferenceable(288) %this, i64 noundef %sending_length, i64 noundef %actually_sent) local_unnamed_addr #5 align 2 {
+define void @_ZN9grpc_core21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %this, i64 noundef %sending_length, i64 noundef %actually_sent) local_unnamed_addr #5 align 2 {
 entry:
   %sub = sub i64 %sending_length, %actually_sent
   %cmp.not7 = icmp eq i64 %sub, 0
@@ -406,7 +406,7 @@ while.end:                                        ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_Z15grpc_tcp_createP7grpc_fdRKN9grpc_core15PosixTcpOptionsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %em_fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %options, i64 %peer_string.coerce0, ptr %peer_string.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_Z15grpc_tcp_createP7grpc_fdRKN9grpc_core15PosixTcpOptionsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %em_fd, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %options, i64 %peer_string.coerce0, ptr %peer_string.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i142 = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp.i.i.i = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1527,7 +1527,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3576,7 +3576,7 @@ return:                                           ; preds = %if.end9, %if.then3
 declare void @_Z23grpc_fd_notify_on_errorP7grpc_fdP12grpc_closure(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z11grpc_tcp_fdP13grpc_endpoint(ptr nocapture noundef readonly %ep) local_unnamed_addr #3 {
+define noundef i32 @_Z11grpc_tcp_fdP13grpc_endpoint(ptr noundef readonly captures(none) %ep) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ep, align 8
   %cmp.not = icmp eq ptr %0, @_ZL6vtable
@@ -5147,7 +5147,7 @@ ehcleanup117:                                     ; preds = %lpad.i, %lpad.loope
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18tcp_add_to_pollsetP13grpc_endpointP12grpc_pollset(ptr nocapture noundef readonly %ep, ptr noundef %pollset) #3 {
+define internal void @_ZL18tcp_add_to_pollsetP13grpc_endpointP12grpc_pollset(ptr noundef readonly captures(none) %ep, ptr noundef %pollset) #3 {
 entry:
   %em_fd = getelementptr inbounds nuw i8, ptr %ep, i64 8
   %0 = load ptr, ptr %em_fd, align 8
@@ -5156,7 +5156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL22tcp_add_to_pollset_setP13grpc_endpointP16grpc_pollset_set(ptr nocapture noundef readonly %ep, ptr noundef %pollset_set) #3 {
+define internal void @_ZL22tcp_add_to_pollset_setP13grpc_endpointP16grpc_pollset_set(ptr noundef readonly captures(none) %ep, ptr noundef %pollset_set) #3 {
 entry:
   %em_fd = getelementptr inbounds nuw i8, ptr %ep, i64 8
   %0 = load ptr, ptr %em_fd, align 8
@@ -5165,7 +5165,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL27tcp_delete_from_pollset_setP13grpc_endpointP16grpc_pollset_set(ptr nocapture noundef readonly %ep, ptr noundef %pollset_set) #3 {
+define internal void @_ZL27tcp_delete_from_pollset_setP13grpc_endpointP16grpc_pollset_set(ptr noundef readonly captures(none) %ep, ptr noundef %pollset_set) #3 {
 entry:
   %em_fd = getelementptr inbounds nuw i8, ptr %ep, i64 8
   %0 = load ptr, ptr %em_fd, align 8
@@ -5174,7 +5174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL12tcp_shutdownP13grpc_endpointN4absl12lts_202308026StatusE(ptr noundef %ep, ptr nocapture noundef readonly %why) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL12tcp_shutdownP13grpc_endpointN4absl12lts_202308026StatusE(ptr noundef %ep, ptr noundef readonly captures(none) %why) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %shutdown_.i.i = getelementptr inbounds nuw i8, ptr %ep, i64 676
@@ -5330,7 +5330,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL10tcp_get_fdP13grpc_endpoint(ptr nocapture noundef readonly %ep) #16 {
+define internal noundef i32 @_ZL10tcp_get_fdP13grpc_endpoint(ptr noundef readonly captures(none) %ep) #16 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %ep, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -5338,7 +5338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZL17tcp_can_track_errP13grpc_endpoint(ptr nocapture noundef readonly %ep) #3 {
+define internal noundef zeroext i1 @_ZL17tcp_can_track_errP13grpc_endpoint(ptr noundef readonly captures(none) %ep) #3 {
 entry:
   %addr = alloca %struct.sockaddr, align 2
   %len = alloca i32, align 4
@@ -5678,7 +5678,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN4absl
 }
 
 ; Function Attrs: uwtable
-define internal fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEPN4absl12lts_202308026StatusE(ptr noundef %tcp, ptr noundef nonnull %record, ptr nocapture noundef %error) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEPN4absl12lts_202308026StatusE(ptr noundef %tcp, ptr noundef nonnull %record, ptr noundef captures(none) %error) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %sent_length.i = alloca i64, align 8
   %saved_errno.i = alloca i32, align 4
@@ -6357,7 +6357,7 @@ if.end:                                           ; preds = %if.then.i5, %if.the
 }
 
 ; Function Attrs: uwtable
-define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tcpEPN4absl12lts_202308026StatusE(ptr noundef %tcp, ptr nocapture noundef %error) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tcpEPN4absl12lts_202308026StatusE(ptr noundef %tcp, ptr noundef captures(none) %error) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %msg = alloca %struct.msghdr, align 8
   %iov = alloca [260 x %struct.iovec], align 16
@@ -7078,7 +7078,7 @@ declare void @_ZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026Status
 declare void @_ZN9grpc_core8EventLog14AppendInternalESt17basic_string_viewIcSt11char_traitsIcEEl(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @_Z18grpc_error_set_strN4absl12lts_202308026StatusEN9grpc_core17StatusStrPropertyESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8, ptr noundef, i32 noundef, i64, ptr) local_unnamed_addr #0
 
@@ -7784,7 +7784,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit4:       ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL25tcp_write_with_timestampsPN12_GLOBAL__N_18grpc_tcpEP6msghdrmPlPii(ptr noundef %tcp, ptr noundef nonnull %msg, i64 noundef %sending_length, ptr nocapture noundef nonnull writeonly %sent_length, ptr nocapture noundef nonnull writeonly %saved_errno, i32 noundef range(i32 0, 67108865) %additional_flags) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZL25tcp_write_with_timestampsPN12_GLOBAL__N_18grpc_tcpEP6msghdrmPlPii(ptr noundef %tcp, ptr noundef nonnull %msg, i64 noundef %sending_length, ptr noundef nonnull writeonly captures(none) %sent_length, ptr noundef nonnull writeonly captures(none) %saved_errno, i32 noundef range(i32 0, 67108865) %additional_flags) unnamed_addr #3 {
 entry:
   %opt = alloca i32, align 4
   %u = alloca %union.anon.56, align 8
@@ -8257,7 +8257,7 @@ declare void @_Z17grpc_pollset_initP12grpc_pollsetPPl(ptr noundef, ptr noundef) 
 declare void @_ZN9grpc_core8Executor3RunEP12grpc_closureN4absl12lts_202308026StatusENS_12ExecutorTypeENS_15ExecutorJobTypeE(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_ZL10run_pollerPvN4absl12lts_202308026StatusE(ptr noundef %bp, ptr nocapture readnone %0) #11 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL10run_pollerPvN4absl12lts_202308026StatusE(ptr noundef %bp, ptr readnone captures(none) %0) #11 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp9 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -8457,7 +8457,7 @@ declare void @gpr_mu_unlock(ptr noundef) local_unnamed_addr #0
 declare void @_Z21grpc_pollset_shutdownP12grpc_pollsetP12grpc_closure(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL11done_pollerPvN4absl12lts_202308026StatusE(ptr noundef %bp, ptr nocapture readnone %0) #3 {
+define internal void @_ZL11done_pollerPvN4absl12lts_202308026StatusE(ptr noundef %bp, ptr readnone captures(none) %0) #3 {
 entry:
   %1 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
@@ -8640,7 +8640,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15update_rcvlowatPN12_GLOBAL__N_18grpc_tcpE(ptr nocapture noundef %tcp) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15update_rcvlowatPN12_GLOBAL__N_18grpc_tcpE(ptr noundef captures(none) %tcp) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %remaining = alloca i32, align 4
   %ref.tmp19 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8866,7 +8866,7 @@ _ZNSt12__shared_ptrIN9grpc_core14ReclaimerQueue5StateELN9__gnu_cxx12_Lock_policy
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9grpc_core14ReclaimerQueue6Handle7SweepFnIZL20maybe_post_reclaimerPN12_GLOBAL__N_18grpc_tcpEE3$_0E12RunAndDeleteESt8optionalINS_16ReclamationSweepEE"(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %sweep) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9grpc_core14ReclaimerQueue6Handle7SweepFnIZL20maybe_post_reclaimerPN12_GLOBAL__N_18grpc_tcpEE3$_0E12RunAndDeleteESt8optionalINS_16ReclamationSweepEE"(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef captures(none) %sweep) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::optional", align 8
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %sweep, i64 40
@@ -9211,10 +9211,10 @@ declare extern_weak void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E(
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21

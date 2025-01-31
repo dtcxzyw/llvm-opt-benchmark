@@ -15,14 +15,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [28 x i8] c"Invalid content length: %zu\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_int(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_int(ptr noundef captures(none) %data, ptr noundef captures(none) %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 2, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @qcrypto_der_decode_tlv(i8 noundef zeroext %expected_tag, ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef readonly %cb, ptr noundef %ctx, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @qcrypto_der_decode_tlv(i8 noundef zeroext %expected_tag, ptr noundef captures(none) %data, ptr noundef captures(none) %dlen, ptr noundef readonly %cb, ptr noundef %ctx, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %1 = load i64, ptr %dlen, align 8
@@ -187,35 +187,35 @@ return:                                           ; preds = %qcrypto_der_invoke_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_seq(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_seq(ptr noundef captures(none) %data, ptr noundef captures(none) %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 48, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_octet_str(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_octet_str(ptr noundef captures(none) %data, ptr noundef captures(none) %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 4, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_bit_str(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_bit_str(ptr noundef captures(none) %data, ptr noundef captures(none) %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 3, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_oid(ptr nocapture noundef %data, ptr nocapture noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_oid(ptr noundef captures(none) %data, ptr noundef captures(none) %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @qcrypto_der_decode_tlv(i8 noundef zeroext 6, ptr noundef %data, ptr noundef %dlen, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_ctx_tag(ptr nocapture noundef %data, ptr nocapture noundef %dlen, i32 noundef %tag_id, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qcrypto_der_decode_ctx_tag(ptr noundef captures(none) %data, ptr noundef captures(none) %dlen, i32 noundef %tag_id, ptr noundef %cb, ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = trunc i32 %tag_id to i8
   %conv = or i8 %0, -96
@@ -238,7 +238,7 @@ entry:
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcrypto_der_encode_seq_begin(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
+define dso_local void @qcrypto_der_encode_seq_begin(ptr noundef captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i8 48, ptr %call.i, align 8
@@ -256,7 +256,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @qcrypto_der_encode_seq_end(ptr nocapture noundef %ctx) local_unnamed_addr #2 {
+define dso_local void @qcrypto_der_encode_seq_end(ptr noundef captures(none) %ctx) local_unnamed_addr #2 {
 entry:
   %current_parent.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %current_parent.i, align 8
@@ -297,7 +297,7 @@ qcrypto_der_encode_cons_end.exit:                 ; preds = %entry, %for.cond.pr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcrypto_der_encode_oid(ptr nocapture noundef %ctx, ptr noundef %src, i64 noundef %src_len) local_unnamed_addr #0 {
+define dso_local void @qcrypto_der_encode_oid(ptr noundef captures(none) %ctx, ptr noundef %src, i64 noundef %src_len) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i8 6, ptr %call.i, align 8
@@ -345,7 +345,7 @@ qcrypto_der_encode_prim.exit:                     ; preds = %entry, %for.cond.pr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcrypto_der_encode_int(ptr nocapture noundef %ctx, ptr noundef %src, i64 noundef %src_len) local_unnamed_addr #0 {
+define dso_local void @qcrypto_der_encode_int(ptr noundef captures(none) %ctx, ptr noundef %src, i64 noundef %src_len) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i8 2, ptr %call.i, align 8
@@ -393,7 +393,7 @@ qcrypto_der_encode_prim.exit:                     ; preds = %entry, %for.cond.pr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcrypto_der_encode_null(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
+define dso_local void @qcrypto_der_encode_null(ptr noundef captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i8 5, ptr %call.i, align 8
@@ -416,7 +416,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcrypto_der_encode_octet_str(ptr nocapture noundef %ctx, ptr noundef %src, i64 noundef %src_len) local_unnamed_addr #0 {
+define dso_local void @qcrypto_der_encode_octet_str(ptr noundef captures(none) %ctx, ptr noundef %src, i64 noundef %src_len) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i8 4, ptr %call.i, align 8
@@ -464,7 +464,7 @@ qcrypto_der_encode_prim.exit:                     ; preds = %entry, %for.cond.pr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcrypto_der_encode_octet_str_begin(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
+define dso_local void @qcrypto_der_encode_octet_str_begin(ptr noundef captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   store i8 4, ptr %call.i, align 8
@@ -482,7 +482,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @qcrypto_der_encode_octet_str_end(ptr nocapture noundef %ctx) local_unnamed_addr #2 {
+define dso_local void @qcrypto_der_encode_octet_str_end(ptr noundef captures(none) %ctx) local_unnamed_addr #2 {
 entry:
   %current_parent.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %current_parent.i, align 8
@@ -523,7 +523,7 @@ qcrypto_der_encode_cons_end.exit:                 ; preds = %entry, %for.cond.pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @qcrypto_der_encode_ctx_buffer_len(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
+define dso_local i64 @qcrypto_der_encode_ctx_buffer_len(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #3 {
 entry:
   %dlen = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load i64, ptr %dlen, align 8
@@ -641,14 +641,14 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @g_free(ptr noundef) local_unnamed_addr #5
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

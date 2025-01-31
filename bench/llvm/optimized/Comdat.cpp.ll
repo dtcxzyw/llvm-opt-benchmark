@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm6ComdatC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm6ComdatC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm6ComdatC2EOS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6ComdatC2EOS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -51,7 +51,7 @@ define dso_local void @_ZN4llvm6ComdatC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { ptr, i64 } @_ZNK4llvm6Comdat7getNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
+define dso_local { ptr, i64 } @_ZNK4llvm6Comdat7getNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load i64, ptr %2, align 8
@@ -180,7 +180,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2, %3
 declare noundef ptr @_ZN4llvm6Module17getOrInsertComdatENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857), ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetComdat(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local ptr @LLVMGetComdat(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -195,14 +195,14 @@ define dso_local void @LLVMSetComdat(ptr noundef nonnull %0, ptr noundef %1) loc
 declare void @_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 5) i32 @LLVMGetComdatSelectionKind(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i32 0, 5) i32 @LLVMGetComdatSelectionKind(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMSetComdatSelectionKind(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local void @LLVMSetComdatSelectionKind(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %switch = icmp ult i32 %1, 5
   br i1 %switch, label %.sink.split, label %4
 
@@ -216,7 +216,7 @@ define dso_local void @LLVMSetComdatSelectionKind(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) local_unnamed_addr #4
 

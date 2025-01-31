@@ -340,7 +340,7 @@ declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @setUnsignedBitfield(ptr nocapture noundef %p, i64 noundef %offset, i64 noundef %bits, i64 noundef %value) local_unnamed_addr #4 {
+define dso_local void @setUnsignedBitfield(ptr noundef captures(none) %p, i64 noundef %offset, i64 noundef %bits, i64 noundef %value) local_unnamed_addr #4 {
 entry:
   %cmp11.not = icmp eq i64 %bits, 0
   br i1 %cmp11.not, label %for.end, label %for.body
@@ -377,7 +377,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @setSignedBitfield(ptr nocapture noundef %p, i64 noundef %offset, i64 noundef %bits, i64 noundef %value) local_unnamed_addr #4 {
+define dso_local void @setSignedBitfield(ptr noundef captures(none) %p, i64 noundef %offset, i64 noundef %bits, i64 noundef %value) local_unnamed_addr #4 {
 entry:
   %cmp11.not.i = icmp eq i64 %bits, 0
   br i1 %cmp11.not.i, label %setUnsignedBitfield.exit, label %for.body.i
@@ -414,7 +414,7 @@ setUnsignedBitfield.exit:                         ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @getUnsignedBitfield(ptr nocapture noundef readonly %p, i64 noundef %offset, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local i64 @getUnsignedBitfield(ptr noundef readonly captures(none) %p, i64 noundef %offset, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %cmp5.not = icmp eq i64 %bits, 0
   br i1 %cmp5.not, label %for.end, label %for.body
@@ -444,7 +444,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @getSignedBitfield(ptr nocapture noundef readonly %p, i64 noundef %offset, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local i64 @getSignedBitfield(ptr noundef readonly captures(none) %p, i64 noundef %offset, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %cmp5.not.i = icmp eq i64 %bits, 0
   br i1 %cmp5.not.i, label %land.lhs.true, label %for.body.i
@@ -643,7 +643,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @printBits(ptr nocapture noundef readonly %p, i64 noundef %count) local_unnamed_addr #6 {
+define dso_local void @printBits(ptr noundef readonly captures(none) %p, i64 noundef %count) local_unnamed_addr #6 {
 entry:
   %cmp9.not = icmp eq i64 %count, 0
   br i1 %cmp9.not, label %for.end7, label %for.body
@@ -677,7 +677,7 @@ for.end7:                                         ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @getBitOffsetFromArgument(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %offset, i32 noundef %hash, i32 noundef %bits) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @getBitOffsetFromArgument(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef writeonly captures(none) %offset, i32 noundef %hash, i32 noundef %bits) local_unnamed_addr #1 {
 entry:
   %loffset = alloca i64, align 8
   %ptr = getelementptr inbounds nuw i8, ptr %o, i64 8
@@ -792,7 +792,7 @@ declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @mustObeyClient(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @getBitfieldTypeFromArgument(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef %sign, ptr nocapture noundef writeonly %bits) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @getBitfieldTypeFromArgument(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef captures(none) %sign, ptr noundef writeonly captures(none) %bits) local_unnamed_addr #1 {
 entry:
   %llbits = alloca i64, align 8
   %ptr = getelementptr inbounds nuw i8, ptr %o, i64 8
@@ -850,7 +850,7 @@ return:                                           ; preds = %if.end27, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @lookupStringForBitCommand(ptr noundef %c, i64 noundef %maxbit, ptr noundef writeonly %dirty) local_unnamed_addr #1 {
@@ -1987,7 +1987,7 @@ return:                                           ; preds = %if.end355, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2003,7 +2003,7 @@ declare void @zfree(ptr noundef) local_unnamed_addr #2
 declare ptr @getDecodedObject(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare void @setKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2405,7 +2405,7 @@ if.end154:                                        ; preds = %if.then94, %if.end2
 declare i32 @getLongLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bitposCommand(ptr noundef %c) local_unnamed_addr #1 {
@@ -3265,7 +3265,7 @@ if.then175:                                       ; preds = %if.then.i207, %if.t
   %retval.0362 = phi i64 [ %retval.0.ph, %land.lhs.true171 ], [ %add159, %cond.false ], [ %value.0.i, %lor.lhs.false9.i178 ], [ %cond.i, %if.then.i164 ], [ %sub3.i, %if.then34.i ], [ %or.i163, %if.then53.i ], [ %and55.i, %if.else54.i ], [ %add.i, %handle_wrap.i ], [ %value.0.i, %if.else54.i204 ], [ %value.0.i, %if.then53.i202 ], [ %value.0.i, %handle_wrap.i195 ], [ %value.0.i, %if.then34.i191 ], [ %value.0.i, %if.then.i207 ]
   %newval.0360 = phi i64 [ %wrapped.0419, %land.lhs.true171 ], [ %add159, %cond.false ], [ %33, %lor.lhs.false9.i178 ], [ %cond.i, %if.then.i164 ], [ %sub3.i, %if.then34.i ], [ %or.i163, %if.then53.i ], [ %and55.i, %if.else54.i ], [ %add.i, %handle_wrap.i ], [ %and55.i206, %if.else54.i204 ], [ %or.i203, %if.then53.i202 ], [ %33, %handle_wrap.i195 ], [ %sub3.i, %if.then34.i191 ], [ %cond.i, %if.then.i207 ]
   %wrapped.1358 = phi i64 [ %wrapped.0419, %land.lhs.true171 ], [ %wrapped.0419, %cond.false ], [ %wrapped.0419, %lor.lhs.false9.i178 ], [ %cond.i, %if.then.i164 ], [ %sub3.i, %if.then34.i ], [ %or.i163, %if.then53.i ], [ %and55.i, %if.else54.i ], [ %add.i, %handle_wrap.i ], [ %and55.i206, %if.else54.i204 ], [ %or.i203, %if.then53.i202 ], [ %33, %handle_wrap.i195 ], [ %sub3.i, %if.then34.i191 ], [ %cond.i, %if.then.i207 ]
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %retval.0362) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %retval.0362) #16
   %36 = load ptr, ptr %ptr13.i, align 8
   %37 = load i32, ptr %bits197, align 8
   %conv179 = sext i32 %37 to i64
@@ -3313,7 +3313,7 @@ setSignedBitfield.exit:                           ; preds = %for.body.i.i210, %i
   br label %for.inc294
 
 if.else187:                                       ; preds = %land.lhs.true171
-  call void @addReplyNull(ptr noundef %c) #16
+  call void @addReplyNull(ptr noundef nonnull %c) #16
   br label %for.inc294
 
 if.else189:                                       ; preds = %if.then139
@@ -3419,7 +3419,7 @@ land.lhs.true225:                                 ; preds = %if.then.i258, %if.t
 if.then229:                                       ; preds = %if.then.i258, %if.then.i234, %if.then17.i, %handle_wrap.i231, %handle_wrap.i255, %if.else214, %if.else13.i, %land.lhs.true225
   %retval192.0376 = phi i64 [ %retval192.0, %land.lhs.true225 ], [ %add205, %if.else13.i ], [ %value.0.lcssa.i, %if.else214 ], [ %value.0.lcssa.i, %handle_wrap.i255 ], [ %and.i233, %handle_wrap.i231 ], [ %cond.i223, %if.then.i234 ], [ 0, %if.then17.i ], [ %value.0.lcssa.i, %if.then.i258 ]
   %newval191.1375 = phi i64 [ 0, %land.lhs.true225 ], [ %add205, %if.else13.i ], [ %47, %if.else214 ], [ %and.i257, %handle_wrap.i255 ], [ %and.i233, %handle_wrap.i231 ], [ %cond.i223, %if.then.i234 ], [ 0, %if.then17.i ], [ %sub.i239, %if.then.i258 ]
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %retval192.0376) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %retval192.0376) #16
   %51 = load ptr, ptr %ptr13.i, align 8
   %52 = load i32, ptr %bits197, align 8
   %conv233 = sext i32 %52 to i64
@@ -3467,7 +3467,7 @@ setUnsignedBitfield.exit:                         ; preds = %for.body.i262, %if.
   br label %for.inc294
 
 if.else241:                                       ; preds = %land.lhs.true225
-  call void @addReplyNull(ptr noundef %c) #16
+  call void @addReplyNull(ptr noundef nonnull %c) #16
   br label %for.inc294
 
 if.else244:                                       ; preds = %for.body132
@@ -3623,7 +3623,7 @@ if.then.i310:                                     ; preds = %land.lhs.true.i304
 
 getSignedBitfield.exit313:                        ; preds = %getUnsignedBitfield.exit.i301, %land.lhs.true.i304, %if.then.i310
   %value.0.i303 = phi i64 [ %or.i312, %if.then.i310 ], [ %value.0.lcssa.i8.i305, %land.lhs.true.i304 ], [ %or.i.i297, %getUnsignedBitfield.exit.i301 ]
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %value.0.i303) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %value.0.i303) #16
   br label %for.inc294
 
 if.else283:                                       ; preds = %for.end272
@@ -3656,7 +3656,7 @@ for.body.i315:                                    ; preds = %for.body.i315.prehe
 
 getUnsignedBitfield.exit332:                      ; preds = %for.body.i315, %if.else283
   %value.0.lcssa.i331 = phi i64 [ 0, %if.else283 ], [ %or.i327, %for.body.i315 ]
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %value.0.lcssa.i331) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %value.0.lcssa.i331) #16
   br label %for.inc294
 
 for.inc294:                                       ; preds = %setUnsignedBitfield.exit, %setSignedBitfield.exit, %if.else241, %if.else187, %getUnsignedBitfield.exit332, %getSignedBitfield.exit313
@@ -3677,7 +3677,7 @@ if.then298:                                       ; preds = %for.end296
   %79 = load ptr, ptr %argv300, align 8
   %arrayidx301 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %80 = load ptr, ptr %arrayidx301, align 8
-  call void @signalModifiedKey(ptr noundef %c, ptr noundef %78, ptr noundef %80) #16
+  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %78, ptr noundef %80) #16
   %81 = load ptr, ptr %argv300, align 8
   %arrayidx303 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %82 = load ptr, ptr %arrayidx303, align 8
@@ -3733,10 +3733,10 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare i64 @llvm.smax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

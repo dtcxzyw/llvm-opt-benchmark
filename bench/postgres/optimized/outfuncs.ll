@@ -3910,7 +3910,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %53
 declare void @check_stack_depth() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlias(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlias(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.13) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.14) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3924,7 +3924,7 @@ define internal fastcc void @_outAlias(ptr noundef %0, ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRangeVar(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRangeVar(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.16) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.17) #7
@@ -3975,7 +3975,7 @@ outChar.exit:                                     ; preds = %17, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTableFunc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTableFunc(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.24) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.25) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4045,7 +4045,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outIntoClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outIntoClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.36) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.37) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4083,7 +4083,7 @@ define internal fastcc void @_outIntoClause(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outVar(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outVar(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.45) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4136,7 +4136,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outConst(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outConst(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.55) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4186,7 +4186,7 @@ define internal fastcc void @_outConst(ptr noundef %0, ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outParam(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outParam(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.63) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4210,7 +4210,7 @@ define internal fastcc void @_outParam(ptr noundef %0, ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAggref(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAggref(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.69) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4306,7 +4306,7 @@ outChar.exit:                                     ; preds = %37, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGroupingFunc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGroupingFunc(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.89) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.77) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4330,7 +4330,7 @@ define internal fastcc void @_outGroupingFunc(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outWindowFunc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outWindowFunc(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.92) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4372,7 +4372,7 @@ define internal fastcc void @_outWindowFunc(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSubscriptingRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSubscriptingRef(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.99) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4409,7 +4409,7 @@ define internal fastcc void @_outSubscriptingRef(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outFuncExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outFuncExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.109) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4447,7 +4447,7 @@ define internal fastcc void @_outFuncExpr(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outNamedArgExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outNamedArgExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.116) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4467,7 +4467,7 @@ define internal fastcc void @_outNamedArgExpr(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outOpExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outOpExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.120) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4500,7 +4500,7 @@ define internal fastcc void @_outOpExpr(ptr noundef %0, ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDistinctExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDistinctExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.126) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4533,7 +4533,7 @@ define internal fastcc void @_outDistinctExpr(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outNullIfExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outNullIfExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.127) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4566,7 +4566,7 @@ define internal fastcc void @_outNullIfExpr(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outScalarArrayOpExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outScalarArrayOpExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.128) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4599,7 +4599,7 @@ define internal fastcc void @_outScalarArrayOpExpr(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outBoolExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outBoolExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.132) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4627,7 +4627,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSubLink(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSubLink(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.137) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4654,7 +4654,7 @@ define internal fastcc void @_outSubLink(ptr noundef %0, ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSubPlan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSubPlan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.143) #7
@@ -4730,7 +4730,7 @@ define internal fastcc void @_outSubPlan(ptr noundef %0, ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlternativeSubPlan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlternativeSubPlan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.157) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.158) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4740,7 +4740,7 @@ define internal fastcc void @_outAlternativeSubPlan(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outFieldSelect(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outFieldSelect(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.159) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4763,7 +4763,7 @@ define internal fastcc void @_outFieldSelect(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outFieldStore(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outFieldStore(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.164) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4784,7 +4784,7 @@ define internal fastcc void @_outFieldStore(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRelabelType(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRelabelType(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.167) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4809,7 +4809,7 @@ define internal fastcc void @_outRelabelType(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCoerceViaIO(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCoerceViaIO(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.169) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4831,7 +4831,7 @@ define internal fastcc void @_outCoerceViaIO(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outArrayCoerceExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outArrayCoerceExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.171) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4860,7 +4860,7 @@ define internal fastcc void @_outArrayCoerceExpr(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outConvertRowtypeExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outConvertRowtypeExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.173) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4879,7 +4879,7 @@ define internal fastcc void @_outConvertRowtypeExpr(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCollateExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCollateExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.175) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4895,7 +4895,7 @@ define internal fastcc void @_outCollateExpr(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCaseExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCaseExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.177) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4922,7 +4922,7 @@ define internal fastcc void @_outCaseExpr(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCaseWhen(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCaseWhen(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.181) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.182) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4939,7 +4939,7 @@ define internal fastcc void @_outCaseWhen(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCaseTestExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCaseTestExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.184) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4954,7 +4954,7 @@ define internal fastcc void @_outCaseTestExpr(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outArrayExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outArrayExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.188) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4981,7 +4981,7 @@ define internal fastcc void @_outArrayExpr(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRowExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRowExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.194) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.77) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5004,7 +5004,7 @@ define internal fastcc void @_outRowExpr(ptr noundef %0, ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRowCompareExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRowCompareExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.197) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5033,7 +5033,7 @@ define internal fastcc void @_outRowCompareExpr(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCoalesceExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCoalesceExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.204) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5052,7 +5052,7 @@ define internal fastcc void @_outCoalesceExpr(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMinMaxExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMinMaxExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.207) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5077,7 +5077,7 @@ define internal fastcc void @_outMinMaxExpr(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSQLValueFunction(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSQLValueFunction(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.211) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5095,7 +5095,7 @@ define internal fastcc void @_outSQLValueFunction(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outXmlExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outXmlExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.214) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5137,7 +5137,7 @@ define internal fastcc void @_outXmlExpr(ptr noundef %0, ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonFormat(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonFormat(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.219) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5152,7 +5152,7 @@ define internal fastcc void @_outJsonFormat(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonReturning(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonReturning(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.222) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.223) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5168,7 +5168,7 @@ define internal fastcc void @_outJsonReturning(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonValueExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonValueExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.225) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.226) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5186,7 +5186,7 @@ define internal fastcc void @_outJsonValueExpr(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonConstructorExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonConstructorExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.228) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5224,7 +5224,7 @@ define internal fastcc void @_outJsonConstructorExpr(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonIsPredicate(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonIsPredicate(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.235) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.182) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5249,7 +5249,7 @@ define internal fastcc void @_outJsonIsPredicate(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outNullTest(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outNullTest(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.238) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5270,7 +5270,7 @@ define internal fastcc void @_outNullTest(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outBooleanTest(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outBooleanTest(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.241) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5286,7 +5286,7 @@ define internal fastcc void @_outBooleanTest(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMergeAction(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMergeAction(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.243) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -5315,7 +5315,7 @@ define internal fastcc void @_outMergeAction(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCoerceToDomain(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCoerceToDomain(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.250) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5340,7 +5340,7 @@ define internal fastcc void @_outCoerceToDomain(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCoerceToDomainValue(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCoerceToDomainValue(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.252) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5358,7 +5358,7 @@ define internal fastcc void @_outCoerceToDomainValue(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSetToDefault(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSetToDefault(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.253) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5376,7 +5376,7 @@ define internal fastcc void @_outSetToDefault(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCurrentOfExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCurrentOfExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.254) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5392,7 +5392,7 @@ define internal fastcc void @_outCurrentOfExpr(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outNextValueExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outNextValueExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.258) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5404,7 +5404,7 @@ define internal fastcc void @_outNextValueExpr(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outInferenceElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outInferenceElem(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.260) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.182) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5420,7 +5420,7 @@ define internal fastcc void @_outInferenceElem(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTargetEntry(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTargetEntry(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.263) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.182) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5453,7 +5453,7 @@ define internal fastcc void @_outTargetEntry(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRangeTblRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRangeTblRef(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.270) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5462,7 +5462,7 @@ define internal fastcc void @_outRangeTblRef(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJoinExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJoinExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.272) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5503,7 +5503,7 @@ define internal fastcc void @_outJoinExpr(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outFromExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outFromExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.280) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.281) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5517,7 +5517,7 @@ define internal fastcc void @_outFromExpr(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outOnConflictExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outOnConflictExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.282) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5552,7 +5552,7 @@ define internal fastcc void @_outOnConflictExpr(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outQuery(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outQuery(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.291) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5731,7 +5731,7 @@ define internal fastcc void @_outQuery(ptr noundef %0, ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTypeName(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTypeName(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.331) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.332) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5768,7 +5768,7 @@ define internal fastcc void @_outTypeName(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outColumnRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outColumnRef(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.339) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.340) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5781,7 +5781,7 @@ define internal fastcc void @_outColumnRef(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outParamRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outParamRef(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.341) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5793,7 +5793,7 @@ define internal fastcc void @_outParamRef(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outA_Expr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outA_Expr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.343) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5908,7 +5908,7 @@ define internal fastcc void @_outA_Const(ptr noundef %0, ptr noundef nonnull %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTypeCast(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTypeCast(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.363) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5925,7 +5925,7 @@ define internal fastcc void @_outTypeCast(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCollateClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCollateClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.365) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5942,7 +5942,7 @@ define internal fastcc void @_outCollateClause(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRoleSpec(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRoleSpec(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.367) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5958,7 +5958,7 @@ define internal fastcc void @_outRoleSpec(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outFuncCall(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outFuncCall(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.370) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.371) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6010,7 +6010,7 @@ define internal fastcc void @_outFuncCall(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outA_Indices(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outA_Indices(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.380) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -6029,7 +6029,7 @@ define internal fastcc void @_outA_Indices(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outA_Indirection(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outA_Indirection(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.384) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6043,7 +6043,7 @@ define internal fastcc void @_outA_Indirection(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outA_ArrayExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outA_ArrayExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.386) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.192) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6056,7 +6056,7 @@ define internal fastcc void @_outA_ArrayExpr(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outResTarget(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outResTarget(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.387) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6077,7 +6077,7 @@ define internal fastcc void @_outResTarget(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMultiAssignRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMultiAssignRef(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.388) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.389) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6093,7 +6093,7 @@ define internal fastcc void @_outMultiAssignRef(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSortBy(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSortBy(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.392) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.393) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6116,7 +6116,7 @@ define internal fastcc void @_outSortBy(ptr noundef %0, ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outWindowDef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outWindowDef(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.397) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6152,7 +6152,7 @@ define internal fastcc void @_outWindowDef(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRangeSubselect(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRangeSubselect(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.404) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -6171,7 +6171,7 @@ define internal fastcc void @_outRangeSubselect(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRangeFunction(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRangeFunction(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.407) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -6204,7 +6204,7 @@ define internal fastcc void @_outRangeFunction(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRangeTableFunc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRangeTableFunc(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.412) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -6238,7 +6238,7 @@ define internal fastcc void @_outRangeTableFunc(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRangeTableFuncCol(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRangeTableFuncCol(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.415) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.416) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6273,7 +6273,7 @@ define internal fastcc void @_outRangeTableFuncCol(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRangeTableSample(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRangeTableSample(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.421) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6298,7 +6298,7 @@ define internal fastcc void @_outRangeTableSample(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outColumnDef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outColumnDef(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   %4 = alloca [2 x i8], align 1
   %5 = alloca [2 x i8], align 1
@@ -6431,7 +6431,7 @@ outChar.exit53:                                   ; preds = %49, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTableLikeClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTableLikeClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.440) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6447,7 +6447,7 @@ define internal fastcc void @_outTableLikeClause(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outIndexElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outIndexElem(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.443) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6483,7 +6483,7 @@ define internal fastcc void @_outIndexElem(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDefElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDefElem(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.450) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.451) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6507,7 +6507,7 @@ define internal fastcc void @_outDefElem(ptr noundef %0, ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outLockingClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outLockingClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.454) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.455) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6523,7 +6523,7 @@ define internal fastcc void @_outLockingClause(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outXmlSerialize(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outXmlSerialize(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.458) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -6548,7 +6548,7 @@ define internal fastcc void @_outXmlSerialize(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPartitionElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPartitionElem(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.459) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6573,7 +6573,7 @@ define internal fastcc void @_outPartitionElem(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPartitionSpec(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPartitionSpec(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.460) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -6589,7 +6589,7 @@ define internal fastcc void @_outPartitionSpec(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPartitionBoundSpec(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPartitionBoundSpec(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.463) #7
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.464) #7
@@ -6642,7 +6642,7 @@ outChar.exit:                                     ; preds = %7, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPartitionRangeDatum(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPartitionRangeDatum(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.471) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -6658,7 +6658,7 @@ define internal fastcc void @_outPartitionRangeDatum(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPartitionCmd(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPartitionCmd(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.474) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6677,7 +6677,7 @@ define internal fastcc void @_outPartitionCmd(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRangeTblEntry(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRangeTblEntry(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [2 x i8], align 1
   %5 = alloca [2 x i8], align 1
@@ -6934,7 +6934,7 @@ outChar.exit115:                                  ; preds = %40, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRTEPermissionInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRTEPermissionInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.501) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7008,7 +7008,7 @@ outBitmapset.exit21:                              ; preds = %.lr.ph.i20, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRangeTblFunction(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRangeTblFunction(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.507) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.508) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7055,7 +7055,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTableSampleClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTableSampleClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.515) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7072,7 +7072,7 @@ define internal fastcc void @_outTableSampleClause(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outWithCheckOption(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outWithCheckOption(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.517) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7098,7 +7098,7 @@ define internal fastcc void @_outWithCheckOption(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSortGroupClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSortGroupClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.520) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7123,7 +7123,7 @@ define internal fastcc void @_outSortGroupClause(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGroupingSet(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGroupingSet(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.526) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7139,7 +7139,7 @@ define internal fastcc void @_outGroupingSet(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outWindowClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outWindowClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.528) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7203,7 +7203,7 @@ define internal fastcc void @_outWindowClause(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRowMarkClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRowMarkClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.536) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7223,7 +7223,7 @@ define internal fastcc void @_outRowMarkClause(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outWithClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outWithClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.539) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.540) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7241,7 +7241,7 @@ define internal fastcc void @_outWithClause(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outInferClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outInferClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.542) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.543) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7262,7 +7262,7 @@ define internal fastcc void @_outInferClause(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outOnConflictClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outOnConflictClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.546) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7286,7 +7286,7 @@ define internal fastcc void @_outOnConflictClause(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCTESearchClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCTESearchClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.548) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.549) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7308,7 +7308,7 @@ define internal fastcc void @_outCTESearchClause(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCTECycleClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCTECycleClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.552) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.553) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7349,7 +7349,7 @@ define internal fastcc void @_outCTECycleClause(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCommonTableExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCommonTableExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.562) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.493) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7405,7 +7405,7 @@ define internal fastcc void @_outCommonTableExpr(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMergeWhenClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMergeWhenClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.574) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -7434,7 +7434,7 @@ define internal fastcc void @_outMergeWhenClause(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTriggerTransition(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTriggerTransition(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.577) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7454,7 +7454,7 @@ define internal fastcc void @_outTriggerTransition(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonOutput(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonOutput(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.580) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.364) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7468,7 +7468,7 @@ define internal fastcc void @_outJsonOutput(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonKeyValue(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonKeyValue(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.581) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.582) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7482,7 +7482,7 @@ define internal fastcc void @_outJsonKeyValue(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonParseExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonParseExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.583) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.182) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7504,7 +7504,7 @@ define internal fastcc void @_outJsonParseExpr(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonScalarExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonScalarExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.585) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.182) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7521,7 +7521,7 @@ define internal fastcc void @_outJsonScalarExpr(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonSerializeExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonSerializeExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.586) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.182) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7538,7 +7538,7 @@ define internal fastcc void @_outJsonSerializeExpr(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonObjectConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonObjectConstructor(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.587) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.588) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7565,7 +7565,7 @@ define internal fastcc void @_outJsonObjectConstructor(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonArrayConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonArrayConstructor(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.589) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.588) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7587,7 +7587,7 @@ define internal fastcc void @_outJsonArrayConstructor(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonArrayQueryConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonArrayQueryConstructor(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.590) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.591) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7613,7 +7613,7 @@ define internal fastcc void @_outJsonArrayQueryConstructor(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonAggConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonAggConstructor(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.592) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.584) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7638,7 +7638,7 @@ define internal fastcc void @_outJsonAggConstructor(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonObjectAgg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonObjectAgg(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.593) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.594) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7662,7 +7662,7 @@ define internal fastcc void @_outJsonObjectAgg(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJsonArrayAgg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJsonArrayAgg(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.595) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.594) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7681,7 +7681,7 @@ define internal fastcc void @_outJsonArrayAgg(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRawStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRawStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.596) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.597) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7697,7 +7697,7 @@ define internal fastcc void @_outRawStmt(ptr noundef %0, ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outInsertStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outInsertStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.598) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7730,7 +7730,7 @@ define internal fastcc void @_outInsertStmt(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDeleteStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDeleteStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.602) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7756,7 +7756,7 @@ define internal fastcc void @_outDeleteStmt(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outUpdateStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outUpdateStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.603) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7786,7 +7786,7 @@ define internal fastcc void @_outUpdateStmt(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMergeStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMergeStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.605) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7812,7 +7812,7 @@ define internal fastcc void @_outMergeStmt(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSelectStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSelectStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.609) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.320) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7898,7 +7898,7 @@ define internal fastcc void @_outSelectStmt(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSetOperationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSetOperationStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.615) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7936,7 +7936,7 @@ define internal fastcc void @_outSetOperationStmt(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outReturnStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outReturnStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.620) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.621) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7946,7 +7946,7 @@ define internal fastcc void @_outReturnStmt(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPLAssignStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPLAssignStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.622) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7970,7 +7970,7 @@ define internal fastcc void @_outPLAssignStmt(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateSchemaStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateSchemaStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.624) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.18) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7993,7 +7993,7 @@ define internal fastcc void @_outCreateSchemaStmt(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterTableStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterTableStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.628) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8015,7 +8015,7 @@ define internal fastcc void @_outAlterTableStmt(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outReplicaIdentityStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outReplicaIdentityStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.632) #7
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.633) #7
@@ -8046,7 +8046,7 @@ outChar.exit:                                     ; preds = %7, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterTableCmd(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterTableCmd(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.634) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -8084,7 +8084,7 @@ define internal fastcc void @_outAlterTableCmd(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterCollationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterCollationStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.641) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.366) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8094,7 +8094,7 @@ define internal fastcc void @_outAlterCollationStmt(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterDomainStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterDomainStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.642) #7
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.643) #7
@@ -8141,7 +8141,7 @@ outChar.exit:                                     ; preds = %7, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGrantStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGrantStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.644) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -8182,7 +8182,7 @@ define internal fastcc void @_outGrantStmt(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outObjectWithArgs(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outObjectWithArgs(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.652) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.653) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8205,7 +8205,7 @@ define internal fastcc void @_outObjectWithArgs(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAccessPriv(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAccessPriv(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.657) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.658) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8219,7 +8219,7 @@ define internal fastcc void @_outAccessPriv(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGrantRoleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGrantRoleStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.659) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.660) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8249,7 +8249,7 @@ define internal fastcc void @_outGrantRoleStmt(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterDefaultPrivilegesStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.663) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.40) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8263,7 +8263,7 @@ define internal fastcc void @_outAlterDefaultPrivilegesStmt(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCopyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCopyStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.665) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8303,7 +8303,7 @@ define internal fastcc void @_outCopyStmt(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outVariableSetStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outVariableSetStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.670) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -8325,7 +8325,7 @@ define internal fastcc void @_outVariableSetStmt(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outVariableShowStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outVariableShowStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.671) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8335,7 +8335,7 @@ define internal fastcc void @_outVariableShowStmt(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.672) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8393,7 +8393,7 @@ define internal fastcc void @_outCreateStmt(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outConstraint(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outConstraint(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   %4 = alloca [2 x i8], align 1
   %5 = alloca [2 x i8], align 1
@@ -8599,7 +8599,7 @@ outChar.exit87:                                   ; preds = %92, %93
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateTableSpaceStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateTableSpaceStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.709) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.680) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8621,7 +8621,7 @@ define internal fastcc void @_outCreateTableSpaceStmt(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDropTableSpaceStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDropTableSpaceStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.712) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.680) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8636,7 +8636,7 @@ define internal fastcc void @_outDropTableSpaceStmt(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterTableSpaceOptionsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterTableSpaceOptionsStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.713) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.680) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8655,7 +8655,7 @@ define internal fastcc void @_outAlterTableSpaceOptionsStmt(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterTableMoveAllStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterTableMoveAllStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.715) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.716) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8681,7 +8681,7 @@ define internal fastcc void @_outAlterTableMoveAllStmt(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateExtensionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateExtensionStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.720) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.721) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8700,7 +8700,7 @@ define internal fastcc void @_outCreateExtensionStmt(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterExtensionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterExtensionStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.722) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.721) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8714,7 +8714,7 @@ define internal fastcc void @_outAlterExtensionStmt(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterExtensionContentsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterExtensionContentsStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.723) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.721) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8734,7 +8734,7 @@ define internal fastcc void @_outAlterExtensionContentsStmt(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateFdwStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateFdwStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.725) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.726) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8752,7 +8752,7 @@ define internal fastcc void @_outCreateFdwStmt(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterFdwStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterFdwStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.728) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.726) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8770,7 +8770,7 @@ define internal fastcc void @_outAlterFdwStmt(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateForeignServerStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateForeignServerStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.729) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.730) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8801,7 +8801,7 @@ define internal fastcc void @_outCreateForeignServerStmt(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterForeignServerStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterForeignServerStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.733) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.730) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8824,7 +8824,7 @@ define internal fastcc void @_outAlterForeignServerStmt(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateForeignTableStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateForeignTableStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.735) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.736) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8890,7 +8890,7 @@ define internal fastcc void @_outCreateForeignTableStmt(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateUserMappingStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateUserMappingStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.749) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.750) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8913,7 +8913,7 @@ define internal fastcc void @_outCreateUserMappingStmt(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterUserMappingStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterUserMappingStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.751) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.750) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8931,7 +8931,7 @@ define internal fastcc void @_outAlterUserMappingStmt(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDropUserMappingStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDropUserMappingStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.752) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.750) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8950,7 +8950,7 @@ define internal fastcc void @_outDropUserMappingStmt(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outImportForeignSchemaStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outImportForeignSchemaStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.753) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.754) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8979,7 +8979,7 @@ define internal fastcc void @_outImportForeignSchemaStmt(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreatePolicyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreatePolicyStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.759) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.760) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9014,7 +9014,7 @@ define internal fastcc void @_outCreatePolicyStmt(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterPolicyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterPolicyStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.765) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.760) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9040,7 +9040,7 @@ define internal fastcc void @_outAlterPolicyStmt(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateAmStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateAmStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.766) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.767) #7
@@ -9075,7 +9075,7 @@ outChar.exit:                                     ; preds = %11, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateTrigStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateTrigStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.770) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -9146,7 +9146,7 @@ define internal fastcc void @_outCreateTrigStmt(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateEventTrigStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateEventTrigStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.780) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.773) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9168,7 +9168,7 @@ define internal fastcc void @_outCreateEventTrigStmt(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterEventTrigStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterEventTrigStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.783) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.773) #7
@@ -9199,7 +9199,7 @@ outChar.exit:                                     ; preds = %9, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreatePLangStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreatePLangStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.785) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -9231,7 +9231,7 @@ define internal fastcc void @_outCreatePLangStmt(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateRoleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateRoleStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.791) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -9248,7 +9248,7 @@ define internal fastcc void @_outCreateRoleStmt(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterRoleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterRoleStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.794) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.793) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9265,7 +9265,7 @@ define internal fastcc void @_outAlterRoleStmt(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterRoleSetStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterRoleSetStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.795) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.793) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9283,7 +9283,7 @@ define internal fastcc void @_outAlterRoleSetStmt(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDropRoleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDropRoleStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.798) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.717) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9298,7 +9298,7 @@ define internal fastcc void @_outDropRoleStmt(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateSeqStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateSeqStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.799) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.800) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9325,7 +9325,7 @@ define internal fastcc void @_outCreateSeqStmt(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterSeqStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterSeqStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.803) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.800) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9349,7 +9349,7 @@ define internal fastcc void @_outAlterSeqStmt(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDefineStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDefineStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.804) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -9385,7 +9385,7 @@ define internal fastcc void @_outDefineStmt(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateDomainStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateDomainStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.808) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.809) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9407,7 +9407,7 @@ define internal fastcc void @_outCreateDomainStmt(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateOpClassStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateOpClassStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.810) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.811) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9438,7 +9438,7 @@ define internal fastcc void @_outCreateOpClassStmt(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateOpClassItem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateOpClassItem(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.816) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -9466,7 +9466,7 @@ define internal fastcc void @_outCreateOpClassItem(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateOpFamilyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateOpFamilyStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.821) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.812) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9480,7 +9480,7 @@ define internal fastcc void @_outCreateOpFamilyStmt(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterOpFamilyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterOpFamilyStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.822) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.812) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9503,7 +9503,7 @@ define internal fastcc void @_outAlterOpFamilyStmt(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDropStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDropStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.824) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.647) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9529,7 +9529,7 @@ define internal fastcc void @_outDropStmt(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTruncateStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTruncateStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.826) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.827) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9547,7 +9547,7 @@ define internal fastcc void @_outTruncateStmt(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCommentStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCommentStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.829) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -9564,7 +9564,7 @@ define internal fastcc void @_outCommentStmt(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSecLabelStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSecLabelStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.831) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -9585,7 +9585,7 @@ define internal fastcc void @_outSecLabelStmt(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDeclareCursorStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDeclareCursorStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.834) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.835) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9602,7 +9602,7 @@ define internal fastcc void @_outDeclareCursorStmt(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outClosePortalStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outClosePortalStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.837) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.835) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9612,7 +9612,7 @@ define internal fastcc void @_outClosePortalStmt(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outFetchStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outFetchStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.838) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -9633,7 +9633,7 @@ define internal fastcc void @_outFetchStmt(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outIndexStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outIndexStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.842) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.843) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9746,7 +9746,7 @@ define internal fastcc void @_outIndexStmt(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateStatsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateStatsStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.856) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.806) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9782,7 +9782,7 @@ define internal fastcc void @_outCreateStatsStmt(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outStatsElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outStatsElem(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.859) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9796,7 +9796,7 @@ define internal fastcc void @_outStatsElem(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterStatsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterStatsStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.860) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.806) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9814,7 +9814,7 @@ define internal fastcc void @_outAlterStatsStmt(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateFunctionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateFunctionStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.862) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -9850,7 +9850,7 @@ define internal fastcc void @_outCreateFunctionStmt(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outFunctionParameter(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outFunctionParameter(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.867) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9871,7 +9871,7 @@ define internal fastcc void @_outFunctionParameter(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterFunctionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterFunctionStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.871) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -9888,7 +9888,7 @@ define internal fastcc void @_outAlterFunctionStmt(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDoStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDoStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.873) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.77) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9898,7 +9898,7 @@ define internal fastcc void @_outDoStmt(ptr noundef %0, ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCallStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCallStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.874) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.875) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9916,7 +9916,7 @@ define internal fastcc void @_outCallStmt(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRenameStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRenameStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.877) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -9952,7 +9952,7 @@ define internal fastcc void @_outRenameStmt(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterObjectDependsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterObjectDependsStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.882) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -9978,7 +9978,7 @@ define internal fastcc void @_outAlterObjectDependsStmt(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterObjectSchemaStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterObjectSchemaStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.885) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -10004,7 +10004,7 @@ define internal fastcc void @_outAlterObjectSchemaStmt(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterOwnerStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterOwnerStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.887) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -10025,7 +10025,7 @@ define internal fastcc void @_outAlterOwnerStmt(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterOperatorStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterOperatorStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.888) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.889) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10039,7 +10039,7 @@ define internal fastcc void @_outAlterOperatorStmt(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterTypeStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterTypeStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.890) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.364) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10053,7 +10053,7 @@ define internal fastcc void @_outAlterTypeStmt(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRuleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRuleStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.891) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10088,7 +10088,7 @@ define internal fastcc void @_outRuleStmt(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outNotifyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outNotifyStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.895) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.896) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10102,7 +10102,7 @@ define internal fastcc void @_outNotifyStmt(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outListenStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outListenStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.898) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.896) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10112,7 +10112,7 @@ define internal fastcc void @_outListenStmt(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outUnlistenStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outUnlistenStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.899) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.896) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10122,7 +10122,7 @@ define internal fastcc void @_outUnlistenStmt(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTransactionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTransactionStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.900) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -10151,7 +10151,7 @@ define internal fastcc void @_outTransactionStmt(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCompositeTypeStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCompositeTypeStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.904) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.905) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10165,7 +10165,7 @@ define internal fastcc void @_outCompositeTypeStmt(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateEnumStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateEnumStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.906) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.364) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10179,7 +10179,7 @@ define internal fastcc void @_outCreateEnumStmt(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateRangeStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateRangeStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.908) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.364) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10193,7 +10193,7 @@ define internal fastcc void @_outCreateRangeStmt(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterEnumStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterEnumStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.910) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.364) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10225,7 +10225,7 @@ define internal fastcc void @_outAlterEnumStmt(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outViewStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outViewStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.916) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.917) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10255,7 +10255,7 @@ define internal fastcc void @_outViewStmt(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outLoadStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outLoadStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.920) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.669) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10265,7 +10265,7 @@ define internal fastcc void @_outLoadStmt(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreatedbStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreatedbStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.921) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.922) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10279,7 +10279,7 @@ define internal fastcc void @_outCreatedbStmt(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterDatabaseStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterDatabaseStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.923) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.922) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10293,7 +10293,7 @@ define internal fastcc void @_outAlterDatabaseStmt(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterDatabaseRefreshCollStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterDatabaseRefreshCollStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.924) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.922) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10303,7 +10303,7 @@ define internal fastcc void @_outAlterDatabaseRefreshCollStmt(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterDatabaseSetStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterDatabaseSetStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.925) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.922) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10317,7 +10317,7 @@ define internal fastcc void @_outAlterDatabaseSetStmt(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDropdbStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDropdbStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.926) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.922) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10336,7 +10336,7 @@ define internal fastcc void @_outDropdbStmt(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterSystemStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterSystemStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.927) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.797) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10346,7 +10346,7 @@ define internal fastcc void @_outAlterSystemStmt(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outClusterStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outClusterStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.928) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10364,7 +10364,7 @@ define internal fastcc void @_outClusterStmt(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outVacuumStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outVacuumStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.929) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.40) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10383,7 +10383,7 @@ define internal fastcc void @_outVacuumStmt(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outVacuumRelation(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outVacuumRelation(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.932) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10400,7 +10400,7 @@ define internal fastcc void @_outVacuumRelation(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outExplainStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outExplainStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.935) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.591) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10414,7 +10414,7 @@ define internal fastcc void @_outExplainStmt(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateTableAsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateTableAsStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.936) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.591) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10441,7 +10441,7 @@ define internal fastcc void @_outCreateTableAsStmt(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRefreshMatViewStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRefreshMatViewStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.939) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -10461,7 +10461,7 @@ define internal fastcc void @_outRefreshMatViewStmt(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDiscardStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDiscardStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.941) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -10470,7 +10470,7 @@ define internal fastcc void @_outDiscardStmt(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outLockStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outLockStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.943) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.827) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10488,7 +10488,7 @@ define internal fastcc void @_outLockStmt(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outConstraintsSetStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outConstraintsSetStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.944) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.438) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10503,7 +10503,7 @@ define internal fastcc void @_outConstraintsSetStmt(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outReindexStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outReindexStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.946) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -10524,7 +10524,7 @@ define internal fastcc void @_outReindexStmt(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateConversionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateConversionStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.947) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.948) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10551,7 +10551,7 @@ define internal fastcc void @_outCreateConversionStmt(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateCastStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateCastStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.953) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.954) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10577,7 +10577,7 @@ define internal fastcc void @_outCreateCastStmt(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateTransformStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateTransformStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.958) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -10604,7 +10604,7 @@ define internal fastcc void @_outCreateTransformStmt(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPrepareStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPrepareStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.963) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10622,7 +10622,7 @@ define internal fastcc void @_outPrepareStmt(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outExecuteStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outExecuteStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.965) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10636,7 +10636,7 @@ define internal fastcc void @_outExecuteStmt(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDeallocateStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDeallocateStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.966) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.118) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10654,7 +10654,7 @@ define internal fastcc void @_outDeallocateStmt(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDropOwnedStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDropOwnedStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.968) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.717) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10667,7 +10667,7 @@ define internal fastcc void @_outDropOwnedStmt(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outReassignOwnedStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outReassignOwnedStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.969) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.717) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10681,7 +10681,7 @@ define internal fastcc void @_outReassignOwnedStmt(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterTSDictionaryStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterTSDictionaryStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.971) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.972) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10695,7 +10695,7 @@ define internal fastcc void @_outAlterTSDictionaryStmt(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterTSConfigurationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterTSConfigurationStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.973) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -10731,7 +10731,7 @@ define internal fastcc void @_outAlterTSConfigurationStmt(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPublicationTable(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPublicationTable(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.978) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.422) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10749,7 +10749,7 @@ define internal fastcc void @_outPublicationTable(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPublicationObjSpec(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPublicationObjSpec(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.979) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -10769,7 +10769,7 @@ define internal fastcc void @_outPublicationObjSpec(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreatePublicationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreatePublicationStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.982) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.983) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10792,7 +10792,7 @@ define internal fastcc void @_outCreatePublicationStmt(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterPublicationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterPublicationStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.986) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.983) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10818,7 +10818,7 @@ define internal fastcc void @_outAlterPublicationStmt(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCreateSubscriptionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCreateSubscriptionStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.987) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.880) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10840,7 +10840,7 @@ define internal fastcc void @_outCreateSubscriptionStmt(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAlterSubscriptionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAlterSubscriptionStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.990) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -10865,7 +10865,7 @@ define internal fastcc void @_outAlterSubscriptionStmt(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outDropSubscriptionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outDropSubscriptionStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.991) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.880) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10883,7 +10883,7 @@ define internal fastcc void @_outDropSubscriptionStmt(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPlannerGlobal(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPlannerGlobal(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.992) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.158) #7
@@ -11769,7 +11769,7 @@ outBitmapset.exit157:                             ; preds = %.lr.ph.i156, %outBi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outIndexOptInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outIndexOptInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1125) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -12154,7 +12154,7 @@ writeBoolCols.exit143:                            ; preds = %._crit_edge.i136, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outForeignKeyOptInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outForeignKeyOptInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1153) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -12303,7 +12303,7 @@ list_length.exit:                                 ; preds = %48, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outStatisticExtInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outStatisticExtInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1166) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -12360,7 +12360,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %outChar.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outJoinDomain(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outJoinDomain(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1170) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1171) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12384,7 +12384,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outEquivalenceClass(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outEquivalenceClass(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -12461,7 +12461,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outEquivalenceMember(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outEquivalenceMember(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1185) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1186) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12506,7 +12506,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPathKey(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPathKey(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1192) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1193) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12527,7 +12527,7 @@ define internal fastcc void @_outPathKey(ptr noundef %0, ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPathKeyInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPathKeyInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1197) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1198) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12541,7 +12541,7 @@ define internal fastcc void @_outPathKeyInfo(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPathTarget(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPathTarget(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1200) #7
@@ -12621,7 +12621,7 @@ writeIndexCols.exit:                              ; preds = %._crit_edge.i, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outParamPathInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outParamPathInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1206) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1207) #7
@@ -12675,7 +12675,7 @@ outBitmapset.exit14:                              ; preds = %.lr.ph.i13, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -12798,7 +12798,7 @@ outBitmapset.exit36:                              ; preds = %.lr.ph.i35, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outIndexPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outIndexPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -12956,7 +12956,7 @@ outBitmapset.exit56:                              ; preds = %.lr.ph.i55, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outIndexClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outIndexClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1236) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1237) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12983,7 +12983,7 @@ define internal fastcc void @_outIndexClause(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outBitmapHeapPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outBitmapHeapPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -13110,7 +13110,7 @@ outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outBitmapAndPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outBitmapAndPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -13245,7 +13245,7 @@ outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outBitmapOrPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outBitmapOrPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -13380,7 +13380,7 @@ outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTidPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTidPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -13507,7 +13507,7 @@ outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTidRangePath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTidRangePath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -13634,7 +13634,7 @@ outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSubqueryScanPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSubqueryScanPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -13761,7 +13761,7 @@ outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outForeignPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outForeignPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -13896,7 +13896,7 @@ outBitmapset.exit45:                              ; preds = %.lr.ph.i44, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCustomPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCustomPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -14039,7 +14039,7 @@ outBitmapset.exit50:                              ; preds = %.lr.ph.i49, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAppendPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAppendPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -14177,7 +14177,7 @@ outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMergeAppendPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMergeAppendPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -14312,7 +14312,7 @@ outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGroupResultPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGroupResultPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -14439,7 +14439,7 @@ outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMaterialPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMaterialPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -14566,7 +14566,7 @@ outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMemoizePath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMemoizePath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -14722,7 +14722,7 @@ outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outUniquePath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outUniquePath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -14860,7 +14860,7 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGatherPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGatherPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -14995,7 +14995,7 @@ outBitmapset.exit43:                              ; preds = %.lr.ph.i42, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGatherMergePath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGatherMergePath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -15125,7 +15125,7 @@ outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outNestPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outNestPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -15268,7 +15268,7 @@ outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMergePath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMergePath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -15433,7 +15433,7 @@ outBitmapset.exit62:                              ; preds = %.lr.ph.i61, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outHashPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outHashPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -15591,7 +15591,7 @@ outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outProjectionPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outProjectionPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -15723,7 +15723,7 @@ outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outProjectSetPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outProjectSetPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -15850,7 +15850,7 @@ outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSortPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSortPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -15977,7 +15977,7 @@ outBitmapset.exit39:                              ; preds = %.lr.ph.i38, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outIncrementalSortPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outIncrementalSortPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -16107,7 +16107,7 @@ outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGroupPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGroupPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -16242,7 +16242,7 @@ outBitmapset.exit45:                              ; preds = %.lr.ph.i44, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outUpperUniquePath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outUpperUniquePath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -16372,7 +16372,7 @@ outBitmapset.exit41:                              ; preds = %.lr.ph.i40, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAggPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAggPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -16524,7 +16524,7 @@ outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGroupingSetData(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGroupingSetData(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1333) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1334) #7
@@ -16542,7 +16542,7 @@ define internal fastcc void @_outGroupingSetData(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRollupData(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRollupData(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1335) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.315) #7
@@ -16578,7 +16578,7 @@ define internal fastcc void @_outRollupData(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGroupingSetsPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGroupingSetsPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -16719,7 +16719,7 @@ outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMinMaxAggPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMinMaxAggPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -16850,7 +16850,7 @@ outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outWindowAggPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outWindowAggPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -16990,7 +16990,7 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSetOpPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSetOpPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -17142,7 +17142,7 @@ outBitmapset.exit53:                              ; preds = %.lr.ph.i52, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRecursiveUnionPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRecursiveUnionPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -17288,7 +17288,7 @@ outBitmapset.exit50:                              ; preds = %.lr.ph.i49, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outLockRowsPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outLockRowsPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -17422,7 +17422,7 @@ outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outModifyTablePath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outModifyTablePath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -17599,7 +17599,7 @@ outBitmapset.exit72:                              ; preds = %.lr.ph.i71, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outLimitPath(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outLimitPath(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -17737,7 +17737,7 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRestrictInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRestrictInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -17991,7 +17991,7 @@ outBitmapset.exit95:                              ; preds = %.lr.ph.i94, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPlaceHolderVar(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPlaceHolderVar(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1401) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1402) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18043,7 +18043,7 @@ outBitmapset.exit15:                              ; preds = %.lr.ph.i14, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSpecialJoinInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSpecialJoinInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1407) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1408) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18222,7 +18222,7 @@ outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outOuterJoinClauseInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outOuterJoinClauseInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1422) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1237) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18236,7 +18236,7 @@ define internal fastcc void @_outOuterJoinClauseInfo(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAppendRelInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAppendRelInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1424) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -18299,7 +18299,7 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRowIdentityVarInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRowIdentityVarInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1433) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1434) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18334,7 +18334,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPlaceHolderInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPlaceHolderInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1438) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -18404,7 +18404,7 @@ outBitmapset.exit20:                              ; preds = %.lr.ph.i19, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMinMaxAggInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMinMaxAggInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1444) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -18436,7 +18436,7 @@ define internal fastcc void @_outMinMaxAggInfo(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPlannerParamItem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPlannerParamItem(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1450) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1451) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18449,7 +18449,7 @@ define internal fastcc void @_outPlannerParamItem(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAggInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAggInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1453) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1454) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18470,7 +18470,7 @@ define internal fastcc void @_outAggInfo(ptr noundef %0, ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAggTransInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAggTransInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1458) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.77) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18518,7 +18518,7 @@ define internal fastcc void @_outAggTransInfo(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outUniqueRelInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outUniqueRelInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1468) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1469) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18551,7 +18551,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPlannedStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPlannedStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1472) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -18664,7 +18664,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outResult(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outResult(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -18775,7 +18775,7 @@ outBitmapset.exit45:                              ; preds = %.lr.ph.i44, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outProjectSet(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outProjectSet(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -18882,7 +18882,7 @@ outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outModifyTable(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outModifyTable(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -19083,7 +19083,7 @@ outBitmapset.exit99:                              ; preds = %.lr.ph.i98, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAppend(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAppend(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -19222,7 +19222,7 @@ outBitmapset.exit57:                              ; preds = %.lr.ph.i56, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMergeAppend(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMergeAppend(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -19497,7 +19497,7 @@ writeBoolCols.exit:                               ; preds = %._crit_edge.i91, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outRecursiveUnion(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outRecursiveUnion(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -19716,7 +19716,7 @@ writeOidCols.exit78:                              ; preds = %._crit_edge.i71, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outBitmapAnd(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outBitmapAnd(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -19827,7 +19827,7 @@ outBitmapset.exit45:                              ; preds = %.lr.ph.i44, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outBitmapOr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outBitmapOr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -19943,7 +19943,7 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSeqScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSeqScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -20053,7 +20053,7 @@ outBitmapset.exit44:                              ; preds = %.lr.ph.i43, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSampleScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSampleScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -20167,7 +20167,7 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outIndexScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outIndexScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -20303,7 +20303,7 @@ outBitmapset.exit63:                              ; preds = %.lr.ph.i62, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outIndexOnlyScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outIndexOnlyScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -20435,7 +20435,7 @@ outBitmapset.exit60:                              ; preds = %.lr.ph.i59, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outBitmapIndexScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outBitmapIndexScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -20561,7 +20561,7 @@ outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outBitmapHeapScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outBitmapHeapScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -20675,7 +20675,7 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTidScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTidScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -20789,7 +20789,7 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTidRangeScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTidRangeScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -20903,7 +20903,7 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSubqueryScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSubqueryScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -21020,7 +21020,7 @@ outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outFunctionScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outFunctionScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -21139,7 +21139,7 @@ outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outValuesScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outValuesScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -21253,7 +21253,7 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outTableFuncScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outTableFuncScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -21367,7 +21367,7 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCteScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCteScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -21483,7 +21483,7 @@ outBitmapset.exit48:                              ; preds = %.lr.ph.i47, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outNamedTuplestoreScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outNamedTuplestoreScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -21597,7 +21597,7 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outWorkTableScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outWorkTableScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -21710,7 +21710,7 @@ outBitmapset.exit46:                              ; preds = %.lr.ph.i45, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outForeignScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outForeignScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -21889,7 +21889,7 @@ outBitmapset.exit76:                              ; preds = %.lr.ph.i75, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outCustomScan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outCustomScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -22041,7 +22041,7 @@ outBitmapset.exit66:                              ; preds = %.lr.ph.i65, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outNestLoop(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outNestLoop(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -22164,7 +22164,7 @@ outBitmapset.exit52:                              ; preds = %.lr.ph.i51, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outNestLoopParam(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outNestLoopParam(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1603) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -22177,7 +22177,7 @@ define internal fastcc void @_outNestLoopParam(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMergeJoin(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMergeJoin(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -22499,7 +22499,7 @@ writeBoolCols.exit:                               ; preds = %._crit_edge.i97, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outHashJoin(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outHashJoin(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -22634,7 +22634,7 @@ outBitmapset.exit61:                              ; preds = %.lr.ph.i60, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMaterial(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMaterial(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -22741,7 +22741,7 @@ outBitmapset.exit42:                              ; preds = %.lr.ph.i41, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outMemoize(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outMemoize(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -22954,7 +22954,7 @@ outBitmapset.exit77:                              ; preds = %.lr.ph.i76, %writeO
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSort(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSort(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -23203,7 +23203,7 @@ writeBoolCols.exit:                               ; preds = %._crit_edge.i80, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outIncrementalSort(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outIncrementalSort(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -23455,7 +23455,7 @@ writeBoolCols.exit:                               ; preds = %._crit_edge.i82, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGroup(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGroup(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -23668,7 +23668,7 @@ writeOidCols.exit74:                              ; preds = %._crit_edge.i67, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outAgg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outAgg(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -23919,7 +23919,7 @@ outBitmapset.exit94:                              ; preds = %.lr.ph.i93, %writeO
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outWindowAgg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outWindowAgg(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -24284,7 +24284,7 @@ writeOidCols.exit143:                             ; preds = %._crit_edge.i136, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outUnique(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outUnique(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -24497,7 +24497,7 @@ writeOidCols.exit74:                              ; preds = %._crit_edge.i67, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGather(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGather(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -24638,7 +24638,7 @@ outBitmapset.exit55:                              ; preds = %.lr.ph.i54, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outGatherMerge(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outGatherMerge(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -24911,7 +24911,7 @@ outBitmapset.exit96:                              ; preds = %.lr.ph.i95, %writeB
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outHash(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outHash(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -25042,7 +25042,7 @@ outBitmapset.exit54:                              ; preds = %.lr.ph.i53, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outSetOp(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outSetOp(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -25271,7 +25271,7 @@ writeOidCols.exit84:                              ; preds = %._crit_edge.i77, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outLockRows(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outLockRows(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -25385,7 +25385,7 @@ outBitmapset.exit47:                              ; preds = %.lr.ph.i46, %outBit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outLimit(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outLimit(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [25 x i8], align 16
   %4 = alloca [25 x i8], align 16
   %5 = alloca [25 x i8], align 16
@@ -25609,7 +25609,7 @@ writeOidCols.exit82:                              ; preds = %._crit_edge.i75, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPlanRowMark(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPlanRowMark(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1680) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -25641,7 +25641,7 @@ define internal fastcc void @_outPlanRowMark(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPartitionPruneInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPartitionPruneInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1686) #7
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1687) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -25669,7 +25669,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPartitionedRelPruneInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPartitionedRelPruneInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1689) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -25827,7 +25827,7 @@ outBitmapset.exit49:                              ; preds = %.lr.ph.i48, %writeO
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPartitionPruneStepOp(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPartitionPruneStepOp(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1698) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -25866,7 +25866,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPartitionPruneStepCombine(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPartitionPruneStepCombine(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1703) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -25882,7 +25882,7 @@ define internal fastcc void @_outPartitionPruneStepCombine(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outPlanInvalItem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outPlanInvalItem(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1706) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -25909,7 +25909,7 @@ define internal fastcc void @_outExtensibleNode(ptr noundef %0, ptr noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_outForeignKeyCacheInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_outForeignKeyCacheInfo(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.1711) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -26045,10 +26045,10 @@ declare ptr @GetExtensibleNodeMethods(ptr noundef, i1 noundef zeroext) local_unn
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

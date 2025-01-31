@@ -245,14 +245,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @jemalloc_constructor, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @default_junk_alloc(ptr nocapture noundef writeonly %ptr, i64 noundef %usize) #0 {
+define internal void @default_junk_alloc(ptr noundef writeonly captures(none) %ptr, i64 noundef %usize) #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr align 1 %ptr, i8 -91, i64 %usize, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @default_junk_free(ptr nocapture noundef writeonly %ptr, i64 noundef %usize) #0 {
+define internal void @default_junk_free(ptr noundef writeonly captures(none) %ptr, i64 noundef %usize) #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr align 1 %ptr, i8 90, i64 %usize, i1 false)
   ret void
@@ -1100,7 +1100,7 @@ if.end5:                                          ; preds = %if.then1.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @iarena_cleanup(ptr nocapture noundef %tsd) local_unnamed_addr #2 {
+define hidden void @iarena_cleanup(ptr noundef captures(none) %tsd) local_unnamed_addr #2 {
 entry:
   %cant_access_tsd_items_directly_use_a_getter_or_setter_iarena.i = getelementptr inbounds nuw i8, ptr %tsd, i64 136
   %0 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_iarena.i, align 8
@@ -1123,7 +1123,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @arena_cleanup(ptr nocapture noundef %tsd) local_unnamed_addr #2 {
+define hidden void @arena_cleanup(ptr noundef captures(none) %tsd) local_unnamed_addr #2 {
 entry:
   %cant_access_tsd_items_directly_use_a_getter_or_setter_arena.i = getelementptr inbounds nuw i8, ptr %tsd, i64 144
   %0 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_arena.i, align 8
@@ -9519,7 +9519,7 @@ arena_choose_impl.exit:                           ; preds = %entry, %if.then5.i,
 declare i64 @arena_fill_small_fresh(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define internal void @jemalloc_constructor() #2 {
@@ -10202,12 +10202,12 @@ declare zeroext i1 @malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32
 declare zeroext i1 @hook_boot() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare zeroext i1 @pa_shard_enable_hpa(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @malloc_conf_init_helper(ptr noundef %sc_data, ptr noundef %bin_shard_sizes, i1 noundef zeroext %initial_call, ptr nocapture noundef nonnull %opts_cache, ptr noundef %buf) unnamed_addr #2 {
+define internal fastcc void @malloc_conf_init_helper(ptr noundef %sc_data, ptr noundef %bin_shard_sizes, i1 noundef zeroext %initial_call, ptr noundef nonnull captures(none) %opts_cache, ptr noundef %buf) unnamed_addr #2 {
 entry:
   %hpa_dirty_mult.i = alloca [21 x i8], align 16
   %hugification_threshold.i = alloca [21 x i8], align 16
@@ -13326,7 +13326,7 @@ release.i:                                        ; preds = %for.inc2340
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @malloc_conf_error(ptr noundef %msg, ptr noundef %k, i64 noundef %klen, ptr noundef %v, i64 noundef %vlen) unnamed_addr #2 {
@@ -13366,13 +13366,13 @@ declare void @sc_data_update_slab_size(ptr noundef, i64 noundef, i64 noundef, i3
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare ptr @secure_getenv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #13
@@ -13562,7 +13562,7 @@ if.end:                                           ; preds = %arena_dalloc_large_
 declare void @safety_check_fail(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #2 {
+define internal fastcc void @rtree_read(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #2 {
 entry:
   %shr.i.i = lshr i64 %key, 30
   %and.i.i = and i64 %shr.i.i, 15
@@ -14392,10 +14392,10 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
 declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #16

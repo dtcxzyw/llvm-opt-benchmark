@@ -105,19 +105,19 @@ $_ZZNK5boost6system10error_code8locationEvE3loc = comdat any
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost4urls12ipv4_addressC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define void @_ZN5boost4urls12ipv4_addressC2Ej(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   store i32 %1, ptr %0, align 4, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls12ipv4_addressC2ERKSt5arrayIhLm4EE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %1) unnamed_addr #2 align 2 {
+define void @_ZN5boost4urls12ipv4_addressC2ERKSt5arrayIhLm4EE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #2 align 2 {
   store i32 0, ptr %0, align 4, !tbaa !3
   %3 = load i8, ptr %1, align 1, !tbaa !8
   %4 = zext i8 %3 to i32
@@ -141,7 +141,7 @@ define void @_ZN5boost4urls12ipv4_addressC2ERKSt5arrayIhLm4EE(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls12ipv4_addressC2ENS_4core17basic_string_viewIcEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr %1, i64 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls12ipv4_addressC2ENS_4core17basic_string_viewIcEE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %0, ptr %1, i64 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.boost::system::result", align 8
   %6 = alloca %"class.boost::system::result", align 8
@@ -227,7 +227,7 @@ _ZNO5boost6system6resultINS_4urls12ipv4_addressENS0_10error_codeEE5valueIS3_EENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost4urls18parse_ipv4_addressENS_4core17basic_string_viewIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::system::result") align 8 initializes((0, 28)) %0, ptr %1, i64 %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls18parse_ipv4_addressENS_4core17basic_string_viewIcEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::system::result") align 8 captures(none) initializes((0, 28)) %0, ptr %1, i64 %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.boost::system::result", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
@@ -280,23 +280,23 @@ _ZN5boost4urls7grammar5parseINS0_22implementation_defined19ipv4_address_rule_tEE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @_ZNK5boost4urls12ipv4_address8to_bytesEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
+define i32 @_ZNK5boost4urls12ipv4_address8to_bytesEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %.sroa.0.0.insert.insert = tail call i32 @llvm.bswap.i32(i32 %2)
   ret i32 %.sroa.0.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK5boost4urls12ipv4_address7to_uintEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK5boost4urls12ipv4_address7to_uintEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_ZNK5boost4urls12ipv4_address9to_bufferEPcm(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define { ptr, i64 } @_ZNK5boost4urls12ipv4_address9to_bufferEPcm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"struct.boost::source_location", align 8
   %5 = icmp ult i64 %2, 15
   br i1 %5, label %6, label %10
@@ -324,7 +324,7 @@ define { ptr, i64 } @_ZNK5boost4urls12ipv4_address9to_bufferEPcm(ptr nocapture n
 declare void @_ZN5boost4urls6detail18throw_length_errorERKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %0, align 4, !tbaa !3
   %4 = lshr i32 %3, 24
   %5 = trunc nuw i32 %4 to i8
@@ -470,7 +470,7 @@ define noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5boost4urls12ipv4_address11is_loopbackEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK5boost4urls12ipv4_address11is_loopbackEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = and i32 %2, -16777216
   %4 = icmp eq i32 %3, 2130706432
@@ -478,14 +478,14 @@ define noundef zeroext i1 @_ZNK5boost4urls12ipv4_address11is_loopbackEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5boost4urls12ipv4_address14is_unspecifiedEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK5boost4urls12ipv4_address14is_unspecifiedEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5boost4urls12ipv4_address12is_multicastEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK5boost4urls12ipv4_address12is_multicastEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = and i32 %2, -268435456
   %4 = icmp eq i32 %3, -536870912
@@ -493,7 +493,7 @@ define noundef zeroext i1 @_ZNK5boost4urls12ipv4_address12is_multicastEv(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5boost4urls12ipv4_address14to_string_implERNS0_12string_token3argE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define void @_ZNK5boost4urls12ipv4_address14to_string_implERNS0_12string_token3argE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca [15 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %3) #21
   %4 = call noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull %3) #21
@@ -1008,7 +1008,7 @@ define linkonce_odr hidden void @_ZNK5boost6system10error_code9to_stringB5cxx11E
   br i1 %20, label %.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %._crit_edge.i.i
-  %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %16, i64 noundef %17)
+  %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %16, i64 noundef %17)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %29
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -1424,13 +1424,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #15
 

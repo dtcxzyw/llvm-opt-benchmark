@@ -126,7 +126,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.115 = private unnamed_addr constant [37 x i8] c"Missing encoding in text declaration\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_XML_ParserCreate(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef ptr @php_XML_ParserCreate(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @_emalloc_128() #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 120, i1 false)
   %3 = tail call ptr @xmlCreatePushParserCtxt(ptr noundef nonnull @php_xml_compat_handlers, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0, ptr noundef null) #9
@@ -174,7 +174,7 @@ php_XML_ParserCreate_MM.exit:                     ; preds = %6, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_XML_ParserCreate_MM(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef ptr @php_XML_ParserCreate_MM(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @_emalloc_128() #9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 120, i1 false)
@@ -236,7 +236,7 @@ define noundef ptr @php_XML_ParserCreate_MM(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_XML_ParserCreateNS(ptr nocapture noundef readnone %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+define noundef ptr @php_XML_ParserCreateNS(ptr noundef readnone captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   store i8 %1, ptr %3, align 1
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -248,7 +248,7 @@ define noundef ptr @php_XML_ParserCreateNS(ptr nocapture noundef readnone %0, i8
 declare noalias ptr @_emalloc_128() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @xmlCreatePushParserCtxt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -259,21 +259,21 @@ declare i32 @xmlCtxtUseOptions(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetUserData(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetUserData(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @XML_GetUserData(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @XML_GetUserData(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetElementHandler(ptr nocapture noundef writeonly initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @php_XML_SetElementHandler(ptr noundef writeonly captures(none) initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -282,70 +282,70 @@ define void @php_XML_SetElementHandler(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetCharacterDataHandler(ptr nocapture noundef writeonly initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetCharacterDataHandler(ptr noundef writeonly captures(none) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetProcessingInstructionHandler(ptr nocapture noundef writeonly initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetProcessingInstructionHandler(ptr noundef writeonly captures(none) initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetCommentHandler(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetCommentHandler(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetDefaultHandler(ptr nocapture noundef writeonly initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetDefaultHandler(ptr noundef writeonly captures(none) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetUnparsedEntityDeclHandler(ptr nocapture noundef writeonly initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetUnparsedEntityDeclHandler(ptr noundef writeonly captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetNotationDeclHandler(ptr nocapture noundef writeonly initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetNotationDeclHandler(ptr noundef writeonly captures(none) initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetExternalEntityRefHandler(ptr nocapture noundef writeonly initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetExternalEntityRefHandler(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetStartNamespaceDeclHandler(ptr nocapture noundef writeonly initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetStartNamespaceDeclHandler(ptr noundef writeonly captures(none) initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetEndNamespaceDeclHandler(ptr nocapture noundef writeonly initializes((112, 120)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetEndNamespaceDeclHandler(ptr noundef writeonly captures(none) initializes((112, 120)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @php_XML_Parse(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @php_XML_Parse(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @xmlParseChunk(ptr noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef %3) #9
@@ -368,7 +368,7 @@ define range(i32 0, 2) i32 @php_XML_Parse(ptr nocapture noundef readonly %0, ptr
 declare i32 @xmlParseChunk(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @php_XML_GetErrorCode(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @php_XML_GetErrorCode(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -393,7 +393,7 @@ define ptr @php_XML_ErrorString(i32 noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @php_XML_GetCurrentLineNumber(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @php_XML_GetCurrentLineNumber(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -404,7 +404,7 @@ define i32 @php_XML_GetCurrentLineNumber(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @php_XML_GetCurrentColumnNumber(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @php_XML_GetCurrentColumnNumber(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -415,7 +415,7 @@ define i32 @php_XML_GetCurrentColumnNumber(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @php_XML_GetCurrentByteIndex(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @php_XML_GetCurrentByteIndex(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -435,7 +435,7 @@ define i32 @php_XML_GetCurrentByteIndex(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @php_XML_GetCurrentByteCount(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @php_XML_GetCurrentByteCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -633,7 +633,7 @@ define internal ptr @_get_entity(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_notation_decl_handler(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @_notation_decl_handler(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -650,7 +650,7 @@ define internal void @_notation_decl_handler(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_unparsed_entity_decl_handler(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal void @_unparsed_entity_decl_handler(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -667,7 +667,7 @@ define internal void @_unparsed_entity_decl_handler(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_start_element_handler(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @_start_element_handler(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -737,7 +737,7 @@ define internal void @_start_element_handler(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_end_element_handler(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @_end_element_handler(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -758,7 +758,7 @@ define internal void @_end_element_handler(ptr nocapture noundef readonly %0, pt
   %15 = load ptr, ptr %3, align 8
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #10
   %17 = trunc i64 %16 to i32
-  call void %12(ptr noundef %14, ptr noundef %15, i32 noundef %17) #9
+  call void %12(ptr noundef %14, ptr noundef nonnull %15, i32 noundef %17) #9
   %18 = load ptr, ptr %3, align 8
   call void @_efree(ptr noundef %18) #9
   br label %25
@@ -778,7 +778,7 @@ define internal void @_end_element_handler(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_cdata_handler(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal void @_cdata_handler(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -802,7 +802,7 @@ define internal void @_cdata_handler(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_pi_handler(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @_pi_handler(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -823,7 +823,7 @@ define internal void @_pi_handler(ptr nocapture noundef readonly %0, ptr noundef
   %16 = load ptr, ptr %4, align 8
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #10
   %18 = trunc i64 %17 to i32
-  call void %13(ptr noundef %15, ptr noundef %16, i32 noundef %18) #9
+  call void %13(ptr noundef %15, ptr noundef nonnull %16, i32 noundef %18) #9
   %19 = load ptr, ptr %4, align 8
   call void @_efree(ptr noundef %19) #9
   br label %23
@@ -839,7 +839,7 @@ define internal void @_pi_handler(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_comment_handler(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @_comment_handler(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -873,7 +873,7 @@ define internal void @_comment_handler(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 %7, ptr noundef readonly %8) #0 {
+define internal void @_start_element_handler_ns(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 %7, ptr noundef readonly %8) #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = icmp sgt i32 %4, 0
@@ -1174,7 +1174,7 @@ _qualify_namespace.exit127:                       ; preds = %118, %112, %120
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_end_element_handler_ns(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @_end_element_handler_ns(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -1274,7 +1274,7 @@ define internal fastcc void @_external_entity_ref_handler(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @xmlStopParser(ptr noundef) local_unnamed_addr #1
 
@@ -1285,7 +1285,7 @@ declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare ptr @xmlStrncat(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 

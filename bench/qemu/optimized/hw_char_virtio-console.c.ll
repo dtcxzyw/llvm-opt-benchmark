@@ -63,7 +63,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtserialport_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @virtserialport_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #5
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_CLASS) #5
@@ -476,7 +476,7 @@ declare i64 @virtio_serial_guest_ready(ptr noundef) local_unnamed_addr #1
 declare i64 @virtio_serial_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -487,7 +487,7 @@ declare i32 @g_source_remove(i32 noundef) local_unnamed_addr #1
 declare i32 @qemu_chr_fe_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @chr_write_unblocked(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef initializes((312, 316)) %opaque) #0 {
+define internal noundef i32 @chr_write_unblocked(ptr readnone captures(none) %do_not_use, i32 %cond, ptr noundef initializes((312, 316)) %opaque) #0 {
 entry:
   %watch = getelementptr inbounds nuw i8, ptr %opaque, i64 312
   store i32 0, ptr %watch, align 8
@@ -509,7 +509,7 @@ declare void @qapi_event_send_vserport_change(ptr noundef, i1 noundef zeroext) l
 declare void @qemu_chr_fe_accept_input(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtconsole_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @virtconsole_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_CLASS) #5
   %is_console = getelementptr inbounds nuw i8, ptr %call.i, i64 176
@@ -521,10 +521,10 @@ entry:
 declare i64 @llvm.smax.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

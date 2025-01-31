@@ -43,7 +43,7 @@ switch.lookup:                                    ; preds = %entry
 declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i32 } @_ZN6icu_756number4impl7Grouper13forPropertiesERKNS1_23DecimalFormatPropertiesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(757) %properties) local_unnamed_addr #2 align 2 {
+define { i64, i32 } @_ZN6icu_756number4impl7Grouper13forPropertiesERKNS1_23DecimalFormatPropertiesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(757) %properties) local_unnamed_addr #2 align 2 {
 entry:
   %groupingUsed = getelementptr inbounds nuw i8, ptr %properties, i64 80
   %0 = load i8, ptr %groupingUsed, align 8
@@ -82,7 +82,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl7Grouper13setLocaleDataERKNS1_17ParsedPatternInfoERKNS_6LocaleE(ptr nocapture noundef nonnull align 4 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(433) %patternInfo, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_756number4impl7Grouper13setLocaleDataERKNS1_17ParsedPatternInfoERKNS_6LocaleE(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(433) %patternInfo, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(217) %locale) local_unnamed_addr #3 align 2 {
 entry:
   %fMinGrouping = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i16, ptr %fMinGrouping, align 4
@@ -196,7 +196,7 @@ _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %cleanup, %if.then.i
 declare i32 @uprv_max_75(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_756number4impl7Grouper15groupAtPositionEiRKNS1_15DecimalQuantityE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this, i32 noundef %position, ptr noundef nonnull align 8 dereferenceable(66) %value) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK6icu_756number4impl7Grouper15groupAtPositionEiRKNS1_15DecimalQuantityE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this, i32 noundef %position, ptr noundef nonnull align 8 dereferenceable(66) %value) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   switch i16 %0, label %if.end [
@@ -238,14 +238,14 @@ return:                                           ; preds = %if.end, %land.lhs.t
 declare noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity24getUpperDisplayMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i16 @_ZNK6icu_756number4impl7Grouper10getPrimaryEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #2 align 2 {
+define noundef signext i16 @_ZNK6icu_756number4impl7Grouper10getPrimaryEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   ret i16 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i16 @_ZNK6icu_756number4impl7Grouper12getSecondaryEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #2 align 2 {
+define noundef signext i16 @_ZNK6icu_756number4impl7Grouper12getSecondaryEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #2 align 2 {
 entry:
   %fGrouping2 = getelementptr inbounds nuw i8, ptr %this, i64 2
   %0 = load i16, ptr %fGrouping2, align 2

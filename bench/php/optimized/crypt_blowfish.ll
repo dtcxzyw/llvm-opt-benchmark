@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BF_atoi64 = internal unnamed_addr constant [96 x i8] c"@@@@@@@@@@@@@@\00\016789:;<=>?@@@@@@@\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B@@@@@@\1C\1D\1E\1F !\22#$%&'()*+,-./012345@@@@@", align 16
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @php_crypt_blowfish_rn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @php_crypt_blowfish_rn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.anon, align 1
   %6 = alloca [18 x i32], align 16
   %7 = alloca [18 x i32], align 16
@@ -246,7 +246,7 @@ _crypt_output_magic.exit57:                       ; preds = %99, %100, %105, %10
 }
 
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @BF_crypt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef range(i32 1, 17) %4) unnamed_addr #1 {
+define internal fastcc noundef ptr @BF_crypt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef range(i32 1, 17) %4) unnamed_addr #1 {
   %6 = alloca %struct.anon.0, align 4
   %7 = icmp slt i32 %3, 61
   br i1 %7, label %8, label %10
@@ -2934,13 +2934,13 @@ BF_swap.exit1881:                                 ; preds = %2515
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @BF_set_key(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull %2, i8 noundef zeroext %3) unnamed_addr #5 {
+define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull captures(none) %2, i8 noundef zeroext %3) unnamed_addr #5 {
   %5 = alloca [2 x i32], align 4
   %6 = zext i8 %3 to i32
   %7 = and i32 %6, 1
@@ -3018,7 +3018,7 @@ define internal fastcc void @BF_set_key(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = add nsw i32 %4, -32
@@ -3113,7 +3113,7 @@ split:                                            ; preds = %53, %.lr.ph, %12, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @BF_encode(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #5 {
+define internal fastcc void @BF_encode(ptr noundef writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = lshr i32 %4, 2
@@ -3196,7 +3196,7 @@ define internal fastcc void @BF_encode(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #7

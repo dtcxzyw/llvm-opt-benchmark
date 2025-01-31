@@ -255,7 +255,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24CirclesGridClusterFinder22hierarchicalClusteringERKSt6vectorIN2cv6Point_IfEESaIS3_EERKNS1_5Size_IiEERS5_(ptr nocapture nonnull readnone align 4 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24CirclesGridClusterFinder22hierarchicalClusteringERKSt6vectorIN2cv6Point_IfEESaIS3_EERKNS1_5Size_IiEERS5_(ptr nonnull readnone align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Range", align 4
   %6 = alloca %"class.cv::Range", align 8
   %7 = alloca %"class.cv::Range", align 4
@@ -1223,7 +1223,7 @@ _ZNSt12_Vector_baseINSt7__cxx114listImSaImEEESaIS3_EED2Ev.exit: ; preds = %_ZSt8
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24CirclesGridClusterFinder8findGridERKSt6vectorIN2cv6Point_IfEESaIS3_EENS1_5Size_IiEERS5_(ptr nocapture noundef nonnull align 4 dereferenceable(20) initializes((12, 20)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24CirclesGridClusterFinder8findGridERKSt6vectorIN2cv6Point_IfEESaIS3_EENS1_5Size_IiEERS5_(ptr noundef nonnull align 4 captures(none) dereferenceable(20) initializes((12, 20)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.cv::_InputArray", align 8
@@ -1522,12 +1522,12 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit45:  ; preds = %_ZNSt6vectorIN2cv6P
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN2cv10convexHullERKNS_11_InputArrayERKNS_12_OutputArrayEbb(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24CirclesGridClusterFinder11findCornersERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24CirclesGridClusterFinder11findCornersERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Range", align 4
   %5 = alloca %"class.cv::Range", align 8
   %6 = alloca %"class.cv::Mat", align 8
@@ -2018,7 +2018,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit72:                  ; preds = %203, %204
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24CirclesGridClusterFinder18findOutsideCornersERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_(ptr nocapture nonnull readnone align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24CirclesGridClusterFinder18findOutsideCornersERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_(ptr nonnull readnone align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Range", align 8
   %5 = alloca %"class.cv::Range", align 4
   %6 = alloca %"class.cv::Range", align 4
@@ -2627,7 +2627,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit105: ; preds = %261, %260, %42
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24CirclesGridClusterFinder16getSortedCornersERKSt6vectorIN2cv6Point_IfEESaIS3_EES7_S7_S7_RS5_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24CirclesGridClusterFinder16getSortedCornersERKSt6vectorIN2cv6Point_IfEESaIS3_EES7_S7_S7_RS5_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::Point_", align 8
   store float 0.000000e+00, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -3184,7 +3184,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit114: ; preds = %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24CirclesGridClusterFinder20rectifyPatternPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EES7_RS5_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24CirclesGridClusterFinder20rectifyPatternPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EES7_RS5_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i:
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.cv::Mat", align 8
@@ -3701,7 +3701,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit145.thread: ; preds = %200, %198, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24CirclesGridClusterFinder18parsePatternPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EES7_RS5_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24CirclesGridClusterFinder18parsePatternPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EES7_RS5_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cv::flann::LinearIndexParams", align 8
   %6 = alloca %"class.cv::flann::Index", align 8
   %7 = alloca %"class.cv::_InputArray", align 8
@@ -4158,7 +4158,7 @@ declare void @_ZN2cv5flann5IndexC1ERKNS_11_InputArrayERKNS0_11IndexParamsEN7cvfl
 declare void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @_ZN2cv5flann5Index9knnSearchERKNS_11_InputArrayERKNS_12_OutputArrayES7_iRKNS0_12SearchParamsE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
@@ -5011,7 +5011,7 @@ _ZNKSt3setImSt4lessImESaImEE4findERKm.exit:       ; preds = %23, %_ZNKSt8_Rb_tre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK5Graph16getVerticesCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #11 align 2 {
+define hidden noundef i64 @_ZNK5Graph16getVerticesCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -5351,7 +5351,7 @@ _ZNKSt3mapImN5Graph6VertexESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17CirclesGridFinder7SegmentC2EN2cv6Point_IfEES3_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, <2 x float> %1, <2 x float> %2) unnamed_addr #12 align 2 {
+define hidden void @_ZN17CirclesGridFinder7SegmentC2EN2cv6Point_IfEES3_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, <2 x float> %1, <2 x float> %2) unnamed_addr #12 align 2 {
   store <2 x float> %1, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store <2 x float> %2, ptr %4, align 4
@@ -5359,7 +5359,7 @@ define hidden void @_ZN17CirclesGridFinder7SegmentC2EN2cv6Point_IfEES3_(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv27CirclesGridFinderParametersC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(68) initializes((0, 68)) %0) unnamed_addr #13 align 2 {
+define void @_ZN2cv27CirclesGridFinderParametersC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(68) initializes((0, 68)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float 1.000000e+01, ptr %3, align 4
@@ -5397,7 +5397,7 @@ define void @_ZN2cv27CirclesGridFinderParametersC2Ev(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17CirclesGridFinderC2EN2cv5Size_IiEERKSt6vectorINS0_6Point_IfEESaIS5_EERKNS0_27CirclesGridFinderParametersE(ptr noundef nonnull align 8 dereferenceable(173) initializes((0, 72), (88, 104)) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(68) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17CirclesGridFinderC2EN2cv5Size_IiEERKSt6vectorINS0_6Point_IfEESaIS5_EERKNS0_27CirclesGridFinderParametersE(ptr noundef nonnull align 8 dereferenceable(173) initializes((0, 72), (88, 104)) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(68) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.14", align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5932,7 +5932,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit26:  ; preds = %109, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK17CirclesGridFinder10computeRNGER5GraphRSt6vectorIN2cv6Point_IfEESaIS5_EEPNS3_3MatE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK17CirclesGridFinder10computeRNGER5GraphRSt6vectorIN2cv6Point_IfEESaIS5_EEPNS3_3MatE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef %3) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.Graph, align 8
   %6 = alloca %"class.cv::_InputOutputArray", align 8
   %7 = alloca %"class.cv::Scalar_", align 8
@@ -6335,7 +6335,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %116, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17CirclesGridFinder23filterOutliersByDensityERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17CirclesGridFinder23filterOutliersByDensityERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.14", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6582,7 +6582,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17CirclesGridFinder9findBasisERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_RS0_I5GraphSaIS9_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17CirclesGridFinder9findBasisERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_RS0_I5GraphSaIS9_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Mat", align 8
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.cv::_InputArray", align 8
@@ -7610,7 +7610,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit174:                 ; preds = %411, %410, %82, %74
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17CirclesGridFinder7findMCSERKSt6vectorIN2cv6Point_IfEESaIS3_EERS0_I5GraphSaIS8_EE(ptr noundef nonnull align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17CirclesGridFinder7findMCSERKSt6vectorIN2cv6Point_IfEESaIS3_EERS0_I5GraphSaIS8_EE(ptr noundef nonnull align 8 dereferenceable(173) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.Path, align 8
   %5 = alloca %"class.std::vector.49", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8253,7 +8253,7 @@ _ZNSt3mapImN5Graph6VertexESt4lessImESaISt4pairIKmS1_EEED2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK17CirclesGridFinder13rng2gridGraphER5GraphRSt6vectorIN2cv6Point_IfEESaIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK17CirclesGridFinder13rng2gridGraphER5GraphRSt6vectorIN2cv6Point_IfEESaIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, std::less<unsigned long>>::_Alloc_node", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.14", align 1
@@ -8748,7 +8748,7 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit85:           ; preds = %.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK17CirclesGridFinder14eraseUsedGraphERSt6vectorI5GraphSaIS1_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK17CirclesGridFinder14eraseUsedGraphERSt6vectorI5GraphSaIS1_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.14", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9847,7 +9847,7 @@ declare double @llvm.ceil.f64(double) #8
 declare double @llvm.floor.f64(double) #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN17CirclesGridFinder15findLongestPathERSt6vectorI5GraphSaIS1_EER4Path(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i64 @_ZN17CirclesGridFinder15findLongestPathERSt6vectorI5GraphSaIS1_EER4Path(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.14", align 1
@@ -10523,7 +10523,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit89:                  ; preds = %253, %254
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17CirclesGridFinder15addHolesByGraphERKSt6vectorI5GraphSaIS1_EEbN2cv6Point_IfEE(ptr noundef nonnull align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2, <2 x float> %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17CirclesGridFinder15addHolesByGraphERKSt6vectorI5GraphSaIS1_EEbN2cv6Point_IfEE(ptr noundef nonnull align 8 dereferenceable(173) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i1 noundef zeroext %2, <2 x float> %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.49", align 8
   %6 = alloca %"class.std::vector.49", align 8
   %7 = alloca %"class.std::vector.49", align 8
@@ -10632,7 +10632,7 @@ _ZNSt6vectorImSaImEED2Ev.exit24:                  ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17CirclesGridFinder11rectifyGridEN2cv5Size_IiEERKSt6vectorINS0_6Point_IfEESaIS5_EES9_RS7_(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17CirclesGridFinder11rectifyGridEN2cv5Size_IiEERKSt6vectorINS0_6Point_IfEESaIS5_EES9_RS7_(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.14", align 1
   %8 = alloca %"class.std::vector", align 8
@@ -11295,7 +11295,7 @@ declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dere
 declare void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind writable sret(%"class.cv::MatExpr") align 8, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK17CirclesGridFinder19findNearestKeypointEN2cv6Point_IfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, <2 x float> %1) local_unnamed_addr #16 align 2 {
+define hidden noundef i64 @_ZNK17CirclesGridFinder19findNearestKeypointEN2cv6Point_IfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, <2 x float> %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -11340,7 +11340,7 @@ define hidden noundef i64 @_ZNK17CirclesGridFinder19findNearestKeypointEN2cv6Poi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17CirclesGridFinder8addPointEN2cv6Point_IfEERSt6vectorImSaImEE(ptr nocapture noundef nonnull align 8 dereferenceable(173) %0, <2 x float> %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17CirclesGridFinder8addPointEN2cv6Point_IfEERSt6vectorImSaImEE(ptr noundef nonnull align 8 captures(none) dereferenceable(173) %0, <2 x float> %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -11617,7 +11617,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17CirclesGridFinder17findCandidateLineERSt6vectorImSaImEEmbN2cv6Point_IfEES3_(ptr nocapture noundef nonnull align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, <2 x float> %4, ptr nocapture noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17CirclesGridFinder17findCandidateLineERSt6vectorImSaImEEmbN2cv6Point_IfEES3_(ptr noundef nonnull align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, <2 x float> %4, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.14", align 1
   %9 = load ptr, ptr %1, align 8
@@ -11911,7 +11911,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit49:        ; preds = %97, %_ZNSt6vectorIm
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17CirclesGridFinder18findCandidateHolesERSt6vectorImSaImEES3_bN2cv6Point_IfEES3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3, <2 x float> %4, ptr nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17CirclesGridFinder18findCandidateHolesERSt6vectorImSaImEES3_bN2cv6Point_IfEES3_S3_(ptr noundef nonnull align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3, <2 x float> %4, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.14", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12106,7 +12106,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit37:              ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17CirclesGridFinder13areCentersNewERKSt6vectorImSaImEERKS0_IS2_SaIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZN17CirclesGridFinder13areCentersNewERKSt6vectorImSaImEERKS0_IS2_SaIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -12768,7 +12768,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef float @_ZN17CirclesGridFinder22computeGraphConfidenceERKSt6vectorI5GraphSaIS1_EEbRKS0_ImSaImEES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef float @_ZN17CirclesGridFinder22computeGraphConfidenceERKSt6vectorI5GraphSaIS1_EEbRKS0_ImSaImEES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i1 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.14", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12989,7 +12989,7 @@ declare void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar
 declare void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24), i64, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z24computePredecessorMatrixRKN2cv3MatEiRS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z24computePredecessorMatrixRKN2cv3MatEiRS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.14", align 1
   %6 = alloca %"class.cv::Scalar_", align 8
@@ -13133,7 +13133,7 @@ define hidden void @_Z24computePredecessorMatrixRKN2cv3MatEiRS0_(ptr nocapture n
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19computeShortestPathRN2cv3MatEmmRSt6vectorImSaImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #4 {
+define internal fastcc void @_ZL19computeShortestPathRN2cv3MatEmmRSt6vectorImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -13323,7 +13323,7 @@ _ZNSt12_Vector_baseI4PathSaIS0_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIP4Pat
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK17CirclesGridFinder9drawBasisERKSt6vectorIN2cv6Point_IfEESaIS3_EES3_RNS1_3MatE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, <2 x float> %2, ptr noundef nonnull align 8 dereferenceable(96) %3) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK17CirclesGridFinder9drawBasisERKSt6vectorIN2cv6Point_IfEESaIS3_EES3_RNS1_3MatE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, <2 x float> %2, ptr noundef nonnull align 8 dereferenceable(96) %3) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::_InputOutputArray", align 8
   %6 = alloca %"class.cv::Scalar_", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13390,7 +13390,7 @@ define hidden void @_ZNK17CirclesGridFinder9drawBasisERKSt6vectorIN2cv6Point_IfE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK17CirclesGridFinder15drawBasisGraphsERKSt6vectorI5GraphSaIS1_EERN2cv3MatEbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK17CirclesGridFinder15drawBasisGraphsERKSt6vectorI5GraphSaIS1_EERN2cv3MatEbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.14", align 1
   %8 = alloca %"class.cv::Scalar_", align 8
@@ -13654,7 +13654,7 @@ _ZNK5Graph19areVerticesAdjacentEmm.exit:          ; preds = %_ZNKSt8_Rb_treeImmS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK17CirclesGridFinder9drawHolesERKN2cv3MatERS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK17CirclesGridFinder9drawHolesERKN2cv3MatERS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Scalar_", align 8
   %5 = alloca %"class.cv::_InputArray", align 8
   %6 = alloca %"class.cv::_OutputArray", align 8
@@ -13897,7 +13897,7 @@ define hidden void @_ZNK17CirclesGridFinder9drawHolesERKN2cv3MatERS1_(ptr nocapt
 declare void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEii(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @_ZNK17CirclesGridFinder19getDetectedGridSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0) local_unnamed_addr #10 align 2 {
+define hidden i64 @_ZNK17CirclesGridFinder19getDetectedGridSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -13928,7 +13928,7 @@ define hidden i64 @_ZNK17CirclesGridFinder19getDetectedGridSizeEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK17CirclesGridFinder8getHolesERSt6vectorIN2cv6Point_IfEESaIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK17CirclesGridFinder8getHolesERSt6vectorIN2cv6Point_IfEESaIS3_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -14208,7 +14208,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit35: ; preds = %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK17CirclesGridFinder18getAsymmetricHolesERSt6vectorIN2cv6Point_IfEESaIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK17CirclesGridFinder18getAsymmetricHolesERSt6vectorIN2cv6Point_IfEESaIS3_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.19", align 8
   %4 = alloca %"class.std::vector.19", align 8
   %5 = alloca %"class.std::vector.19", align 8
@@ -14756,7 +14756,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit71:  ; preds = %_ZNSt6vectorIN2cv6P
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i64 0, 2147483648) i64 @_ZNK17CirclesGridFinder14getFirstCornerERSt6vectorIN2cv6Point_IiEESaIS3_EES6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 0, 2147483648) i64 @_ZNK17CirclesGridFinder14getFirstCornerERSt6vectorIN2cv6Point_IiEESaIS3_EES6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector.74", align 8
   %7 = alloca %"class.std::vector.74", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15125,7 +15125,7 @@ define hidden noundef zeroext i1 @_ZN17CirclesGridFinder23areSegmentsIntersectin
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK17CirclesGridFinder17getCornerSegmentsERKSt6vectorIS0_ImSaImEESaIS2_EERS0_IS0_INS_7SegmentESaIS7_EESaIS9_EERS0_IN2cv6Point_IiEESaISF_EESI_SI_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK17CirclesGridFinder17getCornerSegmentsERKSt6vectorIS0_ImSaImEESaIS2_EERS0_IS0_INS_7SegmentESaIS7_EESaIS9_EERS0_IN2cv6Point_IiEESaISF_EESI_SI_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(173) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.14", align 1
   %9 = alloca %"class.std::vector.79", align 8
@@ -17127,7 +17127,7 @@ _ZNSt6vectorIN17CirclesGridFinder7SegmentESaIS1_EED2Ev.exit: ; preds = %791, %78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERKS0_IS3_SaIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #16 align 2 {
+define hidden noundef zeroext i1 @_ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERKS0_IS3_SaIS3_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -17608,7 +17608,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #8
@@ -20625,10 +20625,10 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #25

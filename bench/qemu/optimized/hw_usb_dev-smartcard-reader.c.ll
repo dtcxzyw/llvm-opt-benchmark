@@ -297,7 +297,7 @@ return:                                           ; preds = %ccid_remove_pending
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ccid_card_card_removed(ptr noundef %card) local_unnamed_addr #0 {
@@ -720,7 +720,7 @@ return:                                           ; preds = %if.then26.i, %do.bo
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc void @ccid_print_pending_answers(ptr nocapture noundef readonly %s) unnamed_addr #4 {
+define internal fastcc void @ccid_print_pending_answers(ptr noundef readonly captures(none) %s) unnamed_addr #4 {
 entry:
   %debug = getelementptr inbounds nuw i8, ptr %s, i64 75011
   %0 = load i8, ptr %debug, align 1
@@ -806,14 +806,14 @@ for.end:                                          ; preds = %if.then24, %do.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @usb_wakeup(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ccid_card_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ccid_card_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %bus_type = getelementptr inbounds nuw i8, ptr %call.i, i64 168
@@ -932,7 +932,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ccid_class_initfn(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ccid_class_initfn(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #10
@@ -966,7 +966,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ccid_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @ccid_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
   tail call void @usb_desc_create_serial(ptr noundef %dev) #10
@@ -1636,7 +1636,7 @@ declare i32 @usb_desc_handle_control(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @usb_packet_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ccid_write_slot_status(ptr noundef %s, ptr nocapture noundef readonly %recv) unnamed_addr #0 {
+define internal fastcc void @ccid_write_slot_status(ptr noundef %s, ptr noundef readonly captures(none) %recv) unnamed_addr #0 {
 entry:
   %debug.i = getelementptr inbounds nuw i8, ptr %s, i64 75011
   %0 = load i8, ptr %debug.i, align 1
@@ -1739,7 +1739,7 @@ return:                                           ; preds = %if.then26.i, %do.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ccid_write_data_block_atr(ptr noundef %s, ptr nocapture noundef readonly %recv) unnamed_addr #0 {
+define internal fastcc void @ccid_write_data_block_atr(ptr noundef %s, ptr noundef readonly captures(none) %recv) unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   store i32 0, ptr %len, align 4
@@ -1956,7 +1956,7 @@ if.end37:                                         ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ccid_write_parameters(ptr noundef %s, ptr nocapture noundef readonly %recv) unnamed_addr #0 {
+define internal fastcc void @ccid_write_parameters(ptr noundef %s, ptr noundef readonly captures(none) %recv) unnamed_addr #0 {
 entry:
   %ulProtocolDataStructureSize = getelementptr inbounds nuw i8, ptr %s, i64 75000
   %0 = load i32, ptr %ulProtocolDataStructureSize, align 8
@@ -2082,7 +2082,7 @@ return:                                           ; preds = %if.then26.i, %do.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ccid_post_load(ptr nocapture noundef initializes((268, 272)) %opaque, i32 %version_id) #6 {
+define internal noundef i32 @ccid_post_load(ptr noundef captures(none) initializes((268, 272)) %opaque, i32 %version_id) #6 {
 entry:
   %state_vmstate = getelementptr inbounds nuw i8, ptr %opaque, i64 75004
   %0 = load i32, ptr %state_vmstate, align 4
@@ -2092,7 +2092,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ccid_pre_save(ptr nocapture noundef initializes((75004, 75008)) %opaque) #6 {
+define internal noundef i32 @ccid_pre_save(ptr noundef captures(none) initializes((75004, 75008)) %opaque) #6 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %opaque, i64 268
   %0 = load i32, ptr %state, align 4
@@ -2102,13 +2102,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

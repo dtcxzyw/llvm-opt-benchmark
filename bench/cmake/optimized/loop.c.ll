@@ -217,7 +217,7 @@ define dso_local i32 @uv_loop_init(ptr noundef initializes((8, 848)) %0) local_u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @uv__calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -381,7 +381,7 @@ declare void @uv_mutex_lock(ptr noundef) local_unnamed_addr #2
 declare void @uv_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -38, 1) i32 @uv__loop_configure(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+define dso_local range(i32 -38, 1) i32 @uv__loop_configure(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   switch i32 %1, label %29 [
     i32 1, label %4
     i32 0, label %9

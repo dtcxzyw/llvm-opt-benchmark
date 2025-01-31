@@ -83,7 +83,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.64 = private unnamed_addr constant [36 x i8] c"unknown chunk exceeds memory limits\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483648) i32 @png_get_uint_31(ptr noalias noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @png_get_uint_31(ptr noalias noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = shl nuw i32 %4, 24
@@ -116,7 +116,7 @@ define range(i32 0, -2147483648) i32 @png_get_uint_31(ptr noalias noundef %0, pt
 declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @png_get_uint_32(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @png_get_uint_32(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = shl nuw i32 %3, 24
@@ -138,7 +138,7 @@ define i32 @png_get_uint_32(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @png_get_int_32(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @png_get_int_32(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = shl nuw i32 %3, 24
@@ -165,7 +165,7 @@ define i32 @png_get_int_32(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i16 @png_get_uint_16(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define zeroext i16 @png_get_uint_16(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i16
   %4 = shl nuw i16 %3, 8
@@ -301,7 +301,7 @@ png_get_uint_31.exit:                             ; preds = %1
   br i1 %or.cond14.i, label %47, label %48
 
 47:                                               ; preds = %43
-  call void @png_chunk_error(ptr noundef %0, ptr noundef nonnull @.str.49) #11
+  call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.49) #11
   unreachable
 
 48:                                               ; preds = %43
@@ -1006,7 +1006,7 @@ declare void @png_chunk_benign_error(ptr noundef, ptr noundef) local_unnamed_add
 declare void @png_set_PLTE(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @png_handle_IEND(ptr noalias noundef %0, ptr noalias nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @png_handle_IEND(ptr noalias noundef %0, ptr noalias noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 5
@@ -1207,7 +1207,7 @@ png_crc_read.exit:                                ; preds = %32
   br i1 %or.cond52.not, label %42, label %46
 
 46:                                               ; preds = %.lr.ph
-  call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull @.str.6) #12
+  call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #12
   br label %62
 
 ._crit_edge:                                      ; preds = %42, %.preheader
@@ -1745,7 +1745,7 @@ png_crc_read.exit:                                ; preds = %28
   br i1 %49, label %50, label %.thread142
 
 50:                                               ; preds = %45
-  %51 = call fastcc i32 @png_inflate_claim(ptr noundef %0, i32 noundef 1766015824)
+  %51 = call fastcc i32 @png_inflate_claim(ptr noundef nonnull %0, i32 noundef 1766015824)
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %147
 
@@ -1760,7 +1760,7 @@ png_crc_read.exit:                                ; preds = %28
   store ptr %57, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 %55, ptr %59, align 8
-  call fastcc void @png_inflate_read(ptr noundef %0, ptr noundef %7, ptr noundef %4, ptr noundef %6, ptr noundef %8, i32 noundef 0)
+  call fastcc void @png_inflate_read(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %4, ptr noundef %6, ptr noundef %8, i32 noundef 0)
   %60 = load i64, ptr %8, align 8
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %62, label %.thread148.sink.split
@@ -2036,10 +2036,10 @@ define internal fastcc noundef i32 @png_inflate_claim(ptr noalias noundef %0, i3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @png_inflate_read(ptr noalias noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc void @png_inflate_read(ptr noalias noundef %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull %3, ptr noundef nonnull captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -2225,7 +2225,7 @@ define internal fastcc ptr @png_read_buffer(ptr noalias noundef %0, i64 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @png_icc_check_tag_table(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2348,7 +2348,7 @@ png_crc_read.exit:                                ; preds = %36, %29
   br i1 %or.cond, label %52, label %53
 
 52:                                               ; preds = %46
-  tail call void @png_warning(ptr noundef %0, ptr noundef nonnull @.str.21) #12
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.21) #12
   br label %138
 
 53:                                               ; preds = %46
@@ -2369,7 +2369,7 @@ png_crc_read.exit:                                ; preds = %36, %29
   br i1 %.not95, label %65, label %64
 
 64:                                               ; preds = %53
-  tail call void @png_warning(ptr noundef %0, ptr noundef nonnull @.str.22) #12
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #12
   br label %138
 
 65:                                               ; preds = %53
@@ -2377,7 +2377,7 @@ png_crc_read.exit:                                ; preds = %36, %29
   store i32 %63, ptr %66, align 8
   %67 = zext nneg i32 %63 to i64
   %68 = mul nuw nsw i64 %67, 10
-  %69 = tail call noalias ptr @png_malloc_warn(ptr noundef %0, i64 noundef %68) #12
+  %69 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef %68) #12
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %69, ptr %70, align 8
   %71 = icmp eq ptr %69, null
@@ -2392,7 +2392,7 @@ png_crc_read.exit:                                ; preds = %36, %29
   br label %.lr.ph
 
 73:                                               ; preds = %65
-  tail call void @png_warning(ptr noundef %0, ptr noundef nonnull @.str.24) #12
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #12
   br label %138
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %125
@@ -2482,9 +2482,9 @@ png_crc_read.exit:                                ; preds = %36, %29
 
 ._crit_edge:                                      ; preds = %125, %.preheader
   store ptr %.1.i.ph, ptr %4, align 8
-  call void @png_set_sPLT(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1) #12
+  call void @png_set_sPLT(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1) #12
   %137 = load ptr, ptr %70, align 8
-  call void @png_free(ptr noundef %0, ptr noundef %137) #12
+  call void @png_free(ptr noundef nonnull %0, ptr noundef %137) #12
   br label %138
 
 138:                                              ; preds = %png_crc_read.exit, %._crit_edge, %73, %64, %52, %png_read_buffer.exit, %22, %12, %7
@@ -2949,7 +2949,7 @@ define void @png_handle_eXIf(ptr noalias noundef %0, ptr noalias noundef %1, i32
 12:                                               ; preds = %10
   %13 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %2)
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #12
-  br label %51
+  br label %53
 
 14:                                               ; preds = %10
   %15 = icmp eq ptr %1, null
@@ -2965,7 +2965,7 @@ define void @png_handle_eXIf(ptr noalias noundef %0, ptr noalias noundef %1, i32
 20:                                               ; preds = %16, %14
   %21 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %2)
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #12
-  br label %51
+  br label %53
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 300
@@ -2982,10 +2982,10 @@ define void @png_handle_eXIf(ptr noalias noundef %0, ptr noalias noundef %1, i32
 30:                                               ; preds = %22
   %31 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %2)
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #12
-  br label %51
+  br label %53
 
-png_crc_read.exit:                                ; preds = %22, %44
-  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %22 ]
+png_crc_read.exit:                                ; preds = %22, %45
+  %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %22 ]
   call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #12
   %32 = load i8, ptr %4, align 1
@@ -2993,50 +2993,50 @@ png_crc_read.exit:                                ; preds = %22, %44
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv
   store i8 %32, ptr %34, align 1
   %35 = icmp eq i64 %indvars.iv, 1
-  br i1 %35, label %36, label %44
+  br i1 %35, label %36, label %45
 
 36:                                               ; preds = %png_crc_read.exit
   %37 = and i8 %32, -5
   %or.cond.not = icmp eq i8 %37, 73
-  br i1 %or.cond.not, label %38, label %.split.us
+  br i1 %or.cond.not, label %38, label %41
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %28, align 8
   %40 = load i8, ptr %39, align 1
   %.not45 = icmp eq i8 %40, %32
-  br i1 %.not45, label %44, label %.split.us
+  br i1 %.not45, label %45, label %41
 
-.split.us:                                        ; preds = %38, %36
-  %41 = add i32 %2, -2
-  %42 = call i32 @png_crc_finish(ptr noundef %0, i32 noundef %41)
-  call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull @.str.29) #12
-  %43 = load ptr, ptr %28, align 8
-  call void @png_free(ptr noundef %0, ptr noundef %43) #12
+41:                                               ; preds = %36, %38
+  %42 = add i32 %2, -2
+  %43 = call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %42)
+  call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #12
+  %44 = load ptr, ptr %28, align 8
+  call void @png_free(ptr noundef nonnull %0, ptr noundef %44) #12
   store ptr null, ptr %28, align 8
-  br label %51
+  br label %53
 
-44:                                               ; preds = %png_crc_read.exit, %38
+45:                                               ; preds = %png_crc_read.exit, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %26
-  br i1 %exitcond.not, label %.split48.us, label %png_crc_read.exit, !llvm.loop !34
+  br i1 %exitcond.not, label %46, label %png_crc_read.exit, !llvm.loop !34
 
-.split48.us:                                      ; preds = %44
-  %45 = call i32 @png_crc_finish(ptr noundef %0, i32 noundef 0)
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %49
+46:                                               ; preds = %45
+  %47 = call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef 0)
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %51
 
-47:                                               ; preds = %.split48.us
-  %48 = load ptr, ptr %28, align 8
-  call void @png_set_eXIf_1(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %48) #12
-  br label %49
-
-49:                                               ; preds = %47, %.split48.us
+49:                                               ; preds = %46
   %50 = load ptr, ptr %28, align 8
-  call void @png_free(ptr noundef %0, ptr noundef %50) #12
-  store ptr null, ptr %28, align 8
+  call void @png_set_eXIf_1(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %50) #12
   br label %51
 
-51:                                               ; preds = %49, %.split.us, %30, %20, %12
+51:                                               ; preds = %49, %46
+  %52 = load ptr, ptr %28, align 8
+  call void @png_free(ptr noundef nonnull %0, ptr noundef %52) #12
+  store ptr null, ptr %28, align 8
+  br label %53
+
+53:                                               ; preds = %51, %41, %30, %20, %12
   ret void
 }
 
@@ -3507,7 +3507,7 @@ png_crc_read.exit:                                ; preds = %32, %25
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %42
-  tail call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull @.str.6) #12
+  tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #12
   br label %156
 
 48:                                               ; preds = %42
@@ -3628,7 +3628,7 @@ png_crc_read.exit:                                ; preds = %32, %25
   br i1 %or.cond11, label %138, label %139
 
 138:                                              ; preds = %135, %131, %120
-  tail call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull @.str.30) #12
+  tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #12
   br label %156
 
 139:                                              ; preds = %135
@@ -3636,7 +3636,7 @@ png_crc_read.exit:                                ; preds = %32, %25
   br i1 %140, label %141, label %.preheader152
 
 141:                                              ; preds = %139
-  tail call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull @.str.31) #12
+  tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.31) #12
   br label %.preheader152
 
 .preheader152:                                    ; preds = %139, %141
@@ -3652,7 +3652,7 @@ png_crc_read.exit:                                ; preds = %32, %25
 145:                                              ; preds = %142
   %146 = zext i8 %125 to i64
   %147 = shl nuw nsw i64 %146, 3
-  %148 = tail call noalias ptr @png_malloc_warn(ptr noundef %0, i64 noundef %147) #12
+  %148 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef %147) #12
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %.preheader
 
@@ -3665,7 +3665,7 @@ png_crc_read.exit:                                ; preds = %32, %25
   br label %.lr.ph140
 
 150:                                              ; preds = %145
-  tail call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull @.str.17) #12
+  tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #12
   br label %156
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.critedge
@@ -3689,8 +3689,8 @@ png_crc_read.exit:                                ; preds = %32, %25
   br i1 %.not129, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph140, %154
-  tail call void @png_free(ptr noundef %0, ptr noundef nonnull %148) #12
-  tail call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull @.str.32) #12
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %148) #12
+  tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #12
   br label %156
 
 .critedge:                                        ; preds = %.lr.ph
@@ -3699,8 +3699,8 @@ png_crc_read.exit:                                ; preds = %32, %25
   br i1 %exitcond.not, label %._crit_edge141, label %.lr.ph140, !llvm.loop !42
 
 ._crit_edge141:                                   ; preds = %.critedge, %.preheader
-  tail call void @png_set_pCAL(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.1.i.ph, i32 noundef %84, i32 noundef %121, i32 noundef %127, i32 noundef %129, ptr noundef nonnull %126, ptr noundef nonnull %148) #12
-  tail call void @png_free(ptr noundef %0, ptr noundef nonnull %148) #12
+  tail call void @png_set_pCAL(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.1.i.ph, i32 noundef %84, i32 noundef %121, i32 noundef %127, i32 noundef %129, ptr noundef nonnull %126, ptr noundef nonnull %148) #12
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %148) #12
   br label %156
 
 156:                                              ; preds = %png_crc_read.exit, %._crit_edge141, %._crit_edge, %150, %138, %47, %png_read_buffer.exit, %18, %11
@@ -4099,12 +4099,12 @@ png_crc_read.exit:                                ; preds = %36, %29
   %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #13
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %50, ptr %51, align 8
-  %52 = call i32 @png_set_text_2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1) #12
+  %52 = call i32 @png_set_text_2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1) #12
   %.not42 = icmp eq i32 %52, 0
   br i1 %.not42, label %54, label %53
 
 53:                                               ; preds = %46
-  call void @png_warning(ptr noundef %0, ptr noundef nonnull @.str.39) #12
+  call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.39) #12
   br label %54
 
 54:                                               ; preds = %png_crc_read.exit, %53, %46, %38, %12, %7
@@ -4112,7 +4112,7 @@ png_crc_read.exit:                                ; preds = %36, %29
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @png_set_text_2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -4248,7 +4248,7 @@ png_crc_read.exit:                                ; preds = %36, %29
 53:                                               ; preds = %48
   store i64 -1, ptr %4, align 8
   %54 = add nuw nsw i32 %.0.lcssa, 2
-  %55 = call fastcc i32 @png_decompress_chunk(ptr noundef %0, i32 noundef %2, i32 noundef %54, ptr noundef %4)
+  %55 = call fastcc i32 @png_decompress_chunk(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %54, ptr noundef %4)
   %56 = icmp eq i32 %55, 1
   br i1 %56, label %57, label %72
 
@@ -4286,7 +4286,7 @@ png_crc_read.exit:                                ; preds = %36, %29
 
 .thread:                                          ; preds = %.preheader, %60, %57, %48, %45, %.critedge, %72
   %.04964 = phi ptr [ %74, %72 ], [ @.str.43, %60 ], [ @.str.42, %57 ], [ @.str.41, %48 ], [ @.str.40, %45 ], [ @.str.19, %.critedge ], [ @.str.19, %.preheader ]
-  call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull %.04964) #12
+  call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull %.04964) #12
   br label %.thread65
 
 .thread65:                                        ; preds = %60, %png_crc_read.exit, %.thread, %72, %png_read_buffer.exit, %13, %8
@@ -4294,7 +4294,7 @@ png_crc_read.exit:                                ; preds = %36, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @png_decompress_chunk(ptr noalias noundef %0, i32 noundef range(i32 4, 0) %1, i32 noundef range(i32 0, -1) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc i32 @png_decompress_chunk(ptr noalias noundef %0, i32 noundef range(i32 4, 0) %1, i32 noundef range(i32 0, -1) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %7 = load i64, ptr %6, align 8
@@ -4816,7 +4816,7 @@ png_crc_read.exit:                                ; preds = %37, %30
 
 81:                                               ; preds = %79
   store i64 -1, ptr %4, align 8
-  %82 = call fastcc i32 @png_decompress_chunk(ptr noundef %0, i32 noundef %2, i32 noundef %75, ptr noundef %4)
+  %82 = call fastcc i32 @png_decompress_chunk(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %75, ptr noundef %4)
   %83 = icmp eq i32 %82, 1
   br i1 %83, label %84, label %86
 
@@ -4857,13 +4857,13 @@ png_crc_read.exit:                                ; preds = %37, %30
   %104 = load i64, ptr %4, align 8
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %104, ptr %105, align 8
-  %106 = call i32 @png_set_text_2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 1) #12
+  %106 = call i32 @png_set_text_2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 1) #12
   %.not102 = icmp eq i32 %106, 0
   br i1 %.not102, label %107, label %.thread112
 
 .thread112:                                       ; preds = %.preheader, %79, %86, %.critedge, %48, %51, %56, %.thread
   %.0.ph = phi ptr [ @.str.43, %.thread ], [ @.str.44, %56 ], [ @.str.44, %51 ], [ @.str.40, %48 ], [ @.str.19, %.critedge ], [ %88, %86 ], [ @.str.40, %79 ], [ @.str.19, %.preheader ]
-  call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull %.0.ph) #12
+  call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull %.0.ph) #12
   br label %107
 
 107:                                              ; preds = %.thread, %png_crc_read.exit, %.thread112, %39, %13, %8
@@ -6883,7 +6883,7 @@ declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) l
 declare i32 @inflateReset(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @png_read_filter_row_sub(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #7 {
+define internal void @png_read_filter_row_sub(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 19
@@ -6917,7 +6917,7 @@ define internal void @png_read_filter_row_sub(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @png_read_filter_row_up(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #7 {
+define internal void @png_read_filter_row_up(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
@@ -6942,7 +6942,7 @@ define internal void @png_read_filter_row_up(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @png_read_filter_row_avg(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #7 {
+define internal void @png_read_filter_row_avg(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
@@ -7005,7 +7005,7 @@ define internal void @png_read_filter_row_avg(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @png_read_filter_row_paeth_1byte_pixel(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #7 {
+define internal void @png_read_filter_row_paeth_1byte_pixel(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
@@ -7057,7 +7057,7 @@ define internal void @png_read_filter_row_paeth_1byte_pixel(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @png_read_filter_row_paeth_multibyte_pixel(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #7 {
+define internal void @png_read_filter_row_paeth_multibyte_pixel(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
@@ -7147,10 +7147,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

@@ -257,7 +257,7 @@ declare ptr @g_string_erase(ptr noundef, i64 noundef, i64 noundef) local_unnamed
 declare i32 @qemu_chr_fe_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @monitor_unblocked(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef %opaque) #0 {
+define internal noundef i32 @monitor_unblocked(ptr readnone captures(none) %do_not_use, i32 %cond, ptr noundef %opaque) #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
   %mon_lock = getelementptr inbounds nuw i8, ptr %opaque, i64 88
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -283,7 +283,7 @@ glib_autoptr_cleanup_QemuLockable.exit:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @monitor_puts_locked(ptr noundef %mon, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define dso_local i32 @monitor_puts_locked(ptr noundef %mon, ptr noundef readonly captures(none) %str) local_unnamed_addr #0 {
 entry:
   %outbuf = getelementptr inbounds nuw i8, ptr %mon, i64 144
   br label %for.cond
@@ -386,7 +386,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @monitor_puts(ptr noundef %mon, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define dso_local i32 @monitor_puts(ptr noundef %mon, ptr noundef readonly captures(none) %str) local_unnamed_addr #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
   %mon_lock = getelementptr inbounds nuw i8, ptr %mon, i64 88
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -563,7 +563,7 @@ return:                                           ; preds = %if.end2.i, %if.end.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @error_vprintf_unless_qmp(ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #0 {
@@ -1133,7 +1133,7 @@ if.end9:                                          ; preds = %if.else7, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @monitor_can_read(ptr nocapture noundef readonly %opaque) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @monitor_can_read(ptr noundef readonly captures(none) %opaque) local_unnamed_addr #7 {
 entry:
   %suspend_cnt = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %0 = load atomic i32, ptr %suspend_cnt monotonic, align 8
@@ -1460,7 +1460,7 @@ declare void @monitor_qmp_dispatcher_co(ptr noundef) #2
 declare void @aio_co_schedule(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @monitor_init(ptr nocapture noundef %opts, i1 noundef zeroext %allow_hmp, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @monitor_init(ptr noundef captures(none) %opts, i1 noundef zeroext %allow_hmp, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
@@ -1811,7 +1811,7 @@ declare i32 @g_hash_table_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @timer_mod_ns(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -1837,7 +1837,7 @@ declare void @qemu_chr_fe_accept_input(ptr noundef) local_unnamed_addr #2
 declare ptr @iothread_create(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qapi_event_throttle_hash(ptr nocapture noundef readonly %key) #0 {
+define internal i32 @qapi_event_throttle_hash(ptr noundef readonly captures(none) %key) #0 {
 entry:
   %0 = load i32, ptr %key, align 8
   %mul = mul i32 %0, 255
@@ -1888,7 +1888,7 @@ if.end18:                                         ; preds = %if.then13, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @qapi_event_throttle_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal range(i32 0, 2) i32 @qapi_event_throttle_equal(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -1931,7 +1931,7 @@ declare i32 @g_str_hash(ptr noundef) local_unnamed_addr #2
 declare ptr @qdict_get_str(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1942,13 +1942,13 @@ declare void @llvm.va_start.p0(ptr) #10
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -2029,7 +2029,7 @@ next_field.exit724:                               ; preds = %.lr.ph19.i717, %.pr
 next_field.exit738:                               ; preds = %.lr.ph19.i731, %.preheader.i726
   %.111.lcssa.i730 = phi ptr [ %.010.lcssa.i728, %.preheader.i726 ], [ %1087, %.lr.ph19.i731 ]
   store ptr %.111.lcssa.i730, ptr %16, align 8
-  %1097 = call i64 @strtol(ptr nocapture noundef nonnull %.111.lcssa.i730, ptr noundef null, i32 noundef 10) #17
+  %1097 = call i64 @strtol(ptr noundef nonnull captures(none) %.111.lcssa.i730, ptr noundef null, i32 noundef 10) #17
   %1098 = trunc i64 %1097 to i16
   %1099 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i16 %1098, ptr %1099, align 4
@@ -2370,7 +2370,7 @@ local_stripper.exit770.backedge:                  ; preds = %sub_1, %sub_0, %.ta
   %1248 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float %1247, ptr %1248, align 4
   %1249 = load ptr, ptr %17, align 8
-  %1250 = call float @strtof(ptr nocapture noundef %1249, ptr noundef null) #17
+  %1250 = call float @strtof(ptr noundef captures(none) %1249, ptr noundef null) #17
   %1251 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store float %1250, ptr %1251, align 8
   %1252 = call noalias ptr @fopen(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.2)
@@ -2816,67 +2816,67 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %1429, 
   store ptr %1444, ptr %1445, align 8
   %1446 = getelementptr inbounds nuw i8, ptr %1441, i64 24
   %1447 = load ptr, ptr %1446, align 8
-  %1448 = call i64 @strtoul(ptr nocapture noundef %1447, ptr noundef null, i32 noundef 10) #17
+  %1448 = call i64 @strtoul(ptr noundef captures(none) %1447, ptr noundef null, i32 noundef 10) #17
   %1449 = getelementptr inbounds nuw i8, ptr %1425, i64 152
   store i64 %1448, ptr %1449, align 8
   %1450 = load ptr, ptr %18, align 8
   %1451 = getelementptr inbounds nuw i8, ptr %1450, i64 32
   %1452 = load ptr, ptr %1451, align 8
-  %1453 = call i64 @strtoul(ptr nocapture noundef %1452, ptr noundef null, i32 noundef 10) #17
+  %1453 = call i64 @strtoul(ptr noundef captures(none) %1452, ptr noundef null, i32 noundef 10) #17
   %1454 = getelementptr inbounds nuw i8, ptr %1425, i64 160
   store i64 %1453, ptr %1454, align 8
   %1455 = load ptr, ptr %18, align 8
   %1456 = getelementptr inbounds nuw i8, ptr %1455, i64 40
   %1457 = load ptr, ptr %1456, align 8
-  %1458 = call i64 @strtoul(ptr nocapture noundef %1457, ptr noundef null, i32 noundef 10) #17
+  %1458 = call i64 @strtoul(ptr noundef captures(none) %1457, ptr noundef null, i32 noundef 10) #17
   %1459 = getelementptr inbounds nuw i8, ptr %1425, i64 168
   store i64 %1458, ptr %1459, align 8
   %1460 = load ptr, ptr %18, align 8
   %1461 = getelementptr inbounds nuw i8, ptr %1460, i64 48
   %1462 = load ptr, ptr %1461, align 8
-  %1463 = call i64 @strtoul(ptr nocapture noundef %1462, ptr noundef null, i32 noundef 10) #17
+  %1463 = call i64 @strtoul(ptr noundef captures(none) %1462, ptr noundef null, i32 noundef 10) #17
   %1464 = getelementptr inbounds nuw i8, ptr %1425, i64 176
   store i64 %1463, ptr %1464, align 8
   %1465 = load ptr, ptr %18, align 8
   %1466 = getelementptr inbounds nuw i8, ptr %1465, i64 56
   %1467 = load ptr, ptr %1466, align 8
-  %1468 = call i64 @strtoul(ptr nocapture noundef %1467, ptr noundef null, i32 noundef 10) #17
+  %1468 = call i64 @strtoul(ptr noundef captures(none) %1467, ptr noundef null, i32 noundef 10) #17
   %1469 = getelementptr inbounds nuw i8, ptr %1425, i64 184
   store i64 %1468, ptr %1469, align 8
   %1470 = load ptr, ptr %18, align 8
   %1471 = getelementptr inbounds nuw i8, ptr %1470, i64 64
   %1472 = load ptr, ptr %1471, align 8
-  %1473 = call i64 @strtoul(ptr nocapture noundef %1472, ptr noundef null, i32 noundef 10) #17
+  %1473 = call i64 @strtoul(ptr noundef captures(none) %1472, ptr noundef null, i32 noundef 10) #17
   %1474 = getelementptr inbounds nuw i8, ptr %1425, i64 192
   store i64 %1473, ptr %1474, align 8
   %1475 = load ptr, ptr %18, align 8
   %1476 = getelementptr inbounds nuw i8, ptr %1475, i64 72
   %1477 = load ptr, ptr %1476, align 8
-  %1478 = call i64 @strtoul(ptr nocapture noundef %1477, ptr noundef null, i32 noundef 10) #17
+  %1478 = call i64 @strtoul(ptr noundef captures(none) %1477, ptr noundef null, i32 noundef 10) #17
   %1479 = getelementptr inbounds nuw i8, ptr %1425, i64 200
   store i64 %1478, ptr %1479, align 8
   %1480 = load ptr, ptr %18, align 8
   %1481 = getelementptr inbounds nuw i8, ptr %1480, i64 80
   %1482 = load ptr, ptr %1481, align 8
-  %1483 = call i64 @strtoul(ptr nocapture noundef %1482, ptr noundef null, i32 noundef 10) #17
+  %1483 = call i64 @strtoul(ptr noundef captures(none) %1482, ptr noundef null, i32 noundef 10) #17
   %1484 = getelementptr inbounds nuw i8, ptr %1425, i64 208
   store i64 %1483, ptr %1484, align 8
   %1485 = load ptr, ptr %18, align 8
   %1486 = getelementptr inbounds nuw i8, ptr %1485, i64 88
   %1487 = load ptr, ptr %1486, align 8
-  %1488 = call i64 @strtoul(ptr nocapture noundef %1487, ptr noundef null, i32 noundef 10) #17
+  %1488 = call i64 @strtoul(ptr noundef captures(none) %1487, ptr noundef null, i32 noundef 10) #17
   %1489 = getelementptr inbounds nuw i8, ptr %1425, i64 216
   store i64 %1488, ptr %1489, align 8
   %1490 = load ptr, ptr %18, align 8
   %1491 = getelementptr inbounds nuw i8, ptr %1490, i64 96
   %1492 = load ptr, ptr %1491, align 8
-  %1493 = call i64 @strtoul(ptr nocapture noundef %1492, ptr noundef null, i32 noundef 10) #17
+  %1493 = call i64 @strtoul(ptr noundef captures(none) %1492, ptr noundef null, i32 noundef 10) #17
   %1494 = getelementptr inbounds nuw i8, ptr %1425, i64 224
   store i64 %1493, ptr %1494, align 8
   %1495 = load ptr, ptr %18, align 8
   %1496 = getelementptr inbounds nuw i8, ptr %1495, i64 104
   %1497 = load ptr, ptr %1496, align 8
-  %1498 = call i64 @strtoul(ptr nocapture noundef %1497, ptr noundef null, i32 noundef 10) #17
+  %1498 = call i64 @strtoul(ptr noundef captures(none) %1497, ptr noundef null, i32 noundef 10) #17
   %1499 = getelementptr inbounds nuw i8, ptr %1425, i64 232
   store i64 %1498, ptr %1499, align 8
   %1500 = load ptr, ptr %1399, align 8
@@ -3172,37 +3172,37 @@ pmix_obj_new_tma.exit865:                         ; preds = %.lr.ph.i.i862, %162
   store ptr %1634, ptr %1635, align 8
   %1636 = load ptr, ptr %18, align 8
   %1637 = load ptr, ptr %1636, align 8
-  %1638 = call i64 @strtoul(ptr nocapture noundef %1637, ptr noundef null, i32 noundef 10) #17
+  %1638 = call i64 @strtoul(ptr noundef captures(none) %1637, ptr noundef null, i32 noundef 10) #17
   %1639 = getelementptr inbounds nuw i8, ptr %1618, i64 152
   store i64 %1638, ptr %1639, align 8
   %1640 = load ptr, ptr %18, align 8
   %1641 = getelementptr inbounds nuw i8, ptr %1640, i64 8
   %1642 = load ptr, ptr %1641, align 8
-  %1643 = call i64 @strtoul(ptr nocapture noundef %1642, ptr noundef null, i32 noundef 10) #17
+  %1643 = call i64 @strtoul(ptr noundef captures(none) %1642, ptr noundef null, i32 noundef 10) #17
   %1644 = getelementptr inbounds nuw i8, ptr %1618, i64 160
   store i64 %1643, ptr %1644, align 8
   %1645 = load ptr, ptr %18, align 8
   %1646 = getelementptr inbounds nuw i8, ptr %1645, i64 16
   %1647 = load ptr, ptr %1646, align 8
-  %1648 = call i64 @strtoul(ptr nocapture noundef %1647, ptr noundef null, i32 noundef 10) #17
+  %1648 = call i64 @strtoul(ptr noundef captures(none) %1647, ptr noundef null, i32 noundef 10) #17
   %1649 = getelementptr inbounds nuw i8, ptr %1618, i64 168
   store i64 %1648, ptr %1649, align 8
   %1650 = load ptr, ptr %18, align 8
   %1651 = getelementptr inbounds nuw i8, ptr %1650, i64 64
   %1652 = load ptr, ptr %1651, align 8
-  %1653 = call i64 @strtoul(ptr nocapture noundef %1652, ptr noundef null, i32 noundef 10) #17
+  %1653 = call i64 @strtoul(ptr noundef captures(none) %1652, ptr noundef null, i32 noundef 10) #17
   %1654 = getelementptr inbounds nuw i8, ptr %1618, i64 176
   store i64 %1653, ptr %1654, align 8
   %1655 = load ptr, ptr %18, align 8
   %1656 = getelementptr inbounds nuw i8, ptr %1655, i64 72
   %1657 = load ptr, ptr %1656, align 8
-  %1658 = call i64 @strtoul(ptr nocapture noundef %1657, ptr noundef null, i32 noundef 10) #17
+  %1658 = call i64 @strtoul(ptr noundef captures(none) %1657, ptr noundef null, i32 noundef 10) #17
   %1659 = getelementptr inbounds nuw i8, ptr %1618, i64 184
   store i64 %1658, ptr %1659, align 8
   %1660 = load ptr, ptr %18, align 8
   %1661 = getelementptr inbounds nuw i8, ptr %1660, i64 80
   %1662 = load ptr, ptr %1661, align 8
-  %1663 = call i64 @strtoul(ptr nocapture noundef %1662, ptr noundef null, i32 noundef 10) #17
+  %1663 = call i64 @strtoul(ptr noundef captures(none) %1662, ptr noundef null, i32 noundef 10) #17
   %1664 = getelementptr inbounds nuw i8, ptr %1618, i64 192
   store i64 %1663, ptr %1664, align 8
   %1665 = load ptr, ptr %1596, align 8
@@ -3365,21 +3365,21 @@ define internal noundef i32 @linux_module_fini() #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare i32 @pmix_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare i32 @close(i32 noundef) local_unnamed_addr #4
 
@@ -3387,16 +3387,16 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define internal fastcc float @convert_value(ptr noundef nonnull %0) unnamed_addr #9 {
@@ -3422,18 +3422,18 @@ define internal fastcc float @convert_value(ptr noundef nonnull %0) unnamed_addr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare float @strtof(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare float @strtof(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @local_getfields(ptr noundef %0, ptr noundef nonnull initializes((0, 8)) %1) unnamed_addr #1 {
@@ -3533,10 +3533,10 @@ declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #4
 declare ptr @PMIx_Disk_stats_create(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @PMIx_Net_stats_create(i64 noundef) local_unnamed_addr #4
 
@@ -3544,10 +3544,10 @@ declare ptr @PMIx_Net_stats_create(i64 noundef) local_unnamed_addr #4
 declare ptr @__ctype_b_loc() local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @PMIx_Argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -3564,7 +3564,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #13
 declare ptr @__errno_location() local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #15
@@ -3573,10 +3573,10 @@ declare void @abort() local_unnamed_addr #15
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

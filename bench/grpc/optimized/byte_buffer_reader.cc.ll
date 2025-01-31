@@ -77,7 +77,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @grpc_byte_buffer_reader_init(ptr nocapture noundef writeonly initializes((0, 8)) %reader, ptr noundef %buffer) local_unnamed_addr #3 {
+define noundef i32 @grpc_byte_buffer_reader_init(ptr noundef writeonly captures(none) initializes((0, 8)) %reader, ptr noundef %buffer) local_unnamed_addr #3 {
 entry:
   store ptr %buffer, ptr %reader, align 8
   %type = getelementptr inbounds nuw i8, ptr %buffer, i64 8
@@ -97,7 +97,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @grpc_byte_buffer_reader_destroy(ptr nocapture noundef writeonly initializes((8, 16)) %reader) local_unnamed_addr #4 {
+define void @grpc_byte_buffer_reader_destroy(ptr noundef writeonly captures(none) initializes((8, 16)) %reader) local_unnamed_addr #4 {
 entry:
   %buffer_out = getelementptr inbounds nuw i8, ptr %reader, i64 8
   store ptr null, ptr %buffer_out, align 8
@@ -105,7 +105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @grpc_byte_buffer_reader_peek(ptr nocapture noundef %reader, ptr nocapture noundef writeonly %slice) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @grpc_byte_buffer_reader_peek(ptr noundef captures(none) %reader, ptr noundef writeonly captures(none) %slice) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %reader, align 8
   %type = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -140,7 +140,7 @@ return:                                           ; preds = %entry, %sw.bb, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @grpc_byte_buffer_reader_next(ptr nocapture noundef %reader, ptr nocapture noundef writeonly %slice) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @grpc_byte_buffer_reader_next(ptr noundef captures(none) %reader, ptr noundef writeonly captures(none) %slice) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %reader, align 8
   %type = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -184,10 +184,10 @@ return:                                           ; preds = %entry, %sw.bb, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: uwtable
-define void @grpc_byte_buffer_reader_readall(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef %reader) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @grpc_byte_buffer_reader_readall(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef captures(none) %reader) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %in_slice = alloca %struct.grpc_slice, align 8
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
@@ -618,7 +618,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #17
 declare extern_weak void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E() #0
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

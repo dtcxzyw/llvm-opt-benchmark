@@ -151,7 +151,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.116 = private unnamed_addr constant [8 x i8] c"http.%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cmd_main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @cmd_main(i32 noundef %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %var.i = alloca %struct.strbuf, align 8
@@ -290,7 +290,7 @@ if.then.i25:                                      ; preds = %land.lhs.true.i21
   %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(4) @.str.3) #20
   %tobool4.not.i26 = icmp eq i32 %call3.i, 0
   %spec.select.i27 = select i1 %tobool4.not.i26, ptr @.str.111, ptr %7
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %hdr, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.110, ptr noundef %spec.select.i27) #18
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %hdr, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.110, ptr noundef nonnull %spec.select.i27) #18
   br label %bad_request.exit
 
 if.else.i23:                                      ; preds = %land.lhs.true.i21, %if.then18
@@ -428,10 +428,10 @@ return:                                           ; preds = %if.end52, %bad_requ
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @set_die_routine(ptr noundef) local_unnamed_addr #3
 
@@ -483,7 +483,7 @@ entry:
 declare void @die(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @regcomp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -534,10 +534,10 @@ declare void @setup_path() local_unnamed_addr #3
 declare ptr @enter_repo(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare i64 @git_env_ulong(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -597,10 +597,10 @@ declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_head(ptr noundef %hdr, ptr nocapture readnone %arg) #0 {
+define internal void @get_head(ptr noundef %hdr, ptr readnone captures(none) %arg) #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.http_config.var, i64 24, i1 false)
@@ -634,7 +634,7 @@ select_getanyfile.exit:                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_info_refs(ptr noundef %hdr, ptr nocapture readnone %arg) #0 {
+define internal void @get_info_refs(ptr noundef %hdr, ptr readnone captures(none) %arg) #0 {
 entry:
   %query.i.i = alloca ptr, align 8
   %buf = alloca %struct.strbuf, align 8
@@ -794,7 +794,7 @@ select_getanyfile.exit:                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_info_packs(ptr noundef %hdr, ptr nocapture readnone %arg) #0 {
+define internal void @get_info_packs(ptr noundef %hdr, ptr readnone captures(none) %arg) #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   %call = tail call ptr @get_object_directory() #18
@@ -1025,7 +1025,7 @@ if.then3.i:                                       ; preds = %strbuf_setlen.exit
   call fastcc void @http_status(ptr noundef %hdr, i32 noundef 415, ptr noundef nonnull @.str.104)
   call fastcc void @hdr_nocache(ptr noundef %hdr)
   call fastcc void @end_headers(ptr noundef %hdr)
-  call void (i32, ptr, ...) @format_write(i32 poison, ptr nonnull poison, ptr noundef %0, ptr noundef nonnull %spec.store.select.i)
+  call void (i32, ptr, ...) @format_write(i32 poison, ptr nonnull poison, ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select.i)
   %call4.i = call i32 @common_exit(ptr noundef nonnull @.str.14, i32 noundef 636, i32 noundef 0) #18
   call void @exit(i32 noundef %call4.i) #19
   unreachable
@@ -1131,7 +1131,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
 declare ptr @resolve_ref_unsafe(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1216,7 +1216,7 @@ if.end19:                                         ; preds = %land.end, %if.end8
   br i1 %tobool25.not, label %if.then26, label %if.end28
 
 if.then26:                                        ; preds = %if.end19
-  tail call void (ptr, ptr, ...) @forbidden(ptr noundef %hdr, ptr noundef nonnull @.str.59, ptr noundef %2) #21
+  tail call void (ptr, ptr, ...) @forbidden(ptr noundef %hdr, ptr noundef nonnull @.str.59, ptr noundef nonnull %2) #21
   unreachable
 
 if.end28:                                         ; preds = %if.end19
@@ -1693,12 +1693,12 @@ declare i32 @finish_command(ptr noundef) local_unnamed_addr #3
 declare i32 @git_parse_ssize_t(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare void @git_inflate_init_gzip_only(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, -9223372036854775808) i64 @read_request(ptr nocapture noundef nonnull writeonly %out, i64 noundef %req_len) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @read_request(ptr noundef nonnull writeonly captures(none) %out, i64 noundef %req_len) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %req_len, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -1878,7 +1878,7 @@ for.end:                                          ; preds = %if.end12
 declare ptr @git_pathdup(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #13
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #10
@@ -1887,7 +1887,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #10
 declare ptr @__errno_location() local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @show_date(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1900,10 +1900,10 @@ declare ptr @get_all_packs(ptr noundef) local_unnamed_addr #3
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal void @format_write(i32 %fd, ptr nocapture readnone %fmt, ...) unnamed_addr #0 {
+define internal void @format_write(i32 %fd, ptr readnone captures(none) %fmt, ...) unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
@@ -1923,7 +1923,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
 declare i32 @git_config_get_bool(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1939,10 +1939,10 @@ declare void @llvm.va_end.p0(ptr) #15
 declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

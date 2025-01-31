@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bitmap_writer_build_type_index(ptr nocapture noundef initializes((40, 48)) %to_pack, ptr nocapture noundef readonly %index, i32 noundef %index_nr) local_unnamed_addr #1 {
+define dso_local void @bitmap_writer_build_type_index(ptr noundef captures(none) initializes((40, 48)) %to_pack, ptr noundef readonly captures(none) %index, i32 noundef %index_nr) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ewah_new() #18
   store ptr %call, ptr @writer, align 8
@@ -1155,10 +1155,10 @@ if.end45:                                         ; preds = %for.end.i, %stop_pr
 declare i32 @compare_commits_by_gen_then_commit_date(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @start_progress(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1169,7 +1169,7 @@ declare ptr @prepare_bitmap_git(ptr noundef) local_unnamed_addr #2
 declare ptr @create_bitmap_mapping(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bitmap_builder_init(ptr nocapture noundef nonnull initializes((0, 48)) %bb, ptr noundef %old_bitmap) unnamed_addr #1 {
+define internal fastcc void @bitmap_builder_init(ptr noundef nonnull captures(none) initializes((0, 48)) %bb, ptr noundef %old_bitmap) unnamed_addr #1 {
 entry:
   %revs = alloca %struct.rev_info, align 8
   %reusable = alloca ptr, align 8
@@ -1695,7 +1695,7 @@ declare void @clear_prio_queue(ptr noundef) local_unnamed_addr #2
 declare void @free_bitmap_index(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -1929,7 +1929,7 @@ return:                                           ; preds = %push_bitmapped_comm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @date_compare(ptr nocapture noundef readonly %_a, ptr nocapture noundef readonly %_b) #7 {
+define internal i32 @date_compare(ptr noundef readonly captures(none) %_a, ptr noundef readonly captures(none) %_b) #7 {
 entry:
   %0 = load ptr, ptr %_a, align 8
   %1 = load ptr, ptr %_b, align 8
@@ -1943,7 +1943,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @bitmap_writer_set_checksum(ptr nocapture noundef readonly %sha1) local_unnamed_addr #8 {
+define dso_local void @bitmap_writer_set_checksum(ptr noundef readonly captures(none) %sha1) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -2336,7 +2336,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @oid_pos(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @oid_access(i64 noundef %pos, ptr nocapture noundef readonly %table) #10 {
+define internal ptr @oid_access(i64 noundef %pos, ptr noundef readonly captures(none) %table) #10 {
 entry:
   %arrayidx = getelementptr inbounds ptr, ptr %table, i64 %pos
   %0 = load ptr, ptr %arrayidx, align 8
@@ -2375,7 +2375,7 @@ declare i32 @adjust_shared_perm(ptr noundef) local_unnamed_addr #2
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
@@ -2565,7 +2565,7 @@ declare void @ewah_xor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare void @ewah_pool_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 declare i32 @ewah_serialize_to(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2583,7 +2583,7 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #14
 declare i32 @git_qsort_s(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @table_cmp(ptr nocapture noundef readonly %_va, ptr nocapture noundef readonly %_vb, ptr nocapture noundef readonly %_data) #10 {
+define internal range(i32 -1, 2) i32 @table_cmp(ptr noundef readonly captures(none) %_va, ptr noundef readonly captures(none) %_vb, ptr noundef readonly captures(none) %_data) #10 {
 entry:
   %0 = load i32, ptr %_va, align 4
   %idxprom = zext i32 %0 to i64
@@ -2604,16 +2604,16 @@ declare i32 @llvm.umin.i32(i32, i32) #15
 declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #15

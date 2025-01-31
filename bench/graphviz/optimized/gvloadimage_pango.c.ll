@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [9 x i8] c"restore\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @pango_loadimage_cairo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %2, i1 zeroext %3) #0 {
+define internal void @pango_loadimage_cairo(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %2, i1 zeroext %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -124,7 +124,7 @@ declare void @cairo_paint(ptr noundef) local_unnamed_addr #1
 declare void @cairo_restore(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @cairo_freeimage(ptr nocapture noundef readonly %0) #0 {
+define internal void @cairo_freeimage(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   tail call void @cairo_surface_destroy(ptr noundef %3) #4
@@ -136,7 +136,7 @@ declare zeroext i1 @gvusershape_file_access(ptr noundef) local_unnamed_addr #1
 declare ptr @cairo_image_surface_create_from_png_stream(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 11) i32 @reader(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
+define internal range(i32 0, 11) i32 @reader(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = zext i32 %2 to i64
   %5 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %4, ptr noundef %0)
   %6 = icmp eq i64 %5, %4
@@ -160,13 +160,13 @@ declare void @gvusershape_file_release(ptr noundef) local_unnamed_addr #1
 declare void @cairo_surface_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @pango_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %2, i1 zeroext %3) #0 {
+define internal void @pango_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %2, i1 zeroext %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null

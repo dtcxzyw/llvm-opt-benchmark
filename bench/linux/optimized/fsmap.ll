@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [6 x ptr] [ptr @trace_ext4_fsmap_high_key.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1784, ptr @trace_ext4_fsmap_high_key.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fsmap_high_key1783, ptr @trace_ext4_fsmap_low_key.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1770, ptr @trace_ext4_fsmap_low_key.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fsmap_low_key1769, ptr @trace_ext4_fsmap_mapping.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1798, ptr @trace_ext4_fsmap_mapping.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fsmap_mapping1797], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ext4_fsmap_from_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 64)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @ext4_fsmap_from_internal(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %1, align 8
@@ -72,7 +72,7 @@ define dso_local void @ext4_fsmap_from_internal(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ext4_fsmap_to_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((16, 48)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @ext4_fsmap_to_internal(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((16, 48)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = load i32, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %4, ptr %5, align 8
@@ -372,13 +372,13 @@ define dso_local i32 @ext4_getfsmap(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #1 align 16 {
+define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -959,7 +959,7 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ext4_getfsmap_logdev(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((40, 136)) %2) #1 align 16 {
+define internal i32 @ext4_getfsmap_logdev(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((40, 136)) %2) #1 align 16 {
   %4 = alloca %struct.ext4_fsmap, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %6 = load ptr, ptr %5, align 8
@@ -1098,7 +1098,7 @@ define internal i32 @ext4_getfsmap_logdev(ptr noundef %0, ptr nocapture noundef 
 declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @ext4_getfsmap_dev_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define internal i32 @ext4_getfsmap_dev_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1108,10 +1108,10 @@ define internal i32 @ext4_getfsmap_dev_compare(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ext4_get_group_no_and_offset(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -1273,7 +1273,7 @@ define internal i32 @ext4_getfsmap_datadev_helper(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_getfsmap_helper(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @ext4_getfsmap_helper(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.ext4_fsmap, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1594,7 +1594,7 @@ declare dso_local i64 @ext4_inode_table(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local void @list_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 -1, 2) i32 @ext4_getfsmap_compare(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 align 16 {
+define internal range(i32 -1, 2) i32 @ext4_getfsmap_compare(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24

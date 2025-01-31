@@ -33,7 +33,7 @@ $_ZTIN3irr11IOSOperatorE = comdat any
 @_ZTIN3irr11COSOperatorE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr11COSOperatorE, ptr @_ZTIN3irr11IOSOperatorE }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr11COSOperatorC2ERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(32) %osVersion) unnamed_addr #0 align 2 {
+define void @_ZN3irr11COSOperatorC2ERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef nonnull align 8 dereferenceable(32) %osVersion) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -101,7 +101,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr11COSOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr11COSOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -293,7 +293,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK3irr11COSOperator15copyToClipboardEPKc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %text) unnamed_addr #0 align 2 {
+define void @_ZNK3irr11COSOperator15copyToClipboardEPKc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %text) unnamed_addr #0 align 2 {
 entry:
   %char0 = load i8, ptr %text, align 1
   %cmp = icmp eq i8 %char0, 0
@@ -310,13 +310,13 @@ return:                                           ; preds = %if.end, %entry
 declare i32 @SDL_SetClipboardText(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK3irr11COSOperator22copyToPrimarySelectionEPKc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %text) unnamed_addr #4 align 2 {
+define void @_ZNK3irr11COSOperator22copyToPrimarySelectionEPKc(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %text) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK3irr11COSOperator20getTextFromClipboardEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK3irr11COSOperator20getTextFromClipboardEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
   %ClipboardSelectionText = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %ClipboardSelectionText, align 8, !tbaa !18
@@ -329,13 +329,13 @@ entry:
 declare ptr @SDL_GetClipboardText() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @_ZNK3irr11COSOperator27getTextFromPrimarySelectionEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noalias noundef ptr @_ZNK3irr11COSOperator27getTextFromPrimarySelectionEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr11COSOperator15getSystemMemoryEPjS1_(ptr nocapture nonnull readnone align 8 %this, ptr noundef writeonly %Total, ptr noundef writeonly %Avail) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK3irr11COSOperator15getSystemMemoryEPjS1_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly %Total, ptr noundef writeonly %Avail) unnamed_addr #0 align 2 {
 entry:
   %call = tail call i64 @sysconf(i32 noundef 30) #11
   %call2 = tail call i64 @sysconf(i32 noundef 85) #11
@@ -422,7 +422,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERK
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

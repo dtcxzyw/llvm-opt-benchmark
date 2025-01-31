@@ -179,7 +179,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN7QWidgetC1EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare void @_ZN9QSplitterD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
@@ -266,7 +266,7 @@ _ZN5QListI21register_stat_group_eED2Ev.exit:      ; preds = %_ZN5QListIjED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow21clearAddedPacketMenusEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow21clearAddedPacketMenusEv(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL27dynamic_packet_menu_actions, i64 16), align 8
   %4 = icmp sgt i64 %3, 0
@@ -395,7 +395,7 @@ define void @_ZThn16_N10MainWindowD1Ev(ptr noundef %0) unnamed_addr #8 align 2 {
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN10MainWindowD0Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(272) %0) unnamed_addr #9 align 2 {
+define void @_ZN10MainWindowD0Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(272) %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #25
   unreachable
 }
@@ -404,13 +404,13 @@ define void @_ZN10MainWindowD0Ev(ptr nocapture noundef nonnull readnone align 8 
 declare void @llvm.trap() #10
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZThn16_N10MainWindowD0Ev(ptr nocapture noundef readnone %0) unnamed_addr #11 align 2 {
+define void @_ZThn16_N10MainWindowD0Ev(ptr noundef readnone captures(none) %0) unnamed_addr #11 align 2 {
   tail call void @llvm.trap() #25
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN10MainWindow12hasSelectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %0) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN10MainWindow12hasSelectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -428,7 +428,7 @@ define noundef zeroext i1 @_ZN10MainWindow12hasSelectionEv(ptr nocapture noundef
 declare noundef zeroext i1 @_ZN10PacketList17multiSelectActiveEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN10MainWindow18hasUniqueSelectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %0) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN10MainWindow18hasUniqueSelectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -446,7 +446,7 @@ define noundef zeroext i1 @_ZN10MainWindow18hasUniqueSelectionEv(ptr nocapture n
 declare noundef zeroext i1 @_ZN10PacketList18uniqueSelectActiveEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow12selectedRowsEb(ptr dead_on_unwind noalias writable sret(%class.QList.13) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
+define void @_ZN10MainWindow12selectedRowsEb(ptr dead_on_unwind noalias writable sret(%class.QList.13) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -467,7 +467,7 @@ define void @_ZN10MainWindow12selectedRowsEb(ptr dead_on_unwind noalias writable
 declare void @_ZN10PacketList12selectedRowsEb(ptr dead_on_unwind writable sret(%class.QList.13) align 8, ptr noundef nonnull align 8 dereferenceable(464), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK10MainWindow15frameDataForRowEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK10MainWindow15frameDataForRowEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -485,7 +485,7 @@ define noundef ptr @_ZNK10MainWindow15frameDataForRowEi(ptr nocapture noundef no
 declare noundef ptr @_ZNK10PacketList14getFDataForRowEi(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow12insertColumnE7QStringS0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow12insertColumnE7QStringS0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -614,7 +614,7 @@ declare void @_ZN9QTreeView22resizeColumnToContentsEi(ptr noundef nonnull align 
 declare void @prefs_main_write() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow9gotoFrameEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN10MainWindow9gotoFrameEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %7
 
@@ -631,7 +631,7 @@ define void @_ZN10MainWindow9gotoFrameEi(ptr nocapture noundef nonnull readonly 
 declare void @_ZN10PacketList10goToPacketEii(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow9getFilterEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN10MainWindow9getFilterEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNK9QComboBox11currentTextEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %4)
@@ -641,14 +641,14 @@ define void @_ZN10MainWindow9getFilterEv(ptr dead_on_unwind noalias writable sre
 declare void @_ZNK9QComboBox11currentTextEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN10MainWindow9statusBarEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %0) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZN10MainWindow9statusBarEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow16setDisplayFilterE7QStringN12FilterAction6ActionENS1_10ActionTypeE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow16setDisplayFilterE7QStringN12FilterAction6ActionENS1_10ActionTypeE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %5, align 8
@@ -713,7 +713,7 @@ _ZN7QStringD2Ev.exit8:                            ; preds = %20, %_ZN17QArrayDat
 declare void @_ZN10MainWindow12filterActionE7QStringN12FilterAction6ActionENS1_10ActionTypeE(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow16appendPacketMenuEP7QAction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(272) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN10MainWindow16appendPacketMenuEP7QAction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(272) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.QMetaObject::Connection", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -732,7 +732,7 @@ declare void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on
 declare void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow20getPacketMenuActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QList) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(272) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow20getPacketMenuActionsEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QList) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(272) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call i32 @funnel_statistics_packet_menus_modified()
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -767,7 +767,7 @@ declare i32 @funnel_statistics_packet_menus_modified() local_unnamed_addr #3
 declare void @funnel_statistics_load_packet_menus() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN10MainWindow14addPacketMenusEP5QMenuP10_GPtrArray(ptr nocapture noundef nonnull readnone align 8 dereferenceable(272) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN10MainWindow14addPacketMenusEP5QMenuP10_GPtrArray(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(272) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %struct.QHashDummyValue, align 1
@@ -1278,7 +1278,7 @@ _ZN5QListIP7QActionED2Ev.exit62:                  ; preds = %200, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare void @_ZN12FunnelAction23getPacketRequiredFieldsEv(ptr dead_on_unwind writable sret(%class.QSet) align 8, ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #3
 
@@ -1405,7 +1405,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable sret(%class.QString) align 8, i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5QHashI7QString15QHashDummyValueED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1994,7 +1994,7 @@ _ZN17QArrayDataPointerIP7QActionED2Ev.exit35:     ; preds = %76, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QArrayDataPointerIP7QActionE12allocateGrowERKS2_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 comdat align 2 {
@@ -4729,10 +4729,10 @@ define internal void @_GLOBAL__sub_I_main_window.cpp() #21 section ".text.startu
 declare i64 @llvm.smax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #22

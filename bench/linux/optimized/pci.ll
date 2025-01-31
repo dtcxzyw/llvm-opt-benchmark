@@ -450,7 +450,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [108 x ptr] [ptr @__UNIQUE_ID___addressable___pci_reset_function_locked517, ptr @__UNIQUE_ID___addressable_devm_pci_remap_cfg_resource495, ptr @__UNIQUE_ID___addressable_devm_pci_remap_cfgspace493, ptr @__UNIQUE_ID___addressable_devm_pci_remap_iospace492, ptr @__UNIQUE_ID___addressable_pci_ats_disabled365, ptr @__UNIQUE_ID___addressable_pci_back_from_sleep419, ptr @__UNIQUE_ID___addressable_pci_bridge_secondary_bus_reset513, ptr @__UNIQUE_ID___addressable_pci_bus_find_capability372, ptr @__UNIQUE_ID___addressable_pci_bus_max_busnr366, ptr @__UNIQUE_ID___addressable_pci_check_and_mask_intx506, ptr @__UNIQUE_ID___addressable_pci_check_and_unmask_intx507, ptr @__UNIQUE_ID___addressable_pci_choose_state421, ptr @__UNIQUE_ID___addressable_pci_clear_master497, ptr @__UNIQUE_ID___addressable_pci_clear_mwi502, ptr @__UNIQUE_ID___addressable_pci_common_swizzle476, ptr @__UNIQUE_ID___addressable_pci_d3cold_disable423, ptr @__UNIQUE_ID___addressable_pci_d3cold_enable422, ptr @__UNIQUE_ID___addressable_pci_dev_lock514, ptr @__UNIQUE_ID___addressable_pci_dev_run_wake420, ptr @__UNIQUE_ID___addressable_pci_dev_trylock515, ptr @__UNIQUE_ID___addressable_pci_dev_unlock516, ptr @__UNIQUE_ID___addressable_pci_device_is_present603, ptr @__UNIQUE_ID___addressable_pci_disable_device412, ptr @__UNIQUE_ID___addressable_pci_enable_atomic_ops_to_root475, ptr @__UNIQUE_ID___addressable_pci_enable_device403, ptr @__UNIQUE_ID___addressable_pci_enable_device_io401, ptr @__UNIQUE_ID___addressable_pci_enable_device_mem402, ptr @__UNIQUE_ID___addressable_pci_enable_wake416, ptr @__UNIQUE_ID___addressable_pci_find_capability371, ptr @__UNIQUE_ID___addressable_pci_find_dvsec_capability379, ptr @__UNIQUE_ID___addressable_pci_find_ext_capability374, ptr @__UNIQUE_ID___addressable_pci_find_ht_capability377, ptr @__UNIQUE_ID___addressable_pci_find_next_capability370, ptr @__UNIQUE_ID___addressable_pci_find_next_ext_capability373, ptr @__UNIQUE_ID___addressable_pci_find_next_ht_capability376, ptr @__UNIQUE_ID___addressable_pci_find_parent_resource380, ptr @__UNIQUE_ID___addressable_pci_find_resource381, ptr @__UNIQUE_ID___addressable_pci_find_vsec_capability378, ptr @__UNIQUE_ID___addressable_pci_fixup_cardbus607, ptr @__UNIQUE_ID___addressable_pci_get_dsn375, ptr @__UNIQUE_ID___addressable_pci_ignore_hotplug604, ptr @__UNIQUE_ID___addressable_pci_intx503, ptr @__UNIQUE_ID___addressable_pci_ioremap_bar368, ptr @__UNIQUE_ID___addressable_pci_ioremap_wc_bar369, ptr @__UNIQUE_ID___addressable_pci_load_and_free_saved_state399, ptr @__UNIQUE_ID___addressable_pci_load_saved_state398, ptr @__UNIQUE_ID___addressable_pci_pci_problems360, ptr @__UNIQUE_ID___addressable_pci_pio_to_address485, ptr @__UNIQUE_ID___addressable_pci_platform_power_transition382, ptr @__UNIQUE_ID___addressable_pci_pme_active415, ptr @__UNIQUE_ID___addressable_pci_pme_capable414, ptr @__UNIQUE_ID___addressable_pci_power_names359, ptr @__UNIQUE_ID___addressable_pci_pr3_present600, ptr @__UNIQUE_ID___addressable_pci_prepare_to_sleep418, ptr @__UNIQUE_ID___addressable_pci_probe_reset_bus523, ptr @__UNIQUE_ID___addressable_pci_probe_reset_slot522, ptr @__UNIQUE_ID___addressable_pci_realloc_setup_params609, ptr @__UNIQUE_ID___addressable_pci_rebar_get_possible_sizes464, ptr @__UNIQUE_ID___addressable_pci_reenable_device400, ptr @__UNIQUE_ID___addressable_pci_release_region477, ptr @__UNIQUE_ID___addressable_pci_release_regions482, ptr @__UNIQUE_ID___addressable_pci_release_selected_regions479, ptr @__UNIQUE_ID___addressable_pci_remap_iospace490, ptr @__UNIQUE_ID___addressable_pci_request_region478, ptr @__UNIQUE_ID___addressable_pci_request_regions483, ptr @__UNIQUE_ID___addressable_pci_request_regions_exclusive484, ptr @__UNIQUE_ID___addressable_pci_request_selected_regions480, ptr @__UNIQUE_ID___addressable_pci_request_selected_regions_exclusive481, ptr @__UNIQUE_ID___addressable_pci_reset_bus524, ptr @__UNIQUE_ID___addressable_pci_reset_function519, ptr @__UNIQUE_ID___addressable_pci_reset_function_locked520, ptr @__UNIQUE_ID___addressable_pci_resource_alignment_sysfs_init606, ptr @__UNIQUE_ID___addressable_pci_restore_state396, ptr @__UNIQUE_ID___addressable_pci_save_state385, ptr @__UNIQUE_ID___addressable_pci_select_bars597, ptr @__UNIQUE_ID___addressable_pci_set_cacheline_size498, ptr @__UNIQUE_ID___addressable_pci_set_master496, ptr @__UNIQUE_ID___addressable_pci_set_mwi499, ptr @__UNIQUE_ID___addressable_pci_set_pcie_reset_state413, ptr @__UNIQUE_ID___addressable_pci_set_power_state383, ptr @__UNIQUE_ID___addressable_pci_set_power_state_locked384, ptr @__UNIQUE_ID___addressable_pci_status_get_and_clear_errors367, ptr @__UNIQUE_ID___addressable_pci_store_saved_state397, ptr @__UNIQUE_ID___addressable_pci_try_reset_function521, ptr @__UNIQUE_ID___addressable_pci_try_set_mwi501, ptr @__UNIQUE_ID___addressable_pci_unmap_iospace491, ptr @__UNIQUE_ID___addressable_pci_wait_for_pending_transaction508, ptr @__UNIQUE_ID___addressable_pci_wake_from_d3417, ptr @__UNIQUE_ID___addressable_pcie_bandwidth_available588, ptr @__UNIQUE_ID___addressable_pcie_flr509, ptr @__UNIQUE_ID___addressable_pcie_get_mps570, ptr @__UNIQUE_ID___addressable_pcie_get_readrq558, ptr @__UNIQUE_ID___addressable_pcie_get_speed_cap589, ptr @__UNIQUE_ID___addressable_pcie_get_width_cap595, ptr @__UNIQUE_ID___addressable_pcie_link_speed_mbps582, ptr @__UNIQUE_ID___addressable_pcie_print_link_status596, ptr @__UNIQUE_ID___addressable_pcie_reset_flr510, ptr @__UNIQUE_ID___addressable_pcie_set_mps576, ptr @__UNIQUE_ID___addressable_pcie_set_readrq564, ptr @__UNIQUE_ID___addressable_pcim_enable_device404, ptr @__UNIQUE_ID___addressable_pcim_pin_device407, ptr @__UNIQUE_ID___addressable_pcim_set_mwi500, ptr @__UNIQUE_ID___addressable_pcix_get_max_mmrbc530, ptr @__UNIQUE_ID___addressable_pcix_get_mmrbc536, ptr @__UNIQUE_ID___addressable_pcix_set_mmrbc552, ptr @__setup_pci_setup, ptr @__setup_pcie_port_pm_setup, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched40], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @pci_reset_supported(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @pci_reset_supported(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %3 = load i8, ptr %2, align 8
   %4 = icmp ne i8 %3, 0
@@ -464,7 +464,7 @@ define dso_local zeroext i1 @pci_ats_disabled() #1 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @pcie_port_pm_setup(ptr nocapture noundef readonly %0) #2 section ".init.text" align 16 {
+define internal noundef i32 @pcie_port_pm_setup(ptr noundef readonly captures(none) %0) #2 section ".init.text" align 16 {
   %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.53) #27
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %7, label %4
@@ -508,10 +508,10 @@ define dso_local zeroext i8 @pci_bus_max_busnr(ptr noundef readonly %0) #3 align
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -5, 65536) i32 @pci_status_get_and_clear_errors(ptr noundef %0) #5 align 16 {
@@ -612,7 +612,7 @@ define dso_local ptr @pci_ioremap_wc_bar(ptr noundef %0, i32 noundef %1) #5 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i8 @pci_find_next_capability(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) #5 align 16 {
+define dso_local zeroext i8 @pci_find_next_capability(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2) #5 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -669,7 +669,7 @@ define dso_local zeroext i8 @pci_find_next_capability(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i8 @pci_find_capability(ptr nocapture noundef readonly %0, i32 noundef %1) #5 align 16 {
+define dso_local zeroext i8 @pci_find_capability(ptr noundef readonly captures(none) %0, i32 noundef %1) #5 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
@@ -1458,7 +1458,7 @@ define dso_local zeroext range(i16 0, 4093) i16 @pci_find_dvsec_capability(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pci_find_parent_resource(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define dso_local ptr @pci_find_parent_resource(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @pci_bus_resource_n(ptr noundef %4, i32 noundef 0) #27
@@ -1524,7 +1524,7 @@ define dso_local ptr @pci_find_parent_resource(ptr nocapture noundef readonly %0
 declare dso_local ptr @pci_bus_resource_n(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef ptr @pci_find_resource(ptr noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
+define dso_local noundef ptr @pci_find_resource(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1572,7 +1572,7 @@ define dso_local noundef ptr @pci_find_resource(ptr noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @pci_resource_name(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @pci_resource_name(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp ult i32 %1, 10
   br i1 %3, label %4, label %12
 
@@ -1798,7 +1798,7 @@ define dso_local void @pci_resume_bus(ptr noundef %0) local_unnamed_addr #5 alig
 declare dso_local void @pci_walk_bus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_resume_one(ptr noundef %0, ptr nocapture readnone %1) #5 align 16 {
+define internal noundef i32 @pci_resume_one(ptr noundef %0, ptr readnone captures(none) %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = tail call i32 @__pm_runtime_resume(ptr noundef nonnull %3, i32 noundef 1) #27
   ret i32 0
@@ -1939,7 +1939,7 @@ define dso_local void @pci_bus_set_current_state(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @__pci_dev_set_current_state(ptr nocapture noundef writeonly initializes((152, 156)) %0, ptr nocapture noundef readonly %1) #10 align 16 {
+define internal noundef i32 @__pci_dev_set_current_state(ptr noundef writeonly captures(none) initializes((152, 156)) %0, ptr noundef readonly captures(none) %1) #10 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %3, ptr %4, align 8
@@ -2240,7 +2240,7 @@ define dso_local range(i32 -22, 1) i32 @pci_set_power_state_locked(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @pci_find_saved_cap(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #11 align 16 {
+define dso_local ptr @pci_find_saved_cap(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #11 align 16 {
   %3 = zext i8 %1 to i16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %5 = load ptr, ptr %4, align 8
@@ -2271,7 +2271,7 @@ define dso_local ptr @pci_find_saved_cap(ptr nocapture noundef readonly %0, i8 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @pci_find_saved_ext_cap(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #11 align 16 {
+define dso_local ptr @pci_find_saved_ext_cap(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #11 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2301,7 +2301,7 @@ define dso_local ptr @pci_find_saved_ext_cap(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pci_bridge_reconfigure_ltr(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local void @pci_bridge_reconfigure_ltr(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3226,7 +3226,7 @@ define internal fastcc void @pci_enable_acs(ptr noundef %0) unnamed_addr #5 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias ptr @pci_store_saved_state(ptr nocapture noundef readonly %0) #5 align 16 {
+define dso_local noalias ptr @pci_store_saved_state(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %3 = load i40, ptr %2, align 1
   %4 = and i40 %3, 2097152
@@ -3288,10 +3288,10 @@ define dso_local noalias ptr @pci_store_saved_state(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @pci_load_saved_state(ptr nocapture noundef %0, ptr noundef readonly %1) #13 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pci_load_saved_state(ptr noundef captures(none) %0, ptr noundef readonly %1) #13 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %4 = load i40, ptr %3, align 1
   %5 = and i40 %4, -2097153
@@ -3379,7 +3379,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_saved_state(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @pci_load_and_free_saved_state(ptr nocapture noundef %0, ptr nocapture noundef %1) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pci_load_and_free_saved_state(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #5 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %5 = load i40, ptr %4, align 1
@@ -4050,7 +4050,7 @@ define internal noundef i32 @pci_pme_wakeup(ptr noundef %0, ptr noundef readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @pci_pme_capable(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local zeroext i1 @pci_pme_capable(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 0
@@ -5186,7 +5186,7 @@ declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #6
 declare dso_local i32 @dmi_get_bios_year() local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pci_bridge_d3_update(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local void @pci_bridge_d3_update(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %4 = load i8, ptr %3, align 4
@@ -5301,7 +5301,7 @@ define dso_local void @pci_bridge_d3_update(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal range(i32 0, 2) i32 @pci_dev_check_d3cold(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #10 align 16 {
+define internal range(i32 0, 2) i32 @pci_dev_check_d3cold(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #10 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %4 = load i24, ptr %3, align 1
   %5 = and i24 %4, 5120
@@ -5355,7 +5355,7 @@ define internal range(i32 0, 2) i32 @pci_dev_check_d3cold(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pci_d3cold_enable(ptr nocapture noundef %0) #5 align 16 {
+define dso_local void @pci_d3cold_enable(ptr noundef captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %3 = load i24, ptr %2, align 1
   %4 = and i24 %3, 1024
@@ -5373,7 +5373,7 @@ define dso_local void @pci_d3cold_enable(ptr nocapture noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pci_d3cold_disable(ptr nocapture noundef %0) #5 align 16 {
+define dso_local void @pci_d3cold_disable(ptr noundef captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %3 = load i24, ptr %2, align 1
   %4 = and i24 %3, 1024
@@ -6055,7 +6055,7 @@ define dso_local void @pci_allocate_cap_save_buffers(ptr noundef %0) local_unnam
 declare dso_local void @pci_allocate_vc_save_buffers(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pci_free_cap_save_buffers(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local void @pci_free_cap_save_buffers(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -6648,7 +6648,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_atomic_ops_to_root(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext range(i8 0, 5) i8 @pci_swizzle_interrupt_pin(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #14 align 16 {
+define dso_local zeroext range(i8 0, 5) i8 @pci_swizzle_interrupt_pin(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #14 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -6683,7 +6683,7 @@ define dso_local zeroext range(i8 0, 5) i8 @pci_swizzle_interrupt_pin(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local range(i32 -1, 256) i32 @pci_get_interrupt_pin(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 align 16 {
+define dso_local range(i32 -1, 256) i32 @pci_get_interrupt_pin(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #15 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
@@ -6747,7 +6747,7 @@ define dso_local range(i32 -1, 256) i32 @pci_get_interrupt_pin(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local zeroext range(i8 0, 32) i8 @pci_common_swizzle(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #15 align 16 {
+define dso_local zeroext range(i8 0, 32) i8 @pci_common_swizzle(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #15 align 16 {
   %3 = load i8, ptr %1, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -7463,7 +7463,7 @@ pci_release_region.exit:                          ; preds = %45, %42, %38, %23, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @pci_register_io_range(ptr nocapture noundef readnone %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #16 align 16 {
+define dso_local noundef i32 @pci_register_io_range(ptr noundef readnone captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #16 align 16 {
   ret i32 0
 }
 
@@ -7480,7 +7480,7 @@ define weak dso_local i64 @pci_address_to_pio(i64 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_remap_iospace(ptr nocapture readnone %0, i64 %1) #5 align 16 {
+define dso_local noundef i32 @pci_remap_iospace(ptr readnone captures(none) %0, i64 %1) #5 align 16 {
   %3 = load i1, ptr @pci_remap_iospace.__already_done, align 1
   br i1 %3, label %5, label %4, !prof !30
 
@@ -7499,12 +7499,12 @@ define dso_local noundef i32 @pci_remap_iospace(ptr nocapture readnone %0, i64 %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @pci_unmap_iospace(ptr nocapture readnone %0) #16 align 16 {
+define dso_local void @pci_unmap_iospace(ptr readnone captures(none) %0) #16 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -19, -11) i32 @devm_pci_remap_iospace(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #5 align 16 {
+define dso_local noundef range(i32 -19, -11) i32 @devm_pci_remap_iospace(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #5 align 16 {
   %4 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_pci_unmap_iospace, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.34) #27
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
@@ -7536,7 +7536,7 @@ define dso_local noundef range(i32 -19, -11) i32 @devm_pci_remap_iospace(ptr noc
 declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @devm_pci_unmap_iospace(ptr nocapture readnone %0, ptr nocapture readonly %1) #16 align 16 {
+define internal void @devm_pci_unmap_iospace(ptr readnone captures(none) %0, ptr readonly captures(none) %1) #16 align 16 {
   ret void
 }
 
@@ -8010,7 +8010,7 @@ define dso_local void @pci_intx(ptr noundef %0, i32 noundef %1) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @pci_check_and_mask_intx(ptr nocapture noundef readonly %0) #5 align 16 {
+define dso_local noundef zeroext i1 @pci_check_and_mask_intx(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -8051,7 +8051,7 @@ define dso_local noundef zeroext i1 @pci_check_and_mask_intx(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @pci_check_and_unmask_intx(ptr nocapture noundef readonly %0) #5 align 16 {
+define dso_local noundef zeroext i1 @pci_check_and_unmask_intx(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -8814,7 +8814,7 @@ define dso_local void @pci_dev_unlock(ptr noundef %0) #5 align 16 {
 declare dso_local void @pci_cfg_access_unlock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal zeroext i16 @pci_dev_reset_method_attr_is_visible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #0 align 16 {
+define internal zeroext i16 @pci_dev_reset_method_attr_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 1888
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 0
@@ -9360,7 +9360,7 @@ define internal fastcc i32 @pci_slot_reset(ptr noundef readonly %0, i1 noundef z
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -25, 1) i32 @pci_bus_error_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 -25, 1) i32 @pci_bus_error_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -9445,7 +9445,7 @@ define dso_local noundef range(i32 -25, 1) i32 @pci_probe_reset_bus(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 16 {
+define dso_local i32 @pci_reset_bus(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc i32 @pci_slot_reset(ptr noundef %3, i1 noundef zeroext true)
@@ -10499,7 +10499,7 @@ define dso_local range(i32 0, 256) i32 @pcie_get_width_cap(ptr noundef %0) #5 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 4032001) i32 @pcie_bandwidth_capable(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, 4032001) i32 @pcie_bandwidth_capable(ptr noundef %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #5 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -10764,7 +10764,7 @@ define dso_local void @pcie_print_link_status(ptr noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @pci_select_bars(ptr nocapture noundef readonly %0, i64 noundef %1) #7 align 16 {
+define dso_local i32 @pci_select_bars(ptr noundef readonly captures(none) %0, i64 noundef %1) #7 align 16 {
   %3 = getelementptr i8, ptr %0, i64 944
   br label %4
 
@@ -10880,7 +10880,7 @@ define dso_local i32 @pci_set_vga_state(ptr noundef %0, i1 noundef zeroext %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @pci_pr3_present(ptr nocapture noundef readonly %0) #5 align 16 {
+define dso_local zeroext i1 @pci_pr3_present(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = load i32, ptr @acpi_disabled, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %20
@@ -11029,7 +11029,7 @@ define weak dso_local ptr @pci_real_dma_dev(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @pci_device_is_present(ptr nocapture noundef readonly %0) #5 align 16 {
+define dso_local zeroext i1 @pci_device_is_present(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -11056,7 +11056,7 @@ define dso_local zeroext i1 @pci_device_is_present(ptr nocapture noundef readonl
 declare dso_local zeroext i1 @pci_bus_read_dev_vendor_id(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @pci_ignore_hotplug(ptr nocapture noundef %0) #19 align 16 {
+define dso_local void @pci_ignore_hotplug(ptr noundef captures(none) %0) #19 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -11695,7 +11695,7 @@ define internal noundef i32 @pci_realloc_setup_params() #17 section ".init.text"
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @ioremap_wc(i64 noundef, i64 noundef) local_unnamed_addr #6
@@ -11890,7 +11890,7 @@ declare dso_local i32 @pcie_capability_write_word(ptr noundef, i32 noundef, i16 
 declare dso_local i32 @pci_dev_specific_enable_acs(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 2) i32 @pci_dev_str_match(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #5 align 16 {
+define internal fastcc range(i32 -22, 2) i32 @pci_dev_str_match(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #5 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -12142,10 +12142,10 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #9
 declare dso_local i32 @pci_dev_specific_disable_acs_redir(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #21
+declare dso_local noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #21
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #6
@@ -12259,7 +12259,7 @@ define internal fastcc void @pci_enable_bridge(ptr noundef nonnull %0) unnamed_a
 declare dso_local ptr @devres_find(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pcim_release(ptr noundef %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define internal void @pcim_release(ptr noundef %0, ptr noundef readonly captures(none) %1) #5 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -12441,7 +12441,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local zeroext i1 @queue_delayed_work_on(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pci_pme_list_scan(ptr nocapture readnone %0) #5 align 16 {
+define internal void @pci_pme_list_scan(ptr readnone captures(none) %0) #5 align 16 {
   %2 = alloca i16, align 2
   tail call void @mutex_lock(ptr noundef nonnull @pci_pme_list_mutex) #27
   %3 = load ptr, ptr @pci_pme_list, align 8
@@ -12623,7 +12623,7 @@ declare dso_local zeroext i1 @pcie_failed_link_retrain(ptr noundef) local_unname
 declare dso_local i32 @mutex_trylock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @reset_method_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
+define internal i64 @reset_method_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #5 align 16 {
   %4 = getelementptr i8, ptr %0, i64 1888
   br label %5
 
@@ -12667,7 +12667,7 @@ define internal i64 @reset_method_show(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @reset_method_store(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #5 align 16 {
+define internal noundef i64 @reset_method_store(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #5 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca [7 x i8], align 1
   %7 = getelementptr i8, ptr %0, i64 -184
@@ -12830,7 +12830,7 @@ define internal noundef i64 @reset_method_store(ptr noundef %0, ptr nocapture re
 declare dso_local i32 @sysfs_emit_at(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @sysfs_streq(ptr noundef, ptr noundef) local_unnamed_addr #6
@@ -13459,7 +13459,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #6 sect
 declare dso_local i32 @bus_create_file(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @resource_alignment_show(ptr nocapture readnone %0, ptr noundef %1) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @resource_alignment_show(ptr readnone captures(none) %0, ptr noundef %1) #5 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @resource_alignment_lock) #27
   %3 = load ptr, ptr @resource_alignment_param, align 8
   %4 = icmp eq ptr %3, null
@@ -13477,7 +13477,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @resource_alignment_show(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -22, 4095) i64 @resource_alignment_store(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
+define internal noundef range(i64 -22, 4095) i64 @resource_alignment_store(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
   %4 = icmp ugt i64 %2, 4094
   br i1 %4, label %19, label %5
 

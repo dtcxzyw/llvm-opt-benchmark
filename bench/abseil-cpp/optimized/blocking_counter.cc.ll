@@ -19,7 +19,7 @@ $__clang_call_terminate = comdat any
 @_ZN4absl15BlockingCounterC1Ei = dso_local unnamed_addr alias void (ptr, i32), ptr @_ZN4absl15BlockingCounterC2Ei
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl15BlockingCounterC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, i32 noundef %initial_count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl15BlockingCounterC2Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this, i32 noundef %initial_count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %this, align 8
   %count_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -138,7 +138,7 @@ _ZN4absl9MutexLockD2Ev.exit3:                     ; preds = %invoke.cont11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZN4absl12_GLOBAL__N_16IsDoneEPv(ptr nocapture noundef readonly %arg) #2 {
+define internal noundef zeroext i1 @_ZN4absl12_GLOBAL__N_16IsDoneEPv(ptr noundef readonly captures(none) %arg) #2 {
 entry:
   %0 = load i8, ptr %arg, align 1
   %tobool = trunc i8 %0 to i1

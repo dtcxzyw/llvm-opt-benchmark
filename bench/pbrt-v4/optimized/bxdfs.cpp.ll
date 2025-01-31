@@ -603,7 +603,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK4pbrt11LayeredBxDFINS_14DielectricBxDFENS_11DiffuseBxDFELb1EE8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(60) %this) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3639,7 +3639,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt14DielectricBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %this, <2 x float> %wo.coerce0, float %wo.coerce1, float noundef %uc, <2 x float> %u.coerce, i32 noundef %mode, i32 noundef %sampleFlags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt14DielectricBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noalias writeonly sret(%"class.pstd::optional") align 4 captures(none) %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %this, <2 x float> %wo.coerce0, float %wo.coerce1, float noundef %uc, <2 x float> %u.coerce, i32 noundef %mode, i32 noundef %sampleFlags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fr = alloca %"class.pbrt::SampledSpectrum", align 8
   %ft = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -4353,7 +4353,7 @@ eh.resume:                                        ; preds = %lpad146, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4pbrt4HashIJfNS_6Point2IfEEEEEmDpT_(float noundef %args1, <2 x float> %args.coerce) local_unnamed_addr #0 comdat {
@@ -10822,7 +10822,7 @@ _ZN4pbrt12StringPrintfIJRKNS_27TrowbridgeReitzDistributionERKNS_15SampledSpectru
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt8HairBxDFC2EffRKNS_15SampledSpectrumEfff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(76) initializes((0, 32)) %this, float noundef %h, float noundef %eta, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %sigma_a, float noundef %beta_m, float noundef %beta_n, float noundef %alpha) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4pbrt8HairBxDFC2EffRKNS_15SampledSpectrumEfff(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(76) initializes((0, 32)) %this, float noundef %h, float noundef %eta, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %sigma_a, float noundef %beta_m, float noundef %beta_n, float noundef %alpha) unnamed_addr #2 align 2 {
 entry:
   store float %h, ptr %this, align 4
   %eta3 = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -10996,7 +10996,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8HairBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(76) %this, <2 x float> %wo.coerce0, float %wo.coerce1, <2 x float> %wi.coerce0, float %wi.coerce1, i32 %mode) local_unnamed_addr #0 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8HairBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(76) %this, <2 x float> %wo.coerce0, float %wo.coerce1, <2 x float> %wi.coerce0, float %wi.coerce1, i32 %mode) local_unnamed_addr #0 align 2 {
 entry:
   %ret.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i.i107 = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -11886,7 +11886,7 @@ while.end5:                                       ; preds = %while.body4, %while
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8HairBxDF5ApPDFEf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(76) %this, float noundef %cosTheta_o) local_unnamed_addr #0 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8HairBxDF5ApPDFEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(76) %this, float noundef %cosTheta_o) local_unnamed_addr #0 align 2 {
 entry:
   %retval.i38 = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i26 = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -12064,7 +12064,7 @@ for.end41:                                        ; preds = %_ZNK4pbrt15SampledS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt8HairBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(76) %this, <2 x float> %wo.coerce0, float %wo.coerce1, float noundef %uc, <2 x float> %u.coerce, i32 %mode, i32 %sampleFlags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt8HairBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noalias writeonly sret(%"class.pstd::optional") align 4 captures(none) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(76) %this, <2 x float> %wo.coerce0, float %wo.coerce1, float noundef %uc, <2 x float> %u.coerce, i32 %mode, i32 %sampleFlags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 for.body.preheader.i:
   %apPDF = alloca %"class.pstd::array", align 8
   %wo.sroa.0.0.vec.extract = extractelement <2 x float> %wo.coerce0, i64 0
@@ -12419,7 +12419,7 @@ for.end:                                          ; preds = %if.end162
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZNK4pbrt8HairBxDF3PDFENS_7Vector3IfEES2_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(76) %this, <2 x float> %wo.coerce0, float %wo.coerce1, <2 x float> %wi.coerce0, float %wi.coerce1, i32 noundef %mode, i32 noundef %sampleFlags) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZNK4pbrt8HairBxDF3PDFENS_7Vector3IfEES2_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(76) %this, <2 x float> %wo.coerce0, float %wo.coerce1, <2 x float> %wi.coerce0, float %wi.coerce1, i32 noundef %mode, i32 noundef %sampleFlags) local_unnamed_addr #0 align 2 {
 entry:
   %apPDF = alloca %"class.pstd::array", align 8
   %wo.sroa.0.0.vec.extract = extractelement <2 x float> %wo.coerce0, i64 0
@@ -12581,7 +12581,7 @@ entry:
 declare void @_ZN4pbrt20RGBUnboundedSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(152), <2 x float>, float) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN4pbrt8HairBxDF21SigmaAFromReflectanceERKNS_15SampledSpectrumEfRKNS_18SampledWavelengthsE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %c, float noundef %beta_n, ptr nocapture noundef nonnull readnone align 4 dereferenceable(32) %lambda) local_unnamed_addr #9 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZN4pbrt8HairBxDF21SigmaAFromReflectanceERKNS_15SampledSpectrumEfRKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %c, float noundef %beta_n, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %lambda) local_unnamed_addr #9 align 2 {
 entry:
   %retval = alloca %"class.pbrt::SampledSpectrum", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval, i8 0, i64 16, i1 false)
@@ -12766,13 +12766,13 @@ do.body94.lr.ph:                                  ; preds = %for.cond.preheader
 
 do.body94:                                        ; preds = %do.body94.lr.ph, %_ZNSt6vectorImSaImEED2Ev.exit
   %i.0145 = phi i32 [ 0, %do.body94.lr.ph ], [ %inc257, %_ZNSt6vectorImSaImEED2Ev.exit ]
-  %call96 = call i64 @fread(ptr noundef nonnull %name_length, i64 noundef 2, i64 noundef 1, ptr noundef %call)
+  %call96 = call i64 @fread(ptr noundef nonnull %name_length, i64 noundef 2, i64 noundef 1, ptr noundef nonnull %call)
   %cmp97 = icmp eq i64 %call96, 1
   br i1 %cmp97, label %do.end104, label %if.then98.invoke.sink.split
 
 if.then98.invoke.sink.split:                      ; preds = %do.body94, %do.body81, %do.body70, %do.body59, %do.body47, %do.body36, %do.end24, %do.end, %do.body
   %.ph = phi ptr [ @.str.26, %do.body ], [ @.str.27, %do.end ], [ @.str.28, %do.end24 ], [ @.str.29, %do.body36 ], [ @.str.30, %do.body47 ], [ @.str.31, %do.body59 ], [ @.str.33, %do.body70 ], [ @.str.34, %do.body81 ], [ @.str.35, %do.body94 ]
-  %call11 = call i32 @fclose(ptr noundef %call)
+  %call11 = call i32 @fclose(ptr noundef nonnull %call)
   br label %if.then98.invoke
 
 if.then98.invoke:                                 ; preds = %if.then98.invoke.sink.split, %invoke.cont5
@@ -12807,7 +12807,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont107:                                   ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %call109 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #24
-  %call113 = call i64 @fread(ptr noundef %call109, i64 noundef 1, i64 noundef %conv105, ptr noundef %call)
+  %call113 = call i64 @fread(ptr noundef %call109, i64 noundef 1, i64 noundef %conv105, ptr noundef nonnull %call)
   %cmp115 = icmp eq i64 %call113, %conv105
   br i1 %cmp115, label %do.body123, label %if.then162.invoke
 
@@ -12827,17 +12827,17 @@ lpad111:                                          ; preds = %if.then162.invoke
   br label %ehcleanup255
 
 do.body123:                                       ; preds = %invoke.cont107
-  %call125 = call i64 @fread(ptr noundef nonnull %ndim, i64 noundef 2, i64 noundef 1, ptr noundef %call)
+  %call125 = call i64 @fread(ptr noundef nonnull %ndim, i64 noundef 2, i64 noundef 1, ptr noundef nonnull %call)
   %cmp126 = icmp eq i64 %call125, 1
   br i1 %cmp126, label %do.body134, label %if.then162.invoke
 
 do.body134:                                       ; preds = %do.body123
-  %call136 = call i64 @fread(ptr noundef nonnull %dtype, i64 noundef 1, i64 noundef 1, ptr noundef %call)
+  %call136 = call i64 @fread(ptr noundef nonnull %dtype, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %call)
   %cmp137 = icmp eq i64 %call136, 1
   br i1 %cmp137, label %do.body145, label %if.then162.invoke
 
 do.body145:                                       ; preds = %do.body134
-  %call147 = call i64 @fread(ptr noundef nonnull %offset, i64 noundef 8, i64 noundef 1, ptr noundef %call)
+  %call147 = call i64 @fread(ptr noundef nonnull %offset, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %call)
   %cmp148 = icmp eq i64 %call147, 1
   br i1 %cmp148, label %do.body156, label %if.then162.invoke
 
@@ -12849,7 +12849,7 @@ do.body156:                                       ; preds = %do.body145
 
 if.then162.invoke:                                ; preds = %do.body156, %do.body145, %do.body134, %do.body123, %invoke.cont107
   %14 = phi ptr [ @.str.36, %invoke.cont107 ], [ @.str.37, %do.body123 ], [ @.str.38, %do.body134 ], [ @.str.39, %do.body145 ], [ @.str.40, %do.body156 ]
-  %call118 = call i32 @fclose(ptr noundef %call)
+  %call118 = call i32 @fclose(ptr noundef nonnull %call)
   invoke void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_(ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %filename) #25
           to label %if.then162.cont unwind label %lpad111
 
@@ -12891,12 +12891,12 @@ invoke.cont172:                                   ; preds = %if.end.i.i.i.i.i.i.
 do.body181:                                       ; preds = %invoke.cont172, %do.end191
   %j.0143 = phi i64 [ %inc, %do.end191 ], [ 0, %invoke.cont172 ]
   %total_size.0142 = phi i64 [ %mul, %do.end191 ], [ %switch.load, %invoke.cont172 ]
-  %call183 = call i64 @fread(ptr noundef nonnull %size_value, i64 noundef 8, i64 noundef 1, ptr noundef %call)
+  %call183 = call i64 @fread(ptr noundef nonnull %size_value, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %call)
   %cmp184 = icmp eq i64 %call183, 1
   br i1 %cmp184, label %do.end191, label %if.then185
 
 if.then185:                                       ; preds = %do.body181
-  %call187 = call i32 @fclose(ptr noundef %call)
+  %call187 = call i32 @fclose(ptr noundef nonnull %call)
   invoke void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_(ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %filename) #25
           to label %invoke.cont188 unwind label %lpad174.loopexit.split-lp
 
@@ -12933,13 +12933,13 @@ for.end:                                          ; preds = %do.end191, %invoke.
           to label %invoke.cont194 unwind label %lpad174.loopexit
 
 invoke.cont194:                                   ; preds = %for.end
-  %call198 = call i64 @ftell(ptr noundef %call)
+  %call198 = call i64 @ftell(ptr noundef nonnull %call)
   %cmp200.not = icmp eq i64 %call198, -1
   br i1 %cmp200.not, label %if.then201.invoke, label %do.body208
 
 if.then201.invoke:                                ; preds = %invoke.cont194, %do.body231, %do.body219, %do.body208
   %20 = phi ptr [ @.str.43, %do.body208 ], [ @.str.44, %do.body219 ], [ @.str.45, %do.body231 ], [ @.str.42, %invoke.cont194 ]
-  %call237 = call i32 @fclose(ptr noundef %call)
+  %call237 = call i32 @fclose(ptr noundef nonnull %call)
   invoke void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %filename) #25
           to label %if.then201.cont unwind label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i89.loopexit.split-lp
 
@@ -12948,17 +12948,17 @@ if.then201.cont:                                  ; preds = %if.then201.invoke
 
 do.body208:                                       ; preds = %invoke.cont194
   %21 = load i64, ptr %offset, align 8
-  %call210 = call i32 @fseek(ptr noundef %call, i64 noundef %21, i32 noundef 0)
+  %call210 = call i32 @fseek(ptr noundef nonnull %call, i64 noundef %21, i32 noundef 0)
   %cmp211.not = icmp eq i32 %call210, -1
   br i1 %cmp211.not, label %if.then201.invoke, label %do.body219
 
 do.body219:                                       ; preds = %do.body208
-  %call222 = call i64 @fread(ptr noundef nonnull %call195, i64 noundef 1, i64 noundef %total_size.0.lcssa, ptr noundef %call)
+  %call222 = call i64 @fread(ptr noundef nonnull %call195, i64 noundef 1, i64 noundef %total_size.0.lcssa, ptr noundef nonnull %call)
   %cmp223 = icmp eq i64 %call222, %total_size.0.lcssa
   br i1 %cmp223, label %do.body231, label %if.then201.invoke
 
 do.body231:                                       ; preds = %do.body219
-  %call233 = call i32 @fseek(ptr noundef %call, i64 noundef %call198, i32 noundef 0)
+  %call233 = call i32 @fseek(ptr noundef nonnull %call, i64 noundef %call198, i32 noundef 0)
   %cmp234.not = icmp eq i32 %call233, -1
   br i1 %cmp234.not, label %if.then201.invoke, label %do.end241
 
@@ -13089,7 +13089,7 @@ ehcleanup255:                                     ; preds = %if.then.i.i.i93, %e
   br label %ehcleanup261
 
 for.end258:                                       ; preds = %_ZNSt6vectorImSaImEED2Ev.exit, %for.cond.preheader
-  %call260 = call i32 @fclose(ptr noundef %call)
+  %call260 = call i32 @fclose(ptr noundef nonnull %call)
   ret void
 
 ehcleanup261:                                     ; preds = %ehcleanup255, %lpad106.body, %lpad4, %lpad2
@@ -13140,19 +13140,19 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #10
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr nocapture noundef) local_unnamed_addr #10
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
@@ -17928,7 +17928,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt12MeasuredBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, <2 x float> %wo.coerce0, float %wo.coerce1, <2 x float> %wi.coerce0, float %wi.coerce1, i32 noundef %mode) local_unnamed_addr #0 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt12MeasuredBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, <2 x float> %wo.coerce0, float %wo.coerce1, <2 x float> %wi.coerce0, float %wi.coerce1, i32 noundef %mode) local_unnamed_addr #0 align 2 {
 entry:
   %ret.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %fr = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -18853,7 +18853,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt12MeasuredBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, <2 x float> %wo.coerce0, float %wo.coerce1, float %uc, <2 x float> %u.coerce, i32 %mode, i32 noundef %sampleFlags) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4pbrt12MeasuredBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noalias writeonly sret(%"class.pstd::optional") align 4 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, <2 x float> %wo.coerce0, float %wo.coerce1, float %uc, <2 x float> %u.coerce, i32 %mode, i32 noundef %sampleFlags) local_unnamed_addr #0 align 2 {
 entry:
   %fr = alloca %"class.pbrt::SampledSpectrum", align 8
   %and.i = and i32 %sampleFlags, 1
@@ -19685,7 +19685,7 @@ cond.end168:                                      ; preds = %cond.false159, %con
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZNK4pbrt12MeasuredBxDF3PDFENS_7Vector3IfEES2_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, <2 x float> %wo.coerce0, float %wo.coerce1, <2 x float> %wi.coerce0, float %wi.coerce1, i32 noundef %mode, i32 noundef %sampleFlags) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZNK4pbrt12MeasuredBxDF3PDFENS_7Vector3IfEES2_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, <2 x float> %wo.coerce0, float %wo.coerce1, <2 x float> %wi.coerce0, float %wi.coerce1, i32 noundef %mode, i32 noundef %sampleFlags) local_unnamed_addr #0 align 2 {
 entry:
   %and.i = and i32 %sampleFlags, 1
   %tobool.not = icmp ne i32 %and.i, 0
@@ -20025,7 +20025,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt12MeasuredBxDF8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt12MeasuredBxDF8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
@@ -20060,7 +20060,7 @@ _ZN4pbrt12StringPrintfIJRKfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt4BxDF3rhoENS_7Vector3IfEEN4pstd4spanIKfEENS4_IKNS_6Point2IfEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, <2 x float> %wo.coerce0, float %wo.coerce1, ptr nocapture readonly %uc.coerce0, i64 %uc.coerce1, ptr nocapture readonly %u2.coerce0, i64 %u2.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt4BxDF3rhoENS_7Vector3IfEEN4pstd4spanIKfEENS4_IKNS_6Point2IfEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, <2 x float> %wo.coerce0, float %wo.coerce1, ptr readonly captures(none) %uc.coerce0, i64 %uc.coerce1, ptr readonly captures(none) %u2.coerce0, i64 %u2.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -20234,7 +20234,7 @@ return:                                           ; preds = %entry, %_ZNK4pbrt15
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt4BxDF3rhoEN4pstd4spanIKNS_6Point2IfEEEENS2_IKfEES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture readonly %u1.coerce0, i64 %u1.coerce1, ptr nocapture readonly %uc.coerce0, i64 %uc.coerce1, ptr nocapture noundef readonly byval(%"class.pstd::span.53") align 8 %u2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt4BxDF3rhoEN4pstd4spanIKNS_6Point2IfEEEENS2_IKfEES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr readonly captures(none) %u1.coerce0, i64 %u1.coerce1, ptr readonly captures(none) %uc.coerce0, i64 %uc.coerce1, ptr noundef readonly byval(%"class.pstd::span.53") align 8 captures(none) %u2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i22 = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -20445,7 +20445,7 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit70:            ; preds = %for.body.i.i59
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt4BxDF8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt4BxDF8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %this.val = load i64, ptr %this, align 8
@@ -22676,7 +22676,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #6
 
@@ -29181,7 +29181,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshr.i32(i32, i32, i32) #21
@@ -29190,10 +29190,10 @@ declare i32 @llvm.fshr.i32(i32, i32, i32) #21
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #21

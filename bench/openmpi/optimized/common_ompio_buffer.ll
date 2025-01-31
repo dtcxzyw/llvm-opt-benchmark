@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [66 x i8] c"error in mca_common_ompio_release_buf: allocator not initialized\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @mca_common_ompio_check_gpu_buf(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define void @mca_common_ompio_check_gpu_buf(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   store i64 0, ptr %5, align 8
@@ -155,7 +155,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 declare ptr @mca_allocator_component_lookup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @mca_common_ompio_buffer_alloc_seg(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal noundef ptr @mca_common_ompio_buffer_alloc_seg(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   store i64 0, ptr %3, align 8
@@ -189,7 +189,7 @@ define internal noundef ptr @mca_common_ompio_buffer_alloc_seg(ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_common_ompio_buffer_free_seg(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @mca_common_ompio_buffer_free_seg(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   store i64 0, ptr %3, align 8
@@ -270,7 +270,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %16, %0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mca_common_ompio_alloc_buf(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @mca_common_ompio_alloc_buf(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load volatile i32, ptr @mca_common_ompio_buffer_init, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6
@@ -305,7 +305,7 @@ define ptr @mca_common_ompio_alloc_buf(ptr nocapture noundef readnone %0, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_common_ompio_release_buf(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @mca_common_ompio_release_buf(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load volatile i32, ptr @mca_common_ompio_buffer_init, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
@@ -352,7 +352,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -80,10 +80,10 @@ define dso_local noundef ptr @acpi_data_add_props(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_init_properties(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -404,13 +404,13 @@ thread-pre-split:                                 ; preds = %150
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_evaluate_object_typed(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.acpi_buffer, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
@@ -732,7 +732,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.acpi_buffer, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct.acpi_buffer, align 8
@@ -1943,7 +1943,7 @@ define dso_local zeroext i1 @is_acpi_device_node(ptr noundef readonly %0) #6 ali
 declare dso_local i32 @acpi_dev_for_each_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef range(i32 0, 2) i32 @stop_on_next(ptr noundef %0, ptr nocapture noundef %1) #7 align 16 {
+define internal noundef range(i32 0, 2) i32 @stop_on_next(ptr noundef %0, ptr noundef captures(none) %1) #7 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -2005,7 +2005,7 @@ define internal zeroext i1 @acpi_fwnode_device_is_available(ptr noundef %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @acpi_fwnode_device_get_match_data(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal ptr @acpi_fwnode_device_get_match_data(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @acpi_device_get_match_data(ptr noundef %1) #15
   ret ptr %3
 }
@@ -2281,7 +2281,7 @@ define internal ptr @acpi_node_get_parent(ptr noundef readonly %0) #6 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @acpi_fwnode_get_named_child_node(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal ptr @acpi_fwnode_get_named_child_node(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef null) #15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -2329,7 +2329,7 @@ define internal ptr @acpi_fwnode_get_named_child_node(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @acpi_fwnode_get_reference_args(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_fwnode_get_reference_args(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
   %7 = zext i32 %4 to i64
   %8 = zext i32 %3 to i64
   %9 = tail call i32 @__acpi_node_get_property_reference(ptr noundef %0, ptr noundef %1, i64 noundef %7, i64 noundef %8, ptr noundef %5), !range !32
@@ -2551,7 +2551,7 @@ define internal ptr @acpi_graph_get_remote_endpoint(ptr noundef %0) #0 align 16 
   ]
 
 44:                                               ; preds = %.preheader5, %.preheader5
-  %45 = call ptr @fwnode_get_next_child_node(ptr noundef %8, ptr noundef nonnull %34) #15
+  %45 = call ptr @fwnode_get_next_child_node(ptr noundef nonnull %8, ptr noundef nonnull %34) #15
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.loopexit6, label %.preheader5, !llvm.loop !35
 
@@ -2659,7 +2659,7 @@ define internal noundef i32 @acpi_fwnode_graph_parse_endpoint(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @acpi_fwnode_irq_get(ptr nocapture readonly %0, i32 %1) #8 align 16 {
+define internal noundef i32 @acpi_fwnode_irq_get(ptr readonly captures(none) %0, i32 %1) #8 align 16 {
   ret i32 -22
 }
 
@@ -2673,7 +2673,7 @@ declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #3
 declare dso_local noalias ptr @kvmalloc_node(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @acpi_nondev_subnode_extract(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @acpi_nondev_subnode_extract(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %8 = tail call noalias align 8 dereferenceable_or_null(248) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 248) #14
@@ -2771,7 +2771,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @acpi_attach_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @acpi_nondev_subnode_tag(ptr nocapture readnone %0, ptr nocapture readnone %1) #8 align 16 {
+define internal void @acpi_nondev_subnode_tag(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #8 align 16 {
   ret void
 }
 
@@ -3497,19 +3497,19 @@ declare dso_local ptr @fwnode_get_next_parent(ptr noundef) local_unnamed_addr #3
 declare dso_local ptr @fwnode_get_next_child_node(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @fwnode_property_present(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @fwnode_property_read_u32_array(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13

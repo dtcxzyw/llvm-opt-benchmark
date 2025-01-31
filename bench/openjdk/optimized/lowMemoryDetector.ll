@@ -354,7 +354,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %58, %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10SensorInfo24process_pending_requestsEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10SensorInfo24process_pending_requestsEP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -566,7 +566,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly byval(%class.MemoryUsage) align 8 %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly byval(%class.MemoryUsage) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %4 = freeze i64 %.sroa.2.0.copyload
@@ -654,7 +654,7 @@ _ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #5
 
@@ -950,7 +950,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %68, %67, %1, %6, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10SensorInfo24set_counter_sensor_levelE11MemoryUsageP16ThresholdSupport(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly byval(%class.MemoryUsage) align 8 %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10SensorInfo24set_counter_sensor_levelE11MemoryUsageP16ThresholdSupport(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly byval(%class.MemoryUsage) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %4 = freeze i64 %.sroa.2.0.copyload
@@ -1079,7 +1079,7 @@ _ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10SensorInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 9), (16, 64)) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN10SensorInfoC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 9), (16, 64)) %0) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
@@ -1089,7 +1089,7 @@ define hidden void @_ZN10SensorInfoC2Ev(ptr nocapture noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10SensorInfo10set_sensorEP15instanceOopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10SensorInfo10set_sensorEP15instanceOopDesc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZN8Universe9vm_globalEv() #12
   %4 = tail call noundef ptr @_ZN10OopStorage8allocateEv(ptr noundef nonnull align 8 dereferenceable(126) %3) #12
   %5 = icmp eq ptr %4, null
@@ -1109,7 +1109,7 @@ _ZN9OopHandleC2EP10OopStorageP7oopDesc.exit:      ; preds = %2
 declare noundef ptr @_ZN8Universe9vm_globalEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10SensorInfo5clearEiP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10SensorInfo5clearEiP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.JavaValue, align 8
   %5 = alloca %class.JavaCallArguments, align 8
   %6 = load ptr, ptr @Notification_lock, align 8
@@ -1226,7 +1226,7 @@ _ZNK6HandleclEv.exit.thread:                      ; preds = %21, %_ZNK9OopHandle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10SensorInfo7triggerEiP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10SensorInfo7triggerEiP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.JavaValue, align 8
   %5 = alloca %class.JavaCallArguments, align 8
   %6 = load ptr, ptr %0, align 8
@@ -2546,13 +2546,13 @@ declare void @_ZN5Mutex28lock_without_safepoint_checkEP6Thread(ptr noundef nonnu
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

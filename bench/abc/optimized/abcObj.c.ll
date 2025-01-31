@@ -49,7 +49,7 @@ declare ptr @Mem_FixedEntryFetch(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_ObjRecycle(ptr noundef initializes((8, 32), (40, 48), (56, 72)) %0) local_unnamed_addr #0 {
@@ -100,7 +100,7 @@ define void @Abc_ObjRecycle(ptr noundef initializes((8, 32), (40, 48), (56, 72))
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @Mem_FixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1804,7 +1804,7 @@ define noundef ptr @Abc_NtkDupBox(ptr noundef %0, ptr noundef %1, i32 noundef %2
 declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkCloneObj(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @Abc_NtkCloneObj(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
@@ -1844,7 +1844,7 @@ define noundef ptr @Abc_NtkCloneObj(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkFindNode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Abc_NtkFindNode(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @Nm_ManFindIdByName(ptr noundef %4, ptr noundef %1, i32 noundef 3) #10
@@ -1974,13 +1974,13 @@ define ptr @Abc_NtkFindNode(ptr nocapture noundef readonly %0, ptr noundef %1) l
 declare i32 @Nm_ManFindIdByName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkFindNet(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Abc_NtkFindNet(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @Nm_ManFindIdByName(ptr noundef %4, ptr noundef %1, i32 noundef 6) #10
@@ -2003,7 +2003,7 @@ define ptr @Abc_NtkFindNet(ptr nocapture noundef readonly %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkFindCi(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Abc_NtkFindCi(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @Nm_ManFindIdByName(ptr noundef %4, ptr noundef %1, i32 noundef 2) #10
@@ -2033,7 +2033,7 @@ define ptr @Abc_NtkFindCi(ptr nocapture noundef readonly %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkFindCo(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Abc_NtkFindCo(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @Nm_ManFindIdByName(ptr noundef %4, ptr noundef %1, i32 noundef 3) #10
@@ -2347,7 +2347,7 @@ define noundef ptr @Abc_NtkCreateNodeBuf(ptr noundef %0, ptr noundef %1) local_u
 declare ptr @Mio_LibraryReadBuf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkCreateNodeAnd(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @Abc_NtkCreateNodeAnd(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -2416,7 +2416,7 @@ declare ptr @Extra_bddCreateAnd(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @Hop_CreateAnd(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkCreateNodeOr(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @Abc_NtkCreateNodeOr(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -2485,7 +2485,7 @@ declare ptr @Extra_bddCreateOr(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @Hop_CreateOr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkCreateNodeExor(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @Abc_NtkCreateNodeExor(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -2611,7 +2611,7 @@ declare ptr @Cudd_bddIte(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare ptr @Hop_Mux(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Abc_NodeIsConst(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Abc_NodeIsConst(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 20
   %.val = load i32, ptr %2, align 4
   %3 = and i32 %.val, 15
@@ -2631,7 +2631,7 @@ define range(i32 0, 2) i32 @Abc_NodeIsConst(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeIsConst0(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Abc_NodeIsConst0(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 20
   %.val.i = load i32, ptr %3, align 4
@@ -2694,7 +2694,7 @@ Abc_NodeIsConst.exit.thread:                      ; preds = %6, %1, %Abc_NodeIsC
 declare i32 @Abc_SopIsConst0(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeIsConst1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Abc_NodeIsConst1(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 20
   %.val.i = load i32, ptr %3, align 4
@@ -2759,7 +2759,7 @@ Abc_NodeIsConst.exit.thread:                      ; preds = %6, %1, %Abc_NodeIsC
 declare i32 @Abc_SopIsConst1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeIsBuf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Abc_NodeIsBuf(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val18 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val18, 1
@@ -2817,7 +2817,7 @@ define i32 @Abc_NodeIsBuf(ptr nocapture noundef readonly %0) local_unnamed_addr 
 declare i32 @Abc_SopIsBuf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Abc_NodeIsInv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val17 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val17, 1
@@ -2873,7 +2873,7 @@ define i32 @Abc_NodeIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr 
 declare i32 @Abc_SopIsInv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NodeComplement(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Abc_NodeComplement(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 4
   %.val10 = load i32, ptr %3, align 4
@@ -3007,7 +3007,7 @@ declare ptr @Hop_Complement(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare ptr @Cudd_Cofactor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9

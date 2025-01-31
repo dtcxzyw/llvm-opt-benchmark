@@ -95,7 +95,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, ptr nocapture noundef readonly byval(%struct.playTraceBin) align 8 %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #3 {
+define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, ptr noundef readonly byval(%struct.playTraceBin) align 8 captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct.moveType, align 4
   %6 = alloca %struct.futureTricks, align 4
   %7 = tail call noundef zeroext i1 @_ZNK6System8ThreadOKEi(ptr noundef nonnull align 8 dereferenceable(200) @sysdep, i32 noundef %3)
@@ -366,7 +366,7 @@ declare noundef i32 @_Z18SolveBoardInternalP10ThreadDataRK4dealiiiP12futureTrick
 declare noundef i32 @_Z17AnalyseLaterBoardP10ThreadDataiPK8moveTypeiiP12futureTricks(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @AnalysePlayPBN(ptr noundef byval(%struct.dealPBN) align 8 %0, ptr noundef byval(%struct.playTracePBN) align 8 %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #3 {
+define noundef i32 @AnalysePlayPBN(ptr noundef byval(%struct.dealPBN) align 8 %0, ptr noundef byval(%struct.playTracePBN) align 8 %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct.deal, align 8
   %6 = alloca %struct.playTraceBin, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -406,7 +406,7 @@ declare noundef i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef, ptr noundef) local_
 declare noundef i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12playTraceBin(ptr noundef nonnull align 4 dereferenceable(112), ptr noundef nonnull align 4 dereferenceable(420)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z16PlaySingleCommonii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
@@ -663,7 +663,7 @@ AnalyseAllPlaysBin.exit:                          ; preds = %12, %46, %57, %54, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20DetectPlayDuplicatesRK6boardsRSt6vectorIiSaIiEES5_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(21604) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z20DetectPlayDuplicatesRK6boardsRSt6vectorIiSaIiEES5_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21604) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %0, align 4
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -756,7 +756,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit13:             ; preds = %31, %33, %35, %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_Z14CopyPlaySingleRKSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) local_unnamed_addr #5 {
+define void @_Z14CopyPlaySingleRKSt6vectorIiSaIiEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #5 {
   ret void
 }
 
@@ -871,7 +871,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_PlayAnalyser.cpp() #9 section ".text.startup" {
@@ -887,16 +887,16 @@ declare void @llvm.assume(i1 noundef) #10
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.43 = private unnamed_addr constant [21 x i8] c"%a %b %d %H:%M:%S %Y\00", align 1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define ptr @strptime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @strptime(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.century_relyear, align 4
   store i32 1900, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -63,7 +63,7 @@ define ptr @strptime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = load i8, ptr %1, align 1
   %.not589595 = icmp eq i8 %5, 0
   br i1 %.not589595, label %.outer._crit_edge, label %.lr.ph.lr.ph
@@ -241,7 +241,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
   %54 = getelementptr inbounds nuw [7 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_defaulttimelocale, i64 56), i64 0, i64 %indvars.iv763
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #4
-  %57 = tail call i32 @strncasecmp(ptr noundef %55, ptr noundef %.0375590, i64 noundef %56)
+  %57 = tail call i32 @strncasecmp(ptr noundef nonnull %55, ptr noundef %.0375590, i64 noundef %56)
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %.thread, label %59
 
@@ -249,7 +249,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
   %60 = getelementptr inbounds nuw [7 x ptr], ptr @g_defaulttimelocale, i64 0, i64 %indvars.iv763
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #4
-  %63 = tail call i32 @strncasecmp(ptr noundef %61, ptr noundef %.0375590, i64 noundef %62)
+  %63 = tail call i32 @strncasecmp(ptr noundef nonnull %61, ptr noundef %.0375590, i64 noundef %62)
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %.thread, label %65
 
@@ -273,7 +273,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
   %69 = getelementptr inbounds nuw [12 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_defaulttimelocale, i64 208), i64 0, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #4
-  %72 = tail call i32 @strncasecmp(ptr noundef %70, ptr noundef %.0375590, i64 noundef %71)
+  %72 = tail call i32 @strncasecmp(ptr noundef nonnull %70, ptr noundef %.0375590, i64 noundef %71)
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.thread384, label %74
 
@@ -281,7 +281,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr nocapture noundef read
   %75 = getelementptr inbounds nuw [12 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_defaulttimelocale, i64 112), i64 0, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #4
-  %78 = tail call i32 @strncasecmp(ptr noundef %76, ptr noundef %.0375590, i64 noundef %77)
+  %78 = tail call i32 @strncasecmp(ptr noundef nonnull %76, ptr noundef %.0375590, i64 noundef %77)
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %.thread384, label %80
 
@@ -1072,10 +1072,10 @@ _conv_num.exit.thread:                            ; preds = %.critedge.i345, %._
 declare i32 @isspace(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

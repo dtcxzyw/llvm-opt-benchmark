@@ -933,7 +933,7 @@ $_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets = comdat any
 @_ZN5arrow8internal19DictionaryMemoTableD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5arrow8internal19DictionaryMemoTableD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTableC2EPNS_10MemoryPoolERKSt10shared_ptrINS_8DataTypeEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTableC2EPNS_10MemoryPoolERKSt10shared_ptrINS_8DataTypeEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
@@ -1569,7 +1569,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTableC2EPNS_10MemoryPoolERKSt10shared_ptrINS_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTableC2EPNS_10MemoryPoolERKSt10shared_ptrINS_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dictionary) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %_s = alloca %"class.arrow::Status", align 8
@@ -2239,7 +2239,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTableD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2343,7 +2343,7 @@ _ZNSt10unique_ptrIN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_11BooleanTypeEbPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i1 noundef zeroext %value, ptr nocapture noundef writeonly initializes((0, 4)) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_11BooleanTypeEbPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i1 noundef zeroext %value, ptr noundef writeonly captures(none) initializes((0, 4)) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
@@ -2422,7 +2422,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_8Int8TypeEaPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i8 noundef signext %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_8Int8TypeEaPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i8 noundef signext %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
@@ -2518,7 +2518,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_9Int16TypeEsPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i16 noundef signext %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_9Int16TypeEsPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i16 noundef signext %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -2609,7 +2609,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_9Int32TypeEiPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i32 noundef %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_9Int32TypeEiPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i32 noundef %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -2700,7 +2700,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_9Int64TypeElPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i64 noundef %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_9Int64TypeElPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i64 noundef %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -2788,7 +2788,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_9UInt8TypeEhPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i8 noundef zeroext %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_9UInt8TypeEhPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i8 noundef zeroext %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 {
 entry:
   %1 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
@@ -2884,7 +2884,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10UInt16TypeEtPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i16 noundef zeroext %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10UInt16TypeEtPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i16 noundef zeroext %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -2974,7 +2974,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10UInt32TypeEjPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i32 noundef %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10UInt32TypeEjPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i32 noundef %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -3064,7 +3064,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10UInt64TypeEmPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i64 noundef %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10UInt64TypeEmPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i64 noundef %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -3152,7 +3152,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_9FloatTypeEfPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, float noundef %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_9FloatTypeEfPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, float noundef %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -3248,7 +3248,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10DoubleTypeEdPi(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, double noundef %value, ptr noundef %out) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10DoubleTypeEdPi(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, double noundef %value, ptr noundef %out) local_unnamed_addr #0 align 2 {
 entry:
   %1 = load ptr, ptr %this, align 8
   tail call void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS_10DoubleTypeEdEENS_6StatusET0_Pi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %value, ptr noundef %out)
@@ -3351,7 +3351,7 @@ _ZN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEE11GetOrInsertERKdPi.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_12DurationTypeElPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i64 noundef %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_12DurationTypeElPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i64 noundef %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -3439,7 +3439,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_13TimestampTypeElPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i64 noundef %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_13TimestampTypeElPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i64 noundef %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -3527,7 +3527,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10Date32TypeEiPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i32 noundef %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10Date32TypeEiPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i32 noundef %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -3618,7 +3618,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10Date64TypeElPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i64 noundef %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10Date64TypeElPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i64 noundef %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -3706,7 +3706,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10Time32TypeEiPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i32 noundef %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10Time32TypeEiPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i32 noundef %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -3797,7 +3797,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10Time64TypeElPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i64 noundef %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10Time64TypeElPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i64 noundef %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -3885,7 +3885,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_24MonthDayNanoIntervalTypeENS2_13MonthDayNanosEPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i64 %value.coerce0, i64 %value.coerce1, ptr nocapture noundef writeonly %out) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_24MonthDayNanoIntervalTypeENS2_13MonthDayNanosEPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i64 %value.coerce0, i64 %value.coerce1, ptr noundef writeonly captures(none) %out) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -3982,10 +3982,10 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_19DayTimeIntervalTypeENS2_15DayMillisecondsEPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i64 %value.coerce, ptr nocapture noundef writeonly %out) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_19DayTimeIntervalTypeENS2_15DayMillisecondsEPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i64 %value.coerce, ptr noundef writeonly captures(none) %out) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -4078,7 +4078,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_17MonthIntervalTypeEiPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i32 noundef %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_17MonthIntervalTypeEiPi(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i32 noundef %value, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.arrow::Status", align 8
   %1 = load ptr, ptr %this, align 8
@@ -4169,7 +4169,7 @@ _ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10BinaryTypeESt17basic_string_viewIcSt11char_traitsIcEEPi(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i64 %value.coerce0, ptr %value.coerce1, ptr noundef %out) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_10BinaryTypeESt17basic_string_viewIcSt11char_traitsIcEEPi(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i64 %value.coerce0, ptr %value.coerce1, ptr noundef %out) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %class.anon.221, align 1
   %ref.tmp2.i.i.i = alloca %class.anon.223, align 1
@@ -4186,7 +4186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_14BinaryViewTypeESt17basic_string_viewIcSt11char_traitsIcEEPi(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i64 %value.coerce0, ptr %value.coerce1, ptr noundef %out) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_14BinaryViewTypeESt17basic_string_viewIcSt11char_traitsIcEEPi(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i64 %value.coerce0, ptr %value.coerce1, ptr noundef %out) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %class.anon.221, align 1
   %ref.tmp2.i.i.i = alloca %class.anon.223, align 1
@@ -4203,7 +4203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_15LargeBinaryTypeESt17basic_string_viewIcSt11char_traitsIcEEPi(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i64 %value.coerce0, ptr %value.coerce1, ptr noundef %out) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_15LargeBinaryTypeESt17basic_string_viewIcSt11char_traitsIcEEPi(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(none) %0, i64 %value.coerce0, ptr %value.coerce1, ptr noundef %out) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %class.anon.232, align 1
   %ref.tmp2.i.i.i = alloca %class.anon.234, align 1
@@ -4219,7 +4219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable12GetArrayDataElPSt10shared_ptrINS_9ArrayDataEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %start_offset, ptr noundef %out) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow8internal19DictionaryMemoTable12GetArrayDataElPSt10shared_ptrINS_9ArrayDataEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %start_offset, ptr noundef %out) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl12GetArrayDataElPSt10shared_ptrINS_9ArrayDataEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %start_offset, ptr noundef %out)
@@ -4356,7 +4356,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable12InsertValuesERKNS_5ArrayE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %array) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow8internal19DictionaryMemoTable12InsertValuesERKNS_5ArrayE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %array) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl12InsertValuesERKNS_5ArrayE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %array)
@@ -4364,7 +4364,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK5arrow8internal19DictionaryMemoTable4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK5arrow8internal19DictionaryMemoTable4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %memo_table_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5916,7 +5916,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA19_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA31_S2_EEES0_NS_10StatusCodeEDpOT_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext %code, ptr noundef nonnull align 1 dereferenceable(19) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1, ptr noundef nonnull align 1 dereferenceable(31) %args3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6099,7 +6099,7 @@ declare void @llvm.trap() #11
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7302,7 +7302,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %pool, i64 noundef %capacity) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -21522,7 +21522,7 @@ return:                                           ; preds = %_ZL28XXH3_hashLong_
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #16
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %value, i32 noundef %length) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -34369,7 +34369,7 @@ ehcleanup55:                                      ; preds = %ehcleanup51, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %null_count, ptr noundef nonnull captures(none) initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -35461,7 +35461,7 @@ ehcleanup55:                                      ; preds = %ehcleanup51, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %null_count, ptr noundef nonnull captures(none) initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -37479,7 +37479,7 @@ ehcleanup55:                                      ; preds = %ehcleanup51, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %null_count, ptr noundef nonnull captures(none) initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -42187,7 +42187,7 @@ cleanup91:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %null_count, ptr noundef nonnull captures(none) initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -45799,7 +45799,7 @@ cleanup90:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %null_count, ptr noundef nonnull captures(none) initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -59427,10 +59427,10 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
@@ -59439,7 +59439,7 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 declare i64 @llvm.smax.i64(i64, i64) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

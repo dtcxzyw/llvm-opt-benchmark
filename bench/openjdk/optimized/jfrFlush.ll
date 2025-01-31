@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread = hidden unnamed_addr alias void (ptr, ptr, i64, i64, ptr), ptr @_ZN8JfrFlushC2EP9JfrBuffermmP6Thread
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JfrFlushC2EP9JfrBuffermmP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN8JfrFlushC2EP9JfrBuffermmP6Thread(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = tail call noundef ptr @_ZN10JfrStorage5flushEP9JfrBuffermmbP6Thread(ptr noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext true, ptr noundef %4) #4
   store ptr %6, ptr %0, align 8
   ret void
@@ -91,7 +91,7 @@ define hidden noundef zeroext i1 @_Z19jfr_save_stacktraceP6Thread(ptr noundef %0
 declare noundef i64 @_ZN23JfrStackTraceRepository6recordEP6Threadil(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_Z20jfr_clear_stacktraceP6Thread(ptr nocapture noundef writeonly initializes((704, 720)) %0) local_unnamed_addr #3 {
+define hidden void @_Z20jfr_clear_stacktraceP6Thread(ptr noundef writeonly captures(none) initializes((704, 720)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store i64 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 712

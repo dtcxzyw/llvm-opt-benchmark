@@ -2302,7 +2302,7 @@ define range(i32 5, 7) i32 @dissect_e212_mcc_mnc_in_address(ptr noundef %0, ptr 
 declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define range(i32 5, 7) i32 @dissect_e212_mcc_mnc_in_utf8_address(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 5, 7) i32 @dissect_e212_mcc_mnc_in_utf8_address(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   store i16 0, ptr %5, align 2
@@ -2599,7 +2599,7 @@ declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #0
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2

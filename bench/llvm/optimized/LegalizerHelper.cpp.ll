@@ -445,7 +445,7 @@ $_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable = comdat any
 @_ZN4llvm15LegalizerHelperC1ERNS_15MachineFunctionERKNS_13LegalizerInfoERNS_19GISelChangeObserverERNS_16MachineIRBuilderEPNS_14GISelKnownBitsE = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN4llvm15LegalizerHelperC2ERNS_15MachineFunctionERKNS_13LegalizerInfoERNS_19GISelChangeObserverERNS_16MachineIRBuilderEPNS_14GISelKnownBitsE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelperC2ERNS_15MachineFunctionERNS_19GISelChangeObserverERNS_16MachineIRBuilderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(88) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelperC2ERNS_15MachineFunctionERNS_19GISelChangeObserverERNS_16MachineIRBuilderE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(88) %3) unnamed_addr #0 align 2 {
   store ptr %3, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -474,7 +474,7 @@ define dso_local void @_ZN4llvm15LegalizerHelperC2ERNS_15MachineFunctionERNS_19G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelperC2ERNS_15MachineFunctionERKNS_13LegalizerInfoERNS_19GISelChangeObserverERNS_16MachineIRBuilderEPNS_14GISelKnownBitsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(121040) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelperC2ERNS_15MachineFunctionERKNS_13LegalizerInfoERNS_19GISelChangeObserverERNS_16MachineIRBuilderEPNS_14GISelKnownBitsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(121040) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef %5) unnamed_addr #0 align 2 {
   store ptr %4, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %7, align 8
@@ -5901,7 +5901,7 @@ _ZN4llvm5APIntD2Ev.exit738:                       ; preds = %_ZNK4llvm19MachineR
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11widenScalarERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
@@ -8791,7 +8791,7 @@ _ZN4llvm5APIntD2Ev.exit666:                       ; preds = %956, %962, %1533, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper7bitcastERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper7bitcastERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -11466,7 +11466,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread: ; preds = %34,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18moreElementsVectorERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18moreElementsVectorERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::DstOp", align 8
   %6 = alloca %"class.llvm::SrcOp", align 8
   %7 = alloca %"class.llvm::SmallVector.182", align 8
@@ -13152,7 +13152,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit308:          ; preds = %_ZNK4llvm3LLT14getN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper11insertPartsENS_8RegisterENS_3LLTES2_NS_8ArrayRefIS1_EES2_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 %1, i64 %2, i64 %3, ptr %4, i64 %5, i64 %6, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.180") align 8 %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper11insertPartsENS_8RegisterENS_3LLTES2_NS_8ArrayRefIS1_EES2_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 %1, i64 %2, i64 %3, ptr %4, i64 %5, i64 %6, ptr noundef readonly byval(%"class.llvm::ArrayRef.180") align 8 captures(none) %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::DstOp", align 8
   %10 = alloca %"class.llvm::DstOp", align 8
   %11 = alloca %"class.llvm::DstOp", align 8
@@ -13505,7 +13505,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE28reserveForParamAndGetAddre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper20mergeMixedSubvectorsENS_8RegisterENS_8ArrayRefIS1_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 %1, ptr nocapture readonly %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper20mergeMixedSubvectorsENS_8RegisterENS_8ArrayRefIS1_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.182", align 8
   %6 = alloca %"class.llvm::DstOp", align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -13618,7 +13618,7 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEED2Ev.exit: ; preds = %1, %6
 declare i64 @_ZN4llvm10getGCDTypeENS_3LLTES0_(i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper14extractGCDTypeERNS_15SmallVectorImplINS_8RegisterEEENS_3LLTES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %2, i32 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper14extractGCDTypeERNS_15SmallVectorImplINS_8RegisterEEENS_3LLTES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %2, i32 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SrcOp", align 8
   %6 = icmp slt i32 %3, 0
   br i1 %6, label %7, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
@@ -13710,7 +13710,7 @@ _ZL17getUnmergeResultsRN4llvm15SmallVectorImplINS_8RegisterEEERKNS_12MachineInst
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4llvm15LegalizerHelper19buildLCMMergePiecesENS_3LLTES1_S1_RNS_15SmallVectorImplINS_8RegisterEEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 %1, i64 %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN4llvm15LegalizerHelper19buildLCMMergePiecesENS_3LLTES1_S1_RNS_15SmallVectorImplINS_8RegisterEEEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 %1, i64 %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
   %8 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %9 = alloca %"class.llvm::TypeSize", align 8
@@ -14268,7 +14268,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj4EED2Ev.exit156: ; preds = %_ZN4llvm11Small
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper24buildWidenedRemergeToDstENS_8RegisterENS_3LLTENS_8ArrayRefIS1_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper24buildWidenedRemergeToDstENS_8RegisterENS_3LLTENS_8ArrayRefIS1_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::DstOp", align 8
   %7 = alloca %"class.llvm::DstOp", align 8
   %8 = alloca %"class.llvm::DstOp", align 8
@@ -14483,7 +14483,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit: ; preds = %105, %._crit_edge,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper16appendVectorEltsERNS_15SmallVectorImplINS_8RegisterEEES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper16appendVectorEltsERNS_15SmallVectorImplINS_8RegisterEEES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.182", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = icmp slt i32 %2, 0
@@ -14583,7 +14583,7 @@ declare void @_ZN4llvm12extractPartsENS_8RegisterENS_3LLTEiRNS_15SmallVectorImpl
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder12buildUnmergeENS_3LLTERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88), i64, ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4llvm15LegalizerHelper14extractGCDTypeERNS_15SmallVectorImplINS_8RegisterEEENS_3LLTES5_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %2, i64 %3, i32 %4) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN4llvm15LegalizerHelper14extractGCDTypeERNS_15SmallVectorImplINS_8RegisterEEENS_3LLTES5_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %2, i64 %3, i32 %4) local_unnamed_addr #0 align 2 {
   %6 = icmp slt i32 %4, 0
   br i1 %6, label %7, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -15003,7 +15003,7 @@ _ZSt4copyIPKN4llvm12CallLowering7ArgInfoESt20back_insert_iteratorINS0_11SmallVec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL23isLibCallInTailPositionRKN4llvm12CallLowering7ArgInfoERNS_12MachineInstrERKNS_15TargetInstrInfoERNS_19MachineRegisterInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL23isLibCallInTailPositionRKN4llvm12CallLowering7ArgInfoERNS_12MachineInstrERKNS_15TargetInstrInfoERNS_19MachineRegisterInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::AttributeList", align 8
   %4 = alloca %"class.llvm::AttrBuilder", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15283,7 +15283,7 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm13createLibcallERNS_16Mach
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm16createMemLibcallERNS_16MachineIRBuilderERNS_19MachineRegisterInfoERNS_12MachineInstrERNS_20LostDebugLocObserverE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(252) %3) local_unnamed_addr #0 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm16createMemLibcallERNS_16MachineIRBuilderERNS_19MachineRegisterInfoERNS_12MachineInstrERNS_20LostDebugLocObserverE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(252) %3) local_unnamed_addr #0 {
   %5 = alloca %"class.llvm::SmallVector.249", align 8
   %6 = alloca %"class.llvm::Register", align 4
   %7 = alloca %"class.llvm::TypeSize", align 8
@@ -15719,7 +15719,7 @@ declare noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef n
 declare noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm12CallLowering7ArgInfoC2ENS_8ArrayRefINS_8RegisterEEEPNS_4TypeEjNS2_INS_3ISD10ArgFlagsTyEEEbPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(164) %0, ptr %1, i64 %2, ptr noundef %3, i32 noundef %4, ptr noundef byval(%"class.llvm::ArrayRef.251") align 8 %5, i1 noundef zeroext %6, ptr noundef %7) unnamed_addr #0 comdat align 2 {
@@ -15888,7 +15888,7 @@ _ZN4llvm15SmallVectorImplINS_12CallLowering7ArgInfoEED2Ev.exit: ; preds = %_ZN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper21createGetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(252) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper21createGetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(252) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %7 = alloca %"class.llvm::DstOp", align 8
@@ -16217,7 +16217,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit42:        ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i8 @_ZNK4llvm15LegalizerHelper26getStackTemporaryAlignmentENS_3LLTENS_5AlignE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0, i64 %1, i8 %2) local_unnamed_addr #0 align 2 {
+define dso_local i8 @_ZNK4llvm15LegalizerHelper26getStackTemporaryAlignmentENS_3LLTENS_5AlignE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, i64 %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = and i64 %1, -7
   %spec.select.i.i.i.i = icmp ne i64 %5, 0
@@ -16301,7 +16301,7 @@ _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %_ZNK4llvm3LLT14getS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, ptr } @_ZN4llvm15LegalizerHelper20createStackTemporaryENS_8TypeSizeENS_5AlignERNS_18MachinePointerInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 %1, i8 %2, i8 %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) initializes((0, 21)) %4) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, ptr } @_ZN4llvm15LegalizerHelper20createStackTemporaryENS_8TypeSizeENS_5AlignERNS_18MachinePointerInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 %1, i8 %2, i8 %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(21) initializes((0, 21)) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %8 = alloca %"class.llvm::DstOp", align 8
@@ -16345,7 +16345,7 @@ declare noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18Machin
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildLoadInstrEjRKNS_5DstOpERKNS_5SrcOpERNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper21createSetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(252) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper21createSetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(252) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %7 = alloca %"class.llvm::DstOp", align 8
@@ -16957,7 +16957,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @"_ZZN4llvm15LegalizerHelper17createFCMPLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverEENK3$_0clENS_5RTLIB7LibcallENS_7CmpInst9PredicateERKNS_5DstOpE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(12) %3) unnamed_addr #0 align 2 {
+define internal fastcc i32 @"_ZZN4llvm15LegalizerHelper17createFCMPLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverEENK3$_0clENS_5RTLIB7LibcallENS_7CmpInst9PredicateERKNS_5DstOpE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(12) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Register", align 4
   %6 = alloca %"struct.llvm::CallLowering::ArgInfo", align 8
   %7 = alloca %"class.llvm::ArrayRef.251", align 8
@@ -17143,7 +17143,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit10:        ; preds = %_ZN4llvm11SmallVect
 declare noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper23createResetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(252) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper23createResetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(252) %3) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %4 = alloca [1 x %"class.llvm::DstOp"], align 8
   %5 = alloca [1 x %"class.llvm::SrcOp"], align 8
@@ -18238,7 +18238,7 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEED2Ev.exit: ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper15narrowScalarExtERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper15narrowScalarExtERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.182", align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %6, label %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit
@@ -18326,7 +18326,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit: ; preds = %53, %_ZN4llvm15Leg
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCopyERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18narrowScalarAddSubERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18narrowScalarAddSubERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::LLT", align 8
   %6 = alloca %"class.llvm::LLT", align 8
   %7 = alloca %"class.llvm::SmallVector.208", align 8
@@ -18796,7 +18796,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj2EED2Ev.exit133: ; preds = %244, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper15narrowScalarMulERNS_12MachineInstrENS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper15narrowScalarMulERNS_12MachineInstrENS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.llvm::SmallVector.208", align 8
@@ -19033,7 +19033,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj2EED2Ev.exit55: ; preds = %125, %_ZN4llvm11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper19narrowScalarExtractERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper19narrowScalarExtractERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"class.llvm::SmallVector.208", align 8
@@ -19530,7 +19530,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj2EED2Ev.exit133: ; preds = %248, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18narrowScalarInsertERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18narrowScalarInsertERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.208", align 8
   %6 = alloca %"class.llvm::SmallVector.208", align 8
   %7 = alloca %"class.llvm::SmallVector.208", align 8
@@ -20778,7 +20778,7 @@ declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildZExtERKNS_5DstOpERKNS_5Src
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildSExtERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18narrowScalarSelectERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18narrowScalarSelectERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.101", align 8
   %6 = alloca %"class.llvm::SmallVector.101", align 8
   %7 = alloca %"class.llvm::SmallVector.101", align 8
@@ -21080,7 +21080,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj4EED2Ev.exit62: ; preds = %162, %_ZN4llvm11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17narrowScalarBasicERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17narrowScalarBasicERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.101", align 8
   %6 = alloca %"class.llvm::SmallVector.101", align 8
   %7 = alloca %"class.llvm::SmallVector.101", align 8
@@ -21354,7 +21354,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj4EED2Ev.exit56: ; preds = %_ZN4llvm11SmallV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17narrowScalarShiftERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17narrowScalarShiftERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -22133,7 +22133,7 @@ _ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit:   ; preds = %158, %161, %165, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper16narrowScalarCTLZERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper16narrowScalarCTLZERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -22401,7 +22401,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit63:            ; preds = %_ZNK4llvm3LLT13getS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper16narrowScalarCTTZERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper16narrowScalarCTTZERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -22669,7 +22669,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit63:            ; preds = %_ZNK4llvm3LLT13getS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17narrowScalarCTPOPERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17narrowScalarCTPOPERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -22851,7 +22851,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit40:            ; preds = %_ZNK4llvm3LLT13getS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper15narrowScalarDstERNS_12MachineInstrENS_3LLTEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, i64 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper15narrowScalarDstERNS_12MachineInstrENS_3LLTEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, i64 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [1 x %"class.llvm::DstOp"], align 8
   %7 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -22909,7 +22909,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper15narrowScalarSrcERNS_12MachineInstrENS_3LLTEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper15narrowScalarSrcERNS_12MachineInstrENS_3LLTEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::DstOp", align 8
   %6 = alloca %"class.llvm::SrcOp", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23140,7 +23140,7 @@ declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildSelectERKNS_5DstOpERKNS_5
 declare void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32), i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17narrowScalarFPTOIERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17narrowScalarFPTOIERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %.not = icmp eq i32 %2, 0
@@ -23304,7 +23304,7 @@ _ZN4llvm15LegalizerHelper15narrowScalarDstERNS_12MachineInstrENS_3LLTEjj.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18narrowScalarFLDEXPERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18narrowScalarFLDEXPERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -23506,7 +23506,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit:           ; preds = %8
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildVScaleERKNS_5DstOpERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZN4llvm15LegalizerHelper14coerceToScalarENS_8RegisterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define dso_local i32 @_ZN4llvm15LegalizerHelper14coerceToScalarENS_8RegisterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -23779,7 +23779,7 @@ _ZNK4llvm3LLT15isPointerVectorEv.exit.thread:     ; preds = %95, %98, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper14widenScalarSrcERNS_12MachineInstrENS_3LLTEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, i64 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper14widenScalarSrcERNS_12MachineInstrENS_3LLTEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, i64 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [1 x %"class.llvm::DstOp"], align 8
   %7 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23809,7 +23809,7 @@ define dso_local void @_ZN4llvm15LegalizerHelper14widenScalarSrcERNS_12MachineIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper14widenScalarDstERNS_12MachineInstrENS_3LLTEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, i64 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper14widenScalarDstERNS_12MachineInstrENS_3LLTEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, i64 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [1 x %"class.llvm::DstOp"], align 8
   %7 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23867,7 +23867,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper21moreElementsVectorDstERNS_12MachineInstrENS_3LLTEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper21moreElementsVectorDstERNS_12MachineInstrENS_3LLTEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::DstOp", align 8
   %6 = alloca %"class.llvm::SrcOp", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23924,7 +23924,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder33buildDeleteTrailingVectorElementsERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper21moreElementsVectorSrcERNS_12MachineInstrENS_3LLTEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper21moreElementsVectorSrcERNS_12MachineInstrENS_3LLTEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.182", align 8
   %6 = alloca %"class.llvm::DstOp", align 8
   %7 = alloca %"class.llvm::SrcOp", align 8
@@ -23966,7 +23966,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit: ; preds = %4, %27
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder31buildPadVectorWithUndefElementsERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper10bitcastSrcERNS_12MachineInstrENS_3LLTEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper10bitcastSrcERNS_12MachineInstrENS_3LLTEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -24000,7 +24000,7 @@ define dso_local void @_ZN4llvm15LegalizerHelper10bitcastSrcERNS_12MachineInstrE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper10bitcastDstERNS_12MachineInstrENS_3LLTEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper10bitcastDstERNS_12MachineInstrENS_3LLTEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -24062,7 +24062,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper22widenScalarMergeValuesERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper22widenScalarMergeValuesERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -24926,7 +24926,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit266: ; preds = %416, %_ZN4llvm1
 declare void @_ZNK4llvm12MachineInstr16getFirst2RegLLTsEv(ptr dead_on_unwind writable sret(%"class.std::tuple.361") align 8, ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper24widenScalarUnmergeValuesERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper24widenScalarUnmergeValuesERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
@@ -25978,7 +25978,7 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEED2Ev.exit: ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18widenScalarExtractERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18widenScalarExtractERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -26849,7 +26849,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit9:       ; preds = %14, %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17widenScalarInsertERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17widenScalarInsertERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -26963,7 +26963,7 @@ _ZN4llvm15LegalizerHelper14widenScalarDstERNS_12MachineInstrENS_3LLTEjj.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper25widenScalarAddSubOverflowERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper25widenScalarAddSubOverflowERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -27357,7 +27357,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit58: ; preds = %178, %18
 declare noundef i32 @_ZNK4llvm16MachineIRBuilder12getBoolExtOpEbb(ptr noundef nonnull align 8 dereferenceable(88), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper23widenScalarAddSubShlSatERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper23widenScalarAddSubShlSatERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -27687,7 +27687,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit36:      ; preds = %60, %64, %.thread13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper15widenScalarMuloERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper15widenScalarMuloERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -28213,7 +28213,7 @@ _ZN4llvm32MachineInstrBundleIteratorHelperILb0EE9decrementINS_14ilist_iteratorIN
 declare void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper13lowerConstantERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper13lowerConstantERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -28299,7 +28299,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %21, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper14lowerFConstantERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper14lowerFConstantERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -28313,7 +28313,7 @@ define dso_local noundef i32 @_ZN4llvm15LegalizerHelper14lowerFConstantERNS_12Ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper12lowerBitcastERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper12lowerBitcastERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %5 = alloca %"class.std::tuple.361", align 8
@@ -28946,7 +28946,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper23bitcastExtractVectorEltERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper23bitcastExtractVectorEltERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -29944,7 +29944,7 @@ _ZN4llvm5APIntD2Ev.exit19:                        ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper22bitcastInsertVectorEltERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper22bitcastInsertVectorEltERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -30771,7 +30771,7 @@ declare void @_ZNK4llvm12MachineInstr16getFirst4RegLLTsEv(ptr dead_on_unwind wri
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder24buildInsertVectorElementERKNS_5DstOpERKNS_5SrcOpES6_S6_(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper19bitcastConcatVectorERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper19bitcastConcatVectorERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -32788,7 +32788,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit271:           ; preds = %363, %367, %370, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper12changeOpcodeERNS_12MachineInstrEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper12changeOpcodeERNS_12MachineInstrEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -32813,7 +32813,7 @@ define dso_local void @_ZN4llvm15LegalizerHelper12changeOpcodeERNS_12MachineInst
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper16lowerSADDO_SSUBOERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper16lowerSADDO_SSUBOERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -32970,7 +32970,7 @@ define dso_local noundef i32 @_ZN4llvm15LegalizerHelper16lowerSADDO_SSUBOERNS_12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper16lowerSMULH_UMULHERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper16lowerSMULH_UMULHERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -33222,7 +33222,7 @@ _ZN4llvm5APInt17getSignedMinValueEj.exit:         ; preds = %14, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper9lowerFMadERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper9lowerFMadERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -33312,7 +33312,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %2, %12, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper11lowerFFloorERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper11lowerFFloorERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -33503,7 +33503,7 @@ _ZNK4llvm3LLT17changeElementSizeEj.exit:          ; preds = %2, %27, %_ZNK4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper19lowerIntrinsicRoundERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper19lowerIntrinsicRoundERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -33747,7 +33747,7 @@ declare i32 @_ZN4llvm19MachineRegisterInfo20cloneVirtualRegisterENS_8RegisterENS
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildAtomicCmpXchgERKNS_5DstOpERKNS_5SrcOpES6_S6_RNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper13lowerBitCountERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -35320,7 +35320,7 @@ _ZN4llvm5APIntD2Ev.exit268:                       ; preds = %705, %702, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerUITOFPERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerUITOFPERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::tuple.361", align 8
   %4 = alloca %"class.llvm::DstOp", align 8
   %5 = alloca %"class.llvm::DstOp", align 8
@@ -35393,7 +35393,7 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerUI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerSITOFPERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerSITOFPERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -35648,7 +35648,7 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerSI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerFPTOUIERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerFPTOUIERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -36107,7 +36107,7 @@ _ZN4llvm5APIntD2Ev.exit84:                        ; preds = %31, %2, %199, %196,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerFPTOSIERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerFPTOSIERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -36831,7 +36831,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt11get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper12lowerFPTRUNCERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper12lowerFPTRUNCERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::tuple.572", align 8
   call void @_ZNK4llvm12MachineInstr13getFirst2LLTsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple.572") align 8 %3, ptr noundef nonnull align 8 dereferenceable(70) %1) #18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -36902,7 +36902,7 @@ _ZNK4llvm3LLT13getScalarTypeEv.exit13:            ; preds = %16, %_ZNK4llvm3LLT1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper10lowerFPOWIERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper10lowerFPOWIERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -36984,7 +36984,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %2, %16, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper11lowerMinMaxERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper11lowerMinMaxERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %2 = alloca %"class.llvm::DstOp", align 8
   %3 = alloca %"class.llvm::SrcOp", align 8
@@ -37078,7 +37078,7 @@ _ZNK4llvm3LLT17changeElementSizeEj.exit:          ; preds = %switch.lookup, %20,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper20lowerThreewayCompareERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper20lowerThreewayCompareERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DstOp", align 8
   %4 = alloca %"class.llvm::DstOp", align 8
   %5 = alloca %"class.llvm::DstOp", align 8
@@ -37247,7 +37247,7 @@ _ZNK4llvm3LLT17changeElementSizeEj.exit:          ; preds = %2, %25, %_ZNK4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper14lowerFCopySignERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper14lowerFCopySignERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -37716,7 +37716,7 @@ _ZN4llvm5APIntD2Ev.exit65:                        ; preds = %_ZN4llvm5APInt13get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper18lowerFMinNumMaxNumERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper18lowerFMinNumMaxNumERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -37855,7 +37855,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %2, %21, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper16lowerMergeValuesERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper16lowerMergeValuesERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -38270,7 +38270,7 @@ _ZNK4llvm3LLT9isPointerEv.exit.thread:            ; preds = %._crit_edge, %_ZNK4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18lowerUnmergeValuesERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18lowerUnmergeValuesERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca %"class.llvm::DstOp", align 8
@@ -38480,7 +38480,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %62, %66, %69, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper27lowerExtractInsertVectorEltERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper27lowerExtractInsertVectorEltERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = alloca %"struct.llvm::MachinePointerInfo", align 8
@@ -39195,7 +39195,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit: ; preds = %_ZNK4llvm3LLT11isB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper18lowerShuffleVectorERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper18lowerShuffleVectorERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::tuple.396", align 8
   %4 = alloca %"class.llvm::SmallVector.575", align 8
   %5 = alloca %"class.llvm::DstOp", align 8
@@ -39436,7 +39436,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj32EED2Ev.exit: ; preds = %115, %119
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper20lowerVECTOR_COMPRESSERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper20lowerVECTOR_COMPRESSERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca %"class.llvm::TypeSize", align 8
@@ -40397,7 +40397,7 @@ _ZNSt8optionalIN4llvm5APIntEED2Ev.exit:           ; preds = %._crit_edge, %469, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18lowerDynStackAllocERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18lowerDynStackAllocERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DstOp", align 8
   %4 = alloca %"class.llvm::SrcOp", align 8
   %5 = alloca %"class.llvm::DstOp", align 8
@@ -40479,7 +40479,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %17, %30, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper14lowerStackSaveERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper14lowerStackSaveERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DstOp", align 8
   %4 = alloca %"class.llvm::SrcOp", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -40511,7 +40511,7 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper14lowerSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17lowerStackRestoreERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17lowerStackRestoreERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DstOp", align 8
   %4 = alloca %"class.llvm::SrcOp", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -40543,7 +40543,7 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17lowerSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper12lowerExtractERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper12lowerExtractERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -41112,7 +41112,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit180:           ; preds = %220, %_ZNK4llvm3LLT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerInsertERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerInsertERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -42251,7 +42251,7 @@ _ZN4llvm5APInt18getBitsSetWithWrapEjjj.exit:      ; preds = %495, %496
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper10lowerBswapERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper10lowerBswapERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -42639,7 +42639,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2Ejm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper15lowerBitreverseERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper15lowerBitreverseERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -43018,7 +43018,7 @@ _ZN4llvm5APIntD2Ev.exit70:                        ; preds = %122, %119, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper22lowerReadWriteRegisterERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper22lowerReadWriteRegisterERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DstOp", align 8
   %4 = alloca %"class.llvm::SrcOp", align 8
   %5 = alloca %"class.llvm::DstOp", align 8
@@ -43127,7 +43127,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %38, %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper22lowerAddSubSatToMinMaxERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper22lowerAddSubSatToMinMaxERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca %"class.llvm::DstOp", align 8
@@ -43734,7 +43734,7 @@ _ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper24lowerAddSubSatToAddoSuboERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper24lowerAddSubSatToAddoSuboERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -44032,7 +44032,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt17get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper11lowerShlSatERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper11lowerShlSatERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -44469,7 +44469,7 @@ _ZN4llvm5APIntD2Ev.exit43:                        ; preds = %199, %196, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper16lowerAbsToAddXorERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper16lowerAbsToAddXorERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -44619,7 +44619,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %33, %37, %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper9lowerFAbsERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper9lowerFAbsERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca %"class.llvm::DstOp", align 8
@@ -44783,7 +44783,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt17get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerSelectERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerSelectERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -45299,7 +45299,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEneERKS3_.exit.thread: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper14lowerISFPCLASSERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper14lowerISFPCLASSERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -47524,7 +47524,7 @@ _ZN4llvm5APIntD2Ev.exit336:                       ; preds = %954, %951, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper11lowerDIVREMERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper11lowerDIVREMERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -47584,7 +47584,7 @@ define dso_local noundef i32 @_ZN4llvm15LegalizerHelper11lowerDIVREMERNS_12Machi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper16lowerFunnelShiftERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper16lowerFunnelShiftERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::LegalityQuery", align 8
   %4 = alloca [2 x %"class.llvm::LLT"], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -47671,7 +47671,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit18: ; preds = %_ZNK4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper11lowerRotateERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper11lowerRotateERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -48313,7 +48313,7 @@ _ZN4llvm13isPowerOf2_32Ej.exit117.thread:         ; preds = %_ZN4llvm13isPowerOf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17lowerMemCpyFamilyERNS_12MachineInstrEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17lowerMemCpyFamilyERNS_12MachineInstrEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::optional.488", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %6 = load i16, ptr %5, align 4
@@ -48473,7 +48473,7 @@ _ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit:   ; preds = %78, %81, %85, %88
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17lowerMemcpyInlineERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17lowerMemcpyInlineERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::optional.488", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8, !noalias !347
@@ -48588,7 +48588,7 @@ _ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit:   ; preds = %55, %59, %62, %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper8lowerEXTERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper8lowerEXTERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = alloca [1 x %"class.llvm::DstOp"], align 8
   %5 = alloca [1 x %"class.llvm::SrcOp"], align 8
@@ -48974,7 +48974,7 @@ _ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %_ZNK4llvm3LLT19getS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper10lowerTRUNCERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper10lowerTRUNCERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::LLT", align 8
   %4 = alloca %"class.llvm::SmallVector.208", align 8
   %5 = alloca %"class.llvm::DstOp", align 8
@@ -49321,7 +49321,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj2EED2Ev.exit: ; preds = %_ZNK4llvm3LLT19get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper20lowerVectorReductionERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper20lowerVectorReductionERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -49464,7 +49464,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit14.thread: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper10lowerVAArgERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper10lowerVAArgERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %4 = alloca %"struct.llvm::AAMDNodes", align 8
   %5 = alloca %"class.llvm::DstOp", align 8
@@ -49762,7 +49762,7 @@ declare void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionE
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildFrameIndexERKNS_5DstOpEi(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZN4llvm15LegalizerHelper23getVectorElementPointerENS_8RegisterENS_3LLTES1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 %1, i64 %2, i32 %3) local_unnamed_addr #0 align 2 {
+define dso_local i32 @_ZN4llvm15LegalizerHelper23getVectorElementPointerENS_8RegisterENS_3LLTES1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 %1, i64 %2, i32 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -50374,7 +50374,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm3LLT17changeElementSizeEj(ptr noundef n
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildSExtOrTruncERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper31fewerElementsVectorMultiEltTypeERNS_19GenericMachineInstrEjSt16initializer_listIjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, ptr readonly %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper31fewerElementsVectorMultiEltTypeERNS_19GenericMachineInstrEjSt16initializer_listIjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, ptr readonly %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SrcOp", align 8
   %7 = alloca %"class.llvm::SrcOp", align 8
   %8 = alloca %"class.llvm::SrcOp", align 8
@@ -51321,7 +51321,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5SrcOpELb1EE28reserveForParamAndGetAddressE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper22fewerElementsVectorPhiERNS_19GenericMachineInstrEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper22fewerElementsVectorPhiERNS_19GenericMachineInstrEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::SmallVector.467", align 8
@@ -51686,7 +51686,7 @@ _ZN4llvm11SmallVectorINS_5DstOpELj8EED2Ev.exit:   ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper32fewerElementsVectorUnmergeValuesERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper32fewerElementsVectorUnmergeValuesERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
@@ -52102,7 +52102,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit105:           ; preds = %130, %134, %137, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper24fewerElementsVectorMergeERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper24fewerElementsVectorMergeERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::tuple.361", align 8
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
@@ -52952,7 +52952,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit226: ; preds = %_ZN4llvm23Small
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper41fewerElementsVectorExtractInsertVectorEltERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper41fewerElementsVectorExtractInsertVectorEltERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::optional.488", align 8
   %6 = alloca %"class.llvm::DstOp", align 8
   %7 = alloca %"class.llvm::SmallVector.182", align 8
@@ -53266,7 +53266,7 @@ _ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit:   ; preds = %179, %176, %172, %_
 declare void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind writable sret(%"class.std::optional.488") align 8, i32, ptr noundef nonnull align 8 dereferenceable(512), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZL22getNarrowTypeBreakDownN4llvm3LLTES0_RS0_(i64 %0, i64 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc i64 @_ZL22getNarrowTypeBreakDownN4llvm3LLTES0_RS0_(i64 %0, i64 %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.llvm::TypeSize", align 8
@@ -53745,7 +53745,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper29fewerElementsVectorReductionsERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper29fewerElementsVectorReductionsERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::tuple.361", align 8
   %6 = alloca %"class.llvm::SmallVector.194", align 8
   %7 = alloca %"class.llvm::SmallVector.194", align 8
@@ -54246,7 +54246,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj12EED2Ev.exit134: ; preds = %237, %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper32fewerElementsVectorSeqReductionsERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper32fewerElementsVectorSeqReductionsERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::tuple.396", align 8
   %6 = alloca %"class.llvm::SmallVector.194", align 8
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -54368,7 +54368,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj12EED2Ev.exit: ; preds = %64, %._crit_edge,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper26fewerElementsVectorShuffleERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper26fewerElementsVectorShuffleERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::tuple.396", align 8
   %6 = alloca %"class.llvm::SmallVector.194", align 8
   %7 = alloca %"class.llvm::SmallVector.194", align 8
@@ -54864,7 +54864,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj12EED2Ev.exit119: ; preds = %_ZNK4llvm3LLT1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper20fewerElementsBitcastERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper20fewerElementsBitcastERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [1 x %"class.llvm::SrcOp"], align 8
   %7 = alloca %"class.std::tuple.361", align 8
@@ -55179,7 +55179,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper22tryNarrowPow2ReductionERNS_12MachineInstrENS_8RegisterENS_3LLTES4_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i64 %3, i64 %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper22tryNarrowPow2ReductionERNS_12MachineInstrENS_8RegisterENS_3LLTES4_j(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i64 %3, i64 %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::SmallVector.194", align 8
   %8 = alloca %"class.llvm::SmallVector.194", align 8
   %9 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -55337,7 +55337,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj12EED2Ev.exit24: ; preds = %._crit_edge44, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper27narrowScalarShiftByConstantERNS_12MachineInstrERKNS_5APIntENS_3LLTES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper27narrowScalarShiftByConstantERNS_12MachineInstrERKNS_5APIntENS_3LLTES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [1 x %"class.llvm::DstOp"], align 8
   %7 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %8 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -56708,7 +56708,7 @@ _ZN4llvm5APInt6negateEv.exit:                     ; preds = %_ZN4llvm5APInt15cle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper21moreElementsVectorPhiERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper21moreElementsVectorPhiERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::DstOp", align 8
   %6 = alloca %"class.llvm::SrcOp", align 8
   %7 = alloca %"class.llvm::SmallVector.182", align 8
@@ -56882,7 +56882,7 @@ _ZN4llvm15LegalizerHelper21moreElementsVectorDstERNS_12MachineInstrENS_3LLTEj.ex
 declare ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noundef nonnull align 8 dereferenceable(288)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, ptr } @_ZN4llvm15LegalizerHelper29getNeutralElementForVecReduceEjRNS_16MachineIRBuilderENS_3LLTE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, ptr } @_ZN4llvm15LegalizerHelper29getNeutralElementForVecReduceEjRNS_16MachineIRBuilderENS_3LLTE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::DstOp", align 8
   %6 = alloca %"class.llvm::DstOp", align 8
   %7 = alloca %"class.llvm::DstOp", align 8
@@ -57269,7 +57269,7 @@ declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildFConstantERKNS_5DstOpEd(p
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder17buildShuffleSplatERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper25moreElementsVectorShuffleERNS_12MachineInstrEjNS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper25moreElementsVectorShuffleERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::DstOp", align 8
   %6 = alloca %"class.llvm::SrcOp", align 8
   %7 = alloca %"class.llvm::SmallVector.182", align 8
@@ -57654,7 +57654,7 @@ _ZN4llvm15SmallVectorImplINS_5SrcOpEED2Ev.exit:   ; preds = %1, %6
 declare void @_ZN4llvm3LLTC1ENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(8), i16) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper28equalizeVectorShuffleLengthsERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper28equalizeVectorShuffleLengthsERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = alloca %"class.llvm::SrcOp", align 8
   %5 = alloca %"class.llvm::DstOp", align 8
@@ -58230,7 +58230,7 @@ _ZN4llvm11SmallVectorIiLj16EED2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
 declare void @_ZNK4llvm12MachineInstr13getFirst3LLTsEv(ptr dead_on_unwind writable sret(%"class.std::tuple.513") align 8, ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelper17multiplyRegistersERNS_15SmallVectorImplINS_8RegisterEEENS_8ArrayRefIS2_EES6_NS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture readonly %2, i64 %3, ptr nocapture readonly %4, i64 %5, i64 %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelper17multiplyRegistersERNS_15SmallVectorImplINS_8RegisterEEENS_8ArrayRefIS2_EES6_NS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr readonly captures(none) %2, i64 %3, ptr readonly captures(none) %4, i64 %5, i64 %6) local_unnamed_addr #0 align 2 {
   %8 = alloca [1 x %"class.llvm::DstOp"], align 8
   %9 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %10 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -58692,7 +58692,7 @@ declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildInsertERKNS_5DstOpERKNS_5
 declare void @_ZN4llvm5APInt8getSplatEjRKS0_(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, i32 noundef, ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper27lowerFunnelShiftWithInverseERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper27lowerFunnelShiftWithInverseERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DstOp", align 8
   %4 = alloca [1 x %"class.llvm::DstOp"], align 8
   %5 = alloca [2 x %"class.llvm::SrcOp"], align 8
@@ -59041,7 +59041,7 @@ _ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %_ZNK4llvm3LLT19getS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper24lowerFunnelShiftAsShiftsERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper24lowerFunnelShiftAsShiftsERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -59637,7 +59637,7 @@ _ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %144
 declare { i64, i64 } @_ZNK4llvm13LegalizerInfo9getActionERKNS_13LegalityQueryE(ptr noundef nonnull align 8 dereferenceable(121040), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper28lowerRotateWithReverseRotateERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper28lowerRotateWithReverseRotateERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca %"class.std::tuple.396", align 8
@@ -59709,7 +59709,7 @@ define dso_local noundef i32 @_ZN4llvm15LegalizerHelper28lowerRotateWithReverseR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper19lowerU64ToF32BitOpsERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper19lowerU64ToF32BitOpsERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -60208,7 +60208,7 @@ declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildFConstantERKNS_5DstOpERKN
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildFCmpENS_7CmpInst9PredicateERKNS_5DstOpERKNS_5SrcOpES8_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper23lowerFPTRUNC_F64_TO_F16ERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper23lowerFPTRUNC_F64_TO_F16ERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -61479,7 +61479,7 @@ declare noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(pt
 declare void @_ZN4llvm31isConstantOrConstantSplatVectorERNS_12MachineInstrERKNS_19MachineRegisterInfoE(ptr dead_on_unwind writable sret(%"class.std::optional.577") align 8, ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(512)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZN4llvm15LegalizerHelper25getDynStackAllocTargetPtrENS_8RegisterES1_NS_5AlignENS_3LLTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 %1, i32 %2, i8 %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local i32 @_ZN4llvm15LegalizerHelper25getDynStackAllocTargetPtrENS_8RegisterES1_NS_5AlignENS_3LLTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 %1, i32 %2, i8 %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [1 x %"class.llvm::DstOp"], align 8
   %7 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %8 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -62023,7 +62023,7 @@ _ZN4llvm3LLT6vectorENS_12ElementCountES0_.exit:   ; preds = %37, %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper16lowerAbsToMaxNegERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper16lowerAbsToMaxNegERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
@@ -62113,7 +62113,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %2, %13, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15LegalizerHelper14lowerAbsToCNegERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm15LegalizerHelper14lowerAbsToCNegERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.llvm::DstOp"], align 8
   %4 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %5 = alloca %"class.llvm::DstOp", align 8
@@ -62225,7 +62225,7 @@ declare noundef ptr @_ZN4llvm13getTypeForLLTENS_3LLTERNS_11LLVMContextE(i64, ptr
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildMaskLowPtrBitsERKNS_5DstOpERKNS_5SrcOpEj(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(20), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerMemsetERNS_12MachineInstrENS_8RegisterES3_mNS_5AlignEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i32 %3, i64 noundef %4, i8 %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerMemsetERNS_12MachineInstrENS_8RegisterES3_mNS_5AlignEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i32 %3, i64 noundef %4, i8 %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.std::vector.593", align 8
   %9 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %10 = alloca %"class.std::optional.488", align 8
@@ -63046,7 +63046,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %_ZNK4llvm8Function1
 declare noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef, i32, ptr noundef nonnull align 8 dereferenceable(512)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL29findGISelOptimalMemOpLoweringRSt6vectorIN4llvm3LLTESaIS1_EEjRKNS0_5MemOpEjjRKNS0_13AttributeListERKNS0_14TargetLoweringE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(15) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(408123) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL29findGISelOptimalMemOpLoweringRSt6vectorIN4llvm3LLTESaIS1_EEjRKNS0_5MemOpEjjRKNS0_13AttributeListERKNS0_14TargetLoweringE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(15) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(408123) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = alloca %"class.llvm::TypeSize", align 8
   %9 = alloca %"class.llvm::TypeSize", align 8
@@ -63908,13 +63908,13 @@ declare i16 @_ZN4llvm12getMVTForLLTENS_3LLTE(i64) local_unnamed_addr #1
 declare noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandEPKNS_17MachineMemOperandElNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(1041), ptr noundef, i64 noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17lowerMemcpyInlineERNS_12MachineInstrENS_8RegisterES3_mNS_5AlignES4_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i32 %3, i64 noundef %4, i8 %5, i8 %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper17lowerMemcpyInlineERNS_12MachineInstrENS_8RegisterES3_mNS_5AlignES4_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i32 %3, i64 noundef %4, i8 %5, i8 %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = tail call noundef i32 @_ZN4llvm15LegalizerHelper11lowerMemcpyERNS_12MachineInstrENS_8RegisterES3_mmNS_5AlignES4_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i32 %3, i64 noundef %4, i64 noundef -1, i8 %5, i8 %6, i1 noundef zeroext %7)
   ret i32 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerMemcpyERNS_12MachineInstrENS_8RegisterES3_mmNS_5AlignES4_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i32 %3, i64 noundef %4, i64 noundef %5, i8 %6, i8 %7, i1 noundef zeroext %8) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper11lowerMemcpyERNS_12MachineInstrENS_8RegisterES3_mmNS_5AlignES4_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i32 %3, i64 noundef %4, i64 noundef %5, i8 %6, i8 %7, i1 noundef zeroext %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"class.std::vector.593", align 8
   %11 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %12 = alloca %"struct.llvm::MachinePointerInfo", align 8
@@ -64683,7 +64683,7 @@ _ZNSt6vectorIN4llvm3LLTESaIS1_EED2Ev.exit:        ; preds = %_ZN4llvm16MachineIR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper12lowerMemmoveERNS_12MachineInstrENS_8RegisterES3_mNS_5AlignES4_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i32 %3, i64 noundef %4, i8 %5, i8 %6, i1 zeroext %7) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper12lowerMemmoveERNS_12MachineInstrENS_8RegisterES3_mNS_5AlignES4_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i32 %3, i64 noundef %4, i8 %5, i8 %6, i1 zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.std::vector.593", align 8
   %10 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %11 = alloca %"struct.llvm::MachinePointerInfo", align 8
@@ -65640,7 +65640,7 @@ _ZSt4copyIPKN4llvm3ISD10ArgFlagsTyEPS2_ET0_T_S7_S6_.exit31: ; preds = %20, %19, 
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -65761,7 +65761,7 @@ _ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit: ; preds = %11, %18
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -66127,7 +66127,7 @@ declare noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLEm(ptr 
 declare noundef zeroext i1 @_ZN4llvm19matchUnaryPredicateERKNS_19MachineRegisterInfoENS_8RegisterESt8functionIFbPKNS_8ConstantEEEb(ptr noundef nonnull align 8 dereferenceable(512), i32, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZL27isNonZeroModBitWidthOrUndefRKNS0_19MachineRegisterInfoENS0_8RegisterEjE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZL27isNonZeroModBitWidthOrUndefRKNS0_19MachineRegisterInfoENS0_8RegisterEjE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #0 align 2 {
   %.val = load i32, ptr %0, align 8
   %.val2 = load ptr, ptr %1, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val2, null
@@ -66151,7 +66151,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntEKNS_8ConstantEEEDaPT0_.exit.i.i.i: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZL27isNonZeroModBitWidthOrUndefRKNS0_19MachineRegisterInfoENS0_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #11 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm8ConstantEEZL27isNonZeroModBitWidthOrUndefRKNS0_19MachineRegisterInfoENS0_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #11 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL27isNonZeroModBitWidthOrUndefRKN4llvm19MachineRegisterInfoENS1_8RegisterEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -68011,10 +68011,10 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #15
 declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

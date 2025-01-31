@@ -109,7 +109,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -854,14 +854,14 @@ declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22EditReferencingFactory10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %1) unnamed_addr #10 align 2 {
+define void @_ZNK22EditReferencingFactory10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.9, i32 noundef 15)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK22EditReferencingFactory10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1) unnamed_addr #13 align 2 {
+define void @_ZThn16_NK22EditReferencingFactory10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1) unnamed_addr #13 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.9, i32 noundef 15), !noalias !16
   store ptr %3, ptr %0, align 8, !alias.scope !16
@@ -869,7 +869,7 @@ define void @_ZThn16_NK22EditReferencingFactory10pluginNameEv(ptr dead_on_unwind
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN22EditReferencingFactory11getEditToolEPK7QAction(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef readnone %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN22EditReferencingFactory11getEditToolEPK7QAction(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef readnone %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -898,7 +898,7 @@ define noundef ptr @_ZN22EditReferencingFactory11getEditToolEPK7QAction(ptr noca
 declare void @_ZN21EditReferencingPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(704)) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define noundef ptr @_ZThn16_N22EditReferencingFactory11getEditToolEPK7QAction(ptr nocapture noundef readonly %0, ptr noundef readnone %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZThn16_N22EditReferencingFactory11getEditToolEPK7QAction(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -925,7 +925,7 @@ _ZN22EditReferencingFactory11getEditToolEPK7QAction.exit: ; preds = %2, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22EditReferencingFactory22getEditToolDescriptionEPK7QAction(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %1, ptr nocapture noundef readnone %2) unnamed_addr #10 align 2 {
+define void @_ZN22EditReferencingFactory22getEditToolDescriptionEPK7QAction(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %1, ptr noundef readnone captures(none) %2) unnamed_addr #10 align 2 {
   tail call void @_ZN21EditReferencingPlugin4infoEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %0)
   ret void
 }
@@ -933,7 +933,7 @@ define void @_ZN22EditReferencingFactory22getEditToolDescriptionEPK7QAction(ptr 
 declare void @_ZN21EditReferencingPlugin4infoEv(ptr dead_on_unwind writable sret(%class.QString) align 8) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N22EditReferencingFactory22getEditToolDescriptionEPK7QAction(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #13 align 2 {
+define void @_ZThn16_N22EditReferencingFactory22getEditToolDescriptionEPK7QAction(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #13 align 2 {
   tail call void @_ZN21EditReferencingPlugin4infoEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %0)
   ret void
 }
@@ -2482,16 +2482,16 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

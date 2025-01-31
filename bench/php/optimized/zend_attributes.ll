@@ -85,7 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 @class_Override_methods = internal constant [2 x %struct._zend_function_entry] [%struct._zend_function_entry { ptr @.str.21, ptr @zim_Override___construct, ptr @arginfo_class_ReturnTypeWillChange___construct, i32 0, i32 1, ptr null, ptr null }, %struct._zend_function_entry zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @validate_attribute(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture readnone %2) #0 {
+define hidden void @validate_attribute(ptr noundef readonly captures(none) %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
@@ -168,7 +168,7 @@ define hidden void @validate_attribute(ptr nocapture noundef readonly %0, i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @zend_get_attribute_value(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_get_attribute_value(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %6 = load i32, ptr %5, align 4
   %.not = icmp ult i32 %2, %6
@@ -236,7 +236,7 @@ declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #2
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Attribute___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Attribute___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   store i64 63, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -301,7 +301,7 @@ declare void @llvm.assume(i1 noundef) #3
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReturnTypeWillChange___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReturnTypeWillChange___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -318,7 +318,7 @@ define hidden void @zim_ReturnTypeWillChange___construct(ptr nocapture noundef r
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_AllowDynamicProperties___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_AllowDynamicProperties___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -333,7 +333,7 @@ define hidden void @zim_AllowDynamicProperties___construct(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SensitiveParameter___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SensitiveParameter___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -348,7 +348,7 @@ define hidden void @zim_SensitiveParameter___construct(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SensitiveParameterValue___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SensitiveParameterValue___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -377,7 +377,7 @@ define hidden void @zim_SensitiveParameterValue___construct(ptr noundef %0, ptr 
 declare void @zend_update_property_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SensitiveParameterValue_getValue(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SensitiveParameterValue_getValue(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -412,7 +412,7 @@ define hidden void @zim_SensitiveParameterValue_getValue(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SensitiveParameterValue___debugInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SensitiveParameterValue___debugInfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -433,7 +433,7 @@ define hidden void @zim_SensitiveParameterValue___debugInfo(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Override___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Override___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -513,7 +513,7 @@ get_attribute.exit:                               ; preds = %24, %33, %.critedge
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define ptr @zend_get_attribute_str(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
+define ptr @zend_get_attribute_str(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %get_attribute_str.exit, label %4
 
@@ -637,7 +637,7 @@ get_attribute.exit:                               ; preds = %26, %35, %.critedge
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define ptr @zend_get_parameter_attribute_str(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define ptr @zend_get_parameter_attribute_str(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = add i32 %3, 1
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %get_attribute_str.exit, label %6
@@ -784,7 +784,7 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
   %.1153 = phi i64 [ %.0152, %33 ], [ %31, %.critedge ]
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %42 = getelementptr inbounds i8, ptr %41, i64 %37
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %40, i64 %39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %40, i64 %39, i1 false)
   %43 = load ptr, ptr %2, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 %.1153, ptr %44, align 8
@@ -883,10 +883,10 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @zend_is_attribute_repeated(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @zend_is_attribute_repeated(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -955,7 +955,7 @@ define noundef zeroext i1 @zend_is_attribute_repeated(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_add_attribute(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define ptr @zend_add_attribute(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = and i32 %3, 1
   %9 = icmp ne i32 %8, 0
@@ -1109,7 +1109,7 @@ declare noalias ptr @_emalloc_56() local_unnamed_addr #2
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @attr_free(ptr nocapture noundef readonly %0) #0 {
+define internal void @attr_free(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
@@ -2236,14 +2236,14 @@ register_class_Override.exit:                     ; preds = %register_class_Sens
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @free_internal_attribute(ptr nocapture noundef readonly %0) #7 {
+define internal void @free_internal_attribute(ptr noundef readonly captures(none) %0) #7 {
   %2 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %2) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @validate_allow_dynamic_properties(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef %2) #0 {
+define internal void @validate_allow_dynamic_properties(ptr readnone captures(none) %0, i32 %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 2
@@ -2282,10 +2282,10 @@ define internal void @validate_allow_dynamic_properties(ptr nocapture readnone %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @attributes_sensitive_parameter_value_get_properties_for(ptr nocapture readnone %0, i32 %1) #9 {
+define internal noalias noundef ptr @attributes_sensitive_parameter_value_get_properties_for(ptr readnone captures(none) %0, i32 %1) #9 {
   ret ptr null
 }
 
@@ -2300,7 +2300,7 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2312,7 +2312,7 @@ declare zeroext i1 @zend_string_equal_val(ptr noundef, ptr noundef) local_unname
 declare void @zval_internal_ptr_dtor(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
@@ -2329,16 +2329,16 @@ declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr nou
 declare ptr @zend_declare_typed_property(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

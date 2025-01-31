@@ -157,7 +157,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_st
 @llvm.compiler.used = appending global [49 x ptr] [ptr @__UNIQUE_ID___addressable_ieee80211_find_sta3040, ptr @__UNIQUE_ID___addressable_ieee80211_find_sta_by_ifaddr3039, ptr @__UNIQUE_ID___addressable_ieee80211_find_sta_by_link_addrs2969, ptr @__UNIQUE_ID___addressable_ieee80211_send_eosp_nullfunc3048, ptr @__UNIQUE_ID___addressable_ieee80211_sta_block_awake3046, ptr @__UNIQUE_ID___addressable_ieee80211_sta_eosp3047, ptr @__UNIQUE_ID___addressable_ieee80211_sta_recalc_aggregates3061, ptr @__UNIQUE_ID___addressable_ieee80211_sta_register_airtime3052, ptr @__UNIQUE_ID___addressable_ieee80211_sta_set_buffered3051, ptr @bit_spin_lock.__UNIQUE_ID___addressable___SCK__preempt_schedule187, ptr @bit_spin_unlock.__UNIQUE_ID___addressable___SCK__preempt_schedule189, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29, ptr @rht_assign_unlock.__UNIQUE_ID___addressable___SCK__preempt_schedule559, ptr @trace_api_eosp.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2682, ptr @trace_api_eosp.__UNIQUE_ID___addressable___SCK__tp_func_api_eosp2681, ptr @trace_api_send_eosp_nullfunc.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2696, ptr @trace_api_send_eosp_nullfunc.__UNIQUE_ID___addressable___SCK__tp_func_api_send_eosp_nullfunc2695, ptr @trace_api_sta_block_awake.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2598, ptr @trace_api_sta_block_awake.__UNIQUE_ID___addressable___SCK__tp_func_api_sta_block_awake2597, ptr @trace_api_sta_set_buffered.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2710, ptr @trace_api_sta_set_buffered.__UNIQUE_ID___addressable___SCK__tp_func_api_sta_set_buffered2709, ptr @trace_drv_allow_buffered_frames.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1772, ptr @trace_drv_allow_buffered_frames.__UNIQUE_ID___addressable___SCK__tp_func_drv_allow_buffered_frames1771, ptr @trace_drv_flush_sta.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1576, ptr @trace_drv_flush_sta.__UNIQUE_ID___addressable___SCK__tp_func_drv_flush_sta1575, ptr @trace_drv_get_expected_throughput.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1996, ptr @trace_drv_get_expected_throughput.__UNIQUE_ID___addressable___SCK__tp_func_drv_get_expected_throughput1995, ptr @trace_drv_release_buffered_frames.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1758, ptr @trace_drv_release_buffered_frames.__UNIQUE_ID___addressable___SCK__tp_func_drv_release_buffered_frames1757, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace820, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_int819, ptr @trace_drv_return_u32.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace848, ptr @trace_drv_return_u32.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_u32847, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace806, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void805, ptr @trace_drv_set_tim.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1114, ptr @trace_drv_set_tim.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_tim1113, ptr @trace_drv_sta_notify.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1310, ptr @trace_drv_sta_notify.__UNIQUE_ID___addressable___SCK__tp_func_drv_sta_notify1309, ptr @trace_drv_sta_pre_rcu_remove.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1408, ptr @trace_drv_sta_pre_rcu_remove.__UNIQUE_ID___addressable___SCK__tp_func_drv_sta_pre_rcu_remove1407, ptr @trace_drv_sta_statistics.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1366, ptr @trace_drv_sta_statistics.__UNIQUE_ID___addressable___SCK__tp_func_drv_sta_statistics1365, ptr @trace_drv_sync_rx_queues.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1422, ptr @trace_drv_sync_rx_queues.__UNIQUE_ID___addressable___SCK__tp_func_drv_sync_rx_queues1421, ptr @trace_drv_tdls_cancel_channel_switch.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2220, ptr @trace_drv_tdls_cancel_channel_switch.__UNIQUE_ID___addressable___SCK__tp_func_drv_tdls_cancel_channel_switch2219, ptr @trace_drv_wake_tx_queue.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2248, ptr @trace_drv_wake_tx_queue.__UNIQUE_ID___addressable___SCK__tp_func_drv_wake_tx_queue2247], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_purge_sta_txqs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_purge_sta_txqs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1256
@@ -187,13 +187,13 @@ define dso_local void @ieee80211_purge_sta_txqs(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ieee80211_txq_purge(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @sta_info_hash_lookup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
@@ -203,7 +203,7 @@ define dso_local ptr @sta_info_hash_lookup(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @rhltable_lookup(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.rhashtable_params) align 8 %2) unnamed_addr #3 align 16 {
+define internal fastcc ptr @rhltable_lookup(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%struct.rhashtable_params) align 8 captures(none) %2) unnamed_addr #3 align 16 {
   %4 = alloca %struct.rhashtable_compare_arg, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -597,7 +597,7 @@ define dso_local ptr @ieee80211_find_sta_by_link_addrs(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @sta_info_get_by_addrs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @sta_info_get_by_addrs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1576
   %5 = tail call fastcc ptr @rhltable_lookup(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull byval(%struct.rhashtable_params) align 8 @sta_rht_params)
   %6 = icmp eq ptr %5, null
@@ -676,7 +676,7 @@ define dso_local ptr @sta_info_get_by_idx(ptr noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sta_info_free(ptr nocapture readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @sta_info_free(ptr readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2560
   br label %7
 
@@ -934,13 +934,13 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @sta_info_alloc(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @sta_info_alloc(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef %1, i32 noundef -1, ptr noundef %1, i32 noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %7 = load ptr, ptr %6, align 8
   %8 = or i32 %4, 256
@@ -1317,7 +1317,7 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @sta_info_alloc_with_link(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local ptr @sta_info_alloc_with_link(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = tail call fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4)
   ret ptr %6
 }
@@ -2885,7 +2885,7 @@ define dso_local i32 @sta_info_init(ptr noundef %0) local_unnamed_addr #0 align 
 declare dso_local i32 @rhltable_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -3328,7 +3328,7 @@ define dso_local i32 @__sta_info_flush(ptr noundef %0, i1 noundef zeroext %1) lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ieee80211_recalc_min_chandef(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -3491,7 +3491,7 @@ define dso_local void @ieee80211_sta_expire(ptr noundef readonly %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i64 @ieee80211_sta_last_active(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 16 {
+define dso_local i64 @ieee80211_sta_last_active(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   %4 = load ptr, ptr %3, align 8
@@ -5121,7 +5121,7 @@ define dso_local void @ieee80211_sta_set_buffered(ptr noundef %0, i8 noundef zer
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_sta_register_airtime(ptr nocapture noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local void @ieee80211_sta_register_airtime(ptr noundef captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -2600
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1256
@@ -6953,7 +6953,7 @@ define dso_local i32 @sta_get_expected_throughput(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @ieee80211_sta_set_expected_throughput(ptr nocapture noundef initializes((-1368, -1364), (-1360, -1356), (-1352, -1351)) %0, i32 noundef %1) local_unnamed_addr #8 align 16 {
+define dso_local void @ieee80211_sta_set_expected_throughput(ptr noundef captures(none) initializes((-1368, -1364), (-1360, -1356), (-1352, -1351)) %0, i32 noundef %1) local_unnamed_addr #8 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %12, label %4
 
@@ -7323,7 +7323,7 @@ define dso_local void @ieee80211_sta_remove_link(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ieee80211_sta_set_max_amsdu_subframes(ptr nocapture noundef writeonly initializes((2708, 2709)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 align 16 {
+define dso_local void @ieee80211_sta_set_max_amsdu_subframes(ptr noundef writeonly captures(none) initializes((2708, 2709)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2708
   store i8 0, ptr %4, align 4
   %5 = icmp ult i32 %2, 8
@@ -7372,7 +7372,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2, 1) i32 @rhltable_remove(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.rhashtable_params) align 8 %2) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2, 1) i32 @rhltable_remove(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%struct.rhashtable_params) align 8 captures(none) %2) unnamed_addr #3 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %6 = load i16, ptr %5, align 2
@@ -7979,7 +7979,7 @@ define internal fastcc void @cleanup_single_sta(ptr noundef %0) unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.rhashtable_params) align 8 %2) unnamed_addr #3 align 16 {
+define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%struct.rhashtable_params) align 8 captures(none) %2) unnamed_addr #3 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.rhashtable_compare_arg, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -8825,7 +8825,7 @@ declare dso_local i32 @__SCT__tp_func_drv_return_u32(ptr noundef, ptr noundef, i
 declare dso_local noalias ptr @__alloc_percpu_gfp(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #13

@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [6 x i8] c"FALSE\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_int(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_int(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = tail call ptr @ADIOI_Malloc_fn(i64 noundef 257, i32 noundef 16, ptr noundef nonnull @.str) #4
@@ -84,7 +84,7 @@ declare i32 @MPIO_Err_create_code(i32 noundef, i32 noundef, ptr noundef, i32 nou
 declare i32 @PMPI_Info_get(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @PMPI_Bcast(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -93,7 +93,7 @@ declare i32 @PMPI_Info_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare void @ADIOI_Free_fn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_enabled(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_enabled(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = tail call ptr @ADIOI_Malloc_fn(i64 noundef 257, i32 noundef 54, ptr noundef nonnull @.str) #4
@@ -194,10 +194,10 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_enabled(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_true(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_true(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = tail call ptr @ADIOI_Malloc_fn(i64 noundef 257, i32 noundef 97, ptr noundef nonnull @.str) #4
@@ -281,7 +281,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_true(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_str(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_str(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call ptr @ADIOI_Malloc_fn(i64 noundef 257, i32 noundef 137, ptr noundef nonnull @.str) #4
   %9 = icmp eq ptr %8, null
@@ -331,7 +331,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_str(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @ADIOI_Strncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

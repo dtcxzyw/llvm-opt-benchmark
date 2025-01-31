@@ -140,12 +140,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = load i32, ptr %size, align 8
   %conv = zext i32 %8 to i64
   %mul = shl nuw nsw i64 %conv, 3
-  %call11 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef %bs, ptr noundef %res, ptr noundef %refcount_table, ptr noundef %refcount_table_size, i64 noundef %7, i64 noundef %mul) #13
+  %call11 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef nonnull %bs, ptr noundef %res, ptr noundef %refcount_table, ptr noundef %refcount_table_size, i64 noundef %7, i64 noundef %mul) #13
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %while.cond.preheader.i, label %if.end15
 
 if.end15:                                         ; preds = %for.body
-  %call17 = call fastcc i32 @bitmap_table_load(ptr noundef %bs, ptr noundef nonnull %bm.047, ptr noundef %bitmap_table)
+  %call17 = call fastcc i32 @bitmap_table_load(ptr noundef nonnull %bs, ptr noundef nonnull %bm.047, ptr noundef %bitmap_table)
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %if.then20, label %for.cond24.preheader
 
@@ -195,7 +195,7 @@ if.then35:                                        ; preds = %for.body29, %if.the
   br label %for.inc
 
 if.end42:                                         ; preds = %if.end7.i
-  %call45 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef %bs, ptr noundef %res, ptr noundef %refcount_table, ptr noundef %refcount_table_size, i64 noundef %and, i64 noundef %conv.i) #13
+  %call45 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef nonnull %bs, ptr noundef %res, ptr noundef %refcount_table, ptr noundef %refcount_table_size, i64 noundef %and, i64 noundef %conv.i) #13
   %cmp46 = icmp slt i32 %call45, 0
   br i1 %cmp46, label %if.then48, label %for.inc
 
@@ -543,7 +543,7 @@ return:                                           ; preds = %while.end.i, %fail.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @bitmap_table_load(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %tb, ptr nocapture noundef nonnull writeonly %bitmap_table) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @bitmap_table_load(ptr noundef readonly captures(none) %bs, ptr noundef readonly captures(none) %tb, ptr noundef nonnull writeonly captures(none) %bitmap_table) unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -684,12 +684,12 @@ for.body:                                         ; preds = %for.cond.preheader,
 land.lhs.true:                                    ; preds = %for.body
   %name = getelementptr inbounds nuw i8, ptr %bm.062, i64 32
   %5 = load ptr, ptr %name, align 8
-  %call8 = tail call ptr @bdrv_find_dirty_bitmap(ptr noundef %bs, ptr noundef %5) #13
+  %call8 = tail call ptr @bdrv_find_dirty_bitmap(ptr noundef nonnull %bs, ptr noundef %5) #13
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %if.end11, label %for.inc
 
 if.end11:                                         ; preds = %land.lhs.true, %for.body
-  %call12 = tail call ptr @load_bitmap(ptr noundef %bs, ptr noundef nonnull %bm.062, ptr noundef %errp)
+  %call12 = tail call ptr @load_bitmap(ptr noundef nonnull %bs, ptr noundef nonnull %bm.062, ptr noundef %errp)
   %cmp13 = icmp eq ptr %call12, null
   br i1 %cmp13, label %while.cond.preheader.i42, label %if.end15
 
@@ -737,17 +737,17 @@ for.end:                                          ; preds = %for.inc
   br i1 %needs_update.1, label %land.lhs.true30, label %if.end40
 
 land.lhs.true30:                                  ; preds = %for.end
-  %call.i = tail call zeroext i1 @bdrv_is_read_only(ptr noundef %bs) #13
+  %call.i = tail call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %bs) #13
   br i1 %call.i, label %if.end40, label %can_write.exit
 
 can_write.exit:                                   ; preds = %land.lhs.true30
-  %call1.i = tail call i32 @bdrv_get_flags(ptr noundef %bs) #13
+  %call1.i = tail call i32 @bdrv_get_flags(ptr noundef nonnull %bs) #13
   %and.i = and i32 %call1.i, 2048
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then32, label %if.end40
 
 if.then32:                                        ; preds = %can_write.exit
-  %call33 = tail call fastcc i32 @update_ext_header_and_dir_in_place(ptr noundef %bs, ptr noundef %call)
+  %call33 = tail call fastcc i32 @update_ext_header_and_dir_in_place(ptr noundef nonnull %bs, ptr noundef %call)
   %cmp34 = icmp slt i32 %call33, 0
   br i1 %cmp34, label %if.then35, label %if.end36
 
@@ -765,11 +765,11 @@ if.then38:                                        ; preds = %if.end36
 
 if.end40:                                         ; preds = %for.cond.preheader, %land.lhs.true30, %if.end36, %if.then38, %can_write.exit, %for.end
   %created_dirty_bitmaps.0.lcssa67 = phi ptr [ %created_dirty_bitmaps.1, %land.lhs.true30 ], [ %created_dirty_bitmaps.1, %if.end36 ], [ %created_dirty_bitmaps.1, %if.then38 ], [ %created_dirty_bitmaps.1, %can_write.exit ], [ %created_dirty_bitmaps.1, %for.end ], [ null, %for.cond.preheader ]
-  %call.i35 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef %bs) #13
+  %call.i35 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %bs) #13
   br i1 %call.i35, label %if.then42, label %can_write.exit40
 
 can_write.exit40:                                 ; preds = %if.end40
-  %call1.i37 = tail call i32 @bdrv_get_flags(ptr noundef %bs) #13
+  %call1.i37 = tail call i32 @bdrv_get_flags(ptr noundef nonnull %bs) #13
   %and.i38 = and i32 %call1.i37, 2048
   %tobool.not.i39 = icmp eq i32 %and.i38, 0
   br i1 %tobool.not.i39, label %while.cond.preheader.i, label %if.then42
@@ -812,7 +812,7 @@ bitmap_free.exit.i:                               ; preds = %if.then6.i, %do.bod
 
 while.cond.preheader.i42:                         ; preds = %if.end11, %if.then35
   %created_dirty_bitmaps.057 = phi ptr [ %created_dirty_bitmaps.1, %if.then35 ], [ %created_dirty_bitmaps.060, %if.end11 ]
-  tail call void @g_slist_foreach(ptr noundef %created_dirty_bitmaps.057, ptr noundef nonnull @release_dirty_bitmap_helper, ptr noundef %bs) #13
+  tail call void @g_slist_foreach(ptr noundef %created_dirty_bitmaps.057, ptr noundef nonnull @release_dirty_bitmap_helper, ptr noundef nonnull %bs) #13
   tail call void @g_slist_free(ptr noundef %created_dirty_bitmaps.057) #13
   %13 = load ptr, ptr %call, align 8
   %cmp1.not8.i43 = icmp eq ptr %13, null
@@ -857,7 +857,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @bdrv_find_dirty_bitmap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @load_bitmap(ptr noundef %bs, ptr nocapture noundef readonly %bm, ptr noundef %errp) #0 {
+define internal ptr @load_bitmap(ptr noundef %bs, ptr noundef readonly captures(none) %bm, ptr noundef %errp) #0 {
 entry:
   %bitmap_table = alloca ptr, align 8
   store ptr null, ptr %bitmap_table, align 8
@@ -932,7 +932,7 @@ declare void @bdrv_disable_dirty_bitmap(ptr noundef) local_unnamed_addr #1
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @update_ext_header_and_dir_in_place(ptr noundef %bs, ptr nocapture noundef nonnull readonly %bm_list) unnamed_addr #0 {
+define internal fastcc i32 @update_ext_header_and_dir_in_place(ptr noundef %bs, ptr noundef nonnull readonly captures(none) %bm_list) unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1030,14 +1030,14 @@ entry:
 declare void @g_slist_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @release_dirty_bitmap_helper(ptr noundef %bitmap, ptr nocapture readnone %bs) #0 {
+define internal void @release_dirty_bitmap_helper(ptr noundef %bitmap, ptr readnone captures(none) %bs) #0 {
 entry:
   tail call void @bdrv_release_dirty_bitmap(ptr noundef %bitmap) #13
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qcow2_get_bitmap_info_list(ptr noundef %bs, ptr nocapture noundef %info_list, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qcow2_get_bitmap_info_list(ptr noundef %bs, ptr noundef captures(none) %info_list, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %list.i = alloca ptr, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1216,7 +1216,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %ro_dirty_bitmaps.059 = phi ptr [ %ro_dirty_bitmaps.1, %for.inc ], [ null, %for.cond.preheader ]
   %name = getelementptr inbounds nuw i8, ptr %bm.061, i64 32
   %4 = load ptr, ptr %name, align 8
-  %call4 = tail call ptr @bdrv_find_dirty_bitmap(ptr noundef %bs, ptr noundef %4) #13
+  %call4 = tail call ptr @bdrv_find_dirty_bitmap(ptr noundef nonnull %bs, ptr noundef %4) #13
   %tobool5.not = icmp eq ptr %call4, null
   br i1 %tobool5.not, label %if.then6, label %if.end8
 
@@ -1418,7 +1418,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %bm.014 = phi ptr [ %bm.0, %for.cond ], [ %bm.012, %for.cond.preheader ]
   %name = getelementptr inbounds nuw i8, ptr %bm.014, i64 32
   %4 = load ptr, ptr %name, align 8
-  %call4 = tail call ptr @bdrv_find_dirty_bitmap(ptr noundef %bs, ptr noundef %4) #13
+  %call4 = tail call ptr @bdrv_find_dirty_bitmap(ptr noundef nonnull %bs, ptr noundef %4) #13
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %if.then6, label %if.end7
 
@@ -1476,7 +1476,7 @@ return:                                           ; preds = %if.end, %entry, %bi
 declare i32 @bdrv_dirty_bitmap_check(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_co_remove_persistent_dirty_bitmap(ptr noundef %bs, ptr nocapture noundef readonly %name, ptr noundef %errp) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_co_remove_persistent_dirty_bitmap(ptr noundef %bs, ptr noundef readonly captures(none) %name, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1562,7 +1562,7 @@ if.end37:                                         ; preds = %if.then33, %while.e
   br label %do.end41
 
 do.end41:                                         ; preds = %if.end17, %if.end37
-  %call42 = tail call fastcc i32 @update_ext_header_and_dir(ptr noundef %bs, ptr noundef nonnull %call)
+  %call42 = tail call fastcc i32 @update_ext_header_and_dir(ptr noundef nonnull %bs, ptr noundef nonnull %call)
   %cmp43 = icmp slt i32 %call42, 0
   br i1 %cmp43, label %if.then44, label %if.end45
 
@@ -1572,7 +1572,7 @@ if.then44:                                        ; preds = %do.end41
   br label %if.end.i
 
 if.end45:                                         ; preds = %do.end41
-  tail call fastcc void @free_bitmap_clusters(ptr noundef %bs, ptr noundef %bm.06.i)
+  tail call fastcc void @free_bitmap_clusters(ptr noundef nonnull %bs, ptr noundef %bm.06.i)
   br label %if.end.i
 
 out.thread:                                       ; preds = %for.inc.i, %if.end, %if.end3
@@ -1745,7 +1745,7 @@ return:                                           ; preds = %if.end21, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @free_bitmap_clusters(ptr noundef %bs, ptr nocapture noundef nonnull %tb) unnamed_addr #0 {
+define internal fastcc void @free_bitmap_clusters(ptr noundef %bs, ptr noundef nonnull captures(none) %tb) unnamed_addr #0 {
 entry:
   %bitmap_table = alloca ptr, align 8
   %call = call fastcc i32 @bitmap_table_load(ptr noundef %bs, ptr noundef nonnull %tb, ptr noundef %bitmap_table)
@@ -1902,7 +1902,7 @@ if.then29:                                        ; preds = %for.body.i
   br label %for.inc
 
 if.end31:                                         ; preds = %if.end24
-  %call32 = call fastcc i32 @check_constraints_on_bitmap(ptr noundef %bs, ptr noundef %call18, i32 noundef %call19, ptr noundef %spec.select)
+  %call32 = call fastcc i32 @check_constraints_on_bitmap(ptr noundef nonnull %bs, ptr noundef %call18, i32 noundef %call19, ptr noundef %spec.select)
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %if.then34, label %if.end35
 
@@ -1954,7 +1954,7 @@ if.then46:                                        ; preds = %if.end41
 
 if.end47:                                         ; preds = %if.end41
   %call48 = call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #15
-  %call49 = call noalias ptr @g_strdup(ptr noundef %call18) #13
+  %call49 = call noalias ptr @g_strdup(ptr noundef nonnull %call18) #13
   %name50 = getelementptr inbounds nuw i8, ptr %call48, i64 32
   store ptr %call49, ptr %name50, align 8
   %entry52 = getelementptr inbounds nuw i8, ptr %call48, i64 48
@@ -1972,7 +1972,7 @@ if.else59:                                        ; preds = %for.body.i98
   br i1 %tobool60.not, label %if.then61, label %if.end62
 
 if.then61:                                        ; preds = %if.else59
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 1609, ptr noundef nonnull @__func__.qcow2_store_persistent_dirty_bitmaps, ptr noundef nonnull @.str.13, ptr noundef %call18) #13
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 1609, ptr noundef nonnull @__func__.qcow2_store_persistent_dirty_bitmaps, ptr noundef nonnull @.str.13, ptr noundef nonnull %call18) #13
   br label %fail
 
 if.end62:                                         ; preds = %if.else59
@@ -2015,11 +2015,11 @@ for.end:                                          ; preds = %for.inc
   br i1 %need_write.0182.ph, label %if.end86, label %success
 
 if.end86:                                         ; preds = %for.inc.thread, %for.end
-  %call.i109 = call zeroext i1 @bdrv_is_read_only(ptr noundef %bs) #13
+  %call.i109 = call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %bs) #13
   br i1 %call.i109, label %if.then88, label %can_write.exit
 
 can_write.exit:                                   ; preds = %if.end86
-  %call1.i = call i32 @bdrv_get_flags(ptr noundef %bs) #13
+  %call1.i = call i32 @bdrv_get_flags(ptr noundef nonnull %bs) #13
   %and.i110 = and i32 %call1.i, 2048
   %tobool.not.i111 = icmp eq i32 %and.i110, 0
   br i1 %tobool.not.i111, label %for.cond91.preheader, label %if.then88
@@ -2200,7 +2200,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %23 = load i32, ptr %cluster_size.i.i.i, align 4
   %conv.i68.i.i = sext i32 %23 to i64
-  call void @qcow2_free_clusters(ptr noundef %bs, i64 noundef %and.i.i.i, i64 noundef %conv.i68.i.i, i32 noundef 1) #13
+  call void @qcow2_free_clusters(ptr noundef nonnull %bs, i64 noundef %and.i.i.i, i64 noundef %conv.i68.i.i, i32 noundef 1) #13
   store i64 0, ptr %arrayidx.i.i.i, align 8
   br label %for.inc.i.i.i
 
@@ -2310,7 +2310,7 @@ for.body.i41.i:                                   ; preds = %for.inc.i.i, %for.b
 if.end.i43.i:                                     ; preds = %for.body.i41.i
   %34 = load i32, ptr %cluster_size.i.i, align 4
   %conv.i44.i = sext i32 %34 to i64
-  call void @qcow2_free_clusters(ptr noundef %bs, i64 noundef %and.i.i, i64 noundef %conv.i44.i, i32 noundef 1) #13
+  call void @qcow2_free_clusters(ptr noundef nonnull %bs, i64 noundef %and.i.i, i64 noundef %conv.i44.i, i32 noundef 1) #13
   store i64 0, ptr %arrayidx.i42.i, align 8
   br label %for.inc.i.i
 
@@ -2324,7 +2324,7 @@ clear_bitmap_table.exit.i:                        ; preds = %for.inc.i.i, %fail.
   br i1 %cmp35.i, label %if.then37.i, label %store_bitmap.exit
 
 if.then37.i:                                      ; preds = %clear_bitmap_table.exit.i
-  call void @qcow2_free_clusters(ptr noundef %bs, i64 noundef %call9.i, i64 noundef %mul.i, i32 noundef 4) #13
+  call void @qcow2_free_clusters(ptr noundef nonnull %bs, i64 noundef %call9.i, i64 noundef %mul.i, i32 noundef 4) #13
   br label %store_bitmap.exit
 
 store_bitmap.exit:                                ; preds = %clear_bitmap_table.exit.i, %if.then37.i
@@ -2338,7 +2338,7 @@ for.inc107:                                       ; preds = %store_bitmap.exit.t
   br i1 %tobool92.not, label %for.end110, label %for.body93, !llvm.loop !23
 
 for.end110:                                       ; preds = %for.inc107, %for.cond91.preheader
-  %call111 = call fastcc i32 @update_ext_header_and_dir(ptr noundef %bs, ptr noundef nonnull %bm_list.0)
+  %call111 = call fastcc i32 @update_ext_header_and_dir(ptr noundef nonnull %bs, ptr noundef nonnull %bm_list.0)
   %cmp112 = icmp slt i32 %call111, 0
   br i1 %cmp112, label %if.then114, label %if.end115
 
@@ -2356,7 +2356,7 @@ land.rhs:                                         ; preds = %if.end115, %land.rh
   %tb.0189 = phi ptr [ %36, %land.rhs ], [ %35, %if.end115 ]
   %entry119 = getelementptr inbounds nuw i8, ptr %tb.0189, i64 16
   %36 = load ptr, ptr %entry119, align 8
-  call fastcc void @free_bitmap_clusters(ptr noundef %bs, ptr noundef %tb.0189)
+  call fastcc void @free_bitmap_clusters(ptr noundef nonnull %bs, ptr noundef %tb.0189)
   call void @g_free(ptr noundef nonnull %tb.0189) #13
   %tobool118.not = icmp eq ptr %36, null
   br i1 %tobool118.not, label %success, label %land.rhs, !llvm.loop !24
@@ -2443,7 +2443,7 @@ lor.lhs.false154:                                 ; preds = %lor.lhs.false149
   br i1 %call156, label %for.inc162, label %if.end159
 
 if.end159:                                        ; preds = %lor.lhs.false154
-  call fastcc void @free_bitmap_clusters(ptr noundef %bs, ptr noundef %bm.3195)
+  call fastcc void @free_bitmap_clusters(ptr noundef nonnull %bs, ptr noundef %bm.3195)
   br label %for.inc162
 
 for.inc162:                                       ; preds = %for.body145, %lor.lhs.false149, %lor.lhs.false154, %if.end159
@@ -2514,7 +2514,7 @@ declare i32 @bdrv_dirty_bitmap_granularity(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @bdrv_dirty_bitmap_get_persistence(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @check_constraints_on_bitmap(ptr noundef %bs, ptr nocapture noundef readonly %name, i32 noundef %granularity, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @check_constraints_on_bitmap(ptr noundef %bs, ptr noundef readonly captures(none) %name, i32 noundef %granularity, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2602,7 +2602,7 @@ return:                                           ; preds = %if.end27, %if.then3
 declare void @error_prepend(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: allocsize(1)
 declare ptr @g_memdup(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -2740,7 +2740,7 @@ return:                                           ; preds = %if.end24, %fail, %i
 declare ptr @bdrv_get_device_or_node_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @qcow2_supports_persistent_dirty_bitmap(ptr nocapture noundef readonly %bs) local_unnamed_addr #6 {
+define dso_local zeroext i1 @qcow2_supports_persistent_dirty_bitmap(ptr noundef readonly captures(none) %bs) local_unnamed_addr #6 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2838,7 +2838,7 @@ declare noalias ptr @g_try_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @bdrv_create_dirty_bitmap(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @load_bitmap_data(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %bitmap_table, i32 noundef %bitmap_table_size, ptr noundef %bitmap) #0 {
+define internal range(i32 -2147483648, 1) i32 @load_bitmap_data(ptr noundef readonly captures(none) %bs, ptr noundef readonly captures(none) %bitmap_table, i32 noundef %bitmap_table_size, ptr noundef %bitmap) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -2993,7 +2993,7 @@ declare zeroext i1 @bdrv_is_read_only(ptr noundef) local_unnamed_addr #1
 declare i32 @bdrv_get_flags(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @bitmap_list_store(ptr noundef %bs, ptr nocapture noundef nonnull readonly %bm_list, ptr nocapture noundef %offset, ptr nocapture noundef %size, i1 noundef zeroext %in_place) unnamed_addr #0 {
+define internal fastcc i32 @bitmap_list_store(ptr noundef %bs, ptr noundef nonnull readonly captures(none) %bm_list, ptr noundef captures(none) %offset, ptr noundef captures(none) %size, i1 noundef zeroext %in_place) unnamed_addr #0 {
 entry:
   %bm.083 = load ptr, ptr %bm_list, align 8
   %tobool.not84 = icmp eq ptr %bm.083, null
@@ -3242,7 +3242,7 @@ declare i32 @bdrv_flush(ptr noundef) #1
 declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare i64 @qcow2_alloc_clusters(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3253,7 +3253,7 @@ declare i32 @bdrv_pwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32
 declare void @qcow2_free_clusters(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @qcow2_flush_caches(ptr noundef) local_unnamed_addr #1
 
@@ -3273,7 +3273,7 @@ declare i64 @bdrv_dirty_bitmap_next_dirty(ptr noundef, i64 noundef, i64 noundef)
 declare void @bdrv_dirty_bitmap_serialize_part(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #11
@@ -3282,10 +3282,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

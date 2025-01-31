@@ -3017,7 +3017,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP37btDeformableMultiBodyConstraintSolverP24btCollisionConfigurationP22btDeformableBodySolver(ptr noundef nonnull align 8 dereferenceable(1056) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr noundef %constraintSolver, ptr noundef %collisionConfiguration, ptr noundef %deformableBodySolver) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -3368,7 +3368,7 @@ _ZN11btSparseSdfILi3EE5ResetEv.exit:              ; preds = %_ZN11btSparseSdfILi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
@@ -4513,7 +4513,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld35performDeformableCollisionDetectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld35performDeformableCollisionDetectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1056) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 860
   %0 = load i32, ptr %m_size.i, align 4
@@ -4603,7 +4603,7 @@ for.end36:                                        ; preds = %for.body30, %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld19applyRepulsionForceEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %this, float noundef %timeStep) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld19applyRepulsionForceEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1056) %this, float noundef %timeStep) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.7)
@@ -4657,7 +4657,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld26performGeometricCollisionsEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %this, float noundef %timeStep) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld26performGeometricCollisionsEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1056) %this, float noundef %timeStep) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.8)
@@ -5772,7 +5772,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %entry, %for.end256,
 declare void @_ZN10btSoftBody25geometricCollisionHandlerEPS_(ptr noundef nonnull align 8 dereferenceable(2064), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld21softBodySelfCollisionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld21softBodySelfCollisionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1056) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.9)
@@ -5826,7 +5826,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld18positionCorrectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %this, float noundef %timeStep) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld18positionCorrectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1056) %this, float noundef %timeStep) local_unnamed_addr #5 align 2 {
 entry:
   %newTransform = alloca %class.btTransform, align 4
   %pushVelocity = alloca %class.btVector3, align 8
@@ -7214,7 +7214,7 @@ declare void @_ZN11btRigidBody19integrateVelocitiesEf(ptr noundef nonnull align 
 declare void @_ZN24btMultiBodyDynamicsWorld17forwardKinematicsEv(ptr noundef nonnull align 8 dereferenceable(848)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld12clearGravityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld12clearGravityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1056) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   %ref.tmp63 = alloca %class.btVector3, align 8
@@ -7411,7 +7411,7 @@ declare void @_ZN11btMultiBody12addLinkForceEiRK9btVector3(ptr noundef nonnull a
 declare noundef float @_ZNK11btMultiBody11getLinkMassEi(ptr noundef nonnull align 8 dereferenceable(640), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld8addForceEP10btSoftBodyP27btDeformableLagrangianForce(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %this, ptr noundef %psb, ptr noundef %force) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld8addForceEP10btSoftBodyP27btDeformableLagrangianForce(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1056) %this, ptr noundef %psb, ptr noundef %force) local_unnamed_addr #3 align 2 {
 entry:
   %m_deformableBodySolver = getelementptr inbounds nuw i8, ptr %this, i64 848
   %0 = load ptr, ptr %m_deformableBodySolver, align 8
@@ -7562,7 +7562,7 @@ if.end23:                                         ; preds = %if.then, %_ZN20btAl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld11removeForceEP10btSoftBodyP27btDeformableLagrangianForce(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %this, ptr noundef %psb, ptr noundef %force) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld11removeForceEP10btSoftBodyP27btDeformableLagrangianForce(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1056) %this, ptr noundef %psb, ptr noundef %force) local_unnamed_addr #3 align 2 {
 entry:
   %m_deformableBodySolver = getelementptr inbounds nuw i8, ptr %this, i64 848
   %0 = load ptr, ptr %m_deformableBodySolver, align 8
@@ -7646,7 +7646,7 @@ if.end21:                                         ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld19removeSoftBodyForceEP10btSoftBody(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %this, ptr noundef %psb) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN34btDeformableMultiBodyDynamicsWorld19removeSoftBodyForceEP10btSoftBody(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1056) %this, ptr noundef %psb) local_unnamed_addr #3 align 2 {
 entry:
   %m_deformableBodySolver = getelementptr inbounds nuw i8, ptr %this, i64 848
   %0 = load ptr, ptr %m_deformableBodySolver, align 8
@@ -12430,7 +12430,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #2
@@ -12439,16 +12439,16 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #2
 declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

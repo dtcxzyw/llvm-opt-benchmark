@@ -459,16 +459,16 @@ getoutputbuffer.exit:                             ; preds = %1
 
 11:                                               ; preds = %getoutputbuffer.exit.thread8, %getoutputbuffer.exit
   %.0.i10 = phi ptr [ %8, %getoutputbuffer.exit.thread8 ], [ %.pre.i, %getoutputbuffer.exit ]
-  %12 = tail call i32 @aghtmlstr(ptr noundef %0) #9
+  %12 = tail call i32 @aghtmlstr(ptr noundef nonnull %0) #9
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i10, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
+  %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i10, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %0) #9
   br label %agstrcanon.exit
 
 15:                                               ; preds = %11
-  %16 = tail call fastcc ptr @_agstrcanon(ptr noundef %0, ptr noundef nonnull %.0.i10)
+  %16 = tail call fastcc ptr @_agstrcanon(ptr noundef nonnull %0, ptr noundef nonnull %.0.i10)
   br label %agstrcanon.exit
 
 agstrcanon.exit:                                  ; preds = %7, %15, %13, %getoutputbuffer.exit
@@ -507,11 +507,11 @@ getoutputbuffer.exit:                             ; preds = %2
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i11, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
+  %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i11, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %0) #9
   br label %getoutputbuffer.exit.thread
 
 15:                                               ; preds = %12
-  %16 = tail call fastcc ptr @_agstrcanon(ptr noundef %0, ptr noundef nonnull %.0.i11)
+  %16 = tail call fastcc ptr @_agstrcanon(ptr noundef nonnull %0, ptr noundef nonnull %.0.i11)
   br label %getoutputbuffer.exit.thread
 
 getoutputbuffer.exit.thread:                      ; preds = %8, %getoutputbuffer.exit, %15, %13
@@ -534,7 +534,7 @@ define i32 @agwrite(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %4
-  %10 = tail call i64 @strtoul(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 10) #9
+  %10 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #9
   %11 = add i64 %10, -60
   %or.cond = icmp ult i64 %11, -59
   %12 = icmp ult i64 %10, 2147483648
@@ -609,7 +609,7 @@ write_trl.exit.thread:                            ; preds = %.lr.ph.i.i, %write_
 declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @set_attrwf(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
@@ -1263,16 +1263,16 @@ write_node.exit.thread:                           ; preds = %write_node.exit, %.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare ptr @agfstsubg(ptr noundef) local_unnamed_addr #1
 
@@ -1297,7 +1297,7 @@ declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 declare ptr @agstrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_write_canonstr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc i32 @_write_canonstr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
   %6 = shl i64 %5, 1
   %7 = add i64 %6, 2
@@ -1326,16 +1326,16 @@ getoutputbuffer.exit.i:                           ; preds = %10
 
 15:                                               ; preds = %getoutputbuffer.exit.i, %getoutputbuffer.exit.thread8.i
   %.0.i10.i = phi ptr [ %12, %getoutputbuffer.exit.thread8.i ], [ %.pre.i.i, %getoutputbuffer.exit.i ]
-  %16 = tail call i32 @aghtmlstr(ptr noundef %2) #9
+  %16 = tail call i32 @aghtmlstr(ptr noundef nonnull %2) #9
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i10.i, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %2) #9
+  %18 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i10.i, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %2) #9
   br label %agcanonStr.exit
 
 19:                                               ; preds = %15
-  %20 = tail call fastcc ptr @_agstrcanon(ptr noundef %2, ptr noundef nonnull %.0.i10.i)
+  %20 = tail call fastcc ptr @_agstrcanon(ptr noundef nonnull %2, ptr noundef nonnull %.0.i10.i)
   br label %agcanonStr.exit
 
 21:                                               ; preds = %4
@@ -1357,7 +1357,7 @@ getoutputbuffer.exit:                             ; preds = %21
 
 26:                                               ; preds = %getoutputbuffer.exit.thread13, %getoutputbuffer.exit
   %.0.i1115 = phi ptr [ %23, %getoutputbuffer.exit.thread13 ], [ %.pre.i.i, %getoutputbuffer.exit ]
-  %27 = tail call fastcc ptr @_agstrcanon(ptr noundef %2, ptr noundef nonnull %.0.i1115)
+  %27 = tail call fastcc ptr @_agstrcanon(ptr noundef nonnull %2, ptr noundef nonnull %.0.i1115)
   br label %agcanonStr.exit
 
 agcanonStr.exit:                                  ; preds = %19, %17, %getoutputbuffer.exit.i, %11, %26
@@ -1890,7 +1890,7 @@ declare ptr @agroot(ptr noundef) local_unnamed_addr #1
 declare i32 @dtsize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @agsubnode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2159,7 +2159,7 @@ indent.exit:                                      ; preds = %96, %91, %indent.ex
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @agsubedge(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

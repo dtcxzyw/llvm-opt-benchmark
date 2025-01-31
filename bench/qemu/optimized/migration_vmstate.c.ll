@@ -96,7 +96,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [2 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qemu_peek_buffer, ptr @.str.7, ptr @.str.65, i32 55, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_peek_byte, ptr @.str.7, ptr @.str.65, i32 67, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vmstate_load_state(ptr noundef %f, ptr nocapture noundef readonly %vmsd, ptr noundef %opaque, i32 noundef %version_id) local_unnamed_addr #0 {
+define dso_local i32 @vmstate_load_state(ptr noundef %f, ptr noundef readonly captures(none) %vmsd, ptr noundef %opaque, i32 noundef %version_id) local_unnamed_addr #0 {
 entry:
   %_now.i.i142 = alloca %struct.timeval, align 8
   %_now.i.i124 = alloca %struct.timeval, align 8
@@ -597,7 +597,7 @@ _nocheck__trace_vmstate_load_state_end.exit:      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @vmstate_field_exists(ptr nocapture noundef readonly %vmsd, ptr nocapture noundef readonly %field, ptr noundef %opaque, i32 noundef %version_id) unnamed_addr #0 {
+define internal fastcc zeroext i1 @vmstate_field_exists(ptr noundef readonly captures(none) %vmsd, ptr noundef readonly captures(none) %field, ptr noundef %opaque, i32 noundef %version_id) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %field_exists = getelementptr inbounds nuw i8, ptr %field, i64 96
@@ -660,7 +660,7 @@ if.end:                                           ; preds = %if.else, %trace_vms
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vmstate_n_elems(ptr nocapture noundef readonly %opaque, ptr nocapture noundef readonly %field) unnamed_addr #0 {
+define internal fastcc i32 @vmstate_n_elems(ptr noundef readonly captures(none) %opaque, ptr noundef readonly captures(none) %field) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %flags = getelementptr inbounds nuw i8, ptr %field, i64 72
@@ -787,7 +787,7 @@ declare i32 @qemu_file_get_error(ptr noundef) local_unnamed_addr #1
 declare void @qemu_file_set_error(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vmstate_subsection_load(ptr noundef %f, ptr nocapture noundef readonly %vmsd, ptr noundef %opaque) unnamed_addr #0 {
+define internal fastcc i32 @vmstate_subsection_load(ptr noundef %f, ptr noundef readonly captures(none) %vmsd, ptr noundef %opaque) unnamed_addr #0 {
 entry:
   %_now.i.i99 = alloca %struct.timeval, align 8
   %_now.i.i84 = alloca %struct.timeval, align 8
@@ -877,11 +877,11 @@ if.then8.i.i35:                                   ; preds = %if.then.i.i32
   %12 = load i64, ptr %_now.i.i25, align 8
   %tv_usec.i.i38 = getelementptr inbounds nuw i8, ptr %_now.i.i25, i64 8
   %13 = load i64, ptr %tv_usec.i.i38, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i37, i64 noundef %12, i64 noundef %13, ptr noundef %7, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i37, i64 noundef %12, i64 noundef %13, ptr noundef nonnull %7, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49) #10
   br label %trace_vmstate_subsection_load_bad.exit
 
 if.else.i.i34:                                    ; preds = %if.then.i.i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, ptr noundef %7, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, ptr noundef nonnull %7, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49) #10
   br label %trace_vmstate_subsection_load_bad.exit
 
 trace_vmstate_subsection_load_bad.exit:           ; preds = %if.then, %land.lhs.true5.i.i29, %if.then8.i.i35, %if.else.i.i34
@@ -941,7 +941,7 @@ if.end17:                                         ; preds = %if.end
   store i8 0, ptr %arrayidx, align 1
   %23 = load ptr, ptr %vmsd, align 8
   %call22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #13
-  %call23 = call i32 @strncmp(ptr noundef %23, ptr noundef nonnull %idstr, i64 noundef %call22) #13
+  %call23 = call i32 @strncmp(ptr noundef nonnull %23, ptr noundef nonnull %idstr, i64 noundef %call22) #13
   %cmp24.not = icmp eq i32 %call23, 0
   br i1 %cmp24.not, label %if.end29, label %if.then26
 
@@ -971,11 +971,11 @@ if.then8.i.i64:                                   ; preds = %if.then.i.i61
   %28 = load i64, ptr %_now.i.i54, align 8
   %tv_usec.i.i67 = getelementptr inbounds nuw i8, ptr %_now.i.i54, i64 8
   %29 = load i64, ptr %tv_usec.i.i67, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i66, i64 noundef %28, i64 noundef %29, ptr noundef %23, ptr noundef nonnull %idstr, ptr noundef nonnull @.str.51) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i66, i64 noundef %28, i64 noundef %29, ptr noundef nonnull %23, ptr noundef nonnull %idstr, ptr noundef nonnull @.str.51) #10
   br label %trace_vmstate_subsection_load_bad.exit68
 
 if.else.i.i63:                                    ; preds = %if.then.i.i61
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, ptr noundef %23, ptr noundef nonnull %idstr, ptr noundef nonnull @.str.51) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, ptr noundef nonnull %23, ptr noundef nonnull %idstr, ptr noundef nonnull @.str.51) #10
   br label %trace_vmstate_subsection_load_bad.exit68
 
 trace_vmstate_subsection_load_bad.exit68:         ; preds = %if.then26, %land.lhs.true5.i.i58, %if.then8.i.i64, %if.else.i.i63
@@ -1030,11 +1030,11 @@ if.then8.i.i79:                                   ; preds = %if.then.i.i76
   %37 = load i64, ptr %_now.i.i69, align 8
   %tv_usec.i.i82 = getelementptr inbounds nuw i8, ptr %_now.i.i69, i64 8
   %38 = load i64, ptr %tv_usec.i.i82, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i81, i64 noundef %37, i64 noundef %38, ptr noundef %23, ptr noundef nonnull %idstr, ptr noundef nonnull @.str.52) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i81, i64 noundef %37, i64 noundef %38, ptr noundef nonnull %23, ptr noundef nonnull %idstr, ptr noundef nonnull @.str.52) #10
   br label %trace_vmstate_subsection_load_bad.exit83
 
 if.else.i.i78:                                    ; preds = %if.then.i.i76
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, ptr noundef %23, ptr noundef nonnull %idstr, ptr noundef nonnull @.str.52) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, ptr noundef nonnull %23, ptr noundef nonnull %idstr, ptr noundef nonnull @.str.52) #10
   br label %trace_vmstate_subsection_load_bad.exit83
 
 trace_vmstate_subsection_load_bad.exit83:         ; preds = %if.then34, %land.lhs.true5.i.i73, %if.then8.i.i79, %if.else.i.i78
@@ -1133,7 +1133,7 @@ return:                                           ; preds = %trace_vmstate_subse
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @vmstate_section_needed(ptr nocapture noundef readonly %vmsd, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @vmstate_section_needed(ptr noundef readonly captures(none) %vmsd, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %needed = getelementptr inbounds nuw i8, ptr %vmsd, i64 56
   %0 = load ptr, ptr %needed, align 8
@@ -1153,7 +1153,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vmstate_save_state(ptr noundef %f, ptr nocapture noundef readonly %vmsd, ptr noundef %opaque, ptr noundef %vmdesc_id) local_unnamed_addr #0 {
+define dso_local i32 @vmstate_save_state(ptr noundef %f, ptr noundef readonly captures(none) %vmsd, ptr noundef %opaque, ptr noundef %vmdesc_id) local_unnamed_addr #0 {
 entry:
   %version_id = getelementptr inbounds nuw i8, ptr %vmsd, i64 12
   %0 = load i32, ptr %version_id, align 4
@@ -1162,7 +1162,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vmstate_save_state_v(ptr noundef %f, ptr nocapture noundef readonly %vmsd, ptr noundef %opaque, ptr noundef %vmdesc, i32 noundef %version_id, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @vmstate_save_state_v(ptr noundef %f, ptr noundef readonly captures(none) %vmsd, ptr noundef %opaque, ptr noundef %vmdesc, i32 noundef %version_id, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i26.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1834,7 +1834,7 @@ return:                                           ; preds = %if.then115, %vmstat
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vmstate_save_state_with_err(ptr noundef %f, ptr nocapture noundef readonly %vmsd, ptr noundef %opaque, ptr noundef %vmdesc_id, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @vmstate_save_state_with_err(ptr noundef %f, ptr noundef readonly captures(none) %vmsd, ptr noundef %opaque, ptr noundef %vmdesc_id, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %version_id = getelementptr inbounds nuw i8, ptr %vmsd, i64 12
   %0 = load i32, ptr %version_id, align 4
@@ -1853,7 +1853,7 @@ declare void @json_writer_start_array(ptr noundef, ptr noundef) local_unnamed_ad
 declare i64 @qemu_file_transferred(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @vmsd_can_compress(ptr nocapture noundef readonly %field) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @vmsd_can_compress(ptr noundef readonly captures(none) %field) unnamed_addr #4 {
 entry:
   %field_exists = getelementptr inbounds nuw i8, ptr %field, i64 96
   %0 = load ptr, ptr %field_exists, align 8
@@ -1904,7 +1904,7 @@ return:                                           ; preds = %while.body, %while.
 declare void @json_writer_end_array(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1922,22 +1922,22 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @json_writer_start_object(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @json_writer_end_object(ptr noundef) local_unnamed_addr #1
 
 declare i32 @qemu_peek_byte(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i64 @qemu_peek_buffer(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare void @qemu_file_skip(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1950,10 +1950,10 @@ declare void @qemu_put_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare void @qemu_put_be32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

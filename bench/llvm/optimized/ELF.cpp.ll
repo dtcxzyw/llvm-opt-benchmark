@@ -5054,7 +5054,7 @@ define weak_odr void @_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 1 ptr @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #1 comdat align 2 {
@@ -8223,7 +8223,7 @@ _ZN4llvm8ExpectedIPKNS_6object13Elf_Shdr_ImplINS1_7ELFTypeILNS_10endiannessE1ELb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm6objectL21defaultWarningHandlerERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) #1 {
+define internal void @_ZN4llvm6objectL21defaultWarningHandlerERKNS_5TwineE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20, !noalias !659
@@ -9864,7 +9864,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Phdr_ImplINS2_7ELFTypeILNS_10endi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL27getDynSymtabSizeFromGnuHashINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENS_8ExpectedImEERKNT_7GnuHashEPKv(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef readnone %2) unnamed_addr #1 {
+define internal fastcc void @_ZN4llvm6objectL27getDynSymtabSizeFromGnuHashINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENS_8ExpectedImEERKNT_7GnuHashEPKv(ptr dead_on_unwind noalias writable align 8 captures(none) %0, ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef readnone %2) unnamed_addr #1 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.10", align 1
   %6 = alloca %"class.llvm::Error", align 8
@@ -12093,7 +12093,7 @@ _ZNSt8optionalIN4llvm6object12VersionEntryEEC2EOS3_.exit: ; preds = %_ZN4llvm23S
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE14loadVersionMapEPKNS0_13Elf_Shdr_ImplIS4_EES9_ENKUljNS_9StringRefEbE_clEjSA_b(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #1 comdat align 2 {
@@ -14056,7 +14056,7 @@ _ZNSt6vectorIN4llvm6object12Elf_Rel_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb0EEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #1 {
+define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr %1, i64 %2, ptr readonly captures(none) %3, i64 %4, ptr readonly captures(none) %.0.val, i64 %.8.val) unnamed_addr #1 {
   %6 = alloca %"class.llvm::DataExtractor", align 8
   %7 = alloca %"class.llvm::DataExtractor::Cursor", align 8
   store ptr %1, ptr %6, align 8
@@ -16299,7 +16299,7 @@ _ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE1ELb0EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE1ELb0EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %"class.llvm::Error", align 8
@@ -23937,7 +23937,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Phdr_ImplINS2_7ELFTypeILNS_10endi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL27getDynSymtabSizeFromGnuHashINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENS_8ExpectedImEERKNT_7GnuHashEPKv(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef readnone %2) unnamed_addr #1 {
+define internal fastcc void @_ZN4llvm6objectL27getDynSymtabSizeFromGnuHashINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENS_8ExpectedImEERKNT_7GnuHashEPKv(ptr dead_on_unwind noalias writable align 8 captures(none) %0, ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef readnone %2) unnamed_addr #1 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.10", align 1
   %6 = alloca %"class.llvm::Error", align 8
@@ -30151,7 +30151,7 @@ _ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE0ELb0EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE0ELb0EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %"class.llvm::Error", align 8
@@ -37681,7 +37681,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Phdr_ImplINS2_7ELFTypeILNS_10endi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL27getDynSymtabSizeFromGnuHashINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENS_8ExpectedImEERKNT_7GnuHashEPKv(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef readnone %2) unnamed_addr #1 {
+define internal fastcc void @_ZN4llvm6objectL27getDynSymtabSizeFromGnuHashINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENS_8ExpectedImEERKNT_7GnuHashEPKv(ptr dead_on_unwind noalias writable align 8 captures(none) %0, ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef readnone %2) unnamed_addr #1 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.10", align 1
   %6 = alloca %"class.llvm::Error", align 8
@@ -41990,7 +41990,7 @@ _ZNSt6vectorIN4llvm6object12Elf_Rel_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #1 {
+define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr %1, i64 %2, ptr readonly captures(none) %3, i64 %4, ptr readonly captures(none) %.0.val, i64 %.8.val) unnamed_addr #1 {
   %6 = alloca %"struct.llvm::object::Elf_Crel_Impl.824", align 8
   %7 = alloca %"class.llvm::DataExtractor", align 8
   %8 = alloca %"class.llvm::DataExtractor::Cursor", align 8
@@ -44199,7 +44199,7 @@ _ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE1ELb1EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE1ELb1EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %"class.llvm::Error", align 8
@@ -51791,7 +51791,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Phdr_ImplINS2_7ELFTypeILNS_10endi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL27getDynSymtabSizeFromGnuHashINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENS_8ExpectedImEERKNT_7GnuHashEPKv(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef readnone %2) unnamed_addr #1 {
+define internal fastcc void @_ZN4llvm6objectL27getDynSymtabSizeFromGnuHashINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENS_8ExpectedImEERKNT_7GnuHashEPKv(ptr dead_on_unwind noalias writable align 8 captures(none) %0, ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef readnone %2) unnamed_addr #1 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.10", align 1
   %6 = alloca %"class.llvm::Error", align 8
@@ -58254,7 +58254,7 @@ _ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE0ELb1EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE0ELb1EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %"class.llvm::Error", align 8
@@ -61025,7 +61025,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Phdr_ImplINS2_7ELFTypeILNS_10endi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef) unnamed_addr #3
 
@@ -61247,7 +61247,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE21t
 declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -63517,7 +63517,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
@@ -65323,7 +65323,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL13readULEB128AsIjTnNSt9enable_ifIXsr3stdE13is_unsigned_vIT_EEiE4typeELi0EES1_RN4llvm13DataExtractorERNS5_6CursorERNS4_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZL13readULEB128AsIjTnNSt9enable_ifIXsr3stdE13is_unsigned_vIT_EEiE4typeELi0EES1_RN4llvm13DataExtractorERNS5_6CursorERNS4_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -65404,7 +65404,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE1ELb0EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EEENKUlvE_clEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE1ELb0EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EEENKUlvE_clEv(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Expected.68", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -65927,7 +65927,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJhEE7snprintEPc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #15
@@ -69056,7 +69056,7 @@ _ZN4llvm5ErrorD2Ev.exit19:                        ; preds = %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE0ELb0EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EEENKUlvE_clEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE0ELb0EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EEENKUlvE_clEv(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Expected.226", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -71533,7 +71533,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3:                 ; preds = %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE1ELb1EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EEENKUlvE_clEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE1ELb1EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EEENKUlvE_clEv(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Expected.370", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -73956,7 +73956,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3:                 ; preds = %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE0ELb1EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EEENKUlvE_clEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZZL19decodeBBAddrMapImplIN4llvm6object7ELFTypeILNS0_10endiannessE0ELb1EEEENS0_8ExpectedISt6vectorINS1_9BBAddrMapESaIS7_EEEERKNS1_7ELFFileIT_EERKNSD_8Elf_ShdrEPSH_PS6_INS1_14PGOAnalysisMapESaISK_EEENKUlvE_clEv(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Expected.514", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -74797,10 +74797,10 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #16
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

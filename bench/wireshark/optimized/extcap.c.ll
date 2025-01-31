@@ -70,7 +70,7 @@ define hidden void @extcap_clear_interfaces() local_unnamed_addr #0 {
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @extcap_get_descriptions(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @extcap_get_descriptions(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call fastcc void @extcap_ensure_all_interfaces_loaded()
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 400), align 8
   %.not.i = icmp eq i32 %3, 0
@@ -744,7 +744,7 @@ declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 declare void @g_ptr_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @compare_tools(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @compare_tools(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -762,7 +762,7 @@ define hidden void @extcap_dump_all() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @print_extcap_description(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #2 {
+define internal void @print_extcap_description(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #2 {
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret void
 }
@@ -846,7 +846,7 @@ declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @extcap_run_one(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @extcap_run_one(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct._extcap_callback_info_t, align 8
   %8 = tail call ptr @get_extcap_dir() #11
@@ -925,7 +925,7 @@ extcap_free_array.exit:                           ; preds = %.lr.ph.i12, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cb_dlt(ptr nocapture noundef readonly byval(%struct._extcap_callback_info_t) align 8 %0) #0 {
+define internal noundef i32 @cb_dlt(ptr noundef readonly byval(%struct._extcap_callback_info_t) align 8 captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @extcap_parse_dlts(ptr noundef %3) #11
@@ -1161,7 +1161,7 @@ define hidden ptr @append_extcap_interface_list(ptr noundef %0) local_unnamed_ad
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @if_info_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @if_info_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @g_strcmp0(ptr noundef %3, ptr noundef %4) #11
@@ -1294,7 +1294,7 @@ define hidden void @extcap_free_if_configuration(ptr noundef %0, i32 noundef %1)
 declare void @extcap_free_arg_list(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @extcap_pref_for_argument(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @extcap_pref_for_argument(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @extcap_ensure_all_interfaces_loaded()
   %3 = tail call ptr @g_regex_new(ptr noundef nonnull @.str.4, i32 noundef 2048, i32 noundef 0, ptr noundef null) #11
   %4 = tail call ptr @g_regex_new(ptr noundef nonnull @.str.5, i32 noundef 2048, i32 noundef 0, ptr noundef null) #11
@@ -1312,9 +1312,9 @@ define hidden ptr @extcap_pref_for_argument(ptr noundef %0, ptr nocapture nounde
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #14
-  %13 = tail call ptr @g_regex_replace(ptr noundef nonnull %3, ptr noundef %11, i64 noundef %12, i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null) #11
+  %13 = tail call ptr @g_regex_replace(ptr noundef nonnull %3, ptr noundef nonnull %11, i64 noundef %12, i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null) #11
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
-  %15 = tail call ptr @g_regex_replace(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %14, i32 noundef 0, ptr noundef nonnull @.str.7, i32 noundef 0, ptr noundef null) #11
+  %15 = tail call ptr @g_regex_replace(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef %14, i32 noundef 0, ptr noundef nonnull @.str.7, i32 noundef 0, ptr noundef null) #11
   %16 = tail call noalias ptr @g_ascii_strdown(ptr noundef %15, i64 noundef -1) #11
   %17 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %16, ptr noundef nonnull @.str.8, ptr noundef %13, ptr noundef null) #11
   %18 = tail call ptr @prefs_find_module(ptr noundef nonnull @.str) #11
@@ -1350,7 +1350,7 @@ declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) loc
 declare ptr @g_regex_replace(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noalias ptr @g_ascii_strdown(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1427,7 +1427,7 @@ extcap_find_interface_for_ifname.exit.thread:     ; preds = %15, %.lr.ph.i, %13,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cb_preference(ptr nocapture noundef readonly byval(%struct._extcap_callback_info_t) align 8 %0) #0 {
+define internal range(i32 0, 2) i32 @cb_preference(ptr noundef readonly byval(%struct._extcap_callback_info_t) align 8 captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1470,9 +1470,9 @@ define internal range(i32 0, 2) i32 @cb_preference(ptr nocapture noundef readonl
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #14
-  %28 = call ptr @g_regex_replace(ptr noundef nonnull %11, ptr noundef %26, i64 noundef %27, i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null) #11
+  %28 = call ptr @g_regex_replace(ptr noundef nonnull %11, ptr noundef nonnull %26, i64 noundef %27, i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null) #11
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #14
-  %30 = call ptr @g_regex_replace(ptr noundef nonnull %12, ptr noundef %17, i64 noundef %29, i32 noundef 0, ptr noundef nonnull @.str.7, i32 noundef 0, ptr noundef null) #11
+  %30 = call ptr @g_regex_replace(ptr noundef nonnull %12, ptr noundef nonnull %17, i64 noundef %29, i32 noundef 0, ptr noundef nonnull @.str.7, i32 noundef 0, ptr noundef null) #11
   %31 = call noalias ptr @g_ascii_strdown(ptr noundef %30, i64 noundef -1) #11
   %32 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %31, ptr noundef nonnull @.str.8, ptr noundef %28, ptr noundef null) #11
   %33 = call ptr @prefs_find_preference(ptr noundef nonnull %9, ptr noundef %32) #11
@@ -1704,7 +1704,7 @@ extcap_find_interface_for_ifname.exit.thread:     ; preds = %17, %.lr.ph.i, %15,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cb_reload_preference(ptr nocapture noundef readonly byval(%struct._extcap_callback_info_t) align 8 %0) #0 {
+define internal noundef i32 @cb_reload_preference(ptr noundef readonly byval(%struct._extcap_callback_info_t) align 8 captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1982,7 +1982,7 @@ extcap_find_interface_for_ifname.exit.thread:     ; preds = %17, %.lr.ph.i, %15,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cb_verify_filter(ptr nocapture noundef readonly byval(%struct._extcap_callback_info_t) align 8 %0) #0 {
+define internal noundef i32 @cb_verify_filter(ptr noundef readonly byval(%struct._extcap_callback_info_t) align 8 captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2452,10 +2452,10 @@ declare i32 @g_thread_pool_push(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @g_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca [4 x ptr], align 16
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %50, label %5
@@ -2562,7 +2562,7 @@ define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr nocapture
 declare ptr @extcap_parse_interfaces(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @extcap_process_config_cb(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 16)) %1, ptr noundef %2) #6 {
+define internal void @extcap_process_config_cb(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 16)) %1, ptr noundef %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %2, ptr %4, align 8
   ret void
@@ -2577,7 +2577,7 @@ declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, pt
 declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @remove_extcap_entry(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @remove_extcap_entry(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 3
@@ -2612,7 +2612,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @iface_toolbar_add(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #8
@@ -2623,7 +2623,7 @@ declare ptr @extcap_parse_dlts(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @extcap_free_dlt(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @extcap_free_dlt(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -2656,13 +2656,13 @@ declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef,
 declare ptr @extcap_parse_values(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

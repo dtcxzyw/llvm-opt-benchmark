@@ -635,7 +635,7 @@ default.unreachable175:                           ; preds = %.loopexit
   br i1 %239, label %240, label %242
 
 240:                                              ; preds = %.lr.ph7.i
-  %241 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef %1, ptr noundef nonnull @ei_btmesh_proxy_wrong_address_type, ptr noundef %202, i32 noundef %.16.i, i32 noundef 2) #5
+  %241 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_proxy_wrong_address_type, ptr noundef %202, i32 noundef %.16.i, i32 noundef 2) #5
   br label %242
 
 242:                                              ; preds = %240, %.lr.ph7.i
@@ -654,7 +654,7 @@ default.unreachable175:                           ; preds = %.loopexit
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %.lr.ph.i
-  %251 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef %1, ptr noundef nonnull @ei_btmesh_proxy_wrong_address_type, ptr noundef %202, i32 noundef %.24.i, i32 noundef 2) #5
+  %251 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_proxy_wrong_address_type, ptr noundef %202, i32 noundef %.24.i, i32 noundef 2) #5
   br label %252
 
 252:                                              ; preds = %250, %.lr.ph.i
@@ -698,7 +698,7 @@ default.unreachable175:                           ; preds = %.loopexit
   br i1 %.not125.i, label %dissect_btmesh_proxy_configuration_msg.exit, label %276
 
 276:                                              ; preds = %.loopexit.i
-  %277 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef %1, ptr noundef nonnull @ei_btmesh_proxy_unknown_payload, ptr noundef %202, i32 noundef %.0117.i, i32 noundef -1) #5
+  %277 = call ptr @proto_tree_add_expert(ptr noundef %221, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_proxy_unknown_payload, ptr noundef %202, i32 noundef %.0117.i, i32 noundef -1) #5
   br label %dissect_btmesh_proxy_configuration_msg.exit
 
 dissect_btmesh_proxy_configuration_msg.exit:      ; preds = %160, %.loopexit.i, %276
@@ -844,13 +844,13 @@ declare ptr @wmem_allocator_new(i32 noundef) local_unnamed_addr #1
 declare void @wmem_destroy_allocator(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

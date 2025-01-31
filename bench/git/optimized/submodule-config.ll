@@ -121,10 +121,10 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 -1, 1) i32 @check_submodule_name(ptr nocapture noundef readonly %name) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @check_submodule_name(ptr noundef readonly captures(none) %name) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not = icmp eq i8 %0, 0
@@ -247,7 +247,7 @@ sw.default.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %parse_fetch_recurse.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.default.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, ptr noundef %opt, ptr noundef %arg) #15
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, ptr noundef %opt, ptr noundef nonnull %arg) #15
   unreachable
 
 parse_fetch_recurse.exit:                         ; preds = %entry, %sw.bb1.i, %sw.default.i
@@ -256,7 +256,7 @@ parse_fetch_recurse.exit:                         ; preds = %entry, %sw.bb1.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @option_fetch_parse_recurse_submodules(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @option_fetch_parse_recurse_submodules(ptr noundef readonly captures(none) %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
   %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -352,7 +352,7 @@ if.else9.i:                                       ; preds = %if.else5.i
   br i1 %tobool11.not.i, label %parse_push_recurse.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.else9.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, ptr noundef %opt, ptr noundef %arg) #15
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, ptr noundef %opt, ptr noundef nonnull %arg) #15
   unreachable
 
 parse_push_recurse.exit:                          ; preds = %entry, %sw.default.i, %if.else5.i, %if.else9.i
@@ -502,7 +502,7 @@ if.end17:                                         ; preds = %out, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @gitmodules_cb(ptr noundef %var, ptr noundef %value, ptr nocapture noundef readnone %ctx, ptr nocapture noundef readonly %data) #0 {
+define internal range(i32 -1, 1) i32 @gitmodules_cb(ptr noundef %var, ptr noundef %value, ptr noundef readnone captures(none) %ctx, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %parameter = alloca %struct.parse_config_parameter, align 8
   %submodule_cache = getelementptr inbounds nuw i8, ptr %data, i64 232
@@ -579,7 +579,7 @@ if.end:                                           ; preds = %if.then, %submodule
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @gitmodule_oid_from_commit(ptr noundef %treeish_name, ptr noundef nonnull %gitmodules_oid, ptr noundef nonnull %rev) unnamed_addr #0 {
@@ -905,7 +905,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @submodules_of_tree(ptr noundef %r, ptr noundef %treeish_name, ptr nocapture noundef initializes((0, 16)) %out) local_unnamed_addr #0 {
+define dso_local void @submodules_of_tree(ptr noundef %r, ptr noundef %treeish_name, ptr noundef captures(none) initializes((0, 16)) %out) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 0, i64 noundef 24) #14
   store ptr %call, ptr %out, align 8
@@ -920,7 +920,7 @@ entry:
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @traverse_tree_submodules(ptr noundef %r, ptr noundef %root_tree, ptr noundef %prefix, ptr noundef %treeish_name, ptr nocapture noundef %out) unnamed_addr #0 {
+define internal fastcc void @traverse_tree_submodules(ptr noundef %r, ptr noundef %root_tree, ptr noundef %prefix, ptr noundef %treeish_name, ptr noundef captures(none) %out) unnamed_addr #0 {
 entry:
   %tree = alloca %struct.tree_desc, align 8
   %call = tail call ptr @xmalloc(i64 noundef 56) #14
@@ -1049,7 +1049,7 @@ while.end:                                        ; preds = %if.end56, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @submodule_free(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
+define dso_local void @submodule_free(ptr noundef readonly captures(none) %r) local_unnamed_addr #0 {
 entry:
   %submodule_cache = getelementptr inbounds nuw i8, ptr %r, i64 232
   %0 = load ptr, ptr %submodule_cache, align 8
@@ -1087,7 +1087,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @git_config_parse_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @config_print_callback(ptr nocapture noundef readonly %var, ptr nocapture noundef readonly %value, ptr nocapture readnone %ctx, ptr nocapture noundef readonly %cb_data) #6 {
+define internal noundef i32 @config_print_callback(ptr noundef readonly captures(none) %var, ptr noundef readonly captures(none) %value, ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %cb_data) #6 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cb_data, ptr noundef nonnull dereferenceable(1) %var) #16
   %tobool.not = icmp eq i32 %call, 0
@@ -1143,7 +1143,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gitmodules_fetch_config(ptr noundef %var, ptr noundef %value, ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %cb) #0 {
+define internal noundef i32 @gitmodules_fetch_config(ptr noundef %var, ptr noundef %value, ptr noundef readonly captures(none) %ctx, ptr noundef readonly captures(none) %cb) #0 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(20) @.str.32) #16
   %tobool.not = icmp eq i32 %call, 0
@@ -1156,7 +1156,7 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   %1 = load ptr, ptr %ctx, align 8
-  %call.i = tail call i32 @git_config_int(ptr noundef %var, ptr noundef %value, ptr noundef %1) #14
+  %call.i = tail call i32 @git_config_int(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %1) #14
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -1206,7 +1206,7 @@ sw.default.i.i:                                   ; preds = %if.then9
   br i1 %tobool.not.i.i, label %parse_fetch_recurse_submodules_arg.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.default.i.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, ptr noundef %var, ptr noundef %value) #15
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, ptr noundef nonnull %var, ptr noundef nonnull %value) #15
   unreachable
 
 parse_fetch_recurse_submodules_arg.exit:          ; preds = %if.then9, %sw.bb1.i.i, %sw.default.i.i
@@ -1230,7 +1230,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gitmodules_update_clone_config(ptr noundef %var, ptr noundef %value, ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %cb) #0 {
+define internal noundef i32 @gitmodules_update_clone_config(ptr noundef %var, ptr noundef %value, ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %cb) #0 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(20) @.str.32) #16
   %tobool.not = icmp eq i32 %call, 0
@@ -1238,7 +1238,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %ctx, align 8
-  %call.i = tail call i32 @git_config_int(ptr noundef %var, ptr noundef %value, ptr noundef %0) #14
+  %call.i = tail call i32 @git_config_int(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %0) #14
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -1276,12 +1276,12 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #7
 declare i32 @git_parse_maybe_bool(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @config_path_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #9 {
+define internal range(i32 0, 2) i32 @config_path_cmp(ptr readnone captures(none) %cmp_data, ptr noundef readonly captures(none) %eptr, ptr noundef readonly captures(none) %entry_or_key, ptr readnone captures(none) %keydata) #9 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %eptr, i64 16
   %0 = load ptr, ptr %config, align 8
@@ -1329,7 +1329,7 @@ lor.end:                                          ; preds = %oideq.exit, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @config_name_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #9 {
+define internal range(i32 0, 2) i32 @config_name_cmp(ptr readnone captures(none) %cmp_data, ptr noundef readonly captures(none) %eptr, ptr noundef readonly captures(none) %entry_or_key, ptr readnone captures(none) %keydata) #9 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %eptr, i64 16
   %0 = load ptr, ptr %config, align 8
@@ -1379,7 +1379,7 @@ lor.end:                                          ; preds = %oideq.exit, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare ptr @repo_worktree_path(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -1398,7 +1398,7 @@ declare i32 @config_with_options(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @null_oid() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @parse_config(ptr noundef %var, ptr noundef %value, ptr nocapture readnone %ctx, ptr nocapture noundef readonly %data) #0 {
+define internal range(i32 -1, 1) i32 @parse_config(ptr noundef %var, ptr noundef %value, ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %e.i = alloca %struct.submodule_entry, align 8
   %key.i.i = alloca %struct.submodule_entry, align 8
@@ -1497,7 +1497,7 @@ name_and_item_from_var.exit.thread:               ; preds = %_.exit.i, %entry
 if.end:                                           ; preds = %if.end19.i.i
   %10 = load ptr, ptr %key.i, align 8
   %call.i6.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #16
-  call void @strbuf_add(ptr noundef nonnull %item, ptr noundef %10, i64 noundef %call.i6.i) #14
+  call void @strbuf_add(ptr noundef nonnull %item, ptr noundef nonnull %10, i64 noundef %call.i6.i) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %subsection.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %subsection_len.i)
@@ -1551,7 +1551,7 @@ cache_lookup_name.exit.i:                         ; preds = %if.end
 if.end.i79:                                       ; preds = %cache_lookup_name.exit.i, %cache_lookup_name.exit.thread.i
   %call1.i = call ptr @xmalloc(i64 noundef 104) #14
   %call.i.i80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #16
-  call void @strbuf_add(ptr noundef nonnull %name_buf.i, ptr noundef %13, i64 noundef %call.i.i80) #14
+  call void @strbuf_add(ptr noundef nonnull %name_buf.i, ptr noundef nonnull %13, i64 noundef %call.i.i80) #14
   %call2.i = call ptr @strbuf_detach(ptr noundef nonnull %name_buf.i, ptr noundef null) #14
   %name3.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   store ptr %call2.i, ptr %name3.i, align 8
@@ -1773,7 +1773,7 @@ sw.default.i:                                     ; preds = %if.else44
   br i1 %brmerge, label %parse_fetch_recurse.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %sw.default.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.5, ptr noundef %var, ptr noundef %value) #15
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.5, ptr noundef %var, ptr noundef nonnull %value) #15
   unreachable
 
 parse_fetch_recurse.exit:                         ; preds = %sw.default.i, %if.else44, %sw.bb1.i
@@ -2069,7 +2069,7 @@ declare i32 @parse_config_key(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #3
 
@@ -2106,16 +2106,16 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @repo_submodule_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -58,7 +58,7 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_comillP8PJconsts(ptr
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal { double, double } @_ZL16comill_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
+define internal { double, double } @_ZL16comill_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = fcmp ogt double %1, 0x3FFE290B9B071206
   br i1 %4, label %8, label %5
 
@@ -106,7 +106,7 @@ define internal { double, double } @_ZL16comill_s_inverse5PJ_XYP8PJconsts(double
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { double, double } @_ZL16comill_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
+define internal { double, double } @_ZL16comill_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr readnone captures(none) %2) #3 {
   %4 = fmul double %1, %1
   %5 = tail call double @llvm.fmuladd.f64(double %4, double -3.054000e-02, double 1.604000e-01)
   %6 = tail call double @llvm.fmuladd.f64(double %4, double %5, double 0x3FEFAFB7E90FF972)

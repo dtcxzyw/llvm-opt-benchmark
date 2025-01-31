@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_cfb128_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef %num, i32 noundef %enc, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define hidden void @CRYPTO_cfb128_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr noundef captures(none) %num, i32 noundef %enc, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %num, align 4
   %tobool.not = icmp eq i32 %enc, 0
@@ -214,7 +214,7 @@ return:                                           ; preds = %while.body27, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_cfb128_1_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef %out, i64 noundef %bits, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readnone %num, i32 noundef %enc, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define hidden void @CRYPTO_cfb128_1_encrypt(ptr noundef readonly captures(none) %in, ptr noundef captures(none) %out, i64 noundef %bits, ptr noundef %key, ptr noundef %ivec, ptr noundef readnone captures(none) %num, i32 noundef %enc, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %ovec.i = alloca [33 x i8], align 16
   %cmp10.not = icmp eq i64 %bits, 0
@@ -240,7 +240,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %cf
   %conv1.us = select i1 %tobool.not.us, i8 0, i8 -128
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %ovec.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ovec.i, ptr noundef nonnull align 1 dereferenceable(16) %ivec, i64 16, i1 false)
-  tail call void %block(ptr noundef %ivec, ptr noundef %ivec, ptr noundef %key) #4
+  tail call void %block(ptr noundef nonnull %ivec, ptr noundef nonnull %ivec, ptr noundef %key) #4
   %4 = load i8, ptr %ivec, align 1
   store i8 %conv1.us, ptr %0, align 16
   %.pre14 = load i8, ptr %ovec.i, align 16
@@ -291,7 +291,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %cf
   %conv1 = select i1 %tobool.not, i8 0, i8 -128
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %ovec.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ovec.i, ptr noundef nonnull align 1 dereferenceable(16) %ivec, i64 16, i1 false)
-  tail call void %block(ptr noundef %ivec, ptr noundef %ivec, ptr noundef %key) #4
+  tail call void %block(ptr noundef nonnull %ivec, ptr noundef nonnull %ivec, ptr noundef %key) #4
   %13 = load i8, ptr %ivec, align 1
   %xor2635.i = xor i8 %13, %conv1
   store i8 %xor2635.i, ptr %0, align 16
@@ -332,7 +332,7 @@ for.end:                                          ; preds = %cfbr_encrypt_block.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_cfb128_8_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %length, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readnone %num, i32 noundef %enc, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define hidden void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %length, ptr noundef %key, ptr noundef %ivec, ptr noundef readnone captures(none) %num, i32 noundef %enc, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %ovec.i.sroa.0 = alloca [16 x i8], align 16
   %cmp4.not = icmp eq i64 %length, 0
@@ -350,7 +350,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %arrayidx1.us = getelementptr inbounds i8, ptr %out, i64 %n.05.us
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ovec.i.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ovec.i.sroa.0, ptr noundef nonnull align 1 dereferenceable(16) %ivec, i64 16, i1 false)
-  tail call void %block(ptr noundef %ivec, ptr noundef %ivec, ptr noundef %key) #4
+  tail call void %block(ptr noundef nonnull %ivec, ptr noundef nonnull %ivec, ptr noundef %key) #4
   %0 = load i8, ptr %arrayidx.us, align 1
   %1 = load i8, ptr %ivec, align 1
   %xor2635.i.us = xor i8 %1, %0
@@ -368,7 +368,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx1 = getelementptr inbounds i8, ptr %out, i64 %n.05
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ovec.i.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ovec.i.sroa.0, ptr noundef nonnull align 1 dereferenceable(16) %ivec, i64 16, i1 false)
-  tail call void %block(ptr noundef %ivec, ptr noundef %ivec, ptr noundef %key) #4
+  tail call void %block(ptr noundef nonnull %ivec, ptr noundef nonnull %ivec, ptr noundef %key) #4
   %2 = load i8, ptr %arrayidx, align 1
   %3 = load i8, ptr %ivec, align 1
   %xor2635.i = xor i8 %3, %2
@@ -385,16 +385,16 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

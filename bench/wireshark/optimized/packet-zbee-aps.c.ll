@@ -651,7 +651,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.526 = private unnamed_addr constant [7 x i8] c"SE 1.4\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_zbee_aps_status_code(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @dissect_zbee_aps_status_code(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %6 = zext i8 %5 to i32
   %7 = load i32, ptr @hf_zbee_aps_cmd_status, align 4
@@ -1340,7 +1340,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %169, %zbee_aps_calc
 336:                                              ; preds = %331
   %337 = load i32, ptr @hf_zbee_aps_cmd_key, align 4
   %338 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %337, ptr noundef nonnull %.1263, i32 noundef 2, i32 noundef 16, i32 noundef 0) #3
-  call void @zbee_sec_add_key_to_keyring(ptr noundef %1, ptr noundef nonnull %5) #3
+  call void @zbee_sec_add_key_to_keyring(ptr noundef nonnull %1, ptr noundef nonnull %5) #3
   switch i8 %327, label %dissect_zbee_aps_transport_key.exit.i [
     i8 1, label %339
     i8 5, label %339
@@ -1501,7 +1501,7 @@ dissect_zbee_aps_auth_challenge.exit.i:           ; preds = %393, %387
 
 dissect_zbee_aps_request_key.exit.i:              ; preds = %431, %424, %416, %407, %dissect_zbee_aps_auth_challenge.exit.i, %382, %379, %373, %370, %dissect_zbee_aps_update_device.exit.i, %dissect_zbee_aps_transport_key.exit.i, %319, %312, %301
   %.0.i289 = phi i32 [ 1, %301 ], [ 11, %431 ], [ 26, %424 ], [ %423, %416 ], [ 22, %407 ], [ %406, %dissect_zbee_aps_auth_challenge.exit.i ], [ 2, %382 ], [ 9, %370 ], [ %369, %dissect_zbee_aps_update_device.exit.i ], [ %.0.i.i290, %dissect_zbee_aps_transport_key.exit.i ], [ 33, %319 ], [ 33, %312 ], [ 10, %379 ], [ 2, %373 ]
-  %443 = call i32 @dissect_zbee_tlvs(ptr noundef nonnull %.1263, ptr noundef %1, ptr noundef %17, i32 noundef %.0.i289, ptr noundef nonnull %3, i8 noundef zeroext 2, i32 noundef %305) #3
+  %443 = call i32 @dissect_zbee_tlvs(ptr noundef nonnull %.1263, ptr noundef nonnull %1, ptr noundef %17, i32 noundef %.0.i289, ptr noundef nonnull %3, i8 noundef zeroext 2, i32 noundef %305) #3
   %444 = call i32 @tvb_captured_length(ptr noundef nonnull %.1263) #3
   %445 = icmp ult i32 %443, %444
   br i1 %445, label %446, label %dissect_zbee_aps_cmd.exit
@@ -1511,7 +1511,7 @@ dissect_zbee_aps_request_key.exit.i:              ; preds = %431, %424, %416, %4
   %448 = call ptr @proto_tree_get_root(ptr noundef %17) #3
   %449 = load ptr, ptr %6, align 8
   call void @proto_item_set_len(ptr noundef %449, i32 noundef %443) #3
-  %450 = call i32 @call_data_dissector(ptr noundef %447, ptr noundef %1, ptr noundef %448) #3
+  %450 = call i32 @call_data_dissector(ptr noundef %447, ptr noundef nonnull %1, ptr noundef %448) #3
   br label %dissect_zbee_aps_cmd.exit
 
 dissect_zbee_aps_cmd.exit:                        ; preds = %dissect_zbee_aps_request_key.exit.i, %446
@@ -1806,10 +1806,10 @@ declare void @zbee_sec_add_key_to_keyring(ptr noundef, ptr noundef) local_unname
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

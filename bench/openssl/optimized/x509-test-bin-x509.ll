@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [23 x i8] c"../openssl/fuzz/x509.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerInitialize(ptr noundef readnone captures(none) %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #0 {
 entry:
   tail call void @FuzzerSetRand() #3
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 14, ptr noundef null) #3
@@ -181,7 +181,7 @@ declare i32 @X509_STORE_set1_param(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @X509_STORE_set_verify_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @cb(i32 %ok, ptr nocapture readnone %ctx) #2 {
+define internal noundef i32 @cb(i32 %ok, ptr readnone captures(none) %ctx) #2 {
 entry:
   ret i32 1
 }

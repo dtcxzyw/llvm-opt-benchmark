@@ -142,7 +142,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_vmstate_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @dbus_vmstate_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.48, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #6
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.49, i32 noundef 18, ptr noundef nonnull @__func__.VMSTATE_IF_CLASS) #6
@@ -594,7 +594,7 @@ glib_autoptr_cleanup_GOutputStream.exit:          ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @dbus_get_proxies(ptr nocapture noundef readonly %self, ptr noundef nonnull %err) unnamed_addr #0 {
+define internal fastcc ptr @dbus_get_proxies(ptr noundef readonly captures(none) %self, ptr noundef nonnull %err) unnamed_addr #0 {
 entry:
   %error = alloca ptr, align 8
   %size = alloca i64, align 8
@@ -854,7 +854,7 @@ declare void @g_error_free(ptr noundef) local_unnamed_addr #1
 declare void @g_hash_table_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -999,7 +999,7 @@ if.end7:                                          ; preds = %if.end5
   br i1 %tobool10.not, label %if.then22, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end7
-  %call11 = call i32 @g_data_output_stream_put_string(ptr noundef %user_data, ptr noundef %key, ptr noundef null, ptr noundef nonnull %err) #6
+  %call11 = call i32 @g_data_output_stream_put_string(ptr noundef %user_data, ptr noundef nonnull %key, ptr noundef null, ptr noundef nonnull %err) #6
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.then22, label %lor.lhs.false13
 
@@ -1071,7 +1071,7 @@ declare ptr @g_variant_get_child_value(ptr noundef, i64 noundef) local_unnamed_a
 declare ptr @g_variant_get_fixed_array(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @g_data_output_stream_put_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1139,7 +1139,7 @@ glib_autoptr_cleanup_GError.exit:                 ; preds = %cleanup.thread, %cl
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @dbus_vmstate_get_id(ptr nocapture readnone %vmif) #0 {
+define internal noalias ptr @dbus_vmstate_get_id(ptr readnone captures(none) %vmif) #0 {
 entry:
   %call = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str) #6
   ret ptr %call
@@ -1148,7 +1148,7 @@ entry:
 declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @get_dbus_addr(ptr noundef %o, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @get_dbus_addr(ptr noundef %o, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 27, ptr noundef nonnull @__func__.DBUS_VMSTATE) #6
   %dbus_addr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -1158,7 +1158,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_dbus_addr(ptr noundef %o, ptr noundef %str, ptr nocapture readnone %errp) #0 {
+define internal void @set_dbus_addr(ptr noundef %o, ptr noundef %str, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 27, ptr noundef nonnull @__func__.DBUS_VMSTATE) #6
   %dbus_addr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -1170,7 +1170,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @get_id_list(ptr noundef %o, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @get_id_list(ptr noundef %o, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 27, ptr noundef nonnull @__func__.DBUS_VMSTATE) #6
   %id_list = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -1180,7 +1180,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_id_list(ptr noundef %o, ptr noundef %str, ptr nocapture readnone %errp) #0 {
+define internal void @set_id_list(ptr noundef %o, ptr noundef %str, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 27, ptr noundef nonnull @__func__.DBUS_VMSTATE) #6
   %id_list = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -1204,10 +1204,10 @@ declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr nounde
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

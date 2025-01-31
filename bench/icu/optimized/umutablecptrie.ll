@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @umutablecptrie_open_75(i32 noundef %initialValue, i32 noundef %errorValue, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @umutablecptrie_open_75(i32 noundef %initialValue, i32 noundef %errorValue, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -170,7 +170,7 @@ delete.end:                                       ; preds = %_ZN6icu_7512_GLOBAL
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @umutablecptrie_clone_75(ptr noundef readonly %other, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @umutablecptrie_clone_75(ptr noundef readonly %other, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -369,7 +369,7 @@ delete.end:                                       ; preds = %_ZN6icu_7512_GLOBAL
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @umutablecptrie_fromUCPMap_75(ptr noundef %map, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @umutablecptrie_fromUCPMap_75(ptr noundef %map, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i = alloca i32, align 4
   %0 = load i32, ptr %pErrorCode, align 4
@@ -544,7 +544,7 @@ return:                                           ; preds = %entry, %_ZN6icu_751
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @umutablecptrie_fromUCPTrie_75(ptr noundef %trie, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @umutablecptrie_fromUCPTrie_75(ptr noundef %trie, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i = alloca i32, align 4
   %0 = load i32, ptr %pErrorCode, align 4
@@ -775,7 +775,7 @@ return:                                           ; preds = %entry, %_ZN6icu_751
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @umutablecptrie_get_75(ptr nocapture noundef readonly %trie, i32 noundef %c) local_unnamed_addr #3 {
+define i32 @umutablecptrie_get_75(ptr noundef readonly captures(none) %trie, i32 noundef %c) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp ugt i32 %c, 1114111
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -836,7 +836,7 @@ entry:
 declare i32 @ucptrie_internalGetRange_75(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr nocapture noundef readonly %trie, i32 noundef %start, ptr noundef readonly %filter, ptr noundef %context, ptr noundef writeonly %pValue) #0 {
+define internal noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly captures(none) %trie, i32 noundef %start, ptr noundef readonly %filter, ptr noundef %context, ptr noundef writeonly %pValue) #0 {
 entry:
   %cmp.i = icmp ugt i32 %start, 1114111
   br i1 %cmp.i, label %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie8getRangeEiPFjPKvjES3_Pj.exit, label %if.end.i
@@ -1126,7 +1126,7 @@ _ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie8getRangeEiPFjPKvjES3_Pj.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @umutablecptrie_set_75(ptr nocapture noundef %trie, i32 noundef %c, i32 noundef %value, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define void @umutablecptrie_set_75(ptr noundef captures(none) %trie, i32 noundef %c, i32 noundef %value, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1141,7 +1141,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_120MutableCodePointTrie3setEijR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(69696) %this, i32 noundef %c, i32 noundef %value, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_120MutableCodePointTrie3setEijR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(69696) %this, i32 noundef %c, i32 noundef %value, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1234,7 +1234,7 @@ return:                                           ; preds = %entry, %if.end8, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @umutablecptrie_setRange_75(ptr nocapture noundef %trie, i32 noundef %start, i32 noundef %end, i32 noundef %value, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define void @umutablecptrie_setRange_75(ptr noundef captures(none) %trie, i32 noundef %start, i32 noundef %end, i32 noundef %value, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1249,7 +1249,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_120MutableCodePointTrie8setRangeEiijR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(69696) %this, i32 noundef %start, i32 noundef %end, i32 noundef %value, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_120MutableCodePointTrie8setRangeEiijR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(69696) %this, i32 noundef %start, i32 noundef %end, i32 noundef %value, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1458,7 +1458,7 @@ if.end56:                                         ; preds = %while.body.i41, %wh
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @umutablecptrie_buildImmutable_75(ptr noundef %trie, i32 noundef %type, i32 noundef %valueWidth, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define ptr @umutablecptrie_buildImmutable_75(ptr noundef %trie, i32 noundef %type, i32 noundef %valueWidth, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %fastIndex.i.i.i = alloca [1024 x i16], align 16
   %longI3Blocks.i.i.i = alloca %"class.icu_75::(anonymous namespace)::MixedBlocks", align 8
@@ -3031,7 +3031,7 @@ if.end15.if.end24_crit_edge.i198.i.i.i:           ; preds = %if.end15.i193.i.i.i
   br label %if.end111.i.i.i
 
 if.then17.i206.i.i.i:                             ; preds = %if.end15.i193.i.i.i
-  invoke void @uprv_free_75(ptr noundef %.pre.i.i144.ph.i.i)
+  invoke void @uprv_free_75(ptr noundef nonnull %.pre.i.i144.ph.i.i)
           to label %.noexc187.i.i unwind label %lpad.loopexit.split-lp.i.i
 
 .noexc187.i.i:                                    ; preds = %if.then17.i206.i.i.i
@@ -4197,7 +4197,7 @@ return:                                           ; preds = %sw.epilog245.i, %if
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #4
 
@@ -4220,7 +4220,7 @@ declare i32 @ucpmap_getRange_75(ptr noundef, i32 noundef, i32 noundef, i32 nound
 declare i32 @ucptrie_getRange_75(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_120MutableCodePointTrie12getDataBlockEi(ptr nocapture noundef nonnull align 8 dereferenceable(69696) %this, i32 noundef range(i32 -2147483648, 134217727) %i) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_120MutableCodePointTrie12getDataBlockEi(ptr noundef nonnull align 8 captures(none) dereferenceable(69696) %this, i32 noundef range(i32 -2147483648, 134217727) %i) unnamed_addr #0 align 2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %this, i64 64
   %idxprom = sext i32 %i to i64
@@ -4395,10 +4395,10 @@ return:                                           ; preds = %if.end9.i31, %if.el
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly %data, i32 noundef range(i32 0, -2147483648) %prevDataLength, i32 noundef range(i32 128, -2147483648) %newDataLength) unnamed_addr #10 align 2 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr noundef nonnull readonly captures(none) %data, i32 noundef range(i32 0, -2147483648) %prevDataLength, i32 noundef range(i32 128, -2147483648) %newDataLength) unnamed_addr #10 align 2 {
 entry:
   %blockLength = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %blockLength, align 8
@@ -4557,7 +4557,7 @@ for.end:                                          ; preds = %_ZN6icu_7512_GLOBAL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendItEEvPKT_iii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr nocapture noundef readonly %data, i32 noundef range(i32 -131012, 132097) %minStart, i32 noundef %prevDataLength, i32 noundef %newDataLength) unnamed_addr #10 align 2 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendItEEvPKT_iii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr noundef readonly captures(none) %data, i32 noundef range(i32 -131012, 132097) %minStart, i32 noundef %prevDataLength, i32 noundef %newDataLength) unnamed_addr #10 align 2 {
 entry:
   %blockLength = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %blockLength, align 8
@@ -4717,7 +4717,7 @@ for.end:                                          ; preds = %_ZN6icu_7512_GLOBAL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findBlockItjEEiPKT_PKT0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %blockData, i32 noundef range(i32 -2147483648, 134217727) %blockStart) unnamed_addr #3 align 2 {
+define internal fastcc noundef i32 @_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findBlockItjEEiPKT_PKT0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr noundef readonly captures(none) %data, ptr noundef readonly captures(none) %blockData, i32 noundef range(i32 -2147483648, 134217727) %blockStart) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %this.val = load i32, ptr %0, align 8
@@ -4861,7 +4861,7 @@ return:                                           ; preds = %_ZNK6icu_7512_GLOBA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findBlockIttEEiPKT_PKT0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %blockData, i32 noundef %blockStart) unnamed_addr #3 align 2 {
+define internal fastcc noundef i32 @_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findBlockIttEEiPKT_PKT0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr noundef readonly captures(none) %data, ptr noundef readonly captures(none) %blockData, i32 noundef %blockStart) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %this.val = load i32, ptr %0, align 8
@@ -5006,10 +5006,10 @@ return:                                           ; preds = %_ZNK6icu_7512_GLOBA
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12

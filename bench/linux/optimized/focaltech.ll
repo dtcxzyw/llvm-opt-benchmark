@@ -167,7 +167,7 @@ define dso_local range(i32 -12, 1) i32 @focaltech_init(ptr noundef initializes((
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @focaltech_reset(ptr noundef %0) #0 align 16 {
@@ -224,7 +224,7 @@ define internal fastcc range(i32 -5, 1) i32 @focaltech_switch_protocol(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 241
   %3 = load i8, ptr %2, align 1
   %4 = icmp ugt i8 %3, 5
@@ -500,17 +500,17 @@ define internal range(i32 -5, 1) i32 @focaltech_reconnect(ptr noundef %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @focaltech_set_resolution(ptr nocapture readnone %0, i32 %1) #4 align 16 {
+define internal void @focaltech_set_resolution(ptr readnone captures(none) %0, i32 %1) #4 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @focaltech_set_rate(ptr nocapture readnone %0, i32 %1) #4 align 16 {
+define internal void @focaltech_set_rate(ptr readnone captures(none) %0, i32 %1) #4 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @focaltech_set_scale(ptr nocapture readnone %0, i32 %1) #4 align 16 {
+define internal void @focaltech_set_scale(ptr readnone captures(none) %0, i32 %1) #4 align 16 {
   ret void
 }
 
@@ -518,7 +518,7 @@ define internal void @focaltech_set_scale(ptr nocapture readnone %0, i32 %1) #4 
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
@@ -530,7 +530,7 @@ declare dso_local i32 @ps2_command(ptr noundef, ptr noundef, i32 noundef) local_
 declare dso_local i32 @psmouse_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @input_set_abs_params(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

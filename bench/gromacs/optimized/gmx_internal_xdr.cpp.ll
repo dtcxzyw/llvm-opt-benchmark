@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZL12xdrstdio_ops = internal global %"struct.XDR::xdr_ops" { ptr @_ZL17xdrstdio_getbytesP3XDRPcj, ptr @_ZL17xdrstdio_putbytesP3XDRPcj, ptr @_ZL15xdrstdio_getposP3XDR, ptr @_ZL15xdrstdio_setposP3XDRj, ptr @_ZL15xdrstdio_inlineP3XDRi, ptr @_ZL16xdrstdio_destroyP3XDR, ptr @_ZL17xdrstdio_getint32P3XDRPi, ptr @_ZL17xdrstdio_putint32P3XDRPi, ptr @_ZL18xdrstdio_getuint32P3XDRPj, ptr @_ZL18xdrstdio_putuint32P3XDRPj }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z8xdr_freePFiP3XDRPvzEPc(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @_Z8xdr_freePFiP3XDRPvzEPc(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.XDR, align 8
   store i32 2, ptr %3, align 8
   %4 = call noundef i32 (ptr, ptr, ...) %0(ptr noundef nonnull %3, ptr noundef %1)
@@ -25,7 +25,7 @@ define noundef i32 @_Z8xdr_voidv() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %20 [
@@ -67,7 +67,7 @@ define noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %0, ptr nocapture noundef %1) 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z9xdr_u_intP3XDRPj(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef i32 @_Z9xdr_u_intP3XDRPj(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %20 [
@@ -109,7 +109,7 @@ define noundef i32 @_Z9xdr_u_intP3XDRPj(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z9xdr_shortP3XDRPs(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef i32 @_Z9xdr_shortP3XDRPs(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %22 [
@@ -153,7 +153,7 @@ define noundef i32 @_Z9xdr_shortP3XDRPs(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z11xdr_u_shortP3XDRPt(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef i32 @_Z11xdr_u_shortP3XDRPt(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %22 [
@@ -197,7 +197,7 @@ define noundef i32 @_Z11xdr_u_shortP3XDRPt(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z8xdr_charP3XDRPc(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z8xdr_charP3XDRPc(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i8, ptr %1, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -254,7 +254,7 @@ _Z7xdr_intP3XDRPi.exit:                           ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z10xdr_u_charP3XDRPh(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z10xdr_u_charP3XDRPh(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i8, ptr %1, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -311,7 +311,7 @@ _Z9xdr_u_intP3XDRPj.exit:                         ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z8xdr_boolP3XDRPi(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef i32 @_Z8xdr_boolP3XDRPi(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %23 [
@@ -418,7 +418,7 @@ define noundef i32 @_Z10xdr_opaqueP3XDRPcj(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z10xdr_stringP3XDRPPcj(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef i32 @_Z10xdr_stringP3XDRPPcj(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %1, align 8
@@ -618,16 +618,16 @@ _Z10xdr_opaqueP3XDRPcj.exit36:                    ; preds = %83, %76, %74, %_Z9x
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %20 [
@@ -669,7 +669,7 @@ define noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z10xdr_doubleP3XDRPd(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z10xdr_doubleP3XDRPd(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i32], align 4
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %38 [
@@ -737,7 +737,7 @@ define noundef range(i32 0, 2) i32 @_Z10xdr_doubleP3XDRPd(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %.not15 = icmp eq i32 %2, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -764,7 +764,7 @@ define noundef range(i32 0, 2) i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z15xdrstdio_createP3XDRP8_IO_FILE6xdr_op(ptr nocapture noundef writeonly initializes((0, 4), (8, 16), (24, 44)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @_Z15xdrstdio_createP3XDRP8_IO_FILE6xdr_op(ptr noundef writeonly captures(none) initializes((0, 4), (8, 16), (24, 44)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZL12xdrstdio_ops, ptr %4, align 8
@@ -778,7 +778,7 @@ define void @_Z15xdrstdio_createP3XDRP8_IO_FILE6xdr_op(ptr nocapture noundef wri
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_getbytesP3XDRPcj(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #6 {
+define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_getbytesP3XDRPcj(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #6 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %4
 
@@ -799,7 +799,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_getbytesP3XDRPcj(ptr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_putbytesP3XDRPcj(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #6 {
+define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_putbytesP3XDRPcj(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #6 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %4
 
@@ -820,7 +820,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_putbytesP3XDRPcj(ptr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef i32 @_ZL15xdrstdio_getposP3XDR(ptr nocapture noundef readonly %0) #6 {
+define internal noundef i32 @_ZL15xdrstdio_getposP3XDR(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @ftell(ptr noundef %3)
@@ -829,7 +829,7 @@ define internal noundef i32 @_ZL15xdrstdio_getposP3XDR(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL15xdrstdio_setposP3XDRj(ptr nocapture noundef readonly %0, i32 noundef %1) #6 {
+define internal noundef range(i32 0, 2) i32 @_ZL15xdrstdio_setposP3XDRj(ptr noundef readonly captures(none) %0, i32 noundef %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -840,12 +840,12 @@ define internal noundef range(i32 0, 2) i32 @_ZL15xdrstdio_setposP3XDRj(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @_ZL15xdrstdio_inlineP3XDRi(ptr nocapture readnone %0, i32 %1) #1 {
+define internal noalias noundef ptr @_ZL15xdrstdio_inlineP3XDRi(ptr readnone captures(none) %0, i32 %1) #1 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZL16xdrstdio_destroyP3XDR(ptr nocapture noundef readonly %0) #6 {
+define internal void @_ZL16xdrstdio_destroyP3XDR(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @fflush(ptr noundef %3)
@@ -853,7 +853,7 @@ define internal void @_ZL16xdrstdio_destroyP3XDR(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_getint32P3XDRPi(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_getint32P3XDRPi(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -894,7 +894,7 @@ _ZL9xdr_ntohlj.exit:                              ; preds = %11
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_putint32P3XDRPi(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_putint32P3XDRPi(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load i32, ptr %1, align 4
@@ -924,7 +924,7 @@ _ZL9xdr_htonlj.exit:                              ; preds = %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL18xdrstdio_getuint32P3XDRPj(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define internal noundef range(i32 0, 2) i32 @_ZL18xdrstdio_getuint32P3XDRPj(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -965,7 +965,7 @@ _ZL9xdr_ntohlj.exit:                              ; preds = %11
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL18xdrstdio_putuint32P3XDRPj(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal noundef range(i32 0, 2) i32 @_ZL18xdrstdio_putuint32P3XDRPj(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load i32, ptr %1, align 4
@@ -995,25 +995,25 @@ _ZL9xdr_htonlj.exit:                              ; preds = %6
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

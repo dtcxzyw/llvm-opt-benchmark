@@ -61,7 +61,7 @@ declare dso_local void @pci_unregister_driver(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mei_me_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @mei_me_probe(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @mei_me_get_cfg(i64 noundef %4) #6
@@ -295,7 +295,7 @@ define internal void @mei_me_remove(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @mei_me_shutdown(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @mei_me_shutdown(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -341,7 +341,7 @@ declare dso_local ptr @mei_me_dev_init(ptr noundef, ptr noundef, i1 noundef zero
 declare dso_local ptr @pcim_iomap_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mei_me_read_fws(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #2 align 16 {
+define internal i32 @mei_me_read_fws(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %4, i64 -184
   %6 = tail call i32 @pci_read_config_dword(ptr noundef %5, i32 noundef %1, ptr noundef %2) #6
@@ -397,10 +397,10 @@ declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr nound
 declare dso_local void @__pm_runtime_use_autosuspend(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mei_me_pm_runtime_suspend(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal i32 @mei_me_pm_runtime_suspend(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -436,7 +436,7 @@ define internal i32 @mei_me_pm_runtime_suspend(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mei_me_pm_runtime_resume(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal i32 @mei_me_pm_runtime_resume(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

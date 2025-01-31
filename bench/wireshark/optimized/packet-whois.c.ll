@@ -362,7 +362,7 @@ proto_item_set_generated.exit123:                 ; preds = %140, %137, %132, %p
   br i1 %.not114, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %proto_item_set_generated.exit123
-  %152 = call ptr @proto_tree_add_expert(ptr noundef %88, ptr noundef %1, ptr noundef nonnull @ei_whois_encoding, ptr noundef %0, i32 noundef 0, i32 noundef -1) #3
+  %152 = call ptr @proto_tree_add_expert(ptr noundef %88, ptr noundef nonnull %1, ptr noundef nonnull @ei_whois_encoding, ptr noundef %0, i32 noundef 0, i32 noundef -1) #3
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %108, %105, %102, %112, %113, %._crit_edge, %98, %99
@@ -406,7 +406,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 

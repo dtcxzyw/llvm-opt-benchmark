@@ -681,7 +681,7 @@ declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef
 declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tsc_sync_check_timer_fn(ptr nocapture readnone %0) #0 align 16 {
+define internal void @tsc_sync_check_timer_fn(ptr readnone captures(none) %0) #0 align 16 {
   tail call void @tsc_verify_tsc_adjust(i1 noundef zeroext false)
   %2 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !42
   %3 = add i32 %2, 1
@@ -736,7 +736,7 @@ declare dso_local void @add_timer_on(ptr noundef, i32 noundef) local_unnamed_add
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tsc_sync_mark_tsc_unstable(ptr nocapture readnone %0) #0 align 16 {
+define internal void @tsc_sync_mark_tsc_unstable(ptr readnone captures(none) %0) #0 align 16 {
   tail call void @mark_tsc_unstable(ptr noundef nonnull @.str.10) #8
   ret void
 }

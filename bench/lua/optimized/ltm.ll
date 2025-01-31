@@ -108,7 +108,7 @@ return:                                           ; preds = %entry, %if.then
 declare hidden ptr @luaH_getshortstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @luaT_gettmbyobj(ptr nocapture noundef readonly %L, ptr nocapture noundef readonly %o, i32 noundef %event) local_unnamed_addr #0 {
+define hidden ptr @luaT_gettmbyobj(ptr noundef readonly captures(none) %L, ptr noundef readonly captures(none) %o, i32 noundef %event) local_unnamed_addr #0 {
 entry:
   %tt_ = getelementptr inbounds nuw i8, ptr %o, i64 8
   %0 = load i8, ptr %tt_, align 8
@@ -162,7 +162,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @luaT_objtypename(ptr noundef %L, ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define hidden ptr @luaT_objtypename(ptr noundef %L, ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %tt_ = getelementptr inbounds nuw i8, ptr %o, i64 8
   %0 = load i8, ptr %tt_, align 8
@@ -219,7 +219,7 @@ return:                                           ; preds = %if.end20, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaT_callTM(ptr noundef %L, ptr nocapture noundef readonly %f, ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2, ptr nocapture noundef readonly %p3) local_unnamed_addr #0 {
+define hidden void @luaT_callTM(ptr noundef %L, ptr noundef readonly captures(none) %f, ptr noundef readonly captures(none) %p1, ptr noundef readonly captures(none) %p2, ptr noundef readonly captures(none) %p3) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load ptr, ptr %top, align 8
@@ -277,7 +277,7 @@ declare hidden void @luaD_call(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare hidden void @luaD_callnoyield(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaT_callTMres(ptr noundef %L, ptr nocapture noundef readonly %f, ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2, ptr noundef %res) local_unnamed_addr #0 {
+define hidden void @luaT_callTMres(ptr noundef %L, ptr noundef readonly captures(none) %f, ptr noundef readonly captures(none) %p1, ptr noundef readonly captures(none) %p2, ptr noundef %res) local_unnamed_addr #0 {
 entry:
   %stack = getelementptr inbounds nuw i8, ptr %L, i64 48
   %0 = load ptr, ptr %stack, align 8
@@ -388,7 +388,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @callbinTM(ptr noundef %L, ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2, ptr noundef %res, i32 noundef %event) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @callbinTM(ptr noundef %L, ptr noundef readonly captures(none) %p1, ptr noundef readonly captures(none) %p2, ptr noundef %res, i32 noundef %event) unnamed_addr #0 {
 entry:
   %tt_.i = getelementptr inbounds nuw i8, ptr %p1, i64 8
   %0 = load i8, ptr %tt_.i, align 8
@@ -759,7 +759,7 @@ luaT_callorderTM.exit:                            ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaT_adjustvarargs(ptr noundef %L, i32 noundef %nfixparams, ptr nocapture noundef initializes((44, 48)) %ci, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
+define hidden void @luaT_adjustvarargs(ptr noundef %L, i32 noundef %nfixparams, ptr noundef captures(none) initializes((44, 48)) %ci, ptr noundef readonly captures(none) %p) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load ptr, ptr %top, align 8
@@ -848,7 +848,7 @@ for.end:                                          ; preds = %for.body, %if.end
 declare hidden i32 @luaD_growstack(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaT_getvarargs(ptr noundef %L, ptr nocapture noundef readonly %ci, ptr noundef %where, i32 noundef %wanted) local_unnamed_addr #0 {
+define hidden void @luaT_getvarargs(ptr noundef %L, ptr noundef readonly captures(none) %ci, ptr noundef %where, i32 noundef %wanted) local_unnamed_addr #0 {
 entry:
   %nextraargs = getelementptr inbounds nuw i8, ptr %ci, i64 44
   %0 = load i32, ptr %nextraargs, align 4

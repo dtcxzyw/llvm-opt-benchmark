@@ -348,7 +348,7 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef read
 define ptr @xhash_get_str(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %4 = trunc i64 %3 to i32
-  %5 = tail call fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %4)
+  %5 = tail call fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %4)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %xhash_get.exit, label %6
 
@@ -362,7 +362,7 @@ xhash_get.exit:                                   ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -921,10 +921,10 @@ define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define ptr @xhash_pop(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1098,7 +1098,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 define ptr @xhash_pop_str(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @xhash_pop(ptr noundef %0, ptr noundef %1, i32 noundef %4)
+  %5 = tail call ptr @xhash_pop(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)
   ret ptr %5
 }
 
@@ -1131,24 +1131,22 @@ define void @xhash_delete_str(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %4 = trunc i64 %3 to i32
   %5 = icmp ne ptr %0, null
-  %6 = icmp ne ptr %1, null
-  %or.cond.i = and i1 %5, %6
-  %7 = icmp ne i32 %4, 0
-  %or.cond3.i = and i1 %or.cond.i, %7
-  br i1 %or.cond3.i, label %8, label %xhash_delete.exit
+  %6 = icmp ne i32 %4, 0
+  %or.cond3.i = and i1 %5, %6
+  br i1 %or.cond3.i, label %7, label %xhash_delete.exit
 
-8:                                                ; preds = %2
-  %9 = tail call ptr @xhash_pop(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %4)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %xhash_delete.exit, label %12
+7:                                                ; preds = %2
+  %8 = tail call ptr @xhash_pop(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %4)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %xhash_delete.exit, label %11
 
-12:                                               ; preds = %8
-  tail call void %11(ptr noundef %9) #10
+11:                                               ; preds = %7
+  tail call void %10(ptr noundef %8) #10
   br label %xhash_delete.exit
 
-xhash_delete.exit:                                ; preds = %2, %8, %12
+xhash_delete.exit:                                ; preds = %2, %7, %11
   ret void
 }
 
@@ -1404,7 +1402,7 @@ define void @xhash_free_ptr(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9

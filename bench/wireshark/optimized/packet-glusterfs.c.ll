@@ -927,7 +927,7 @@ proto_item_set_generated.exit:                    ; preds = %13, %23, %26
   %58 = call ptr @wmem_packet_scope() #3
   %59 = call ptr @guid_to_str(ptr noundef %58, ptr noundef nonnull %8) #3
   %60 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %61 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %15, i32 noundef %60, ptr noundef %1, i32 noundef %50, i32 noundef 16, ptr noundef nonnull %8, ptr noundef nonnull @.str.8, ptr noundef %48, ptr noundef %59) #3
+  %61 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %15, i32 noundef %60, ptr noundef %1, i32 noundef %50, i32 noundef 16, ptr noundef nonnull %8, ptr noundef nonnull @.str.8, ptr noundef nonnull %48, ptr noundef %59) #3
   br label %77
 
 62:                                               ; preds = %.lr.ph
@@ -942,7 +942,7 @@ proto_item_set_generated.exit:                    ; preds = %13, %23, %26
   %68 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %67) #3
   %69 = add i32 %50, 8
   %70 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %69) #3
-  %71 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %15, i32 noundef %65, ptr noundef %1, i32 noundef %50, i32 noundef 12, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %48, i32 noundef %66, i32 noundef %68, i32 noundef %70) #3
+  %71 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %15, i32 noundef %65, ptr noundef %1, i32 noundef %50, i32 noundef 12, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %48, i32 noundef %66, i32 noundef %68, i32 noundef %70) #3
   br label %77
 
 72:                                               ; preds = %55, %.lr.ph, %62
@@ -1020,7 +1020,7 @@ declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noun
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare void @tvb_get_ntohguid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1037,7 +1037,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @gluster_dissect_common_reply(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define hidden noundef i32 @gluster_dissect_common_reply(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_gluster_op_ret, align 4
   %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %3, i32 noundef %6, i32 noundef %1) #3
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %7) #3
@@ -1054,7 +1054,7 @@ declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 nound
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @glusterfs_gfs3_3_op_common_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden i32 @glusterfs_gfs3_3_op_common_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -1103,7 +1103,7 @@ declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare i32 @dissect_rpc_unknown(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_unlink_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_unlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_path, align 4
@@ -1114,7 +1114,7 @@ define internal i32 @glusterfs_gfs3_op_unlink_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @glusterfs_gfs3_op_unlink_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @glusterfs_gfs3_op_unlink_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_preparent_iatt, align 4
   %6 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %5, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_postparent_iatt, align 4
@@ -1123,7 +1123,7 @@ define internal noundef i32 @glusterfs_gfs3_op_unlink_reply(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_statfs_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_statfs_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_path, align 4
@@ -1132,7 +1132,7 @@ define internal i32 @glusterfs_gfs3_op_statfs_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_statfs_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_statfs_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -1146,7 +1146,7 @@ define internal i32 @glusterfs_gfs3_op_statfs_reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_flush_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_flush_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -1155,7 +1155,7 @@ define internal i32 @glusterfs_gfs3_op_flush_call(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gluster_local_dissect_common_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @gluster_local_dissect_common_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -1168,7 +1168,7 @@ define internal noundef i32 @gluster_local_dissect_common_reply(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_setxattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_setxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
@@ -1180,7 +1180,7 @@ define internal i32 @glusterfs_gfs3_op_setxattr_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_opendir_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_opendir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_path, align 4
@@ -1189,7 +1189,7 @@ define internal i32 @glusterfs_gfs3_op_opendir_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_opendir_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_opendir_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -1204,7 +1204,7 @@ define internal i32 @glusterfs_gfs3_op_opendir_reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_create_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_create_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
@@ -1222,7 +1222,7 @@ define internal i32 @glusterfs_gfs3_op_create_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @glusterfs_gfs3_op_create_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @glusterfs_gfs3_op_create_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -1243,7 +1243,7 @@ define internal noundef i32 @glusterfs_gfs3_op_create_reply(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_lookup_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_lookup_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_pargfid, align 4
@@ -1259,7 +1259,7 @@ define internal i32 @glusterfs_gfs3_op_lookup_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_lookup_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_lookup_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -1278,7 +1278,7 @@ define internal i32 @glusterfs_gfs3_op_lookup_reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_inodelk_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_inodelk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_glusterfs_gfid, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
@@ -1312,7 +1312,7 @@ define internal i32 @glusterfs_gfs3_op_inodelk_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_setattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_setattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_iatt, align 4
@@ -1327,7 +1327,7 @@ define internal i32 @glusterfs_gfs3_op_setattr_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @glusterfs_gfs3_op_setattr_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @glusterfs_gfs3_op_setattr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -1344,7 +1344,7 @@ define internal noundef i32 @glusterfs_gfs3_op_setattr_reply(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_readdirp_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_readdirp_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -1357,7 +1357,7 @@ define internal i32 @glusterfs_gfs3_op_readdirp_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_readdirp_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_op_readdirp_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_entries, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -1467,7 +1467,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @dissect_rpc_list(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_op_readdirp_entry(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @glusterfs_gfs3_op_readdirp_entry(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 0)
   ret i32 %6
 }
@@ -1721,7 +1721,7 @@ define internal fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noun
   %71 = call ptr @wmem_packet_scope() #3
   %72 = call ptr @guid_to_str(ptr noundef %71, ptr noundef nonnull %5) #3
   %73 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %74 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %13, i32 noundef %73, ptr noundef %1, i32 noundef %63, i32 noundef 16, ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef %29, ptr noundef %72) #3
+  %74 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %13, i32 noundef %73, ptr noundef %1, i32 noundef %63, i32 noundef 16, ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef nonnull %29, ptr noundef %72) #3
   br label %90
 
 75:                                               ; preds = %61
@@ -1736,7 +1736,7 @@ define internal fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noun
   %81 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %80) #3
   %82 = add i32 %30, 16
   %83 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %82) #3
-  %84 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %13, i32 noundef %78, ptr noundef %1, i32 noundef %63, i32 noundef 12, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %29, i32 noundef %79, i32 noundef %81, i32 noundef %83) #3
+  %84 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %13, i32 noundef %78, ptr noundef %1, i32 noundef %63, i32 noundef 12, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %29, i32 noundef %79, i32 noundef %81, i32 noundef %83) #3
   br label %90
 
 85:                                               ; preds = %68, %61, %75
@@ -1776,7 +1776,7 @@ declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare double @tvb_get_ieee_double(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_stat_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_stat_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_dict, align 4
@@ -1785,7 +1785,7 @@ define internal i32 @glusterfs_gfs3_3_op_stat_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_stat_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_stat_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -1802,7 +1802,7 @@ define internal i32 @glusterfs_gfs3_3_op_stat_reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_readlink_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_readlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_size, align 4
@@ -1813,7 +1813,7 @@ define internal i32 @glusterfs_gfs3_3_op_readlink_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_readlink_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_readlink_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -1832,7 +1832,7 @@ define internal i32 @glusterfs_gfs3_3_op_readlink_reply(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_mknod_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_mknod_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_offset, align 4
@@ -1853,7 +1853,7 @@ define internal i32 @glusterfs_gfs3_3_op_mknod_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_mknod_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_mknod_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -1874,7 +1874,7 @@ define internal i32 @glusterfs_gfs3_3_op_mknod_reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_mkdir_call(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_mkdir_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr @hf_glusterfs_pargfid, align 4
@@ -1897,7 +1897,7 @@ define internal i32 @glusterfs_gfs3_3_op_mkdir_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_unlink_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_unlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_bname, align 4
@@ -1912,7 +1912,7 @@ define internal i32 @glusterfs_gfs3_3_op_unlink_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_unlink_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_unlink_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -1931,7 +1931,7 @@ define internal i32 @glusterfs_gfs3_3_op_unlink_reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_rmdir_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_rmdir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #3
@@ -1945,7 +1945,7 @@ define internal i32 @glusterfs_gfs3_3_op_rmdir_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_symlink_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_symlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_bname, align 4
@@ -1962,7 +1962,7 @@ define internal i32 @glusterfs_gfs3_3_op_symlink_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_rename_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_rename_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_oldgfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_newgfid, align 4
@@ -1977,7 +1977,7 @@ define internal i32 @glusterfs_gfs3_3_op_rename_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_rename_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_rename_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @hf_gluster_op_ret, align 4
@@ -2014,7 +2014,7 @@ define internal i32 @glusterfs_gfs3_3_op_rename_reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_link_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_link_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_oldgfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_newgfid, align 4
@@ -2027,7 +2027,7 @@ define internal i32 @glusterfs_gfs3_3_op_link_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_truncate_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_truncate_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_offset, align 4
@@ -2038,7 +2038,7 @@ define internal i32 @glusterfs_gfs3_3_op_truncate_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_open_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_open_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
@@ -2048,7 +2048,7 @@ define internal i32 @glusterfs_gfs3_3_op_open_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_open_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_open_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2065,7 +2065,7 @@ define internal i32 @glusterfs_gfs3_3_op_open_reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_read_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_read_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2081,7 +2081,7 @@ define internal i32 @glusterfs_gfs3_3_op_read_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_read_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_read_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2100,7 +2100,7 @@ define internal i32 @glusterfs_gfs3_3_op_read_reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_write_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_write_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2116,7 +2116,7 @@ define internal i32 @glusterfs_gfs3_3_op_write_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_setattr_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_setattr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2135,7 +2135,7 @@ define internal i32 @glusterfs_gfs3_3_op_setattr_reply(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_statfs_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_statfs_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_dict, align 4
@@ -2144,7 +2144,7 @@ define internal i32 @glusterfs_gfs3_3_op_statfs_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_statfs_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_statfs_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2160,7 +2160,7 @@ define internal i32 @glusterfs_gfs3_3_op_statfs_reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_flush_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_flush_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2171,7 +2171,7 @@ define internal i32 @glusterfs_gfs3_3_op_flush_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_fsync_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_fsync_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2186,7 +2186,7 @@ define internal i32 @glusterfs_gfs3_3_op_fsync_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_setxattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_setxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
@@ -2198,7 +2198,7 @@ define internal i32 @glusterfs_gfs3_3_op_setxattr_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_getxattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_getxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_namelen, align 4
@@ -2211,7 +2211,7 @@ define internal i32 @glusterfs_gfs3_3_op_getxattr_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_getxattr_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_getxattr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2228,7 +2228,7 @@ define internal i32 @glusterfs_gfs3_3_op_getxattr_reply(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_removexattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_removexattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_name, align 4
@@ -2239,7 +2239,7 @@ define internal i32 @glusterfs_gfs3_3_op_removexattr_call(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_opendir_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_opendir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_dict, align 4
@@ -2248,7 +2248,7 @@ define internal i32 @glusterfs_gfs3_3_op_opendir_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_opendir_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_opendir_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2265,7 +2265,7 @@ define internal i32 @glusterfs_gfs3_3_op_opendir_reply(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_access_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_access_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_mask, align 4
@@ -2276,7 +2276,7 @@ define internal i32 @glusterfs_gfs3_3_op_access_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_create_call(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_create_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr @hf_glusterfs_pargfid, align 4
@@ -2302,7 +2302,7 @@ define internal i32 @glusterfs_gfs3_3_op_create_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_create_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_create_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2325,7 +2325,7 @@ define internal i32 @glusterfs_gfs3_3_op_create_reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_ftruncate_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_ftruncate_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2338,7 +2338,7 @@ define internal i32 @glusterfs_gfs3_3_op_ftruncate_call(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_fstat_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_fstat_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2349,7 +2349,7 @@ define internal i32 @glusterfs_gfs3_3_op_fstat_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_fstat_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_fstat_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2366,7 +2366,7 @@ define internal i32 @glusterfs_gfs3_3_op_fstat_reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_lk_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_lk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2382,7 +2382,7 @@ define internal i32 @glusterfs_gfs3_3_op_lk_call(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_lk_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_lk_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2398,7 +2398,7 @@ define internal i32 @glusterfs_gfs3_3_op_lk_reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_lookup_call(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_lookup_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr @hf_glusterfs_gfid, align 4
@@ -2430,7 +2430,7 @@ define internal i32 @glusterfs_gfs3_3_op_lookup_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_readdir_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_readdir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2445,7 +2445,7 @@ define internal i32 @glusterfs_gfs3_3_op_readdir_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_readdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_readdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_entries, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2473,7 +2473,7 @@ _glusterfs_gfs3_common_readdir_reply.exit:        ; preds = %4, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_inodelk_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_inodelk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_cmd, align 4
@@ -2489,7 +2489,7 @@ define internal i32 @glusterfs_gfs3_3_op_inodelk_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_finodelk_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_finodelk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2507,7 +2507,7 @@ define internal i32 @glusterfs_gfs3_3_op_finodelk_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_entrylk_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_entrylk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_cmd, align 4
@@ -2526,7 +2526,7 @@ define internal i32 @glusterfs_gfs3_3_op_entrylk_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_fentrylk_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_fentrylk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2547,7 +2547,7 @@ define internal i32 @glusterfs_gfs3_3_op_fentrylk_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_xattrop_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_xattrop_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
@@ -2559,7 +2559,7 @@ define internal i32 @glusterfs_gfs3_3_op_xattrop_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_xattrop_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_xattrop_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2576,7 +2576,7 @@ define internal i32 @glusterfs_gfs3_3_op_xattrop_reply(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_fxattrop_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_fxattrop_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
@@ -2590,7 +2590,7 @@ define internal i32 @glusterfs_gfs3_3_op_fxattrop_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_fgetxattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_fgetxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2605,7 +2605,7 @@ define internal i32 @glusterfs_gfs3_3_op_fgetxattr_call(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gluter_gfs3_3_op_fsetxattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @gluter_gfs3_3_op_fsetxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2619,7 +2619,7 @@ define internal i32 @gluter_gfs3_3_op_fsetxattr_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_setattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_setattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_iatt, align 4
@@ -2634,7 +2634,7 @@ define internal i32 @glusterfs_gfs3_3_op_setattr_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_readdirp_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_readdirp_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2649,7 +2649,7 @@ define internal i32 @glusterfs_gfs3_3_op_readdirp_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_readdirp_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_readdirp_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_entries, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2677,7 +2677,7 @@ _glusterfs_gfs3_common_readdir_reply.exit:        ; preds = %4, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_release_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_release_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2688,7 +2688,7 @@ define internal i32 @glusterfs_gfs3_3_op_release_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_releasedir_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_releasedir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2699,7 +2699,7 @@ define internal i32 @glusterfs_gfs3_3_op_releasedir_call(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_fremovexattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_fremovexattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2712,7 +2712,7 @@ define internal i32 @glusterfs_gfs3_3_op_fremovexattr_call(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_fallocate_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_fallocate_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2728,7 +2728,7 @@ define internal i32 @glusterfs_gfs3_3_op_fallocate_call(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_zerofill_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_zerofill_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2741,7 +2741,7 @@ define internal i32 @glusterfs_gfs3_3_op_zerofill_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_seek_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_seek_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -2756,7 +2756,7 @@ define internal i32 @glusterfs_gfs3_3_op_seek_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_seek_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs3_3_op_seek_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2803,19 +2803,19 @@ define internal fastcc noundef i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @glusterfs_gfs3_3_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs3_3_op_readdirp_entry(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @glusterfs_gfs3_3_op_readdirp_entry(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 1)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_stat_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_stat_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_dict, align 4
@@ -2824,7 +2824,7 @@ define internal i32 @glusterfs_gfs4_0_op_stat_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @glusterfs_gfs4_0_op_common_iatt_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @glusterfs_gfs4_0_op_common_iatt_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2841,7 +2841,7 @@ define internal noundef i32 @glusterfs_gfs4_0_op_common_iatt_reply(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_readlink_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_readlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_size, align 4
@@ -2852,7 +2852,7 @@ define internal i32 @glusterfs_gfs4_0_op_readlink_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_readlink_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_readlink_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2871,7 +2871,7 @@ define internal i32 @glusterfs_gfs4_0_op_readlink_reply(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_mknod_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_mknod_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_offset, align 4
@@ -2892,7 +2892,7 @@ define internal i32 @glusterfs_gfs4_0_op_mknod_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @glusterfs_gfs4_0_op_common_3iatt_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @glusterfs_gfs4_0_op_common_3iatt_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2913,7 +2913,7 @@ define internal noundef i32 @glusterfs_gfs4_0_op_common_3iatt_reply(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_mkdir_call(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_mkdir_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr @hf_glusterfs_pargfid, align 4
@@ -2936,7 +2936,7 @@ define internal i32 @glusterfs_gfs4_0_op_mkdir_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_unlink_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_unlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_bname, align 4
@@ -2951,7 +2951,7 @@ define internal i32 @glusterfs_gfs4_0_op_unlink_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @glusterfs_gfs4_0_op_common_2parent_iatt_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @glusterfs_gfs4_0_op_common_2parent_iatt_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -2970,7 +2970,7 @@ define internal noundef i32 @glusterfs_gfs4_0_op_common_2parent_iatt_reply(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_rmdir_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_rmdir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #3
@@ -2984,7 +2984,7 @@ define internal i32 @glusterfs_gfs4_0_op_rmdir_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_symlink_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_symlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_bname, align 4
@@ -3001,7 +3001,7 @@ define internal i32 @glusterfs_gfs4_0_op_symlink_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_rename_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_rename_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_oldgfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_newgfid, align 4
@@ -3016,7 +3016,7 @@ define internal i32 @glusterfs_gfs4_0_op_rename_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @glusterfs_gfs4_0_op_rename_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @glusterfs_gfs4_0_op_rename_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @hf_gluster_op_ret, align 4
@@ -3053,7 +3053,7 @@ define internal noundef i32 @glusterfs_gfs4_0_op_rename_reply(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_link_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_link_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_oldgfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_newgfid, align 4
@@ -3066,7 +3066,7 @@ define internal i32 @glusterfs_gfs4_0_op_link_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_truncate_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_truncate_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_offset, align 4
@@ -3077,7 +3077,7 @@ define internal i32 @glusterfs_gfs4_0_op_truncate_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @glusterfs_gfs4_0_op_common_2iatt_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @glusterfs_gfs4_0_op_common_2iatt_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -3096,7 +3096,7 @@ define internal noundef i32 @glusterfs_gfs4_0_op_common_2iatt_reply(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_open_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_open_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
@@ -3106,7 +3106,7 @@ define internal i32 @glusterfs_gfs4_0_op_open_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_open_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_open_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -3123,7 +3123,7 @@ define internal i32 @glusterfs_gfs4_0_op_open_reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_read_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_read_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3139,7 +3139,7 @@ define internal i32 @glusterfs_gfs4_0_op_read_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_read_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_read_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -3158,7 +3158,7 @@ define internal i32 @glusterfs_gfs4_0_op_read_reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_write_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_write_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3174,7 +3174,7 @@ define internal i32 @glusterfs_gfs4_0_op_write_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_statfs_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_statfs_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_dict, align 4
@@ -3183,7 +3183,7 @@ define internal i32 @glusterfs_gfs4_0_op_statfs_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_statfs_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_statfs_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -3199,7 +3199,7 @@ define internal i32 @glusterfs_gfs4_0_op_statfs_reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_flush_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_flush_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3210,7 +3210,7 @@ define internal i32 @glusterfs_gfs4_0_op_flush_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_common_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_common_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -3225,7 +3225,7 @@ define internal i32 @glusterfs_gfs4_0_op_common_reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_fsync_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_fsync_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3240,7 +3240,7 @@ define internal i32 @glusterfs_gfs4_0_op_fsync_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_setxattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_setxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
@@ -3252,7 +3252,7 @@ define internal i32 @glusterfs_gfs4_0_op_setxattr_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_getxattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_getxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_namelen, align 4
@@ -3265,7 +3265,7 @@ define internal i32 @glusterfs_gfs4_0_op_getxattr_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @glusterfs_gfs4_0_op_common_dict_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @glusterfs_gfs4_0_op_common_dict_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -3286,7 +3286,7 @@ define internal noundef i32 @glusterfs_gfs4_0_op_common_dict_reply(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_removexattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_removexattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_name, align 4
@@ -3297,7 +3297,7 @@ define internal i32 @glusterfs_gfs4_0_op_removexattr_call(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_opendir_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_opendir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_dict, align 4
@@ -3306,7 +3306,7 @@ define internal i32 @glusterfs_gfs4_0_op_opendir_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_access_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_access_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_mask, align 4
@@ -3317,7 +3317,7 @@ define internal i32 @glusterfs_gfs4_0_op_access_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_create_call(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_create_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr @hf_glusterfs_pargfid, align 4
@@ -3343,7 +3343,7 @@ define internal i32 @glusterfs_gfs4_0_op_create_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @glusterfs_gfs4_0_op_create_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @glusterfs_gfs4_0_op_create_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -3366,7 +3366,7 @@ define internal noundef i32 @glusterfs_gfs4_0_op_create_reply(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_ftruncate_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_ftruncate_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3379,7 +3379,7 @@ define internal i32 @glusterfs_gfs4_0_op_ftruncate_call(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_fstat_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_fstat_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3390,7 +3390,7 @@ define internal i32 @glusterfs_gfs4_0_op_fstat_call(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_lk_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_lk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3406,7 +3406,7 @@ define internal i32 @glusterfs_gfs4_0_op_lk_call(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @glusterfs_gfs4_0_op_lk_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @glusterfs_gfs4_0_op_lk_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -3422,7 +3422,7 @@ define internal noundef i32 @glusterfs_gfs4_0_op_lk_reply(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_lookup_call(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_lookup_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr @hf_glusterfs_gfid, align 4
@@ -3454,7 +3454,7 @@ define internal i32 @glusterfs_gfs4_0_op_lookup_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_readdir_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_readdir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3469,7 +3469,7 @@ define internal i32 @glusterfs_gfs4_0_op_readdir_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_readdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_readdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_entries, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -3497,7 +3497,7 @@ _glusterfs_gfs3_common_readdir_reply.exit:        ; preds = %4, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_inodelk_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_inodelk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_cmd, align 4
@@ -3513,7 +3513,7 @@ define internal i32 @glusterfs_gfs4_0_op_inodelk_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_finodelk_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_finodelk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3531,7 +3531,7 @@ define internal i32 @glusterfs_gfs4_0_op_finodelk_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_entrylk_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_entrylk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_cmd, align 4
@@ -3550,7 +3550,7 @@ define internal i32 @glusterfs_gfs4_0_op_entrylk_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_fentrylk_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_fentrylk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3571,7 +3571,7 @@ define internal i32 @glusterfs_gfs4_0_op_fentrylk_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_xattrop_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_xattrop_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
@@ -3583,7 +3583,7 @@ define internal i32 @glusterfs_gfs4_0_op_xattrop_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_fxattrop_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_fxattrop_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
@@ -3597,7 +3597,7 @@ define internal i32 @glusterfs_gfs4_0_op_fxattrop_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_fgetxattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_fgetxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3612,7 +3612,7 @@ define internal i32 @glusterfs_gfs4_0_op_fgetxattr_call(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gluter_gfs4_0_op_fsetxattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @gluter_gfs4_0_op_fsetxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3626,7 +3626,7 @@ define internal i32 @gluter_gfs4_0_op_fsetxattr_call(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_setattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_setattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_iattx, align 4
@@ -3641,7 +3641,7 @@ define internal i32 @glusterfs_gfs4_0_op_setattr_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_fsetattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_fsetattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3658,7 +3658,7 @@ define internal i32 @glusterfs_gfs4_0_op_fsetattr_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_readdirp_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_readdirp_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3673,7 +3673,7 @@ define internal i32 @glusterfs_gfs4_0_op_readdirp_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_readdirp_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_readdirp_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_entries, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -3701,7 +3701,7 @@ _glusterfs_gfs3_common_readdir_reply.exit:        ; preds = %4, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_release_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_release_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3712,7 +3712,7 @@ define internal i32 @glusterfs_gfs4_0_op_release_call(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_releasedir_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_releasedir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3723,7 +3723,7 @@ define internal i32 @glusterfs_gfs4_0_op_releasedir_call(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_fremovexattr_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_fremovexattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3736,7 +3736,7 @@ define internal i32 @glusterfs_gfs4_0_op_fremovexattr_call(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_fallocate_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_fallocate_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3752,7 +3752,7 @@ define internal i32 @glusterfs_gfs4_0_op_fallocate_call(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_zerofill_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_zerofill_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3765,7 +3765,7 @@ define internal i32 @glusterfs_gfs4_0_op_zerofill_call(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_seek_call(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_seek_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
@@ -3780,7 +3780,7 @@ define internal i32 @glusterfs_gfs4_0_op_seek_call(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_seek_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @glusterfs_gfs4_0_op_seek_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
@@ -3797,13 +3797,13 @@ define internal i32 @glusterfs_gfs4_0_op_seek_reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @glusterfs_gfs4_0_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @glusterfs_gfs4_0_op_readdirp_entry(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @glusterfs_gfs4_0_op_readdirp_entry(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1, i32 noundef 1, i32 noundef 1)
   ret i32 %6
 }

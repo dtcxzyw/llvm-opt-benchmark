@@ -14,7 +14,7 @@ $__clang_call_terminate = comdat any
 $_ZN6icu_7515MaybeStackArrayI11max_align_tLi14EED2Ev = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -65535, 65536) i32 @uprv_uint16Comparator_75(ptr nocapture noundef readnone %context, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) local_unnamed_addr #0 {
+define range(i32 -65535, 65536) i32 @uprv_uint16Comparator_75(ptr noundef readnone captures(none) %context, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) local_unnamed_addr #0 {
 entry:
   %0 = load i16, ptr %left, align 2
   %conv = zext i16 %0 to i32
@@ -25,7 +25,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uprv_int32Comparator_75(ptr nocapture noundef readnone %context, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) local_unnamed_addr #0 {
+define i32 @uprv_int32Comparator_75(ptr noundef readnone captures(none) %context, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %left, align 4
   %1 = load i32, ptr %right, align 4
@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @uprv_uint32Comparator_75(ptr nocapture noundef readnone %context, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @uprv_uint32Comparator_75(ptr noundef readnone captures(none) %context, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %left, align 4
   %1 = load i32, ptr %right, align 4
@@ -43,7 +43,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_stableBinarySearch_75(ptr noundef %array, i32 noundef %limit, ptr noundef %item, i32 noundef %itemSize, ptr nocapture noundef readonly %cmp, ptr noundef %context) local_unnamed_addr #1 {
+define i32 @uprv_stableBinarySearch_75(ptr noundef %array, i32 noundef %limit, ptr noundef %item, i32 noundef %itemSize, ptr noundef readonly captures(none) %cmp, ptr noundef %context) local_unnamed_addr #1 {
 entry:
   %cmp119 = icmp sgt i32 %limit, 8
   br i1 %cmp119, label %while.body, label %while.cond8.preheader
@@ -463,12 +463,12 @@ terminate.lpad:                                   ; preds = %if.then.i
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
@@ -625,7 +625,7 @@ while.cond:                                       ; preds = %while.cond, %do.bod
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.cond ], [ %7, %do.body8 ]
   %8 = mul nsw i64 %indvars.iv, %0
   %add.ptr11 = getelementptr inbounds i8, ptr %array, i64 %8
-  %call = tail call noundef i32 %cmp(ptr noundef %context, ptr noundef %add.ptr11, ptr noundef %px)
+  %call = tail call noundef i32 %cmp(ptr noundef %context, ptr noundef %add.ptr11, ptr noundef nonnull %px)
   %cmp12 = icmp slt i32 %call, 0
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %cmp12, label %while.cond, label %while.cond13.preheader, !llvm.loop !8
@@ -639,7 +639,7 @@ while.cond13:                                     ; preds = %while.cond13.prehea
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, -1
   %10 = mul nsw i64 %indvars.iv.next90, %0
   %add.ptr17 = getelementptr inbounds i8, ptr %array, i64 %10
-  %call18 = tail call noundef i32 %cmp(ptr noundef %context, ptr noundef %px, ptr noundef %add.ptr17)
+  %call18 = tail call noundef i32 %cmp(ptr noundef %context, ptr noundef nonnull %px, ptr noundef %add.ptr17)
   %cmp19 = icmp slt i32 %call18, 0
   br i1 %cmp19, label %while.cond13, label %while.end21, !llvm.loop !9
 
@@ -689,7 +689,7 @@ if.then60:                                        ; preds = %do.end56
   br i1 %cmp62, label %if.then63, label %do.cond70
 
 if.then63:                                        ; preds = %if.then60
-  tail call fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr noundef %array, i32 noundef %start.addr.0, i32 noundef %right.2, i32 noundef %itemSize, ptr noundef %cmp, ptr noundef %context, ptr noundef %px, ptr noundef %pw)
+  tail call fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr noundef %array, i32 noundef %start.addr.0, i32 noundef %right.2, i32 noundef %itemSize, ptr noundef %cmp, ptr noundef %context, ptr noundef nonnull %px, ptr noundef %pw)
   br label %do.cond70
 
 if.else:                                          ; preds = %do.end56
@@ -698,7 +698,7 @@ if.else:                                          ; preds = %do.end56
   br i1 %cmp66, label %if.then67, label %do.cond70
 
 if.then67:                                        ; preds = %if.else
-  tail call fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr noundef %array, i32 noundef %left.2, i32 noundef %limit.addr.0, i32 noundef %itemSize, ptr noundef %cmp, ptr noundef %context, ptr noundef %px, ptr noundef %pw)
+  tail call fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr noundef %array, i32 noundef %left.2, i32 noundef %limit.addr.0, i32 noundef %itemSize, ptr noundef %cmp, ptr noundef %context, ptr noundef nonnull %px, ptr noundef %pw)
   br label %do.cond70
 
 do.cond70:                                        ; preds = %if.else, %if.then67, %if.then60, %if.then63
@@ -740,10 +740,10 @@ terminate.lpad:                                   ; preds = %if.then.i
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

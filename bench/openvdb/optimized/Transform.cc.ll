@@ -1313,7 +1313,7 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9TransformC2ERKSt10shared_ptrINS1_7MapBaseEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %map) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9TransformC2ERKSt10shared_ptrINS1_7MapBaseEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %map) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %affine = alloca %"class.std::shared_ptr.3", align 8
   %ref.tmp15 = alloca %"class.std::shared_ptr", align 8
@@ -2096,7 +2096,7 @@ _ZNSt12__shared_ptrIN7openvdb5v11_04math9AffineMapELN9__gnu_cxx12_Lock_policyE2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9TransformC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9TransformC2ERKS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %other, align 8, !noalias !25
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -2218,7 +2218,7 @@ _ZNSt10shared_ptrIKN7openvdb5v11_04math7MapBaseEED2Ev.exit: ; preds = %_ZN7openv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform21createLinearTransformEd(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.6") align 8 %agg.result, double noundef %voxelDim) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform21createLinearTransformEd(ptr noalias writeonly sret(%"class.std::shared_ptr.6") align 8 captures(none) %agg.result, double noundef %voxelDim) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
@@ -2431,7 +2431,7 @@ eh.resume:                                        ; preds = %ehcleanup, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform21createLinearTransformERKNS1_4Mat4IdEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.6") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform21createLinearTransformERKNS1_4Mat4IdEE(ptr noalias writeonly sret(%"class.std::shared_ptr.6") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
@@ -2719,7 +2719,7 @@ unreachable:                                      ; preds = %try.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform22createFrustumTransformERKNS1_4BBoxINS1_4Vec3IdEEEEddd(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %bbox, double noundef %taper, double noundef %depth, double noundef %voxelDim) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform22createFrustumTransformERKNS1_4BBoxINS1_4Vec3IdEEEEddd(ptr noalias writeonly sret(%"class.std::shared_ptr.6") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %bbox, double noundef %taper, double noundef %depth, double noundef %voxelDim) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp1 = alloca %"class.openvdb::v11_0::math::NonlinearFrustumMap", align 8
@@ -3068,7 +3068,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform4readERSi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform4readERSi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m0.i.i130 = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %m0.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
@@ -5387,7 +5387,7 @@ _ZNK7openvdb5v11_04math8internal13LegacyFrustum18unitToLocalFrustumERKNS1_4Vec3I
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr noalias sret(%"class.std::shared_ptr.3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5683,7 +5683,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -5747,7 +5747,7 @@ entry:
 declare void @_ZN7openvdb5v11_04math11MapRegistry9createMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_04math9Transform5writeERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_04math9Transform5writeERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size.i = alloca i32, align 4
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5852,7 +5852,7 @@ unreachable:                                      ; preds = %try.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_04math9Transform10isIdentityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_04math9Transform10isIdentityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.3", align 8
   %frustum = alloca %"class.std::shared_ptr.11", align 8
@@ -6416,7 +6416,7 @@ _ZNSt12__shared_ptrIN7openvdb5v11_04math19NonlinearFrustumMapELN9__gnu_cxx12_Loc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform9preRotateEdNS1_4AxisE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, double noundef %radians, i32 noundef %axis) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform9preRotateEdNS1_4AxisE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, double noundef %radians, i32 noundef %axis) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %this, align 8
@@ -6581,7 +6581,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform12preTranslateERKNS1_4Vec3IdEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform12preTranslateERKNS1_4Vec3IdEE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %this, align 8
@@ -6746,7 +6746,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform8preScaleERKNS1_4Vec3IdEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform8preScaleERKNS1_4Vec3IdEE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %this, align 8
@@ -6911,7 +6911,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform8preScaleEd(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, double noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform8preScaleEd(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, double noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vec = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
@@ -7082,7 +7082,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform8preShearEdNS1_4AxisES3_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform8preShearEdNS1_4AxisES3_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %this, align 8
@@ -7247,7 +7247,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform7preMultERKNS1_4Mat4IdEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform7preMultERKNS1_4Mat4IdEE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m0.i.i119 = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %m0.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
@@ -8394,7 +8394,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_9AffineMapEvEEPT_.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform7preMultERKNS1_4Mat3IdEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform7preMultERKNS1_4Mat3IdEE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mat4 = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %0 = load atomic i8, ptr @_ZGVZN7openvdb5v11_04math4Mat4IdE8identityEvE9sIdentity acquire, align 8
@@ -8438,7 +8438,7 @@ _ZN7openvdb5v11_04math4Mat4IdE7setMat3ERKNS1_4Mat3IdEE.exit: ; preds = %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform10postRotateEdNS1_4AxisE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, double noundef %radians, i32 noundef %axis) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform10postRotateEdNS1_4AxisE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, double noundef %radians, i32 noundef %axis) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %this, align 8
@@ -8603,7 +8603,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform13postTranslateERKNS1_4Vec3IdEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform13postTranslateERKNS1_4Vec3IdEE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %this, align 8
@@ -8768,7 +8768,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform9postScaleERKNS1_4Vec3IdEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform9postScaleERKNS1_4Vec3IdEE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %this, align 8
@@ -8933,7 +8933,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform9postScaleEd(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, double noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform9postScaleEd(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, double noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vec = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
@@ -9104,7 +9104,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform9postShearEdNS1_4AxisES3_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform9postShearEdNS1_4AxisES3_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %this, align 8
@@ -9269,7 +9269,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform8postMultERKNS1_4Mat4IdEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform8postMultERKNS1_4Mat4IdEE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m0.i.i119 = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %m0.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
@@ -10341,7 +10341,7 @@ if.end56:                                         ; preds = %if.end56.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9Transform8postMultERKNS1_4Mat3IdEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9Transform8postMultERKNS1_4Mat3IdEE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mat4 = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %0 = load atomic i8, ptr @_ZGVZN7openvdb5v11_04math4Mat4IdE8identityEvE9sIdentity acquire, align 8
@@ -10385,7 +10385,7 @@ _ZN7openvdb5v11_04math4Mat4IdE7setMat3ERKNS1_4Mat3IdEE.exit: ; preds = %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_04math9Transform12indexToWorldERKNS1_9CoordBBoxE(ptr noalias nocapture sret(%"class.openvdb::v11_0::math::BBox") align 8 initializes((0, 48)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %indexBBox) local_unnamed_addr #3 align 2 {
+define void @_ZNK7openvdb5v11_04math9Transform12indexToWorldERKNS1_9CoordBBoxE(ptr noalias sret(%"class.openvdb::v11_0::math::BBox") align 8 captures(none) initializes((0, 48)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %indexBBox) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.openvdb::v11_0::math::BBox", align 8
   %0 = load i32, ptr %indexBBox, align 4, !noalias !190
@@ -10421,7 +10421,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_04math9Transform12indexToWorldERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias nocapture sret(%"class.openvdb::v11_0::math::BBox") align 8 initializes((0, 48)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %indexBBox) local_unnamed_addr #3 align 2 {
+define void @_ZNK7openvdb5v11_04math9Transform12indexToWorldERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias sret(%"class.openvdb::v11_0::math::BBox") align 8 captures(none) initializes((0, 48)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %indexBBox) local_unnamed_addr #3 align 2 {
 entry:
   %corners = alloca [8 x %"class.openvdb::v11_0::math::Vec3"], align 16
   %ref.tmp35 = alloca %"class.openvdb::v11_0::math::Vec3", align 8
@@ -10548,7 +10548,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_04math9Transform12worldToIndexERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias nocapture writeonly sret(%"class.openvdb::v11_0::math::BBox") align 8 initializes((0, 48)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %worldBBox) local_unnamed_addr #3 align 2 {
+define void @_ZNK7openvdb5v11_04math9Transform12worldToIndexERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias writeonly sret(%"class.openvdb::v11_0::math::BBox") align 8 captures(none) initializes((0, 48)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %worldBBox) local_unnamed_addr #3 align 2 {
 entry:
   %indexMin = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %indexMax = alloca %"class.openvdb::v11_0::math::Vec3", align 8
@@ -10561,7 +10561,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math15calculateBoundsERKNS1_9TransformERKNS1_4Vec3IdEES8_RS6_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %minWS, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %maxWS, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %minIS, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %maxIS) local_unnamed_addr #3 {
+define void @_ZN7openvdb5v11_04math15calculateBoundsERKNS1_9TransformERKNS1_4Vec3IdEES8_RS6_S9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %minWS, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %maxWS, ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 24)) %minIS, ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 24)) %maxIS) local_unnamed_addr #3 {
 entry:
   %corners = alloca [8 x %"class.openvdb::v11_0::math::Vec3"], align 16
   %pre_image = alloca %"class.openvdb::v11_0::math::Vec3", align 8
@@ -10664,7 +10664,7 @@ for.end47:                                        ; preds = %for.inc45
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_04math9Transform24worldToIndexCellCenteredERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias nocapture writeonly sret(%"class.openvdb::v11_0::math::CoordBBox") align 4 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %worldBBox) local_unnamed_addr #3 align 2 {
+define void @_ZNK7openvdb5v11_04math9Transform24worldToIndexCellCenteredERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias writeonly sret(%"class.openvdb::v11_0::math::CoordBBox") align 4 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %worldBBox) local_unnamed_addr #3 align 2 {
 entry:
   %indexMin = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %indexMax = alloca %"class.openvdb::v11_0::math::Vec3", align 8
@@ -10717,7 +10717,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_04math9Transform24worldToIndexNodeCenteredERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias nocapture writeonly sret(%"class.openvdb::v11_0::math::CoordBBox") align 4 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %worldBBox) local_unnamed_addr #3 align 2 {
+define void @_ZNK7openvdb5v11_04math9Transform24worldToIndexNodeCenteredERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias writeonly sret(%"class.openvdb::v11_0::math::CoordBBox") align 4 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %worldBBox) local_unnamed_addr #3 align 2 {
 entry:
   %indexMin = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %indexMax = alloca %"class.openvdb::v11_0::math::Vec3", align 8
@@ -10764,7 +10764,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_04math9TransformeqERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_04math9TransformeqERKS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %ref.tmp2 = alloca %"class.openvdb::v11_0::math::Vec3", align 8
@@ -11829,7 +11829,7 @@ land.end:                                         ; preds = %if.end.i15, %land.r
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_04math9Transform5printERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %indent) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_04math9Transform5printERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %indent) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i211 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13031,7 +13031,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZNK7openvdb5v11_04math9Transform5printERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN5Local11rowAsStringB5cxx11ERKNS1_4Vec4IdEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %row) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZNK7openvdb5v11_04math9Transform5printERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN5Local11rowAsStringB5cxx11ERKNS1_4Vec4IdEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %row) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ostr = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ostr)
@@ -13214,7 +13214,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7openvdb5v11_04mathlsERSoRKNS1_9TransformE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7openvdb5v11_04mathlsERSoRKNS1_9TransformE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %t) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::shared_ptr.0", align 8
@@ -18673,7 +18673,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -22883,7 +22883,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) #14
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -28582,22 +28582,22 @@ declare void @llvm.va_end.p0(ptr) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #23
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20

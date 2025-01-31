@@ -26,9 +26,9 @@ define range(i32 -1, 1) i32 @zend_add_system_entropy(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #3
-  tail call void @PHP_MD5Update(ptr noundef nonnull @context, ptr noundef %0, i64 noundef %6) #4
+  tail call void @PHP_MD5Update(ptr noundef nonnull @context, ptr noundef nonnull %0, i64 noundef %6) #4
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #3
-  tail call void @PHP_MD5Update(ptr noundef nonnull @context, ptr noundef %1, i64 noundef %7) #4
+  tail call void @PHP_MD5Update(ptr noundef nonnull @context, ptr noundef nonnull %1, i64 noundef %7) #4
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %9, label %8
 
@@ -44,7 +44,7 @@ define range(i32 -1, 1) i32 @zend_add_system_entropy(ptr noundef %0, ptr noundef
 declare void @PHP_MD5Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_startup_system_id() local_unnamed_addr #0 {

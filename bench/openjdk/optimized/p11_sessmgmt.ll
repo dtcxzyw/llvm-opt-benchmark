@@ -267,7 +267,7 @@ define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef re
 declare i64 @ckAssertReturnValueOK(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @putNotifyEntry(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {

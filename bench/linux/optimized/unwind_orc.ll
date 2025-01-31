@@ -96,13 +96,13 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___unwind_sta
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable___unwind_start371, ptr @__UNIQUE_ID___addressable_unwind_get_return_address357, ptr @__UNIQUE_ID___addressable_unwind_next_frame368, ptr @__setup_unwind_debug_cmdline, ptr @orc_header, ptr @unwind_next_frame.__UNIQUE_ID___addressable___SCK__preempt_schedule366, ptr @unwind_next_frame.__UNIQUE_ID___addressable___SCK__preempt_schedule367], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @unwind_debug_cmdline(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @unwind_debug_cmdline(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   store i1 true, ptr @unwind_debug, align 1
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unwind_module_init(ptr nocapture noundef writeonly initializes((824, 828), (832, 848)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local void @unwind_module_init(ptr noundef writeonly captures(none) initializes((824, 828), (832, 848)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = lshr i64 %2, 2
   %7 = and i64 %2, 3
   %8 = urem i64 %4, 6
@@ -137,10 +137,10 @@ define dso_local void @unwind_module_init(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
@@ -381,7 +381,7 @@ define dso_local void @unwind_init() local_unnamed_addr #6 section ".init.text" 
 declare dso_local i32 @_printk_deferred(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @unwind_get_return_address(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local i64 @unwind_get_return_address(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %11, label %4
@@ -406,7 +406,7 @@ define dso_local i64 @unwind_get_return_address(ptr nocapture noundef readonly %
 declare dso_local i32 @__kernel_text_address(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @unwind_get_return_address_ptr(ptr nocapture noundef readonly %0) local_unnamed_addr #8 align 16 {
+define dso_local ptr @unwind_get_return_address_ptr(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 align 16 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %17, label %4
@@ -1566,7 +1566,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @unwind_dump(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc void @unwind_dump(ptr noundef readonly captures(none) %0) unnamed_addr #1 align 16 {
   %2 = alloca %struct.stack_info, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
@@ -1635,7 +1635,7 @@ define internal fastcc void @unwind_dump(ptr nocapture noundef readonly %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @deref_stack_reg(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @deref_stack_reg(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #1 align 16 {
   %4 = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1870,7 +1870,7 @@ define dso_local void @__unwind_start(ptr noundef initializes((0, 112)) %0, ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ret_from_fork(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
@@ -1879,7 +1879,7 @@ declare dso_local void @ret_from_fork(ptr noundef, ptr noundef, ptr noundef, ptr
 declare dso_local i32 @get_stack_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @__module_address(i64 noundef) local_unnamed_addr #3

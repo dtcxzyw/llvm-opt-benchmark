@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.lv_color_format_get_size = private unnamed_addr constant [33 x i8] c"\01\01\01\01\01\01\01\01\01\03\04\04\02\03\02\02\02\02\01\00\00\00\00\00\00\00\00\00\00\00\00\00\02", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal i24 @lv_color_filter_shade_cb(ptr nocapture readnone %0, i24 %1, i8 noundef zeroext %2) #0 {
+define internal i24 @lv_color_filter_shade_cb(ptr readnone captures(none) %0, i24 %1, i8 noundef zeroext %2) #0 {
   %4 = icmp eq i8 %2, 127
   br i1 %4, label %15, label %5
 
@@ -621,7 +621,7 @@ define zeroext i8 @lv_color16_luminance(i16 %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i8 @lv_color24_luminance(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i8 @lv_color24_luminance(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i8, ptr %2, align 1, !tbaa !10
   %4 = zext i8 %3 to i32

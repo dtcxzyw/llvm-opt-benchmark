@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BufferBlocks = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_hash_checkqual(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_hash_checkqual(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   ret i1 true
 }
 
@@ -44,7 +44,7 @@ declare ptr @index_getprocinfo(ptr noundef, i16 noundef signext, i16 noundef zer
 declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_hash_datum2hashkey_type(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local i32 @_hash_datum2hashkey_type(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
@@ -141,7 +141,7 @@ define dso_local i32 @_hash_get_totalbuckets(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_hash_checkpage(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local void @_hash_checkpage(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %5, label %11
 
@@ -291,7 +291,7 @@ define dso_local ptr @hashoptions(i64 noundef %0, i1 noundef zeroext %1) local_u
 declare ptr @build_reloptions(i64 noundef, i1 noundef zeroext, i32 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @_hash_get_indextuple_hashkey(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local i32 @_hash_get_indextuple_hashkey(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %3 = load i16, ptr %2, align 2
   %.not.i = icmp sgt i16 %3, -1
@@ -302,7 +302,7 @@ define dso_local i32 @_hash_get_indextuple_hashkey(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @_hash_convert_tuple(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_hash_convert_tuple(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = load i8, ptr %2, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %16, label %8
@@ -325,7 +325,7 @@ define dso_local noundef zeroext i1 @_hash_convert_tuple(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local zeroext i16 @_hash_binsearch(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local zeroext i16 @_hash_binsearch(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 12
   %.val = load i16, ptr %3, align 4
   %4 = icmp ult i16 %.val, 25
@@ -376,7 +376,7 @@ define dso_local zeroext i16 @_hash_binsearch(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local zeroext i16 @_hash_binsearch_last(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local zeroext i16 @_hash_binsearch_last(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 12
   %.val = load i16, ptr %3, align 4
   %4 = icmp ult i16 %.val, 25
@@ -567,7 +567,7 @@ BufferGetPage.exit._crit_edge:                    ; preds = %BufferGetPage.exit,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_hash_get_newbucket_from_oldbucket(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @_hash_get_newbucket_from_oldbucket(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = add i32 %2, 1
   %6 = or i32 %5, %1
   %7 = icmp ugt i32 %6, %3
@@ -579,7 +579,7 @@ define dso_local i32 @_hash_get_newbucket_from_oldbucket(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_hash_kill_items(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local void @_hash_kill_items(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

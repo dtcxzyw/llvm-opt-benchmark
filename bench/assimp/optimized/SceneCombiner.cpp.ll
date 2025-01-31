@@ -333,7 +333,7 @@ return:                                           ; preds = %entry, %sw.epilog
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner15AddNodePrefixesEP6aiNodePKcj(ptr nocapture noundef %node, ptr nocapture noundef readonly %prefix, i32 noundef %len) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp13SceneCombiner15AddNodePrefixesEP6aiNodePKcj(ptr noundef captures(none) %node, ptr noundef readonly captures(none) %prefix, i32 noundef %len) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %node, align 4
   %cmp.not.i = icmp ne i32 %0, 0
@@ -390,7 +390,7 @@ for.end:                                          ; preds = %for.body, %_ZN6Assi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN6Assimp13SceneCombiner13FindNameMatchERK8aiStringRSt6vectorINS_11SceneHelperESaIS5_EEj(ptr noundef nonnull align 4 dereferenceable(1028) %name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input, i32 noundef %cur) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN6Assimp13SceneCombiner13FindNameMatchERK8aiStringRSt6vectorINS_11SceneHelperESaIS5_EEj(ptr noundef nonnull align 4 dereferenceable(1028) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %input, i32 noundef %cur) local_unnamed_addr #1 align 2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %name, i64 4
   %0 = load i32, ptr %name, align 4
@@ -454,7 +454,7 @@ return:                                           ; preds = %_ZNSt3setIjSt4lessI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner22AddNodePrefixesCheckedEP6aiNodePKcjRSt6vectorINS_11SceneHelperESaIS6_EEj(ptr noundef %node, ptr nocapture noundef readonly %prefix, i32 noundef %len, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input, i32 noundef %cur) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp13SceneCombiner22AddNodePrefixesCheckedEP6aiNodePKcjRSt6vectorINS_11SceneHelperESaIS6_EEj(ptr noundef %node, ptr noundef readonly captures(none) %prefix, i32 noundef %len, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %input, i32 noundef %cur) local_unnamed_addr #0 align 2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %node, i64 4
   %0 = load i32, ptr %node, align 8
@@ -567,7 +567,7 @@ for.end21:                                        ; preds = %for.body18, %for.en
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6Assimp13SceneCombiner21OffsetNodeMeshIndicesEP6aiNodej(ptr nocapture noundef readonly %node, i32 noundef %offset) local_unnamed_addr #2 align 2 {
+define void @_ZN6Assimp13SceneCombiner21OffsetNodeMeshIndicesEP6aiNodej(ptr noundef readonly captures(none) %node, i32 noundef %offset) local_unnamed_addr #2 align 2 {
 entry:
   %mNumMeshes = getelementptr inbounds nuw i8, ptr %node, i64 1120
   %0 = load i32, ptr %mNumMeshes, align 8
@@ -618,7 +618,7 @@ for.end9:                                         ; preds = %for.body4, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner11MergeScenesEPP7aiSceneRSt6vectorIS2_SaIS2_EEj(ptr noundef %_dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %src, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner11MergeScenesEPP7aiSceneRSt6vectorIS2_SaIS2_EEj(ptr noundef %_dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %src, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcList = alloca %"class.std::vector.8", align 8
   %cmp = icmp eq ptr %_dest, null
@@ -868,10 +868,10 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 declare void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner11MergeScenesEPP7aiSceneS2_RSt6vectorINS_14AttachmentInfoESaIS5_EEj(ptr noundef %_dest, ptr noundef %master, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %srcList, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner11MergeScenesEPP7aiSceneS2_RSt6vectorINS_14AttachmentInfoESaIS5_EEj(ptr noundef %_dest, ptr noundef %master, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %srcList, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src = alloca %"class.std::vector", align 8
   %ref.tmp16 = alloca %"struct.Assimp::SceneHelper", align 8
@@ -4549,7 +4549,7 @@ eh.resume:                                        ; preds = %ehcleanup866, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner13AttachToGraphEP6aiNodeRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE(ptr noundef %attach, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %srcList) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp13SceneCombiner13AttachToGraphEP6aiNodeRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE(ptr noundef %attach, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %srcList) local_unnamed_addr #0 align 2 {
 entry:
   %mNumChildren = getelementptr inbounds nuw i8, ptr %attach, i64 1104
   %0 = load i32, ptr %mNumChildren, align 8
@@ -4698,7 +4698,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner13AttachToGraphEP7aiSceneRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE(ptr nocapture noundef readonly %master, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %src) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp13SceneCombiner13AttachToGraphEP7aiSceneRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE(ptr noundef readonly captures(none) %master, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %src) local_unnamed_addr #0 align 2 {
 entry:
   %mRootNode = getelementptr inbounds nuw i8, ptr %master, i64 8
   %0 = load ptr, ptr %mRootNode, align 8
@@ -4707,7 +4707,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Assimp13SceneCombiner4CopyEPP9aiTexturePKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 {
@@ -4884,10 +4884,10 @@ for.end:                                          ; preds = %_ZN8aiStringaSERKS_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Assimp13SceneCombiner4CopyEPP6aiMeshPKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -5255,7 +5255,7 @@ if.end41:                                         ; preds = %_ZN6Assimp13SceneCo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP6aiNodePKS1_(ptr nocapture noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP6aiNodePKS1_(ptr noundef writeonly captures(none) %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1144) ptr @_Znwm(i64 noundef 1144) #19
   invoke void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144) %call)
@@ -6590,7 +6590,7 @@ for.end:                                          ; preds = %if.end23
   store i32 %spec.store.select.i, ptr %mName35, align 4
   %data.i69 = getelementptr inbounds nuw i8, ptr %call4, i64 240
   %conv2.i = sext i32 %spec.store.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i69, ptr align 1 %call36, i64 %conv2.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i69, ptr nonnull align 1 %call36, i64 %conv2.i, i1 false)
   %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i69, i64 0, i64 %conv2.i
   store i8 0, ptr %arrayidx.i, align 1
   %16 = load i32, ptr %mNumVertices.i, align 4
@@ -8505,7 +8505,7 @@ for.end:                                          ; preds = %_ZN6Assimp13SceneCo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Assimp13SceneCombiner4CopyEPP8aiStringPKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 {
@@ -9296,12 +9296,12 @@ for.end:                                          ; preds = %for.inc, %_ZN10aiMe
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
@@ -10117,10 +10117,10 @@ declare i32 @llvm.smin.i32(i32, i32) #15
 declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

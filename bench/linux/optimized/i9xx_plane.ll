@@ -306,7 +306,7 @@ define dso_local i32 @i9xx_check_plane_surface(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @intel_plane_compute_gtt(ptr noundef) local_unnamed_addr #2
@@ -327,7 +327,7 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 declare dso_local i32 @intel_plane_adjust_aligned_offset(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
@@ -336,7 +336,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 32769) i32 @i965_plane_max_stride(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2, i32 %3) #0 align 16 {
+define dso_local range(i32 0, 32769) i32 @i965_plane_max_stride(ptr readnone captures(none) %0, i32 noundef %1, i64 noundef %2, i32 %3) #0 align 16 {
   %5 = tail call ptr @drm_format_info(i32 noundef %1) #9
   %6 = icmp eq i64 %2, 72057594037927937
   br i1 %6, label %7, label %13
@@ -662,7 +662,7 @@ declare dso_local i32 @hsw_plane_min_cdclk(ptr noundef, ptr noundef) #2
 declare dso_local i32 @ivb_plane_min_cdclk(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @i9xx_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define internal i32 @i9xx_plane_min_cdclk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -688,7 +688,7 @@ define internal i32 @i9xx_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 4096, 16385) i32 @i9xx_plane_max_stride(ptr nocapture noundef readonly %0, i32 %1, i64 noundef %2, i32 %3) #3 align 16 {
+define internal range(i32 4096, 16385) i32 @i9xx_plane_max_stride(ptr noundef readonly captures(none) %0, i32 %1, i64 noundef %2, i32 %3) #3 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2632
   %7 = load i16, ptr %6, align 8
@@ -713,7 +713,7 @@ define internal range(i32 4096, 16385) i32 @i9xx_plane_max_stride(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 32769) i32 @hsw_primary_max_stride(ptr nocapture readnone %0, i32 noundef %1, i64 %2, i32 %3) #0 align 16 {
+define internal range(i32 0, 32769) i32 @hsw_primary_max_stride(ptr readnone captures(none) %0, i32 noundef %1, i64 %2, i32 %3) #0 align 16 {
   %5 = tail call ptr @drm_format_info(i32 noundef %1) #9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %7 = load i8, ptr %6, align 2
@@ -724,7 +724,7 @@ define internal range(i32 0, 32769) i32 @hsw_primary_max_stride(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 32769) i32 @ilk_primary_max_stride(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2, i32 %3) #0 align 16 {
+define internal range(i32 0, 32769) i32 @ilk_primary_max_stride(ptr readnone captures(none) %0, i32 noundef %1, i64 noundef %2, i32 %3) #0 align 16 {
   %5 = tail call ptr @drm_format_info(i32 noundef %1) #9
   %6 = icmp eq i64 %2, 72057594037927937
   br i1 %6, label %7, label %13
@@ -743,14 +743,14 @@ define internal range(i32 0, 32769) i32 @ilk_primary_max_stride(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i830_plane_update_arm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal void @i830_plane_update_arm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   tail call void @i9xx_plane_update_noarm(ptr noundef %0, ptr poison, ptr noundef %2)
   tail call void @i9xx_plane_update_arm(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i9xx_plane_update_noarm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @i9xx_plane_update_noarm(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %6 = load i32, ptr %5, align 8
@@ -988,7 +988,7 @@ define internal void @i9xx_plane_update_noarm(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal void @i9xx_plane_update_arm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %6 = load i32, ptr %5, align 8
@@ -1713,7 +1713,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i9xx_plane_disable_arm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @i9xx_plane_disable_arm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %5 = load i32, ptr %4, align 8
@@ -1951,7 +1951,7 @@ define internal void @i9xx_plane_disable_arm(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @i9xx_plane_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal zeroext i1 @i9xx_plane_get_hw_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %5 = load i32, ptr %4, align 8
@@ -2083,7 +2083,7 @@ define internal i32 @i9xx_plane_check(ptr noundef %0, ptr noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_primary_async_flip(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i1 zeroext %3) #0 align 16 {
+define internal void @vlv_primary_async_flip(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i1 zeroext %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %7 = load i32, ptr %6, align 8
@@ -2171,7 +2171,7 @@ define internal void @vlv_primary_async_flip(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_primary_enable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @vlv_primary_enable_flip_done(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %4 = load i32, ptr %3, align 8
@@ -2183,7 +2183,7 @@ define internal void @vlv_primary_enable_flip_done(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_primary_disable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @vlv_primary_disable_flip_done(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %4 = load i32, ptr %3, align 8
@@ -2195,7 +2195,7 @@ define internal void @vlv_primary_disable_flip_done(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @g4x_primary_async_flip(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) #0 align 16 {
+define internal void @g4x_primary_async_flip(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 380
   %7 = load i32, ptr %6, align 4
@@ -2380,7 +2380,7 @@ define internal void @g4x_primary_async_flip(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bdw_primary_enable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @bdw_primary_enable_flip_done(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %4 = load i32, ptr %3, align 8
@@ -2392,7 +2392,7 @@ define internal void @bdw_primary_enable_flip_done(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bdw_primary_disable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @bdw_primary_disable_flip_done(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %4 = load i32, ptr %3, align 8
@@ -2404,7 +2404,7 @@ define internal void @bdw_primary_disable_flip_done(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ivb_primary_enable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ivb_primary_enable_flip_done(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7932
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #9
@@ -2419,7 +2419,7 @@ define internal void @ivb_primary_enable_flip_done(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ivb_primary_disable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ivb_primary_disable_flip_done(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7932
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #9
@@ -2434,7 +2434,7 @@ define internal void @ivb_primary_disable_flip_done(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ilk_primary_enable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ilk_primary_enable_flip_done(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7932
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #9
@@ -2448,7 +2448,7 @@ define internal void @ilk_primary_enable_flip_done(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ilk_primary_disable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ilk_primary_disable_flip_done(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7932
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #9
@@ -2483,7 +2483,7 @@ declare dso_local void @intel_plane_helper_add(ptr noundef) local_unnamed_addr #
 declare dso_local void @intel_plane_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i9xx_get_initial_plane_config(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @i9xx_get_initial_plane_config(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2958,7 +2958,7 @@ declare dso_local i32 @intel_atomic_plane_check_clipping(ptr noundef, ptr nounde
 declare dso_local i32 @intel_plane_check_src_coordinates(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @i9xx_plane_ctl(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @i9xx_plane_ctl(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184

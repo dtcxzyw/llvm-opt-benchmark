@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN2EA6EAMain11CommandLineD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN2EA6EAMain11CommandLineD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN2EA6EAMain8Internal25ExtractPrintServerAddressEiPPc(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN2EA6EAMain8Internal25ExtractPrintServerAddressEiPPc(i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %commandLine = alloca %"class.EA::EAMain::CommandLine", align 8
   %printServerAddress = alloca ptr, align 8
@@ -80,7 +80,7 @@ _ZN2EA6EAMain11CommandLineD2Ev.exit:              ; preds = %_ZN2EA6EAMain11Comm
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %pSwitch, i1 noundef zeroext %bCaseSensitive, ptr noundef writeonly %pResult, i32 noundef %nStartingIndex, i8 noundef signext %delimeter) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %pSwitch, i1 noundef zeroext %bCaseSensitive, ptr noundef writeonly %pResult, i32 noundef %nStartingIndex, i8 noundef signext %delimeter) local_unnamed_addr #1 align 2 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %nStartingIndex, i32 0)
   %tobool = icmp ne ptr %pResult, null
@@ -484,7 +484,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA6EAMain15PlatformStartupEiPPc(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local void @_ZN2EA6EAMain15PlatformStartupEiPPc(i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZN2EA6EAMain8Internal25ExtractPrintServerAddressEiPPc(i32 noundef %argc, ptr noundef %argv)
   tail call void @_ZN2EA6EAMain8Internal13EAMainStartupEPKc(ptr noundef %call)
@@ -503,7 +503,7 @@ entry:
 declare noundef i32 @_ZN2EA6EAMain8Internal14EAMainShutdownEi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN2EA6EAMain11CommandLineC2EiPPc(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, i32 noundef %argc, ptr nocapture noundef readonly %argv) unnamed_addr #6 align 2 {
+define dso_local void @_ZN2EA6EAMain11CommandLineC2EiPPc(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 4), (8, 24)) %this, i32 noundef %argc, ptr noundef readonly captures(none) %argv) unnamed_addr #6 align 2 {
 entry:
   store i32 %argc, ptr %this, align 8
   %mArgv = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -547,7 +547,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN2EA6EAMain11CommandLineC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, ptr nocapture noundef readonly %args) unnamed_addr #8 align 2 {
+define dso_local void @_ZN2EA6EAMain11CommandLineC2EPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 4), (8, 24)) %this, ptr noundef readonly captures(none) %args) unnamed_addr #8 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %mArgv = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -557,7 +557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN2EA6EAMain11CommandLine16ParseCommandLineEPKcj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %inputCommandLine, i32 noundef %flags) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN2EA6EAMain11CommandLine16ParseCommandLineEPKcj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %inputCommandLine, i32 noundef %flags) local_unnamed_addr #8 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %inputCommandLine) #21
   %and = and i32 %flags, 1
@@ -567,7 +567,7 @@ entry:
   %spec.select39 = add i64 %call, %spec.select39.v
   %call3 = tail call noalias ptr @calloc(i64 noundef %spec.select39, i64 noundef 1) #19
   %add.ptr = getelementptr inbounds nuw i8, ptr %call3, i64 %spec.select
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %inputCommandLine, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %inputCommandLine, i64 %call, i1 false)
   %call4 = tail call noalias dereferenceable_or_null(1024) ptr @calloc(i64 noundef 128, i64 noundef 8) #19
   %add.ptr6 = getelementptr inbounds i8, ptr %add.ptr, i64 %call
   br i1 %tobool.not.not, label %if.end10, label %if.then9
@@ -708,7 +708,7 @@ while.end50:                                      ; preds = %while.end49, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN2EA6EAMain11CommandLineC2EPKcj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, ptr nocapture noundef readonly %args, i32 noundef %flags) unnamed_addr #8 align 2 {
+define dso_local void @_ZN2EA6EAMain11CommandLineC2EPKcj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 4), (8, 24)) %this, ptr noundef readonly captures(none) %args, i32 noundef %flags) unnamed_addr #8 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %mArgv = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -718,7 +718,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @_ZN2EA6EAMain11CommandLineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN2EA6EAMain11CommandLineD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) unnamed_addr #9 align 2 {
 entry:
   %mArgv = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mArgv, align 8
@@ -746,19 +746,19 @@ if.end8:                                          ; preds = %if.then5, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK2EA6EAMain11CommandLine13HasHelpSwitchEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #13 align 2 {
+define dso_local noundef zeroext i1 @_ZNK2EA6EAMain11CommandLine13HasHelpSwitchEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull @.str.3, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, i8 noundef signext 58)
   %cmp = icmp sgt i32 %call, -1
@@ -783,13 +783,13 @@ return:                                           ; preds = %lor.lhs.false4, %en
 declare i32 @isspace(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef i32 @_ZN2EA4StdC9VsnprintfEPcmPKcP13__va_list_tag(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -812,7 +812,7 @@ declare i32 @llvm.smax.i32(i32, i32) #17
 declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

@@ -828,7 +828,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN7datalog23product_relation_plugin20can_handle_signatureERKNS_18relation_signatureEi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %s, i32 %k) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN7datalog23product_relation_plugin20can_handle_signatureERKNS_18relation_signatureEi(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %s, i32 %k) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
@@ -899,7 +899,7 @@ dynamic_cast.end:                                 ; preds = %entry, %dynamic_cas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN7datalog23product_relation_plugin19is_product_relationERKNS_13relation_baseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %r) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN7datalog23product_relation_plugin19is_product_relationERKNS_13relation_baseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %r) local_unnamed_addr #3 align 2 {
 entry:
   %retval.i = alloca %class.symbol, align 8
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %r, i64 8
@@ -915,7 +915,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN7datalog23product_relation_plugin11are_alignedERKNS_16product_relationES3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %r1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %r2) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN7datalog23product_relation_plugin11are_alignedERKNS_16product_relationES3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %r1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %r2) local_unnamed_addr #7 align 2 {
 entry:
   %m_relations.i = getelementptr inbounds nuw i8, ptr %r1, i64 32
   %0 = load ptr, ptr %m_relations.i, align 8
@@ -974,7 +974,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog23product_relation_plugin15get_common_specERK10ptr_vectorIKNS_16product_relationEERNS_8rel_specE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %rels, ptr noundef nonnull align 8 dereferenceable(8) %res) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog23product_relation_plugin15get_common_specERK10ptr_vectorIKNS_16product_relationEERNS_8rel_specE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %rels, ptr noundef nonnull align 8 dereferenceable(8) %res) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %specs = alloca %class.vector.35, align 8
   store ptr null, ptr %specs, align 8
@@ -1380,7 +1380,7 @@ terminate.lpad:                                   ; preds = %_ZN6vectorIN7datalo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog23product_relation_plugin8mk_emptyERKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog23product_relation_plugin8mk_emptyERKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %s) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   tail call void @_ZN7datalog16product_relationC2ERNS_23product_relation_pluginERKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %s)
@@ -1898,7 +1898,7 @@ return:                                           ; preds = %if.then.i.i.i.i, %_
 declare noundef ptr @_ZN7datalog16relation_manager16mk_full_relationERKNS_18relation_signatureEP9func_decli(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog23product_relation_plugin7mk_fullEP9func_declRKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture readnone %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog23product_relation_plugin7mk_fullEP9func_declRKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr readnone captures(none) %p, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %s) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   tail call void @_ZN7datalog16product_relationC2ERNS_23product_relation_pluginERKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %s)
@@ -2224,7 +2224,7 @@ lpad14:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog23product_relation_plugin13mk_project_fnERKNS_13relation_baseEjPKj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(28) %_r, i32 noundef %col_cnt, ptr noundef %removed_cols) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN7datalog23product_relation_plugin13mk_project_fnERKNS_13relation_baseEjPKj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(28) %_r, i32 noundef %col_cnt, ptr noundef %removed_cols) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i.i = alloca %class.symbol, align 8
   %projs = alloca %class.ptr_vector.44, align 8
@@ -2767,7 +2767,7 @@ _ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE14transformer_fn
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog23product_relation_plugin12mk_rename_fnERKNS_13relation_baseEjPKj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(28) %_r, i32 noundef %cycle_len, ptr noundef %permutation_cycle) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN7datalog23product_relation_plugin12mk_rename_fnERKNS_13relation_baseEjPKj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(28) %_r, i32 noundef %cycle_len, ptr noundef %permutation_cycle) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i.i = alloca %class.symbol, align 8
   %trans = alloca %class.ptr_vector.44, align 8
@@ -3658,7 +3658,7 @@ _ZN10ptr_vectorIKN7datalog16product_relationEED2Ev.exit: ; preds = %invoke.cont1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog16product_relation30try_get_single_non_transparentERj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %idx) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog16product_relation30try_get_single_non_transparentERj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %idx) local_unnamed_addr #3 align 2 {
 entry:
   %m_relations.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_relations.i, align 8
@@ -3762,7 +3762,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog23product_relation_plugin22mk_filter_identical_fnERKNS_13relation_baseEjPKj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(28) %_t, i32 noundef %col_cnt, ptr noundef %identical_cols) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN7datalog23product_relation_plugin22mk_filter_identical_fnERKNS_13relation_baseEjPKj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(28) %_t, i32 noundef %col_cnt, ptr noundef %identical_cols) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i.i = alloca %class.symbol, align 8
   %mutators = alloca %class.ptr_vector.47, align 8
@@ -4007,7 +4007,7 @@ _ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog23product_relation_plugin18mk_filter_equal_fnERKNS_13relation_baseERKP3appj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(28) %_t, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %col) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN7datalog23product_relation_plugin18mk_filter_equal_fnERKNS_13relation_baseERKP3appj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(28) %_t, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %col) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i.i = alloca %class.symbol, align 8
   %mutators = alloca %class.ptr_vector.47, align 8
@@ -4229,7 +4229,7 @@ return:                                           ; preds = %_ZN10ptr_vectorIN7d
 declare noundef ptr @_ZN7datalog16relation_manager18mk_filter_equal_fnERKNS_13relation_baseERKP3appj(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(28), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog23product_relation_plugin24mk_filter_interpreted_fnERKNS_13relation_baseEP3app(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(28) %t, ptr noundef %condition) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog23product_relation_plugin24mk_filter_interpreted_fnERKNS_13relation_baseEP3app(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(28) %t, ptr noundef %condition) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #25
@@ -4484,7 +4484,7 @@ for.end59:                                        ; preds = %invoke.cont17.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog16product_relationC2ERNS_23product_relation_pluginERKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 29), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(104) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog16product_relationC2ERNS_23product_relation_pluginERKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 29), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(104) %p, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4721,7 +4721,7 @@ _ZN7datalog17tr_infrastructureINS_15relation_traitsEE13base_ancestorD2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog16product_relationC2ERNS_23product_relation_pluginERKNS_18relation_signatureEjPPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 29), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(104) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s, i32 noundef %num_relations, ptr nocapture noundef readonly %relations) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog16product_relationC2ERNS_23product_relation_pluginERKNS_18relation_signatureEjPPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 29), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(104) %p, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %s, i32 noundef %num_relations, ptr noundef readonly captures(none) %relations) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4847,7 +4847,7 @@ invoke.cont7:                                     ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog16product_relationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog16product_relationD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog16product_relationE, i64 16), ptr %this, align 8
   %m_relations = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -4970,7 +4970,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZNK7datalog16product_relation10get_pluginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZNK7datalog16product_relation10get_pluginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
@@ -5341,7 +5341,7 @@ return:                                           ; preds = %if.then.i.i.i44, %i
 declare noundef nonnull align 8 dereferenceable(72) ptr @_ZN7datalog21sieve_relation_plugin3getERNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog16product_relation8add_factERKNS_13relation_factE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog16product_relation8add_factERKNS_13relation_factE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) unnamed_addr #3 align 2 {
 entry:
   %m_relations.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.cond
@@ -5378,7 +5378,7 @@ for.end:                                          ; preds = %_ZNK7datalog16produ
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog16product_relation13contains_factERKNS_13relation_factE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog16product_relation13contains_factERKNS_13relation_factE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) unnamed_addr #3 align 2 {
 entry:
   %m_relations.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.cond
@@ -5415,7 +5415,7 @@ return:                                           ; preds = %_ZNK7datalog16produ
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK7datalog16product_relation5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK7datalog16product_relation5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %relations = alloca %class.ptr_vector.33, align 8
   store ptr null, ptr %relations, align 8
@@ -5556,7 +5556,7 @@ _ZN10ptr_vectorIN7datalog13relation_baseEED2Ev.exit: ; preds = %invoke.cont18, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK7datalog16product_relation10complementEP9func_decl(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture readnone %0) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK7datalog16product_relation10complementEP9func_decl(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr readnone captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   %m_relations = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %m_relations, align 8
@@ -5594,7 +5594,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog16product_relation5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog16product_relation5emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   %m_relations = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_relations, align 8
@@ -5646,7 +5646,7 @@ return:                                           ; preds = %_ZNK6vectorIPN7data
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog16product_relation10to_formulaER7obj_refI4expr11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %fml) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7datalog16product_relation10to_formulaER7obj_refI4expr11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %fml) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conjs = alloca %class.ref_vector.89, align 8
   %tmp = alloca %class.obj_ref, align 8
@@ -6151,7 +6151,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog16product_relation7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
+define hidden void @_ZNK7datalog16product_relation7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
 entry:
   %m_relations = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_relations, align 8
@@ -6439,7 +6439,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @llvm.trap() #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
@@ -9753,7 +9753,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -10356,7 +10356,7 @@ unreachable:                                      ; preds = %invoke.cont
 declare void @_ZN7datalog26dealloc_ptr_vector_contentER10ptr_vectorINS_13relation_baseEE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog23product_relation_plugin12transform_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11216,7 +11216,7 @@ cond.end17:                                       ; preds = %invoke.cont6, %cond
   br label %for.body26
 
 for.body26:                                       ; preds = %cond.end17, %for.inc
-  %15 = phi ptr [ %cond18, %cond.end17 ], [ %61, %for.inc ]
+  %15 = phi ptr [ %cond18, %cond.end17 ], [ %62, %for.inc ]
   %indvars.iv = phi i64 [ 0, %cond.end17 ], [ %indvars.iv.next, %for.inc ]
   %cmp27 = icmp eq i64 %indvars.iv269, %indvars.iv
   br i1 %cmp27, label %for.inc, label %invoke.cont29
@@ -11287,13 +11287,9 @@ invoke.cont56:                                    ; preds = %cond.true42.invoke.
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %29 = load ptr, ptr %vfn.i, align 8
   invoke void %29(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(28) %23, ptr noundef nonnull align 8 dereferenceable(28) %25, ptr noundef %cond51)
-          to label %invoke.cont60 unwind label %lpad53
+          to label %if.end.i unwind label %lpad53
 
-invoke.cont60:                                    ; preds = %invoke.cont56
-  %cmp.i.not.i = icmp eq ptr %23, null
-  br i1 %cmp.i.not.i, label %invoke.cont61, label %if.end.i
-
-if.end.i:                                         ; preds = %invoke.cont60
+if.end.i:                                         ; preds = %invoke.cont56
   %30 = load ptr, ptr %side_result, align 8
   %cmp.i6.not.i = icmp eq ptr %30, null
   br i1 %cmp.i6.not.i, label %_ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit.i, label %if.end6.i
@@ -11354,7 +11350,7 @@ _ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit13.i: ; preds = %if.then
   store ptr null, ptr %one_side_union, align 8
   br label %invoke.cont61
 
-invoke.cont61:                                    ; preds = %_ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit13.i, %_ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit.i, %invoke.cont60
+invoke.cont61:                                    ; preds = %_ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit13.i, %_ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit.i
   %37 = load ptr, ptr %one_side_delta, align 8
   %cmp.i80.not = icmp eq ptr %37, null
   br i1 %cmp.i80.not, label %invoke.cont67, label %if.then64
@@ -11384,7 +11380,7 @@ lpad53:                                           ; preds = %if.then.i11.i122, %
   br label %lpad53.body
 
 lpad53.body:                                      ; preds = %lpad53, %lpad.i.i116, %lpad.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %lpad.i.i ], [ %39, %lpad53 ], [ %53, %lpad.i.i116 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %lpad.i.i ], [ %39, %lpad53 ], [ %54, %lpad.i.i116 ]
   call void @_ZN7datalog10scoped_relINS_13relation_baseEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %one_side_delta) #25
   br label %ehcleanup
 
@@ -11399,53 +11395,49 @@ invoke.cont67:                                    ; preds = %invoke.cont61, %if.
           to label %invoke.cont73 unwind label %lpad53
 
 invoke.cont73:                                    ; preds = %invoke.cont67
-  %cmp.not.i = icmp eq ptr %call72, null
-  %.pre279 = load ptr, ptr %fresh_delta, align 8
   store ptr %call72, ptr %one_side_union, align 8
-  %cmp.i86.not = icmp eq ptr %.pre279, null
+  %43 = load ptr, ptr %fresh_delta, align 8
+  %cmp.i86.not = icmp eq ptr %43, null
   br i1 %cmp.i86.not, label %cond.end85, label %cond.true77
 
 cond.true77:                                      ; preds = %invoke.cont73
-  %vtable80 = load ptr, ptr %.pre279, align 8
+  %vtable80 = load ptr, ptr %43, align 8
   %vfn81 = getelementptr inbounds nuw i8, ptr %vtable80, i64 72
-  %43 = load ptr, ptr %vfn81, align 8
-  %call83 = invoke noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(28) %.pre279)
+  %44 = load ptr, ptr %vfn81, align 8
+  %call83 = invoke noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(28) %43)
           to label %cond.end85 unwind label %lpad53
 
 cond.end85:                                       ; preds = %invoke.cont73, %cond.true77
   %cond86 = phi ptr [ %call83, %cond.true77 ], [ null, %invoke.cont73 ]
-  %44 = load ptr, ptr %one_side_delta, align 8
-  %tobool.not.i87 = icmp eq ptr %44, null
-  %cmp.not.i88 = icmp eq ptr %cond86, %44
+  %45 = load ptr, ptr %one_side_delta, align 8
+  %tobool.not.i87 = icmp eq ptr %45, null
+  %cmp.not.i88 = icmp eq ptr %cond86, %45
   %or.cond.i89 = or i1 %tobool.not.i87, %cmp.not.i88
   br i1 %or.cond.i89, label %invoke.cont91, label %if.then.i90
 
 if.then.i90:                                      ; preds = %cond.end85
-  invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %44)
+  invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %45)
           to label %invoke.cont91 unwind label %lpad53
 
 invoke.cont91:                                    ; preds = %if.then.i90, %cond.end85
   store ptr %cond86, ptr %one_side_delta, align 8
-  %45 = load ptr, ptr %m_relations.i, align 8
-  %arrayidx.i.i96 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
-  %46 = load ptr, ptr %arrayidx.i.i96, align 8
-  %47 = load ptr, ptr %m_unions.i, align 8
-  %arrayidx.i.i99 = getelementptr inbounds nuw %class.ptr_vector.103, ptr %47, i64 %indvars.iv269
-  %48 = load ptr, ptr %arrayidx.i.i99, align 8
-  %arrayidx.i2.i101 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
-  %49 = load ptr, ptr %arrayidx.i2.i101, align 8
-  %vtable.i102 = load ptr, ptr %49, align 8
+  %46 = load ptr, ptr %m_relations.i, align 8
+  %arrayidx.i.i96 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %47 = load ptr, ptr %arrayidx.i.i96, align 8
+  %48 = load ptr, ptr %m_unions.i, align 8
+  %arrayidx.i.i99 = getelementptr inbounds nuw %class.ptr_vector.103, ptr %48, i64 %indvars.iv269
+  %49 = load ptr, ptr %arrayidx.i.i99, align 8
+  %arrayidx.i2.i101 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = load ptr, ptr %arrayidx.i2.i101, align 8
+  %vtable.i102 = load ptr, ptr %50, align 8
   %vfn.i103 = getelementptr inbounds nuw i8, ptr %vtable.i102, i64 16
-  %50 = load ptr, ptr %vfn.i103, align 8
-  invoke void %50(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(28) %call72, ptr noundef nonnull align 8 dereferenceable(28) %46, ptr noundef %cond86)
-          to label %invoke.cont95 unwind label %lpad53
+  %51 = load ptr, ptr %vfn.i103, align 8
+  invoke void %51(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(28) %call72, ptr noundef nonnull align 8 dereferenceable(28) %47, ptr noundef %cond86)
+          to label %if.end.i108 unwind label %lpad53
 
-invoke.cont95:                                    ; preds = %invoke.cont91
-  br i1 %cmp.not.i, label %invoke.cont96, label %if.end.i108
-
-if.end.i108:                                      ; preds = %invoke.cont95
-  %51 = load ptr, ptr %side_result, align 8
-  %cmp.i6.not.i109 = icmp eq ptr %51, null
+if.end.i108:                                      ; preds = %invoke.cont91
+  %52 = load ptr, ptr %side_result, align 8
+  %cmp.i6.not.i109 = icmp eq ptr %52, null
   br i1 %cmp.i6.not.i109, label %_ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit.i130, label %if.end6.i110
 
 _ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit.i130: ; preds = %if.end.i108
@@ -11455,8 +11447,8 @@ _ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit.i130: ; preds = %if.end
 
 if.end6.i110:                                     ; preds = %if.end.i108
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %intersect_fun.i.i106)
-  %52 = load ptr, ptr %m_rmgr.i.i, align 8
-  %call.i.i133 = invoke noundef ptr @_ZN7datalog16relation_manager28mk_filter_by_intersection_fnERKNS_13relation_baseES3_(ptr noundef nonnull align 8 dereferenceable(200) %52, ptr noundef nonnull align 8 dereferenceable(28) %51, ptr noundef nonnull align 8 dereferenceable(28) %call72)
+  %53 = load ptr, ptr %m_rmgr.i.i, align 8
+  %call.i.i133 = invoke noundef ptr @_ZN7datalog16relation_manager28mk_filter_by_intersection_fnERKNS_13relation_baseES3_(ptr noundef nonnull align 8 dereferenceable(200) %53, ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef nonnull align 8 dereferenceable(28) %call72)
           to label %call.i.i.noexc132 unwind label %lpad53
 
 call.i.i.noexc132:                                ; preds = %if.end6.i110
@@ -11469,7 +11461,7 @@ if.then.i7.i124:                                  ; preds = %call.i.i.noexc132
           to label %if.then.i11.i122 unwind label %lpad.i.i116
 
 lpad.i.i116:                                      ; preds = %if.end.i.i113, %if.then.i7.i124
-  %53 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE22intersection_filter_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %intersect_fun.i.i106) #25
   br label %lpad53.body
@@ -11477,22 +11469,22 @@ lpad.i.i116:                                      ; preds = %if.end.i.i113, %if.
 if.end.i.i113:                                    ; preds = %call.i.i.noexc132
   %vtable.i.i114 = load ptr, ptr %call.i.i133, align 8
   %vfn.i.i115 = getelementptr inbounds nuw i8, ptr %vtable.i.i114, i64 16
-  %54 = load ptr, ptr %vfn.i.i115, align 8
-  invoke void %54(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i133, ptr noundef nonnull align 8 dereferenceable(28) %51, ptr noundef nonnull align 8 dereferenceable(28) %call72)
+  %55 = load ptr, ptr %vfn.i.i115, align 8
+  invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i133, ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef nonnull align 8 dereferenceable(28) %call72)
           to label %if.end.i.i.i.i117 unwind label %lpad.i.i116
 
 if.end.i.i.i.i117:                                ; preds = %if.end.i.i113
   %vtable.i.i.i.i118 = load ptr, ptr %call.i.i133, align 8
-  %55 = load ptr, ptr %vtable.i.i.i.i118, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i133) #25
+  %56 = load ptr, ptr %vtable.i.i.i.i118, align 8
+  call void %56(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i133) #25
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call.i.i133)
           to label %if.then.i11.i122 unwind label %terminate.lpad.i.i.i119
 
 terminate.lpad.i.i.i119:                          ; preds = %if.end.i.i.i.i117
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #27
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #27
   unreachable
 
 if.then.i11.i122:                                 ; preds = %if.then.i7.i124, %if.end.i.i.i.i117
@@ -11504,9 +11496,9 @@ _ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit13.i123: ; preds = %if.t
   store ptr null, ptr %one_side_union, align 8
   br label %invoke.cont96
 
-invoke.cont96:                                    ; preds = %_ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit13.i123, %_ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit.i130, %invoke.cont95
-  %58 = load ptr, ptr %one_side_delta, align 8
-  %cmp.i138.not = icmp eq ptr %58, null
+invoke.cont96:                                    ; preds = %_ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit13.i123, %_ZN7datalog10scoped_relINS_13relation_baseEEaSEPS1_.exit.i130
+  %59 = load ptr, ptr %one_side_delta, align 8
+  %cmp.i138.not = icmp eq ptr %59, null
   br i1 %cmp.i138.not, label %for.inc, label %if.then99
 
 if.then99:                                        ; preds = %invoke.cont96
@@ -11523,10 +11515,10 @@ if.then.i140:                                     ; preds = %if.end101
           to label %for.inc unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i140
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #27
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #27
   unreachable
 
 ehcleanup:                                        ; preds = %lpad53.body, %lpad39
@@ -11535,24 +11527,24 @@ ehcleanup:                                        ; preds = %lpad53.body, %lpad3
   br label %ehcleanup112
 
 for.inc:                                          ; preds = %if.then.i140, %if.end101, %invoke.cont96, %invoke.cont29, %invoke.cont31, %for.body26
-  %61 = phi ptr [ %15, %invoke.cont29 ], [ %15, %invoke.cont31 ], [ %15, %for.body26 ], [ %.pre279, %invoke.cont96 ], [ %.pre279, %if.end101 ], [ %.pre279, %if.then.i140 ]
+  %62 = phi ptr [ %15, %invoke.cont29 ], [ %15, %invoke.cont31 ], [ %15, %for.body26 ], [ %43, %invoke.cont96 ], [ %43, %if.end101 ], [ %43, %if.then.i140 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count272
   br i1 %exitcond.not, label %for.end, label %for.body26, !llvm.loop !59
 
 for.end:                                          ; preds = %for.inc
-  %62 = load ptr, ptr %side_result, align 8
+  %63 = load ptr, ptr %side_result, align 8
   store ptr null, ptr %side_result, align 8
-  %63 = load ptr, ptr %side_results, align 8
-  %cmp.i147 = icmp eq ptr %63, null
+  %64 = load ptr, ptr %side_results, align 8
+  %cmp.i147 = icmp eq ptr %64, null
   br i1 %cmp.i147, label %if.then.i149, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.end
-  %arrayidx.i = getelementptr inbounds i8, ptr %63, i64 -4
-  %64 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds i8, ptr %63, i64 -8
-  %65 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %64, %65
+  %arrayidx.i = getelementptr inbounds i8, ptr %64, i64 -4
+  %65 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %64, i64 -8
+  %66 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %65, %66
   br i1 %cmp5.i, label %if.then.i149, label %invoke.cont105
 
 if.then.i149:                                     ; preds = %lor.lhs.false.i, %for.end
@@ -11566,28 +11558,28 @@ if.then.i149:                                     ; preds = %lor.lhs.false.i, %f
   br label %invoke.cont105
 
 invoke.cont105:                                   ; preds = %.noexc150, %lor.lhs.false.i
-  %66 = phi i32 [ %.pre1.i, %.noexc150 ], [ %64, %lor.lhs.false.i ]
-  %67 = phi ptr [ %.pre.i, %.noexc150 ], [ %63, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %66 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %67, i64 %idx.ext.i
-  store ptr %62, ptr %add.ptr.i, align 8
-  %68 = load ptr, ptr %side_results, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %68, i64 -4
-  %69 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i = add i32 %69, 1
+  %67 = phi i32 [ %.pre1.i, %.noexc150 ], [ %65, %lor.lhs.false.i ]
+  %68 = phi ptr [ %.pre.i, %.noexc150 ], [ %64, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %67 to i64
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %68, i64 %idx.ext.i
+  store ptr %63, ptr %add.ptr.i, align 8
+  %69 = load ptr, ptr %side_results, align 8
+  %arrayidx10.i = getelementptr inbounds i8, ptr %69, i64 -4
+  %70 = load i32, ptr %arrayidx10.i, align 4
+  %inc.i = add i32 %70, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
-  %70 = load ptr, ptr %side_delta, align 8
+  %71 = load ptr, ptr %side_delta, align 8
   store ptr null, ptr %side_delta, align 8
-  %71 = load ptr, ptr %side_deltas, align 8
-  %cmp.i151 = icmp eq ptr %71, null
+  %72 = load ptr, ptr %side_deltas, align 8
+  %cmp.i151 = icmp eq ptr %72, null
   br i1 %cmp.i151, label %if.then.i161, label %lor.lhs.false.i152
 
 lor.lhs.false.i152:                               ; preds = %invoke.cont105
-  %arrayidx.i153 = getelementptr inbounds i8, ptr %71, i64 -4
-  %72 = load i32, ptr %arrayidx.i153, align 4
-  %arrayidx4.i154 = getelementptr inbounds i8, ptr %71, i64 -8
-  %73 = load i32, ptr %arrayidx4.i154, align 4
-  %cmp5.i155 = icmp eq i32 %72, %73
+  %arrayidx.i153 = getelementptr inbounds i8, ptr %72, i64 -4
+  %73 = load i32, ptr %arrayidx.i153, align 4
+  %arrayidx4.i154 = getelementptr inbounds i8, ptr %72, i64 -8
+  %74 = load i32, ptr %arrayidx4.i154, align 4
+  %cmp5.i155 = icmp eq i32 %73, %74
   br i1 %cmp5.i155, label %if.then.i161, label %invoke.cont110
 
 if.then.i161:                                     ; preds = %lor.lhs.false.i152, %invoke.cont105
@@ -11601,44 +11593,44 @@ if.then.i161:                                     ; preds = %lor.lhs.false.i152,
   br label %invoke.cont110
 
 invoke.cont110:                                   ; preds = %.noexc165, %lor.lhs.false.i152
-  %74 = phi i32 [ %.pre1.i164, %.noexc165 ], [ %72, %lor.lhs.false.i152 ]
-  %75 = phi ptr [ %.pre.i162, %.noexc165 ], [ %71, %lor.lhs.false.i152 ]
-  %idx.ext.i157 = zext i32 %74 to i64
-  %add.ptr.i158 = getelementptr inbounds nuw ptr, ptr %75, i64 %idx.ext.i157
-  store ptr %70, ptr %add.ptr.i158, align 8
-  %76 = load ptr, ptr %side_deltas, align 8
-  %arrayidx10.i159 = getelementptr inbounds i8, ptr %76, i64 -4
-  %77 = load i32, ptr %arrayidx10.i159, align 4
-  %inc.i160 = add i32 %77, 1
+  %75 = phi i32 [ %.pre1.i164, %.noexc165 ], [ %73, %lor.lhs.false.i152 ]
+  %76 = phi ptr [ %.pre.i162, %.noexc165 ], [ %72, %lor.lhs.false.i152 ]
+  %idx.ext.i157 = zext i32 %75 to i64
+  %add.ptr.i158 = getelementptr inbounds nuw ptr, ptr %76, i64 %idx.ext.i157
+  store ptr %71, ptr %add.ptr.i158, align 8
+  %77 = load ptr, ptr %side_deltas, align 8
+  %arrayidx10.i159 = getelementptr inbounds i8, ptr %77, i64 -4
+  %78 = load i32, ptr %arrayidx10.i159, align 4
+  %inc.i160 = add i32 %78, 1
   store i32 %inc.i160, ptr %arrayidx10.i159, align 4
-  %78 = load ptr, ptr %side_delta, align 8
-  %tobool.not.i167 = icmp eq ptr %78, null
+  %79 = load ptr, ptr %side_delta, align 8
+  %tobool.not.i167 = icmp eq ptr %79, null
   br i1 %tobool.not.i167, label %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit176, label %if.then.i168
 
 if.then.i168:                                     ; preds = %invoke.cont110
-  invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %78)
+  invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %79)
           to label %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit176 unwind label %terminate.lpad.i169
 
 terminate.lpad.i169:                              ; preds = %if.then.i168
-  %79 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #27
+  %81 = extractvalue { ptr, i32 } %80, 0
+  call void @__clang_call_terminate(ptr %81) #27
   unreachable
 
 _ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit176: ; preds = %if.then.i168, %invoke.cont110
-  %tobool.not.i177 = icmp eq ptr %61, null
+  %tobool.not.i177 = icmp eq ptr %62, null
   br i1 %tobool.not.i177, label %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit181, label %if.then.i178
 
 if.then.i178:                                     ; preds = %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit176
-  invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %61)
+  invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %62)
           to label %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit181 unwind label %terminate.lpad.i179
 
 terminate.lpad.i179:                              ; preds = %if.then.i178
-  %81 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           catch ptr null
-  %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #27
+  %83 = extractvalue { ptr, i32 } %82, 0
+  call void @__clang_call_terminate(ptr %83) #27
   unreachable
 
 _ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit181: ; preds = %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit176, %if.then.i178
@@ -11655,45 +11647,45 @@ ehcleanup112:                                     ; preds = %lpad28.loopexit, %l
 
 invoke.cont123:                                   ; preds = %invoke.cont123.lr.ph, %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit244
   %indvars.iv274 = phi i64 [ 0, %invoke.cont123.lr.ph ], [ %indvars.iv.next275, %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit244 ]
-  %83 = load ptr, ptr %m_relations.i, align 8
-  %arrayidx.i.i184 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv274
-  %84 = load ptr, ptr %arrayidx.i.i184, align 8
+  %84 = load ptr, ptr %m_relations.i, align 8
+  %arrayidx.i.i184 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv274
+  %85 = load ptr, ptr %arrayidx.i.i184, align 8
   br i1 %tobool126.not, label %invoke.cont157, label %cond.end131
 
 cond.end131:                                      ; preds = %invoke.cont123
-  %85 = load ptr, ptr %m_relations.i185, align 8
-  %arrayidx.i.i187 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv274
-  %86 = load ptr, ptr %arrayidx.i.i187, align 8
-  %tobool134.not = icmp eq ptr %86, null
+  %86 = load ptr, ptr %m_relations.i185, align 8
+  %arrayidx.i.i187 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv274
+  %87 = load ptr, ptr %arrayidx.i.i187, align 8
+  %tobool134.not = icmp eq ptr %87, null
   br i1 %tobool134.not, label %invoke.cont157, label %cond.true135
 
 cond.true135:                                     ; preds = %cond.end131
-  %m_plugin.i188 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %87 = load ptr, ptr %m_plugin.i188, align 8
-  %vtable138 = load ptr, ptr %87, align 8
+  %m_plugin.i188 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %88 = load ptr, ptr %m_plugin.i188, align 8
+  %vtable138 = load ptr, ptr %88, align 8
   %vfn139 = getelementptr inbounds nuw i8, ptr %vtable138, i64 56
-  %88 = load ptr, ptr %vfn139, align 8
-  %call141 = invoke noundef ptr %88(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(28) %86)
+  %89 = load ptr, ptr %vfn139, align 8
+  %call141 = invoke noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(28) %87)
           to label %invoke.cont157 unwind label %lpad5.loopexit
 
 invoke.cont157:                                   ; preds = %invoke.cont123, %cond.true135, %cond.end131
-  %cond132256 = phi ptr [ %86, %cond.true135 ], [ null, %cond.end131 ], [ null, %invoke.cont123 ]
+  %cond132256 = phi ptr [ %87, %cond.true135 ], [ null, %cond.end131 ], [ null, %invoke.cont123 ]
   %cond144 = phi ptr [ %call141, %cond.true135 ], [ null, %cond.end131 ], [ null, %invoke.cont123 ]
   store ptr %cond144, ptr %fresh_delta133, align 8
-  %89 = load ptr, ptr %side_results, align 8
-  %arrayidx.i189 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv274
-  %90 = load ptr, ptr %arrayidx.i189, align 8
-  store ptr %90, ptr %side_result146, align 8
-  %91 = load ptr, ptr %side_deltas, align 8
-  %arrayidx.i191 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv274
-  %92 = load ptr, ptr %arrayidx.i191, align 8
-  store ptr %92, ptr %side_delta151, align 8
-  %93 = load ptr, ptr %m_unions.i192, align 8
-  %arrayidx.i.i194 = getelementptr inbounds nuw %class.ptr_vector.103, ptr %93, i64 %indvars.iv274
-  %94 = load ptr, ptr %arrayidx.i.i194, align 8
-  %arrayidx.i2.i196 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv274
-  %95 = load ptr, ptr %arrayidx.i2.i196, align 8
-  %cmp.i197.not = icmp eq ptr %95, null
+  %90 = load ptr, ptr %side_results, align 8
+  %arrayidx.i189 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv274
+  %91 = load ptr, ptr %arrayidx.i189, align 8
+  store ptr %91, ptr %side_result146, align 8
+  %92 = load ptr, ptr %side_deltas, align 8
+  %arrayidx.i191 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv274
+  %93 = load ptr, ptr %arrayidx.i191, align 8
+  store ptr %93, ptr %side_delta151, align 8
+  %94 = load ptr, ptr %m_unions.i192, align 8
+  %arrayidx.i.i194 = getelementptr inbounds nuw %class.ptr_vector.103, ptr %94, i64 %indvars.iv274
+  %95 = load ptr, ptr %arrayidx.i.i194, align 8
+  %arrayidx.i2.i196 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv274
+  %96 = load ptr, ptr %arrayidx.i2.i196, align 8
+  %cmp.i197.not = icmp eq ptr %96, null
   br i1 %cmp.i197.not, label %if.then159, label %invoke.cont162
 
 if.then159:                                       ; preds = %invoke.cont157
@@ -11715,30 +11707,30 @@ lpad156.loopexit.split-lp:                        ; preds = %if.then159
   br label %lpad156.body
 
 lpad156.body:                                     ; preds = %lpad156.loopexit, %lpad156.loopexit.split-lp, %lpad.i222, %lpad.i
-  %eh.lpad-body217 = phi { ptr, i32 } [ %100, %lpad.i ], [ %112, %lpad.i222 ], [ %lpad.loopexit257, %lpad156.loopexit ], [ %lpad.loopexit.split-lp258, %lpad156.loopexit.split-lp ]
+  %eh.lpad-body217 = phi { ptr, i32 } [ %101, %lpad.i ], [ %113, %lpad.i222 ], [ %lpad.loopexit257, %lpad156.loopexit ], [ %lpad.loopexit.split-lp258, %lpad156.loopexit.split-lp ]
   call void @_ZN7datalog10scoped_relINS_13relation_baseEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %side_delta151) #25
   call void @_ZN7datalog10scoped_relINS_13relation_baseEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %side_result146) #25
   call void @_ZN7datalog10scoped_relINS_13relation_baseEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %fresh_delta133) #25
   br label %ehcleanup202
 
 invoke.cont162:                                   ; preds = %invoke.cont157
-  %96 = load ptr, ptr %m_relations.i198, align 8
-  %arrayidx.i.i200 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv274
-  %97 = load ptr, ptr %arrayidx.i.i200, align 8
-  %vtable.i206 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %m_relations.i198, align 8
+  %arrayidx.i.i200 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv274
+  %98 = load ptr, ptr %arrayidx.i.i200, align 8
+  %vtable.i206 = load ptr, ptr %96, align 8
   %vfn.i207 = getelementptr inbounds nuw i8, ptr %vtable.i206, i64 16
-  %98 = load ptr, ptr %vfn.i207, align 8
-  invoke void %98(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull align 8 dereferenceable(28) %84, ptr noundef nonnull align 8 dereferenceable(28) %97, ptr noundef %cond144)
+  %99 = load ptr, ptr %vfn.i207, align 8
+  invoke void %99(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull align 8 dereferenceable(28) %85, ptr noundef nonnull align 8 dereferenceable(28) %98, ptr noundef %cond144)
           to label %invoke.cont166 unwind label %lpad156.loopexit
 
 invoke.cont166:                                   ; preds = %invoke.cont162
-  %cmp.i210.not = icmp eq ptr %90, null
+  %cmp.i210.not = icmp eq ptr %91, null
   br i1 %cmp.i210.not, label %if.end173, label %if.then169
 
 if.then169:                                       ; preds = %invoke.cont166
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %intersect_fun.i)
-  %99 = load ptr, ptr %m_rmgr.i, align 8
-  %call.i216 = invoke noundef ptr @_ZN7datalog16relation_manager28mk_filter_by_intersection_fnERKNS_13relation_baseES3_(ptr noundef nonnull align 8 dereferenceable(200) %99, ptr noundef nonnull align 8 dereferenceable(28) %84, ptr noundef nonnull align 8 dereferenceable(28) %90)
+  %100 = load ptr, ptr %m_rmgr.i, align 8
+  %call.i216 = invoke noundef ptr @_ZN7datalog16relation_manager28mk_filter_by_intersection_fnERKNS_13relation_baseES3_(ptr noundef nonnull align 8 dereferenceable(200) %100, ptr noundef nonnull align 8 dereferenceable(28) %85, ptr noundef nonnull align 8 dereferenceable(28) %91)
           to label %call.i.noexc unwind label %lpad156.loopexit
 
 call.i.noexc:                                     ; preds = %if.then169
@@ -11751,7 +11743,7 @@ if.then.i215:                                     ; preds = %call.i.noexc
           to label %_ZN7datalog23product_relation_plugin16aligned_union_fn15do_intersectionERNS_13relation_baseES3_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.end.i212, %if.then.i215
-  %100 = landingpad { ptr, i32 }
+  %101 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE22intersection_filter_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %intersect_fun.i) #25
   br label %lpad156.body
@@ -11759,22 +11751,22 @@ lpad.i:                                           ; preds = %if.end.i212, %if.th
 if.end.i212:                                      ; preds = %call.i.noexc
   %vtable.i213 = load ptr, ptr %call.i216, align 8
   %vfn.i214 = getelementptr inbounds nuw i8, ptr %vtable.i213, i64 16
-  %101 = load ptr, ptr %vfn.i214, align 8
-  invoke void %101(ptr noundef nonnull align 8 dereferenceable(8) %call.i216, ptr noundef nonnull align 8 dereferenceable(28) %84, ptr noundef nonnull align 8 dereferenceable(28) %90)
+  %102 = load ptr, ptr %vfn.i214, align 8
+  invoke void %102(ptr noundef nonnull align 8 dereferenceable(8) %call.i216, ptr noundef nonnull align 8 dereferenceable(28) %85, ptr noundef nonnull align 8 dereferenceable(28) %91)
           to label %if.end.i.i.i unwind label %lpad.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i212
   %vtable.i.i.i = load ptr, ptr %call.i216, align 8
-  %102 = load ptr, ptr %vtable.i.i.i, align 8
-  call void %102(ptr noundef nonnull align 8 dereferenceable(8) %call.i216) #25
+  %103 = load ptr, ptr %vtable.i.i.i, align 8
+  call void %103(ptr noundef nonnull align 8 dereferenceable(8) %call.i216) #25
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call.i216)
           to label %_ZN7datalog23product_relation_plugin16aligned_union_fn15do_intersectionERNS_13relation_baseES3_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
-  %103 = landingpad { ptr, i32 }
+  %104 = landingpad { ptr, i32 }
           catch ptr null
-  %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #27
+  %105 = extractvalue { ptr, i32 } %104, 0
+  call void @__clang_call_terminate(ptr %105) #27
   unreachable
 
 _ZN7datalog23product_relation_plugin16aligned_union_fn15do_intersectionERNS_13relation_baseES3_.exit: ; preds = %if.then.i215, %if.end.i.i.i
@@ -11782,8 +11774,8 @@ _ZN7datalog23product_relation_plugin16aligned_union_fn15do_intersectionERNS_13re
   br label %if.end173
 
 if.end173:                                        ; preds = %_ZN7datalog23product_relation_plugin16aligned_union_fn15do_intersectionERNS_13relation_baseES3_.exit, %invoke.cont166
-  %105 = load ptr, ptr %fresh_delta133, align 8
-  %cmp.i218.not = icmp eq ptr %105, null
+  %106 = load ptr, ptr %fresh_delta133, align 8
+  %cmp.i218.not = icmp eq ptr %106, null
   br i1 %cmp.i218.not, label %if.end181, label %if.then176
 
 if.then176:                                       ; preds = %if.end173
@@ -11791,36 +11783,36 @@ if.then176:                                       ; preds = %if.end173
           to label %invoke.cont177 unwind label %lpad156.loopexit
 
 invoke.cont177:                                   ; preds = %if.then176
-  %106 = load ptr, ptr %fresh_delta133, align 8
+  %107 = load ptr, ptr %fresh_delta133, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %union_fun.i)
-  %107 = load ptr, ptr %m_rmgr.i, align 8
-  %call.i.i227 = invoke noundef ptr @_ZN7datalog16relation_manager11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull align 8 dereferenceable(200) %107, ptr noundef nonnull align 8 dereferenceable(28) %cond132256, ptr noundef nonnull align 8 dereferenceable(28) %106, ptr noundef null)
+  %108 = load ptr, ptr %m_rmgr.i, align 8
+  %call.i.i227 = invoke noundef ptr @_ZN7datalog16relation_manager11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull align 8 dereferenceable(200) %108, ptr noundef nonnull align 8 dereferenceable(28) %cond132256, ptr noundef nonnull align 8 dereferenceable(28) %107, ptr noundef null)
           to label %call.i.i.noexc226 unwind label %lpad156.loopexit
 
 call.i.i.noexc226:                                ; preds = %invoke.cont177
   store ptr %call.i.i227, ptr %union_fun.i, align 8
   %vtable.i.i220 = load ptr, ptr %call.i.i227, align 8
   %vfn.i.i221 = getelementptr inbounds nuw i8, ptr %vtable.i.i220, i64 16
-  %108 = load ptr, ptr %vfn.i.i221, align 8
-  invoke void %108(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i227, ptr noundef nonnull align 8 dereferenceable(28) %cond132256, ptr noundef nonnull align 8 dereferenceable(28) %106, ptr noundef null)
+  %109 = load ptr, ptr %vfn.i.i221, align 8
+  invoke void %109(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i227, ptr noundef nonnull align 8 dereferenceable(28) %cond132256, ptr noundef nonnull align 8 dereferenceable(28) %107, ptr noundef null)
           to label %if.end.i.i.i223 unwind label %lpad.i222
 
 if.end.i.i.i223:                                  ; preds = %call.i.i.noexc226
   %vtable.i.i.i224 = load ptr, ptr %call.i.i227, align 8
-  %109 = load ptr, ptr %vtable.i.i.i224, align 8
-  call void %109(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i227) #25
+  %110 = load ptr, ptr %vtable.i.i.i224, align 8
+  call void %110(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i227) #25
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call.i.i227)
           to label %_ZN7datalog23product_relation_plugin16aligned_union_fn14do_delta_unionEjRNS_13relation_baseES3_.exit unwind label %terminate.lpad.i.i225
 
 terminate.lpad.i.i225:                            ; preds = %if.end.i.i.i223
-  %110 = landingpad { ptr, i32 }
+  %111 = landingpad { ptr, i32 }
           catch ptr null
-  %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #27
+  %112 = extractvalue { ptr, i32 } %111, 0
+  call void @__clang_call_terminate(ptr %112) #27
   unreachable
 
 lpad.i222:                                        ; preds = %call.i.i.noexc226
-  %112 = landingpad { ptr, i32 }
+  %113 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_15relation_traitsEE8union_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %union_fun.i) #25
   br label %lpad156.body
@@ -11830,49 +11822,49 @@ _ZN7datalog23product_relation_plugin16aligned_union_fn14do_delta_unionEjRNS_13re
   br label %if.end181
 
 if.end181:                                        ; preds = %_ZN7datalog23product_relation_plugin16aligned_union_fn14do_delta_unionEjRNS_13relation_baseES3_.exit, %if.end173
-  %113 = load ptr, ptr %side_delta151, align 8
-  %tobool.not.i230 = icmp eq ptr %113, null
+  %114 = load ptr, ptr %side_delta151, align 8
+  %tobool.not.i230 = icmp eq ptr %114, null
   br i1 %tobool.not.i230, label %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit234, label %if.then.i231
 
 if.then.i231:                                     ; preds = %if.end181
-  invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %113)
+  invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %114)
           to label %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit234 unwind label %terminate.lpad.i232
 
 terminate.lpad.i232:                              ; preds = %if.then.i231
-  %114 = landingpad { ptr, i32 }
+  %115 = landingpad { ptr, i32 }
           catch ptr null
-  %115 = extractvalue { ptr, i32 } %114, 0
-  call void @__clang_call_terminate(ptr %115) #27
+  %116 = extractvalue { ptr, i32 } %115, 0
+  call void @__clang_call_terminate(ptr %116) #27
   unreachable
 
 _ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit234: ; preds = %if.end181, %if.then.i231
   br i1 %cmp.i210.not, label %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit239, label %if.then.i236
 
 if.then.i236:                                     ; preds = %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit234
-  invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %90)
+  invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %91)
           to label %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit239 unwind label %terminate.lpad.i237
 
 terminate.lpad.i237:                              ; preds = %if.then.i236
-  %116 = landingpad { ptr, i32 }
+  %117 = landingpad { ptr, i32 }
           catch ptr null
-  %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #27
+  %118 = extractvalue { ptr, i32 } %117, 0
+  call void @__clang_call_terminate(ptr %118) #27
   unreachable
 
 _ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit239: ; preds = %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit234, %if.then.i236
-  %118 = load ptr, ptr %fresh_delta133, align 8
-  %tobool.not.i240 = icmp eq ptr %118, null
+  %119 = load ptr, ptr %fresh_delta133, align 8
+  %tobool.not.i240 = icmp eq ptr %119, null
   br i1 %tobool.not.i240, label %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit244, label %if.then.i241
 
 if.then.i241:                                     ; preds = %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit239
-  invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %118)
+  invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %119)
           to label %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit244 unwind label %terminate.lpad.i242
 
 terminate.lpad.i242:                              ; preds = %if.then.i241
-  %119 = landingpad { ptr, i32 }
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %120 = extractvalue { ptr, i32 } %119, 0
-  call void @__clang_call_terminate(ptr %120) #27
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #27
   unreachable
 
 _ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit244: ; preds = %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit239, %if.then.i241
@@ -11882,14 +11874,14 @@ _ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit244: ; preds = %_ZN7datalog
 
 if.then189:                                       ; preds = %_ZNK7datalog16product_relation4sizeEv.exit, %_ZNK7datalog16product_relation4sizeEv.exit.thread
   %m_default_empty = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %121 = load i8, ptr %m_default_empty, align 4
-  %tobool190 = trunc i8 %121 to i1
+  %122 = load i8, ptr %m_default_empty, align 4
+  %tobool190 = trunc i8 %122 to i1
   br i1 %tobool190, label %if.end201, label %land.lhs.true191
 
 land.lhs.true191:                                 ; preds = %if.then189
   %m_default_empty192 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %122 = load i8, ptr %m_default_empty192, align 4
-  %tobool193 = trunc i8 %122 to i1
+  %123 = load i8, ptr %m_default_empty192, align 4
+  %tobool193 = trunc i8 %123 to i1
   br i1 %tobool193, label %if.then194, label %if.end201
 
 if.then194:                                       ; preds = %land.lhs.true191
@@ -11903,37 +11895,37 @@ if.then197:                                       ; preds = %if.then194
   br label %if.end201
 
 if.end201:                                        ; preds = %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit244, %if.then189, %land.lhs.true191, %if.then197, %if.then194
-  %123 = load ptr, ptr %side_deltas, align 8
-  %tobool.not.i.i.i = icmp eq ptr %123, null
+  %124 = load ptr, ptr %side_deltas, align 8
+  %tobool.not.i.i.i = icmp eq ptr %124, null
   br i1 %tobool.not.i.i.i, label %_ZN10ptr_vectorIN7datalog13relation_baseEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end201
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %123, i64 -8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %124, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i)
           to label %_ZN10ptr_vectorIN7datalog13relation_baseEED2Ev.exit unwind label %terminate.lpad.i.i245
 
 terminate.lpad.i.i245:                            ; preds = %if.then.i.i.i
-  %124 = landingpad { ptr, i32 }
+  %125 = landingpad { ptr, i32 }
           catch ptr null
-  %125 = extractvalue { ptr, i32 } %124, 0
-  call void @__clang_call_terminate(ptr %125) #27
+  %126 = extractvalue { ptr, i32 } %125, 0
+  call void @__clang_call_terminate(ptr %126) #27
   unreachable
 
 _ZN10ptr_vectorIN7datalog13relation_baseEED2Ev.exit: ; preds = %if.end201, %if.then.i.i.i
-  %126 = load ptr, ptr %side_results, align 8
-  %tobool.not.i.i.i246 = icmp eq ptr %126, null
+  %127 = load ptr, ptr %side_results, align 8
+  %tobool.not.i.i.i246 = icmp eq ptr %127, null
   br i1 %tobool.not.i.i.i246, label %_ZN10ptr_vectorIN7datalog13relation_baseEED2Ev.exit250, label %if.then.i.i.i247
 
 if.then.i.i.i247:                                 ; preds = %_ZN10ptr_vectorIN7datalog13relation_baseEED2Ev.exit
-  %add.ptr.i.i.i.i248 = getelementptr inbounds i8, ptr %126, i64 -8
+  %add.ptr.i.i.i.i248 = getelementptr inbounds i8, ptr %127, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i248)
           to label %_ZN10ptr_vectorIN7datalog13relation_baseEED2Ev.exit250 unwind label %terminate.lpad.i.i249
 
 terminate.lpad.i.i249:                            ; preds = %if.then.i.i.i247
-  %127 = landingpad { ptr, i32 }
+  %128 = landingpad { ptr, i32 }
           catch ptr null
-  %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #27
+  %129 = extractvalue { ptr, i32 } %128, 0
+  call void @__clang_call_terminate(ptr %129) #27
   unreachable
 
 _ZN10ptr_vectorIN7datalog13relation_baseEED2Ev.exit250: ; preds = %_ZN10ptr_vectorIN7datalog13relation_baseEED2Ev.exit, %if.then.i.i.i247
@@ -19533,13 +19525,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23

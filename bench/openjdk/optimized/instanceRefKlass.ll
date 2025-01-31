@@ -249,7 +249,7 @@ _ZL24determine_reference_typeRK15ClassFileParser.exit: ; preds = %2, %4, %9, %12
 declare void @_ZN13InstanceKlassC2ERK15ClassFileParserN5Klass9KlassKindE13ReferenceType(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef nonnull align 8 dereferenceable(440), i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16InstanceRefKlass25update_nonstatic_oop_mapsEP5Klass(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16InstanceRefKlass25update_nonstatic_oop_mapsEP5Klass(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 292

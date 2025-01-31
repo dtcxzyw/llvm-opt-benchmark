@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kBrotliLog2Table = external hidden local_unnamed_addr constant [256 x double], align 16
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden double @BrotliPopulationCostLiteral(ptr nocapture noundef readonly %histogram) local_unnamed_addr #0 {
+define hidden double @BrotliPopulationCostLiteral(ptr noundef readonly captures(none) %histogram) local_unnamed_addr #0 {
 entry:
   %s = alloca [5 x i64], align 16
   %histo = alloca [4 x i32], align 16
@@ -360,13 +360,13 @@ return:                                           ; preds = %for.end, %entry, %S
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden double @BrotliPopulationCostCommand(ptr nocapture noundef readonly %histogram) local_unnamed_addr #0 {
+define hidden double @BrotliPopulationCostCommand(ptr noundef readonly captures(none) %histogram) local_unnamed_addr #0 {
 entry:
   %s = alloca [5 x i64], align 16
   %histo = alloca [4 x i32], align 16
@@ -732,7 +732,7 @@ return:                                           ; preds = %for.end, %entry, %S
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden double @BrotliPopulationCostDistance(ptr nocapture noundef readonly %histogram) local_unnamed_addr #0 {
+define hidden double @BrotliPopulationCostDistance(ptr noundef readonly captures(none) %histogram) local_unnamed_addr #0 {
 entry:
   %s = alloca [5 x i64], align 16
   %histo = alloca [4 x i32], align 16

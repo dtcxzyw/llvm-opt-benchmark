@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [24 x i8] c" Unknown condition: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @sacctmgr_list_problem(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sacctmgr_list_problem(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 112, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 129, ptr noundef nonnull @__func__.sacctmgr_list_problem) #7
   %4 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #7
   %5 = icmp sgt i32 %0, 0
@@ -50,7 +50,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_problem(i32 noundef %0, ptr
   %15 = trunc i64 %14 to i32
   %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 5)
   %17 = zext nneg i32 %16 to i64
-  %18 = tail call i32 @xstrncasecmp(ptr noundef %13, ptr noundef nonnull @.str.1, i64 noundef %17) #7
+  %18 = tail call i32 @xstrncasecmp(ptr noundef nonnull %13, ptr noundef nonnull @.str.1, i64 noundef %17) #7
   %.not89 = icmp eq i32 %18, 0
   br i1 %.not89, label %24, label %19
 
@@ -465,7 +465,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 declare void @xfree_ptr(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -482,7 +482,7 @@ declare ptr @sacctmgr_process_format_list(ptr noundef) local_unnamed_addr #1
 declare ptr @slurmdb_problems_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #1
 

@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [33 x i8] c"Cannot allocate bitmask for mask\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11PMBlitLoops_nativeBlit(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11PMBlitLoops_nativeBlit(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = alloca %struct.SurfaceDataBounds, align 4
   %14 = alloca %struct.SurfaceDataBounds, align 4
   %15 = alloca %struct.RegionData, align 8
@@ -207,7 +207,7 @@ declare void @Region_EndIteration(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @X11SD_DirectRenderNotify(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11PMBlitBgLoops_nativeBlitBg(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11PMBlitBgLoops_nativeBlitBg(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = alloca %struct.SurfaceDataBounds, align 4
   %14 = alloca %struct.SurfaceDataBounds, align 4
   %15 = icmp slt i32 %10, 1
@@ -297,7 +297,7 @@ define void @Java_sun_java2d_x11_X11PMBlitBgLoops_nativeBlitBg(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.SurfaceDataRasInfo, align 8
   %7 = tail call ptr @SurfaceData_GetOps(ptr noundef %0, ptr noundef %2) #4
   %8 = tail call ptr @SurfaceData_GetOps(ptr noundef %0, ptr noundef %3) #4

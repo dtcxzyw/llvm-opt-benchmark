@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noalias noundef ptr @_Z12pj_gauss_iniddPdS_(double noundef %0, double noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @_Z12pj_gauss_iniddPdS_(double noundef %0, double noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %54, label %7
@@ -100,7 +100,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #2
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @asin(double noundef) local_unnamed_addr #2
@@ -112,7 +112,7 @@ declare double @tan(double noundef) local_unnamed_addr #2
 declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden { double, double } @_Z8pj_gaussP6pj_ctx5PJ_LPPKv(ptr nocapture noundef readnone %0, double %1, double %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 {
+define hidden { double, double } @_Z8pj_gaussP6pj_ctx5PJ_LPPKv(ptr noundef readnone captures(none) %0, double %1, double %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load double, ptr %5, align 8
   %7 = tail call double @llvm.fmuladd.f64(double %2, double 5.000000e-01, double 0x3FE921FB54442D18)
@@ -144,7 +144,7 @@ define hidden { double, double } @_Z8pj_gaussP6pj_ctx5PJ_LPPKv(ptr nocapture nou
 declare double @atan(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden { double, double } @_Z12pj_inv_gaussP6pj_ctx5PJ_LPPKv(ptr noundef %0, double %1, double %2, ptr nocapture noundef readonly %3) local_unnamed_addr #6 {
+define hidden { double, double } @_Z12pj_inv_gaussP6pj_ctx5PJ_LPPKv(ptr noundef %0, double %1, double %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #6 {
   %5 = load double, ptr %3, align 8
   %6 = tail call double @llvm.fmuladd.f64(double %2, double 5.000000e-01, double 0x3FE921FB54442D18)
   %7 = tail call double @tan(double noundef %6) #9

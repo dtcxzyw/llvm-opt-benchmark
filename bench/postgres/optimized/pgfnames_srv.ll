@@ -130,7 +130,7 @@ sub_136:                                          ; preds = %.tail
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -150,7 +150,7 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgfnames_cleanup(ptr noundef %0) local_unnamed_addr #0 {

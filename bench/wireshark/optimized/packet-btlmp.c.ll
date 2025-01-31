@@ -931,7 +931,7 @@ define hidden void @proto_register_btlmp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @decode_uint8_binary(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) #1 {
+define internal void @decode_uint8_binary(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) #1 {
   br label %3
 
 3:                                                ; preds = %2, %3

@@ -40,13 +40,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [3 x i8] c"[]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @LookupTypeName(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local ptr @LookupTypeName(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call ptr @LookupTypeNameExtended(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @LookupTypeNameExtended(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local ptr @LookupTypeNameExtended(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.ParseCallbackState, align 8
   %7 = alloca %struct.StringInfoData, align 8
   %8 = alloca ptr, align 8
@@ -487,7 +487,7 @@ declare signext i16 @get_attnum(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @get_atttype(i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @TypeNameToString(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @TypeNameToString(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %2) #7
   call fastcc void @appendTypeNameToBuffer(ptr noundef %0, ptr noundef %2)
@@ -516,7 +516,7 @@ declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @LookupTypeNameOid(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local i32 @LookupTypeNameOid(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call ptr @LookupTypeNameExtended(ptr noundef %0, ptr noundef readonly %1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext %2)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %15
@@ -555,7 +555,7 @@ define dso_local i32 @LookupTypeNameOid(ptr noundef %0, ptr nocapture noundef re
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @typenameType(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local nonnull ptr @typenameType(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @LookupTypeNameExtended(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %14
@@ -601,7 +601,7 @@ define dso_local nonnull ptr @typenameType(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @typenameTypeId(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @typenameTypeId(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @typenameType(ptr noundef %0, ptr noundef %1, ptr noundef null)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -615,7 +615,7 @@ define dso_local i32 @typenameTypeId(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @typenameTypeIdAndMod(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @typenameTypeIdAndMod(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @typenameType(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -632,7 +632,7 @@ define dso_local void @typenameTypeIdAndMod(ptr noundef %0, ptr nocapture nounde
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @appendTypeNameToBuffer(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @appendTypeNameToBuffer(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -777,7 +777,7 @@ define dso_local i32 @LookupCollation(ptr noundef %0, ptr noundef %1, i32 nounde
 declare i32 @get_collation_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @GetColumnDefCollation(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @GetColumnDefCollation(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ParseCallbackState, align 8
   %5 = tail call i32 @get_typcollation(i32 noundef %2) #7
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -884,7 +884,7 @@ define dso_local i32 @typeTypeId(ptr noundef readonly %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local signext i16 @typeLen(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local signext i16 @typeLen(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
@@ -897,7 +897,7 @@ define dso_local signext i16 @typeLen(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @typeByVal(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local zeroext i1 @typeByVal(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
@@ -911,7 +911,7 @@ define dso_local zeroext i1 @typeByVal(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @typeTypeName(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @typeTypeName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
@@ -926,7 +926,7 @@ define dso_local ptr @typeTypeName(ptr nocapture noundef readonly %0) local_unna
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @typeTypeRelid(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i32 @typeTypeRelid(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
@@ -939,7 +939,7 @@ define dso_local i32 @typeTypeRelid(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @typeTypeCollation(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i32 @typeTypeCollation(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
@@ -1057,7 +1057,7 @@ define dso_local ptr @typeStringToTypeName(ptr noundef %0, ptr noundef %1) local
   %10 = load ptr, ptr @error_context_stack, align 8
   store ptr %10, ptr %3, align 8
   store ptr %3, ptr @error_context_stack, align 8
-  %11 = call ptr @raw_parser(ptr noundef %0, i32 noundef 1) #7
+  %11 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef 1) #7
   %12 = load ptr, ptr %3, align 8
   store ptr %12, ptr @error_context_stack, align 8
   %13 = getelementptr i8, ptr %11, i64 16
@@ -1074,7 +1074,7 @@ define dso_local ptr @typeStringToTypeName(ptr noundef %0, ptr noundef %1) local
 
 20:                                               ; preds = %18
   %21 = call i32 @errcode(i32 noundef 16801924) #7
-  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %0) #7
+  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %0) #7
   call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 773, ptr noundef nonnull @__func__.typeStringToTypeName) #7
   br label %23
 
@@ -1084,10 +1084,10 @@ define dso_local ptr @typeStringToTypeName(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @pts_error_callback(ptr noundef %0) #0 {
@@ -1103,7 +1103,7 @@ declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parseTypeString(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @parseTypeString(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.StringInfoData, align 8
   %6 = alloca %struct.StringInfoData, align 8
   %7 = tail call ptr @typeStringToTypeName(ptr noundef %0, ptr noundef %3)
@@ -1199,10 +1199,10 @@ declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -259,7 +259,7 @@ $_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJMN4pbrt10ThreadPoolEFvvEPS4_
 @_ZN4pbrt10ThreadPoolD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4pbrt10ThreadPoolD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt11AtomicFloat8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt11AtomicFloat8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca float, align 4
   %0 = load atomic i32, ptr %this seq_cst, align 4
@@ -279,7 +279,7 @@ _ZN4pbrt12StringPrintfIJfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt12AtomicDouble8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt12AtomicDouble8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca double, align 8
   %0 = load atomic i64, ptr %this seq_cst, align 8
@@ -873,7 +873,7 @@ if.end16:                                         ; preds = %_ZNSt11unique_lockI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE(ptr noalias nocapture writeonly sret(%"class.std::unique_lock") align 8 initializes((0, 9)) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %job) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE(ptr noalias writeonly sret(%"class.std::unique_lock") align 8 captures(none) initializes((0, 9)) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %job) local_unnamed_addr #0 align 2 {
 entry:
   %mutex = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %mutex, ptr %agg.result, align 8
@@ -913,7 +913,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt11un
 declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4pbrt10ThreadPool17RemoveFromJobListEPNS_11ParallelJobE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this, ptr nocapture noundef initializes((32, 33)) %job) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4pbrt10ThreadPool17RemoveFromJobListEPNS_11ParallelJobE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) %this, ptr noundef captures(none) initializes((32, 33)) %job) local_unnamed_addr #5 align 2 {
 entry:
   %prev = getelementptr inbounds nuw i8, ptr %job, i64 16
   %0 = load ptr, ptr %prev, align 8
@@ -1089,7 +1089,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit20:          ; preds = %cleanup, %if.else.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef %func) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef %func) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::function.8", align 8
   %agg.tmp = alloca %"class.std::function.5", align 8
@@ -1217,7 +1217,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10ThreadPool7DisableEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt10ThreadPool7DisableEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #0 align 2 {
 entry:
   %disabled = getelementptr inbounds nuw i8, ptr %this, i64 65
   %0 = load i8, ptr %disabled, align 1
@@ -1308,7 +1308,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10ThreadPool8ReenableEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt10ThreadPool8ReenableEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #0 align 2 {
 entry:
   %disabled = getelementptr inbounds nuw i8, ptr %this, i64 65
   %0 = load i8, ptr %disabled, align 1
@@ -1648,7 +1648,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17ParallelForLoop1D7RunStepEPSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(92) %this, ptr nocapture noundef %lock) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt17ParallelForLoop1D7RunStepEPSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(92) %this, ptr noundef captures(none) %lock) unnamed_addr #0 align 2 {
 entry:
   %__args.addr.i = alloca i64, align 8
   %__args.addr2.i = alloca i64, align 8
@@ -1747,7 +1747,7 @@ _ZNKSt8functionIFvllEEclEll.exit:                 ; preds = %_ZNSt11unique_lockI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17ParallelForLoop2D7RunStepEPSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr nocapture noundef %lock) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt17ParallelForLoop2D7RunStepEPSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr noundef captures(none) %lock) unnamed_addr #0 align 2 {
 entry:
   %__args.i = alloca %"class.pbrt::Bounds2", align 8
   %nextStart = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -1894,7 +1894,7 @@ _ZNKSt8functionIFvN4pbrt7Bounds2IiEEEEclES2_.exit: ; preds = %_ZNSt11unique_lock
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA13_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef %level, ptr noundef %file, i32 noundef %line, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(13) %args) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
@@ -1929,7 +1929,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef %start, i64 noundef %end, ptr nocapture noundef %func) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef %start, i64 noundef %end, ptr noundef captures(none) %func) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %loop = alloca %"class.pbrt::ParallelForLoop1D", align 8
   %agg.tmp.sroa.0 = alloca { i64, i64 }, align 8
@@ -2171,7 +2171,7 @@ _ZNSt8functionIFvllEED2Ev.exit:                   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt13ParallelFor2DERKNS_7Bounds2IiEESt8functionIFvS1_EE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %extent, ptr noundef %func) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt13ParallelFor2DERKNS_7Bounds2IiEESt8functionIFvS1_EE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %extent, ptr noundef %func) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.i = alloca %"class.pbrt::Bounds2", align 8
   %loop = alloca %"class.pbrt::ParallelForLoop2D", align 8
@@ -2532,7 +2532,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt13ForEachThreadESt8functionIFvvEE(ptr nocapture noundef %func) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt13ForEachThreadESt8functionIFvvEE(ptr noundef captures(none) %func) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %0 = load ptr, ptr @_ZN4pbrt11ParallelJob10threadPoolE, align 8
@@ -2781,7 +2781,7 @@ _ZN4pbrt12StringPrintfIJRKNS_7Bounds2IiEERKNS_6Point2IiEERKiEEENSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E9_M_invokeERKSt9_Any_dataOlSA_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
@@ -3281,7 +3281,7 @@ ehcleanup51:                                      ; preds = %lpad42, %ehcleanup3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #4
 
@@ -5836,7 +5836,7 @@ _ZNSt6thread8_InvokerISt5tupleIJMN4pbrt10ThreadPoolEFvvEPS3_EEEclEv.exit: ; pred
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readonly align 8 %__args) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr nonnull readonly align 8 captures(none) %__args) #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %__functor, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -5873,7 +5873,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -7198,10 +7198,10 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #19

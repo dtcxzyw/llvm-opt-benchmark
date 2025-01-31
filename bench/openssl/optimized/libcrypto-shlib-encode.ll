@@ -29,24 +29,24 @@ entry:
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_ENCODE_CTX_copy(ptr nocapture noundef writeonly initializes((0, 96)) %dctx, ptr nocapture noundef readonly %sctx) local_unnamed_addr #2 {
+define noundef i32 @EVP_ENCODE_CTX_copy(ptr noundef writeonly captures(none) initializes((0, 96)) %dctx, ptr noundef readonly captures(none) %sctx) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %dctx, ptr noundef nonnull align 4 dereferenceable(96) %sctx, i64 96, i1 false)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_ENCODE_CTX_num(ptr nocapture noundef readonly %ctx) local_unnamed_addr #4 {
+define i32 @EVP_ENCODE_CTX_num(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @evp_encode_ctx_set_flags(ptr nocapture noundef writeonly initializes((92, 96)) %ctx, i32 noundef %flags) local_unnamed_addr #5 {
+define void @evp_encode_ctx_set_flags(ptr noundef writeonly captures(none) initializes((92, 96)) %ctx, i32 noundef %flags) local_unnamed_addr #5 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %ctx, i64 92
   store i32 %flags, ptr %flags1, align 4
@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_EncodeInit(ptr nocapture noundef writeonly initializes((0, 8), (88, 96)) %ctx) local_unnamed_addr #5 {
+define void @EVP_EncodeInit(ptr noundef writeonly captures(none) initializes((0, 8), (88, 96)) %ctx) local_unnamed_addr #5 {
 entry:
   %length = getelementptr inbounds nuw i8, ptr %ctx, i64 4
   store i32 48, ptr %length, align 4
@@ -67,7 +67,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_EncodeUpdate(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly initializes((0, 4)) %outl, ptr nocapture noundef readonly %in, i32 noundef %inl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_EncodeUpdate(ptr noundef captures(none) %ctx, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) initializes((0, 4)) %outl, ptr noundef readonly captures(none) %in, i32 noundef %inl) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %outl, align 4
   %cmp = icmp slt i32 %inl, 1
@@ -428,7 +428,7 @@ return:                                           ; preds = %entry, %if.end66, %
 declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @EVP_EncodeFinal(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl) local_unnamed_addr #7 {
+define void @EVP_EncodeFinal(ptr noundef captures(none) %ctx, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %outl) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   %cmp.not = icmp eq i32 %0, 0
@@ -571,7 +571,7 @@ if.end7:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 4, 1) i32 @EVP_EncodeBlock(ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %dlen) local_unnamed_addr #7 {
+define range(i32 4, 1) i32 @EVP_EncodeBlock(ptr noundef writeonly captures(none) %t, ptr noundef readonly captures(none) %f, i32 noundef %dlen) local_unnamed_addr #7 {
 entry:
   %cmp233.i = icmp sgt i32 %dlen, 0
   br i1 %cmp233.i, label %for.body.i, label %evp_encodeblock_int.exit
@@ -677,7 +677,7 @@ evp_encodeblock_int.exit:                         ; preds = %if.end53.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_DecodeInit(ptr nocapture noundef writeonly initializes((0, 8), (88, 96)) %ctx) local_unnamed_addr #5 {
+define void @EVP_DecodeInit(ptr noundef writeonly captures(none) initializes((0, 8), (88, 96)) %ctx) local_unnamed_addr #5 {
 entry:
   store i32 0, ptr %ctx, align 4
   %length = getelementptr inbounds nuw i8, ptr %ctx, i64 4
@@ -690,7 +690,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 2) i32 @EVP_DecodeUpdate(ptr noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl, ptr nocapture noundef readonly %in, i32 noundef %inl) local_unnamed_addr #7 {
+define range(i32 -1, 2) i32 @EVP_DecodeUpdate(ptr noundef %ctx, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %outl, ptr noundef readonly captures(none) %in, i32 noundef %inl) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   %enc_data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
@@ -869,7 +869,7 @@ end:                                              ; preds = %for.body, %if.then7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 3, 1) i32 @evp_decodeblock_int(ptr noundef readonly %ctx, ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %n) unnamed_addr #7 {
+define internal fastcc range(i32 3, 1) i32 @evp_decodeblock_int(ptr noundef readonly %ctx, ptr noundef writeonly captures(none) %t, ptr noundef readonly captures(none) %f, i32 noundef %n) unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.else, label %land.lhs.true
@@ -1044,14 +1044,14 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 3, 1) i32 @EVP_DecodeBlock(ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %n) local_unnamed_addr #8 {
+define range(i32 3, 1) i32 @EVP_DecodeBlock(ptr noundef writeonly captures(none) %t, ptr noundef readonly captures(none) %f, i32 noundef %n) local_unnamed_addr #8 {
 entry:
   %call = tail call fastcc i32 @evp_decodeblock_int(ptr noundef null, ptr noundef %t, ptr noundef %f, i32 noundef %n)
   ret i32 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly initializes((0, 4)) %outl) local_unnamed_addr #7 {
+define range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr noundef %ctx, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) initializes((0, 4)) %outl) local_unnamed_addr #7 {
 entry:
   store i32 0, ptr %outl, align 4
   %0 = load i32, ptr %ctx, align 4

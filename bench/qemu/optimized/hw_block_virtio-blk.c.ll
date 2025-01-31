@@ -264,7 +264,7 @@ if.end16:                                         ; preds = %if.then15, %do.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare zeroext i1 @virtio_queue_get_notification(ptr noundef) local_unnamed_addr #2
 
@@ -617,7 +617,7 @@ declare void @virtqueue_detach_element(ptr noundef, ptr noundef, i32 noundef) lo
 declare i32 @virtio_queue_empty(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_blk_submit_multireq(ptr nocapture noundef readonly %s, ptr noundef nonnull %mrb) unnamed_addr #0 {
+define internal fastcc void @virtio_blk_submit_multireq(ptr noundef readonly captures(none) %s, ptr noundef nonnull %mrb) unnamed_addr #0 {
 entry:
   %num_reqs1 = getelementptr inbounds nuw i8, ptr %mrb, i64 256
   %0 = load i32, ptr %num_reqs1, align 8
@@ -872,7 +872,7 @@ _nocheck__trace_virtio_blk_handle_read.exit:      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @virtio_blk_sect_range_ok(ptr nocapture noundef readonly %dev, i64 noundef %sector, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc zeroext i1 @virtio_blk_sect_range_ok(ptr noundef readonly captures(none) %dev, i64 noundef %sector, i64 noundef %size) unnamed_addr #0 {
 entry:
   %total_sectors = alloca i64, align 8
   %shr = lshr i64 %size, 9
@@ -1475,7 +1475,7 @@ if.end:                                           ; preds = %if.end84.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @virtio_blk_handle_zone_append(ptr noundef nonnull %req, ptr noundef %out_iov, ptr noundef %in_iov, i64 noundef range(i64 0, 4294967296) %out_num, i32 noundef %in_num) unnamed_addr #0 {
@@ -1625,7 +1625,7 @@ return:                                           ; preds = %out15, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i8 0, 3) i8 @virtio_blk_handle_discard_write_zeroes(ptr noundef nonnull %req, ptr nocapture noundef nonnull readonly %dwz_hdr, i1 noundef zeroext %is_write_zeroes) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 3) i8 @virtio_blk_handle_discard_write_zeroes(ptr noundef nonnull %req, ptr noundef nonnull readonly captures(none) %dwz_hdr, i1 noundef zeroext %is_write_zeroes) unnamed_addr #0 {
 entry:
   %total_sectors.i = alloca i64, align 8
   %dev = getelementptr inbounds nuw i8, ptr %req, i64 64
@@ -1728,12 +1728,12 @@ return:                                           ; preds = %if.else, %err, %if.
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i64 @iov_to_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -2353,7 +2353,7 @@ out14:                                            ; preds = %if.then, %if.end13
 declare ptr @blk_aio_pdiscard(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @submit_requests(ptr nocapture noundef readonly %s, ptr noundef nonnull %mrb, i32 noundef %start, i32 noundef %num_reqs, i32 noundef %niov) unnamed_addr #0 {
+define internal fastcc void @submit_requests(ptr noundef readonly captures(none) %s, ptr noundef nonnull %mrb, i32 noundef %start, i32 noundef %num_reqs, i32 noundef %niov) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %blk1 = getelementptr inbounds nuw i8, ptr %s, i64 520
@@ -2500,10 +2500,10 @@ if.end58:                                         ; preds = %if.else, %if.then47
 declare i32 @blk_get_max_transfer(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @multireq_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #11 {
+define internal range(i32 -1, 2) i32 @multireq_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #11 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -2695,7 +2695,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_blk_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @virtio_blk_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %call.i14 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #14
@@ -3008,7 +3008,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_blk_update_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config) #0 {
+define internal void @virtio_blk_update_config(ptr noundef %vdev, ptr noundef writeonly captures(none) %config) #0 {
 entry:
   %blkcfg = alloca %struct.virtio_blk_config, align 8
   %capacity = alloca i64, align 8
@@ -3238,7 +3238,7 @@ if.end87:                                         ; preds = %if.else84, %sw.epil
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_blk_set_config(ptr noundef %vdev, ptr nocapture noundef readonly %config) #0 {
+define internal void @virtio_blk_set_config(ptr noundef %vdev, ptr noundef readonly captures(none) %config) #0 {
 entry:
   %blkcfg = alloca %struct.virtio_blk_config, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.41, i32 noundef 26, ptr noundef nonnull @__func__.VIRTIO_BLK) #14
@@ -3613,7 +3613,7 @@ declare void @blk_inc_in_flight(ptr noundef) local_unnamed_addr #2
 declare void @aio_bh_schedule_oneshot_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_blk_dma_restart_bh(ptr nocapture noundef %opaque) #0 {
+define internal void @virtio_blk_dma_restart_bh(ptr noundef captures(none) %opaque) #0 {
 entry:
   %mrb = alloca %struct.MultiReqBuffer, align 8
   %rq = getelementptr inbounds nuw i8, ptr %opaque, i64 528
@@ -3824,10 +3824,10 @@ declare ptr @qemu_get_virtqueue_element(ptr noundef, ptr noundef, i64 noundef) l
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i64(i64, i64) #12

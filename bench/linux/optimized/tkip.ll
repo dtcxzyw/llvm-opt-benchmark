@@ -43,7 +43,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_ge
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_ieee80211_get_tkip_p1k_iv2956, ptr @__UNIQUE_ID___addressable_ieee80211_get_tkip_p2k2958, ptr @__UNIQUE_ID___addressable_ieee80211_get_tkip_rx_p1k2957, ptr @__UNIQUE_ID___addressable_ieee80211_tkip_add_iv2955, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace804, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void803, ptr @trace_drv_update_tkip_key.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1140, ptr @trace_drv_update_tkip_key.__UNIQUE_ID___addressable___SCK__tp_func_drv_update_tkip_key1139], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef ptr @ieee80211_tkip_add_iv(ptr noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local noundef ptr @ieee80211_tkip_add_iv(ptr noundef writeonly initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = lshr i64 %2, 8
   %5 = trunc i64 %4 to i8
   %6 = getelementptr i8, ptr %0, i64 1
@@ -69,7 +69,7 @@ define dso_local noundef ptr @ieee80211_tkip_add_iv(ptr noundef writeonly initia
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_get_tkip_p1k_iv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 10)) %2) #1 align 16 {
+define dso_local void @ieee80211_get_tkip_p1k_iv(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 10)) %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -488
   tail call void @_raw_spin_lock_bh(ptr noundef %4) #12
   %5 = getelementptr i8, ptr %0, i64 -528
@@ -99,16 +99,16 @@ define dso_local void @ieee80211_get_tkip_p1k_iv(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @ieee80211_get_tkip_rx_p1k(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #4 align 16 {
+define dso_local void @ieee80211_get_tkip_rx_p1k(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = trunc i32 %2 to i16
   %7 = lshr i32 %2, 16
@@ -226,7 +226,7 @@ tkip_mixing_phase1.exit:                          ; preds = %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc void @tkip_mixing_phase1(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 10)) %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #4 align 16 {
+define internal fastcc void @tkip_mixing_phase1(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 10)) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #4 align 16 {
   %5 = trunc i32 %3 to i16
   store i16 %5, ptr %1, align 2
   %6 = lshr i32 %3, 16
@@ -353,7 +353,7 @@ define internal fastcc void @tkip_mixing_phase1(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_get_tkip_p2k(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #1 align 16 {
+define dso_local void @ieee80211_get_tkip_p2k(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -488
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %6 = load ptr, ptr %5, align 8
@@ -401,7 +401,7 @@ define dso_local void @ieee80211_get_tkip_p2k(ptr noundef %0, ptr nocapture noun
 declare dso_local i32 @ieee80211_hdrlen(i16 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc void @tkip_mixing_phase2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly initializes((0, 16)) %3) unnamed_addr #0 align 16 {
+define internal fastcc void @tkip_mixing_phase2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, ptr noundef writeonly captures(none) initializes((0, 16)) %3) unnamed_addr #0 align 16 {
   %5 = load i16, ptr %1, align 2
   %6 = getelementptr i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
@@ -551,7 +551,7 @@ define internal fastcc void @tkip_mixing_phase2(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_tkip_encrypt_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local i32 @ieee80211_tkip_encrypt_data(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
   %7 = getelementptr i8, ptr %1, i64 48
@@ -603,7 +603,7 @@ ieee80211_get_tkip_p2k.exit:                      ; preds = %26, %30
 declare dso_local i32 @ieee80211_wep_encrypt_data(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9) local_unnamed_addr #1 align 16 {
+define dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly captures(none) %9) local_unnamed_addr #1 align 16 {
   %11 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #12
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 536

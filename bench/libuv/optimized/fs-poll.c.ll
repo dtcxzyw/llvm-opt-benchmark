@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @uv_fs_poll_start(ptr noundef %handle, ptr noundef %cb, ptr nocapture noundef readonly %path, i32 noundef %interval) local_unnamed_addr #1 {
+define range(i32 -2147483648, 1) i32 @uv_fs_poll_start(ptr noundef %handle, ptr noundef %cb, ptr noundef readonly captures(none) %path, i32 noundef %interval) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @uv_is_active(ptr noundef %handle) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -63,7 +63,7 @@ if.end5:                                          ; preds = %if.end
   store ptr %handle, ptr %call3, align 8
   %path10 = getelementptr inbounds nuw i8, ptr %call3, i64 800
   %add11 = add i64 %call2, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %path10, ptr align 1 %path, i64 %add11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %path10, ptr nonnull align 1 %path, i64 %add11, i1 false)
   %timer_handle = getelementptr inbounds nuw i8, ptr %call3, i64 40
   %call12 = tail call i32 @uv_timer_init(ptr noundef %0, ptr noundef nonnull %timer_handle) #7
   %cmp13 = icmp slt i32 %call12, 0
@@ -147,14 +147,14 @@ return:                                           ; preds = %if.end50, %do.body6
 declare i32 @uv_is_active(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @uv__calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare i64 @uv_now(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @uv_timer_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -478,7 +478,7 @@ if.end12:                                         ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -105, 1) i32 @uv_fs_poll_getpath(ptr noundef %handle, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef %size) local_unnamed_addr #1 {
+define range(i32 -105, 1) i32 @uv_fs_poll_getpath(ptr noundef %handle, ptr noundef writeonly captures(none) %buffer, ptr noundef captures(none) %size) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @uv_is_active(ptr noundef %handle) #7
   %tobool.not = icmp eq i32 %call, 0

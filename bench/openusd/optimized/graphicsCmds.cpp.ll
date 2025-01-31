@@ -30,7 +30,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15HgiGraphicsCmdsD2Ev(ptr noun
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7HgiCmdsD2Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #3
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15HgiGraphicsCmdsD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15HgiGraphicsCmdsD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   tail call void @llvm.trap() #7
   unreachable
 }

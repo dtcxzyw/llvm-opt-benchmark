@@ -102,7 +102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cadence_uart_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @cadence_uart_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #7
@@ -136,7 +136,7 @@ entry:
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 3) i32 @uart_read(ptr noundef %opaque, i64 noundef %offset, ptr nocapture noundef writeonly %value, i32 %size, i32 %attrs.coerce) #0 {
+define internal range(i32 0, 3) i32 @uart_read(ptr noundef %opaque, i64 noundef %offset, ptr noundef writeonly captures(none) %value, i32 %size, i32 %attrs.coerce) #0 {
 entry:
   %refclk = getelementptr inbounds nuw i8, ptr %opaque, i64 1288
   %0 = load ptr, ptr %refclk, align 8
@@ -484,7 +484,7 @@ declare void @qemu_chr_fe_accept_input(ptr noundef) local_unnamed_addr #1
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @uart_write_tx_fifo(ptr noundef %s, ptr nocapture noundef readonly %buf, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc void @uart_write_tx_fifo(ptr noundef %s, ptr noundef readonly captures(none) %buf, i32 noundef %size) unnamed_addr #0 {
 entry:
   %r = getelementptr inbounds nuw i8, ptr %s, i64 1088
   %0 = load i32, ptr %r, align 16
@@ -537,7 +537,7 @@ return:                                           ; preds = %entry, %if.end14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @uart_write_rx_fifo(ptr nocapture noundef %opaque, ptr nocapture noundef readonly %buf, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc void @uart_write_rx_fifo(ptr noundef captures(none) %opaque, ptr noundef readonly captures(none) %buf, i32 noundef %size) unnamed_addr #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #7
   %r = getelementptr inbounds nuw i8, ptr %opaque, i64 1088
@@ -770,10 +770,10 @@ if.end:                                           ; preds = %if.then, %sw.epilog
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cadence_uart_xmit(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef %opaque) #0 {
+define internal noundef i32 @cadence_uart_xmit(ptr readnone captures(none) %do_not_use, i32 %cond, ptr noundef %opaque) #0 {
 entry:
   %chr = getelementptr inbounds nuw i8, ptr %opaque, i64 1216
   %call = tail call zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef nonnull %chr) #7
@@ -876,7 +876,7 @@ declare zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef) local_unnamed_add
 declare i32 @qemu_chr_fe_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @qemu_chr_fe_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -887,14 +887,14 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @qemu_chr_fe_ioctl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 declare zeroext i1 @clock_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cadence_uart_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @cadence_uart_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.CADENCE_UART) #7
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #8
@@ -979,7 +979,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @fifo_trigger_update(ptr nocapture noundef %opaque) #0 {
+define internal void @fifo_trigger_update(ptr noundef captures(none) %opaque) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %opaque, i64 1116
   %0 = load i32, ptr %arrayidx, align 4
@@ -1098,7 +1098,7 @@ return:                                           ; preds = %if.then27, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @uart_receive(ptr noundef %opaque, ptr nocapture noundef readonly %buf, i32 noundef %size) #0 {
+define internal void @uart_receive(ptr noundef %opaque, ptr noundef readonly captures(none) %buf, i32 noundef %size) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %opaque, i64 1092
   %0 = load i32, ptr %arrayidx, align 4
@@ -1261,7 +1261,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cadence_uart_pre_load(ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @cadence_uart_pre_load(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %refclk = getelementptr inbounds nuw i8, ptr %opaque, i64 1288
   %0 = load ptr, ptr %refclk, align 8
@@ -1339,10 +1339,10 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

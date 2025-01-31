@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BufferBlocks = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @ginhandler(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @ginhandler(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @palloc0(i64 noundef 216) #7
   store i32 422, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -262,19 +262,19 @@ define dso_local void @initGinState(ptr noundef initializes((0, 9656)) %0, ptr n
 
 78:                                               ; preds = %70
   %79 = getelementptr [32 x %struct.FmgrInfo], ptr %18, i64 0, i64 %indvars.iv
-  %80 = tail call ptr @index_getprocinfo(ptr noundef %1, i16 noundef signext %47, i16 noundef zeroext 6) #7
+  %80 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %47, i16 noundef zeroext 6) #7
   %81 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call void @fmgr_info_copy(ptr noundef %79, ptr noundef %80, ptr noundef %81) #7
   br label %82
 
 82:                                               ; preds = %78, %70
-  %83 = tail call i32 @index_getprocid(ptr noundef %1, i16 noundef signext %47, i16 noundef zeroext 4) #7
+  %83 = tail call i32 @index_getprocid(ptr noundef nonnull %1, i16 noundef signext %47, i16 noundef zeroext 4) #7
   %.not104 = icmp eq i32 %83, 0
   br i1 %.not104, label %88, label %84
 
 84:                                               ; preds = %82
   %85 = getelementptr [32 x %struct.FmgrInfo], ptr %19, i64 0, i64 %indvars.iv
-  %86 = tail call ptr @index_getprocinfo(ptr noundef %1, i16 noundef signext %47, i16 noundef zeroext 4) #7
+  %86 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %47, i16 noundef zeroext 4) #7
   %87 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call void @fmgr_info_copy(ptr noundef %85, ptr noundef %86, ptr noundef %87) #7
   br label %88
@@ -304,13 +304,13 @@ define dso_local void @initGinState(ptr noundef initializes((0, 9656)) %0, ptr n
   unreachable
 
 103:                                              ; preds = %92, %88
-  %104 = tail call i32 @index_getprocid(ptr noundef %1, i16 noundef signext %47, i16 noundef zeroext 5) #7
+  %104 = tail call i32 @index_getprocid(ptr noundef nonnull %1, i16 noundef signext %47, i16 noundef zeroext 5) #7
   %.not106 = icmp eq i32 %104, 0
   br i1 %.not106, label %109, label %105
 
 105:                                              ; preds = %103
   %106 = getelementptr [32 x %struct.FmgrInfo], ptr %22, i64 0, i64 %indvars.iv
-  %107 = tail call ptr @index_getprocinfo(ptr noundef %1, i16 noundef signext %47, i16 noundef zeroext 5) #7
+  %107 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %47, i16 noundef zeroext 5) #7
   %108 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call void @fmgr_info_copy(ptr noundef %106, ptr noundef %107, ptr noundef %108) #7
   br label %109
@@ -336,7 +336,7 @@ define dso_local void @initGinState(ptr noundef initializes((0, 9656)) %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #1
 
@@ -366,7 +366,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i16 @gintuple_get_attrnum(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i16 @gintuple_get_attrnum(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
@@ -386,7 +386,7 @@ define dso_local zeroext i16 @gintuple_get_attrnum(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %6 = load i16, ptr %5, align 2
@@ -481,7 +481,7 @@ fetch_att.exit:                                   ; preds = %40, %34, %31, %28, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gintuple_get_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
+define dso_local i64 @gintuple_get_key(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -780,7 +780,7 @@ ginCompareEntries.exit:                           ; preds = %16, %15, %12, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ginExtractEntries(ptr noundef %0, i16 noundef zeroext %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define dso_local ptr @ginExtractEntries(ptr noundef %0, i16 noundef zeroext %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.cmpEntriesArg, align 8
   br i1 %3, label %9, label %12
@@ -1023,7 +1023,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmpEntries(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #0 {
+define internal i32 @cmpEntries(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -1064,7 +1064,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare ptr @build_reloptions(i64 noundef, i1 noundef zeroext, i32 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginGetStats(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 28)) %1) local_unnamed_addr #0 {
+define dso_local void @ginGetStats(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 28)) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @ReadBuffer(ptr noundef %0, i32 noundef 0) #7
   tail call void @LockBuffer(i32 noundef %3, i32 noundef 1) #7
   %4 = icmp slt i32 %3, 0
@@ -1118,7 +1118,7 @@ BufferGetPage.exit:                               ; preds = %5, %11
 declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginUpdateStats(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @ginUpdateStats(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ginxlogUpdateMeta, align 8
   %5 = tail call i32 @ReadBuffer(ptr noundef %0, i32 noundef 0) #7
   tail call void @LockBuffer(i32 noundef %5, i32 noundef 2) #7
@@ -1227,7 +1227,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @XLogBeginInsert() local_unnamed_addr #1
 
@@ -1243,10 +1243,10 @@ declare i64 @nocache_index_getattr(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

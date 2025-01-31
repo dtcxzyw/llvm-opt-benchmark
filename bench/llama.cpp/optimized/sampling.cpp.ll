@@ -419,7 +419,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i20, %e
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -533,7 +533,7 @@ _ZNSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EEaSEOS4_.exit: ; preds = %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare void @_ZN14grammar_parser11parse_state7c_rulesEv(ptr sret(%"class.std::vector.22") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
@@ -1000,7 +1000,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z19llama_sampling_lastP22llama_sampling_context(ptr nocapture noundef readonly %ctx) local_unnamed_addr #9 {
+define noundef i32 @_Z19llama_sampling_lastP22llama_sampling_context(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #9 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 320
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -1010,7 +1010,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23llama_sampling_prev_strB5cxx11P22llama_sampling_contextP13llama_contexti(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef readonly %ctx_sampling, ptr noundef %ctx_main, i32 noundef %n) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z23llama_sampling_prev_strB5cxx11P22llama_sampling_contextP13llama_contexti(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(none) %ctx_sampling, ptr noundef %ctx_main, i32 noundef %n) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %prev = getelementptr inbounds nuw i8, ptr %ctx_sampling, i64 312
@@ -1080,7 +1080,7 @@ declare void @_Z20llama_token_to_pieceB5cxx11PK13llama_contexti(ptr sret(%"class
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20llama_sampling_printB5cxx11RK21llama_sampling_params(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %params) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z20llama_sampling_printB5cxx11RK21llama_sampling_params(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %params) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca [1024 x i8], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -1137,7 +1137,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z26llama_sampling_order_printB5cxx11RK21llama_sampling_params(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %params) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -1710,10 +1710,10 @@ ehcleanup13:                                      ; preds = %ehcleanup11, %lpad
 declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z21llama_sampling_acceptP22llama_sampling_contextP13llama_contextib(ptr nocapture noundef %ctx_sampling, ptr noundef %ctx_main, i32 noundef %id, i1 noundef zeroext %apply_grammar) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z21llama_sampling_acceptP22llama_sampling_contextP13llama_contextib(ptr noundef captures(none) %ctx_sampling, ptr noundef %ctx_main, i32 noundef %id, i1 noundef zeroext %apply_grammar) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %prev = getelementptr inbounds nuw i8, ptr %ctx_sampling, i64 312
   %0 = load ptr, ptr %prev, align 8
@@ -1893,7 +1893,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -2689,13 +2689,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
@@ -2893,7 +2893,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_sampling.cpp() #15 section ".text.startup" {
@@ -2916,7 +2916,7 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17

@@ -101,13 +101,13 @@ $_ZTV16XRelocateClosureI24XRelocateMediumAllocatorE = comdat any
 @_ZN9XRelocateC1EP8XWorkers = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN9XRelocateC2EP8XWorkers
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9XRelocateC2EP8XWorkers(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN9XRelocateC2EP8XWorkers(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK9XRelocate15relocate_objectEP11XForwardingm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK9XRelocate15relocate_objectEP11XForwardingm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %.val.i = load i64, ptr %1, align 8
   %4 = getelementptr i8, ptr %1, i64 16
   %.val4.i = load i64, ptr %4, align 8
@@ -584,7 +584,7 @@ declare void @_ZN11XForwarding12release_pageEv(ptr noundef nonnull align 8 deref
 declare noundef zeroext i1 @_ZNK11XForwarding18wait_page_releasedEv(ptr noundef nonnull align 8 dereferenceable(134)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK9XRelocate14forward_objectEP11XForwardingm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK9XRelocate14forward_objectEP11XForwardingm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %.val.i = load i64, ptr %1, align 8
   %4 = getelementptr i8, ptr %1, i64 16
   %.val4.i = load i64, ptr %4, align 8
@@ -659,7 +659,7 @@ _ZL15forwarding_findP11XForwardingmPm.exit:       ; preds = %_ZNK11XForwarding4f
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9XRelocate8relocateEP14XRelocationSet(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9XRelocate8relocateEP14XRelocationSet(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.XRelocateTask, align 8
   call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull @.str) #8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13XRelocateTask, i64 16), ptr %3, align 8
@@ -800,7 +800,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noundef i64 @_ZN16XObjectAllocator27alloc_object_for_relocationEPK10XPageTablem(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -889,7 +889,7 @@ _ZN16XRelocateClosureI23XRelocateSmallAllocatorED2Ev.exit: ; preds = %_ZN18XArra
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #2
 
@@ -1471,7 +1471,7 @@ declare noundef ptr @_ZN11XForwarding10claim_pageEv(ptr noundef nonnull align 8 
 declare void @_ZN5XPage29reset_for_in_place_relocationEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare noundef ptr @_ZN5XHeap10alloc_pageEhm16XAllocationFlags(ptr noundef nonnull align 64 dereferenceable(4088), i8 noundef zeroext, i64 noundef, i8) local_unnamed_addr #2
 

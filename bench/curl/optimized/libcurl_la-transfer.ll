@@ -48,7 +48,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [36 x i8] c"We are completely uploaded and fine\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Curl_checkheaders(ptr nocapture noundef readonly %data, ptr noundef %thisheader, i64 noundef %thislen) local_unnamed_addr #0 {
+define hidden ptr @Curl_checkheaders(ptr noundef readonly captures(none) %data, ptr noundef %thisheader, i64 noundef %thislen) local_unnamed_addr #0 {
 entry:
   %headers = getelementptr inbounds nuw i8, ptr %data, i64 800
   %head.08 = load ptr, ptr %headers, align 8
@@ -84,7 +84,7 @@ return:                                           ; preds = %for.inc, %land.lhs.
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_get_upload_buffer(ptr nocapture noundef %data) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_get_upload_buffer(ptr noundef captures(none) %data) local_unnamed_addr #0 {
 entry:
   %ulbuf = getelementptr inbounds nuw i8, ptr %data, i64 3232
   %0 = load ptr, ptr %ulbuf, align 8
@@ -110,7 +110,7 @@ return:                                           ; preds = %if.then, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_fillreadbuffer(ptr noundef %data, i64 noundef %bytes, ptr nocapture noundef writeonly %nreadp) local_unnamed_addr #0 {
+define hidden i32 @Curl_fillreadbuffer(ptr noundef %data, i64 noundef %bytes, ptr noundef writeonly captures(none) %nreadp) local_unnamed_addr #0 {
 entry:
   %trailers = alloca ptr, align 8
   %hexbuffer = alloca [11 x i8], align 1
@@ -449,7 +449,7 @@ declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #1
 declare void @curl_slist_free_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @trailers_read(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i64 noundef %nitems, ptr noundef %raw) unnamed_addr #0 {
+define internal i64 @trailers_read(ptr noundef writeonly captures(none) %buffer, i64 noundef %size, i64 noundef %nitems, ptr noundef %raw) unnamed_addr #0 {
 entry:
   %trailers_buf1 = getelementptr inbounds nuw i8, ptr %raw, i64 4744
   %call = tail call i64 @Curl_dyn_len(ptr noundef nonnull %trailers_buf1) #10
@@ -476,15 +476,15 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @Curl_meets_timecondition(ptr noundef %data, i64 noundef %timeofdoc) local_unnamed_addr #0 {
@@ -544,7 +544,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_done_sending(ptr noundef %data, ptr nocapture noundef %k) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_done_sending(ptr noundef %data, ptr noundef captures(none) %k) local_unnamed_addr #0 {
 entry:
   %keepon = getelementptr inbounds nuw i8, ptr %k, i64 84
   %0 = load i32, ptr %keepon, align 4
@@ -1544,7 +1544,7 @@ declare i32 @Curl_speedcheck(ptr noundef, i64, i32) local_unnamed_addr #1
 declare i64 @Curl_timeleft(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Curl_init_CONNECT(ptr nocapture noundef initializes((4608, 4624)) %data) local_unnamed_addr #5 {
+define hidden void @Curl_init_CONNECT(ptr noundef captures(none) initializes((4608, 4624)) %data) local_unnamed_addr #5 {
 entry:
   %fread_func_set = getelementptr inbounds nuw i8, ptr %data, i64 552
   %0 = load ptr, ptr %fread_func_set, align 8
@@ -1927,7 +1927,7 @@ declare i32 @Curl_setstropt(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_headers_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @Curl_posttransfer(ptr nocapture noundef readnone %data) local_unnamed_addr #6 {
+define hidden noundef i32 @Curl_posttransfer(ptr noundef readnone captures(none) %data) local_unnamed_addr #6 {
 entry:
   ret i32 0
 }
@@ -2431,14 +2431,14 @@ declare ptr @curl_url_strerror(i32 noundef) local_unnamed_addr #1
 declare i32 @Curl_uc_to_curlcode(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @Curl_get_scheme_handler(ptr noundef) local_unnamed_addr #1
 
 declare { i64, i32 } @Curl_pgrsTime(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 56) i32 @Curl_retry_request(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 8)) %url) local_unnamed_addr #0 {
+define hidden range(i32 0, 56) i32 @Curl_retry_request(ptr noundef %data, ptr noundef writeonly captures(none) initializes((0, 8)) %url) local_unnamed_addr #0 {
 entry:
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -2863,7 +2863,7 @@ declare i32 @Curl_read(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr n
 declare zeroext i1 @Curl_conn_data_pending(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @Curl_smtp_escape_eob(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2877,10 +2877,10 @@ declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8

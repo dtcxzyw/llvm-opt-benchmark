@@ -343,7 +343,7 @@ $_ZTIN8QuantLib10Instrument7resultsE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -428,7 +428,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -547,7 +547,7 @@ _ZN8QuantLib10LazyObject6updateEv.exit:           ; preds = %entry, %if.end9.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3CDOC2EddSt6vectorIdSaIdEERKS1_INS_6HandleINS_31DefaultProbabilityTermStructureEEESaIS6_EENS4_INS_15OneFactorCopulaEEEbNS_8ScheduleEdNS_10DayCounterEddNS4_INS_18YieldTermStructureEEEmRKNS_6PeriodE(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef %vtt, double noundef %attachment, double noundef %detachment, ptr nocapture noundef %nominals, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %basket, ptr nocapture noundef %copula, i1 noundef zeroext %protectionSeller, ptr nocapture noundef %premiumSchedule, double noundef %premiumRate, ptr nocapture noundef %dayCounter, double noundef %recoveryRate, double noundef %upfrontPremiumRate, ptr nocapture noundef %yieldTS, i64 noundef %nBuckets, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %integrationStep) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3CDOC2EddSt6vectorIdSaIdEERKS1_INS_6HandleINS_31DefaultProbabilityTermStructureEEESaIS6_EENS4_INS_15OneFactorCopulaEEEbNS_8ScheduleEdNS_10DayCounterEddNS4_INS_18YieldTermStructureEEEmRKNS_6PeriodE(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef %vtt, double noundef %attachment, double noundef %detachment, ptr noundef captures(none) %nominals, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %basket, ptr noundef captures(none) %copula, i1 noundef zeroext %protectionSeller, ptr noundef captures(none) %premiumSchedule, double noundef %premiumRate, ptr noundef captures(none) %dayCounter, double noundef %recoveryRate, double noundef %upfrontPremiumRate, ptr noundef captures(none) %yieldTS, i64 noundef %nBuckets, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %integrationStep) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2459,7 +2459,7 @@ unreachable:                                      ; preds = %invoke.cont245, %in
 declare void @_ZN8QuantLib10InstrumentC2Ev(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #8 align 2
@@ -3006,7 +3006,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5boost3anyESt4les
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3CDOC1EddSt6vectorIdSaIdEERKS1_INS_6HandleINS_31DefaultProbabilityTermStructureEEESaIS6_EENS4_INS_15OneFactorCopulaEEEbNS_8ScheduleEdNS_10DayCounterEddNS4_INS_18YieldTermStructureEEEmRKNS_6PeriodE(ptr noundef nonnull align 8 dereferenceable(488) initializes((488, 496), (504, 508), (512, 520)) %this, double noundef %attachment, double noundef %detachment, ptr nocapture noundef %nominals, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %basket, ptr nocapture noundef %copula, i1 noundef zeroext %protectionSeller, ptr nocapture noundef %premiumSchedule, double noundef %premiumRate, ptr nocapture noundef %dayCounter, double noundef %recoveryRate, double noundef %upfrontPremiumRate, ptr nocapture noundef %yieldTS, i64 noundef %nBuckets, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %integrationStep) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3CDOC1EddSt6vectorIdSaIdEERKS1_INS_6HandleINS_31DefaultProbabilityTermStructureEEESaIS6_EENS4_INS_15OneFactorCopulaEEEbNS_8ScheduleEdNS_10DayCounterEddNS4_INS_18YieldTermStructureEEEmRKNS_6PeriodE(ptr noundef nonnull align 8 dereferenceable(488) initializes((488, 496), (504, 508), (512, 520)) %this, double noundef %attachment, double noundef %detachment, ptr noundef captures(none) %nominals, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %basket, ptr noundef captures(none) %copula, i1 noundef zeroext %protectionSeller, ptr noundef captures(none) %premiumSchedule, double noundef %premiumRate, ptr noundef captures(none) %dayCounter, double noundef %recoveryRate, double noundef %upfrontPremiumRate, ptr noundef captures(none) %yieldTS, i64 noundef %nBuckets, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %integrationStep) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9809,7 +9809,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -9822,7 +9822,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 declare void @_ZN8QuantLib12DistributionC1Eidd(ptr noundef nonnull align 8 dereferenceable(225), i32 noundef, double noundef, double noundef) unnamed_addr #6
 
@@ -10215,7 +10215,7 @@ declare void @_ZN8QuantLib12Distribution9normalizeEv(ptr noundef nonnull align 8
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25

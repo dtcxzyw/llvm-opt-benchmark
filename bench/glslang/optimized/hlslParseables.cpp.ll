@@ -1836,7 +1836,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @_ZN12_GLOBAL__N_114AppendTypeNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEPKcSA_ii(ptr noundef nonnull returned align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @_ZN12_GLOBAL__N_114AppendTypeNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEPKcSA_ii(ptr noundef nonnull returned align 8 dereferenceable(40) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = load i8, ptr %1, align 1
   %7 = icmp eq i8 %6, 94
   switch i8 %6, label %8 [
@@ -3650,7 +3650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEpLE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang22TBuiltInParseablesHlsl10initializeEi8EProfileRKNS_10SpvVersionE(ptr noundef nonnull align 8 dereferenceable(608) %0, i32 %1, i32 %2, ptr nocapture nonnull readnone align 4 %3) unnamed_addr #0 align 2 {
+define void @_ZN7glslang22TBuiltInParseablesHlsl10initializeEi8EProfileRKNS_10SpvVersionE(ptr noundef nonnull align 8 dereferenceable(608) %0, i32 %1, i32 %2, ptr nonnull readnone align 4 captures(none) %3) unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string.5", align 8
   %7 = alloca %"class.std::allocator.6", align 1
@@ -5744,12 +5744,12 @@ _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread:    ; preds = %_ZN12_GLOBAL__N_110
 declare i32 @isalpha(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN7glslang22TBuiltInParseablesHlsl10initializeERK16TBuiltInResourcei8EProfileRKNS_10SpvVersionE11EShLanguage(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1, i32 %2, i32 %3, ptr nocapture nonnull readnone align 4 %4, i32 %5) unnamed_addr #3 align 2 {
+define void @_ZN7glslang22TBuiltInParseablesHlsl10initializeERK16TBuiltInResourcei8EProfileRKNS_10SpvVersionE11EShLanguage(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, i32 %2, i32 %3, ptr nonnull readnone align 4 captures(none) %4, i32 %5) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang22TBuiltInParseablesHlsl16identifyBuiltInsEi8EProfileRKNS_10SpvVersionE11EShLanguageRNS_12TSymbolTableE(ptr nocapture nonnull readnone align 8 %0, i32 %1, i32 %2, ptr nocapture nonnull readnone align 4 %3, i32 %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %5) unnamed_addr #0 align 2 {
+define void @_ZN7glslang22TBuiltInParseablesHlsl16identifyBuiltInsEi8EProfileRKNS_10SpvVersionE11EShLanguageRNS_12TSymbolTableE(ptr nonnull readnone align 8 captures(none) %0, i32 %1, i32 %2, ptr nonnull readnone align 4 captures(none) %3, i32 %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %5) unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %5, align 8
@@ -9881,7 +9881,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit930: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN7glslang22TBuiltInParseablesHlsl16identifyBuiltInsEi8EProfileRKNS_10SpvVersionE11EShLanguageRNS_12TSymbolTableERK16TBuiltInResource(ptr nocapture nonnull readnone align 8 %0, i32 %1, i32 %2, ptr nocapture nonnull readnone align 4 %3, i32 %4, ptr nocapture nonnull readnone align 8 %5, ptr nocapture nonnull readnone align 4 %6) unnamed_addr #3 align 2 {
+define void @_ZN7glslang22TBuiltInParseablesHlsl16identifyBuiltInsEi8EProfileRKNS_10SpvVersionE11EShLanguageRNS_12TSymbolTableERK16TBuiltInResource(ptr nonnull readnone align 8 captures(none) %0, i32 %1, i32 %2, ptr nonnull readnone align 4 captures(none) %3, i32 %4, ptr nonnull readnone align 8 captures(none) %5, ptr nonnull readnone align 4 captures(none) %6) unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -10121,10 +10121,10 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
 declare noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #7
@@ -10169,13 +10169,13 @@ declare void @llvm.assume(i1 noundef) #8
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9

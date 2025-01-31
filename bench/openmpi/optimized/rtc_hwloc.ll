@@ -56,12 +56,12 @@ define internal void @finalize() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @assign(ptr nocapture readnone %0) #0 {
+define internal void @assign(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal void @set(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -440,7 +440,7 @@ declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @prte_rtc_base_send_error_show_help(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 

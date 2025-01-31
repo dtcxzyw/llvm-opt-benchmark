@@ -450,10 +450,10 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv], align 8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #0
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 align 2 {
   %9 = alloca %class.ShenandoahPushWorkerScope, align 8
   %10 = alloca %class.VerifyThreadGCState, align 8
   %11 = alloca %class.ShenandoahGCStateResetter, align 8
@@ -1071,73 +1071,73 @@ declare void @_ZN25ShenandoahGCStateResetterD1Ev(ptr noundef nonnull align 8 der
 declare void @_ZN25ShenandoahPushWorkerScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier14verify_genericE12VerifyOption(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier14verify_genericE12VerifyOption(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   tail call void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.20, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier22verify_before_concmarkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier22verify_before_concmarkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.21, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier21verify_after_concmarkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier21verify_after_concmarkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.22, i32 noundef 1, i32 noundef 3, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier24verify_before_evacuationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier24verify_before_evacuationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.23, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier24verify_during_evacuationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier24verify_during_evacuationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.24, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier23verify_after_evacuationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier23verify_after_evacuationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.25, i32 noundef 2, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier24verify_before_updaterefsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier24verify_before_updaterefsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.26, i32 noundef 2, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier23verify_after_updaterefsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier23verify_after_updaterefsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.27, i32 noundef 1, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 2, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier24verify_after_degeneratedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier24verify_after_degeneratedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.28, i32 noundef 1, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 3, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier20verify_before_fullgcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier20verify_before_fullgcEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.29, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier19verify_after_fullgcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier19verify_after_fullgcEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN18ShenandoahVerifier19verify_at_safepointEPKcNS_15VerifyForwardedENS_12VerifyMarkedENS_19VerifyCollectionSetENS_14VerifyLivenessENS_13VerifyRegionsENS_13VerifyGCStateE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.30, i32 noundef 1, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 3, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier24verify_roots_in_to_spaceEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier24verify_roots_in_to_spaceEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahVerifyInToSpaceClosure, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV32ShenandoahVerifyInToSpaceClosure, i64 16), ptr %2, align 8
   call void @_ZN22ShenandoahRootVerifier8roots_doEP10OopClosure(ptr noundef nonnull %2) #13
@@ -1147,7 +1147,7 @@ define hidden void @_ZN18ShenandoahVerifier24verify_roots_in_to_spaceEv(ptr noca
 declare void @_ZN22ShenandoahRootVerifier8roots_doEP10OopClosure(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ShenandoahVerifier25verify_roots_no_forwardedEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18ShenandoahVerifier25verify_roots_no_forwardedEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahVerifyNoForwared, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV26ShenandoahVerifyNoForwared, i64 16), ptr %2, align 8
   call void @_ZN22ShenandoahRootVerifier8roots_doEP10OopClosure(ptr noundef nonnull %2) #13
@@ -1835,7 +1835,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noun
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = sub i64 8192, %5
-  %8 = call i32 @jio_vsnprintf(ptr noundef %6, i64 noundef %7, ptr noundef %1, ptr noundef nonnull %3) #13
+  %8 = call i32 @jio_vsnprintf(ptr noundef nonnull %6, i64 noundef %7, ptr noundef %1, ptr noundef nonnull %3) #13
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -1854,12 +1854,12 @@ declare i32 @jio_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) l
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZN10MarkBitMap8do_clearE9MemRegionb(ptr noundef nonnull align 8 dereferenceable(48), ptr, i64, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN31ShenandoahVerifierReachableTask4workEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
@@ -8450,13 +8450,13 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOo
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

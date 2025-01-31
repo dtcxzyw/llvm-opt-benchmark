@@ -219,7 +219,7 @@ declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @sk_pop(ptr noundef) local_unnamed_addr #1
 
@@ -385,7 +385,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pkcs7_bundle(ptr noundef %out, ptr nocapture noundef readonly %cb, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc i32 @pkcs7_bundle(ptr noundef %out, ptr noundef readonly captures(none) %cb, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %outer_seq = alloca %struct.cbb_st, align 8
   %wrapped_seq = alloca %struct.cbb_st, align 8

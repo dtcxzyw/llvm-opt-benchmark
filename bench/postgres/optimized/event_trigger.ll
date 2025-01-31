@@ -125,7 +125,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.stringify_adefprivs_objtype = private unnamed_addr constant [28 x i8] c"stringify_adefprivs_objtype\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @CreateEventTrigger(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [19 x i64], align 16
   %3 = alloca [19 x i8], align 16
   %4 = alloca %struct.nameData, align 1
@@ -217,7 +217,7 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
   br i1 %.not57, label %50, label %.split77
 
 .split77:                                         ; preds = %49
-  tail call fastcc void @error_duplicate_filter_variable(ptr noundef %46)
+  tail call fastcc void @error_duplicate_filter_variable(ptr noundef nonnull %46)
   unreachable
 
 50:                                               ; preds = %49
@@ -513,7 +513,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @error_duplicate_filter_variable(ptr noundef %0) unnamed_addr #4 {
@@ -526,7 +526,7 @@ define internal fastcc void @error_duplicate_filter_variable(ptr noundef %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @validate_ddl_tags(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @validate_ddl_tags(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not4 = icmp sgt i32 %3, 0
@@ -587,7 +587,7 @@ declare i32 @get_func_rettype(i32 noundef) local_unnamed_addr #1
 declare ptr @NameListToString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @AlterEventTrigger(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @AlterEventTrigger(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = tail call ptr @table_open(i32 noundef 3466, i32 noundef 3) #14
@@ -810,7 +810,7 @@ define internal fastcc void @AlterEventTriggerOwner_internal(ptr noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AlterEventTriggerOwner_oid(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -950,7 +950,7 @@ EventTriggerCommonSetup.exit.thread:              ; preds = %11, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @EventTriggerInvoke(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @EventTriggerInvoke(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %union.anon.8, align 8
   %4 = alloca %struct.FmgrInfo, align 8
   %5 = alloca %struct.PgStat_FunctionCallUsage, align 8
@@ -1717,7 +1717,7 @@ declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 declare ptr @EventCacheLookup(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @EventTriggerSQLDropAddObject(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = zext i1 %1 to i8
   %6 = zext i1 %2 to i8
@@ -2224,7 +2224,7 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
 declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
@@ -2235,7 +2235,7 @@ declare ptr @construct_empty_array(i32 noundef) local_unnamed_addr #1
 declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 1, 4294967296) i64 @pg_event_trigger_table_rewrite_oid(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 1, 4294967296) i64 @pg_event_trigger_table_rewrite_oid(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @currentEventTriggerState, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -2260,7 +2260,7 @@ define dso_local range(i64 1, 4294967296) i64 @pg_event_trigger_table_rewrite_oi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @pg_event_trigger_table_rewrite_reason(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_event_trigger_table_rewrite_reason(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @currentEventTriggerState, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -2526,7 +2526,7 @@ define dso_local void @EventTriggerAlterTableEnd() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @EventTriggerCollectGrant(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @EventTriggerCollectGrant(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @currentEventTriggerState, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %47, label %3
@@ -2708,7 +2708,7 @@ define dso_local void @EventTriggerCollectCreateOpClass(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @EventTriggerCollectAlterTSConfig(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @EventTriggerCollectAlterTSConfig(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @currentEventTriggerState, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %33, label %6
@@ -3364,10 +3364,10 @@ declare ptr @GetCommandTagName(i32 noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

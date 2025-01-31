@@ -812,7 +812,7 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @cuddSlowTableGrowth(ptr noundef initializes((128, 136)) %0) local_unnamed_addr #1 {
@@ -2086,7 +2086,7 @@ declare i64 @Extra_CpuTime(...) local_unnamed_addr #4
 declare void @cuddLocalCacheClearDead(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @ddReportRefMess(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @ddReportRefMess(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #5 {
   switch i32 %1, label %7 [
     i32 2147483647, label %3
     i32 -1, label %11
@@ -4500,7 +4500,7 @@ define ptr @cuddUniqueConst(ptr noundef %0, double noundef %1) local_unnamed_add
 declare void @cuddShrinkDeathRow(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
@@ -5659,7 +5659,7 @@ declare void @Cudd_IterDerefBdd(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @Cudd_DebugCheck(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ddPatchTree(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #7 {
+define internal fastcc void @ddPatchTree(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #7 {
   %.not11 = icmp eq ptr %1, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -6035,7 +6035,7 @@ declare void @cuddCacheResize(ptr noundef) local_unnamed_addr #4
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
@@ -6044,7 +6044,7 @@ declare i32 @llvm.umax.i32(i32, i32) #10
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

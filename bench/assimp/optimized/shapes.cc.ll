@@ -28,7 +28,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3p2t8TriangleC2ERNS_5PointES2_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((0, 6), (8, 57)) %this, ptr noundef nonnull align 8 dereferenceable(40) %a, ptr noundef nonnull align 8 dereferenceable(40) %b, ptr noundef nonnull align 8 dereferenceable(40) %c) unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t8TriangleC2ERNS_5PointES2_S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((0, 6), (8, 57)) %this, ptr noundef nonnull align 8 dereferenceable(40) %a, ptr noundef nonnull align 8 dereferenceable(40) %b, ptr noundef nonnull align 8 dereferenceable(40) %c) unnamed_addr #3 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %a, ptr %points_, align 8
@@ -43,7 +43,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef readnone %p1, ptr noundef readnone %p2, ptr noundef %t) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef readnone %p1, ptr noundef readnone %p2, ptr noundef %t) local_unnamed_addr #4 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -296,7 +296,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle13ClearNeighborEPKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef readnone %triangle) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3p2t8Triangle13ClearNeighborEPKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef readnone %triangle) local_unnamed_addr #4 align 2 {
 entry:
   %neighbors_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %neighbors_, align 8
@@ -327,7 +327,7 @@ if.end13:                                         ; preds = %if.then7, %if.else1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3p2t8Triangle14ClearNeighborsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((32, 56)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t8Triangle14ClearNeighborsEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((32, 56)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %neighbors_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %neighbors_, i8 0, i64 24, i1 false)
@@ -335,7 +335,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3p2t8Triangle17ClearDelunayEdgesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((3, 6)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t8Triangle17ClearDelunayEdgesEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((3, 6)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %delaunay_edge = getelementptr inbounds nuw i8, ptr %this, i64 3
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 5
@@ -347,7 +347,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN3p2t8Triangle13OppositePointERS0_RKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %t, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN3p2t8Triangle13OppositePointERS0_RKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %t, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
 entry:
   %points_.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %0 = load ptr, ptr %points_.i, align 8
@@ -403,7 +403,7 @@ _ZN3p2t8Triangle7PointCWERKNS_5PointE.exit13:     ; preds = %if.then.i11, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -434,7 +434,7 @@ return:                                           ; preds = %if.else10, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle8LegalizeERNS_5PointE(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(40) %point) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3p2t8Triangle8LegalizeERNS_5PointE(ptr noundef nonnull align 8 captures(none) dereferenceable(57) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(40) %point) local_unnamed_addr #4 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -448,7 +448,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle8LegalizeERNS_5PointES2_(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %opoint, ptr noundef nonnull align 8 dereferenceable(40) %npoint) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3p2t8Triangle8LegalizeERNS_5PointES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %opoint, ptr noundef nonnull align 8 dereferenceable(40) %npoint) local_unnamed_addr #4 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -492,7 +492,7 @@ if.end43:                                         ; preds = %if.then15, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef readnone %p) local_unnamed_addr #6 align 2 {
+define hidden noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef readnone %p) local_unnamed_addr #6 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -518,7 +518,7 @@ return:                                           ; preds = %if.else6, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef readnone %p1, ptr noundef readnone %p2) local_unnamed_addr #6 align 2 {
+define hidden noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef readnone %p1, ptr noundef readnone %p2) local_unnamed_addr #6 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -572,7 +572,7 @@ return:                                           ; preds = %if.else36, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
 entry:
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds [3 x i8], ptr %this, i64 0, i64 %idxprom
@@ -581,7 +581,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle19MarkConstrainedEdgeERNS_4EdgeE(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %edge) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3p2t8Triangle19MarkConstrainedEdgeERNS_4EdgeE(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %edge) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %edge, align 8
   %q = getelementptr inbounds nuw i8, ptr %edge, i64 8
@@ -638,7 +638,7 @@ _ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_.exit: ; preds = %if.then.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef readnone %p, ptr noundef readnone %q) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef readnone %p, ptr noundef readnone %q) local_unnamed_addr #4 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -692,7 +692,7 @@ if.end51:                                         ; preds = %if.else31, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN3p2t8Triangle8PointCCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN3p2t8Triangle8PointCCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -718,7 +718,7 @@ return:                                           ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN3p2t8Triangle10NeighborCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN3p2t8Triangle10NeighborCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -734,7 +734,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN3p2t8Triangle11NeighborCCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN3p2t8Triangle11NeighborCCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -750,7 +750,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN3p2t8Triangle21GetConstrainedEdgeCCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN3p2t8Triangle21GetConstrainedEdgeCCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -767,7 +767,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN3p2t8Triangle20GetConstrainedEdgeCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN3p2t8Triangle20GetConstrainedEdgeCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -784,7 +784,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle21SetConstrainedEdgeCCWERKNS_5PointEb(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p, i1 noundef zeroext %ce) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3p2t8Triangle21SetConstrainedEdgeCCWERKNS_5PointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p, i1 noundef zeroext %ce) local_unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %ce to i8
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -817,7 +817,7 @@ if.end17:                                         ; preds = %if.then7, %if.else1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle20SetConstrainedEdgeCWERKNS_5PointEb(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p, i1 noundef zeroext %ce) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3p2t8Triangle20SetConstrainedEdgeCWERKNS_5PointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p, i1 noundef zeroext %ce) local_unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %ce to i8
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -850,7 +850,7 @@ if.end17:                                         ; preds = %if.then7, %if.else1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN3p2t8Triangle17GetDelunayEdgeCCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN3p2t8Triangle17GetDelunayEdgeCCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -867,7 +867,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN3p2t8Triangle16GetDelunayEdgeCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN3p2t8Triangle16GetDelunayEdgeCWERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -884,7 +884,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle17SetDelunayEdgeCCWERKNS_5PointEb(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p, i1 noundef zeroext %e) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3p2t8Triangle17SetDelunayEdgeCCWERKNS_5PointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p, i1 noundef zeroext %e) local_unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %e to i8
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -901,7 +901,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle16SetDelunayEdgeCWERKNS_5PointEb(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p, i1 noundef zeroext %e) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3p2t8Triangle16SetDelunayEdgeCWERKNS_5PointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p, i1 noundef zeroext %e) local_unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %e to i8
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -918,7 +918,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t8Triangle14NeighborAcrossERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %opoint) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t8Triangle14NeighborAcrossERKNS_5PointE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %opoint) local_unnamed_addr #6 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -934,7 +934,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t8Triangle10DebugPrintEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN3p2t8Triangle10DebugPrintEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this) local_unnamed_addr #7 align 2 {
 entry:
   %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
@@ -986,7 +986,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

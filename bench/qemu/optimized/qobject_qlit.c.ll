@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qnull_ = external global %struct.QNull, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qlit_equal_qobject(ptr nocapture noundef readonly %lhs, ptr noundef %rhs) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qlit_equal_qobject(ptr noundef readonly captures(none) %lhs, ptr noundef %rhs) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %rhs, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -157,12 +157,12 @@ declare zeroext i1 @qbool_get_bool(ptr noundef) local_unnamed_addr #1
 declare i64 @qnum_get_int(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @qstring_get_str(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qobject_from_qlit(ptr nocapture noundef readonly %qlit) local_unnamed_addr #0 {
+define dso_local ptr @qobject_from_qlit(ptr noundef readonly captures(none) %qlit) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %qlit, align 8
   switch i32 %0, label %sw.default [

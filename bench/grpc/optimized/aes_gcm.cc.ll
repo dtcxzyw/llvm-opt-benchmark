@@ -94,7 +94,7 @@ $_ZTIN9grpc_core16GsecKeyInterfaceE = comdat any
 @_ZN9grpc_core7GsecKeyC1EN4absl12lts_202308024SpanIKhEEb = unnamed_addr alias void (ptr, ptr, i64, i1), ptr @_ZN9grpc_core7GsecKeyC2EN4absl12lts_202308024SpanIKhEEb
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14GsecKeyFactoryC2EN4absl12lts_202308024SpanIKhEEb(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((0, 32)) %this, ptr nocapture readonly %key.coerce0, i64 %key.coerce1, i1 noundef zeroext %is_rekey) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core14GsecKeyFactoryC2EN4absl12lts_202308024SpanIKhEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(33) initializes((0, 32)) %this, ptr readonly captures(none) %key.coerce0, i64 %key.coerce1, i1 noundef zeroext %is_rekey) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i64 16), ptr %this, align 8
   %key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -152,7 +152,7 @@ lpad.body:                                        ; preds = %lpad.i, %if.then.i.
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core14GsecKeyFactory6CreateEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core14GsecKeyFactory6CreateEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %is_rekey_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -180,7 +180,7 @@ _ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core7GsecKeyC2EN4absl12lts_202308024SpanIKhEEb(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 9), (16, 136)) %this, ptr nocapture readonly %key.coerce0, i64 %key.coerce1, i1 noundef zeroext %is_rekey) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core7GsecKeyC2EN4absl12lts_202308024SpanIKhEEb(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 9), (16, 136)) %this, ptr readonly captures(none) %key.coerce0, i64 %key.coerce1, i1 noundef zeroext %is_rekey) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i8, align 1
   %frombool = zext i1 %is_rekey to i8
@@ -416,10 +416,10 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN9grpc_core7GsecKey7IsRekeyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN9grpc_core7GsecKey7IsRekeyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this) unnamed_addr #2 align 2 {
 entry:
   %is_rekey_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %is_rekey_, align 8
@@ -428,7 +428,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @_ZN9grpc_core7GsecKey3keyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #2 align 2 {
+define { ptr, i64 } @_ZN9grpc_core7GsecKey3keyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this) unnamed_addr #2 align 2 {
 entry:
   %key_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %key_, align 8
@@ -443,7 +443,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @_ZN9grpc_core7GsecKey10nonce_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #2 align 2 {
+define { ptr, i64 } @_ZN9grpc_core7GsecKey10nonce_maskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this) unnamed_addr #2 align 2 {
 entry:
   %nonce_mask_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %nonce_mask_, align 8
@@ -458,7 +458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @_ZN9grpc_core7GsecKey11kdf_counterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #2 align 2 {
+define { ptr, i64 } @_ZN9grpc_core7GsecKey11kdf_counterEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this) unnamed_addr #2 align 2 {
 entry:
   %kdf_counter_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %kdf_counter_, align 8
@@ -473,7 +473,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @_ZN9grpc_core7GsecKey8aead_keyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #2 align 2 {
+define { ptr, i64 } @_ZN9grpc_core7GsecKey8aead_keyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this) unnamed_addr #2 align 2 {
 entry:
   %aead_key_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %aead_key_, align 8
@@ -488,7 +488,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @_ZN9grpc_core7GsecKey10kdf_bufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #2 align 2 {
+define { ptr, i64 } @_ZN9grpc_core7GsecKey10kdf_bufferEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this) unnamed_addr #2 align 2 {
 entry:
   %kdf_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %kdf_buffer_, align 8
@@ -503,7 +503,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 14) i32 @_Z32gsec_aes_gcm_aead_crypter_createSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEmmPP17gsec_aead_crypterPPc(ptr nocapture noundef %key, i64 noundef %nonce_length, i64 noundef %tag_length, ptr noundef writeonly %crypter, ptr noundef %error_details) local_unnamed_addr #0 {
+define noundef range(i32 0, 14) i32 @_Z32gsec_aes_gcm_aead_crypter_createSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEmmPP17gsec_aead_crypterPPc(ptr noundef captures(none) %key, i64 noundef %nonce_length, i64 noundef %tag_length, ptr noundef writeonly %crypter, ptr noundef %error_details) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %key, align 8
   %cmp.i.not.i = icmp eq ptr %0, null
@@ -796,7 +796,7 @@ declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #3
 declare ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL33gsec_aes_gcm_aead_crypter_destroyP17gsec_aead_crypter(ptr nocapture noundef readonly %crypter) #0 {
+define internal void @_ZL33gsec_aes_gcm_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef readonly captures(none) %crypter) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %crypter, i64 24
   %0 = load ptr, ptr %ctx, align 8
@@ -972,10 +972,10 @@ _ZN9grpc_core7GsecKeyD2Ev.exit:                   ; preds = %_ZNSt6vectorIhSaIhE
 declare i32 @ERR_get_error() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @BIO_new(ptr noundef) local_unnamed_addr #3
 
@@ -988,7 +988,7 @@ declare i32 @BIO_get_mem_ptr(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @BIO_free_all(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr nocapture noundef readonly %crypter, ptr noundef %nonce, i64 noundef %nonce_length, ptr noundef readonly %aad_vec, i64 noundef %aad_vec_length, ptr noundef readonly %plaintext_vec, i64 noundef %plaintext_vec_length, ptr nocapture noundef readonly byval(%struct.iovec) align 8 %ciphertext_vec, ptr noundef writeonly %ciphertext_bytes_written, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef readonly captures(none) %crypter, ptr noundef %nonce, i64 noundef %nonce_length, ptr noundef readonly %aad_vec, i64 noundef %aad_vec_length, ptr noundef readonly %plaintext_vec, i64 noundef %plaintext_vec_length, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %ciphertext_vec, ptr noundef writeonly %ciphertext_bytes_written, ptr noundef %error_details) #0 {
 entry:
   %nonce_masked = alloca [12 x i8], align 8
   %aad_bytes_read = alloca i64, align 8
@@ -1254,7 +1254,7 @@ return:                                           ; preds = %if.end15, %if.end94
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr nocapture noundef readonly %crypter, ptr noundef %nonce, i64 noundef %nonce_length, ptr noundef readonly %aad_vec, i64 noundef %aad_vec_length, ptr noundef readonly %ciphertext_vec, i64 noundef %ciphertext_vec_length, ptr nocapture noundef readonly byval(%struct.iovec) align 8 %plaintext_vec, ptr noundef writeonly %plaintext_bytes_written, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef readonly captures(none) %crypter, ptr noundef %nonce, i64 noundef %nonce_length, ptr noundef readonly %aad_vec, i64 noundef %aad_vec_length, ptr noundef readonly %ciphertext_vec, i64 noundef %ciphertext_vec_length, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %plaintext_vec, ptr noundef writeonly %plaintext_bytes_written, ptr noundef %error_details) #0 {
 entry:
   %nonce_masked = alloca [12 x i8], align 8
   %aad_bytes_read = alloca i64, align 8
@@ -1632,7 +1632,7 @@ return:                                           ; preds = %if.then148, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL55gsec_aes_gcm_aead_crypter_max_ciphertext_and_tag_lengthPK17gsec_aead_cryptermPmPPc(ptr nocapture noundef readonly %crypter, i64 noundef %plaintext_length, ptr noundef writeonly %max_ciphertext_and_tag_length, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL55gsec_aes_gcm_aead_crypter_max_ciphertext_and_tag_lengthPK17gsec_aead_cryptermPmPPc(ptr noundef readonly captures(none) %crypter, i64 noundef %plaintext_length, ptr noundef writeonly %max_ciphertext_and_tag_length, ptr noundef %error_details) #0 {
 entry:
   %cmp = icmp eq ptr %max_ciphertext_and_tag_length, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1654,7 +1654,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL46gsec_aes_gcm_aead_crypter_max_plaintext_lengthPK17gsec_aead_cryptermPmPPc(ptr nocapture noundef readonly %crypter, i64 noundef %ciphertext_and_tag_length, ptr noundef writeonly %max_plaintext_length, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL46gsec_aes_gcm_aead_crypter_max_plaintext_lengthPK17gsec_aead_cryptermPmPPc(ptr noundef readonly captures(none) %crypter, i64 noundef %ciphertext_and_tag_length, ptr noundef writeonly %max_plaintext_length, ptr noundef %error_details) #0 {
 entry:
   %cmp = icmp eq ptr %max_plaintext_length, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1685,7 +1685,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL38gsec_aes_gcm_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr nocapture noundef readonly %crypter, ptr noundef writeonly %nonce_length, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL38gsec_aes_gcm_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef readonly captures(none) %crypter, ptr noundef writeonly %nonce_length, ptr noundef %error_details) #0 {
 entry:
   %cmp = icmp eq ptr %nonce_length, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1706,7 +1706,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL36gsec_aes_gcm_aead_crypter_key_lengthPK17gsec_aead_crypterPmPPc(ptr nocapture noundef readonly %crypter, ptr noundef writeonly %key_length, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL36gsec_aes_gcm_aead_crypter_key_lengthPK17gsec_aead_crypterPmPPc(ptr noundef readonly captures(none) %crypter, ptr noundef writeonly %key_length, ptr noundef %error_details) #0 {
 entry:
   %cmp = icmp eq ptr %key_length, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1732,7 +1732,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL36gsec_aes_gcm_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr nocapture noundef readonly %crypter, ptr noundef writeonly %tag_length, ptr noundef %error_details) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL36gsec_aes_gcm_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef readonly captures(none) %crypter, ptr noundef writeonly %tag_length, ptr noundef %error_details) #0 {
 entry:
   %cmp = icmp eq ptr %tag_length, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1753,7 +1753,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 14) i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr nocapture noundef readonly %aes_gcm_crypter, ptr nocapture noundef nonnull readonly %nonce, ptr noundef %error_details) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 14) i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef readonly captures(none) %aes_gcm_crypter, ptr noundef nonnull readonly captures(none) %nonce, ptr noundef %error_details) unnamed_addr #0 {
 entry:
   %gsec_key = getelementptr inbounds nuw i8, ptr %aes_gcm_crypter, i64 32
   %0 = load ptr, ptr %gsec_key, align 8
@@ -1858,7 +1858,7 @@ declare i32 @EVP_EncryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @EVP_CIPHER_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 14) i32 @_ZL23aes_gcm_derive_aead_keyN4absl12lts_202308024SpanIhEEPhNS1_IKhEES5_(ptr nocapture writeonly %dst.coerce0, i64 %dst.coerce1, ptr noundef %buf, ptr %kdf_key.coerce0, i64 %kdf_key.coerce1, ptr %kdf_counter.0.val, i64 %kdf_counter.8.val) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 14) i32 @_ZL23aes_gcm_derive_aead_keyN4absl12lts_202308024SpanIhEEPhNS1_IKhEES5_(ptr writeonly captures(none) %dst.coerce0, i64 %dst.coerce1, ptr noundef %buf, ptr %kdf_key.coerce0, i64 %kdf_key.coerce1, ptr %kdf_counter.0.val, i64 %kdf_counter.8.val) unnamed_addr #0 {
 entry:
   %ctr = alloca i8, align 1
   store i8 1, ptr %ctr, align 1
@@ -1918,7 +1918,7 @@ declare void @HMAC_CTX_free(ptr noundef) local_unnamed_addr #3
 declare i32 @EVP_DecryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @EVP_DecryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1938,7 +1938,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, i64 noundef %__n, ptr noundef nonnull align 1 dereferenceable(1) %__x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2088,7 +2088,7 @@ if.end92:                                         ; preds = %if.then.i.i.i, %inv
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
@@ -2097,10 +2097,10 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

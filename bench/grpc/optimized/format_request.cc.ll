@@ -70,7 +70,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z31grpc_httpcli_format_get_requestPK17grpc_http_requestPKcS3_(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef readonly %request, ptr noundef %host, ptr noundef %path) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z31grpc_httpcli_format_get_requestPK17grpc_http_requestPKcS3_(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef readonly captures(none) %request, ptr noundef %host, ptr noundef %path) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -263,7 +263,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18fill_common_headerPK17grpc_http_requestPKcS3_bPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr nocapture noundef readonly %request, ptr noundef %host, ptr noundef %path, i1 noundef zeroext %connection_close, ptr noundef nonnull %buf) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18fill_common_headerPK17grpc_http_requestPKcS3_bPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef readonly captures(none) %request, ptr noundef %host, ptr noundef %path, i1 noundef zeroext %connection_close, ptr noundef nonnull %buf) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator.0", align 1
@@ -978,7 +978,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z32grpc_httpcli_format_post_requestPK17grpc_http_requestPKcS3_(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef readonly %request, ptr noundef %host, ptr noundef %path) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z32grpc_httpcli_format_post_requestPK17grpc_http_requestPKcS3_(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef readonly captures(none) %request, ptr noundef %host, ptr noundef %path) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %out = alloca %"class.std::vector", align 8
@@ -1305,12 +1305,12 @@ ehcleanup52:                                      ; preds = %lpad44, %ehcleanup3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z31grpc_httpcli_format_put_requestPK17grpc_http_requestPKcS3_(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef readonly %request, ptr noundef %host, ptr noundef %path) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z31grpc_httpcli_format_put_requestPK17grpc_http_requestPKcS3_(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef readonly captures(none) %request, ptr noundef %host, ptr noundef %path) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %out = alloca %"class.std::vector", align 8
@@ -1637,7 +1637,7 @@ ehcleanup52:                                      ; preds = %lpad44, %ehcleanup3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z35grpc_httpcli_format_connect_requestPK17grpc_http_requestPKcS3_(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef readonly %request, ptr noundef %host, ptr noundef %path) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z35grpc_httpcli_format_connect_requestPK17grpc_http_requestPKcS3_(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef readonly captures(none) %request, ptr noundef %host, ptr noundef %path) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1847,10 +1847,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -1952,7 +1952,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2145,10 +2145,10 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

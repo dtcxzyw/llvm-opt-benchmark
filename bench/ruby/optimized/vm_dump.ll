@@ -110,7 +110,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ruby_single_main_ractor = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_raw(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_raw(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [129 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str) #13
@@ -529,7 +529,7 @@ control_frame_dump.exit:                          ; preds = %189, %.lr.ph.i, %86
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_raw_current() local_unnamed_addr #0 {
@@ -543,7 +543,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_raw_current() local_unna
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %0, ptr noundef readnone %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %0, ptr noundef readnone %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2) #13
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %.loopexit, label %.preheader21
@@ -622,7 +622,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %0, ptr no
 declare ptr @rb_vm_env_prev_env(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_vmdebug_proc_dump_raw(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @rb_vmdebug_proc_dump_raw(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   br label %tailrecurse.i
 
@@ -733,7 +733,7 @@ declare i64 @rb_inspect(i64 noundef) local_unnamed_addr #2
 declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_th(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_th(i64 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -744,7 +744,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_th(i64 noundef %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_vmdebug_debug_print_register(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @rb_vmdebug_debug_print_register(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -797,7 +797,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_debug_print_register(ptr nocapture 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_vmdebug_thread_dump_regs(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @rb_vmdebug_thread_dump_regs(i64 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -853,7 +853,7 @@ rb_vmdebug_debug_print_register.exit:             ; preds = %2, %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_vmdebug_debug_print_pre(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @rb_vmdebug_debug_print_pre(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -922,12 +922,12 @@ declare ptr @rb_iseq_original_iseq(ptr noundef) local_unnamed_addr #2
 declare i32 @rb_iseq_disasm_insn(i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @rb_vmdebug_debug_print_post(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @rb_vmdebug_debug_print_post(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
   ret i1 true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i64 @rb_vmdebug_thread_dump_state(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden noundef i64 @rb_vmdebug_thread_dump_state(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ruby_threadptr_data_type) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -1803,7 +1803,7 @@ RSTRING_PTR.exit238:                              ; preds = %409, %416
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @ruby_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -1811,12 +1811,12 @@ declare i32 @ruby_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare i32 @getpid() local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare void @rb_backtrace_print_as_bugreport(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @rb_during_gc() local_unnamed_addr #8
@@ -1872,19 +1872,19 @@ define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #9 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_all_threads() local_unnamed_addr #0 {
@@ -1958,10 +1958,10 @@ declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #2
 declare i64 @llvm.smin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

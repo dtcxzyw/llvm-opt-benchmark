@@ -92,7 +92,7 @@ $_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13Instance
 @_ZN17DumpTimeClassInfoD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17DumpTimeClassInfoD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17DumpTimeClassInfoD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17DumpTimeClassInfoD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -163,7 +163,7 @@ _ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEED2Ev.exit: ; preds 
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK17DumpTimeClassInfo21runtime_info_bytesizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK17DumpTimeClassInfo21runtime_info_bytesizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -228,7 +228,7 @@ _ZNK17DumpTimeClassInfo28num_enum_klass_static_fieldsEv.exit: ; preds = %_ZNK17D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17DumpTimeClassInfo27add_verification_constraintEP13InstanceKlassP6SymbolS3_bbb(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17DumpTimeClassInfo27add_verification_constraintEP13InstanceKlassP6SymbolS3_bbb(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.DumpTimeClassInfo::DTVerifierConstraint", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
@@ -533,7 +533,7 @@ declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 der
 declare noundef ptr @_ZNK6Symbol22as_klass_external_nameEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17DumpTimeClassInfo25record_linking_constraintEP6Symbol6HandleS2_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr readonly %2, ptr readonly %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17DumpTimeClassInfo25record_linking_constraintEP6Symbol6HandleS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr readonly %2, ptr readonly %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -885,7 +885,7 @@ declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dere
 declare noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17DumpTimeClassInfo27add_enum_klass_static_fieldEi(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17DumpTimeClassInfo27add_enum_klass_static_fieldEi(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -947,7 +947,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN17DumpTimeClassInfo23enum_klass_static_fieldEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN17DumpTimeClassInfo23enum_klass_static_fieldEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -959,7 +959,7 @@ define hidden noundef i32 @_ZN17DumpTimeClassInfo23enum_klass_static_fieldEi(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17DumpTimeClassInfo10is_builtinEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN17DumpTimeClassInfo10is_builtinEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 186
@@ -969,7 +969,7 @@ define hidden noundef zeroext i1 @_ZN17DumpTimeClassInfo10is_builtinEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24DumpTimeSharedClassTable13allocate_infoEP13InstanceKlass(ptr nocapture noundef nonnull align 8 dereferenceable(127124) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24DumpTimeSharedClassTable13allocate_infoEP13InstanceKlass(ptr noundef nonnull align 8 captures(none) dereferenceable(127124) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %13
@@ -1070,7 +1070,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN24DumpTimeSharedClassTable8get_infoEP13InstanceKlass(ptr nocapture noundef nonnull readonly align 8 dereferenceable(127124) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN24DumpTimeSharedClassTable8get_infoEP13InstanceKlass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(127124) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %13
@@ -2269,13 +2269,13 @@ declare noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

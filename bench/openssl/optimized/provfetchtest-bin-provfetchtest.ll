@@ -152,7 +152,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dummy_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %provctx) #0 {
+define internal range(i32 0, 2) i32 @dummy_provider_init(ptr noundef %handle, ptr noundef %in, ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %provctx) #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %call = tail call ptr @OSSL_LIB_CTX_new_child(ptr noundef %handle, ptr noundef %in) #5
@@ -191,7 +191,7 @@ declare void @OSSL_LIB_CTX_free(ptr noundef) #1
 declare ptr @OSSL_LIB_CTX_new_child(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @dummy_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly initializes((0, 4)) %no_cache) #2 {
+define internal noundef ptr @dummy_query(ptr readnone captures(none) %provctx, i32 noundef %operation_id, ptr noundef writeonly captures(none) initializes((0, 4)) %no_cache) #2 {
 entry:
   store i32 0, ptr %no_cache, align 4
   switch i32 %operation_id, label %sw.epilog [
@@ -219,67 +219,67 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_decoder_decode(ptr nocapture readnone %ctx, ptr nocapture readnone %cin, i32 %selection, ptr nocapture readnone %object_cb, ptr nocapture readnone %object_cbarg, ptr nocapture readnone %pw_cb, ptr nocapture readnone %pw_cbarg) #3 {
+define internal noundef i32 @dummy_decoder_decode(ptr readnone captures(none) %ctx, ptr readnone captures(none) %cin, i32 %selection, ptr readnone captures(none) %object_cb, ptr readnone captures(none) %object_cbarg, ptr readnone captures(none) %pw_cb, ptr readnone captures(none) %pw_cbarg) #3 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_encoder_encode(ptr nocapture readnone %ctx, ptr nocapture readnone %out, ptr nocapture readnone %obj_raw, ptr nocapture readnone %obj_abstract, i32 %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #3 {
+define internal noundef i32 @dummy_encoder_encode(ptr readnone captures(none) %ctx, ptr readnone captures(none) %out, ptr readnone captures(none) %obj_raw, ptr readnone captures(none) %obj_abstract, i32 %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #3 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @dummy_store_open(ptr nocapture readnone %provctx, ptr nocapture readnone %uri) #3 {
+define internal noalias noundef ptr @dummy_store_open(ptr readnone captures(none) %provctx, ptr readnone captures(none) %uri) #3 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_store_load(ptr nocapture readnone %loaderctx, ptr nocapture readnone %object_cb, ptr nocapture readnone %object_cbarg, ptr nocapture readnone %pw_cb, ptr nocapture readnone %pw_cbarg) #3 {
+define internal noundef i32 @dummy_store_load(ptr readnone captures(none) %loaderctx, ptr readnone captures(none) %object_cb, ptr readnone captures(none) %object_cbarg, ptr readnone captures(none) %pw_cb, ptr readnone captures(none) %pw_cbarg) #3 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dumm_store_eof(ptr nocapture readnone %loaderctx) #3 {
+define internal noundef i32 @dumm_store_eof(ptr readnone captures(none) %loaderctx) #3 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_store_close(ptr nocapture readnone %loaderctx) #3 {
+define internal noundef i32 @dummy_store_close(ptr readnone captures(none) %loaderctx) #3 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @dummy_rand_newctx(ptr noundef readnone returned %provctx, ptr nocapture readnone %parent, ptr nocapture readnone %parent_calls) #3 {
+define internal noundef ptr @dummy_rand_newctx(ptr noundef readnone returned %provctx, ptr readnone captures(none) %parent, ptr readnone captures(none) %parent_calls) #3 {
 entry:
   ret ptr %provctx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @dummy_rand_freectx(ptr nocapture readnone %vctx) #3 {
+define internal void @dummy_rand_freectx(ptr readnone captures(none) %vctx) #3 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_rand_instantiate(ptr nocapture readnone %vdrbg, i32 %strength, i32 %prediction_resistance, ptr nocapture readnone %pstr, i64 %pstr_len, ptr nocapture readnone %params) #3 {
+define internal noundef i32 @dummy_rand_instantiate(ptr readnone captures(none) %vdrbg, i32 %strength, i32 %prediction_resistance, ptr readnone captures(none) %pstr, i64 %pstr_len, ptr readnone captures(none) %params) #3 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_rand_uninstantiate(ptr nocapture readnone %vdrbg) #3 {
+define internal noundef i32 @dummy_rand_uninstantiate(ptr readnone captures(none) %vdrbg) #3 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal noundef i32 @dummy_rand_generate(ptr nocapture readnone %vctx, ptr nocapture noundef writeonly %out, i64 noundef %outlen, i32 %strength, i32 %prediction_resistance, ptr nocapture readnone %addin, i64 %addin_len) #4 {
+define internal noundef i32 @dummy_rand_generate(ptr readnone captures(none) %vctx, ptr noundef writeonly captures(none) %out, i64 noundef %outlen, i32 %strength, i32 %prediction_resistance, ptr readnone captures(none) %addin, i64 %addin_len) #4 {
 entry:
   %cmp4.not = icmp eq i64 %outlen, 0
   br i1 %cmp4.not, label %for.end, label %for.body
@@ -298,13 +298,13 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @dummy_rand_gettable_ctx_params(ptr nocapture readnone %vctx, ptr nocapture readnone %provctx) #3 {
+define internal noundef nonnull ptr @dummy_rand_gettable_ctx_params(ptr readnone captures(none) %vctx, ptr readnone captures(none) %provctx) #3 {
 entry:
   ret ptr @dummy_rand_gettable_ctx_params.known_gettable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dummy_rand_get_ctx_params(ptr nocapture readnone %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @dummy_rand_get_ctx_params(ptr readnone captures(none) %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.18) #5
   %cmp.not = icmp eq ptr %call, null
@@ -324,19 +324,19 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_rand_enable_locking(ptr nocapture readnone %vtest) #3 {
+define internal noundef i32 @dummy_rand_enable_locking(ptr readnone captures(none) %vtest) #3 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_rand_lock(ptr nocapture readnone %vtest) #3 {
+define internal noundef i32 @dummy_rand_lock(ptr readnone captures(none) %vtest) #3 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @dummy_rand_unlock(ptr nocapture readnone %vtest) #3 {
+define internal void @dummy_rand_unlock(ptr readnone captures(none) %vtest) #3 {
 entry:
   ret void
 }

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rand_uniform_uint32(ptr noundef %ctx, i32 noundef %upper, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
+define i32 @ossl_rand_uniform_uint32(ptr noundef %ctx, i32 noundef %upper, ptr noundef writeonly captures(none) %err) local_unnamed_addr #0 {
 entry:
   %rand = alloca i32, align 4
   switch i32 %upper, label %if.end14 [
@@ -78,7 +78,7 @@ return:                                           ; preds = %if.end50, %if.end18
 declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rand_range_uint32(ptr noundef %ctx, i32 noundef %lower, i32 noundef %upper, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
+define i32 @ossl_rand_range_uint32(ptr noundef %ctx, i32 noundef %lower, i32 noundef %upper, ptr noundef writeonly captures(none) %err) local_unnamed_addr #0 {
 entry:
   %rand.i = alloca i32, align 4
   %cmp = icmp ult i32 %lower, %upper
@@ -166,10 +166,10 @@ return:                                           ; preds = %ossl_rand_uniform_u
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

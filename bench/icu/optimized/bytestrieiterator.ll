@@ -247,7 +247,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -484,7 +484,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759BytesTrie8IteratorC2EPKviR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, ptr noundef %trieBytes, i32 noundef %maxStringLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_759BytesTrie8IteratorC2EPKviR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 56)) %this, ptr noundef %trieBytes, i32 noundef %maxStringLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %trieBytes, ptr %this, align 8
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -578,7 +578,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 declare void @_ZN6icu_759UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759BytesTrie8IteratorC2ERKS0_iR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %trie, i32 noundef %maxStringLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_759BytesTrie8IteratorC2ERKS0_iR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 56)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %trie, i32 noundef %maxStringLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bytes_2 = getelementptr inbounds nuw i8, ptr %trie, i64 8
   %0 = load ptr, ptr %bytes_2, align 8
@@ -695,7 +695,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_759BytesTrie8IteratorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_759BytesTrie8IteratorD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
   %str_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %str_, align 8
@@ -763,7 +763,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8
 declare void @_ZN6icu_759UVector327setSizeEi(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759BytesTrie8Iterator7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759BytesTrie8Iterator7hasNextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #8 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %pos_, align 8
@@ -785,7 +785,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_759BytesTrie8Iterator4nextER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_759BytesTrie8Iterator4nextER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1035,7 +1035,7 @@ return:                                           ; preds = %if.end67, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_759BytesTrie8Iterator10branchNextEPKhiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %pos, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_759BytesTrie8Iterator10branchNextEPKhiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef %pos, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %cmp81 = icmp sgt i32 %length, 5
   br i1 %cmp81, label %while.body.lr.ph, label %while.end
@@ -1304,7 +1304,7 @@ return:                                           ; preds = %if.else, %if.then
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef signext i8 @_ZN6icu_759BytesTrie8Iterator15truncateAndStopEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((8, 16), (44, 48)) %this) local_unnamed_addr #9 align 2 {
+define noundef signext i8 @_ZN6icu_759BytesTrie8Iterator15truncateAndStopEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((8, 16), (44, 48)) %this) local_unnamed_addr #9 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %pos_, align 8
@@ -1316,7 +1316,7 @@ entry:
 declare noundef i32 @_ZN6icu_759BytesTrie9readValueEPKhi(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK6icu_759BytesTrie8Iterator9getStringEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #8 align 2 {
+define { ptr, i32 } @_ZNK6icu_759BytesTrie8Iterator9getStringEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #8 align 2 {
 entry:
   %str_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %str_, align 8

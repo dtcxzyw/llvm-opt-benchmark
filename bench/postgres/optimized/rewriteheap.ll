@@ -195,7 +195,7 @@ declare ptr @smgr_bulk_start_rel(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @end_heap_rewrite(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @end_heap_rewrite(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
   %3 = alloca %struct.HASH_SEQ_STATUS, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -306,7 +306,7 @@ declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @raw_heap_insert(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @raw_heap_insert(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -469,7 +469,7 @@ declare void @smgr_bulk_finish(ptr noundef) local_unnamed_addr #1
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rewrite_heap_tuple(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @rewrite_heap_tuple(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ItemPointerData, align 2
   %5 = alloca %struct.LogicalRewriteMappingData, align 4
   %6 = alloca %struct.TidHashKey, align 4
@@ -816,7 +816,7 @@ logical_rewrite_heap_tuple.exit:                  ; preds = %110, %149, %154, %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare zeroext i1 @heap_freeze_tuple(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -825,7 +825,7 @@ declare zeroext i1 @HeapTupleHeaderIsOnlyLocked(ptr noundef) local_unnamed_addr 
 declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @HeapTupleGetUpdateXid(ptr noundef) local_unnamed_addr #1
 
@@ -838,7 +838,7 @@ declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unname
 declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @rewrite_heap_dead_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @rewrite_heap_dead_tuple(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.TidHashKey, align 4
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -880,7 +880,7 @@ define dso_local noundef zeroext i1 @rewrite_heap_dead_tuple(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_xlog_logical_rewrite(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @heap_xlog_logical_rewrite(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -1028,7 +1028,7 @@ declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #5
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @pwrite(i32 noundef, ptr nocapture noundef readonly, i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @pwrite(i32 noundef, ptr noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #7
 
 declare i32 @pg_fsync(i32 noundef) local_unnamed_addr #1
 
@@ -1208,15 +1208,15 @@ declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @get_dirent_type(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
@@ -1241,7 +1241,7 @@ declare void @ProcArrayGetReplicationSlotXmin(ptr noundef, ptr noundef) local_un
 declare i64 @GetXLogInsertRecPtr() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.iovec, align 8
   %3 = alloca %struct.HASH_SEQ_STATUS, align 8
   %4 = alloca %struct.xl_heap_rewrite_mapping, align 8
@@ -1334,7 +1334,7 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   %54 = load i32, ptr %27, align 8
   %55 = add i32 %54, -1
   store i32 %55, ptr %27, align 8
-  call void @pfree(ptr noundef %48) #13
+  call void @pfree(ptr noundef nonnull %48) #13
   %56 = load i32, ptr %5, align 8
   %57 = add i32 %56, -1
   store i32 %57, ptr %5, align 8
@@ -1400,7 +1400,7 @@ declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_ad
 declare i64 @FileWriteV(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logical_rewrite_log_mapping(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @logical_rewrite_log_mapping(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = alloca [1024 x i8], align 16
@@ -1512,10 +1512,10 @@ declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

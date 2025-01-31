@@ -165,7 +165,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.tls_prov_query = private unnamed_addr constant [12 x ptr] [ptr @tls_prov_keymgmt, ptr @tls_prov_keyexch, ptr @tls_prov_signature, ptr null, ptr @tls_prov_kem, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @tls_prov_encoder, ptr @tls_prov_decoder], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @tls_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tls_provider_init(ptr noundef %handle, ptr noundef %in, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %provctx) local_unnamed_addr #0 {
 entry:
   %id.i73 = alloca i32, align 4
   %id.i48 = alloca i32, align 4
@@ -494,7 +494,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @tls_prov_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly initializes((0, 4)) %no_cache) #2 {
+define internal noundef ptr @tls_prov_query(ptr readnone captures(none) %provctx, i32 noundef %operation_id, ptr noundef writeonly captures(none) initializes((0, 4)) %no_cache) #2 {
 entry:
   store i32 0, ptr %no_cache, align 4
   %switch.tableidx = add i32 %operation_id, -10
@@ -513,7 +513,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls_prov_get_capabilities(ptr nocapture readnone %provctx, ptr nocapture noundef readonly %capability, ptr nocapture noundef readonly %cb, ptr noundef %arg) #0 {
+define internal i32 @tls_prov_get_capabilities(ptr readnone captures(none) %provctx, ptr noundef readonly captures(none) %capability, ptr noundef readonly captures(none) %cb, ptr noundef %arg) #0 {
 entry:
   %dummygroup = alloca [11 x %struct.ossl_param_st], align 16
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %capability, ptr noundef nonnull dereferenceable(10) @.str.48) #15
@@ -583,7 +583,7 @@ return:                                           ; preds = %if.then6, %if.end29
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @xor_newkey(ptr nocapture readnone %provctx) #0 {
+define internal noalias ptr @xor_newkey(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.2, i32 noundef 685) #14
   %cmp = icmp eq ptr %call, null
@@ -599,7 +599,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xor_gen_init(ptr nocapture noundef readonly %provctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xor_gen_init(ptr noundef readonly captures(none) %provctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %and = and i32 %selection, 7
   %cmp = icmp eq i32 %and, 0
@@ -689,13 +689,13 @@ return:                                           ; preds = %if.then2, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @xor_gen_settable_params(ptr nocapture readnone %genctx, ptr nocapture readnone %provctx) #3 {
+define internal noundef nonnull ptr @xor_gen_settable_params(ptr readnone captures(none) %genctx, ptr readnone captures(none) %provctx) #3 {
 entry:
   ret ptr @xor_gen_settable_params.settable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xor_gen(ptr nocapture noundef readonly %genctx, ptr nocapture readnone %osslcb, ptr nocapture readnone %cbarg) #0 {
+define internal ptr @xor_gen(ptr noundef readonly captures(none) %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.2, i32 noundef 685) #14
   %cmp.i = icmp eq ptr %call.i, null
@@ -757,7 +757,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @xor_get_params(ptr nocapture noundef readonly %vkey, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @xor_get_params(ptr noundef readonly captures(none) %vkey, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.12) #14
   %cmp.not = icmp eq ptr %call, null
@@ -815,13 +815,13 @@ return:                                           ; preds = %if.end8, %if.then18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @xor_gettable_params(ptr nocapture readnone %provctx) #3 {
+define internal noundef nonnull ptr @xor_gettable_params(ptr readnone captures(none) %provctx) #3 {
 entry:
   ret ptr @xor_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @xor_set_params(ptr nocapture noundef writeonly %vkey, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @xor_set_params(ptr noundef writeonly captures(none) %vkey, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.14) #14
   %cmp.not = icmp eq ptr %call, null
@@ -854,7 +854,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @xor_settable_params(ptr nocapture readnone %provctx) #3 {
+define internal noundef nonnull ptr @xor_settable_params(ptr readnone captures(none) %provctx) #3 {
 entry:
   ret ptr @xor_known_settable_params
 }
@@ -1115,7 +1115,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xor_export(ptr noundef %vkey, i32 noundef %select, ptr nocapture noundef readonly %param_cb, ptr noundef %cbarg) #0 {
+define internal i32 @xor_export(ptr noundef %vkey, i32 noundef %select, ptr noundef readonly captures(none) %param_cb, ptr noundef %cbarg) #0 {
 entry:
   %params = alloca [3 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -1170,19 +1170,19 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @OSSL_PARAM_locate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @OSSL_PARAM_set_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1191,7 +1191,7 @@ declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) 
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xor_xorhmacsig_gen(ptr nocapture noundef readonly %genctx, ptr nocapture readnone %osslcb, ptr nocapture readnone %cbarg) #0 {
+define internal ptr @xor_xorhmacsig_gen(ptr noundef readonly captures(none) %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %call.i.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.2, i32 noundef 685) #14
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -1274,7 +1274,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @xor_load(ptr nocapture noundef %reference, i64 noundef %reference_sz) #8 {
+define internal ptr @xor_load(ptr noundef captures(none) %reference, i64 noundef %reference_sz) #8 {
 entry:
   %cmp = icmp eq i64 %reference_sz, 8
   br i1 %cmp, label %if.then, label %return
@@ -1473,7 +1473,7 @@ if.end78:                                         ; preds = %if.else65, %xor_rec
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xor_xorhmacsha2sig_gen(ptr nocapture noundef readonly %genctx, ptr nocapture readnone %osslcb, ptr nocapture readnone %cbarg) #0 {
+define internal ptr @xor_xorhmacsha2sig_gen(ptr noundef readonly captures(none) %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %call.i.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.2, i32 noundef 685) #14
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -1572,7 +1572,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 0, 2) i32 @xor_init(ptr noundef writeonly %vpxorctx, ptr noundef %vkey, ptr nocapture readnone %params) #2 {
+define internal range(i32 0, 2) i32 @xor_init(ptr noundef writeonly %vpxorctx, ptr noundef %vkey, ptr readnone captures(none) %params) #2 {
 entry:
   %cmp = icmp eq ptr %vpxorctx, null
   %cmp1 = icmp eq ptr %vkey, null
@@ -1589,7 +1589,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @xor_derive(ptr nocapture noundef readonly %vpxorctx, ptr noundef writeonly %secret, ptr nocapture noundef writeonly %secretlen, i64 noundef %outlen) #9 {
+define internal range(i32 0, 2) i32 @xor_derive(ptr noundef readonly captures(none) %vpxorctx, ptr noundef writeonly %secret, ptr noundef writeonly captures(none) %secretlen, i64 noundef %outlen) #9 {
 entry:
   %0 = load ptr, ptr %vpxorctx, align 8
   %cmp = icmp eq ptr %0, null
@@ -1657,7 +1657,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @xor_dupctx(ptr nocapture noundef readonly %vpxorctx) #0 {
+define internal noalias ptr @xor_dupctx(ptr noundef readonly captures(none) %vpxorctx) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.2, i32 noundef 524) #14
   %cmp = icmp eq ptr %call, null
@@ -1672,7 +1672,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @xor_encapsulate(ptr nocapture noundef readonly %vpxorctx, ptr noundef writeonly %ct, ptr noundef writeonly %ctlen, ptr noundef writeonly %ss, ptr noundef writeonly %sslen) #0 {
+define internal range(i32 0, 2) i32 @xor_encapsulate(ptr noundef readonly captures(none) %vpxorctx, ptr noundef writeonly %ct, ptr noundef writeonly %ctlen, ptr noundef writeonly %ss, ptr noundef writeonly %sslen) #0 {
 entry:
   %cmp = icmp eq ptr %ct, null
   %cmp1 = icmp eq ptr %ss, null
@@ -1830,7 +1830,7 @@ return:                                           ; preds = %if.end7, %if.then9,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @xor_decapsulate(ptr nocapture noundef readonly %vpxorctx, ptr noundef writeonly %ss, ptr noundef writeonly %sslen, ptr nocapture noundef readonly %ct, i64 noundef %ctlen) #0 {
+define internal range(i32 0, 2) i32 @xor_decapsulate(ptr noundef readonly captures(none) %vpxorctx, ptr noundef writeonly %ss, ptr noundef writeonly %sslen, ptr noundef readonly captures(none) %ct, i64 noundef %ctlen) #0 {
 entry:
   %cmp = icmp eq ptr %ss, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -1951,7 +1951,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @key2any_settable_ctx_params(ptr nocapture readnone %provctx) #3 {
+define internal noundef nonnull ptr @key2any_settable_ctx_params(ptr readnone captures(none) %provctx) #3 {
 entry:
   ret ptr @key2any_settable_ctx_params.settables
 }
@@ -2024,7 +2024,7 @@ return:                                           ; preds = %if.then25, %land.lh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @xorhmacsig_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #10 {
+define internal range(i32 0, 2) i32 @xorhmacsig_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #10 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2053,7 +2053,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorhmacsig_to_PrivateKeyInfo_der_import_object(ptr nocapture readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xorhmacsig_to_PrivateKeyInfo_der_import_object(ptr readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 xor_prov_get_keymgmt_new.exit.i:
   br label %for.cond.i9.i
 
@@ -2151,7 +2151,7 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xorhmacsig_to_PrivateKeyInfo_der_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @xorhmacsig_to_PrivateKeyInfo_der_encode(ptr noundef captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2220,7 +2220,7 @@ declare ptr @EVP_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @key_to_pki_der_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr nocapture noundef readonly %ctx) unnamed_addr #0 {
+define internal fastcc i32 @key_to_pki_der_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef readonly captures(none) %ctx) unnamed_addr #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -2322,7 +2322,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @prepare_xorx_params(ptr nocapture noundef readonly %xorxkey, i32 noundef %nid, i32 %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
+define internal range(i32 0, 2) i32 @prepare_xorx_params(ptr noundef readonly captures(none) %xorxkey, i32 noundef %nid, i32 %save, ptr noundef writeonly captures(none) %pstr, ptr noundef writeonly captures(none) %pstrtype) #0 {
 entry:
   %tls_name = getelementptr inbounds nuw i8, ptr %xorxkey, i64 72
   %0 = load ptr, ptr %tls_name, align 8
@@ -2425,7 +2425,7 @@ declare ptr @BIO_new_from_core_bio(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @key_to_p8info(ptr noundef %key, i32 noundef %key_nid, ptr nocapture noundef readonly %k2d) unnamed_addr #0 {
+define internal fastcc ptr @key_to_p8info(ptr noundef %key, i32 noundef %key_nid, ptr noundef readonly captures(none) %k2d) unnamed_addr #0 {
 entry:
   %der = alloca ptr, align 8
   store ptr null, ptr %der, align 8
@@ -2464,7 +2464,7 @@ declare i32 @i2d_PKCS8_PRIV_KEY_INFO_bio(ptr noundef, ptr noundef) local_unnamed
 declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid, ptr noundef %params, i32 noundef %params_type, ptr nocapture noundef readonly %k2d, ptr nocapture noundef readonly %ctx) unnamed_addr #0 {
+define internal fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid, ptr noundef %params, i32 noundef %params_type, ptr noundef readonly captures(none) %k2d, ptr noundef readonly captures(none) %ctx) unnamed_addr #0 {
 entry:
   %kstr.i = alloca [1024 x i8], align 16
   %klen.i = alloca i64, align 8
@@ -2564,7 +2564,7 @@ declare i32 @i2d_ASN1_OCTET_STRING(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @CRYPTO_secure_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @xorhmacsig_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #10 {
+define internal range(i32 0, 2) i32 @xorhmacsig_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #10 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2593,7 +2593,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorhmacsig_to_PrivateKeyInfo_pem_import_object(ptr nocapture readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xorhmacsig_to_PrivateKeyInfo_pem_import_object(ptr readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 xor_prov_get_keymgmt_new.exit.i:
   br label %for.cond.i9.i
 
@@ -2691,7 +2691,7 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xorhmacsig_to_PrivateKeyInfo_pem_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @xorhmacsig_to_PrivateKeyInfo_pem_encode(ptr noundef captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2752,7 +2752,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @key_to_pki_pem_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr nocapture noundef readonly %ctx) unnamed_addr #0 {
+define internal fastcc i32 @key_to_pki_pem_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef readonly captures(none) %ctx) unnamed_addr #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -2858,7 +2858,7 @@ declare i32 @PEM_write_bio_PKCS8_PRIV_KEY_INFO(ptr noundef, ptr noundef) local_u
 declare i32 @PEM_write_bio_PKCS8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #10 {
+define internal range(i32 0, 2) i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #10 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2887,7 +2887,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorhmacsig_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xorhmacsig_to_EncryptedPrivateKeyInfo_der_import_object(ptr readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 xor_prov_get_keymgmt_new.exit.i:
   br label %for.cond.i9.i
 
@@ -2985,7 +2985,7 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_der_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -3081,7 +3081,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #10 {
+define internal range(i32 0, 2) i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #10 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3110,7 +3110,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_import_object(ptr readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 xor_prov_get_keymgmt_new.exit.i:
   br label %for.cond.i9.i
 
@@ -3208,7 +3208,7 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -3304,7 +3304,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @xorhmacsig_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #10 {
+define internal range(i32 0, 2) i32 @xorhmacsig_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #10 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3333,7 +3333,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorhmacsig_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xorhmacsig_to_SubjectPublicKeyInfo_der_import_object(ptr readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 xor_prov_get_keymgmt_new.exit.i:
   br label %for.cond.i9.i
 
@@ -3431,7 +3431,7 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xorhmacsig_to_SubjectPublicKeyInfo_der_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @xorhmacsig_to_SubjectPublicKeyInfo_der_encode(ptr noundef captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -3518,7 +3518,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 33) i32 @xorx_spki_pub_to_der(ptr noundef %vecxkey, ptr nocapture noundef writeonly %pder) #0 {
+define internal range(i32 0, 33) i32 @xorx_spki_pub_to_der(ptr noundef %vecxkey, ptr noundef writeonly captures(none) %pder) #0 {
 entry:
   %cmp = icmp eq ptr %vecxkey, null
   br i1 %cmp, label %if.then, label %if.end
@@ -3551,7 +3551,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @xorx_key_to_pubkey(ptr noundef %key, i32 noundef %key_nid, ptr nocapture noundef readonly %k2d) unnamed_addr #0 {
+define internal fastcc ptr @xorx_key_to_pubkey(ptr noundef %key, i32 noundef %key_nid, ptr noundef readonly captures(none) %k2d) unnamed_addr #0 {
 entry:
   %der = alloca ptr, align 8
   store ptr null, ptr %der, align 8
@@ -3596,7 +3596,7 @@ declare i32 @X509_PUBKEY_set0_param(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @xorhmacsig_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #10 {
+define internal range(i32 0, 2) i32 @xorhmacsig_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #10 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3625,7 +3625,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorhmacsig_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xorhmacsig_to_SubjectPublicKeyInfo_pem_import_object(ptr readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 xor_prov_get_keymgmt_new.exit.i:
   br label %for.cond.i9.i
 
@@ -3723,7 +3723,7 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xorhmacsig_to_SubjectPublicKeyInfo_pem_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @xorhmacsig_to_SubjectPublicKeyInfo_pem_encode(ptr noundef captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -3829,7 +3829,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 declare i32 @PEM_write_bio_X509_PUBKEY(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #10 {
+define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #10 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3858,7 +3858,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorhmacsha2sig_to_PrivateKeyInfo_der_import_object(ptr nocapture readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xorhmacsha2sig_to_PrivateKeyInfo_der_import_object(ptr readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 xor_prov_get_keymgmt_new.exit.i:
   br label %for.cond.i9.i
 
@@ -3956,7 +3956,7 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xorhmacsha2sig_to_PrivateKeyInfo_der_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @xorhmacsha2sig_to_PrivateKeyInfo_der_encode(ptr noundef captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4017,7 +4017,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #10 {
+define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #10 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4046,7 +4046,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorhmacsha2sig_to_PrivateKeyInfo_pem_import_object(ptr nocapture readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xorhmacsha2sig_to_PrivateKeyInfo_pem_import_object(ptr readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 xor_prov_get_keymgmt_new.exit.i:
   br label %for.cond.i9.i
 
@@ -4144,7 +4144,7 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xorhmacsha2sig_to_PrivateKeyInfo_pem_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @xorhmacsha2sig_to_PrivateKeyInfo_pem_encode(ptr noundef captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4205,7 +4205,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #10 {
+define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #10 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4234,7 +4234,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_der_import_object(ptr readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 xor_prov_get_keymgmt_new.exit.i:
   br label %for.cond.i9.i
 
@@ -4332,7 +4332,7 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_der_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -4428,7 +4428,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #10 {
+define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #10 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4457,7 +4457,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_pem_import_object(ptr readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 xor_prov_get_keymgmt_new.exit.i:
   br label %for.cond.i9.i
 
@@ -4555,7 +4555,7 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_pem_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -4651,7 +4651,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #10 {
+define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #10 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4680,7 +4680,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_import_object(ptr readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 xor_prov_get_keymgmt_new.exit.i:
   br label %for.cond.i9.i
 
@@ -4778,7 +4778,7 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_encode(ptr noundef captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -4865,7 +4865,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #10 {
+define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #10 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4894,7 +4894,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_import_object(ptr readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 xor_prov_get_keymgmt_new.exit.i:
   br label %for.cond.i9.i
 
@@ -4992,7 +4992,7 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_encode(ptr noundef captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -5127,7 +5127,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsig_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #11 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsig_does_selection(ptr readnone captures(none) %provctx, i32 noundef %selection) #11 {
 entry:
   %PrivateKeyInfo_xorhmacsig_desc.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 28), align 4
   %cmp.i = icmp eq i32 %selection, 0
@@ -5158,7 +5158,7 @@ der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xor_der2key_decode(ptr noundef initializes((16, 20)) %vctx, ptr noundef %cin, i32 noundef %selection, ptr nocapture noundef readonly %data_cb, ptr noundef %data_cbarg, ptr nocapture readnone %pw_cb, ptr nocapture readnone %pw_cbarg) #0 {
+define internal i32 @xor_der2key_decode(ptr noundef initializes((16, 20)) %vctx, ptr noundef %cin, i32 noundef %selection, ptr noundef readonly captures(none) %data_cb, ptr noundef %data_cbarg, ptr readnone captures(none) %pw_cb, ptr readnone captures(none) %pw_cbarg) #0 {
 entry:
   %mem.i = alloca ptr, align 8
   %derp = alloca ptr, align 8
@@ -5392,7 +5392,7 @@ return:                                           ; preds = %end, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @der2key_export_object(ptr nocapture noundef readonly %vctx, ptr nocapture noundef readonly %reference, i64 noundef %reference_sz, ptr noundef %export_cb, ptr noundef %export_cbarg) #0 {
+define internal i32 @der2key_export_object(ptr noundef readonly captures(none) %vctx, ptr noundef readonly captures(none) %reference, i64 noundef %reference_sz, ptr noundef %export_cb, ptr noundef %export_cbarg) #0 {
 entry:
   %desc = getelementptr inbounds nuw i8, ptr %vctx, i64 8
   %0 = load ptr, ptr %desc, align 8
@@ -5433,7 +5433,7 @@ return:                                           ; preds = %for.cond.i, %xor_pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xorx_d2i_PKCS8(ptr nocapture readnone %key, ptr noundef %der, i64 noundef %der_len, ptr nocapture noundef readonly %ctx) #0 {
+define internal ptr @xorx_d2i_PKCS8(ptr readnone captures(none) %key, ptr noundef %der, i64 noundef %der_len, ptr noundef readonly captures(none) %ctx) #0 {
 entry:
   %p.i = alloca ptr, align 8
   %plen.i = alloca i32, align 4
@@ -5511,7 +5511,7 @@ xor_der2key_decode_p8.exit:                       ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @xorx_key_adjust(ptr nocapture readnone %key, ptr nocapture readnone %ctx) #3 {
+define internal void @xorx_key_adjust(ptr readnone captures(none) %key, ptr readnone captures(none) %ctx) #3 {
 entry:
   ret void
 }
@@ -5676,7 +5676,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsig_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #11 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsig_does_selection(ptr readnone captures(none) %provctx, i32 noundef %selection) #11 {
 entry:
   %SubjectPublicKeyInfo_xorhmacsig_desc.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 28), align 4
   %cmp.i = icmp eq i32 %selection, 0
@@ -5831,7 +5831,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsha2sig_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #11 {
+define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsha2sig_does_selection(ptr readnone captures(none) %provctx, i32 noundef %selection) #11 {
 entry:
   %PrivateKeyInfo_xorhmacsha2sig_desc.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 28), align 4
   %cmp.i = icmp eq i32 %selection, 0
@@ -5886,7 +5886,7 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsha2sig_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #11 {
+define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsha2sig_does_selection(ptr readnone captures(none) %provctx, i32 noundef %selection) #11 {
 entry:
   %SubjectPublicKeyInfo_xorhmacsha2sig_desc.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 28), align 4
   %cmp.i = icmp eq i32 %selection, 0
@@ -5917,7 +5917,7 @@ der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xor_sig_newctx(ptr nocapture noundef readonly %provctx, ptr noundef %propq) #0 {
+define internal ptr @xor_sig_newctx(ptr noundef readonly captures(none) %provctx, ptr noundef %propq) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 120, ptr noundef nonnull @.str.2, i32 noundef 2648) #14
   %cmp = icmp eq ptr %call, null
@@ -5953,7 +5953,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @xor_sig_sign_init(ptr noundef %vpxor_sigctx, ptr noundef %vxorsig, ptr nocapture readnone %params) #0 {
+define internal range(i32 0, 2) i32 @xor_sig_sign_init(ptr noundef %vpxor_sigctx, ptr noundef %vxorsig, ptr readnone captures(none) %params) #0 {
 entry:
   %cmp.i = icmp eq ptr %vpxor_sigctx, null
   %cmp1.i = icmp eq ptr %vxorsig, null
@@ -6006,7 +6006,7 @@ xor_sig_signverify_init.exit:                     ; preds = %entry, %xor_freekey
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @xor_sig_sign(ptr nocapture noundef readonly %vpxor_sigctx, ptr noundef %sig, ptr nocapture noundef %siglen, i64 %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal range(i32 0, 2) i32 @xor_sig_sign(ptr noundef readonly captures(none) %vpxor_sigctx, ptr noundef %sig, ptr noundef captures(none) %siglen, i64 %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %xor_sig_len = alloca i64, align 8
   %sig1 = getelementptr inbounds nuw i8, ptr %vpxor_sigctx, i64 16
@@ -6069,7 +6069,7 @@ return:                                           ; preds = %if.then9, %if.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @xor_sig_verify_init(ptr noundef %vpxor_sigctx, ptr noundef %vxorsig, ptr nocapture readnone %params) #0 {
+define internal range(i32 0, 2) i32 @xor_sig_verify_init(ptr noundef %vpxor_sigctx, ptr noundef %vxorsig, ptr readnone captures(none) %params) #0 {
 entry:
   %cmp.i = icmp eq ptr %vpxor_sigctx, null
   %cmp1.i = icmp eq ptr %vxorsig, null
@@ -6122,7 +6122,7 @@ xor_sig_signverify_init.exit:                     ; preds = %entry, %xor_freekey
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @xor_sig_verify(ptr nocapture noundef readonly %vpxor_sigctx, ptr noundef readonly %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal range(i32 0, 2) i32 @xor_sig_verify(ptr noundef readonly captures(none) %vpxor_sigctx, ptr noundef readonly %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %resignature = alloca [64 x i8], align 16
   %resiglen = alloca i64, align 8
@@ -6192,7 +6192,7 @@ return:                                           ; preds = %lor.lhs.false18, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @xor_sig_digest_sign_init(ptr noundef %vpxor_sigctx, ptr noundef %mdname, ptr noundef %vxorsig, ptr nocapture readnone %params) #0 {
+define internal range(i32 0, 2) i32 @xor_sig_digest_sign_init(ptr noundef %vpxor_sigctx, ptr noundef %mdname, ptr noundef %vxorsig, ptr readnone captures(none) %params) #0 {
 entry:
   %call = tail call fastcc i32 @xor_sig_digest_signverify_init(ptr noundef %vpxor_sigctx, ptr noundef %mdname, ptr noundef %vxorsig, i32 noundef 16)
   ret i32 %call
@@ -6220,7 +6220,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @xor_sig_digest_sign_final(ptr noundef %vpxor_sigctx, ptr noundef %sig, ptr nocapture noundef %siglen, i64 %sigsize) #0 {
+define internal range(i32 0, 2) i32 @xor_sig_digest_sign_final(ptr noundef %vpxor_sigctx, ptr noundef %sig, ptr noundef captures(none) %siglen, i64 %sigsize) #0 {
 entry:
   %digest = alloca [64 x i8], align 16
   %dlen = alloca i32, align 4
@@ -6281,7 +6281,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @xor_sig_digest_verify_init(ptr noundef %vpxor_sigctx, ptr noundef %mdname, ptr noundef %vxorsig, ptr nocapture readnone %params) #0 {
+define internal range(i32 0, 2) i32 @xor_sig_digest_verify_init(ptr noundef %vpxor_sigctx, ptr noundef %mdname, ptr noundef %vxorsig, ptr readnone captures(none) %params) #0 {
 entry:
   %call = tail call fastcc i32 @xor_sig_digest_signverify_init(ptr noundef %vpxor_sigctx, ptr noundef %mdname, ptr noundef %vxorsig, i32 noundef 32)
   ret i32 %call
@@ -6373,7 +6373,7 @@ xor_freekey.exit:                                 ; preds = %entry, %CRYPTO_DOWN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xor_sig_dupctx(ptr nocapture noundef readonly %vpxor_sigctx) #0 {
+define internal ptr @xor_sig_dupctx(ptr noundef readonly captures(none) %vpxor_sigctx) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 120, ptr noundef nonnull @.str.2, i32 noundef 2927) #14
   %cmp = icmp eq ptr %call, null
@@ -6511,7 +6511,7 @@ return:                                           ; preds = %land.lhs.true17, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @xor_sig_gettable_ctx_params(ptr nocapture readnone %vpxor_sigctx, ptr nocapture readnone %vctx) #3 {
+define internal noundef nonnull ptr @xor_sig_gettable_ctx_params(ptr readnone captures(none) %vpxor_sigctx, ptr readnone captures(none) %vctx) #3 {
 entry:
   ret ptr @known_gettable_ctx_params
 }
@@ -6573,13 +6573,13 @@ return:                                           ; preds = %if.end18, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @xor_sig_settable_ctx_params(ptr nocapture readnone %vpsm2ctx, ptr nocapture readnone %provctx) #3 {
+define internal noundef nonnull ptr @xor_sig_settable_ctx_params(ptr readnone captures(none) %vpsm2ctx, ptr readnone captures(none) %provctx) #3 {
 entry:
   ret ptr @known_settable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xor_sig_get_ctx_md_params(ptr nocapture noundef readonly %vpxor_sigctx, ptr noundef %params) #0 {
+define internal i32 @xor_sig_get_ctx_md_params(ptr noundef readonly captures(none) %vpxor_sigctx, ptr noundef %params) #0 {
 entry:
   %mdctx = getelementptr inbounds nuw i8, ptr %vpxor_sigctx, i64 104
   %0 = load ptr, ptr %mdctx, align 8
@@ -6596,7 +6596,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xor_sig_gettable_ctx_md_params(ptr nocapture noundef readonly %vpxor_sigctx) #0 {
+define internal ptr @xor_sig_gettable_ctx_md_params(ptr noundef readonly captures(none) %vpxor_sigctx) #0 {
 entry:
   %md = getelementptr inbounds nuw i8, ptr %vpxor_sigctx, i64 96
   %0 = load ptr, ptr %md, align 8
@@ -6613,7 +6613,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xor_sig_set_ctx_md_params(ptr nocapture noundef readonly %vpxor_sigctx, ptr noundef %params) #0 {
+define internal i32 @xor_sig_set_ctx_md_params(ptr noundef readonly captures(none) %vpxor_sigctx, ptr noundef %params) #0 {
 entry:
   %mdctx = getelementptr inbounds nuw i8, ptr %vpxor_sigctx, i64 104
   %0 = load ptr, ptr %mdctx, align 8
@@ -6630,7 +6630,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xor_sig_settable_ctx_md_params(ptr nocapture noundef readonly %vpxor_sigctx) #0 {
+define internal ptr @xor_sig_settable_ctx_md_params(ptr noundef readonly captures(none) %vpxor_sigctx) #0 {
 entry:
   %md = getelementptr inbounds nuw i8, ptr %vpxor_sigctx, i64 96
   %0 = load ptr, ptr %md, align 8
@@ -6852,18 +6852,18 @@ declare i32 @EVP_MD_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @EVP_MD_settable_ctx_params(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

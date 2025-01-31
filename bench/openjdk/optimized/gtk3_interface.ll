@@ -3869,31 +3869,31 @@ declare ptr @dlerror() local_unnamed_addr #1
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @putenv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @XSetErrorHandler(ptr noundef) local_unnamed_addr #10
 
@@ -5391,7 +5391,7 @@ init_containers.exit:                             ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gtk3_copy_image(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) #0 {
+define internal noundef i32 @gtk3_copy_image(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = load ptr, ptr @fp_cairo_surface_flush, align 8
   %5 = load ptr, ptr @surface, align 8
   tail call void %4(ptr noundef %5) #19
@@ -5444,7 +5444,7 @@ define internal noundef i32 @gtk3_copy_image(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -32767, 32769) i32 @gtk3_get_xthickness(ptr nocapture readnone %0, i32 noundef %1) #0 {
+define internal range(i32 -32767, 32769) i32 @gtk3_get_xthickness(ptr readnone captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.GtkBorder, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -5505,7 +5505,7 @@ init_containers.exit:                             ; preds = %2, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -32767, 32769) i32 @gtk3_get_ythickness(ptr nocapture readnone %0, i32 noundef %1) #0 {
+define internal range(i32 -32767, 32769) i32 @gtk3_get_ythickness(ptr readnone captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.GtkBorder, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -5567,7 +5567,7 @@ init_containers.exit:                             ; preds = %2, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gtk3_get_color_for_state(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal i32 @gtk3_get_color_for_state(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.GdkRGBA, align 8
   %7 = alloca %struct.GdkRGBA, align 8
@@ -6268,7 +6268,7 @@ init_containers.exit:                             ; preds = %2, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @gtk3_get_icon_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, ptr noundef %6, ptr noundef %7) #0 {
+define internal zeroext range(i8 0, 2) i8 @gtk3_get_icon_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %switch.tableidx = add i32 %3, -1
   %10 = icmp ult i32 %switch.tableidx, 6
@@ -6516,7 +6516,7 @@ define internal ptr @gtk3_get_window(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @gtk3_unload() #0 {
@@ -7133,7 +7133,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @gtk3_get_widget(i32 noundef %0) unnamed_addr #0 {
@@ -8293,10 +8293,10 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @gtk3_style_shade(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, double noundef %2) unnamed_addr #14 {
+define internal fastcc void @gtk3_style_shade(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, double noundef %2) unnamed_addr #14 {
   %4 = load double, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8
@@ -8728,7 +8728,7 @@ create_Object.exit:                               ; preds = %2, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_Insets(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @create_Insets(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [4 x %union.jvalue], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i16, ptr %4, align 2
@@ -8854,13 +8854,13 @@ declare float @llvm.ceil.f32(float) #12
 declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18

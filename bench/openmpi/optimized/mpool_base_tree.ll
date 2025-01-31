@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [34 x i8] c"%s\0A    %lu bytes at address 0x%lx\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_mca_mpool_base_tree_constructor(ptr nocapture noundef writeonly initializes((56, 64)) %0) #0 {
+define internal void @opal_mca_mpool_base_tree_constructor(ptr noundef writeonly captures(none) initializes((56, 64)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %2, align 8
   ret void
@@ -253,7 +253,7 @@ define i32 @mca_mpool_base_tree_insert(ptr noundef %0) local_unnamed_addr #2 {
 declare i32 @opal_rb_tree_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_mpool_base_tree_delete(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @mca_mpool_base_tree_delete(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i8, ptr @opal_uses_threads, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %6
@@ -562,12 +562,12 @@ define void @mca_mpool_base_tree_print(i32 noundef %0) local_unnamed_addr #2 {
 declare i32 @opal_rb_tree_traverse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @condition(ptr nocapture readnone %0) #1 {
+define internal noundef i32 @condition(ptr readnone captures(none) %0) #1 {
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @action(ptr noundef %0, ptr nocapture noundef readonly %1) #2 {
+define internal void @action(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @num_leaks, align 4
   %5 = add nsw i32 %4, 1
@@ -608,7 +608,7 @@ declare ptr @opal_proc_local_get() local_unnamed_addr #3
 declare i32 @getpid() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
@@ -623,10 +623,10 @@ declare i32 @opal_free_list_grow_st(ptr noundef, i64 noundef, ptr noundef) local
 declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

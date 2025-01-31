@@ -88,16 +88,16 @@ define dso_local noundef range(i32 0, 4) i32 @pixel_format_from_register_bits(i3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vlv_dsi_wait_for_fifo_empty(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @vlv_dsi_wait_for_fifo_empty(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq i32 %1, 0
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2304
@@ -672,16 +672,16 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
 334:                                              ; preds = %331, %328
   %335 = call i32 @intel_panel_init(ptr noundef nonnull %22, ptr noundef null) #9
   %336 = call i32 @intel_backlight_setup(ptr noundef nonnull %22, i32 noundef -1) #9
-  %337 = call ptr @intel_panel_preferred_fixed_mode(ptr noundef %22) #9
-  call void @intel_attach_scaling_mode_property(ptr noundef %22) #9
-  %338 = call i32 @intel_dsi_get_panel_orientation(ptr noundef %22) #9
+  %337 = call ptr @intel_panel_preferred_fixed_mode(ptr noundef nonnull %22) #9
+  call void @intel_attach_scaling_mode_property(ptr noundef nonnull %22) #9
+  %338 = call i32 @intel_dsi_get_panel_orientation(ptr noundef nonnull %22) #9
   %339 = getelementptr inbounds nuw i8, ptr %337, i64 4
   %340 = load i16, ptr %339, align 4
   %341 = zext i16 %340 to i32
   %342 = getelementptr inbounds nuw i8, ptr %337, i64 14
   %343 = load i16, ptr %342, align 2
   %344 = zext i16 %343 to i32
-  %345 = call i32 @drm_connector_set_panel_orientation_with_quirk(ptr noundef %22, i32 noundef %338, i32 noundef %341, i32 noundef %344) #9
+  %345 = call i32 @drm_connector_set_panel_orientation_with_quirk(ptr noundef nonnull %22, i32 noundef %338, i32 noundef %341, i32 noundef %344) #9
   br label %346
 
 .loopexit:                                        ; preds = %129, %326, %145
@@ -793,7 +793,7 @@ define internal i32 @intel_dsi_compute_config(ptr noundef %0, ptr noundef initia
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_dsi_pre_enable(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = load ptr, ptr %2, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1648
@@ -1649,13 +1649,13 @@ define internal void @intel_dsi_pre_enable(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bxt_dsi_enable(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @bxt_dsi_enable(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   tail call void @intel_crtc_vblank_on(ptr noundef %2) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_dsi_disable(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal void @intel_dsi_disable(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
@@ -1708,7 +1708,7 @@ define internal void @intel_dsi_disable(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_dsi_post_disable(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
@@ -2259,7 +2259,7 @@ define internal void @intel_dsi_post_disable(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @intel_dsi_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef zeroext i1 @intel_dsi_get_hw_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -2896,7 +2896,7 @@ declare dso_local void @vlv_dsi_pll_disable(ptr noundef) local_unnamed_addr #2
 declare dso_local void @vlv_dsi_pll_enable(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_dsi_prepare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_dsi_prepare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 572
@@ -3651,7 +3651,7 @@ declare dso_local void @vlv_iosf_sb_put(ptr noundef, i64 noundef) local_unnamed_
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @intel_crtc_vblank_on(ptr noundef) local_unnamed_addr #2
@@ -3693,17 +3693,17 @@ declare dso_local i32 @bdw_get_pipe_misc_bpp(ptr noundef) local_unnamed_addr #2
 declare dso_local i64 @ktime_get_with_offset(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @intel_dsi_host_attach(ptr nocapture readnone %0, ptr nocapture readnone %1) #6 align 16 {
+define internal noundef i32 @intel_dsi_host_attach(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @intel_dsi_host_detach(ptr nocapture readnone %0, ptr nocapture readnone %1) #6 align 16 {
+define internal noundef i32 @intel_dsi_host_detach(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @intel_dsi_host_transfer(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i64 @intel_dsi_host_transfer(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.mipi_dsi_packet, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -4024,7 +4024,7 @@ declare dso_local i32 @intel_cpu_transcoder_mode_valid(ptr noundef, ptr noundef)
 declare dso_local i32 @intel_dsi_mode_valid(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_dsi_asus_tf103c_mode_fixup(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @vlv_dsi_asus_tf103c_mode_fixup(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @intel_panel_preferred_fixed_mode(ptr noundef %3) #9
@@ -4042,7 +4042,7 @@ define internal void @vlv_dsi_asus_tf103c_mode_fixup(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_dsi_lenovo_yoga_tab2_size_fixup(ptr nocapture noundef initializes((568, 572)) %0) #0 align 16 {
+define internal void @vlv_dsi_lenovo_yoga_tab2_size_fixup(ptr noundef captures(none) initializes((568, 572)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @intel_panel_preferred_fixed_mode(ptr noundef %3) #9
@@ -4062,7 +4062,7 @@ define internal void @vlv_dsi_lenovo_yoga_tab2_size_fixup(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal void @vlv_dsi_lenovo_yoga_tab3_backlight_fixup(ptr nocapture noundef initializes((568, 572)) %0) #7 align 16 {
+define internal void @vlv_dsi_lenovo_yoga_tab3_backlight_fixup(ptr noundef captures(none) initializes((568, 572)) %0) #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 568

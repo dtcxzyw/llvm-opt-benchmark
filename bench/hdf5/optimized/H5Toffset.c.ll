@@ -133,7 +133,7 @@ declare i32 @H5E_clear_stack() local_unnamed_addr #1
 declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5T_get_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @H5T_get_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -290,7 +290,7 @@ define range(i32 -1, 1) i32 @H5Tset_offset(i64 noundef %0, i64 noundef %1) local
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5T__set_offset(ptr nocapture noundef nonnull readonly %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc void @H5T__set_offset(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32

@@ -985,7 +985,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_encode_basestring_ascii(ptr nocapture readnone %_unused_self, ptr nocapture noundef readonly %pystr) #0 {
+define internal ptr @py_encode_basestring_ascii(ptr readnone captures(none) %_unused_self, ptr noundef readonly captures(none) %pystr) #0 {
 entry:
   %0 = getelementptr i8, ptr %pystr, i64 8
   %pystr.val = load ptr, ptr %0, align 8
@@ -1400,7 +1400,7 @@ return:                                           ; preds = %for.end47.i, %for.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_encode_basestring(ptr nocapture readnone %_unused_self, ptr nocapture noundef readonly %pystr) #0 {
+define internal ptr @py_encode_basestring(ptr readnone captures(none) %_unused_self, ptr noundef readonly captures(none) %pystr) #0 {
 entry:
   %0 = getelementptr i8, ptr %pystr, i64 8
   %pystr.val = load ptr, ptr %0, align 8
@@ -2034,7 +2034,7 @@ return:                                           ; preds = %for.end260.i, %for.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_scanstring(ptr nocapture readnone %_unused_self, ptr noundef %args) #0 {
+define internal ptr @py_scanstring(ptr readnone captures(none) %_unused_self, ptr noundef %args) #0 {
 entry:
   %pystr = alloca ptr, align 8
   %end = alloca i64, align 8
@@ -2085,7 +2085,7 @@ declare ptr @PyUnicode_New(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @scanstring_unicode(ptr noundef %pystr, i64 noundef %end, i32 noundef %strict, ptr nocapture noundef nonnull writeonly %next_end_ptr) unnamed_addr #0 {
+define internal fastcc ptr @scanstring_unicode(ptr noundef %pystr, i64 noundef %end, i32 noundef %strict, ptr noundef nonnull writeonly captures(none) %next_end_ptr) unnamed_addr #0 {
 entry:
   %writer = alloca %struct._PyUnicodeWriter, align 8
   %sub = add i64 %end, -1
@@ -2772,7 +2772,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @scanner_call(ptr nocapture noundef readonly %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal ptr @scanner_call(ptr noundef readonly captures(none) %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %pystr = alloca ptr, align 8
   %idx = alloca i64, align 8
@@ -2838,7 +2838,7 @@ return:                                           ; preds = %Py_DECREF.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @scanner_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @scanner_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val32 = load ptr, ptr %0, align 8
@@ -2914,7 +2914,7 @@ return:                                           ; preds = %if.then52, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @scanner_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @scanner_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %object_hook = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %object_hook, align 8
@@ -3152,7 +3152,7 @@ declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, 
 declare ptr @PyDict_New() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @scan_once_unicode(ptr nocapture noundef readonly %s, ptr noundef nonnull %memo, ptr noundef %pystr, i64 noundef %idx, ptr nocapture noundef nonnull writeonly %next_idx_ptr) unnamed_addr #0 {
+define internal fastcc ptr @scan_once_unicode(ptr noundef readonly captures(none) %s, ptr noundef nonnull %memo, ptr noundef %pystr, i64 noundef %idx, ptr noundef nonnull writeonly captures(none) %next_idx_ptr) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %pystr, i64 32
   %op.val.i = load i32, ptr %0, align 8
@@ -4964,7 +4964,7 @@ _Py_EnterRecursiveCallTstate.exit:                ; preds = %entry, %land.rhs.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_parse_object_unicode(ptr nocapture noundef readonly %s, ptr noundef nonnull %memo, ptr noundef %pystr, i64 noundef range(i64 1, -9223372036854775807) %idx, ptr nocapture noundef nonnull writeonly %next_idx_ptr) unnamed_addr #0 {
+define internal fastcc ptr @_parse_object_unicode(ptr noundef readonly captures(none) %s, ptr noundef nonnull %memo, ptr noundef %pystr, i64 noundef range(i64 1, -9223372036854775807) %idx, ptr noundef nonnull writeonly captures(none) %next_idx_ptr) unnamed_addr #0 {
 entry:
   %next_idx = alloca i64, align 8
   %object_pairs_hook = getelementptr inbounds nuw i8, ptr %s, i64 32
@@ -6079,7 +6079,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_parse_array_unicode(ptr nocapture noundef readonly %s, ptr noundef nonnull %memo, ptr noundef %pystr, i64 noundef range(i64 1, -9223372036854775807) %idx, ptr nocapture noundef nonnull writeonly %next_idx_ptr) unnamed_addr #0 {
+define internal fastcc ptr @_parse_array_unicode(ptr noundef readonly captures(none) %s, ptr noundef nonnull %memo, ptr noundef %pystr, i64 noundef range(i64 1, -9223372036854775807) %idx, ptr noundef nonnull writeonly captures(none) %next_idx_ptr) unnamed_addr #0 {
 entry:
   %next_idx = alloca i64, align 8
   %call = tail call ptr @PyList_New(i64 noundef 0) #3
@@ -6707,7 +6707,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_parse_constant(ptr nocapture noundef readonly %s, ptr noundef %constant, i64 noundef range(i64 0, -9223372036854775808) %idx, ptr nocapture noundef nonnull writeonly %next_idx_ptr) unnamed_addr #0 {
+define internal fastcc ptr @_parse_constant(ptr noundef readonly captures(none) %s, ptr noundef %constant, i64 noundef range(i64 0, -9223372036854775808) %idx, ptr noundef nonnull writeonly captures(none) %next_idx_ptr) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_InternFromString(ptr noundef %constant) #3
   %cmp = icmp eq ptr %call, null
@@ -6830,7 +6830,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @encoder_call(ptr nocapture noundef readonly %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal ptr @encoder_call(ptr noundef readonly captures(none) %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %obj = alloca ptr, align 8
   %indent_level = alloca i64, align 8
@@ -6886,7 +6886,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encoder_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @encoder_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val38 = load ptr, ptr %0, align 8
@@ -6973,7 +6973,7 @@ return:                                           ; preds = %if.then63, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encoder_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @encoder_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %markers = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %markers, align 8
@@ -7285,7 +7285,7 @@ return:                                           ; preds = %PyObject_TypeCheck.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @encoder_listencode_obj(ptr nocapture noundef readonly %s, ptr noundef nonnull %writer, ptr noundef %obj, i64 noundef %indent_level) unnamed_addr #0 {
+define internal fastcc i32 @encoder_listencode_obj(ptr noundef readonly captures(none) %s, ptr noundef nonnull %writer, ptr noundef %obj, i64 noundef %indent_level) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   br i1 %cmp, label %if.then, label %if.else
@@ -7703,7 +7703,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @encoder_listencode_list(ptr nocapture noundef readonly %s, ptr noundef nonnull %writer, ptr noundef %seq, i64 noundef %indent_level) unnamed_addr #0 {
+define internal fastcc i32 @encoder_listencode_list(ptr noundef readonly captures(none) %s, ptr noundef nonnull %writer, ptr noundef %seq, i64 noundef %indent_level) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PySequence_Fast(ptr noundef %seq, ptr noundef nonnull @.str.50) #3
   %cmp = icmp eq ptr %call, null
@@ -7916,7 +7916,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @encoder_listencode_dict(ptr nocapture noundef readonly %s, ptr noundef nonnull %writer, ptr noundef %dct, i64 noundef %indent_level) unnamed_addr #0 {
+define internal fastcc i32 @encoder_listencode_dict(ptr noundef readonly captures(none) %s, ptr noundef nonnull %writer, ptr noundef %dct, i64 noundef %indent_level) unnamed_addr #0 {
 entry:
   %key = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -8178,7 +8178,7 @@ declare ptr @PyMapping_Items(ptr noundef) local_unnamed_addr #1
 declare i32 @PyList_Sort(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @encoder_encode_key_value(ptr nocapture noundef readonly %s, ptr noundef nonnull %writer, ptr nocapture noundef nonnull %first, ptr noundef %key, ptr noundef %value, i64 noundef %indent_level) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @encoder_encode_key_value(ptr noundef readonly captures(none) %s, ptr noundef nonnull %writer, ptr noundef nonnull captures(none) %first, ptr noundef %key, ptr noundef %value, i64 noundef %indent_level) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %key, i64 8
   %key.val30 = load ptr, ptr %0, align 8

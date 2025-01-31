@@ -219,7 +219,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_agent(ptr readnone captures(none) %0) #0 {
   %2 = tail call ptr @slurm_eio_handle_create(i16 noundef zeroext 0) #10
   store ptr %2, ptr @pmi2_handle, align 8
   %3 = load i32, ptr @tree_sock, align 4
@@ -407,7 +407,7 @@ declare i32 @slurm_eio_handle_mainloop(ptr noundef) local_unnamed_addr #4
 declare void @slurm_eio_handle_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @_tree_listen_readable(ptr nocapture noundef %0) #0 {
+define internal noundef zeroext i1 @_tree_listen_readable(ptr noundef captures(none) %0) #0 {
   %2 = tail call i32 @slurm_get_log_level() #10
   %3 = icmp sgt i32 %2, 5
   br i1 %3, label %4, label %5
@@ -447,7 +447,7 @@ define internal noundef zeroext i1 @_tree_listen_readable(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_tree_listen_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_tree_listen_read(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca [1 x %struct.pollfd], align 4
   %5 = alloca %struct.sockaddr_storage, align 8
@@ -674,7 +674,7 @@ declare i32 @accept4(i32 noundef, ptr, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #2
@@ -682,7 +682,7 @@ declare i32 @ntohl(i32 noundef) local_unnamed_addr #2
 declare i32 @handle_tree_cmd(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @_task_readable(ptr nocapture noundef %0) #0 {
+define internal noundef zeroext i1 @_task_readable(ptr noundef captures(none) %0) #0 {
   %2 = tail call i32 @slurm_get_log_level() #10
   %3 = icmp sgt i32 %2, 5
   br i1 %3, label %4, label %5
@@ -740,7 +740,7 @@ define internal noundef zeroext i1 @_task_readable(ptr nocapture noundef %0) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_task_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal i32 @_task_read(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -905,26 +905,26 @@ declare i32 @is_pmi20() local_unnamed_addr #4
 declare i32 @handle_pmi2_cmd(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare i32 @set_pmi_version(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 declare i32 @get_pmi_version(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

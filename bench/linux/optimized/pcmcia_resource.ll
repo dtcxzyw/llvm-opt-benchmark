@@ -83,7 +83,7 @@ define dso_local ptr @pcmcia_find_mem_region(i64 noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pcmcia_read_config_byte(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @pcmcia_read_config_byte(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 480
   tail call void @mutex_lock(ptr noundef nonnull %5) #7
@@ -115,7 +115,7 @@ define dso_local i32 @pcmcia_read_config_byte(ptr nocapture noundef readonly %0,
 declare dso_local i32 @pcmcia_read_cis_mem(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pcmcia_write_config_byte(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2) #0 align 16 {
+define dso_local i32 @pcmcia_write_config_byte(ptr noundef readonly captures(none) %0, i64 noundef %1, i8 noundef zeroext %2) #0 align 16 {
   %4 = alloca i8, align 1
   store i8 %2, ptr %4, align 1
   %5 = load ptr, ptr %0, align 8
@@ -149,7 +149,7 @@ define dso_local i32 @pcmcia_write_config_byte(ptr nocapture noundef readonly %0
 declare dso_local i32 @pcmcia_write_cis_mem(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pcmcia_map_mem_page(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local i32 @pcmcia_map_mem_page(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
@@ -191,7 +191,7 @@ define dso_local i32 @pcmcia_map_mem_page(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
@@ -203,10 +203,10 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -13, 1) i32 @pcmcia_fixup_iowidth(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 -13, 1) i32 @pcmcia_fixup_iowidth(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca %struct.pccard_io_map, align 8
   %3 = alloca %struct.pccard_io_map, align 8
   %4 = load ptr, ptr %0, align 8
@@ -287,7 +287,7 @@ define dso_local noundef range(i32 -13, 1) i32 @pcmcia_fixup_iowidth(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #1
@@ -342,7 +342,7 @@ define dso_local noundef range(i32 -13, 1) i32 @pcmcia_fixup_vpp(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pcmcia_release_configuration(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @pcmcia_release_configuration(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.pccard_io_map, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -438,7 +438,7 @@ define dso_local noundef i32 @pcmcia_release_configuration(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @pcmcia_release_window(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pcmcia_release_window(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
@@ -932,7 +932,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_enable_device(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pcmcia_request_io(ptr nocapture noundef %0) #0 align 16 {
+define dso_local i32 @pcmcia_request_io(ptr noundef captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1148,7 +1148,7 @@ define internal fastcc i32 @alloc_io_space(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @release_io_space(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @release_io_space(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -1217,7 +1217,7 @@ define internal fastcc void @release_io_space(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pcmcia_request_irq(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @pcmcia_request_irq(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1245,14 +1245,14 @@ define dso_local i32 @pcmcia_request_irq(ptr nocapture noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @pcmcia_cleanup_irq(ptr nocapture noundef writeonly initializes((552, 556)) %0) local_unnamed_addr #5 align 16 {
+define dso_local void @pcmcia_cleanup_irq(ptr noundef writeonly captures(none) initializes((552, 556)) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i32 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @pcmcia_setup_irq(ptr nocapture noundef %0) local_unnamed_addr #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pcmcia_setup_irq(ptr noundef captures(none) %0) local_unnamed_addr #6 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
@@ -1286,7 +1286,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_setup_irq(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @pcmcia_request_window(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pcmcia_request_window(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %6 = load i32, ptr %5, align 4
@@ -1482,7 +1482,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_request_window(ptr nocapt
 declare dso_local i32 @request_resource(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pcmcia_disable_device(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @pcmcia_disable_device(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %3
 

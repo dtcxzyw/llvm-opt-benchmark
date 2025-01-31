@@ -956,7 +956,7 @@ if.end24:                                         ; preds = %entry, %free_redact
 declare i32 @tr2tls_locked_increment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @trace2_child_exit_fl(ptr noundef %file, i32 noundef %line, ptr nocapture noundef readonly %cmd, i32 noundef %child_exit_code) local_unnamed_addr #0 {
+define dso_local void @trace2_child_exit_fl(ptr noundef %file, i32 noundef %line, ptr noundef readonly captures(none) %cmd, i32 noundef %child_exit_code) local_unnamed_addr #0 {
 entry:
   %.b = load i1, ptr @trace2_enabled, align 4
   br i1 %.b, label %if.end, label %for.end
@@ -1006,7 +1006,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @trace2_child_ready_fl(ptr noundef %file, i32 noundef %line, ptr nocapture noundef readonly %cmd, ptr noundef %ready) local_unnamed_addr #0 {
+define dso_local void @trace2_child_ready_fl(ptr noundef %file, i32 noundef %line, ptr noundef readonly captures(none) %cmd, ptr noundef %ready) local_unnamed_addr #0 {
 entry:
   %.b = load i1, ptr @trace2_enabled, align 4
   br i1 %.b, label %if.end, label %for.end
@@ -1580,7 +1580,7 @@ if.end13:                                         ; preds = %entry, %if.then12, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @trace2_def_repo_fl(ptr noundef %file, i32 noundef %line, ptr noundef %repo) local_unnamed_addr #0 {
@@ -1912,7 +1912,7 @@ return:                                           ; preds = %entry, %trace2_data
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -2151,7 +2151,7 @@ declare i32 @raise(i32 noundef) local_unnamed_addr #7
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8

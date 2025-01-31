@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [17 x i8] c"Connection reset\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_SocketDispatcher_read0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_SocketDispatcher_read0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #4
   %7 = inttoptr i64 %3 to ptr
   %8 = sext i32 %4 to i64
@@ -40,7 +40,7 @@ define i32 @Java_sun_nio_ch_SocketDispatcher_read0(ptr noundef %0, ptr nocapture
 declare i32 @fdval(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
@@ -50,7 +50,7 @@ declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @convertReturnVal(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_nio_ch_SocketDispatcher_readv0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i64 @Java_sun_nio_ch_SocketDispatcher_readv0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #4
   %7 = inttoptr i64 %3 to ptr
   %8 = tail call i64 @readv(i32 noundef %6, ptr noundef %7, i32 noundef %4) #4
@@ -83,7 +83,7 @@ declare i64 @readv(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @convertLongReturnVal(ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_SocketDispatcher_write0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_SocketDispatcher_write0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #4
   %7 = inttoptr i64 %3 to ptr
   %8 = sext i32 %4 to i64
@@ -94,10 +94,10 @@ define i32 @Java_sun_nio_ch_SocketDispatcher_write0(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_nio_ch_SocketDispatcher_writev0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i64 @Java_sun_nio_ch_SocketDispatcher_writev0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #4
   %7 = inttoptr i64 %3 to ptr
   %8 = tail call i64 @writev(i32 noundef %6, ptr noundef %7, i32 noundef %4) #4

@@ -25,12 +25,12 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm20CrashRecoveryContextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm20CrashRecoveryContextD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm27CrashRecoveryContextCleanupD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm27CrashRecoveryContextCleanupD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm27CrashRecoveryContextCleanupD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm27CrashRecoveryContextCleanupD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #18
   unreachable
 }
@@ -39,7 +39,7 @@ define dso_local void @_ZN4llvm27CrashRecoveryContextCleanupD0Ev(ptr nocapture n
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20CrashRecoveryContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) initializes((0, 21)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm20CrashRecoveryContextC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(21) initializes((0, 21)) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %0, i8 0, i64 21, i1 false)
   tail call void @_ZN4llvm3sys27DisableSystemDialogsOnCrashEv() #19
   ret void
@@ -214,7 +214,7 @@ _ZL34uninstallExceptionOrSignalHandlersv.exit:    ; preds = %4, %_ZNSt10lock_gua
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm20CrashRecoveryContext15registerCleanupEPNS_27CrashRecoveryContextCleanupE(ptr nocapture noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm20CrashRecoveryContext15registerCleanupEPNS_27CrashRecoveryContextCleanupE(ptr noundef nonnull align 8 captures(none) dereferenceable(21) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %3
 
@@ -242,7 +242,7 @@ define dso_local void @_ZN4llvm20CrashRecoveryContext15registerCleanupEPNS_27Cra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27CrashRecoveryContextCleanupE(ptr nocapture noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27CrashRecoveryContextCleanupE(ptr noundef nonnull align 8 captures(none) dereferenceable(21) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %21, label %3
 
@@ -289,7 +289,7 @@ define dso_local void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm20CrashRecoveryContext9RunSafelyENS_12function_refIFvvEEE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm20CrashRecoveryContext9RunSafelyENS_12function_refIFvvEEE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #3 align 2 {
   %.b5 = load i1, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
   br i1 %.b5, label %4, label %16
 
@@ -330,7 +330,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 declare i32 @_setjmp(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define dso_local void @_ZN4llvm20CrashRecoveryContext10HandleExitEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN4llvm20CrashRecoveryContext10HandleExitEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(21) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   tail call fastcc void @_ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim(ptr noundef nonnull align 8 dereferenceable(217) %3, i32 noundef %1, i64 noundef 0)
   unreachable
@@ -449,7 +449,7 @@ _ZN4llvm6threadD2Ev.exit:                         ; preds = %_ZN4llvm6threadC2IR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL26RunSafelyOnThread_DispatchPv(ptr nocapture noundef initializes((25, 26)) %0) #3 {
+define internal void @_ZL26RunSafelyOnThread_DispatchPv(ptr noundef captures(none) initializes((25, 26)) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
@@ -589,13 +589,13 @@ define internal noundef ptr @_ZN4llvm6thread11ThreadProxyISt5tupleIJPFvPvEPN12_G
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

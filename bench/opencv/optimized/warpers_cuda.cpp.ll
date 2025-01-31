@@ -36,7 +36,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef { i64, i64 } @_ZN2cv6detail14PlaneWarperGpu9buildMapsENS_5Size_IiEERKNS_11_InputArrayES6_RNS_4cuda6GpuMatES9_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(424) %0, i64 %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %4, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef { i64, i64 } @_ZN2cv6detail14PlaneWarperGpu9buildMapsENS_5Size_IiEERKNS_11_InputArrayES6_RNS_4cuda6GpuMatES9_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, i64 %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::_InputArray", align 8
   %8 = alloca %"class.cv::MatExpr", align 8
   call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %8, i32 noundef 3, i32 noundef 1, i32 noundef 5)
@@ -67,7 +67,7 @@ define noundef { i64, i64 } @_ZN2cv6detail14PlaneWarperGpu9buildMapsENS_5Size_Ii
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef { i64, i64 } @_ZN2cv6detail14PlaneWarperGpu9buildMapsENS_5Size_IiEERKNS_11_InputArrayES6_S6_RNS_4cuda6GpuMatES9_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(424) %0, i64 %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %5, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %6) local_unnamed_addr #3 align 2 {
+define noundef { i64, i64 } @_ZN2cv6detail14PlaneWarperGpu9buildMapsENS_5Size_IiEERKNS_11_InputArrayES6_S6_RNS_4cuda6GpuMatES9_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, i64 %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %6) local_unnamed_addr #3 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #7
   unreachable
 }
@@ -122,7 +122,7 @@ define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #3 personality p
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef i64 @_ZN2cv6detail14PlaneWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11_InputArrayES8_iiRS3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(424) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN2cv6detail14PlaneWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11_InputArrayES8_iiRS3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::_InputArray", align 8
   %9 = alloca %"class.cv::MatExpr", align 8
   call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %9, i32 noundef 3, i32 noundef 1, i32 noundef 5)
@@ -153,31 +153,31 @@ define noundef i64 @_ZN2cv6detail14PlaneWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef i64 @_ZN2cv6detail14PlaneWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11_InputArrayES8_S8_iiRS3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(424) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %7) local_unnamed_addr #3 align 2 {
+define noundef i64 @_ZN2cv6detail14PlaneWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11_InputArrayES8_S8_iiRS3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %7) local_unnamed_addr #3 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #7
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef { i64, i64 } @_ZN2cv6detail18SphericalWarperGpu9buildMapsENS_5Size_IiEERKNS_11_InputArrayES6_RNS_4cuda6GpuMatES9_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(424) %0, i64 %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %4, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %5) local_unnamed_addr #3 align 2 {
+define noundef { i64, i64 } @_ZN2cv6detail18SphericalWarperGpu9buildMapsENS_5Size_IiEERKNS_11_InputArrayES6_RNS_4cuda6GpuMatES9_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, i64 %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %5) local_unnamed_addr #3 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #7
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef i64 @_ZN2cv6detail18SphericalWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11_InputArrayES8_iiRS3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(424) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %6) local_unnamed_addr #3 align 2 {
+define noundef i64 @_ZN2cv6detail18SphericalWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11_InputArrayES8_iiRS3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %6) local_unnamed_addr #3 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #7
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef { i64, i64 } @_ZN2cv6detail20CylindricalWarperGpu9buildMapsENS_5Size_IiEERKNS_11_InputArrayES6_RNS_4cuda6GpuMatES9_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(424) %0, i64 %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %4, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %5) local_unnamed_addr #3 align 2 {
+define noundef { i64, i64 } @_ZN2cv6detail20CylindricalWarperGpu9buildMapsENS_5Size_IiEERKNS_11_InputArrayES6_RNS_4cuda6GpuMatES9_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, i64 %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %5) local_unnamed_addr #3 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #7
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef i64 @_ZN2cv6detail20CylindricalWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11_InputArrayES8_iiRS3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(424) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %6) local_unnamed_addr #3 align 2 {
+define noundef i64 @_ZN2cv6detail20CylindricalWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11_InputArrayES8_iiRS3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %6) local_unnamed_addr #3 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #7
   unreachable
 }

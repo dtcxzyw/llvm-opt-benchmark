@@ -401,7 +401,7 @@ define hidden void @proto_register_zbee_zcl_color_control() local_unnamed_addr #
 declare void @decode_zcl_time_in_100ms(ptr noundef, i16 noundef zeroext) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_color_xy(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #2 {
+define internal void @decode_color_xy(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #2 {
   %3 = uitofp i16 %1 to double
   %4 = fdiv double %3, 6.553500e+04
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.193, double noundef %4) #5
@@ -409,7 +409,7 @@ define internal void @decode_color_xy(ptr nocapture noundef writeonly %0, i16 no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_color_temperature(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #2 {
+define internal void @decode_color_temperature(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #2 {
   %3 = icmp eq i16 %1, 0
   br i1 %3, label %4, label %6
 
@@ -430,7 +430,7 @@ define internal void @decode_color_temperature(ptr nocapture noundef writeonly %
 declare void @decode_zcl_time_in_seconds(ptr noundef, i16 noundef zeroext) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_startup_color_temperature(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #2 {
+define internal void @decode_startup_color_temperature(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #2 {
   switch i16 %1, label %6 [
     i16 -1, label %3
     i16 0, label %4
@@ -463,7 +463,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_color_control(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_color_control(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %3, null
   br i1 %6, label %48, label %7
@@ -1128,7 +1128,7 @@ define hidden void @proto_register_zbee_zcl_ballast_configuration() local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_ballast_configuration(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_zbee_zcl_ballast_configuration(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   ret i32 %5
 }
@@ -1178,7 +1178,7 @@ define internal void @dissect_zcl_ballast_configuration_attr_data(ptr noundef %0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1191,7 +1191,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_to_hue(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_to_hue(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   %5 = load i32, ptr %2, align 4
   %. = select i1 %.not, i32 1, i32 2
@@ -1216,7 +1216,7 @@ define internal fastcc void @dissect_zcl_color_control_move_to_hue(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_hue_saturation(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_hue_saturation(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_zbee_zcl_color_control_move_mode, align 4
   %6 = load i32, ptr %2, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648) #5
@@ -1236,7 +1236,7 @@ define internal fastcc void @dissect_zcl_color_control_move_hue_saturation(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_step_hue_saturation(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_step_hue_saturation(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_zbee_zcl_color_control_step_mode, align 4
   %6 = load i32, ptr %2, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648) #5
@@ -1261,7 +1261,7 @@ define internal fastcc void @dissect_zcl_color_control_step_hue_saturation(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_to_saturation(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_to_saturation(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_saturation, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #5
@@ -1277,7 +1277,7 @@ define internal fastcc void @dissect_zcl_color_control_move_to_saturation(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_to_hue_and_saturation(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_to_hue_and_saturation(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   %5 = load i32, ptr %2, align 4
   %. = select i1 %.not, i32 1, i32 2
@@ -1302,7 +1302,7 @@ define internal fastcc void @dissect_zcl_color_control_move_to_hue_and_saturatio
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_to_color(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_to_color(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_color_X, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #5
@@ -1323,7 +1323,7 @@ define internal fastcc void @dissect_zcl_color_control_move_to_color(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_color(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_color(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_rate_X, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #5
@@ -1339,7 +1339,7 @@ define internal fastcc void @dissect_zcl_color_control_move_color(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_step_color(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_step_color(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_step_X, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #5
@@ -1360,7 +1360,7 @@ define internal fastcc void @dissect_zcl_color_control_step_color(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_to_color_temp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_to_color_temp(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_color_temp, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #5
@@ -1376,7 +1376,7 @@ define internal fastcc void @dissect_zcl_color_control_move_to_color_temp(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_color_loop_set(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_color_loop_set(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = load i32, ptr @hf_zbee_zcl_color_control_color_loop_update_flags, align 4
   %6 = load i32, ptr @ett_zbee_zcl_color_control_color_loop_settings, align 4
@@ -1408,7 +1408,7 @@ define internal fastcc void @dissect_zcl_color_control_color_loop_set(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_color_temp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_color_temp(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_move_mode, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #5
@@ -1434,7 +1434,7 @@ define internal fastcc void @dissect_zcl_color_control_move_color_temp(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_step_color_temp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_step_color_temp(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_step_mode, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #5
@@ -1471,7 +1471,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @dissect_zcl_attr_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

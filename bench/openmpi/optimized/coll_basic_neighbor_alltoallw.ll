@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_null = external global %struct.ompi_predefined_request_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_coll_basic_neighbor_alltoallw(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr nocapture noundef readonly %9) local_unnamed_addr #0 {
+define i32 @mca_coll_basic_neighbor_alltoallw(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef %8, ptr noundef readonly captures(none) %9) local_unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -496,7 +496,7 @@ mca_coll_basic_neighbor_alltoallw_cart.exit:      ; preds = %111, %181, %203, %2
   %246 = load ptr, ptr %245, align 8
   %247 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv.i40
   %248 = load i32, ptr %247, align 4
-  %249 = call i32 %238(ptr noundef %241, i64 noundef %244, ptr noundef %246, i32 noundef %248, i32 noundef -13, ptr noundef %8, ptr noundef nonnull %.051106.i) #3
+  %249 = call i32 %238(ptr noundef %241, i64 noundef %244, ptr noundef %246, i32 noundef %248, i32 noundef -13, ptr noundef nonnull %8, ptr noundef nonnull %.051106.i) #3
   %.not.i41 = icmp eq i32 %249, 0
   br i1 %.not.i41, label %250, label %255
 
@@ -567,7 +567,7 @@ ompi_request_cancel.exit.i.i51:                   ; preds = %265, %262
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv119.i
   %284 = load i32, ptr %283, align 4
-  %285 = call i32 %274(ptr noundef %277, i64 noundef %280, ptr noundef %282, i32 noundef %284, i32 noundef -13, i32 noundef 4, ptr noundef %8, ptr noundef nonnull %.2108.i) #3
+  %285 = call i32 %274(ptr noundef %277, i64 noundef %280, ptr noundef %282, i32 noundef %284, i32 noundef -13, i32 noundef 4, ptr noundef nonnull %8, ptr noundef nonnull %.2108.i) #3
   %.not66.i = icmp eq i32 %285, 0
   br i1 %.not66.i, label %286, label %291
 
@@ -952,10 +952,10 @@ declare i32 @mca_topo_base_cart_shift(ptr noundef, i32 noundef, i32 noundef, ptr
 declare i32 @mca_topo_base_graph_neighbors_count(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

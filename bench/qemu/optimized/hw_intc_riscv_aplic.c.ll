@@ -273,7 +273,7 @@ declare ptr @qdev_get_gpio_in(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_aplic_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @riscv_aplic_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @riscv_aplic_properties) #11
@@ -287,7 +287,7 @@ entry:
 declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_aplic_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @riscv_aplic_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.43, i32 noundef 28, ptr noundef nonnull @__func__.RISCV_APLIC) #11
   %msimode = getelementptr inbounds nuw i8, ptr %call.i, i64 1344
@@ -623,7 +623,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 4294967296) i64 @riscv_aplic_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @riscv_aplic_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %and = and i64 %addr, 3
   %cmp.not = icmp eq i64 %and, 0
@@ -1596,7 +1596,7 @@ do.end:                                           ; preds = %for.body329, %riscv
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @riscv_aplic_idc_topi(ptr nocapture noundef readonly %aplic, i32 noundef %idc) unnamed_addr #6 {
+define internal fastcc i32 @riscv_aplic_idc_topi(ptr noundef readonly captures(none) %aplic, i32 noundef %idc) unnamed_addr #6 {
 entry:
   %num_harts = getelementptr inbounds nuw i8, ptr %aplic, i64 1332
   %0 = load i32, ptr %num_harts, align 4
@@ -1681,7 +1681,7 @@ return:                                           ; preds = %if.end, %for.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @riscv_aplic_idc_claimi(ptr nocapture noundef readonly %aplic, i32 noundef range(i32 0, 134217216) %idc) unnamed_addr #0 {
+define internal fastcc i32 @riscv_aplic_idc_claimi(ptr noundef readonly captures(none) %aplic, i32 noundef range(i32 0, 134217216) %idc) unnamed_addr #0 {
 entry:
   %num_harts.i = getelementptr inbounds nuw i8, ptr %aplic, i64 1332
   %0 = load i32, ptr %num_harts.i, align 4
@@ -1811,7 +1811,7 @@ return:                                           ; preds = %if.end16, %if.then
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_aplic_idc_update(ptr nocapture noundef readonly %aplic, i32 noundef %idc) unnamed_addr #0 {
+define internal fastcc void @riscv_aplic_idc_update(ptr noundef readonly captures(none) %aplic, i32 noundef %idc) unnamed_addr #0 {
 entry:
   %msimode = getelementptr inbounds nuw i8, ptr %aplic, i64 1344
   %0 = load i8, ptr %msimode, align 16
@@ -1944,7 +1944,7 @@ if.end15:                                         ; preds = %if.end15.sink.split
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @riscv_aplic_set_pending_word(ptr nocapture noundef readonly %aplic, i32 noundef range(i32 0, 1073740032) %word, i32 noundef %value, i1 noundef zeroext %pending) unnamed_addr #7 {
+define internal fastcc void @riscv_aplic_set_pending_word(ptr noundef readonly captures(none) %aplic, i32 noundef range(i32 0, 1073740032) %word, i32 noundef %value, i1 noundef zeroext %pending) unnamed_addr #7 {
 entry:
   %mul = shl i32 %word, 5
   %num_irqs = getelementptr inbounds nuw i8, ptr %aplic, i64 1340
@@ -2013,7 +2013,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @riscv_aplic_set_pending(ptr nocapture noundef readonly %aplic, i32 noundef %irq, i1 noundef zeroext %pending) unnamed_addr #8 {
+define internal fastcc void @riscv_aplic_set_pending(ptr noundef readonly captures(none) %aplic, i32 noundef %irq, i1 noundef zeroext %pending) unnamed_addr #8 {
 entry:
   %cmp = icmp eq i32 %irq, 0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -2063,7 +2063,7 @@ return:                                           ; preds = %lor.lhs.false7, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @riscv_aplic_set_enabled_word(ptr nocapture noundef readonly %aplic, i32 noundef range(i32 0, 1073739904) %word, i32 noundef %value, i1 noundef zeroext %enabled) unnamed_addr #7 {
+define internal fastcc void @riscv_aplic_set_enabled_word(ptr noundef readonly captures(none) %aplic, i32 noundef range(i32 0, 1073739904) %word, i32 noundef %value, i1 noundef zeroext %enabled) unnamed_addr #7 {
 entry:
   %mul = shl i32 %word, 5
   %num_irqs = getelementptr inbounds nuw i8, ptr %aplic, i64 1340
@@ -2122,7 +2122,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @riscv_aplic_set_enabled(ptr nocapture noundef readonly %aplic, i32 noundef %irq, i1 noundef zeroext %enabled) unnamed_addr #8 {
+define internal fastcc void @riscv_aplic_set_enabled(ptr noundef readonly captures(none) %aplic, i32 noundef %irq, i1 noundef zeroext %enabled) unnamed_addr #8 {
 entry:
   %cmp = icmp eq i32 %irq, 0
   br i1 %cmp, label %return, label %lor.lhs.false

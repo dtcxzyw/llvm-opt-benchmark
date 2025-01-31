@@ -24641,7 +24641,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_x11(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_x11(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.10533) #10
@@ -26663,7 +26663,7 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef nonnull %0) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -2147483647) i32 @guess_byte_ordering(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, -2147483647) i32 @guess_byte_ordering(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 10332
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %6 [
@@ -27873,7 +27873,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_x11_event(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @dissect_x11_event(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load i32, ptr @proto_x11, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #10
   %9 = load i32, ptr @ett_x11, align 4
@@ -28582,7 +28582,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @field8(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 256) i32 @field8(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i32, ptr %1, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #10
   %8 = zext i8 %7 to i32
@@ -28620,7 +28620,7 @@ define internal fastcc range(i32 0, 256) i32 @field8(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65536) i32 @field16(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 65536) i32 @field16(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i32, ptr %1, align 4
   %7 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %6, i32 noundef %4) #10
   %8 = zext i16 %7 to i32
@@ -28658,7 +28658,7 @@ define internal fastcc range(i32 0, 65536) i32 @field16(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @field32(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @field32(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i32, ptr %1, align 4
   %7 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %6, i32 noundef %4) #10
   %8 = tail call ptr @proto_registrar_get_nth(i32 noundef %3) #10
@@ -28713,7 +28713,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @wmem_map_remove(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @atom(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @atom(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i32, ptr %1, align 4
   %7 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %6, i32 noundef %4) #10
   %8 = add i32 %7, -1
@@ -28756,7 +28756,7 @@ define internal fastcc void @atom(ptr noundef %0, ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfAtom(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -3, 65536) %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @listOfAtom(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -3, 65536) %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load i32, ptr %1, align 4
   %8 = shl nsw i32 %4, 2
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %5) #10
@@ -28778,7 +28778,7 @@ define internal fastcc void @listOfAtom(ptr noundef %0, ptr nocapture noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @add_boolean(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 256) i32 @add_boolean(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #10
   %7 = zext i8 %6 to i32
@@ -28792,7 +28792,7 @@ define internal fastcc range(i32 0, 256) i32 @add_boolean(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setOfKeyButMask(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
+define internal fastcc void @setOfKeyButMask(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = load i32, ptr %1, align 4
   %7 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %6, i32 noundef %3) #10
   %8 = load i32, ptr %1, align 4
@@ -28877,7 +28877,7 @@ define internal fastcc void @setOfKeyButMask(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) unnamed_addr #1 {
+define internal fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(none) %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) unnamed_addr #1 {
   %12 = load i32, ptr %2, align 4
   %13 = shl i32 %8, 2
   %14 = mul i32 %13, %9
@@ -29059,7 +29059,7 @@ define internal fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfKeycode(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @listOfKeycode(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load i32, ptr %1, align 4
   %8 = shl i32 %5, 3
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef 0) #10
@@ -30841,7 +30841,7 @@ tryGenericExtensionEvent.exit:                    ; preds = %975, %970, %.loopex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @timestamp(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @timestamp(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i32, ptr %1, align 4
   %7 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %6, i32 noundef %4) #10
   %.not = icmp eq i32 %7, 0
@@ -30866,7 +30866,7 @@ define internal fastcc void @timestamp(ptr noundef %0, ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @XConvertCase(i32 noundef %0, ptr nocapture noundef nonnull initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #5 {
+define internal fastcc void @XConvertCase(i32 noundef %0, ptr noundef nonnull captures(none) initializes((0, 4)) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #5 {
   store i32 %0, ptr %1, align 4
   store i32 %0, ptr %2, align 4
   %4 = ashr i32 %0, 8
@@ -33713,10 +33713,10 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -3) i32 @requestLength(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, -3) i32 @requestLength(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_x11_request_length, align 4
   %7 = load i32, ptr %1, align 4
@@ -33746,7 +33746,7 @@ define internal fastcc range(i32 0, -3) i32 @requestLength(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @windowAttributes(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @windowAttributes(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5, i32 noundef %3) #10
   %7 = load i32, ptr %1, align 4
@@ -33998,7 +33998,7 @@ define internal fastcc void @windowAttributes(ptr noundef %0, ptr nocapture noun
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfCard16(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @listOfCard16(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = load i32, ptr %1, align 4
   %9 = shl i32 %5, 1
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %6) #10
@@ -34027,7 +34027,7 @@ define internal fastcc void @listOfCard16(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfCard32(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @listOfCard32(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = load i32, ptr %1, align 4
   %9 = shl i32 %5, 2
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %6) #10
@@ -34060,7 +34060,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @string16(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 -1073741824, 1073741824) %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @string16(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 -1073741824, 1073741824) %5, i32 noundef %6) unnamed_addr #1 {
   %8 = shl nsw i32 %5, 1
   %9 = load i32, ptr %1, align 4
   %.not8.i = icmp eq i32 %5, 0
@@ -34132,7 +34132,7 @@ stringIsActuallyAn8BitString.exit:                ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfString8(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 65536) %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @listOfString8(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 65536) %5, i32 noundef %6) unnamed_addr #1 {
   %8 = load i32, ptr %1, align 4
   %.not33 = icmp eq i32 %5, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
@@ -34189,7 +34189,7 @@ define internal fastcc void @listOfString8(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gcAttributes(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @gcAttributes(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5, i32 noundef %3) #10
   %7 = load i32, ptr %1, align 4
@@ -34604,7 +34604,7 @@ define internal fastcc void @gcAttributes(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfRectangle(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -268435456, 268435456) %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @listOfRectangle(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -268435456, 268435456) %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load i32, ptr %1, align 4
   %8 = shl nsw i32 %4, 3
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %5) #10
@@ -34669,7 +34669,7 @@ define internal fastcc void @listOfRectangle(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfPoint(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -4, 16381) %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @listOfPoint(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -4, 16381) %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load i32, ptr %1, align 4
   %8 = shl nsw i32 %4, 2
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %5) #10
@@ -34716,7 +34716,7 @@ define internal fastcc void @listOfPoint(ptr noundef %0, ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfSegment(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -268435456, 268435456) %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @listOfSegment(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -268435456, 268435456) %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load i32, ptr %1, align 4
   %8 = shl nsw i32 %4, 3
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %5) #10
@@ -34781,7 +34781,7 @@ define internal fastcc void @listOfSegment(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfArc(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -178956970, 178956971) %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @listOfArc(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -178956970, 178956971) %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load i32, ptr %1, align 4
   %8 = shl nsw i32 %4, 3
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %5) #10
@@ -34868,7 +34868,7 @@ define internal fastcc void @listOfArc(ptr noundef %0, ptr nocapture noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfTextItem(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = load i32, ptr %1, align 4
   %9 = icmp slt i32 %8, %5
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -35115,7 +35115,7 @@ stringIsActuallyAn8BitString.exit:                ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listOfColorItem(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 5461) %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @listOfColorItem(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 5461) %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load i32, ptr %1, align 4
   %8 = shl nuw nsw i32 %4, 3
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %5) #10
@@ -35217,7 +35217,7 @@ define internal fastcc void @listOfColorItem(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @colorFlags(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @colorFlags(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr %1, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #10
   %6 = zext i8 %5 to i32
@@ -35402,7 +35402,7 @@ declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unn
 declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_bigreq(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_bigreq(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_bigreq_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -35437,7 +35437,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bigreqEnable_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @bigreqEnable_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14729) #10
@@ -35473,7 +35473,7 @@ define internal void @bigreqEnable_Reply(ptr noundef %0, ptr nocapture noundef r
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_composite(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_composite(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_composite_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -35630,7 +35630,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compositeQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @compositeQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -35674,7 +35674,7 @@ define internal void @compositeQueryVersion_Reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compositeGetOverlayWindow_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @compositeGetOverlayWindow_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14733) #10
@@ -35713,7 +35713,7 @@ define internal void @compositeGetOverlayWindow_Reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_damage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_damage(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_damage_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -35830,7 +35830,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @damageQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @damageQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -35874,7 +35874,7 @@ define internal void @damageQueryVersion_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_dbe(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_dbe(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_dbe_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -36046,7 +36046,7 @@ dbeSwapBuffers.exit:                              ; preds = %.lr.ph.i.i58, %.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dbeQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dbeQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -36090,7 +36090,7 @@ define internal void @dbeQueryVersion_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dbeGetVisualInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dbeGetVisualInfo_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14741) #10
@@ -36194,7 +36194,7 @@ struct_dbe_VisualInfos.exit:                      ; preds = %struct_dbe_VisualIn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dbeGetBackBufferAttributes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dbeGetBackBufferAttributes_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14743) #10
@@ -36238,7 +36238,7 @@ define internal void @dbeGetBackBufferAttributes_Reply(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_dpms(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_dpms(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_dpms_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -36330,7 +36330,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dpmsGetVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dpmsGetVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14746) #10
@@ -36369,7 +36369,7 @@ define internal void @dpmsGetVersion_Reply(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dpmsCapable_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dpmsCapable_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14748) #10
@@ -36408,7 +36408,7 @@ define internal void @dpmsCapable_Reply(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dpmsGetTimeouts_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dpmsGetTimeouts_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14750) #10
@@ -36457,7 +36457,7 @@ define internal void @dpmsGetTimeouts_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dpmsInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dpmsInfo_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14752) #10
@@ -36499,7 +36499,7 @@ define internal void @dpmsInfo_Reply(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_dri2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_dri2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_dri2_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -36845,7 +36845,7 @@ dri2GetBuffers.exit:                              ; preds = %.lr.ph.i.i94, %.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri2InvalidateBuffers(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @dri2InvalidateBuffers(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_unused, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
@@ -36864,7 +36864,7 @@ define internal void @dri2InvalidateBuffers(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri2QueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri2QueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -36903,7 +36903,7 @@ define internal void @dri2QueryVersion_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri2Connect_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri2Connect_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14757) #10
@@ -36972,7 +36972,7 @@ define internal void @dri2Connect_Reply(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri2Authenticate_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri2Authenticate_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14759) #10
@@ -37006,7 +37006,7 @@ define internal void @dri2Authenticate_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri2GetBuffers_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri2GetBuffers_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14761) #10
@@ -37058,7 +37058,7 @@ define internal void @dri2GetBuffers_Reply(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri2CopyRegion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri2CopyRegion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14763) #10
@@ -37087,7 +37087,7 @@ define internal void @dri2CopyRegion_Reply(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri2GetBuffersWithFormat_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri2GetBuffersWithFormat_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14765) #10
@@ -37139,7 +37139,7 @@ define internal void @dri2GetBuffersWithFormat_Reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri2SwapBuffers_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri2SwapBuffers_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14767) #10
@@ -37178,7 +37178,7 @@ define internal void @dri2SwapBuffers_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri2GetMSC_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri2GetMSC_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14769) #10
@@ -37237,7 +37237,7 @@ define internal void @dri2GetMSC_Reply(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri2WaitMSC_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri2WaitMSC_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14771) #10
@@ -37296,7 +37296,7 @@ define internal void @dri2WaitMSC_Reply(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri2WaitSBC_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri2WaitSBC_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14773) #10
@@ -37355,7 +37355,7 @@ define internal void @dri2WaitSBC_Reply(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri2GetParam_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri2GetParam_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14775) #10
@@ -37394,7 +37394,7 @@ define internal void @dri2GetParam_Reply(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_dri2_DRI2Buffer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @struct_dri2_DRI2Buffer(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -37441,7 +37441,7 @@ define internal fastcc void @struct_dri2_DRI2Buffer(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_dri3(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_dri3(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_dri3_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -37735,7 +37735,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri3QueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri3QueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -37774,7 +37774,7 @@ define internal void @dri3QueryVersion_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri3Open_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri3Open_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14779) #10
@@ -37808,7 +37808,7 @@ define internal void @dri3Open_Reply(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri3BufferFromPixmap_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri3BufferFromPixmap_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14781) #10
@@ -37872,7 +37872,7 @@ define internal void @dri3BufferFromPixmap_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri3FDFromFence_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri3FDFromFence_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14783) #10
@@ -37906,7 +37906,7 @@ define internal void @dri3FDFromFence_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri3GetSupportedModifiers_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri3GetSupportedModifiers_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14785) #10
@@ -38002,7 +38002,7 @@ listOfCard64.exit58:                              ; preds = %.lr.ph.i55, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dri3BuffersFromPixmap_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dri3BuffersFromPixmap_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14787) #10
@@ -38115,7 +38115,7 @@ listOfCard32.exit74:                              ; preds = %.lr.ph.i71, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_ge(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_ge(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_ge_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -38168,7 +38168,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @geQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @geQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -38858,7 +38858,7 @@ define internal fastcc void @glxRender(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxRenderLarge(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxRenderLarge(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_RenderLarge_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -38892,7 +38892,7 @@ define internal fastcc void @glxRenderLarge(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreateContext(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreateContext(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreateContext_context, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -38928,7 +38928,7 @@ define internal fastcc void @glxCreateContext(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxMakeCurrent(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxMakeCurrent(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_MakeCurrent_drawable, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -38949,7 +38949,7 @@ define internal fastcc void @glxMakeCurrent(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxQueryVersion(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxQueryVersion(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_QueryVersion_major_version, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -38965,7 +38965,7 @@ define internal fastcc void @glxQueryVersion(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCopyContext(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCopyContext(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CopyContext_src, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -38991,7 +38991,7 @@ define internal fastcc void @glxCopyContext(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxSwapBuffers(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxSwapBuffers(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_SwapBuffers_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39007,7 +39007,7 @@ define internal fastcc void @glxSwapBuffers(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxUseXFont(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxUseXFont(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_UseXFont_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39038,7 +39038,7 @@ define internal fastcc void @glxUseXFont(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreateGLXPixmap(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreateGLXPixmap(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreateGLXPixmap_screen, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39064,7 +39064,7 @@ define internal fastcc void @glxCreateGLXPixmap(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxVendorPrivate(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @glxVendorPrivate(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i32, ptr @hf_x11_glx_VendorPrivate_vendor_code, align 4
   %7 = load i32, ptr %1, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef %3) #10
@@ -39087,7 +39087,7 @@ define internal fastcc void @glxVendorPrivate(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxVendorPrivateWithReply(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @glxVendorPrivateWithReply(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i32, ptr @hf_x11_glx_VendorPrivateWithReply_vendor_code, align 4
   %7 = load i32, ptr %1, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef %3) #10
@@ -39110,7 +39110,7 @@ define internal fastcc void @glxVendorPrivateWithReply(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxQueryServerString(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxQueryServerString(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_QueryServerString_screen, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39126,7 +39126,7 @@ define internal fastcc void @glxQueryServerString(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxClientInfo(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxClientInfo(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_ClientInfo_major_version, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39155,7 +39155,7 @@ define internal fastcc void @glxClientInfo(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreatePixmap(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreatePixmap(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreatePixmap_screen, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39214,7 +39214,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreateNewContext(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreateNewContext(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreateNewContext_context, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39255,7 +39255,7 @@ define internal fastcc void @glxCreateNewContext(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxMakeContextCurrent(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxMakeContextCurrent(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_MakeContextCurrent_old_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39281,7 +39281,7 @@ define internal fastcc void @glxMakeContextCurrent(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreatePbuffer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreatePbuffer(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreatePbuffer_screen, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39335,7 +39335,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxChangeDrawableAttributes(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxChangeDrawableAttributes(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_ChangeDrawableAttributes_drawable, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39379,7 +39379,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreateWindow(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreateWindow(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreateWindow_screen, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39438,7 +39438,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxSetClientInfoARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxSetClientInfoARB(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_SetClientInfoARB_major_version, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39528,7 +39528,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxCreateContextAttribsARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxCreateContextAttribsARB(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_CreateContextAttribsARB_context, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39597,7 +39597,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxSetClientInfo2ARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxSetClientInfo2ARB(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_SetClientInfo2ARB_major_version, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39690,7 +39690,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxNewList(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxNewList(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_NewList_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39711,7 +39711,7 @@ define internal fastcc void @glxNewList(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxDeleteLists(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxDeleteLists(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_DeleteLists_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39732,7 +39732,7 @@ define internal fastcc void @glxDeleteLists(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGenLists(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGenLists(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GenLists_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39748,7 +39748,7 @@ define internal fastcc void @glxGenLists(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxFeedbackBuffer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxFeedbackBuffer(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_FeedbackBuffer_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39769,7 +39769,7 @@ define internal fastcc void @glxFeedbackBuffer(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxSelectBuffer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxSelectBuffer(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_SelectBuffer_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39785,7 +39785,7 @@ define internal fastcc void @glxSelectBuffer(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxRenderMode(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxRenderMode(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_RenderMode_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39801,7 +39801,7 @@ define internal fastcc void @glxRenderMode(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxPixelStoref(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxPixelStoref(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_PixelStoref_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39822,7 +39822,7 @@ define internal fastcc void @glxPixelStoref(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxPixelStorei(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxPixelStorei(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_PixelStorei_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39843,7 +39843,7 @@ define internal fastcc void @glxPixelStorei(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxReadPixels(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxReadPixels(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_ReadPixels_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39894,7 +39894,7 @@ define internal fastcc void @glxReadPixels(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetBooleanv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetBooleanv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetBooleanv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39910,7 +39910,7 @@ define internal fastcc void @glxGetBooleanv(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetClipPlane(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetClipPlane(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetClipPlane_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39926,7 +39926,7 @@ define internal fastcc void @glxGetClipPlane(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetDoublev(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetDoublev(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetDoublev_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39942,7 +39942,7 @@ define internal fastcc void @glxGetDoublev(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetFloatv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetFloatv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetFloatv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39958,7 +39958,7 @@ define internal fastcc void @glxGetFloatv(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetIntegerv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetIntegerv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetIntegerv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39974,7 +39974,7 @@ define internal fastcc void @glxGetIntegerv(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetLightfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetLightfv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetLightfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -39995,7 +39995,7 @@ define internal fastcc void @glxGetLightfv(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetLightiv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetLightiv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetLightiv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40016,7 +40016,7 @@ define internal fastcc void @glxGetLightiv(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMapdv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMapdv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMapdv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40037,7 +40037,7 @@ define internal fastcc void @glxGetMapdv(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMapfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMapfv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMapfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40058,7 +40058,7 @@ define internal fastcc void @glxGetMapfv(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMapiv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMapiv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMapiv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40079,7 +40079,7 @@ define internal fastcc void @glxGetMapiv(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMaterialfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMaterialfv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMaterialfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40100,7 +40100,7 @@ define internal fastcc void @glxGetMaterialfv(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMaterialiv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMaterialiv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMaterialiv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40121,7 +40121,7 @@ define internal fastcc void @glxGetMaterialiv(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetPixelMapfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetPixelMapfv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetPixelMapfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40137,7 +40137,7 @@ define internal fastcc void @glxGetPixelMapfv(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetPixelMapuiv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetPixelMapuiv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetPixelMapuiv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40153,7 +40153,7 @@ define internal fastcc void @glxGetPixelMapuiv(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetPixelMapusv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetPixelMapusv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetPixelMapusv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40169,7 +40169,7 @@ define internal fastcc void @glxGetPixelMapusv(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetPolygonStipple(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetPolygonStipple(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetPolygonStipple_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40185,7 +40185,7 @@ define internal fastcc void @glxGetPolygonStipple(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetString(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetString(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetString_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40201,7 +40201,7 @@ define internal fastcc void @glxGetString(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexEnvfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexEnvfv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexEnvfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40222,7 +40222,7 @@ define internal fastcc void @glxGetTexEnvfv(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexEnviv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexEnviv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexEnviv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40243,7 +40243,7 @@ define internal fastcc void @glxGetTexEnviv(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexGendv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexGendv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexGendv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40264,7 +40264,7 @@ define internal fastcc void @glxGetTexGendv(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexGenfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexGenfv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexGenfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40285,7 +40285,7 @@ define internal fastcc void @glxGetTexGenfv(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexGeniv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexGeniv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexGeniv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40306,7 +40306,7 @@ define internal fastcc void @glxGetTexGeniv(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexImage(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexImage(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexImage_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40342,7 +40342,7 @@ define internal fastcc void @glxGetTexImage(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexParameterfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexParameterfv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexParameterfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40363,7 +40363,7 @@ define internal fastcc void @glxGetTexParameterfv(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexParameteriv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexParameteriv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexParameteriv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40384,7 +40384,7 @@ define internal fastcc void @glxGetTexParameteriv(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexLevelParameterfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexLevelParameterfv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexLevelParameterfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40410,7 +40410,7 @@ define internal fastcc void @glxGetTexLevelParameterfv(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetTexLevelParameteriv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetTexLevelParameteriv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetTexLevelParameteriv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40436,7 +40436,7 @@ define internal fastcc void @glxGetTexLevelParameteriv(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxIsEnabled(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxIsEnabled(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_IsEnabled_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40452,7 +40452,7 @@ define internal fastcc void @glxIsEnabled(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxIsList(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxIsList(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_IsList_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40468,7 +40468,7 @@ define internal fastcc void @glxIsList(ptr noundef %0, ptr nocapture noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxAreTexturesResident(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxAreTexturesResident(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_AreTexturesResident_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40511,7 +40511,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxDeleteTextures(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxDeleteTextures(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_DeleteTextures_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40554,7 +40554,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGenTextures(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGenTextures(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GenTextures_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40570,7 +40570,7 @@ define internal fastcc void @glxGenTextures(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxIsTexture(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxIsTexture(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_IsTexture_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40586,7 +40586,7 @@ define internal fastcc void @glxIsTexture(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetColorTable(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetColorTable(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetColorTable_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40617,7 +40617,7 @@ define internal fastcc void @glxGetColorTable(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetColorTableParameterfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetColorTableParameterfv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetColorTableParameterfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40638,7 +40638,7 @@ define internal fastcc void @glxGetColorTableParameterfv(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetColorTableParameteriv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetColorTableParameteriv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetColorTableParameteriv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40659,7 +40659,7 @@ define internal fastcc void @glxGetColorTableParameteriv(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetConvolutionFilter(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetConvolutionFilter(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetConvolutionFilter_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40690,7 +40690,7 @@ define internal fastcc void @glxGetConvolutionFilter(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetConvolutionParameterfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetConvolutionParameterfv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetConvolutionParameterfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40711,7 +40711,7 @@ define internal fastcc void @glxGetConvolutionParameterfv(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetConvolutionParameteriv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetConvolutionParameteriv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetConvolutionParameteriv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40732,7 +40732,7 @@ define internal fastcc void @glxGetConvolutionParameteriv(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetSeparableFilter(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetSeparableFilter(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetSeparableFilter_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40763,7 +40763,7 @@ define internal fastcc void @glxGetSeparableFilter(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetHistogram(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetHistogram(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetHistogram_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40799,7 +40799,7 @@ define internal fastcc void @glxGetHistogram(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetHistogramParameterfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetHistogramParameterfv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetHistogramParameterfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40820,7 +40820,7 @@ define internal fastcc void @glxGetHistogramParameterfv(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetHistogramParameteriv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetHistogramParameteriv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetHistogramParameteriv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40841,7 +40841,7 @@ define internal fastcc void @glxGetHistogramParameteriv(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMinmax(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMinmax(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMinmax_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40877,7 +40877,7 @@ define internal fastcc void @glxGetMinmax(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMinmaxParameterfv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMinmaxParameterfv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMinmaxParameterfv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40898,7 +40898,7 @@ define internal fastcc void @glxGetMinmaxParameterfv(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetMinmaxParameteriv(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetMinmaxParameteriv(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetMinmaxParameteriv_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40919,7 +40919,7 @@ define internal fastcc void @glxGetMinmaxParameteriv(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetCompressedTexImageARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetCompressedTexImageARB(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetCompressedTexImageARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40940,7 +40940,7 @@ define internal fastcc void @glxGetCompressedTexImageARB(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxDeleteQueriesARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxDeleteQueriesARB(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_DeleteQueriesARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40983,7 +40983,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGenQueriesARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGenQueriesARB(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GenQueriesARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -40999,7 +40999,7 @@ define internal fastcc void @glxGenQueriesARB(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxIsQueryARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxIsQueryARB(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_IsQueryARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -41015,7 +41015,7 @@ define internal fastcc void @glxIsQueryARB(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetQueryivARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetQueryivARB(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetQueryivARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -41036,7 +41036,7 @@ define internal fastcc void @glxGetQueryivARB(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetQueryObjectivARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetQueryObjectivARB(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetQueryObjectivARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -41057,7 +41057,7 @@ define internal fastcc void @glxGetQueryObjectivARB(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @glxGetQueryObjectuivARB(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @glxGetQueryObjectuivARB(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_glx_GetQueryObjectuivARB_context_tag, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -50068,7 +50068,7 @@ mesa_CallLists.exit:                              ; preds = %.lr.ph.i.i2873, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxBufferSwapComplete(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @glxBufferSwapComplete(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_unused, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
@@ -50122,7 +50122,7 @@ define internal void @glxBufferSwapComplete(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxMakeCurrent_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxMakeCurrent_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14807) #10
@@ -50161,7 +50161,7 @@ define internal void @glxMakeCurrent_Reply(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxIsDirect_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxIsDirect_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14809) #10
@@ -50200,7 +50200,7 @@ define internal void @glxIsDirect_Reply(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -50244,7 +50244,7 @@ define internal void @glxQueryVersion_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetVisualConfigs_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetVisualConfigs_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14812) #10
@@ -50315,7 +50315,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxVendorPrivateWithReply_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxVendorPrivateWithReply_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14814) #10
@@ -50363,7 +50363,7 @@ define internal void @glxVendorPrivateWithReply_Reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxQueryExtensionsString_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxQueryExtensionsString_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14816) #10
@@ -50407,7 +50407,7 @@ define internal void @glxQueryExtensionsString_Reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxQueryServerString_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxQueryServerString_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14818) #10
@@ -50459,7 +50459,7 @@ define internal void @glxQueryServerString_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetFBConfigs_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetFBConfigs_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14820) #10
@@ -50530,7 +50530,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxQueryContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxQueryContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14822) #10
@@ -50597,7 +50597,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxMakeContextCurrent_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxMakeContextCurrent_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14824) #10
@@ -50636,7 +50636,7 @@ define internal void @glxMakeContextCurrent_Reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetDrawableAttributes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetDrawableAttributes_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14826) #10
@@ -50703,7 +50703,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGenLists_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGenLists_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14828) #10
@@ -50737,7 +50737,7 @@ define internal void @glxGenLists_Reply(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxRenderMode_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxRenderMode_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14830) #10
@@ -50813,7 +50813,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxFinish_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxFinish_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14832) #10
@@ -50842,7 +50842,7 @@ define internal void @glxFinish_Reply(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxReadPixels_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxReadPixels_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14834) #10
@@ -50885,7 +50885,7 @@ define internal void @glxReadPixels_Reply(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetBooleanv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetBooleanv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14836) #10
@@ -50942,7 +50942,7 @@ define internal void @glxGetBooleanv_Reply(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetClipPlane_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetClipPlane_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14838) #10
@@ -51005,7 +51005,7 @@ listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetDoublev_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetDoublev_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14840) #10
@@ -51081,7 +51081,7 @@ listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetError_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetError_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14842) #10
@@ -51115,7 +51115,7 @@ define internal void @glxGetError_Reply(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetFloatv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetFloatv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14844) #10
@@ -51191,7 +51191,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetIntegerv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetIntegerv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14846) #10
@@ -51267,7 +51267,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetLightfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetLightfv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14848) #10
@@ -51343,7 +51343,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetLightiv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetLightiv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14850) #10
@@ -51419,7 +51419,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetMapdv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetMapdv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14852) #10
@@ -51495,7 +51495,7 @@ listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetMapfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetMapfv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14854) #10
@@ -51571,7 +51571,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetMapiv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetMapiv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14856) #10
@@ -51647,7 +51647,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetMaterialfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetMaterialfv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14858) #10
@@ -51723,7 +51723,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetMaterialiv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetMaterialiv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14860) #10
@@ -51799,7 +51799,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetPixelMapfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetPixelMapfv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14862) #10
@@ -51875,7 +51875,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetPixelMapuiv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetPixelMapuiv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14864) #10
@@ -51951,7 +51951,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetPixelMapusv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetPixelMapusv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14866) #10
@@ -52027,7 +52027,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetPolygonStipple_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetPolygonStipple_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14868) #10
@@ -52070,7 +52070,7 @@ define internal void @glxGetPolygonStipple_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetString_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetString_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14870) #10
@@ -52122,7 +52122,7 @@ define internal void @glxGetString_Reply(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetTexEnvfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetTexEnvfv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14872) #10
@@ -52198,7 +52198,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetTexEnviv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetTexEnviv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14874) #10
@@ -52274,7 +52274,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetTexGendv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetTexGendv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14876) #10
@@ -52350,7 +52350,7 @@ listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetTexGenfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetTexGenfv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14878) #10
@@ -52426,7 +52426,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetTexGeniv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetTexGeniv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14880) #10
@@ -52502,7 +52502,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetTexImage_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetTexImage_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14882) #10
@@ -52565,7 +52565,7 @@ define internal void @glxGetTexImage_Reply(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetTexParameterfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetTexParameterfv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14884) #10
@@ -52641,7 +52641,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetTexParameteriv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetTexParameteriv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14886) #10
@@ -52717,7 +52717,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetTexLevelParameterfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetTexLevelParameterfv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14888) #10
@@ -52793,7 +52793,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetTexLevelParameteriv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetTexLevelParameteriv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14890) #10
@@ -52869,7 +52869,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxIsEnabled_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxIsEnabled_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14892) #10
@@ -52903,7 +52903,7 @@ define internal void @glxIsEnabled_Reply(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxIsList_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxIsList_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14894) #10
@@ -52937,7 +52937,7 @@ define internal void @glxIsList_Reply(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxAreTexturesResident_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxAreTexturesResident_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14896) #10
@@ -52985,7 +52985,7 @@ define internal void @glxAreTexturesResident_Reply(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGenTextures_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGenTextures_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14898) #10
@@ -53046,7 +53046,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxIsTexture_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxIsTexture_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14900) #10
@@ -53080,7 +53080,7 @@ define internal void @glxIsTexture_Reply(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetColorTable_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetColorTable_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14902) #10
@@ -53133,7 +53133,7 @@ define internal void @glxGetColorTable_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetColorTableParameterfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetColorTableParameterfv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14904) #10
@@ -53209,7 +53209,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetColorTableParameteriv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetColorTableParameteriv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14906) #10
@@ -53285,7 +53285,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetConvolutionFilter_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetConvolutionFilter_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14908) #10
@@ -53343,7 +53343,7 @@ define internal void @glxGetConvolutionFilter_Reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetConvolutionParameterfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetConvolutionParameterfv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14910) #10
@@ -53419,7 +53419,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetConvolutionParameteriv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetConvolutionParameteriv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14912) #10
@@ -53495,7 +53495,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetSeparableFilter_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetSeparableFilter_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14914) #10
@@ -53553,7 +53553,7 @@ define internal void @glxGetSeparableFilter_Reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetHistogram_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetHistogram_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14916) #10
@@ -53606,7 +53606,7 @@ define internal void @glxGetHistogram_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetHistogramParameterfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetHistogramParameterfv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14918) #10
@@ -53682,7 +53682,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetHistogramParameteriv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetHistogramParameteriv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14920) #10
@@ -53758,7 +53758,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetMinmax_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetMinmax_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14922) #10
@@ -53801,7 +53801,7 @@ define internal void @glxGetMinmax_Reply(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetMinmaxParameterfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetMinmaxParameterfv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14924) #10
@@ -53877,7 +53877,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetMinmaxParameteriv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetMinmaxParameteriv_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14926) #10
@@ -53953,7 +53953,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetCompressedTexImageARB_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetCompressedTexImageARB_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14928) #10
@@ -54006,7 +54006,7 @@ define internal void @glxGetCompressedTexImageARB_Reply(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGenQueriesARB_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGenQueriesARB_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14930) #10
@@ -54067,7 +54067,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxIsQueryARB_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxIsQueryARB_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14932) #10
@@ -54101,7 +54101,7 @@ define internal void @glxIsQueryARB_Reply(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetQueryivARB_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetQueryivARB_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14934) #10
@@ -54177,7 +54177,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetQueryObjectivARB_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetQueryObjectivARB_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14936) #10
@@ -54253,7 +54253,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @glxGetQueryObjectuivARB_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @glxGetQueryObjectuivARB_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14938) #10
@@ -54329,7 +54329,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_present(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_present(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_present_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -54536,7 +54536,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_present_Notify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -268435456, 268435456) %4) unnamed_addr #1 {
+define internal fastcc void @struct_present_Notify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -268435456, 268435456) %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -54571,7 +54571,7 @@ define internal fastcc void @struct_present_Notify(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @presentCompleteNotify(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @presentCompleteNotify(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @.str.14941) #10
@@ -54609,7 +54609,7 @@ define internal void @presentCompleteNotify(ptr noundef %0, i32 %1, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @presentIdleNotify(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @presentIdleNotify(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @.str.14942) #10
@@ -54648,7 +54648,7 @@ define internal void @presentIdleNotify(ptr noundef %0, i32 %1, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @presentRedirectNotify(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @presentRedirectNotify(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 3, ptr noundef nonnull @.str.14943) #10
@@ -54758,7 +54758,7 @@ define internal void @presentRedirectNotify(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xproto_RECTANGLE(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @struct_xproto_RECTANGLE(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -54803,7 +54803,7 @@ define internal fastcc void @struct_xproto_RECTANGLE(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @presentQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @presentQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -54842,7 +54842,7 @@ define internal void @presentQueryVersion_Reply(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @presentQueryCapabilities_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @presentQueryCapabilities_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14945) #10
@@ -54876,7 +54876,7 @@ define internal void @presentQueryCapabilities_Reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_randr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_randr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_randr_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -56102,7 +56102,7 @@ randrConfigureOutputProperty.exit:                ; preds = %.lr.ph.i42.i, %.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_randr_ModeInfo(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
+define internal fastcc void @struct_randr_ModeInfo(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -56193,7 +56193,7 @@ define internal fastcc void @struct_randr_ModeInfo(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_render_TRANSFORM(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_render_TRANSFORM(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_render_TRANSFORM, align 4
   %5 = load i32, ptr %1, align 4
@@ -56250,7 +56250,7 @@ define internal fastcc void @struct_render_TRANSFORM(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_randr_MonitorInfo(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @struct_randr_MonitorInfo(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -56354,7 +56354,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @randrNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_randr_Notify_subCode, align 4
   %6 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_event_sequencenumber, align 4
@@ -56603,7 +56603,7 @@ define internal void @randrNotify(ptr noundef %0, ptr nocapture noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -56647,7 +56647,7 @@ define internal void @randrQueryVersion_Reply(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrSetScreenConfig_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrSetScreenConfig_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14954) #10
@@ -56696,7 +56696,7 @@ define internal void @randrSetScreenConfig_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetScreenInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetScreenInfo_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14956) #10
@@ -56868,7 +56868,7 @@ struct_randr_RefreshRates.exit:                   ; preds = %listOfCard16.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetScreenSizeRange_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetScreenSizeRange_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14958) #10
@@ -56922,7 +56922,7 @@ define internal void @randrGetScreenSizeRange_Reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetScreenResources_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetScreenResources_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14960) #10
@@ -57054,7 +57054,7 @@ listOfCard32.exit94:                              ; preds = %.lr.ph.i91, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetOutputInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetOutputInfo_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14962) #10
@@ -57217,7 +57217,7 @@ listOfCard32.exit120:                             ; preds = %.lr.ph.i117, %listO
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrListOutputProperties_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrListOutputProperties_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14964) #10
@@ -57284,7 +57284,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrQueryOutputProperty_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrQueryOutputProperty_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14966) #10
@@ -57360,7 +57360,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetOutputProperty_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetOutputProperty_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14968) #10
@@ -57420,7 +57420,7 @@ define internal void @randrGetOutputProperty_Reply(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrCreateMode_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrCreateMode_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14970) #10
@@ -57459,7 +57459,7 @@ define internal void @randrCreateMode_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetCrtcInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetCrtcInfo_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14972) #10
@@ -57591,7 +57591,7 @@ listOfCard32.exit94:                              ; preds = %.lr.ph.i91, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrSetCrtcConfig_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrSetCrtcConfig_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14974) #10
@@ -57627,7 +57627,7 @@ define internal void @randrSetCrtcConfig_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetCrtcGammaSize_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetCrtcGammaSize_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14976) #10
@@ -57666,7 +57666,7 @@ define internal void @randrGetCrtcGammaSize_Reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetCrtcGamma_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetCrtcGamma_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14978) #10
@@ -57775,7 +57775,7 @@ listOfCard16.exit62:                              ; preds = %.lr.ph.i59, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetScreenResourcesCurrent_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetScreenResourcesCurrent_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14980) #10
@@ -57907,7 +57907,7 @@ listOfCard32.exit94:                              ; preds = %.lr.ph.i91, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetCrtcTransform_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetCrtcTransform_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14982) #10
@@ -58081,7 +58081,7 @@ listOfInt32.exit119:                              ; preds = %.lr.ph.i116, %106
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetPanning_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetPanning_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14984) #10
@@ -58172,7 +58172,7 @@ define internal void @randrGetPanning_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrSetPanning_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrSetPanning_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14986) #10
@@ -58203,7 +58203,7 @@ define internal void @randrSetPanning_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetOutputPrimary_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetOutputPrimary_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14988) #10
@@ -58237,7 +58237,7 @@ define internal void @randrGetOutputPrimary_Reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetProviders_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetProviders_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14990) #10
@@ -58309,7 +58309,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetProviderInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetProviderInfo_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14992) #10
@@ -58482,7 +58482,7 @@ listOfCard32.exit114:                             ; preds = %.lr.ph.i111, %listO
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrListProviderProperties_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrListProviderProperties_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14994) #10
@@ -58549,7 +58549,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrQueryProviderProperty_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrQueryProviderProperty_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14996) #10
@@ -58625,7 +58625,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetProviderProperty_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetProviderProperty_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14998) #10
@@ -58687,7 +58687,7 @@ define internal void @randrGetProviderProperty_Reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrGetMonitors_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrGetMonitors_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15000) #10
@@ -58739,7 +58739,7 @@ define internal void @randrGetMonitors_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @randrCreateLease_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @randrCreateLease_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15002) #10
@@ -58773,7 +58773,7 @@ define internal void @randrCreateLease_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_record(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_record(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_record_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -59027,7 +59027,7 @@ recordUnregisterClients.exit:                     ; preds = %.lr.ph.i.i67, %109,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_record_Range(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @struct_record_Range(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -59140,7 +59140,7 @@ define internal fastcc void @struct_record_Range(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_record_ExtRange(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_record_ExtRange(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_record_ExtRange, align 4
   %5 = load i32, ptr %1, align 4
@@ -59182,7 +59182,7 @@ define internal fastcc void @struct_record_ExtRange(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recordQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @recordQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -59221,7 +59221,7 @@ define internal void @recordQueryVersion_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recordGetContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @recordGetContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15007) #10
@@ -59305,7 +59305,7 @@ struct_record_ClientInfo.exit:                    ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recordEnableContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @recordEnableContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15009) #10
@@ -59378,7 +59378,7 @@ define internal void @recordEnableContext_Reply(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_render(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_render(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_render_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -60952,7 +60952,7 @@ renderCreatePicture.exit:                         ; preds = %.lr.ph.i.i221, %.lr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_render_LINEFIX(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_render_LINEFIX(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_render_LINEFIX, align 4
   %5 = load i32, ptr %1, align 4
@@ -60994,7 +60994,7 @@ define internal fastcc void @struct_render_LINEFIX(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_render_POINTFIX(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -268435456, 268435456) %4) unnamed_addr #1 {
+define internal fastcc void @struct_render_POINTFIX(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -268435456, 268435456) %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -61029,7 +61029,7 @@ define internal fastcc void @struct_render_POINTFIX(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_render_COLOR(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @struct_render_COLOR(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -61074,7 +61074,7 @@ define internal fastcc void @struct_render_COLOR(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @renderQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @renderQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -61118,7 +61118,7 @@ define internal void @renderQueryVersion_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @renderQueryPictFormats_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @renderQueryPictFormats_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15017) #10
@@ -61419,7 +61419,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i81, %struct
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @renderQueryPictIndexValues_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @renderQueryPictIndexValues_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15019) #10
@@ -61501,7 +61501,7 @@ struct_render_INDEXVALUE.exit:                    ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @renderQueryFilters_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @renderQueryFilters_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15021) #10
@@ -61575,7 +61575,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xproto_STR(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @struct_xproto_STR(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -61617,7 +61617,7 @@ define internal fastcc void @struct_xproto_STR(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_res(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_res(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_res_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -61745,7 +61745,7 @@ resQueryResourceBytes.exit:                       ; preds = %.lr.ph.i.i, %55, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_res_ClientIdSpec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @struct_res_ClientIdSpec(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -61781,7 +61781,7 @@ define internal fastcc void @struct_res_ClientIdSpec(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @resQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @resQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -61820,7 +61820,7 @@ define internal void @resQueryVersion_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @resQueryClients_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @resQueryClients_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15025) #10
@@ -61887,7 +61887,7 @@ struct_res_Client.exit:                           ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @resQueryClientResources_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @resQueryClientResources_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15027) #10
@@ -61954,7 +61954,7 @@ struct_res_Type.exit:                             ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @resQueryClientPixmapBytes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @resQueryClientPixmapBytes_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15029) #10
@@ -61993,7 +61993,7 @@ define internal void @resQueryClientPixmapBytes_Reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @resQueryClientIds_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @resQueryClientIds_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15031) #10
@@ -62090,7 +62090,7 @@ struct_res_ClientIdValue.exit:                    ; preds = %listOfCard32.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @resQueryResourceBytes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @resQueryResourceBytes_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15033) #10
@@ -62160,7 +62160,7 @@ struct_res_ResourceSizeValue.exit:                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_res_ResourceSizeSpec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @struct_res_ResourceSizeSpec(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -62215,7 +62215,7 @@ define internal fastcc void @struct_res_ResourceSizeSpec(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_screensaver(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_screensaver(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_screensaver_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -62558,7 +62558,7 @@ screensaverSetAttributes.exit:                    ; preds = %197, %195, %206, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @screensaverQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @screensaverQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -62602,7 +62602,7 @@ define internal void @screensaverQueryVersion_Reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @screensaverQueryInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @screensaverQueryInfo_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15037) #10
@@ -62659,7 +62659,7 @@ define internal void @screensaverQueryInfo_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_shape(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_shape(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_shape_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -62888,7 +62888,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shapeQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @shapeQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -62927,7 +62927,7 @@ define internal void @shapeQueryVersion_Reply(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shapeQueryExtents_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @shapeQueryExtents_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15041) #10
@@ -63011,7 +63011,7 @@ define internal void @shapeQueryExtents_Reply(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shapeInputSelected_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @shapeInputSelected_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15043) #10
@@ -63040,7 +63040,7 @@ define internal void @shapeInputSelected_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shapeGetRectangles_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @shapeGetRectangles_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15045) #10
@@ -63079,7 +63079,7 @@ define internal void @shapeGetRectangles_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_shm(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_shm(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_shm_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -63370,7 +63370,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shmQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @shmQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -63429,7 +63429,7 @@ define internal void @shmQueryVersion_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shmGetImage_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @shmGetImage_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15050) #10
@@ -63468,7 +63468,7 @@ define internal void @shmGetImage_Reply(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shmCreateSegment_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @shmCreateSegment_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15052) #10
@@ -63502,7 +63502,7 @@ define internal void @shmCreateSegment_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_sync(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_sync(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_sync_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -64004,7 +64004,7 @@ syncAwait.exit:                                   ; preds = %.lr.ph.i.i, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_sync_TRIGGER(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_sync_TRIGGER(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_sync_TRIGGER, align 4
   %5 = load i32, ptr %1, align 4
@@ -64041,7 +64041,7 @@ define internal fastcc void @struct_sync_TRIGGER(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @syncAlarmNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @syncAlarmNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_sync_AlarmNotify_kind, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -64103,7 +64103,7 @@ define internal void @syncAlarmNotify(ptr noundef %0, ptr nocapture noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @syncInitialize_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @syncInitialize_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15058) #10
@@ -64147,7 +64147,7 @@ define internal void @syncInitialize_Reply(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @syncListSystemCounters_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @syncListSystemCounters_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15060) #10
@@ -64261,7 +64261,7 @@ struct_sync_SYSTEMCOUNTER.exit:                   ; preds = %86, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @syncQueryCounter_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @syncQueryCounter_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15062) #10
@@ -64305,7 +64305,7 @@ define internal void @syncQueryCounter_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @syncQueryAlarm_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @syncQueryAlarm_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15064) #10
@@ -64364,7 +64364,7 @@ define internal void @syncQueryAlarm_Reply(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @syncGetPriority_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @syncGetPriority_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15066) #10
@@ -64398,7 +64398,7 @@ define internal void @syncGetPriority_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @syncQueryFence_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @syncQueryFence_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15068) #10
@@ -64437,7 +64437,7 @@ define internal void @syncQueryFence_Reply(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xc_misc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xc_misc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xc_misc_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -64503,7 +64503,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xc_miscGetVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xc_miscGetVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14746) #10
@@ -64542,7 +64542,7 @@ define internal void @xc_miscGetVersion_Reply(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xc_miscGetXIDRange_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xc_miscGetXIDRange_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15072) #10
@@ -64581,7 +64581,7 @@ define internal void @xc_miscGetXIDRange_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xc_miscGetXIDList_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xc_miscGetXIDList_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15074) #10
@@ -64647,7 +64647,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xevie(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xevie(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xevie_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -64749,7 +64749,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xevieQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xevieQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -64793,7 +64793,7 @@ define internal void @xevieQueryVersion_Reply(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xevieStart_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xevieStart_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15078) #10
@@ -64827,7 +64827,7 @@ define internal void @xevieStart_Reply(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xevieEnd_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xevieEnd_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15080) #10
@@ -64861,7 +64861,7 @@ define internal void @xevieEnd_Reply(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xevieSend_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xevieSend_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15082) #10
@@ -64895,7 +64895,7 @@ define internal void @xevieSend_Reply(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xevieSelectInput_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xevieSelectInput_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15084) #10
@@ -64929,7 +64929,7 @@ define internal void @xevieSelectInput_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xf86dri(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xf86dri(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xf86dri_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -65087,7 +65087,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86driQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86driQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -65131,7 +65131,7 @@ define internal void @xf86driQueryVersion_Reply(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86driQueryDirectRenderingCapable_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86driQueryDirectRenderingCapable_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15088) #10
@@ -65165,7 +65165,7 @@ define internal void @xf86driQueryDirectRenderingCapable_Reply(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86driOpenConnection_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86driOpenConnection_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15090) #10
@@ -65222,7 +65222,7 @@ define internal void @xf86driOpenConnection_Reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86driGetClientDriverName_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86driGetClientDriverName_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15092) #10
@@ -65284,7 +65284,7 @@ define internal void @xf86driGetClientDriverName_Reply(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86driCreateContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86driCreateContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15094) #10
@@ -65318,7 +65318,7 @@ define internal void @xf86driCreateContext_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86driCreateDrawable_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86driCreateDrawable_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15096) #10
@@ -65352,7 +65352,7 @@ define internal void @xf86driCreateDrawable_Reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86driGetDrawableInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86driGetDrawableInfo_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15098) #10
@@ -65437,7 +65437,7 @@ define internal void @xf86driGetDrawableInfo_Reply(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86driGetDeviceInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86driGetDeviceInfo_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15100) #10
@@ -65523,7 +65523,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86driAuthConnection_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86driAuthConnection_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15102) #10
@@ -65557,7 +65557,7 @@ define internal void @xf86driAuthConnection_Reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xf86dri_DrmClipRect(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @struct_xf86dri_DrmClipRect(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -65602,7 +65602,7 @@ define internal fastcc void @struct_xf86dri_DrmClipRect(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xf86vidmode(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xf86vidmode(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xf86vidmode_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -66422,7 +66422,7 @@ xf86vidmodeSetGammaRamp.exit:                     ; preds = %.lr.ph.i43.i, %xf86
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86vidmodeQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86vidmodeQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -66461,7 +66461,7 @@ define internal void @xf86vidmodeQueryVersion_Reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86vidmodeGetModeLine_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86vidmodeGetModeLine_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15113) #10
@@ -66569,7 +66569,7 @@ define internal void @xf86vidmodeGetModeLine_Reply(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86vidmodeGetMonitor_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86vidmodeGetMonitor_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15115) #10
@@ -66702,7 +66702,7 @@ listOfCard32.exit86:                              ; preds = %.lr.ph.i83, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86vidmodeGetAllModeLines_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86vidmodeGetAllModeLines_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15117) #10
@@ -66830,7 +66830,7 @@ struct_xf86vidmode_ModeInfo.exit:                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86vidmodeValidateModeLine_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86vidmodeValidateModeLine_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15119) #10
@@ -66869,7 +66869,7 @@ define internal void @xf86vidmodeValidateModeLine_Reply(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86vidmodeGetViewPort_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86vidmodeGetViewPort_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15121) #10
@@ -66913,7 +66913,7 @@ define internal void @xf86vidmodeGetViewPort_Reply(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86vidmodeGetDotClocks_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86vidmodeGetDotClocks_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15123) #10
@@ -66995,7 +66995,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86vidmodeGetGamma_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86vidmodeGetGamma_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15125) #10
@@ -67044,7 +67044,7 @@ define internal void @xf86vidmodeGetGamma_Reply(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86vidmodeGetGammaRamp_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86vidmodeGetGammaRamp_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15127) #10
@@ -67155,7 +67155,7 @@ listOfCard16.exit62:                              ; preds = %.lr.ph.i59, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86vidmodeGetGammaRampSize_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86vidmodeGetGammaRampSize_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15129) #10
@@ -67194,7 +67194,7 @@ define internal void @xf86vidmodeGetGammaRampSize_Reply(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xf86vidmodeGetPermissions_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xf86vidmodeGetPermissions_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15131) #10
@@ -67234,7 +67234,7 @@ define internal void @xf86vidmodeGetPermissions_Reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xfixes(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xfixes(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xfixes_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -67902,7 +67902,7 @@ xfixesCreatePointerBarrier.exit:                  ; preds = %.lr.ph.i.i, %396, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xfixesCursorNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xfixesCursorNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xfixes_CursorNotify_subtype, align 4
   %6 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_event_sequencenumber, align 4
@@ -67935,7 +67935,7 @@ define internal void @xfixesCursorNotify(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xfixesQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xfixesQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -67979,7 +67979,7 @@ define internal void @xfixesQueryVersion_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xfixesGetCursorImage_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xfixesGetCursorImage_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15137) #10
@@ -68080,7 +68080,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xfixesFetchRegion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xfixesFetchRegion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15139) #10
@@ -68120,7 +68120,7 @@ define internal void @xfixesFetchRegion_Reply(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xfixesGetCursorName_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xfixesGetCursorName_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15141) #10
@@ -68171,7 +68171,7 @@ define internal void @xfixesGetCursorName_Reply(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xfixesGetCursorImageAndName_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xfixesGetCursorImageAndName_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15143) #10
@@ -68287,7 +68287,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xfixesGetClientDisconnectMode_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xfixesGetClientDisconnectMode_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15145) #10
@@ -68327,7 +68327,7 @@ define internal void @xfixesGetClientDisconnectMode_Reply(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xinerama(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xinerama(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xinerama_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -68412,7 +68412,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xineramaQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xineramaQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -68451,7 +68451,7 @@ define internal void @xineramaQueryVersion_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xineramaGetState_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xineramaGetState_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15149) #10
@@ -68485,7 +68485,7 @@ define internal void @xineramaGetState_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xineramaGetScreenCount_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xineramaGetScreenCount_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15151) #10
@@ -68519,7 +68519,7 @@ define internal void @xineramaGetScreenCount_Reply(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xineramaGetScreenSize_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xineramaGetScreenSize_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15153) #10
@@ -68568,7 +68568,7 @@ define internal void @xineramaGetScreenSize_Reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xineramaIsActive_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xineramaIsActive_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15155) #10
@@ -68602,7 +68602,7 @@ define internal void @xineramaIsActive_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xineramaQueryScreens_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xineramaQueryScreens_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15157) #10
@@ -68679,7 +68679,7 @@ struct_xinerama_ScreenInfo.exit:                  ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xinput(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xinput(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xinput_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -69039,7 +69039,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetExtensionVersion(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetExtensionVersion(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %5, i32 noundef %3) #10
   %7 = load i32, ptr @hf_x11_xinput_GetExtensionVersion_name_len, align 4
@@ -69064,7 +69064,7 @@ define internal fastcc void @xinputGetExtensionVersion(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputOpenDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputOpenDevice(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_OpenDevice_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69080,7 +69080,7 @@ define internal fastcc void @xinputOpenDevice(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputCloseDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputCloseDevice(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_CloseDevice_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69096,7 +69096,7 @@ define internal fastcc void @xinputCloseDevice(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSetDeviceMode(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSetDeviceMode(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SetDeviceMode_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69115,7 +69115,7 @@ define internal fastcc void @xinputSetDeviceMode(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSelectExtensionEvent(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSelectExtensionEvent(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SelectExtensionEvent_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69164,7 +69164,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangeDeviceDontPropagateList(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangeDeviceDontPropagateList(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangeDeviceDontPropagateList_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69216,7 +69216,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceMotionEvents(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceMotionEvents(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceMotionEvents_start, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69240,7 +69240,7 @@ define internal fastcc void @xinputGetDeviceMotionEvents(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangeKeyboardDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangeKeyboardDevice(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangeKeyboardDevice_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69256,7 +69256,7 @@ define internal fastcc void @xinputChangeKeyboardDevice(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangePointerDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangePointerDevice(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangePointerDevice_x_axis, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69282,7 +69282,7 @@ define internal fastcc void @xinputChangePointerDevice(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGrabDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGrabDevice(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GrabDevice_grab_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69349,7 +69349,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputUngrabDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputUngrabDevice(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_UngrabDevice_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_UngrabDevice_device_id, align 4
@@ -69367,7 +69367,7 @@ define internal fastcc void @xinputUngrabDevice(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGrabDeviceKey(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGrabDeviceKey(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GrabDeviceKey_grab_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69442,7 +69442,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputUngrabDeviceKey(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputUngrabDeviceKey(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_UngrabDeviceKey_grabWindow, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69469,7 +69469,7 @@ define internal fastcc void @xinputUngrabDeviceKey(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGrabDeviceButton(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGrabDeviceButton(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GrabDeviceButton_grab_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69544,7 +69544,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputUngrabDeviceButton(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputUngrabDeviceButton(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_UngrabDeviceButton_grab_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -69576,7 +69576,7 @@ define internal fastcc void @xinputUngrabDeviceButton(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputAllowDeviceEvents(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputAllowDeviceEvents(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_AllowDeviceEvents_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_AllowDeviceEvents_mode, align 4
@@ -69596,7 +69596,7 @@ define internal fastcc void @xinputAllowDeviceEvents(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceFocus(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceFocus(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceFocus_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69612,7 +69612,7 @@ define internal fastcc void @xinputGetDeviceFocus(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSetDeviceFocus(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSetDeviceFocus(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SetDeviceFocus_focus, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_SetDeviceFocus_time, align 4
@@ -69634,7 +69634,7 @@ define internal fastcc void @xinputSetDeviceFocus(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetFeedbackControl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetFeedbackControl(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetFeedbackControl_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69650,7 +69650,7 @@ define internal fastcc void @xinputGetFeedbackControl(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangeFeedbackControl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangeFeedbackControl(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr @hf_x11_xinput_ChangeFeedbackControl_mask, align 4
   %7 = load i32, ptr @ett_x11_rectangle, align 4
@@ -69845,7 +69845,7 @@ struct_xinput_FeedbackCtl.exit:                   ; preds = %.lr.ph.i.i, %4, %84
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceKeyMapping(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceKeyMapping(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceKeyMapping_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69871,7 +69871,7 @@ define internal fastcc void @xinputGetDeviceKeyMapping(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangeDeviceKeyMapping(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangeDeviceKeyMapping(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangeDeviceKeyMapping_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69929,7 +69929,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceModifierMapping(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceModifierMapping(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceModifierMapping_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69945,7 +69945,7 @@ define internal fastcc void @xinputGetDeviceModifierMapping(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSetDeviceModifierMapping(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSetDeviceModifierMapping(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SetDeviceModifierMapping_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69976,7 +69976,7 @@ define internal fastcc void @xinputSetDeviceModifierMapping(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceButtonMapping(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceButtonMapping(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceButtonMapping_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -69992,7 +69992,7 @@ define internal fastcc void @xinputGetDeviceButtonMapping(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSetDeviceButtonMapping(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSetDeviceButtonMapping(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SetDeviceButtonMapping_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -70022,7 +70022,7 @@ define internal fastcc void @xinputSetDeviceButtonMapping(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputQueryDeviceState(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputQueryDeviceState(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_QueryDeviceState_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -70038,7 +70038,7 @@ define internal fastcc void @xinputQueryDeviceState(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSendExtensionEvent(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSendExtensionEvent(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SendExtensionEvent_destination, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70104,7 +70104,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputDeviceBell(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputDeviceBell(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_DeviceBell_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -70130,7 +70130,7 @@ define internal fastcc void @xinputDeviceBell(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputSetDeviceValuators(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputSetDeviceValuators(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_SetDeviceValuators_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -70184,7 +70184,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceControl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceControl(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceControl_control_id, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_GetDeviceControl_device_id, align 4
@@ -70202,7 +70202,7 @@ define internal fastcc void @xinputGetDeviceControl(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangeDeviceControl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangeDeviceControl(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangeDeviceControl_control_id, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_ChangeDeviceControl_device_id, align 4
@@ -70382,7 +70382,7 @@ struct_xinput_DeviceCtl.exit:                     ; preds = %.lr.ph.i.i, %4, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputListDeviceProperties(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputListDeviceProperties(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ListDeviceProperties_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -70398,7 +70398,7 @@ define internal fastcc void @xinputListDeviceProperties(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputChangeDeviceProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputChangeDeviceProperty(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangeDeviceProperty_property, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70521,7 +70521,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i81, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputDeleteDeviceProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputDeleteDeviceProperty(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_DeleteDeviceProperty_property, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70542,7 +70542,7 @@ define internal fastcc void @xinputDeleteDeviceProperty(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputGetDeviceProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputGetDeviceProperty(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_property, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70583,7 +70583,7 @@ define internal fastcc void @xinputGetDeviceProperty(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIQueryPointer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIQueryPointer(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIQueryPointer_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70602,7 +70602,7 @@ define internal fastcc void @xinputXIQueryPointer(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIWarpPointer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIWarpPointer(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIWarpPointer_src_win, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70656,7 +70656,7 @@ define internal fastcc void @xinputXIWarpPointer(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIChangeCursor(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIChangeCursor(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIChangeCursor_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70680,7 +70680,7 @@ define internal fastcc void @xinputXIChangeCursor(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIChangeHierarchy(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIChangeHierarchy(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #10
   %7 = zext i8 %6 to i32
@@ -70806,7 +70806,7 @@ struct_xinput_HierarchyChange.exit:               ; preds = %85, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXISetClientPointer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXISetClientPointer(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XISetClientPointer_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70825,7 +70825,7 @@ define internal fastcc void @xinputXISetClientPointer(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXISelectEvents(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXISelectEvents(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XISelectEvents_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70850,7 +70850,7 @@ define internal fastcc void @xinputXISelectEvents(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIQueryVersion(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIQueryVersion(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIQueryVersion_major_version, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef %3) #10
@@ -70866,7 +70866,7 @@ define internal fastcc void @xinputXIQueryVersion(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIQueryDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIQueryDevice(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIQueryDevice_deviceid, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_unused, align 4
@@ -70879,7 +70879,7 @@ define internal fastcc void @xinputXIQueryDevice(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXISetFocus(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXISetFocus(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XISetFocus_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70900,7 +70900,7 @@ define internal fastcc void @xinputXISetFocus(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIGetFocus(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIGetFocus(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIGetFocus_deviceid, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_unused, align 4
@@ -70913,7 +70913,7 @@ define internal fastcc void @xinputXIGetFocus(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIGrabDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIGrabDevice(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIGrabDevice_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -70979,7 +70979,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIUngrabDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIUngrabDevice(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIUngrabDevice_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIUngrabDevice_deviceid, align 4
@@ -70994,7 +70994,7 @@ define internal fastcc void @xinputXIUngrabDevice(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIAllowEvents(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIAllowEvents(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIAllowEvents_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIAllowEvents_deviceid, align 4
@@ -71021,7 +71021,7 @@ define internal fastcc void @xinputXIAllowEvents(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIPassiveGrabDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIPassiveGrabDevice(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIPassiveGrabDevice_time, align 4
   %6 = tail call fastcc i32 @field32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIPassiveGrabDevice_grab_window, align 4
@@ -71125,7 +71125,7 @@ listOfCard32.exit78:                              ; preds = %.lr.ph.i75, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIPassiveUngrabDevice(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIPassiveUngrabDevice(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIPassiveUngrabDevice_grab_window, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #10
@@ -71185,7 +71185,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIListProperties(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIListProperties(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIListProperties_deviceid, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_unused, align 4
@@ -71198,7 +71198,7 @@ define internal fastcc void @xinputXIListProperties(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIChangeProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIChangeProperty(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIChangeProperty_deviceid, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIChangeProperty_mode, align 4
@@ -71312,7 +71312,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i76, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIDeleteProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIDeleteProperty(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIDeleteProperty_deviceid, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_unused, align 4
@@ -71330,7 +71330,7 @@ define internal fastcc void @xinputXIDeleteProperty(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIGetProperty(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIGetProperty(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_x11_xinput_XIGetProperty_deviceid, align 4
   %6 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_xinput_XIGetProperty_delete, align 4
@@ -71368,7 +71368,7 @@ define internal fastcc void @xinputXIGetProperty(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xinputXIBarrierReleasePointer(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @xinputXIBarrierReleasePointer(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5, i32 noundef %3) #10
   %7 = load i32, ptr @hf_x11_xinput_XIBarrierReleasePointer_num_barriers, align 4
@@ -71417,7 +71417,7 @@ struct_xinput_BarrierReleasePointerInfo.exit:     ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xinput_EventMask(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xinput_EventMask(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -71478,7 +71478,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputDeviceKeyPress(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xinputDeviceKeyPress(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xinput_DeviceKeyPress_detail, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
@@ -71546,7 +71546,7 @@ define internal void @xinputDeviceKeyPress(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputDeviceFocusIn(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xinputDeviceFocusIn(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xinput_DeviceFocusIn_detail, align 4
   %6 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_event_sequencenumber, align 4
@@ -71579,7 +71579,7 @@ define internal void @xinputDeviceFocusIn(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputDeviceStateNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xinputDeviceStateNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xinput_DeviceStateNotify_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
@@ -71649,7 +71649,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputDeviceMappingNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xinputDeviceMappingNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xinput_DeviceMappingNotify_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
@@ -71690,7 +71690,7 @@ define internal void @xinputDeviceMappingNotify(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputChangeDeviceNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xinputChangeDeviceNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xinput_ChangeDeviceNotify_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
@@ -71717,7 +71717,7 @@ define internal void @xinputChangeDeviceNotify(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputDeviceKeyStateNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xinputDeviceKeyStateNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xinput_DeviceKeyStateNotify_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
@@ -71736,7 +71736,7 @@ define internal void @xinputDeviceKeyStateNotify(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputDeviceButtonStateNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xinputDeviceButtonStateNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xinput_DeviceButtonStateNotify_device_id, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
@@ -71755,7 +71755,7 @@ define internal void @xinputDeviceButtonStateNotify(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputDevicePresenceNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xinputDevicePresenceNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_unused, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
@@ -71792,7 +71792,7 @@ define internal void @xinputDevicePresenceNotify(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputDevicePropertyNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xinputDevicePropertyNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xinput_DevicePropertyNotify_state, align 4
   %6 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %3)
   %7 = load i32, ptr @hf_x11_event_sequencenumber, align 4
@@ -71822,7 +71822,7 @@ define internal void @xinputDevicePropertyNotify(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputDeviceChanged(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputDeviceChanged(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @.str.15174) #10
@@ -71854,7 +71854,7 @@ define internal void @xinputDeviceChanged(ptr noundef %0, i32 %1, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputKeyPress(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputKeyPress(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @.str.15175) #10
@@ -72008,7 +72008,7 @@ listOfCard32.exit118:                             ; preds = %.lr.ph.i115, %._cri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputButtonPress(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputButtonPress(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 4, ptr noundef nonnull @.str.15176) #10
@@ -72162,7 +72162,7 @@ listOfCard32.exit118:                             ; preds = %.lr.ph.i115, %._cri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputEnter(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputEnter(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 7, ptr noundef nonnull @.str.15177) #10
@@ -72262,7 +72262,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputHierarchy(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputHierarchy(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 11, ptr noundef nonnull @.str.15178) #10
@@ -72332,7 +72332,7 @@ struct_xinput_HierarchyInfo.exit:                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputProperty(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputProperty(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 12, ptr noundef nonnull @.str.15179) #10
@@ -72358,7 +72358,7 @@ define internal void @xinputProperty(ptr noundef %0, i32 %1, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputRawKeyPress(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputRawKeyPress(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 13, ptr noundef nonnull @.str.15180) #10
@@ -72448,7 +72448,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputRawButtonPress(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputRawButtonPress(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 15, ptr noundef nonnull @.str.15181) #10
@@ -72538,7 +72538,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputTouchBegin(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputTouchBegin(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 18, ptr noundef nonnull @.str.15182) #10
@@ -72692,7 +72692,7 @@ listOfCard32.exit118:                             ; preds = %.lr.ph.i115, %._cri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputTouchOwnership(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputTouchOwnership(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 21, ptr noundef nonnull @.str.15183) #10
@@ -72741,7 +72741,7 @@ define internal void @xinputTouchOwnership(ptr noundef %0, i32 %1, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputRawTouchBegin(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputRawTouchBegin(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 22, ptr noundef nonnull @.str.15184) #10
@@ -72831,7 +72831,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputBarrierHit(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputBarrierHit(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
 .lr.ph.i:
   %5 = load i32, ptr @hf_x11_minor_opcode, align 4
   %6 = load i32, ptr %2, align 4
@@ -72924,7 +72924,7 @@ define internal void @xinputBarrierHit(ptr noundef %0, i32 %1, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGesturePinchBegin(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGesturePinchBegin(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 27, ptr noundef nonnull @.str.15186) #10
@@ -73024,7 +73024,7 @@ define internal void @xinputGesturePinchBegin(ptr noundef %0, i32 %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGestureSwipeBegin(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGestureSwipeBegin(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = load i32, ptr @hf_x11_minor_opcode, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef 30, ptr noundef nonnull @.str.15187) #10
@@ -73114,7 +73114,7 @@ define internal void @xinputGestureSwipeBegin(ptr noundef %0, i32 %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -73375,7 +73375,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i145, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -73410,7 +73410,7 @@ define internal fastcc void @struct_xinput_FP3232(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xinput_ModifierInfo(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_xinput_ModifierInfo(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_xinput_ModifierInfo, align 4
   %5 = load i32, ptr %1, align 4
@@ -73442,7 +73442,7 @@ define internal fastcc void @struct_xinput_ModifierInfo(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_xinput_GroupInfo, align 4
   %5 = load i32, ptr %1, align 4
@@ -73474,7 +73474,7 @@ define internal fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGetExtensionVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGetExtensionVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15188) #10
@@ -73523,7 +73523,7 @@ define internal void @xinputGetExtensionVersion_Reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputListInputDevices_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputListInputDevices_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15190) #10
@@ -73622,7 +73622,7 @@ struct_xinput_DeviceInfo.exit:                    ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputOpenDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputOpenDevice_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15192) #10
@@ -73704,7 +73704,7 @@ struct_xinput_InputClassInfo.exit:                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputSetDeviceMode_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputSetDeviceMode_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15194) #10
@@ -73741,7 +73741,7 @@ define internal void @xinputSetDeviceMode_Reply(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGetSelectedExtensionEvents_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGetSelectedExtensionEvents_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15196) #10
@@ -73839,7 +73839,7 @@ listOfCard32.exit59:                              ; preds = %.lr.ph.i56, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGetDeviceDontPropagateList_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGetDeviceDontPropagateList_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15198) #10
@@ -73906,7 +73906,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGetDeviceMotionEvents_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGetDeviceMotionEvents_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15200) #10
@@ -74026,7 +74026,7 @@ struct_xinput_DeviceTimeCoord.exit:               ; preds = %listOfInt32.exit.lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputChangeKeyboardDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputChangeKeyboardDevice_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15202) #10
@@ -74063,7 +74063,7 @@ define internal void @xinputChangeKeyboardDevice_Reply(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputChangePointerDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputChangePointerDevice_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15204) #10
@@ -74100,7 +74100,7 @@ define internal void @xinputChangePointerDevice_Reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGrabDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGrabDevice_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15206) #10
@@ -74137,7 +74137,7 @@ define internal void @xinputGrabDevice_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGetDeviceFocus_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGetDeviceFocus_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15208) #10
@@ -74182,7 +74182,7 @@ define internal void @xinputGetDeviceFocus_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGetFeedbackControl_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGetFeedbackControl_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15210) #10
@@ -74400,7 +74400,7 @@ struct_xinput_FeedbackState.exit:                 ; preds = %listOfCard32.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGetDeviceKeyMapping_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGetDeviceKeyMapping_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15212) #10
@@ -74466,7 +74466,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGetDeviceModifierMapping_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGetDeviceModifierMapping_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15214) #10
@@ -74515,7 +74515,7 @@ define internal void @xinputGetDeviceModifierMapping_Reply(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputSetDeviceModifierMapping_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputSetDeviceModifierMapping_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15216) #10
@@ -74552,7 +74552,7 @@ define internal void @xinputSetDeviceModifierMapping_Reply(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGetDeviceButtonMapping_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGetDeviceButtonMapping_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15218) #10
@@ -74616,7 +74616,7 @@ define internal void @xinputGetDeviceButtonMapping_Reply(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputSetDeviceButtonMapping_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputSetDeviceButtonMapping_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15220) #10
@@ -74653,7 +74653,7 @@ define internal void @xinputSetDeviceButtonMapping_Reply(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputQueryDeviceState_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputQueryDeviceState_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15222) #10
@@ -74788,7 +74788,7 @@ struct_xinput_InputState.exit:                    ; preds = %listOfInt32.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputSetDeviceValuators_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputSetDeviceValuators_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15224) #10
@@ -74825,7 +74825,7 @@ define internal void @xinputSetDeviceValuators_Reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGetDeviceControl_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGetDeviceControl_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15226) #10
@@ -75060,7 +75060,7 @@ struct_xinput_DeviceState.exit:                   ; preds = %.lr.ph.i149.i, %5, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputChangeDeviceControl_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputChangeDeviceControl_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15228) #10
@@ -75097,7 +75097,7 @@ define internal void @xinputChangeDeviceControl_Reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputListDeviceProperties_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputListDeviceProperties_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15230) #10
@@ -75164,7 +75164,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputGetDeviceProperty_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputGetDeviceProperty_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15232) #10
@@ -75308,7 +75308,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i92, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputXIQueryPointer_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputXIQueryPointer_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15234) #10
@@ -75413,7 +75413,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputXIGetClientPointer_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputXIGetClientPointer_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15236) #10
@@ -75460,7 +75460,7 @@ define internal void @xinputXIGetClientPointer_Reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputXIQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputXIQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15238) #10
@@ -75504,7 +75504,7 @@ define internal void @xinputXIQueryVersion_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputXIQueryDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputXIQueryDevice_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15240) #10
@@ -75629,7 +75629,7 @@ struct_xinput_XIDeviceInfo.exit:                  ; preds = %96, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputXIGetFocus_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputXIGetFocus_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15242) #10
@@ -75668,7 +75668,7 @@ define internal void @xinputXIGetFocus_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputXIGrabDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputXIGrabDevice_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15244) #10
@@ -75705,7 +75705,7 @@ define internal void @xinputXIGrabDevice_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputXIPassiveGrabDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputXIPassiveGrabDevice_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15246) #10
@@ -75772,7 +75772,7 @@ struct_xinput_GrabModifierInfo.exit:              ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputXIListProperties_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputXIListProperties_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15248) #10
@@ -75839,7 +75839,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputXIGetProperty_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputXIGetProperty_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15250) #10
@@ -75978,7 +75978,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i86, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xinputXIGetSelectedEvents_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xinputXIGetSelectedEvents_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15252) #10
@@ -76021,7 +76021,7 @@ define internal void @xinputXIGetSelectedEvents_Reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xkb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xkb(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xkb_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -78084,7 +78084,7 @@ xkbSelectEvents.exit:                             ; preds = %.lr.ph.i267.i, %126
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_KeySymMap(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_KeySymMap(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -78559,7 +78559,7 @@ define internal fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_SetBehavior(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_SetBehavior(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -78733,7 +78733,7 @@ define internal fastcc void @struct_xkb_SetBehavior(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_SetExplicit(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_SetExplicit(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -78769,7 +78769,7 @@ define internal fastcc void @struct_xkb_SetExplicit(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_KeyModMap(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_KeyModMap(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -78805,7 +78805,7 @@ define internal fastcc void @struct_xkb_KeyModMap(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_KeyVModMap(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_KeyVModMap(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -78846,7 +78846,7 @@ define internal fastcc void @struct_xkb_KeyVModMap(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65026) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65026) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -78888,7 +78888,7 @@ define internal fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_SASetMods(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_SASetMods(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_xkb_SASetMods, align 4
   %5 = load i32, ptr %1, align 4
@@ -78937,7 +78937,7 @@ define internal fastcc void @struct_xkb_SASetMods(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_SASetGroup(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_SASetGroup(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_xkb_SASetGroup, align 4
   %5 = load i32, ptr %1, align 4
@@ -78967,7 +78967,7 @@ define internal fastcc void @struct_xkb_SASetGroup(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_SASetControls(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_SASetControls(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
 .critedge:
   %4 = load i32, ptr @hf_x11_struct_xkb_SASetControls, align 4
   %5 = load i32, ptr %1, align 4
@@ -79003,7 +79003,7 @@ define internal fastcc void @struct_xkb_SASetControls(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_SymInterpret(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_SymInterpret(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -79065,7 +79065,7 @@ define internal fastcc void @struct_xkb_SymInterpret(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65026) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65026) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -79108,7 +79108,7 @@ define internal fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -79165,7 +79165,7 @@ define internal fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_KeyAlias(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_KeyAlias(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -79200,7 +79200,7 @@ define internal fastcc void @struct_xkb_KeyAlias(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -79296,7 +79296,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbMapNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xkbMapNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xkb_MapNotify_xkbType, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -79422,7 +79422,7 @@ define internal void @xkbMapNotify(ptr noundef %0, ptr nocapture noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbStateNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xkbStateNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xkb_StateNotify_xkbType, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -79548,7 +79548,7 @@ define internal void @xkbStateNotify(ptr noundef %0, ptr nocapture noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbControlsNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xkbControlsNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xkb_ControlsNotify_xkbType, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -79625,7 +79625,7 @@ define internal void @xkbControlsNotify(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbIndicatorStateNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xkbIndicatorStateNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xkb_IndicatorStateNotify_xkbType, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -79669,7 +79669,7 @@ define internal void @xkbIndicatorStateNotify(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbIndicatorMapNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xkbIndicatorMapNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xkb_IndicatorMapNotify_xkbType, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -79713,7 +79713,7 @@ define internal void @xkbIndicatorMapNotify(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbNamesNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xkbNamesNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xkb_NamesNotify_xkbType, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -79815,7 +79815,7 @@ define internal void @xkbNamesNotify(ptr noundef %0, ptr nocapture noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbCompatMapNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xkbCompatMapNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xkb_CompatMapNotify_xkbType, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -79865,7 +79865,7 @@ define internal void @xkbCompatMapNotify(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbBellNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xkbBellNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xkb_BellNotify_xkbType, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -79932,7 +79932,7 @@ define internal void @xkbBellNotify(ptr noundef %0, ptr nocapture noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbActionMessage(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xkbActionMessage(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xkb_ActionMessage_xkbType, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -79990,7 +79990,7 @@ define internal void @xkbActionMessage(ptr noundef %0, ptr nocapture noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbAccessXNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xkbAccessXNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xkb_AccessXNotify_xkbType, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -80040,7 +80040,7 @@ define internal void @xkbAccessXNotify(ptr noundef %0, ptr nocapture noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbExtensionDeviceNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xkbExtensionDeviceNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xkb_ExtensionDeviceNotify_xkbType, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -80120,7 +80120,7 @@ define internal void @xkbExtensionDeviceNotify(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbUseExtension_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbUseExtension_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15267) #10
@@ -80164,7 +80164,7 @@ define internal void @xkbUseExtension_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbGetState_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbGetState_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15149) #10
@@ -80278,7 +80278,7 @@ define internal void @xkbGetState_Reply(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbGetControls_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbGetControls_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15270) #10
@@ -80459,7 +80459,7 @@ define internal void @xkbGetControls_Reply(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbGetMap_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbGetMap_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15272) #10
@@ -80798,7 +80798,7 @@ define internal void @xkbGetMap_Reply(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbGetCompatMap_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbGetCompatMap_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15274) #10
@@ -80867,7 +80867,7 @@ define internal void @xkbGetCompatMap_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbGetIndicatorState_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbGetIndicatorState_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15276) #10
@@ -80906,7 +80906,7 @@ define internal void @xkbGetIndicatorState_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbGetIndicatorMap_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbGetIndicatorMap_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15278) #10
@@ -80961,7 +80961,7 @@ define internal void @xkbGetIndicatorMap_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbGetNamedIndicator_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbGetNamedIndicator_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15280) #10
@@ -81073,7 +81073,7 @@ define internal void @xkbGetNamedIndicator_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbGetNames_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbGetNames_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15282) #10
@@ -81548,7 +81548,7 @@ listOfCard32.exit264:                             ; preds = %.lr.ph.i261, %261, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbPerClientFlags_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbPerClientFlags_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15284) #10
@@ -81606,7 +81606,7 @@ define internal void @xkbPerClientFlags_Reply(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbListComponents_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbListComponents_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15286) #10
@@ -81699,7 +81699,7 @@ define internal void @xkbListComponents_Reply(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbGetKbdByName_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbGetKbdByName_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15288) #10
@@ -82824,7 +82824,7 @@ listOfCard32.exit815:                             ; preds = %.lr.ph.i812, %634, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbGetDeviceInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbGetDeviceInfo_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15100) #10
@@ -82959,7 +82959,7 @@ define internal void @xkbGetDeviceInfo_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xkbSetDebuggingFlags_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xkbSetDebuggingFlags_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15292) #10
@@ -83013,7 +83013,7 @@ define internal void @xkbSetDebuggingFlags_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_KeyType(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_KeyType(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -83140,7 +83140,7 @@ struct_xkb_KTMapEntry.exit:                       ; preds = %.lr.ph.i, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xkb_Listing(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
+define internal fastcc void @struct_xkb_Listing(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
   %.not36 = icmp eq i32 %4, 0
   br i1 %.not36, label %._crit_edge, label %.lr.ph.preheader
 
@@ -83207,7 +83207,7 @@ define internal fastcc void @struct_xkb_Listing(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xprint(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xprint(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xprint_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -83633,7 +83633,7 @@ xprintPrintPutDocumentData.exit:                  ; preds = %148, %157
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintAttributNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xprintAttributNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_xprint_AttributNotify_detail, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %3) #10
@@ -83652,7 +83652,7 @@ define internal void @xprintAttributNotify(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintPrintQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xprintPrintQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15298) #10
@@ -83691,7 +83691,7 @@ define internal void @xprintPrintQueryVersion_Reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintPrintGetPrinterList_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xprintPrintGetPrinterList_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15300) #10
@@ -83819,7 +83819,7 @@ struct_xprint_PRINTER.exit:                       ; preds = %92, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintPrintGetContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xprintPrintGetContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15302) #10
@@ -83853,7 +83853,7 @@ define internal void @xprintPrintGetContext_Reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintPrintGetScreenOfContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xprintPrintGetScreenOfContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15304) #10
@@ -83887,7 +83887,7 @@ define internal void @xprintPrintGetScreenOfContext_Reply(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintPrintGetDocumentData_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xprintPrintGetDocumentData_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15306) #10
@@ -83944,7 +83944,7 @@ define internal void @xprintPrintGetDocumentData_Reply(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintPrintInputSelected_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xprintPrintInputSelected_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15308) #10
@@ -83983,7 +83983,7 @@ define internal void @xprintPrintInputSelected_Reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintPrintGetAttributes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xprintPrintGetAttributes_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15310) #10
@@ -84030,7 +84030,7 @@ define internal void @xprintPrintGetAttributes_Reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintPrintGetOneAttributes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xprintPrintGetOneAttributes_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15312) #10
@@ -84077,7 +84077,7 @@ define internal void @xprintPrintGetOneAttributes_Reply(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintPrintGetPageDimensions_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xprintPrintGetPageDimensions_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15314) #10
@@ -84136,7 +84136,7 @@ define internal void @xprintPrintGetPageDimensions_Reply(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintPrintQueryScreens_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xprintPrintQueryScreens_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15316) #10
@@ -84202,7 +84202,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintPrintSetImageResolution_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xprintPrintSetImageResolution_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15318) #10
@@ -84236,7 +84236,7 @@ define internal void @xprintPrintSetImageResolution_Reply(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xprintPrintGetImageResolution_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xprintPrintGetImageResolution_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15320) #10
@@ -84270,7 +84270,7 @@ define internal void @xprintPrintGetImageResolution_Reply(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xselinux(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xselinux(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xselinux_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -84505,7 +84505,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -84544,7 +84544,7 @@ define internal void @xselinuxQueryVersion_Reply(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetDeviceCreateContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetDeviceCreateContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15324) #10
@@ -84591,7 +84591,7 @@ define internal void @xselinuxGetDeviceCreateContext_Reply(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetDeviceContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetDeviceContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15326) #10
@@ -84638,7 +84638,7 @@ define internal void @xselinuxGetDeviceContext_Reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetWindowCreateContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetWindowCreateContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15328) #10
@@ -84685,7 +84685,7 @@ define internal void @xselinuxGetWindowCreateContext_Reply(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetWindowContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetWindowContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15330) #10
@@ -84732,7 +84732,7 @@ define internal void @xselinuxGetWindowContext_Reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetPropertyCreateContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetPropertyCreateContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15332) #10
@@ -84779,7 +84779,7 @@ define internal void @xselinuxGetPropertyCreateContext_Reply(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetPropertyUseContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetPropertyUseContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15334) #10
@@ -84826,7 +84826,7 @@ define internal void @xselinuxGetPropertyUseContext_Reply(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetPropertyContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetPropertyContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15336) #10
@@ -84873,7 +84873,7 @@ define internal void @xselinuxGetPropertyContext_Reply(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetPropertyDataContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetPropertyDataContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15338) #10
@@ -84920,7 +84920,7 @@ define internal void @xselinuxGetPropertyDataContext_Reply(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxListProperties_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxListProperties_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15340) #10
@@ -84962,7 +84962,7 @@ define internal void @xselinuxListProperties_Reply(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetSelectionCreateContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetSelectionCreateContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15342) #10
@@ -85009,7 +85009,7 @@ define internal void @xselinuxGetSelectionCreateContext_Reply(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetSelectionUseContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetSelectionUseContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15344) #10
@@ -85056,7 +85056,7 @@ define internal void @xselinuxGetSelectionUseContext_Reply(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetSelectionContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetSelectionContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15346) #10
@@ -85103,7 +85103,7 @@ define internal void @xselinuxGetSelectionContext_Reply(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetSelectionDataContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetSelectionDataContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15348) #10
@@ -85150,7 +85150,7 @@ define internal void @xselinuxGetSelectionDataContext_Reply(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxListSelections_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxListSelections_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15350) #10
@@ -85192,7 +85192,7 @@ define internal void @xselinuxListSelections_Reply(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xselinuxGetClientContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xselinuxGetClientContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15352) #10
@@ -85239,7 +85239,7 @@ define internal void @xselinuxGetClientContext_Reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xselinux_ListItem(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @struct_xselinux_ListItem(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -85340,7 +85340,7 @@ define internal fastcc void @struct_xselinux_ListItem(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xtest(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xtest(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xtest_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -85480,7 +85480,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xtestGetVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xtestGetVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14746) #10
@@ -85514,7 +85514,7 @@ define internal void @xtestGetVersion_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xtestCompareCursor_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xtestCompareCursor_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15356) #10
@@ -85543,7 +85543,7 @@ define internal void @xtestCompareCursor_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xv(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xv(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xv_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -86222,7 +86222,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvPortNotify(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal void @xvPortNotify(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = load i32, ptr @hf_x11_unused, align 4
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #10
@@ -86256,7 +86256,7 @@ define internal void @xvPortNotify(ptr noundef %0, ptr nocapture noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvQueryExtension_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvQueryExtension_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15363) #10
@@ -86295,7 +86295,7 @@ define internal void @xvQueryExtension_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvQueryAdaptors_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvQueryAdaptors_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15365) #10
@@ -86457,7 +86457,7 @@ struct_xv_AdaptorInfo.exit:                       ; preds = %struct_xv_Format.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvQueryEncodings_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvQueryEncodings_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15367) #10
@@ -86587,7 +86587,7 @@ struct_xv_EncodingInfo.exit:                      ; preds = %98, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvGrabPort_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvGrabPort_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15369) #10
@@ -86613,7 +86613,7 @@ define internal void @xvGrabPort_Reply(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvQueryBestSize_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvQueryBestSize_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15371) #10
@@ -86652,7 +86652,7 @@ define internal void @xvQueryBestSize_Reply(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvGetPortAttribute_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvGetPortAttribute_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15373) #10
@@ -86686,7 +86686,7 @@ define internal void @xvGetPortAttribute_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvQueryPortAttributes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvQueryPortAttributes_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15375) #10
@@ -86799,7 +86799,7 @@ struct_xv_AttributeInfo.exit:                     ; preds = %83, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvListImageFormats_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvListImageFormats_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15377) #10
@@ -86841,7 +86841,7 @@ define internal void @xvListImageFormats_Reply(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvQueryImageAttributes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvQueryImageAttributes_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15379) #10
@@ -86943,7 +86943,7 @@ listOfCard32.exit65:                              ; preds = %.lr.ph.i62, %listOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_xv_ImageFormatInfo(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @struct_xv_ImageFormatInfo(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -87094,7 +87094,7 @@ define internal fastcc void @struct_xv_ImageFormatInfo(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dispatch_xvmc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @dispatch_xvmc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_x11_xvmc_extension_minor, align 4
   %8 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %7, i32 noundef %4)
@@ -87252,7 +87252,7 @@ requestLength.exit:                               ; preds = %5, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvmcQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvmcQueryVersion_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
@@ -87291,7 +87291,7 @@ define internal void @xvmcQueryVersion_Reply(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvmcListSurfaceTypes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvmcListSurfaceTypes_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15383) #10
@@ -87393,7 +87393,7 @@ struct_xvmc_SurfaceInfo.exit:                     ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvmcCreateContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvmcCreateContext_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15094) #10
@@ -87469,7 +87469,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvmcCreateSurface_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvmcCreateSurface_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15386) #10
@@ -87530,7 +87530,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvmcCreateSubpicture_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvmcCreateSubpicture_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15388) #10
@@ -87616,7 +87616,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xvmcListSubpictureTypes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal void @xvmcListSubpictureTypes_Reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15390) #10
@@ -87661,10 +87661,10 @@ define internal void @xvmcListSubpictureTypes_Reply(ptr noundef %0, ptr nocaptur
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7
@@ -87685,7 +87685,7 @@ declare i16 @llvm.ctpop.i16(i16) #7
 declare i8 @llvm.ctpop.i8(i8) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -157,7 +157,7 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   %71 = load i64, ptr %10, align 8
   %72 = add i64 %71, 1
   store i64 %72, ptr %10, align 8
-  %73 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef %0, i8 noundef zeroext 11) #3
+  %73 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #3
   %.not79 = icmp eq i32 %73, 0
   br i1 %.not79, label %74, label %.loopexit
 

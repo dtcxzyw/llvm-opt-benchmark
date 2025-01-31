@@ -37,7 +37,7 @@ define internal i32 @ipv6header_mt6_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
+define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = alloca %struct.ipv6_opt_hdr, align 2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -320,7 +320,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 -22, 1) i32 @ipv6header_mt6_check(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal range(i32 -22, 1) i32 @ipv6header_mt6_check(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -342,10 +342,10 @@ define internal range(i32 -22, 1) i32 @ipv6header_mt6_check(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

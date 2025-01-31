@@ -4056,7 +4056,7 @@ ehcleanup80:                                      ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_Z8inf_rootRK12inf_rationalj(ptr noalias nocapture sret(%class.inf_rational) align 8 initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 64)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %r, i32 noundef %n) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z8inf_rootRK12inf_rationalj(ptr noalias sret(%class.inf_rational) align 8 captures(none) initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 64)) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %r, i32 noundef %n) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
@@ -4854,10 +4854,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

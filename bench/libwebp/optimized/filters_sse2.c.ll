@@ -18,7 +18,7 @@ define hidden void @VP8FiltersInitSSE2() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @HorizontalUnfilter_SSE2(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 1)) %2, i32 noundef %3) #1 {
+define internal void @HorizontalUnfilter_SSE2(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 1)) %2, i32 noundef %3) #1 {
   %5 = load i8, ptr %1, align 1
   %6 = icmp eq ptr %0, null
   br i1 %6, label %9, label %7
@@ -105,7 +105,7 @@ define internal void @HorizontalUnfilter_SSE2(ptr noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VerticalUnfilter_SSE2(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) #1 {
+define internal void @VerticalUnfilter_SSE2(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) #1 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %38
 
@@ -243,7 +243,7 @@ HorizontalUnfilter_SSE2.exit:                     ; preds = %.lr.ph50, %.lr.ph61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @GradientUnfilter_SSE2(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 1)) %2, i32 noundef %3) #1 {
+define internal void @GradientUnfilter_SSE2(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 1)) %2, i32 noundef %3) #1 {
   %5 = icmp eq ptr %0, null
   %6 = load i8, ptr %1, align 1
   br i1 %5, label %7, label %38
@@ -445,7 +445,7 @@ HorizontalUnfilter_SSE2.exit:                     ; preds = %.lr.ph101.i, %.lr.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @HorizontalFilter_SSE2(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) #1 {
+define internal void @HorizontalFilter_SSE2(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4) #1 {
   %6 = load i8, ptr %0, align 1
   store i8 %6, ptr %4, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -640,7 +640,7 @@ DoHorizontalFilter_SSE2.exit:                     ; preds = %.preheader.i36.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VerticalFilter_SSE2(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) #1 {
+define internal void @VerticalFilter_SSE2(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4) #1 {
   %6 = load i8, ptr %0, align 1
   store i8 %6, ptr %4, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -808,7 +808,7 @@ DoVerticalFilter_SSE2.exit:                       ; preds = %PredictLineTop_SSE2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @GradientFilter_SSE2(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) #1 {
+define internal void @GradientFilter_SSE2(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4) #1 {
   %6 = load i8, ptr %0, align 1
   store i8 %6, ptr %4, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1

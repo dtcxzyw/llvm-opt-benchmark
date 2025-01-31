@@ -471,7 +471,7 @@ $_ZTISt3mapIN8QuantLib4DateENS0_19EnergyDailyPositionESt4lessIS1_ESaISt4pairIKS1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -556,7 +556,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -675,10 +675,10 @@ _ZN8QuantLib10LazyObject6updateEv.exit:           ; preds = %entry, %if.end9.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15EnergyBasisSwapC2ERKNS_8CalendarEN5boost10shared_ptrINS_14CommodityIndexEEES7_S7_bRKNS_8CurrencyESA_RKSt6vectorINS5_INS_13PricingPeriodEEESaISD_EENS_17CommodityUnitCostERKNS_13CommodityTypeERKNS5_ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_3anyESt4lessISS_ESaISt4pairIKSS_ST_EEEEENS_6HandleINS_18YieldTermStructureEEES16_S16_(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, ptr nocapture noundef %spreadIndex, ptr nocapture noundef %payIndex, ptr nocapture noundef %receiveIndex, i1 noundef zeroext %spreadToPayLeg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payCurrency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %receiveCurrency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pricingPeriods, ptr nocapture noundef %basis, ptr noundef nonnull align 8 dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %secondaryCosts, ptr nocapture noundef %payLegTermStructure, ptr nocapture noundef %receiveLegTermStructure, ptr nocapture noundef %discountTermStructure) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15EnergyBasisSwapC2ERKNS_8CalendarEN5boost10shared_ptrINS_14CommodityIndexEEES7_S7_bRKNS_8CurrencyESA_RKSt6vectorINS5_INS_13PricingPeriodEEESaISD_EENS_17CommodityUnitCostERKNS_13CommodityTypeERKNS5_ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_3anyESt4lessISS_ESaISt4pairIKSS_ST_EEEEENS_6HandleINS_18YieldTermStructureEEES16_S16_(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %calendar, ptr noundef captures(none) %spreadIndex, ptr noundef captures(none) %payIndex, ptr noundef captures(none) %receiveIndex, i1 noundef zeroext %spreadToPayLeg, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payCurrency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %receiveCurrency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %pricingPeriods, ptr noundef captures(none) %basis, ptr noundef nonnull align 8 dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %secondaryCosts, ptr noundef captures(none) %payLegTermStructure, ptr noundef captures(none) %receiveLegTermStructure, ptr noundef captures(none) %discountTermStructure) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Calendar", align 8
   %agg.tmp3 = alloca %"class.QuantLib::Currency", align 8
@@ -2780,7 +2780,7 @@ _ZN8QuantLib15EnergyCommodityD2Ev.exit:           ; preds = %_ZN8QuantLib8Calend
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15EnergyBasisSwapC1ERKNS_8CalendarEN5boost10shared_ptrINS_14CommodityIndexEEES7_S7_bRKNS_8CurrencyESA_RKSt6vectorINS5_INS_13PricingPeriodEEESaISD_EENS_17CommodityUnitCostERKNS_13CommodityTypeERKNS5_ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_3anyESt4lessISS_ESaISt4pairIKSS_ST_EEEEENS_6HandleINS_18YieldTermStructureEEES16_S16_(ptr noundef nonnull align 8 dereferenceable(520) initializes((520, 528), (536, 540), (544, 552)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, ptr nocapture noundef %spreadIndex, ptr nocapture noundef %payIndex, ptr nocapture noundef %receiveIndex, i1 noundef zeroext %spreadToPayLeg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payCurrency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %receiveCurrency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pricingPeriods, ptr nocapture noundef %basis, ptr noundef nonnull align 8 dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %secondaryCosts, ptr nocapture noundef %payLegTermStructure, ptr nocapture noundef %receiveLegTermStructure, ptr nocapture noundef %discountTermStructure) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15EnergyBasisSwapC1ERKNS_8CalendarEN5boost10shared_ptrINS_14CommodityIndexEEES7_S7_bRKNS_8CurrencyESA_RKSt6vectorINS5_INS_13PricingPeriodEEESaISD_EENS_17CommodityUnitCostERKNS_13CommodityTypeERKNS5_ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_3anyESt4lessISS_ESaISt4pairIKSS_ST_EEEEENS_6HandleINS_18YieldTermStructureEEES16_S16_(ptr noundef nonnull align 8 dereferenceable(520) initializes((520, 528), (536, 540), (544, 552)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %calendar, ptr noundef captures(none) %spreadIndex, ptr noundef captures(none) %payIndex, ptr noundef captures(none) %receiveIndex, i1 noundef zeroext %spreadToPayLeg, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payCurrency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %receiveCurrency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %pricingPeriods, ptr noundef captures(none) %basis, ptr noundef nonnull align 8 dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %secondaryCosts, ptr noundef captures(none) %payLegTermStructure, ptr noundef captures(none) %receiveLegTermStructure, ptr noundef captures(none) %discountTermStructure) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Calendar", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Currency", align 8
@@ -11203,7 +11203,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %entry
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs, i64 noundef %call.i.i)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull %__rhs, i64 noundef %call.i.i)
   %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !108
   %2 = load ptr, ptr %call2.i, align 8, !tbaa !99
@@ -11243,7 +11243,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__lhs) #28
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__rhs, i64 noundef 0, i64 noundef 0, ptr noundef %__lhs, i64 noundef %call.i.i)
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__rhs, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %__lhs, i64 noundef %call.i.i)
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !108
   %1 = load ptr, ptr %call3.i.i, align 8, !tbaa !99
@@ -16555,7 +16555,7 @@ _ZN5boost10shared_ptrIN8QuantLib14CommodityIndexEED2Ev.exit74: ; preds = %_ZN5bo
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -16962,7 +16962,7 @@ cleanup76:                                        ; preds = %if.end12.i79, %if.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeIN8QuantLib4DateESt4pairIKS1_N5boost10shared_ptrINS0_17CommodityCashFlowEEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17452,7 +17452,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #23
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17600,7 +17600,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #23
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {

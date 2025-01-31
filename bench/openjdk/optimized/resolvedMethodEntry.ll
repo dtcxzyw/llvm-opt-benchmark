@@ -39,7 +39,7 @@ $_ZN9LogPrefixILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @switch.table._ZNK19ResolvedMethodEntry8print_onEP12outputStream = private unnamed_addr constant [10 x i8] c"\08\04\05\09\0A\0B\06\07\0C\0E", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN19ResolvedMethodEntry30check_no_old_or_obsolete_entryEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN19ResolvedMethodEntry30check_no_old_or_obsolete_entryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -62,7 +62,7 @@ define hidden noundef zeroext i1 @_ZN19ResolvedMethodEntry30check_no_old_or_obso
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19ResolvedMethodEntry11reset_entryEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (10, 16), (18, 21), (22, 24)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19ResolvedMethodEntry11reset_entryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8), (10, 16), (18, 21), (22, 24)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 32
@@ -92,10 +92,10 @@ define hidden void @_ZN19ResolvedMethodEntry11reset_entryEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19ResolvedMethodEntry23remove_unshareable_infoEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (10, 16), (18, 21), (22, 24)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19ResolvedMethodEntry23remove_unshareable_infoEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8), (10, 16), (18, 21), (22, 24)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 32
@@ -125,7 +125,7 @@ _ZN19ResolvedMethodEntry11reset_entryEv.exit:     ; preds = %5, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ResolvedMethodEntry17mark_and_relocateEP12ConstantPool(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN19ResolvedMethodEntry17mark_and_relocateEP12ConstantPool(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5

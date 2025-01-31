@@ -1049,7 +1049,7 @@ while.end12:                                      ; preds = %while.end8, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_event_init(ptr nocapture noundef writeonly initializes((0, 5)) %ev, i1 noundef zeroext %init) local_unnamed_addr #7 {
+define dso_local void @qemu_event_init(ptr noundef writeonly captures(none) initializes((0, 5)) %ev, i1 noundef zeroext %init) local_unnamed_addr #7 {
 entry:
   %not.init = xor i1 %init, true
   %cond = zext i1 %not.init to i32
@@ -1060,7 +1060,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_event_destroy(ptr nocapture noundef %ev) local_unnamed_addr #1 {
+define dso_local void @qemu_event_destroy(ptr noundef captures(none) %ev) local_unnamed_addr #1 {
 entry:
   %initialized = getelementptr inbounds nuw i8, ptr %ev, i64 4
   %0 = load i8, ptr %initialized, align 4
@@ -1110,7 +1110,7 @@ if.end14:                                         ; preds = %while.end6, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_event_reset(ptr nocapture noundef %ev) local_unnamed_addr #1 {
+define dso_local void @qemu_event_reset(ptr noundef captures(none) %ev) local_unnamed_addr #1 {
 entry:
   %initialized = getelementptr inbounds nuw i8, ptr %ev, i64 4
   %0 = load i8, ptr %initialized, align 4
@@ -1321,7 +1321,7 @@ if.end10:                                         ; preds = %if.end
 declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_thread_set_affinity(ptr nocapture noundef readonly %thread, ptr noundef %host_cpus, i64 noundef %nbits) local_unnamed_addr #1 {
+define dso_local i32 @qemu_thread_set_affinity(ptr noundef readonly captures(none) %thread, ptr noundef %host_cpus, i64 noundef %nbits) local_unnamed_addr #1 {
 entry:
   %sub = add i64 %nbits, 63
   %0 = lshr i64 %sub, 3
@@ -1396,7 +1396,7 @@ while.end:                                        ; preds = %for.inc.i, %cond.en
 declare ptr @__sched_cpualloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare i64 @find_next_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
@@ -1407,7 +1407,7 @@ declare i32 @pthread_setaffinity_np(i64 noundef, i64 noundef, ptr noundef) local
 declare void @__sched_cpufree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_thread_get_affinity(ptr nocapture noundef readonly %thread, ptr nocapture noundef %host_cpus, ptr nocapture noundef writeonly %nbits) local_unnamed_addr #1 {
+define dso_local i32 @qemu_thread_get_affinity(ptr noundef readonly captures(none) %thread, ptr noundef captures(none) %host_cpus, ptr noundef writeonly captures(none) %nbits) local_unnamed_addr #1 {
 entry:
   %call28 = tail call ptr @__sched_cpualloc(i64 noundef 1024) #21
   %tobool.not29 = icmp eq ptr %call28, null
@@ -1495,7 +1495,7 @@ return:                                           ; preds = %if.then4, %for.end
 declare i32 @pthread_getaffinity_np(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_thread_get_self(ptr nocapture noundef writeonly initializes((0, 8)) %thread) local_unnamed_addr #11 {
+define dso_local void @qemu_thread_get_self(ptr noundef writeonly captures(none) initializes((0, 8)) %thread) local_unnamed_addr #11 {
 entry:
   %call = tail call i64 @pthread_self() #24
   store i64 %call, ptr %thread, align 8
@@ -1506,7 +1506,7 @@ entry:
 declare i64 @pthread_self() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qemu_thread_is_self(ptr nocapture noundef readonly %thread) local_unnamed_addr #13 {
+define dso_local zeroext i1 @qemu_thread_is_self(ptr noundef readonly captures(none) %thread) local_unnamed_addr #13 {
 entry:
   %call = tail call i64 @pthread_self() #24
   %0 = load i64, ptr %thread, align 8
@@ -1529,7 +1529,7 @@ entry:
 declare void @pthread_exit(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_thread_join(ptr nocapture noundef readonly %thread) local_unnamed_addr #1 {
+define dso_local ptr @qemu_thread_join(ptr noundef readonly captures(none) %thread) local_unnamed_addr #1 {
 entry:
   %ret = alloca ptr, align 8
   %0 = load i64, ptr %thread, align 8
@@ -1549,7 +1549,7 @@ if.end:                                           ; preds = %entry
 declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #2
@@ -1558,7 +1558,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 declare void @abort() local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #5
 
@@ -1610,10 +1610,10 @@ declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #18
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

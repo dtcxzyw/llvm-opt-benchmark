@@ -186,15 +186,15 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -1053,7 +1053,7 @@ _ZNSt6vectorI16DirectionalLightSaIS0_EE12emplace_backIJRfN3irr4core8vector3dIfEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14ShadowRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((137, 138)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ShadowRendererD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(216) initializes((137, 138)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN14ShadowRenderer7disableEv(ptr noundef nonnull align 8 dereferenceable(216) %this)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1164,7 +1164,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ShadowRenderer7disableEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((137, 138)) %this) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN14ShadowRenderer7disableEv(ptr noundef nonnull align 8 captures(none) dereferenceable(216) initializes((137, 138)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_shadows_enabled = getelementptr inbounds nuw i8, ptr %this, i64 137
   store i8 0, ptr %m_shadows_enabled, align 1, !tbaa !36
@@ -1322,7 +1322,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN14ShadowRenderer7preInitEP21IWritableShaderSource(ptr noundef %shsrc) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
@@ -1477,10 +1477,10 @@ if.end:                                           ; preds = %if.then, %_ZNSt7__c
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN14ShadowRenderer10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN14ShadowRenderer10initializeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_driver = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_driver, align 8, !tbaa !28
@@ -1595,7 +1595,7 @@ cleanup:                                          ; preds = %if.end, %_ZSt4endlI
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #14
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN14ShadowRenderer13createShadersEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ShadowRenderer13createShadersEv(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i1252 = alloca i64, align 8
   %__dnew.i.i1185 = alloca i64, align 8
@@ -4671,7 +4671,7 @@ ehcleanup471:                                     ; preds = %ehcleanup466, %ehcl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(429) ptr @_ZN14ShadowRenderer19getDirectionalLightEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, i32 noundef %index) local_unnamed_addr #15 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(429) ptr @_ZN14ShadowRenderer19getDirectionalLightEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, i32 noundef %index) local_unnamed_addr #15 align 2 {
 entry:
   %m_light_list = getelementptr inbounds nuw i8, ptr %this, i64 64
   %conv = zext i32 %index to i64
@@ -4681,7 +4681,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 -21350398233460129, 21350398233460130) i64 @_ZNK14ShadowRenderer24getDirectionalLightCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) local_unnamed_addr #15 align 2 {
+define dso_local noundef range(i64 -21350398233460129, 21350398233460130) i64 @_ZNK14ShadowRenderer24getDirectionalLightCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #15 align 2 {
 entry:
   %m_light_list = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -4695,7 +4695,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef float @_ZNK14ShadowRenderer15getMaxShadowFarEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) local_unnamed_addr #16 align 2 {
+define dso_local noundef float @_ZNK14ShadowRenderer15getMaxShadowFarEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #16 align 2 {
 entry:
   %m_light_list = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_light_list, align 8, !tbaa !55
@@ -4705,7 +4705,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ShadowRenderer18setShadowIntensityEf(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((112, 116), (137, 138)) %this, float noundef %shadow_intensity) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN14ShadowRenderer18setShadowIntensityEf(ptr noundef nonnull align 8 captures(none) dereferenceable(216) initializes((112, 116), (137, 138)) %this, float noundef %shadow_intensity) local_unnamed_addr #7 align 2 {
 entry:
   %m_shadow_strength_gamma = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load float, ptr %m_shadow_strength_gamma, align 4, !tbaa !41
@@ -4732,7 +4732,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ShadowRenderer19addNodeToShadowListEPN3irr5scene10ISceneNodeE13E_SHADOW_MODE(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %node, i8 noundef zeroext %shadowMode) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ShadowRenderer19addNodeToShadowListEPN3irr5scene10ISceneNodeE13E_SHADOW_MODE(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this, ptr noundef %node, i8 noundef zeroext %shadowMode) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_shadow_node_array = getelementptr inbounds nuw i8, ptr %this, i64 88
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -4844,7 +4844,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ShadowRenderer24removeNodeFromShadowListEPN3irr5scene10ISceneNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %node) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN14ShadowRenderer24removeNodeFromShadowListEPN3irr5scene10ISceneNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this, ptr noundef %node) local_unnamed_addr #7 align 2 {
 entry:
   %vtable1.i = load ptr, ptr %node, align 8, !tbaa !12
   %vfn2.i = getelementptr inbounds nuw i8, ptr %vtable1.i, i64 176
@@ -7686,7 +7686,7 @@ eh.resume:                                        ; preds = %ehcleanup161, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN14ShadowRenderer12getSMTextureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3irr5video13ECOLOR_FORMATEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %shadow_map_name, i32 noundef %texture_format, i1 noundef zeroext %force_creation) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN14ShadowRenderer12getSMTextureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3irr5video13ECOLOR_FORMATEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %shadow_map_name, i32 noundef %texture_format, i1 noundef zeroext %force_creation) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.irr::core::dimension2d", align 4
   %ref.tmp6 = alloca %"class.irr::core::string", align 8
@@ -7824,7 +7824,7 @@ eh.resume:                                        ; preds = %_ZN3irr4core6string
 declare { <2 x float>, float } @_ZNK16DirectionalLight18getFuturePlayerPosEv(ptr noundef nonnull align 4 dereferenceable(429)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ShadowRenderer15renderShadowMapEPN3irr5video8ITextureER16DirectionalLightNS0_5scene24E_SCENE_NODE_RENDER_PASSE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr nocapture readnone %target, ptr noundef nonnull align 4 dereferenceable(429) %light, i32 noundef %pass) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ShadowRenderer15renderShadowMapEPN3irr5video8ITextureER16DirectionalLightNS0_5scene24E_SCENE_NODE_RENDER_PASSE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr readnone captures(none) %target, ptr noundef nonnull align 4 dereferenceable(429) %light, i32 noundef %pass) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %material = alloca %"class.irr::video::SMaterial", align 8
   %m_driver = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -8056,7 +8056,7 @@ ehcleanup:                                        ; preds = %lpad48, %lpad
 declare void @_ZN16DirectionalLight13commitFrustumEv(ptr noundef nonnull align 4 dereferenceable(429)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ShadowRenderer6updateEPN3irr5video8ITextureE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef readnone %outputTarget) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN14ShadowRenderer6updateEPN3irr5video8ITextureE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef readnone captures(none) %outputTarget) local_unnamed_addr #5 align 2 {
 entry:
   %m_shadows_enabled = getelementptr inbounds nuw i8, ptr %this, i64 137
   %0 = load i8, ptr %m_shadows_enabled, align 1, !tbaa !36, !range !72, !noundef !73
@@ -8170,7 +8170,7 @@ if.end41:                                         ; preds = %if.end25, %if.then6
 declare { <2 x float>, float } @_ZNK16DirectionalLight12getPlayerPosEv(ptr noundef nonnull align 4 dereferenceable(429)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ShadowRenderer19renderShadowObjectsEPN3irr5video8ITextureER16DirectionalLight(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr nocapture readnone %target, ptr noundef nonnull align 4 dereferenceable(429) %light) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ShadowRenderer19renderShadowObjectsEPN3irr5video8ITextureER16DirectionalLight(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr readnone captures(none) %target, ptr noundef nonnull align 4 dereferenceable(429) %light) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_driver = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_driver, align 8, !tbaa !28
@@ -8695,7 +8695,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit252:                 ; preds = %if.then.i.i.i251, %
 declare void @_ZN16shadowScreenQuad6renderEPN3irr5video12IVideoDriverE(ptr noundef nonnull align 8 dereferenceable(400), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN14ShadowRenderer9drawDebugEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #17 align 2 {
+define dso_local void @_ZN14ShadowRenderer9drawDebugEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #17 align 2 {
 entry:
   ret void
 }
@@ -9171,7 +9171,7 @@ declare noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight1
 declare noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight19getProjectionMatrixEv(ptr noundef nonnull align 4 dereferenceable(429)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN14ShadowRenderer14mixShadowsQuadEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #17 align 2 {
+define dso_local void @_ZN14ShadowRenderer14mixShadowsQuadEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #17 align 2 {
 entry:
   ret void
 }
@@ -9182,7 +9182,7 @@ declare void @_Z13getShaderPathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ShadowRenderer14readShaderFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %path) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ShadowRenderer14readShaderFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %path) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %prefix = alloca %"class.std::__cxx11::basic_string", align 8
   %content = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9944,7 +9944,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #23
@@ -10161,7 +10161,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_dynamicshadowsrender.cpp() #24 section ".text.startup" personality ptr @__gxx_personality_v0 {

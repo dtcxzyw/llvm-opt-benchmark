@@ -26,7 +26,7 @@ define dso_local noundef ptr @binaryheap_allocate(i32 noundef %0, ptr noundef %1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @binaryheap_reset(ptr nocapture noundef writeonly initializes((0, 4), (8, 9)) %0) local_unnamed_addr #2 {
+define dso_local void @binaryheap_reset(ptr noundef writeonly captures(none) initializes((0, 4), (8, 9)) %0) local_unnamed_addr #2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8
@@ -42,7 +42,7 @@ define dso_local void @binaryheap_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @binaryheap_add_unordered(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @binaryheap_add_unordered(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -73,7 +73,7 @@ declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_u
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @binaryheap_build(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @binaryheap_build(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = add i32 %2, -2
   %4 = icmp sgt i32 %3, -2
@@ -176,7 +176,7 @@ sift_down.exit:                                   ; preds = %49
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @binaryheap_add(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @binaryheap_add(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -235,14 +235,14 @@ sift_up.exit:                                     ; preds = %28, %18, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @binaryheap_first(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local ptr @binaryheap_first(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @binaryheap_remove_first(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @binaryheap_remove_first(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -343,7 +343,7 @@ sift_down.exit:                                   ; preds = %49
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @binaryheap_remove_node(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @binaryheap_remove_node(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -477,7 +477,7 @@ sift_down.exit:                                   ; preds = %70
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @binaryheap_replace_first(ptr nocapture noundef initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @binaryheap_replace_first(ptr noundef captures(none) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   %4 = load i32, ptr %0, align 8

@@ -504,7 +504,7 @@ declare void @pgstat_assoc_relation(ptr noundef) local_unnamed_addr #2
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gistScanPage(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @gistScanPage(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca %struct.GISTENTRY, align 8
   %8 = alloca i8, align 1
@@ -1130,7 +1130,7 @@ gistindex_keytest.exit:                           ; preds = %index_getattr.exit1
   %362 = load ptr, ptr %83, align 8
   %363 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %362, ptr @CurrentMemoryContext, align 8
-  %364 = call ptr @gistFetchTuple(ptr noundef %12, ptr noundef %14, ptr noundef %121) #8
+  %364 = call ptr @gistFetchTuple(ptr noundef %12, ptr noundef %14, ptr noundef nonnull %121) #8
   %365 = load i16, ptr %81, align 8
   %366 = zext i16 %365 to i64
   %.idx118 = mul nuw nsw i64 %366, 24
@@ -1176,7 +1176,7 @@ gistindex_keytest.exit:                           ; preds = %index_getattr.exit1
   br i1 %388, label %389, label %401
 
 389:                                              ; preds = %381
-  %390 = call ptr @gistFetchTuple(ptr noundef %12, ptr noundef %14, ptr noundef %121) #8
+  %390 = call ptr @gistFetchTuple(ptr noundef %12, ptr noundef %14, ptr noundef nonnull %121) #8
   %391 = getelementptr inbounds nuw i8, ptr %376, i64 40
   store ptr %390, ptr %391, align 8
   br label %401
@@ -1221,14 +1221,14 @@ gistindex_keytest.exit:                           ; preds = %index_getattr.exit1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @ProcessInterrupts() local_unnamed_addr #2
 
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gistgetbitmap(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i64 @gistgetbitmap(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.GISTSearchItem, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1314,7 +1314,7 @@ getNextGISTSearchItem.exit:                       ; preds = %32, %43
 
 43:                                               ; preds = %40, %42
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 56
-  call fastcc void @gistScanPage(ptr noundef %0, ptr noundef %39, ptr noundef nonnull %44, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @gistScanPage(ptr noundef nonnull %0, ptr noundef %39, ptr noundef nonnull %44, ptr noundef %1, ptr noundef nonnull %3)
   tail call void @pfree(ptr noundef nonnull %39) #8
   %.val = load ptr, ptr %35, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -1398,10 +1398,10 @@ declare void @llvm.assume(i1 noundef) #4
 declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

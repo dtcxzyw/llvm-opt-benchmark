@@ -36,21 +36,21 @@ $_ZTSN5boost9unit_test13test_observerE = comdat any
 @_ZTSN5boost9unit_test13test_observerE = linkonce_odr constant [34 x i8] c"N5boost9unit_test13test_observerE\00", comdat, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost9unit_test25framework_init_observer_t5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((8, 9)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN5boost9unit_test25framework_init_observer_t5clearEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((8, 9)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost9unit_test25framework_init_observer_t10test_startEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((8, 9)) %0, i64 %1, i64 %2) unnamed_addr #0 align 2 {
+define void @_ZN5boost9unit_test25framework_init_observer_t10test_startEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((8, 9)) %0, i64 %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %4, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost9unit_test25framework_init_observer_t16assertion_resultENS0_16assertion_resultE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN5boost9unit_test25framework_init_observer_t16assertion_resultENS0_16assertion_resultE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %cond = icmp eq i32 %1, 0
   br i1 %cond, label %3, label %5
 
@@ -64,21 +64,21 @@ define void @_ZN5boost9unit_test25framework_init_observer_t16assertion_resultENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost9unit_test25framework_init_observer_t16exception_caughtERKNS_19execution_exceptionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((8, 9)) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #0 align 2 {
+define void @_ZN5boost9unit_test25framework_init_observer_t16exception_caughtERKNS_19execution_exceptionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((8, 9)) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %3, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost9unit_test25framework_init_observer_t12test_abortedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((8, 9)) %0) unnamed_addr #0 align 2 {
+define void @_ZN5boost9unit_test25framework_init_observer_t12test_abortedEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((8, 9)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5boost9unit_test25framework_init_observer_t10has_failedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK5boost9unit_test25framework_init_observer_t10has_failedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8, !tbaa !3, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1

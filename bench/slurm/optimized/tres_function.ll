@@ -54,7 +54,7 @@ define dso_local i32 @sacctmgr_list_tres(i32 noundef %0, ptr noundef %1) local_u
   %16 = trunc i64 %15 to i32
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 5)
   %18 = zext nneg i32 %17 to i64
-  %19 = tail call i32 @xstrncasecmp(ptr noundef %14, ptr noundef nonnull @.str.1, i64 noundef %18) #6
+  %19 = tail call i32 @xstrncasecmp(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, i64 noundef %18) #6
   %.not103.us = icmp eq i32 %19, 0
   br i1 %.not103.us, label %25, label %20
 
@@ -88,7 +88,7 @@ _set_cond.exit.us:                                ; preds = %25, %20
   %35 = trunc i64 %34 to i32
   %36 = tail call i32 @llvm.smax.i32(i32 %35, i32 5)
   %37 = zext nneg i32 %36 to i64
-  %38 = tail call i32 @xstrncasecmp(ptr noundef %33, ptr noundef nonnull @.str.1, i64 noundef %37) #6
+  %38 = tail call i32 @xstrncasecmp(ptr noundef nonnull %33, ptr noundef nonnull @.str.1, i64 noundef %37) #6
   %.not103 = icmp eq i32 %38, 0
   br i1 %.not103, label %44, label %39
 
@@ -497,7 +497,7 @@ declare void @xfree_ptr(ptr noundef) #1
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -522,7 +522,7 @@ declare i32 @data_parser_dump_cli_stdout(i32 noundef, ptr noundef, i32 noundef, 
 declare void @free_openapi_resp_meta(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @sacctmgr_process_format_list(ptr noundef) local_unnamed_addr #1
 
@@ -539,7 +539,7 @@ declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @parse_option_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #4

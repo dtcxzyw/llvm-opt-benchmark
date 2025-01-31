@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_signgam = internal global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define double @lgamma_r(double noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define double @lgamma_r(double noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 1, ptr %1, align 4
   %3 = bitcast double %0 to i64
   %4 = lshr i64 %3, 32

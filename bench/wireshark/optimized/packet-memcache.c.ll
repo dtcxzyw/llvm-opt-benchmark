@@ -323,7 +323,7 @@ dissect_memcache_text.exit:                       ; preds = %16, %13, %10, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_memcache_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal i32 @dissect_memcache_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
   %6 = zext i8 %5 to i32
   %7 = tail call ptr @try_val_to_str(i32 noundef %6, ptr noundef nonnull @magic_vals) #8
@@ -373,7 +373,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_memcache_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_memcache_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 8
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %5) #8
   %7 = add i32 %6, 24
@@ -381,7 +381,7 @@ define internal i32 @get_memcache_pdu_len(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_memcache(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_memcache(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.97) #8
@@ -1263,10 +1263,10 @@ declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @memcache_response_dissector(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6) #0 {
+define internal i32 @memcache_response_dissector(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1371,7 +1371,7 @@ dissect_key.exit.i:                               ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr align 1 %55, i64 %64, i1 false)
   %65 = getelementptr [21 x i8], ptr %15, i64 0, i64 %64
   store i8 0, ptr %65, align 1
-  %66 = call i64 @strtoul(ptr nocapture noundef nonnull %15, ptr noundef null, i32 noundef 10) #8
+  %66 = call i64 @strtoul(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #8
   %67 = trunc i64 %66 to i32
   %68 = load i32, ptr @hf_flags, align 4
   %69 = and i32 %67, 65535
@@ -1392,7 +1392,7 @@ dissect_key.exit.i:                               ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr align 1 %71, i64 %80, i1 false)
   %81 = getelementptr [21 x i8], ptr %15, i64 0, i64 %80
   store i8 0, ptr %81, align 1
-  %82 = call i64 @strtoul(ptr nocapture noundef nonnull %15, ptr noundef null, i32 noundef 10) #8
+  %82 = call i64 @strtoul(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #8
   %83 = trunc i64 %82 to i32
   %84 = load i32, ptr @hf_value_length, align 4
   %85 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %79, i32 noundef %72, i32 noundef %83) #8
@@ -1414,7 +1414,7 @@ dissect_key.exit.i:                               ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr align 1 %86, i64 %95, i1 false)
   %96 = getelementptr [21 x i8], ptr %15, i64 0, i64 %95
   store i8 0, ptr %96, align 1
-  %97 = call i64 @strtoul(ptr nocapture noundef nonnull %15, ptr noundef null, i32 noundef 10) #8
+  %97 = call i64 @strtoul(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #8
   %98 = load i32, ptr @hf_cas, align 4
   %99 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %98, ptr noundef %0, i32 noundef %90, i32 noundef %91, i64 noundef %97) #8
   %100 = call i32 @get_token_len(ptr noundef %86, ptr noundef %26, ptr noundef nonnull %14) #8
@@ -1636,7 +1636,7 @@ sub_1.i70:                                        ; preds = %sub_0.i68
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr align 1 %200, i64 %201, i1 false)
   %202 = getelementptr [21 x i8], ptr %12, i64 0, i64 %201
   store i8 0, ptr %202, align 1
-  %203 = call i64 @strtoul(ptr nocapture noundef nonnull %12, ptr noundef null, i32 noundef 10) #8
+  %203 = call i64 @strtoul(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #8
   %204 = trunc i64 %203 to i32
   %205 = load i32, ptr @hf_slabclass, align 4
   %206 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %205, ptr noundef %0, i32 noundef %199, i32 noundef %195, i32 noundef %204) #8
@@ -1659,7 +1659,7 @@ sub_1.i70:                                        ; preds = %sub_0.i68
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr align 1 %158, i64 %216, i1 false)
   %217 = getelementptr [21 x i8], ptr %12, i64 0, i64 %216
   store i8 0, ptr %217, align 1
-  %218 = call i64 @strtoul(ptr nocapture noundef nonnull %12, ptr noundef null, i32 noundef 10) #8
+  %218 = call i64 @strtoul(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #8
   %219 = trunc i64 %218 to i32
   %220 = load i32, ptr @hf_slabclass, align 4
   %221 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %220, ptr noundef %0, i32 noundef %163, i32 noundef %213, i32 noundef %219) #8
@@ -1852,7 +1852,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %25, i64 %34, i1 false)
   %35 = getelementptr [21 x i8], ptr %9, i64 0, i64 %34
   store i8 0, ptr %35, align 1
-  %36 = call i64 @strtoul(ptr nocapture noundef nonnull %9, ptr noundef null, i32 noundef 10) #8
+  %36 = call i64 @strtoul(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #8
   %37 = trunc i64 %36 to i32
   %38 = load i32, ptr @hf_flags, align 4
   %39 = and i32 %37, 65535
@@ -1873,7 +1873,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %41, i64 %50, i1 false)
   %51 = getelementptr [21 x i8], ptr %9, i64 0, i64 %50
   store i8 0, ptr %51, align 1
-  %52 = call i64 @strtoul(ptr nocapture noundef nonnull %9, ptr noundef null, i32 noundef 10) #8
+  %52 = call i64 @strtoul(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #8
   %53 = trunc i64 %52 to i32
   %54 = load i32, ptr @hf_expiration, align 4
   %55 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %49, i32 noundef %42, i32 noundef %53) #8
@@ -1893,7 +1893,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %56, i64 %65, i1 false)
   %66 = getelementptr [21 x i8], ptr %9, i64 0, i64 %65
   store i8 0, ptr %66, align 1
-  %67 = call i64 @strtoul(ptr nocapture noundef nonnull %9, ptr noundef null, i32 noundef 10) #8
+  %67 = call i64 @strtoul(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #8
   %68 = trunc i64 %67 to i32
   %69 = load i32, ptr @hf_value_length, align 4
   %70 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef %64, i32 noundef %57, i32 noundef %68) #8
@@ -1917,7 +1917,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %71, i64 %82, i1 false)
   %83 = getelementptr [21 x i8], ptr %9, i64 0, i64 %82
   store i8 0, ptr %83, align 1
-  %84 = call i64 @strtoul(ptr nocapture noundef nonnull %9, ptr noundef null, i32 noundef 10) #8
+  %84 = call i64 @strtoul(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #8
   %85 = load i32, ptr @hf_cas, align 4
   %86 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %85, ptr noundef %0, i32 noundef %75, i32 noundef %78, i64 noundef %84) #8
   %87 = load ptr, ptr %8, align 8
@@ -2053,7 +2053,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %149, i64 %167, i1 false)
   %168 = getelementptr [21 x i8], ptr %9, i64 0, i64 %167
   store i8 0, ptr %168, align 1
-  %169 = call i64 @strtoul(ptr nocapture noundef nonnull %9, ptr noundef null, i32 noundef 10) #8
+  %169 = call i64 @strtoul(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #8
   %170 = trunc i64 %169 to i32
   %171 = load i32, ptr @hf_expiration, align 4
   %172 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %171, ptr noundef %0, i32 noundef %153, i32 noundef %154, i32 noundef %170) #8
@@ -2140,7 +2140,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %15, i64 %222, i1 false)
   %223 = getelementptr [21 x i8], ptr %9, i64 0, i64 %222
   store i8 0, ptr %223, align 1
-  %224 = call i64 @strtoul(ptr nocapture noundef nonnull %9, ptr noundef null, i32 noundef 10) #8
+  %224 = call i64 @strtoul(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #8
   %225 = trunc i64 %224 to i32
   %226 = load i32, ptr @hf_expiration, align 4
   %227 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %226, ptr noundef %0, i32 noundef %20, i32 noundef %209, i32 noundef %225) #8
@@ -2227,10 +2227,10 @@ define internal fastcc i32 @incr_dissector(ptr noundef %0, ptr noundef %1, i32 n
 declare i32 @tvb_offset_exists(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2271,7 +2271,7 @@ define internal fastcc noundef i32 @content_data_dissector(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_payload_length(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 4, 6) %2, i32 noundef %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @get_payload_length(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 4, 6) %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %3, i32 noundef -1, ptr noundef nonnull %8, i32 noundef 0) #8
@@ -2332,15 +2332,15 @@ define internal fastcc range(i32 0, 2) i32 @get_payload_length(ptr noundef %0, p
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

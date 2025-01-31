@@ -111,14 +111,14 @@ define noundef ptr @decContextSetStatus(ptr noundef returned %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @decContextGetRounding(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @decContextGetRounding(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @decContextGetStatus(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @decContextGetStatus(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   ret i32 %3
@@ -137,7 +137,7 @@ define noundef ptr @decContextRestoreStatus(ptr noundef returned %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @decContextSaveStatus(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define i32 @decContextSaveStatus(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, %1
@@ -155,7 +155,7 @@ define noundef ptr @decContextSetRounding(ptr noundef returned writeonly initial
 declare i32 @raise(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @decContextSetStatusFromString(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define ptr @decContextSetStatusFromString(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str) #10
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %14
@@ -427,10 +427,10 @@ decContextSetStatus.exit:                         ; preds = %156, %149, %144, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @decContextSetStatusFromStringQuiet(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define ptr @decContextSetStatusFromStringQuiet(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str) #10
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %9
@@ -607,7 +607,7 @@ define noundef ptr @decContextSetStatusQuiet(ptr noundef returned %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @decContextStatusToString(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define noundef nonnull ptr @decContextStatusToString(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %17 [
@@ -688,7 +688,7 @@ define range(i32 0, 2) i32 @decContextTestSavedStatus(i32 noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @decContextTestStatus(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @decContextTestStatus(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, %1

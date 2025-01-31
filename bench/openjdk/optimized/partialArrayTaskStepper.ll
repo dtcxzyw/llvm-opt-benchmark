@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN23PartialArrayTaskStepperC1Ej = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN23PartialArrayTaskStepperC2Ej
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23PartialArrayTaskStepperC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN23PartialArrayTaskStepperC2Ej(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)

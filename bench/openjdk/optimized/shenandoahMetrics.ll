@@ -59,14 +59,14 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN25ShenandoahMetricsSnapshotC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN25ShenandoahMetricsSnapshotC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN25ShenandoahMetricsSnapshotC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25ShenandoahMetricsSnapshotC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %2, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25ShenandoahMetricsSnapshot11snap_beforeEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((8, 16), (24, 32), (40, 48)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN25ShenandoahMetricsSnapshot11snap_beforeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((8, 16), (24, 32), (40, 48)) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -94,7 +94,7 @@ declare noundef double @_ZN17ShenandoahFreeSet22internal_fragmentationEv(ptr nou
 declare noundef double @_ZN17ShenandoahFreeSet22external_fragmentationEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25ShenandoahMetricsSnapshot10snap_afterEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((16, 24), (32, 40), (48, 56)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN25ShenandoahMetricsSnapshot10snap_afterEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((16, 24), (32, 40), (48, 56)) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -118,7 +118,7 @@ define hidden void @_ZN25ShenandoahMetricsSnapshot10snap_afterEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN25ShenandoahMetricsSnapshot16is_good_progressEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN25ShenandoahMetricsSnapshot16is_good_progressEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1656
   %4 = load ptr, ptr %3, align 8

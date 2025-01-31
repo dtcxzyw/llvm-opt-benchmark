@@ -1490,7 +1490,7 @@ declare ptr @SSL_alert_type_string_long(i32 noundef) local_unnamed_addr #1
 declare ptr @SSL_alert_desc_string_long(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @msg_cb(i32 noundef %write_p, i32 noundef %version, i32 noundef %content_type, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef readnone %ssl, ptr noundef %arg) local_unnamed_addr #0 {
+define void @msg_cb(i32 noundef %write_p, i32 noundef %version, i32 noundef %content_type, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef readnone captures(none) %ssl, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %tmpbuf = alloca [128 x i8], align 16
   %tobool.not = icmp eq i32 %write_p, 0
@@ -1660,7 +1660,7 @@ declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @tlsext_cb(ptr nocapture noundef readnone %s, i32 noundef %client_server, i32 noundef %type, ptr noundef %data, i32 noundef %len, ptr noundef %arg) local_unnamed_addr #0 {
+define void @tlsext_cb(ptr noundef readnone captures(none) %s, i32 noundef %client_server, i32 noundef %type, ptr noundef %data, i32 noundef %len, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %cmp.i5 = icmp eq i32 %type, 0
   br i1 %cmp.i5, label %lookup.exit, label %for.cond.i
@@ -1806,7 +1806,7 @@ declare zeroext i16 @BIO_ADDR_rawport(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_Q_mac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @verify_stateless_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i64 noundef %cookie_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @verify_stateless_cookie_callback(ptr noundef %ssl, ptr noundef readonly captures(none) %cookie, i64 noundef %cookie_len) local_unnamed_addr #0 {
 entry:
   %result = alloca [64 x i8], align 16
   %resultlength = alloca i64, align 8
@@ -1835,7 +1835,7 @@ return:                                           ; preds = %land.lhs.true3, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @generate_cookie_callback(ptr noundef %ssl, ptr noundef %cookie, ptr nocapture noundef writeonly %cookie_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @generate_cookie_callback(ptr noundef %ssl, ptr noundef %cookie, ptr noundef writeonly captures(none) %cookie_len) local_unnamed_addr #0 {
 entry:
   %temp = alloca i64, align 8
   store i64 0, ptr %temp, align 8
@@ -1854,7 +1854,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @verify_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i32 noundef %cookie_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @verify_cookie_callback(ptr noundef %ssl, ptr noundef readonly captures(none) %cookie, i32 noundef %cookie_len) local_unnamed_addr #0 {
 entry:
   %result.i = alloca [64 x i8], align 16
   %resultlength.i = alloca i64, align 8
@@ -2048,7 +2048,7 @@ declare void @X509_free(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @load_excert(ptr nocapture noundef %pexc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @load_excert(ptr noundef captures(none) %pexc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pexc, align 8
   %cmp = icmp eq ptr %0, null
@@ -2165,7 +2165,7 @@ declare ptr @load_key(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr no
 declare i32 @load_certs(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @args_excert(i32 noundef %opt, ptr nocapture noundef %pexc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @args_excert(i32 noundef %opt, ptr noundef captures(none) %pexc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pexc, align 8
   %cmp = icmp eq ptr %0, null
@@ -3291,7 +3291,7 @@ declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @SSL_CTX_set_keylog_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @keylog_callback(ptr nocapture readnone %ssl, ptr noundef %line) #0 {
+define internal void @keylog_callback(ptr readnone captures(none) %ssl, ptr noundef %line) #0 {
 entry:
   %0 = load ptr, ptr @bio_keylog, align 8
   %cmp = icmp eq ptr %0, null
@@ -3430,7 +3430,7 @@ declare i32 @SSL_use_certificate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @SSL_use_PrivateKey(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @SSL_CIPHER_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3447,13 +3447,13 @@ declare i32 @EVP_PKEY_asn1_get0_info(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare ptr @EVP_PKEY_get0_asn1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

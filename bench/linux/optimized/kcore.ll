@@ -410,7 +410,7 @@ define internal fastcc void @kcore_update_ram() unnamed_addr #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @open_kcore(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal i32 @open_kcore(ptr noundef %0, ptr noundef writeonly captures(none) %1) #5 align 16 {
   %3 = tail call i32 @security_locked_down(i32 noundef 21) #15
   %4 = tail call zeroext i1 @capable(i32 noundef 17) #15
   br i1 %4, label %5, label %28
@@ -461,7 +461,7 @@ define internal i32 @open_kcore(ptr noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #5 align 16 {
+define internal i64 @read_kcore_iter(ptr noundef captures(none) %0, ptr noundef %1) #5 align 16 {
   %3 = alloca %struct.elf64_hdr, align 8
   %4 = alloca %struct.elf_prpsinfo, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1167,7 +1167,7 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
 declare dso_local i64 @default_llseek(ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @release_kcore(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define internal noundef i32 @release_kcore(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   tail call void @kfree(ptr noundef %4) #15
@@ -1175,7 +1175,7 @@ define internal noundef i32 @release_kcore(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @security_locked_down(i32 noundef) local_unnamed_addr #3
@@ -1184,7 +1184,7 @@ declare dso_local i32 @security_locked_down(i32 noundef) local_unnamed_addr #3
 declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
@@ -1205,13 +1205,13 @@ declare dso_local void @down_read(ptr noundef) local_unnamed_addr #3
 declare dso_local void @page_offline_freeze() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3

@@ -485,13 +485,13 @@ err:                                              ; preds = %if.end199, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ec_gen_settable_params(ptr nocapture readnone %genctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @ec_gen_settable_params(ptr readnone captures(none) %genctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @ec_gen_settable_params.settable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_gen(ptr noundef %genctx, ptr nocapture readnone %osslcb, ptr nocapture readnone %cbarg) #0 {
+define internal ptr @ec_gen(ptr noundef %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp eq i32 %call, 0
@@ -709,7 +709,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ec_load(ptr nocapture noundef %reference, i64 noundef %reference_sz) #0 {
+define internal noundef ptr @ec_load(ptr noundef captures(none) %reference, i64 noundef %reference_sz) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #4
   %tobool.i = icmp ne i32 %call.i, 0
@@ -752,7 +752,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ec_gettable_params(ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @ec_gettable_params(ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @ec_known_gettable_params
 }
@@ -817,7 +817,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ec_settable_params(ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @ec_settable_params(ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @ec_known_settable_params
 }
@@ -1116,7 +1116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_export(ptr noundef %keydata, i32 noundef %selection, ptr nocapture noundef readonly %param_cb, ptr noundef %cbarg) #0 {
+define internal i32 @ec_export(ptr noundef %keydata, i32 noundef %selection, ptr noundef readonly captures(none) %param_cb, ptr noundef %cbarg) #0 {
 entry:
   %pub_key = alloca ptr, align 8
   %genbuf = alloca ptr, align 8
@@ -1321,7 +1321,7 @@ return:                                           ; preds = %if.end.i, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_gen(ptr noundef %genctx, ptr nocapture readnone %osslcb, ptr nocapture readnone %cbarg) #0 {
+define internal ptr @sm2_gen(ptr noundef %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp = icmp eq ptr %genctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1416,7 +1416,7 @@ return:                                           ; preds = %land.rhs, %if.end33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @sm2_load(ptr nocapture noundef %reference, i64 noundef %reference_sz) #0 {
+define internal noundef ptr @sm2_load(ptr noundef captures(none) %reference, i64 noundef %reference_sz) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #4
   %tobool.i = icmp ne i32 %call.i, 0
@@ -1452,13 +1452,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @sm2_gettable_params(ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @sm2_gettable_params(ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @sm2_known_gettable_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @sm2_settable_params(ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @sm2_settable_params(ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @sm2_known_settable_params
 }
@@ -1614,7 +1614,7 @@ declare i32 @OSSL_PARAM_get_BN(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ec_gen_set_group_from_params(ptr nocapture noundef nonnull %gctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ec_gen_set_group_from_params(ptr noundef nonnull captures(none) %gctx) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_BLD_new() #4
   %cmp = icmp eq ptr %call, null
@@ -2437,10 +2437,10 @@ declare ptr @EC_KEY_new_by_curve_name_ex(ptr noundef, ptr noundef, i32 noundef) 
 declare i32 @ossl_sm2_key_private_check(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

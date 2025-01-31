@@ -499,7 +499,7 @@ define internal void @_ZN12_GLOBAL__N_115DffLegalizePassD0Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_115DffLegalizePass4helpEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_115DffLegalizePass4helpEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.9)
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.10)
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.9)
@@ -3819,7 +3819,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
@@ -4516,7 +4516,7 @@ declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -4726,7 +4726,7 @@ declare void @_ZN5Yosys9log_errorEPKcz(ptr noundef, ...) local_unnamed_addr #7
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
@@ -8945,7 +8945,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE9do_lookupERKS2_Ri.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE8do_eraseEii(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9442,7 +9442,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass13legalize_adffER
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_sdffceERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_sdffceERN5Yosys6FfDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2188
@@ -9482,7 +9482,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_sdffce
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass13legalize_sdffERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass13legalize_sdffERN5Yosys6FfDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2244
   %4 = load i32, ptr %3, align 4
   %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
@@ -9569,7 +9569,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass13legalize_sdffER
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass12legalize_dffERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass12legalize_dffERN5Yosys6FfDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %4 = load i32, ptr %3, align 8
   %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
@@ -9845,7 +9845,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass16legalize_adlatc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_dlatchERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_dlatchERN5Yosys6FfDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2256
   %4 = load i32, ptr %3, align 8
   %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %4)
@@ -9952,7 +9952,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_dlatch
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass11legalize_srERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass11legalize_srERN5Yosys6FfDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %4 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -14919,7 +14919,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit313:                ; preds = %1523, %1520, %1508,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 1, 1025) i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) unnamed_addr #4 align 2 {
+define internal fastcc noundef range(i32 1, 1025) i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %4 = load ptr, ptr %3, align 8
@@ -15008,7 +15008,7 @@ _ZN5Yosys5RTLIL5ConstixEi.exit22:                 ; preds = %_ZN5Yosys5RTLIL5Con
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finishERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finishERN5Yosys6FfDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -16796,7 +16796,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit: ; preds = %_ZSt8_DestroyIN5Y
 declare void @_ZNK5Yosys5RTLIL7SigSpec4packEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass8flip_polERN5Yosys6FfDataERNS1_5RTLIL7SigSpecERb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %6 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -23149,7 +23149,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
@@ -23164,10 +23164,10 @@ declare i64 @llvm.umin.i64(i64, i64) #18
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

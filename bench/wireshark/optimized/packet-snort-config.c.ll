@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @content_get_nibble_value.values_set = internal unnamed_addr global i1 false, align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rule_set_relevant_vars(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @rule_set_relevant_vars(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -502,7 +502,7 @@ rule_check_port_vars.exit80:                      ; preds = %read_token.exit76, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @expand_reference(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @expand_reference(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %.critedge.i.i, %2
@@ -574,7 +574,7 @@ read_token.exit:                                  ; preds = %skipWhiteSpace.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare signext i8 @g_ascii_tolower(i8 noundef signext) local_unnamed_addr #2
@@ -582,10 +582,10 @@ declare signext i8 @g_ascii_tolower(i8 noundef signext) local_unnamed_addr #2
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @rule_set_alert(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define hidden void @rule_set_alert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
@@ -607,7 +607,7 @@ define hidden void @rule_set_alert(ptr nocapture noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @create_config(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @create_config(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
   store ptr %3, ptr %0, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -656,7 +656,7 @@ define hidden void @create_config(ptr nocapture noundef initializes((0, 8)) %0, 
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -667,7 +667,7 @@ declare i32 @g_direct_hash(ptr noundef) #2
 declare i32 @g_direct_equal(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @string_hash(ptr nocapture noundef readonly %0) #8 {
+define internal i32 @string_hash(ptr noundef readonly captures(none) %0) #8 {
   %.011 = load i8, ptr %0, align 1
   %.not12 = icmp eq i8 %.011, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -691,7 +691,7 @@ define internal i32 @string_hash(ptr nocapture noundef readonly %0) #8 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @string_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 0, 2) i32 @string_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #15
   %4 = icmp eq i32 %3, 0
   %5 = zext i1 %4 to i32
@@ -703,12 +703,12 @@ declare noalias ptr @g_path_get_dirname(ptr noundef) local_unnamed_addr #3
 declare noalias ptr @g_path_get_basename(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @report_failure(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_config_file(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @parse_config_file(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca [4096 x i8], align 16
   %8 = icmp sgt i32 %4, 8
@@ -1745,12 +1745,12 @@ process_rule_option.exit.i:                       ; preds = %407, %404, %402, %4
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @delete_config(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @delete_config(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -1798,7 +1798,7 @@ define hidden void @delete_config(ptr nocapture noundef %0) local_unnamed_addr #
 declare i32 @g_hash_table_foreach_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @delete_rule(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @delete_rule(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load ptr, ptr %1, align 8
   tail call void @g_free(ptr noundef %4) #16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1866,7 +1866,7 @@ define internal noundef i32 @delete_rule(ptr nocapture readnone %0, ptr noundef 
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @delete_string_entry(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @delete_string_entry(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   tail call void @g_free(ptr noundef %0) #16
   tail call void @g_free(ptr noundef %1) #16
   ret i32 1
@@ -1895,7 +1895,7 @@ define hidden ptr @get_rule(ptr noundef readonly %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @get_global_rule_stats(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden void @get_global_rule_stats(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %2, align 4
@@ -1948,14 +1948,14 @@ define hidden void @reset_global_rule_stats(ptr noundef %0) local_unnamed_addr #
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @reset_rule_stats(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((3568, 3572)) %1, ptr nocapture readnone %2) #10 {
+define internal void @reset_rule_stats(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((3568, 3572)) %1, ptr readnone captures(none) %2) #10 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3568
   store i32 0, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @content_convert_to_binary(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden i32 @content_convert_to_binary(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -2107,10 +2107,10 @@ content_get_nibble_value.exit:                    ; preds = %30, %40
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @content_convert_pcre_for_regex(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @content_convert_pcre_for_regex(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2203,10 +2203,10 @@ declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @g_path_is_absolute(ptr noundef) local_unnamed_addr #3
 
@@ -2251,13 +2251,13 @@ rule_add_content.exit.thread:                     ; preds = %1, %5
 declare ptr @strchr(ptr, i32) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

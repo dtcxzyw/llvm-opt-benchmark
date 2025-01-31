@@ -1872,7 +1872,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN24btCollisionWorldImporter17convertAllObjectsEP24btBulletSerializedArrays(ptr noundef nonnull align 8 dereferenceable(1336) %this, ptr nocapture noundef readonly %arrays) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN24btCollisionWorldImporter17convertAllObjectsEP24btBulletSerializedArrays(ptr noundef nonnull align 8 dereferenceable(1336) %this, ptr noundef readonly captures(none) %arrays) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bvh = alloca ptr, align 8
   %ref.tmp = alloca %class.btHashPtr, align 8
@@ -4003,7 +4003,7 @@ return:                                           ; preds = %if.end20, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter13duplicateNameEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, ptr noundef readonly %name) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter13duplicateNameEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, ptr noundef readonly %name) local_unnamed_addr #3 align 2 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %return, label %if.then
@@ -4906,7 +4906,7 @@ return:                                           ; preds = %if.end20, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btCollisionWorldImporter13deleteAllDataEv(ptr noundef nonnull align 8 dereferenceable(1336) %this) unnamed_addr #3 align 2 {
@@ -5616,7 +5616,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #2
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6183,13 +6183,13 @@ for.end73:                                        ; preds = %for.body65, %_ZN20b
 declare void @_ZN15btCompoundShape13addChildShapeERK11btTransformP16btCollisionShape(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter19createMeshInterfaceER27btStridingMeshInterfaceData(ptr noundef nonnull align 8 dereferenceable(1336) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %meshData) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter19createMeshInterfaceER27btStridingMeshInterfaceData(ptr noundef nonnull align 8 dereferenceable(1336) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %meshData) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
@@ -7058,7 +7058,7 @@ for.end308:                                       ; preds = %for.inc306, %entry
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN24btCollisionWorldImporter31createStridingMeshInterfaceDataEP27btStridingMeshInterfaceData(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, ptr nocapture noundef readonly %interfaceData) unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZN24btCollisionWorldImporter31createStridingMeshInterfaceDataEP27btStridingMeshInterfaceData(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, ptr noundef readonly captures(none) %interfaceData) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   %m_scaling = getelementptr inbounds nuw i8, ptr %interfaceData, i64 8
@@ -7362,7 +7362,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter21createCollisionObjectERK11btTransformP16btCollisionShapePKc(ptr noundef nonnull align 8 dereferenceable(1336) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %startTransform, ptr noundef %shape, ptr noundef %bodyName) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter21createCollisionObjectERK11btTransformP16btCollisionShapePKc(ptr noundef nonnull align 8 dereferenceable(1336) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %startTransform, ptr noundef %shape, ptr noundef %bodyName) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %colObj = alloca ptr, align 8
   %newname = alloca ptr, align 8
@@ -7696,7 +7696,7 @@ return:                                           ; preds = %if.end20, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter16createPlaneShapeERK9btVector3f(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, ptr noundef nonnull align 4 dereferenceable(16) %planeNormal, float noundef %planeConstant) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter16createPlaneShapeERK9btVector3f(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, ptr noundef nonnull align 4 dereferenceable(16) %planeNormal, float noundef %planeConstant) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 104, i32 noundef 16)
   invoke void @_ZN18btStaticPlaneShapeC1ERK9btVector3f(ptr noundef nonnull align 8 dereferenceable(104) %call.i, ptr noundef nonnull align 4 dereferenceable(16) %planeNormal, float noundef %planeConstant)
@@ -7806,7 +7806,7 @@ _ZN18btStaticPlaneShapedlEPv.exit:                ; preds = %lpad
 declare void @_ZN18btStaticPlaneShapeC1ERK9btVector3f(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 4 dereferenceable(16), float noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter14createBoxShapeERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, ptr noundef nonnull align 4 dereferenceable(16) %halfExtents) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter14createBoxShapeERK9btVector3(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, ptr noundef nonnull align 4 dereferenceable(16) %halfExtents) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 80, i32 noundef 16)
   invoke void @_ZN10btBoxShapeC1ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(80) %call.i, ptr noundef nonnull align 4 dereferenceable(16) %halfExtents)
@@ -7916,7 +7916,7 @@ _ZN10btBoxShapedlEPv.exit:                        ; preds = %lpad
 declare void @_ZN10btBoxShapeC1ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter17createSphereShapeEf(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, float noundef %radius) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter17createSphereShapeEf(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, float noundef %radius) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 72, i32 noundef 16)
   invoke void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call.i)
@@ -8041,7 +8041,7 @@ _ZN13btSphereShapedlEPv.exit:                     ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter19createCapsuleShapeXEff(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter19createCapsuleShapeXEff(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 80, i32 noundef 16)
   invoke void @_ZN15btCapsuleShapeXC1Eff(ptr noundef nonnull align 8 dereferenceable(76) %call.i, float noundef %radius, float noundef %height)
@@ -8151,7 +8151,7 @@ _ZN14btCapsuleShapedlEPv.exit:                    ; preds = %lpad
 declare void @_ZN15btCapsuleShapeXC1Eff(ptr noundef nonnull align 8 dereferenceable(76), float noundef, float noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter19createCapsuleShapeYEff(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter19createCapsuleShapeYEff(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 80, i32 noundef 16)
   invoke void @_ZN14btCapsuleShapeC1Eff(ptr noundef nonnull align 8 dereferenceable(76) %call.i, float noundef %radius, float noundef %height)
@@ -8261,7 +8261,7 @@ _ZN14btCapsuleShapedlEPv.exit:                    ; preds = %lpad
 declare void @_ZN14btCapsuleShapeC1Eff(ptr noundef nonnull align 8 dereferenceable(76), float noundef, float noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter19createCapsuleShapeZEff(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter19createCapsuleShapeZEff(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 80, i32 noundef 16)
   invoke void @_ZN15btCapsuleShapeZC1Eff(ptr noundef nonnull align 8 dereferenceable(76) %call.i, float noundef %radius, float noundef %height)
@@ -8371,7 +8371,7 @@ _ZN14btCapsuleShapedlEPv.exit:                    ; preds = %lpad
 declare void @_ZN15btCapsuleShapeZC1Eff(ptr noundef nonnull align 8 dereferenceable(76), float noundef, float noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter20createCylinderShapeXEff(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter20createCylinderShapeXEff(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.btVector3, align 4
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 80, i32 noundef 16)
@@ -8489,7 +8489,7 @@ _ZN16btCylinderShapeXdlEPv.exit:                  ; preds = %lpad
 declare void @_ZN16btCylinderShapeXC1ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter20createCylinderShapeYEff(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter20createCylinderShapeYEff(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.btVector3, align 4
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 80, i32 noundef 16)
@@ -8607,7 +8607,7 @@ _ZN15btCylinderShapedlEPv.exit:                   ; preds = %lpad
 declare void @_ZN15btCylinderShapeC1ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter20createCylinderShapeZEff(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter20createCylinderShapeZEff(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.btVector3, align 4
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 80, i32 noundef 16)
@@ -8725,7 +8725,7 @@ _ZN16btCylinderShapeZdlEPv.exit:                  ; preds = %lpad
 declare void @_ZN16btCylinderShapeZC1ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter16createConeShapeXEff(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter16createConeShapeXEff(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 96, i32 noundef 16)
   invoke void @_ZN12btConeShapeXC1Eff(ptr noundef nonnull align 8 dereferenceable(96) %call.i, float noundef %radius, float noundef %height)
@@ -8835,7 +8835,7 @@ _ZN11btConeShapedlEPv.exit:                       ; preds = %lpad
 declare void @_ZN12btConeShapeXC1Eff(ptr noundef nonnull align 8 dereferenceable(96), float noundef, float noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter16createConeShapeYEff(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter16createConeShapeYEff(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 96, i32 noundef 16)
   invoke void @_ZN11btConeShapeC1Eff(ptr noundef nonnull align 8 dereferenceable(96) %call.i, float noundef %radius, float noundef %height)
@@ -8945,7 +8945,7 @@ _ZN11btConeShapedlEPv.exit:                       ; preds = %lpad
 declare void @_ZN11btConeShapeC1Eff(ptr noundef nonnull align 8 dereferenceable(96), float noundef, float noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter16createConeShapeZEff(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter16createConeShapeZEff(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, float noundef %radius, float noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 96, i32 noundef 16)
   invoke void @_ZN12btConeShapeZC1Eff(ptr noundef nonnull align 8 dereferenceable(96) %call.i, float noundef %radius, float noundef %height)
@@ -9055,7 +9055,7 @@ _ZN11btConeShapedlEPv.exit:                       ; preds = %lpad
 declare void @_ZN12btConeShapeZC1Eff(ptr noundef nonnull align 8 dereferenceable(96), float noundef, float noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter27createTriangleMeshContainerEv(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter27createTriangleMeshContainerEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 104, i32 noundef 16)
   %m_scaling.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
@@ -9162,7 +9162,7 @@ _ZN20btAlignedObjectArrayIP26btTriangleIndexVertexArrayE9push_backERKS1_.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter18createOptimizedBvhEv(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter18createOptimizedBvhEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 248, i32 noundef 16)
   invoke void @_ZN14btOptimizedBvhC1Ev(ptr noundef nonnull align 8 dereferenceable(244) %call.i)
@@ -9272,7 +9272,7 @@ _ZN14btOptimizedBvhdlEPv.exit:                    ; preds = %lpad
 declare void @_ZN14btOptimizedBvhC1Ev(ptr noundef nonnull align 8 dereferenceable(244)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN24btCollisionWorldImporter21createTriangleInfoMapEv(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN24btCollisionWorldImporter21createTriangleInfoMapEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #28
   %m_ownsMemory.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
@@ -9405,7 +9405,7 @@ _ZN20btAlignedObjectArrayIP17btTriangleInfoMapE9push_backERKS1_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter26createBvhTriangleMeshShapeEP23btStridingMeshInterfaceP14btOptimizedBvh(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, ptr noundef %trimesh, ptr noundef %bvh) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter26createBvhTriangleMeshShapeEP23btStridingMeshInterfaceP14btOptimizedBvh(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, ptr noundef %trimesh, ptr noundef %bvh) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.btVector3, align 4
   %tobool.not = icmp eq ptr %bvh, null
@@ -9638,13 +9638,13 @@ declare void @_ZN22btBvhTriangleMeshShapeC1EP23btStridingMeshInterfacebb(ptr nou
 declare void @_ZN22btBvhTriangleMeshShape15setOptimizedBvhEP14btOptimizedBvhRK9btVector3(ptr noundef nonnull align 8 dereferenceable(109), ptr noundef, ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noalias noundef ptr @_ZN24btCollisionWorldImporter29createConvexTriangleMeshShapeEP23btStridingMeshInterface(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %trimesh) unnamed_addr #11 align 2 {
+define dso_local noalias noundef ptr @_ZN24btCollisionWorldImporter29createConvexTriangleMeshShapeEP23btStridingMeshInterface(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %trimesh) unnamed_addr #11 align 2 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter21createConvexHullShapeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter21createConvexHullShapeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 152, i32 noundef 16)
   invoke void @_ZN17btConvexHullShapeC1EPKfii(ptr noundef nonnull align 8 dereferenceable(152) %call.i, ptr noundef null, i32 noundef 0, i32 noundef 16)
@@ -9754,7 +9754,7 @@ _ZN17btConvexHullShapedlEPv.exit:                 ; preds = %lpad
 declare void @_ZN17btConvexHullShapeC1EPKfii(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter19createCompoundShapeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter19createCompoundShapeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 128, i32 noundef 16)
   invoke void @_ZN15btCompoundShapeC1Ebi(ptr noundef nonnull align 8 dereferenceable(128) %call.i, i1 noundef zeroext true, i32 noundef 0)
@@ -9864,7 +9864,7 @@ _ZN15btCompoundShapedlEPv.exit:                   ; preds = %lpad
 declare void @_ZN15btCompoundShapeC1Ebi(ptr noundef nonnull align 8 dereferenceable(128), i1 noundef zeroext, i32 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter28createScaledTrangleMeshShapeEP22btBvhTriangleMeshShapeRK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, ptr noundef %meshShape, ptr noundef nonnull align 4 dereferenceable(16) %localScaling) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter28createScaledTrangleMeshShapeEP22btBvhTriangleMeshShapeRK9btVector3(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, ptr noundef %meshShape, ptr noundef nonnull align 4 dereferenceable(16) %localScaling) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 64, i32 noundef 16)
   invoke void @_ZN28btScaledBvhTriangleMeshShapeC1EP22btBvhTriangleMeshShapeRK9btVector3(ptr noundef nonnull align 8 dereferenceable(64) %call.i, ptr noundef %meshShape, ptr noundef nonnull align 4 dereferenceable(16) %localScaling)
@@ -9974,7 +9974,7 @@ _ZN28btScaledBvhTriangleMeshShapedlEPv.exit:      ; preds = %lpad
 declare void @_ZN28btScaledBvhTriangleMeshShapeC1EP22btBvhTriangleMeshShapeRK9btVector3(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter22createMultiSphereShapeEPK9btVector3PKfi(ptr nocapture noundef nonnull align 8 dereferenceable(1336) %this, ptr noundef %positions, ptr noundef %radi, i32 noundef %numSpheres) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter22createMultiSphereShapeEPK9btVector3PKfi(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, ptr noundef %positions, ptr noundef %radi, i32 noundef %numSpheres) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 176, i32 noundef 16)
   invoke void @_ZN18btMultiSphereShapeC1EPK9btVector3PKfi(ptr noundef nonnull align 8 dereferenceable(176) %call.i, ptr noundef %positions, ptr noundef %radi, i32 noundef %numSpheres)
@@ -10084,7 +10084,7 @@ _ZN18btMultiSphereShapedlEPv.exit:                ; preds = %lpad
 declare void @_ZN18btMultiSphereShapeC1EPK9btVector3PKfi(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, ptr noundef, i32 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK24btCollisionWorldImporter21getNumCollisionShapesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1336) %this) local_unnamed_addr #12 align 2 {
+define dso_local noundef i32 @_ZNK24btCollisionWorldImporter21getNumCollisionShapesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1336) %this) local_unnamed_addr #12 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_size.i, align 4
@@ -10092,7 +10092,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter24getCollisionShapeByIndexEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1336) %this, i32 noundef %index) local_unnamed_addr #13 align 2 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter24getCollisionShapeByIndexEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1336) %this, i32 noundef %index) local_unnamed_addr #13 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_data.i, align 8
@@ -10142,7 +10142,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK24btCollisionWorldImporter17getNameForPointerEPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1336) %this, ptr noundef %ptr) local_unnamed_addr #13 align 2 {
+define dso_local noundef ptr @_ZNK24btCollisionWorldImporter17getNameForPointerEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1336) %this, ptr noundef %ptr) local_unnamed_addr #13 align 2 {
 entry:
   %0 = ptrtoint ptr %ptr to i64
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %0 to i32
@@ -10222,7 +10222,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK24btCollisionWorldImporter17getNumRigidBodiesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1336) %this) local_unnamed_addr #12 align 2 {
+define dso_local noundef i32 @_ZNK24btCollisionWorldImporter17getNumRigidBodiesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1336) %this) local_unnamed_addr #12 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   %0 = load i32, ptr %m_size.i, align 4
@@ -10230,7 +10230,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK24btCollisionWorldImporter19getRigidBodyByIndexEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1336) %this, i32 noundef %index) local_unnamed_addr #13 align 2 {
+define dso_local noundef ptr @_ZNK24btCollisionWorldImporter19getRigidBodyByIndexEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1336) %this, i32 noundef %index) local_unnamed_addr #13 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_data.i, align 8
@@ -10241,7 +10241,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK24btCollisionWorldImporter10getNumBvhsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1336) %this) local_unnamed_addr #12 align 2 {
+define dso_local noundef i32 @_ZNK24btCollisionWorldImporter10getNumBvhsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1336) %this) local_unnamed_addr #12 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 92
   %0 = load i32, ptr %m_size.i, align 4
@@ -10249,7 +10249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK24btCollisionWorldImporter13getBvhByIndexEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1336) %this, i32 noundef %index) local_unnamed_addr #13 align 2 {
+define dso_local noundef ptr @_ZNK24btCollisionWorldImporter13getBvhByIndexEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1336) %this, i32 noundef %index) local_unnamed_addr #13 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_data.i, align 8
@@ -10260,7 +10260,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK24btCollisionWorldImporter22getNumTriangleInfoMapsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1336) %this) local_unnamed_addr #12 align 2 {
+define dso_local noundef i32 @_ZNK24btCollisionWorldImporter22getNumTriangleInfoMapsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1336) %this) local_unnamed_addr #12 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   %0 = load i32, ptr %m_size.i, align 4
@@ -10268,7 +10268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK24btCollisionWorldImporter25getTriangleInfoMapByIndexEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1336) %this, i32 noundef %index) local_unnamed_addr #13 align 2 {
+define dso_local noundef ptr @_ZNK24btCollisionWorldImporter25getTriangleInfoMapByIndexEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1336) %this, i32 noundef %index) local_unnamed_addr #13 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %m_data.i, align 8
@@ -12542,19 +12542,19 @@ if.end:                                           ; preds = %for.body20, %for.co
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #18
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #22
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23

@@ -139,7 +139,7 @@ qobject_input_visitor_base_new.exit:              ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_int64(ptr nocapture noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_int64(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext true)
   %tobool1.not.i = icmp eq ptr %call.i, null
@@ -179,7 +179,7 @@ return:                                           ; preds = %qobject_input_get_o
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_uint64(ptr nocapture noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_uint64(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
   %val = alloca i64, align 8
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext true)
@@ -229,7 +229,7 @@ return:                                           ; preds = %qobject_input_get_o
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_bool(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_bool(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) %obj, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext true)
   %tobool1.not.i = icmp eq ptr %call.i, null
@@ -271,7 +271,7 @@ return:                                           ; preds = %qobject_input_get_o
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_str(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_str(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) initializes((0, 8)) %obj, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext true)
   %tobool1.not.i = icmp eq ptr %call.i, null
@@ -315,7 +315,7 @@ return:                                           ; preds = %qobject_input_get_o
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_number(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_number(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) %obj, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext true)
   %tobool1.not.i = icmp eq ptr %call.i, null
@@ -356,7 +356,7 @@ return:                                           ; preds = %qobject_input_get_o
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_any(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_any(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) initializes((0, 8)) %obj, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext true)
   %tobool1.not.i = icmp ne ptr %call.i, null
@@ -381,7 +381,7 @@ return:                                           ; preds = %qobject_input_get_o
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_null(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_null(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) initializes((0, 8)) %obj, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext true)
   %tobool1.not.i = icmp eq ptr %call.i, null
@@ -488,7 +488,7 @@ qobject_input_visitor_base_new.exit:              ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_int64_keyval(ptr nocapture noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_int64_keyval(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
   %call1 = tail call fastcc ptr @qobject_input_get_keyval(ptr noundef %v, ptr noundef %name, ptr noundef %errp)
   %tobool.not = icmp eq ptr %call1, null
@@ -510,7 +510,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_uint64_keyval(ptr nocapture noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_uint64_keyval(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
   %call1 = tail call fastcc ptr @qobject_input_get_keyval(ptr noundef %v, ptr noundef %name, ptr noundef %errp)
   %tobool.not = icmp eq ptr %call1, null
@@ -532,7 +532,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_bool_keyval(ptr nocapture noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_bool_keyval(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
   %call1 = tail call fastcc ptr @qobject_input_get_keyval(ptr noundef %v, ptr noundef %name, ptr noundef %errp)
   %tobool.not = icmp eq ptr %call1, null
@@ -553,7 +553,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_str_keyval(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_str_keyval(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) initializes((0, 8)) %obj, ptr noundef %errp) #0 {
 entry:
   %call1 = tail call fastcc ptr @qobject_input_get_keyval(ptr noundef %v, ptr noundef %name, ptr noundef %errp)
   %call2 = tail call noalias ptr @g_strdup(ptr noundef %call1) #8
@@ -563,7 +563,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_number_keyval(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_number_keyval(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) %obj, ptr noundef %errp) #0 {
 entry:
   %val = alloca double, align 8
   %call1 = tail call fastcc ptr @qobject_input_get_keyval(ptr noundef %v, ptr noundef %name, ptr noundef %errp)
@@ -591,7 +591,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_size_keyval(ptr nocapture noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_size_keyval(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
   %call1 = tail call fastcc ptr @qobject_input_get_keyval(ptr noundef %v, ptr noundef %name, ptr noundef %errp)
   %tobool.not = icmp eq ptr %call1, null
@@ -783,7 +783,7 @@ declare ptr @keyval_parse(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_start_struct(ptr nocapture noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef %size, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_start_struct(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef %obj, i64 noundef %size, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext true)
   %tobool1.not.i = icmp eq ptr %call.i, null
@@ -839,7 +839,7 @@ return:                                           ; preds = %if.end8, %if.then11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_check_struct(ptr nocapture noundef %v, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_check_struct(ptr noundef captures(none) %v, ptr noundef %errp) #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %key = alloca ptr, align 8
@@ -877,7 +877,7 @@ return:                                           ; preds = %if.end, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qobject_input_end_struct(ptr nocapture noundef %v, ptr noundef readnone %obj) #0 {
+define internal void @qobject_input_end_struct(ptr noundef captures(none) %v, ptr noundef readnone %obj) #0 {
 entry:
   %stack = getelementptr inbounds nuw i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8
@@ -935,7 +935,7 @@ qobject_input_pop.exit:                           ; preds = %do.body.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_start_list(ptr nocapture noundef %v, ptr noundef %name, ptr noundef %list, i64 noundef %size, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_start_list(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef %list, i64 noundef %size, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext true)
   %tobool1.not.i = icmp eq ptr %call.i, null
@@ -993,7 +993,7 @@ return:                                           ; preds = %if.end9, %if.then13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @qobject_input_next_list(ptr nocapture noundef readonly %v, ptr nocapture noundef writeonly %tail, i64 noundef %size) #0 {
+define internal ptr @qobject_input_next_list(ptr noundef readonly captures(none) %v, ptr noundef writeonly captures(none) %tail, i64 noundef %size) #0 {
 entry:
   %stack = getelementptr inbounds nuw i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8
@@ -1041,7 +1041,7 @@ return:                                           ; preds = %if.end, %if.end6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_check_list(ptr nocapture noundef %v, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_check_list(ptr noundef captures(none) %v, ptr noundef %errp) #0 {
 entry:
   %stack = getelementptr inbounds nuw i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8
@@ -1091,7 +1091,7 @@ return:                                           ; preds = %if.end, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qobject_input_end_list(ptr nocapture noundef %v, ptr noundef readnone %obj) #0 {
+define internal void @qobject_input_end_list(ptr noundef captures(none) %v, ptr noundef readnone %obj) #0 {
 entry:
   %stack = getelementptr inbounds nuw i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8
@@ -1149,7 +1149,7 @@ qobject_input_pop.exit:                           ; preds = %do.body.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_start_alternate(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %obj, i64 noundef %size, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_start_alternate(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) initializes((0, 8)) %obj, i64 noundef %size, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext false)
   %tobool1.not.i = icmp ne ptr %call.i, null
@@ -1182,7 +1182,7 @@ return:                                           ; preds = %qobject_type.exit, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qobject_input_optional(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 1)) %present) #0 {
+define internal void @qobject_input_optional(ptr noundef readonly captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) initializes((0, 1)) %present) #0 {
 entry:
   %call1 = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext false)
   %tobool.not = icmp ne ptr %call1, null
@@ -1273,7 +1273,7 @@ if.end:                                           ; preds = %if.then, %qobject_u
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qobject_input_push(ptr nocapture noundef %qiv, ptr noundef %name, ptr noundef nonnull %obj, ptr noundef %qapi) unnamed_addr #0 {
+define internal fastcc ptr @qobject_input_push(ptr noundef captures(none) %qiv, ptr noundef %name, ptr noundef nonnull %obj, ptr noundef %qapi) unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #9
   %obj.val.i = load i32, ptr %obj, align 8
@@ -1341,7 +1341,7 @@ do.body:                                          ; preds = %for.end, %if.end20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qobject_input_try_get_object(ptr nocapture noundef readonly %qiv, ptr noundef %name, i1 noundef zeroext %consume) unnamed_addr #0 {
+define internal fastcc ptr @qobject_input_try_get_object(ptr noundef readonly captures(none) %qiv, ptr noundef %name, i1 noundef zeroext %consume) unnamed_addr #0 {
 entry:
   %stack = getelementptr inbounds nuw i8, ptr %qiv, i64 232
   %0 = load ptr, ptr %stack, align 8
@@ -1460,7 +1460,7 @@ declare ptr @qdict_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @full_name_nth(ptr nocapture noundef %qiv, ptr noundef %name, i32 noundef range(i32 0, 2) %n) unnamed_addr #0 {
+define internal fastcc ptr @full_name_nth(ptr noundef captures(none) %qiv, ptr noundef %name, i32 noundef range(i32 0, 2) %n) unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %errname = getelementptr inbounds nuw i8, ptr %qiv, i64 240
@@ -1585,7 +1585,7 @@ declare ptr @g_string_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_string_prepend_c(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @g_string_erase(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1631,7 +1631,7 @@ declare ptr @qstring_get_str(ptr noundef) local_unnamed_addr #1
 declare double @qnum_get_double(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qobject_input_get_keyval(ptr nocapture noundef %qiv, ptr noundef %name, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc ptr @qobject_input_get_keyval(ptr noundef captures(none) %qiv, ptr noundef %name, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %qiv, ptr noundef %name, i1 noundef zeroext true)
   %tobool1.not.i = icmp eq ptr %call.i, null

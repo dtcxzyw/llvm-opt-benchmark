@@ -119,7 +119,7 @@ define range(i32 -1, 1) i32 @H5IMmake_image_24bit(i64 noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5IM_find_palette(i64 noundef %0) local_unnamed_addr #0 {
@@ -130,7 +130,7 @@ define i32 @H5IM_find_palette(i64 noundef %0) local_unnamed_addr #0 {
 declare i32 @H5Aiterate2(i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @find_palette(i64 %0, ptr noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #3 {
+define internal range(i32 -1, 2) i32 @find_palette(i64 %0, ptr noundef readonly %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #3 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %9, label %6
 
@@ -146,7 +146,7 @@ define internal range(i32 -1, 2) i32 @find_palette(i64 %0, ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5IMget_image_info(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5IMget_image_info(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca [3 x i64], align 16
   %9 = icmp eq ptr %1, null
   %10 = icmp eq ptr %5, null
@@ -636,7 +636,7 @@ declare i32 @H5Adelete(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @H5Screate_simple(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5IMunlink_palette(i64 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -709,7 +709,7 @@ define range(i32 -1, 1) i32 @H5IMunlink_palette(i64 noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5IMget_npalettes(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5IMget_npalettes(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %39, label %5
 
@@ -1095,7 +1095,7 @@ declare i32 @H5Tget_strpad(i64 noundef) local_unnamed_addr #1
 declare i64 @H5Aget_storage_size(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @H5IMis_palette(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {

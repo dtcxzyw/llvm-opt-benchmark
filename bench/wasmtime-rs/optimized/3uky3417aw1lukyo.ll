@@ -33,7 +33,7 @@ define range(i8 0, 4) i8 @_ZN23wasmtime_component_util16DiscriminantSize10from_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define range(i32 1, 5) i32 @_ZN23wasmtime_component_util16DiscriminantSize9byte_size17hd963bad45e7f2004E(ptr nocapture readonly align 1 %0) unnamed_addr #1 {
+define range(i32 1, 5) i32 @_ZN23wasmtime_component_util16DiscriminantSize9byte_size17hd963bad45e7f2004E(ptr readonly align 1 captures(none) %0) unnamed_addr #1 {
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !3, !noundef !4
   %2 = zext nneg i8 %1 to i64

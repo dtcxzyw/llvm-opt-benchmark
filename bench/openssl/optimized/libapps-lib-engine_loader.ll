@@ -63,7 +63,7 @@ declare ptr @OSSL_STORE_LOADER_new(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @OSSL_STORE_LOADER_set_open(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @engine_open(ptr nocapture readnone %loader, ptr noundef %uri, ptr nocapture readnone %ui_method, ptr nocapture readnone %ui_data) #0 {
+define internal noalias ptr @engine_open(ptr readnone captures(none) %loader, ptr noundef %uri, ptr readnone captures(none) %ui_method, ptr readnone captures(none) %ui_data) #0 {
 entry:
   %engineid = alloca [256 x i8], align 16
   %call = tail call i32 @OPENSSL_strncasecmp(ptr noundef %uri, ptr noundef nonnull @.str.1, i64 noundef 19) #7
@@ -127,7 +127,7 @@ return:                                           ; preds = %if.end25, %if.then2
 declare i32 @OSSL_STORE_LOADER_set_expect(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 0, 2) i32 @engine_expect(ptr nocapture noundef writeonly %ctx, i32 noundef %expected) #2 {
+define internal range(i32 0, 2) i32 @engine_expect(ptr noundef writeonly captures(none) %ctx, i32 noundef %expected) #2 {
 entry:
   switch i32 %expected, label %return [
     i32 4, label %if.then
@@ -148,7 +148,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @OSSL_STORE_LOADER_set_load(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @engine_load(ptr nocapture noundef %ctx, ptr noundef %ui_method, ptr noundef %ui_data) #0 {
+define internal ptr @engine_load(ptr noundef captures(none) %ctx, ptr noundef %ui_method, ptr noundef %ui_data) #0 {
 entry:
   %loaded = getelementptr inbounds nuw i8, ptr %ctx, i64 20
   %0 = load i32, ptr %loaded, align 4
@@ -242,7 +242,7 @@ if.end34:                                         ; preds = %if.then33, %if.end3
 declare i32 @OSSL_STORE_LOADER_set_eof(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @engine_eof(ptr nocapture noundef readonly %ctx) #3 {
+define internal range(i32 0, 2) i32 @engine_eof(ptr noundef readonly captures(none) %ctx) #3 {
 entry:
   %loaded = getelementptr inbounds nuw i8, ptr %ctx, i64 20
   %0 = load i32, ptr %loaded, align 4
@@ -254,7 +254,7 @@ entry:
 declare i32 @OSSL_STORE_LOADER_set_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @engine_error(ptr nocapture readnone %ctx) #4 {
+define internal noundef i32 @engine_error(ptr readnone captures(none) %ctx) #4 {
 entry:
   ret i32 0
 }
@@ -300,7 +300,7 @@ declare i32 @OPENSSL_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_un
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 declare ptr @ENGINE_by_id(ptr noundef) local_unnamed_addr #1
 

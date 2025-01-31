@@ -384,7 +384,7 @@ ompi_request_wait_completion.exit:                ; preds = %106, %.critedge11.b
 declare i32 @ompi_grequest_invoke_query(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_request_default_wait_any(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @ompi_request_default_wait_any(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.ompi_wait_sync_t, align 8
   %6 = icmp eq i64 %0, 0
   br i1 %6, label %13, label %.preheader86
@@ -1350,10 +1350,10 @@ opal_thread_compare_exchange_strong_ptr.exit140:  ; preds = %188, %191, %183
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_request_default_wait_some(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @ompi_request_default_wait_some(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef captures(none) %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.ompi_wait_sync_t, align 8
   %7 = icmp eq i64 %0, 0
   br i1 %7, label %14, label %.preheader127
@@ -1806,13 +1806,13 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6

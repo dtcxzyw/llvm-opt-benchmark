@@ -34,19 +34,19 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.get_parent_strength = private unnamed_addr constant [20 x i8] c"get_parent_strength\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ossl_drbg_lock(ptr nocapture noundef readnone %vctx) local_unnamed_addr #0 {
+define noundef i32 @ossl_drbg_lock(ptr noundef readnone captures(none) %vctx) local_unnamed_addr #0 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @ossl_drbg_unlock(ptr nocapture noundef readnone %vctx) local_unnamed_addr #0 {
+define void @ossl_drbg_unlock(ptr noundef readnone captures(none) %vctx) local_unnamed_addr #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ossl_drbg_get_seed(ptr noundef %vdrbg, ptr nocapture noundef writeonly %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance, ptr nocapture noundef readnone %adin, i64 noundef %adin_len) local_unnamed_addr #1 {
+define noundef i64 @ossl_drbg_get_seed(ptr noundef %vdrbg, ptr noundef writeonly captures(none) %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance, ptr noundef readnone captures(none) %adin, i64 noundef %adin_len) local_unnamed_addr #1 {
 entry:
   %drbg = alloca ptr, align 8
   store ptr %vdrbg, ptr %drbg, align 8
@@ -312,14 +312,14 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_drbg_clear_seed(ptr nocapture noundef readnone %vdrbg, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #1 {
+define void @ossl_drbg_clear_seed(ptr noundef readnone captures(none) %vdrbg, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #1 {
 entry:
   tail call void @CRYPTO_secure_clear_free(ptr noundef %out, i64 noundef %outlen, ptr noundef nonnull @.str, i32 noundef 190) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_prov_drbg_nonce_ctx_new(ptr nocapture noundef readnone %libctx) local_unnamed_addr #1 {
+define ptr @ossl_prov_drbg_nonce_ctx_new(ptr noundef readnone captures(none) %libctx) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 278) #8
   %cmp = icmp eq ptr %call, null
@@ -760,7 +760,7 @@ return:                                           ; preds = %if.then.i8, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cleanup_entropy(ptr nocapture noundef readonly %drbg, ptr noundef %out, i64 noundef %outlen) unnamed_addr #1 {
+define internal fastcc void @cleanup_entropy(ptr noundef readonly captures(none) %drbg, ptr noundef %out, i64 noundef %outlen) unnamed_addr #1 {
 entry:
   %parent = getelementptr inbounds nuw i8, ptr %drbg, i64 48
   %0 = load ptr, ptr %parent, align 8
@@ -829,7 +829,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #3
 declare void @ossl_prov_cleanup_nonce(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_prov_drbg_uninstantiate(ptr nocapture noundef writeonly initializes((240, 244)) %drbg) local_unnamed_addr #4 {
+define noundef i32 @ossl_prov_drbg_uninstantiate(ptr noundef writeonly captures(none) initializes((240, 244)) %drbg) local_unnamed_addr #4 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %drbg, i64 240
   store i32 0, ptr %state, align 8
@@ -1065,7 +1065,7 @@ declare i32 @ossl_prov_is_running() local_unnamed_addr #2
 declare i32 @openssl_get_fork_id() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_parent_reseed_count(ptr nocapture noundef readonly %drbg) unnamed_addr #1 {
+define internal fastcc i32 @get_parent_reseed_count(ptr noundef readonly captures(none) %drbg) unnamed_addr #1 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %r = alloca i32, align 4
@@ -1185,7 +1185,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_rand_drbg_new(ptr noundef %provctx, ptr noundef %parent, ptr noundef readonly %p_dispatch, ptr nocapture noundef readonly %dnew, ptr noundef %instantiate, ptr noundef %uninstantiate, ptr noundef %reseed, ptr noundef %generate) local_unnamed_addr #1 {
+define ptr @ossl_rand_drbg_new(ptr noundef %provctx, ptr noundef %parent, ptr noundef readonly %p_dispatch, ptr noundef readonly captures(none) %dnew, ptr noundef %instantiate, ptr noundef %uninstantiate, ptr noundef %reseed, ptr noundef %generate) local_unnamed_addr #1 {
 entry:
   %p_str = alloca i32, align 4
   %call = tail call i32 @ossl_prov_is_running() #8
@@ -1427,7 +1427,7 @@ return:                                           ; preds = %if.end49, %if.end55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_parent_strength(ptr nocapture noundef readonly %drbg, ptr noundef nonnull %str) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @get_parent_strength(ptr noundef readonly captures(none) %drbg, ptr noundef nonnull %str) unnamed_addr #1 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -1522,7 +1522,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_drbg_get_ctx_params(ptr nocapture noundef readonly %drbg, ptr noundef %params) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_drbg_get_ctx_params(ptr noundef readonly captures(none) %drbg, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #8
   %cmp.not = icmp eq ptr %call, null
@@ -1674,7 +1674,7 @@ declare i32 @OSSL_PARAM_set_uint(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @OSSL_PARAM_set_time_t(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_drbg_get_ctx_params_no_lock(ptr nocapture noundef readonly %drbg, ptr noundef %params, ptr nocapture noundef writeonly %complete) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_drbg_get_ctx_params_no_lock(ptr noundef readonly captures(none) %drbg, ptr noundef %params, ptr noundef writeonly captures(none) %complete) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.12) #8
   %cmp.not = icmp eq ptr %call, null
@@ -1761,7 +1761,7 @@ declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @OSSL_PARAM_get_time_t(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_drbg_verify_digest(ptr nocapture noundef readnone %libctx, ptr noundef %md) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_drbg_verify_digest(ptr noundef readnone captures(none) %libctx, ptr noundef %md) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @EVP_MD_get_flags(ptr noundef %md) #8
   %and = and i64 %call, 2
@@ -1786,7 +1786,7 @@ declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #2
 declare ptr @ossl_lib_ctx_get_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @CRYPTO_atomic_add(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1799,7 +1799,7 @@ declare void @ossl_prov_cleanup_entropy(ptr noundef, ptr noundef, i64 noundef) l
 declare void @OSSL_PARAM_construct_uint(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7

@@ -605,7 +605,7 @@ define internal range(i32 1, 260) i32 @dissect_bssap_le(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 2, 258) i32 @dissect_bssap_imei_dissector(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 2, 258) i32 @dissect_bssap_imei_dissector(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %6 = load i32, ptr @hf_bssap_imei_ie, align 4
   %7 = zext i8 %5 to i32

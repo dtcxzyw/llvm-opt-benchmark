@@ -409,10 +409,10 @@ declare { ptr, i32 } @_Z20readStringTableEntryPN3gmx11ISerializerERK11StringTabl
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
@@ -568,7 +568,7 @@ _ZN12_GLOBAL__N_122serializeFEPStateValueISt8optionalI16StringTableEntryEEEvPN3g
 declare void @_ZNK16StringTableEntry9serializeEPN3gmx11ISerializerE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z9init_atomP7t_atoms(ptr nocapture noundef writeonly initializes((0, 4), (8, 44), (48, 69)) %0) local_unnamed_addr #8 {
+define void @_Z9init_atomP7t_atoms(ptr noundef writeonly captures(none) initializes((0, 4), (8, 44), (48, 69)) %0) local_unnamed_addr #8 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -578,7 +578,7 @@ define void @_Z9init_atomP7t_atoms(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z9done_atomP7t_atoms(ptr nocapture noundef initializes((0, 4), (40, 44), (64, 69)) %0) local_unnamed_addr #1 {
+define void @_Z9done_atomP7t_atoms(ptr noundef captures(none) initializes((0, 4), (40, 44), (64, 69)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 230, ptr noundef %3)
@@ -633,7 +633,7 @@ define void @_Z21done_and_delete_atomsP7t_atoms(ptr noundef %0) local_unnamed_ad
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11add_t_atomsP7t_atomsii(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @_Z11add_t_atomsP7t_atomsii(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %63
 
@@ -787,7 +787,7 @@ define void @_Z11add_t_atomsP7t_atomsii(ptr nocapture noundef %0, i32 noundef %1
 declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z12init_t_atomsP7t_atomsib(ptr nocapture noundef writeonly initializes((0, 4), (8, 44), (48, 69)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define void @_Z12init_t_atomsP7t_atomsib(ptr noundef writeonly captures(none) initializes((0, 4), (8, 44), (48, 69)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = zext i1 %2 to i8
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -824,7 +824,7 @@ define void @_Z12init_t_atomsP7t_atomsib(ptr nocapture noundef writeonly initial
 declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z24gmx_pdbinfo_init_defaultP9t_pdbinfo(ptr nocapture noundef writeonly initializes((0, 10), (16, 25), (28, 52)) %0) local_unnamed_addr #8 {
+define void @_Z24gmx_pdbinfo_init_defaultP9t_pdbinfo(ptr noundef writeonly captures(none) initializes((0, 10), (16, 25), (28, 52)) %0) local_unnamed_addr #8 {
 _ZSt4fillIPidEvT_S1_RKT0_.exit:
   store i32 0, ptr %0, align 4
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -845,7 +845,7 @@ _ZSt4fillIPidEvT_S1_RKT0_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z12copy_t_atomsPK7t_atoms(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef ptr @_Z12copy_t_atomsPK7t_atoms(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.6, i32 noundef 333, i64 noundef 1, i64 noundef 72)
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1034,7 +1034,7 @@ _Z12init_t_atomsP7t_atomsib.exit:                 ; preds = %1, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z19t_atoms_set_resinfoP7t_atomsiP8t_symtabPKcihic(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i8 noundef signext %7) local_unnamed_addr #1 {
+define void @_Z19t_atoms_set_resinfoP7t_atomsiP8t_symtabPKcihic(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i8 noundef signext %7) local_unnamed_addr #1 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1239,10 +1239,10 @@ declare noundef i32 @_Z10pr_title_nP8_IO_FILEiPKci(ptr noundef, i32 noundef, ptr
 declare noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z12compareAtomsP8_IO_FILEPK7t_atomsS3_ff(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, float noundef %3, float noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z12compareAtomsP8_IO_FILEPK7t_atomsS3_ff(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, float noundef %3, float noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 16, i64 1, ptr %0)
   %.not = icmp eq ptr %2, null
@@ -1724,7 +1724,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare noundef ptr @_Z17enumValueToString13PdbRecordType(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26atomsSetMassesBasedOnNamesP7t_atomsb(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z26atomsSetMassesBasedOnNamesP7t_atomsb(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.AtomProperties, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -2006,7 +2006,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
@@ -2048,16 +2048,16 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16

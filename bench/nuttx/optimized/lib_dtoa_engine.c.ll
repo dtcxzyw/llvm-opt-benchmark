@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_dtoa_round = external local_unnamed_addr constant [0 x double], align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @__dtoa_engine(double noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = bitcast double %0 to i64
   %.073 = tail call double @llvm.fabs.f64(double %0)
   %.lobit = lshr i64 %5, 63
@@ -153,7 +153,7 @@ declare i32 @llvm.smax.i32(i32, i32) #1
 declare i32 @llvm.smin.i32(i32, i32) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

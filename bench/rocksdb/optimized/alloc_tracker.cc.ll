@@ -9,7 +9,7 @@ $__clang_call_terminate = comdat any
 @_ZN7rocksdb12AllocTrackerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb12AllocTrackerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb12AllocTrackerC2EPNS_18WriteBufferManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) initializes((0, 18)) %this, ptr noundef %write_buffer_manager) unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb12AllocTrackerC2EPNS_18WriteBufferManagerE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(18) initializes((0, 18)) %this, ptr noundef %write_buffer_manager) unnamed_addr #0 align 2 {
 entry:
   store ptr %write_buffer_manager, ptr %this, align 8
   %bytes_allocated_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb12AllocTrackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(18) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb12AllocTrackerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(18) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %done_allocating_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %done_allocating_.i, align 8
@@ -104,7 +104,7 @@ terminate.lpad:                                   ; preds = %if.then7.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12AllocTracker7FreeMemEv(ptr nocapture noundef nonnull align 8 dereferenceable(18) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb12AllocTracker7FreeMemEv(ptr noundef nonnull align 8 captures(none) dereferenceable(18) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %done_allocating_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %done_allocating_, align 8
@@ -190,7 +190,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12AllocTracker8AllocateEm(ptr nocapture noundef nonnull align 8 dereferenceable(18) %this, i64 noundef %bytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb12AllocTracker8AllocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(18) %this, i64 noundef %bytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load atomic i64, ptr %0 monotonic, align 8
@@ -216,7 +216,7 @@ if.end:                                           ; preds = %monotonic.i, %lor.l
 declare void @_ZN7rocksdb18WriteBufferManager10ReserveMemEm(ptr noundef nonnull align 8 dereferenceable(160), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12AllocTracker14DoneAllocatingEv(ptr nocapture noundef nonnull align 8 dereferenceable(18) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb12AllocTracker14DoneAllocatingEv(ptr noundef nonnull align 8 captures(none) dereferenceable(18) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null

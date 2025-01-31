@@ -241,7 +241,7 @@ free_topology.exit:                               ; preds = %42, %10, %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @obj_data_const(ptr nocapture noundef writeonly initializes((16, 17), (20, 32)) %0) #1 {
+define internal void @obj_data_const(ptr noundef writeonly captures(none) initializes((16, 17), (20, 32)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -534,7 +534,7 @@ declare i32 @mca_base_var_enum_create(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @mca_base_var_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @mca_base_framework_components_open(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -543,7 +543,7 @@ declare i32 @mca_base_framework_components_close(ptr noundef, ptr noundef) local
 declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_object(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @free_object(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

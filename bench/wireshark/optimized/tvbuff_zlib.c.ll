@@ -82,7 +82,7 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 41:                                               ; preds = %38
   %42 = zext i32 %36 to i64
-  %43 = tail call ptr @g_memdup2(ptr noundef %19, i64 noundef %42) #11
+  %43 = tail call ptr @g_memdup2(ptr noundef nonnull %19, i64 noundef %42) #11
   %.pre = add i32 %36, %.0197.ph
   br label %53
 
@@ -98,7 +98,7 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
   %50 = zext i32 %.0197.ph to i64
   %51 = getelementptr i8, ptr %49, i64 %50
   %52 = zext i32 %36 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr align 1 %19, i64 %52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr nonnull align 1 %19, i64 %52, i1 false)
   br label %53
 
 53:                                               ; preds = %41, %46
@@ -131,7 +131,7 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
 56:                                               ; preds = %54
   %57 = tail call i32 @inflateEnd(ptr noundef nonnull %16) #8
   tail call void @g_free(ptr noundef nonnull %16) #8
-  tail call void @g_free(ptr noundef %19) #8
+  tail call void @g_free(ptr noundef nonnull %19) #8
   br i1 %.not218, label %58, label %.thread222
 
 58:                                               ; preds = %56
@@ -170,7 +170,7 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
   %74 = tail call i32 @inflateEnd(ptr noundef nonnull %16) #8
   tail call void @g_free(ptr noundef nonnull %16) #8
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %9) #8
-  tail call void @g_free(ptr noundef %19) #8
+  tail call void @g_free(ptr noundef nonnull %19) #8
   br label %148
 
 75:                                               ; preds = %71
@@ -286,7 +286,7 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
   %126 = tail call i32 @inflateEnd(ptr noundef nonnull %16) #8
   tail call void @g_free(ptr noundef nonnull %16) #8
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %9) #8
-  tail call void @g_free(ptr noundef %19) #8
+  tail call void @g_free(ptr noundef nonnull %19) #8
   br label %148
 
 127:                                              ; preds = %._crit_edge
@@ -320,7 +320,7 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 140:                                              ; preds = %135
   tail call void @g_free(ptr noundef nonnull %16) #8
-  tail call void @g_free(ptr noundef %19) #8
+  tail call void @g_free(ptr noundef nonnull %19) #8
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %9) #8
   tail call void @g_free(ptr noundef null) #8
   br label %148
@@ -328,7 +328,7 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
 141:                                              ; preds = %133
   %142 = tail call i32 @inflateEnd(ptr noundef nonnull %16) #8
   tail call void @g_free(ptr noundef nonnull %16) #8
-  tail call void @g_free(ptr noundef %19) #8
+  tail call void @g_free(ptr noundef nonnull %19) #8
   br i1 %.not218, label %143, label %.thread222
 
 143:                                              ; preds = %141
@@ -340,7 +340,7 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.1202221 = phi ptr [ %44, %.thread ], [ %.1202, %53 ]
   %145 = tail call i32 @inflateEnd(ptr noundef nonnull %16) #8
   tail call void @g_free(ptr noundef nonnull %16) #8
-  tail call void @g_free(ptr noundef %19) #8
+  tail call void @g_free(ptr noundef nonnull %19) #8
   %.not219 = icmp eq ptr %.1202221, null
   br i1 %.not219, label %147, label %.thread222
 
@@ -380,7 +380,7 @@ declare void @g_free(ptr noundef) #1
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -392,7 +392,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @inflateReset(ptr noundef) local_unnamed_addr #1
 

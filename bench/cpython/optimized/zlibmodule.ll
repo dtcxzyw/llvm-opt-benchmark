@@ -190,7 +190,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zlib_traverse(ptr noundef %mod, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @zlib_traverse(ptr noundef %mod, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #6
   %0 = load ptr, ptr %call.i, align 8
@@ -349,7 +349,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zlib_adler32(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @zlib_adler32(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %data = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %data, i8 0, i64 80, i1 false)
@@ -1039,7 +1039,7 @@ if.end101:                                        ; preds = %if.then100, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zlib_crc32(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @zlib_crc32(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %data = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %data, i8 0, i64 80, i1 false)
@@ -1797,7 +1797,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1822,7 +1822,7 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyZlib_Malloc(ptr nocapture readnone %ctx, i32 noundef %items, i32 noundef %size) #0 {
+define internal ptr @PyZlib_Malloc(ptr readnone captures(none) %ctx, i32 noundef %items, i32 noundef %size) #0 {
 entry:
   %cmp.not = icmp eq i32 %size, 0
   %.pre = zext i32 %items to i64
@@ -1846,7 +1846,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PyZlib_Free(ptr nocapture readnone %ctx, ptr noundef %ptr) #0 {
+define internal void @PyZlib_Free(ptr readnone captures(none) %ctx, ptr noundef %ptr) #0 {
 entry:
   tail call void @PyMem_RawFree(ptr noundef %ptr) #6
   ret void
@@ -1859,7 +1859,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zlib_error(ptr nocapture noundef readonly %state, ptr %zst.48.val, i32 noundef %err, ptr noundef %msg) unnamed_addr #0 {
+define internal fastcc void @zlib_error(ptr noundef readonly captures(none) %state, ptr %zst.48.val, i32 noundef %err, ptr noundef %msg) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %err, -6
   %zmsg.0 = select i1 %cmp.not, ptr @.str.15, ptr %zst.48.val
@@ -1913,7 +1913,7 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_BlocksOutputBuffer_Grow(ptr nocapture noundef nonnull %buffer, ptr nocapture noundef writeonly %next_out, i64 noundef range(i64 0, 4294967296) %avail_out) unnamed_addr #0 {
+define internal fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull captures(none) %buffer, ptr noundef writeonly captures(none) %next_out, i64 noundef range(i64 0, 4294967296) %avail_out) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %1 = getelementptr i8, ptr %0, i64 16
@@ -2016,7 +2016,7 @@ return:                                           ; preds = %if.end.i30, %if.the
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_BlocksOutputBuffer_Finish(ptr nocapture noundef nonnull %buffer, i64 noundef %avail_out) unnamed_addr #0 {
+define internal fastcc ptr @_BlocksOutputBuffer_Finish(ptr noundef nonnull captures(none) %buffer, i64 noundef %avail_out) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %1 = getelementptr i8, ptr %0, i64 16
@@ -2160,7 +2160,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @newcompobject(ptr noundef %type) unnamed_addr #0 {
@@ -2275,7 +2275,7 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @PyObject_CheckBuffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_inflate_zdict(ptr nocapture noundef readonly %state, ptr noundef %self) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_inflate_zdict(ptr noundef readonly captures(none) %state, ptr noundef %self) unnamed_addr #0 {
 entry:
   %zdict_buf = alloca %struct.Py_buffer, align 8
   %zdict = getelementptr inbounds nuw i8, ptr %self, i64 152
@@ -3097,7 +3097,7 @@ exit:                                             ; preds = %land.lhs.true11, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zlib_Compress_copy(ptr noundef %self, ptr noundef %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @zlib_Compress_copy(ptr noundef %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3117,7 +3117,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zlib_Compress___copy__(ptr noundef %self, ptr noundef %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @zlib_Compress___copy__(ptr noundef %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4028,7 +4028,7 @@ exit:                                             ; preds = %land.lhs.true15, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zlib_Decompress_copy(ptr noundef %self, ptr noundef %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @zlib_Decompress_copy(ptr noundef %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4048,7 +4048,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zlib_Decompress___copy__(ptr noundef %self, ptr noundef %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @zlib_Decompress___copy__(ptr noundef %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4095,7 +4095,7 @@ exit:                                             ; preds = %cond.end, %if.end
 declare ptr @PyType_GetModule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @save_unconsumed_input(ptr nocapture noundef %self, ptr nocapture noundef nonnull readonly %data, i32 noundef %err) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @save_unconsumed_input(ptr noundef captures(none) %self, ptr noundef nonnull readonly captures(none) %data, i32 noundef %err) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %err, 1
   br i1 %cmp, label %if.then, label %if.end22
@@ -4777,7 +4777,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_inflate_zdict_ZlibDecompressor(ptr nocapture noundef readonly %state, ptr noundef nonnull %self) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_inflate_zdict_ZlibDecompressor(ptr noundef readonly captures(none) %state, ptr noundef nonnull %self) unnamed_addr #0 {
 entry:
   %zdict_buf = alloca %struct.Py_buffer, align 8
   %zdict = getelementptr inbounds nuw i8, ptr %self, i64 128
@@ -5388,7 +5388,7 @@ declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @PyErr_SetNone(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
@@ -5404,10 +5404,10 @@ declare i64 @llvm.umin.i64(i64, i64) #4
 declare i64 @llvm.smin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -258,7 +258,7 @@ $_ZTIN6Assimp3FBX14AnimationStackE = comdat any
 @_ZN6Assimp3FBX10ConnectionC1EmmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8DocumentE = hidden unnamed_addr alias void (ptr, i64, i64, i64, ptr, ptr), ptr @_ZN6Assimp3FBX10ConnectionC2EmmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8DocumentE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp3FBX10LazyObjectC2EmRKNS0_7ElementERKNS0_8DocumentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(40) %element, ptr noundef nonnull align 8 dereferenceable(336) %doc) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX10LazyObjectC2EmRKNS0_7ElementERKNS0_8DocumentE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) initializes((0, 36)) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(40) %element, ptr noundef nonnull align 8 dereferenceable(336) %doc) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %doc, ptr %this, align 8
   %element3 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1450,10 +1450,10 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
@@ -1544,7 +1544,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6Assimp3FBX18FileGlobalSettingsC2ERKNS0_8DocumentESt10shared_ptrIKNS0_13PropertyTableEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(336) %doc, ptr nocapture noundef %props) unnamed_addr #10 align 2 {
+define hidden void @_ZN6Assimp3FBX18FileGlobalSettingsC2ERKNS0_8DocumentESt10shared_ptrIKNS0_13PropertyTableEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(336) %doc, ptr noundef captures(none) %props) unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %props, align 8
   store ptr %0, ptr %this, align 8
@@ -6126,7 +6126,7 @@ cond.end:                                         ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEE(ptr noalias nocapture sret(%"class.std::vector.184") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 noundef %id, ptr noundef nonnull readonly align 8 dereferenceable(48) %conns) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEE(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) initializes((0, 24)) %agg.result, ptr nonnull readnone align 8 captures(none) %this, i64 noundef %id, ptr noundef nonnull readonly align 8 dereferenceable(48) %conns) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %conns, i64 16
@@ -6368,7 +6368,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr noalias nocapture sret(%"class.std::vector.184") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 noundef %id, i1 noundef zeroext %is_src, ptr noundef nonnull readonly align 8 dereferenceable(48) %conns, ptr nocapture noundef readonly %classnames, i64 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, i64 noundef %id, i1 noundef zeroext %is_src, ptr noundef nonnull readonly align 8 dereferenceable(48) %conns, ptr noundef readonly captures(none) %classnames, i64 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lengths = alloca [6 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %lengths, i8 0, i64 48, i1 false)
@@ -6711,13 +6711,13 @@ nrvo.skipdtor:                                    ; preds = %if.end19.i.i, %for.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNK6Assimp3FBX10Connection21LazyDestinationObjectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #14 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNK6Assimp3FBX10Connection21LazyDestinationObjectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #14 align 2 {
 entry:
   %doc = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %doc, align 8
@@ -6754,7 +6754,7 @@ _ZNKSt8_Rb_treeImSt4pairIKmPN6Assimp3FBX10LazyObjectEESt10_Select1stIS6_ESt4less
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNK6Assimp3FBX10Connection16LazySourceObjectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #14 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNK6Assimp3FBX10Connection16LazySourceObjectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #14 align 2 {
 entry:
   %doc = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %doc, align 8
@@ -6791,7 +6791,7 @@ _ZNKSt8_Rb_treeImSt4pairIKmPN6Assimp3FBX10LazyObjectEESt10_Select1stIS6_ESt4less
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEm(ptr noalias nocapture sret(%"class.std::vector.184") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %source) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %source) local_unnamed_addr #1 align 2 {
 entry:
   %src_connections.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEE(ptr sret(%"class.std::vector.184") align 8 %agg.result, ptr nonnull align 8 poison, i64 noundef %source, ptr noundef nonnull align 8 dereferenceable(48) %src_connections.i)
@@ -6799,7 +6799,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEmPKc(ptr noalias nocapture sret(%"class.std::vector.184") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %src, ptr noundef %classname) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEmPKc(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %src, ptr noundef %classname) local_unnamed_addr #1 align 2 {
 entry:
   %arr = alloca [1 x ptr], align 8
   store ptr %classname, ptr %arr, align 8
@@ -6809,7 +6809,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEmPKPKcm(ptr noalias nocapture sret(%"class.std::vector.184") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %source, ptr nocapture noundef readonly %classnames, i64 noundef %count) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEmPKPKcm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %source, ptr noundef readonly captures(none) %classnames, i64 noundef %count) local_unnamed_addr #1 align 2 {
 entry:
   %src_connections.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr sret(%"class.std::vector.184") align 8 %agg.result, ptr nonnull align 8 poison, i64 noundef %source, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %src_connections.i, ptr noundef %classnames, i64 noundef %count)
@@ -6817,7 +6817,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr noalias nocapture sret(%"class.std::vector.184") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %dest, ptr noundef %classname) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %dest, ptr noundef %classname) local_unnamed_addr #1 align 2 {
 entry:
   %arr = alloca [1 x ptr], align 8
   store ptr %classname, ptr %arr, align 8
@@ -6827,7 +6827,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKPKcm(ptr noalias nocapture sret(%"class.std::vector.184") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %dest, ptr nocapture noundef readonly %classnames, i64 noundef %count) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKPKcm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %dest, ptr noundef readonly captures(none) %classnames, i64 noundef %count) local_unnamed_addr #1 align 2 {
 entry:
   %dest_connections.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr sret(%"class.std::vector.184") align 8 %agg.result, ptr nonnull align 8 poison, i64 noundef %dest, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %dest_connections.i, ptr noundef %classnames, i64 noundef %count)
@@ -6835,7 +6835,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEm(ptr noalias nocapture sret(%"class.std::vector.184") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %dest) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %dest) local_unnamed_addr #1 align 2 {
 entry:
   %dest_connections.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEE(ptr sret(%"class.std::vector.184") align 8 %agg.result, ptr nonnull align 8 poison, i64 noundef %dest, ptr noundef nonnull align 8 dereferenceable(48) %dest_connections.i)
@@ -6858,7 +6858,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK6Assimp3FBX10Connection12SourceObjectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK6Assimp3FBX10Connection12SourceObjectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
 entry:
   %doc = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %doc, align 8
@@ -6896,7 +6896,7 @@ _ZNKSt8_Rb_treeImSt4pairIKmPN6Assimp3FBX10LazyObjectEESt10_Select1stIS6_ESt4less
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK6Assimp3FBX10Connection17DestinationObjectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK6Assimp3FBX10Connection17DestinationObjectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
 entry:
   %doc = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %doc, align 8
@@ -7100,7 +7100,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11equal_rangeERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9070,10 +9070,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #19
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

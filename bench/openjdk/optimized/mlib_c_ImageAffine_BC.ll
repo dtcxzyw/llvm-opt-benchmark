@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mlib_filters_u8_bc2 = external local_unnamed_addr constant [0 x i16], align 2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mlib_ImageAffine_u8_1ch_bc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef i32 @mlib_ImageAffine_u8_1ch_bc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -413,7 +413,7 @@ define hidden noundef i32 @mlib_ImageAffine_u8_1ch_bc(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mlib_ImageAffine_u8_2ch_bc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef i32 @mlib_ImageAffine_u8_2ch_bc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -833,7 +833,7 @@ define hidden noundef i32 @mlib_ImageAffine_u8_2ch_bc(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mlib_ImageAffine_u8_3ch_bc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef i32 @mlib_ImageAffine_u8_3ch_bc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1254,7 +1254,7 @@ define hidden noundef i32 @mlib_ImageAffine_u8_3ch_bc(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mlib_ImageAffine_u8_4ch_bc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef i32 @mlib_ImageAffine_u8_4ch_bc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48

@@ -213,7 +213,7 @@ declare void @ssl_set_read_state(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ssl_set_write_state(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 0, 1531) i64 @SSL_get_key_block_len(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
+define hidden range(i64 0, 1531) i64 @SSL_get_key_block_len(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #2 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -264,10 +264,10 @@ declare void @ssl3_cleanup_key_block(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @tls1_handshake_digest(ptr nocapture noundef readonly %ssl, ptr noundef %out, i64 noundef %out_len) local_unnamed_addr #0 {
+define hidden i32 @tls1_handshake_digest(ptr noundef readonly captures(none) %ssl, ptr noundef %out, i64 noundef %out_len) local_unnamed_addr #0 {
 entry:
   %ctx_copy.i5 = alloca %struct.env_md_ctx_st, align 8
   %len.i6 = alloca i32, align 4
@@ -412,7 +412,7 @@ return:                                           ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SSL_export_keying_material(ptr noundef %ssl, ptr noundef %out, i64 noundef %out_len, ptr noundef %label, i64 noundef %label_len, ptr nocapture noundef readonly %context, i64 noundef %context_len, i32 noundef %use_context) local_unnamed_addr #0 {
+define hidden i32 @SSL_export_keying_material(ptr noundef %ssl, ptr noundef %out, i64 noundef %out_len, ptr noundef %label, i64 noundef %label_len, ptr noundef readonly captures(none) %context, i64 noundef %context_len, i32 noundef %use_context) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -492,10 +492,10 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @tls1_prf(ptr noundef %ssl, ptr nocapture noundef %out, i64 noundef %out_len, ptr noundef %secret, i64 noundef %secret_len, ptr noundef %label, i64 noundef %label_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len) #0 {
+define internal range(i32 0, 2) i32 @tls1_prf(ptr noundef %ssl, ptr noundef captures(none) %out, i64 noundef %out_len, ptr noundef %secret, i64 noundef %secret_len, ptr noundef %label, i64 noundef %label_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len) #0 {
 entry:
   %cmp = icmp eq i64 %out_len, 0
   br i1 %cmp, label %return, label %if.end
@@ -564,7 +564,7 @@ return:                                           ; preds = %if.end2, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls1_cert_verify_mac(ptr nocapture noundef readonly %ssl, i32 noundef %md_nid, ptr noundef %out) #0 {
+define internal i32 @tls1_cert_verify_mac(ptr noundef readonly captures(none) %ssl, i32 noundef %md_nid, ptr noundef %out) #0 {
 entry:
   %ctx = alloca %struct.env_md_ctx_st, align 8
   %ret = alloca i32, align 4
@@ -625,12 +625,12 @@ declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @ssl_get_algorithm_prf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tls1_P_hash(ptr nocapture noundef %out, i64 noundef range(i64 1, 0) %out_len, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len, ptr noundef %seed3, i64 noundef %seed3_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tls1_P_hash(ptr noundef captures(none) %out, i64 noundef range(i64 1, 0) %out_len, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len, ptr noundef %seed3, i64 noundef %seed3_len) unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.hmac_ctx_st, align 8
   %ctx_tmp = alloca %struct.hmac_ctx_st, align 8
@@ -791,10 +791,10 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @EVP_MD_CTX_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

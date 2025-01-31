@@ -39,7 +39,7 @@ define dso_local noundef ptr @j12init_read_gif(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @start_input_gif(ptr noundef %0, ptr nocapture noundef initializes((72, 80)) %1) #0 {
+define internal void @start_input_gif(ptr noundef %0, ptr noundef captures(none) initializes((72, 80)) %1) #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca [10 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -627,15 +627,15 @@ ReadByte.exit188:                                 ; preds = %226
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @finish_input_gif(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal void @finish_input_gif(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReadColorMap(ptr nocapture noundef readonly %0, i32 noundef range(i32 2, 257) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @ReadColorMap(ptr noundef readonly captures(none) %0, i32 noundef range(i32 2, 257) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -758,7 +758,7 @@ ReadByte.exit30:                                  ; preds = %ReadByte.exit29, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @load_interlaced_image(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @load_interlaced_image(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -885,7 +885,7 @@ define internal noundef i32 @load_interlaced_image(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_pixel_rows(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @get_pixel_rows(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -953,10 +953,10 @@ define internal noundef i32 @get_pixel_rows(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @LZWReadByte(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @LZWReadByte(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca [256 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %4 = load ptr, ptr %3, align 8
@@ -1217,7 +1217,7 @@ SkipDataBlocks.exit:                              ; preds = %ReadByte.exit.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_interlaced_row(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @get_interlaced_row(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 440
@@ -1337,7 +1337,7 @@ define internal noundef i32 @get_interlaced_row(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @GetCode(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @GetCode(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -1500,10 +1500,10 @@ GetDataBlock.exit.thread:                         ; preds = %49, %GetDataBlock.e
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

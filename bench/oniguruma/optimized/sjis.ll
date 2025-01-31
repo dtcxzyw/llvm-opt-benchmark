@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @SJIS_CAN_BE_TRAIL_TABLE = internal unnamed_addr constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\00\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @mbc_enc_len(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i64
   %4 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %3
@@ -120,7 +120,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #2 {
+define internal i32 @mbc_case_fold(i32 %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(none) %3) #2 {
   %5 = load ptr, ptr %1, align 8
   %6 = load i8, ptr %5, align 1
   %7 = icmp sgt i8 %6, -1
@@ -171,7 +171,7 @@ declare i32 @onigenc_ascii_apply_all_case_fold(i32 noundef, ptr noundef, ptr nou
 declare i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @property_name_to_ctype(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal i32 @property_name_to_ctype(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = alloca [32 x i8], align 16
   %5 = ptrtoint ptr %2 to i64
   %6 = ptrtoint ptr %1 to i64
@@ -268,7 +268,7 @@ code_to_mbclen.exit:                              ; preds = %32, %26, %19, %13, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #4 {
+define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #4 {
   %4 = icmp ult i32 %0, 15
   br i1 %4, label %12, label %5
 
@@ -340,7 +340,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @is_allowed_reverse_match(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
   %5 = getelementptr inbounds nuw [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %4
@@ -429,7 +429,7 @@ switch.early.test35._crit_edge:                   ; preds = %8, %8, %9, %18, %16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @onigenc_sjis_lookup_property_name(ptr noundef, i64 noundef) local_unnamed_addr #1
 

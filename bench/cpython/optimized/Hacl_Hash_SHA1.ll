@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.Hacl_Hash_SHA1_legacy_hash.s = private unnamed_addr constant [5 x i32] [i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878, i32 -1009589776], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Hacl_Hash_Core_SHA1_legacy_init(ptr nocapture noundef writeonly initializes((0, 20)) %s) local_unnamed_addr #0 {
+define hidden void @Hacl_Hash_Core_SHA1_legacy_init(ptr noundef writeonly captures(none) initializes((0, 20)) %s) local_unnamed_addr #0 {
 entry:
   store i32 1732584193, ptr %s, align 4
   %arrayidx6 = getelementptr i8, ptr %s, i64 4
@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Hash_Core_SHA1_legacy_finish(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly initializes((0, 20)) %dst) local_unnamed_addr #1 {
+define hidden void @Hacl_Hash_Core_SHA1_legacy_finish(ptr noundef readonly captures(none) %s, ptr noundef writeonly captures(none) initializes((0, 20)) %dst) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %s, align 4
   %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %0)
@@ -50,7 +50,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Hash_SHA1_legacy_update_multi(ptr nocapture noundef %s, ptr nocapture noundef readonly %blocks, i32 noundef %n_blocks) local_unnamed_addr #2 {
+define hidden void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %blocks, i32 noundef %n_blocks) local_unnamed_addr #2 {
 entry:
   %_w.i = alloca [80 x i32], align 16
   %cmp4.not = icmp eq i32 %n_blocks, 0
@@ -200,7 +200,7 @@ for.end:                                          ; preds = %legacy_update.exit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Hash_SHA1_legacy_update_last(ptr nocapture noundef %s, i64 noundef %prev_len, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #2 {
+define hidden void @Hacl_Hash_SHA1_legacy_update_last(ptr noundef captures(none) %s, i64 noundef %prev_len, ptr noundef readonly captures(none) %input, i32 noundef %input_len) local_unnamed_addr #2 {
 entry:
   %tmp_twoblocks = alloca [128 x i8], align 16
   %div13 = lshr i32 %input_len, 6
@@ -243,13 +243,13 @@ legacy_pad.exit:                                  ; preds = %entry, %for.body.pr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Hash_SHA1_legacy_hash(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly initializes((0, 20)) %dst) local_unnamed_addr #2 {
+define hidden void @Hacl_Hash_SHA1_legacy_hash(ptr noundef readonly captures(none) %input, i32 noundef %input_len, ptr noundef writeonly captures(none) initializes((0, 20)) %dst) local_unnamed_addr #2 {
 entry:
   %tmp_twoblocks.i = alloca [128 x i8], align 16
   %s = alloca [5 x i32], align 16
@@ -358,7 +358,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @Hacl_Streaming_SHA1_legacy_init(ptr nocapture noundef initializes((16, 24)) %s) local_unnamed_addr #8 {
+define hidden void @Hacl_Streaming_SHA1_legacy_init(ptr noundef captures(none) initializes((16, 24)) %s) local_unnamed_addr #8 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -380,7 +380,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext range(i8 0, 4) i8 @Hacl_Streaming_SHA1_legacy_update(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #9 {
+define hidden zeroext range(i8 0, 4) i8 @Hacl_Streaming_SHA1_legacy_update(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %data, i32 noundef %len) local_unnamed_addr #9 {
 entry:
   %s.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
@@ -498,7 +498,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @Hacl_Streaming_SHA1_legacy_finish(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly initializes((0, 20)) %dst) local_unnamed_addr #9 {
+define hidden void @Hacl_Streaming_SHA1_legacy_finish(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) initializes((0, 20)) %dst) local_unnamed_addr #9 {
 entry:
   %tmp_twoblocks.i = alloca [128 x i8], align 16
   %tmp_block_state = alloca [5 x i32], align 16
@@ -585,7 +585,7 @@ Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.pr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @Hacl_Streaming_SHA1_legacy_free(ptr nocapture noundef %s) local_unnamed_addr #10 {
+define hidden void @Hacl_Streaming_SHA1_legacy_free(ptr noundef captures(none) %s) local_unnamed_addr #10 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -597,10 +597,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias noundef ptr @Hacl_Streaming_SHA1_legacy_copy(ptr nocapture noundef readonly %s0) local_unnamed_addr #12 {
+define hidden noalias noundef ptr @Hacl_Streaming_SHA1_legacy_copy(ptr noundef readonly captures(none) %s0) local_unnamed_addr #12 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s0, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 8
@@ -621,7 +621,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Streaming_SHA1_legacy_hash(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly initializes((0, 20)) %dst) local_unnamed_addr #2 {
+define hidden void @Hacl_Streaming_SHA1_legacy_hash(ptr noundef readonly captures(none) %input, i32 noundef %input_len, ptr noundef writeonly captures(none) initializes((0, 20)) %dst) local_unnamed_addr #2 {
 entry:
   tail call void @Hacl_Hash_SHA1_legacy_hash(ptr noundef %input, i32 noundef %input_len, ptr noundef %dst)
   ret void
@@ -637,10 +637,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #13
 declare i64 @llvm.bswap.i64(i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

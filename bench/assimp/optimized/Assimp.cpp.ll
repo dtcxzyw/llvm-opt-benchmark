@@ -792,7 +792,7 @@ return:                                           ; preds = %try.cont, %lpad
 declare noundef ptr @_ZN6Assimp9LogStream19createDefaultStreamE18aiDefaultLogStreamPKcPNS_8IOSystemE(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define void @aiAttachLogStream(ptr noundef %stream) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -956,7 +956,7 @@ declare noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv() local_un
 declare noundef ptr @_ZN6Assimp13DefaultLogger6createEPKcNS_6Logger11LogSeverityEjPNS_8IOSystemE(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @aiDetachLogStream(ptr nocapture noundef readonly %stream) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i32 @aiDetachLogStream(ptr noundef readonly captures(none) %stream) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp21 = alloca %struct.ExceptionSwallower.47, align 1
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6AssimpL17gActiveLogStreamsE, i64 16), align 8
@@ -1461,7 +1461,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @aiReleasePropertyStore(ptr noundef %p) local_unnamed_addr #0 {
@@ -1892,7 +1892,7 @@ try.cont:                                         ; preds = %_Z18SetGenericPrope
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @aiCreateQuaternionFromMatrix(ptr nocapture noundef writeonly initializes((0, 16)) %quat, ptr noundef nonnull %mat) local_unnamed_addr #3 {
+define void @aiCreateQuaternionFromMatrix(ptr noundef writeonly captures(none) initializes((0, 16)) %quat, ptr noundef nonnull %mat) local_unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %class.aiQuaterniont, align 4
   call void @_ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(36) %mat)
@@ -2332,7 +2332,7 @@ _ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit: ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiTransposeMatrix3(ptr nocapture noundef %mat) local_unnamed_addr #12 {
+define void @aiTransposeMatrix3(ptr noundef captures(none) %mat) local_unnamed_addr #12 {
 entry:
   %a2.i = getelementptr inbounds nuw i8, ptr %mat, i64 4
   %b1.i = getelementptr inbounds nuw i8, ptr %mat, i64 12
@@ -2356,7 +2356,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiTransposeMatrix4(ptr nocapture noundef %mat) local_unnamed_addr #12 {
+define void @aiTransposeMatrix4(ptr noundef captures(none) %mat) local_unnamed_addr #12 {
 entry:
   %b1.i = getelementptr inbounds nuw i8, ptr %mat, i64 16
   %a2.i = getelementptr inbounds nuw i8, ptr %mat, i64 4
@@ -2398,7 +2398,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiTransformVecByMatrix3(ptr nocapture noundef %vec, ptr nocapture noundef readonly %mat) local_unnamed_addr #13 {
+define void @aiTransformVecByMatrix3(ptr noundef captures(none) %vec, ptr noundef readonly captures(none) %mat) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %mat, align 4
   %1 = load float, ptr %vec, align 4
@@ -2439,7 +2439,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiTransformVecByMatrix4(ptr nocapture noundef %vec, ptr nocapture noundef readonly %mat) local_unnamed_addr #13 {
+define void @aiTransformVecByMatrix4(ptr noundef captures(none) %vec, ptr noundef readonly captures(none) %mat) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %mat, align 4
   %1 = load float, ptr %vec, align 4
@@ -2489,7 +2489,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMultiplyMatrix4(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #12 {
+define void @aiMultiplyMatrix4(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #12 {
 entry:
   %ref.tmp.sroa.0.0.copyload2 = load float, ptr %dst, align 4
   %ref.tmp.sroa.4.0.dst.sroa_idx3 = getelementptr inbounds nuw i8, ptr %dst, i64 4
@@ -2637,7 +2637,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMultiplyMatrix3(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #12 {
+define void @aiMultiplyMatrix3(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #12 {
 entry:
   %ref.tmp.sroa.0.0.copyload2 = load float, ptr %dst, align 4
   %ref.tmp.sroa.4.0.dst.sroa_idx3 = getelementptr inbounds nuw i8, ptr %dst, i64 4
@@ -2713,7 +2713,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @aiIdentityMatrix3(ptr nocapture noundef writeonly initializes((0, 36)) %mat) local_unnamed_addr #14 {
+define void @aiIdentityMatrix3(ptr noundef writeonly captures(none) initializes((0, 36)) %mat) local_unnamed_addr #14 {
 entry:
   store float 1.000000e+00, ptr %mat, align 4
   %ref.tmp.sroa.2.0.mat.sroa_idx = getelementptr inbounds nuw i8, ptr %mat, i64 4
@@ -2736,7 +2736,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @aiIdentityMatrix4(ptr nocapture noundef writeonly initializes((0, 64)) %mat) local_unnamed_addr #14 {
+define void @aiIdentityMatrix4(ptr noundef writeonly captures(none) initializes((0, 64)) %mat) local_unnamed_addr #14 {
 entry:
   store float 1.000000e+00, ptr %mat, align 4
   %ref.tmp.sroa.2.0.mat.sroa_idx = getelementptr inbounds nuw i8, ptr %mat, i64 4
@@ -2858,15 +2858,15 @@ return:                                           ; preds = %if.then.i.i.i8, %in
 declare void @_ZN6Assimp23GetImporterInstanceListERSt6vectorIPNS_12BaseImporterESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZN6Assimp26DeleteImporterInstanceListERSt6vectorIPNS_12BaseImporterESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @aiVector2AreEqual(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @aiVector2AreEqual(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %a, align 4
   %1 = load float, ptr %b, align 4
@@ -2882,7 +2882,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @aiVector2AreEqualEpsilon(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, float noundef %epsilon) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @aiVector2AreEqualEpsilon(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, float noundef %epsilon) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %a, align 4
   %1 = load float, ptr %b, align 4
@@ -2908,7 +2908,7 @@ _ZNK10aiVector2tIfE5EqualERKS0_f.exit:            ; preds = %entry, %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector2Add(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #13 {
+define void @aiVector2Add(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %dst, align 4
   %1 = load float, ptr %src, align 4
@@ -2925,7 +2925,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector2Subtract(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #13 {
+define void @aiVector2Subtract(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %dst, align 4
   %1 = load float, ptr %src, align 4
@@ -2942,7 +2942,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector2Scale(ptr nocapture noundef %dst, float noundef %s) local_unnamed_addr #12 {
+define void @aiVector2Scale(ptr noundef captures(none) %dst, float noundef %s) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %dst, align 4
   %mul.i = fmul float %s, %0
@@ -2955,7 +2955,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector2SymMul(ptr nocapture noundef %dst, ptr nocapture noundef readonly %other) local_unnamed_addr #13 {
+define void @aiVector2SymMul(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %other) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %dst, align 4
   %1 = load float, ptr %other, align 4
@@ -2972,7 +2972,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector2DivideByScalar(ptr nocapture noundef %dst, float noundef %s) local_unnamed_addr #12 {
+define void @aiVector2DivideByScalar(ptr noundef captures(none) %dst, float noundef %s) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %dst, align 4
   %div.i = fdiv float %0, %s
@@ -2985,7 +2985,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector2DivideByVector(ptr nocapture noundef %dst, ptr nocapture noundef readonly %v) local_unnamed_addr #13 {
+define void @aiVector2DivideByVector(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %v) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %dst, align 4
   %1 = load float, ptr %v, align 4
@@ -3002,7 +3002,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @aiVector2Length(ptr nocapture noundef readonly %v) local_unnamed_addr #16 {
+define noundef float @aiVector2Length(ptr noundef readonly captures(none) %v) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %v, align 4
   %y.i.i = getelementptr inbounds nuw i8, ptr %v, i64 4
@@ -3014,7 +3014,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @aiVector2SquareLength(ptr nocapture noundef readonly %v) local_unnamed_addr #16 {
+define noundef float @aiVector2SquareLength(ptr noundef readonly captures(none) %v) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %v, align 4
   %y.i = getelementptr inbounds nuw i8, ptr %v, i64 4
@@ -3025,7 +3025,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector2Negate(ptr nocapture noundef %dst) local_unnamed_addr #13 {
+define void @aiVector2Negate(ptr noundef captures(none) %dst) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %dst, align 4
   %fneg.i = fneg float %0
@@ -3039,7 +3039,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @aiVector2DotProduct(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #16 {
+define noundef float @aiVector2DotProduct(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %a, align 4
   %1 = load float, ptr %b, align 4
@@ -3053,7 +3053,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector2Normalize(ptr nocapture noundef %v) local_unnamed_addr #12 {
+define void @aiVector2Normalize(ptr noundef captures(none) %v) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %v, align 4
   %y.i.i.i = getelementptr inbounds nuw i8, ptr %v, i64 4
@@ -3069,7 +3069,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @aiVector3AreEqual(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @aiVector3AreEqual(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %a, align 4
   %1 = load float, ptr %b, align 4
@@ -3099,7 +3099,7 @@ _ZNK10aiVector3tIfEeqERKS0_.exit:                 ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @aiVector3AreEqualEpsilon(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, float noundef %epsilon) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @aiVector3AreEqualEpsilon(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, float noundef %epsilon) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %a, align 4
   %1 = load float, ptr %b, align 4
@@ -3135,7 +3135,7 @@ _ZNK10aiVector3tIfE5EqualERKS0_f.exit:            ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @aiVector3LessThan(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @aiVector3LessThan(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %a, align 4
   %1 = load float, ptr %b, align 4
@@ -3173,7 +3173,7 @@ _ZNK10aiVector3tIfEltERKS0_.exit:                 ; preds = %cond.true.i, %cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector3Add(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #13 {
+define void @aiVector3Add(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %dst, align 4
   %1 = load float, ptr %src, align 4
@@ -3196,7 +3196,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector3Subtract(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #13 {
+define void @aiVector3Subtract(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %dst, align 4
   %1 = load float, ptr %src, align 4
@@ -3219,7 +3219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector3Scale(ptr nocapture noundef %dst, float noundef %s) local_unnamed_addr #12 {
+define void @aiVector3Scale(ptr noundef captures(none) %dst, float noundef %s) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %dst, align 4
   %mul.i = fmul float %s, %0
@@ -3236,7 +3236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector3SymMul(ptr nocapture noundef %dst, ptr nocapture noundef readonly %other) local_unnamed_addr #13 {
+define void @aiVector3SymMul(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %other) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %dst, align 4
   %1 = load float, ptr %other, align 4
@@ -3259,7 +3259,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector3DivideByScalar(ptr nocapture noundef %dst, float noundef %s) local_unnamed_addr #12 {
+define void @aiVector3DivideByScalar(ptr noundef captures(none) %dst, float noundef %s) local_unnamed_addr #12 {
 entry:
   %cmp.i = fcmp oeq float %s, 0.000000e+00
   br i1 %cmp.i, label %_ZN10aiVector3tIfEdVEf.exit, label %if.end.i
@@ -3284,7 +3284,7 @@ _ZN10aiVector3tIfEdVEf.exit:                      ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector3DivideByVector(ptr nocapture noundef %dst, ptr nocapture noundef readonly %v) local_unnamed_addr #13 {
+define void @aiVector3DivideByVector(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %v) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %dst, align 4
   %1 = load float, ptr %v, align 4
@@ -3307,7 +3307,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @aiVector3Length(ptr nocapture noundef readonly %v) local_unnamed_addr #16 {
+define noundef float @aiVector3Length(ptr noundef readonly captures(none) %v) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %v, align 4
   %y.i.i = getelementptr inbounds nuw i8, ptr %v, i64 4
@@ -3322,7 +3322,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @aiVector3SquareLength(ptr nocapture noundef readonly %v) local_unnamed_addr #16 {
+define noundef float @aiVector3SquareLength(ptr noundef readonly captures(none) %v) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %v, align 4
   %y.i = getelementptr inbounds nuw i8, ptr %v, i64 4
@@ -3336,7 +3336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector3Negate(ptr nocapture noundef %dst) local_unnamed_addr #13 {
+define void @aiVector3Negate(ptr noundef captures(none) %dst) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %dst, align 4
   %fneg.i = fneg float %0
@@ -3354,7 +3354,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @aiVector3DotProduct(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #16 {
+define noundef float @aiVector3DotProduct(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %a, align 4
   %1 = load float, ptr %b, align 4
@@ -3373,7 +3373,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector3CrossProduct(ptr nocapture noundef writeonly initializes((0, 12)) %dst, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #13 {
+define void @aiVector3CrossProduct(ptr noundef writeonly captures(none) initializes((0, 12)) %dst, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #13 {
 entry:
   %y.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load float, ptr %y.i, align 4
@@ -3403,7 +3403,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector3Normalize(ptr nocapture noundef %v) local_unnamed_addr #12 {
+define void @aiVector3Normalize(ptr noundef captures(none) %v) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %v, align 4
   %y.i.i.i = getelementptr inbounds nuw i8, ptr %v, i64 4
@@ -3432,7 +3432,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %entry, %_ZN10aiVect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector3NormalizeSafe(ptr nocapture noundef %v) local_unnamed_addr #12 {
+define void @aiVector3NormalizeSafe(ptr noundef captures(none) %v) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %v, align 4
   %y.i.i.i = getelementptr inbounds nuw i8, ptr %v, i64 4
@@ -3461,7 +3461,7 @@ _ZN10aiVector3tIfE13NormalizeSafeEv.exit:         ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector3RotateByQuaternion(ptr nocapture noundef %v, ptr nocapture noundef readonly %q) local_unnamed_addr #13 {
+define void @aiVector3RotateByQuaternion(ptr noundef captures(none) %v, ptr noundef readonly captures(none) %q) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %v, align 4
   %y.i = getelementptr inbounds nuw i8, ptr %v, i64 4
@@ -3515,7 +3515,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix3FromMatrix4(ptr nocapture noundef writeonly initializes((0, 36)) %dst, ptr nocapture noundef readonly %mat) local_unnamed_addr #12 {
+define void @aiMatrix3FromMatrix4(ptr noundef writeonly captures(none) initializes((0, 36)) %dst, ptr noundef readonly captures(none) %mat) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %mat, align 4
   %a2.i = getelementptr inbounds nuw i8, ptr %mat, i64 4
@@ -3555,7 +3555,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix3FromQuaternion(ptr nocapture noundef writeonly initializes((0, 36)) %mat, ptr nocapture noundef readonly %q) local_unnamed_addr #12 {
+define void @aiMatrix3FromQuaternion(ptr noundef writeonly captures(none) initializes((0, 36)) %mat, ptr noundef readonly captures(none) %q) local_unnamed_addr #12 {
 entry:
   %y.i = getelementptr inbounds nuw i8, ptr %q, i64 8
   %0 = load float, ptr %y.i, align 4, !noalias !16
@@ -3612,7 +3612,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @aiMatrix3AreEqual(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @aiMatrix3AreEqual(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %a, align 4
   %1 = load float, ptr %b, align 4
@@ -3690,7 +3690,7 @@ _ZNK12aiMatrix3x3tIfEeqERKS0_.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @aiMatrix3AreEqualEpsilon(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, float noundef %epsilon) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @aiMatrix3AreEqualEpsilon(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, float noundef %epsilon) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %a, align 4
   %1 = load float, ptr %b, align 4
@@ -3884,7 +3884,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @aiMatrix3Determinant(ptr nocapture noundef readonly %mat) local_unnamed_addr #16 {
+define noundef float @aiMatrix3Determinant(ptr noundef readonly captures(none) %mat) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %mat, align 4
   %b2.i = getelementptr inbounds nuw i8, ptr %mat, i64 16
@@ -3922,7 +3922,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @aiMatrix3RotationZ(ptr nocapture noundef writeonly initializes((0, 36)) %mat, float noundef %angle) local_unnamed_addr #17 {
+define void @aiMatrix3RotationZ(ptr noundef writeonly captures(none) initializes((0, 36)) %mat, float noundef %angle) local_unnamed_addr #17 {
 entry:
   %call.i.i = tail call noundef float @cosf(float noundef %angle) #44
   %b2.i = getelementptr inbounds nuw i8, ptr %mat, i64 16
@@ -3948,7 +3948,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @aiMatrix3FromRotationAroundAxis(ptr nocapture noundef writeonly initializes((0, 36)) %mat, ptr nocapture noundef readonly %axis, float noundef %angle) local_unnamed_addr #18 {
+define void @aiMatrix3FromRotationAroundAxis(ptr noundef writeonly captures(none) initializes((0, 36)) %mat, ptr noundef readonly captures(none) %axis, float noundef %angle) local_unnamed_addr #18 {
 entry:
   %call.i.i = tail call noundef float @cosf(float noundef %angle) #44
   %call.i50.i = tail call noundef float @sinf(float noundef %angle) #44
@@ -3997,7 +3997,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix3Translation(ptr nocapture noundef writeonly initializes((0, 36)) %mat, ptr nocapture noundef readonly %translation) local_unnamed_addr #12 {
+define void @aiMatrix3Translation(ptr noundef writeonly captures(none) initializes((0, 36)) %mat, ptr noundef readonly captures(none) %translation) local_unnamed_addr #12 {
 entry:
   store float 1.000000e+00, ptr %mat, align 4
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds nuw i8, ptr %mat, i64 4
@@ -4293,7 +4293,7 @@ if.end165:                                        ; preds = %_ZN12aiMatrix3x3tIf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix4FromMatrix3(ptr nocapture noundef writeonly initializes((0, 64)) %dst, ptr nocapture noundef readonly %mat) local_unnamed_addr #12 {
+define void @aiMatrix4FromMatrix3(ptr noundef writeonly captures(none) initializes((0, 64)) %dst, ptr noundef readonly captures(none) %mat) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %mat, align 4
   %a2.i = getelementptr inbounds nuw i8, ptr %mat, i64 4
@@ -4341,7 +4341,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix4FromScalingQuaternionPosition(ptr nocapture noundef writeonly initializes((0, 64)) %mat, ptr nocapture noundef readonly %scaling, ptr nocapture noundef readonly %rotation, ptr nocapture noundef readonly %position) local_unnamed_addr #12 {
+define void @aiMatrix4FromScalingQuaternionPosition(ptr noundef writeonly captures(none) initializes((0, 64)) %mat, ptr noundef readonly captures(none) %scaling, ptr noundef readonly captures(none) %rotation, ptr noundef readonly captures(none) %position) local_unnamed_addr #12 {
 entry:
   %y.i.i = getelementptr inbounds nuw i8, ptr %rotation, i64 8
   %0 = load float, ptr %y.i.i, align 4, !noalias !21
@@ -4431,7 +4431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix4Add(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #12 {
+define void @aiMatrix4Add(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %src, align 4, !noalias !24
   %1 = load float, ptr %dst, align 4, !noalias !24
@@ -5110,7 +5110,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @aiMatrix4Determinant(ptr nocapture noundef readonly %mat) local_unnamed_addr #16 {
+define noundef float @aiMatrix4Determinant(ptr noundef readonly captures(none) %mat) local_unnamed_addr #16 {
 entry:
   %0 = load float, ptr %mat, align 4
   %b2.i = getelementptr inbounds nuw i8, ptr %mat, i64 20
@@ -5557,7 +5557,7 @@ if.end91:                                         ; preds = %if.else, %if.then65
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @aiMatrix4DecomposeIntoScalingAxisAnglePosition(ptr noundef nonnull %mat, ptr noundef nonnull %scaling, ptr nocapture noundef writeonly initializes((0, 12)) %axis, ptr nocapture noundef writeonly initializes((0, 4)) %angle, ptr noundef nonnull %position) local_unnamed_addr #3 {
+define void @aiMatrix4DecomposeIntoScalingAxisAnglePosition(ptr noundef nonnull %mat, ptr noundef nonnull %scaling, ptr noundef writeonly captures(none) initializes((0, 12)) %axis, ptr noundef writeonly captures(none) initializes((0, 4)) %angle, ptr noundef nonnull %position) local_unnamed_addr #3 {
 entry:
   %pRotation.i = alloca %class.aiQuaterniont, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pRotation.i)
@@ -5745,7 +5745,7 @@ _ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit: ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @aiMatrix4FromEulerAngles(ptr nocapture noundef writeonly initializes((0, 12), (16, 28), (32, 44)) %mat, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #17 {
+define void @aiMatrix4FromEulerAngles(ptr noundef writeonly captures(none) initializes((0, 12), (16, 28), (32, 44)) %mat, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #17 {
 entry:
   %call.i.i = tail call noundef float @cosf(float noundef %x) #44
   %call.i35.i = tail call noundef float @sinf(float noundef %x) #44
@@ -5791,7 +5791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @aiMatrix4RotationX(ptr nocapture noundef writeonly initializes((0, 64)) %mat, float noundef %angle) local_unnamed_addr #17 {
+define void @aiMatrix4RotationX(ptr noundef writeonly captures(none) initializes((0, 64)) %mat, float noundef %angle) local_unnamed_addr #17 {
 entry:
   store float 1.000000e+00, ptr %mat, align 4
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds nuw i8, ptr %mat, i64 4
@@ -5817,7 +5817,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @aiMatrix4RotationY(ptr nocapture noundef writeonly initializes((0, 64)) %mat, float noundef %angle) local_unnamed_addr #17 {
+define void @aiMatrix4RotationY(ptr noundef writeonly captures(none) initializes((0, 64)) %mat, float noundef %angle) local_unnamed_addr #17 {
 entry:
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds nuw i8, ptr %mat, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.sroa.2.0.out.sroa_idx.i, i8 0, i64 16, i1 false)
@@ -5843,7 +5843,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @aiMatrix4RotationZ(ptr nocapture noundef writeonly initializes((0, 64)) %mat, float noundef %angle) local_unnamed_addr #17 {
+define void @aiMatrix4RotationZ(ptr noundef writeonly captures(none) initializes((0, 64)) %mat, float noundef %angle) local_unnamed_addr #17 {
 entry:
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds nuw i8, ptr %mat, i64 4
   %0 = getelementptr inbounds nuw i8, ptr %mat, i64 8
@@ -5869,7 +5869,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @aiMatrix4FromRotationAroundAxis(ptr nocapture noundef writeonly initializes((0, 64)) %mat, ptr nocapture noundef readonly %axis, float noundef %angle) local_unnamed_addr #18 {
+define void @aiMatrix4FromRotationAroundAxis(ptr noundef writeonly captures(none) initializes((0, 64)) %mat, ptr noundef readonly captures(none) %axis, float noundef %angle) local_unnamed_addr #18 {
 entry:
   %call.i.i = tail call noundef float @cosf(float noundef %angle) #44
   %call.i57.i = tail call noundef float @sinf(float noundef %angle) #44
@@ -5926,7 +5926,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix4Translation(ptr nocapture noundef writeonly initializes((0, 64)) %mat, ptr nocapture noundef readonly %translation) local_unnamed_addr #12 {
+define void @aiMatrix4Translation(ptr noundef writeonly captures(none) initializes((0, 64)) %mat, ptr noundef readonly captures(none) %translation) local_unnamed_addr #12 {
 entry:
   store float 1.000000e+00, ptr %mat, align 4
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds nuw i8, ptr %mat, i64 4
@@ -5955,7 +5955,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix4Scaling(ptr nocapture noundef writeonly initializes((0, 64)) %mat, ptr nocapture noundef readonly %scaling) local_unnamed_addr #12 {
+define void @aiMatrix4Scaling(ptr noundef writeonly captures(none) initializes((0, 64)) %mat, ptr noundef readonly captures(none) %scaling) local_unnamed_addr #12 {
 entry:
   store float 1.000000e+00, ptr %mat, align 4
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds nuw i8, ptr %mat, i64 4
@@ -5982,7 +5982,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @aiMatrix4FromTo(ptr nocapture noundef writeonly initializes((0, 64)) %mat, ptr noundef nonnull %from, ptr noundef nonnull %to) local_unnamed_addr #3 {
+define void @aiMatrix4FromTo(ptr noundef writeonly captures(none) initializes((0, 64)) %mat, ptr noundef nonnull %from, ptr noundef nonnull %to) local_unnamed_addr #3 {
 entry:
   %m3.i = alloca %class.aiMatrix3x3t, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %m3.i)
@@ -6043,7 +6043,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @aiQuaternionFromEulerAngles(ptr nocapture noundef writeonly initializes((0, 16)) %q, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #17 {
+define void @aiQuaternionFromEulerAngles(ptr noundef writeonly captures(none) initializes((0, 16)) %q, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #17 {
 entry:
   %mul.i = fmul float %x, 5.000000e-01
   %call.i.i = tail call noundef float @sinf(float noundef %mul.i) #44
@@ -6081,7 +6081,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @aiQuaternionFromAxisAngle(ptr nocapture noundef writeonly initializes((0, 16)) %q, ptr nocapture noundef readonly %axis, float noundef %angle) local_unnamed_addr #19 {
+define void @aiQuaternionFromAxisAngle(ptr noundef writeonly captures(none) initializes((0, 16)) %q, ptr noundef readonly captures(none) %axis, float noundef %angle) local_unnamed_addr #19 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %axis, align 4
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %axis, i64 8
@@ -6123,7 +6123,7 @@ _ZN13aiQuaterniontIfEC2E10aiVector3tIfEf.exit:    ; preds = %entry, %_ZN10aiVect
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @aiQuaternionFromNormalizedQuaternion(ptr nocapture noundef writeonly initializes((0, 16)) %q, ptr nocapture noundef readonly %normalized) local_unnamed_addr #19 {
+define void @aiQuaternionFromNormalizedQuaternion(ptr noundef writeonly captures(none) initializes((0, 16)) %q, ptr noundef readonly captures(none) %normalized) local_unnamed_addr #19 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %normalized, align 4
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %normalized, i64 8
@@ -6156,7 +6156,7 @@ _ZN13aiQuaterniontIfEC2E10aiVector3tIfE.exit:     ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @aiQuaternionAreEqual(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @aiQuaternionAreEqual(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #16 {
 entry:
   %x.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load float, ptr %x.i, align 4
@@ -6194,7 +6194,7 @@ _ZNK13aiQuaterniontIfEeqERKS0_.exit:              ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @aiQuaternionAreEqualEpsilon(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, float noundef %epsilon) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @aiQuaternionAreEqualEpsilon(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, float noundef %epsilon) local_unnamed_addr #16 {
 entry:
   %x.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load float, ptr %x.i, align 4
@@ -6240,7 +6240,7 @@ _ZNK13aiQuaterniontIfE5EqualERKS0_f.exit:         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiQuaternionNormalize(ptr nocapture noundef %q) local_unnamed_addr #12 {
+define void @aiQuaternionNormalize(ptr noundef captures(none) %q) local_unnamed_addr #12 {
 entry:
   %x.i = getelementptr inbounds nuw i8, ptr %q, i64 4
   %0 = load float, ptr %x.i, align 4
@@ -6274,7 +6274,7 @@ _ZN13aiQuaterniontIfE9NormalizeEv.exit:           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiQuaternionConjugate(ptr nocapture noundef %q) local_unnamed_addr #12 {
+define void @aiQuaternionConjugate(ptr noundef captures(none) %q) local_unnamed_addr #12 {
 entry:
   %x.i = getelementptr inbounds nuw i8, ptr %q, i64 4
   %0 = load float, ptr %x.i, align 4
@@ -6292,7 +6292,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiQuaternionMultiply(ptr nocapture noundef %dst, ptr nocapture noundef readonly %q) local_unnamed_addr #13 {
+define void @aiQuaternionMultiply(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %q) local_unnamed_addr #13 {
 entry:
   %0 = load float, ptr %dst, align 4
   %1 = load float, ptr %q, align 4
@@ -6338,7 +6338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @aiQuaternionInterpolate(ptr nocapture noundef writeonly initializes((0, 16)) %dst, ptr nocapture noundef readonly %start, ptr nocapture noundef readonly %end, float noundef %factor) local_unnamed_addr #18 {
+define void @aiQuaternionInterpolate(ptr noundef writeonly captures(none) initializes((0, 16)) %dst, ptr noundef readonly captures(none) %start, ptr noundef readonly captures(none) %end, float noundef %factor) local_unnamed_addr #18 {
 entry:
   %x.i = getelementptr inbounds nuw i8, ptr %start, i64 4
   %0 = load float, ptr %x.i, align 4
@@ -6433,14 +6433,14 @@ entry:
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #21
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @assimp_stbi_image_free(ptr nocapture noundef %retval_from_stbi_load) local_unnamed_addr #22 {
+define hidden void @assimp_stbi_image_free(ptr noundef captures(none) %retval_from_stbi_load) local_unnamed_addr #22 {
 entry:
   tail call void @free(ptr noundef %retval_from_stbi_load) #44
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #23
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @assimp_stbi_set_flip_vertically_on_load(i32 noundef %flag_true_if_should_flip) local_unnamed_addr #24 {
@@ -6460,7 +6460,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load(ptr noundef readonly captures(none) %filename, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
@@ -6547,7 +6547,7 @@ return:                                           ; preds = %assimp_stbi_load_fr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_from_file(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_from_file(ptr noundef %f, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -6617,10 +6617,10 @@ if.end:                                           ; preds = %if.then, %_ZL16stbi
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi__contextPiS1_S1_i(ptr noundef nonnull %s, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi__contextPiS1_S1_i(ptr noundef nonnull %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) unnamed_addr #3 {
 entry:
   %temp.i = alloca [2048 x i8], align 16
   %ri = alloca %struct.stbi__result_info, align 4
@@ -6764,10 +6764,10 @@ return:                                           ; preds = %if.end6, %_ZL19stbi
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #25
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_from_file_16(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_from_file_16(ptr noundef %f, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -6837,7 +6837,7 @@ if.end:                                           ; preds = %if.then, %_ZL16stbi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL32stbi__load_and_postprocess_16bitP13stbi__contextPiS1_S1_i(ptr noundef nonnull %s, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL32stbi__load_and_postprocess_16bitP13stbi__contextPiS1_S1_i(ptr noundef nonnull %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) unnamed_addr #3 {
 entry:
   %temp.i = alloca [2048 x i8], align 16
   %ri = alloca %struct.stbi__result_info, align 4
@@ -6983,7 +6983,7 @@ return:                                           ; preds = %if.end6, %_ZL19stbi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_16(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_16(ptr noundef readonly captures(none) %filename, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
@@ -7070,7 +7070,7 @@ return:                                           ; preds = %assimp_stbi_load_fr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_16_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_16_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7094,7 +7094,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_16_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_16_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7149,7 +7149,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7173,7 +7173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7228,7 +7228,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef ptr @assimp_stbi_loadf_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noalias noundef ptr @assimp_stbi_loadf_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7252,7 +7252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZL16stbi__loadf_mainP13stbi__contextPiS1_S1_i(ptr noundef nonnull %s, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) unnamed_addr #3 {
+define internal fastcc noalias noundef ptr @_ZL16stbi__loadf_mainP13stbi__contextPiS1_S1_i(ptr noundef nonnull %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) unnamed_addr #3 {
 entry:
   %call = tail call fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi__contextPiS1_S1_i(ptr noundef %s, ptr noundef %x, ptr noundef %y, ptr noundef %comp, i32 noundef %req_comp)
   %tobool.not = icmp eq ptr %call, null
@@ -7398,7 +7398,7 @@ return:                                           ; preds = %if.end43.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_loadf_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_loadf_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7453,7 +7453,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_loadf(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_loadf(ptr noundef readonly captures(none) %filename, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
@@ -7525,7 +7525,7 @@ return:                                           ; preds = %assimp_stbi_loadf_f
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_loadf_from_file(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_loadf_from_file(ptr noundef %f, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7580,13 +7580,13 @@ _ZL16stbi__start_fileP13stbi__contextP8_IO_FILE.exit: ; preds = %if.then.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @assimp_stbi_is_hdr_from_memory(ptr nocapture noundef readnone %buffer, i32 noundef %len) local_unnamed_addr #26 {
+define hidden noundef i32 @assimp_stbi_is_hdr_from_memory(ptr noundef readnone captures(none) %buffer, i32 noundef %len) local_unnamed_addr #26 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef i32 @assimp_stbi_is_hdr(ptr nocapture noundef readonly %filename) local_unnamed_addr #27 {
+define hidden noundef i32 @assimp_stbi_is_hdr(ptr noundef readonly captures(none) %filename) local_unnamed_addr #27 {
 entry:
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
   %tobool.not = icmp eq ptr %call.i, null
@@ -7601,13 +7601,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @assimp_stbi_is_hdr_from_file(ptr nocapture noundef readnone %f) local_unnamed_addr #26 {
+define hidden noundef i32 @assimp_stbi_is_hdr_from_file(ptr noundef readnone captures(none) %f) local_unnamed_addr #26 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @assimp_stbi_is_hdr_from_callbacks(ptr nocapture noundef readnone %clbk, ptr nocapture noundef readnone %user) local_unnamed_addr #26 {
+define hidden noundef i32 @assimp_stbi_is_hdr_from_callbacks(ptr noundef readnone captures(none) %clbk, ptr noundef readnone captures(none) %user) local_unnamed_addr #26 {
 entry:
   ret i32 0
 }
@@ -9202,7 +9202,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @assimp_stbi_info(ptr nocapture noundef readonly %filename, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @assimp_stbi_info(ptr noundef readonly captures(none) %filename, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #3 {
 entry:
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
   %tobool.not = icmp eq ptr %call.i, null
@@ -9340,10 +9340,10 @@ _ZL15stbi__info_mainP13stbi__contextPiS1_S1_.exit: ; preds = %_ZL14stbi__png_inf
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @assimp_stbi_is_16_bit(ptr nocapture noundef readonly %filename) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @assimp_stbi_is_16_bit(ptr noundef readonly captures(none) %filename) local_unnamed_addr #3 {
 entry:
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
   %tobool.not = icmp eq ptr %call.i, null
@@ -9530,7 +9530,7 @@ _ZL15stbi__info_mainP13stbi__contextPiS1_S1_.exit: ; preds = %_ZL14stbi__png_inf
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @assimp_stbi_info_from_callbacks(ptr nocapture noundef readonly %c, ptr noundef %user, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @assimp_stbi_info_from_callbacks(ptr noundef readonly captures(none) %c, ptr noundef %user, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #3 {
 entry:
   %p.i.i = alloca %struct.stbi__png, align 8
   %s = alloca %struct.stbi__context, align 8
@@ -9693,7 +9693,7 @@ _ZL16stbi__is_16_mainP13stbi__context.exit:       ; preds = %entry, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @assimp_stbi_is_16_bit_from_callbacks(ptr nocapture noundef readonly %c, ptr noundef %user) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @assimp_stbi_is_16_bit_from_callbacks(ptr noundef readonly captures(none) %c, ptr noundef %user) local_unnamed_addr #3 {
 entry:
   %p.i.i = alloca %struct.stbi__png, align 8
   %s = alloca %struct.stbi__context, align 8
@@ -11406,10 +11406,10 @@ declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull al
 declare noundef zeroext i1 @_ZNK6Assimp8Importer20IsExtensionSupportedEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #25
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef i32 @_ZL16stbi__stdio_readPvPci(ptr nocapture noundef %user, ptr nocapture noundef %data, i32 noundef %size) #27 {
+define internal noundef i32 @_ZL16stbi__stdio_readPvPci(ptr noundef captures(none) %user, ptr noundef captures(none) %data, i32 noundef %size) #27 {
 entry:
   %conv = sext i32 %size to i64
   %call = tail call i64 @fread(ptr noundef %data, i64 noundef 1, i64 noundef %conv, ptr noundef %user)
@@ -11418,7 +11418,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZL16stbi__stdio_skipPvi(ptr nocapture noundef %user, i32 noundef %n) #27 {
+define internal void @_ZL16stbi__stdio_skipPvi(ptr noundef captures(none) %user, i32 noundef %n) #27 {
 entry:
   %conv = sext i32 %n to i64
   %call = tail call i32 @fseek(ptr noundef %user, i64 noundef %conv, i32 noundef 1)
@@ -11435,7 +11435,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL15stbi__stdio_eofPv(ptr nocapture noundef %user) #27 {
+define internal noundef range(i32 0, 2) i32 @_ZL15stbi__stdio_eofPv(ptr noundef captures(none) %user) #27 {
 entry:
   %call = tail call i32 @feof(ptr noundef %user) #44
   %tobool.not = icmp eq i32 %call, 0
@@ -11453,22 +11453,22 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #28
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef nonnull %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef nonnull writeonly initializes((0, 12)) %ri) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef nonnull %s, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr noundef nonnull writeonly captures(none) initializes((0, 12)) %ri) unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.stbi__png, align 8
   store i32 8, ptr %ri, align 4
@@ -12415,7 +12415,7 @@ return:                                           ; preds = %if.end, %_ZL14stbi_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr nocapture noundef nonnull initializes((8, 32)) %z, i32 noundef range(i32 0, 3) %scan, i32 noundef range(i32 0, 5) %req_comp) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef nonnull captures(none) initializes((8, 32)) %z, i32 noundef range(i32 0, 3) %scan, i32 noundef range(i32 0, 5) %req_comp) unnamed_addr #3 {
 entry:
   %palette = alloca [1024 x i8], align 16
   %tc = alloca [3 x i8], align 1
@@ -13986,10 +13986,10 @@ _ZL10stbi__get8P13stbi__context.exit34:           ; preds = %if.then.i32, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #29
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL22stbi__create_png_imageP9stbi__pngPhjiiii(ptr nocapture noundef nonnull %a, ptr nocapture noundef readonly %image_data, i32 noundef %image_data_len, i32 noundef %out_n, i32 noundef %depth, i32 noundef range(i32 0, 7) %color, i32 noundef range(i32 0, 2) %interlaced) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL22stbi__create_png_imageP9stbi__pngPhjiiii(ptr noundef nonnull captures(none) %a, ptr noundef readonly captures(none) %image_data, i32 noundef %image_data_len, i32 noundef %out_n, i32 noundef %depth, i32 noundef range(i32 0, 7) %color, i32 noundef range(i32 0, 2) %interlaced) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %depth, 16
   %0 = zext i1 %cmp to i32
@@ -14169,7 +14169,7 @@ return:                                           ; preds = %for.end84, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL28stbi__compute_transparency16P9stbi__pngPti(i32 %z.0.val.0.val, i32 %z.0.val.4.val, ptr nocapture %z.24.val, ptr nocapture noundef nonnull readonly %tc, i32 noundef %out_n) unnamed_addr #30 {
+define internal fastcc void @_ZL28stbi__compute_transparency16P9stbi__pngPti(i32 %z.0.val.0.val, i32 %z.0.val.4.val, ptr captures(none) %z.24.val, ptr noundef nonnull readonly captures(none) %tc, i32 noundef %out_n) unnamed_addr #30 {
 entry:
   %mul = mul i32 %z.0.val.4.val, %z.0.val.0.val
   %cmp = icmp eq i32 %out_n, 2
@@ -14239,7 +14239,7 @@ if.end33:                                         ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL26stbi__compute_transparencyP9stbi__pngPhi(i32 %z.0.val.0.val, i32 %z.0.val.4.val, ptr nocapture %z.24.val, ptr nocapture noundef nonnull readonly %tc, i32 noundef %out_n) unnamed_addr #30 {
+define internal fastcc void @_ZL26stbi__compute_transparencyP9stbi__pngPhi(i32 %z.0.val.0.val, i32 %z.0.val.4.val, ptr captures(none) %z.24.val, ptr noundef nonnull readonly captures(none) %tc, i32 noundef %out_n) unnamed_addr #30 {
 entry:
   %mul = mul i32 %z.0.val.4.val, %z.0.val.0.val
   %cmp = icmp eq i32 %out_n, 2
@@ -14309,7 +14309,7 @@ if.end33:                                         ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL15stbi__de_iphoneP9stbi__png(ptr nocapture readonly %z.0.val, ptr nocapture %z.24.val) unnamed_addr #31 {
+define internal fastcc void @_ZL15stbi__de_iphoneP9stbi__png(ptr readonly captures(none) %z.0.val, ptr captures(none) %z.24.val) unnamed_addr #31 {
 entry:
   %0 = load i32, ptr %z.0.val, align 8
   %img_y = getelementptr inbounds nuw i8, ptr %z.0.val, i64 4
@@ -14426,7 +14426,7 @@ if.end64:                                         ; preds = %if.end, %for.body53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL24stbi__expand_png_paletteP9stbi__pngPhii(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull readonly %palette, i32 noundef %pal_img_n) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL24stbi__expand_png_paletteP9stbi__pngPhii(ptr noundef nonnull captures(none) %a, ptr noundef nonnull readonly captures(none) %palette, i32 noundef %pal_img_n) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load i32, ptr %0, align 8
@@ -14552,7 +14552,7 @@ return:                                           ; preds = %if.end44, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL26stbi__create_png_image_rawP9stbi__pngPhjijjii(ptr nocapture noundef nonnull initializes((24, 32)) %a, ptr nocapture noundef readonly %raw, i32 noundef %raw_len, i32 noundef %out_n, i32 noundef %x, i32 noundef %y, i32 noundef %depth, i32 noundef range(i32 0, 7) %color) unnamed_addr #27 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL26stbi__create_png_image_rawP9stbi__pngPhjijjii(ptr noundef nonnull captures(none) initializes((24, 32)) %a, ptr noundef readonly captures(none) %raw, i32 noundef %raw_len, i32 noundef %out_n, i32 noundef %x, i32 noundef %y, i32 noundef %depth, i32 noundef range(i32 0, 7) %color) unnamed_addr #27 {
 entry:
   %cmp = icmp eq i32 %depth, 16
   %0 = load ptr, ptr %a, align 8
@@ -15752,7 +15752,7 @@ declare float @powf(float noundef, float noundef) local_unnamed_addr #32
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #33
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr nocapture noundef nonnull initializes((0, 1024)) %z, ptr nocapture noundef readonly %sizelist, i32 noundef %num) unnamed_addr #34 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr noundef nonnull captures(none) initializes((0, 1024)) %z, ptr noundef readonly captures(none) %sizelist, i32 noundef %num) unnamed_addr #34 {
 entry:
   %next_code = alloca [16 x i32], align 16
   %sizes = alloca [17 x i32], align 16
@@ -15924,7 +15924,7 @@ return:                                           ; preds = %for.inc93, %return.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -1, 65536) i32 @_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull readonly %z) unnamed_addr #31 {
+define internal fastcc noundef range(i32 -1, 65536) i32 @_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman(ptr noundef nonnull captures(none) %a, ptr noundef nonnull readonly captures(none) %z) unnamed_addr #31 {
 entry:
   %num_bits = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load i32, ptr %num_bits, align 8
@@ -17828,10 +17828,10 @@ declare i16 @llvm.bitreverse.i16(i16) #39
 declare i8 @llvm.abs.i8(i8, i1 immarg) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #40
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #40
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #39

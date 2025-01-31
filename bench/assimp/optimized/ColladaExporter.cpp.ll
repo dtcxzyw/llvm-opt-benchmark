@@ -729,7 +729,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp18ExportSceneColladaEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef %pFile, ptr noundef %pIOSystem, ptr noundef %pScene, ptr nocapture noundef readnone %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp18ExportSceneColladaEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef %pFile, ptr noundef %pIOSystem, ptr noundef %pScene, ptr noundef readnone captures(none) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %path = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7051,7 +7051,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -8072,7 +8072,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ColladaExporter17WriteAmbientLightEPK7aiLight(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr nocapture noundef readonly %light) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp15ColladaExporter17WriteAmbientLightEPK7aiLight(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr noundef readonly captures(none) %light) local_unnamed_addr #1 align 2 {
 entry:
   %mColorAmbient = getelementptr inbounds nuw i8, ptr %light, i64 1104
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 640
@@ -8106,7 +8106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ColladaExporter21WriteDirectionalLightEPK7aiLight(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr nocapture noundef readonly %light) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp15ColladaExporter21WriteDirectionalLightEPK7aiLight(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr noundef readonly captures(none) %light) local_unnamed_addr #1 align 2 {
 entry:
   %mColorDiffuse = getelementptr inbounds nuw i8, ptr %light, i64 1080
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 640
@@ -8140,7 +8140,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ColladaExporter15WritePointLightEPK7aiLight(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr nocapture noundef readonly %light) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp15ColladaExporter15WritePointLightEPK7aiLight(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr noundef readonly captures(none) %light) local_unnamed_addr #1 align 2 {
 entry:
   %mColorDiffuse = getelementptr inbounds nuw i8, ptr %light, i64 1080
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 640
@@ -8195,7 +8195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ColladaExporter14WriteSpotLightEPK7aiLight(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr nocapture noundef readonly %light) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp15ColladaExporter14WriteSpotLightEPK7aiLight(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr noundef readonly captures(none) %light) local_unnamed_addr #1 align 2 {
 entry:
   %mColorDiffuse = getelementptr inbounds nuw i8, ptr %light, i64 1080
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 640
@@ -9084,7 +9084,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ColladaExporter15WriteFloatEntryERKNS0_8PropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pProperty, ptr noundef nonnull align 8 dereferenceable(32) %pTypeName) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp15ColladaExporter15WriteFloatEntryERKNS0_8PropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pProperty, ptr noundef nonnull align 8 dereferenceable(32) %pTypeName) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i8, ptr %pProperty, align 4
   %tobool = trunc i8 %0 to i1
@@ -10777,7 +10777,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ColladaExporter15WriteFloatArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13FloatDataTypeEPKfm(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr noundef nonnull align 8 dereferenceable(32) %pIdString, i32 noundef %pType, ptr nocapture noundef readonly %pData, i64 noundef %pElementCount) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp15ColladaExporter15WriteFloatArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13FloatDataTypeEPKfm(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr noundef nonnull align 8 dereferenceable(32) %pIdString, i32 noundef %pType, ptr noundef readonly captures(none) %pData, i64 noundef %pElementCount) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayId = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13044,7 +13044,7 @@ return:                                           ; preds = %invoke.cont61, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ColladaExporter11GetNodeNameB5cxx11EPK6aiNode(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef %node) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp15ColladaExporter11GetNodeNameB5cxx11EPK6aiNode(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef %node) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.0", align 1
@@ -16221,10 +16221,10 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN6Assimp8findBoneEPK7aiSceneRK8aiString(ptr nocapture noundef readonly %scene, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1028) %name) local_unnamed_addr #12 {
+define hidden noundef ptr @_ZN6Assimp8findBoneEPK7aiSceneRK8aiString(ptr noundef readonly captures(none) %scene, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1028) %name) local_unnamed_addr #12 {
 entry:
   %mNumMeshes = getelementptr inbounds nuw i8, ptr %scene, i64 16
   %0 = load i32, ptr %mNumMeshes, align 8
@@ -16341,7 +16341,7 @@ return:                                           ; preds = %if.then9, %for.inc,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN6Assimp20findSkeletonRootNodeEPK7aiScenePK6aiMesh(ptr nocapture noundef readonly %scene, ptr noundef readonly %mesh) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN6Assimp20findSkeletonRootNodeEPK7aiScenePK6aiMesh(ptr noundef readonly captures(none) %scene, ptr noundef readonly %mesh) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %topParentBoneNodes = alloca %"class.std::set", align 8
   %0 = getelementptr inbounds nuw i8, ptr %topParentBoneNodes, i64 8
@@ -17315,7 +17315,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #3
 
@@ -17581,7 +17581,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
@@ -18857,7 +18857,7 @@ entry:
 declare i32 @aiGetMaterialProperty(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS5_SL_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb1EEEEEEEESt4pairINS7_14_Node_iteratorIS5_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %__v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -20194,16 +20194,16 @@ declare void @llvm.assume(i1 noundef) #20
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #23

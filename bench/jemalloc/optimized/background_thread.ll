@@ -619,7 +619,7 @@ return:                                           ; preds = %if.then.i.i30, %do.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @background_thread_is_started(ptr nocapture noundef readonly %info) local_unnamed_addr #2 {
+define hidden zeroext i1 @background_thread_is_started(ptr noundef readonly captures(none) %info) local_unnamed_addr #2 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %info, i64 168
   %0 = load i32, ptr %state, align 8
@@ -1045,14 +1045,14 @@ return:                                           ; preds = %for.end, %if.then16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @nstime_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @nstime_idivide(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @background_thread_ctl_init(ptr nocapture noundef readnone %tsdn) local_unnamed_addr #0 {
+define hidden void @background_thread_ctl_init(ptr noundef readnone captures(none) %tsdn) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @pthread_create_fptr, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1954,7 +1954,7 @@ declare void @arena_do_deferred_work(ptr noundef, ptr noundef) local_unnamed_add
 declare i64 @pa_shard_time_until_deferred_work(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @nstime_init2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1998,10 +1998,10 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

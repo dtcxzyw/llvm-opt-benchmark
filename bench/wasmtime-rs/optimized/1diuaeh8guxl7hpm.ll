@@ -884,7 +884,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15wiggle_generate6config6Config13load_document17hb83a7be137c641f4E(ptr sret({ { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define void @_ZN15wiggle_generate6config6Config13load_document17hb83a7be137c641f4E(ptr sret({ { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca { i8, [111 x i8] }, align 8
   %4 = alloca { i8, [111 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
@@ -914,7 +914,7 @@ _ZN15wiggle_generate6config8WitxConf13load_document17h76e7044f8af4bba5E.exit: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN69_$LT$wiggle_generate..config..Config$u20$as$u20$syn..parse..Parse$GT$5parse17hd30c19d3995cd6c6E"(ptr nocapture writeonly sret({ i64, [27 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN69_$LT$wiggle_generate..config..Config$u20$as$u20$syn..parse..Parse$GT$5parse17hd30c19d3995cd6c6E"(ptr writeonly sret({ i64, [27 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, ptr, i64, ptr, {}, { {} } } }, align 8
   %4 = alloca { i64, [27 x i64] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, ptr }, align 8
@@ -1024,7 +1024,7 @@ define void @"_ZN69_$LT$wiggle_generate..config..Config$u20$as$u20$syn..parse..P
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15wiggle_generate6config8WitxConf13load_document17h76e7044f8af4bba5E(ptr sret({ { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define void @_ZN15wiggle_generate6config8WitxConf13load_document17h76e7044f8af4bba5E(ptr sret({ { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca { i8, [111 x i8] }, align 8
   %4 = alloca { i8, [111 x i8] }, align 8
   %5 = load i64, ptr %1, align 8, !range !7, !noundef !3
@@ -1050,7 +1050,7 @@ define void @_ZN15wiggle_generate6config8WitxConf13load_document17h76e7044f8af4b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15wiggle_generate6config5Paths3new17h28771d5b4f1f6e77E(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 initializes((0, 24)) %0) unnamed_addr #1 {
+define void @_ZN15wiggle_generate6config5Paths3new17h28771d5b4f1f6e77E(ptr writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) initializes((0, 24)) %0) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -1060,7 +1060,7 @@ define void @_ZN15wiggle_generate6config5Paths3new17h28771d5b4f1f6e77E(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN73_$LT$wiggle_generate..config..Paths$u20$as$u20$core..default..Default$GT$7default17he1053bd65247f27eE"(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 initializes((0, 24)) %0) unnamed_addr #1 {
+define void @"_ZN73_$LT$wiggle_generate..config..Paths$u20$as$u20$core..default..Default$GT$7default17he1053bd65247f27eE"(ptr writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) initializes((0, 24)) %0) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..sroa_idx, align 8
@@ -1070,7 +1070,7 @@ define void @"_ZN73_$LT$wiggle_generate..config..Paths$u20$as$u20$core..default.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @"_ZN107_$LT$wiggle_generate..config..Paths$u20$as$u20$core..convert..AsRef$LT$$u5b$std..path..PathBuf$u5d$$GT$$GT$6as_ref17hf2bc3d71a331ad32E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
+define { ptr, i64 } @"_ZN107_$LT$wiggle_generate..config..Paths$u20$as$u20$core..convert..AsRef$LT$$u5b$std..path..PathBuf$u5d$$GT$$GT$6as_ref17hf2bc3d71a331ad32E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1081,7 +1081,7 @@ define { ptr, i64 } @"_ZN107_$LT$wiggle_generate..config..Paths$u20$as$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @"_ZN107_$LT$wiggle_generate..config..Paths$u20$as$u20$core..convert..AsMut$LT$$u5b$std..path..PathBuf$u5d$$GT$$GT$6as_mut17h860b7212cd8bb697E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
+define { ptr, i64 } @"_ZN107_$LT$wiggle_generate..config..Paths$u20$as$u20$core..convert..AsMut$LT$$u5b$std..path..PathBuf$u5d$$GT$$GT$6as_mut17h860b7212cd8bb697E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1092,7 +1092,7 @@ define { ptr, i64 } @"_ZN107_$LT$wiggle_generate..config..Paths$u20$as$u20$core.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Parse$GT$5parse17heae85a9c83cc11bdE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Parse$GT$5parse17heae85a9c83cc11bdE"(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, ptr }, align 8
@@ -1186,7 +1186,7 @@ define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Pa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @"_ZN84_$LT$wiggle_generate..config..Literal$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h79adb5b92aef0794E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
+define { ptr, i64 } @"_ZN84_$LT$wiggle_generate..config..Literal$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h79adb5b92aef0794E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1197,7 +1197,7 @@ define { ptr, i64 } @"_ZN84_$LT$wiggle_generate..config..Literal$u20$as$u20$core
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$wiggle_generate..config..Literal$u20$as$u20$syn..parse..Parse$GT$5parse17he69fd33235141d51E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$wiggle_generate..config..Literal$u20$as$u20$syn..parse..Parse$GT$5parse17he69fd33235141d51E"(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -1252,7 +1252,7 @@ define void @"_ZN70_$LT$wiggle_generate..config..Literal$u20$as$u20$syn..parse..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15wiggle_generate6config9ErrorConf4iter17hf5137711274ecae6E(ptr nocapture writeonly sret({ { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } }) align 8 initializes((0, 40)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @_ZN15wiggle_generate6config9ErrorConf4iter17hf5137711274ecae6E(ptr writeonly sret({ { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } }) align 8 captures(none) initializes((0, 40)) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }, align 8
   call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17h4328d2503e3125a3E"(ptr nonnull sret({ { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 %3, ptr align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
@@ -1260,7 +1260,7 @@ define void @_ZN15wiggle_generate6config9ErrorConf4iter17hf5137711274ecae6E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse..Parse$GT$5parse17hd344aba7489240b1E"(ptr nocapture writeonly sret({ ptr, [5 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse..Parse$GT$5parse17hd344aba7489240b1E"(ptr writeonly sret({ ptr, [5 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { { { { i64, ptr, {} }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -1647,7 +1647,7 @@ define nonnull align 4 ptr @_ZN15wiggle_generate6config14ErrorConfField7err_loc1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$wiggle_generate..config..ErrorConfField$u20$as$u20$syn..parse..Parse$GT$5parse17h7ebf4fc656c6c285E"(ptr nocapture writeonly sret({ i64, [10 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$wiggle_generate..config..ErrorConfField$u20$as$u20$syn..parse..Parse$GT$5parse17h7ebf4fc656c6c285E"(ptr writeonly sret({ i64, [10 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [5 x i64] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -1848,7 +1848,7 @@ define zeroext i1 @"_ZN80_$LT$wiggle_generate..config..UserErrorConfField$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN15wiggle_generate6config9Asyncness8is_async17h35389a31338481dbE(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
+define noundef zeroext i1 @_ZN15wiggle_generate6config9Asyncness8is_async17h35389a31338481dbE(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !19, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775805
   ret i1 %3
@@ -1866,14 +1866,14 @@ define align 8 ptr @_ZN15wiggle_generate6config9Asyncness8blocking17hc8f535ae270
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN15wiggle_generate6config9Asyncness7is_sync17h73e4ab8c390d74b4E(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
+define noundef zeroext i1 @_ZN15wiggle_generate6config9Asyncness7is_sync17h73e4ab8c390d74b4E(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !19, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775807
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN82_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$core..default..Default$GT$7default17ha43e0e99a32f1ebaE"(ptr nocapture writeonly sret({ ptr, [5 x i64] }) align 8 initializes((0, 48)) %0) unnamed_addr #0 {
+define void @"_ZN82_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$core..default..Default$GT$7default17ha43e0e99a32f1ebaE"(ptr writeonly sret({ ptr, [5 x i64] }) align 8 captures(none) initializes((0, 48)) %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc59d0aabf0b23f91E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.9)
   %3 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17had22bb1ed550961bE"(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.10, i64 70, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.12)
@@ -1888,7 +1888,7 @@ define void @"_ZN82_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$core.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15wiggle_generate6config9AsyncConf3get17h9e80bbf2791eb6a3E(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1, ptr align 1 %2, i64 %3, ptr align 1 %4, i64 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN15wiggle_generate6config9AsyncConf3get17h9e80bbf2791eb6a3E(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr align 8 %1, ptr align 1 %2, i64 %3, ptr align 1 %4, i64 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, [3 x i64] }, align 8
   %8 = alloca { i64, [3 x i64] }, align 8
   %9 = alloca { ptr, i64 }, align 8
@@ -1963,7 +1963,7 @@ define void @_ZN15wiggle_generate6config9AsyncConf3get17h9e80bbf2791eb6a3E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_ZN15wiggle_generate6config9AsyncConf14contains_async17h38ea9ec42cfd5f94E(ptr align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @_ZN15wiggle_generate6config9AsyncConf14contains_async17h38ea9ec42cfd5f94E(ptr align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, ptr, {} }, {} }, align 8
@@ -2050,7 +2050,7 @@ define noundef zeroext i1 @_ZN15wiggle_generate6config9AsyncConf14contains_async
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..parse..Parse$GT$5parse17h025a77d7714d0e7aE"(ptr nocapture writeonly sret({ i64, [6 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..parse..Parse$GT$5parse17h025a77d7714d0e7aE"(ptr writeonly sret({ i64, [6 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %5 = alloca { { i64, [2 x i64] }, ptr, ptr }, align 8
@@ -2389,7 +2389,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..parse..Parse$GT$5parse17h926f327ffab727c2E"(ptr nocapture writeonly sret({ i64, [7 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..parse..Parse$GT$5parse17h926f327ffab727c2E"(ptr writeonly sret({ i64, [7 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, { { { i64, ptr, {} }, i64 } } }, { ptr, ptr, {} }, i32, [1 x i32] }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -2686,7 +2686,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$wiggle_generate..config..WasmtimeConfig$u20$as$u20$syn..parse..Parse$GT$5parse17h92f1ff32b80b0bceE"(ptr nocapture writeonly sret({ i64, [33 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$wiggle_generate..config..WasmtimeConfig$u20$as$u20$syn..parse..Parse$GT$5parse17h92f1ff32b80b0bceE"(ptr writeonly sret({ i64, [33 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, ptr, i64, ptr, {}, { {} } } }, align 8
   %4 = alloca { i64, [33 x i64] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, ptr }, align 8
@@ -2796,7 +2796,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..WasmtimeConfig$u20$as$u20$syn..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN82_$LT$wiggle_generate..config..WasmtimeConfigField$u20$as$u20$syn..parse..Parse$GT$5parse17h6de2fbac89a62e1bE"(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN82_$LT$wiggle_generate..config..WasmtimeConfigField$u20$as$u20$syn..parse..Parse$GT$5parse17h6de2fbac89a62e1bE"(ptr writeonly sret({ i64, [9 x i64] }) align 8 captures(none) initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { i64, [9 x i64] }, align 8
   %4 = alloca { i64, [5 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -2922,7 +2922,7 @@ define zeroext i1 @_ZN15wiggle_generate6config11TracingConf11enabled_for17h13416
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN79_$LT$wiggle_generate..config..TracingConf$u20$as$u20$core..default..Default$GT$7default17hcdce65d4481ed3f5E"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }) align 8 initializes((0, 49)) %0) unnamed_addr #0 {
+define void @"_ZN79_$LT$wiggle_generate..config..TracingConf$u20$as$u20$core..default..Default$GT$7default17hcdce65d4481ed3f5E"(ptr writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }) align 8 captures(none) initializes((0, 49)) %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc59d0aabf0b23f91E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.9)
   %3 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17had22bb1ed550961bE"(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.10, i64 70, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.12)
@@ -2939,7 +2939,7 @@ define void @"_ZN79_$LT$wiggle_generate..config..TracingConf$u20$as$u20$core..de
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..parse..Parse$GT$5parse17h96c53ded79342493E"(ptr nocapture writeonly sret({ [48 x i8], i8, [7 x i8] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..parse..Parse$GT$5parse17h96c53ded79342493E"(ptr writeonly sret({ [48 x i8], i8, [7 x i8] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %5 = alloca { { i64, [2 x i64] }, ptr, ptr }, align 8
@@ -3283,7 +3283,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN73_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$core..clone..Clone$GT$5clone17h3cfbd0947caeed27E"(ptr nocapture writeonly sret({ { i64, [3 x i64] }, { ptr, [5 x i64] } }) align 8 %0, ptr align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN73_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$core..clone..Clone$GT$5clone17h3cfbd0947caeed27E"(ptr writeonly sret({ { i64, [3 x i64] }, { ptr, [5 x i64] } }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.3 = alloca [5 x i64], align 8
@@ -3343,7 +3343,7 @@ define hidden void @"_ZN73_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$cor
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN77_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$core..default..Default$GT$7default17ha07cc887a5581f9dE"(ptr nocapture writeonly sret({ { i64, [3 x i64] }, { ptr, [5 x i64] } }) align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN77_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$core..default..Default$GT$7default17ha07cc887a5581f9dE"(ptr writeonly sret({ { i64, [3 x i64] }, { ptr, [5 x i64] } }) align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [2 x i64] }, align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   store i64 -9223372036854775807, ptr %3, align 8
@@ -3388,7 +3388,7 @@ define hidden void @"_ZN77_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$cor
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17hf67e0106b88111ccE"(ptr align 8) unnamed_addr #0
@@ -3811,13 +3811,13 @@ declare void @"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

@@ -2709,7 +2709,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext20CreateExpressionNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext20CreateExpressionNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %.val = load ptr, ptr %1, align 8
@@ -2818,10 +2818,10 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111NodeCreator
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContextD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContextD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -2902,7 +2902,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_15ExpressionStartEE5raiseIN21PXR_INTERNAL_NS_pegtl12memory_inputILNS5_13tracking_modeE0ENS5_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS0_13ParserContextEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #10 align 2 {
@@ -3527,7 +3527,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl9to_stringB5cxx11ERKNS_8positionE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -3722,7 +3722,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116ScalarExpressionELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_6ActionETtTpTyENS3_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116ScalarExpressionELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_6ActionETtTpTyENS3_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::marker.16", align 8
   %4 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::marker.16", align 8
   %.sroa.027.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
@@ -4280,7 +4280,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__12_G
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18VariableEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18VariableEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::marker.16", align 8
   %.sroa.0.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %4 = alloca [2 x i8], align 1
@@ -4443,7 +4443,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112QuotedStringILc34EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112QuotedStringILc34EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x i8], align 1
   %.sroa.0.i.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %4 = alloca [2 x i8], align 1
@@ -4788,7 +4788,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112QuotedStringILc39EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112QuotedStringILc39EEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x i8], align 1
   %.sroa.0.i.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %4 = alloca [2 x i8], align 1
@@ -5133,7 +5133,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17BooleanEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbRT3_DpOT4_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17BooleanEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [5 x i8], align 1
   %4 = alloca [5 x i8], align 1
   %.sroa.0.i.i.i.i.i.i.i.i.i.i.i4.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
@@ -5430,7 +5430,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14NoneEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14NoneEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [4 x i8], align 1
   %4 = alloca [4 x i8], align 1
   %.sroa.0.i.i.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
@@ -5581,7 +5581,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112VariableNameINS2_8VariableEEEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS5_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSR_DpOT2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112VariableNameINS2_8VariableEEEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS5_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSR_DpOT2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
@@ -5799,7 +5799,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119Varia
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119VariableNodeCreator10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119VariableNodeCreator10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26, !noalias !121
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl12VariableNodeC1EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -5825,7 +5825,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext14GetNodeCreatorINS0_17StringNodeCreatorEEEPT_v(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext14GetNodeCreatorINS0_17StringNodeCreatorEEEPT_v(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val4 = load ptr, ptr %2, align 8
@@ -5947,7 +5947,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext22GetExistingN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -6026,7 +6026,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreator10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreator10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26, !noalias !133
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10StringNodeC1EOSt6vectorINS1_4PartESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -6046,7 +6046,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImp
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10StringNodeC1EOSt6vectorINS1_4PartESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120QuotedStringVariableEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120QuotedStringVariableEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS2_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::marker.16", align 8
   %.sroa.0.i.i.i.i.i.i.i.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %4 = alloca [2 x i8], align 1
@@ -6215,7 +6215,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112VariableNameINS2_20QuotedStringVariableEEEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS5_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSR_DpOT2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112VariableNameINS2_20QuotedStringVariableEEEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS5_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSR_DpOT2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::StringNode::Part", align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
@@ -6381,7 +6381,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117QuotedStringCharsILc34EEEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS4_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSQ_DpOT2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117QuotedStringCharsILc34EEEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS4_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSQ_DpOT2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::StringNode::Part", align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
@@ -6454,7 +6454,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117QuotedStringCharsILc39EEEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS4_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSQ_DpOT2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117QuotedStringCharsILc39EEEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS4_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSQ_DpOT2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::StringNode::Part", align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
@@ -6527,7 +6527,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17IntegerEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS3_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSP_DpOT2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17IntegerEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS3_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSP_DpOT2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca i8, align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6807,7 +6807,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl11parse_errorC2INS_8internal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ConstantNodeCreatorIlED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ConstantNodeCreatorIlED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
   ret void
 }
 
@@ -6818,7 +6818,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119Const
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ConstantNodeCreatorIlE10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ConstantNodeCreatorIlE10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !177
   %6 = load i64, ptr %4, align 8, !noalias !177
@@ -6839,7 +6839,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImp
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl12ConstantNodeIlEC1El(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext14GetNodeCreatorINS0_19ConstantNodeCreatorIbEEEEPT_v(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext14GetNodeCreatorINS0_19ConstantNodeCreatorIbEEEEPT_v(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val4 = load ptr, ptr %2, align 8
@@ -6960,7 +6960,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext22GetExistingN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ConstantNodeCreatorIbED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ConstantNodeCreatorIbED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
   ret void
 }
 
@@ -6971,7 +6971,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119Const
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ConstantNodeCreatorIbE10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ConstantNodeCreatorIbE10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !188
   %6 = load i8, ptr %4, align 8, !noalias !188
@@ -6993,7 +6993,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImp
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl12ConstantNodeIbEC1Eb(ptr noundef nonnull align 8 dereferenceable(9), i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14NoneEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS3_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSP_DpOT2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14NoneEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS3_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSP_DpOT2_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val.i.i = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val4.i.i = load ptr, ptr %2, align 8
@@ -7107,7 +7107,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionINS0_4NoneEE5applyIN21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115NoneNodeCreatorD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115NoneNodeCreatorD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
   ret void
 }
 
@@ -7118,7 +7118,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115NoneN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115NoneNodeCreator10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115NoneNodeCreator10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26, !noalias !199
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl8NoneNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl8NoneNodeESt14default_deleteIS2_EED2Ev.exit unwind label %5, !noalias !199
@@ -7137,7 +7137,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImp
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl8NoneNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112FunctionNameEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS3_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSP_DpOT2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112FunctionNameEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS3_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSP_DpOT2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
@@ -7399,7 +7399,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreator10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreator10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8200,7 +8200,7 @@ declare noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressi
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl11DefinedNodeC1EOSt6vectorISt10unique_ptrINS0_4NodeESt14default_deleteIS4_EESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123FunctionArgumentWrapperINS2_14ExpressionBodyEEEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS5_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSR_DpOT2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123FunctionArgumentWrapperINS2_14ExpressionBodyEEEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS5_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSR_DpOT2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8412,7 +8412,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionINS0_23FunctionArgumen
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ListExpressionELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS3_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ListExpressionELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS3_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.sroa.0 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8515,7 +8515,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal7if_mustILb0EN32pxrInternal_v0_24__pxrReserve
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ListStartEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS3_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSP_DpOT2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ListStartEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS3_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSP_DpOT2_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26, !noalias !417
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorE, i64 16), ptr %2, align 8, !noalias !417
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8617,7 +8617,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionINS0_9ListStartEE5appl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -8720,7 +8720,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorD2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreator10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreator10CreateNodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26, !noalias !425
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl8ListNodeC1EOSt6vectorISt10unique_ptrINS0_4NodeESt14default_deleteIS4_EESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -8740,7 +8740,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImp
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl8ListNodeC1EOSt6vectorISt10unique_ptrINS0_4NodeESt14default_deleteIS4_EESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4listIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111ListElementENS_5ascii3oneIJLc44EEEENS6_IJLc32EEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_6ActionETtTpTyENS3_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4listIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111ListElementENS_5ascii3oneIJLc44EEEENS6_IJLc32EEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_6ActionETtTpTyENS3_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::marker.16", align 8
   %.sroa.06 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
   %4 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::marker.16", align 8
@@ -8898,7 +8898,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchINS_4listIN32pxrInternal_v0_24__pxrReserved__12_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111ListElementEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS3_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSP_DpOT2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111ListElementEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS3_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSP_DpOT2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9110,7 +9110,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionINS0_11ListElementEE5a
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111ListElementELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS3_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111ListElementELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS3_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::marker.16", align 8
   %4 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::marker.16", align 8
   %.sroa.021.i = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::iterator", align 8
@@ -9728,7 +9728,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -9975,10 +9975,10 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110ExpressionELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110ExpressionELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -10106,7 +10106,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_15ExpressionStartEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_15ExpressionStartEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -10192,7 +10192,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_14ExpressionBodyEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_14ExpressionBodyEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -10202,7 +10202,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ExpressionBodyELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ExpressionBodyELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -10626,7 +10626,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116ScalarExpressionELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116ScalarExpressionELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -18471,7 +18471,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18VariableELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18VariableELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -18599,7 +18599,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_13VariableStartEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_13VariableStartEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -19067,7 +19067,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchINS_8internal4mustIJN32pxrInternal_v0_24__pxrRes
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_12VariableNameINS3_8VariableEEEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_12VariableNameINS3_8VariableEEEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -19111,7 +19111,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_11VariableEndEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_11VariableEndEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -19155,7 +19155,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112QuotedStringILc34EEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112QuotedStringILc34EEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -19283,7 +19283,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116QuotedStringBodyILc34EEELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116QuotedStringBodyILc34EEELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -19411,7 +19411,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120QuotedStringVariableENS5_17QuotedStringCharsILc34EEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120QuotedStringVariableENS5_17QuotedStringCharsILc34EEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -20262,7 +20262,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120QuotedStringVariableELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120QuotedStringVariableELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -20390,7 +20390,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_12VariableNameINS3_20QuotedStringVariableEEEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_12VariableNameINS3_20QuotedStringVariableEEEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -20434,7 +20434,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117QuotedStringCharsILc34EEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117QuotedStringCharsILc34EEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -20562,7 +20562,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEENS3_23QuotedStringEscapedCharILc34EEEEEENS8_IJNS_6not_atIJNS7_IJNS3_13VariableStartENSA_IJLc34EEEEEEEEEENS9_3anyEEEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEENS3_23QuotedStringEscapedCharILc34EEEEEENS8_IJNS_6not_atIJNS7_IJNS3_13VariableStartENSA_IJLc34EEEEEEEEEENS9_3anyEEEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -20721,7 +20721,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123QuotedStringEscapedCharILc34EEEEEENS4_IJNS_6not_atIJNS3_IJNS9_13VariableStartENS6_IJLc34EEEEEEEEEENS5_3anyEEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS9_6ActionETtTpTyENS_13state_controlINS9_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123QuotedStringEscapedCharILc34EEEEEENS4_IJNS_6not_atIJNS3_IJNS9_13VariableStartENS6_IJLc34EEEEEEEEEENS5_3anyEEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS9_6ActionETtTpTyENS_13state_controlINS9_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -21337,7 +21337,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchINS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123QuotedStringEscapedCharILc34EEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS8_6ActionETtTpTyENS_13state_controlINS8_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123QuotedStringEscapedCharILc34EEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS8_6ActionETtTpTyENS_13state_controlINS8_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -21708,7 +21708,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchINS_5ascii3oneIJLc92EEEELNS_10apply_modeE1ELNS_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS_6not_atIJNS_3sorIJNS3_13VariableStartENS_5ascii3oneIJLc34EEEEEEEEEENSB_3anyEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENSB_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS_6not_atIJNS_3sorIJNS3_13VariableStartENS_5ascii3oneIJLc34EEEEEEEEEENSB_3anyEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENSB_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -21936,7 +21936,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJNS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc34EEEEEEEEEENS9_3anyEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS7_6ActionETtTpTyENS_13state_controlINS7_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJNS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc34EEEEEEEEEENS9_3anyEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS7_6ActionETtTpTyENS_13state_controlINS7_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -23169,7 +23169,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchINS_5ascii3anyELNS_10apply_modeE1ELNS_11rewind_m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc34EEEEEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS6_6ActionETtTpTyENS_13state_controlINS6_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc34EEEEEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS6_6ActionETtTpTyENS_13state_controlINS6_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -23297,7 +23297,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_6not_atIJNS_3sorIJ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc34EEEEEEELNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc34EEEEEEELNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -23563,7 +23563,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123QuotedStringEscapedCharILc34EEEEEENS4_IJNS_6not_atIJNS3_IJNS9_13VariableStartENS6_IJLc34EEEEEEEEEENS5_3anyEEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS9_6ActionETtTpTyENS_13state_controlINS9_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123QuotedStringEscapedCharILc34EEEEEENS4_IJNS_6not_atIJNS3_IJNS9_13VariableStartENS6_IJLc34EEEEEEEEEENS5_3anyEEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS9_6ActionETtTpTyENS_13state_controlINS9_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -23588,7 +23588,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3sorIJNS_3seqIJNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJNS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc34EEEEEEEEEENS9_3anyEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS7_6ActionETtTpTyENS_13state_controlINS7_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJNS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc34EEEEEEEEEENS9_3anyEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS7_6ActionETtTpTyENS_13state_controlINS7_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -23613,7 +23613,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3seqIJNS_6not_atIJ
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_15QuotedStringEndILc34EEEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_15QuotedStringEndILc34EEEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -23657,7 +23657,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112QuotedStringILc39EEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112QuotedStringILc39EEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -23785,7 +23785,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116QuotedStringBodyILc39EEELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116QuotedStringBodyILc39EEELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -23913,7 +23913,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120QuotedStringVariableENS5_17QuotedStringCharsILc39EEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120QuotedStringVariableENS5_17QuotedStringCharsILc39EEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -24041,7 +24041,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3sorIJN32pxrIntern
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117QuotedStringCharsILc39EEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117QuotedStringCharsILc39EEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -24169,7 +24169,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEENS3_23QuotedStringEscapedCharILc39EEEEEENS8_IJNS_6not_atIJNS7_IJNS3_13VariableStartENSA_IJLc39EEEEEEEEEENS9_3anyEEEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEENS3_23QuotedStringEscapedCharILc39EEEEEENS8_IJNS_6not_atIJNS7_IJNS3_13VariableStartENSA_IJLc39EEEEEEEEEENS9_3anyEEEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -24328,7 +24328,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123QuotedStringEscapedCharILc39EEEEEENS4_IJNS_6not_atIJNS3_IJNS9_13VariableStartENS6_IJLc39EEEEEEEEEENS5_3anyEEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS9_6ActionETtTpTyENS_13state_controlINS9_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123QuotedStringEscapedCharILc39EEEEEENS4_IJNS_6not_atIJNS3_IJNS9_13VariableStartENS6_IJLc39EEEEEEEEEENS5_3anyEEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS9_6ActionETtTpTyENS_13state_controlINS9_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -24944,7 +24944,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchINS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123QuotedStringEscapedCharILc39EEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS8_6ActionETtTpTyENS_13state_controlINS8_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123QuotedStringEscapedCharILc39EEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS8_6ActionETtTpTyENS_13state_controlINS8_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -25072,7 +25072,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3seqIJNS_5ascii3on
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS_6not_atIJNS_3sorIJNS3_13VariableStartENS_5ascii3oneIJLc39EEEEEEEEEENSB_3anyEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENSB_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS_6not_atIJNS_3sorIJNS3_13VariableStartENS_5ascii3oneIJLc39EEEEEEEEEENSB_3anyEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENSB_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -25300,7 +25300,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJNS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc39EEEEEEEEEENS9_3anyEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS7_6ActionETtTpTyENS_13state_controlINS7_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJNS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc39EEEEEEEEEENS9_3anyEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS7_6ActionETtTpTyENS_13state_controlINS7_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -26280,7 +26280,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchINS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc39EEEEEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS6_6ActionETtTpTyENS_13state_controlINS6_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc39EEEEEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS6_6ActionETtTpTyENS_13state_controlINS6_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -26408,7 +26408,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_6not_atIJNS_3sorIJ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc39EEEEEEELNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc39EEEEEEELNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -26674,7 +26674,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123QuotedStringEscapedCharILc39EEEEEENS4_IJNS_6not_atIJNS3_IJNS9_13VariableStartENS6_IJLc39EEEEEEEEEENS5_3anyEEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS9_6ActionETtTpTyENS_13state_controlINS9_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123QuotedStringEscapedCharILc39EEEEEENS4_IJNS_6not_atIJNS3_IJNS9_13VariableStartENS6_IJLc39EEEEEEEEEENS5_3anyEEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS9_6ActionETtTpTyENS_13state_controlINS9_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS9_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -26699,7 +26699,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3sorIJNS_3seqIJNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJNS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc39EEEEEEEEEENS9_3anyEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS7_6ActionETtTpTyENS_13state_controlINS7_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJNS_6not_atIJNS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartENS_5ascii3oneIJLc39EEEEEEEEEENS9_3anyEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS7_6ActionETtTpTyENS_13state_controlINS7_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -26724,7 +26724,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3seqIJNS_6not_atIJ
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_15QuotedStringEndILc39EEEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_15QuotedStringEndILc39EEEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -26768,7 +26768,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17IntegerELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17IntegerELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -26896,7 +26896,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3optIJNS_5ascii3oneIJLc45EEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionETtTpTyENS_13state_controlINSB_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3optIJNS_5ascii3oneIJLc45EEEEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionETtTpTyENS_13state_controlINSB_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -27024,7 +27024,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3optIJNS_5ascii3on
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_4plusINS_5ascii5digitEJEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionETtTpTyENS_13state_controlINSA_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_4plusINS_5ascii5digitEJEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionETtTpTyENS_13state_controlINSA_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -27152,7 +27152,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_4plusINS_5ascii5di
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii5digitEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii5digitEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -29718,7 +29718,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17BooleanELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17BooleanELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -29846,7 +29846,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111BooleanTrueELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111BooleanTrueELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -29974,7 +29974,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112BooleanFalseELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112BooleanFalseELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -30102,7 +30102,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14NoneELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_14NoneELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -30230,7 +30230,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_8FunctionEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_8FunctionEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30458,7 +30458,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18FunctionELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18FunctionELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -30483,7 +30483,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS3_12FunctionNameENS3_21FunctionArgumentStartEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS3_12FunctionNameENS3_21FunctionArgumentStartEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30711,7 +30711,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112FunctionNameENS5_21FunctionArgumentStartEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112FunctionNameENS5_21FunctionArgumentStartEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -30736,7 +30736,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3seqIJN32pxrIntern
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112FunctionNameEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyENS_13state_controlINS2_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112FunctionNameEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyENS_13state_controlINS2_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %5 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %6 = alloca %"class.PXR_INTERNAL_NS_pegtl::internal::marker.16", align 8
@@ -31762,7 +31762,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121FunctionArgumentStartELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121FunctionArgumentStartELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -33350,7 +33350,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117FunctionArgumentsELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117FunctionArgumentsELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -33661,7 +33661,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchINS_4starINS_5ascii3oneIJLc32EEEEJEEELNS_10apply
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_4listIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123FunctionArgumentWrapperINS5_14ExpressionBodyEEENS_5ascii3oneIJLc44EEEENSA_IJLc32EEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_4listIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123FunctionArgumentWrapperINS5_14ExpressionBodyEEENS_5ascii3oneIJLc44EEEENSA_IJLc32EEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -34326,7 +34326,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123FunctionArgumentWrapperINS4_14ExpressionBodyEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123FunctionArgumentWrapperINS4_14ExpressionBodyEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -34454,7 +34454,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_14ListExpressionEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_14ListExpressionEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -34682,7 +34682,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ListExpressionELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ListExpressionELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -34707,7 +34707,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_9ListStartEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_9ListStartEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -35490,7 +35490,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112ListElementsELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112ListElementsELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -35618,7 +35618,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_4listIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111ListElementENS_5ascii3oneIJLc44EEEENS8_IJLc32EEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_4listIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111ListElementENS_5ascii3oneIJLc44EEEENS8_IJLc32EEEEEELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -36191,7 +36191,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111ListElementELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111ListElementELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -36409,7 +36409,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18FunctionELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18FunctionELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -36434,7 +36434,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112FunctionNameENS5_21FunctionArgumentStartEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_3seqIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112FunctionNameENS5_21FunctionArgumentStartEEEELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS5_6ActionETtTpTyENS_13state_controlINS5_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS5_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -37025,7 +37025,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_7ListEndEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_7ListEndEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -37138,7 +37138,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_4starINS_5ascii3oneIJLc32EEEEJEEELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionETtTpTyENS_13state_controlINSB_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS_4starINS_5ascii3oneIJLc32EEEEJEEELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionETtTpTyENS_13state_controlINSB_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -37266,7 +37266,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_4starINS_5ascii3on
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_19FunctionArgumentEndEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_19FunctionArgumentEndEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -37276,7 +37276,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionArgumentEndELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionArgumentEndELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %3, align 8
@@ -37438,7 +37438,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ListExpressionELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ListExpressionELNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyENS_13state_controlINS4_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_EUlvE_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i8, ptr %2, align 8
   %3 = trunc i8 %.val to i1
@@ -37497,7 +37497,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_13ExpressionEndEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_13ExpressionEndEEENS_8internal12rotate_rightILm1EEEE5raiseINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -38102,7 +38102,7 @@ __cxx_global_var_init.23.exit:                    ; preds = %.noexc1.i52
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
@@ -38117,10 +38117,10 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

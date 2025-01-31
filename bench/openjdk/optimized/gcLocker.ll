@@ -293,7 +293,7 @@ define hidden noundef zeroext i1 @_ZN8GCLocker14should_discardEN7GCCause5CauseEj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8GCLocker8jni_lockEP10JavaThread(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8GCLocker8jni_lockEP10JavaThread(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @JNICritical_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %3
@@ -332,7 +332,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8GCLocker10jni_unlockEP10JavaThread(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8GCLocker10jni_unlockEP10JavaThread(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.LogImpl, align 1
   %3 = load ptr, ptr @JNICritical_lock, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -569,10 +569,10 @@ declare void @llvm.va_end.p0(ptr) #6
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

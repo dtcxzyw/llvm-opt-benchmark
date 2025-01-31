@@ -499,10 +499,10 @@ for.end:                                          ; preds = %for.body, %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @PrintConstant(ptr nocapture readonly %f.16.val, i32 noundef %i) unnamed_addr #0 {
+define internal fastcc void @PrintConstant(ptr readonly captures(none) %f.16.val, i32 noundef %i) unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds %struct.lua_TValue, ptr %f.16.val, i64 %idxprom
@@ -636,7 +636,7 @@ sw.epilog:                                        ; preds = %sw.default, %PrintS
 declare ptr @__ctype_b_loc() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

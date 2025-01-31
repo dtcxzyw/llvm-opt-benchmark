@@ -49,7 +49,7 @@ define internal noundef ptr @encoder_find(i64 noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lzma_filters_update(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local i32 @lzma_filters_update(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca [5 x %struct.lzma_filter], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -110,7 +110,7 @@ define dso_local i64 @lzma_raw_encoder_memusage(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lzma_raw_encoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
@@ -164,7 +164,7 @@ declare void @lzma_end(ptr noundef) local_unnamed_addr #6
 declare i64 @lzma_raw_coder_memusage(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @lzma_mt_block_size(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i64 @lzma_mt_block_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
   %.not21 = icmp eq i64 %2, -1
   br i1 %.not21, label %._crit_edge, label %.preheader
@@ -218,7 +218,7 @@ encoder_find.exit:                                ; preds = %.lr.ph, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lzma_properties_size(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define dso_local i32 @lzma_properties_size(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i64, ptr %1, align 8
   br label %4
 
@@ -263,7 +263,7 @@ encoder_find.exit:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lzma_properties_encode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local i32 @lzma_properties_encode(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8
   br label %4
 

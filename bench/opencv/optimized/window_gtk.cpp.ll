@@ -618,7 +618,7 @@ declare i64 @gtk_widget_get_type() local_unnamed_addr #5
 declare i64 @g_type_register_static_simple(i64 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL24cvImageWidget_class_initPvS_(ptr noundef %0, ptr nocapture readnone %1) #3 {
+define internal void @_ZL24cvImageWidget_class_initPvS_(ptr noundef %0, ptr readnone captures(none) %1) #3 {
   %3 = tail call i64 @gtk_widget_get_type() #27
   %4 = tail call ptr @g_type_check_class_cast(ptr noundef %0, i64 noundef %3)
   %5 = tail call ptr @g_type_class_peek(i64 noundef %3)
@@ -642,7 +642,7 @@ define internal void @_ZL24cvImageWidget_class_initPvS_(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL18cvImageWidget_initP14_GTypeInstancePv(ptr nocapture noundef writeonly initializes((32, 52)) %0, ptr nocapture readnone %1) #6 {
+define internal void @_ZL18cvImageWidget_initP14_GTypeInstancePv(ptr noundef writeonly captures(none) initializes((32, 52)) %0, ptr readnone captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   ret void
@@ -776,7 +776,7 @@ declare ptr @g_cond_new() local_unnamed_addr #0
 declare ptr @g_thread_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noalias noundef nonnull ptr @_ZL19icvWindowThreadLoopPv(ptr nocapture readnone %0) #7 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef nonnull ptr @_ZL19icvWindowThreadLoopPv(ptr readnone captures(none) %0) #7 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
   %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #28
   %.not.i.i5 = icmp eq i32 %3, 0
@@ -1001,7 +1001,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %33, %52, %65, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1224,7 +1224,7 @@ _ZL19icvFindWindowByNameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { i64, i64 } @_ZL13getImageRect_RKSt10shared_ptrI8CvWindowE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, i64 } @_ZL13getImageRect_RKSt10shared_ptrI8CvWindowE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca i32, align 4
@@ -1865,7 +1865,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %34, %53, %66, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14setModeWindow_RKSt10shared_ptrI8CvWindowEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZL14setModeWindow_RKSt10shared_ptrI8CvWindowEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %5 = load i32, ptr %4, align 4
@@ -2585,7 +2585,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %32, %51, %64, %_ZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef double @_Z19cvGetOpenGlProp_GTKPKc(ptr nocapture noundef readnone %0) local_unnamed_addr #9 {
+define hidden noundef double @_Z19cvGetOpenGlProp_GTKPKc(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
   ret double -1.000000e+00
 }
 
@@ -4516,7 +4516,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %26, %45, %58, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13resizeWindow_RKSt10shared_ptrI8CvWindowEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13resizeWindow_RKSt10shared_ptrI8CvWindowEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = load ptr, ptr %0, align 8
@@ -5833,7 +5833,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %.not = icmp eq ptr %.0.val, null
@@ -7677,7 +7677,7 @@ declare void @g_mutex_unlock(ptr noundef) local_unnamed_addr #0
 declare i32 @g_timeout_add(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL8icvAlarmPv(ptr nocapture noundef writeonly initializes((0, 4)) %0) #6 {
+define internal noundef i32 @_ZL8icvAlarmPv(ptr noundef writeonly captures(none) initializes((0, 4)) %0) #6 {
   store i32 1, ptr %0, align 4
   ret i32 0
 }
@@ -7687,7 +7687,7 @@ declare i32 @gtk_main_iteration_do(i32 noundef) local_unnamed_addr #0
 declare i32 @g_source_remove(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv15highgui_backend18createUIBackendGTKEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.12") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv15highgui_backend18createUIBackendGTKEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.12") align 8 captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN2cv4implL11getInstanceEvE10g_instance acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN2cv4implL11getInstanceEv.exit, !prof !9
@@ -7823,7 +7823,7 @@ _Z22cvImageWidget_get_typev.exit19:               ; preds = %.critedge, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL33cvImageWidget_get_preferred_widthP10_GtkWidgetPiS1_(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #3 {
+define internal void @_ZL33cvImageWidget_get_preferred_widthP10_GtkWidgetPiS1_(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
 
@@ -7921,7 +7921,7 @@ _Z22cvImageWidget_get_typev.exit36:               ; preds = %.critedge, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL34cvImageWidget_get_preferred_heightP10_GtkWidgetPiS1_(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #3 {
+define internal void @_ZL34cvImageWidget_get_preferred_heightP10_GtkWidgetPiS1_(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
 
@@ -8503,7 +8503,7 @@ declare i64 @gtk_container_get_type() local_unnamed_addr #5
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL13icvOnKeyPressP10_GtkWidgetP12_GdkEventKeyPv(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL13icvOnKeyPressP10_GtkWidgetP12_GdkEventKeyPv(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9235,7 +9235,7 @@ _ZL19icvShowSaveAsDialogP10_GtkWidgetP8CvWindow.exit: ; preds = %22, %.noexc13, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #13 {
+define internal noundef i32 @_ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #13 {
   %4 = icmp ne ptr %2, null
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4
@@ -9555,7 +9555,7 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL10icvOnCloseP10_GtkWidgetP9_GdkEventPv(ptr noundef readnone %0, ptr nocapture readnone %1, ptr noundef readonly %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL10icvOnCloseP10_GtkWidgetP9_GdkEventPv(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef readonly %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -9813,7 +9813,7 @@ _ZL16icvDeleteWindow_P8CvWindow.exit:             ; preds = %63
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL18cvImageWidget_drawP10_GtkWidgetP6_cairoPv(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL18cvImageWidget_drawP10_GtkWidgetP6_cairoPv(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
 
@@ -10177,7 +10177,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
@@ -10244,7 +10244,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 declare noundef zeroext i1 @_ZN2cv7imwriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -10252,7 +10252,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare i32 @gtk_accelerator_get_default_mod_mask() local_unnamed_addr #0
 
@@ -16439,7 +16439,7 @@ define internal void @_GLOBAL__sub_I_window_gtk.cpp() #21 section ".text.startup
 declare i32 @llvm.smax.i32(i32, i32) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
@@ -16454,10 +16454,10 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #22

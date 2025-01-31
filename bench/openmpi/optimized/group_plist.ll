@@ -19,13 +19,13 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_compare_proc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 0, -7) i32 @ompi_group_calc_plist(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef range(i32 0, -7) i32 @ompi_group_calc_plist(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = shl i32 %0, 3
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 10) i32 @ompi_group_incl_plist(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define range(i32 0, 10) i32 @ompi_group_incl_plist(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %6, label %15
 
@@ -113,7 +113,7 @@ declare void @ompi_group_increment_proc_count(ptr noundef) local_unnamed_addr #2
 declare void @ompi_set_group_rank(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_group_union(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define i32 @ompi_group_union(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.opal_bitmap_t, align 8
   %5 = load i32, ptr @opal_class_init_epoch, align 4
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_bitmap_t_class, i64 32), align 8
@@ -451,7 +451,7 @@ declare i32 @opal_bitmap_init(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare zeroext i1 @opal_bitmap_is_set_bit(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_group_difference(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define i32 @ompi_group_difference(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.opal_bitmap_t, align 8
   %5 = load i32, ptr @opal_class_init_epoch, align 4
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_bitmap_t_class, i64 32), align 8

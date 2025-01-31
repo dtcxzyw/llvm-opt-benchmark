@@ -57,7 +57,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable_virtio_pci_driver_init394, ptr @__UNIQUE_ID_author395, ptr @__UNIQUE_ID_description396, ptr @__UNIQUE_ID_file397, ptr @__UNIQUE_ID_force_legacy392, ptr @__UNIQUE_ID_force_legacytype391, ptr @__UNIQUE_ID_license398, ptr @__UNIQUE_ID_version399, ptr @__exitcall_virtio_pci_driver_exit, ptr @__modver_attr, ptr @__param_force_legacy, ptr @virtio_pci_driver_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vp_synchronize_vectors(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @vp_synchronize_vectors(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1060
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -96,7 +96,7 @@ define dso_local void @vp_synchronize_vectors(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @synchronize_irq(i32 noundef) local_unnamed_addr #2
@@ -105,10 +105,10 @@ declare dso_local void @synchronize_irq(i32 noundef) local_unnamed_addr #2
 declare dso_local i32 @pci_irq_vector(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @vp_notify(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @vp_notify(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = trunc i32 %3 to i16
@@ -290,7 +290,7 @@ declare dso_local void @pci_free_irq_vectors(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vp_find_vqs(ptr noundef initializes((960, 968)) %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
+define dso_local i32 @vp_find_vqs(ptr noundef initializes((960, 968)) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
   %8 = tail call fastcc i32 @vp_find_vqs_msix(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext true, ptr noundef %5, ptr noundef %6)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.loopexit8, label %10
@@ -451,7 +451,7 @@ vp_setup_vq.exit:                                 ; preds = %75, %81
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @vp_find_vqs_msix(ptr noundef initializes((960, 968)) %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, ptr noundef readonly %6, ptr noundef %7) unnamed_addr #0 align 16 {
+define internal fastcc i32 @vp_find_vqs_msix(ptr noundef initializes((960, 968)) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i1 noundef zeroext %5, ptr noundef readonly %6, ptr noundef %7) unnamed_addr #0 align 16 {
   %9 = zext i1 %5 to i8
   %10 = zext i32 %1 to i64
   %11 = shl nuw nsw i64 %10, 3
@@ -768,7 +768,7 @@ vp_setup_vq.exit.thread:                          ; preds = %145
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @vp_bus_name(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local ptr @vp_bus_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
@@ -787,7 +787,7 @@ define dso_local ptr @vp_bus_name(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @vp_set_vq_affinity(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @vp_set_vq_affinity(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 960
@@ -837,7 +837,7 @@ define dso_local noundef range(i32 -22, 1) i32 @vp_set_vq_affinity(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @vp_get_vq_affinity(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @vp_get_vq_affinity(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %4 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %5 = icmp eq i8 %4, 0
@@ -869,7 +869,7 @@ define dso_local ptr @vp_get_vq_affinity(ptr nocapture noundef readonly %0, i32 
 declare dso_local ptr @pci_irq_get_affinity(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noalias noundef ptr @virtio_pci_vf_get_pf_dev(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 16 {
+define dso_local noalias noundef ptr @virtio_pci_vf_get_pf_dev(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 16 {
   ret ptr null
 }
 
@@ -901,7 +901,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @vring_interrupt(i32 noundef, ptr noundef) #2
@@ -1006,7 +1006,7 @@ define internal range(i32 0, 2) i32 @vp_interrupt(i32 noundef %0, ptr noundef %1
 declare dso_local i32 @ioread8(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @virtio_pci_probe(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal i32 @virtio_pci_probe(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(1128) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 1128) #12
   %5 = icmp eq ptr %4, null
@@ -1143,7 +1143,7 @@ define internal void @virtio_pci_remove(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @virtio_pci_sriov_configure(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @virtio_pci_sriov_configure(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 752

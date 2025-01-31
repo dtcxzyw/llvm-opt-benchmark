@@ -82,14 +82,14 @@ define hidden void @_ZN13StackOverflow27initialize_stack_zone_sizesEv() local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK13StackOverflow20stack_guards_enabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK13StackOverflow20stack_guards_enabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 3
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StackOverflow24create_stack_guard_pagesEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13StackOverflow24create_stack_guard_pagesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %8
@@ -210,7 +210,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE105ELS1_159ELS1_0ELS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StackOverflow24remove_stack_guard_pagesEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13StackOverflow24remove_stack_guard_pagesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %26, label %4
@@ -261,7 +261,7 @@ declare noundef zeroext i1 @_ZN2os24remove_stack_guard_pagesEPcm(ptr noundef, i6
 declare noundef zeroext i1 @_ZN2os14unguard_memoryEPcm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StackOverflow26enable_stack_reserved_zoneEb(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13StackOverflow26enable_stack_reserved_zoneEb(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 1
   %or.cond = select i1 %1, i1 %4, i1 false
@@ -321,7 +321,7 @@ declare noundef ptr @_ZN2os21current_stack_pointerEv() local_unnamed_addr #3
 declare void @_Z7warningPKcz(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StackOverflow27disable_stack_reserved_zoneEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13StackOverflow27disable_stack_reserved_zoneEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 3
   br i1 %.not, label %3, label %14
@@ -350,7 +350,7 @@ define hidden void @_ZN13StackOverflow27disable_stack_reserved_zoneEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StackOverflow33enable_stack_yellow_reserved_zoneEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13StackOverflow33enable_stack_yellow_reserved_zoneEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
@@ -397,7 +397,7 @@ define hidden void @_ZN13StackOverflow33enable_stack_yellow_reserved_zoneEv(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StackOverflow34disable_stack_yellow_reserved_zoneEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13StackOverflow34disable_stack_yellow_reserved_zoneEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %15, label %4
@@ -426,7 +426,7 @@ define hidden void @_ZN13StackOverflow34disable_stack_yellow_reserved_zoneEv(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StackOverflow22disable_stack_red_zoneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13StackOverflow22disable_stack_red_zoneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
@@ -442,7 +442,7 @@ define hidden void @_ZN13StackOverflow22disable_stack_red_zoneEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEPh(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef readnone %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEPh(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef readnone %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %0, align 8
   %.off = add i32 %3, -1
   %switch = icmp ult i32 %.off, 2
@@ -496,7 +496,7 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEPh(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef ptr @_ZN2os21current_stack_pointerEv() #7
   %3 = load i32, ptr %0, align 8
   %.off.i = add i32 %3, -1
@@ -551,7 +551,7 @@ _ZN13StackOverflow13reguard_stackEPh.exit:        ; preds = %1, %17, %22, %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13StackOverflow23reguard_stack_if_neededEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN13StackOverflow23reguard_stack_if_neededEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 3
   br i1 %3, label %_ZN13StackOverflow13reguard_stackEv.exit, label %4

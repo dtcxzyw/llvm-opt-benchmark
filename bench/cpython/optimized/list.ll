@@ -74,7 +74,7 @@ entry:
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_check(ptr nocapture readnone %_unused_module, ptr noundef readonly %obj) #0 {
+define internal ptr @list_check(ptr readnone captures(none) %_unused_module, ptr noundef readonly %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -89,7 +89,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_check_exact(ptr nocapture readnone %_unused_module, ptr noundef readonly %obj) #0 {
+define internal ptr @list_check_exact(ptr readnone captures(none) %_unused_module, ptr noundef readonly %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -102,7 +102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_new(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @list_new(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %call = tail call i64 @PyLong_AsSsize_t(ptr noundef %obj) #4
   %call1 = tail call ptr @PyList_New(i64 noundef %call) #4
@@ -110,7 +110,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_size(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @list_size(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -144,7 +144,7 @@ do.end12:                                         ; preds = %if.then3, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_get_size(ptr nocapture readnone %_unused_module, ptr noundef readonly %obj) #0 {
+define internal ptr @list_get_size(ptr readnone captures(none) %_unused_module, ptr noundef readonly %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -208,7 +208,7 @@ do.end12:                                         ; preds = %if.then3, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_getitem(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @list_getitem(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %i = alloca i64, align 8
@@ -248,7 +248,7 @@ return:                                           ; preds = %if.end.i.i.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_get_item(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @list_get_item(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %i = alloca i64, align 8
@@ -297,7 +297,7 @@ return:                                           ; preds = %if.end.i.i.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_setitem(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @list_setitem(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -375,7 +375,7 @@ do.end22:                                         ; preds = %if.then12, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @list_set_item(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal noundef ptr @list_set_item(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -465,7 +465,7 @@ return:                                           ; preds = %entry, %PyList_SET_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_insert(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @list_insert(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -543,7 +543,7 @@ do.end22:                                         ; preds = %if.then12, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_append(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @list_append(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -603,7 +603,7 @@ do.end21:                                         ; preds = %if.then11, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_getslice(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @list_getslice(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %ilow = alloca i64, align 8
@@ -634,7 +634,7 @@ return:                                           ; preds = %entry, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_setslice(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @list_setslice(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -698,7 +698,7 @@ do.end21:                                         ; preds = %if.then11, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_sort(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @list_sort(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -733,7 +733,7 @@ do.end12:                                         ; preds = %if.then3, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_reverse(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @list_reverse(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -768,7 +768,7 @@ do.end12:                                         ; preds = %if.then3, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_astuple(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @list_astuple(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -777,7 +777,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_clear(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @list_clear(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -812,7 +812,7 @@ do.end12:                                         ; preds = %if.then3, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_extend(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @list_extend(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %arg = alloca ptr, align 8

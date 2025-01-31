@@ -21,14 +21,14 @@ define hidden { i64, i64 } @_ZN6base646engine15general_purpose6decode22GeneralPu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN114_$LT$base64..engine..general_purpose..decode..GeneralPurposeEstimate$u20$as$u20$base64..engine..DecodeEstimate$GT$20decoded_len_estimate17he2469593f517c1c8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
+define noundef i64 @"_ZN114_$LT$base64..engine..general_purpose..decode..GeneralPurposeEstimate$u20$as$u20$base64..engine..DecodeEstimate$GT$20decoded_len_estimate17he2469593f517c1c8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   ret i64 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6base646engine15general_purpose6decode18complete_quads_len17hd5bdbd1c9f566f08E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 1 dereferenceable(256) %5) unnamed_addr #2 {
+define hidden void @_ZN6base646engine15general_purpose6decode18complete_quads_len17hd5bdbd1c9f566f08E(ptr noalias noundef writeonly sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef readonly align 1 captures(none) dereferenceable(256) %5) unnamed_addr #2 {
   %7 = icmp eq i64 %3, 1
   br i1 %7, label %8, label %10
 

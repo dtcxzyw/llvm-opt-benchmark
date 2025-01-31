@@ -1000,7 +1000,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.18 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_GetObjectAddress(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden i64 @WB_GetObjectAddress(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -1155,7 +1155,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_GetHeapOopSize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i32 @WB_GetHeapOopSize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -1281,7 +1281,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_GetVMPageSize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i32 @WB_GetVMPageSize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -1408,7 +1408,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_GetVMAllocationGranularity(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i64 @WB_GetVMAllocationGranularity(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -1534,7 +1534,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_GetVMLargePageSize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i64 @WB_GetVMLargePageSize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -1662,7 +1662,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i64 @_ZN2os15large_page_sizeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_CountAliveClasses(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden i32 @WB_CountAliveClasses(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.WBIsKlassAliveClosure, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -1857,7 +1857,7 @@ declare noundef ptr @_ZN16java_lang_String9as_symbolEP7oopDesc(ptr noundef) loca
 declare void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 0, 65536) i32 @WB_GetSymbolRefcount(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden range(i32 0, 65536) i32 @WB_GetSymbolRefcount(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -2037,7 +2037,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_AddToBootstrapClassLoaderSearch(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden void @WB_AddToBootstrapClassLoaderSearch(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -2229,7 +2229,7 @@ declare noundef ptr @_ZN8JvmtiEnv14create_a_jvmtiEi(i32 noundef) local_unnamed_a
 declare noundef i32 @_ZN8JvmtiEnv31AddToBootstrapClassLoaderSearchEPKc(ptr noundef nonnull align 8 dereferenceable(460), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_AddToSystemClassLoaderSearch(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden void @WB_AddToSystemClassLoaderSearch(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -2417,7 +2417,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i32 @_ZN8JvmtiEnv28AddToSystemClassLoaderSearchEPKc(ptr noundef nonnull align 8 dereferenceable(460), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_GetCompressedOopsMaxHeapSize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i64 @WB_GetCompressedOopsMaxHeapSize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -2545,7 +2545,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i64 @_ZN9Arguments28max_heap_for_compressed_oopsEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_PrintHeapSizes(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_PrintHeapSizes(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -2679,7 +2679,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_ReadFromNoaccessArea(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_ReadFromNoaccessArea(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = alloca %class.ReservedHeapSpace, align 8
   %5 = alloca %class.VirtualSpace, align 8
@@ -2863,13 +2863,13 @@ declare void @_ZN12VirtualSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare noundef zeroext i1 @_ZN12VirtualSpace10initializeE13ReservedSpacem(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef byval(%class.ReservedSpace) align 8, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare void @_ZN12VirtualSpaceD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 0, 4) i32 @WB_StressVirtualSpaceResize(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
+define hidden range(i32 0, 4) i32 @WB_StressVirtualSpaceResize(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
   %6 = alloca %class.ReservedHeapSpace, align 8
   %7 = alloca %class.VirtualSpace, align 8
   %8 = alloca %class.WeakPreserveExceptionMark, align 8
@@ -3068,7 +3068,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsGCSupported(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsGCSupported(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -3197,7 +3197,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef zeroext i1 @_ZN8GCConfig15is_gc_supportedEN13CollectedHeap4NameE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_HasLibgraal(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_HasLibgraal(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -3326,7 +3326,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef zeroext i1 @_ZN5JVMCI21shared_library_existsEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsGCSupportedByJVMCICompiler(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsGCSupportedByJVMCICompiler(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.JVMCIEnv, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -3484,7 +3484,7 @@ declare noundef zeroext i1 @_ZN12JVMCIRuntime15is_gc_supportedEP8JVMCIEnvN13Coll
 declare void @_ZN8JVMCIEnvD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsGCSelected(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsGCSelected(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -3613,7 +3613,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef zeroext i1 @_ZN8GCConfig14is_gc_selectedEN13CollectedHeap4NameE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsGCSelectedErgonomically(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsGCSelectedErgonomically(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -3742,7 +3742,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef zeroext i1 @_ZN8GCConfig28is_gc_selected_ergonomicallyEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_isObjectInOldGen(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_isObjectInOldGen(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -4009,7 +4009,7 @@ declare noundef zeroext i1 @_ZNK10SerialHeap11is_in_youngEPKv(ptr noundef nonnul
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 0, -7) i64 @WB_GetObjectSize(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden range(i64 0, -7) i64 @WB_GetObjectSize(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -4244,7 +4244,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_GetHeapSpaceAlignment(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i64 @WB_GetHeapSpaceAlignment(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -4370,7 +4370,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_GetHeapAlignment(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i64 @WB_GetHeapAlignment(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -4496,7 +4496,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_SupportsConcurrentGCBreakpoints(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_SupportsConcurrentGCBreakpoints(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -4627,7 +4627,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_ConcurrentGCAcquireControl(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_ConcurrentGCAcquireControl(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -4755,7 +4755,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN23ConcurrentGCBreakpoints15acquire_controlEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_ConcurrentGCReleaseControl(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_ConcurrentGCReleaseControl(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -4883,7 +4883,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN23ConcurrentGCBreakpoints15release_controlEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_ConcurrentGCRunToIdle(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_ConcurrentGCRunToIdle(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -5011,7 +5011,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN23ConcurrentGCBreakpoints11run_to_idleEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_ConcurrentGCRunTo(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_ConcurrentGCRunTo(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -5244,7 +5244,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef zeroext i1 @_ZN23ConcurrentGCBreakpoints6run_toEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_G1IsHumongous(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_G1IsHumongous(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -5436,7 +5436,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_G1BelongsToHumongousRegion(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_G1BelongsToHumongousRegion(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -5596,7 +5596,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_G1BelongsToFreeRegion(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_G1BelongsToFreeRegion(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -5755,7 +5755,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 0, 4294967296) i64 @WB_G1NumMaxRegions(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden range(i64 0, 4294967296) i64 @WB_G1NumMaxRegions(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -5898,7 +5898,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 0, 4294967296) i64 @WB_G1NumFreeRegions(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden range(i64 0, 4294967296) i64 @WB_G1NumFreeRegions(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -6041,7 +6041,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_G1InConcurrentMark(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_G1InConcurrentMark(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -6188,7 +6188,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @WB_G1CompletedConcurrentMarkCycles(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i32 @WB_G1CompletedConcurrentMarkCycles(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -6333,7 +6333,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i32 @_ZNK16G1ConcurrentMark21completed_mark_cyclesEv(ptr noundef nonnull align 8 dereferenceable(1849)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_G1RegionSize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i32 @WB_G1RegionSize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -6474,7 +6474,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_G1HasRegionsToUncommit(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_G1HasRegionsToUncommit(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -6618,7 +6618,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef zeroext i1 @_ZN15G1CollectedHeap25has_uncommittable_regionsEv(ptr noundef nonnull align 8 dereferenceable(1488)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_PSVirtualSpaceAlignment(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i64 @WB_PSVirtualSpaceAlignment(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -6758,7 +6758,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_PSHeapGenerationAlignment(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i64 @WB_PSHeapGenerationAlignment(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -7093,7 +7093,7 @@ declare ptr @_ZN13MemoryService22create_MemoryUsage_objE11MemoryUsageP10JavaThre
 declare noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @WB_G1ActiveMemoryNodeCount(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i32 @WB_G1ActiveMemoryNodeCount(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -7236,7 +7236,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i32 @_ZNK6G1NUMA16num_active_nodesEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_G1MemoryNodeIds(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef ptr @WB_G1MemoryNodeIds(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -7413,7 +7413,7 @@ declare noundef ptr @_ZNK6G1NUMA8node_idsEv(ptr noundef nonnull align 8 derefere
 declare noundef ptr @_ZN10oopFactory12new_intArrayEiP10JavaThread(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_G1GetMixedGCInfo(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden noundef ptr @WB_G1GetMixedGCInfo(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.OldRegionsLivenessClosure, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -7603,7 +7603,7 @@ declare void @_ZNK15G1CollectedHeap19heap_region_iterateEP19G1HeapRegionClosure(
 declare noundef ptr @_ZN10oopFactory13new_longArrayEiP10JavaThread(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_NMTMalloc(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden noundef i64 @WB_NMTMalloc(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -7732,7 +7732,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZN2os6mallocEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_NMTMallocWithPseudoStack(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i32 noundef %3) #0 {
+define hidden noundef i64 @WB_NMTMallocWithPseudoStack(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %class.NativeCallStack, align 8
@@ -7869,7 +7869,7 @@ declare void @_ZN15NativeCallStackC1EPPhi(ptr noundef nonnull align 8 dereferenc
 declare noundef ptr @_ZN2os6mallocEm8MEMFLAGSRK15NativeCallStack(i64 noundef, i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_NMTMallocWithPseudoStackAndType(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define hidden noundef i64 @WB_NMTMallocWithPseudoStackAndType(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %class.NativeCallStack, align 8
@@ -8003,7 +8003,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_NMTFree(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden void @WB_NMTFree(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -8132,7 +8132,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_NMTReserveMemory(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden noundef i64 @WB_NMTReserveMemory(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.ThreadCritical, align 1
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -8277,7 +8277,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZN2os14reserve_memoryEmb8MEMFLAGS(i64 noundef, i1 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_NMTAttemptReserveMemoryAt(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i64 noundef %3) #0 {
+define hidden noundef i64 @WB_NMTAttemptReserveMemoryAt(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.ThreadCritical, align 1
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -8423,7 +8423,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZN2os25attempt_reserve_memory_atEPcmb8MEMFLAGS(ptr noundef, i64 noundef, i1 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_NMTCommitMemory(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i64 noundef %3) #0 {
+define hidden void @WB_NMTCommitMemory(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.ThreadCritical, align 1
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -8568,7 +8568,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef zeroext i1 @_ZN2os13commit_memoryEPcmb(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_NMTUncommitMemory(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i64 noundef %3) #0 {
+define hidden void @WB_NMTUncommitMemory(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -8697,7 +8697,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef zeroext i1 @_ZN2os15uncommit_memoryEPcmb(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_NMTReleaseMemory(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i64 noundef %3) #0 {
+define hidden void @WB_NMTReleaseMemory(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -8826,7 +8826,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef zeroext i1 @_ZN2os14release_memoryEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @WB_NMTGetHashSize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i32 @WB_NMTGetHashSize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -8951,7 +8951,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_NMTNewArena(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden noundef i64 @WB_NMTNewArena(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -9081,7 +9081,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN5ArenaC1E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext, i8 noundef zeroext, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_NMTFreeArena(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden void @WB_NMTFreeArena(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -9219,7 +9219,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_NMTArenaMalloc(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i64 noundef %3) #0 {
+define hidden void @WB_NMTArenaMalloc(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -9367,7 +9367,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_DeoptimizeFrames(ptr noundef %0, ptr nocapture readnone %1, i8 noundef zeroext %2) #0 {
+define hidden i32 @WB_DeoptimizeFrames(ptr noundef %0, ptr readnone captures(none) %1, i8 noundef zeroext %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.VM_WhiteBoxDeoptimizeFrames, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -9506,7 +9506,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsFrameDeoptimized(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsFrameDeoptimized(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.frame, align 8
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.RegisterMap, align 8
@@ -9680,7 +9680,7 @@ declare noundef ptr @_ZNK6vframe11java_senderEv(ptr noundef nonnull align 8 dere
 declare noundef zeroext i1 @_ZNK5frame20is_deoptimized_frameEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_DeoptimizeAll(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_DeoptimizeAll(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = alloca %class.DeoptimizationScope, align 8
   %5 = ptrtoint ptr %0 to i64
@@ -9819,7 +9819,7 @@ declare void @_ZN19DeoptimizationScope17deoptimize_markedEv(ptr noundef nonnull 
 declare void @_ZN19DeoptimizationScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @WB_DeoptimizeMethod(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define hidden noundef i32 @WB_DeoptimizeMethod(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.DeoptimizationScope, align 8
   %7 = alloca %class.methodHandle, align 8
@@ -10126,7 +10126,7 @@ declare void @_ZN9CodeCache23mark_for_deoptimizationEP19DeoptimizationScopeP6Met
 declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsMethodCompiled(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsMethodCompiled(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.methodHandle, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -10402,7 +10402,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsMethodCompilable(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsMethodCompilable(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = alloca %class.methodHandle, align 8
   %8 = ptrtoint ptr %0 to i64
@@ -10767,7 +10767,7 @@ define internal fastcc noundef zeroext i1 @_ZL24can_be_compiled_at_levelR12metho
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsMethodQueuedForCompilation(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsMethodQueuedForCompilation(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.methodHandle, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -11015,7 +11015,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsIntrinsicAvailable(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsIntrinsicAvailable(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = alloca %class.methodHandle, align 8
   %8 = alloca %class.methodHandle, align 8
@@ -11420,7 +11420,7 @@ declare noundef ptr @_ZN15DirectivesStack19getDefaultDirectiveEP16AbstractCompil
 declare void @_ZN15DirectivesStack7releaseEP12DirectiveSet(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 -128, 128) i32 @WB_GetMethodCompilationLevel(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define hidden range(i32 -128, 128) i32 @WB_GetMethodCompilationLevel(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.methodHandle, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -11682,7 +11682,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_MakeMethodNotCompilable(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
+define hidden void @WB_MakeMethodNotCompilable(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = alloca %class.methodHandle, align 8
   %8 = ptrtoint ptr %0 to i64
@@ -11927,7 +11927,7 @@ declare void @_ZN6Method22set_not_osr_compilableEPKcib(ptr noundef nonnull align
 declare void @_ZN6Method18set_not_compilableEPKcib(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_GetMethodDecompileCount(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden i32 @WB_GetMethodDecompileCount(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.methodHandle, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -12169,7 +12169,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_GetMethodTrapCount(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden i32 @WB_GetMethodTrapCount(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.methodHandle, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -12537,12 +12537,12 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare noundef ptr @_ZN14Deoptimization16trap_reason_nameEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @WB_GetDeoptCount(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden noundef i32 @WB_GetDeoptCount(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -12780,7 +12780,7 @@ declare noundef i32 @_ZN14Deoptimization26total_deoptimization_countEv() local_u
 declare noundef i32 @_ZN14Deoptimization20deoptimization_countEPKcS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_GetMethodEntryBci(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden i32 @WB_GetMethodEntryBci(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.methodHandle, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -13027,7 +13027,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_TestSetDontInlineMethod(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_TestSetDontInlineMethod(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.methodHandle, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -13281,7 +13281,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_GetCompileQueueSize(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden i32 @WB_GetCompileQueueSize(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -13447,7 +13447,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_TestSetForceInlineMethod(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_TestSetForceInlineMethod(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.methodHandle, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -13928,7 +13928,7 @@ define hidden noundef i64 @_ZN8WhiteBox24get_in_use_monitor_countEv() local_unna
 declare noundef i64 @_ZNK11MonitorList5countEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_EnqueueMethodForCompilation(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_EnqueueMethodForCompilation(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = ptrtoint ptr %0 to i64
   %8 = add nsw i64 %7, -960
@@ -14117,7 +14117,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_EnqueueInitializerForCompilation(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_EnqueueInitializerForCompilation(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -14296,7 +14296,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZNK13InstanceKlass17class_initializerEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_ShouldPrintAssembly(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_ShouldPrintAssembly(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.methodHandle, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -14547,7 +14547,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 -1, 3) i32 @WB_MatchesInline(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden range(i32 -1, 3) i32 @WB_MatchesInline(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.methodHandle, align 8
   %7 = alloca ptr, align 8
@@ -14867,7 +14867,7 @@ declare noundef ptr @_ZN13InlineMatcher20parse_inline_patternEPcRPKc(ptr noundef
 declare noundef zeroext i1 @_ZN13InlineMatcher5matchERK12methodHandlei(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 -1, 2) i32 @WB_MatchesMethod(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden range(i32 -1, 2) i32 @WB_MatchesMethod(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.methodHandle, align 8
   %7 = alloca ptr, align 8
@@ -15181,7 +15181,7 @@ declare noundef ptr @_ZN12BasicMatcher20parse_method_patternEPcRPKcb(ptr noundef
 declare noundef zeroext i1 @_ZNK13MethodMatcher7matchesERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_MarkMethodProfiled(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden void @WB_MarkMethodProfiled(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.methodHandle, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -15453,7 +15453,7 @@ declare void @_ZN10MethodData4initEv(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN17InvocationCounter3setEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_ClearMethodState(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden void @WB_ClearMethodState(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.methodHandle, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -15814,7 +15814,7 @@ declare void @_ZN10MethodData17clean_method_dataEb(ptr noundef nonnull align 8 d
 declare void @_ZN14MethodCounters14clear_countersEv(ptr noundef nonnull align 8 dereferenceable(46)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsConstantVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsConstantVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -15984,11 +15984,11 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit: ; preds = %3, %17
 
 21:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
-  %23 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %9, i64 noundef %22, i1 noundef zeroext true, i1 noundef zeroext true) #15
+  %23 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %9, i64 noundef %22, i1 noundef zeroext true, i1 noundef zeroext true) #15
   %24 = load ptr, ptr %1, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1360
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef %9) #15
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef nonnull %9) #15
   br label %27
 
 27:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit, %21
@@ -16034,7 +16034,7 @@ _ZN20ThreadToNativeFromVMD2Ev.exit:               ; preds = %_ZN18SafepointMecha
 declare noundef zeroext i1 @_ZNK7JVMFlag21is_constant_in_binaryEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsDefaultVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsDefaultVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -16173,7 +16173,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsLockedVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsLockedVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -16318,7 +16318,7 @@ declare noundef zeroext i1 @_ZNK7JVMFlag11is_unlockedEv(ptr noundef nonnull alig
 declare noundef zeroext i1 @_ZNK7JVMFlag11is_unlockerEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetBooleanVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @WB_GetBooleanVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -16426,7 +16426,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %44, %3
 
 47:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #17
-  %49 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %40, i64 noundef %48, i1 noundef zeroext true, i1 noundef zeroext true) #15
+  %49 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %40, i64 noundef %48, i1 noundef zeroext true, i1 noundef zeroext true) #15
   %50 = icmp eq ptr %49, null
   br i1 %50, label %_ZN13JVMFlagAccess3getIbLi0EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, label %51
 
@@ -16448,7 +16448,7 @@ _ZN13JVMFlagAccess3getIbLi0EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %54, %5
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1360
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %40) #15
+  call void %61(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %40) #15
   br label %62
 
 62:                                               ; preds = %_ZN13JVMFlagAccess3getIbLi0EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -16690,7 +16690,7 @@ _ZL3boxIhEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit: ; preds = %53, %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetIntVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @WB_GetIntVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -16854,7 +16854,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %19, %5
 
 23:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #17
-  %25 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %11, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext true) #15
+  %25 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %11, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext true) #15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZN13JVMFlagAccess3getIiLi1EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, label %27
 
@@ -16876,7 +16876,7 @@ _ZN13JVMFlagAccess3getIiLi1EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %2
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1360
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %11) #15
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %11) #15
   br label %38
 
 38:                                               ; preds = %_ZN13JVMFlagAccess3getIiLi1EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -16967,7 +16967,7 @@ _ZL9GetVMFlagIiLi1EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetUintVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @WB_GetUintVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -17131,7 +17131,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %19, %5
 
 23:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #17
-  %25 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %11, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext true) #15
+  %25 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %11, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext true) #15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZN13JVMFlagAccess3getIjLi2EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, label %27
 
@@ -17153,7 +17153,7 @@ _ZN13JVMFlagAccess3getIjLi2EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %2
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1360
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %11) #15
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %11) #15
   br label %38
 
 38:                                               ; preds = %_ZN13JVMFlagAccess3getIjLi2EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -17244,7 +17244,7 @@ _ZL9GetVMFlagIjLi2EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetIntxVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @WB_GetIntxVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -17408,7 +17408,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %19, %5
 
 23:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #17
-  %25 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %11, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext true) #15
+  %25 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %11, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext true) #15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZN13JVMFlagAccess3getIlLi3EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, label %27
 
@@ -17429,7 +17429,7 @@ _ZN13JVMFlagAccess3getIlLi3EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %2
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1360
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %11) #15
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %11) #15
   br label %37
 
 37:                                               ; preds = %_ZN13JVMFlagAccess3getIlLi3EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -17520,7 +17520,7 @@ _ZL9GetVMFlagIlLi3EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetUintxVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @WB_GetUintxVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -17684,7 +17684,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %19, %5
 
 23:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #17
-  %25 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %11, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext true) #15
+  %25 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %11, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext true) #15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZN13JVMFlagAccess3getImLi4EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, label %27
 
@@ -17705,7 +17705,7 @@ _ZN13JVMFlagAccess3getImLi4EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %2
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1360
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %11) #15
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %11) #15
   br label %37
 
 37:                                               ; preds = %_ZN13JVMFlagAccess3getImLi4EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -17796,7 +17796,7 @@ _ZL9GetVMFlagImLi4EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetUint64VMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @WB_GetUint64VMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -17960,7 +17960,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %19, %5
 
 23:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #17
-  %25 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %11, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext true) #15
+  %25 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %11, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext true) #15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZN13JVMFlagAccess3getImLi5EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, label %27
 
@@ -17981,7 +17981,7 @@ _ZN13JVMFlagAccess3getImLi5EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %2
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1360
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %11) #15
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %11) #15
   br label %37
 
 37:                                               ; preds = %_ZN13JVMFlagAccess3getImLi5EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -18072,7 +18072,7 @@ _ZL9GetVMFlagImLi5EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetSizeTVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @WB_GetSizeTVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -18236,7 +18236,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %19, %5
 
 23:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #17
-  %25 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %11, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext true) #15
+  %25 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %11, i64 noundef %24, i1 noundef zeroext true, i1 noundef zeroext true) #15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZN13JVMFlagAccess3getImLi6EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, label %27
 
@@ -18257,7 +18257,7 @@ _ZN13JVMFlagAccess3getImLi6EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %30, %2
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1360
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %11) #15
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %11) #15
   br label %37
 
 37:                                               ; preds = %_ZN13JVMFlagAccess3getImLi6EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -18348,7 +18348,7 @@ _ZL9GetVMFlagImLi6EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetDoubleVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @WB_GetDoubleVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -18456,7 +18456,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %44, %3
 
 47:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #17
-  %49 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %40, i64 noundef %48, i1 noundef zeroext true, i1 noundef zeroext true) #15
+  %49 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %40, i64 noundef %48, i1 noundef zeroext true, i1 noundef zeroext true) #15
   %50 = icmp eq ptr %49, null
   br i1 %50, label %_ZN13JVMFlagAccess3getIdLi7EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, label %51
 
@@ -18477,7 +18477,7 @@ _ZN13JVMFlagAccess3getIdLi7EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i: ; preds = %54, %5
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1360
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %40) #15
+  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %40) #15
   br label %61
 
 61:                                               ; preds = %_ZN13JVMFlagAccess3getIdLi7EEEN7JVMFlag5ErrorEPKS1_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -18718,7 +18718,7 @@ _ZL3boxIdEP8_jobjectP10JavaThreadP7JNIEnv_P6SymbolS7_T_.exit: ; preds = %52, %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @WB_GetStringVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden ptr @WB_GetStringVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -18826,7 +18826,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %44, %3
 
 47:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #17
-  %49 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %40, i64 noundef %48, i1 noundef zeroext true, i1 noundef zeroext true) #15
+  %49 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %40, i64 noundef %48, i1 noundef zeroext true, i1 noundef zeroext true) #15
   %50 = icmp eq ptr %49, null
   br i1 %50, label %_ZN13JVMFlagAccess3getIPKcLi8EEEN7JVMFlag5ErrorEPKS3_PT_.exit.i, label %51
 
@@ -18848,7 +18848,7 @@ _ZN13JVMFlagAccess3getIPKcLi8EEEN7JVMFlag5ErrorEPKS3_PT_.exit.i: ; preds = %55, 
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1360
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %40) #15
+  call void %61(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %40) #15
   br label %62
 
 62:                                               ; preds = %_ZN13JVMFlagAccess3getIPKcLi8EEEN7JVMFlag5ErrorEPKS3_PT_.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -18997,7 +18997,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_SetBooleanVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define hidden void @WB_SetBooleanVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca i8, align 1
   %7 = ptrtoint ptr %0 to i64
@@ -19109,7 +19109,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %48, %3
 
 51:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #17
-  %53 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %44, i64 noundef %52, i1 noundef zeroext false, i1 noundef zeroext false) #15
+  %53 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %44, i64 noundef %52, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_ZN13JVMFlagAccess3setIbLi0EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, label %55
 
@@ -19127,7 +19127,7 @@ _ZN13JVMFlagAccess3setIbLi0EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i: ; p
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 1360
   %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %44) #15
+  call void %62(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %44) #15
   br label %63
 
 63:                                               ; preds = %_ZN13JVMFlagAccess3setIbLi0EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -19215,7 +19215,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_SetIntVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 {
+define hidden void @WB_SetIntVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca i32, align 4
   %7 = ptrtoint ptr %0 to i64
@@ -19326,7 +19326,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %47, %3
 
 50:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #17
-  %52 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %43, i64 noundef %51, i1 noundef zeroext false, i1 noundef zeroext false) #15
+  %52 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %43, i64 noundef %51, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %53 = icmp eq ptr %52, null
   br i1 %53, label %_ZN13JVMFlagAccess3setIiLi1EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, label %54
 
@@ -19344,7 +19344,7 @@ _ZN13JVMFlagAccess3setIiLi1EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i: ; p
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1360
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %43) #15
+  call void %61(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %43) #15
   br label %62
 
 62:                                               ; preds = %_ZN13JVMFlagAccess3setIiLi1EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -19432,7 +19432,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_SetUintVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 {
+define hidden void @WB_SetUintVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca i32, align 4
   %7 = ptrtoint ptr %0 to i64
@@ -19543,7 +19543,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %47, %3
 
 50:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #17
-  %52 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %43, i64 noundef %51, i1 noundef zeroext false, i1 noundef zeroext false) #15
+  %52 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %43, i64 noundef %51, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %53 = icmp eq ptr %52, null
   br i1 %53, label %_ZN13JVMFlagAccess3setIjLi2EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, label %54
 
@@ -19561,7 +19561,7 @@ _ZN13JVMFlagAccess3setIjLi2EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i: ; p
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1360
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %43) #15
+  call void %61(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %43) #15
   br label %62
 
 62:                                               ; preds = %_ZN13JVMFlagAccess3setIjLi2EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -19649,7 +19649,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_SetIntxVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 {
+define hidden void @WB_SetIntxVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca i64, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -19759,7 +19759,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %46, %3
 
 49:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #17
-  %51 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %42, i64 noundef %50, i1 noundef zeroext false, i1 noundef zeroext false) #15
+  %51 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %42, i64 noundef %50, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %52 = icmp eq ptr %51, null
   br i1 %52, label %_ZN13JVMFlagAccess3setIlLi3EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, label %53
 
@@ -19777,7 +19777,7 @@ _ZN13JVMFlagAccess3setIlLi3EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i: ; p
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1360
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %42) #15
+  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %42) #15
   br label %61
 
 61:                                               ; preds = %_ZN13JVMFlagAccess3setIlLi3EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -19865,7 +19865,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_SetUintxVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 {
+define hidden void @WB_SetUintxVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca i64, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -19975,7 +19975,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %46, %3
 
 49:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #17
-  %51 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %42, i64 noundef %50, i1 noundef zeroext false, i1 noundef zeroext false) #15
+  %51 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %42, i64 noundef %50, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %52 = icmp eq ptr %51, null
   br i1 %52, label %_ZN13JVMFlagAccess3setImLi4EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, label %53
 
@@ -19993,7 +19993,7 @@ _ZN13JVMFlagAccess3setImLi4EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i: ; p
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1360
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %42) #15
+  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %42) #15
   br label %61
 
 61:                                               ; preds = %_ZN13JVMFlagAccess3setImLi4EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -20081,7 +20081,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_SetUint64VMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 {
+define hidden void @WB_SetUint64VMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca i64, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -20191,7 +20191,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %46, %3
 
 49:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #17
-  %51 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %42, i64 noundef %50, i1 noundef zeroext false, i1 noundef zeroext false) #15
+  %51 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %42, i64 noundef %50, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %52 = icmp eq ptr %51, null
   br i1 %52, label %_ZN13JVMFlagAccess3setImLi5EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, label %53
 
@@ -20209,7 +20209,7 @@ _ZN13JVMFlagAccess3setImLi5EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i: ; p
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1360
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %42) #15
+  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %42) #15
   br label %61
 
 61:                                               ; preds = %_ZN13JVMFlagAccess3setImLi5EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -20297,7 +20297,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_SetSizeTVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 {
+define hidden void @WB_SetSizeTVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca i64, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -20407,7 +20407,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %46, %3
 
 49:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #17
-  %51 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %42, i64 noundef %50, i1 noundef zeroext false, i1 noundef zeroext false) #15
+  %51 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %42, i64 noundef %50, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %52 = icmp eq ptr %51, null
   br i1 %52, label %_ZN13JVMFlagAccess3setImLi6EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, label %53
 
@@ -20425,7 +20425,7 @@ _ZN13JVMFlagAccess3setImLi6EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i: ; p
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1360
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %42) #15
+  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %42) #15
   br label %61
 
 61:                                               ; preds = %_ZN13JVMFlagAccess3setImLi6EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -20513,7 +20513,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_SetDoubleVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, double noundef %3) #0 {
+define hidden void @WB_SetDoubleVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, double noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca double, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -20623,7 +20623,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %46, %3
 
 49:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #17
-  %51 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %42, i64 noundef %50, i1 noundef zeroext false, i1 noundef zeroext false) #15
+  %51 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %42, i64 noundef %50, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %52 = icmp eq ptr %51, null
   br i1 %52, label %_ZN13JVMFlagAccess3setIdLi7EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, label %53
 
@@ -20641,7 +20641,7 @@ _ZN13JVMFlagAccess3setIdLi7EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i: ; p
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1360
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %42) #15
+  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %42) #15
   br label %61
 
 61:                                               ; preds = %_ZN13JVMFlagAccess3setIdLi7EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -20729,7 +20729,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_SetStringVMFlag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden void @WB_SetStringVMFlag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca ptr, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -20902,7 +20902,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %69, %6
 
 72:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
   %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #17
-  %74 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %65, i64 noundef %73, i1 noundef zeroext false, i1 noundef zeroext false) #15
+  %74 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %65, i64 noundef %73, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %75 = icmp eq ptr %74, null
   br i1 %75, label %_ZN13JVMFlagAccess3setIPKcLi8EEEN7JVMFlag5ErrorEPS3_PT_13JVMFlagOrigin.exit.i, label %76
 
@@ -20921,7 +20921,7 @@ _ZN13JVMFlagAccess3setIPKcLi8EEEN7JVMFlag5ErrorEPS3_PT_13JVMFlagOrigin.exit.i: ;
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 1360
   %84 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef %65) #15
+  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull %65) #15
   br label %85
 
 85:                                               ; preds = %_ZN13JVMFlagAccess3setIPKcLi8EEEN7JVMFlag5ErrorEPS3_PT_13JVMFlagOrigin.exit.i, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
@@ -21054,7 +21054,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_LockCompilation(ptr noundef %0, ptr nocapture readnone %1, i64 %2) #0 {
+define hidden void @WB_LockCompilation(ptr noundef %0, ptr readnone captures(none) %1, i64 %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -21180,7 +21180,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_UnlockCompilation(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_UnlockCompilation(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -21317,7 +21317,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsInStringTable(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsInStringTable(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca i32, align 4
   %6 = ptrtoint ptr %0 to i64
@@ -21521,7 +21521,7 @@ declare noundef ptr @_ZN16java_lang_String17as_unicode_stringEP7oopDescRiP10Java
 declare noundef ptr @_ZN11StringTable6lookupEPKti(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_FullGC(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_FullGC(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -21669,7 +21669,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_YoungGC(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_YoungGC(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -21799,7 +21799,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_ReadReservedMemory(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_ReadReservedMemory(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -21940,7 +21940,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @WB_GetCPUFeatures(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden ptr @WB_GetCPUFeatures(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -22164,7 +22164,7 @@ define hidden noundef ptr @_ZN8WhiteBox13get_code_heapE12CodeBlobType(i32 nounde
 declare noundef ptr @_ZN9CodeCache13get_code_heapE12CodeBlobType(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetNMethod(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define hidden noundef ptr @WB_GetNMethod(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.methodHandle, align 8
   %7 = alloca %struct.CodeBlobStub, align 8
@@ -22701,7 +22701,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL20codeBlob2objectArrayP10JavaThreadP7JNIEnv_P12CodeBlobStub(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL20codeBlob2objectArrayP10JavaThreadP7JNIEnv_P12CodeBlobStub(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 800
@@ -23176,7 +23176,7 @@ declare noundef ptr @_ZN9CodeCache8allocateEj12CodeBlobTypebS0_(i32 noundef, i32
 declare void @_ZN10BufferBlobC1EPKc12CodeBlobKindi(ptr noundef nonnull align 8 dereferenceable(54), ptr noundef, i8 noundef zeroext, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_AllocateCodeBlob(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) #0 {
+define hidden noundef i64 @WB_AllocateCodeBlob(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.FormatBuffer, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -23331,7 +23331,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_FreeCodeBlob(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden void @WB_FreeCodeBlob(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -23467,7 +23467,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN10BufferBlob4freeEPS_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetCodeHeapEntries(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden noundef ptr @WB_GetCodeHeapEntries(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -23919,7 +23919,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_GetCompilationActivityMode(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i32 @WB_GetCompilationActivityMode(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -24045,7 +24045,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetCodeBlob(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden noundef ptr @WB_GetCodeBlob(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %struct.CodeBlobStub, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -24250,7 +24250,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_GetMethodData(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden i64 @WB_GetMethodData(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.methodHandle, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -24483,7 +24483,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_GetThreadStackSize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i64 @WB_GetThreadStackSize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -24610,7 +24610,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_GetThreadRemainingStackSize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i64 @WB_GetThreadRemainingStackSize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -24766,7 +24766,7 @@ define hidden noundef i32 @_ZN8WhiteBox21array_bytes_to_lengthEm(i64 noundef %0)
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_CreateMetaspaceTestContext(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i64 noundef %3) #0 {
+define hidden noundef i64 @WB_CreateMetaspaceTestContext(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -24896,7 +24896,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN9metaspace20MetaspaceTestContextC1EPKcmm(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i64 noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_DestroyMetaspaceTestContext(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden void @WB_DestroyMetaspaceTestContext(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -25034,7 +25034,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN9metaspace20MetaspaceTestContextD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_PurgeMetaspaceTestContext(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden void @WB_PurgeMetaspaceTestContext(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -25163,7 +25163,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN9metaspace20MetaspaceTestContext10purge_areaEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_PrintMetaspaceTestContext(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden void @WB_PrintMetaspaceTestContext(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -25293,7 +25293,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZNK9metaspace20MetaspaceTestContext8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_GetTotalCommittedWordsInMetaspaceTestContext(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden i64 @WB_GetTotalCommittedWordsInMetaspaceTestContext(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -25421,7 +25421,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_GetTotalUsedWordsInMetaspaceTestContext(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden i64 @WB_GetTotalUsedWordsInMetaspaceTestContext(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -25549,7 +25549,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_CreateArenaInTestContext(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i8 noundef zeroext %3) #0 {
+define hidden noundef i64 @WB_CreateArenaInTestContext(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -25681,7 +25681,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZN9metaspace20MetaspaceTestContext12create_arenaEN9Metaspace13MetaspaceTypeE(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_DestroyMetaspaceTestArena(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden void @WB_DestroyMetaspaceTestArena(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -25819,7 +25819,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN9metaspace18MetaspaceTestArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_AllocateFromMetaspaceTestArena(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i64 noundef %3) #0 {
+define hidden noundef i64 @WB_AllocateFromMetaspaceTestArena(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -25949,7 +25949,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZN9metaspace18MetaspaceTestArena8allocateEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_DeallocateToMetaspaceTestArena(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
+define hidden void @WB_DeallocateToMetaspaceTestArena(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = ptrtoint ptr %0 to i64
   %8 = add nsw i64 %7, -960
@@ -26079,7 +26079,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN9metaspace18MetaspaceTestArena10deallocateEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 -9223372036854775808, 9223372036854775801) i64 @WB_GetMaxMetaspaceAllocationSize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden range(i64 -9223372036854775808, 9223372036854775801) i64 @WB_GetMaxMetaspaceAllocationSize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -26208,7 +26208,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i64 @_ZN9Metaspace24max_allocation_word_sizeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_AllocateMetaspace(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 {
+define hidden noundef i64 @WB_AllocateMetaspace(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.FormatBuffer, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -26411,7 +26411,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_DefineModule(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define hidden void @WB_DefineModule(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca %class.WeakPreserveExceptionMark, align 8
   %9 = ptrtoint ptr %0 to i64
   %10 = add nsw i64 %9, -960
@@ -26600,7 +26600,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN7Modules13define_moduleE6HandlehP8_jstringS2_P13_jobjectArrayP10JavaThread(ptr, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_AddModuleExports(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define hidden void @WB_AddModuleExports(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = ptrtoint ptr %0 to i64
   %8 = add nsw i64 %7, -960
@@ -26850,7 +26850,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN7Modules28add_module_exports_qualifiedE6HandleP8_jstringS0_P10JavaThread(ptr, ptr noundef, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_AddModuleExportsToAllUnnamed(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden void @WB_AddModuleExportsToAllUnnamed(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -27039,7 +27039,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN7Modules33add_module_exports_to_all_unnamedE6HandleP8_jstringP10JavaThread(ptr, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_AddModuleExportsToAll(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden void @WB_AddModuleExportsToAll(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -27228,7 +27228,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN7Modules18add_module_exportsE6HandleP8_jstringS0_P10JavaThread(ptr, ptr noundef, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_AddReadsModule(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden void @WB_AddReadsModule(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -27478,7 +27478,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN7Modules16add_reads_moduleE6HandleS0_P10JavaThread(ptr, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_IncMetaspaceCapacityUntilGC(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden noundef i64 @WB_IncMetaspaceCapacityUntilGC(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.FormatBuffer, align 8
@@ -27622,7 +27622,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_MetaspaceCapacityUntilGC(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i64 @WB_MetaspaceCapacityUntilGC(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -27750,7 +27750,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i64 @_ZN11MetaspaceGC17capacity_until_GCEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_MetaspaceSharedRegionAlignment(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i64 @WB_MetaspaceSharedRegionAlignment(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -27878,7 +27878,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i64 @_ZN15MetaspaceShared21core_region_alignmentEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsMonitorInflated(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsMonitorInflated(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -28036,7 +28036,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_getInUseMonitorCount(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i64 @WB_getInUseMonitorCount(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -28412,7 +28412,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_DeflateIdleMonitors(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_DeflateIdleMonitors(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -28559,7 +28559,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0
 declare noundef zeroext i1 @_ZN18ObjectSynchronizer37request_deflate_idle_monitors_from_wbEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_ForceSafepoint(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_ForceSafepoint(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = alloca %class.VM_ForceSafepoint, align 8
   %5 = ptrtoint ptr %0 to i64
@@ -28689,7 +28689,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_ForceClassLoaderStatsSafepoint(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_ForceClassLoaderStatsSafepoint(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = alloca %class.nullStream, align 8
   %5 = alloca %class.ClassLoaderStatsVMOperation, align 8
@@ -28829,7 +28829,7 @@ define linkonce_odr hidden void @_ZN10nullStreamD2Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_GetConstantPool(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden i64 @WB_GetConstantPool(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -28986,7 +28986,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetResolvedReferences(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @WB_GetResolvedReferences(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -29146,7 +29146,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZNK12ConstantPool19resolved_referencesEv(ptr noundef nonnull align 8 dereferenceable(68)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_getFieldEntriesLength(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden i32 @WB_getFieldEntriesLength(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -29315,7 +29315,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 -1, 65536) i32 @WB_getFieldCPIndex(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define hidden range(i32 -1, 65536) i32 @WB_getFieldCPIndex(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -29489,7 +29489,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_getMethodEntriesLength(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden i32 @WB_getMethodEntriesLength(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -29658,7 +29658,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 -1, 65536) i32 @WB_getMethodCPIndex(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define hidden range(i32 -1, 65536) i32 @WB_getMethodCPIndex(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -29832,7 +29832,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_getIndyInfoLength(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden i32 @WB_getIndyInfoLength(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -30001,7 +30001,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 -1, 65536) i32 @WB_getIndyCPIndex(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define hidden range(i32 -1, 65536) i32 @WB_getIndyCPIndex(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -30175,7 +30175,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @WB_printClasses(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define hidden ptr @WB_printClasses(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.stringStream, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -30441,7 +30441,7 @@ declare void @_ZN12ClassPrinter13print_classesEPKciP12outputStream(ptr noundef, 
 declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @WB_printMethods(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+define hidden ptr @WB_printMethods(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = alloca %class.stringStream, align 8
   %8 = ptrtoint ptr %0 to i64
@@ -30706,7 +30706,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN12ClassPrinter13print_methodsEPKcS1_iP12outputStream(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_ClearInlineCaches(ptr noundef %0, ptr nocapture readnone %1, i8 noundef zeroext %2) #0 {
+define hidden void @WB_ClearInlineCaches(ptr noundef %0, ptr readnone captures(none) %1, i8 noundef zeroext %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.VM_ClearICs, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -30840,7 +30840,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetMethodBooleaneOption(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden noundef ptr @WB_GetMethodBooleaneOption(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.methodHandle, align 8
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = alloca i8, align 1
@@ -31204,7 +31204,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetMethodIntxOption(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden noundef ptr @WB_GetMethodIntxOption(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.methodHandle, align 8
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = alloca i64, align 8
@@ -31567,7 +31567,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetMethodUintxOption(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden noundef ptr @WB_GetMethodUintxOption(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.methodHandle, align 8
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = alloca i64, align 8
@@ -31930,7 +31930,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_GetMethodDoubleOption(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden noundef ptr @WB_GetMethodDoubleOption(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.methodHandle, align 8
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = alloca double, align 8
@@ -32293,7 +32293,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @WB_GetMethodStringOption(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden ptr @WB_GetMethodStringOption(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.methodHandle, align 8
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = alloca ptr, align 8
@@ -32672,7 +32672,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @WB_GetDefaultArchivePath(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden ptr @WB_GetDefaultArchivePath(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -32855,7 +32855,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZN9CDSConfig20default_archive_pathEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsSharingEnabled(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsSharingEnabled(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -32984,7 +32984,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @WB_GetCDSGenericHeaderMinVersion(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i32 @WB_GetCDSGenericHeaderMinVersion(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -33109,7 +33109,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @WB_GetCDSCurrentVersion(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i32 @WB_GetCDSCurrentVersion(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -33234,7 +33234,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_CDSMemoryMappingFailed(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_CDSMemoryMappingFailed(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -33361,7 +33361,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsSharedInternedString(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsSharedInternedString(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca i32, align 4
   %6 = ptrtoint ptr %0 to i64
@@ -33563,7 +33563,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZN11StringTable13lookup_sharedEPKti(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsSharedClass(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsSharedClass(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -33848,7 +33848,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_LinkClass(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden void @WB_LinkClass(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -34904,7 +34904,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @WB_GetCDSOffsetForName(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef i32 @WB_GetCDSOffsetForName(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -35092,7 +35092,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i64 @_ZN12CDSConstants14get_cds_offsetEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @WB_GetCDSConstantForName(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef i32 @WB_GetCDSConstantForName(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -35280,7 +35280,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i64 @_ZN12CDSConstants16get_cds_constantEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext i8 @WB_HandshakeReadMonitors(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext i8 @WB_HandshakeReadMonitors(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.ReadMonitorsClosure, align 8
   %6 = alloca %class.ThreadsListHandle, align 8
@@ -35445,12 +35445,12 @@ declare void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandleP10Ja
 declare void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZ24WB_HandshakeReadMonitorsEN19ReadMonitorsClosureD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define internal void @_ZZ24WB_HandshakeReadMonitorsEN19ReadMonitorsClosureD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_HandshakeWalkStack(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define hidden i32 @WB_HandshakeWalkStack(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.TraceSelfClosure, align 8
   %7 = alloca %class.ThreadsListHandle, align 8
@@ -35615,12 +35615,12 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZ21WB_HandshakeWalkStackEN16TraceSelfClosureD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define internal void @_ZZ21WB_HandshakeWalkStackEN16TraceSelfClosureD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_AsyncHandshakeWalkStack(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden void @WB_AsyncHandshakeWalkStack(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.ThreadsListHandle, align 8
   %6 = alloca ptr, align 8
@@ -35777,7 +35777,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN9Handshake7executeEP21AsyncHandshakeClosureP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_LockAndBlock(ptr noundef %0, ptr nocapture readnone %1, i8 noundef zeroext %2) #0 {
+define hidden void @WB_LockAndBlock(ptr noundef %0, ptr readnone captures(none) %1, i8 noundef zeroext %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -35963,7 +35963,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN2os17naked_short_sleepEl(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8WhiteBox16offset_for_fieldEPKcP7oopDescP6Symbol(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8WhiteBox16offset_for_fieldEPKcP7oopDescP6Symbol(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.fieldDescriptor, align 8
   %5 = load i8, ptr @UseCompressedClassPointers, align 1
   %6 = trunc i8 %5 to i1
@@ -35990,7 +35990,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %8, %18
   %.0.i = phi ptr [ %17, %8 ], [ %19, %18 ]
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %21 = trunc i64 %20 to i32
-  %22 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %0, i32 noundef %21) #15
+  %22 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %0, i32 noundef %21) #15
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %23
 
@@ -36277,7 +36277,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %104, %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 0, -1) i32 @WB_AddCompilerDirective(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden range(i32 0, -1) i32 @WB_AddCompilerDirective(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -36509,7 +36509,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i32 @_ZN16DirectivesParser12parse_stringEPKcP12outputStreamb(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_RemoveCompilerDirective(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden void @WB_RemoveCompilerDirective(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -36637,7 +36637,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN15DirectivesStack3popEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_CheckLibSpecifiesNoexecstack(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_CheckLibSpecifiesNoexecstack(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -36831,7 +36831,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef zeroext i1 @_ZN7ElfFile21specifies_noexecstackEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_IsContainerized(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_IsContainerized(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -36958,7 +36958,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_HostPhysicalMemory(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i64 @WB_HostPhysicalMemory(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -37084,7 +37084,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_HostPhysicalSwap(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i64 @WB_HostPhysicalSwap(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -37212,7 +37212,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i64 @_ZN2os5Linux9host_swapEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 0, 256) i32 @WB_ValidateCgroup(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define hidden range(i32 0, 256) i32 @WB_ValidateCgroup(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca [5 x %class.CgroupInfo], align 16
   %7 = alloca %class.WeakPreserveExceptionMark, align 8
   %8 = alloca i8, align 1
@@ -37481,7 +37481,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_PrintOsInfo(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_PrintOsInfo(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -37736,7 +37736,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_ResolvedMethodItemsCount(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i64 @WB_ResolvedMethodItemsCount(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -37864,7 +37864,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef i64 @_ZN19ResolvedMethodTable11items_countEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_ProtectionDomainRemovedCount(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden i32 @WB_ProtectionDomainRemovedCount(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -37990,7 +37990,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 -2147483648, 2147483641) i32 @WB_GetKlassMetadataSize(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden range(i32 -2147483648, 2147483641) i32 @WB_GetKlassMetadataSize(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -38149,7 +38149,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_CheckThreadObjOfTerminatingThread(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden void @WB_CheckThreadObjOfTerminatingThread(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = alloca %class.ThreadsListHandle, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -38514,7 +38514,7 @@ declare void @_ZN16java_lang_Thread12set_priorityEP7oopDesc14ThreadPriority(ptr 
 declare noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_VerifyFrames(ptr noundef %0, ptr nocapture readnone %1, i8 noundef zeroext %2, i8 noundef zeroext %3) #0 {
+define hidden void @WB_VerifyFrames(ptr noundef %0, ptr readnone captures(none) %1, i8 noundef zeroext %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.frame, align 8
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = alloca %class.stringStream, align 8
@@ -38771,7 +38771,7 @@ _ZN16StackFrameStream4nextEv.exit:                ; preds = %101, %_ZNK5frame6se
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %119 = load ptr, ptr %118, align 8
   %120 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %119) #17
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %117, ptr noundef %119, i64 noundef %120) #15
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %117, ptr noundef nonnull %119, i64 noundef %120) #15
   %121 = load ptr, ptr @tty, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %121, ptr noundef nonnull @.str.59) #15
   br label %122
@@ -38853,7 +38853,7 @@ declare void @_ZNK5frame14print_value_onEP12outputStreamP10JavaThread(ptr nounde
 declare void @_ZNK5frame6verifyEPK11RegisterMap(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @WB_IsJVMTIIncluded(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef zeroext i8 @WB_IsJVMTIIncluded(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -38978,7 +38978,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_WaitUnsafe(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden void @WB_WaitUnsafe(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -39105,7 +39105,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @WB_GetLibcName(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden ptr @WB_GetLibcName(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -39285,7 +39285,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_LockCritical(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_LockCritical(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -39430,7 +39430,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_UnlockCritical(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_UnlockCritical(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -39575,7 +39575,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_PinObject(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden void @WB_PinObject(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -39745,7 +39745,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_UnpinObject(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden void @WB_UnpinObject(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -39915,7 +39915,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @WB_SetVirtualThreadsNotifyJvmtiMode(ptr noundef %0, ptr nocapture readnone %1, i8 noundef zeroext %2) #0 {
+define hidden zeroext range(i8 0, 2) i8 @WB_SetVirtualThreadsNotifyJvmtiMode(ptr noundef %0, ptr readnone captures(none) %1, i8 noundef zeroext %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -40073,7 +40073,7 @@ declare noundef zeroext i1 @_ZN12JvmtiEnvBase35enable_virtual_threads_notify_jvm
 declare noundef zeroext i1 @_ZN12JvmtiEnvBase36disable_virtual_threads_notify_jvmtiEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_PreTouchMemory(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i64 noundef %3) #0 {
+define hidden void @WB_PreTouchMemory(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -40212,7 +40212,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @WB_CleanMetaspaces(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @WB_CleanMetaspaces(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -40340,7 +40340,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN20ClassLoaderDataGraph30safepoint_and_clean_metaspacesEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @WB_Rss(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i64 @WB_Rss(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -42870,7 +42870,7 @@ declare void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable
 declare noundef ptr @_ZN10MethodData8arg_infoEv(ptr noundef nonnull align 8 dereferenceable(312)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -42950,7 +42950,7 @@ define linkonce_odr hidden void @_ZN10nullStreamD0Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ24WB_HandshakeReadMonitorsEN19ReadMonitorsClosure9do_threadEP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal void @_ZZ24WB_HandshakeReadMonitorsEN19ReadMonitorsClosure9do_threadEP6Thread(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.frame, align 8
   %4 = alloca %class.RegisterMap, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -43278,7 +43278,7 @@ define internal void @_ZZ21WB_HandshakeWalkStackEN16TraceSelfClosureD0Ev(ptr nou
 declare void @_ZN10JavaThread14print_stack_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(1800), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ26WB_AsyncHandshakeWalkStackEN16TraceSelfClosure9do_threadEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal void @_ZZ26WB_AsyncHandshakeWalkStackEN16TraceSelfClosure9do_threadEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
@@ -43325,7 +43325,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %23, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZ26WB_AsyncHandshakeWalkStackEN16TraceSelfClosureD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define internal void @_ZZ26WB_AsyncHandshakeWalkStackEN16TraceSelfClosureD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
@@ -45855,7 +45855,7 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -47322,7 +47322,7 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %8
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -49255,7 +49255,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI14G1CMOopClosureE5Ta
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #15
-  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc14G1CMOopClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
+  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc14G1CMOopClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0)
   %7 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %8 = ptrtoint ptr %1 to i64
   %9 = sext i32 %7 to i64
@@ -49304,7 +49304,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass15oop_oop_iterateI9
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %6, i1 noundef zeroext false) #15
-  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop14G1CMOopClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2)
+  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop14G1CMOopClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2)
   %7 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %8 = ptrtoint ptr %1 to i64
   %9 = sext i32 %7 to i64
@@ -49612,7 +49612,7 @@ declare void @_ZN23InstanceStackChunkKlass26oop_oop_iterate_stack_slowEP17stackC
 declare void @_ZN23InstanceStackChunkKlass10do_methodsEP17stackChunkOopDescP17OopIterateClosure(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
@@ -54525,10 +54525,10 @@ declare i32 @llvm.ctpop.i32(i32) #12
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14

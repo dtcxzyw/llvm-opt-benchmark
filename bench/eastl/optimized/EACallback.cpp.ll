@@ -287,7 +287,7 @@ _ZN2EA4StdC8CallbackD2Ev.exit:                    ; preds = %entry, %if.then.i, 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2EA4StdCL15DefaultCallbackEPNS0_8CallbackEPvmm(ptr noundef %pCallback, ptr nocapture readnone %0, i64 %1, i64 %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2EA4StdCL15DefaultCallbackEPNS0_8CallbackEPvmm(ptr noundef %pCallback, ptr readnone captures(none) %0, i64 %1, i64 %2) #1 personality ptr @__gxx_personality_v0 {
 entry:
   %mbStarted.i = getelementptr inbounds nuw i8, ptr %pCallback, i64 52
   %3 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
@@ -342,7 +342,7 @@ _ZN2EA4StdC8Callback4CallEmm.exit:                ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK2EA4StdC8Callback15GetFunctionInfoERPFvPS1_PvmmERS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %pCallbackFunction, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %pCallbackArgument) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZNK2EA4StdC8Callback15GetFunctionInfoERPFvPS1_PvmmERS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %pCallbackFunction, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %pCallbackArgument) local_unnamed_addr #6 align 2 {
 entry:
   %mpFunction = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %mpFunction, align 8
@@ -372,7 +372,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK2EA4StdC8Callback9GetPeriodEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i64 @_ZNK2EA4StdC8Callback9GetPeriodEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #7 align 2 {
 entry:
   %mPeriod = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mPeriod, align 8
@@ -380,7 +380,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC8Callback9SetPeriodEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((8, 16)) %this, i64 noundef %nPeriod) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC8Callback9SetPeriodEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((8, 16)) %this, i64 noundef %nPeriod) local_unnamed_addr #8 align 2 {
 entry:
   %mPeriod = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %nPeriod, ptr %mPeriod, align 8
@@ -388,7 +388,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK2EA4StdC8Callback12GetPrecisionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i64 @_ZNK2EA4StdC8Callback12GetPrecisionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #7 align 2 {
 entry:
   %mPrecision = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %mPrecision, align 8
@@ -396,7 +396,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC8Callback12SetPrecisionEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((16, 24)) %this, i64 noundef %nPrecision) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC8Callback12SetPrecisionEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((16, 24)) %this, i64 noundef %nPrecision) local_unnamed_addr #8 align 2 {
 entry:
   %mPrecision = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %nPrecision, ptr %mPrecision, align 8
@@ -469,7 +469,7 @@ _ZN2EA4StdC8Callback4CallEmm.exit:                ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK2EA4StdC8Callback9IsStartedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK2EA4StdC8Callback9IsStartedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #0 align 2 {
 entry:
   %mbStarted = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load atomic i32, ptr %mbStarted seq_cst, align 4
@@ -478,7 +478,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC8Callback7SetTypeENS1_4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((48, 52)) %this, i32 noundef %type) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC8Callback7SetTypeENS1_4TypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((48, 52)) %this, i32 noundef %type) local_unnamed_addr #8 align 2 {
 entry:
   %mType = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 %type, ptr %mType, align 8
@@ -486,7 +486,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK2EA4StdC8Callback7GetTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK2EA4StdC8Callback7GetTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #7 align 2 {
 entry:
   %mType = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i32, ptr %mType, align 8
@@ -528,7 +528,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC15CallbackManager14CallbackVector5eraseEPPNS0_8CallbackE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef returned %pIterator) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN2EA4StdC15CallbackManager14CallbackVector5eraseEPPNS0_8CallbackE(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, ptr noundef returned %pIterator) local_unnamed_addr #6 align 2 {
 entry:
   %mpEnd = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpEnd, align 8
@@ -545,7 +545,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %value) local_unnamed_addr #1 align 2 {
@@ -605,7 +605,7 @@ if.end21:                                         ; preds = %if.end, %entry
 declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN2EA4StdC18SetCallbackManagerEPNS0_16ICallbackManagerE(ptr noundef %pCallbackManager) local_unnamed_addr #12 {
@@ -905,7 +905,7 @@ _ZN2EA4StdC15CallbackManagerD2Ev.exit:            ; preds = %invoke.cont.i, %del
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC15CallbackManager4InitEbbNS_6Thread16ThreadParametersE(ptr noundef nonnull align 8 dereferenceable(296) %this, i1 noundef zeroext %bAsync, i1 noundef zeroext %bAsyncStart, ptr nocapture noundef readonly byval(%"struct.EA::Thread::ThreadParameters") align 8 %threadParam) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC15CallbackManager4InitEbbNS_6Thread16ThreadParametersE(ptr noundef nonnull align 8 dereferenceable(296) %this, i1 noundef zeroext %bAsync, i1 noundef zeroext %bAsyncStart, ptr noundef readonly byval(%"struct.EA::Thread::ThreadParameters") align 8 captures(none) %threadParam) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mbRunning = getelementptr inbounds nuw i8, ptr %this, i64 137
@@ -1064,7 +1064,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA4StdC15CallbackManager14UpdateInternalERlS2_S2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %curTick, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %curTime, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %curUserEvent) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA4StdC15CallbackManager14UpdateInternalERlS2_S2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %curTick, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %curTime, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %curUserEvent) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nextCallBackUserEvent = alloca i64, align 8
   %timeInfo.sroa.0 = alloca i64, align 8
@@ -1783,7 +1783,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #13
 declare noundef i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
@@ -1792,10 +1792,10 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

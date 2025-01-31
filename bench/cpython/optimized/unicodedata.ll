@@ -245,7 +245,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_decimal(ptr noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @unicodedata_UCD_decimal(ptr noundef readonly %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 2
@@ -432,7 +432,7 @@ exit:                                             ; preds = %if.end26.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_digit(ptr nocapture readnone %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @unicodedata_UCD_digit(ptr readnone captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 2
@@ -589,7 +589,7 @@ exit:                                             ; preds = %if.end.i, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_numeric(ptr noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @unicodedata_UCD_numeric(ptr noundef readonly %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 2
@@ -1738,7 +1738,7 @@ if.end16.i:                                       ; preds = %if.else.i, %if.end6
   %arrayidx24.i = getelementptr [18 x ptr], ptr @decomp_prefix, i64 0, i64 %idxprom23.i
   %21 = load ptr, ptr %arrayidx24.i, align 8
   %call25.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %decomp.i, ptr align 1 %21, i64 %call25.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %decomp.i, ptr nonnull align 1 %21, i64 %call25.i, i1 false)
   %cmp2821.not.i = icmp ult i32 %20, 256
   br i1 %cmp2821.not.i, label %while.end.i, label %while.body.preheader.i
 
@@ -1789,7 +1789,7 @@ exit:                                             ; preds = %unicodedata_UCD_dec
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_name(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @unicodedata_UCD_name(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %name.i = alloca [257 x i8], align 16
   %0 = add i64 %nargs, -1
@@ -2055,7 +2055,7 @@ exit:                                             ; preds = %entry, %unicodedata
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @unicodedata_UCD_is_normalized(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @unicodedata_UCD_is_normalized(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -2381,7 +2381,7 @@ exit:                                             ; preds = %if.end.i.i18.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_normalize(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @unicodedata_UCD_normalize(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -2958,10 +2958,10 @@ declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -3276,15 +3276,15 @@ return:                                           ; preds = %if.then14.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @PyArg_Parse(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @_getcode(ptr noundef %name, i32 noundef %namelen, ptr nocapture noundef writeonly %code) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @_getcode(ptr noundef %name, i32 noundef %namelen, ptr noundef writeonly captures(none) %code) unnamed_addr #6 {
 entry:
   %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.100, i64 noundef 16) #10
   %cmp = icmp eq i32 %call, 0
@@ -3308,7 +3308,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
 if.end.i:                                         ; preds = %for.body.i
   %sext.i = shl i64 %call.i, 32
   %conv5.i = ashr exact i64 %sext.i, 32
-  %call6.i = tail call i32 @strncmp(ptr noundef readonly %add.ptr, ptr noundef %0, i64 noundef %conv5.i) #10
+  %call6.i = tail call i32 @strncmp(ptr noundef readonly %add.ptr, ptr noundef nonnull %0, i64 noundef %conv5.i) #10
   %cmp7.i = icmp eq i32 %call6.i, 0
   %1 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select = select i1 %cmp7.i, i32 %conv.i, i32 %len.0
@@ -3343,7 +3343,7 @@ for.body.i37:                                     ; preds = %for.inc.i43, %for.e
 if.end.i49:                                       ; preds = %for.body.i37
   %sext.i50 = shl i64 %call.i40, 32
   %conv5.i51 = ashr exact i64 %sext.i50, 32
-  %call6.i52 = tail call i32 @strncmp(ptr noundef readonly %add.ptr1, ptr noundef %2, i64 noundef %conv5.i51) #10
+  %call6.i52 = tail call i32 @strncmp(ptr noundef readonly %add.ptr1, ptr noundef nonnull %2, i64 noundef %conv5.i51) #10
   %cmp7.i53 = icmp eq i32 %call6.i52, 0
   %3 = trunc nuw nsw i64 %indvars.iv.i38 to i32
   %spec.select88 = select i1 %cmp7.i53, i32 %conv.i41, i32 %len.3
@@ -3378,7 +3378,7 @@ for.body.i56:                                     ; preds = %for.inc.i62, %for.e
 if.end.i68:                                       ; preds = %for.body.i56
   %sext.i69 = shl i64 %call.i59, 32
   %conv5.i70 = ashr exact i64 %sext.i69, 32
-  %call6.i71 = tail call i32 @strncmp(ptr noundef readonly %add.ptr3, ptr noundef %4, i64 noundef %conv5.i70) #10
+  %call6.i71 = tail call i32 @strncmp(ptr noundef readonly %add.ptr3, ptr noundef nonnull %4, i64 noundef %conv5.i70) #10
   %cmp7.i72 = icmp eq i32 %call6.i71, 0
   %5 = trunc nuw nsw i64 %indvars.iv.i57 to i32
   %spec.select91 = select i1 %cmp7.i72, i32 %conv.i60, i32 %len.6
@@ -3700,12 +3700,12 @@ declare ptr @PyUnicode_FromKindAndData(i32 noundef, ptr noundef, i64 noundef) lo
 declare ptr @PyUnicode_FromOrdinal(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare i32 @PyUnicode_CompareWithASCIIString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @nfc_nfkc(ptr noundef %self, ptr nocapture noundef readonly %input, i32 noundef %k) unnamed_addr #0 {
+define internal ptr @nfc_nfkc(ptr noundef %self, ptr noundef readonly captures(none) %input, i32 noundef %k) unnamed_addr #0 {
 entry:
   %skipped = alloca [20 x i64], align 16
   %call = tail call ptr @nfd_nfkd(ptr noundef %self, ptr noundef %input, i32 noundef %k)
@@ -4306,7 +4306,7 @@ return:                                           ; preds = %if.end.i128, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @nfd_nfkd(ptr noundef readonly %self, ptr nocapture noundef readonly %input, i32 noundef %k) unnamed_addr #0 {
+define internal ptr @nfd_nfkd(ptr noundef readonly %self, ptr noundef readonly captures(none) %input, i32 noundef %k) unnamed_addr #0 {
 entry:
   %stack = alloca [20 x i32], align 16
   %0 = getelementptr i8, ptr %input, i64 16
@@ -5271,7 +5271,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ucd_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @ucd_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val3 = load ptr, ptr %0, align 8
@@ -5309,7 +5309,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @capi_getcode(ptr noundef %name, i32 noundef %namelen, ptr nocapture noundef %code, i32 noundef %with_named_seq) #6 {
+define internal range(i32 0, 2) i32 @capi_getcode(ptr noundef %name, i32 noundef %namelen, ptr noundef captures(none) %code, i32 noundef %with_named_seq) #6 {
 entry:
   %call = tail call fastcc i32 @_getcode(ptr noundef %name, i32 noundef %namelen, ptr noundef %code)
   %tobool.not = icmp eq i32 %call, 0
@@ -5353,10 +5353,10 @@ entry:
 declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

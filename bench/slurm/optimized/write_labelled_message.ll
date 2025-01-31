@@ -68,12 +68,12 @@ define i32 @write_labelled_message(i32 noundef %0, ptr noundef %1, i32 noundef %
   %29 = sub i64 %27, %28
   %30 = trunc i64 %29 to i32
   %31 = add nsw i32 %30, 1
-  %32 = call fastcc i32 @_write_line(i32 noundef %0, ptr noundef %18, ptr noundef %.04149.us, ptr noundef %22, i32 noundef %31)
+  %32 = call fastcc i32 @_write_line(i32 noundef %0, ptr noundef %18, ptr noundef %.04149.us, ptr noundef nonnull %22, i32 noundef %31)
   %33 = icmp slt i32 %32, 1
   br i1 %33, label %._crit_edge, label %37
 
 34:                                               ; preds = %.lr.ph.split.us
-  %35 = call fastcc i32 @_write_line(i32 noundef %0, ptr noundef %18, ptr noundef nonnull @.str, ptr noundef %22, i32 noundef %.03950.us)
+  %35 = call fastcc i32 @_write_line(i32 noundef %0, ptr noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull %22, i32 noundef %.03950.us)
   %36 = icmp slt i32 %35, 1
   br i1 %36, label %._crit_edge, label %37
 
@@ -96,7 +96,7 @@ define i32 @write_labelled_message(i32 noundef %0, ptr noundef %1, i32 noundef %
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %.lr.ph.split
-  %45 = tail call fastcc i32 @_write_line(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef %40, i32 noundef %.03950)
+  %45 = tail call fastcc i32 @_write_line(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, i32 noundef %.03950)
   %46 = icmp slt i32 %45, 1
   br i1 %46, label %._crit_edge, label %55
 
@@ -106,7 +106,7 @@ define i32 @write_labelled_message(i32 noundef %0, ptr noundef %1, i32 noundef %
   %50 = sub i64 %48, %49
   %51 = trunc i64 %50 to i32
   %52 = add nsw i32 %51, 1
-  %53 = tail call fastcc i32 @_write_line(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef %40, i32 noundef %52)
+  %53 = tail call fastcc i32 @_write_line(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, i32 noundef %52)
   %54 = icmp slt i32 %53, 1
   br i1 %54, label %._crit_edge, label %55
 
@@ -140,7 +140,7 @@ define i32 @write_labelled_message(i32 noundef %0, ptr noundef %1, i32 noundef %
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @_write_line(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 -2147483647, -2147483648) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @_write_line(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 -2147483647, -2147483648) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = icmp ne ptr %1, null
@@ -252,15 +252,15 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
@@ -270,10 +270,10 @@ declare i32 @get_log_level() local_unnamed_addr #2
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

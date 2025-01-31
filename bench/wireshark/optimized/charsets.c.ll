@@ -154,7 +154,7 @@ define ptr @get_utf_8_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 declare ptr @ws_utf8_make_valid(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_iso_646_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define ptr @get_iso_646_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = add i32 %2, 1
   %6 = sext i32 %5 to i64
   %7 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %6) #6
@@ -189,7 +189,7 @@ define ptr @get_iso_646_string(ptr noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_8859_1_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @get_8859_1_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %2, 1
   %5 = sext i32 %4 to i64
   %6 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %5) #6
@@ -226,7 +226,7 @@ define ptr @get_8859_1_string(ptr noundef %0, ptr nocapture noundef readonly %1,
 declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_unichar2_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define ptr @get_unichar2_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = add i32 %2, 1
   %6 = sext i32 %5 to i64
   %7 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %6) #6
@@ -265,7 +265,7 @@ define ptr @get_unichar2_string(ptr noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_ucs_2_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @get_ucs_2_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = add i32 %2, 1
   %6 = sext i32 %5 to i64
   %7 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %6) #6
@@ -357,7 +357,7 @@ define ptr @get_ucs_2_string(ptr noundef %0, ptr nocapture noundef readonly %1, 
 declare void @wmem_strbuf_append_unichar_validated(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_utf_16_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @get_utf_16_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = add i32 %2, 1
   %6 = sext i32 %5 to i64
   %7 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %6) #6
@@ -525,7 +525,7 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr nocapture noundef readonly %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_ucs_4_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @get_ucs_4_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = add i32 %2, 1
   %6 = sext i32 %5 to i64
   %7 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %6) #6
@@ -771,7 +771,7 @@ GSM_to_UNICHAR.exit:                              ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %2, 1
   %5 = sext i32 %4 to i64
   %6 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %5) #6
@@ -795,7 +795,7 @@ define ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %7
 
@@ -996,7 +996,7 @@ define ptr @get_ascii_7bits_string(ptr noundef %0, ptr noundef readonly %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = add i32 %2, 1
   %6 = sext i32 %5 to i64
   %7 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %6) #6
@@ -1156,7 +1156,7 @@ define ptr @get_euc_kr_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %2, 1
   %5 = sext i32 %4 to i64
   %6 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %5) #6
@@ -1277,7 +1277,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %2, 1
   %5 = sext i32 %4 to i64
   %6 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %5) #6

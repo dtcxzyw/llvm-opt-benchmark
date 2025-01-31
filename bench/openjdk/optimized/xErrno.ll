@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN6XErrnoC1Ei = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN6XErrnoC2Ei
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6XErrnoC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN6XErrnoC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #0 align 2 {
   %2 = tail call ptr @__errno_location() #6
   %3 = load i32, ptr %2, align 4
   store i32 %3, ptr %0, align 4
@@ -20,34 +20,34 @@ define hidden void @_ZN6XErrnoC2Ev(ptr nocapture noundef nonnull writeonly align
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6XErrnoC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN6XErrnoC2Ei(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK6XErrnocvbEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK6XErrnocvbEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = icmp ne i32 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK6XErrnoeqEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK6XErrnoeqEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp eq i32 %3, %1
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK6XErrnoneEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK6XErrnoneEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp ne i32 %3, %1
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK6XErrno9to_stringEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZNK6XErrno9to_stringEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = tail call noundef ptr @_ZN2os8strerrorEi(i32 noundef %2) #7
   ret ptr %3

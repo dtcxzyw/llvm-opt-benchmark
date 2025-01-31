@@ -2281,12 +2281,12 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 declare noundef i32 @_ZN7doctest6detail12setTestSuiteERKNS0_9TestSuiteE(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_Z11lua_silenceP9lua_State(ptr nocapture readnone %0) #3 {
+define dso_local noundef i32 @_Z11lua_silenceP9lua_State(ptr readnone captures(none) %0) #3 {
   ret i32 0
 }
 
@@ -2384,7 +2384,7 @@ define internal noundef i32 @_ZL16lua_vector_indexP9lua_State(ptr noundef %0) #4
   br label %37
 
 36:                                               ; preds = %32
-  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.199, ptr noundef %3) #36
+  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.199, ptr noundef nonnull %3) #36
   unreachable
 
 37:                                               ; preds = %35, %19, %6
@@ -25706,7 +25706,7 @@ declare noundef ptr @_Z16luaL_checkvectorP9lua_Statei(ptr noundef, i32 noundef) 
 declare noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_Z14lua_pushnumberP9lua_Stated(ptr noundef, double noundef) local_unnamed_addr #1
 
@@ -25991,7 +25991,7 @@ declare void @_ZN7doctest6detail7tlssPopEv(ptr dead_on_unwind writable sret(%"cl
 declare void @_ZN7doctest6StringC1EPKcj(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef readonly %5, i1 noundef zeroext %6, ptr noundef readonly %7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef readonly %5, i1 noundef zeroext %6, ptr noundef readonly %7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"class.std::basic_fstream", align 8
@@ -27256,7 +27256,7 @@ define internal noundef range(i32 1, 3) i32 @_ZL14lua_loadstringP9lua_State(ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare void @_Z13luaL_registerP9lua_StatePKcPK8luaL_Reg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -27281,7 +27281,7 @@ declare noundef i32 @_Z9luau_loadP9lua_StatePKcS2_mi(ptr noundef, ptr noundef, p
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZN4Luau7CodeGen7compileEP9lua_StateiRKNS0_18CompilationOptionsEPNS0_16CompilationStatsE(ptr dead_on_unwind writable sret(%"struct.Luau::CodeGen::CompilationResult") align 8, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(96), ptr noundef) local_unnamed_addr #1
 
@@ -27544,7 +27544,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -27613,7 +27613,7 @@ define internal void @"_ZN7doctest6detail12ContextScopeIZL14runConformancePKcPFv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL14runConformancePKcPFvP9lua_StateES7_S5_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsEE3$_0E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL14runConformancePKcPFvP9lua_StateES7_S5_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsEE3$_0E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.doctest::detail::MessageBuilder", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -27953,7 +27953,7 @@ declare void @_Z10lua_insertP9lua_Statei(ptr noundef, i32 noundef) local_unnamed
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -28178,7 +28178,7 @@ declare noundef ptr @_Z13lua_topointerP9lua_Statei(ptr noundef, i32 noundef) loc
 declare noundef ptr @_Z12lua_newstatePFPvS_S_mmES_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @_ZL14limitedReallocPvS_mm(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 %2, i64 noundef %3) #16 {
+define internal noalias noundef ptr @_ZL14limitedReallocPvS_mm(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2, i64 noundef %3) #16 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %6, label %7
 
@@ -28209,7 +28209,7 @@ define internal void @"_ZZL20DOCTEST_ANON_FUNC_58vEN3$_08__invokeEP9lua_State"(p
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef i32 @_ZL8cxxthrowP9lua_State(ptr nocapture readnone %0) #17 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL8cxxthrowP9lua_State(ptr readnone captures(none) %0) #17 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #37
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.261)
           to label %3 unwind label %4
@@ -28252,7 +28252,7 @@ declare void @_Z9lua_xmoveP9lua_StateS0_i(ptr noundef, ptr noundef, i32 noundef)
 declare noundef i32 @_Z15lua_resumeerrorP9lua_StateS0_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 declare void @_ZN7doctest6detail7SubcaseC1ERKNS_6StringEPKci(ptr noundef nonnull align 8 dereferenceable(41), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef) unnamed_addr #1
 
@@ -31420,7 +31420,7 @@ declare noundef ptr @_Z13lua_callbacksP9lua_State(ptr noundef) local_unnamed_add
 declare void @_Z14lua_singlestepP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENUlS1_P9lua_DebugE_8__invokeES1_S3_"(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 2 {
+define internal void @"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENUlS1_P9lua_DebugE_8__invokeES1_S3_"(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 align 2 {
   %3 = load i32, ptr @_ZZL20DOCTEST_ANON_FUNC_78vE8stephits, align 4
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr @_ZZL20DOCTEST_ANON_FUNC_78vE8stephits, align 4
@@ -31428,7 +31428,7 @@ define internal void @"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENUlS1_P
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENUlS1_P9lua_DebugE0_8__invokeES1_S3_"(ptr noundef %0, ptr nocapture readnone %1) #4 align 2 {
+define internal void @"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENUlS1_P9lua_DebugE0_8__invokeES1_S3_"(ptr noundef %0, ptr readnone captures(none) %1) #4 align 2 {
   %3 = load i32, ptr @_ZZL20DOCTEST_ANON_FUNC_78vE9breakhits, align 4
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr @_ZZL20DOCTEST_ANON_FUNC_78vE9breakhits, align 4
@@ -31449,7 +31449,7 @@ define internal void @"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENUlS1_P
 declare noundef i32 @_Z9lua_breakP9lua_State(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENUlS1_P9lua_DebugE1_8__invokeES1_S3_"(ptr nocapture readnone %0, ptr noundef %1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZZL20DOCTEST_ANON_FUNC_78vENK3$_0clEP9lua_StateENUlS1_P9lua_DebugE1_8__invokeES1_S3_"(ptr readnone captures(none) %0, ptr noundef %1) #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.doctest::detail::ResultBuilder", align 8
   %4 = alloca %"class.doctest::String", align 8
   %5 = alloca %"struct.doctest::detail::Result", align 8
@@ -36075,7 +36075,7 @@ declare noundef i32 @_Z14lua_isuserdataP9lua_Statei(ptr noundef, i32 noundef) lo
 declare void @_Z9lua_unrefP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @"_ZZL20DOCTEST_ANON_FUNC_86vEN3$_08__invokeEPv"(ptr nocapture readnone %0) #0 align 2 {
+define internal void @"_ZZL20DOCTEST_ANON_FUNC_86vEN3$_08__invokeEPv"(ptr readnone captures(none) %0) #0 align 2 {
   %2 = load i32, ptr @_ZZL20DOCTEST_ANON_FUNC_86vE8dtorhits, align 4
   %3 = add nsw i32 %2, 1
   store i32 %3, ptr @_ZZL20DOCTEST_ANON_FUNC_86vE8dtorhits, align 4
@@ -36083,7 +36083,7 @@ define internal void @"_ZZL20DOCTEST_ANON_FUNC_86vEN3$_08__invokeEPv"(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @"_ZZL20DOCTEST_ANON_FUNC_86vEN3$_18__invokeEPv"(ptr nocapture readnone %0) #0 align 2 {
+define internal void @"_ZZL20DOCTEST_ANON_FUNC_86vEN3$_18__invokeEPv"(ptr readnone captures(none) %0) #0 align 2 {
   %2 = load i32, ptr @_ZZL20DOCTEST_ANON_FUNC_86vE8dtorhits, align 4
   %3 = add nsw i32 %2, 1
   store i32 %3, ptr @_ZZL20DOCTEST_ANON_FUNC_86vE8dtorhits, align 4
@@ -36155,7 +36155,7 @@ define internal noundef i32 @"_ZZL20DOCTEST_ANON_FUNC_88vEN3$_08__invokeEP9lua_S
 declare noundef i32 @_Z16lua_getmetatableP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZZZL20DOCTEST_ANON_FUNC_88vENK3$_0clEP9lua_StateENUlPvE_8__invokeES2_"(ptr nocapture readnone %0) #3 align 2 {
+define internal void @"_ZZZL20DOCTEST_ANON_FUNC_88vENK3$_0clEP9lua_StateENUlPvE_8__invokeES2_"(ptr readnone captures(none) %0) #3 align 2 {
   ret void
 }
 
@@ -36907,7 +36907,7 @@ declare void @_Z10lua_concatP9lua_Statei(ptr noundef, i32 noundef) local_unnamed
 declare noundef ptr @_Z16lua_tostringatomP9lua_StateiPi(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext range(i16 -1, 2) i16 @"_ZZL20DOCTEST_ANON_FUNC_98vEN3$_08__invokeEPKcm"(ptr nocapture noundef readonly %0, i64 %1) #21 align 2 {
+define internal noundef signext range(i16 -1, 2) i16 @"_ZZL20DOCTEST_ANON_FUNC_98vEN3$_08__invokeEPKcm"(ptr noundef readonly captures(none) %0, i64 %1) #21 align 2 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.274) #35
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %"_ZZL20DOCTEST_ANON_FUNC_98vENK3$_0clEPKcm.exit", label %5
@@ -38933,7 +38933,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIRiEeqIS2_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZZL21DOCTEST_ANON_FUNC_110vEN3$_18__invokeEP9lua_State"(ptr nocapture readnone %0) #3 align 2 {
+define internal void @"_ZZL21DOCTEST_ANON_FUNC_110vEN3$_18__invokeEP9lua_State"(ptr readnone captures(none) %0) #3 align 2 {
   ret void
 }
 
@@ -39063,7 +39063,7 @@ define internal noundef i32 @"_ZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_State
 declare void @_Z15lua_getcoverageP9lua_StateiPvPFvS1_PKciiPKimE(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_ENUlPvPKciiPKimE_8__invokeES3_S5_iiS7_m"(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5) #4 align 2 {
+define internal void @"_ZZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS1_E_clES1_ENUlPvPKciiPKimE_8__invokeES3_S5_iiS7_m"(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) #4 align 2 {
   tail call void @_Z15lua_createtableP9lua_Stateii(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   tail call void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef %0, ptr noundef %1)
   tail call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.433)
@@ -39102,7 +39102,7 @@ define internal void @"_ZZZZL21DOCTEST_ANON_FUNC_112vENK3$_0clEP9lua_StateENKUlS
 declare void @_Z15lua_pushintegerP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #24
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIRP8_IO_FILEEcvNS0_6ResultEEv(ptr dead_on_unwind noalias writable sret(%"struct.doctest::detail::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -39183,12 +39183,12 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIRP8_IO_FI
 declare void @_Z9luaC_dumpP9lua_StatePvPFPKcS0_hE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #24
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #24
 
 declare void @_Z13luaC_enumheapP9lua_StatePvPFvS1_S1_hhmPKcEPFvS1_S1_S1_S3_E(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZL21DOCTEST_ANON_FUNC_116vEN11EnumContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZL21DOCTEST_ANON_FUNC_116vEN11EnumContextD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -39236,7 +39236,7 @@ _ZN4Luau12DenseHashMapIPvZL21DOCTEST_ANON_FUNC_116vE4NodeNS_16DenseHashPointerES
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL21DOCTEST_ANON_FUNC_116vEN3$_08__invokeEPvS0_hhmPKc"(ptr nocapture noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i64 noundef %4, ptr noundef %5) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZL21DOCTEST_ANON_FUNC_116vEN3$_08__invokeEPvS0_hhmPKc"(ptr noundef captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i64 noundef %4, ptr noundef %5) #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.doctest::detail::ResultBuilder", align 8
   %8 = alloca %"class.doctest::String", align 8
   %9 = alloca %"struct.doctest::detail::Result", align 8
@@ -39669,7 +39669,7 @@ _ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL21DOCTEST_ANON_FUNC_116vEN3$_18__invokeEPvS0_S0_PKc"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #4 align 2 {
+define internal void @"_ZZL21DOCTEST_ANON_FUNC_116vEN3$_18__invokeEPvS0_S0_PKc"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #4 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %1, ptr %5, align 8
@@ -40868,7 +40868,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIPvEeqIRS2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal void @"_ZZL21DOCTEST_ANON_FUNC_120vEN3$_08__invokeEP9lua_StatePv"(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #25 align 2 {
+define internal void @"_ZZL21DOCTEST_ANON_FUNC_120vEN3$_08__invokeEP9lua_StatePv"(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #25 align 2 {
   %.val = load i32, ptr %1, align 4
   %3 = load i32, ptr @_ZZL21DOCTEST_ANON_FUNC_120vE8dtorhits, align 4
   %4 = add nsw i32 %3, %.val
@@ -41088,7 +41088,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail19stringifyBinaryExprIPvDn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal void @"_ZZL21DOCTEST_ANON_FUNC_120vEN3$_18__invokeEPv"(ptr nocapture noundef readonly %0) #25 align 2 {
+define internal void @"_ZZL21DOCTEST_ANON_FUNC_120vEN3$_18__invokeEPv"(ptr noundef readonly captures(none) %0) #25 align 2 {
   %.val = load i32, ptr %0, align 4
   %2 = load i32, ptr @_ZZL21DOCTEST_ANON_FUNC_120vE8dtorhits, align 4
   %3 = add nsw i32 %2, %.val
@@ -41097,7 +41097,7 @@ define internal void @"_ZZL21DOCTEST_ANON_FUNC_120vEN3$_18__invokeEPv"(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal void @"_ZZL21DOCTEST_ANON_FUNC_120vEN3$_28__invokeEPv"(ptr nocapture noundef readonly %0) #25 align 2 {
+define internal void @"_ZZL21DOCTEST_ANON_FUNC_120vEN3$_28__invokeEPv"(ptr noundef readonly captures(none) %0) #25 align 2 {
   %.val = load i8, ptr %0, align 1
   %2 = sext i8 %.val to i32
   %3 = load i32, ptr @_ZZL21DOCTEST_ANON_FUNC_120vE8dtorhits, align 4
@@ -41169,7 +41169,7 @@ define internal noundef i32 @"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_State
   br i1 %7, label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.exit", label %8
 
 8:                                                ; preds = %4
-  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.502, ptr noundef %5) #36
+  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.502, ptr noundef nonnull %5) #36
   unreachable
 
 "_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E_clES1_.exit": ; preds = %4
@@ -41196,7 +41196,7 @@ define internal noundef i32 @"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_State
   br i1 %7, label %"_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E0_clES1_.exit", label %8
 
 8:                                                ; preds = %4
-  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.502, ptr noundef %5) #36
+  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.502, ptr noundef nonnull %5) #36
   unreachable
 
 "_ZZZL21DOCTEST_ANON_FUNC_128vENK3$_0clEP9lua_StateENKUlS1_E0_clES1_.exit": ; preds = %4
@@ -42606,7 +42606,7 @@ define internal void @"_ZZL21DOCTEST_ANON_FUNC_138vEN3$_08__invokeEP9lua_State"(
 declare void @_ZN4Luau7CodeGen19setUserdataRemapperEP9lua_StatePvPFhS3_PKcmE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i8 @"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENUlPvPKcmE_8__invokeES2_S4_m"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #27 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i8 @"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENUlPvPKcmE_8__invokeES2_S4_m"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #27 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8
   %.not3.i = icmp eq ptr %4, null
   br i1 %.not3.i, label %"_ZZZL21DOCTEST_ANON_FUNC_138vENK3$_0clEP9lua_StateENKUlPvPKcmE_clES2_S4_m.exit", label %.lr.ph.i
@@ -42728,7 +42728,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_Z11luaC_fullgcP9lua_State(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noalias noundef ptr @"_ZZL21DOCTEST_ANON_FUNC_150vEN3$_08__invokeEPvS0_mm"(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 %2, i64 noundef %3) #28 align 2 {
+define internal noalias noundef ptr @"_ZZL21DOCTEST_ANON_FUNC_150vEN3$_08__invokeEPvS0_mm"(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2, i64 noundef %3) #28 align 2 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %6, label %7
 
@@ -46843,10 +46843,10 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #30
 declare float @llvm.sqrt.f32(float) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #32
@@ -46855,7 +46855,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #32
 declare void @llvm.assume(i1 noundef) #33
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #34
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #34
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

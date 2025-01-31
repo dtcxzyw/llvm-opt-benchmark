@@ -363,7 +363,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %1, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13VectorSupport20init_payload_elementEP16typeArrayOopDesc9BasicTypeiPh(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13VectorSupport20init_payload_elementEP16typeArrayOopDesc9BasicTypeiPh(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   switch i8 %1, label %76 [
     i8 4, label %5
     i8 8, label %16
@@ -483,7 +483,7 @@ declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i3
 declare noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13VectorSupport30allocate_vector_payload_helperEP13InstanceKlassP5frameP11RegisterMap8LocationP10JavaThread(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13VectorSupport30allocate_vector_payload_helperEP13InstanceKlassP5frameP11RegisterMap8LocationP10JavaThread(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.fieldDescriptor, align 8
   %7 = alloca %class.fieldDescriptor, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
@@ -690,7 +690,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN10HandleArea15al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13VectorSupport23allocate_vector_payloadEP13InstanceKlassP5frameP11RegisterMapP10ScopeValueP10JavaThread(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13VectorSupport23allocate_vector_payloadEP13InstanceKlassP5frameP11RegisterMapP10ScopeValueP10JavaThread(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
@@ -713,7 +713,7 @@ define hidden noundef ptr @_ZN13VectorSupport23allocate_vector_payloadEP13Instan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13VectorSupport15allocate_vectorEP13InstanceKlassP5frameP11RegisterMapP11ObjectValueP10JavaThread(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13VectorSupport15allocate_vectorEP13InstanceKlassP5frameP11RegisterMapP11ObjectValueP10JavaThread(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
@@ -1341,7 +1341,7 @@ switch.lookup154:                                 ; preds = %141
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @VectorSupport_GetMaxLaneCount(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef i32 @VectorSupport_GetMaxLaneCount(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
   %6 = inttoptr i64 %5 to ptr
@@ -3357,13 +3357,13 @@ declare void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

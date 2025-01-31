@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [94 x i8] c"sharedfp_individual_get_timestamps_and_reclengths: node deleted from the metadatalinked list\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @mca_sharedfp_individual_collaborate_data(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -549,7 +549,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.mca_sharedfp_individual_record2, align 8
   %6 = alloca %struct.ompi_status_public_t, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -744,7 +744,7 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define range(i32 -2, 1) i32 @mca_sharedfp_individual_create_buff(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 %3) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @mca_sharedfp_individual_create_buff(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 %3) local_unnamed_addr #3 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %13, label %5
 
@@ -771,7 +771,7 @@ define range(i32 -2, 1) i32 @mca_sharedfp_individual_create_buff(ptr nocapture n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @mca_sharedfp_individual_sort_timestamps(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef i32 @mca_sharedfp_individual_sort_timestamps(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %or.cond = icmp slt i32 %3, 2
   br i1 %or.cond, label %._crit_edge45, label %.preheader.us.preheader
 
@@ -841,7 +841,7 @@ define noundef i32 @mca_sharedfp_individual_sort_timestamps(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @mca_sharedfp_individual_assign_globaloffset(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define i64 @mca_sharedfp_individual_assign_globaloffset(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -891,12 +891,12 @@ define i64 @mca_sharedfp_individual_assign_globaloffset(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare i32 @mca_common_ompio_file_read_at(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @mca_sharedfp_individual_getoffset(double noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 {
+define i32 @mca_sharedfp_individual_getoffset(double noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 {
   %6 = zext i32 %4 to i64
   br label %7
 
@@ -930,7 +930,7 @@ select.unfold:                                    ; preds = %11, %7
 declare i32 @mca_common_ompio_file_write_at(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

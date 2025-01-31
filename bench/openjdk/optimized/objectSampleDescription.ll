@@ -57,7 +57,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN23ObjectSampleDescriptionC1EP7oopDesc = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN23ObjectSampleDescriptionC2EP7oopDesc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24ObjectDescriptionBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 1), (104, 112)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24ObjectDescriptionBuilderC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((0, 1), (104, 112)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %2, align 8
   store i8 0, ptr %0, align 8
@@ -65,7 +65,7 @@ define hidden void @_ZN24ObjectDescriptionBuilderC2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24ObjectDescriptionBuilder5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 1), (104, 112)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24ObjectDescriptionBuilder5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((0, 1), (104, 112)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %2, align 8
   store i8 0, ptr %0, align 8
@@ -73,7 +73,7 @@ define hidden void @_ZN24ObjectDescriptionBuilder5resetEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ObjectDescriptionBuilder9write_intEi(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24ObjectDescriptionBuilder9write_intEi(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [20 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 20, ptr noundef nonnull @.str, i32 noundef %1) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -131,7 +131,7 @@ _ZN24ObjectDescriptionBuilder10write_textEPKc.exit: ; preds = %2, %.critedge.thr
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN24ObjectDescriptionBuilder10write_textEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN24ObjectDescriptionBuilder10write_textEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 98
@@ -193,7 +193,7 @@ define hidden void @_ZN24ObjectDescriptionBuilder17print_descriptionEP12outputSt
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN24ObjectDescriptionBuilder11descriptionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN24ObjectDescriptionBuilder11descriptionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #1 align 2 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %9, label %4
@@ -211,15 +211,15 @@ define hidden noundef ptr @_ZN24ObjectDescriptionBuilder11descriptionEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23ObjectSampleDescriptionC2EP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((8, 9), (112, 128)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN23ObjectSampleDescriptionC2EP7oopDesc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) initializes((8, 9), (112, 128)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %4, align 8
@@ -230,7 +230,7 @@ define hidden void @_ZN23ObjectSampleDescriptionC2EP7oopDesc(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ObjectSampleDescription18ensure_initializedEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23ObjectSampleDescription18ensure_initializedEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZL11symbol_size, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -268,7 +268,7 @@ _ZN23ObjectSampleDescription22write_object_to_bufferEv.exit: ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ObjectSampleDescription22write_object_to_bufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((8, 9), (112, 120)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23ObjectSampleDescription22write_object_to_bufferEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((8, 9), (112, 120)) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZL11symbol_size, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %_ZN23ObjectSampleDescription18ensure_initializedEv.exit
@@ -288,7 +288,7 @@ _ZN23ObjectSampleDescription18ensure_initializedEv.exit: ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN23ObjectSampleDescription11descriptionEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((8, 9), (112, 120)) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN23ObjectSampleDescription11descriptionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((8, 9), (112, 120)) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZL11symbol_size, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %_ZN23ObjectSampleDescription22write_object_to_bufferEv.exit
@@ -321,7 +321,7 @@ _ZN24ObjectDescriptionBuilder11descriptionEv.exit: ; preds = %_ZN23ObjectSampleD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN23ObjectSampleDescription10write_textEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN23ObjectSampleDescription10write_textEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load i64, ptr %4, align 8
@@ -376,7 +376,7 @@ _ZN24ObjectDescriptionBuilder10write_textEPKc.exit: ; preds = %2, %.critedge.thr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ObjectSampleDescription9write_intEi(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23ObjectSampleDescription9write_intEi(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [20 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
@@ -435,7 +435,7 @@ _ZN24ObjectDescriptionBuilder9write_intEi.exit:   ; preds = %2, %.critedge.threa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ObjectSampleDescription20write_object_detailsEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23ObjectSampleDescription20write_object_detailsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca %class.fieldDescriptor, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -848,7 +848,7 @@ _ZN23ObjectSampleDescription23write_thread_group_nameEv.exit: ; preds = %_ZN23Ob
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ObjectSampleDescription16write_class_nameEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23ObjectSampleDescription16write_class_nameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
@@ -1033,7 +1033,7 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %.critedge.thread.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ObjectSampleDescription17write_thread_nameEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23ObjectSampleDescription17write_thread_nameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN16java_lang_Thread4nameEP7oopDesc(ptr noundef %3) #10
@@ -1140,7 +1140,7 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit15: ; preds = %7, %.critedge.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ObjectSampleDescription23write_thread_group_nameEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23ObjectSampleDescription23write_thread_group_nameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN21java_lang_ThreadGroup4nameEP7oopDesc(ptr noundef %3) #10
@@ -1242,7 +1242,7 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit11: ; preds = %5, %.critedge.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN23ObjectSampleDescription13read_int_sizeEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN23ObjectSampleDescription13read_int_sizeEPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.fieldDescriptor, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %4, i8 0, i64 22, i1 false)
@@ -1304,7 +1304,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %11, %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ObjectSampleDescription10write_sizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23ObjectSampleDescription10write_sizeEi(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [20 x i8], align 16
   %4 = icmp sgt i32 %1, -1
   br i1 %4, label %5, label %43
@@ -1524,13 +1524,13 @@ declare void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenc
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

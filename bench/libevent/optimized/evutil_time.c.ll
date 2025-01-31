@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [35 x i8] c"%s, %02d %s %4d %02d:%02d:%02d GMT\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 -9223372036854775808, 9223372036854775001) i64 @evutil_tv_to_msec_(ptr nocapture noundef readonly %tv) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775808, 9223372036854775001) i64 @evutil_tv_to_msec_(ptr noundef readonly captures(none) %tv) local_unnamed_addr #0 {
 entry:
   %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
   %0 = load i64, ptr %tv_usec, align 8
@@ -144,7 +144,7 @@ done:                                             ; preds = %entry, %if.end
 declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @evutil_monotonic_timer_free(ptr noundef %timer) local_unnamed_addr #1 {
@@ -163,7 +163,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @event_mm_free_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_configure_monotonic_time(ptr nocapture noundef writeonly initializes((0, 4)) %timer, i32 noundef %flags) local_unnamed_addr #1 {
+define dso_local noundef i32 @evutil_configure_monotonic_time(ptr noundef writeonly captures(none) initializes((0, 4)) %timer, i32 noundef %flags) local_unnamed_addr #1 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
@@ -197,7 +197,7 @@ evutil_configure_monotonic_time_.exit:            ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_configure_monotonic_time_(ptr nocapture noundef writeonly initializes((0, 4)) %base, i32 noundef %flags) local_unnamed_addr #1 {
+define dso_local noundef i32 @evutil_configure_monotonic_time_(ptr noundef writeonly captures(none) initializes((0, 4)) %base, i32 noundef %flags) local_unnamed_addr #1 {
 entry:
   %ts = alloca %struct.timespec, align 8
   %and1 = and i32 %flags, 2
@@ -229,14 +229,14 @@ return:                                           ; preds = %land.lhs.true6, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @evutil_gettime_monotonic(ptr nocapture noundef %timer, ptr nocapture noundef %tp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evutil_gettime_monotonic(ptr noundef captures(none) %timer, ptr noundef captures(none) %tp) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @evutil_gettime_monotonic_(ptr noundef %timer, ptr noundef %tp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @evutil_gettime_monotonic_(ptr nocapture noundef %base, ptr nocapture noundef %tp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evutil_gettime_monotonic_(ptr noundef captures(none) %base, ptr noundef captures(none) %tp) local_unnamed_addr #1 {
 entry:
   %ts = alloca %struct.timespec, align 8
   %0 = load i32, ptr %base, align 8
@@ -350,16 +350,16 @@ return:                                           ; preds = %if.end3, %if.then, 
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

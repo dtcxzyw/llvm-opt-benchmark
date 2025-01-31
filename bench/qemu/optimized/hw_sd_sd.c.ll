@@ -329,7 +329,7 @@ if.end22:                                         ; preds = %if.end14, %if.end20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @sd_set_cb(ptr nocapture noundef initializes((912, 928)) %sd, ptr noundef %readonly, ptr noundef %insert) local_unnamed_addr #0 {
+define dso_local void @sd_set_cb(ptr noundef captures(none) initializes((912, 928)) %sd, ptr noundef %readonly, ptr noundef %insert) local_unnamed_addr #0 {
 entry:
   %readonly_cb = getelementptr inbounds nuw i8, ptr %sd, i64 912
   store ptr %readonly, ptr %readonly_cb, align 8
@@ -371,7 +371,7 @@ declare zeroext i1 @blk_is_writable(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @blk_is_inserted(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 17) i32 @sd_do_command(ptr noundef %sd, ptr nocapture noundef %req, ptr nocapture noundef writeonly %response) #0 {
+define dso_local range(i32 0, 17) i32 @sd_do_command(ptr noundef %sd, ptr noundef captures(none) %req, ptr noundef writeonly captures(none) %response) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -941,7 +941,7 @@ return:                                           ; preds = %trace_sdcard_respon
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @sd_normal_command(ptr noundef %sd, i64 %req.coerce0, i8 %req.coerce1) unnamed_addr #0 {
@@ -2231,7 +2231,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @address_in_range(ptr nocapture noundef %sd, ptr noundef %desc, i64 noundef %addr, i32 noundef %length) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @address_in_range(ptr noundef captures(none) %sd, ptr noundef %desc, i64 noundef %addr, i32 noundef %length) unnamed_addr #0 {
 entry:
   %conv = zext i32 %length to i64
   %add = add i64 %addr, %conv
@@ -2262,7 +2262,7 @@ return:                                           ; preds = %entry, %do.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @sd_lock_command(ptr nocapture noundef %sd) unnamed_addr #0 {
+define internal fastcc void @sd_lock_command(ptr noundef captures(none) %sd) unnamed_addr #0 {
 entry:
   %_now.i.i67 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2929,10 +2929,10 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @sd_enable(ptr nocapture noundef writeonly initializes((936, 937)) %sd, i1 noundef zeroext %enable) #5 {
+define dso_local void @sd_enable(ptr noundef writeonly captures(none) initializes((936, 937)) %sd, i1 noundef zeroext %enable) #5 {
 entry:
   %frombool = zext i1 %enable to i8
   %enable1 = getelementptr inbounds nuw i8, ptr %sd, i64 936
@@ -2964,7 +2964,7 @@ declare i32 @llvm.bswap.i32(i32) #6
 declare void @timer_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sd_ocr_powerup(ptr nocapture noundef %opaque) #0 {
+define internal void @sd_ocr_powerup(ptr noundef captures(none) %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3075,7 +3075,7 @@ declare void @timer_mod_ns(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
@@ -3085,7 +3085,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare ptr @sd_cmd_name(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @sd_function_switch(ptr nocapture noundef initializes((396, 413)) %sd, i32 noundef %arg) unnamed_addr #9 {
+define internal fastcc void @sd_function_switch(ptr noundef captures(none) initializes((396, 413)) %sd, i32 noundef %arg) unnamed_addr #9 {
 entry:
   %tobool = icmp slt i32 %arg, 0
   %data = getelementptr inbounds nuw i8, ptr %sd, i64 396
@@ -3232,7 +3232,7 @@ _nocheck__trace_sdcard_set_blocklen.exit:         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @sd_wpbits(ptr nocapture noundef readonly %sd, i64 noundef range(i64 0, 4294967296) %addr) unnamed_addr #0 {
+define internal fastcc i32 @sd_wpbits(ptr noundef readonly captures(none) %sd, i64 noundef range(i64 0, 4294967296) %addr) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %addr, 21
   %size = getelementptr inbounds nuw i8, ptr %sd, i64 328
@@ -3461,7 +3461,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @sd_cmd_SEND_OP_CMD(ptr nocapture noundef writeonly initializes((300, 304)) %sd, i64 %req.coerce0, i8 %req.coerce1) #5 {
+define internal noundef i32 @sd_cmd_SEND_OP_CMD(ptr noundef writeonly captures(none) initializes((300, 304)) %sd, i64 %req.coerce0, i8 %req.coerce1) #5 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %sd, i64 300
   store i32 4, ptr %state, align 4
@@ -3898,7 +3898,7 @@ declare void @blk_set_dev_ops(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sd_cardchange(ptr noundef %opaque, i1 zeroext %load, ptr nocapture readnone %errp) #0 {
+define internal void @sd_cardchange(ptr noundef %opaque, i1 zeroext %load, ptr readnone captures(none) %errp) #0 {
 entry:
   %_now.i.i15 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -4038,7 +4038,7 @@ if.end22:                                         ; preds = %if.else14, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @sd_get_inserted(ptr nocapture noundef readonly %sd) #0 {
+define internal zeroext i1 @sd_get_inserted(ptr noundef readonly captures(none) %sd) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %sd, i64 288
   %0 = load ptr, ptr %blk, align 8
@@ -4055,7 +4055,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sd_get_readonly(ptr nocapture noundef readonly %sd) #12 {
+define internal zeroext i1 @sd_get_readonly(ptr noundef readonly captures(none) %sd) #12 {
 entry:
   %wp_switch = getelementptr inbounds nuw i8, ptr %sd, i64 308
   %0 = load i8, ptr %wp_switch, align 4
@@ -4103,7 +4103,7 @@ timer_free.exit:                                  ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sd_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @sd_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #18
   %call.i18 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_CLASS) #18
@@ -4148,7 +4148,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sd_spi_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @sd_spi_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #18
   %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_CLASS) #18
@@ -4167,7 +4167,7 @@ declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sd_set_voltage(ptr nocapture readnone %sd, i16 noundef zeroext %millivolts) #0 {
+define internal void @sd_set_voltage(ptr readnone captures(none) %sd, i16 noundef zeroext %millivolts) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -4228,7 +4228,7 @@ sw.epilog:                                        ; preds = %if.then, %do.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i8 @sd_get_dat_lines(ptr nocapture noundef readonly %sd) #12 {
+define internal zeroext i8 @sd_get_dat_lines(ptr noundef readonly captures(none) %sd) #12 {
 entry:
   %enable = getelementptr inbounds nuw i8, ptr %sd, i64 936
   %0 = load i8, ptr %enable, align 8
@@ -4246,7 +4246,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sd_get_cmd_line(ptr nocapture noundef readonly %sd) #12 {
+define internal zeroext i1 @sd_get_cmd_line(ptr noundef readonly captures(none) %sd) #12 {
 entry:
   %enable = getelementptr inbounds nuw i8, ptr %sd, i64 936
   %0 = load i8, ptr %enable, align 8
@@ -4266,7 +4266,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sd_receive_ready(ptr nocapture noundef readonly %sd) #12 {
+define internal zeroext i1 @sd_receive_ready(ptr noundef readonly captures(none) %sd) #12 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %sd, i64 300
   %0 = load i32, ptr %state, align 4
@@ -4275,7 +4275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sd_data_ready(ptr nocapture noundef readonly %sd) #12 {
+define internal zeroext i1 @sd_data_ready(ptr noundef readonly captures(none) %sd) #12 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %sd, i64 300
   %0 = load i32, ptr %state, align 4
@@ -4284,14 +4284,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @sd_vmstate_pre_load(ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @sd_vmstate_pre_load(ptr noundef captures(none) %opaque) #0 {
 entry:
   tail call void @sd_ocr_powerup(ptr noundef %opaque)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sd_ocr_vmstate_needed(ptr nocapture noundef readonly %opaque) #12 {
+define internal zeroext i1 @sd_ocr_vmstate_needed(ptr noundef readonly captures(none) %opaque) #12 {
 entry:
   %ocr = getelementptr inbounds nuw i8, ptr %opaque, i64 164
   %0 = load i32, ptr %ocr, align 4
@@ -4646,19 +4646,19 @@ return:                                           ; preds = %sd_version_str.exit
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

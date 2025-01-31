@@ -25,7 +25,7 @@ $_ZN4llvm9MCAsmInfo22setPreserveAsmCommentsEb = comdat any
 @_ZN4llvm14RISCVMCAsmInfoC1ERKNS_6TripleE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm14RISCVMCAsmInfoC2ERKNS_6TripleE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm14RISCVMCAsmInfo6anchorEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14RISCVMCAsmInfo6anchorEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 

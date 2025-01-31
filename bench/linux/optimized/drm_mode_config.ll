@@ -111,7 +111,7 @@ define dso_local i32 @drm_modeset_register_all(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @drm_plane_register_all(ptr noundef) local_unnamed_addr #2
@@ -135,7 +135,7 @@ declare dso_local void @drm_crtc_unregister_all(ptr noundef) local_unnamed_addr 
 declare dso_local void @drm_plane_unregister_all(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_modeset_unregister_all(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -150,7 +150,7 @@ define dso_local void @drm_modeset_unregister_all(ptr noundef %0) local_unnamed_
 declare dso_local void @drm_connector_unregister_all(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getresources(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getresources(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.drm_connector_list_iter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -406,7 +406,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getresources(ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -1022,7 +1022,7 @@ define dso_local void @drm_mode_config_cleanup(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @__drmm_add_action_or_reset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @drm_mode_config_init_release(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @drm_mode_config_init_release(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @drm_mode_config_cleanup(ptr noundef %0)
   ret void
 }

@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [15 x i8] c"Accepted %s:%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @connBlock(ptr nocapture noundef readonly %conn) local_unnamed_addr #0 {
+define dso_local i32 @connBlock(ptr noundef readonly captures(none) %conn) local_unnamed_addr #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -41,7 +41,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @anetBlock(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @connNonBlock(ptr nocapture noundef readonly %conn) local_unnamed_addr #0 {
+define dso_local i32 @connNonBlock(ptr noundef readonly captures(none) %conn) local_unnamed_addr #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -60,7 +60,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @anetNonBlock(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @connEnableTcpNoDelay(ptr nocapture noundef readonly %conn) local_unnamed_addr #0 {
+define dso_local i32 @connEnableTcpNoDelay(ptr noundef readonly captures(none) %conn) local_unnamed_addr #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -79,7 +79,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @anetEnableTcpNoDelay(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @connDisableTcpNoDelay(ptr nocapture noundef readonly %conn) local_unnamed_addr #0 {
+define dso_local i32 @connDisableTcpNoDelay(ptr noundef readonly captures(none) %conn) local_unnamed_addr #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -98,7 +98,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @anetDisableTcpNoDelay(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @connKeepAlive(ptr nocapture noundef readonly %conn, i32 noundef %interval) local_unnamed_addr #0 {
+define dso_local i32 @connKeepAlive(ptr noundef readonly captures(none) %conn, i32 noundef %interval) local_unnamed_addr #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -117,7 +117,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @anetKeepAlive(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @connSendTimeout(ptr nocapture noundef readonly %conn, i64 noundef %ms) local_unnamed_addr #0 {
+define dso_local i32 @connSendTimeout(ptr noundef readonly captures(none) %conn, i64 noundef %ms) local_unnamed_addr #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -128,7 +128,7 @@ entry:
 declare i32 @anetSendTimeout(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @connRecvTimeout(ptr nocapture noundef readonly %conn, i64 noundef %ms) local_unnamed_addr #0 {
+define dso_local i32 @connRecvTimeout(ptr noundef readonly captures(none) %conn, i64 noundef %ms) local_unnamed_addr #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -148,13 +148,13 @@ entry:
 declare i32 @connTypeRegister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @connSocketGetType(ptr nocapture readnone %conn) #2 {
+define internal noundef nonnull ptr @connSocketGetType(ptr readnone captures(none) %conn) #2 {
 entry:
   ret ptr @.str
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @connSocketEventHandler(ptr nocapture readnone %el, i32 %fd, ptr noundef %clientData, i32 noundef %mask) #0 {
+define internal void @connSocketEventHandler(ptr readnone captures(none) %el, i32 %fd, ptr noundef %clientData, i32 noundef %mask) #0 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %clientData, i64 8
   %0 = load i32, ptr %state, align 8
@@ -377,7 +377,7 @@ if.end57:                                         ; preds = %if.end57.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @connSocketAcceptHandler(ptr nocapture readnone %el, i32 noundef %fd, ptr nocapture readnone %privdata, i32 %mask) #0 {
+define internal void @connSocketAcceptHandler(ptr readnone captures(none) %el, i32 noundef %fd, ptr readnone captures(none) %privdata, i32 %mask) #0 {
 entry:
   %cport = alloca i32, align 4
   %cip = alloca [46 x i8], align 16
@@ -431,7 +431,7 @@ while.end:                                        ; preds = %do.end13, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @connSocketAddr(ptr nocapture noundef %conn, ptr noundef %ip, i64 noundef %ip_len, ptr noundef %port, i32 noundef %remote) #0 {
+define internal range(i32 -1, 1) i32 @connSocketAddr(ptr noundef captures(none) %conn, ptr noundef %ip, i64 noundef %ip_len, ptr noundef %port, i32 noundef %remote) #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -452,7 +452,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @connSocketIsLocal(ptr nocapture noundef %conn) #0 {
+define internal range(i32 -1, 2) i32 @connSocketIsLocal(ptr noundef captures(none) %conn) #0 {
 entry:
   %cip = alloca [47 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(47) %cip, i8 0, i64 47, i1 false)
@@ -502,7 +502,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @connCreateAcceptedSocket(i32 noundef %fd, ptr nocapture readnone %priv) #0 {
+define internal noalias noundef ptr @connCreateAcceptedSocket(i32 noundef %fd, ptr readnone captures(none) %priv) #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @zcalloc(i64 noundef 64) #11
   store ptr @CT_Socket, ptr %call.i, align 8
@@ -516,7 +516,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @connSocketShutdown(ptr nocapture noundef readonly %conn) #0 {
+define internal void @connSocketShutdown(ptr noundef readonly captures(none) %conn) #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -604,7 +604,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @connSocketBlockingConnect(ptr nocapture noundef writeonly initializes((8, 12)) %conn, ptr noundef %addr, i32 noundef %port, i64 noundef %timeout) #0 {
+define internal range(i32 -1, 1) i32 @connSocketBlockingConnect(ptr noundef writeonly captures(none) initializes((8, 12)) %conn, ptr noundef %addr, i32 noundef %port, i64 noundef %timeout) #0 {
 entry:
   %call = tail call i32 @anetTcpNonBlockConnect(ptr noundef null, ptr noundef %addr, i32 noundef %port) #9
   %cmp = icmp eq i32 %call, -1
@@ -700,7 +700,7 @@ return:                                           ; preds = %entry, %callHandler
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @connSocketWrite(ptr nocapture noundef %conn, ptr nocapture noundef readonly %data, i64 noundef %data_len) #3 {
+define internal noundef i32 @connSocketWrite(ptr noundef captures(none) %conn, ptr noundef readonly captures(none) %data, i64 noundef %data_len) #3 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -737,7 +737,7 @@ if.end14:                                         ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @connSocketWritev(ptr nocapture noundef %conn, ptr noundef %iov, i32 noundef %iovcnt) #0 {
+define internal i32 @connSocketWritev(ptr noundef captures(none) %conn, ptr noundef %iov, i32 noundef %iovcnt) #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -774,7 +774,7 @@ if.end14:                                         ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @connSocketRead(ptr nocapture noundef %conn, ptr nocapture noundef %buf, i64 noundef %buf_len) #3 {
+define internal noundef i32 @connSocketRead(ptr noundef captures(none) %conn, ptr noundef captures(none) %buf, i64 noundef %buf_len) #3 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -899,7 +899,7 @@ return:                                           ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @connSocketGetLastError(ptr nocapture noundef readonly %conn) #0 {
+define internal ptr @connSocketGetLastError(ptr noundef readonly captures(none) %conn) #0 {
 entry:
   %last_errno = getelementptr inbounds nuw i8, ptr %conn, i64 12
   %0 = load i32, ptr %last_errno, align 4
@@ -908,7 +908,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @connSocketSyncWrite(ptr nocapture noundef readonly %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
+define internal i64 @connSocketSyncWrite(ptr noundef readonly captures(none) %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -917,7 +917,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @connSocketSyncRead(ptr nocapture noundef readonly %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
+define internal i64 @connSocketSyncRead(ptr noundef readonly captures(none) %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -926,7 +926,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @connSocketSyncReadLine(ptr nocapture noundef readonly %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
+define internal i64 @connSocketSyncReadLine(ptr noundef readonly captures(none) %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -950,7 +950,7 @@ declare void @acceptCommonHandler(ptr noundef, i32 noundef, ptr noundef) local_u
 declare i32 @anetFdToString(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @listenToPort(ptr noundef) local_unnamed_addr #1
 
@@ -973,12 +973,12 @@ declare i32 @anetTcpNonBlockConnect(ptr noundef, ptr noundef, i32 noundef) local
 declare i32 @aeWait(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i64 @writev(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #7

@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.25 = private unnamed_addr constant [17 x i8] c"PyObject is NULL\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyCField_FromDesc(ptr noundef %desc, i64 noundef %index, ptr nocapture noundef %pfield_size, i32 noundef %bitsize, ptr nocapture noundef %pbitofs, ptr nocapture noundef %psize, ptr nocapture noundef %poffset, ptr nocapture noundef writeonly %palign, i32 noundef %pack, i32 noundef %big_endian) local_unnamed_addr #0 {
+define hidden ptr @PyCField_FromDesc(ptr noundef %desc, i64 noundef %index, ptr noundef captures(none) %pfield_size, i32 noundef %bitsize, ptr noundef captures(none) %pbitofs, ptr noundef captures(none) %psize, ptr noundef captures(none) %poffset, ptr noundef writeonly captures(none) %palign, i32 noundef %pack, i32 noundef %big_endian) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_state, i64 16), align 8
   %tp_alloc = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -529,7 +529,7 @@ declare ptr @PyType_stgdict(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ctypes_get_fielddesc(ptr nocapture noundef readonly %fmt) local_unnamed_addr #2 {
+define hidden noundef ptr @_ctypes_get_fielddesc(ptr noundef readonly captures(none) %fmt) local_unnamed_addr #2 {
 entry:
   %.b = load i1, ptr @_ctypes_get_fielddesc.initialized, align 4
   br i1 %.b, label %if.end, label %if.then
@@ -704,7 +704,7 @@ Py_DECREF.exit:                                   ; preds = %PyCField_clear.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCField_repr(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @PyCField_repr(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i64, ptr %size, align 8
@@ -735,7 +735,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @PyCField_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @PyCField_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val8 = load ptr, ptr %0, align 8
@@ -767,7 +767,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PyCField_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @PyCField_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %proto = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load ptr, ptr %proto, align 8
@@ -796,7 +796,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCField_get(ptr noundef %self, ptr noundef %inst, ptr nocapture readnone %type) #0 {
+define internal ptr @PyCField_get(ptr noundef %self, ptr noundef %inst, ptr readnone captures(none) %type) #0 {
 entry:
   %cmp = icmp eq ptr %inst, null
   br i1 %cmp, label %if.then, label %if.end
@@ -850,7 +850,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @PyCField_set(ptr nocapture noundef readonly %self, ptr noundef %inst, ptr noundef %value) #0 {
+define internal i32 @PyCField_set(ptr noundef readonly captures(none) %self, ptr noundef %inst, ptr noundef %value) #0 {
 entry:
   %0 = getelementptr i8, ptr %inst, i64 8
   %inst.val = load ptr, ptr %0, align 8
@@ -903,7 +903,7 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCField_get_offset(ptr nocapture noundef readonly %self, ptr nocapture readnone %data) #0 {
+define internal ptr @PyCField_get_offset(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %data) #0 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %offset, align 8
@@ -912,7 +912,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCField_get_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %data) #0 {
+define internal ptr @PyCField_get_size(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %data) #0 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i64, ptr %size, align 8
@@ -927,7 +927,7 @@ declare ptr @PyCData_get(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64
 declare i32 @PyCData_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @s_set(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %value, i64 noundef %length) #0 {
+define internal noundef ptr @s_set(ptr noundef writeonly captures(none) %ptr, ptr noundef readonly captures(none) %value, i64 noundef %length) #0 {
 entry:
   %0 = getelementptr i8, ptr %value, i64 8
   %value.val10 = load ptr, ptr %0, align 8
@@ -999,7 +999,7 @@ for.end:                                          ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @b_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @b_set(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -1055,7 +1055,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @b_get(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @b_get(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %0 = load i8, ptr %ptr, align 1
   %tobool.not = icmp ult i64 %size, 65536
@@ -1085,7 +1085,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @B_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @B_set(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -1138,7 +1138,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @B_get(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @B_get(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %0 = load i8, ptr %ptr, align 1
   %tobool.not = icmp ult i64 %size, 65536
@@ -1167,7 +1167,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @c_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
+define internal noundef ptr @c_set(ptr noundef writeonly captures(none) %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
   %0 = getelementptr i8, ptr %value, i64 8
   %value.val12 = load ptr, ptr %0, align 8
@@ -1247,7 +1247,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @d_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
+define internal noundef ptr @d_set(ptr noundef writeonly captures(none) %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
   %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #10
   %cmp = fcmp oeq double %call, -1.000000e+00
@@ -1268,7 +1268,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @d_get(ptr nocapture noundef readonly %ptr, i64 %size) #0 {
+define internal ptr @d_get(ptr noundef readonly captures(none) %ptr, i64 %size) #0 {
 entry:
   %val.0.copyload = load double, ptr %ptr, align 1
   %call = tail call ptr @PyFloat_FromDouble(double noundef %val.0.copyload) #10
@@ -1307,7 +1307,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @g_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
+define internal noundef ptr @g_set(ptr noundef writeonly captures(none) %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
   %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #10
   %conv = fpext double %call to x86_fp80
@@ -1329,7 +1329,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @g_get(ptr nocapture noundef readonly %ptr, i64 %size) #0 {
+define internal ptr @g_get(ptr noundef readonly captures(none) %ptr, i64 %size) #0 {
 entry:
   %val.0.copyload = load x86_fp80, ptr %ptr, align 1
   %conv = fptrunc x86_fp80 %val.0.copyload to double
@@ -1338,7 +1338,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @f_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
+define internal noundef ptr @f_set(ptr noundef writeonly captures(none) %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
   %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #10
   %conv = fptrunc double %call to float
@@ -1360,7 +1360,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @f_get(ptr nocapture noundef readonly %ptr, i64 %size) #0 {
+define internal ptr @f_get(ptr noundef readonly captures(none) %ptr, i64 %size) #0 {
 entry:
   %val.0.copyload = load float, ptr %ptr, align 1
   %conv = fpext float %val.0.copyload to double
@@ -1402,7 +1402,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @h_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @h_set(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -1458,7 +1458,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @h_get(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @h_get(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i16, ptr %ptr, align 1
   %tobool.not = icmp ult i64 %size, 65536
@@ -1488,7 +1488,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @h_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @h_set_sw(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -1546,7 +1546,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @h_get_sw(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @h_get_sw(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i16, ptr %ptr, align 1
   %0 = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload)
@@ -1577,7 +1577,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @H_set(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -1630,7 +1630,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H_get(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @H_get(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i16, ptr %ptr, align 1
   %tobool.not = icmp ult i64 %size, 65536
@@ -1659,7 +1659,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @H_set_sw(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -1714,7 +1714,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H_get_sw(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @H_get_sw(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i16, ptr %ptr, align 1
   %0 = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload)
@@ -1744,7 +1744,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @i_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @i_set(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -1794,7 +1794,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @i_get(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @i_get(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i32, ptr %ptr, align 1
   %tobool.not = icmp ult i64 %size, 65536
@@ -1820,7 +1820,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @i_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @i_set_sw(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -1872,7 +1872,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @i_get_sw(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @i_get_sw(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i32, ptr %ptr, align 1
   %0 = tail call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload)
@@ -1899,7 +1899,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @I_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @I_set(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -1949,7 +1949,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @I_get(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @I_get(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i32, ptr %ptr, align 1
   %tobool.not = icmp ult i64 %size, 65536
@@ -1975,7 +1975,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @I_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @I_set_sw(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -2027,7 +2027,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @I_get_sw(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @I_get_sw(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i32, ptr %ptr, align 1
   %0 = tail call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload)
@@ -2054,7 +2054,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @l_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @l_set(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -2097,7 +2097,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @l_get(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @l_get(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i64, ptr %ptr, align 1
   %tobool.not = icmp ult i64 %size, 65536
@@ -2120,7 +2120,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @l_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @l_set_sw(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -2165,7 +2165,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @l_get_sw(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @l_get_sw(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i64, ptr %ptr, align 1
   %0 = tail call noundef i64 @llvm.bswap.i64(i64 %val.0.copyload)
@@ -2189,7 +2189,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @L_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @L_set(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -2232,7 +2232,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @L_get(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @L_get(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i64, ptr %ptr, align 1
   %tobool.not = icmp ult i64 %size, 65536
@@ -2255,7 +2255,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @L_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @L_set_sw(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -2300,7 +2300,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @L_get_sw(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @L_get_sw(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i64, ptr %ptr, align 1
   %0 = tail call noundef i64 @llvm.bswap.i64(i64 %val.0.copyload)
@@ -2324,7 +2324,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @q_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @q_set(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -2367,7 +2367,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @q_get(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @q_get(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i64, ptr %ptr, align 1
   %tobool.not = icmp ult i64 %size, 65536
@@ -2390,7 +2390,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @q_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @q_set_sw(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -2435,7 +2435,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @q_get_sw(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @q_get_sw(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i64, ptr %ptr, align 1
   %0 = tail call noundef i64 @llvm.bswap.i64(i64 %val.0.copyload)
@@ -2459,7 +2459,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @Q_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @Q_set(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -2502,7 +2502,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Q_get(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @Q_get(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i64, ptr %ptr, align 1
   %tobool.not = icmp ult i64 %size, 65536
@@ -2525,7 +2525,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @Q_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
+define internal noundef ptr @Q_set_sw(ptr noundef captures(none) %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
@@ -2570,7 +2570,7 @@ return:                                           ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Q_get_sw(ptr nocapture noundef readonly %ptr, i64 noundef %size) #0 {
+define internal ptr @Q_get_sw(ptr noundef readonly captures(none) %ptr, i64 noundef %size) #0 {
 entry:
   %val.0.copyload = load i64, ptr %ptr, align 1
   %0 = tail call noundef i64 @llvm.bswap.i64(i64 %val.0.copyload)
@@ -2594,7 +2594,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @P_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
+define internal noundef ptr @P_set(ptr noundef writeonly captures(none) %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
   %cmp = icmp eq ptr %value, @_Py_NoneStruct
   br i1 %cmp, label %if.then, label %if.end
@@ -2634,7 +2634,7 @@ return:                                           ; preds = %if.end3, %if.end8, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @P_get(ptr nocapture noundef readonly %ptr, i64 %size) #0 {
+define internal ptr @P_get(ptr noundef readonly captures(none) %ptr, i64 %size) #0 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %cmp = icmp eq ptr %0, null
@@ -2650,7 +2650,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @z_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
+define internal noundef ptr @z_set(ptr noundef writeonly captures(none) %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
   %cmp = icmp eq ptr %value, @_Py_NoneStruct
   br i1 %cmp, label %if.then, label %if.end
@@ -2711,7 +2711,7 @@ return:                                           ; preds = %if.end.i.i14, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @z_get(ptr nocapture noundef readonly %ptr, i64 %size) #0 {
+define internal ptr @z_get(ptr noundef readonly captures(none) %ptr, i64 %size) #0 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2728,7 +2728,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @u_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
+define internal noundef ptr @u_set(ptr noundef writeonly captures(none) %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
   %chars = alloca [2 x i32], align 4
   %0 = getelementptr i8, ptr %value, i64 8
@@ -2892,7 +2892,7 @@ for.end:                                          ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Z_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
+define internal ptr @Z_set(ptr noundef writeonly captures(none) %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
   %bsize = alloca i64, align 8
   %cmp = icmp eq ptr %value, @_Py_NoneStruct
@@ -2960,7 +2960,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Z_get(ptr nocapture noundef readonly %ptr, i64 %size) #0 {
+define internal ptr @Z_get(ptr noundef readonly captures(none) %ptr, i64 %size) #0 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2977,7 +2977,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @vBOOL_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
+define internal noundef ptr @vBOOL_set(ptr noundef writeonly captures(none) %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
   %call = tail call i32 @PyObject_IsTrue(ptr noundef %value) #10
   switch i32 %call, label %sw.default [
@@ -2999,7 +2999,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @vBOOL_get(ptr nocapture noundef readonly %ptr, i64 %size) #0 {
+define internal ptr @vBOOL_get(ptr noundef readonly captures(none) %ptr, i64 %size) #0 {
 entry:
   %0 = load i16, ptr %ptr, align 2
   %conv = sext i16 %0 to i64
@@ -3008,7 +3008,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @bool_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
+define internal noundef ptr @bool_set(ptr noundef writeonly captures(none) %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
   %call = tail call i32 @PyObject_IsTrue(ptr noundef %value) #10
   switch i32 %call, label %sw.default [
@@ -3030,7 +3030,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bool_get(ptr nocapture noundef readonly %ptr, i64 %size) #0 {
+define internal ptr @bool_get(ptr noundef readonly captures(none) %ptr, i64 %size) #0 {
 entry:
   %0 = load i8, ptr %ptr, align 1
   %1 = and i8 %0, 1
@@ -3040,7 +3040,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @O_set(ptr nocapture noundef writeonly initializes((0, 8)) %ptr, ptr noundef returned %value, i64 %size) #4 {
+define internal noundef ptr @O_set(ptr noundef writeonly captures(none) initializes((0, 8)) %ptr, ptr noundef returned %value, i64 %size) #4 {
 entry:
   store ptr %value, ptr %ptr, align 8
   %0 = load i32, ptr %value, align 8
@@ -3057,7 +3057,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @O_get(ptr nocapture noundef readonly %ptr, i64 %size) #0 {
+define internal ptr @O_get(ptr noundef readonly captures(none) %ptr, i64 %size) #0 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %cmp = icmp eq ptr %0, null
@@ -3090,10 +3090,10 @@ return:                                           ; preds = %if.end.i.i, %if.end
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3166,7 +3166,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 

@@ -309,7 +309,7 @@ if.end:                                           ; preds = %arraydestroy.done1,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_756Locale19getAvailableLocalesERi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN6icu_756Locale19getAvailableLocalesERi(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load atomic i32, ptr @_ZN6icu_75L15gInitOnceLocaleE acquire, align 4
   %cmp.i = icmp eq i32 %0, 2
@@ -564,7 +564,7 @@ entry:
 declare noundef ptr @_ZNK6icu_757UObject17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_120AvailableLocalesSink3putEPKcRN6icu_7513ResourceValueEaR10UErrorCode(ptr nocapture nonnull readnone align 8 %this, ptr noundef %key, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 signext %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120AvailableLocalesSink3putEPKcRN6icu_7513ResourceValueEaR10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %key, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 signext %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
 entry:
   %key.addr = alloca ptr, align 8
   %resIndexTable = alloca %"class.icu_75::ResourceTable", align 8
@@ -655,7 +655,7 @@ for.end39:                                        ; preds = %for.inc37, %if.end1
 declare noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #8
@@ -685,7 +685,7 @@ entry:
 declare noundef ptr @_ZNK6icu_7517StringEnumeration5cloneEv(ptr noundef nonnull align 8 dereferenceable(116)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZNK12_GLOBAL__N_133AvailableLocalesStringEnumeration5countER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(124) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #9 align 2 {
+define internal noundef i32 @_ZNK12_GLOBAL__N_133AvailableLocalesStringEnumeration5countER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(124) %this, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %fType = getelementptr inbounds nuw i8, ptr %this, i64 116
   %1 = load i32, ptr %fType, align 4
@@ -710,7 +710,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeration4nextEPiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(124) %this, ptr noundef writeonly %resultLength, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #10 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeration4nextEPiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(124) %this, ptr noundef writeonly %resultLength, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #10 align 2 {
 entry:
   %fType = getelementptr inbounds nuw i8, ptr %this, i64 116
   %1 = load i32, ptr %fType, align 4
@@ -772,7 +772,7 @@ declare noundef ptr @_ZN6icu_7517StringEnumeration5unextEPiR10UErrorCode(ptr nou
 declare noundef ptr @_ZN6icu_7517StringEnumeration5snextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(116), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(124) initializes((120, 124)) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #11 align 2 {
+define internal void @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeration5resetER10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(124) initializes((120, 124)) %this, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #11 align 2 {
 entry:
   %fIndex = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 0, ptr %fIndex, align 8
@@ -787,13 +787,13 @@ declare noundef zeroext i1 @_ZNK6icu_7517StringEnumerationneERKS0_(ptr noundef n
 declare void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(116)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

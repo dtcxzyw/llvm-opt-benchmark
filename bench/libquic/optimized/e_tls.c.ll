@@ -92,7 +92,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_rc4_md5_tls_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_rc4_md5_tls_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_rc4() #7
   %call1 = tail call ptr @EVP_md5() #7
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @aead_tls_cleanup(ptr nocapture noundef %ctx) #1 {
+define internal void @aead_tls_cleanup(ptr noundef captures(none) %ctx) #1 {
 entry:
   %aead_state = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_tls_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
+define internal range(i32 0, 2) i32 @aead_tls_seal(ptr noundef readonly captures(none) %ctx, ptr noundef %out, ptr noundef writeonly captures(none) %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
 entry:
   %ad_extra = alloca [2 x i8], align 1
   %mac = alloca [64 x i8], align 16
@@ -290,7 +290,7 @@ return:                                           ; preds = %if.end89, %if.then7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_tls_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr nocapture noundef readonly %ad, i64 noundef %ad_len) #1 {
+define internal range(i32 0, 2) i32 @aead_tls_open(ptr noundef readonly captures(none) %ctx, ptr noundef %out, ptr noundef writeonly captures(none) %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef readonly captures(none) %ad, i64 noundef %ad_len) #1 {
 entry:
   %len = alloca i32, align 4
   %data_plus_mac_len = alloca i32, align 4
@@ -514,7 +514,7 @@ return:                                           ; preds = %if.else88, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_rc4_tls_get_rc4_state(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_key) #1 {
+define internal range(i32 0, 2) i32 @aead_rc4_tls_get_rc4_state(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %out_key) #1 {
 entry:
   %aead_state = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
@@ -535,7 +535,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @aead_tls_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %cipher, ptr noundef %md, i8 noundef signext range(i8 0, 2) %implicit_iv) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @aead_tls_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %cipher, ptr noundef %md, i8 noundef signext range(i8 0, 2) %implicit_iv) unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq i64 %tag_len, 0
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -639,7 +639,7 @@ declare void @EVP_CIPHER_CTX_init(ptr noundef) local_unnamed_addr #2
 declare void @HMAC_CTX_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -654,7 +654,7 @@ declare void @HMAC_CTX_cleanup(ptr noundef) local_unnamed_addr #2
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare i64 @EVP_AEAD_max_overhead(ptr noundef) local_unnamed_addr #2
 
@@ -673,7 +673,7 @@ declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @EVP_CIPHER_CTX_block_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @EVP_EncryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -698,7 +698,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @EVP_CIPHER_CTX_cipher(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_rc4_sha1_tls_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_rc4_sha1_tls_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_rc4() #7
   %call1 = tail call ptr @EVP_sha1() #7
@@ -709,7 +709,7 @@ entry:
 declare ptr @EVP_sha1() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_aes_128_cbc_sha1_tls_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_aes_128_cbc_sha1_tls_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_aes_128_cbc() #7
   %call1 = tail call ptr @EVP_sha1() #7
@@ -720,7 +720,7 @@ entry:
 declare ptr @EVP_aes_128_cbc() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_aes_128_cbc_sha1_tls_implicit_iv_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_aes_128_cbc_sha1_tls_implicit_iv_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_aes_128_cbc() #7
   %call1 = tail call ptr @EVP_sha1() #7
@@ -729,7 +729,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_tls_get_iv(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_iv, ptr nocapture noundef writeonly %out_iv_len) #1 {
+define internal range(i32 0, 2) i32 @aead_tls_get_iv(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %out_iv, ptr noundef writeonly captures(none) %out_iv_len) #1 {
 entry:
   %aead_state = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
@@ -752,7 +752,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @EVP_CIPHER_CTX_iv_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_aes_128_cbc_sha256_tls_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_aes_128_cbc_sha256_tls_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_aes_128_cbc() #7
   %call1 = tail call ptr @EVP_sha256() #7
@@ -763,7 +763,7 @@ entry:
 declare ptr @EVP_sha256() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_aes_256_cbc_sha1_tls_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_aes_256_cbc_sha1_tls_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_aes_256_cbc() #7
   %call1 = tail call ptr @EVP_sha1() #7
@@ -774,7 +774,7 @@ entry:
 declare ptr @EVP_aes_256_cbc() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_aes_256_cbc_sha1_tls_implicit_iv_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_aes_256_cbc_sha1_tls_implicit_iv_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_aes_256_cbc() #7
   %call1 = tail call ptr @EVP_sha1() #7
@@ -783,7 +783,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_aes_256_cbc_sha256_tls_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_aes_256_cbc_sha256_tls_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_aes_256_cbc() #7
   %call1 = tail call ptr @EVP_sha256() #7
@@ -792,7 +792,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_aes_256_cbc_sha384_tls_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_aes_256_cbc_sha384_tls_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_aes_256_cbc() #7
   %call1 = tail call ptr @EVP_sha384() #7
@@ -803,7 +803,7 @@ entry:
 declare ptr @EVP_sha384() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_des_ede3_cbc_sha1_tls_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_des_ede3_cbc_sha1_tls_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_des_ede3_cbc() #7
   %call1 = tail call ptr @EVP_sha1() #7
@@ -814,7 +814,7 @@ entry:
 declare ptr @EVP_des_ede3_cbc() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_des_ede3_cbc_sha1_tls_implicit_iv_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_des_ede3_cbc_sha1_tls_implicit_iv_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_des_ede3_cbc() #7
   %call1 = tail call ptr @EVP_sha1() #7
@@ -823,7 +823,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_null_sha1_tls_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_null_sha1_tls_init(ptr noundef captures(none) %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_enc_null() #7
   %call1 = tail call ptr @EVP_sha1() #7

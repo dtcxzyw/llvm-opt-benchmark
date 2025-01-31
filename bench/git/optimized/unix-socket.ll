@@ -95,7 +95,7 @@ return:                                           ; preds = %if.end3.i, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unix_sockaddr_init(ptr nocapture noundef nonnull writeonly %sa, ptr noundef %path, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %ctx, i32 noundef %disallow_chdir) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unix_sockaddr_init(ptr noundef nonnull writeonly captures(none) %sa, ptr noundef %path, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %ctx, i32 noundef %disallow_chdir) unnamed_addr #0 {
 entry:
   %cwd = alloca %struct.strbuf, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #13
@@ -151,7 +151,7 @@ if.end22:                                         ; preds = %if.end18
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sext = shl i64 %sub.ptr.sub, 32
   %conv.i = ashr exact i64 %sext, 32
-  %call.i13 = call ptr @xmemdupz(ptr noundef %path, i64 noundef %conv.i) #10
+  %call.i13 = call ptr @xmemdupz(ptr noundef nonnull %path, i64 noundef %conv.i) #10
   %call1.i = call i32 @chdir(ptr noundef %call.i13) #10
   call void @free(ptr noundef %call.i13) #10
   %cmp27 = icmp slt i32 %call1.i, 0
@@ -165,7 +165,7 @@ if.end31:                                         ; preds = %if.end22, %entry
   store i16 1, ptr %sa, align 2
   %sun_path = getelementptr inbounds nuw i8, ptr %sa, i64 2
   %conv32 = zext nneg i32 %size.0 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %sun_path, ptr align 1 %path.addr.0, i64 %conv32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %sun_path, ptr nonnull align 1 %path.addr.0, i64 %conv32, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end22, %if.end18, %if.end31, %if.then16, %if.then7, %if.then3
@@ -184,7 +184,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, -2147483648) i32 @unix_stream_listen(ptr noundef %path, ptr nocapture noundef readonly %opts) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @unix_stream_listen(ptr noundef %path, ptr noundef readonly captures(none) %opts) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sockaddr_un, align 2
   %ctx = alloca %struct.unix_sockaddr_context, align 8
@@ -280,7 +280,7 @@ return:                                           ; preds = %if.end3.i, %if.end1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
@@ -289,17 +289,17 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @strbuf_getcwd(ptr noundef) local_unnamed_addr #2
 
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -310,7 +310,7 @@ declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @chdir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #9

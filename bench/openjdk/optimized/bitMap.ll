@@ -82,7 +82,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11ArenaBitMapE10initializeEmb(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11ArenaBitMap8allocateEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK11ArenaBitMap8allocateEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = shl i64 %1, 3
@@ -111,7 +111,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11ArenaBitMap10reallocateEPmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK11ArenaBitMap10reallocateEPmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val = load ptr, ptr %5, align 8
   %6 = shl i64 %3, 3
@@ -236,7 +236,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI14ResourceBitMapE10initializeEm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14ResourceBitMap8allocateEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK14ResourceBitMap8allocateEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = shl i64 %1, 3
   %4 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %3, i32 noundef 0) #10
   ret ptr %4
@@ -245,7 +245,7 @@ define hidden noundef ptr @_ZNK14ResourceBitMap8allocateEm(ptr nocapture noundef
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14ResourceBitMap10reallocateEPmmm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK14ResourceBitMap10reallocateEPmmm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = shl i64 %3, 3
   %6 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %5, i32 noundef 0) #10
   %.not.i = icmp eq ptr %1, null
@@ -329,7 +329,7 @@ _ZL17pseudo_reallocateI14ResourceBitMapEPmRKT_S1_mm.exit: ; preds = %4, %.split1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11CHeapBitMapC2Em8MEMFLAGSb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, i64 noundef %1, i8 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN11CHeapBitMapC2Em8MEMFLAGSb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0, i64 noundef %1, i8 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %2, ptr %5, align 8
@@ -421,20 +421,20 @@ _ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb.exit: ; preds = %12, %13, %19, %.lr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11CHeapBitMapD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN11CHeapBitMapD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %2) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11CHeapBitMap4freeEPmm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(17) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11CHeapBitMap4freeEPmm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @_Z8FreeHeapPv(ptr noundef %1) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11CHeapBitMap8allocateEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK11CHeapBitMap8allocateEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = shl i64 %1, 3
@@ -443,7 +443,7 @@ define hidden noundef ptr @_ZNK11CHeapBitMap8allocateEm(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11CHeapBitMap10reallocateEPmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK11CHeapBitMap10reallocateEPmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8
   %7 = shl i64 %3, 3
@@ -452,7 +452,7 @@ define hidden noundef ptr @_ZNK11CHeapBitMap10reallocateEPmmm(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6BitMap8pretouchEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6BitMap8pretouchEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -466,7 +466,7 @@ define hidden void @_ZN6BitMap8pretouchEv(ptr nocapture noundef nonnull readonly
 declare void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap21set_range_within_wordEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6BitMap21set_range_within_wordEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %.not = icmp eq i64 %1, %2
   br i1 %.not, label %14, label %4
 
@@ -492,7 +492,7 @@ define hidden void @_ZN6BitMap21set_range_within_wordEmm(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap23clear_range_within_wordEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6BitMap23clear_range_within_wordEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %.not = icmp eq i64 %1, %2
   br i1 %.not, label %14, label %4
 
@@ -518,7 +518,7 @@ define hidden void @_ZN6BitMap23clear_range_within_wordEmm(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6BitMap25par_put_range_within_wordEmmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6BitMap25par_put_range_within_wordEmmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %.not = icmp eq i64 %1, %2
   br i1 %.not, label %.loopexit, label %5
 
@@ -565,7 +565,7 @@ define hidden void @_ZN6BitMap25par_put_range_within_wordEmmb(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap9set_rangeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6BitMap9set_rangeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = add i64 %1, 63
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
@@ -657,7 +657,7 @@ _ZN6BitMap21set_range_within_wordEmm.exit23:      ; preds = %40, %_ZN6BitMap21se
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap11clear_rangeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = add i64 %1, 63
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
@@ -756,7 +756,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap23is_small_range_of_wordsEmm(i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap15set_large_rangeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6BitMap15set_large_rangeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = add i64 %1, 63
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
@@ -809,7 +809,7 @@ _ZN6BitMap21set_range_within_wordEmm.exit18:      ; preds = %23, %_ZN6BitMap21se
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap17clear_large_rangeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6BitMap17clear_large_rangeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = add i64 %1, 63
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
@@ -862,7 +862,7 @@ _ZN6BitMap23clear_range_within_wordEmm.exit18:    ; preds = %24, %_ZN6BitMap23cl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap6at_putEmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6BitMap6at_putEmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
   %4 = and i64 %1, 63
   %5 = shl nuw i64 1, %4
   br i1 %2, label %6, label %12
@@ -891,7 +891,7 @@ define hidden void @_ZN6BitMap6at_putEmb(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6BitMap10par_at_putEmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6BitMap10par_at_putEmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = lshr i64 %1, 6
   %6 = getelementptr inbounds nuw i64, ptr %4, i64 %5
@@ -938,7 +938,7 @@ _ZN6BitMap11par_set_bitEm19atomic_memory_order.exit: ; preds = %21, %19, %13, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap12at_put_rangeEmmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6BitMap12at_put_rangeEmmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
   br i1 %3, label %5, label %6
 
 5:                                                ; preds = %4
@@ -954,7 +954,7 @@ define hidden void @_ZN6BitMap12at_put_rangeEmmb(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6BitMap16par_at_put_rangeEmmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = add i64 %1, 63
   %6 = lshr i64 %5, 6
   %7 = lshr i64 %2, 6
@@ -1139,7 +1139,7 @@ _ZN6BitMap25par_put_range_within_wordEmmb.exit33: ; preds = %.lr.ph.split.i49, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap18at_put_large_rangeEmmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6BitMap18at_put_large_rangeEmmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
   %5 = add i64 %1, 63
   %6 = lshr i64 %5, 6
   %7 = lshr i64 %2, 6
@@ -1238,7 +1238,7 @@ _ZN6BitMap15set_large_rangeEmm.exit:              ; preds = %48, %_ZN6BitMap23cl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6BitMap22par_at_put_large_rangeEmmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6BitMap22par_at_put_large_rangeEmmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = add i64 %1, 63
   %6 = lshr i64 %5, 6
   %7 = lshr i64 %2, 6
@@ -1342,7 +1342,7 @@ _ZN6BitMap25par_put_range_within_wordEmmb.exit27: ; preds = %.lr.ph.split.i25, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6BitMap8containsERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK6BitMap8containsERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1390,7 +1390,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap8containsERKS_(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6BitMap10intersectsERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK6BitMap10intersectsERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1437,7 +1437,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap10intersectsERKS_(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap9set_unionERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1487,7 +1487,7 @@ define hidden void @_ZN6BitMap9set_unionERKS_(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap14set_differenceERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6BitMap14set_differenceERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1536,7 +1536,7 @@ define hidden void @_ZN6BitMap14set_differenceERKS_(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap16set_intersectionERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6BitMap16set_intersectionERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1583,7 +1583,7 @@ define hidden void @_ZN6BitMap16set_intersectionERKS_(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6BitMap21set_union_with_resultERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN6BitMap21set_union_with_resultERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1644,7 +1644,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap21set_union_with_resultERKS_(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6BitMap26set_difference_with_resultERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN6BitMap26set_difference_with_resultERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1704,7 +1704,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap26set_difference_with_resultERKS_(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6BitMap28set_intersection_with_resultERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN6BitMap28set_intersection_with_resultERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1762,7 +1762,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap28set_intersection_with_resultERKS_(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap8set_fromERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6BitMap8set_fromERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1863,7 +1863,7 @@ _ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %2, %36, %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6BitMap7is_sameERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK6BitMap7is_sameERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1909,7 +1909,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap7is_sameERKS_(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6BitMap7is_fullEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK6BitMap7is_fullEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1948,7 +1948,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap7is_fullEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1988,7 +1988,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6BitMap11clear_largeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6BitMap11clear_largeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 63
@@ -2000,7 +2000,7 @@ define hidden void @_ZN6BitMap11clear_largeEv(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
+define hidden noundef i64 @_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = icmp ult i64 %1, %2
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -2025,7 +2025,7 @@ define hidden noundef i64 @_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 65) i64 @_ZNK6BitMap26count_one_bits_within_wordEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i64 0, 65) i64 @_ZNK6BitMap26count_one_bits_within_wordEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
   %.not = icmp eq i64 %1, %2
   br i1 %.not, label %15, label %4
 
@@ -2052,7 +2052,7 @@ define hidden noundef range(i64 0, 65) i64 @_ZNK6BitMap26count_one_bits_within_w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = lshr i64 %3, 6
@@ -2112,7 +2112,7 @@ _ZNK6BitMap14count_one_bitsEmm.exit:              ; preds = %20, %21, %_ZNK6BitM
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
+define hidden noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = add i64 %1, 63
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
@@ -2225,7 +2225,7 @@ _ZNK6BitMap26count_one_bits_within_wordEmm.exit45: ; preds = %_ZNK6BitMap26count
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6BitMap14print_on_errorEP12outputStreamPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6BitMap14print_on_errorEP12outputStreamPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2240,7 +2240,7 @@ define hidden void @_ZNK6BitMap14print_on_errorEP12outputStreamPKc(ptr nocapture
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK6BitMap8write_toEPmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK6BitMap8write_toEPmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2252,7 +2252,7 @@ define hidden void @_ZNK6BitMap8write_toEPmm(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN14GrowableBitMapI11ArenaBitMapEC2EPmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 comdat($_ZN14GrowableBitMapI11ArenaBitMapEC5EPmm) align 2 {
@@ -3014,7 +3014,7 @@ _ZN14GrowableBitMapI11CHeapBitMapE13copy_of_rangeEmm.exit: ; preds = %.lr.ph.spl
 declare noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 

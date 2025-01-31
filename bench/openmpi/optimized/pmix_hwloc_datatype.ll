@@ -104,15 +104,15 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %6, %27, %20, %14, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 declare i32 @hwloc_bitmap_list_asprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_hwloc_unpack_cpuset(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @pmix_hwloc_unpack_cpuset(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store i32 1, ptr %4, align 4
@@ -171,10 +171,10 @@ declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #2
 declare i32 @hwloc_bitmap_list_sscanf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -47, 1) i32 @pmix_hwloc_copy_cpuset(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -47, 1) i32 @pmix_hwloc_copy_cpuset(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %15, label %5
@@ -206,7 +206,7 @@ define range(i32 -47, 1) i32 @pmix_hwloc_copy_cpuset(ptr nocapture noundef write
 declare noalias ptr @hwloc_bitmap_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @pmix_hwloc_print_cpuset(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @pmix_hwloc_print_cpuset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
@@ -416,7 +416,7 @@ pmix_hwloc_release_cpuset.exit:                   ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hwloc_get_cpuset_size(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @pmix_hwloc_get_cpuset_size(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @hwloc_bitmap_alloc() #6
   tail call void @hwloc_bitmap_fill(ptr noundef %3) #6
   %4 = tail call i32 @hwloc_bitmap_weight(ptr noundef %3) #7
@@ -577,7 +577,7 @@ declare i32 @hwloc_topology_export_xmlbuffer(ptr noundef, ptr noundef, ptr nound
 declare ptr @hwloc_topology_get_support(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_hwloc_unpack_topology(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @pmix_hwloc_unpack_topology(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -630,7 +630,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %3
   %30 = load ptr, ptr %4, align 8
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #7
   %32 = trunc i64 %31 to i32
-  %33 = call i32 @hwloc_topology_set_xmlbuffer(ptr noundef %29, ptr noundef %30, i32 noundef %32) #6
+  %33 = call i32 @hwloc_topology_set_xmlbuffer(ptr noundef %29, ptr noundef nonnull %30, i32 noundef %32) #6
   %.not42 = icmp eq i32 %33, 0
   %34 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %34) #6
@@ -770,7 +770,7 @@ declare i32 @hwloc_topology_init(ptr noundef) local_unnamed_addr #2
 declare i32 @hwloc_topology_set_xmlbuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #2
 
@@ -781,7 +781,7 @@ declare i32 @hwloc_topology_set_flags(ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @hwloc_topology_load(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -47, 1) i32 @pmix_hwloc_copy_topology(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -47, 1) i32 @pmix_hwloc_copy_topology(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5
@@ -810,7 +810,7 @@ define range(i32 -47, 1) i32 @pmix_hwloc_copy_topology(ptr noundef %0, ptr nocap
 declare i32 @hwloc_topology_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @pmix_hwloc_print_topology(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @pmix_hwloc_print_topology(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
@@ -836,7 +836,7 @@ define ptr @pmix_hwloc_print_topology(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_hwloc_obj(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @print_hwloc_obj(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1145,7 +1145,7 @@ pmix_hwloc_release_topology.exit:                 ; preds = %pmix_hwloc_destruct
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @pmix_hwloc_get_topology_size(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pmix_hwloc_get_topology_size(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @hwloc_shmem_topology_get_length(ptr noundef %4, ptr noundef %1, i64 noundef 0) #6

@@ -572,7 +572,7 @@ _ZN11Compilation13is_optimisticEv.exit:           ; preds = %_ZN13GrowableArrayI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator23set_process_block_flagsEP10BlockBegin(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator23set_process_block_flagsEP10BlockBegin(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %.not18 = icmp eq ptr %1, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -631,7 +631,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator23set_process_block_f
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator11calc_boundsEP10BlockBeginS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator11calc_boundsEP10BlockBeginS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.GrowableArray.8, align 8
   %5 = alloca %class.GrowableArray.14, align 8
   %6 = alloca %class.GrowableArray.17, align 8
@@ -1177,7 +1177,7 @@ _ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %.loopexit.i107, %.l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator7Visitor11do_ConstantEP8Constant(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator7Visitor11do_ConstantEP8Constant(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1276,7 +1276,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator7Visitor10do_LogicOpEP7LogicOp(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator7Visitor10do_LogicOpEP7LogicOp(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1395,7 +1395,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %63, %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator7Visitor6do_PhiEP3Phi(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator7Visitor6do_PhiEP3Phi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -2042,7 +2042,7 @@ _ZN22CompilationResourceObjnwEm.exit27:           ; preds = %131, %133
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator5Bound9has_upperEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator5Bound9has_upperEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp ne ptr %3, null
@@ -2053,7 +2053,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator5Bound9has_upperEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator5Bound9has_lowerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator5Bound9has_lowerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp ne ptr %3, null
@@ -2065,7 +2065,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator5Bound9has_lowerEv(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN20RangeCheckEliminator5Bound4copyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN20RangeCheckEliminator5Bound4copyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -2118,7 +2118,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN20RangeCheckEliminator5Bound5or_opEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN20RangeCheckEliminator5Bound5or_opEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2182,7 +2182,7 @@ define hidden void @_ZN20RangeCheckEliminator5Bound5or_opEPS0_(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20RangeCheckEliminator5Bound12remove_upperEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4), (8, 16)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN20RangeCheckEliminator5Bound12remove_upperEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 4), (8, 16)) %0) local_unnamed_addr #4 align 2 {
   store i32 2147483647, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -2190,7 +2190,7 @@ define hidden void @_ZN20RangeCheckEliminator5Bound12remove_upperEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20RangeCheckEliminator5Bound12remove_lowerEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((16, 20), (24, 32)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN20RangeCheckEliminator5Bound12remove_lowerEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((16, 20), (24, 32)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -2147483648, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2199,7 +2199,7 @@ define hidden void @_ZN20RangeCheckEliminator5Bound12remove_lowerEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator7Visitor15do_ArithmeticOpEP12ArithmeticOp(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator7Visitor15do_ArithmeticOpEP12ArithmeticOp(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -2762,14 +2762,14 @@ _ZN22CompilationResourceObjnwEm.exit103:          ; preds = %324, %326
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN20RangeCheckEliminator5Bound5lowerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN20RangeCheckEliminator5Bound5lowerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN20RangeCheckEliminator5Bound11lower_instrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN20RangeCheckEliminator5Bound11lower_instrEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -2779,20 +2779,20 @@ define hidden noundef ptr @_ZN20RangeCheckEliminator5Bound11lower_instrEv(ptr no
 declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN20RangeCheckEliminator5Bound5upperEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN20RangeCheckEliminator5Bound5upperEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN20RangeCheckEliminator5Bound11upper_instrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN20RangeCheckEliminator5Bound11upper_instrEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator7Visitor7do_IfOpEP4IfOp(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator7Visitor7do_IfOpEP4IfOp(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3152,7 +3152,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator14loop_invariantEP10BlockBeginP11Instruction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator14loop_invariantEP10BlockBeginP11Instruction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -3178,7 +3178,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator14loop_invariantEP10B
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator5Bound6and_opEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator5Bound6and_opEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3283,7 +3283,7 @@ define hidden void @_ZN20RangeCheckEliminator5Bound6and_opEPS0_(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator23add_access_indexed_infoER13GrowableArrayIP11InstructionEiS2_P13AccessIndexed(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator23add_access_indexed_infoER13GrowableArrayIP11InstructionEiS2_P13AccessIndexed(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3456,10 +3456,10 @@ _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN20RangeCheckEliminator18remove_range_checkEP13AccessIndexed(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef initializes((112, 120)) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN20RangeCheckEliminator18remove_range_checkEP13AccessIndexed(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef captures(none) initializes((112, 120)) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, -131073
@@ -3470,7 +3470,7 @@ define hidden void @_ZN20RangeCheckEliminator18remove_range_checkEP13AccessIndex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator15in_block_motionEP10BlockBeginR13GrowableArrayIP13AccessIndexedERS2_IP11InstructionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator15in_block_motionEP10BlockBeginR13GrowableArrayIP13AccessIndexedERS2_IP11InstructionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.GrowableArray.14, align 8
   %6 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #13
   store i32 0, ptr %5, align 8
@@ -5263,7 +5263,7 @@ _ZN13GrowableArrayIP11InstructionED2Ev.exit:      ; preds = %.loopexit.i248, %.l
 declare noundef ptr @_ZN11Instruction4prevEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN20RangeCheckEliminator9predicateEP11InstructionNS0_9ConditionES1_P10ValueStackS1_i(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, i32 %6) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN20RangeCheckEliminator9predicateEP11InstructionNS0_9ConditionES1_P10ValueStackS1_i(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i32 %6) local_unnamed_addr #0 align 2 {
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1808
@@ -5410,7 +5410,7 @@ _ZN10ValueStack4copyEv.exit:                      ; preds = %_ZN22CompilationRes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN20RangeCheckEliminator24predicate_cmp_with_constEP11InstructionNS0_9ConditionEiP10ValueStackS1_i(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef %5, i32 %6) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN20RangeCheckEliminator24predicate_cmp_with_constEP11InstructionNS0_9ConditionEiP10ValueStackS1_i(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i32 %6) local_unnamed_addr #0 align 2 {
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1808
@@ -5544,7 +5544,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %41, %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator24is_ok_for_deoptimizationEP11InstructionS1_S1_S1_iS1_i(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef readnone %2, ptr nocapture noundef readnone %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator24is_ok_for_deoptimizationEP11InstructionS1_S1_S1_iS1_i(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone %2, ptr noundef readnone captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
   %9 = icmp ne ptr %6, null
   br i1 %9, label %10, label %25
 
@@ -5620,7 +5620,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator24is_ok_for_deoptimiz
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN20RangeCheckEliminator12insert_afterEP11InstructionS1_i(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef %1, ptr noundef initializes((88, 96)) %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZN20RangeCheckEliminator12insert_afterEP11InstructionS1_i(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef captures(none) %1, ptr noundef initializes((88, 96)) %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -5646,7 +5646,7 @@ define hidden noundef ptr @_ZN20RangeCheckEliminator12insert_afterEP11Instructio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN20RangeCheckEliminator13predicate_addEP11InstructioniNS0_9ConditionES1_P10ValueStackS1_i(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6, i32 %7) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN20RangeCheckEliminator13predicate_addEP11InstructioniNS0_9ConditionES1_P10ValueStackS1_i(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(none) %6, i32 %7) local_unnamed_addr #0 align 2 {
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1808
@@ -5887,7 +5887,7 @@ _ZN12ArithmeticOpC2EN9Bytecodes4CodeEP11InstructionS3_P10ValueStack.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN20RangeCheckEliminator28predicate_add_cmp_with_constEP11InstructioniNS0_9ConditionEiP10ValueStackS1_i(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef %6, i32 %7) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN20RangeCheckEliminator28predicate_add_cmp_with_constEP11InstructioniNS0_9ConditionEiP10ValueStackS1_i(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef captures(none) %6, i32 %7) local_unnamed_addr #0 align 2 {
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1808
@@ -6021,7 +6021,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %42, %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator21insert_deoptimizationEP10ValueStackP11InstructionS3_S3_S3_iS3_iP13AccessIndexed(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr nocapture noundef readnone %9) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator21insert_deoptimizationEP10ValueStackP11InstructionS3_S3_S3_iS3_iP13AccessIndexed(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef readnone captures(none) %9) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %24, label %11
 
@@ -6558,7 +6558,7 @@ thread-pre-split:                                 ; preds = %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator10process_ifER13GrowableArrayIiEP10BlockBeginP2If(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator10process_ifER13GrowableArrayIiEP10BlockBeginP2If(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef readnone %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6628,7 +6628,7 @@ declare noundef i32 @_ZN11Instruction6negateENS_9ConditionE(i32 noundef) local_u
 declare noundef i32 @_ZN11Instruction6mirrorENS_9ConditionE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator22process_access_indexedEP10BlockBeginS1_P13AccessIndexed(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator22process_access_indexedEP10BlockBeginS1_P13AccessIndexed(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 131072
@@ -6751,7 +6751,7 @@ _ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread: ; preds = %56, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %31, label %4
 
@@ -6806,7 +6806,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator14in_array_boundEPNS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6827,12 +6827,12 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator5Bound10is_smallerEPS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN20RangeCheckEliminator5BoundD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN20RangeCheckEliminator5BoundD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20RangeCheckEliminator5BoundC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN20RangeCheckEliminator5BoundC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -2147483648, ptr %2, align 8
   store i32 2147483647, ptr %0, align 8
@@ -6844,7 +6844,7 @@ define hidden void @_ZN20RangeCheckEliminator5BoundC2Ev(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20RangeCheckEliminator5BoundC2EiP11InstructioniS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #4 align 2 {
+define hidden void @_ZN20RangeCheckEliminator5BoundC2EiP11InstructioniS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %6, align 8
   store i32 %3, ptr %0, align 8
@@ -6856,7 +6856,7 @@ define hidden void @_ZN20RangeCheckEliminator5BoundC2EiP11InstructioniS2_(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   switch i32 %1, label %25 [
     i32 0, label %5
     i32 1, label %9
@@ -6935,7 +6935,7 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 declare noundef i32 @_ZN11Instruction15dominator_depthEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20RangeCheckEliminator5Bound5printEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20RangeCheckEliminator5Bound5printEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24

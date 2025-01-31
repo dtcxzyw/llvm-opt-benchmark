@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.050d313f9d0816e3e107f4adda7198ff.0 = private unnamed_addr constant <{}> zeroinitializer, align 1
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define hidden nonnull ptr @_ZN6anyhow9__private10format_err17h9b07504fa2bfccd6E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden nonnull ptr @_ZN6anyhow9__private10format_err17h9b07504fa2bfccd6E(ptr readonly align 8 captures(none) %0) unnamed_addr #0 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
@@ -56,7 +56,7 @@ define hidden nonnull ptr @_ZN6anyhow9__private10format_err17h9b07504fa2bfccd6E(
 declare ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h80e3d31a9097a05fE"(ptr align 1, i64) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @_ZN5alloc3fmt6format17h087f148fdbec138eE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8, ptr align 8) unnamed_addr #3

@@ -79,7 +79,7 @@ define nonnull ptr @opcode_describe(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @bytecode_operation_length(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @bytecode_operation_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i16, ptr %0, align 2
   %or.cond.i = icmp ult i16 %2, 43
   %3 = zext nneg i16 %2 to i64
@@ -106,7 +106,7 @@ define i32 @bytecode_operation_length(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dump_disassembly(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @dump_disassembly(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -248,7 +248,7 @@ dump_code.exit:                                   ; preds = %bytecode_operation_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare { i64, ptr } @jv_object_get(i64, ptr, i64, ptr) local_unnamed_addr #4
 
@@ -263,7 +263,7 @@ declare ptr @jv_string_value(i64, ptr) local_unnamed_addr #4
 declare void @jv_free(i64, ptr) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @dump_operation(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @dump_operation(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %3 to i64
@@ -605,7 +605,7 @@ define void @bytecode_free(ptr noundef %0) local_unnamed_addr #2 {
 declare void @jv_mem_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #5

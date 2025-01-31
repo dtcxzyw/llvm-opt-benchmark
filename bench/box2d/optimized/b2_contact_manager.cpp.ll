@@ -76,7 +76,7 @@ entry:
 declare void @_ZN12b2BroadPhaseC1Ev(ptr noundef nonnull align 8 dereferenceable(76)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16b2ContactManager7DestroyEP9b2Contact(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %c) local_unnamed_addr #1 align 2 {
+define void @_ZN16b2ContactManager7DestroyEP9b2Contact(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this, ptr noundef %c) local_unnamed_addr #1 align 2 {
 entry:
   %m_fixtureA.i = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %m_fixtureA.i, align 8
@@ -226,7 +226,7 @@ if.end74:                                         ; preds = %if.then70, %if.end6
 declare void @_ZN9b2Contact7DestroyEPS_P16b2BlockAllocator(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16b2ContactManager7CollideEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN16b2ContactManager7CollideEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_contactList = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %m_contactList, align 8
@@ -518,7 +518,7 @@ for.end32:                                        ; preds = %for.inc30, %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16b2ContactManager7AddPairEPvS0_(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %proxyUserDataA, ptr nocapture noundef readonly %proxyUserDataB) local_unnamed_addr #1 align 2 {
+define void @_ZN16b2ContactManager7AddPairEPvS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this, ptr noundef readonly captures(none) %proxyUserDataA, ptr noundef readonly captures(none) %proxyUserDataB) local_unnamed_addr #1 align 2 {
 entry:
   %fixture = getelementptr inbounds nuw i8, ptr %proxyUserDataA, i64 16
   %0 = load ptr, ptr %fixture, align 8
@@ -716,7 +716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK13b2DynamicTree5QueryI12b2BroadPhaseEEvPT_RK6b2AABB(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %callback, ptr noundef nonnull align 4 dereferenceable(16) %aabb) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {

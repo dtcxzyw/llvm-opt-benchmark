@@ -140,13 +140,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.115 = private unnamed_addr constant [8 x i8] c"Regular\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bdf_driver_requester(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal ptr @bdf_driver_requester(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @bdf_services, ptr noundef %1) #18
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca [4 x ptr], align 16
   %8 = alloca [4 x i64], align 16
@@ -1508,7 +1508,7 @@ define internal void @BDF_Face_Done(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %3) #0 {
+define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 %3) #0 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 264
@@ -1637,7 +1637,7 @@ define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 24) i32 @BDF_Size_Request(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 24) i32 @BDF_Size_Request(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -1710,7 +1710,7 @@ define internal range(i32 0, 24) i32 @BDF_Size_Request(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @BDF_Size_Select(ptr nocapture noundef initializes((48, 64), (72, 80)) %0, i64 noundef %1) #0 {
+define internal noundef i32 @BDF_Size_Select(ptr noundef captures(none) initializes((48, 64), (72, 80)) %0, i64 noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %5 = load ptr, ptr %4, align 8
@@ -1737,7 +1737,7 @@ define internal noundef i32 @BDF_Size_Select(ptr nocapture noundef initializes((
 declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @bdf_get_charset_id(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #2 {
+define internal noundef i32 @bdf_get_charset_id(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
@@ -1748,7 +1748,7 @@ define internal noundef i32 @bdf_get_charset_id(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 7) i32 @bdf_get_bdf_property(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 7) i32 @bdf_get_bdf_property(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1872,12 +1872,12 @@ declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare hidden i32 @FT_CMap_New(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bdf_parse_start_(ptr noundef %0, i64 noundef %1, i64 %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
+define internal i32 @bdf_parse_start_(ptr noundef %0, i64 noundef %1, i64 %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
@@ -2681,24 +2681,24 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare hidden i64 @FT_Stream_TryRead(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @ft_hash_str_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @ft_hash_str_insert(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bdf_list_split_(ptr nocapture noundef initializes((16, 24)) %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @bdf_list_split_(ptr noundef captures(none) initializes((16, 24)) %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [32 x i8], align 16
@@ -3072,7 +3072,7 @@ define internal fastcc i64 @bdf_atoul_(ptr noundef readonly %0) unnamed_addr #6 
 declare hidden ptr @ft_mem_realloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bdf_parse_properties_(ptr noundef %0, i64 noundef %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) #0 {
+define internal i32 @bdf_parse_properties_(ptr noundef %0, i64 noundef %1, i64 %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = alloca [128 x i8], align 16
   %7 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.100, i64 noundef 13) #19
   %.not = icmp eq i32 %7, 0
@@ -3232,69 +3232,65 @@ bdf_get_font_property.exit80.thread:              ; preds = %44, %37, %40, %bdf_
   %.038.i = phi ptr [ %0, %.critedge77 ], [ %85, %84 ]
   %83 = load i8, ptr %.038.i, align 1
   switch i8 %83, label %84 [
-    i8 0, label %.critedge.i
-    i8 32, label %.critedge.i
-    i8 9, label %.critedge.i
+    i8 0, label %86
+    i8 32, label %86
+    i8 9, label %86
   ]
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %.038.i, i64 1
   br label %82, !llvm.loop !21
 
-.critedge.i:                                      ; preds = %82, %82, %82
+86:                                               ; preds = %82, %82, %82
   store i8 0, ptr %.038.i, align 1
-  %86 = icmp eq ptr %0, null
-  br i1 %86, label %bdf_get_property.exit.thread.i, label %87
+  %87 = load i8, ptr %0, align 1
+  %88 = icmp eq i8 %87, 0
+  br i1 %88, label %bdf_get_property.exit.thread.i, label %89
 
-87:                                               ; preds = %.critedge.i
-  %88 = load i8, ptr %0, align 1
-  %89 = icmp eq i8 %88, 0
-  br i1 %89, label %bdf_get_property.exit.thread.i, label %90
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %81, i64 208
+  %91 = tail call ptr @ft_hash_str_lookup(ptr noundef nonnull %0, ptr noundef nonnull %90) #18
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %bdf_get_property.exit.thread.i, label %93
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds nuw i8, ptr %81, i64 208
-  %92 = tail call ptr @ft_hash_str_lookup(ptr noundef nonnull %0, ptr noundef nonnull %91) #18
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %bdf_get_property.exit.thread.i, label %94
+93:                                               ; preds = %89
+  %94 = load i64, ptr %91, align 8
+  %95 = icmp ugt i64 %94, 82
+  br i1 %95, label %bdf_get_property.exit.i, label %bdf_get_property.exit.thread54.i
 
-94:                                               ; preds = %90
-  %95 = load i64, ptr %92, align 8
-  %96 = icmp ugt i64 %95, 82
-  br i1 %96, label %bdf_get_property.exit.i, label %bdf_get_property.exit.thread54.i
+bdf_get_property.exit.thread54.i:                 ; preds = %93
+  %96 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr @bdf_properties_, i64 %94
+  br label %101
 
-bdf_get_property.exit.thread54.i:                 ; preds = %94
-  %97 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr @bdf_properties_, i64 %95
-  br label %102
+bdf_get_property.exit.i:                          ; preds = %93
+  %97 = getelementptr inbounds nuw i8, ptr %81, i64 192
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr %struct.bdf_property_t_, ptr %98, i64 %94
+  %100 = getelementptr i8, ptr %99, i64 -1992
+  %.not50.i = icmp eq ptr %100, null
+  br i1 %.not50.i, label %bdf_get_property.exit.thread.i, label %101
 
-bdf_get_property.exit.i:                          ; preds = %94
-  %98 = getelementptr inbounds nuw i8, ptr %81, i64 192
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr %struct.bdf_property_t_, ptr %99, i64 %95
-  %101 = getelementptr i8, ptr %100, i64 -1992
-  %.not50.i = icmp eq ptr %101, null
-  br i1 %.not50.i, label %bdf_get_property.exit.thread.i, label %102
+101:                                              ; preds = %bdf_get_property.exit.i, %bdf_get_property.exit.thread54.i
+  %.0.i57.i = phi ptr [ %96, %bdf_get_property.exit.thread54.i ], [ %100, %bdf_get_property.exit.i ]
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i57.i, i64 8
+  %103 = load i32, ptr %102, align 8
+  %.not51.i = icmp eq i32 %103, 1
+  br i1 %.not51.i, label %bdf_get_property.exit.thread.i, label %119
 
-102:                                              ; preds = %bdf_get_property.exit.i, %bdf_get_property.exit.thread54.i
-  %.0.i57.i = phi ptr [ %97, %bdf_get_property.exit.thread54.i ], [ %101, %bdf_get_property.exit.i ]
-  %103 = getelementptr inbounds nuw i8, ptr %.0.i57.i, i64 8
-  %104 = load i32, ptr %103, align 8
-  %.not51.i = icmp eq i32 %104, 1
-  br i1 %.not51.i, label %bdf_get_property.exit.thread.i, label %120
-
-bdf_get_property.exit.thread.i:                   ; preds = %102, %bdf_get_property.exit.i, %90, %87, %.critedge.i
-  %105 = getelementptr inbounds i8, ptr %0, i64 %1
-  %106 = icmp ult ptr %.038.i, %105
-  br i1 %106, label %.critedge2.i, label %bdf_get_property.exit.thread..loopexit58_crit_edge.i
+bdf_get_property.exit.thread.i:                   ; preds = %101, %bdf_get_property.exit.i, %89, %86
+  %104 = getelementptr inbounds i8, ptr %0, i64 %1
+  %105 = icmp ult ptr %.038.i, %104
+  br i1 %105, label %.critedge2.i, label %bdf_get_property.exit.thread..loopexit58_crit_edge.i
 
 bdf_get_property.exit.thread..loopexit58_crit_edge.i: ; preds = %bdf_get_property.exit.thread.i
   %.pre.i = load i8, ptr %.038.i, align 1
   br label %.loopexit58.i
 
 .critedge2.i:                                     ; preds = %bdf_get_property.exit.thread.i, %.critedge2.i.backedge
-  %.140.i = phi ptr [ %107, %.critedge2.i.backedge ], [ %.038.i, %bdf_get_property.exit.thread.i ]
-  %107 = getelementptr inbounds nuw i8, ptr %.140.i, i64 1
-  %108 = load i8, ptr %107, align 1
-  switch i8 %108, label %.loopexit58.i [
+  %.140.i = phi ptr [ %106, %.critedge2.i.backedge ], [ %.038.i, %bdf_get_property.exit.thread.i ]
+  %106 = getelementptr inbounds nuw i8, ptr %.140.i, i64 1
+  %107 = load i8, ptr %106, align 1
+  switch i8 %107, label %.loopexit58.i [
     i8 32, label %.critedge2.i.backedge
     i8 9, label %.critedge2.i.backedge
   ]
@@ -3303,20 +3299,20 @@ bdf_get_property.exit.thread..loopexit58_crit_edge.i: ; preds = %bdf_get_propert
   br label %.critedge2.i
 
 .loopexit58.i:                                    ; preds = %.critedge2.i, %bdf_get_property.exit.thread..loopexit58_crit_edge.i
-  %109 = phi i8 [ %.pre.i, %bdf_get_property.exit.thread..loopexit58_crit_edge.i ], [ %108, %.critedge2.i ]
-  %.039.i = phi ptr [ %.038.i, %bdf_get_property.exit.thread..loopexit58_crit_edge.i ], [ %107, %.critedge2.i ]
-  %110 = icmp eq i8 %109, 34
-  %spec.select.idx.i = zext i1 %110 to i64
+  %108 = phi i8 [ %.pre.i, %bdf_get_property.exit.thread..loopexit58_crit_edge.i ], [ %107, %.critedge2.i ]
+  %.039.i = phi ptr [ %.038.i, %bdf_get_property.exit.thread..loopexit58_crit_edge.i ], [ %106, %.critedge2.i ]
+  %109 = icmp eq i8 %108, 34
+  %spec.select.idx.i = zext i1 %109 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.039.i, i64 %spec.select.idx.i
-  %111 = icmp ult ptr %spec.select.i, %105
-  br i1 %111, label %.critedge4.i, label %thread-pre-split.i
+  %110 = icmp ult ptr %spec.select.i, %104
+  br i1 %110, label %.critedge4.i, label %thread-pre-split.i
 
 .critedge4.i:                                     ; preds = %.loopexit58.i, %.critedge4.i.backedge
-  %.2.i = phi ptr [ %112, %.critedge4.i.backedge ], [ %105, %.loopexit58.i ]
-  %112 = getelementptr inbounds i8, ptr %.2.i, i64 -1
+  %.2.i = phi ptr [ %111, %.critedge4.i.backedge ], [ %104, %.loopexit58.i ]
+  %111 = getelementptr inbounds i8, ptr %.2.i, i64 -1
   store i8 0, ptr %.2.i, align 1
-  %113 = load i8, ptr %112, align 1
-  switch i8 %113, label %.loopexit.i [
+  %112 = load i8, ptr %111, align 1
+  switch i8 %112, label %.loopexit.i [
     i8 32, label %.critedge4.i.backedge
     i8 9, label %.critedge4.i.backedge
   ]
@@ -3325,134 +3321,134 @@ bdf_get_property.exit.thread..loopexit58_crit_edge.i: ; preds = %bdf_get_propert
   br label %.critedge4.i
 
 thread-pre-split.i:                               ; preds = %.loopexit58.i
-  %.pr.i = load i8, ptr %105, align 1
+  %.pr.i = load i8, ptr %104, align 1
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.critedge4.i, %thread-pre-split.i
-  %114 = phi i8 [ %.pr.i, %thread-pre-split.i ], [ %113, %.critedge4.i ]
-  %.1.i = phi ptr [ %105, %thread-pre-split.i ], [ %112, %.critedge4.i ]
-  %115 = icmp eq i8 %114, 34
-  br i1 %115, label %116, label %117
+  %113 = phi i8 [ %.pr.i, %thread-pre-split.i ], [ %112, %.critedge4.i ]
+  %.1.i = phi ptr [ %104, %thread-pre-split.i ], [ %111, %.critedge4.i ]
+  %114 = icmp eq i8 %113, 34
+  br i1 %114, label %115, label %116
 
-116:                                              ; preds = %.loopexit.i
+115:                                              ; preds = %.loopexit.i
   store i8 0, ptr %.1.i, align 1
-  br label %117
+  br label %116
 
-117:                                              ; preds = %116, %.loopexit.i
-  %118 = load ptr, ptr %80, align 8
-  %119 = tail call fastcc i32 @bdf_add_property_(ptr noundef %118, ptr noundef %0, ptr noundef nonnull %spec.select.i)
+116:                                              ; preds = %115, %.loopexit.i
+  %117 = load ptr, ptr %80, align 8
+  %118 = tail call fastcc i32 @bdf_add_property_(ptr noundef %117, ptr noundef nonnull %0, ptr noundef nonnull %spec.select.i)
   br label %switch.edge72
 
-120:                                              ; preds = %102
+119:                                              ; preds = %101
   store i8 %83, ptr %.038.i, align 1
-  %121 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %122 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %121, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
-  %.not68 = icmp eq i32 %122, 0
-  br i1 %.not68, label %123, label %switch.edge72
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %121 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %120, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
+  %.not68 = icmp eq i32 %121, 0
+  br i1 %.not68, label %122, label %switch.edge72
 
-123:                                              ; preds = %120
-  %124 = load ptr, ptr %121, align 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %127 = load i64, ptr %126, align 8
-  switch i64 %127, label %.lr.ph.i [
+122:                                              ; preds = %119
+  %123 = load ptr, ptr %120, align 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %126 = load i64, ptr %125, align 8
+  switch i64 %126, label %.lr.ph.i [
     i64 0, label %bdf_list_join_.exit
     i64 1, label %bdf_list_shift_.exit.thread99
   ]
 
-bdf_list_shift_.exit.thread99:                    ; preds = %123
-  store i64 0, ptr %126, align 8
+bdf_list_shift_.exit.thread99:                    ; preds = %122
+  store i64 0, ptr %125, align 8
   br label %bdf_list_join_.exit
 
-.lr.ph.i:                                         ; preds = %123, %.lr.ph.i
-  %.023.i = phi i64 [ %133, %.lr.ph.i ], [ 1, %123 ]
-  %.01722.i = phi i64 [ %132, %.lr.ph.i ], [ 0, %123 ]
-  %128 = load ptr, ptr %121, align 8
-  %129 = getelementptr inbounds ptr, ptr %128, i64 %.023.i
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds ptr, ptr %128, i64 %.01722.i
-  store ptr %130, ptr %131, align 8
-  %132 = add nuw i64 %.01722.i, 1
-  %133 = add nuw i64 %.023.i, 1
-  %134 = load i64, ptr %126, align 8
-  %135 = icmp ult i64 %133, %134
-  br i1 %135, label %.lr.ph.i, label %bdf_list_shift_.exit, !llvm.loop !12
+.lr.ph.i:                                         ; preds = %122, %.lr.ph.i
+  %.023.i = phi i64 [ %132, %.lr.ph.i ], [ 1, %122 ]
+  %.01722.i = phi i64 [ %131, %.lr.ph.i ], [ 0, %122 ]
+  %127 = load ptr, ptr %120, align 8
+  %128 = getelementptr inbounds ptr, ptr %127, i64 %.023.i
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds ptr, ptr %127, i64 %.01722.i
+  store ptr %129, ptr %130, align 8
+  %131 = add nuw i64 %.01722.i, 1
+  %132 = add nuw i64 %.023.i, 1
+  %133 = load i64, ptr %125, align 8
+  %134 = icmp ult i64 %132, %133
+  br i1 %134, label %.lr.ph.i, label %bdf_list_shift_.exit, !llvm.loop !12
 
 bdf_list_shift_.exit:                             ; preds = %.lr.ph.i
-  %136 = add i64 %134, -1
-  store i64 %136, ptr %126, align 8
-  %137 = icmp eq i64 %136, 0
-  br i1 %137, label %bdf_list_join_.exit, label %.lr.ph37.preheader.i
+  %135 = add i64 %133, -1
+  store i64 %135, ptr %125, align 8
+  %136 = icmp eq i64 %135, 0
+  br i1 %136, label %bdf_list_join_.exit, label %.lr.ph37.preheader.i
 
 .lr.ph37.preheader.i:                             ; preds = %bdf_list_shift_.exit
-  %138 = load ptr, ptr %121, align 8
-  %139 = load ptr, ptr %138, align 8
+  %137 = load ptr, ptr %120, align 8
+  %138 = load ptr, ptr %137, align 8
   br label %.lr.ph37.i
 
-.lr.ph37.i:                                       ; preds = %156, %.lr.ph37.preheader.i
-  %140 = phi i64 [ %157, %156 ], [ %136, %.lr.ph37.preheader.i ]
-  %.02535.i = phi i64 [ %.2.i85, %156 ], [ 0, %.lr.ph37.preheader.i ]
-  %.02634.i = phi i64 [ %151, %156 ], [ 0, %.lr.ph37.preheader.i ]
-  %141 = load ptr, ptr %121, align 8
-  %142 = getelementptr inbounds ptr, ptr %141, i64 %.02634.i
-  %143 = load ptr, ptr %142, align 8
-  %144 = load i8, ptr %143, align 1
-  %.not3031.i = icmp eq i8 %144, 0
+.lr.ph37.i:                                       ; preds = %155, %.lr.ph37.preheader.i
+  %139 = phi i64 [ %156, %155 ], [ %135, %.lr.ph37.preheader.i ]
+  %.02535.i = phi i64 [ %.2.i85, %155 ], [ 0, %.lr.ph37.preheader.i ]
+  %.02634.i = phi i64 [ %150, %155 ], [ 0, %.lr.ph37.preheader.i ]
+  %140 = load ptr, ptr %120, align 8
+  %141 = getelementptr inbounds ptr, ptr %140, i64 %.02634.i
+  %142 = load ptr, ptr %141, align 8
+  %143 = load i8, ptr %142, align 1
+  %.not3031.i = icmp eq i8 %143, 0
   br i1 %.not3031.i, label %._crit_edge.i84, label %.lr.ph.i82
 
 .lr.ph.i82:                                       ; preds = %.lr.ph37.i, %.lr.ph.i82
-  %145 = phi i8 [ %149, %.lr.ph.i82 ], [ %144, %.lr.ph37.i ]
-  %.033.i = phi ptr [ %146, %.lr.ph.i82 ], [ %143, %.lr.ph37.i ]
-  %.132.i = phi i64 [ %147, %.lr.ph.i82 ], [ %.02535.i, %.lr.ph37.i ]
-  %146 = getelementptr inbounds nuw i8, ptr %.033.i, i64 1
-  %147 = add i64 %.132.i, 1
-  %148 = getelementptr inbounds i8, ptr %139, i64 %.132.i
-  store i8 %145, ptr %148, align 1
-  %149 = load i8, ptr %146, align 1
-  %.not30.i = icmp eq i8 %149, 0
+  %144 = phi i8 [ %148, %.lr.ph.i82 ], [ %143, %.lr.ph37.i ]
+  %.033.i = phi ptr [ %145, %.lr.ph.i82 ], [ %142, %.lr.ph37.i ]
+  %.132.i = phi i64 [ %146, %.lr.ph.i82 ], [ %.02535.i, %.lr.ph37.i ]
+  %145 = getelementptr inbounds nuw i8, ptr %.033.i, i64 1
+  %146 = add i64 %.132.i, 1
+  %147 = getelementptr inbounds i8, ptr %138, i64 %.132.i
+  store i8 %144, ptr %147, align 1
+  %148 = load i8, ptr %145, align 1
+  %.not30.i = icmp eq i8 %148, 0
   br i1 %.not30.i, label %._crit_edge.loopexit.i, label %.lr.ph.i82, !llvm.loop !22
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i82
-  %.pre.i83 = load i64, ptr %126, align 8
+  %.pre.i83 = load i64, ptr %125, align 8
   br label %._crit_edge.i84
 
 ._crit_edge.i84:                                  ; preds = %._crit_edge.loopexit.i, %.lr.ph37.i
-  %150 = phi i64 [ %140, %.lr.ph37.i ], [ %.pre.i83, %._crit_edge.loopexit.i ]
-  %.1.lcssa.i = phi i64 [ %.02535.i, %.lr.ph37.i ], [ %147, %._crit_edge.loopexit.i ]
-  %151 = add nuw i64 %.02634.i, 1
-  %152 = icmp ult i64 %151, %150
-  br i1 %152, label %153, label %156
+  %149 = phi i64 [ %139, %.lr.ph37.i ], [ %.pre.i83, %._crit_edge.loopexit.i ]
+  %.1.lcssa.i = phi i64 [ %.02535.i, %.lr.ph37.i ], [ %146, %._crit_edge.loopexit.i ]
+  %150 = add nuw i64 %.02634.i, 1
+  %151 = icmp ult i64 %150, %149
+  br i1 %151, label %152, label %155
 
-153:                                              ; preds = %._crit_edge.i84
-  %154 = add i64 %.1.lcssa.i, 1
-  %155 = getelementptr inbounds i8, ptr %139, i64 %.1.lcssa.i
-  store i8 32, ptr %155, align 1
-  %.pre41.i = load i64, ptr %126, align 8
-  br label %156
+152:                                              ; preds = %._crit_edge.i84
+  %153 = add i64 %.1.lcssa.i, 1
+  %154 = getelementptr inbounds i8, ptr %138, i64 %.1.lcssa.i
+  store i8 32, ptr %154, align 1
+  %.pre41.i = load i64, ptr %125, align 8
+  br label %155
 
-156:                                              ; preds = %153, %._crit_edge.i84
-  %157 = phi i64 [ %.pre41.i, %153 ], [ %150, %._crit_edge.i84 ]
-  %.2.i85 = phi i64 [ %154, %153 ], [ %.1.lcssa.i, %._crit_edge.i84 ]
-  %158 = icmp ult i64 %151, %157
-  br i1 %158, label %.lr.ph37.i, label %._crit_edge38.i, !llvm.loop !23
+155:                                              ; preds = %152, %._crit_edge.i84
+  %156 = phi i64 [ %.pre41.i, %152 ], [ %149, %._crit_edge.i84 ]
+  %.2.i85 = phi i64 [ %153, %152 ], [ %.1.lcssa.i, %._crit_edge.i84 ]
+  %157 = icmp ult i64 %150, %156
+  br i1 %157, label %.lr.ph37.i, label %._crit_edge38.i, !llvm.loop !23
 
-._crit_edge38.i:                                  ; preds = %156
-  %.not.i86 = icmp eq ptr %139, @empty
-  br i1 %.not.i86, label %bdf_list_join_.exit, label %159
+._crit_edge38.i:                                  ; preds = %155
+  %.not.i86 = icmp eq ptr %138, @empty
+  br i1 %.not.i86, label %bdf_list_join_.exit, label %158
 
-159:                                              ; preds = %._crit_edge38.i
-  %160 = getelementptr inbounds i8, ptr %139, i64 %.2.i85
-  store i8 0, ptr %160, align 1
+158:                                              ; preds = %._crit_edge38.i
+  %159 = getelementptr inbounds i8, ptr %138, i64 %.2.i85
+  store i8 0, ptr %159, align 1
   br label %bdf_list_join_.exit
 
-bdf_list_join_.exit:                              ; preds = %123, %._crit_edge38.i, %159, %bdf_list_shift_.exit.thread99, %bdf_list_shift_.exit
-  %.024.i = phi ptr [ null, %bdf_list_shift_.exit ], [ null, %bdf_list_shift_.exit.thread99 ], [ %139, %159 ], [ @empty, %._crit_edge38.i ], [ null, %123 ]
-  %161 = load ptr, ptr %80, align 8
-  %162 = tail call fastcc i32 @bdf_add_property_(ptr noundef %161, ptr noundef %125, ptr noundef %.024.i)
+bdf_list_join_.exit:                              ; preds = %122, %._crit_edge38.i, %158, %bdf_list_shift_.exit.thread99, %bdf_list_shift_.exit
+  %.024.i = phi ptr [ null, %bdf_list_shift_.exit ], [ null, %bdf_list_shift_.exit.thread99 ], [ %138, %158 ], [ @empty, %._crit_edge38.i ], [ null, %122 ]
+  %160 = load ptr, ptr %80, align 8
+  %161 = tail call fastcc i32 @bdf_add_property_(ptr noundef %160, ptr noundef %124, ptr noundef %.024.i)
   br label %switch.edge72
 
-switch.edge72:                                    ; preds = %67, %67, %67, %67, %67, %bdf_list_join_.exit, %117, %76, %120, %bdf_get_font_property.exit80.thread, %bdf_get_font_property.exit.thread, %63
-  %.1 = phi i32 [ %36, %bdf_get_font_property.exit.thread ], [ %62, %bdf_get_font_property.exit80.thread ], [ 0, %63 ], [ %79, %76 ], [ %119, %117 ], [ %122, %120 ], [ %162, %bdf_list_join_.exit ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ]
+switch.edge72:                                    ; preds = %67, %67, %67, %67, %67, %bdf_list_join_.exit, %116, %76, %119, %bdf_get_font_property.exit80.thread, %bdf_get_font_property.exit.thread, %63
+  %.1 = phi i32 [ %36, %bdf_get_font_property.exit.thread ], [ %62, %bdf_get_font_property.exit80.thread ], [ 0, %63 ], [ %79, %76 ], [ %118, %116 ], [ %121, %119 ], [ %161, %bdf_list_join_.exit ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ]
   ret i32 %.1
 }
 
@@ -3579,7 +3575,7 @@ define internal fastcc signext i16 @bdf_atos_(ptr noundef readonly %0) unnamed_a
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @bdf_list_join_(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #7 {
+define internal fastcc ptr @bdf_list_join_(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #7 {
   store i64 0, ptr %1, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %32, label %4
@@ -3663,7 +3659,7 @@ define internal fastcc ptr @bdf_list_join_(ptr noundef readonly %0, ptr nocaptur
 declare hidden ptr @ft_mem_dup(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bdf_set_default_spacing_(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @bdf_set_default_spacing_(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca %struct.bdf_list_t__, align 8
   %5 = icmp eq ptr %0, null
@@ -3745,7 +3741,7 @@ bdf_list_done_.exit:                              ; preds = %37, %35, %12, %2, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -4332,7 +4328,7 @@ switch.edge149:                                   ; preds = %281, %281, %281, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bdf_parse_glyphs_(ptr noundef %0, i64 noundef %1, i64 %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
+define internal i32 @bdf_parse_glyphs_(ptr noundef %0, i64 noundef %1, i64 %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
@@ -5377,10 +5373,10 @@ thread-pre-split:                                 ; preds = %118, %127, %switch.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc i64 @bdf_atol_(ptr noundef readonly %0) unnamed_addr #6 {
@@ -5449,10 +5445,10 @@ define internal fastcc i64 @bdf_atol_(ptr noundef readonly %0) unnamed_addr #6 {
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @by_encoding(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 -1, 2) i32 @by_encoding(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5462,14 +5458,14 @@ define internal range(i32 -1, 2) i32 @by_encoding(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @bdf_parse_end_(ptr nocapture readnone %0, i64 %1, i64 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #11 {
+define internal noundef i32 @bdf_parse_end_(ptr readnone captures(none) %0, i64 %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #11 {
   ret i32 0
 }
 
 declare void @ft_hash_str_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @bdf_cmap_init(ptr nocapture noundef initializes((24, 40)) %0, ptr nocapture readnone %1) #12 {
+define internal noundef i32 @bdf_cmap_init(ptr noundef captures(none) initializes((24, 40)) %0, ptr readnone captures(none) %1) #12 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %5 = load ptr, ptr %4, align 8
@@ -5485,14 +5481,14 @@ define internal noundef i32 @bdf_cmap_init(ptr nocapture noundef initializes((24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @bdf_cmap_done(ptr nocapture noundef writeonly initializes((24, 40)) %0) #13 {
+define internal void @bdf_cmap_done(ptr noundef writeonly captures(none) initializes((24, 40)) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @bdf_cmap_char_index(ptr nocapture noundef readonly %0, i32 noundef %1) #14 {
+define internal range(i32 0, 65536) i32 @bdf_cmap_char_index(ptr noundef readonly captures(none) %0, i32 noundef %1) #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5543,7 +5539,7 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_index(ptr nocapture nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @bdf_cmap_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #15 {
+define internal range(i32 0, 65536) i32 @bdf_cmap_char_next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #15 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -5624,10 +5620,10 @@ declare hidden void @FT_Select_Metrics(ptr noundef, i64 noundef) local_unnamed_a
 declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #16

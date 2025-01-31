@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.InternalFrameBuffer = type { ptr, i64, i32 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @av1_alloc_internal_frame_buffers(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @av1_alloc_internal_frame_buffers(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph.i, label %av1_free_internal_frame_buffers.exit
@@ -51,7 +51,7 @@ av1_free_internal_frame_buffers.exit:             ; preds = %5, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_free_internal_frame_buffers(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @av1_free_internal_frame_buffers(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -89,7 +89,7 @@ declare ptr @aom_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @aom_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_zero_unused_internal_frame_buffers(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden void @av1_zero_unused_internal_frame_buffers(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -132,10 +132,10 @@ define hidden void @av1_zero_unused_internal_frame_buffers(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @av1_get_frame_buffer(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @av1_get_frame_buffer(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %._crit_edge.thread, label %.preheader
 
@@ -229,7 +229,7 @@ define hidden range(i32 -1, 1) i32 @av1_get_frame_buffer(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @av1_release_frame_buffer(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden noundef i32 @av1_release_frame_buffer(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

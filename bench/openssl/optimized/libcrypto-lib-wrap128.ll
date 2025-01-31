@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @CRYPTO_128_unwrap_pad.zeros = internal global [8 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2147483657) i64 @CRYPTO_128_wrap(ptr noundef %key, ptr noundef readonly %iv, ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define range(i64 0, 2147483657) i64 @CRYPTO_128_wrap(ptr noundef %key, ptr noundef readonly %iv, ptr noundef captures(none) %out, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %B = alloca [16 x i8], align 16
   %and = and i64 %inlen, 7
@@ -97,10 +97,10 @@ return:                                           ; preds = %entry, %for.end51
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2147483649) i64 @CRYPTO_128_unwrap(ptr noundef %key, ptr noundef %iv, ptr noundef %out, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define range(i64 0, 2147483649) i64 @CRYPTO_128_unwrap(ptr noundef %key, ptr noundef %iv, ptr noundef %out, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %B.i = alloca [16 x i8], align 16
   %got_iv = alloca [8 x i8], align 8
@@ -215,7 +215,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @CRYPTO_128_wrap_pad(ptr noundef %key, ptr noundef readonly %icv, ptr noundef %out, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @CRYPTO_128_wrap_pad(ptr noundef %key, ptr noundef readonly %icv, ptr noundef %out, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %B.i = alloca [16 x i8], align 16
   %add = add i64 %inlen, 7
@@ -351,10 +351,10 @@ return:                                           ; preds = %if.then18, %CRYPTO_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @CRYPTO_128_unwrap_pad(ptr noundef %key, ptr noundef %icv, ptr noundef %out, ptr noundef %in, i64 noundef %inlen, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @CRYPTO_128_unwrap_pad(ptr noundef %key, ptr noundef %icv, ptr noundef %out, ptr noundef %in, i64 noundef %inlen, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %B.i = alloca [16 x i8], align 16
   %aiv = alloca [8 x i8], align 8
@@ -529,10 +529,10 @@ return:                                           ; preds = %if.end46, %entry, %
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #5

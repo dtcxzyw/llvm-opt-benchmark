@@ -90,10 +90,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost4urls18params_encoded_refC2ERNS0_8url_baseE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #3 align 2 {
@@ -322,7 +322,7 @@ _ZN5boost4urls18params_encoded_ref6assignIPKNS0_14param_pct_viewEEEvT_S6_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls18params_encoded_ref6insertENS0_19params_encoded_base8iteratorERKNS0_14param_pct_viewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2, ptr noundef nonnull align 8 dereferenceable(49) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls18params_encoded_ref6insertENS0_19params_encoded_base8iteratorERKNS0_14param_pct_viewE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2, ptr noundef nonnull align 8 dereferenceable(49) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
   %6 = alloca %"struct.boost::urls::detail::param_encoded_iter", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #12
@@ -355,7 +355,7 @@ declare void @_ZN5boost4urls8url_base11edit_paramsERKNS0_6detail16params_iter_im
 declare void @_ZN5boost4urls6detail18param_encoded_iterC1ERKNS0_14param_pct_viewE(ptr noundef nonnull align 8 dereferenceable(43), ptr noundef nonnull align 8 dereferenceable(49)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls18params_encoded_ref6insertENS0_19params_encoded_base8iteratorESt16initializer_listINS0_14param_pct_viewEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr nocapture noundef readonly byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2, ptr %3, i64 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls18params_encoded_ref6insertENS0_19params_encoded_base8iteratorESt16initializer_listINS0_14param_pct_viewEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef readonly byval(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %2, ptr %3, i64 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
   %7 = alloca %"struct.boost::urls::detail::params_encoded_iter.2", align 8
   %8 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
@@ -400,10 +400,10 @@ _ZN5boost4urls18params_encoded_ref6insertIPKNS0_14param_pct_viewEEENS0_19params_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN5boost4urls18params_encoded_ref5eraseENS0_15pct_string_viewENS0_17ignore_case_paramE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 %1, i8 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN5boost4urls18params_encoded_ref5eraseENS0_15pct_string_viewENS0_17ignore_case_paramE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 captures(none) %1, i8 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
   %5 = alloca %"struct.boost::urls::detail::query_iter", align 8
   %6 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
@@ -532,7 +532,7 @@ _ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr nocapture noundef readonly byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef readonly byval(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader.i.i.i:
   %3 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
   %4 = alloca %"struct.boost::urls::detail::query_iter", align 8
@@ -573,7 +573,7 @@ _ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorES3_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls18params_encoded_ref7replaceENS0_19params_encoded_base8iteratorERKNS0_14param_pct_viewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2, ptr noundef nonnull align 8 dereferenceable(49) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls18params_encoded_ref7replaceENS0_19params_encoded_base8iteratorERKNS0_14param_pct_viewE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2, ptr noundef nonnull align 8 dereferenceable(49) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 .preheader.i.i.i:
   %4 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
   %5 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
@@ -612,7 +612,7 @@ define void @_ZN5boost4urls18params_encoded_ref7replaceENS0_19params_encoded_bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls18params_encoded_ref7replaceENS0_19params_encoded_base8iteratorES3_St16initializer_listINS0_14param_pct_viewEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr nocapture noundef readonly byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2, ptr nocapture noundef readonly byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %3, ptr %4, i64 %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls18params_encoded_ref7replaceENS0_19params_encoded_base8iteratorES3_St16initializer_listINS0_14param_pct_viewEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef readonly byval(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %2, ptr noundef readonly byval(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %3, ptr %4, i64 %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
   %8 = alloca %"struct.boost::urls::detail::params_encoded_iter.2", align 8
   %9 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
@@ -661,7 +661,7 @@ _ZN5boost4urls18params_encoded_ref7replaceIPKNS0_14param_pct_viewEEENS0_19params
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost4urls18params_encoded_ref5unsetENS0_19params_encoded_base8iteratorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls18params_encoded_ref5unsetENS0_19params_encoded_base8iteratorE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
   %5 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
   %6 = alloca %"struct.boost::urls::detail::param_encoded_value_iter", align 8
@@ -704,7 +704,7 @@ define void @_ZN5boost4urls18params_encoded_ref5unsetENS0_19params_encoded_base8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls18params_encoded_ref3setENS0_19params_encoded_base8iteratorENS0_15pct_string_viewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2, ptr nocapture noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls18params_encoded_ref3setENS0_19params_encoded_base8iteratorENS0_15pct_string_viewE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2, ptr noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 captures(none) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
   %6 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
   %7 = alloca %"struct.boost::urls::detail::param_encoded_value_iter", align 8
@@ -756,7 +756,7 @@ define void @_ZN5boost4urls18params_encoded_ref3setENS0_19params_encoded_base8it
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls18params_encoded_ref3setENS0_15pct_string_viewES2_NS0_17ignore_case_paramE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 %2, ptr nocapture noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 %3, i8 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls18params_encoded_ref3setENS0_15pct_string_viewES2_NS0_17ignore_case_paramE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 captures(none) %2, ptr noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 captures(none) %3, i8 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
   %7 = alloca %"struct.boost::urls::detail::query_iter", align 8
   %8 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
@@ -950,7 +950,7 @@ _ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2, ptr noundef byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorES3_(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::params_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %2, ptr noundef byval(%"class.boost::urls::params_encoded_base::iterator") align 8 %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
   %6 = alloca %"struct.boost::urls::detail::query_iter", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #12
@@ -980,7 +980,7 @@ define void @_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8
 declare void @_ZN5boost4urls6detail10query_iterC1ENS_4core17basic_string_viewIcEEb(ptr noundef nonnull align 8 dereferenceable(81), ptr, i64, i1 noundef zeroext) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16params_iter_implENS0_15pct_string_viewENS0_17ignore_case_paramE(ptr dead_on_unwind writable sret(%"struct.boost::urls::detail::params_iter_impl") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef byval(%"struct.boost::urls::detail::params_iter_impl") align 8, ptr noundef byval(%"class.boost::urls::pct_string_view") align 8, i8) local_unnamed_addr #4

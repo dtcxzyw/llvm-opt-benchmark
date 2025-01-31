@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.26 = private unnamed_addr constant [52 x i8] c"function names must be alphanumeric plus underscore\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @df_semcheck_param(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, i64 %4, i64 %5) local_unnamed_addr #0 {
+define i32 @df_semcheck_param(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i64 %4, i64 %5) local_unnamed_addr #0 {
   tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %3, i1 noundef zeroext false) #4
   %7 = tail call i32 @stnode_type_id(ptr noundef %3) #4
   switch i32 %7, label %33 [
@@ -305,7 +305,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 declare void @g_ptr_array_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @df_func_lower(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @df_func_lower(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #0 {
   %.val = load ptr, ptr %0, align 8
   %4 = icmp ne ptr %.val, null
   br i1 %4, label %.preheader.i, label %string_walk.exit
@@ -388,7 +388,7 @@ string_walk.exit:                                 ; preds = %40, %3, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ul_semcheck_is_field_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 %4, i64 %5) #0 {
+define internal noundef i32 @ul_semcheck_is_field_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 %4, i64 %5) #0 {
   %7 = load ptr, ptr %3, align 8
   tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %7, i1 noundef zeroext true) #4
   %8 = tail call i32 @stnode_type_id(ptr noundef %7) #4
@@ -424,7 +424,7 @@ define internal noundef i32 @ul_semcheck_is_field_string(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @df_func_upper(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @df_func_upper(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #0 {
   %.val = load ptr, ptr %0, align 8
   %4 = icmp ne ptr %.val, null
   br i1 %4, label %.preheader.i, label %string_walk.exit
@@ -507,7 +507,7 @@ string_walk.exit:                                 ; preds = %40, %3, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ul_semcheck_can_length(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 %4, i64 %5) #0 {
+define internal noundef i32 @ul_semcheck_can_length(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 %4, i64 %5) #0 {
   %7 = load ptr, ptr %3, align 8
   %8 = tail call i32 @df_semcheck_param(ptr noundef %0, ptr poison, i32 noundef %2, ptr noundef %7, i64 poison, i64 poison)
   %9 = tail call zeroext i1 @ftype_can_length(i32 noundef %8) #4
@@ -525,7 +525,7 @@ define internal noundef i32 @ul_semcheck_can_length(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @df_func_count(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @df_func_count(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp ne ptr %4, null
   br i1 %5, label %6, label %10
@@ -543,7 +543,7 @@ define internal noundef zeroext i1 @df_func_count(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ul_semcheck_is_field(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 %4, i64 %5) #0 {
+define internal noundef i32 @ul_semcheck_is_field(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 %4, i64 %5) #0 {
   %7 = load ptr, ptr %3, align 8
   tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %7, i1 noundef zeroext true) #4
   %8 = tail call i32 @stnode_type_id(ptr noundef %7) #4
@@ -563,7 +563,7 @@ define internal noundef i32 @ul_semcheck_is_field(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @df_func_string(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @df_func_string(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp ne ptr %4, null
   br i1 %5, label %.preheader, label %.loopexit
@@ -641,7 +641,7 @@ define internal noundef zeroext i1 @df_func_string(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ul_semcheck_string(ptr noundef %0, ptr noundef %1, i32 %2, ptr nocapture noundef readonly %3, i64 %4, i64 %5) #0 {
+define internal noundef i32 @ul_semcheck_string(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef readonly captures(none) %3, i64 %4, i64 %5) #0 {
   %7 = load ptr, ptr %3, align 8
   tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %7, i1 noundef zeroext true) #4
   %8 = tail call i32 @stnode_type_id(ptr noundef %7) #4
@@ -712,14 +712,14 @@ define internal noundef i32 @ul_semcheck_string(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @df_func_dec(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @df_func_dec(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #0 {
   %.val = load ptr, ptr %0, align 8
   %4 = tail call fastcc zeroext i1 @df_func_base(ptr %.val, ptr noundef %2, i32 noundef 1)
   ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ul_semcheck_base(ptr noundef %0, ptr noundef %1, i32 %2, ptr nocapture noundef readonly %3, i64 %4, i64 %5) #0 {
+define internal noundef i32 @ul_semcheck_base(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef readonly captures(none) %3, i64 %4, i64 %5) #0 {
   %7 = load ptr, ptr %3, align 8
   tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %7, i1 noundef zeroext true) #4
   %8 = tail call i32 @stnode_type_id(ptr noundef %7) #4
@@ -768,14 +768,14 @@ define internal noundef i32 @ul_semcheck_base(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @df_func_hex(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @df_func_hex(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #0 {
   %.val = load ptr, ptr %0, align 8
   %4 = tail call fastcc zeroext i1 @df_func_base(ptr %.val, ptr noundef %2, i32 noundef 2)
   ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @df_func_max(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @df_func_max(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %.not32.i = icmp eq i32 %1, 0
   br i1 %.not32.i, label %df_func_compare.exit, label %.lr.ph30.i
 
@@ -883,7 +883,7 @@ define internal noundef i32 @ul_semcheck_compare(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @df_func_min(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @df_func_min(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %.not32.i = icmp eq i32 %1, 0
   br i1 %.not32.i, label %df_func_compare.exit, label %.lr.ph30.i
 
@@ -948,7 +948,7 @@ df_func_compare.exit:                             ; preds = %3, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @df_func_abs(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #0 {
+define internal zeroext i1 @df_func_abs(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1004,7 +1004,7 @@ define internal zeroext i1 @df_func_abs(ptr nocapture noundef readonly %0, i32 %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ul_semcheck_absolute_value(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 %4, i64 %5) #0 {
+define internal noundef i32 @ul_semcheck_absolute_value(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 %4, i64 %5) #0 {
   %7 = load ptr, ptr %3, align 8
   %8 = tail call i32 @df_semcheck_param(ptr noundef %0, ptr poison, i32 noundef %2, ptr noundef %7, i64 poison, i64 poison)
   %9 = tail call zeroext i1 @ftype_can_is_negative(i32 noundef %8) #4

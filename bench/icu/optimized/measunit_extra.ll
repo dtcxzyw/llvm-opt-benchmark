@@ -367,7 +367,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -1881,7 +1881,7 @@ cleanup.cont:                                     ; preds = %if.then6, %if.end, 
 declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_120getUnitCategoryIndexERNS_9BytesTrieENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) initializes((16, 28)) %trie, ptr %baseUnitIdentifier.coerce0, i32 %baseUnitIdentifier.coerce1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_120getUnitCategoryIndexERNS_9BytesTrieENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) initializes((16, 28)) %trie, ptr %baseUnitIdentifier.coerce0, i32 %baseUnitIdentifier.coerce1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 {
 entry:
   %bytes_.i = getelementptr inbounds nuw i8, ptr %trie, i64 8
   %0 = load ptr, ptr %bytes_.i, align 8
@@ -1912,7 +1912,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7515MeasureUnitImpl14takeReciprocalER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((152, 156)) %this, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_7515MeasureUnitImpl14takeReciprocalER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((152, 156)) %this, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #8 align 2 {
 entry:
   %identifier = getelementptr inbounds nuw i8, ptr %this, i64 96
   %len.i = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -1950,7 +1950,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @_ZN6icu_7511StringPiece3setEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7515MeasureUnitImpl15copyAndSimplifyER10UErrorCode(ptr noalias sret(%"class.icu_75::MeasureUnitImpl") align 8 initializes((0, 4), (8, 12)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7515MeasureUnitImpl15copyAndSimplifyER10UErrorCode(ptr noalias sret(%"class.icu_75::MeasureUnitImpl") align 8 initializes((0, 4), (8, 12)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %singleUnits.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -2680,7 +2680,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6icu_7514SingleUnitImpl15getSimpleUnitIDEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7514SingleUnitImpl15getSimpleUnitIDEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_112gSimpleUnitsE, align 8
   %1 = load i32, ptr %this, align 4
@@ -2691,7 +2691,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7514SingleUnitImpl23appendNeutralIdentifierERNS_10CharStringER10UErrorCode(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(60) %result, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7514SingleUnitImpl23appendNeutralIdentifierERNS_10CharStringER10UErrorCode(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(60) %result, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp7 = alloca %"class.icu_75::StringPiece", align 8
@@ -2805,7 +2805,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString12appendNumberEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7514SingleUnitImpl20getUnitCategoryIndexEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK6icu_7514SingleUnitImpl20getUnitCategoryIndexEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_121gSimpleUnitCategoriesE, align 8
   %1 = load i32, ptr %this, align 4
@@ -3549,7 +3549,7 @@ return:                                           ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7515MeasureUnitImpl33extractIndividualUnitsWithIndicesER10UErrorCode(ptr noalias sret(%"class.icu_75::MaybeStackVector.1") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -3652,7 +3652,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %invoke.co
 declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN6icu_7512_GLOBAL__N_118compareSingleUnitsEPKvS2_S2_(ptr nocapture readnone %0, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #10 {
+define internal noundef range(i32 -1, 2) i32 @_ZN6icu_7512_GLOBAL__N_118compareSingleUnitsEPKvS2_S2_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #10 {
 entry:
   %1 = load ptr, ptr %left, align 8
   %2 = load ptr, ptr %right, align 8
@@ -4294,7 +4294,7 @@ ehcleanup:                                        ; preds = %lpad.i, %lpad2
 declare void @_ZN6icu_7511MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(19)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7511MeasureUnit22splitToSingleUnitsImplERiR10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::LocalArray") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(19) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %outCount, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7511MeasureUnit22splitToSingleUnitsImplERiR10UErrorCode(ptr noalias writeonly sret(%"class.icu_75::LocalArray") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(19) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %outCount, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.icu_75::MeasureUnitImpl", align 8
   %ref.tmp = alloca %"class.icu_75::MeasureUnit", align 8
@@ -4534,7 +4534,7 @@ declare ptr @ures_openDirect_75(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @ures_getByKey_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare void @_ZN6icu_7516BytesTrieBuilderC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6
 
@@ -4594,7 +4594,7 @@ entry:
 declare noundef ptr @_ZNK6icu_757UObject17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6icu_7512_GLOBAL__N_114CategoriesSink3putEPKcRNS_13ResourceValueEaR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 signext %1, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define internal void @_ZN6icu_7512_GLOBAL__N_114CategoriesSink3putEPKcRNS_13ResourceValueEaR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this, ptr readnone captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 signext %1, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %array = alloca %"class.icu_75::ResourceArray", align 8
   %table = alloca %"class.icu_75::ResourceTable", align 8
@@ -4699,7 +4699,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6icu_7512_GLOBAL__N_125SimpleUnitIdentifiersSink3putEPKcRNS_13ResourceValueEaR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(68) %this, ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 signext %1, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6icu_7512_GLOBAL__N_125SimpleUnitIdentifiersSink3putEPKcRNS_13ResourceValueEaR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(68) %this, ptr readnone captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 signext %1, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table = alloca %"class.icu_75::ResourceTable", align 8
   %quantitiesTrie = alloca %"class.icu_75::BytesTrie", align 8

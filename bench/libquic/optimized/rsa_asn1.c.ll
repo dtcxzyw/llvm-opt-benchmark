@@ -138,7 +138,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @RSA_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @RSA_marshal_public_key(ptr noundef %cbb, ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_marshal_public_key(ptr noundef %cbb, ptr noundef readonly captures(none) %rsa) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 48) #5
@@ -209,7 +209,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @RSA_public_key_to_bytes(ptr noundef %out_bytes, ptr noundef %out_len, ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_public_key_to_bytes(ptr noundef %out_bytes, ptr noundef %out_len, ptr noundef readonly captures(none) %rsa) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   call void @CBB_zero(ptr noundef nonnull %cbb) #5
@@ -417,7 +417,7 @@ if.then70:                                        ; preds = %if.end66
   br label %err
 
 if.end71:                                         ; preds = %if.end66
-  %call72 = call ptr @BN_dup(ptr noundef %call50) #5
+  %call72 = call ptr @BN_dup(ptr noundef nonnull %call50) #5
   %r = getelementptr inbounds nuw i8, ptr %call63, i64 24
   store ptr %call72, ptr %r, align 8
   %cmp74 = icmp eq ptr %call72, null
@@ -425,7 +425,7 @@ if.end71:                                         ; preds = %if.end66
 
 lor.lhs.false75:                                  ; preds = %if.end71
   %5 = load ptr, ptr %call63, align 8
-  %call76 = call i32 @BN_mul(ptr noundef %call50, ptr noundef %call50, ptr noundef %5, ptr noundef %call49) #5
+  %call76 = call i32 @BN_mul(ptr noundef nonnull %call50, ptr noundef nonnull %call50, ptr noundef %5, ptr noundef nonnull %call49) #5
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %err, label %while.cond, !llvm.loop !7
 
@@ -465,7 +465,7 @@ declare i32 @CBS_get_asn1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @CBS_get_asn1_uint64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_integer(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %out) unnamed_addr #0 {
+define internal fastcc i32 @parse_integer(ptr noundef nonnull %cbs, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %out) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @BN_new() #5
   store ptr %call.i, ptr %out, align 8
@@ -591,7 +591,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @RSA_marshal_private_key(ptr noundef %cbb, ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_marshal_private_key(ptr noundef %cbb, ptr noundef readonly captures(none) %rsa) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %other_prime_infos = alloca %struct.cbb_st, align 8
@@ -782,7 +782,7 @@ declare i32 @CBB_add_asn1_uint64(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @RSA_private_key_to_bytes(ptr noundef %out_bytes, ptr noundef %out_len, ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_private_key_to_bytes(ptr noundef %out_bytes, ptr noundef %out_len, ptr noundef readonly captures(none) %rsa) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   call void @CBB_zero(ptr noundef nonnull %cbb) #5
@@ -811,7 +811,7 @@ return:                                           ; preds = %lor.lhs.false3, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_RSAPublicKey(ptr noundef %out, ptr nocapture noundef %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @d2i_RSAPublicKey(ptr noundef %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %len, 0
@@ -847,7 +847,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_RSAPublicKey(ptr nocapture noundef readonly %in, ptr noundef %outp) local_unnamed_addr #0 {
+define hidden i32 @i2d_RSAPublicKey(ptr noundef readonly captures(none) %in, ptr noundef %outp) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0) #5
@@ -875,7 +875,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @CBB_finish_i2d(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_RSAPrivateKey(ptr noundef %out, ptr nocapture noundef %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @d2i_RSAPrivateKey(ptr noundef %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %len, 0
@@ -909,7 +909,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_RSAPrivateKey(ptr nocapture noundef readonly %in, ptr noundef %outp) local_unnamed_addr #0 {
+define hidden i32 @i2d_RSAPrivateKey(ptr noundef readonly captures(none) %in, ptr noundef %outp) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0) #5
@@ -935,7 +935,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @RSAPublicKey_dup(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define hidden ptr @RSAPublicKey_dup(ptr noundef readonly captures(none) %rsa) local_unnamed_addr #0 {
 entry:
   %cbs.i = alloca %struct.cbs_st, align 8
   %cbb.i = alloca %struct.cbb_st, align 8
@@ -996,10 +996,10 @@ return:                                           ; preds = %RSA_public_key_to_b
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @RSAPrivateKey_dup(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define hidden ptr @RSAPrivateKey_dup(ptr noundef readonly captures(none) %rsa) local_unnamed_addr #0 {
 entry:
   %cbs.i = alloca %struct.cbs_st, align 8
   %cbb.i = alloca %struct.cbb_st, align 8
@@ -1073,10 +1073,10 @@ declare i32 @BN_marshal_asn1(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

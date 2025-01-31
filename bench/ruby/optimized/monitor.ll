@@ -341,7 +341,7 @@ declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) 
 declare i64 @rb_mutex_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @monitor_mark(ptr nocapture noundef readonly %0) #0 {
+define internal void @monitor_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   tail call void @rb_gc_mark(i64 noundef %3) #5
@@ -352,7 +352,7 @@ define internal void @monitor_mark(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @monitor_memsize(ptr nocapture readnone %0) #2 {
+define internal noundef i64 @monitor_memsize(ptr readnone captures(none) %0) #2 {
   ret i64 24
 }
 

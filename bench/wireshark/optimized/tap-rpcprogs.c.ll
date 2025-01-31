@@ -28,7 +28,7 @@ define hidden void @register_tap_listener_rpcprogs() local_unnamed_addr #0 {
 declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @rpcprogs_init(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal void @rpcprogs_init(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %.b = load i1, ptr @already_enabled, align 4
   br i1 %.b, label %8, label %3
 
@@ -52,7 +52,7 @@ define internal void @rpcprogs_init(ptr nocapture readnone %0, ptr nocapture rea
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = load ptr, ptr @prog_list, align 8
   %.not = icmp eq ptr %7, null
@@ -351,7 +351,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rpcprogs_draw(ptr nocapture readnone %0) #0 {
+define internal void @rpcprogs_draw(ptr readnone captures(none) %0) #0 {
   %2 = alloca [64 x i8], align 16
   %putchar = tail call i32 @putchar(i32 10)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -430,10 +430,10 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @rpc_prog_name(i32 noundef) local_unnamed_addr #1
 
@@ -441,7 +441,7 @@ declare ptr @rpc_prog_name(i32 noundef) local_unnamed_addr #1
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

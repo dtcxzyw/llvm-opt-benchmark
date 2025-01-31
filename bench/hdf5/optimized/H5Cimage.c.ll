@@ -112,7 +112,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.59 = private unnamed_addr constant [47 x i8] c"can't write metadata cache image block to file\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @H5C_cache_image_pending(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define zeroext i1 @H5C_cache_image_pending(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 527633
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -131,7 +131,7 @@ define zeroext i1 @H5C_cache_image_pending(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5C_cache_image_status(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #1 {
+define noundef i32 @H5C_cache_image_status(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -158,7 +158,7 @@ define noundef i32 @H5C_cache_image_status(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C__generate_cache_image(ptr noundef %0, ptr nocapture noundef initializes((527712, 527720)) %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5C__generate_cache_image(ptr noundef %0, ptr noundef captures(none) initializes((527712, 527720)) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 527648
   %5 = load i64, ptr %4, align 8
@@ -717,7 +717,7 @@ define range(i32 -1, 1) i32 @H5C__get_cache_image_config(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C__load_cache_image(ptr noundef %0) local_unnamed_addr #2 {
@@ -928,7 +928,7 @@ H5C__read_cache_image.exit:                       ; preds = %21
   %130 = ptrtoint ptr %129 to i64
   %131 = ptrtoint ptr %31 to i64
   %132 = sub i64 %130, %131
-  %133 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #15
+  %133 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef nonnull %0) #15
   %134 = zext i8 %133 to i64
   %135 = add nuw nsw i64 %134, 10
   %.not69.i.i = icmp eq i64 %132, %135
@@ -1075,7 +1075,7 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   %235 = getelementptr inbounds nuw i8, ptr %.0325.i, i64 14
   store ptr %235, ptr %2, align 8
   %236 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %236) #15
+  call void @H5F_addr_decode(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %236) #15
   %237 = load i64, ptr %236, align 8
   %.not88.i.i = icmp eq i64 %237, -1
   br i1 %.not88.i.i, label %238, label %242
@@ -1087,7 +1087,7 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   br label %351
 
 242:                                              ; preds = %228
-  %243 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #15
+  %243 = call zeroext i8 @H5F_sizeof_size(ptr noundef nonnull %0) #15
   switch i8 %243, label %._crit_edge.i290.i [
     i8 4, label %244
     i8 8, label %265
@@ -1191,10 +1191,10 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   %301 = ptrtoint ptr %300 to i64
   %302 = ptrtoint ptr %.0325.i to i64
   %303 = sub i64 %301, %302
-  %304 = call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #15
+  %304 = call zeroext i8 @H5F_sizeof_addr(ptr noundef nonnull %0) #15
   %305 = zext i8 %304 to i64
   %306 = add nuw nsw i64 %305, 14
-  %307 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #15
+  %307 = call zeroext i8 @H5F_sizeof_size(ptr noundef nonnull %0) #15
   %308 = zext i8 %307 to i64
   %309 = add nuw nsw i64 %306, %308
   %.not89.i.i = icmp eq i64 %303, %309
@@ -1212,7 +1212,7 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   br i1 %.not90.i.i, label %.loopexit.i.i, label %316
 
 316:                                              ; preds = %314
-  %317 = call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #15
+  %317 = call zeroext i8 @H5F_sizeof_addr(ptr noundef nonnull %0) #15
   %318 = zext i8 %317 to i64
   %319 = mul i64 %315, %318
   %320 = call noalias ptr @malloc(i64 noundef %319) #14
@@ -1244,7 +1244,7 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   %334 = phi i64 [ %330, %328 ], [ 0, %.preheader.i.i ]
   %.096.i.i = phi i32 [ %329, %328 ], [ 0, %.preheader.i.i ]
   %335 = getelementptr inbounds nuw i64, ptr %333, i64 %334
-  call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %335) #15
+  call void @H5F_addr_decode(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %335) #15
   %336 = load ptr, ptr %321, align 8
   %337 = getelementptr inbounds nuw i64, ptr %336, i64 %334
   %338 = load i64, ptr %337, align 8
@@ -1896,7 +1896,7 @@ H5C__decode_cache_image_header.exit._crit_edge.i: ; preds = %H5C__decode_cache_i
   br i1 %.not276.i, label %679, label %672
 
 672:                                              ; preds = %669
-  %673 = call i32 %671(ptr noundef %0, ptr noundef nonnull %3) #15
+  %673 = call i32 %671(ptr noundef nonnull %0, ptr noundef nonnull %3) #15
   %674 = icmp slt i32 %673, 0
   br i1 %674, label %675, label %679
 
@@ -1912,7 +1912,7 @@ H5C__decode_cache_image_header.exit._crit_edge.i: ; preds = %H5C__decode_cache_i
   %682 = trunc i8 %681 to i1
   %683 = and i8 %681, 1
   store i8 %683, ptr %3, align 1
-  %684 = call i32 @H5C__make_space_in_cache(ptr noundef %0, i64 noundef 0, i1 noundef zeroext %682) #15
+  %684 = call i32 @H5C__make_space_in_cache(ptr noundef nonnull %0, i64 noundef 0, i1 noundef zeroext %682) #15
   %685 = icmp slt i32 %684, 0
   br i1 %685, label %686, label %694
 
@@ -1984,7 +1984,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare i32 @H5F__super_ext_remove_msg(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5C_load_cache_image_on_next_protect(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #6 {
+define noundef i32 @H5C_load_cache_image_on_next_protect(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #6 {
   %5 = zext i1 %3 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -2002,7 +2002,7 @@ define noundef i32 @H5C_load_cache_image_on_next_protect(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C__prep_image_for_file_close(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5C__prep_image_for_file_close(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.H5O_mdci_t, align 8
   %4 = alloca %struct.H5O_mdci_t, align 8
   %5 = alloca i64, align 8
@@ -2581,7 +2581,7 @@ H5C__prep_for_file_close__compute_fd_heights.exit.i: ; preds = %.loopexit.i.i
   br i1 %.not85.i, label %307, label %302
 
 302:                                              ; preds = %299
-  %303 = call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #15
+  %303 = call zeroext i8 @H5F_sizeof_addr(ptr noundef nonnull %0) #15
   %304 = zext i8 %303 to i64
   %305 = load i64, ptr %300, align 8
   %306 = mul i64 %305, %304
@@ -2659,7 +2659,7 @@ H5C__prep_for_file_close__compute_fd_heights.exit.i: ; preds = %.loopexit.i.i
   store i64 %337, ptr %338, align 8
   %339 = load ptr, ptr %7, align 8
   %340 = load ptr, ptr %339, align 8
-  %341 = call i64 @H5FD_alloc(ptr noundef %340, i32 noundef 1, ptr noundef %0, i64 noundef %337, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
+  %341 = call i64 @H5FD_alloc(ptr noundef %340, i32 noundef 1, ptr noundef nonnull %0, i64 noundef %337, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %342 = getelementptr inbounds nuw i8, ptr %10, i64 527640
   store i64 %341, ptr %342, align 8
   %343 = icmp eq i64 %341, -1
@@ -2907,10 +2907,10 @@ declare i64 @H5FD_alloc(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr 
 declare i64 @H5FD_get_eoa(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @H5C__image_entry_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @H5C__image_entry_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -3061,7 +3061,7 @@ declare i32 @H5F_block_read(ptr noundef, i32 noundef, i64 noundef, i64 noundef, 
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5C__prep_for_file_close__compute_fd_heights_real(ptr nocapture noundef initializes((200, 204)) %0, i32 noundef %1) unnamed_addr #9 {
+define internal fastcc void @H5C__prep_for_file_close__compute_fd_heights_real(ptr noundef captures(none) initializes((200, 204)) %0, i32 noundef %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3131,16 +3131,16 @@ declare i32 @H5F__super_ext_write_msg(ptr noundef, i32 noundef, ptr noundef, i1 
 declare i32 @H5F_block_write(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13

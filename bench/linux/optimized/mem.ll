@@ -149,7 +149,7 @@ define internal i32 @memory_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noalias noundef ptr @mem_devnode(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #4 align 16 {
+define internal noalias noundef ptr @mem_devnode(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #4 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %15, label %4
 
@@ -174,7 +174,7 @@ define internal noalias noundef ptr @mem_devnode(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -75, -4095) i64 @memory_lseek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
+define internal range(i64 -75, -4095) i64 @memory_lseek(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 160
@@ -209,7 +209,7 @@ define internal range(i64 -75, -4095) i64 @memory_lseek(ptr nocapture noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @read_mem(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i64 @read_mem(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = load i64, ptr %3, align 8
   %6 = tail call i32 @valid_phys_addr_range(i64 noundef %5, i64 noundef %2) #12
   %7 = icmp eq i32 %6, 0
@@ -322,7 +322,7 @@ define internal i64 @read_mem(ptr nocapture readnone %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i64 @write_mem(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = load i64, ptr %3, align 8
   %6 = tail call i32 @valid_phys_addr_range(i64 noundef %5, i64 noundef %2) #12
   %7 = icmp eq i32 %6, 0
@@ -481,7 +481,7 @@ define internal range(i32 -22, 1) i32 @mmap_mem(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @open_port(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal i32 @open_port(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = tail call zeroext i1 @capable(i32 noundef 17) #12
   br i1 %3, label %4, label %15
 
@@ -572,29 +572,29 @@ declare dso_local i32 @security_locked_down(i32 noundef) local_unnamed_addr #3
 declare dso_local ptr @iomem_get_mapping() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i64 @null_lseek(ptr nocapture noundef writeonly initializes((64, 72)) %0, i64 %1, i32 %2) #8 align 16 {
+define internal noundef i64 @null_lseek(ptr noundef writeonly captures(none) initializes((64, 72)) %0, i64 %1, i32 %2) #8 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %4, align 8
   ret i64 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @read_null(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3) #9 align 16 {
+define internal noundef i64 @read_null(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3) #9 align 16 {
   ret i64 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @write_null(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 noundef returned %2, ptr nocapture readnone %3) #9 align 16 {
+define internal noundef i64 @write_null(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 noundef returned %2, ptr readnone captures(none) %3) #9 align 16 {
   ret i64 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @read_iter_null(ptr nocapture readnone %0, ptr nocapture readnone %1) #9 align 16 {
+define internal noundef i64 @read_iter_null(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #9 align 16 {
   ret i64 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @write_iter_null(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef i64 @write_iter_null(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   tail call void @iov_iter_advance(ptr noundef %1, i64 noundef %4) #12
@@ -608,7 +608,7 @@ define internal i64 @splice_write_null(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @uring_cmd_null(ptr nocapture readnone %0, i32 %1) #9 align 16 {
+define internal noundef i32 @uring_cmd_null(ptr readnone captures(none) %0, i32 %1) #9 align 16 {
   ret i32 0
 }
 
@@ -619,14 +619,14 @@ declare dso_local void @iov_iter_advance(ptr noundef, i64 noundef) local_unnamed
 declare dso_local i64 @splice_from_pipe(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @pipe_to_null(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #10 align 16 {
+define internal i32 @pipe_to_null(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #10 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @read_port(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i64 @read_port(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = ptrtoint ptr %1 to i64
   %6 = add i64 %2, %5
   %7 = icmp sgt i64 %6, -1
@@ -683,7 +683,7 @@ define internal i64 @read_port(ptr nocapture readnone %0, ptr noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @write_port(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i64 @write_port(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = ptrtoint ptr %1 to i64
   %6 = add i64 %2, %5
   %7 = icmp sgt i64 %6, -1
@@ -742,7 +742,7 @@ define internal i64 @write_port(ptr nocapture readnone %0, ptr noundef %1, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @read_zero(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal i64 @read_zero(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %.critedge.thread4, label %.lr.ph
 
@@ -800,7 +800,7 @@ define internal i64 @read_zero(ptr nocapture readnone %0, ptr noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @read_iter_zero(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i64 @read_iter_zero(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -880,7 +880,7 @@ define internal i64 @read_iter_zero(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mmap_zero(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal i32 @mmap_zero(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 8
@@ -939,7 +939,7 @@ declare dso_local i32 @shmem_zero_setup(ptr noundef) local_unnamed_addr #3
 declare dso_local i64 @shmem_get_unmapped_area(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @write_full(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3) #9 align 16 {
+define internal noundef i64 @write_full(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3) #9 align 16 {
   ret i64 -28
 }
 

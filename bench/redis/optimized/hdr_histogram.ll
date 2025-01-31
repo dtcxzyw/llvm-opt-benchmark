@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [22 x i8] c"%12s %12s %12s %12s\0A\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @counts_index_for(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #0 {
+define dso_local i32 @counts_index_for(ptr noundef readonly captures(none) %h, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i = getelementptr inbounds nuw i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i, align 8
@@ -50,7 +50,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @hdr_value_at_index(ptr nocapture noundef readonly %h, i32 noundef %index) local_unnamed_addr #0 {
+define dso_local i64 @hdr_value_at_index(ptr noundef readonly captures(none) %h, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %sub_bucket_half_count_magnitude = getelementptr inbounds nuw i8, ptr %h, i64 24
   %0 = load i32, ptr %sub_bucket_half_count_magnitude, align 8
@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 1, -9223372036854775807) i64 @hdr_size_of_equivalent_value_range(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #0 {
+define dso_local range(i64 1, -9223372036854775807) i64 @hdr_size_of_equivalent_value_range(ptr noundef readonly captures(none) %h, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i = getelementptr inbounds nuw i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i, align 8
@@ -103,7 +103,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @hdr_next_non_equivalent_value(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #0 {
+define dso_local i64 @hdr_next_non_equivalent_value(ptr noundef readonly captures(none) %h, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i.i = getelementptr inbounds nuw i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
@@ -132,7 +132,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @hdr_median_equivalent_value(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #0 {
+define dso_local i64 @hdr_median_equivalent_value(ptr noundef readonly captures(none) %h, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i.i = getelementptr inbounds nuw i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
@@ -162,7 +162,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @hdr_reset_internal_counters(ptr nocapture noundef %h) local_unnamed_addr #1 {
+define dso_local void @hdr_reset_internal_counters(ptr noundef captures(none) %h) local_unnamed_addr #1 {
 entry:
   %counts_len = getelementptr inbounds nuw i8, ptr %h, i64 80
   %0 = load i32, ptr %counts_len, align 8
@@ -293,7 +293,7 @@ if.end18:                                         ; preds = %if.end12, %if.end12
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 0, 23) i32 @hdr_calculate_bucket_config(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef %cfg) local_unnamed_addr #2 {
+define dso_local range(i32 0, 23) i32 @hdr_calculate_bucket_config(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr noundef captures(none) %cfg) local_unnamed_addr #2 {
 entry:
   %cmp = icmp slt i64 %lowest_discernible_value, 1
   %0 = add i32 %significant_figures, -6
@@ -408,7 +408,7 @@ declare double @log(double noundef) local_unnamed_addr #3
 declare double @llvm.ceil.f64(double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_init_preallocated(ptr nocapture noundef writeonly initializes((0, 68), (72, 84), (88, 96)) %h, ptr nocapture noundef readonly %cfg) local_unnamed_addr #5 {
+define dso_local void @hdr_init_preallocated(ptr noundef writeonly captures(none) initializes((0, 68), (72, 84), (88, 96)) %h, ptr noundef readonly captures(none) %cfg) local_unnamed_addr #5 {
 entry:
   %0 = load i64, ptr %cfg, align 8
   store i64 %0, ptr %h, align 8
@@ -464,7 +464,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 23) i32 @hdr_init(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef writeonly %result) local_unnamed_addr #6 {
+define dso_local range(i32 0, 23) i32 @hdr_init(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr noundef writeonly captures(none) %result) local_unnamed_addr #6 {
 entry:
   %cfg = alloca %struct.hdr_histogram_bucket_config, align 8
   %call = call i32 @hdr_calculate_bucket_config(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr noundef nonnull %cfg)
@@ -569,14 +569,14 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 23) i32 @hdr_alloc(i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef writeonly %result) local_unnamed_addr #6 {
+define dso_local range(i32 0, 23) i32 @hdr_alloc(i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr noundef writeonly captures(none) %result) local_unnamed_addr #6 {
 entry:
   %call = tail call i32 @hdr_init(i64 noundef 1, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr noundef %result)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @hdr_reset(ptr nocapture noundef initializes((48, 64), (88, 96)) %h) local_unnamed_addr #8 {
+define dso_local void @hdr_reset(ptr noundef captures(none) initializes((48, 64), (88, 96)) %h) local_unnamed_addr #8 {
 entry:
   %total_count = getelementptr inbounds nuw i8, ptr %h, i64 88
   store i64 0, ptr %total_count, align 8
@@ -595,10 +595,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 -17179869080, 17179869281) i64 @hdr_get_memory_size(ptr nocapture noundef readonly %h) local_unnamed_addr #0 {
+define dso_local range(i64 -17179869080, 17179869281) i64 @hdr_get_memory_size(ptr noundef readonly captures(none) %h) local_unnamed_addr #0 {
 entry:
   %counts_len = getelementptr inbounds nuw i8, ptr %h, i64 80
   %0 = load i32, ptr %counts_len, align 8
@@ -609,7 +609,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @hdr_record_value(ptr nocapture noundef %h, i64 noundef %value) local_unnamed_addr #10 {
+define dso_local noundef zeroext i1 @hdr_record_value(ptr noundef captures(none) %h, i64 noundef %value) local_unnamed_addr #10 {
 entry:
   %cmp.i = icmp slt i64 %value, 0
   br i1 %cmp.i, label %hdr_record_values.exit, label %if.end.i
@@ -693,7 +693,7 @@ hdr_record_values.exit:                           ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @hdr_record_values(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %count) local_unnamed_addr #10 {
+define dso_local noundef zeroext i1 @hdr_record_values(ptr noundef captures(none) %h, i64 noundef %value, i64 noundef %count) local_unnamed_addr #10 {
 entry:
   %cmp = icmp slt i64 %value, 0
   br i1 %cmp, label %return, label %if.end
@@ -777,7 +777,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @hdr_record_value_atomic(ptr nocapture noundef %h, i64 noundef %value) local_unnamed_addr #11 {
+define dso_local noundef zeroext i1 @hdr_record_value_atomic(ptr noundef captures(none) %h, i64 noundef %value) local_unnamed_addr #11 {
 entry:
   %cmp.i = icmp slt i64 %value, 0
   br i1 %cmp.i, label %hdr_record_values_atomic.exit, label %if.end.i
@@ -877,7 +877,7 @@ hdr_record_values_atomic.exit:                    ; preds = %do.body3.i.i, %do.c
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @hdr_record_values_atomic(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %count) local_unnamed_addr #11 {
+define dso_local noundef zeroext i1 @hdr_record_values_atomic(ptr noundef captures(none) %h, i64 noundef %value, i64 noundef %count) local_unnamed_addr #11 {
 entry:
   %cmp = icmp slt i64 %value, 0
   br i1 %cmp, label %return, label %if.end
@@ -977,14 +977,14 @@ return:                                           ; preds = %do.cond8.i, %do.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @hdr_record_corrected_value(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %expected_interval) local_unnamed_addr #12 {
+define dso_local noundef zeroext i1 @hdr_record_corrected_value(ptr noundef captures(none) %h, i64 noundef %value, i64 noundef %expected_interval) local_unnamed_addr #12 {
 entry:
   %call = tail call zeroext i1 @hdr_record_corrected_values(ptr noundef %h, i64 noundef %value, i64 noundef 1, i64 noundef %expected_interval)
   ret i1 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @hdr_record_corrected_values(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %count, i64 noundef %expected_interval) local_unnamed_addr #12 {
+define dso_local noundef zeroext i1 @hdr_record_corrected_values(ptr noundef captures(none) %h, i64 noundef %value, i64 noundef %count, i64 noundef %expected_interval) local_unnamed_addr #12 {
 entry:
   %cmp.i = icmp slt i64 %value, 0
   br i1 %cmp.i, label %return, label %if.end.i
@@ -1138,14 +1138,14 @@ return:                                           ; preds = %hdr_record_values.e
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @hdr_record_corrected_value_atomic(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %expected_interval) local_unnamed_addr #11 {
+define dso_local noundef zeroext i1 @hdr_record_corrected_value_atomic(ptr noundef captures(none) %h, i64 noundef %value, i64 noundef %expected_interval) local_unnamed_addr #11 {
 entry:
   %call = tail call zeroext i1 @hdr_record_corrected_values_atomic(ptr noundef %h, i64 noundef %value, i64 noundef 1, i64 noundef %expected_interval)
   ret i1 %call
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @hdr_record_corrected_values_atomic(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %count, i64 noundef %expected_interval) local_unnamed_addr #11 {
+define dso_local noundef zeroext i1 @hdr_record_corrected_values_atomic(ptr noundef captures(none) %h, i64 noundef %value, i64 noundef %count, i64 noundef %expected_interval) local_unnamed_addr #11 {
 entry:
   %cmp.i = icmp slt i64 %value, 0
   br i1 %cmp.i, label %return, label %if.end.i
@@ -1334,7 +1334,7 @@ return:                                           ; preds = %hdr_record_values_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hdr_add(ptr nocapture noundef %h, ptr noundef %from) local_unnamed_addr #6 {
+define dso_local i64 @hdr_add(ptr noundef captures(none) %h, ptr noundef %from) local_unnamed_addr #6 {
 entry:
   %iter = alloca %struct.hdr_iter, align 8
   store ptr %from, ptr %iter, align 8
@@ -1453,7 +1453,7 @@ while.end:                                        ; preds = %while.cond, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_recorded_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 56), (72, 96), (120, 128)) %iter, ptr noundef %h) local_unnamed_addr #5 {
+define dso_local void @hdr_iter_recorded_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 56), (72, 96), (120, 128)) %iter, ptr noundef %h) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index.i = getelementptr inbounds nuw i8, ptr %iter, i64 8
@@ -1483,7 +1483,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hdr_add_while_correcting_for_coordinated_omission(ptr nocapture noundef %h, ptr noundef %from, i64 noundef %expected_interval) local_unnamed_addr #6 {
+define dso_local i64 @hdr_add_while_correcting_for_coordinated_omission(ptr noundef captures(none) %h, ptr noundef %from, i64 noundef %expected_interval) local_unnamed_addr #6 {
 entry:
   %iter = alloca %struct.hdr_iter, align 8
   store ptr %from, ptr %iter, align 8
@@ -1523,7 +1523,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @hdr_max(ptr nocapture noundef readonly %h) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @hdr_max(ptr noundef readonly captures(none) %h) local_unnamed_addr #0 {
 entry:
   %max_value = getelementptr inbounds nuw i8, ptr %h, i64 56
   %0 = load i64, ptr %max_value, align 8
@@ -1563,7 +1563,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @hdr_min(ptr nocapture noundef readonly %h) local_unnamed_addr #13 {
+define dso_local i64 @hdr_min(ptr noundef readonly captures(none) %h) local_unnamed_addr #13 {
 entry:
   %normalizing_index_offset.i.i.i = getelementptr inbounds nuw i8, ptr %h, i64 64
   %0 = load i32, ptr %normalizing_index_offset.i.i.i, align 8
@@ -1621,7 +1621,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @hdr_count_at_index(ptr nocapture noundef readonly %h, i32 noundef %index) local_unnamed_addr #13 {
+define dso_local i64 @hdr_count_at_index(ptr noundef readonly captures(none) %h, i32 noundef %index) local_unnamed_addr #13 {
 entry:
   %normalizing_index_offset.i.i = getelementptr inbounds nuw i8, ptr %h, i64 64
   %0 = load i32, ptr %normalizing_index_offset.i.i, align 8
@@ -1651,7 +1651,7 @@ counts_get_normalised.exit:                       ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @hdr_value_at_percentile(ptr nocapture noundef readonly %h, double noundef %percentile) local_unnamed_addr #14 {
+define dso_local i64 @hdr_value_at_percentile(ptr noundef readonly captures(none) %h, double noundef %percentile) local_unnamed_addr #14 {
 entry:
   %cmp = fcmp olt double %percentile, 1.000000e+02
   %cond = select i1 %cmp, double %percentile, double 1.000000e+02
@@ -1865,7 +1865,7 @@ return:                                           ; preds = %while.end, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 56), (72, 88), (120, 128)) %iter, ptr noundef %h) local_unnamed_addr #5 {
+define dso_local void @hdr_iter_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 56), (72, 88), (120, 128)) %iter, ptr noundef %h) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index = getelementptr inbounds nuw i8, ptr %iter, i64 8
@@ -2168,7 +2168,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 declare double @sqrt(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @hdr_values_are_equivalent(ptr nocapture noundef readonly %h, i64 noundef %a, i64 noundef %b) local_unnamed_addr #0 {
+define dso_local zeroext i1 @hdr_values_are_equivalent(ptr noundef readonly captures(none) %h, i64 noundef %a, i64 noundef %b) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i.i = getelementptr inbounds nuw i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
@@ -2199,7 +2199,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @hdr_lowest_equivalent_value(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #0 {
+define dso_local i64 @hdr_lowest_equivalent_value(ptr noundef readonly captures(none) %h, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i.i = getelementptr inbounds nuw i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
@@ -2219,7 +2219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @hdr_count_at_value(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #13 {
+define dso_local i64 @hdr_count_at_value(ptr noundef readonly captures(none) %h, i64 noundef %value) local_unnamed_addr #13 {
 entry:
   %sub_bucket_mask.i.i = getelementptr inbounds nuw i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
@@ -2271,7 +2271,7 @@ counts_get_normalised.exit:                       ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @all_values_iter_next(ptr nocapture noundef %iter) #15 {
+define internal noundef zeroext i1 @all_values_iter_next(ptr noundef captures(none) %iter) #15 {
 entry:
   %call = tail call fastcc zeroext i1 @move_next(ptr noundef %iter)
   br i1 %call, label %if.then, label %if.end
@@ -2291,7 +2291,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_percentile_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 56), (72, 89), (92, 112), (120, 128)) %iter, ptr noundef %h, i32 noundef %ticks_per_half_distance) local_unnamed_addr #5 {
+define dso_local void @hdr_iter_percentile_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 56), (72, 89), (92, 112), (120, 128)) %iter, ptr noundef %h, i32 noundef %ticks_per_half_distance) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index.i = getelementptr inbounds nuw i8, ptr %iter, i64 8
@@ -2316,7 +2316,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @percentile_iter_next(ptr nocapture noundef %iter) #6 {
+define internal noundef zeroext i1 @percentile_iter_next(ptr noundef captures(none) %iter) #6 {
 entry:
   %specifics = getelementptr inbounds nuw i8, ptr %iter, i64 88
   %0 = getelementptr i8, ptr %iter, i64 16
@@ -2453,7 +2453,7 @@ return:                                           ; preds = %do.cond, %lor.lhs.f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @recorded_iter_next(ptr nocapture noundef %iter) #1 {
+define internal noundef zeroext i1 @recorded_iter_next(ptr noundef captures(none) %iter) #1 {
 entry:
   %0 = getelementptr i8, ptr %iter, i64 16
   %1 = getelementptr i8, ptr %iter, i64 32
@@ -2499,7 +2499,7 @@ return:                                           ; preds = %while.cond, %lor.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_linear_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 56), (72, 128)) %iter, ptr noundef %h, i64 noundef %value_units_per_bucket) local_unnamed_addr #5 {
+define dso_local void @hdr_iter_linear_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 56), (72, 128)) %iter, ptr noundef %h, i64 noundef %value_units_per_bucket) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index.i = getelementptr inbounds nuw i8, ptr %iter, i64 8
@@ -2541,7 +2541,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @iter_linear_next(ptr nocapture noundef initializes((96, 104)) %iter) #1 {
+define internal noundef zeroext i1 @iter_linear_next(ptr noundef captures(none) initializes((96, 104)) %iter) #1 {
 entry:
   %specifics = getelementptr inbounds nuw i8, ptr %iter, i64 88
   %count_added_in_this_iteration_step = getelementptr inbounds nuw i8, ptr %iter, i64 96
@@ -2653,7 +2653,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @hdr_iter_linear_set_value_units_per_bucket(ptr nocapture noundef writeonly initializes((88, 96)) %iter, i64 noundef %value_units_per_bucket) local_unnamed_addr #16 {
+define dso_local void @hdr_iter_linear_set_value_units_per_bucket(ptr noundef writeonly captures(none) initializes((88, 96)) %iter, i64 noundef %value_units_per_bucket) local_unnamed_addr #16 {
 entry:
   %specifics = getelementptr inbounds nuw i8, ptr %iter, i64 88
   store i64 %value_units_per_bucket, ptr %specifics, align 8
@@ -2661,7 +2661,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_log_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 56), (72, 128)) %iter, ptr noundef %h, i64 noundef %value_units_first_bucket, double noundef %log_base) local_unnamed_addr #5 {
+define dso_local void @hdr_iter_log_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 56), (72, 128)) %iter, ptr noundef %h, i64 noundef %value_units_first_bucket, double noundef %log_base) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index.i = getelementptr inbounds nuw i8, ptr %iter, i64 8
@@ -2703,7 +2703,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @log_iter_next(ptr nocapture noundef initializes((96, 104)) %iter) #1 {
+define internal noundef zeroext i1 @log_iter_next(ptr noundef captures(none) initializes((96, 104)) %iter) #1 {
 entry:
   %specifics = getelementptr inbounds nuw i8, ptr %iter, i64 88
   %count_added_in_this_iteration_step = getelementptr inbounds nuw i8, ptr %iter, i64 96
@@ -2816,7 +2816,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 6) i32 @hdr_percentiles_print(ptr noundef %h, ptr nocapture noundef %stream, i32 noundef %ticks_per_half_distance, double noundef %value_scale, i32 noundef %format) local_unnamed_addr #6 {
+define dso_local range(i32 0, 6) i32 @hdr_percentiles_print(ptr noundef %h, ptr noundef captures(none) %stream, i32 noundef %ticks_per_half_distance, double noundef %value_scale, i32 noundef %format) local_unnamed_addr #6 {
 entry:
   %iter.i = alloca %struct.hdr_iter, align 8
   %line_format = alloca [25 x i8], align 16
@@ -3072,13 +3072,13 @@ cleanup:                                          ; preds = %while.body, %hdr_ma
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @move_next(ptr nocapture noundef %iter) unnamed_addr #15 {
+define internal fastcc noundef zeroext i1 @move_next(ptr noundef captures(none) %iter) unnamed_addr #15 {
 entry:
   %counts_index = getelementptr inbounds nuw i8, ptr %iter, i64 8
   %0 = load i32, ptr %counts_index, align 8
@@ -3176,7 +3176,7 @@ return:                                           ; preds = %entry, %counts_get_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18
@@ -3193,10 +3193,10 @@ declare double @exp2(double) local_unnamed_addr
 declare i64 @llvm.smin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

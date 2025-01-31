@@ -49,7 +49,7 @@ define dso_local void @nbcon_seq_force(ptr noundef %0, i64 noundef %1) local_unn
 declare dso_local i64 @prb_first_valid_seq(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @nbcon_can_proceed(ptr nocapture noundef %0) #1 align 16 {
+define dso_local noundef zeroext i1 @nbcon_can_proceed(ptr noundef captures(none) %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %4 = load volatile i32, ptr %3, align 4
@@ -58,7 +58,7 @@ define dso_local noundef zeroext i1 @nbcon_can_proceed(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @nbcon_context_can_proceed(ptr nocapture noundef %0, i32 %.0.val) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @nbcon_context_can_proceed(ptr noundef captures(none) %0, i32 %.0.val) unnamed_addr #1 align 16 {
   %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
@@ -139,7 +139,7 @@ define internal fastcc noundef zeroext i1 @nbcon_context_can_proceed(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @nbcon_enter_unsafe(ptr nocapture noundef %0) #1 align 16 {
+define dso_local noundef zeroext i1 @nbcon_enter_unsafe(ptr noundef captures(none) %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %4 = load volatile i32, ptr %3, align 4
@@ -171,7 +171,7 @@ define dso_local noundef zeroext i1 @nbcon_enter_unsafe(ptr nocapture noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @nbcon_exit_unsafe(ptr nocapture noundef %0) #1 align 16 {
+define dso_local noundef zeroext i1 @nbcon_exit_unsafe(ptr noundef captures(none) %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %4 = load volatile i32, ptr %3, align 4

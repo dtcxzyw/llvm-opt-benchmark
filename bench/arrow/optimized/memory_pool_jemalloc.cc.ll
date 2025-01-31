@@ -80,7 +80,7 @@ $_ZN5arrow6Status17FromDetailAndArgsIJRA30_KcEEES0_NS_10StatusCodeESt10shared_pt
 @"_ZTIZN5arrow21jemalloc_stats_stringB5cxx11EPKcE3$_0" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZN5arrow21jemalloc_stats_stringB5cxx11EPKcE3$_0" }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow11memory_pool8internal17JemallocAllocator15AllocateAlignedEllPPh(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 noundef %size, i64 noundef %alignment, ptr nocapture noundef writeonly initializes((0, 8)) %out) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow11memory_pool8internal17JemallocAllocator15AllocateAlignedEllPPh(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 noundef %size, i64 noundef %alignment, ptr noundef writeonly captures(none) initializes((0, 8)) %out) local_unnamed_addr #0 align 2 {
 entry:
   %size.addr = alloca i64, align 8
   store i64 %size, ptr %size.addr, align 8
@@ -135,7 +135,7 @@ return:                                           ; preds = %if.end7, %if.then6,
 declare noalias ptr @je_arrow_mallocx(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow11memory_pool8internal17JemallocAllocator17ReallocateAlignedElllPPh(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 noundef %old_size, i64 noundef %new_size, i64 noundef %alignment, ptr nocapture noundef %ptr) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow11memory_pool8internal17JemallocAllocator17ReallocateAlignedElllPPh(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 noundef %old_size, i64 noundef %new_size, i64 noundef %alignment, ptr noundef captures(none) %ptr) local_unnamed_addr #0 align 2 {
 entry:
   %size.addr.i = alloca i64, align 8
   %new_size.addr = alloca i64, align 8
@@ -404,7 +404,7 @@ if.then:                                          ; preds = %lor.lhs.false12, %l
 if.end:                                           ; preds = %if.then, %lor.lhs.false12
   store i64 0, ptr %value, align 8
   store i64 8, ptr %sz, align 8
-  %call16 = call i32 @je_arrow_mallctl(ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull %sz, ptr noundef null, i64 noundef 0) #17
+  %call16 = call i32 @je_arrow_mallctl(ptr noundef nonnull %name, ptr noundef nonnull %value, ptr noundef nonnull %sz, ptr noundef null, i64 noundef 0) #17
   switch i32 %call16, label %if.end26 [
     i32 0, label %if.then17
     i32 22, label %if.then20
@@ -420,7 +420,7 @@ if.then17:                                        ; preds = %if.end
 if.then20:                                        ; preds = %if.end
   store i32 0, ptr %value21, align 4
   store i64 4, ptr %sz, align 8
-  %call22 = call i32 @je_arrow_mallctl(ptr noundef %name, ptr noundef nonnull %value21, ptr noundef nonnull %sz, ptr noundef null, i64 noundef 0) #17
+  %call22 = call i32 @je_arrow_mallctl(ptr noundef nonnull %name, ptr noundef nonnull %value21, ptr noundef nonnull %sz, ptr noundef null, i64 noundef 0) #17
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.then24, label %if.end26
 
@@ -526,7 +526,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow6ResultIlEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %status) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -725,7 +725,7 @@ _ZNSt8functionIFvPKcEED2Ev.exit:                  ; preds = %_ZN5arrow6StatusD2E
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow20jemalloc_stats_printESt8functionIFvPKcEES2_(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %write_cb, ptr noundef %opts) local_unnamed_addr #2 {
+define void @_ZN5arrow20jemalloc_stats_printESt8functionIFvPKcEES2_(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %write_cb, ptr noundef %opts) local_unnamed_addr #2 {
 entry:
   tail call void @je_arrow_malloc_stats_print(ptr noundef nonnull @"_ZZN5arrow20jemalloc_stats_printESt8functionIFvPKcEES2_EN3$_08__invokeEPvS2_", ptr noundef %write_cb, ptr noundef %opts) #17
   store ptr null, ptr %agg.result, align 8, !alias.scope !37
@@ -738,7 +738,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow20jemalloc_stats_printEPKc(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %opts) local_unnamed_addr #2 {
+define void @_ZN5arrow20jemalloc_stats_printEPKc(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %opts) local_unnamed_addr #2 {
 entry:
   tail call void @je_arrow_malloc_stats_print(ptr noundef null, ptr noundef null, ptr noundef %opts) #17
   store ptr null, ptr %agg.result, align 8, !alias.scope !40
@@ -1602,7 +1602,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvPKcEZN5arrow21jemalloc_stats_stringB5cxx11ES1_E3$_0E9_M_invokeERKSt9_Any_dataOS1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvPKcEZN5arrow21jemalloc_stats_stringB5cxx11ES1_E3$_0E9_M_invokeERKSt9_Any_dataOS1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #0 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   %__args.val = load ptr, ptr %__args, align 8
@@ -1611,7 +1611,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcEZN5arrow21jemalloc_stats_stringB5cxx11ES1_E3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcEZN5arrow21jemalloc_stats_stringB5cxx11ES1_E3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1645,10 +1645,10 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

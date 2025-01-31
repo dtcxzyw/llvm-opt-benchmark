@@ -588,7 +588,7 @@ _ZN5boost8charconv6detail15compute_float80IeoEET_lT0_bRSt4errc.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserIolEENS0_19from_chars_result_tIcEEPKcS6_RbRT_RT0_NS0_12chars_formatE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %5) local_unnamed_addr #2 comdat {
@@ -1268,10 +1268,10 @@ _ZN5boost8charconv6detail22from_chars_strtod_implIeEENS0_19from_chars_result_tIc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define { ptr, i32 } @_ZN5boost8charconv17from_chars_erangeENS_4core17basic_string_viewIcEERfNS0_12chars_formatE(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -1323,7 +1323,7 @@ define { ptr, i32 } @_ZN5boost8charconv17from_chars_erangeENS_4core17basic_strin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { ptr, i32 } @_ZN5boost8charconv10from_charsEPKcS2_RfNS0_12chars_formatE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define { ptr, i32 } @_ZN5boost8charconv10from_charsEPKcS2_RfNS0_12chars_formatE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca float, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   store float 0.000000e+00, ptr %5, align 4, !tbaa !11
@@ -1357,7 +1357,7 @@ _ZN12_GLOBAL__N_122from_chars_strict_implIfEEN5boost8charconv19from_chars_result
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { ptr, i32 } @_ZN5boost8charconv10from_charsEPKcS2_RdNS0_12chars_formatE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define { ptr, i32 } @_ZN5boost8charconv10from_charsEPKcS2_RdNS0_12chars_formatE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   store double 0.000000e+00, ptr %5, align 8, !tbaa !13
@@ -1391,7 +1391,7 @@ _ZN12_GLOBAL__N_122from_chars_strict_implIdEEN5boost8charconv19from_chars_result
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { ptr, i32 } @_ZN5boost8charconv10from_charsEPKcS2_ReNS0_12chars_formatE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #0 {
+define { ptr, i32 } @_ZN5boost8charconv10from_charsEPKcS2_ReNS0_12chars_formatE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca x86_fp80, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   store x86_fp80 0xK00000000000000000000, ptr %5, align 16, !tbaa !17
@@ -1411,7 +1411,7 @@ _ZN12_GLOBAL__N_122from_chars_strict_implIeEEN5boost8charconv19from_chars_result
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { ptr, i32 } @_ZN5boost8charconv10from_charsENS_4core17basic_string_viewIcEERfNS0_12chars_formatE(ptr %0, i64 %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define { ptr, i32 } @_ZN5boost8charconv10from_charsENS_4core17basic_string_viewIcEERfNS0_12chars_formatE(ptr %0, i64 %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca float, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
@@ -1446,7 +1446,7 @@ _ZN12_GLOBAL__N_122from_chars_strict_implIfEEN5boost8charconv19from_chars_result
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { ptr, i32 } @_ZN5boost8charconv10from_charsENS_4core17basic_string_viewIcEERdNS0_12chars_formatE(ptr %0, i64 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define { ptr, i32 } @_ZN5boost8charconv10from_charsENS_4core17basic_string_viewIcEERdNS0_12chars_formatE(ptr %0, i64 %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
@@ -1481,7 +1481,7 @@ _ZN12_GLOBAL__N_122from_chars_strict_implIdEEN5boost8charconv19from_chars_result
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { ptr, i32 } @_ZN5boost8charconv10from_charsENS_4core17basic_string_viewIcEEReNS0_12chars_formatE(ptr %0, i64 %1, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #0 {
+define { ptr, i32 } @_ZN5boost8charconv10from_charsENS_4core17basic_string_viewIcEEReNS0_12chars_formatE(ptr %0, i64 %1, ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca x86_fp80, align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
@@ -2473,7 +2473,7 @@ _ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit52
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
@@ -4251,7 +4251,7 @@ _ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_extendENS2_4spanImEE.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS0_19from_chars_result_tIcEEPKcS6_RbRT_RT0_NS0_12chars_formatE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %5) local_unnamed_addr #2 comdat {
@@ -5503,10 +5503,10 @@ define linkonce_odr hidden noundef double @_ZN5boost8charconv6detail15compute_fl
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare float @strtof(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare float @strtof(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare ptr @localeconv() local_unnamed_addr #9
@@ -7076,7 +7076,7 @@ _ZN5boost8charconv6detail22from_chars_strtod_implIdEENS0_19from_chars_result_tIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_dispatchEPKcS3_Roi(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 16 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #2 comdat {
@@ -7379,7 +7379,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare x86_fp80 @strtold(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare x86_fp80 @strtold(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #11

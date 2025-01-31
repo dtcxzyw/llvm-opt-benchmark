@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.make_tsvector = private unnamed_addr constant [14 x i8] c"make_tsvector\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @get_current_ts_config(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @get_current_ts_config(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
   %3 = zext i32 %2 to i64
   ret i64 %3
@@ -24,7 +24,7 @@ define dso_local range(i64 0, 4294967296) i64 @get_current_ts_config(ptr nocaptu
 declare i32 @getTSCurrentConfig(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -411,12 +411,12 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @to_tsvector_byid(ptr nocapture noundef readonly %0) #0 {
+define dso_local noundef i64 @to_tsvector_byid(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.ParsedText, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -550,7 +550,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare void @parsetext(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_tsvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @to_tsvector(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -565,7 +565,7 @@ define dso_local i64 @to_tsvector(ptr nocapture noundef readonly %0) local_unnam
 declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @jsonb_string_to_tsvector_byid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @jsonb_string_to_tsvector_byid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -602,7 +602,7 @@ define dso_local noundef i64 @jsonb_string_to_tsvector_byid(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @jsonb_string_to_tsvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @jsonb_string_to_tsvector(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -637,7 +637,7 @@ define dso_local noundef i64 @jsonb_string_to_tsvector(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @jsonb_to_tsvector_byid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @jsonb_to_tsvector_byid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -691,7 +691,7 @@ define dso_local noundef i64 @jsonb_to_tsvector_byid(ptr nocapture noundef reado
 declare i32 @parse_jsonb_index_flags(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @jsonb_to_tsvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @jsonb_to_tsvector(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -741,7 +741,7 @@ define dso_local noundef i64 @jsonb_to_tsvector(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @json_string_to_tsvector_byid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @json_string_to_tsvector_byid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -780,7 +780,7 @@ define dso_local noundef i64 @json_string_to_tsvector_byid(ptr nocapture noundef
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @json_string_to_tsvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @json_string_to_tsvector(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -815,7 +815,7 @@ define dso_local noundef i64 @json_string_to_tsvector(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @json_to_tsvector_byid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @json_to_tsvector_byid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -867,7 +867,7 @@ define dso_local noundef i64 @json_to_tsvector_byid(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @json_to_tsvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @json_to_tsvector(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -917,7 +917,7 @@ define dso_local noundef i64 @json_to_tsvector(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_tsquery_byid(ptr nocapture noundef readonly %0) #0 {
+define dso_local i64 @to_tsquery_byid(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.MorphOpaque, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 48
@@ -1152,7 +1152,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_tsquery(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @to_tsquery(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1165,7 +1165,7 @@ define dso_local i64 @to_tsquery(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @plainto_tsquery_byid(ptr nocapture noundef readonly %0) #0 {
+define dso_local i64 @plainto_tsquery_byid(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.MorphOpaque, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 48
@@ -1185,7 +1185,7 @@ define dso_local i64 @plainto_tsquery_byid(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @plainto_tsquery(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @plainto_tsquery(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1198,7 +1198,7 @@ define dso_local i64 @plainto_tsquery(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @phraseto_tsquery_byid(ptr nocapture noundef readonly %0) #0 {
+define dso_local i64 @phraseto_tsquery_byid(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.MorphOpaque, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 48
@@ -1218,7 +1218,7 @@ define dso_local i64 @phraseto_tsquery_byid(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @phraseto_tsquery(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @phraseto_tsquery(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1231,7 +1231,7 @@ define dso_local i64 @phraseto_tsquery(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @websearch_to_tsquery_byid(ptr nocapture noundef readonly %0) #0 {
+define dso_local i64 @websearch_to_tsquery_byid(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.MorphOpaque, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 48
@@ -1251,7 +1251,7 @@ define dso_local i64 @websearch_to_tsquery_byid(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @websearch_to_tsquery(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @websearch_to_tsquery(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1266,7 +1266,7 @@ define dso_local i64 @websearch_to_tsquery(ptr nocapture noundef readonly %0) lo
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @compareWORD(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @compareWORD(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -1300,7 +1300,7 @@ define internal i32 @compareWORD(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1309,7 +1309,7 @@ declare i32 @tsCompareString(ptr noundef, i32 noundef, ptr noundef, i32 noundef,
 declare void @iterate_jsonb_values(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_to_tsvector(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal void @add_to_tsvector(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1367,10 +1367,10 @@ declare void @llvm.assume(i1 noundef) #5
 declare i16 @llvm.umin.i16(i16, i16) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

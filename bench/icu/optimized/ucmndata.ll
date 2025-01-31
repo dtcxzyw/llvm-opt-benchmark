@@ -51,7 +51,7 @@ return:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udata_checkCommonData_75(ptr noundef %udm, ptr nocapture noundef %err) local_unnamed_addr #1 {
+define void @udata_checkCommonData_75(ptr noundef %udm, ptr noundef captures(none) %err) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -178,7 +178,7 @@ if.end108:                                        ; preds = %entry, %if.then107,
 declare void @udata_close_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZL17offsetTOCLookupFnPK11UDataMemoryPKcPiP10UErrorCode(ptr nocapture noundef readonly %pData, ptr nocapture noundef readonly %tocEntryName, ptr nocapture noundef writeonly %pLength, ptr nocapture readnone %pErrorCode) #3 {
+define internal noundef ptr @_ZL17offsetTOCLookupFnPK11UDataMemoryPKcPiP10UErrorCode(ptr noundef readonly captures(none) %pData, ptr noundef readonly captures(none) %tocEntryName, ptr noundef writeonly captures(none) %pLength, ptr readnone captures(none) %pErrorCode) #3 {
 entry:
   %toc1 = getelementptr inbounds nuw i8, ptr %pData, i64 16
   %0 = load ptr, ptr %toc1, align 8
@@ -360,7 +360,7 @@ return:                                           ; preds = %if.end28.i, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL19offsetTOCEntryCountPK11UDataMemory(ptr nocapture noundef readonly %pData) #4 {
+define internal noundef i32 @_ZL19offsetTOCEntryCountPK11UDataMemory(ptr noundef readonly captures(none) %pData) #4 {
 entry:
   %toc1 = getelementptr inbounds nuw i8, ptr %pData, i64 16
   %0 = load ptr, ptr %toc1, align 8
@@ -377,7 +377,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL18pointerTOCLookupFnPK11UDataMemoryPKcPiP10UErrorCode(ptr nocapture noundef readonly %pData, ptr nocapture noundef readonly %name, ptr nocapture noundef writeonly %pLength, ptr nocapture readnone %pErrorCode) #1 {
+define internal noundef ptr @_ZL18pointerTOCLookupFnPK11UDataMemoryPKcPiP10UErrorCode(ptr noundef readonly captures(none) %pData, ptr noundef readonly captures(none) %name, ptr noundef writeonly captures(none) %pLength, ptr readnone captures(none) %pErrorCode) #1 {
 entry:
   %toc = getelementptr inbounds nuw i8, ptr %pData, i64 16
   %0 = load ptr, ptr %toc, align 8
@@ -539,7 +539,7 @@ return:                                           ; preds = %if.end24.i, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL20pointerTOCEntryCountPK11UDataMemory(ptr nocapture noundef readonly %pData) #4 {
+define internal noundef i32 @_ZL20pointerTOCEntryCountPK11UDataMemory(ptr noundef readonly captures(none) %pData) #4 {
 entry:
   %toc1 = getelementptr inbounds nuw i8, ptr %pData, i64 16
   %0 = load ptr, ptr %toc1, align 8

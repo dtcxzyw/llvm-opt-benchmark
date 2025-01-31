@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @Res_WinDivisors(ptr nocapture noundef initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Res_WinDivisors(ptr noundef captures(none) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1043,7 +1043,7 @@ Vec_PtrPush.exit153:                              ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Res_WinSweepLeafTfo_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Res_WinSweepLeafTfo_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 20
   %.val14 = load i32, ptr %3, align 4
   %4 = and i32 %.val14, 15
@@ -1116,14 +1116,14 @@ define void @Res_WinSweepLeafTfo_rec(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Res_WinVisitMffc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Res_WinVisitMffc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @Res_NodeDeref_rec(ptr noundef %0)
   %3 = tail call i32 @Res_NodeRef_rec(ptr noundef %0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Res_WinMarkTfi_rec(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Res_WinMarkTfi_rec(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.val2.i = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 16
   %.val3.i = load i32, ptr %3, align 8
@@ -1185,7 +1185,7 @@ define void @Res_WinMarkTfi_rec(ptr nocapture noundef readnone %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Res_NodeDeref_rec(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Res_NodeDeref_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 20
   %.val17 = load i32, ptr %2, align 4
   %3 = and i32 %.val17, 15
@@ -1257,7 +1257,7 @@ define i32 @Res_NodeDeref_rec(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Res_NodeRef_rec(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @Res_NodeRef_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 20
   %.val14 = load i32, ptr %2, align 4
   %3 = and i32 %.val14, 15
@@ -1316,13 +1316,13 @@ define i32 @Res_NodeRef_rec(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

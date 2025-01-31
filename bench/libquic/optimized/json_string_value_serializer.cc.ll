@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN27JSONStringValueDeserializerD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN27JSONStringValueDeserializerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN25JSONStringValueSerializerC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr noundef %json_string) unnamed_addr #0 align 2 {
+define dso_local void @_ZN25JSONStringValueSerializerC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this, ptr noundef %json_string) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25JSONStringValueSerializer, i64 16), ptr %this, align 8
   %json_string_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -58,7 +58,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN25JSONStringValueSerializer9SerializeERKN4base5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(12) %root) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN25JSONStringValueSerializer9SerializeERKN4base5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(12) %root) unnamed_addr #4 align 2 {
 entry:
   %json_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %json_string_.i, align 8
@@ -79,7 +79,7 @@ _ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(12) %root, i1 noundef zeroext %omit_binary_values) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(12) %root, i1 noundef zeroext %omit_binary_values) local_unnamed_addr #4 align 2 {
 entry:
   %json_string_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %json_string_, align 8
@@ -102,7 +102,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN25JSONStringValueSerializer28SerializeAndOmitBinaryValuesERKN4base5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(12) %root) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN25JSONStringValueSerializer28SerializeAndOmitBinaryValuesERKN4base5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(12) %root) local_unnamed_addr #4 align 2 {
 entry:
   %json_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %json_string_.i, align 8
@@ -125,7 +125,7 @@ _ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb.exit: ; preds
 declare noundef zeroext i1 @_ZN4base10JSONWriter16WriteWithOptionsERKNS_5ValueEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN27JSONStringValueDeserializerC2ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %json_string) unnamed_addr #6 align 2 {
+define dso_local void @_ZN27JSONStringValueDeserializerC2ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 25)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %json_string) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27JSONStringValueDeserializer, i64 16), ptr %this, align 8
   %json_string_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -136,7 +136,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN27JSONStringValueDeserializerD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 align 2 {

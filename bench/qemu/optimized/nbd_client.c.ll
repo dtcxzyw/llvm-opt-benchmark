@@ -373,13 +373,13 @@ if.then7.i:                                       ; preds = %if.end5.i
   br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.then7.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 803, ptr noundef nonnull @__func__.nbd_negotiate_simple_meta_context, ptr noundef nonnull @.str.67, ptr noundef nonnull %..str.66.i, ptr noundef %12) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 803, ptr noundef nonnull @__func__.nbd_negotiate_simple_meta_context, ptr noundef nonnull @.str.67, ptr noundef nonnull %..str.66.i, ptr noundef nonnull %12) #16
   %13 = load ptr, ptr %name.i, align 8
   call void @g_free(ptr noundef %13) #16
   br label %nbd_negotiate_simple_meta_context.exit.thread.sink.split
 
 if.end11.i:                                       ; preds = %if.then7.i
-  call void @g_free(ptr noundef %12) #16
+  call void @g_free(ptr noundef nonnull %12) #16
   %call12.i = call fastcc i32 @nbd_receive_one_meta_context(ptr noundef %ioc.addr.0, i32 noundef 10, ptr noundef null, ptr noundef null, ptr noundef nonnull %spec.select)
   %cmp13.i = icmp slt i32 %call12.i, 0
   br i1 %cmp13.i, label %nbd_negotiate_simple_meta_context.exit.thread, label %if.end16.i
@@ -475,7 +475,7 @@ if.else7.i:                                       ; preds = %if.else.i
   br i1 %spec.select.i, label %if.end11.i57, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.else7.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 540, ptr noundef nonnull @__func__.nbd_receive_query_exports, ptr noundef nonnull @.str.107, ptr noundef %14) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 540, ptr noundef nonnull @__func__.nbd_receive_query_exports, ptr noundef nonnull @.str.107, ptr noundef nonnull %14) #16
   %call.i.i56 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc.addr.0, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %nbd_receive_query_exports.exit.thread
 
@@ -505,11 +505,11 @@ if.then8.i.i19.i:                                 ; preds = %if.then.i.i16.i
   %25 = load i64, ptr %_now.i.i9.i, align 8
   %tv_usec.i.i22.i = getelementptr inbounds nuw i8, ptr %_now.i.i9.i, i64 8
   %26 = load i64, ptr %tv_usec.i.i22.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.110, i32 noundef %call10.i.i21.i, i64 noundef %25, i64 noundef %26, ptr noundef %14) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.110, i32 noundef %call10.i.i21.i, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %14) #16
   br label %trace_nbd_receive_query_exports_success.exit.i
 
 if.else.i.i18.i:                                  ; preds = %if.then.i.i16.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, ptr noundef %14) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, ptr noundef nonnull %14) #16
   br label %trace_nbd_receive_query_exports_success.exit.i
 
 trace_nbd_receive_query_exports_success.exit.i:   ; preds = %if.else.i.i18.i, %if.then8.i.i19.i, %land.lhs.true5.i.i13.i, %if.end11.i57
@@ -520,8 +520,8 @@ if.end13.i:                                       ; preds = %if.else.i.preheader
   %found_export.028.i102 = phi i1 [ %spec.select.i, %if.else.i ], [ false, %if.else.i.preheader ]
   %27 = load ptr, ptr %name.i52, align 8
   %call14.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %14) #14
-  call void @g_free(ptr noundef %27) #16
-  %call1.i = call fastcc i32 @nbd_receive_list(ptr noundef %ioc.addr.0, ptr noundef %name.i52, ptr noundef null, ptr noundef %spec.select)
+  call void @g_free(ptr noundef nonnull %27) #16
+  %call1.i = call fastcc i32 @nbd_receive_list(ptr noundef %ioc.addr.0, ptr noundef %name.i52, ptr noundef null, ptr noundef nonnull %spec.select)
   %cmp2.i = icmp slt i32 %call1.i, 0
   br i1 %cmp2.i, label %nbd_receive_query_exports.exit.thread, label %if.else.i
 
@@ -535,38 +535,38 @@ nbd_receive_query_exports.exit:                   ; preds = %if.else.i.preheader
 
 sw.bb46:                                          ; preds = %nbd_receive_query_exports.exit, %if.end21
   %28 = load ptr, ptr %name, align 8
-  %call48 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc.addr.0, i32 noundef 1, i32 noundef -1, ptr noundef %28, ptr noundef %spec.select)
+  %call48 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc.addr.0, i32 noundef 1, i32 noundef -1, ptr noundef %28, ptr noundef nonnull %spec.select)
   %cmp49 = icmp slt i32 %call48, 0
   br i1 %cmp49, label %cleanup, label %if.end51
 
 if.end51:                                         ; preds = %sw.bb46
   %size = getelementptr inbounds nuw i8, ptr %info, i64 32
-  %call.i.i60 = call i32 @qio_channel_read_all(ptr noundef %ioc.addr.0, ptr noundef nonnull %size, i64 noundef 8, ptr noundef %spec.select) #16
+  %call.i.i60 = call i32 @qio_channel_read_all(ptr noundef %ioc.addr.0, ptr noundef nonnull %size, i64 noundef 8, ptr noundef nonnull %spec.select) #16
   %cmp3.i.i = icmp slt i32 %call.i.i60, 0
   br i1 %cmp3.i.i, label %nbd_read64.exit.thread, label %if.end55
 
 nbd_read64.exit.thread:                           ; preds = %if.end51
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.2) #16
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   br label %cleanup
 
 if.end55:                                         ; preds = %if.end51
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %29 = load i64, ptr %size, align 8
   %30 = call noundef i64 @llvm.bswap.i64(i64 %29)
   store i64 %30, ptr %size, align 8
   %flags = getelementptr inbounds nuw i8, ptr %info, i64 40
-  %call.i.i68 = call i32 @qio_channel_read_all(ptr noundef %ioc.addr.0, ptr noundef nonnull %flags, i64 noundef 2, ptr noundef %spec.select) #16
+  %call.i.i68 = call i32 @qio_channel_read_all(ptr noundef %ioc.addr.0, ptr noundef nonnull %flags, i64 noundef 2, ptr noundef nonnull %spec.select) #16
   %cmp3.i.i69 = icmp slt i32 %call.i.i68, 0
   br i1 %cmp3.i.i69, label %nbd_read16.exit.thread, label %nbd_read16.exit
 
 nbd_read16.exit.thread:                           ; preds = %if.end55
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.3) #16
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   br label %cleanup
 
 nbd_read16.exit:                                  ; preds = %if.end55
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %31 = load i16, ptr %flags, align 2
   %32 = call noundef i16 @llvm.bswap.i16(i16 %31)
   store i16 %32, ptr %flags, align 2
@@ -640,12 +640,12 @@ trace_nbd_receive_negotiate_size_flags.exit:      ; preds = %sw.epilog, %land.lh
   br i1 %tobool74, label %land.lhs.true75, label %cleanup
 
 land.lhs.true75:                                  ; preds = %trace_nbd_receive_negotiate_size_flags.exit
-  %call76 = call i32 @nbd_drop(ptr noundef %ioc.addr.0, i64 noundef 124, ptr noundef %spec.select) #16
+  %call76 = call i32 @nbd_drop(ptr noundef %ioc.addr.0, i64 noundef 124, ptr noundef nonnull %spec.select) #16
   %cmp77 = icmp slt i32 %call76, 0
   br i1 %cmp77, label %if.then78, label %cleanup
 
 if.then78:                                        ; preds = %land.lhs.true75
-  call void (ptr, ptr, ...) @error_prepend(ptr noundef %spec.select, ptr noundef nonnull @.str.5) #16
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.5) #16
   br label %cleanup
 
 cleanup:                                          ; preds = %nbd_read16.exit.thread, %nbd_read64.exit.thread, %nbd_receive_query_exports.exit.thread, %nbd_negotiate_simple_meta_context.exit.thread, %trace_nbd_receive_negotiate_size_flags.exit, %land.lhs.true75, %if.end64, %sw.bb46, %if.end37, %sw.bb33, %trace_nbd_receive_negotiate_name.exit, %if.then78, %if.then63
@@ -657,7 +657,7 @@ cleanup:                                          ; preds = %nbd_read16.exit.thr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -1118,7 +1118,7 @@ if.end50.lr.ph:                                   ; preds = %while.cond.preheade
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end50.lr.ph, %sw.epilog
-  %call51 = call fastcc i32 @nbd_handle_reply_err(ptr noundef %ioc, ptr noundef %reply, i1 noundef zeroext true, ptr noundef %spec.select)
+  %call51 = call fastcc i32 @nbd_handle_reply_err(ptr noundef %ioc, ptr noundef %reply, i1 noundef zeroext true, ptr noundef nonnull %spec.select)
   %cmp52 = icmp slt i32 %call51, 1
   br i1 %cmp52, label %cleanup, label %if.end55
 
@@ -1135,7 +1135,7 @@ if.then59:                                        ; preds = %if.end55
   br i1 %tobool60.not, label %if.end62, label %if.then61
 
 if.then61:                                        ; preds = %if.then59
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 388, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.83) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 388, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.83) #16
   br label %cleanup
 
 if.end62:                                         ; preds = %if.then59
@@ -1144,7 +1144,7 @@ if.end62:                                         ; preds = %if.then59
   br i1 %tobool64.not, label %if.then65, label %if.end66
 
 if.then65:                                        ; preds = %if.end62
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 392, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.84) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 392, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.84) #16
   br label %cleanup
 
 if.end66:                                         ; preds = %if.end62
@@ -1155,7 +1155,7 @@ if.end66:                                         ; preds = %if.end62
 if.then72:                                        ; preds = %if.end55
   %call75 = call ptr @nbd_rep_lookup(i32 noundef %19) #16
   %call76 = call ptr @nbd_rep_lookup(i32 noundef 3) #16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 401, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.85, i32 noundef %19, ptr noundef %call75, i32 noundef 3, ptr noundef %call76) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 401, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.85, i32 noundef %19, ptr noundef %call75, i32 noundef 3, ptr noundef %call76) #16
   %call.i = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
@@ -1164,23 +1164,23 @@ if.end77:                                         ; preds = %if.end55
   br i1 %cmp79, label %if.then81, label %if.end82
 
 if.then81:                                        ; preds = %if.end77
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 407, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.86, i32 noundef %18) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 407, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.86, i32 noundef %18) #16
   %call.i111 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 if.end82:                                         ; preds = %if.end77
-  %call.i.i = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %type, i64 noundef 2, ptr noundef %spec.select) #16
+  %call.i.i = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %type, i64 noundef 2, ptr noundef nonnull %spec.select) #16
   %cmp3.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp3.i.i, label %if.then86, label %if.end87
 
 if.then86:                                        ; preds = %if.end82
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.87) #16
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %call.i114 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 if.end87:                                         ; preds = %if.end82
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %21 = load i16, ptr %type, align 2
   %22 = call noundef i16 @llvm.bswap.i16(i16 %21)
   store i16 %22, ptr %type, align 2
@@ -1195,38 +1195,38 @@ sw.bb:                                            ; preds = %if.end87
   br i1 %cmp92.not, label %if.end95, label %if.then94
 
 if.then94:                                        ; preds = %sw.bb
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 420, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.88, i32 noundef %sub) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 420, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.88, i32 noundef %sub) #16
   %call.i115 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 if.end95:                                         ; preds = %sw.bb
-  %call.i.i122 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %size, i64 noundef 8, ptr noundef %spec.select) #16
+  %call.i.i122 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %size, i64 noundef 8, ptr noundef nonnull %spec.select) #16
   %cmp3.i.i123 = icmp slt i32 %call.i.i122, 0
   br i1 %cmp3.i.i123, label %if.then99, label %if.end100
 
 if.then99:                                        ; preds = %if.end95
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.89) #16
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %call.i131 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 if.end100:                                        ; preds = %if.end95
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %23 = load i64, ptr %size, align 8
   %24 = call noundef i64 @llvm.bswap.i64(i64 %23)
   store i64 %24, ptr %size, align 8
-  %call.i.i138 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %flags, i64 noundef 2, ptr noundef %spec.select) #16
+  %call.i.i138 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %flags, i64 noundef 2, ptr noundef nonnull %spec.select) #16
   %cmp3.i.i139 = icmp slt i32 %call.i.i138, 0
   br i1 %cmp3.i.i139, label %if.then105, label %if.end106
 
 if.then105:                                       ; preds = %if.end100
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.90) #16
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %call.i148 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 if.end106:                                        ; preds = %if.end100
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %25 = load i16, ptr %flags, align 2
   %26 = call noundef i16 @llvm.bswap.i16(i16 %25)
   store i16 %26, ptr %flags, align 2
@@ -1242,7 +1242,7 @@ land.lhs.true:                                    ; preds = %if.end106
   br i1 %cmp111, label %if.end116, label %if.then113
 
 if.then113:                                       ; preds = %land.lhs.true
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 436, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.91, i64 noundef %.pre, i32 noundef %27) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 436, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.91, i64 noundef %.pre, i32 noundef %27) #16
   %call.i149 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
@@ -1289,23 +1289,23 @@ sw.bb119:                                         ; preds = %if.end87
   br i1 %cmp121.not, label %if.end124, label %if.then123
 
 if.then123:                                       ; preds = %sw.bb119
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 446, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.88, i32 noundef %sub) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 446, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.88, i32 noundef %sub) #16
   %call.i164 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 if.end124:                                        ; preds = %sw.bb119
-  %call.i.i171 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %min_block125, i64 noundef 4, ptr noundef %spec.select) #16
+  %call.i.i171 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %min_block125, i64 noundef 4, ptr noundef nonnull %spec.select) #16
   %cmp3.i.i172 = icmp slt i32 %call.i.i171, 0
   br i1 %cmp3.i.i172, label %if.then129, label %if.end130
 
 if.then129:                                       ; preds = %if.end124
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.92) #16
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %call.i180 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 if.end130:                                        ; preds = %if.end124
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %34 = load i32, ptr %min_block125, align 4
   %35 = call noundef i32 @llvm.bswap.i32(i32 %34)
   store i32 %35, ptr %min_block125, align 4
@@ -1314,23 +1314,23 @@ if.end130:                                        ; preds = %if.end124
   br i1 %or.cond267, label %if.end136, label %if.then134
 
 if.then134:                                       ; preds = %if.end130
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 457, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.93, i32 noundef %35) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 457, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.93, i32 noundef %35) #16
   %call.i182 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 if.end136:                                        ; preds = %if.end130
-  %call.i.i189 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %opt_block, i64 noundef 4, ptr noundef %spec.select) #16
+  %call.i.i189 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %opt_block, i64 noundef 4, ptr noundef nonnull %spec.select) #16
   %cmp3.i.i190 = icmp slt i32 %call.i.i189, 0
   br i1 %cmp3.i.i190, label %if.then140, label %if.end141
 
 if.then140:                                       ; preds = %if.end136
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.94) #16
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %call.i199 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 if.end141:                                        ; preds = %if.end136
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %37 = load i32, ptr %opt_block, align 4
   %38 = call noundef i32 @llvm.bswap.i32(i32 %37)
   store i32 %38, ptr %opt_block, align 4
@@ -1344,23 +1344,23 @@ lor.lhs.false145:                                 ; preds = %if.end141
   br i1 %cmp148, label %if.then150, label %if.end152
 
 if.then150:                                       ; preds = %if.end141, %lor.lhs.false145
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 470, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.95, i32 noundef %38) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 470, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.95, i32 noundef %38) #16
   %call.i205 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 if.end152:                                        ; preds = %lor.lhs.false145
-  %call.i.i212 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %max_block, i64 noundef 4, ptr noundef %spec.select) #16
+  %call.i.i212 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %max_block, i64 noundef 4, ptr noundef nonnull %spec.select) #16
   %cmp3.i.i213 = icmp slt i32 %call.i.i212, 0
   br i1 %cmp3.i.i213, label %if.then156, label %if.end157
 
 if.then156:                                       ; preds = %if.end152
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.96) #16
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %call.i222 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 if.end157:                                        ; preds = %if.end152
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef null) #16
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #16
   %41 = load i32, ptr %max_block, align 4
   %42 = call noundef i32 @llvm.bswap.i32(i32 %41)
   store i32 %42, ptr %max_block, align 4
@@ -1369,7 +1369,7 @@ if.end157:                                        ; preds = %if.end152
   br i1 %cmp160, label %if.then162, label %if.end164
 
 if.then162:                                       ; preds = %if.end157
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 482, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.97, i32 noundef %42) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 482, ptr noundef nonnull @__func__.nbd_opt_info_or_go, ptr noundef nonnull @.str.97, i32 noundef %42) #16
   %call.i223 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
@@ -1447,17 +1447,17 @@ if.else.i.i247:                                   ; preds = %if.then.i.i245
 trace_nbd_opt_info_unknown.exit:                  ; preds = %sw.default, %land.lhs.true5.i.i242, %if.then8.i.i248, %if.else.i.i247
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i238)
   %conv170 = zext i32 %sub to i64
-  %call171 = call i32 @nbd_drop(ptr noundef %ioc, i64 noundef %conv170, ptr noundef %spec.select) #16
+  %call171 = call i32 @nbd_drop(ptr noundef %ioc, i64 noundef %conv170, ptr noundef nonnull %spec.select) #16
   %cmp172 = icmp slt i32 %call171, 0
   br i1 %cmp172, label %if.then174, label %sw.epilog
 
 if.then174:                                       ; preds = %trace_nbd_opt_info_unknown.exit
-  call void (ptr, ptr, ...) @error_prepend(ptr noundef %spec.select, ptr noundef nonnull @.str.98) #16
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.98) #16
   %call.i252 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 sw.epilog:                                        ; preds = %trace_nbd_opt_info_unknown.exit, %trace_nbd_opt_info_block_size.exit, %trace_nbd_receive_negotiate_size_flags.exit
-  %call46 = call fastcc i32 @nbd_receive_option_reply(ptr noundef %ioc, i32 noundef %opt, ptr noundef %reply, ptr noundef %spec.select)
+  %call46 = call fastcc i32 @nbd_receive_option_reply(ptr noundef %ioc, i32 noundef %opt, ptr noundef %reply, ptr noundef nonnull %spec.select)
   %cmp47 = icmp slt i32 %call46, 0
   br i1 %cmp47, label %cleanup, label %if.end50
 
@@ -1708,7 +1708,7 @@ return:                                           ; preds = %entry, %for.end17
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @nbd_receive_export_list(ptr noundef %ioc, ptr noundef %tlscreds, ptr noundef %hostname, ptr nocapture noundef writeonly initializes((0, 8)) %info, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @nbd_receive_export_list(ptr noundef %ioc, ptr noundef %tlscreds, ptr noundef %hostname, ptr noundef writeonly captures(none) initializes((0, 8)) %info, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %context.i = alloca ptr, align 8
   %sioc = alloca ptr, align 8
@@ -1988,7 +1988,7 @@ nbd_free_export_list.exit:                        ; preds = %out, %for.end17.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 2) i32 @nbd_receive_list(ptr noundef %ioc, ptr nocapture noundef nonnull writeonly %name, ptr noundef writeonly %description, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @nbd_receive_list(ptr noundef %ioc, ptr noundef nonnull writeonly captures(none) %name, ptr noundef writeonly %description, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   %_auto_errp_prop.i.i = alloca %struct.ErrorPropagator, align 8
@@ -2169,7 +2169,7 @@ cleanup:                                          ; preds = %if.end64, %if.then6
 declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
@@ -2177,7 +2177,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -5, 1) i32 @nbd_send_request(ptr noundef %ioc, ptr nocapture noundef readonly %request) local_unnamed_addr #0 {
+define dso_local range(i32 -5, 1) i32 @nbd_send_request(ptr noundef %ioc, ptr noundef readonly captures(none) %request) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca [32 x i8], align 16
@@ -2290,7 +2290,7 @@ declare i32 @qio_channel_close(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @object_unref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @nbd_init(i32 noundef %fd, ptr nocapture noundef readonly %sioc, ptr nocapture noundef readonly %info, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @nbd_init(i32 noundef %fd, ptr noundef readonly captures(none) %sioc, ptr noundef readonly captures(none) %info, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i83 = alloca %struct.timeval, align 8
   %_now.i.i69 = alloca %struct.timeval, align 8
@@ -2796,7 +2796,7 @@ entry:
 declare ptr @nbd_cmd_lookup(i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -22, 2) i32 @nbd_receive_reply(ptr nocapture readnone %bs, ptr noundef %ioc, ptr noundef %reply, i32 noundef %mode, ptr noundef %errp) #0 {
+define dso_local range(i32 -22, 2) i32 @nbd_receive_reply(ptr readnone captures(none) %bs, ptr noundef %ioc, ptr noundef %reply, i32 noundef %mode, ptr noundef %errp) #0 {
 entry:
   %_now.i.i94 = alloca %struct.timeval, align 8
   %_now.i.i80 = alloca %struct.timeval, align 8
@@ -3208,7 +3208,7 @@ return:                                           ; preds = %nbd_read.exit.threa
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 2) i32 @nbd_read_eof(ptr nocapture readnone %bs, ptr noundef %ioc, ptr noundef %buffer, i64 noundef %size, ptr noundef %errp) #0 {
+define internal range(i32 -5, 2) i32 @nbd_read_eof(ptr readnone captures(none) %bs, ptr noundef %ioc, ptr noundef %buffer, i64 noundef %size, ptr noundef %errp) #0 {
 entry:
   %iov = alloca %struct.iovec, align 8
   %tobool.not = icmp eq i64 %size, 0
@@ -3276,7 +3276,7 @@ declare ptr @nbd_reply_type_lookup(i16 noundef zeroext) local_unnamed_addr #3
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -3600,7 +3600,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 2) i32 @nbd_handle_reply_err(ptr noundef %ioc, ptr nocapture noundef nonnull readonly %reply, i1 noundef zeroext %strict, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @nbd_handle_reply_err(ptr noundef %ioc, ptr noundef nonnull readonly captures(none) %reply, i1 noundef zeroext %strict, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_now.i.i51 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3952,11 +3952,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call30, ptr noundef nonnull %..str.72, ptr noundef %export) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call30, ptr noundef nonnull %..str.72, ptr noundef nonnull %export) #16
   br label %trace_nbd_opt_meta_request.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, ptr noundef %call30, ptr noundef nonnull %..str.72, ptr noundef %export) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, ptr noundef %call30, ptr noundef nonnull %..str.72, ptr noundef nonnull %export) #16
   br label %trace_nbd_opt_meta_request.exit
 
 trace_nbd_opt_meta_request.exit:                  ; preds = %if.end27, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3964,7 +3964,7 @@ trace_nbd_opt_meta_request.exit:                  ; preds = %if.end27, %land.lhs
   %7 = tail call i32 @llvm.bswap.i32(i32 %conv)
   store i32 %7, ptr %call29, align 1
   %add.ptr = getelementptr i8, ptr %call29, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %export, i64 %conv3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %export, i64 %conv3, i1 false)
   %add.ptr33 = getelementptr i8, ptr %add.ptr, i64 %conv3
   %8 = select i1 %tobool.not, i32 0, i32 16777216
   store i32 %8, ptr %add.ptr33, align 1
@@ -4166,13 +4166,13 @@ return:                                           ; preds = %nbd_read32.exit.thr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @trace_nbd_opt_info_go_success(ptr noundef %opt) unnamed_addr #0 {
@@ -4273,10 +4273,10 @@ declare void @qio_channel_yield(ptr noundef, i32 noundef) #3
 declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #12

@@ -666,10 +666,10 @@ _ZN6hermes6parserL15getHTMLEntitiesEv.exit:       ; preds = %cond.end9, %init.ch
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes6parser7JSLexer22initializeWithBufferIdEj(ptr nocapture noundef nonnull align 8 dereferenceable(1128) initializes((16, 20), (136, 160)) %this, i32 noundef %bufId) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes6parser7JSLexer22initializeWithBufferIdEj(ptr noundef nonnull align 8 captures(none) dereferenceable(1128) initializes((16, 20), (136, 160)) %this, i32 noundef %bufId) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %sub.i.i = add i32 %bufId, -1
@@ -876,7 +876,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser7JSLexerC2ESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS4_EERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb(ptr noundef nonnull align 8 dereferenceable(1128) initializes((0, 16), (24, 52), (56, 60), (64, 121), (128, 136), (160, 161)) %this, ptr nocapture noundef %input, ptr noundef nonnull align 8 dereferenceable(464) %sm, ptr noundef nonnull align 8 dereferenceable(32) %allocator, ptr noundef %strTab, i1 noundef zeroext %strictMode, i1 noundef zeroext %convertSurrogates) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes6parser7JSLexerC2ESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS4_EERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb(ptr noundef nonnull align 8 dereferenceable(1128) initializes((0, 16), (24, 52), (56, 60), (64, 121), (128, 136), (160, 161)) %this, ptr noundef captures(none) %input, ptr noundef nonnull align 8 dereferenceable(464) %sm, ptr noundef nonnull align 8 dereferenceable(32) %allocator, ptr noundef %strTab, i1 noundef zeroext %strictMode, i1 noundef zeroext %convertSurrogates) unnamed_addr #1 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.41", align 8
   store ptr %sm, ptr %this, align 8
@@ -2227,7 +2227,7 @@ _ZN6hermes6parser7JSLexer11finishTokenEPKc.exit:  ; preds = %for.end, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this, ptr %loc.coerce, ptr noundef nonnull align 8 dereferenceable(18) %msg) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE(ptr noundef nonnull align 8 captures(none) dereferenceable(1128) %this, ptr %loc.coerce, ptr noundef nonnull align 8 dereferenceable(18) %msg) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef 0, ptr %loc.coerce, ptr noundef nonnull align 8 dereferenceable(18) %msg, i32 noundef 1) #20
@@ -4130,7 +4130,7 @@ return:                                           ; preds = %done, %if.then192
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes6parser7JSLexer20consumeUnicodeEscapeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN6hermes6parser7JSLexer20consumeUnicodeEscapeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1128) %this) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.llvh::Twine", align 8
   %ref.tmp = alloca %"class.llvh::Twine", align 8
@@ -6083,7 +6083,7 @@ _ZN6hermes6parser7JSLexer11finishTokenEPKc.exit:  ; preds = %for.end65, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer25consumeHTMLEntityOptionalEv(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer25consumeHTMLEntityOptionalEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1128) %this) local_unnamed_addr #1 align 2 {
 entry:
   %TheBucket.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.llvh::StringRef", align 8
@@ -6651,10 +6651,10 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes6parser7JSLexer5errorEN4llvh7SMRangeERKNS2_5TwineE(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this, ptr %range.coerce0, ptr %range.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %msg) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes6parser7JSLexer5errorEN4llvh7SMRangeERKNS2_5TwineE(ptr noundef nonnull align 8 captures(none) dereferenceable(1128) %this, ptr %range.coerce0, ptr %range.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %msg) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef 0, ptr %range.coerce0, ptr %range.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %msg, i32 noundef 1) #20
@@ -6677,7 +6677,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this, i1 noundef zeroext %errorOnFail) local_unnamed_addr #1 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb(ptr noundef nonnull align 8 captures(none) dereferenceable(1128) %this, i1 noundef zeroext %errorOnFail) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %ref.tmp37 = alloca %"class.llvh::Twine", align 8
@@ -6924,7 +6924,7 @@ return:                                           ; preds = %if.end82, %if.end82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer10consumeHexEjb(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this, i32 noundef %requiredLen, i1 noundef zeroext %errorOnFail) local_unnamed_addr #1 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer10consumeHexEjb(ptr noundef nonnull align 8 captures(none) dereferenceable(1128) %this, i32 noundef %requiredLen, i1 noundef zeroext %errorOnFail) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %cmp.not13 = icmp eq i32 %requiredLen, 0
@@ -7004,7 +7004,7 @@ return:                                           ; preds = %return.loopexit, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer28consumeUnicodeEscapeOptionalEv(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #7 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer28consumeUnicodeEscapeOptionalEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1128) %this) local_unnamed_addr #7 align 2 {
 entry:
   %curCharPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %curCharPtr_, align 8
@@ -7430,7 +7430,7 @@ return:                                           ; preds = %if.end.i.i39, %_ZN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @_ZN6hermes6parser7JSLexer12consumeOctalEj(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this, i32 noundef %maxLen) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i8 @_ZN6hermes6parser7JSLexer12consumeOctalEj(ptr noundef nonnull align 8 captures(none) dereferenceable(1128) %this, i32 noundef %maxLen) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %strictMode_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -8114,7 +8114,7 @@ return:                                           ; preds = %if.else23.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 1, 48) i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1128) %this, ptr nocapture noundef readonly %start, i32 noundef %length) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 1, 48) i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1128) %this, ptr noundef readonly captures(none) %start, i32 noundef %length) local_unnamed_addr #8 align 2 {
 entry:
   switch i32 %length, label %if.end [
     i32 8, label %if.end.i.i1594.i
@@ -8827,7 +8827,7 @@ return:                                           ; preds = %_ZN6hermes19isUnico
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes6parser7JSLexer25convertSurrogatesInStringEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1128) %this, ptr %str.coerce0, i64 %str.coerce1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN6hermes6parser7JSLexer25convertSurrogatesInStringEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1128) %this, ptr %str.coerce0, i64 %str.coerce1) local_unnamed_addr #1 align 2 {
 entry:
   %output = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #20
@@ -8993,7 +8993,7 @@ return:                                           ; preds = %if.end.i.i4, %_ZN6h
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineE(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this, ptr %loc.coerce, ptr %range.coerce0, ptr %range.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %msg) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineE(ptr noundef nonnull align 8 captures(none) dereferenceable(1128) %this, ptr %loc.coerce, ptr %range.coerce0, ptr %range.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %msg) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef 0, ptr %loc.coerce, ptr %range.coerce0, ptr %range.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %msg, i32 noundef 1) #20
@@ -19128,7 +19128,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef, ptr, ptr noundef nonnull align 8 dereferenceable(18), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Val, ptr noundef nonnull align 8 dereferenceable(8) %FoundBucket) local_unnamed_addr #1 comdat align 2 {
@@ -19364,7 +19364,7 @@ return:                                           ; preds = %land.rhs.i.i, %land
 declare noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Key, ptr noundef nonnull align 8 dereferenceable(16) %Lookup, ptr noundef %TheBucket) local_unnamed_addr #1 comdat align 2 {
@@ -19549,16 +19549,16 @@ declare void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRang
 declare void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef, ptr, ptr, ptr, ptr noundef nonnull align 8 dereferenceable(18), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15

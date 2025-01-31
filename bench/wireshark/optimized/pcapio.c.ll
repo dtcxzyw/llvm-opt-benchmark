@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timeval = type { i64, i64 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef zeroext i1 @libpcap_write_file_header(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @libpcap_write_file_header(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.pcap_hdr, align 4
   %8 = select i1 %3, i32 -1582154675, i32 -1582119980
   store i32 %8, ptr %7, align 4
@@ -59,7 +59,7 @@ write_to_file.exit:                               ; preds = %21, %22
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @write_to_file(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef range(i64 -2147483648, 4294967296) %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @write_to_file(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef range(i64 -2147483648, 4294967296) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %0)
   %.not = icmp eq i64 %6, 1
   br i1 %.not, label %13, label %7
@@ -90,7 +90,7 @@ define internal fastcc noundef zeroext i1 @write_to_file(ptr nocapture noundef %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef zeroext i1 @libpcap_write_packet(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @libpcap_write_packet(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.pcaprec_hdr, align 4
   %10 = trunc i64 %1 to i32
   store i32 %10, ptr %9, align 4
@@ -155,7 +155,7 @@ write_to_file.exit15:                             ; preds = %31, %30, %write_to_
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef zeroext i1 @pcapng_write_block(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pcapng_write_block(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = and i32 %2, 3
   %.not = icmp eq i32 %6, 0
   %7 = ptrtoint ptr %1 to i64
@@ -214,7 +214,7 @@ write_to_file.exit:                               ; preds = %26, %25, %17, %9
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.shb, align 8
   %10 = alloca %struct.ws_option, align 2
   %11 = alloca i32, align 4
@@ -458,7 +458,7 @@ write_to_file.exit77:                             ; preds = %.lr.ph83, %104, %10
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @pcapng_write_string_option(ptr nocapture noundef %0, i16 noundef zeroext range(i16 1, 16) %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @pcapng_write_string_option(ptr noundef captures(none) %0, i16 noundef zeroext range(i16 1, 16) %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.ws_option, align 2
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
@@ -559,7 +559,7 @@ write_to_file.exit30:                             ; preds = %37, %39
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef zeroext i1 @pcapng_write_interface_description_block(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef %9, i64 noundef %10, i8 noundef zeroext %11, ptr nocapture noundef writeonly %12) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pcapng_write_interface_description_block(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(none) %9, i64 noundef %10, i8 noundef zeroext %11, ptr noundef writeonly captures(none) %12) local_unnamed_addr #0 {
   %14 = alloca i64, align 8
   %15 = alloca i8, align 1
   %16 = alloca %struct.idb, align 4
@@ -876,10 +876,10 @@ write_to_file.exit130:                            ; preds = %114, %116
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef zeroext i1 @pcapng_write_enhanced_packet_block(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef %8, i32 noundef %9, ptr nocapture noundef %10, ptr nocapture noundef writeonly %11) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pcapng_write_enhanced_packet_block(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(none) %8, i32 noundef %9, ptr noundef captures(none) %10, ptr noundef writeonly captures(none) %11) local_unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca %struct.epb, align 4
   %15 = alloca %struct.ws_option, align 2
@@ -1119,7 +1119,7 @@ write_to_file.exit79:                             ; preds = %write_to_file.exit8
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef zeroext i1 @pcapng_write_interface_statistics_block(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pcapng_write_interface_statistics_block(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = alloca %struct.isb, align 4
@@ -1421,19 +1421,19 @@ write_to_file.exit98:                             ; preds = %118, %120
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

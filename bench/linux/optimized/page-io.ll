@@ -115,10 +115,10 @@ define dso_local ptr @ext4_alloc_io_end_vec(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @ext4_last_io_end_vec(ptr noundef %0) local_unnamed_addr #2 align 16 {
@@ -533,7 +533,7 @@ define dso_local noundef ptr @ext4_get_io_end(ptr noundef returned %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ext4_io_submit(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local void @ext4_io_submit(ptr noundef captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -568,7 +568,7 @@ define dso_local void @ext4_io_submit(ptr nocapture noundef %0) local_unnamed_ad
 declare dso_local void @submit_bio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @ext4_io_submit_init(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local void @ext4_io_submit_init(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #4 align 16 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -576,7 +576,7 @@ define dso_local void @ext4_io_submit_init(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ext4_bio_write_folio(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef i32 @ext4_bio_write_folio(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load volatile i64, ptr %1, align 8
   %6 = and i64 %5, 1
@@ -1003,7 +1003,7 @@ declare dso_local void @__folio_start_writeback(ptr noundef, i1 noundef zeroext)
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
@@ -1021,7 +1021,7 @@ declare void @llvm.assume(i1 noundef) #7
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ext4_finish_bio(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc void @ext4_finish_bio(ptr noundef readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 2

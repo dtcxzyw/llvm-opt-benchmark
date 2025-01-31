@@ -160,7 +160,7 @@ define internal range(i32 -1, 2) i32 @H5O__dset_isa(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5O__dset_open(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal ptr @H5O__dset_open(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 {
   store i32 5, ptr %1, align 4
   %3 = tail call i64 @H5CX_get_lapl() #3
   %4 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
@@ -221,7 +221,7 @@ define internal ptr @H5O__dset_open(ptr noundef %0, ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5O__dset_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal ptr @H5O__dset_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -534,7 +534,7 @@ declare i32 @H5HG_get_obj_size(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare zeroext i1 @H5D__efl_is_space_alloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @H5D__efl_bh_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

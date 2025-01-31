@@ -128,16 +128,16 @@ define dso_local i32 @devtmpfs_create_node(ptr noundef %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @device_get_devnode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @devtmpfs_delete_node(ptr noundef %0) local_unnamed_addr #1 align 16 {
@@ -321,7 +321,7 @@ declare dso_local i32 @register_filesystem(ptr noundef) local_unnamed_addr #4
 declare dso_local ptr @kthread_create_on_node(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 1, 0) i32 @devtmpfsd(ptr nocapture noundef writeonly initializes((0, 4)) %0) #6 section ".ref.text" align 16 {
+define internal range(i32 1, 0) i32 @devtmpfsd(ptr noundef writeonly captures(none) initializes((0, 4)) %0) #6 section ".ref.text" align 16 {
   %2 = tail call fastcc i32 @devtmpfs_setup(ptr noundef %0) #11
   tail call void @complete(ptr noundef nonnull @setup_done) #9
   %3 = icmp eq i32 %2, 0
@@ -366,7 +366,7 @@ declare dso_local i32 @shmem_init_fs_context(ptr noundef) #4
 declare dso_local void @kill_litter_super(ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @public_dev_mount(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3) #1 align 16 {
+define internal ptr @public_dev_mount(ptr readnone captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #1 align 16 {
   %5 = load ptr, ptr @mnt, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -413,7 +413,7 @@ declare dso_local void @deactivate_locked_super(ptr noundef) local_unnamed_addr 
 declare dso_local void @lockref_get(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @devtmpfs_setup(ptr nocapture noundef writeonly initializes((0, 4)) %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc i32 @devtmpfs_setup(ptr noundef writeonly captures(none) initializes((0, 4)) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call i32 @ksys_unshare(i64 noundef 131072) #9
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %10

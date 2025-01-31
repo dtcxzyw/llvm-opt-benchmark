@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [41 x i8] c"failed to setup admin virtqueue, err=%ld\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -65535, 1) i32 @vp_modern_admin_cmd_exec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -65535, 1) i32 @vp_modern_admin_cmd_exec(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca [4 x ptr], align 16
   %5 = alloca %struct.scatterlist, align 8
@@ -198,10 +198,10 @@ select.unfold:                                    ; preds = %.loopexit, %43, %52
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @sg_init_one(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -219,7 +219,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @virtio_pci_modern_probe(ptr noundef initializes((808, 816)) %0) local_unnamed_addr #0 align 16 {
@@ -273,7 +273,7 @@ define internal zeroext i16 @vp_config_vector(ptr noundef %0, i16 noundef zeroex
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @setup_vq(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i16 noundef zeroext %6) #0 align 16 {
+define internal ptr @setup_vq(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i16 noundef zeroext %6) #0 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %10 = load i64, ptr %9, align 8
@@ -360,7 +360,7 @@ define internal ptr @setup_vq(ptr noundef %0, ptr nocapture noundef writeonly %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @del_vq(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @del_vq(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -419,7 +419,7 @@ define internal void @del_vq(ptr nocapture noundef readonly %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal zeroext i1 @vp_is_avq(ptr nocapture noundef readonly %0, i32 noundef %1) #5 align 16 {
+define internal zeroext i1 @vp_is_avq(ptr noundef readonly captures(none) %0, i32 noundef %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2199023255552
@@ -467,7 +467,7 @@ declare dso_local ptr @virtqueue_get_buf(ptr noundef, ptr noundef) local_unnamed
 declare dso_local zeroext i1 @virtqueue_is_broken(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vp_get(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 align 16 {
+define internal void @vp_get(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %6 = load ptr, ptr %5, align 8
   %7 = add i32 %3, %1
@@ -534,7 +534,7 @@ define internal void @vp_get(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vp_set(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 align 16 {
+define internal void @vp_set(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %6 = load ptr, ptr %5, align 8
   %7 = add i32 %3, %1
@@ -890,7 +890,7 @@ declare dso_local i32 @vp_set_vq_affinity(ptr noundef, ptr noundef) #3
 declare dso_local ptr @vp_get_vq_affinity(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @vp_get_shm_region(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i8 noundef zeroext %2) #0 align 16 {
+define internal noundef zeroext i1 @vp_get_shm_region(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i8 noundef zeroext %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -1027,7 +1027,7 @@ define internal noundef zeroext i1 @vp_get_shm_region(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @vp_modern_disable_vq_and_reset(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @vp_modern_disable_vq_and_reset(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 784
@@ -1378,7 +1378,7 @@ declare dso_local zeroext i16 @vp_modern_avq_num(ptr noundef) local_unnamed_addr
 declare dso_local zeroext i16 @vp_modern_avq_index(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i16 @vp_modern_config_vector(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3

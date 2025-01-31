@@ -53,10 +53,10 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @_ZN30G1MonotonicArenaFreeMemoryTaskC1EPKc = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN30G1MonotonicArenaFreeMemoryTaskC2EPKc
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #0
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZNK30G1MonotonicArenaFreeMemoryTask14get_state_nameENS_5StateE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK30G1MonotonicArenaFreeMemoryTask14get_state_nameENS_5StateE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -64,7 +64,7 @@ define hidden noundef ptr @_ZNK30G1MonotonicArenaFreeMemoryTask14get_state_nameE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask17deadline_exceededEl(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask17deadline_exceededEl(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #14
   %4 = icmp sge i64 %3, %1
   ret i1 %4
@@ -73,7 +73,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask17deadline_
 declare noundef i64 @_ZN2os15elapsed_counterEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask22calculate_return_infosEl(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((112, 120)) %0, i64 %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask22calculate_return_infosEl(ptr noundef nonnull align 8 captures(none) dereferenceable(120) initializes((112, 120)) %0, i64 %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.G1MonotonicArenaMemoryStats, align 8
   %4 = alloca %class.G1MonotonicArenaMemoryStats, align 8
   %5 = alloca ptr, align 8
@@ -252,7 +252,7 @@ _ZN26GrowableArrayWithAllocatorIPN24G1MonotonicArenaFreePool23G1ReturnMemoryProc
 declare void @_ZN24G1MonotonicArenaFreePool24update_unlink_processorsEP18GrowableArrayCHeapIPNS_23G1ReturnMemoryProcessorEL8MEMFLAGS5EE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -297,7 +297,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_me
 declare noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_vmEl(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_osEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_osEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -342,7 +342,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_me
 declare noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_osEl(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -404,7 +404,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_excess_arena_memoryEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_excess_arena_memoryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #14
   %3 = sitofp i64 %2 to double
   %4 = tail call noundef i64 @_ZN2os17elapsed_frequencyEv() #14
@@ -662,7 +662,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
@@ -686,7 +686,7 @@ define hidden void @_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK30G1MonotonicArenaFreeMemoryTask9is_activeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK30G1MonotonicArenaFreeMemoryTask9is_activeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp ne i32 %3, 0
@@ -694,7 +694,7 @@ define hidden noundef zeroext i1 @_ZNK30G1MonotonicArenaFreeMemoryTask9is_active
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZNK30G1MonotonicArenaFreeMemoryTask19reschedule_delay_msEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZNK30G1MonotonicArenaFreeMemoryTask19reschedule_delay_msEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #7 align 2 {
   %2 = load i32, ptr @G1RemSetFreeMemoryRescheduleDelayMillis, align 4
   %3 = zext i32 %2 to i64
   ret i64 %3
@@ -737,7 +737,7 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit:         ; preds = %3, %1
 declare void @_ZN13G1ServiceTask8scheduleEl(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30G1MonotonicArenaFreeMemoryTask16notify_new_statsEP27G1MonotonicArenaMemoryStatsS1_(ptr noundef nonnull align 8 dereferenceable(120) initializes((48, 112)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN30G1MonotonicArenaFreeMemoryTask16notify_new_statsEP27G1MonotonicArenaMemoryStatsS1_(ptr noundef nonnull align 8 dereferenceable(120) initializes((48, 112)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.G1MonotonicArenaMemoryStats, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
@@ -877,13 +877,13 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

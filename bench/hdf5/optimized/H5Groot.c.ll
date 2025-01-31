@@ -532,7 +532,7 @@ declare i32 @H5O_dec_rc_by_loc(ptr noundef) local_unnamed_addr #2
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @H5O_open(ptr noundef) local_unnamed_addr #2
 
@@ -564,7 +564,7 @@ define noundef i32 @H5G_root_free(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G_root_loc(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5G_root_loc(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %3, %2

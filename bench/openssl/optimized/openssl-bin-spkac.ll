@@ -411,7 +411,7 @@ declare ptr @NETSCAPE_SPKI_new() local_unnamed_addr #1
 declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @NETSCAPE_SPKI_set_pubkey(ptr noundef, ptr noundef) local_unnamed_addr #1
 

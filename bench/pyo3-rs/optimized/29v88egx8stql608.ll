@@ -150,7 +150,7 @@ define align 8 ptr @_ZN17pyo3_build_config3get17h052ae7a41f81573aE() unnamed_add
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN17pyo3_build_config33resolve_cross_compile_config_path17h5d29680b480ba899E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0) unnamed_addr #0 {
+define hidden void @_ZN17pyo3_build_config33resolve_cross_compile_config_path17h5d29680b480ba899E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 8)) %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
@@ -392,7 +392,7 @@ declare void @_ZN17pyo3_build_config5impl_17InterpreterConfig20build_script_outp
 declare void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0fa3c8a5fb869617E"(ptr sret([32 x i8]) align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcbab481393ae21eE"(ptr sret([24 x i8]) align 8, ptr align 8) unnamed_addr #1

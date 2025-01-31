@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.x64_classify_argument_type = private unnamed_addr constant [27 x i8] c"x64_classify_argument_type\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @try_use_registers(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @try_use_registers(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4
@@ -111,7 +111,7 @@ declare zeroext i1 @type_is_abi_aggregate(ptr noundef) local_unnamed_addr #2
 declare ptr @abi_arg_new_indirect_not_by_val(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #1 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 
@@ -249,7 +249,7 @@ declare ptr @abi_arg_new_direct_int_ext(ptr noundef) local_unnamed_addr #2
 declare ptr @abi_arg_new_direct() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @x64_indirect_result(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local ptr @x64_indirect_result(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call fastcc ptr @type_lowering(ptr noundef %0)
   %4 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef %3) #7
   br i1 %4, label %x64_type_is_illegal_vector.exit.thread24, label %5
@@ -365,7 +365,7 @@ declare ptr @abi_arg_new_indirect_realigned(i32 noundef, ptr noundef) local_unna
 declare ptr @abi_arg_new_indirect_by_val(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @x64_classify_reg_call_struct_type_check(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define dso_local ptr @x64_classify_reg_call_struct_type_check(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.Registers, align 8
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %10 [
@@ -547,7 +547,7 @@ x64_indirect_return_result.exit:                  ; preds = %.critedge.i32, %82,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull initializes((0, 8)) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
+define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 noundef %1, ptr noundef nonnull captures(none) initializes((0, 8)) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call fastcc void @x64_classify(ptr noundef %0, i64 noundef 0, ptr noundef %6, ptr noundef %5, i32 noundef %3)
@@ -749,7 +749,7 @@ define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 nound
 declare zeroext i1 @abi_arg_is_indirect(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @x64_classify_post_merge(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local void @x64_classify_post_merge(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %15, label %6
@@ -788,7 +788,7 @@ define dso_local void @x64_classify_post_merge(i64 noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = tail call i32 @type_size(ptr noundef %0) #7
@@ -1000,7 +1000,7 @@ x64_classify_post_merge.exit:                     ; preds = %52, %85, %84, %.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x64_classify(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull initializes((0, 4)) %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @x64_classify(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) initializes((0, 4)) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, i32 noundef %4) unnamed_addr #1 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   %6 = icmp ult i64 %1, 8
@@ -1160,7 +1160,7 @@ x64_classify_vector.exit:                         ; preds = %.sink.split.i, %39,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = tail call i32 @type_size(ptr noundef %0) #7
@@ -1337,7 +1337,7 @@ x64_classify_post_merge.exit:                     ; preds = %20, %67, %66, %.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @x64_classify_vector(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #1 {
+define dso_local void @x64_classify_vector(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call i32 @type_size(ptr noundef %0) #7
   switch i32 %7, label %23 [
     i32 4, label %8
@@ -1492,7 +1492,7 @@ define dso_local noundef zeroext i1 @x64_bits_contain_no_user_data(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @x64_contains_float_at_offset(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @x64_contains_float_at_offset(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %1, 0
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 15
@@ -1580,7 +1580,7 @@ tailrecurse._crit_edge:                           ; preds = %thread-pre-split, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @x64_get_int_type_at_offset(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define dso_local ptr @x64_get_int_type_at_offset(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %4
@@ -2835,10 +2835,10 @@ declare i32 @llvm.umax.i32(i32, i32) #4
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

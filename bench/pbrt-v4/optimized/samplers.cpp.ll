@@ -425,7 +425,7 @@ $_ZTSN4pbrt6Point2IiEE = comdat any
 @_ZN4pbrt14PMJ02BNSamplerC1EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE = dso_local unnamed_addr alias void (ptr, i32, i32, ptr), ptr @_ZN4pbrt14PMJ02BNSamplerC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt7Sampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pbrt::Sampler") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %this.val = load i64, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
@@ -519,7 +519,7 @@ sw.default.i.i:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt7Sampler8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt7Sampler8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %0 = load i64, ptr %this, align 8
@@ -729,7 +729,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt13HaltonSamplerC2EiNS_6Point2IiEENS_17RandomizeStrategyEiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 32), (40, 52)) %this, i32 noundef %samplesPerPixel, i64 %fullRes.coerce, i32 noundef %randomize, i32 noundef %seed, ptr %alloc.coerce) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt13HaltonSamplerC2EiNS_6Point2IiEENS_17RandomizeStrategyEiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 captures(none) dereferenceable(52) initializes((0, 32), (40, 52)) %this, i32 noundef %samplesPerPixel, i64 %fullRes.coerce, i32 noundef %randomize, i32 noundef %seed, ptr %alloc.coerce) unnamed_addr #0 align 2 {
 entry:
   %x.i21 = alloca i64, align 8
   %y.i22 = alloca i64, align 8
@@ -827,10 +827,10 @@ for.end:                                          ; preds = %while.end
 declare noundef ptr @_ZN4pbrt33ComputeRadicalInversePermutationsEjN4pstd3pmr21polymorphic_allocatorISt4byteEE(i32 noundef, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt13HaltonSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt13HaltonSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pbrt::Sampler") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
@@ -1187,7 +1187,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt12SobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt12SobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pbrt::Sampler") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
@@ -1223,7 +1223,7 @@ _ZN4pbrt12StringPrintfIJRKNS_6Point2IiEERKiS6_S6_S6_RKNS_17RandomizeStrategyEEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt18PaddedSobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt18PaddedSobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pbrt::Sampler") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
@@ -1490,7 +1490,7 @@ eh.resume:                                        ; preds = %lpad33, %ehcleanup3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt13ZSobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt13ZSobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pbrt::Sampler") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
@@ -1765,7 +1765,7 @@ eh.resume:                                        ; preds = %lpad34, %ehcleanup3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt14PMJ02BNSamplerC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (24, 32)) %this, i32 noundef %samplesPerPixel, i32 noundef %seed, ptr %alloc.coerce) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt14PMJ02BNSamplerC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8), (24, 32)) %this, i32 noundef %samplesPerPixel, i32 noundef %seed, ptr %alloc.coerce) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i20 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2169,7 +2169,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt14PMJ02BNSampler6CreateERKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture readnone %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt14PMJ02BNSampler6CreateERKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr readnone captures(none) %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -2281,7 +2281,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad.i9, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt14PMJ02BNSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt14PMJ02BNSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pbrt::Sampler") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
@@ -2336,7 +2336,7 @@ _ZN4pbrt12StringPrintfIJRKiS2_RKNS_3RNGEEEENSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt18IndependentSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt18IndependentSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pbrt::Sampler") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
@@ -2350,7 +2350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt18IndependentSampler6CreateERKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture readnone %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt18IndependentSampler6CreateERKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr readnone captures(none) %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -2754,7 +2754,7 @@ _ZN4pbrt12StringPrintfIJRKNS_6Point2IiEERKiS6_S6_S6_RKbS6_RKNS_3RNGEEEENSt7__cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17StratifiedSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt17StratifiedSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pbrt::Sampler") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
@@ -2768,7 +2768,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt17StratifiedSampler6CreateERKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture readnone %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt17StratifiedSampler6CreateERKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr readnone captures(none) %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3422,7 +3422,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define dso_local void @_ZN4pbrt10MLTSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture readnone sret(%"class.pbrt::Sampler") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %this, ptr nocapture readnone %alloc.coerce) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4pbrt10MLTSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias readnone sret(%"class.pbrt::Sampler") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %this, ptr readnone captures(none) %alloc.coerce) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef 336, ptr noundef nonnull @.str.39) #23
   unreachable
@@ -3432,7 +3432,7 @@ entry:
 declare void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4pbrt10MLTSampler14StartIterationEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((80, 81)) %this) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4pbrt10MLTSampler14StartIterationEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((80, 81)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %currentIteration = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i64, ptr %currentIteration, align 8
@@ -3466,7 +3466,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4pbrt10MLTSampler6AcceptEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4pbrt10MLTSampler6AcceptEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
 entry:
   %largeStep = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i8, ptr %largeStep, align 8
@@ -3610,7 +3610,7 @@ if.end24:                                         ; preds = %for.body16, %_ZN4ps
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4pbrt10MLTSampler6RejectEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN4pbrt10MLTSampler6RejectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #8 align 2 {
 entry:
   %ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %ptr.i, align 8
@@ -3655,7 +3655,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4pbrt10MLTSampler11StartStreamEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %this, i32 noundef %index) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN4pbrt10MLTSampler11StartStreamEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %this, i32 noundef %index) local_unnamed_addr #9 align 2 {
 entry:
   %streamIndex = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i32 %index, ptr %streamIndex, align 8
@@ -3665,7 +3665,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt10MLTSampler9DumpStateB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt10MLTSampler9DumpStateB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
@@ -3913,7 +3913,7 @@ _ZN4pbrt10MLTSamplerD2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt7Sampler6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryENS_6Point2IiEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, i64 %fullRes.coerce, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt7Sampler6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryENS_6Point2IiEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pbrt::Sampler") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, i64 %fullRes.coerce, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   store i64 0, ptr %agg.result, align 8
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull @.str.42) #24
@@ -4390,7 +4390,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare void @_ZNK4pbrt3RNG8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
@@ -17592,7 +17592,7 @@ lpad:                                             ; preds = %invoke.cont6, %invo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %fmt, ptr noundef nonnull align 4 dereferenceable(4) %v) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -17859,7 +17859,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEvPS7_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(32) %v) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -17999,10 +17999,10 @@ declare i32 @llvm.ctpop.i32(i32) #20
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20

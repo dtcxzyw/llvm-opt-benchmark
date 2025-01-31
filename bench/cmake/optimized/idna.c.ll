@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @uv__idna_toascii_label.alphabet = internal unnamed_addr constant [37 x i8] c"abcdefghijklmnopqrstuvwxyz0123456789\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -297,7 +297,7 @@ uv__utf8_decode1.exit.thread:                     ; preds = %60, %49, %45, %17, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef readnone %3) unnamed_addr #1 {
+define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef readnone %3) unnamed_addr #1 {
   %5 = icmp ult ptr %0, %1
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
 

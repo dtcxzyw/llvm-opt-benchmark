@@ -549,7 +549,7 @@ return:                                           ; preds = %sw.bb9, %sw.bb7, %s
 declare void @_ZN4cvc58internal19RealAlgebraicNumberC1ERKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i16 0, 258) i16 @_ZN4cvc58internal6theory5arith8rewriter28tryEvaluateRelationReflexiveENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES7_(i32 noundef %rel, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden range(i16 0, 258) i16 @_ZN4cvc58internal6theory5arith8rewriter28tryEvaluateRelationReflexiveENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES7_(i32 noundef %rel, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %left, align 8
   %1 = load ptr, ptr %right, align 8
@@ -580,7 +580,7 @@ return:                                           ; preds = %if.then, %if.then, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith8rewriter13buildRelationENS0_4kind6Kind_tENS0_12NodeTemplateILb1EEES7_b(ptr noalias sret(%"class.cvc5::internal::NodeTemplate.0") align 8 %agg.result, i32 noundef %kind, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right, i1 noundef zeroext %negate) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith8rewriter13buildRelationENS0_4kind6Kind_tENS0_12NodeTemplateILb1EEES7_b(ptr noalias sret(%"class.cvc5::internal::NodeTemplate.0") align 8 %agg.result, i32 noundef %kind, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right, i1 noundef zeroext %negate) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i11 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i12 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -4882,10 +4882,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

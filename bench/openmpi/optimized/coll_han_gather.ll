@@ -1015,14 +1015,14 @@ ompi_coll_han_reorder_gather.exit:                ; preds = %ompi_datatype_copy_
 declare i32 @mca_coll_han_comm_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @mca_coll_han_topo_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @ompi_coll_han_request_free(ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
@@ -1222,7 +1222,7 @@ init_task.exit:                                   ; preds = %.lr.ph.i.i, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_coll_han_reorder_gather(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define void @ompi_coll_han_reorder_gather(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %4, i64 248
   %.val = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %.val, i64 16
@@ -1960,7 +1960,7 @@ opal_obj_run_destructors.exit321:                 ; preds = %.lr.ph.i318, %397
   %407 = load ptr, ptr %406, align 8
   %408 = getelementptr inbounds nuw i8, ptr %8, i64 752
   %409 = load ptr, ptr %408, align 8
-  %410 = tail call i32 %407(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %409) #7
+  %410 = tail call i32 %407(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %409) #7
   br label %542
 
 411:                                              ; preds = %357
@@ -2198,7 +2198,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_datatype_copy_content_same_ddt(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_coll_han_gather_ug_task(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @mca_coll_han_gather_ug_task(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i8, ptr @opal_uses_threads, align 1

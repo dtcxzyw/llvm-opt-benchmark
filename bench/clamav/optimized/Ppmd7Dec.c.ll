@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @PPMD7_kExpEscape = external local_unnamed_addr constant [16 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ppmd7z_RangeDec_Init(ptr nocapture noundef initializes((24, 32)) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ppmd7z_RangeDec_Init(ptr noundef captures(none) initializes((24, 32)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -47,7 +47,7 @@ define range(i32 0, 2) i32 @Ppmd7z_RangeDec_Init(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Ppmd7z_RangeDec_CreateVTable(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #1 {
+define void @Ppmd7z_RangeDec_CreateVTable(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #1 {
   store ptr @Range_GetThreshold, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @Range_Decode, ptr %2, align 8
@@ -57,7 +57,7 @@ define void @Ppmd7z_RangeDec_CreateVTable(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @Range_GetThreshold(ptr nocapture noundef %0, i32 noundef %1) #2 {
+define internal i32 @Range_GetThreshold(ptr noundef captures(none) %0, i32 noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -69,7 +69,7 @@ define internal i32 @Range_GetThreshold(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Range_Decode(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+define internal void @Range_Decode(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = mul i32 %5, %1
@@ -115,7 +115,7 @@ Range_Normalize.exit:                             ; preds = %3, %12, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Range_DecodeBit(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define internal range(i32 0, 2) i32 @Range_DecodeBit(ptr noundef captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 14
@@ -561,7 +561,7 @@ declare ptr @Ppmd7_MakeEscFreq(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare void @Ppmd7_Update2(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

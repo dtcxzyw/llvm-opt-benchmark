@@ -168,7 +168,7 @@ hb_blob_destroy.exit:                             ; preds = %.thread.i, %_ZN9hb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN9hb_blob_t17try_make_writableEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9hb_blob_t17try_make_writableEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -388,7 +388,7 @@ hb_blob_create.exit:                              ; preds = %hb_blob_create_or_f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_blob_make_immutable(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define hidden void @hb_blob_make_immutable(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -428,7 +428,7 @@ define internal void @_ZL16_hb_blob_destroyPv(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_blob_copy_writable_or_fail(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @hb_blob_copy_writable_or_fail(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %3, 0
@@ -450,7 +450,7 @@ hb_blob_create.exit:                              ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #3
+declare void @free(ptr allocptr noundef captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 0, 2) i32 @hb_blob_set_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -562,7 +562,7 @@ _ZL23hb_object_get_user_dataIK9hb_blob_tEPvPT_P18hb_user_data_key_t.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @hb_blob_is_immutable(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @hb_blob_is_immutable(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -571,14 +571,14 @@ define hidden range(i32 0, 2) i32 @hb_blob_is_immutable(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_blob_get_length(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @hb_blob_get_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @hb_blob_get_data(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
+define hidden ptr @hb_blob_get_data(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -595,7 +595,7 @@ define hidden ptr @hb_blob_get_data(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden ptr @hb_blob_get_data_writable(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden ptr @hb_blob_get_data_writable(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -693,7 +693,7 @@ _ZN9hb_blob_t17try_make_writableEv.exit:          ; preds = %12, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call i64 @sysconf(i32 noundef 30) #21
   %3 = icmp eq i64 %2, -1
   br i1 %3, label %4, label %8
@@ -752,7 +752,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9hb_blob_t25try_make_writable_inplaceEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN9hb_blob_t25try_make_writable_inplaceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   br i1 %2, label %5, label %3
 
@@ -769,7 +769,7 @@ define hidden noundef zeroext i1 @_ZN9hb_blob_t25try_make_writable_inplaceEv(ptr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @hb_blob_create_from_file(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden noundef nonnull ptr @hb_blob_create_from_file(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = tail call ptr @hb_blob_create_from_file_or_fail(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   %spec.select = select i1 %.not, ptr @_hb_NullPool, ptr %2
@@ -777,7 +777,7 @@ define hidden noundef nonnull ptr @hb_blob_create_from_file(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr nocapture noundef readonly %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #20
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %hb_blob_create_or_fail.exit, label %3
@@ -885,31 +885,31 @@ hb_blob_create_or_fail.exit:                      ; preds = %27, %_ZL16hb_object
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 {

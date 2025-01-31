@@ -91,7 +91,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19QuicStreamSequencer13OnStreamFrameERKNS_15QuicStreamFrameE(ptr noundef nonnull align 8 dereferenceable(169) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %frame) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net19QuicStreamSequencer13OnStreamFrameERKNS_15QuicStreamFrameE(ptr noundef nonnull align 8 dereferenceable(169) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %frame) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bytes_written = alloca i64, align 8
   %error_details = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1137,7 +1137,7 @@ ehcleanup63:                                      ; preds = %ehcleanup62, %lpad
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net19QuicStreamSequencer20SetBlockedUntilFlushEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(169) initializes((144, 145)) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3net19QuicStreamSequencer20SetBlockedUntilFlushEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(169) initializes((144, 145)) %this) local_unnamed_addr #5 align 2 {
 entry:
   %blocked_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i8 1, ptr %blocked_, align 8

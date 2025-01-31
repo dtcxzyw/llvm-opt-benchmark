@@ -161,7 +161,7 @@ gather_merge_setup.exit:                          ; preds = %78, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ExecGatherMerge(ptr nocapture noundef %0) #0 {
+define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
   %2 = alloca i8, align 1
   %3 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %3, 0
@@ -660,7 +660,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare void @PrepareSortSupportFromOrderingOp(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndGatherMerge(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndGatherMerge(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call void @ExecEndNode(ptr noundef %3) #4
@@ -701,7 +701,7 @@ ExecShutdownGatherMerge.exit:                     ; preds = %ExecShutdownGatherM
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecShutdownGatherMerge(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecShutdownGatherMerge(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -739,7 +739,7 @@ ExecShutdownGatherMergeWorkers.exit:              ; preds = %5, %8
 declare void @ExecParallelCleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanGatherMerge(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanGatherMerge(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -862,14 +862,14 @@ declare void @ExecParallelCreateReaders(ptr noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
 declare i64 @binaryheap_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @gather_merge_readnext(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @gather_merge_readnext(ptr noundef captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %5, label %37
 
@@ -1082,7 +1082,7 @@ declare ptr @ExecInitExtraTupleSlot(ptr noundef, ptr noundef, ptr noundef) local
 declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @heap_compare_slots(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @heap_compare_slots(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %5 = load ptr, ptr %4, align 8
   %sext = shl i64 %0, 32
@@ -1212,10 +1212,10 @@ ApplySortComparator.exit.thread.thread:           ; preds = %ApplySortComparator
 declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

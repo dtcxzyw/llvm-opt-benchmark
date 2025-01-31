@@ -118,7 +118,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.76 = private unnamed_addr constant [20 x i8] c"[GSSLibStub_unwrap]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_security_jgss_wrapper_GSSLibStub_init(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_security_jgss_wrapper_GSSLibStub_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %.not = icmp ne i8 %3, 0
   %. = zext i1 %.not to i32
   store i32 %., ptr @JGSS_DEBUG, align 4
@@ -212,10 +212,10 @@ define zeroext range(i8 0, 2) i8 @Java_sun_security_jgss_wrapper_GSSLibStub_init
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @loadNative(ptr noundef) local_unnamed_addr #2
 
@@ -223,7 +223,7 @@ declare i32 @loadNative(ptr noundef) local_unnamed_addr #2
 declare ptr @dlerror() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @Java_sun_security_jgss_wrapper_GSSLibStub_getMechPtr(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef i64 @Java_sun_security_jgss_wrapper_GSSLibStub_getMechPtr(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %43, label %4
 
@@ -349,7 +349,7 @@ define hidden void @deleteGSSCB(ptr noundef %0) local_unnamed_addr #0 {
 declare void @resetGSSBuffer(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @newGSSCB(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -567,7 +567,7 @@ define hidden void @setSupplementaryInfo(ptr noundef %0, ptr noundef %1, ptr nou
 declare ptr @getMinorMessage(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_security_jgss_wrapper_GSSLibStub_indicateMechs(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_security_jgss_wrapper_GSSLibStub_indicateMechs(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @ftab, align 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3210,13 +3210,13 @@ define ptr @Java_sun_security_jgss_wrapper_GSSLibStub_unwrap(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

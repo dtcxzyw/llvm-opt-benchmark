@@ -69,7 +69,7 @@ define range(i32 -1, 1) i32 @zend_load_extension(ptr noundef %0) local_unnamed_a
 declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @dlerror() local_unnamed_addr #1
@@ -204,7 +204,7 @@ define range(i32 -1, 1) i32 @zend_load_extension_handle(ptr noundef %0, ptr noun
 
 zend_get_extension.exit:                          ; preds = %61
   %65 = load ptr, ptr @stderr, align 8
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.10, ptr noundef %59) #16
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.10, ptr noundef nonnull %59) #16
   %67 = tail call i32 @dlclose(ptr noundef %0) #15
   br label %98
 
@@ -290,10 +290,10 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @zend_get_extension(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @zend_get_extension(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %3, %1
@@ -319,7 +319,7 @@ define ptr @zend_get_extension(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_register_extension(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @zend_register_extension(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zend_extension, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull align 8 dereferenceable(208) %0, i64 208, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -390,7 +390,7 @@ define void @zend_register_extension(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define void @zend_extension_dispatch_message(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -411,7 +411,7 @@ define hidden void @zend_startup_extensions_mechanism() local_unnamed_addr #0 {
 declare void @zend_llist_init(ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_extension_dtor(ptr nocapture noundef readonly %0) #0 {
+define hidden void @zend_extension_dtor(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -486,12 +486,12 @@ define internal void @zend_extension_shutdown(ptr noundef %0) #0 {
 declare void @zend_llist_destroy(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @zend_llist_apply_with_arguments(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_extension_message_dispatcher(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) #0 {
+define internal void @zend_extension_message_dispatcher(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -893,7 +893,7 @@ define i64 @zend_extensions_op_array_persist_calc(ptr noundef %0) local_unnamed_
 declare void @zend_llist_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_extension_op_array_persist_calc_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal void @zend_extension_op_array_persist_calc_handler(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -936,7 +936,7 @@ define i64 @zend_extensions_op_array_persist(ptr noundef %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_extension_op_array_persist_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal void @zend_extension_op_array_persist_handler(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -970,16 +970,16 @@ declare void @zend_append_version_info(ptr noundef) local_unnamed_addr #6
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

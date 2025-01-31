@@ -115,7 +115,7 @@ declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_asn1_set_prefix(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ndef_prefix(ptr nocapture readnone %b, ptr nocapture noundef %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef readonly %parg) #0 {
+define internal range(i32 0, 2) i32 @ndef_prefix(ptr readnone captures(none) %b, ptr noundef captures(none) %pbuf, ptr noundef writeonly captures(none) %plen, ptr noundef readonly %parg) #0 {
 entry:
   %p = alloca ptr, align 8
   %cmp = icmp eq ptr %parg, null
@@ -165,7 +165,7 @@ return:                                           ; preds = %if.end8, %if.end3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ndef_prefix_free(ptr nocapture readnone %b, ptr nocapture noundef writeonly %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef readonly %parg) #0 {
+define internal range(i32 0, 2) i32 @ndef_prefix_free(ptr readnone captures(none) %b, ptr noundef writeonly captures(none) %pbuf, ptr noundef writeonly captures(none) %plen, ptr noundef readonly %parg) #0 {
 entry:
   %cmp = icmp eq ptr %parg, null
   br i1 %cmp, label %return, label %if.end
@@ -192,7 +192,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @BIO_asn1_set_suffix(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ndef_suffix(ptr nocapture readnone %b, ptr nocapture noundef writeonly %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef readonly %parg) #0 {
+define internal range(i32 0, 2) i32 @ndef_suffix(ptr readnone captures(none) %b, ptr noundef writeonly captures(none) %pbuf, ptr noundef writeonly captures(none) %plen, ptr noundef readonly %parg) #0 {
 entry:
   %p = alloca ptr, align 8
   %sarg = alloca %struct.ASN1_STREAM_ARG_st, align 8
@@ -267,7 +267,7 @@ return:                                           ; preds = %if.end18, %if.end13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ndef_suffix_free(ptr nocapture readnone %b, ptr nocapture noundef writeonly %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef %parg) #0 {
+define internal range(i32 0, 2) i32 @ndef_suffix_free(ptr readnone captures(none) %b, ptr noundef writeonly captures(none) %pbuf, ptr noundef writeonly captures(none) %plen, ptr noundef %parg) #0 {
 entry:
   %cmp.i = icmp eq ptr %parg, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -307,7 +307,7 @@ declare i32 @ASN1_item_ndef_i2d(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

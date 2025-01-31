@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kBrotliCopyExtra = external hidden local_unnamed_addr constant [24 x i32], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @BrotliInitZopfliNodes(ptr nocapture noundef writeonly %array, i64 noundef %length) local_unnamed_addr #0 {
+define hidden void @BrotliInitZopfliNodes(ptr noundef writeonly captures(none) %array, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp3.not = icmp eq i64 %length, 0
   br i1 %cmp3.not, label %for.end, label %for.body
@@ -41,10 +41,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BrotliZopfliCreateCommands(i64 noundef %num_bytes, i64 noundef %block_start, ptr nocapture noundef readonly %nodes, ptr nocapture noundef %dist_cache, ptr nocapture noundef %last_insert_len, ptr nocapture noundef readonly %params, ptr nocapture noundef writeonly %commands, ptr nocapture noundef %num_literals) local_unnamed_addr #2 {
+define hidden void @BrotliZopfliCreateCommands(i64 noundef %num_bytes, i64 noundef %block_start, ptr noundef readonly captures(none) %nodes, ptr noundef captures(none) %dist_cache, ptr noundef captures(none) %last_insert_len, ptr noundef readonly captures(none) %params, ptr noundef writeonly captures(none) %commands, ptr noundef captures(none) %num_literals) local_unnamed_addr #2 {
 entry:
   %lgwin = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %lgwin, align 8
@@ -327,7 +327,7 @@ for.end:                                          ; preds = %if.end38, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @BrotliZopfliComputeShortestPath(ptr noundef %m, i64 noundef %num_bytes, i64 noundef %position, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr nocapture noundef readonly %literal_context_lut, ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %dist_cache, ptr nocapture noundef readonly %hasher, ptr nocapture noundef initializes((0, 4), (12, 16)) %nodes) local_unnamed_addr #3 {
+define hidden i64 @BrotliZopfliComputeShortestPath(ptr noundef %m, i64 noundef %num_bytes, i64 noundef %position, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef readonly captures(none) %literal_context_lut, ptr noundef readonly captures(none) %params, ptr noundef readonly captures(none) %dist_cache, ptr noundef readonly captures(none) %hasher, ptr noundef captures(none) initializes((0, 4), (12, 16)) %nodes) local_unnamed_addr #3 {
 entry:
   %__brotli_swap_tmp.i.i = alloca %struct.PosData, align 8
   %posdata.i = alloca %struct.PosData, align 8
@@ -1255,7 +1255,7 @@ if.then82:                                        ; preds = %land.lhs.true
 
 if.end86:                                         ; preds = %if.then82, %land.lhs.true, %if.end74
   %num_matches.1 = phi i64 [ 1, %if.then82 ], [ %num_matches.0, %land.lhs.true ], [ 0, %if.end74 ]
-  %call87 = call fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %position, i64 noundef %i.0777, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef %params, i64 noundef %sub, ptr noundef %dist_cache, i64 noundef %num_matches.1, ptr noundef %call2, ptr noundef %call9, ptr noundef %queue, ptr noundef nonnull %nodes)
+  %call87 = call fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %position, i64 noundef %i.0777, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef %params, i64 noundef %sub, ptr noundef %dist_cache, i64 noundef %num_matches.1, ptr noundef %call2, ptr noundef nonnull %call9, ptr noundef %queue, ptr noundef nonnull %nodes)
   %cmp88 = icmp ult i64 %call87, 16384
   %spec.store.select1 = select i1 %cmp88, i64 0, i64 %call87
   %cmp92 = icmp eq i64 %num_matches.1, 1
@@ -1847,7 +1847,7 @@ for.end:                                          ; preds = %for.inc, %InitZopfl
   %137 = load ptr, ptr %cost_dist_.i, align 8
   call void @BrotliFree(ptr noundef %m, ptr noundef %137) #12
   store ptr null, ptr %cost_dist_.i, align 8
-  call void @BrotliFree(ptr noundef %m, ptr noundef %call9) #12
+  call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %call9) #12
   call void @BrotliFree(ptr noundef %m, ptr noundef %call2) #12
   %arrayidx15.i = getelementptr inbounds %struct.ZopfliNode, ptr %nodes, i64 %num_bytes
   %dcode_insert_length16.i = getelementptr inbounds nuw i8, ptr %arrayidx15.i, i64 8
@@ -2007,7 +2007,7 @@ FastLog2.exit:                                    ; preds = %FastLog2.exit47, %f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %block_start, i64 noundef %pos, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr nocapture noundef readonly %params, i64 noundef %max_backward_limit, ptr nocapture noundef readonly %starting_dist_cache, i64 noundef %num_matches, ptr nocapture noundef readonly %matches, ptr nocapture noundef readonly %model, ptr nocapture noundef nonnull %queue, ptr nocapture noundef %nodes) unnamed_addr #5 {
+define internal fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %block_start, i64 noundef %pos, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef readonly captures(none) %params, i64 noundef %max_backward_limit, ptr noundef readonly captures(none) %starting_dist_cache, i64 noundef %num_matches, ptr noundef readonly captures(none) %matches, ptr noundef readonly captures(none) %model, ptr noundef nonnull captures(none) %queue, ptr noundef captures(none) %nodes) unnamed_addr #5 {
 entry:
   %stream_offset1 = getelementptr inbounds nuw i8, ptr %params, i64 16
   %0 = load i64, ptr %stream_offset1, align 8
@@ -2728,7 +2728,7 @@ for.end228:                                       ; preds = %for.inc226, %land.r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @EvaluateNode(i64 noundef %block_start, i64 noundef %pos, i64 noundef %max_backward_limit, i64 noundef %gap, ptr nocapture noundef readonly %starting_dist_cache, ptr nocapture noundef readonly %model, ptr nocapture noundef nonnull %queue, ptr nocapture noundef %nodes) unnamed_addr #5 {
+define internal fastcc void @EvaluateNode(i64 noundef %block_start, i64 noundef %pos, i64 noundef %max_backward_limit, i64 noundef %gap, ptr noundef readonly captures(none) %starting_dist_cache, ptr noundef readonly captures(none) %model, ptr noundef nonnull captures(none) %queue, ptr noundef captures(none) %nodes) unnamed_addr #5 {
 entry:
   %__brotli_swap_tmp.i = alloca %struct.PosData, align 8
   %posdata = alloca %struct.PosData, align 8
@@ -2889,7 +2889,7 @@ if.end:                                           ; preds = %StartPosQueuePush.e
 declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliCreateZopfliBackwardReferences(ptr noundef %m, i64 noundef %num_bytes, i64 noundef %position, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr nocapture noundef readonly %literal_context_lut, ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %hasher, ptr nocapture noundef %dist_cache, ptr nocapture noundef %last_insert_len, ptr nocapture noundef writeonly %commands, ptr nocapture noundef %num_commands, ptr nocapture noundef %num_literals) local_unnamed_addr #3 {
+define hidden void @BrotliCreateZopfliBackwardReferences(ptr noundef %m, i64 noundef %num_bytes, i64 noundef %position, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef readonly captures(none) %literal_context_lut, ptr noundef readonly captures(none) %params, ptr noundef readonly captures(none) %hasher, ptr noundef captures(none) %dist_cache, ptr noundef captures(none) %last_insert_len, ptr noundef writeonly captures(none) %commands, ptr noundef captures(none) %num_commands, ptr noundef captures(none) %num_literals) local_unnamed_addr #3 {
 entry:
   %add = add i64 %num_bytes, 1
   %cmp.not = icmp eq i64 %add, 0
@@ -2926,7 +2926,7 @@ BrotliInitZopfliNodes.exit:                       ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliCreateHqZopfliBackwardReferences(ptr noundef %m, i64 noundef %num_bytes, i64 noundef %position, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr nocapture noundef readonly %literal_context_lut, ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %hasher, ptr nocapture noundef %dist_cache, ptr nocapture noundef %last_insert_len, ptr nocapture noundef %commands, ptr nocapture noundef %num_commands, ptr nocapture noundef %num_literals) local_unnamed_addr #3 {
+define hidden void @BrotliCreateHqZopfliBackwardReferences(ptr noundef %m, i64 noundef %num_bytes, i64 noundef %position, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef readonly captures(none) %literal_context_lut, ptr noundef readonly captures(none) %params, ptr noundef readonly captures(none) %hasher, ptr noundef captures(none) %dist_cache, ptr noundef captures(none) %last_insert_len, ptr noundef captures(none) %commands, ptr noundef captures(none) %num_commands, ptr noundef captures(none) %num_literals) local_unnamed_addr #3 {
 entry:
   %__brotli_swap_tmp.i.i.i = alloca %struct.PosData, align 8
   %posdata.i.i = alloca %struct.PosData, align 8
@@ -4595,7 +4595,7 @@ for.body.i641:                                    ; preds = %for.inc.i647, %for.
   %144 = load i32, ptr %arrayidx3.i642, align 4
   %conv.i643 = zext i32 %144 to i64
   %arrayidx4.i = getelementptr inbounds %struct.BackwardMatch, ptr %matches.0.lcssa, i64 %cur_match_pos.061.i
-  %call5.i = call fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %position, i64 noundef %i.062.i, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef readonly %params, i64 noundef %sub.i627, ptr noundef readonly %dist_cache, i64 noundef %conv.i643, ptr noundef readonly %arrayidx4.i, ptr noundef readonly %call12, ptr noundef %queue.i, ptr noundef nonnull %cond165674)
+  %call5.i = call fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %position, i64 noundef %i.062.i, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef readonly %params, i64 noundef %sub.i627, ptr noundef nonnull readonly %dist_cache, i64 noundef %conv.i643, ptr noundef readonly %arrayidx4.i, ptr noundef readonly %call12, ptr noundef %queue.i, ptr noundef nonnull %cond165674)
   %cmp6.i644 = icmp ult i64 %call5.i, 16384
   %spec.store.select.i = select i1 %cmp6.i644, i64 0, i64 %call5.i
   %145 = load i32, ptr %arrayidx3.i642, align 4
@@ -4709,7 +4709,7 @@ for.body.preheader.i.i.i:                         ; preds = %for.cond.preheader.
   %157 = shl nuw nsw i64 %idx.0.lcssa28.i.i.i, 2
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %157
   %158 = sub nuw nsw i64 16, %157
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep.i, ptr readonly align 4 %dist_cache, i64 %158, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep.i, ptr nonnull readonly align 4 %dist_cache, i64 %158, i1 false)
   br label %ComputeDistanceCache.exit.i.i
 
 while.body.i.i.i657:                              ; preds = %if.then.i.i655, %while.body.i.i.i657
@@ -4857,7 +4857,7 @@ ZopfliIterate.exit:                               ; preds = %while.body6.i.i, %w
   %173 = load i64, ptr %num_commands, align 8
   %add180 = add i64 %173, %num_commands.0.lcssa.i.i
   store i64 %add180, ptr %num_commands, align 8
-  call void @BrotliZopfliCreateCommands(i64 noundef %num_bytes, i64 noundef %position, ptr noundef nonnull %cond165674, ptr noundef %dist_cache, ptr noundef nonnull %last_insert_len, ptr noundef %params, ptr noundef %commands, ptr noundef nonnull %num_literals)
+  call void @BrotliZopfliCreateCommands(i64 noundef %num_bytes, i64 noundef %position, ptr noundef nonnull %cond165674, ptr noundef nonnull %dist_cache, ptr noundef nonnull %last_insert_len, ptr noundef %params, ptr noundef %commands, ptr noundef nonnull %num_literals)
   br i1 %cmp172, label %for.body170, label %for.end183, !llvm.loop !53
 
 for.end183:                                       ; preds = %ZopfliIterate.exit
@@ -4875,7 +4875,7 @@ for.end183:                                       ; preds = %ZopfliIterate.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
@@ -4891,7 +4891,7 @@ declare hidden i32 @BrotliFindAllStaticDictionaryMatches(ptr noundef, ptr nounde
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc void @SetCost(ptr nocapture noundef readonly %histogram, i64 noundef range(i64 0, 4294967296) %histogram_size, i32 noundef range(i32 0, 2) %literal_histogram, ptr nocapture noundef writeonly %cost) unnamed_addr #9 {
+define internal fastcc void @SetCost(ptr noundef readonly captures(none) %histogram, i64 noundef range(i64 0, 4294967296) %histogram_size, i32 noundef range(i32 0, 2) %literal_histogram, ptr noundef writeonly captures(none) %cost) unnamed_addr #9 {
 entry:
   %cmp31.not = icmp eq i64 %histogram_size, 0
   br i1 %cmp31.not, label %if.then.i57, label %for.body
@@ -5023,10 +5023,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #10
 declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -524,10 +524,10 @@ define dso_local noundef zeroext i1 @pgstat_database_flush_cb(ptr noundef %0, i1
 declare zeroext i1 @pgstat_lock_entry(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @pgstat_database_reset_timestamp_cb(ptr nocapture noundef writeonly initializes((264, 272)) %0, i64 noundef %1) local_unnamed_addr #4 {
+define dso_local void @pgstat_database_reset_timestamp_cb(ptr noundef writeonly captures(none) initializes((264, 272)) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i64 %1, ptr %3, align 8
   ret void

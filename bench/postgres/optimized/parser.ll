@@ -164,7 +164,7 @@ check_uescapechar.exit.thread:                    ; preds = %switch.early.test.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @base_yylloc, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   store ptr %9, ptr @base_yytext, align 8
   %38 = load ptr, ptr @base_yylval, align 8
-  %39 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.2, ptr noundef %38, ptr noundef %26) #5
+  %39 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.2, ptr noundef %38, ptr noundef nonnull %26) #5
   store ptr %39, ptr @base_yylval, align 8
   store i1 false, ptr @have_lookahead, align 1
   br label %40
@@ -184,14 +184,14 @@ check_uescapechar.exit.thread:                    ; preds = %switch.early.test.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @base_yylex() local_unnamed_addr #2
 
 declare void @mmerror(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 

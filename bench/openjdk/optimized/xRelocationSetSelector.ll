@@ -101,13 +101,13 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @_ZN22XRelocationSetSelectorC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN22XRelocationSetSelectorC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN32XRelocationSetSelectorGroupStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN32XRelocationSetSelectorGroupStatsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN27XRelocationSetSelectorGroupC2EPKchmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 9), (16, 112)) %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 align 2 {
+define hidden void @_ZN27XRelocationSetSelectorGroupC2EPKchmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((0, 9), (16, 112)) %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %2, ptr %6, align 8
@@ -128,7 +128,7 @@ define hidden void @_ZN27XRelocationSetSelectorGroupC2EPKchmm(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN27XRelocationSetSelectorGroup11is_disabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN27XRelocationSetSelectorGroup11is_disabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 1
@@ -140,7 +140,7 @@ define hidden noundef zeroext i1 @_ZN27XRelocationSetSelectorGroup11is_disabledE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN27XRelocationSetSelectorGroup13is_selectableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN27XRelocationSetSelectorGroup13is_selectableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = icmp ne i8 %3, 2
@@ -148,7 +148,7 @@ define hidden noundef zeroext i1 @_ZN27XRelocationSetSelectorGroup13is_selectabl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27XRelocationSetSelectorGroup9semi_sortEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN27XRelocationSetSelectorGroup9semi_sortEv(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #3 align 2 {
 _ZN18XArrayIteratorImplIP5XPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.exit:
   %1 = alloca [2048 x i32], align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -260,10 +260,10 @@ _ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EED2Ev.exit: ; preds = %.loopexit.thre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27XRelocationSetSelectorGroup12select_innerEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN27XRelocationSetSelectorGroup12select_innerEv(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   tail call void @_ZN27XRelocationSetSelectorGroup9semi_sortEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
@@ -398,7 +398,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27XRelocationSetSelectorGroup6selectEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN27XRelocationSetSelectorGroup6selectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.EventZRelocationSetGroup, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
@@ -498,7 +498,7 @@ _ZN24EventZRelocationSetGroup6commitEmmmmmm.exit: ; preds = %_ZN8JfrEventI24Even
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN22XRelocationSetSelectorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(352) initializes((0, 9), (16, 121), (128, 233), (240, 352)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN22XRelocationSetSelectorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(352) initializes((0, 9), (16, 121), (128, 233), (240, 352)) %0) unnamed_addr #1 align 2 {
   store ptr @.str.7, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
@@ -547,7 +547,7 @@ define hidden void @_ZN22XRelocationSetSelectorC2Ev(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22XRelocationSetSelector6selectEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN22XRelocationSetSelector6selectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(352) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.EventZRelocationSet, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 17
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 18
@@ -637,7 +637,7 @@ _ZN19EventZRelocationSet6commitEmmm.exit:         ; preds = %_ZN19EventZRelocati
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK22XRelocationSetSelector5statsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.XRelocationSetSelectorStats) align 8 initializes((0, 144)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZNK22XRelocationSetSelector5statsEv(ptr dead_on_unwind noalias writable writeonly sret(%class.XRelocationSetSelectorStats) align 8 captures(none) initializes((0, 144)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -650,7 +650,7 @@ define hidden void @_ZNK22XRelocationSetSelector5statsEv(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal void @__cxx_global_var_init.10() #8 section ".text.startup" comdat($_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE) {
@@ -2328,10 +2328,10 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

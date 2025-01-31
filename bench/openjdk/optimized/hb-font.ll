@@ -194,25 +194,25 @@ $_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_7VarDataENS1_7IntTypeIjL
 @_hb_CrapPool = external global [80 x i64], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL30hb_font_get_font_h_extents_nilP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 48)) %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_ZL30hb_font_get_font_h_extents_nilP9hb_font_tPvP17hb_font_extents_tS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 48)) %2, ptr readnone captures(none) %3) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL30hb_font_get_font_v_extents_nilP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 48)) %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_ZL30hb_font_get_font_v_extents_nilP9hb_font_tPvP17hb_font_extents_tS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 48)) %2, ptr readnone captures(none) %3) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL29hb_font_get_nominal_glyph_nilP9hb_font_tPvjPjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture readnone %4) #0 {
+define internal noundef i32 @_ZL29hb_font_get_nominal_glyph_nilP9hb_font_tPvjPjS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr readnone captures(none) %4) #0 {
   store i32 0, ptr %3, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL34hb_font_get_nominal_glyphs_defaultP9hb_font_tPvjPKjjPjjS1_(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture readnone %7) #1 {
+define internal noundef i32 @_ZL34hb_font_get_nominal_glyphs_defaultP9hb_font_tPvjPKjjPjjS1_(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr readnone captures(none) %7) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -294,27 +294,27 @@ _ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit:  ; preds = %34, %45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL31hb_font_get_variation_glyph_nilP9hb_font_tPvjjPjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @_ZL31hb_font_get_variation_glyph_nilP9hb_font_tPvjjPjS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr readnone captures(none) %5) #0 {
   store i32 0, ptr %4, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL31hb_font_get_glyph_h_advance_nilP9hb_font_tPvjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #2 {
+define internal noundef i32 @_ZL31hb_font_get_glyph_h_advance_nilP9hb_font_tPvjS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL31hb_font_get_glyph_v_advance_nilP9hb_font_tPvjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #2 {
+define internal noundef i32 @_ZL31hb_font_get_glyph_v_advance_nilP9hb_font_tPvjS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL36hb_font_get_glyph_h_advances_defaultP9hb_font_tPvjPKjjPijS1_(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture readnone %7) #1 {
+define internal void @_ZL36hb_font_get_glyph_h_advances_defaultP9hb_font_tPvjPKjjPijS1_(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr readnone captures(none) %7) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
@@ -429,7 +429,7 @@ _ZN9hb_font_t23parent_scale_x_distanceEi.exit:    ; preds = %50, %53, %57
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL36hb_font_get_glyph_v_advances_defaultP9hb_font_tPvjPKjjPijS1_(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture readnone %7) #1 {
+define internal void @_ZL36hb_font_get_glyph_v_advances_defaultP9hb_font_tPvjPKjjPijS1_(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr readnone captures(none) %7) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
@@ -544,44 +544,44 @@ _ZN9hb_font_t23parent_scale_y_distanceEi.exit:    ; preds = %50, %53, %57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL30hb_font_get_glyph_h_origin_nilP9hb_font_tPvjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @_ZL30hb_font_get_glyph_h_origin_nilP9hb_font_tPvjPiS2_S1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr readnone captures(none) %5) #0 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL30hb_font_get_glyph_v_origin_nilP9hb_font_tPvjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @_ZL30hb_font_get_glyph_v_origin_nilP9hb_font_tPvjPiS2_S1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr readnone captures(none) %5) #0 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL31hb_font_get_glyph_h_kerning_nilP9hb_font_tPvjjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture readnone %4) #3 {
+define internal noundef i32 @_ZL31hb_font_get_glyph_h_kerning_nilP9hb_font_tPvjjS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, ptr readnone captures(none) %4) #3 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL31hb_font_get_glyph_v_kerning_nilP9hb_font_tPvjjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture readnone %4) #3 {
+define internal noundef i32 @_ZL31hb_font_get_glyph_v_kerning_nilP9hb_font_tPvjjS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, ptr readnone captures(none) %4) #3 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL29hb_font_get_glyph_extents_nilP9hb_font_tPvjP18hb_glyph_extents_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 16)) %3, ptr nocapture readnone %4) #0 {
+define internal noundef i32 @_ZL29hb_font_get_glyph_extents_nilP9hb_font_tPvjP18hb_glyph_extents_tS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) initializes((0, 16)) %3, ptr readnone captures(none) %4) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL35hb_font_get_glyph_contour_point_nilP9hb_font_tPvjjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr nocapture readnone %6) #0 {
+define internal noundef i32 @_ZL35hb_font_get_glyph_contour_point_nilP9hb_font_tPvjjPiS2_S1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, ptr readnone captures(none) %6) #0 {
   store i32 0, ptr %5, align 4
   store i32 0, ptr %4, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL26hb_font_get_glyph_name_nilP9hb_font_tPvjPcjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @_ZL26hb_font_get_glyph_name_nilP9hb_font_tPvjPcjS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %7
 
@@ -594,18 +594,18 @@ define internal noundef i32 @_ZL26hb_font_get_glyph_name_nilP9hb_font_tPvjPcjS1_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL31hb_font_get_glyph_from_name_nilP9hb_font_tPvPKciPjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @_ZL31hb_font_get_glyph_from_name_nilP9hb_font_tPvPKciPjS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr readnone captures(none) %5) #0 {
   store i32 0, ptr %4, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL22hb_font_draw_glyph_nilP9hb_font_tPvjP15hb_draw_funcs_tS1_S1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #3 {
+define internal void @_ZL22hb_font_draw_glyph_nilP9hb_font_tPvjP15hb_draw_funcs_tS1_S1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL23hb_font_paint_glyph_nilP9hb_font_tPvjP16hb_paint_funcs_tS1_jjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5, i32 %6, ptr nocapture readnone %7) #3 {
+define internal void @_ZL23hb_font_paint_glyph_nilP9hb_font_tPvjP16hb_paint_funcs_tS1_jjS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5, i32 %6, ptr readnone captures(none) %7) #3 {
   ret void
 }
 
@@ -637,7 +637,7 @@ define hidden noundef nonnull ptr @hb_font_funcs_get_empty() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef ptr @hb_font_funcs_reference(ptr noundef returned %0) local_unnamed_addr #6 {
@@ -1163,7 +1163,7 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit.thread: ; preds = %1, %5, %2,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 0, 2) i32 @hb_font_funcs_set_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
@@ -1275,7 +1275,7 @@ _ZL23hb_object_get_user_dataIK15hb_font_funcs_tEPvPT_P18hb_user_data_key_t.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_font_funcs_make_immutable(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define hidden void @hb_font_funcs_make_immutable(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -1290,7 +1290,7 @@ define hidden void @hb_font_funcs_make_immutable(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @hb_font_funcs_is_immutable(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @hb_font_funcs_is_immutable(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -1299,7 +1299,7 @@ define hidden range(i32 0, 2) i32 @hb_font_funcs_is_immutable(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_font_h_extents_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_font_h_extents_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -1419,7 +1419,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL34hb_font_get_font_h_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef initializes((0, 48)) %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @_ZL34hb_font_get_font_h_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef initializes((0, 48)) %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -1529,7 +1529,7 @@ _ZN9hb_font_t23parent_scale_y_distanceEi.exit20:  ; preds = %_ZN9hb_font_t23pare
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_font_v_extents_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_font_v_extents_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -1653,7 +1653,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL34hb_font_get_font_v_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef initializes((0, 48)) %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @_ZL34hb_font_get_font_v_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef initializes((0, 48)) %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -1764,7 +1764,7 @@ _ZN9hb_font_t23parent_scale_x_distanceEi.exit20:  ; preds = %_ZN9hb_font_t23pare
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_nominal_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_nominal_glyph_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -1888,7 +1888,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL33hb_font_get_nominal_glyph_defaultP9hb_font_tPvjPjS1_(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @_ZL33hb_font_get_nominal_glyph_defaultP9hb_font_tPvjPjS1_(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca i32, align 4
   store i32 %2, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1948,7 +1948,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %22, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_nominal_glyphs_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_nominal_glyphs_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -2072,7 +2072,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_variation_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_variation_glyph_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -2196,7 +2196,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL35hb_font_get_variation_glyph_defaultP9hb_font_tPvjjPjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #1 {
+define internal noundef i32 @_ZL35hb_font_get_variation_glyph_defaultP9hb_font_tPvjjPjS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr readnone captures(none) %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %4, align 4
@@ -2223,7 +2223,7 @@ _ZN9hb_font_t19get_variation_glyphEjjPjj.exit:    ; preds = %6, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_h_advance_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_h_advance_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -2347,7 +2347,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL35hb_font_get_glyph_h_advance_defaultP9hb_font_tPvjS1_(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @_ZL35hb_font_get_glyph_h_advance_defaultP9hb_font_tPvjS1_(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
@@ -2427,7 +2427,7 @@ _ZN9hb_font_t23parent_scale_x_distanceEi.exit:    ; preds = %44, %39, %_ZN9hb_fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_v_advance_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_v_advance_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -2551,7 +2551,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL35hb_font_get_glyph_v_advance_defaultP9hb_font_tPvjS1_(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @_ZL35hb_font_get_glyph_v_advance_defaultP9hb_font_tPvjS1_(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
@@ -2631,7 +2631,7 @@ _ZN9hb_font_t23parent_scale_y_distanceEi.exit:    ; preds = %44, %39, %_ZN9hb_fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_h_advances_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_h_advances_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -2755,7 +2755,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_v_advances_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_v_advances_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -2879,7 +2879,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_h_origin_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_h_origin_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -3003,7 +3003,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL34hb_font_get_glyph_h_origin_defaultP9hb_font_tPvjPiS2_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #1 {
+define internal noundef i32 @_ZL34hb_font_get_glyph_h_origin_defaultP9hb_font_tPvjPiS2_S1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef initializes((0, 4)) %4, ptr readnone captures(none) %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %4, align 4
@@ -3088,7 +3088,7 @@ _ZN9hb_font_t21parent_scale_positionEPiS0_.exit:  ; preds = %_ZN9hb_font_t23pare
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_v_origin_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_v_origin_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -3212,7 +3212,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL34hb_font_get_glyph_v_origin_defaultP9hb_font_tPvjPiS2_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #1 {
+define internal noundef i32 @_ZL34hb_font_get_glyph_v_origin_defaultP9hb_font_tPvjPiS2_S1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef initializes((0, 4)) %4, ptr readnone captures(none) %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %4, align 4
@@ -3297,7 +3297,7 @@ _ZN9hb_font_t21parent_scale_positionEPiS0_.exit:  ; preds = %_ZN9hb_font_t23pare
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_h_kerning_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_h_kerning_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -3421,7 +3421,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL35hb_font_get_glyph_h_kerning_defaultP9hb_font_tPvjjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @_ZL35hb_font_get_glyph_h_kerning_defaultP9hb_font_tPvjjS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
@@ -3470,7 +3470,7 @@ _ZN9hb_font_t23parent_scale_x_distanceEi.exit:    ; preds = %_ZN9hb_font_t19get_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_v_kerning_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_v_kerning_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -3594,7 +3594,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL35hb_font_get_glyph_v_kerning_defaultP9hb_font_tPvjjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @_ZL35hb_font_get_glyph_v_kerning_defaultP9hb_font_tPvjjS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
@@ -3643,7 +3643,7 @@ _ZN9hb_font_t23parent_scale_y_distanceEi.exit:    ; preds = %_ZN9hb_font_t19get_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_extents_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_extents_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -3767,7 +3767,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL33hb_font_get_glyph_extents_defaultP9hb_font_tPvjP18hb_glyph_extents_tS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef initializes((0, 16)) %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @_ZL33hb_font_get_glyph_extents_defaultP9hb_font_tPvjP18hb_glyph_extents_tS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef initializes((0, 16)) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -3904,7 +3904,7 @@ _ZN9hb_font_t21parent_scale_distanceEPiS0_.exit:  ; preds = %_ZN9hb_font_t23pare
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_contour_point_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_contour_point_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -4028,7 +4028,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL39hb_font_get_glyph_contour_point_defaultP9hb_font_tPvjjPiS2_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef initializes((0, 4)) %5, ptr nocapture readnone %6) #1 {
+define internal noundef i32 @_ZL39hb_font_get_glyph_contour_point_defaultP9hb_font_tPvjjPiS2_S1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef initializes((0, 4)) %5, ptr readnone captures(none) %6) #1 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   store i32 0, ptr %5, align 4
@@ -4113,7 +4113,7 @@ _ZN9hb_font_t21parent_scale_positionEPiS0_.exit:  ; preds = %_ZN9hb_font_t23pare
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_name_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_name_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -4237,7 +4237,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL30hb_font_get_glyph_name_defaultP9hb_font_tPvjPcjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef i32 @_ZL30hb_font_get_glyph_name_defaultP9hb_font_tPvjPcjS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq i32 %4, 0
@@ -4271,7 +4271,7 @@ _ZN9hb_font_t14get_glyph_nameEjPcj.exit:          ; preds = %10, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_from_name_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_from_name_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -4395,7 +4395,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL35hb_font_get_glyph_from_name_defaultP9hb_font_tPvPKciPjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #1 {
+define internal noundef i32 @_ZL35hb_font_get_glyph_from_name_defaultP9hb_font_tPvPKciPjS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr readnone captures(none) %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %4, align 4
@@ -4432,7 +4432,7 @@ _ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit:   ; preds = %13, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_draw_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_draw_glyph_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -4556,7 +4556,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL26hb_font_draw_glyph_defaultP9hb_font_tPvjP15hb_draw_funcs_tS1_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #1 {
+define internal void @_ZL26hb_font_draw_glyph_defaultP9hb_font_tPvjP15hb_draw_funcs_tS1_S1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = alloca %struct.hb_font_draw_glyph_default_adaptor_t, align 8
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4633,7 +4633,7 @@ _ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit: ; preds = %.thread, %51
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_paint_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_paint_glyph_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -4757,7 +4757,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL27hb_font_paint_glyph_defaultP9hb_font_tPvjP16hb_paint_funcs_tS1_jjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture readnone %7) #1 {
+define internal void @_ZL27hb_font_paint_glyph_defaultP9hb_font_tPvjP16hb_paint_funcs_tS1_jjS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr readnone captures(none) %7) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -4853,7 +4853,7 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %_ZN9hb_font_t11pain
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN9hb_font_t12has_func_setEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZN9hb_font_t12has_func_setEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -4867,7 +4867,7 @@ define hidden noundef zeroext i1 @_ZN9hb_font_t12has_func_setEj(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN9hb_font_t8has_funcEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZN9hb_font_t8has_funcEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw [19 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -5530,7 +5530,7 @@ _ZN9hb_font_t25get_extents_for_directionE14hb_direction_tP17hb_font_extents_t.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_get_glyph_advance_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #1 {
+define hidden void @hb_font_get_glyph_advance_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #1 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
   %6 = and i32 %2, -2
@@ -5646,7 +5646,7 @@ _ZN9hb_font_t30get_glyph_origin_for_directionEj14hb_direction_tPiS1_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_add_glyph_origin_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #1 {
+define hidden void @hb_font_add_glyph_origin_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -5678,7 +5678,7 @@ _ZN9hb_font_t30add_glyph_origin_for_directionEj14hb_direction_tPiS1_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_subtract_glyph_origin_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #1 {
+define hidden void @hb_font_subtract_glyph_origin_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -5710,7 +5710,7 @@ _ZN9hb_font_t35subtract_glyph_origin_for_directionEj14hb_direction_tPiS1_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_get_glyph_kerning_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #1 {
+define hidden void @hb_font_get_glyph_kerning_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #1 {
   %7 = and i32 %3, -2
   %8 = icmp eq i32 %7, 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -6590,7 +6590,7 @@ common.ret12:                                     ; preds = %1, %5, %2, %27
 declare void @hb_face_destroy(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_font_set_user_data(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @hb_font_set_user_data(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load atomic i32, ptr %6 monotonic, align 4
   %.not.i = icmp eq i32 %7, 0
@@ -6708,7 +6708,7 @@ _ZL23hb_object_get_user_dataIK9hb_font_tEPvPT_P18hb_user_data_key_t.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @hb_font_make_immutable(ptr nocapture noundef %0) local_unnamed_addr #12 {
+define hidden void @hb_font_make_immutable(ptr noundef captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -6733,7 +6733,7 @@ define hidden void @hb_font_make_immutable(ptr nocapture noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @hb_font_is_immutable(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @hb_font_is_immutable(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -6742,7 +6742,7 @@ define hidden range(i32 0, 2) i32 @hb_font_is_immutable(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_font_get_serial(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden i32 @hb_font_get_serial(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -6768,7 +6768,7 @@ define hidden void @hb_font_changed(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_set_parent(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden void @hb_font_set_parent(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -6806,7 +6806,7 @@ hb_font_reference.exit:                           ; preds = %9, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @hb_font_get_parent(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden ptr @hb_font_get_parent(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -6859,14 +6859,14 @@ declare void @hb_face_make_immutable(ptr noundef) local_unnamed_addr #10
 declare ptr @hb_face_reference(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @hb_font_get_face(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden ptr @hb_font_get_face(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_set_funcs(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_set_funcs(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
@@ -6923,7 +6923,7 @@ hb_font_funcs_reference.exit:                     ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_set_funcs_data(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden void @hb_font_set_funcs_data(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %.not.i = icmp eq i32 %5, 0
@@ -6998,7 +6998,7 @@ define hidden void @hb_font_set_scale(ptr noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_font_get_scale(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #13 {
+define hidden void @hb_font_get_scale(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -7023,7 +7023,7 @@ define hidden void @hb_font_get_scale(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_font_set_ppem(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define hidden void @hb_font_set_ppem(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %.not.i = icmp eq i32 %5, 0
@@ -7056,7 +7056,7 @@ define hidden void @hb_font_set_ppem(ptr nocapture noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_font_get_ppem(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #13 {
+define hidden void @hb_font_get_ppem(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -7081,7 +7081,7 @@ define hidden void @hb_font_get_ppem(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_font_set_ptem(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #6 {
+define hidden void @hb_font_set_ptem(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -7106,7 +7106,7 @@ define hidden void @hb_font_set_ptem(ptr nocapture noundef %0, float noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden float @hb_font_get_ptem(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden float @hb_font_get_ptem(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load float, ptr %2, align 8
   ret float %3
@@ -7159,7 +7159,7 @@ define hidden void @hb_font_set_synthetic_bold(ptr noundef %0, float noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_font_get_synthetic_bold(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #13 {
+define hidden void @hb_font_get_synthetic_bold(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %5
 
@@ -7222,14 +7222,14 @@ define hidden void @hb_font_set_synthetic_slant(ptr noundef %0, float noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden float @hb_font_get_synthetic_slant(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden float @hb_font_get_synthetic_slant(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load float, ptr %2, align 4
   ret float %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_set_variations(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden void @hb_font_set_variations(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -7448,7 +7448,7 @@ hb_font_set_var_coords_normalized.exit:           ; preds = %18, %16, %3, %._cri
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_set_var_coords_normalized(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden void @hb_font_set_var_coords_normalized(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %.not.i = icmp eq i32 %5, 0
@@ -7843,7 +7843,7 @@ define hidden void @hb_font_set_var_coords_design(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_font_get_var_named_instance(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden i32 @hb_font_get_var_named_instance(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i32, ptr %2, align 4
   ret i32 %3
@@ -7968,7 +7968,7 @@ _ZNK2OT10AxisRecord22unnormalize_axis_valueEi.exit: ; preds = %3, %89, %95
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @hb_font_get_var_coords_normalized(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
+define hidden ptr @hb_font_get_var_coords_normalized(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -7985,7 +7985,7 @@ define hidden ptr @hb_font_get_var_coords_normalized(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @hb_font_get_var_coords_design(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
+define hidden ptr @hb_font_get_var_coords_design(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -8002,7 +8002,7 @@ define hidden ptr @hb_font_get_var_coords_design(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
@@ -8250,7 +8250,7 @@ hb_font_funcs_set_variation_glyph_func.exit:      ; preds = %98, %95, %56, %63, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL36hb_font_get_nominal_glyph_trampolineP9hb_font_tPvjPjS1_(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal noundef i32 @_ZL36hb_font_get_nominal_glyph_trampolineP9hb_font_tPvjPjS1_(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
@@ -8259,7 +8259,7 @@ define internal noundef i32 @_ZL36hb_font_get_nominal_glyph_trampolineP9hb_font_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18trampoline_destroyPv(ptr nocapture noundef %0) #1 {
+define internal void @_ZL18trampoline_destroyPv(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -1
@@ -8287,7 +8287,7 @@ define internal void @_ZL18trampoline_destroyPv(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL38hb_font_get_variation_glyph_trampolineP9hb_font_tPvjjPjS1_(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef i32 @_ZL38hb_font_get_variation_glyph_trampolineP9hb_font_tPvjjPjS1_(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %5, align 8
@@ -8296,16 +8296,16 @@ define internal noundef i32 @_ZL38hb_font_get_variation_glyph_trampolineP9hb_fon
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_set_glyph_shape_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_set_glyph_shape_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   tail call void @hb_font_funcs_set_draw_glyph_func(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23hb_draw_move_to_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, float noundef %3, float noundef %4, ptr nocapture readnone %5) #1 {
+define internal void @_ZL23hb_draw_move_to_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, float noundef %3, float noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load float, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -8336,7 +8336,7 @@ _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit: ; preds = %6, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23hb_draw_line_to_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, float noundef %3, float noundef %4, ptr nocapture readnone %5) #1 {
+define internal void @_ZL23hb_draw_line_to_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, float noundef %3, float noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load float, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -8377,7 +8377,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %6, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL28hb_draw_quadratic_to_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tffffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture readnone %7) #1 {
+define internal void @_ZL28hb_draw_quadratic_to_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tffffS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr readnone captures(none) %7) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load float, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -8421,7 +8421,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL24hb_draw_cubic_to_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tffffffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr nocapture readnone %9) #1 {
+define internal void @_ZL24hb_draw_cubic_to_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tffffffS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr readnone captures(none) %9) #1 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load float, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -8468,7 +8468,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL26hb_draw_close_path_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal void @_ZL26hb_draw_close_path_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -8494,7 +8494,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %4, %
 declare float @llvm.fmuladd.f32(float, float, float) #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN9hb_font_t32get_glyph_h_origin_with_fallbackEjPiS0_(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 comdat align 2 {
@@ -8731,7 +8731,7 @@ _ZN9hb_font_t29guess_v_origin_minus_h_originEjPiS0_.exit: ; preds = %_ZN9hb_font
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
 declare noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #10
 
@@ -9263,7 +9263,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, 
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #15
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10602,10 +10602,10 @@ _ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_cont
 declare i32 @llvm.umax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22

@@ -1293,7 +1293,7 @@ read_metadata_hdr_mdcv.exit.i:                    ; preds = %481, %478
   br label %read_metadata_scalability.exit.i
 
 read_metadata_scalability.exit.i:                 ; preds = %._crit_edge.i.i.i, %539, %537, %508, %.loopexit35.i.i.i, %494
-  %541 = call i32 @av1_check_trailing_bits(ptr noundef %0, ptr noundef nonnull %11) #9
+  %541 = call i32 @av1_check_trailing_bits(ptr noundef nonnull %0, ptr noundef nonnull %11) #9
   %.not.i183 = icmp eq i32 %541, 0
   br i1 %.not.i183, label %542, label %read_metadata.exit
 
@@ -1731,7 +1731,7 @@ read_and_decode_one_tile_list.exit.thread:        ; preds = %read_padding.exit, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @aom_read_obu_header_and_size(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1740,7 +1740,7 @@ declare ptr @av1_init_read_bit_buffer(ptr noundef, ptr noundef, ptr noundef, ptr
 declare void @av1_set_single_tile_decoding_mode(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare signext i8 @av1_read_profile(ptr noundef) local_unnamed_addr #3
 
@@ -1837,7 +1837,7 @@ declare ptr @aom_img_metadata_array_alloc(i64 noundef) local_unnamed_addr #3
 declare ptr @aom_img_metadata_alloc(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare void @aom_img_metadata_free(ptr noundef) local_unnamed_addr #3
 
@@ -1854,16 +1854,16 @@ declare void @aom_yv12_partial_copy_u_c(ptr noundef, i32 noundef, i32 noundef, i
 declare void @aom_yv12_partial_copy_v_c(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

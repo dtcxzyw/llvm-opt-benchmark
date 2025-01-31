@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @evthread_lock_fns_ = external local_unnamed_addr global %struct.evthread_lock_callbacks, align 8
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @sigfd_init_(ptr nocapture noundef %base) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sigfd_init_(ptr noundef captures(none) %base) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %base, i64 984
   %0 = load i32, ptr %flags, align 8
@@ -42,10 +42,10 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %base, i32 noundef %signo, i16 noundef signext %old, i16 signext %events, ptr nocapture readnone %p) #2 {
+define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %base, i32 noundef %signo, i16 noundef signext %old, i16 signext %events, ptr readnone captures(none) %p) #2 {
 entry:
   %mask = alloca %struct.__sigset_t, align 8
   %sig1 = getelementptr inbounds nuw i8, ptr %base, i64 40
@@ -163,7 +163,7 @@ return:                                           ; preds = %if.end6, %if.then, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @sigfd_del(ptr nocapture noundef %base, i32 noundef %signo, i16 signext %old, i16 signext %events, ptr nocapture readnone %p) #2 {
+define internal range(i32 -1, 1) i32 @sigfd_del(ptr noundef captures(none) %base, i32 noundef %signo, i16 signext %old, i16 signext %events, ptr readnone captures(none) %p) #2 {
 entry:
   %mask = alloca %struct.__sigset_t, align 8
   %idxprom = sext i32 %signo to i64
@@ -289,7 +289,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #3
 declare i32 @event_del_nolock_(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare void @evmap_signal_active_(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 

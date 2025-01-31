@@ -310,7 +310,7 @@ declare i32 @ubidi_getParagraph_75(ptr noundef, i32 noundef, ptr noundef, ptr no
 declare zeroext i8 @ubidi_getParaLevelAtIndex_75(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL18setTrailingWSStartP5UBiDi(ptr nocapture noundef nonnull %pBiDi) unnamed_addr #2 {
+define internal fastcc void @_ZL18setTrailingWSStartP5UBiDi(ptr noundef nonnull captures(none) %pBiDi) unnamed_addr #2 {
 entry:
   %dirProps1 = getelementptr inbounds nuw i8, ptr %pBiDi, i64 112
   %0 = load ptr, ptr %dirProps1, align 8
@@ -555,10 +555,10 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare signext i8 @ubidi_getMemory_75(ptr noundef, ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @ubidi_getLogicalRun_75(ptr noundef %pBiDi, i32 noundef %logicalPosition, ptr noundef writeonly %pLogicalLimit, ptr noundef writeonly %pLevel) local_unnamed_addr #0 {
@@ -744,7 +744,7 @@ return:                                           ; preds = %do.end14, %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ubidi_getRuns_75(ptr noundef %pBiDi, ptr nocapture readnone %0) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ubidi_getRuns_75(ptr noundef %pBiDi, ptr readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %tempRun.i = alloca %struct.Run, align 4
   %runCount = getelementptr inbounds nuw i8, ptr %pBiDi, i64 296
@@ -3040,10 +3040,10 @@ declare void @abort() local_unnamed_addr #6
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #7

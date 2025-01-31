@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN8RijndaelC1Ev = unnamed_addr alias void (ptr), ptr @_ZN8RijndaelC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8RijndaelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(264) %0) unnamed_addr #0 align 2 {
+define void @_ZN8RijndaelC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(264) %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr @_ZL2S5, align 16
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %5
@@ -37,7 +37,7 @@ define void @_ZN8RijndaelC2Ev(ptr nocapture noundef nonnull writeonly align 4 de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @_ZN8Rijndael14GenerateTablesEv(ptr nocapture nonnull readnone align 4 %0) local_unnamed_addr #1 align 2 {
+define void @_ZN8Rijndael14GenerateTablesEv(ptr nonnull readnone align 4 captures(none) %0) local_unnamed_addr #1 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -278,7 +278,7 @@ _ZL4gmulhh.exit103:                               ; preds = %90
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8Rijndael4InitEbPKhjS1_(ptr nocapture noundef nonnull align 4 dereferenceable(264) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #2 align 2 {
+define void @_ZN8Rijndael4InitEbPKhjS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(264) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #2 align 2 {
   %6 = alloca [4 x [4 x i8]], align 16
   %7 = alloca [8 x [4 x i8]], align 16
   switch i32 %3, label %._crit_edge [
@@ -408,10 +408,10 @@ _ZN8Rijndael11keyEncToDecEv.exit:                 ; preds = %54, %23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 dereferenceable(264) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
+define void @_ZN8Rijndael8keySchedEPA4_h(ptr noundef nonnull align 4 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [8 x [4 x i8]], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -710,7 +710,7 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8Rijndael11keyEncToDecEv(ptr nocapture noundef nonnull align 4 dereferenceable(264) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN8Rijndael11keyEncToDecEv(ptr noundef nonnull align 4 captures(none) dereferenceable(264) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca [4 x [4 x i8]], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -778,7 +778,7 @@ define void @_ZN8Rijndael11keyEncToDecEv(ptr nocapture noundef nonnull align 4 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull align 4 dereferenceable(264) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 align 2 {
+define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr noundef nonnull align 4 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #2 align 2 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %330, label %6
 
@@ -1235,7 +1235,7 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull align 4 dereferenceable(264) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 align 2 {
+define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr noundef nonnull align 4 captures(none) dereferenceable(264) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 align 2 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %277, label %6
 
@@ -1668,7 +1668,7 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
@@ -1677,10 +1677,10 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

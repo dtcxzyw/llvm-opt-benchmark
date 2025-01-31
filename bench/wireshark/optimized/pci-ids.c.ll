@@ -35508,7 +35508,7 @@ define hidden ptr @pci_id_str(i16 noundef zeroext %0, i16 noundef zeroext %1, i1
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -65535, 65536) i32 @vid_search(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -65535, 65536) i32 @vid_search(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i16, ptr %0, align 2
   %4 = zext i16 %3 to i32
   %5 = load i16, ptr %1, align 8

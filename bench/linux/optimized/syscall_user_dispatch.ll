@@ -80,7 +80,7 @@ define dso_local noundef zeroext i1 @syscall_user_dispatch(ptr noundef %0) local
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @arch_syscall_is_vdso_sigreturn(ptr noundef) local_unnamed_addr #2
@@ -92,13 +92,13 @@ declare i64 @llvm.read_register.i64(metadata) #3
 declare void @llvm.write_register.i64(metadata, i64) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @force_exit_sig(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @trigger_sigsys(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @trigger_sigsys(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.kernel_siginfo, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #7
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -233,7 +233,7 @@ define dso_local range(i32 -22, 1) i32 @syscall_user_dispatch_get_config(ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @syscall_user_dispatch_set_config(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {

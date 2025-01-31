@@ -34,7 +34,7 @@ $_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_
 @.str.3 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen18edgeColoringSimpleERNS_5ShapeEdy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %shape, double noundef %angleThreshold, i64 noundef %seed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7msdfgen18edgeColoringSimpleERNS_5ShapeEdy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %shape, double noundef %angleThreshold, i64 noundef %seed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %colors = alloca [3 x i32], align 4
   %parts = alloca [7 x ptr], align 16
@@ -648,16 +648,16 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %shape, double noundef %angleThreshold, i64 noundef %seed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %shape, double noundef %angleThreshold, i64 noundef %seed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %corner.sroa.5 = alloca [3 x i8], align 1
   %colors = alloca [3 x i32], align 4
@@ -1459,7 +1459,7 @@ _ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EED2Ev.exit170: ; preds 
 declare noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen22edgeColoringByDistanceERNS_5ShapeEdy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %shape, double noundef %angleThreshold, i64 noundef %seed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7msdfgen22edgeColoringByDistanceERNS_5ShapeEdy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %shape, double noundef %angleThreshold, i64 noundef %seed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %uncolored.i = alloca %"class.std::queue", align 8
   %t.i.i = alloca double, align 8
@@ -4083,10 +4083,10 @@ _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EED2Ev.exit906: ; preds = %_ZNSt6vect
 declare noundef nonnull align 8 dereferenceable(12) ptr @_ZN7msdfgen10EdgeHolderdeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN7msdfgenL12cmpDoublePtrEPKvS1_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #7 {
+define internal noundef range(i32 -1, 2) i32 @_ZN7msdfgenL12cmpDoublePtrEPKvS1_(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #7 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load double, ptr %0, align 8
@@ -4108,7 +4108,7 @@ declare double @llvm.fabs.f64(double) #8
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7msdfgenL20uncolorSameNeighborsERSt5queueIiSt5dequeIiSaIiEEEPiPKPKiii(ptr noundef nonnull align 8 dereferenceable(80) %uncolored, ptr nocapture noundef nonnull %coloring, ptr nocapture noundef nonnull readonly %edgeMatrix, i32 noundef %vertex, i32 noundef range(i32 -2147483648, 2147483647) %vertexCount) unnamed_addr #0 {
+define internal fastcc void @_ZN7msdfgenL20uncolorSameNeighborsERSt5queueIiSt5dequeIiSaIiEEEPiPKPKiii(ptr noundef nonnull align 8 dereferenceable(80) %uncolored, ptr noundef nonnull captures(none) %coloring, ptr noundef nonnull readonly captures(none) %edgeMatrix, i32 noundef %vertex, i32 noundef range(i32 -2147483648, 2147483647) %vertexCount) unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
   %i10 = alloca i32, align 4
@@ -4609,7 +4609,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4849,10 +4849,10 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15

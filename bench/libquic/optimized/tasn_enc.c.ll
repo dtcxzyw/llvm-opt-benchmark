@@ -313,7 +313,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %pval, ptr noundef %out, ptr nocapture noundef readonly %tt, i32 noundef %tag, i32 noundef %iclass) unnamed_addr #0 {
+define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %pval, ptr noundef %out, ptr noundef readonly captures(none) %tt, i32 noundef %tag, i32 noundef %iclass) unnamed_addr #0 {
 entry:
   %skitem.i = alloca ptr, align 8
   %p.i = alloca ptr, align 8
@@ -665,7 +665,7 @@ declare void @ASN1_put_object(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare i32 @ASN1_put_eoc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ASN1_template_i2d(ptr noundef %pval, ptr noundef %out, ptr nocapture noundef readonly %tt) local_unnamed_addr #0 {
+define hidden i32 @ASN1_template_i2d(ptr noundef %pval, ptr noundef %out, ptr noundef readonly captures(none) %tt) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @asn1_template_ex_i2d(ptr noundef %pval, ptr noundef %out, ptr noundef %tt, i32 noundef -1, i32 noundef 0)
   ret i32 %call
@@ -863,7 +863,7 @@ declare i32 @i2c_ASN1_BIT_STRING(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @i2c_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
@@ -873,13 +873,13 @@ declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @der_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #6 {
+define internal i32 @der_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #6 {
 entry:
   %length = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %length, align 8
@@ -899,16 +899,16 @@ entry:
 declare ptr @sk_set(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

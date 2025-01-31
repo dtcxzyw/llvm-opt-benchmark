@@ -192,7 +192,7 @@ ehcleanup16:                                      ; preds = %_ZNSt12_Vector_base
 declare void @_ZN9grpc_core20UnixSockaddrPopulateESt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_address(ptr sret(%"class.absl::lts_20230802::Status") align 8, i64, ptr, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -357,7 +357,7 @@ ehcleanup16:                                      ; preds = %_ZNSt12_Vector_base
 declare void @_ZN9grpc_core28UnixAbstractSockaddrPopulateESt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_address(ptr sret(%"class.absl::lts_20230802::Status") align 8, i64, ptr, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_Z19grpc_is_unix_socketPK21grpc_resolved_address(ptr nocapture noundef readonly %resolved_addr) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @_Z19grpc_is_unix_socketPK21grpc_resolved_address(ptr noundef readonly captures(none) %resolved_addr) local_unnamed_addr #7 {
 entry:
   %0 = load i16, ptr %resolved_addr, align 2
   %cmp = icmp eq i16 %0, 1
@@ -366,7 +366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z33grpc_unlink_if_unix_domain_socketPK21grpc_resolved_address(ptr nocapture noundef readonly %resolved_addr) local_unnamed_addr #8 {
+define void @_Z33grpc_unlink_if_unix_domain_socketPK21grpc_resolved_address(ptr noundef readonly captures(none) %resolved_addr) local_unnamed_addr #8 {
 entry:
   %st = alloca %struct.stat, align 8
   %0 = load i16, ptr %resolved_addr, align 2
@@ -406,10 +406,10 @@ if.end21:                                         ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {

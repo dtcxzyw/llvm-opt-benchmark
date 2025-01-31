@@ -11,7 +11,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___crypto_xor
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable___crypto_xor303, ptr @__UNIQUE_ID_file304, ptr @__UNIQUE_ID_license305], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @__crypto_xor(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 align 16 {
+define dso_local void @__crypto_xor(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 align 16 {
   %5 = icmp ugt i32 %3, 7
   br i1 %5, label %.preheader, label %.loopexit
 

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_internal_misc_CDS_initializeFromArchive(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Java_jdk_internal_misc_CDS_initializeFromArchive(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @JVM_InitializeFromArchive(ptr noundef %0, ptr noundef %2) #2
   ret void
 }
@@ -12,7 +12,7 @@ define void @Java_jdk_internal_misc_CDS_initializeFromArchive(ptr noundef %0, pt
 declare void @JVM_InitializeFromArchive(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_internal_misc_CDS_defineArchivedModules(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_jdk_internal_misc_CDS_defineArchivedModules(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call void @JVM_DefineArchivedModules(ptr noundef %0, ptr noundef %2, ptr noundef %3) #2
   ret void
 }
@@ -20,7 +20,7 @@ define void @Java_jdk_internal_misc_CDS_defineArchivedModules(ptr noundef %0, pt
 declare void @JVM_DefineArchivedModules(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_jdk_internal_misc_CDS_getRandomSeedForDumping(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_jdk_internal_misc_CDS_getRandomSeedForDumping(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 (...) @JVM_GetRandomSeedForDumping() #2
   ret i64 %3
 }
@@ -28,7 +28,7 @@ define i64 @Java_jdk_internal_misc_CDS_getRandomSeedForDumping(ptr nocapture nou
 declare i64 @JVM_GetRandomSeedForDumping(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_jdk_internal_misc_CDS_getCDSConfigStatus(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_jdk_internal_misc_CDS_getCDSConfigStatus(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 (...) @JVM_GetCDSConfigStatus() #2
   ret i32 %3
 }
@@ -36,7 +36,7 @@ define i32 @Java_jdk_internal_misc_CDS_getCDSConfigStatus(ptr nocapture noundef 
 declare i32 @JVM_GetCDSConfigStatus(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_internal_misc_CDS_logLambdaFormInvoker(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Java_jdk_internal_misc_CDS_logLambdaFormInvoker(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @JVM_LogLambdaFormInvoker(ptr noundef %0, ptr noundef %2) #2
   ret void
 }
@@ -44,7 +44,7 @@ define void @Java_jdk_internal_misc_CDS_logLambdaFormInvoker(ptr noundef %0, ptr
 declare void @JVM_LogLambdaFormInvoker(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_internal_misc_CDS_dumpClassList(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Java_jdk_internal_misc_CDS_dumpClassList(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @JVM_DumpClassListToFile(ptr noundef %0, ptr noundef %2) #2
   ret void
 }
@@ -52,7 +52,7 @@ define void @Java_jdk_internal_misc_CDS_dumpClassList(ptr noundef %0, ptr nocapt
 declare void @JVM_DumpClassListToFile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_internal_misc_CDS_dumpDynamicArchive(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Java_jdk_internal_misc_CDS_dumpDynamicArchive(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @JVM_DumpDynamicArchive(ptr noundef %0, ptr noundef %2) #2
   ret void
 }

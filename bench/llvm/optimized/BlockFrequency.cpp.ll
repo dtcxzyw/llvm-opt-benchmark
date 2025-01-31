@@ -26,7 +26,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm14Block
 declare noundef i64 @_ZNK4llvm17BranchProbability5scaleEm(ptr noundef nonnull align 4 dereferenceable(4), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK4llvm14BlockFrequencymlENS_17BranchProbabilityE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK4llvm14BlockFrequencymlENS_17BranchProbabilityE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::BranchProbability", align 4
   %4 = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -37,7 +37,7 @@ define dso_local noundef i64 @_ZNK4llvm14BlockFrequencymlENS_17BranchProbability
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm14BlockFrequencydVENS_17BranchProbabilityE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, i32 %1) local_unnamed_addr #0 align 2 {
@@ -52,7 +52,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm14Block
 declare noundef i64 @_ZNK4llvm17BranchProbability14scaleByInverseEm(ptr noundef nonnull align 4 dereferenceable(4), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK4llvm14BlockFrequencydvENS_17BranchProbabilityE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK4llvm14BlockFrequencydvENS_17BranchProbabilityE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::BranchProbability", align 4
   %4 = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -63,7 +63,7 @@ define dso_local noundef i64 @_ZNK4llvm14BlockFrequencydvENS_17BranchProbability
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i64, i8 } @_ZNK4llvm14BlockFrequency3mulEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local { i64, i8 } @_ZNK4llvm14BlockFrequency3mulEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %3, i1 false)
   %5 = trunc nuw nsw i64 %4 to i32
@@ -358,10 +358,10 @@ declare noundef i32 @_ZN4llvm13ScaledNumbers11compareImplEmmi(i64 noundef, i64 n
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm16ScaledNumberBase5printERNS_11raw_ostreamEmsij(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i16 noundef signext, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

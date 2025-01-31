@@ -236,7 +236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen10TraceEvent5startERKNS_15TimeUtilGenericINSt6chrono3_V212steady_clockEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %tm) local_unnamed_addr #0 align 2 {
+define void @_ZN8proxygen10TraceEvent5startERKNS_15TimeUtilGenericINSt6chrono3_V212steady_clockEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %tm) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = or i8 %0, 1
@@ -251,7 +251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen10TraceEvent5startENSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %this, i64 %startTime.coerce) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen10TraceEvent5startENSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((16, 24)) %this, i64 %startTime.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = or i8 %0, 1
@@ -262,7 +262,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen10TraceEvent3endERKNS_15TimeUtilGenericINSt6chrono3_V212steady_clockEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(8) %tm) local_unnamed_addr #0 align 2 {
+define void @_ZN8proxygen10TraceEvent3endERKNS_15TimeUtilGenericINSt6chrono3_V212steady_clockEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(8) %tm) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = or i8 %0, 2
@@ -277,7 +277,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen10TraceEvent3endENSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((24, 32)) %this, i64 %endTime.coerce) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen10TraceEvent3endENSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((24, 32)) %this, i64 %endTime.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = or i8 %0, 2
@@ -288,7 +288,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8proxygen10TraceEvent10hasStartedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen10TraceEvent10hasStartedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -297,7 +297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8proxygen10TraceEvent8hasEndedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen10TraceEvent8hasEndedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 2
@@ -740,7 +740,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8proxygen10TraceEvent8MetaData11ConvVisitorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKSt6vectorIS8_SaIS8_EE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 1 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %operand) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8proxygen10TraceEvent8MetaData11ConvVisitorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKSt6vectorIS8_SaIS8_EE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 1 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %operand) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data = alloca %"struct.folly::dynamic", align 8
   %item = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1141,7 +1141,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: cold mustprogress noreturn uwtable
 define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %args, i32 noundef %args1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
@@ -1329,7 +1329,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -2563,10 +2563,10 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #18
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18

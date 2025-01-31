@@ -2446,7 +2446,7 @@ define void @_ZN2cv4UMat3eyeENS_5Size_IiEEiNS_14UMatUsageFlagsE(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN2cv4UMatC1ENS_5Size_IiEEiNS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80), i64, i32 noundef, i32 noundef) unnamed_addr #2
 
@@ -2845,7 +2845,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %63
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv3Mat5crossERKNS_11_InputArrayE(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv3Mat5crossERKNS_11_InputArrayE(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -7945,7 +7945,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %66, %69
 declare void @_ZNK2cv12_OutputArray6createENS_5Size_IiEEiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24), i64, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL5sort_IhEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL5sort_IhEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer.20", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8
@@ -8288,7 +8288,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit65:          ; preds = %105, %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL5sort_IaEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL5sort_IaEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer.85", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8
@@ -8631,7 +8631,7 @@ _ZN2cv10AutoBufferIaLm1032EED2Ev.exit65:          ; preds = %105, %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL5sort_ItEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL5sort_ItEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer.24", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8
@@ -8978,7 +8978,7 @@ _ZN2cv10AutoBufferItLm520EED2Ev.exit65:           ; preds = %108, %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL5sort_IsEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL5sort_IsEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer.28", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8
@@ -9325,7 +9325,7 @@ _ZN2cv10AutoBufferIsLm520EED2Ev.exit65:           ; preds = %108, %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL5sort_IiEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL5sort_IiEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8
@@ -9672,7 +9672,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit65:           ; preds = %109, %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL5sort_IfEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL5sort_IfEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer.8", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8
@@ -10019,7 +10019,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit65:           ; preds = %109, %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL5sort_IdEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL5sort_IdEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer.12", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8
@@ -10602,7 +10602,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %83, %86
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer.20", align 8
   %5 = alloca %"class.cv::AutoBuffer", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10919,7 +10919,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit89:          ; preds = %115, %_ZN2cv10AutoB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL8sortIdx_IaEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL8sortIdx_IaEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer.85", align 8
   %5 = alloca %"class.cv::AutoBuffer", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11236,7 +11236,7 @@ _ZN2cv10AutoBufferIaLm1032EED2Ev.exit89:          ; preds = %115, %_ZN2cv10AutoB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL8sortIdx_ItEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL8sortIdx_ItEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer.24", align 8
   %5 = alloca %"class.cv::AutoBuffer", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11556,7 +11556,7 @@ _ZN2cv10AutoBufferItLm520EED2Ev.exit89:           ; preds = %117, %_ZN2cv10AutoB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL8sortIdx_IsEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL8sortIdx_IsEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer.28", align 8
   %5 = alloca %"class.cv::AutoBuffer", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11876,7 +11876,7 @@ _ZN2cv10AutoBufferIsLm520EED2Ev.exit89:           ; preds = %117, %_ZN2cv10AutoB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL8sortIdx_IiEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL8sortIdx_IiEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer", align 8
   %5 = alloca %"class.cv::AutoBuffer", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12191,7 +12191,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit92:           ; preds = %116, %_ZN2cv10AutoB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL8sortIdx_IfEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL8sortIdx_IfEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer.8", align 8
   %5 = alloca %"class.cv::AutoBuffer", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12506,7 +12506,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit89:           ; preds = %116, %_ZN2cv10AutoB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL8sortIdx_IdEEvRKNS_3MatERS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL8sortIdx_IdEEvRKNS_3MatERS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer.12", align 8
   %5 = alloca %"class.cv::AutoBuffer", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26338,7 +26338,7 @@ _ZSt13__adjust_heapIPhlhN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt6__sortIPaN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 comdat {
@@ -35870,13 +35870,13 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIdEE
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14

@@ -44,7 +44,7 @@ $_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_j
 @_ZN4Luau7CodeGen9IrBuilderC1ERKNS0_11HostIrHooksE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4Luau7CodeGen9IrBuilderC2ERKNS0_11HostIrHooksE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau7CodeGen9IrBuilderC2ERKNS0_11HostIrHooksE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(744) initializes((0, 11), (12, 20), (24, 329), (336, 634), (640, 644), (648, 721), (728, 736)) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen9IrBuilderC2ERKNS0_11HostIrHooksE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(744) initializes((0, 11), (12, 20), (24, 329), (336, 634), (640, 644), (648, 721), (728, 736)) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
@@ -580,7 +580,7 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit55: ; preds = %269, %272
 declare void @_ZN4Luau7CodeGen20loadBytecodeTypeInfoERNS0_10IrFunctionE(ptr noundef nonnull align 8 dereferenceable(616)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 5, -8) i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 5, -8) i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 captures(none) dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq i8 %1, 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %5 = load i8, ptr %4, align 2
@@ -696,7 +696,7 @@ _ZNSt6vectorIN4Luau7CodeGen7IrBlockESaIS2_EE9push_backEOS2_.exit: ; preds = %17,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen9IrBuilder26rebuildBytecodeBasicBlocksEP5Proto(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen9IrBuilder26rebuildBytecodeBasicBlocksEP5Proto(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.35", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -933,7 +933,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %56, %55
 declare void @_ZN4Luau7CodeGen20analyzeBytecodeTypesERNS0_10IrFunctionERKNS0_11HostIrHooksE(ptr noundef nonnull align 8 dereferenceable(616), ptr noundef nonnull align 1) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr nocapture noundef nonnull align 8 dereferenceable(744) initializes((8, 9), (640, 644)) %0, i32 %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 captures(none) dereferenceable(744) initializes((8, 9), (640, 644)) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = lshr i32 %1, 4
   %5 = zext nneg i32 %4 to i64
@@ -960,16 +960,16 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 captures(none) dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2) local_unnamed_addr #1 align 2 {
   %4 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 0, i32 0, i32 0, i32 0, i32 0)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 5, -8) i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 5, -8) i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 captures(none) dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -1796,13 +1796,13 @@ declare void @_ZN4Luau7CodeGen22translateInstGetGlobalERNS0_9IrBuilderEPKji(ptr 
 declare void @_ZN4Luau7CodeGen22translateInstSetGlobalERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 captures(none) dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4) local_unnamed_addr #1 align 2 {
   %6 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 0, i32 0, i32 0)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 6, 4088) i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define dso_local range(i32 6, 4088) i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i8 %1 to i32
   %4 = shl nuw nsw i32 %3, 4
   %5 = or disjoint i32 %4, 6
@@ -1818,7 +1818,7 @@ define dso_local range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 captures(none) dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3) local_unnamed_addr #1 align 2 {
   %5 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 0, i32 0, i32 0, i32 0)
   ret i32 %5
 }
@@ -1872,7 +1872,7 @@ declare void @_ZN4Luau7CodeGen21translateInstNewTableERNS0_9IrBuilderEPKji(ptr n
 declare void @_ZN4Luau7CodeGen21translateInstDupTableERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 captures(none) dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7) local_unnamed_addr #1 align 2 {
   %9 = load i8, ptr @_ZN5FFlag16LuauCodegenInstGE, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %13
@@ -2023,7 +2023,7 @@ _ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backEOS2_.exit: ; preds = %25, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4Luau7CodeGen9IrBuilder5undefEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZN4Luau7CodeGen9IrBuilder5undefEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(744) %0) local_unnamed_addr #6 align 2 {
   ret i32 1
 }
 
@@ -2034,7 +2034,7 @@ declare void @_ZN4Luau7CodeGen21translateInstSetUpvalERNS0_9IrBuilderEPKji(ptr n
 declare void @_ZN4Luau7CodeGen24translateInstCloseUpvalsERNS0_9IrBuilderEPKj(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen9IrBuilder22handleFastcallFallbackENS0_4IrOpEPKji(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i32 %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau7CodeGen9IrBuilder22handleFastcallFallbackENS0_4IrOpEPKji(ptr noundef nonnull align 8 captures(none) dereferenceable(744) %0, i32 %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = load i32, ptr %2, align 4
   %6 = lshr i32 %5, 24
   %7 = and i32 %1, 15
@@ -2104,7 +2104,7 @@ _ZN4Luau7CodeGen9IrBuilder11blockAtInstEj.exit:   ; preds = %16, %19
 declare i32 @_ZN4Luau7CodeGen18translateFastCallNERNS0_9IrBuilderEPKjibiNS0_4IrOpES5_(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 7, -8) i32 @_ZN4Luau7CodeGen9IrBuilder7vmConstEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local range(i32 7, -8) i32 @_ZN4Luau7CodeGen9IrBuilder7vmConstEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = shl i32 %1, 4
   %4 = or disjoint i32 %3, 7
   ret i32 %4
@@ -2126,7 +2126,7 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder15loadAndCheckTagENS0_4IrOpEhS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_(ptr noundef nonnull align 8 captures(none) dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5) local_unnamed_addr #1 align 2 {
   %7 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 0, i32 0)
   ret i32 %7
 }
@@ -2150,7 +2150,7 @@ declare noundef zeroext i1 @_ZN4Luau7CodeGen21translateInstNamecallERNS0_9IrBuil
 declare void @_ZN4Luau7CodeGen23translateInstNewClosureERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen9IrBuilder15isInternalBlockENS0_4IrOpE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %0, i32 %1) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen9IrBuilder15isInternalBlockENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(744) %0, i32 %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = lshr i32 %1, 4
   %5 = zext nneg i32 %4 to i64
@@ -2169,7 +2169,7 @@ define dso_local range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEb(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEb(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   br i1 %2, label %4, label %22
 
 4:                                                ; preds = %3
@@ -2813,7 +2813,7 @@ declare void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef 
 declare void @_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(616), i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, i32 %8) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_S3_(ptr noundef nonnull align 8 captures(none) dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, i32 %8) local_unnamed_addr #1 align 2 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
@@ -3284,7 +3284,7 @@ _ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 3, 4084) i32 @_ZN4Luau7CodeGen9IrBuilder4condENS0_11IrConditionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define dso_local range(i32 3, 4084) i32 @_ZN4Luau7CodeGen9IrBuilder4condENS0_11IrConditionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i8 %1 to i32
   %4 = shl nuw nsw i32 %3, 4
   %5 = or disjoint i32 %4, 3
@@ -3292,19 +3292,19 @@ define dso_local range(i32 3, 4084) i32 @_ZN4Luau7CodeGen9IrBuilder4condENS0_11I
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdE(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdE(ptr noundef nonnull align 8 captures(none) dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 4, -8) i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_(ptr noundef nonnull align 8 captures(none) dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6) local_unnamed_addr #1 align 2 {
   %8 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 0)
   ret i32 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 8, 4096) i32 @_ZN4Luau7CodeGen9IrBuilder9vmUpvalueEh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define dso_local range(i32 8, 4096) i32 @_ZN4Luau7CodeGen9IrBuilder9vmUpvalueEh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(744) %0, i8 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i8 %1 to i32
   %4 = shl nuw nsw i32 %3, 4
   %5 = or disjoint i32 %4, 8
@@ -3312,14 +3312,14 @@ define dso_local range(i32 8, 4096) i32 @_ZN4Luau7CodeGen9IrBuilder9vmUpvalueEh(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 9, 0) i32 @_ZN4Luau7CodeGen9IrBuilder6vmExitEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local range(i32 9, 0) i32 @_ZN4Luau7CodeGen9IrBuilder6vmExitEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(744) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = shl i32 %1, 4
   %4 = or disjoint i32 %3, 9
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
@@ -3509,7 +3509,7 @@ _ZSt4fillIPN4Luau7CodeGen15BytecodeMappingES2_EvT_S4_RKT0_.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11

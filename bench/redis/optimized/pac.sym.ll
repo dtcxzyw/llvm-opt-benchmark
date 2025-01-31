@@ -96,7 +96,7 @@ declare zeroext i1 @malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32
 declare zeroext i1 @decay_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pac_alloc_impl(ptr noundef %tsdn, ptr noundef %self, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, i1 noundef zeroext %guarded, i1 noundef zeroext %frequent_reuse, ptr nocapture readnone %deferred_work_generated) #0 {
+define internal ptr @pac_alloc_impl(ptr noundef %tsdn, ptr noundef %self, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, i1 noundef zeroext %guarded, i1 noundef zeroext %frequent_reuse, ptr readnone captures(none) %deferred_work_generated) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 58376
   %self.val = load ptr, ptr %0, align 8
@@ -197,7 +197,7 @@ if.end12:                                         ; preds = %if.then, %if.end.i,
 declare i64 @pai_alloc_batch_default(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @pac_expand_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, i1 noundef zeroext %zero, ptr nocapture readnone %deferred_work_generated) #0 {
+define internal noundef zeroext i1 @pac_expand_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, i1 noundef zeroext %zero, ptr readnone captures(none) %deferred_work_generated) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 58376
   %self.val = load ptr, ptr %0, align 8
@@ -260,7 +260,7 @@ return:                                           ; preds = %if.end14.thread, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @pac_shrink_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, ptr nocapture noundef writeonly %deferred_work_generated) #0 {
+define internal noundef zeroext i1 @pac_shrink_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, ptr noundef writeonly captures(none) %deferred_work_generated) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 58376
   %self.val = load ptr, ptr %0, align 8
@@ -291,7 +291,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pac_dalloc_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, ptr nocapture noundef writeonly initializes((0, 1)) %deferred_work_generated) #0 {
+define internal void @pac_dalloc_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, ptr noundef writeonly captures(none) initializes((0, 1)) %deferred_work_generated) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 58376
   %self.val = load ptr, ptr %0, align 8
@@ -509,7 +509,7 @@ return:                                           ; preds = %sz_psz2ind.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pac_decay_all(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %decay, ptr nocapture noundef %decay_stats, ptr noundef %ecache, i1 noundef zeroext %fully_decay) local_unnamed_addr #0 {
+define hidden void @pac_decay_all(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %decay, ptr noundef captures(none) %decay_stats, ptr noundef %ecache, i1 noundef zeroext %fully_decay) local_unnamed_addr #0 {
 entry:
   %eset.i = getelementptr inbounds nuw i8, ptr %ecache, i64 112
   %call.i = tail call i64 @eset_npages_get(ptr noundef nonnull %eset.i) #8
@@ -521,7 +521,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pac_decay_to_limit(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %decay, ptr nocapture noundef %decay_stats, ptr noundef %ecache, i1 noundef zeroext %fully_decay, i64 noundef %npages_limit, i64 noundef %npages_decay_max) unnamed_addr #0 {
+define internal fastcc void @pac_decay_to_limit(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %decay, ptr noundef captures(none) %decay_stats, ptr noundef %ecache, i1 noundef zeroext %fully_decay, i64 noundef %npages_limit, i64 noundef %npages_decay_max) unnamed_addr #0 {
 entry:
   %purging = getelementptr inbounds nuw i8, ptr %decay, i64 112
   %0 = load i8, ptr %purging, align 8
@@ -776,7 +776,7 @@ return:                                           ; preds = %entry, %malloc_mute
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pac_maybe_decay_purge(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %decay, ptr nocapture noundef %decay_stats, ptr noundef %ecache, i32 noundef %eagerness) local_unnamed_addr #0 {
+define hidden zeroext i1 @pac_maybe_decay_purge(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %decay, ptr noundef captures(none) %decay_stats, ptr noundef %ecache, i32 noundef %eagerness) local_unnamed_addr #0 {
 entry:
   %time = alloca %struct.nstime_t, align 8
   %time_ms.i = getelementptr inbounds nuw i8, ptr %decay, i64 120
@@ -896,7 +896,7 @@ declare zeroext i1 @decay_ms_valid(i64 noundef) local_unnamed_addr #1
 declare void @decay_reinit(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i64 @pac_decay_ms_get(ptr nocapture noundef readonly %pac, i32 noundef %state) local_unnamed_addr #2 {
+define hidden i64 @pac_decay_ms_get(ptr noundef readonly captures(none) %pac, i32 noundef %state) local_unnamed_addr #2 {
 entry:
   %switch.i = icmp eq i32 %state, 1
   %. = select i1 %switch.i, i64 58648, i64 60432
@@ -907,7 +907,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @pac_reset(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readnone %pac) local_unnamed_addr #3 {
+define hidden void @pac_reset(ptr noundef readnone captures(none) %tsdn, ptr noundef readnone captures(none) %pac) local_unnamed_addr #3 {
 entry:
   ret void
 }

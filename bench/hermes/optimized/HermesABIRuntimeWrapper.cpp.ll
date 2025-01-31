@@ -106,7 +106,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper10instanceOfERKN8facebook3jsi6ObjectERKNS2_8FunctionE = private unnamed_addr constant [11 x i8] c"instanceOf\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8facebook6hermes27makeHermesABIRuntimeWrapperEPK15HermesABIVTable(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %vtable) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8facebook6hermes27makeHermesABIRuntimeWrapperEPK15HermesABIVTable(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef %vtable) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !5
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_123HermesABIRuntimeWrapperE, i64 16), ptr %call.i, align 8, !noalias !5
@@ -194,42 +194,42 @@ _ZN12_GLOBAL__N_123HermesABIRuntimeWrapperD2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper18evaluateJavaScriptERKSt10shared_ptrIKN8facebook3jsi6BufferEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 1 %buffer, ptr nocapture nonnull readnone align 8 %sourceURL) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper18evaluateJavaScriptERKSt10shared_ptrIKN8facebook3jsi6BufferEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias readnone sret(%"class.facebook::jsi::Value") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 1 captures(none) %buffer, ptr nonnull readnone align 8 captures(none) %sourceURL) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper18evaluateJavaScriptERKSt10shared_ptrIKN8facebook3jsi6BufferEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper17prepareJavaScriptERKSt10shared_ptrIKN8facebook3jsi6BufferEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture readnone sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 1 %buffer, ptr nocapture readnone %sourceURL) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper17prepareJavaScriptERKSt10shared_ptrIKN8facebook3jsi6BufferEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias readnone sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 1 captures(none) %buffer, ptr readnone captures(none) %sourceURL) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper17prepareJavaScriptERKSt10shared_ptrIKN8facebook3jsi6BufferEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper26evaluatePreparedJavaScriptERKSt10shared_ptrIKN8facebook3jsi18PreparedJavaScriptEE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %js) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper26evaluatePreparedJavaScriptERKSt10shared_ptrIKN8facebook3jsi18PreparedJavaScriptEE(ptr noalias readnone sret(%"class.facebook::jsi::Value") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %js) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper26evaluatePreparedJavaScriptERKSt10shared_ptrIKN8facebook3jsi18PreparedJavaScriptEE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15drainMicrotasksEi(ptr nocapture nonnull readnone align 8 %this, i32 %maxMicrotasksHint) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15drainMicrotasksEi(ptr nonnull readnone align 8 captures(none) %this, i32 %maxMicrotasksHint) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15drainMicrotasksEi) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper6globalEv(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper6globalEv(ptr noalias readnone sret(%"class.facebook::jsi::Object") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper6globalEv) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11descriptionB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11descriptionB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
@@ -266,161 +266,161 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper13isInspectableEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper13isInspectableEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper13isInspectableEv) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noalias noundef nonnull align 1 ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15instrumentationEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal noalias noundef nonnull align 1 ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15instrumentationEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15instrumentationEv) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11cloneSymbolEPKN8facebook3jsi7Runtime12PointerValueE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %pv) unnamed_addr #5 align 2 {
+define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11cloneSymbolEPKN8facebook3jsi7Runtime12PointerValueE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %pv) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11cloneSymbolEPKN8facebook3jsi7Runtime12PointerValueE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11cloneBigIntEPKN8facebook3jsi7Runtime12PointerValueE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %pv) unnamed_addr #5 align 2 {
+define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11cloneBigIntEPKN8facebook3jsi7Runtime12PointerValueE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %pv) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11cloneBigIntEPKN8facebook3jsi7Runtime12PointerValueE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11cloneStringEPKN8facebook3jsi7Runtime12PointerValueE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %pv) unnamed_addr #5 align 2 {
+define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11cloneStringEPKN8facebook3jsi7Runtime12PointerValueE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %pv) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11cloneStringEPKN8facebook3jsi7Runtime12PointerValueE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11cloneObjectEPKN8facebook3jsi7Runtime12PointerValueE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %pv) unnamed_addr #5 align 2 {
+define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11cloneObjectEPKN8facebook3jsi7Runtime12PointerValueE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %pv) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11cloneObjectEPKN8facebook3jsi7Runtime12PointerValueE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15clonePropNameIDEPKN8facebook3jsi7Runtime12PointerValueE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %pv) unnamed_addr #5 align 2 {
+define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15clonePropNameIDEPKN8facebook3jsi7Runtime12PointerValueE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %pv) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15clonePropNameIDEPKN8facebook3jsi7Runtime12PointerValueE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper25createPropNameIDFromAsciiEPKcm(ptr noalias nocapture readnone sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %str, i64 %length) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper25createPropNameIDFromAsciiEPKcm(ptr noalias readnone sret(%"class.facebook::jsi::PropNameID") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %str, i64 %length) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper25createPropNameIDFromAsciiEPKcm) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper24createPropNameIDFromUtf8EPKhm(ptr noalias nocapture readnone sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %utf8, i64 %length) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper24createPropNameIDFromUtf8EPKhm(ptr noalias readnone sret(%"class.facebook::jsi::PropNameID") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %utf8, i64 %length) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper24createPropNameIDFromUtf8EPKhm) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper26createPropNameIDFromStringERKN8facebook3jsi6StringE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %str) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper26createPropNameIDFromStringERKN8facebook3jsi6StringE(ptr noalias readnone sret(%"class.facebook::jsi::PropNameID") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %str) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper26createPropNameIDFromStringERKN8facebook3jsi6StringE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper26createPropNameIDFromSymbolERKN8facebook3jsi6SymbolE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %sym) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper26createPropNameIDFromSymbolERKN8facebook3jsi6SymbolE(ptr noalias readnone sret(%"class.facebook::jsi::PropNameID") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %sym) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper26createPropNameIDFromSymbolERKN8facebook3jsi6SymbolE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4utf8B5cxx11ERKN8facebook3jsi10PropNameIDE(ptr noalias nocapture readnone sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4utf8B5cxx11ERKN8facebook3jsi10PropNameIDE(ptr noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4utf8B5cxx11ERKN8facebook3jsi10PropNameIDE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper7compareERKN8facebook3jsi10PropNameIDES5_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper7compareERKN8facebook3jsi10PropNameIDES5_(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper7compareERKN8facebook3jsi10PropNameIDES5_) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14symbolToStringB5cxx11ERKN8facebook3jsi6SymbolE(ptr noalias nocapture readnone sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14symbolToStringB5cxx11ERKN8facebook3jsi6SymbolE(ptr noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14symbolToStringB5cxx11ERKN8facebook3jsi6SymbolE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper21createBigIntFromInt64El(ptr noalias nocapture readnone sret(%"class.facebook::jsi::BigInt") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper21createBigIntFromInt64El(ptr noalias readnone sret(%"class.facebook::jsi::BigInt") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, i64 %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper21createBigIntFromInt64El) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper22createBigIntFromUint64Em(ptr noalias nocapture readnone sret(%"class.facebook::jsi::BigInt") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper22createBigIntFromUint64Em(ptr noalias readnone sret(%"class.facebook::jsi::BigInt") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, i64 %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper22createBigIntFromUint64Em) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper13bigintIsInt64ERKN8facebook3jsi6BigIntE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper13bigintIsInt64ERKN8facebook3jsi6BigIntE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper13bigintIsInt64ERKN8facebook3jsi6BigIntE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14bigintIsUint64ERKN8facebook3jsi6BigIntE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14bigintIsUint64ERKN8facebook3jsi6BigIntE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14bigintIsUint64ERKN8facebook3jsi6BigIntE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper8truncateERKN8facebook3jsi6BigIntE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noundef i64 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper8truncateERKN8facebook3jsi6BigIntE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper8truncateERKN8facebook3jsi6BigIntE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14bigintToStringERKN8facebook3jsi6BigIntEi(ptr noalias nocapture readnone sret(%"class.facebook::jsi::String") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14bigintToStringERKN8facebook3jsi6BigIntEi(ptr noalias readnone sret(%"class.facebook::jsi::String") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14bigintToStringERKN8facebook3jsi6BigIntEi) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper21createStringFromAsciiEPKcm(ptr noalias nocapture readnone sret(%"class.facebook::jsi::String") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %str, i64 %length) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper21createStringFromAsciiEPKcm(ptr noalias readnone sret(%"class.facebook::jsi::String") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %str, i64 %length) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper21createStringFromAsciiEPKcm) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper20createStringFromUtf8EPKhm(ptr noalias nocapture readnone sret(%"class.facebook::jsi::String") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %utf8, i64 %length) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper20createStringFromUtf8EPKhm(ptr noalias readnone sret(%"class.facebook::jsi::String") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %utf8, i64 %length) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper20createStringFromUtf8EPKhm) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4utf8B5cxx11ERKN8facebook3jsi6StringE(ptr noalias nocapture readnone sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4utf8B5cxx11ERKN8facebook3jsi6StringE(ptr noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4utf8B5cxx11ERKN8facebook3jsi10PropNameIDE) #16
   unreachable
@@ -429,217 +429,217 @@ entry:
 declare void @_ZN8facebook3jsi7Runtime23createValueFromJsonUtf8EPKhm(ptr sret(%"class.facebook::jsi::Value") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper12createObjectEv(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper12createObjectEv(ptr noalias readnone sret(%"class.facebook::jsi::Object") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper12createObjectEv) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper12createObjectESt10shared_ptrIN8facebook3jsi10HostObjectEE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %ho) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper12createObjectESt10shared_ptrIN8facebook3jsi10HostObjectEE(ptr noalias readnone sret(%"class.facebook::jsi::Object") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %ho) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper12createObjectEv) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper13getHostObjectERKN8facebook3jsi6ObjectE(ptr noalias nocapture readnone sret(%"class.std::shared_ptr.10") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper13getHostObjectERKN8facebook3jsi6ObjectE(ptr noalias readnone sret(%"class.std::shared_ptr.10") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper13getHostObjectERKN8facebook3jsi6ObjectE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noalias noundef nonnull align 8 dereferenceable(32) ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15getHostFunctionERKN8facebook3jsi8FunctionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noalias noundef nonnull align 8 dereferenceable(32) ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15getHostFunctionERKN8facebook3jsi8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15getHostFunctionERKN8facebook3jsi8FunctionE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14hasNativeStateERKN8facebook3jsi6ObjectE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14hasNativeStateERKN8facebook3jsi6ObjectE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14hasNativeStateERKN8facebook3jsi6ObjectE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14getNativeStateERKN8facebook3jsi6ObjectE(ptr noalias nocapture readnone sret(%"class.std::shared_ptr.13") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14getNativeStateERKN8facebook3jsi6ObjectE(ptr noalias readnone sret(%"class.std::shared_ptr.13") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14getNativeStateERKN8facebook3jsi6ObjectE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14setNativeStateERKN8facebook3jsi6ObjectESt10shared_ptrINS2_11NativeStateEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %state) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14setNativeStateERKN8facebook3jsi6ObjectESt10shared_ptrINS2_11NativeStateEE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %state) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14setNativeStateERKN8facebook3jsi6ObjectESt10shared_ptrINS2_11NativeStateEE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11getPropertyERKN8facebook3jsi6ObjectERKNS2_10PropNameIDE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %name) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11getPropertyERKN8facebook3jsi6ObjectERKNS2_10PropNameIDE(ptr noalias readnone sret(%"class.facebook::jsi::Value") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %name) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11getPropertyERKN8facebook3jsi6ObjectERKNS2_10PropNameIDE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11getPropertyERKN8facebook3jsi6ObjectERKNS2_6StringE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %name) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11getPropertyERKN8facebook3jsi6ObjectERKNS2_6StringE(ptr noalias readnone sret(%"class.facebook::jsi::Value") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %name) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11getPropertyERKN8facebook3jsi6ObjectERKNS2_10PropNameIDE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11hasPropertyERKN8facebook3jsi6ObjectERKNS2_10PropNameIDE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %name) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11hasPropertyERKN8facebook3jsi6ObjectERKNS2_10PropNameIDE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %name) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11hasPropertyERKN8facebook3jsi6ObjectERKNS2_10PropNameIDE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11hasPropertyERKN8facebook3jsi6ObjectERKNS2_6StringE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %name) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11hasPropertyERKN8facebook3jsi6ObjectERKNS2_6StringE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %name) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11hasPropertyERKN8facebook3jsi6ObjectERKNS2_10PropNameIDE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper16setPropertyValueERKN8facebook3jsi6ObjectERKNS2_10PropNameIDERKNS2_5ValueE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %name, ptr nocapture nonnull readnone align 8 %value) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper16setPropertyValueERKN8facebook3jsi6ObjectERKNS2_10PropNameIDERKNS2_5ValueE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %name, ptr nonnull readnone align 8 captures(none) %value) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper16setPropertyValueERKN8facebook3jsi6ObjectERKNS2_10PropNameIDERKNS2_5ValueE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper16setPropertyValueERKN8facebook3jsi6ObjectERKNS2_6StringERKNS2_5ValueE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %name, ptr nocapture nonnull readnone align 8 %value) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper16setPropertyValueERKN8facebook3jsi6ObjectERKNS2_6StringERKNS2_5ValueE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %name, ptr nonnull readnone align 8 captures(none) %value) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper16setPropertyValueERKN8facebook3jsi6ObjectERKNS2_10PropNameIDERKNS2_5ValueE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper7isArrayERKN8facebook3jsi6ObjectE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper7isArrayERKN8facebook3jsi6ObjectE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper7isArrayERKN8facebook3jsi6ObjectE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper13isArrayBufferERKN8facebook3jsi6ObjectE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper13isArrayBufferERKN8facebook3jsi6ObjectE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper13isArrayBufferERKN8facebook3jsi6ObjectE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper10isFunctionERKN8facebook3jsi6ObjectE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper10isFunctionERKN8facebook3jsi6ObjectE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper10isFunctionERKN8facebook3jsi6ObjectE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12isHostObjectERKN8facebook3jsi6ObjectE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12isHostObjectERKN8facebook3jsi6ObjectE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12isHostObjectERKN8facebook3jsi6ObjectE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper14isHostFunctionERKN8facebook3jsi8FunctionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper14isHostFunctionERKN8facebook3jsi8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper14isHostFunctionERKN8facebook3jsi8FunctionE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper16getPropertyNamesERKN8facebook3jsi6ObjectE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Array") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper16getPropertyNamesERKN8facebook3jsi6ObjectE(ptr noalias readnone sret(%"class.facebook::jsi::Array") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper16getPropertyNamesERKN8facebook3jsi6ObjectE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper16createWeakObjectERKN8facebook3jsi6ObjectE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::WeakObject") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper16createWeakObjectERKN8facebook3jsi6ObjectE(ptr noalias readnone sret(%"class.facebook::jsi::WeakObject") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper16createWeakObjectERKN8facebook3jsi6ObjectE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14lockWeakObjectERKN8facebook3jsi10WeakObjectE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14lockWeakObjectERKN8facebook3jsi10WeakObjectE(ptr noalias readnone sret(%"class.facebook::jsi::Value") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper14lockWeakObjectERKN8facebook3jsi10WeakObjectE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11createArrayEm(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Array") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 %length) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11createArrayEm(ptr noalias readnone sret(%"class.facebook::jsi::Array") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, i64 %length) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper11createArrayEm) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper17createArrayBufferESt10shared_ptrIN8facebook3jsi13MutableBufferEE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::ArrayBuffer") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %buffer) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper17createArrayBufferESt10shared_ptrIN8facebook3jsi13MutableBufferEE(ptr noalias readnone sret(%"class.facebook::jsi::ArrayBuffer") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %buffer) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper17createArrayBufferESt10shared_ptrIN8facebook3jsi13MutableBufferEE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4sizeERKN8facebook3jsi5ArrayE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noundef i64 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4sizeERKN8facebook3jsi5ArrayE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4sizeERKN8facebook3jsi5ArrayE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4sizeERKN8facebook3jsi11ArrayBufferE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noundef i64 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4sizeERKN8facebook3jsi11ArrayBufferE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4sizeERKN8facebook3jsi5ArrayE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4dataERKN8facebook3jsi11ArrayBufferE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4dataERKN8facebook3jsi11ArrayBufferE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4dataERKN8facebook3jsi11ArrayBufferE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15getValueAtIndexERKN8facebook3jsi5ArrayEm(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, i64 %i) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15getValueAtIndexERKN8facebook3jsi5ArrayEm(ptr noalias readnone sret(%"class.facebook::jsi::Value") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, i64 %i) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper15getValueAtIndexERKN8facebook3jsi5ArrayEm) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper19setValueAtIndexImplERKN8facebook3jsi5ArrayEmRKNS2_5ValueE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, i64 %i, ptr nocapture nonnull readnone align 8 %value) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper19setValueAtIndexImplERKN8facebook3jsi5ArrayEmRKNS2_5ValueE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, i64 %i, ptr nonnull readnone align 8 captures(none) %value) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper19setValueAtIndexImplERKN8facebook3jsi5ArrayEmRKNS2_5ValueE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper30createFunctionFromHostFunctionERKN8facebook3jsi10PropNameIDEjSt8functionIFNS2_5ValueERNS2_7RuntimeERKS7_PSA_mEE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Function") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %name, i32 %paramCount, ptr nocapture readnone %func) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper30createFunctionFromHostFunctionERKN8facebook3jsi10PropNameIDEjSt8functionIFNS2_5ValueERNS2_7RuntimeERKS7_PSA_mEE(ptr noalias readnone sret(%"class.facebook::jsi::Function") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %name, i32 %paramCount, ptr readnone captures(none) %func) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper30createFunctionFromHostFunctionERKN8facebook3jsi10PropNameIDEjSt8functionIFNS2_5ValueERNS2_7RuntimeERKS7_PSA_mEE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4callERKN8facebook3jsi8FunctionERKNS2_5ValueEPS7_m(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %jsThis, ptr nocapture readnone %args, i64 %count) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4callERKN8facebook3jsi8FunctionERKNS2_5ValueEPS7_m(ptr noalias readnone sret(%"class.facebook::jsi::Value") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %jsThis, ptr readnone captures(none) %args, i64 %count) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper4callERKN8facebook3jsi8FunctionERKNS2_5ValueEPS7_m) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper17callAsConstructorERKN8facebook3jsi8FunctionEPKNS2_5ValueEm(ptr noalias nocapture readnone sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %args, i64 %count) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper17callAsConstructorERKN8facebook3jsi8FunctionEPKNS2_5ValueEm(ptr noalias readnone sret(%"class.facebook::jsi::Value") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %args, i64 %count) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper17callAsConstructorERKN8facebook3jsi8FunctionEPKNS2_5ValueEm) #16
   unreachable
@@ -650,42 +650,42 @@ declare noundef ptr @_ZN8facebook3jsi7Runtime9pushScopeEv(ptr noundef nonnull al
 declare void @_ZN8facebook3jsi7Runtime8popScopeEPNS1_10ScopeStateE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12strictEqualsERKN8facebook3jsi6SymbolES5_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %a, ptr nocapture nonnull readnone align 8 %b) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12strictEqualsERKN8facebook3jsi6SymbolES5_(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %a, ptr nonnull readnone align 8 captures(none) %b) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12strictEqualsERKN8facebook3jsi6SymbolES5_) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12strictEqualsERKN8facebook3jsi6BigIntES5_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %a, ptr nocapture nonnull readnone align 8 %b) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12strictEqualsERKN8facebook3jsi6BigIntES5_(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %a, ptr nonnull readnone align 8 captures(none) %b) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12strictEqualsERKN8facebook3jsi6SymbolES5_) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12strictEqualsERKN8facebook3jsi6StringES5_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %a, ptr nocapture nonnull readnone align 8 %b) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12strictEqualsERKN8facebook3jsi6StringES5_(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %a, ptr nonnull readnone align 8 captures(none) %b) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12strictEqualsERKN8facebook3jsi6SymbolES5_) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12strictEqualsERKN8facebook3jsi6ObjectES5_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %a, ptr nocapture nonnull readnone align 8 %b) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12strictEqualsERKN8facebook3jsi6ObjectES5_(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %a, ptr nonnull readnone align 8 captures(none) %b) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZNK12_GLOBAL__N_123HermesABIRuntimeWrapper12strictEqualsERKN8facebook3jsi6SymbolES5_) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper10instanceOfERKN8facebook3jsi6ObjectERKNS2_8FunctionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %o, ptr nocapture nonnull readnone align 8 %f) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper10instanceOfERKN8facebook3jsi6ObjectERKNS2_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %o, ptr nonnull readnone align 8 captures(none) %f) unnamed_addr #5 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_122throwUnimplementedImplEPKc(ptr noundef nonnull @__func__._ZN12_GLOBAL__N_123HermesABIRuntimeWrapper10instanceOfERKN8facebook3jsi6ObjectERKNS2_8FunctionE) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper25setExternalMemoryPressureERKN8facebook3jsi6ObjectEm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %obj, i64 %amount) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapper25setExternalMemoryPressureERKN8facebook3jsi6ObjectEm(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %obj, i64 %amount) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -907,10 +907,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

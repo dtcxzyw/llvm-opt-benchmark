@@ -1381,7 +1381,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.898 = private unnamed_addr constant [36 x i8] c"Dissect unidentified I/O traffic as\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @enip_close_cip_connection(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @enip_close_cip_connection(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.enip_conn_key, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
@@ -1426,7 +1426,7 @@ define hidden void @enip_close_cip_connection(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1435,7 +1435,7 @@ declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare ptr @wmem_file_scope() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @enip_mark_connection_triad(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @enip_mark_connection_triad(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.enip_conn_key, align 8
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 8
@@ -1841,7 +1841,7 @@ define internal range(i32 -2147483648, 5) i32 @dissect_elink_interface_control(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_elink_interface_capability(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal i32 @dissect_elink_interface_capability(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_elink_icapability_capability_bits, align 4
   %9 = load i32, ptr @ett_elink_icapability_bits, align 4
@@ -1882,7 +1882,7 @@ define internal i32 @dissect_elink_interface_capability(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_elink_hc_interface_counters(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_elink_hc_interface_counters(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_elink_hc_icount_in_octets, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef -2147483648) #11
   %9 = load i32, ptr @hf_elink_hc_icount_in_ucast, align 4
@@ -1910,7 +1910,7 @@ define internal noundef i32 @dissect_elink_hc_interface_counters(ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_elink_hc_media_counters(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_elink_hc_media_counters(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_elink_hc_mcount_stats_align_errors, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef -2147483648) #11
   %9 = load i32, ptr @hf_elink_hc_mcount_stats_fcs_errors, align 4
@@ -2133,7 +2133,7 @@ define internal range(i32 -2147483648, 11) i32 @dissect_dlr_active_gateway_addre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_cip_security_profiles(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_cip_security_profiles(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_enip_security_profiles, align 4
   %8 = load i32, ptr @ett_security_profiles, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_cip_security_profiles.security_profiles, i32 noundef -2147483648) #11
@@ -2430,7 +2430,7 @@ define internal range(i32 -2147483648, 5) i32 @dissect_eip_cert_cap_flags(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_eip_cert_cert_list(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal noundef i32 @dissect_eip_cert_cert_list(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_eip_cert_num_certs, align 4
   %9 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %8, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #11
@@ -2493,7 +2493,7 @@ define hidden ptr @cip_get_service_enip(i32 noundef %0, i8 noundef zeroext %1) l
 declare ptr @cip_get_service_one_table(ptr noundef, i64 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @display_fwd_open_connection_path(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @display_fwd_open_connection_path(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -2614,7 +2614,7 @@ define hidden void @proto_register_enip() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @enip_fmt_lir_revision(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @enip_fmt_lir_revision(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = lshr i32 %1, 8
   %4 = and i32 %3, 255
   %5 = and i32 %1, 255
@@ -2648,7 +2648,7 @@ define internal i32 @dissect_enip_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_enip_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal i32 @dissect_enip_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #11
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %9, label %7
@@ -2663,7 +2663,7 @@ define internal i32 @dissect_enip_udp(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cipio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_cipio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.700) #11
@@ -2677,7 +2677,7 @@ define internal i32 @dissect_cipio(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cip_class1(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_cip_class1(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.cip_conn_info, align 8
   %6 = alloca %struct.cip_io_data_input, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %5, i8 0, i64 240, i1 false)
@@ -2691,7 +2691,7 @@ define internal i32 @dissect_cip_class1(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cip_io_generic(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_cip_io_generic(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = load i32, ptr @proto_cipio, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #11
   %7 = load i32, ptr @ett_cip_io_generic, align 4
@@ -2769,7 +2769,7 @@ declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr nounde
 declare ptr @wmem_epan_scope() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @enip_request_hash(ptr nocapture noundef readonly %0) #4 {
+define internal i32 @enip_request_hash(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = mul i32 %3, 37
@@ -2811,7 +2811,7 @@ define internal i32 @enip_request_hash(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @enip_request_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @enip_request_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2870,7 +2870,7 @@ define internal range(i32 0, 2) i32 @enip_request_equal(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @enip_conn_hash(ptr nocapture noundef readonly %0) #4 {
+define internal i32 @enip_conn_hash(ptr noundef readonly captures(none) %0) #4 {
   %2 = load i16, ptr %0, align 4
   %3 = zext i16 %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -2934,7 +2934,7 @@ define internal void @enip_init_protocol() #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dlr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dlr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.724) #11
@@ -3093,7 +3093,7 @@ define internal i32 @dissect_dlr(ptr noundef %0, ptr nocapture noundef readonly 
 declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cip_connection_conv_valid(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @cip_connection_conv_valid(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @wmem_file_scope() #11
   %4 = load i32, ptr @proto_enip, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 1) #11
@@ -3128,7 +3128,7 @@ enip_exp_conv_valid.exit:                         ; preds = %14, %enip_io_conv_v
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @cip_connection_conv_filter(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noalias ptr @cip_connection_conv_filter(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @wmem_file_scope() #11
   %4 = load i32, ptr @proto_enip, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 1) #11
@@ -3236,13 +3236,13 @@ enip_io_conv_filter.exit:                         ; preds = %enip_io_conv_valid.
 declare ptr @register_decode_as_next_proto(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @enip_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 36)) %1) #6 {
+define internal void @enip_prompt(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 36)) %1) #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %1, ptr noundef nonnull align 1 dereferenceable(36) @.str.898, i64 36, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_lldp_cip_tlv(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i32 @dissect_lldp_cip_tlv(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #11
   %6 = load i32, ptr @hf_lldp_subtype, align 4
@@ -3448,7 +3448,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @dissect_padded_epath_len_usint(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @dissect_certificate_management_object_verify_certificate(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 0, 3) i32 @dissect_certificate_management_object_verify_certificate(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %7
 
@@ -3477,14 +3477,14 @@ define internal noundef i32 @dissect_tcpip_set_port_admin_state(ptr noundef %0, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 24, 65560) i32 @get_enip_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 24, 65560) i32 @get_enip_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %5) #11
   %7 = zext i16 %6 to i32
@@ -3493,7 +3493,7 @@ define internal range(i32 24, 65560) i32 @get_enip_pdu_len(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_enip_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_enip_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.enip_request_key, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -3681,7 +3681,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -4702,7 +4702,7 @@ dissect_item_sockaddr_info.exit:                  ; preds = %.sink.split.i151, %
   %566 = getelementptr inbounds nuw i8, ptr %557, i64 228
   store i32 %565, ptr %566, align 4
   %567 = load ptr, ptr @enip_conn_hashtable, align 8
-  %568 = call ptr @wmem_map_insert(ptr noundef %567, ptr noundef nonnull %544, ptr noundef %557) #11
+  %568 = call ptr @wmem_map_insert(ptr noundef %567, ptr noundef nonnull %544, ptr noundef nonnull %557) #11
   %569 = getelementptr inbounds nuw i8, ptr %530, i64 8
   %570 = load i8, ptr %569, align 8
   %571 = and i8 %570, 14
@@ -5022,7 +5022,7 @@ declare i32 @conversation_pt_to_conversation_type(i32 noundef) local_unnamed_add
 declare ptr @tvb_format_stringzpad(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_conversation_info_one_direction(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @get_conversation_info_one_direction(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.e_in6_addr, align 1
   %6 = alloca %struct._address, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -5176,13 +5176,13 @@ declare i32 @cip_connection_triad_match(ptr noundef, ptr noundef) local_unnamed_
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

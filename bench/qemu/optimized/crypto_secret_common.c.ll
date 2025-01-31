@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_qcrypto_secret_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @qcrypto_secret_lookup(ptr noundef %secretid, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %datalen, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_secret_lookup(ptr noundef %secretid, ptr noundef writeonly captures(none) %data, ptr noundef writeonly captures(none) %datalen, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @object_get_objects_root() #5
   %call1 = tail call ptr @object_resolve_path_component(ptr noundef %call, ptr noundef %secretid) #5
@@ -101,7 +101,7 @@ declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @qcrypto_secret_lookup_as_utf8(ptr noundef %secretid, ptr noundef %errp) local_unnamed_addr #0 {
@@ -191,7 +191,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_secret_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @qcrypto_secret_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.14, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #5
   %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -446,7 +446,7 @@ return:                                           ; preds = %if.end18, %if.then1
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @qcrypto_secret_prop_get_loaded(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @qcrypto_secret_prop_get_loaded(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
   %rawdata = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -458,7 +458,7 @@ entry:
 declare ptr @object_class_property_add_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcrypto_secret_prop_get_format(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal i32 @qcrypto_secret_prop_get_format(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
   %format = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -467,7 +467,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_secret_prop_set_format(ptr noundef %obj, i32 noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @qcrypto_secret_prop_set_format(ptr noundef %obj, i32 noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
   %format = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -478,7 +478,7 @@ entry:
 declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @qcrypto_secret_prop_get_keyid(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @qcrypto_secret_prop_get_keyid(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
   %keyid = getelementptr inbounds nuw i8, ptr %call.i, i64 64
@@ -488,7 +488,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_secret_prop_set_keyid(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @qcrypto_secret_prop_set_keyid(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
   %keyid = getelementptr inbounds nuw i8, ptr %call.i, i64 64
@@ -500,7 +500,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @qcrypto_secret_prop_get_iv(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @qcrypto_secret_prop_get_iv(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
   %iv = getelementptr inbounds nuw i8, ptr %call.i, i64 72
@@ -510,7 +510,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_secret_prop_set_iv(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @qcrypto_secret_prop_set_iv(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
   %iv = getelementptr inbounds nuw i8, ptr %call.i, i64 72
@@ -542,10 +542,10 @@ declare void @qcrypto_cipher_free(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

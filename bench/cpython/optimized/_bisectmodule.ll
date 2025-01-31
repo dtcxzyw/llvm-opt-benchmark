@@ -125,7 +125,7 @@ bisect_clear.exit:                                ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_bisect_bisect_right(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_bisect_bisect_right(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %hi = alloca i64, align 8
@@ -431,7 +431,7 @@ exit:                                             ; preds = %if.end21.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_bisect_bisect_left(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_bisect_bisect_left(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %hi = alloca i64, align 8

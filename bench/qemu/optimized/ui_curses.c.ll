@@ -323,7 +323,7 @@ entry:
 declare void @qemu_display_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @curses_display_init(ptr nocapture readnone %ds, ptr nocapture noundef readonly %opts) #0 {
+define internal void @curses_display_init(ptr readnone captures(none) %ds, ptr noundef readonly captures(none) %opts) #0 {
 entry:
   %old.i = alloca %struct.sigaction, align 8
   %winch.i = alloca %struct.sigaction, align 8
@@ -921,7 +921,7 @@ curses_setup.exit:                                ; preds = %for.inc174.i.i, %fo
   %call178.i.i = call i32 @iconv_close(ptr noundef %call1.i.i) #13
   %call179.i.i = call i32 @iconv_close(ptr noundef %call5.i.i) #13
   %call180.i.i = call i32 @iconv_close(ptr noundef %call13.i.i) #13
-  call void @g_free(ptr noundef %call.i.i) #13
+  call void @g_free(ptr noundef nonnull %call.i.i) #13
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %wch.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %color.i.i)
@@ -955,7 +955,7 @@ curses_keyboard_setup.exit:                       ; preds = %curses_setup.exit, 
 declare i32 @isatty(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
@@ -983,7 +983,7 @@ entry:
 declare void @register_displaychangelistener(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @initscr() local_unnamed_addr #1
 
@@ -1081,7 +1081,7 @@ return:                                           ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @getcchar(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1112,7 +1112,7 @@ entry:
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @curses_refresh(ptr nocapture noundef readnone %dcl) #0 {
+define internal void @curses_refresh(ptr noundef readnone captures(none) %dcl) #0 {
 entry:
   %ret.i43 = alloca i32, align 4
   %ret.i = alloca i32, align 4
@@ -1480,7 +1480,7 @@ while.end:                                        ; preds = %console_getch.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @curses_cursor_position(ptr nocapture readnone %dcl, i32 noundef %x, i32 noundef %y) #0 {
+define internal void @curses_cursor_position(ptr readnone captures(none) %dcl, i32 noundef %x, i32 noundef %y) #0 {
 entry:
   %cmp = icmp sgt i32 %x, -1
   br i1 %cmp, label %if.then, label %return.sink.split
@@ -1522,7 +1522,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @curses_resize(ptr nocapture readnone %dcl, i32 noundef %width, i32 noundef %height) #0 {
+define internal void @curses_resize(ptr readnone captures(none) %dcl, i32 noundef %width, i32 noundef %height) #0 {
 entry:
   %0 = load i32, ptr @gwidth, align 4
   %cmp = icmp eq i32 %width, %0
@@ -1542,7 +1542,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @curses_update(ptr nocapture readnone %dcl, i32 %x, i32 noundef %y, i32 %w, i32 noundef %h) #0 {
+define internal void @curses_update(ptr readnone captures(none) %dcl, i32 %x, i32 noundef %y, i32 %w, i32 noundef %h) #0 {
 entry:
   %wch = alloca [5 x i32], align 16
   %attrs = alloca i32, align 4
@@ -1769,13 +1769,13 @@ declare i32 @wadd_wchnstr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @pnoutrefresh(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

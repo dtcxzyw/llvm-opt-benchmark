@@ -338,7 +338,7 @@ define ptr @try_convert_to_column_field(ptr noundef %0) local_unnamed_addr #1 {
 declare i32 @str_to_val_idx(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @parse_column_format(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @parse_column_format(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %5 = icmp ugt i64 %4, 4
@@ -382,7 +382,7 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %.lcssa = phi ptr [ null, %13 ], [ %20, %.lr.ph ]
   store ptr %.lcssa, ptr %3, align 8
-  tail call void @g_ptr_array_insert(ptr noundef %14, i32 noundef 0, ptr noundef %16) #13
+  tail call void @g_ptr_array_insert(ptr noundef %14, i32 noundef 0, ptr noundef nonnull %16) #13
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %26 = load i32, ptr %25, align 8
   %.not = icmp eq i32 %26, 0
@@ -414,7 +414,7 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
   br i1 %.not49, label %45, label %44
 
 44:                                               ; preds = %42, %32
-  tail call void @g_free(ptr noundef %16) #13
+  tail call void @g_free(ptr noundef nonnull %16) #13
   tail call void @g_ptr_array_unref(ptr noundef nonnull %14) #13
   br label %get_column_format_from_str.exit.thread
 
@@ -435,7 +435,7 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
   %.04057 = phi i64 [ %36, %47 ], [ %36, %45 ], [ 0, %27 ], [ 0, %._crit_edge ]
   %.0425156 = phi ptr [ %30, %47 ], [ %30, %45 ], [ %30, %27 ], [ null, %._crit_edge ]
   %.039 = phi i8 [ %52, %47 ], [ 1, %45 ], [ 1, %27 ], [ 1, %._crit_edge ]
-  tail call void @g_free(ptr noundef %16) #13
+  tail call void @g_free(ptr noundef nonnull %16) #13
   tail call void @g_ptr_array_unref(ptr noundef nonnull %14) #13
   %53 = trunc i64 %.04057 to i32
   br label %60
@@ -478,10 +478,10 @@ get_column_format_from_str.exit.thread:           ; preds = %58, %60, %44
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @g_ptr_array_new() local_unnamed_addr #2
 
@@ -493,14 +493,14 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @g_ptr_array_insert(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 declare void @g_ptr_array_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 46) i32 @get_column_format_from_str(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 -1, 46) i32 @get_column_format_from_str(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   br label %col_format_to_string.exit
 
 col_format_to_string.exit:                        ; preds = %1, %6
@@ -526,7 +526,7 @@ col_format_to_string.exit:                        ; preds = %1, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @try_convert_to_custom_column(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @try_convert_to_custom_column(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %.pre = load ptr, ptr %0, align 8
   br label %2
 
@@ -559,7 +559,7 @@ define void @try_convert_to_custom_column(ptr nocapture noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -584,10 +584,10 @@ col_format_to_string.exit:                        ; preds = %0, %col_format_to_s
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @get_column_format_matches(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @get_column_format_matches(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %1, 46
   br i1 %or.cond, label %3, label %6
 
@@ -1348,7 +1348,7 @@ declare void @g_strfreev(ptr noundef) local_unnamed_addr #2
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_column_text(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @get_column_text(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @prefs, align 8
   %4 = tail call ptr @g_list_nth(ptr noundef %3, i32 noundef %1) #13
   %.not.i = icmp eq ptr %4, null
@@ -1385,7 +1385,7 @@ get_column_resolved.exit.thread:                  ; preds = %2, %9, %get_column_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_finalize(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @col_finalize(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -2079,13 +2079,13 @@ declare void @proto_add_deregistered_data(ptr noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

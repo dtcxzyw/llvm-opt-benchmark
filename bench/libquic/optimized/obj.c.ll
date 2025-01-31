@@ -1384,15 +1384,15 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @OPENSSL_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @OBJ_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #5 {
+define hidden i32 @OBJ_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #5 {
 entry:
   %length = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %length, align 4
@@ -1417,7 +1417,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @OBJ_obj2nid(ptr noundef %obj) local_unnamed_addr #0 {
@@ -1475,7 +1475,7 @@ declare void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef) local_unnamed_addr #1
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @obj_cmp(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %element) #5 {
+define internal i32 @obj_cmp(ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %element) #5 {
 entry:
   %0 = load i32, ptr %element, align 4
   %idxprom = zext i32 %0 to i64
@@ -1552,7 +1552,7 @@ OBJ_obj2nid.exit:                                 ; preds = %if.then8.i, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
 
@@ -1598,7 +1598,7 @@ return:                                           ; preds = %if.end3, %if.end7, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @short_name_cmp(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %element) #5 {
+define internal i32 @short_name_cmp(ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %element) #5 {
 entry:
   %0 = load i32, ptr %element, align 4
   %idxprom = zext i32 %0 to i64
@@ -1649,7 +1649,7 @@ return:                                           ; preds = %if.end3, %if.end7, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @long_name_cmp(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %element) #5 {
+define internal i32 @long_name_cmp(ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %element) #5 {
 entry:
   %0 = load i32, ptr %element, align 4
   %idxprom = zext i32 %0 to i64
@@ -2502,7 +2502,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare i64 @BUF_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2644,14 +2644,14 @@ err:                                              ; preds = %obj_add_object.exit
 declare ptr @ASN1_OBJECT_create(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef) local_unnamed_addr #1
 
 declare ptr @lh_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @hash_nid(ptr nocapture noundef readonly %obj) #8 {
+define internal i32 @hash_nid(ptr noundef readonly captures(none) %obj) #8 {
 entry:
   %nid = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %0 = load i32, ptr %nid, align 8
@@ -2659,7 +2659,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmp_nid(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #8 {
+define internal i32 @cmp_nid(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #8 {
 entry:
   %nid = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load i32, ptr %nid, align 8
@@ -2670,7 +2670,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hash_data(ptr nocapture noundef readonly %obj) #0 {
+define internal i32 @hash_data(ptr noundef readonly captures(none) %obj) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %0 = load ptr, ptr %data, align 8
@@ -2682,7 +2682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmp_data(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal i32 @cmp_data(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %length = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %length, align 4
@@ -2707,7 +2707,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hash_short_name(ptr nocapture noundef readonly %obj) #0 {
+define internal i32 @hash_short_name(ptr noundef readonly captures(none) %obj) #0 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %call = tail call i32 @lh_strhash(ptr noundef %0) #10
@@ -2715,7 +2715,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmp_short_name(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal i32 @cmp_short_name(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -2724,7 +2724,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hash_long_name(ptr nocapture noundef readonly %obj) #0 {
+define internal i32 @hash_long_name(ptr noundef readonly captures(none) %obj) #0 {
 entry:
   %ln = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %0 = load ptr, ptr %ln, align 8
@@ -2733,7 +2733,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmp_long_name(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal i32 @cmp_long_name(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %ln = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %ln, align 8
@@ -2750,10 +2750,10 @@ declare i32 @OPENSSL_hash32(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @lh_strhash(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -11,14 +11,14 @@ define noundef i64 @stream_alignment() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @stream_data(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @stream_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @stream_size(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @stream_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30,7 +30,7 @@ define i64 @stream_size(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @stream_capacity(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @stream_capacity(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -42,17 +42,17 @@ define i64 @stream_capacity(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @stream_stride_block(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i64 @stream_stride_block(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @stream_stride_delta(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i64 @stream_stride_delta(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stream_read_bit(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stream_read_bit(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %4, label %._crit_edge
@@ -83,7 +83,7 @@ define range(i32 0, 2) i32 @stream_read_bit(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stream_write_bit(ptr nocapture noundef %0, i32 noundef returned %1) local_unnamed_addr #3 {
+define noundef i32 @stream_write_bit(ptr noundef captures(none) %0, i32 noundef returned %1) local_unnamed_addr #3 {
   %3 = zext i32 %1 to i64
   %4 = load i64, ptr %0, align 8
   %5 = shl i64 %3, %4
@@ -110,7 +110,7 @@ define noundef i32 @stream_write_bit(ptr nocapture noundef %0, i32 noundef retur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @stream_read_bits(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define i64 @stream_read_bits(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %0, align 8
@@ -161,7 +161,7 @@ define i64 @stream_read_bits(ptr nocapture noundef %0, i64 noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @stream_write_bits(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define i64 @stream_write_bits(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = load i64, ptr %0, align 8
   %5 = shl i64 %1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -201,7 +201,7 @@ define i64 @stream_write_bits(ptr nocapture noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @stream_rtell(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @stream_rtell(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -216,7 +216,7 @@ define i64 @stream_rtell(ptr nocapture noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @stream_wtell(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @stream_wtell(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -231,7 +231,7 @@ define i64 @stream_wtell(ptr nocapture noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stream_rewind(ptr nocapture noundef initializes((0, 24)) %0) local_unnamed_addr #4 {
+define void @stream_rewind(ptr noundef captures(none) initializes((0, 24)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -241,7 +241,7 @@ define void @stream_rewind(ptr nocapture noundef initializes((0, 24)) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stream_rseek(ptr nocapture noundef initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define void @stream_rseek(ptr noundef captures(none) initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = and i64 %1, 63
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -270,7 +270,7 @@ define void @stream_rseek(ptr nocapture noundef initializes((0, 24)) %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stream_wseek(ptr nocapture noundef initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define void @stream_wseek(ptr noundef captures(none) initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = and i64 %1, 63
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -297,7 +297,7 @@ define void @stream_wseek(ptr nocapture noundef initializes((0, 24)) %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stream_skip(ptr nocapture noundef initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define void @stream_skip(ptr noundef captures(none) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -334,7 +334,7 @@ stream_rseek.exit:                                ; preds = %2, %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stream_pad(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define void @stream_pad(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8
   %4 = add i64 %3, %1
   %5 = icmp ugt i64 %4, 63
@@ -365,7 +365,7 @@ define void @stream_pad(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @stream_align(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define i64 @stream_align(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %21, label %3
@@ -407,7 +407,7 @@ stream_skip.exit:                                 ; preds = %3, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i64 0, 64) i64 @stream_flush(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define range(i64 0, 64) i64 @stream_flush(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8
   %3 = sub i64 0, %2
   %4 = and i64 %3, 63
@@ -447,7 +447,7 @@ stream_pad.exit:                                  ; preds = %10, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stream_copy(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #6 {
+define void @stream_copy(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = icmp ugt i64 %2, 64
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -640,16 +640,16 @@ define noalias noundef ptr @stream_open(ptr noundef %0, i64 noundef %1) local_un
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @stream_close(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @stream_close(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   tail call void @free(ptr noundef %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @stream_clone(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define noalias noundef ptr @stream_clone(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #14
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -663,10 +663,10 @@ define noalias noundef ptr @stream_clone(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

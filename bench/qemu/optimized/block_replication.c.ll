@@ -169,7 +169,7 @@ return:                                           ; preds = %entry, %fail
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @replication_close(ptr nocapture noundef readonly %bs) #0 {
+define internal void @replication_close(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -234,7 +234,7 @@ if.end16:                                         ; preds = %if.then15, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @replication_child_perm(ptr nocapture noundef readonly %bs, ptr nocapture readnone %c, i32 noundef %role, ptr nocapture readnone %reopen_queue, i64 %perm, i64 %shared, ptr nocapture noundef writeonly initializes((0, 8)) %nperm, ptr nocapture noundef writeonly initializes((0, 8)) %nshared) #2 {
+define internal void @replication_child_perm(ptr noundef readonly captures(none) %bs, ptr readnone captures(none) %c, i32 noundef %role, ptr readnone captures(none) %reopen_queue, i64 %perm, i64 %shared, ptr noundef writeonly captures(none) initializes((0, 8)) %nperm, ptr noundef writeonly captures(none) initializes((0, 8)) %nshared) #2 {
 entry:
   %and = lshr i32 %role, 4
   %and.lobit = and i32 %and, 1
@@ -256,7 +256,7 @@ if.end3:                                          ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @replication_co_readv(ptr nocapture noundef readonly %bs, i64 noundef %sector_num, i32 noundef %remaining_sectors, ptr noundef %qiov) #0 {
+define internal i32 @replication_co_readv(ptr noundef readonly captures(none) %bs, i64 noundef %sector_num, i32 noundef %remaining_sectors, ptr noundef %qiov) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -303,7 +303,7 @@ return:                                           ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @replication_co_writev(ptr nocapture noundef readonly %bs, i64 noundef %sector_num, i32 noundef %remaining_sectors, ptr noundef %qiov, i32 %flags) #0 {
+define internal i32 @replication_co_writev(ptr noundef readonly captures(none) %bs, i64 noundef %sector_num, i32 noundef %remaining_sectors, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %hd_qiov = alloca %struct.QEMUIOVector, align 8
   %count = alloca i64, align 8
@@ -419,7 +419,7 @@ return:                                           ; preds = %sw.bb2.i, %sw.bb3.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @replication_co_getlength(ptr nocapture noundef readonly %bs) #0 {
+define internal i64 @replication_co_getlength(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -439,7 +439,7 @@ declare ptr @qemu_opt_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
@@ -448,7 +448,7 @@ declare ptr @replication_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qemu_opts_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @replication_start(ptr nocapture noundef readonly %rs, i32 noundef %mode, ptr noundef %errp) #0 {
+define internal void @replication_start(ptr noundef readonly captures(none) %rs, i32 noundef %mode, ptr noundef %errp) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %perf = alloca %struct.BackupPerf, align 8
@@ -748,7 +748,7 @@ return:                                           ; preds = %if.end121, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @replication_stop(ptr nocapture noundef readonly %rs, i1 noundef zeroext %failover, ptr noundef %errp) #0 {
+define internal void @replication_stop(ptr noundef readonly captures(none) %rs, i1 noundef zeroext %failover, ptr noundef %errp) #0 {
 entry:
   %0 = load ptr, ptr %rs, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #8
@@ -827,7 +827,7 @@ return:                                           ; preds = %sw.bb, %if.end17, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @replication_do_checkpoint(ptr nocapture noundef readonly %rs, ptr noundef %errp) #0 {
+define internal void @replication_do_checkpoint(ptr noundef readonly captures(none) %rs, ptr noundef %errp) #0 {
 entry:
   %0 = load ptr, ptr %rs, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #8
@@ -856,7 +856,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @replication_get_error(ptr nocapture noundef readonly %rs, ptr noundef %errp) #0 {
+define internal void @replication_get_error(ptr noundef readonly captures(none) %rs, ptr noundef %errp) #0 {
 entry:
   %0 = load ptr, ptr %rs, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #8
@@ -888,7 +888,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare zeroext i1 @qemu_in_main_thread() local_unnamed_addr #1
 
@@ -1128,7 +1128,7 @@ declare void @job_start(ptr noundef) local_unnamed_addr #1
 declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @secondary_do_checkpoint(ptr nocapture noundef readonly %bs, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @secondary_do_checkpoint(ptr noundef readonly captures(none) %bs, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24

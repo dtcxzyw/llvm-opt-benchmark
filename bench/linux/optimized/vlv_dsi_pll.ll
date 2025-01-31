@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -44, 1) i32 @vlv_dsi_pll_compute(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -44, 1) i32 @vlv_dsi_pll_compute(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 628
   %5 = load i32, ptr %4, align 4
@@ -299,7 +299,7 @@ vlv_dsi_pclk.exit:                                ; preds = %147, %149
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vlv_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @vlv_dsi_pll_enable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -399,7 +399,7 @@ declare dso_local i32 @vlv_cck_read(ptr noundef, i32 noundef) local_unnamed_addr
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vlv_dsi_pll_disable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @vlv_dsi_pll_disable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
@@ -474,7 +474,7 @@ define dso_local noundef zeroext i1 @bxt_dsi_pll_is_enabled(ptr noundef %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bxt_dsi_pll_disable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @bxt_dsi_pll_disable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
@@ -517,7 +517,7 @@ define dso_local void @bxt_dsi_pll_disable(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vlv_dsi_get_pclk(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((1352, 1360)) %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @vlv_dsi_get_pclk(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((1352, 1360)) %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -628,7 +628,7 @@ vlv_dsi_pclk.exit:                                ; preds = %52, %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bxt_dsi_get_pclk(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((1352, 1356)) %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @bxt_dsi_get_pclk(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((1352, 1356)) %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7368
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 7512
@@ -679,7 +679,7 @@ define dso_local noundef i32 @bxt_dsi_get_pclk(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vlv_dsi_reset_clocks(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @vlv_dsi_reset_clocks(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq i32 %1, 0
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2304
@@ -705,7 +705,7 @@ define dso_local void @vlv_dsi_reset_clocks(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -44, 1) i32 @bxt_dsi_pll_compute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -44, 1) i32 @bxt_dsi_pll_compute(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 628
   %5 = load i32, ptr %4, align 4
@@ -835,7 +835,7 @@ define dso_local noundef range(i32 -44, 1) i32 @bxt_dsi_pll_compute(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @bxt_dsi_pll_enable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -1028,7 +1028,7 @@ define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bxt_dsi_reset_clocks(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @bxt_dsi_reset_clocks(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7184
   %5 = load i32, ptr %4, align 4

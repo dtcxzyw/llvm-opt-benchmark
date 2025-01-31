@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [35 x i8] c"buffer_move %s: %zd bytes from %s\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @buffer_init(ptr nocapture noundef writeonly initializes((0, 8)) %buffer, ptr noundef %name, ...) local_unnamed_addr #0 {
+define dso_local void @buffer_init(ptr noundef writeonly captures(none) initializes((0, 8)) %buffer, ptr noundef %name, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -40,7 +40,7 @@ entry:
 declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @buffer_shrink(ptr nocapture noundef %buffer) local_unnamed_addr #0 {
+define dso_local void @buffer_shrink(ptr noundef captures(none) %buffer) local_unnamed_addr #0 {
 entry:
   %avg_size = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   %0 = load i64, ptr %avg_size, align 8
@@ -85,7 +85,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @buffer_adj_size(ptr nocapture noundef %buffer, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc void @buffer_adj_size(ptr noundef captures(none) %buffer, i64 noundef %len) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %capacity = getelementptr inbounds nuw i8, ptr %buffer, i64 8
@@ -154,7 +154,7 @@ trace_buffer_resize.exit:                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @buffer_reserve(ptr nocapture noundef %buffer, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @buffer_reserve(ptr noundef captures(none) %buffer, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %capacity = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %0 = load i64, ptr %capacity, align 8
@@ -173,7 +173,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @buffer_empty(ptr nocapture noundef readonly %buffer) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @buffer_empty(ptr noundef readonly captures(none) %buffer) local_unnamed_addr #2 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %0 = load i64, ptr %offset, align 8
@@ -183,7 +183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @buffer_end(ptr nocapture noundef readonly %buffer) local_unnamed_addr #2 {
+define dso_local ptr @buffer_end(ptr noundef readonly captures(none) %buffer) local_unnamed_addr #2 {
 entry:
   %buffer1 = getelementptr inbounds nuw i8, ptr %buffer, i64 32
   %0 = load ptr, ptr %buffer1, align 8
@@ -194,7 +194,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @buffer_reset(ptr nocapture noundef initializes((16, 24)) %buffer) local_unnamed_addr #0 {
+define dso_local void @buffer_reset(ptr noundef captures(none) initializes((16, 24)) %buffer) local_unnamed_addr #0 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   store i64 0, ptr %offset, align 8
@@ -229,7 +229,7 @@ buffer_shrink.exit:                               ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @buffer_free(ptr nocapture noundef initializes((16, 24)) %buffer) local_unnamed_addr #0 {
+define dso_local void @buffer_free(ptr noundef captures(none) initializes((16, 24)) %buffer) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %buffer, align 8
@@ -284,7 +284,7 @@ trace_buffer_free.exit:                           ; preds = %entry, %land.lhs.tr
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @buffer_append(ptr nocapture noundef %buffer, ptr nocapture noundef readonly %data, i64 noundef %len) local_unnamed_addr #3 {
+define dso_local void @buffer_append(ptr noundef captures(none) %buffer, ptr noundef readonly captures(none) %data, i64 noundef %len) local_unnamed_addr #3 {
 entry:
   %buffer1 = getelementptr inbounds nuw i8, ptr %buffer, i64 32
   %0 = load ptr, ptr %buffer1, align 8
@@ -299,10 +299,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @buffer_advance(ptr nocapture noundef %buffer, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @buffer_advance(ptr noundef captures(none) %buffer, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %buffer1 = getelementptr inbounds nuw i8, ptr %buffer, i64 32
   %0 = load ptr, ptr %buffer1, align 8
@@ -355,10 +355,10 @@ buffer_shrink.exit:                               ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @buffer_move_empty(ptr nocapture noundef %to, ptr nocapture noundef %from) local_unnamed_addr #0 {
+define dso_local void @buffer_move_empty(ptr noundef captures(none) %to, ptr noundef captures(none) %from) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %to, align 8
@@ -434,7 +434,7 @@ if.end:                                           ; preds = %trace_buffer_move_e
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @buffer_move(ptr nocapture noundef %to, ptr nocapture noundef %from) local_unnamed_addr #0 {
+define dso_local void @buffer_move(ptr noundef captures(none) %to, ptr noundef captures(none) %from) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset = getelementptr inbounds nuw i8, ptr %to, i64 16
@@ -532,7 +532,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -548,13 +548,13 @@ declare void @llvm.va_end.p0(ptr) #8
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

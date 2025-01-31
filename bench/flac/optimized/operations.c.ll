@@ -117,7 +117,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.2 = private unnamed_addr constant [17 x i8] c"  data contents:\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @do_operations(ptr nocapture noundef readonly %options) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly captures(none) %options) local_unnamed_addr #0 {
 entry:
   %streaminfo.i = alloca %struct.FLAC__StreamMetadata, align 8
   %album_gain.i = alloca float, align 4
@@ -210,17 +210,17 @@ lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i
   br i1 %cmp11.i.i, label %if.then12.i.i, label %cond.false.i.i
 
 if.then12.i.i:                                    ; preds = %lor.lhs.false.i.i, %land.lhs.true.i.i
-  %call14.i.i = tail call i32 @FLAC__metadata_chain_read_ogg(ptr noundef %call.i.i, ptr noundef %8) #9
+  %call14.i.i = tail call i32 @FLAC__metadata_chain_read_ogg(ptr noundef %call.i.i, ptr noundef nonnull %8) #9
   %tobool15.not.i.i = icmp eq i32 %call14.i.i, 0
   br i1 %tobool15.not.i.i, label %if.then18.i.i, label %if.end19.i.i
 
 cond.false.i.i:                                   ; preds = %lor.lhs.false.i.i, %if.end.i.i
-  %call16.i.i = tail call i32 @FLAC__metadata_chain_read(ptr noundef %call.i.i, ptr noundef %8) #9
+  %call16.i.i = tail call i32 @FLAC__metadata_chain_read(ptr noundef %call.i.i, ptr noundef nonnull %8) #9
   %tobool17.not.i.i = icmp eq i32 %call16.i.i, 0
   br i1 %tobool17.not.i.i, label %if.then18.i.i, label %if.end19.i.i
 
 if.then18.i.i:                                    ; preds = %cond.false.i.i, %if.then12.i.i
-  tail call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %call.i.i, ptr noundef nonnull @.str.4, ptr noundef %8) #9
+  tail call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %call.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull %8) #9
   br label %return.sink.split.i.i
 
 if.end19.i.i:                                     ; preds = %cond.false.i.i, %if.then12.i.i
@@ -249,7 +249,6 @@ if.then.i.i.i:                                    ; preds = %sw.bb.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %sw.bb.i.i
   tail call void @FLAC__metadata_iterator_init(ptr noundef %call.i.i.i, ptr noundef %call.i.i) #9
-  %tobool.not.i.i.i.i = icmp eq ptr %cond.i.i, null
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %land.rhs.i.i.i, %if.end.i.i.i
@@ -413,12 +412,12 @@ if.then11.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %tobool12.not.i.i.i = icmp eq i32 %31, 0
   %lnot.ext.i.i.i = zext i1 %tobool12.not.i.i.i to i32
   %32 = load i32, ptr %application_data_format_is_hexdump.i.i.i, align 4
-  br i1 %tobool.not.i.i.i.i, label %if.end14.critedge.i.i.i.i, label %if.then.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end14.critedge.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then11.i.i.i
-  %call3.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call3.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %call5.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %block_number.0.i.i.i)
-  %call12.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call12.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end14.i.i.i.i
 
 if.end14.critedge.i.i.i.i:                        ; preds = %if.then11.i.i.i
@@ -439,16 +438,16 @@ cond.true.i.i.i.i:                                ; preds = %if.end14.i.i.i.i
 cond.end.i.i.i.i:                                 ; preds = %cond.true.i.i.i.i, %if.end14.i.i.i.i
   %cond.i.i.i.i = phi ptr [ %34, %cond.true.i.i.i.i ], [ @.str.12, %if.end14.i.i.i.i ]
   %call17.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %33, ptr noundef %cond.i.i.i.i)
-  br i1 %tobool.not.i.i.i.i, label %if.end38.critedge.i.i.i.i, label %if.then19.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end38.critedge.i.i.i.i, label %if.then19.i.i.i.i
 
 if.then19.i.i.i.i:                                ; preds = %cond.end.i.i.i.i
-  %call24.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call24.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %is_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 4
   %35 = load i32, ptr %is_last.i.i.i.i, align 4
   %tobool27.not.i.i.i.i = icmp eq i32 %35, 0
   %cond28.i.i.i.i = select i1 %tobool27.not.i.i.i.i, ptr @.str.15, ptr @.str.14
   %call29.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %cond28.i.i.i.i)
-  %call36.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call36.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end38.i.i.i.i
 
 if.end38.critedge.i.i.i.i:                        ; preds = %cond.end.i.i.i.i
@@ -475,7 +474,7 @@ if.end38.i.i.i.i:                                 ; preds = %if.end38.critedge.i
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %if.end38.i.i.i.i
-  br i1 %tobool.not.i.i.i.i, label %if.end125.thread.i.i.i.i, label %if.then129.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end125.thread.i.i.i.i, label %if.then129.i.i.i.i
 
 if.end125.thread.i.i.i.i:                         ; preds = %sw.bb.i.i.i.i
   %data.c.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 16
@@ -505,39 +504,39 @@ if.end125.thread.i.i.i.i:                         ; preds = %sw.bb.i.i.i.i
   br label %if.end136.i.i.i.i
 
 if.then129.i.i.i.i:                               ; preds = %sw.bb.i.i.i.i
-  %call47.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call47.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %data.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 16
   %47 = load i32, ptr %data.i.i.i.i, align 8
   %call50.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %47)
-  %call57.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call57.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %max_blocksize.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 20
   %48 = load i32, ptr %max_blocksize.i.i.i.i, align 4
   %call61.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %48)
-  %call68.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call68.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %min_framesize.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 24
   %49 = load i32, ptr %min_framesize.i.i.i.i, align 8
   %call72.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %49)
-  %call79.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call79.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %max_framesize.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 28
   %50 = load i32, ptr %max_framesize.i.i.i.i, align 4
   %call83.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %50)
-  %call90.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call90.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %sample_rate.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 32
   %51 = load i32, ptr %sample_rate.i.i.i.i, align 8
   %call94.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %51)
-  %call101.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call101.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %channels.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 36
   %52 = load i32, ptr %channels.i.i.i.i, align 4
   %call105.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %52)
-  %call112.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call112.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %bits_per_sample.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 40
   %53 = load i32, ptr %bits_per_sample.i.i.i.i, align 8
   %call116.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %53)
-  %call123.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call123.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %total_samples.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 48
   %54 = load i64, ptr %total_samples.i.i.i.i, align 8
   %call127.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i64 noundef %54)
-  %call134.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call134.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end136.i.i.i.i
 
 if.end136.i.i.i.i:                                ; preds = %if.then129.i.i.i.i, %if.end125.thread.i.i.i.i
@@ -560,10 +559,10 @@ for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br label %land.rhs.i.i.i
 
 sw.bb145.i.i.i.i:                                 ; preds = %if.end38.i.i.i.i
-  br i1 %tobool.not.i.i.i.i, label %if.end154.i.i.i.i, label %if.then147.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end154.i.i.i.i, label %if.then147.i.i.i.i
 
 if.then147.i.i.i.i:                               ; preds = %sw.bb145.i.i.i.i
-  %call152.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call152.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end154.i.i.i.i
 
 if.end154.i.i.i.i:                                ; preds = %if.then147.i.i.i.i, %sw.bb145.i.i.i.i
@@ -583,10 +582,10 @@ for.body159.i.i.i.i:                              ; preds = %for.body159.i.i.i.i
 
 for.end167.i.i.i.i:                               ; preds = %for.body159.i.i.i.i
   %putchar.i.i.i.i = tail call i32 @putchar(i32 10)
-  br i1 %tobool.not.i.i.i.i, label %if.end177.i.i.i.i, label %if.then170.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end177.i.i.i.i, label %if.then170.i.i.i.i
 
 if.then170.i.i.i.i:                               ; preds = %for.end167.i.i.i.i
-  %call175.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call175.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end177.i.i.i.i
 
 if.end177.i.i.i.i:                                ; preds = %if.then170.i.i.i.i, %for.end167.i.i.i.i
@@ -613,10 +612,10 @@ if.else189.i.i.i.i:                               ; preds = %if.then183.i.i.i.i
   br label %land.rhs.i.i.i
 
 sw.bb198.i.i.i.i:                                 ; preds = %if.end38.i.i.i.i
-  br i1 %tobool.not.i.i.i.i, label %if.end207.i.i.i.i, label %if.then200.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end207.i.i.i.i, label %if.then200.i.i.i.i
 
 if.then200.i.i.i.i:                               ; preds = %sw.bb198.i.i.i.i
-  %call205.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call205.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end207.i.i.i.i
 
 if.end207.i.i.i.i:                                ; preds = %if.then200.i.i.i.i, %sw.bb198.i.i.i.i
@@ -640,10 +639,10 @@ for.body215.i.i.i.i:                              ; preds = %for.inc257.i.i.i.i,
   br i1 %cmp219.not.i.i.i.i, label %if.else245.i.i.i.i, label %if.then221.i.i.i.i
 
 if.then221.i.i.i.i:                               ; preds = %for.body215.i.i.i.i
-  br i1 %tobool.not.i.i.i.i, label %if.end230.i.i.i.i, label %if.then223.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end230.i.i.i.i, label %if.then223.i.i.i.i
 
 if.then223.i.i.i.i:                               ; preds = %if.then221.i.i.i.i
-  %call228.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call228.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %.pre.i.i.i.i = load ptr, ptr %points.i.i.i.i, align 8
   %arrayidx234.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %.pre.i.i.i.i, i64 %indvars.iv352.i.i.i.i
   %.pre362.i.i.i.i = load i64, ptr %arrayidx234.phi.trans.insert.i.i.i.i, align 8
@@ -662,10 +661,10 @@ if.end230.i.i.i.i:                                ; preds = %if.then223.i.i.i.i,
   br label %for.inc257.i.i.i.i
 
 if.else245.i.i.i.i:                               ; preds = %for.body215.i.i.i.i
-  br i1 %tobool.not.i.i.i.i, label %if.end254.i.i.i.i, label %if.then247.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end254.i.i.i.i, label %if.then247.i.i.i.i
 
 if.then247.i.i.i.i:                               ; preds = %if.else245.i.i.i.i
-  %call252.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call252.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end254.i.i.i.i
 
 if.end254.i.i.i.i:                                ; preds = %if.then247.i.i.i.i, %if.else245.i.i.i.i
@@ -681,15 +680,15 @@ for.inc257.i.i.i.i:                               ; preds = %if.end254.i.i.i.i, 
   br i1 %cmp213.i.i.i.i, label %for.body215.i.i.i.i, label %land.rhs.i.i.i, !llvm.loop !11
 
 sw.bb260.i.i.i.i:                                 ; preds = %if.end38.i.i.i.i
-  br i1 %tobool.not.i.i.i.i, label %if.end280.critedge.i.i.i.i, label %if.then262.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end280.critedge.i.i.i.i, label %if.then262.i.i.i.i
 
 if.then262.i.i.i.i:                               ; preds = %sw.bb260.i.i.i.i
-  %call267.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call267.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %call270.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34)
   %data271.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 16
   %72 = load ptr, ptr @stdout, align 8
   tail call void @write_vc_field(ptr noundef null, ptr noundef nonnull %data271.i.i.i.i, i32 noundef range(i32 0, 2) %lnot.ext.i.i.i, ptr noundef %72) #9
-  %call278.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call278.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end280.i.i.i.i
 
 if.end280.critedge.i.i.i.i:                       ; preds = %sw.bb260.i.i.i.i
@@ -709,7 +708,7 @@ if.end280.i.i.i.i:                                ; preds = %if.end280.critedge.
 
 for.body288.lr.ph.i.i.i.i:                        ; preds = %if.end280.i.i.i.i
   %comments.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 40
-  br i1 %tobool.not.i.i.i.i, label %for.body288.us.i.i.i.i, label %for.body288.i.i.i.i
+  br i1 %tobool20.not.i.i, label %for.body288.us.i.i.i.i, label %for.body288.i.i.i.i
 
 for.body288.us.i.i.i.i:                           ; preds = %for.body288.lr.ph.i.i.i.i, %for.body288.us.i.i.i.i
   %indvars.iv349.i.i.i.i = phi i64 [ %indvars.iv.next350.i.i.i.i, %for.body288.us.i.i.i.i ], [ 0, %for.body288.lr.ph.i.i.i.i ]
@@ -741,23 +740,23 @@ for.body288.i.i.i.i:                              ; preds = %for.body288.lr.ph.i
   br i1 %cmp286.i.i.i.i, label %for.body288.i.i.i.i, label %land.rhs.i.i.i, !llvm.loop !12
 
 sw.bb305.i.i.i.i:                                 ; preds = %if.end38.i.i.i.i
-  br i1 %tobool.not.i.i.i.i, label %if.end349.critedge.i.i.i.i, label %if.then329.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end349.critedge.i.i.i.i, label %if.then329.i.i.i.i
 
 if.then329.i.i.i.i:                               ; preds = %sw.bb305.i.i.i.i
-  %call312.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call312.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %data315.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 16
   %call316.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, ptr noundef nonnull %data315.i.i.i.i)
-  %call323.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call323.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %lead_in.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 152
   %86 = load i64, ptr %lead_in.i.i.i.i, align 8
   %call327.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %86)
-  %call334.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call334.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %is_cd.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 160
   %87 = load i32, ptr %is_cd.i.i.i.i, align 8
   %tobool338.not.i.i.i.i = icmp eq i32 %87, 0
   %cond339.i.i.i.i = select i1 %tobool338.not.i.i.i.i, ptr @.str.15, ptr @.str.14
   %call340.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %cond339.i.i.i.i)
-  %call347.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call347.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end349.i.i.i.i
 
 if.end349.critedge.i.i.i.i:                       ; preds = %sw.bb305.i.i.i.i
@@ -803,7 +802,7 @@ land.rhs.i.i.i.i:                                 ; preds = %for.body357.i.i.i.i
 
 land.end.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i, %for.body357.i.i.i.i
   %96 = phi i1 [ false, %for.body357.i.i.i.i ], [ %cmp367.i.i.i.i, %land.rhs.i.i.i.i ]
-  br i1 %tobool.not.i.i.i.i, label %if.end387.i.i.i.i, label %if.end387.thread.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end387.i.i.i.i, label %if.end387.thread.i.i.i.i
 
 if.end387.i.i.i.i:                                ; preds = %land.end.i.i.i.i
   %97 = trunc nuw i64 %indvars.iv343.i.i.i.i to i32
@@ -813,13 +812,13 @@ if.end387.i.i.i.i:                                ; preds = %land.end.i.i.i.i
   br i1 %cmp363.i.i.i.i, label %if.end399.i.i.i.i, label %if.end413.i.i.i.i
 
 if.end387.thread.i.i.i.i:                         ; preds = %land.end.i.i.i.i
-  %call375.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call375.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %99 = trunc nuw i64 %indvars.iv343.i.i.i.i to i32
   %call378.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %99)
-  %call385.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call385.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %100 = load i64, ptr %add.ptr.i.i.i.i, align 8
   %call388312.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i64 noundef %100)
-  %call397.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call397.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br i1 %cmp363.i.i.i.i, label %if.end399.i.i.i.i, label %if.end413.i.i.i.i
 
 if.end399.i.i.i.i:                                ; preds = %if.end387.thread.i.i.i.i, %if.end387.i.i.i.i
@@ -841,13 +840,13 @@ if.end417.i.i.i.i:                                ; preds = %if.end413.i.i.i.i, 
   br i1 %96, label %for.inc517.i.i.i.i, label %if.then419.i.i.i.i
 
 if.then419.i.i.i.i:                               ; preds = %if.end417.i.i.i.i
-  br i1 %tobool.not.i.i.i.i, label %if.end439.critedge.i.i.i.i, label %if.then421.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end439.critedge.i.i.i.i, label %if.then421.i.i.i.i
 
 if.then421.i.i.i.i:                               ; preds = %if.then419.i.i.i.i
-  %call426.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call426.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %isrc.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 9
   %call430.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef nonnull %isrc.i.i.i.i)
-  %call437.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call437.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end439.i.i.i.i
 
 if.end439.critedge.i.i.i.i:                       ; preds = %if.then419.i.i.i.i
@@ -862,16 +861,16 @@ if.end439.i.i.i.i:                                ; preds = %if.end439.critedge.
   %cmp441.not.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i, 0
   %cond443.i.i.i.i = select i1 %cmp441.not.i.i.i.i, ptr @.str.50, ptr @.str.49
   %call444.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef nonnull %cond443.i.i.i.i)
-  br i1 %tobool.not.i.i.i.i, label %if.end468.critedge.i.i.i.i, label %if.then446.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end468.critedge.i.i.i.i, label %if.then446.i.i.i.i
 
 if.then446.i.i.i.i:                               ; preds = %if.end439.i.i.i.i
-  %call451.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call451.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %bf.load454.i.i.i.i = load i8, ptr %type440.i.i.i.i, align 2
   %103 = and i8 %bf.load454.i.i.i.i, 2
   %tobool457.not.i.i.i.i = icmp eq i8 %103, 0
   %cond458.i.i.i.i = select i1 %tobool457.not.i.i.i.i, ptr @.str.15, ptr @.str.14
   %call459.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, ptr noundef nonnull %cond458.i.i.i.i)
-  %call466.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call466.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end468.i.i.i.i
 
 if.end468.critedge.i.i.i.i:                       ; preds = %if.end439.i.i.i.i
@@ -893,7 +892,7 @@ if.end468.i.i.i.i:                                ; preds = %if.end468.critedge.
 
 for.body477.lr.ph.i.i.i.i:                        ; preds = %if.end468.i.i.i.i
   %indices.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 24
-  br i1 %tobool.not.i.i.i.i, label %for.body477.us.i.i.i.i, label %for.body477.i.i.i.i
+  br i1 %tobool20.not.i.i, label %for.body477.us.i.i.i.i, label %for.body477.i.i.i.i
 
 for.body477.us.i.i.i.i:                           ; preds = %for.body477.lr.ph.i.i.i.i, %for.body477.us.i.i.i.i
   %indvars.iv340.i.i.i.i = phi i64 [ %indvars.iv.next341.i.i.i.i, %for.body477.us.i.i.i.i ], [ 0, %for.body477.lr.ph.i.i.i.i ]
@@ -942,10 +941,10 @@ for.inc517.i.i.i.i:                               ; preds = %for.body477.i.i.i.i
   br i1 %cmp355.i.i.i.i, label %for.body357.i.i.i.i, label %land.rhs.i.i.i, !llvm.loop !14
 
 sw.bb520.i.i.i.i:                                 ; preds = %if.end38.i.i.i.i
-  br i1 %tobool.not.i.i.i.i, label %if.end529.i.i.i.i, label %if.then522.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end529.i.i.i.i, label %if.then522.i.i.i.i
 
 if.then522.i.i.i.i:                               ; preds = %sw.bb520.i.i.i.i
-  %call527.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call527.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end529.i.i.i.i
 
 if.end529.i.i.i.i:                                ; preds = %if.then522.i.i.i.i, %sw.bb520.i.i.i.i
@@ -963,30 +962,30 @@ cond.true536.i.i.i.i:                             ; preds = %if.end529.i.i.i.i
 cond.end542.i.i.i.i:                              ; preds = %cond.true536.i.i.i.i, %if.end529.i.i.i.i
   %cond543.i.i.i.i = phi ptr [ %122, %cond.true536.i.i.i.i ], [ @.str.56, %if.end529.i.i.i.i ]
   %call544.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %121, ptr noundef %cond543.i.i.i.i)
-  br i1 %tobool.not.i.i.i.i, label %if.end608.critedge.i.i.i.i, label %if.then590.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end608.critedge.i.i.i.i, label %if.then590.i.i.i.i
 
 if.then590.i.i.i.i:                               ; preds = %cond.end542.i.i.i.i
-  %call551.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call551.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %mime_type.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 24
   %123 = load ptr, ptr %mime_type.i.i.i.i, align 8
   %call555.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, ptr noundef %123)
-  %call562.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call562.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %description.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 32
   %124 = load ptr, ptr %description.i.i.i.i, align 8
   %call566.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef %124)
-  %call573.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call573.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %width.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 40
   %125 = load i32, ptr %width.i.i.i.i, align 8
   %call577.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %125)
-  %call584.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call584.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %height.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 44
   %126 = load i32, ptr %height.i.i.i.i, align 4
   %call588.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %126)
-  %call595.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call595.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 48
   %127 = load i32, ptr %depth.i.i.i.i, align 8
   %call599.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, i32 noundef %127)
-  %call606.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call606.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end608.i.i.i.i
 
 if.end608.critedge.i.i.i.i:                       ; preds = %cond.end542.i.i.i.i
@@ -1013,7 +1012,7 @@ if.end608.i.i.i.i:                                ; preds = %if.end608.critedge.
   %tobool612.not.i.i.i.i = icmp eq i32 %133, 0
   %cond613.i.i.i.i = select i1 %tobool612.not.i.i.i.i, ptr @.str.64, ptr @.str.63
   %call614.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, i32 noundef %133, ptr noundef nonnull %cond613.i.i.i.i)
-  br i1 %tobool.not.i.i.i.i, label %if.end623.thread.i.i.i.i, label %if.then627.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end623.thread.i.i.i.i, label %if.then627.i.i.i.i
 
 if.end623.thread.i.i.i.i:                         ; preds = %if.end608.i.i.i.i
   %data_length318.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 56
@@ -1022,11 +1021,11 @@ if.end623.thread.i.i.i.i:                         ; preds = %if.end608.i.i.i.i
   br label %if.end634.i.i.i.i
 
 if.then627.i.i.i.i:                               ; preds = %if.end608.i.i.i.i
-  %call621.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call621.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   %data_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 56
   %135 = load i32, ptr %data_length.i.i.i.i, align 8
   %call625.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.65, i32 noundef %135)
-  %call632.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call632.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end634.i.i.i.i
 
 if.end634.i.i.i.i:                                ; preds = %if.then627.i.i.i.i, %if.end623.thread.i.i.i.i
@@ -1043,10 +1042,10 @@ if.then640.i.i.i.i:                               ; preds = %if.end634.i.i.i.i
   br label %land.rhs.i.i.i
 
 sw.default.i.i.i.i:                               ; preds = %if.end38.i.i.i.i
-  br i1 %tobool.not.i.i.i.i, label %if.end654.i.i.i.i, label %if.then647.i.i.i.i
+  br i1 %tobool20.not.i.i, label %if.end654.i.i.i.i, label %if.then647.i.i.i.i
 
 if.then647.i.i.i.i:                               ; preds = %sw.default.i.i.i.i
-  %call652.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %cond.i.i)
+  %call652.i.i.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %8)
   br label %if.end654.i.i.i.i
 
 if.end654.i.i.i.i:                                ; preds = %if.then647.i.i.i.i, %sw.default.i.i.i.i
@@ -1592,7 +1591,7 @@ if.end38.i.i:                                     ; preds = %if.then37.i.i, %if.
   br i1 %tobool41.not.i.i, label %if.then42.i.i, label %return.sink.split.i.i
 
 if.then42.i.i:                                    ; preds = %if.end38.i.i
-  tail call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %call.i.i, ptr noundef nonnull @.str.5, ptr noundef %8) #9
+  tail call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %call.i.i, ptr noundef nonnull @.str.5, ptr noundef nonnull %8) #9
   br label %return.sink.split.i.i
 
 return.sink.split.i.i:                            ; preds = %if.then42.i.i, %if.end38.i.i, %sw.epilog.i.i, %sw.epilog.thread.i.i, %if.then18.i.i
@@ -2062,17 +2061,17 @@ if.end13:                                         ; preds = %do_major_operation_
 declare i32 @long_usage(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @FLAC__metadata_chain_new() local_unnamed_addr #1
 
 declare void @die(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @FLAC__metadata_chain_read_ogg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2095,28 +2094,28 @@ declare void @FLAC__metadata_iterator_init(ptr noundef, ptr noundef) local_unnam
 declare ptr @FLAC__metadata_iterator_get_block(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @FLAC__metadata_object_get_raw(ptr noundef) local_unnamed_addr #1
 
 declare void @FLAC__metadata_iterator_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @FLAC__metadata_iterator_next(ptr noundef) local_unnamed_addr #1
 
 declare void @hexdump(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @write_vc_field(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @FLAC__metadata_iterator_get_block_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @FLAC__metadata_object_set_raw(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2277,19 +2276,19 @@ declare void @grabbag__replaygain_get_album(ptr noundef, ptr noundef) local_unna
 declare ptr @grabbag__replaygain_store_to_file(ptr noundef, float noundef, float noundef, float noundef, float noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

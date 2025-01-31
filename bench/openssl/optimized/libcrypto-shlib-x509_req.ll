@@ -142,7 +142,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @X509_PUBKEY_get0(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_REQ_get_X509_PUBKEY(ptr nocapture noundef readonly %req) local_unnamed_addr #2 {
+define ptr @X509_REQ_get_X509_PUBKEY(ptr noundef readonly captures(none) %req) local_unnamed_addr #2 {
 entry:
   %pubkey = getelementptr inbounds nuw i8, ptr %req, i64 40
   %0 = load ptr, ptr %pubkey, align 8
@@ -282,7 +282,7 @@ return:                                           ; preds = %entry, %if.end13, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_REQ_get_attr_by_NID(ptr nocapture noundef readonly %req, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
+define i32 @X509_REQ_get_attr_by_NID(ptr noundef readonly captures(none) %req, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %0 = load ptr, ptr %attributes, align 8
@@ -291,7 +291,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_REQ_get_attr(ptr nocapture noundef readonly %req, i32 noundef %loc) local_unnamed_addr #0 {
+define ptr @X509_REQ_get_attr(ptr noundef readonly captures(none) %req, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %0 = load ptr, ptr %attributes, align 8
@@ -390,7 +390,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_REQ_get_attr_count(ptr nocapture noundef readonly %req) local_unnamed_addr #0 {
+define i32 @X509_REQ_get_attr_count(ptr noundef readonly captures(none) %req) local_unnamed_addr #0 {
 entry:
   %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %0 = load ptr, ptr %attributes, align 8
@@ -403,7 +403,7 @@ declare i32 @X509at_get_attr_count(ptr noundef) local_unnamed_addr #1
 declare i32 @X509at_get_attr_by_NID(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_REQ_get_attr_by_OBJ(ptr nocapture noundef readonly %req, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
+define i32 @X509_REQ_get_attr_by_OBJ(ptr noundef readonly captures(none) %req, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %0 = load ptr, ptr %attributes, align 8
@@ -539,7 +539,7 @@ return:                                           ; preds = %if.end, %if.end2, %
 declare ptr @X509at_add1_attr_by_txt(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @X509_REQ_get_version(ptr nocapture noundef readonly %req) local_unnamed_addr #0 {
+define i64 @X509_REQ_get_version(ptr noundef readonly captures(none) %req) local_unnamed_addr #0 {
 entry:
   %version = getelementptr inbounds nuw i8, ptr %req, i64 24
   %0 = load ptr, ptr %version, align 8
@@ -550,7 +550,7 @@ entry:
 declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_REQ_get_subject_name(ptr nocapture noundef readonly %req) local_unnamed_addr #2 {
+define ptr @X509_REQ_get_subject_name(ptr noundef readonly captures(none) %req) local_unnamed_addr #2 {
 entry:
   %subject = getelementptr inbounds nuw i8, ptr %req, i64 32
   %0 = load ptr, ptr %subject, align 8
@@ -583,7 +583,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @X509_REQ_set0_signature(ptr nocapture noundef %req, ptr noundef %psig) local_unnamed_addr #0 {
+define void @X509_REQ_set0_signature(ptr noundef captures(none) %req, ptr noundef %psig) local_unnamed_addr #0 {
 entry:
   %signature = getelementptr inbounds nuw i8, ptr %req, i64 72
   %0 = load ptr, ptr %signature, align 8
@@ -612,7 +612,7 @@ entry:
 declare i32 @X509_ALGOR_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_REQ_get_signature_nid(ptr nocapture noundef readonly %req) local_unnamed_addr #0 {
+define i32 @X509_REQ_get_signature_nid(ptr noundef readonly captures(none) %req) local_unnamed_addr #0 {
 entry:
   %sig_alg = getelementptr inbounds nuw i8, ptr %req, i64 56
   %0 = load ptr, ptr %sig_alg, align 8

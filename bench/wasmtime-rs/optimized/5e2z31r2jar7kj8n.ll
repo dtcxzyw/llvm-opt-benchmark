@@ -34,7 +34,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h206338fe3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN69_$LT$core..alloc..layout..LayoutError$u20$as$u20$core..fmt..Debug$GT$3fmt17h5fdc271a10095e07E"(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden zeroext i1 @"_ZN69_$LT$core..alloc..layout..LayoutError$u20$as$u20$core..fmt..Debug$GT$3fmt17h5fdc271a10095e07E"(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 @anon.2ccf7c5b0bc368b780e0562e8014621c.3, i64 11)
   ret i1 %3
 }

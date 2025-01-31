@@ -4,27 +4,27 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Msat_SolverReadVarNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Msat_SolverReadVarNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Msat_SolverReadClauseNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Msat_SolverReadClauseNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Msat_SolverReadVarAllocNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Msat_SolverReadVarAllocNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Msat_SolverReadDecisionLevel(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @Msat_SolverReadDecisionLevel(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @Msat_IntVecReadSize(ptr noundef %3) #11
@@ -34,21 +34,21 @@ define i32 @Msat_SolverReadDecisionLevel(ptr nocapture noundef readonly %0) loca
 declare i32 @Msat_IntVecReadSize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_SolverReadDecisionLevelArray(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Msat_SolverReadDecisionLevelArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_SolverReadReasonArray(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Msat_SolverReadReasonArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Msat_SolverReadVarValue(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Msat_SolverReadVarValue(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -58,35 +58,35 @@ define i32 @Msat_SolverReadVarValue(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_SolverReadLearned(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Msat_SolverReadLearned(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_SolverReadWatchedArray(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Msat_SolverReadWatchedArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_SolverReadAssignsArray(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Msat_SolverReadAssignsArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_SolverReadModelArray(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Msat_SolverReadModelArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Msat_SolverReadBackTracks(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Msat_SolverReadBackTracks(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -94,7 +94,7 @@ define i32 @Msat_SolverReadBackTracks(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Msat_SolverReadInspects(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Msat_SolverReadInspects(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -102,21 +102,21 @@ define i32 @Msat_SolverReadInspects(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_SolverReadMem(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Msat_SolverReadMem(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_SolverReadSeenArray(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Msat_SolverReadSeenArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Msat_SolverIncrementSeenId(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define range(i32 -2147483647, -2147483648) i32 @Msat_SolverIncrementSeenId(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
@@ -125,14 +125,14 @@ define range(i32 -2147483647, -2147483648) i32 @Msat_SolverIncrementSeenId(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Msat_SolverSetVerbosity(ptr nocapture noundef writeonly initializes((168, 172)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @Msat_SolverSetVerbosity(ptr noundef writeonly captures(none) initializes((168, 172)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Msat_SolverClausesIncrement(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @Msat_SolverClausesIncrement(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
@@ -141,7 +141,7 @@ define void @Msat_SolverClausesIncrement(ptr nocapture noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Msat_SolverClausesDecrement(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @Msat_SolverClausesDecrement(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, -1
@@ -150,7 +150,7 @@ define void @Msat_SolverClausesDecrement(ptr nocapture noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Msat_SolverClausesIncrementL(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @Msat_SolverClausesIncrementL(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
@@ -159,7 +159,7 @@ define void @Msat_SolverClausesIncrementL(ptr nocapture noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Msat_SolverClausesDecrementL(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @Msat_SolverClausesDecrementL(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
@@ -168,7 +168,7 @@ define void @Msat_SolverClausesDecrementL(ptr nocapture noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Msat_SolverMarkLastClauseTypeA(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @Msat_SolverMarkLastClauseTypeA(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %3) #11
@@ -185,7 +185,7 @@ declare ptr @Msat_ClauseVecReadEntry(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @Msat_ClauseVecReadSize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Msat_SolverMarkClausesStart(ptr nocapture noundef initializes((4, 8)) %0) local_unnamed_addr #1 {
+define void @Msat_SolverMarkClausesStart(ptr noundef captures(none) initializes((4, 8)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %3) #11
@@ -195,14 +195,14 @@ define void @Msat_SolverMarkClausesStart(ptr nocapture noundef initializes((4, 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_SolverReadFactors(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Msat_SolverReadFactors(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Msat_SolverReadClause(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @Msat_SolverReadClause(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %4) #11
@@ -227,21 +227,21 @@ define ptr @Msat_SolverReadClause(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_SolverReadAdjacents(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Msat_SolverReadAdjacents(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_SolverReadConeVars(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Msat_SolverReadConeVars(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_SolverReadVarsUsed(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Msat_SolverReadVarsUsed(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -430,7 +430,7 @@ define noundef ptr @Msat_SolverAlloc(i32 noundef %0, double noundef %1, double n
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @Msat_ClauseVecAlloc(i32 noundef) local_unnamed_addr #2
 
@@ -447,7 +447,7 @@ declare void @Msat_ClauseVecPush(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @Msat_IntVecFill(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Msat_SolverResize(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load i32, ptr %3, align 4
   store i32 %1, ptr %3, align 4
@@ -761,7 +761,7 @@ define void @Msat_SolverResize(ptr nocapture noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare void @Msat_OrderSetBounds(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1176,7 +1176,7 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
 declare void @Msat_ClauseVecFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @Msat_OrderFree(ptr noundef) local_unnamed_addr #2
 
@@ -1185,7 +1185,7 @@ declare void @Msat_IntVecFree(ptr noundef) local_unnamed_addr #2
 declare void @Msat_MmStepStop(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Msat_SolverPrepare(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @Msat_SolverPrepare(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0

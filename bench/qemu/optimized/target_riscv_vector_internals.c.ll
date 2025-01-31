@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @vext_set_elems_1s(ptr nocapture noundef writeonly %base, i32 noundef %is_agnostic, i32 noundef %cnt, i32 noundef %tot) local_unnamed_addr #0 {
+define dso_local void @vext_set_elems_1s(ptr noundef writeonly captures(none) %base, i32 noundef %is_agnostic, i32 noundef %cnt, i32 noundef %tot) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %is_agnostic, 0
   %cmp1 = icmp eq i32 %tot, %cnt
@@ -24,10 +24,10 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @do_vext_vv(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr noundef %vs1, ptr noundef %vs2, ptr nocapture noundef %env, i32 noundef %desc, ptr nocapture noundef readonly %fn, i32 noundef %esz) local_unnamed_addr #2 {
+define dso_local void @do_vext_vv(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef captures(none) %env, i32 noundef %desc, ptr noundef readonly captures(none) %fn, i32 noundef %esz) local_unnamed_addr #2 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -159,7 +159,7 @@ vext_set_elems_1s.exit34:                         ; preds = %for.end, %if.end3.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @do_vext_vx(ptr noundef %vd, ptr nocapture noundef readonly %v0, i64 noundef %s1, ptr noundef %vs2, ptr nocapture noundef %env, i32 noundef %desc, ptr nocapture noundef readonly %fn, i32 noundef %esz) local_unnamed_addr #2 {
+define dso_local void @do_vext_vx(ptr noundef %vd, ptr noundef readonly captures(none) %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef captures(none) %env, i32 noundef %desc, ptr noundef readonly captures(none) %fn, i32 noundef %esz) local_unnamed_addr #2 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16

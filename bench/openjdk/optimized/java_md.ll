@@ -135,11 +135,11 @@ SetExecname.exit:                                 ; preds = %21, %.thread.i
   br i1 %.not.i, label %46, label %44
 
 44:                                               ; preds = %41
-  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %4, i64 noundef %43, ptr noundef nonnull @.str.28, ptr noundef %37) #12
+  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %4, i64 noundef %43, ptr noundef nonnull @.str.28, ptr noundef nonnull %37) #12
   br label %GetJVMPath.exit
 
 46:                                               ; preds = %41
-  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %4, i64 noundef %43, ptr noundef nonnull @.str.29, ptr noundef %2, ptr noundef %37) #12
+  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %4, i64 noundef %43, ptr noundef nonnull @.str.29, ptr noundef %2, ptr noundef nonnull %37) #12
   br label %GetJVMPath.exit
 
 GetJVMPath.exit:                                  ; preds = %44, %46
@@ -152,7 +152,7 @@ GetJVMPath.exit:                                  ; preds = %44, %46
   br i1 %.not74, label %50, label %49
 
 49:                                               ; preds = %GetJVMPath.exit
-  call void (ptr, ...) @JLI_ReportErrorMessage(ptr noundef nonnull @.str.6, ptr noundef %37, ptr noundef nonnull %4) #12
+  call void (ptr, ...) @JLI_ReportErrorMessage(ptr noundef nonnull @.str.6, ptr noundef nonnull %37, ptr noundef nonnull %4) #12
   call void @exit(i32 noundef 4) #13
   unreachable
 
@@ -336,8 +336,8 @@ RequiresSetenv.exit:                              ; preds = %92, %86, %75, %80
   br label %114
 
 114:                                              ; preds = %113, %103
-  %115 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %110, i64 noundef %109, ptr noundef nonnull @.str.11, ptr noundef %99, ptr noundef %2, ptr noundef %2) #12
-  call void @JLI_MemFree(ptr noundef %99) #12
+  %115 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %110, i64 noundef %109, ptr noundef nonnull @.str.11, ptr noundef nonnull %99, ptr noundef nonnull %2, ptr noundef nonnull %2) #12
+  call void @JLI_MemFree(ptr noundef nonnull %99) #12
   br i1 %.not65, label %.critedge, label %116
 
 116:                                              ; preds = %114
@@ -410,7 +410,7 @@ RequiresSetenv.exit:                              ; preds = %92, %86, %75, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SetExecname(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @SetExecname(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca [4097 x i8], align 16
   %3 = call i64 @readlink(ptr noundef nonnull @.str.22, ptr noundef nonnull %2, i64 noundef 4096) #12
   %4 = and i64 %3, 2147483648
@@ -486,24 +486,24 @@ declare void @JLI_ReportErrorMessage(ptr noundef, ...) local_unnamed_addr #2
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @ReadKnownVMs(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 declare ptr @CheckJvmType(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @JLI_TraceLauncher(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @JLI_StringDup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @JLI_MemAlloc(i64 noundef) local_unnamed_addr #2
 
@@ -513,24 +513,24 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare void @JLI_MemFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare void @JLI_ReportErrorMessageSys(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @putenv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @LoadJavaVM(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden zeroext range(i8 0, 2) i8 @LoadJavaVM(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   tail call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.16, ptr noundef %0) #12
   %3 = tail call ptr @dlopen(ptr noundef %0, i32 noundef 258) #12
   %4 = icmp eq ptr %3, null
@@ -580,7 +580,7 @@ declare ptr @dlerror() local_unnamed_addr #8
 declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare ptr @FindExecName(ptr noundef) local_unnamed_addr #2
 
@@ -737,7 +737,7 @@ declare void @ShowSplashScreen(...) local_unnamed_addr #2
 declare i32 @ContinueInNewThread(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @PostJVMInit(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #9 {
+define hidden void @PostJVMInit(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #9 {
   ret void
 }
 
@@ -747,7 +747,7 @@ define hidden void @RegisterThread() local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i8 @ProcessPlatformOption(ptr nocapture noundef readnone %0) local_unnamed_addr #9 {
+define hidden noundef zeroext i8 @ProcessPlatformOption(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
   ret i8 0
 }
 
@@ -764,16 +764,16 @@ declare i32 @getuid() local_unnamed_addr #8
 declare i32 @geteuid() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -781,7 +781,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare zeroext i8 @GetApplicationHome(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
 
 declare zeroext i8 @GetApplicationHomeFromDll(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -789,10 +789,10 @@ declare zeroext i8 @GetApplicationHomeFromDll(ptr noundef, i32 noundef) local_un
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

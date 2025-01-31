@@ -30,7 +30,7 @@ define void @"_ZN5serde2de5impls57_$LT$impl$u20$serde..de..Deserialize$u20$for$u
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @_ZN5serde2de7Visitor10visit_none17heeea642f2e3fccd8E(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 initializes((0, 96)) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de7Visitor10visit_none17heeea642f2e3fccd8E(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) initializes((0, 96)) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca { i8, [23 x i8] }, align 8
   %4 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -41,7 +41,7 @@ define void @_ZN5serde2de7Visitor10visit_none17heeea642f2e3fccd8E(ptr nocapture 
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define void @_ZN5serde2de7Visitor12visit_string17h6e66fbd44edc0b18E(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de7Visitor12visit_string17h6e66fbd44edc0b18E(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -85,7 +85,7 @@ define void @_ZN5serde2de7Visitor12visit_string17h6e66fbd44edc0b18E(ptr nocaptur
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @_ZN5serde2de7Visitor9visit_f6417hff80fe7a24e03452E(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 initializes((0, 96)) %0, double %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de7Visitor9visit_f6417hff80fe7a24e03452E(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) initializes((0, 96)) %0, double %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -98,7 +98,7 @@ define void @_ZN5serde2de7Visitor9visit_f6417hff80fe7a24e03452E(ptr nocapture wr
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @_ZN5serde2de7Visitor9visit_i6417h1c3fd647482ac008E(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 initializes((0, 96)) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de7Visitor9visit_i6417h1c3fd647482ac008E(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) initializes((0, 96)) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -111,7 +111,7 @@ define void @_ZN5serde2de7Visitor9visit_i6417h1c3fd647482ac008E(ptr nocapture wr
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @_ZN5serde2de7Visitor9visit_map17h199171009fff53b0E(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de7Visitor9visit_map17h199171009fff53b0E(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -141,7 +141,7 @@ define void @_ZN5serde2de7Visitor9visit_map17h199171009fff53b0E(ptr nocapture wr
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @_ZN5serde2de7Visitor9visit_map17h54aedb5f88d8d0eeE(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 initializes((0, 96)) %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de7Visitor9visit_map17h54aedb5f88d8d0eeE(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) initializes((0, 96)) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -152,7 +152,7 @@ define void @_ZN5serde2de7Visitor9visit_map17h54aedb5f88d8d0eeE(ptr nocapture wr
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @_ZN5serde2de7Visitor9visit_seq17h3df4dae7dc31a037E(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de7Visitor9visit_seq17h3df4dae7dc31a037E(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -182,7 +182,7 @@ define void @_ZN5serde2de7Visitor9visit_seq17h3df4dae7dc31a037E(ptr nocapture wr
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @_ZN5serde2de7Visitor9visit_str17h8928931d214e063eE(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 initializes((0, 96)) %0, ptr align 1 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de7Visitor9visit_str17h8928931d214e063eE(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) initializes((0, 96)) %0, ptr align 1 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { i8, [23 x i8] }, align 8
   %6 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -197,7 +197,7 @@ define void @_ZN5serde2de7Visitor9visit_str17h8928931d214e063eE(ptr nocapture wr
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @_ZN5serde2de7Visitor9visit_u6417h1f8b058b928e9233E(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 initializes((0, 96)) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de7Visitor9visit_u6417h1f8b058b928e9233E(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) initializes((0, 96)) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -210,7 +210,7 @@ define void @_ZN5serde2de7Visitor9visit_u6417h1f8b058b928e9233E(ptr nocapture wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN68_$LT$serde..de..impls..BoolVisitor$u20$as$u20$serde..de..Visitor$GT$10visit_bool17he001f0b977cb0835E"(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 initializes((0, 9)) %0, i1 zeroext %1) unnamed_addr #3 {
+define void @"_ZN68_$LT$serde..de..impls..BoolVisitor$u20$as$u20$serde..de..Visitor$GT$10visit_bool17he001f0b977cb0835E"(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) initializes((0, 9)) %0, i1 zeroext %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8
@@ -240,7 +240,7 @@ declare void @"_ZN4core3ptr50drop_in_place$LT$serde..de..impls..BoolVisitor$GT$1
 declare void @_ZN5serde2de5Error12invalid_type17h4ec736087724375fE(ptr sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8, ptr align 8, ptr align 1, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heebb90fb57f34beeE"(ptr align 8) unnamed_addr #0
@@ -255,10 +255,10 @@ declare void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..de..table..TableMapAcce
 declare void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17h7ea0a2c177db47d2E"(ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

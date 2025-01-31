@@ -145,7 +145,7 @@ entry:
 declare void @_ZN4cvc58internal6theory24TheoryEngineModelBuilderC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(576)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers13QModelBuilder10finishInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers13QModelBuilder10finishInitEv(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(656) ptr @_Znwm(i64 noundef 656) #18
   %d_env = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -234,14 +234,14 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 declare noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13QModelBuilder20preProcessBuildModelEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(176) initializes((120, 128)) %this, ptr nocapture noundef readonly %m) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13QModelBuilder20preProcessBuildModelEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(176) initializes((120, 128)) %this, ptr noundef readonly captures(none) %m) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13QModelBuilder23preProcessBuildModelStdEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %m)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13QModelBuilder23preProcessBuildModelStdEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(176) initializes((120, 128)) %this, ptr nocapture noundef readonly %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13QModelBuilder23preProcessBuildModelStdEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(176) initializes((120, 128)) %this, ptr noundef readonly captures(none) %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.688", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.691", align 1
@@ -1210,7 +1210,7 @@ _ZNSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_bESt10_Select1stIS5_ESt4less
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers13QModelBuilder10debugModelEPNS1_11TheoryModelE(ptr nocapture nonnull readonly align 8 %this, ptr nocapture readnone %m) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers13QModelBuilder10debugModelEPNS1_11TheoryModelE(ptr nonnull readonly align 8 captures(none) %this, ptr readnone captures(none) %m) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 cleanup.done13:
   ret void
 }
@@ -1219,7 +1219,7 @@ cleanup.done13:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers13QModelBuilder8getModelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers13QModelBuilder8getModelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_model = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %d_model, align 8
@@ -1455,7 +1455,7 @@ cleanup.done:                                     ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
@@ -2236,10 +2236,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

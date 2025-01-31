@@ -219,7 +219,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -3, 1) i32 @wc_DhCheckPubValue(ptr nocapture noundef readonly %prime, i32 noundef %primeSz, ptr nocapture noundef readonly %pub, i32 noundef %pubSz) local_unnamed_addr #3 {
+define range(i32 -3, 1) i32 @wc_DhCheckPubValue(ptr noundef readonly captures(none) %prime, i32 noundef %primeSz, ptr noundef readonly captures(none) %pub, i32 noundef %pubSz) local_unnamed_addr #3 {
 entry:
   %cmp34.not = icmp eq i32 %pubSz, 0
   br i1 %cmp34.not, label %if.end72, label %land.rhs.preheader
@@ -1085,7 +1085,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @wc_DhCmpNamedKey(i32 noundef %name, i32 noundef %noQ, ptr nocapture noundef readonly %p, i32 noundef %pSz, ptr nocapture noundef readonly %g, i32 noundef %gSz, ptr nocapture noundef readnone %q, i32 noundef %qSz) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @wc_DhCmpNamedKey(i32 noundef %name, i32 noundef %noQ, ptr noundef readonly captures(none) %p, i32 noundef %pSz, ptr noundef readonly captures(none) %g, i32 noundef %gSz, ptr noundef readnone captures(none) %q, i32 noundef %qSz) local_unnamed_addr #4 {
 entry:
   %cond.not = icmp eq i32 %name, 256
   br i1 %cond.not, label %if.then, label %if.end
@@ -1148,7 +1148,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_DhCopyNamedKey(i32 noundef %name, ptr noundef writeonly %p, ptr noundef writeonly %pSz, ptr noundef writeonly %g, ptr noundef writeonly %gSz, ptr nocapture noundef readnone %q, ptr noundef writeonly %qSz) local_unnamed_addr #6 {
+define noundef i32 @wc_DhCopyNamedKey(i32 noundef %name, ptr noundef writeonly %p, ptr noundef writeonly %pSz, ptr noundef writeonly %g, ptr noundef writeonly %gSz, ptr noundef readnone captures(none) %q, ptr noundef writeonly %qSz) local_unnamed_addr #6 {
 entry:
   %cond = icmp eq i32 %name, 256
   br i1 %cond, label %sw.epilog, label %if.end
@@ -1203,7 +1203,7 @@ if.end29:                                         ; preds = %if.then28, %if.end2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @sp_exptmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1238,16 +1238,16 @@ declare i32 @sp_prime_is_prime(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

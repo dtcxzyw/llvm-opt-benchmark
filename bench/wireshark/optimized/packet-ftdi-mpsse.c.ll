@@ -670,7 +670,7 @@ is_data_shifting_command_returning_response.exit.i75.i: ; preds = %137, %126, %1
   %144 = trunc nuw i32 %.0.i76.i to i16
   %145 = add i16 %144, 1
   %146 = select i1 %111, i16 %145, i16 1
-  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext %146)
+  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext %146)
   br label %dissect_data_shifting_command_parameters.exit.i
 
 dissect_data_shifting_command_parameters.exit.i:  ; preds = %143, %is_data_shifting_command_returning_response.exit.i75.i
@@ -788,7 +788,7 @@ get_data_bit_pin_prefix.exit56.i.i:               ; preds = %175, %174, %172, %1
   br label %dissect_non_data_shifting_command_parameters.exit.i
 
 176:                                              ; preds = %154, %154
-  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext 1)
+  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext 1)
   br label %dissect_non_data_shifting_command_parameters.exit.i
 
 .sink.split.i.i.i:                                ; preds = %154, %154, %154, %154
@@ -813,7 +813,7 @@ get_data_bit_pin_prefix.exit56.i.i:               ; preds = %175, %174, %172, %1
   br label %dissect_cpumode_parameters.exit.i.i
 
 185:                                              ; preds = %.sink.split.i.i.i
-  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext 1)
+  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext 1)
   br label %dissect_cpumode_parameters.exit.i.i
 
 dissect_cpumode_parameters.exit.i.i:              ; preds = %185, %.thread.i.i.i, %.sink.split.i.i.i
@@ -1109,7 +1109,7 @@ dissect_non_data_shifting_command_parameters.exit.i: ; preds = %dissect_io_open_
 323:                                              ; preds = %dissect_non_data_shifting_command_parameters.exit.i
   %324 = add i32 %.0.i79.i, %51
   %325 = sub i32 %.029.i.i, %.0.i79.i
-  %326 = call ptr @proto_tree_add_expert(ptr noundef %95, ptr noundef %1, ptr noundef nonnull @ei_undecoded, ptr noundef %0, i32 noundef %324, i32 noundef %325) #6
+  %326 = call ptr @proto_tree_add_expert(ptr noundef %95, ptr noundef nonnull %1, ptr noundef nonnull @ei_undecoded, ptr noundef %0, i32 noundef %324, i32 noundef %325) #6
   br label %327
 
 327:                                              ; preds = %323, %dissect_non_data_shifting_command_parameters.exit.i
@@ -1117,7 +1117,7 @@ dissect_non_data_shifting_command_parameters.exit.i: ; preds = %dissect_io_open_
   br label %330
 
 329:                                              ; preds = %90
-  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext 2)
+  call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %95, ptr noundef nonnull readonly %3, i8 noundef zeroext %49, i16 noundef zeroext 2)
   br label %330
 
 330:                                              ; preds = %329, %327, %dissect_data_shifting_command_parameters.exit.i
@@ -1243,7 +1243,7 @@ dissect_command.exit:                             ; preds = %estimated_command_p
   br i1 %.not84, label %379, label %382
 
 379:                                              ; preds = %378
-  %380 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_response_without_command, ptr noundef %0, i32 noundef %.274138, i32 noundef -1) #6
+  %380 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef nonnull %1, ptr noundef nonnull @ei_response_without_command, ptr noundef %0, i32 noundef %.274138, i32 noundef -1) #6
   %381 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.274138) #6
   br label %554
 
@@ -1306,7 +1306,7 @@ dissect_command.exit:                             ; preds = %estimated_command_p
 
 406:                                              ; preds = %.loopexit.i
   %407 = sub i32 %.2.i, %.274138
-  %408 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_skipped_response_data, ptr noundef %0, i32 noundef %.274138, i32 noundef %407) #6
+  %408 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef nonnull %1, ptr noundef nonnull @ei_skipped_response_data, ptr noundef %0, i32 noundef %.274138, i32 noundef %407) #6
   %409 = load i32, ptr @ett_mpsse_skipped_response_data, align 4
   %410 = call ptr @proto_item_add_subtree(ptr noundef %408, i32 noundef %409) #6
   %411 = load i32, ptr @hf_mpsse_command_in, align 4
@@ -1687,7 +1687,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_recorded_command_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @get_recorded_command_data(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1796,7 +1796,7 @@ declare ptr @wmem_tree_lookup32_array_le(ptr noundef, ptr noundef) local_unnamed
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_command_string(i8 noundef zeroext %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @get_command_string(i8 noundef zeroext %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = zext i8 %0 to i32
   %4 = tail call ptr @try_val_to_str_ext(i32 noundef %3, ptr noundef nonnull @command_vals_ext) #6
   %.not = icmp eq ptr %4, null
@@ -1853,7 +1853,7 @@ define internal fastcc ptr @get_command_string(i8 noundef zeroext %0, ptr nocapt
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expect_response(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i8 noundef zeroext %4, i16 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @expect_response(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4, i16 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 50
@@ -2028,7 +2028,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @record_command_data(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, i8 noundef zeroext %3, i32 noundef range(i32 0, 65537) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc void @record_command_data(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, i8 noundef zeroext %3, i32 noundef range(i32 0, 65537) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -2320,14 +2320,14 @@ define internal fastcc void @record_command_data(ptr nocapture noundef nonnull %
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare void @proto_tree_add_bitmask_list_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_mpsse_value, align 4
@@ -2472,7 +2472,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mpsse_value, align 4
   %9 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #6
@@ -2536,10 +2536,10 @@ define internal fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

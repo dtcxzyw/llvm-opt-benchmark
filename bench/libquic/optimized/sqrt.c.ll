@@ -572,22 +572,22 @@ lor.lhs.false23:                                  ; preds = %if.end17, %if.end42
   %tobool38.not46 = phi i1 [ false, %if.end42 ], [ true, %if.end17 ]
   %last_delta.045 = phi ptr [ %delta.044, %if.end42 ], [ %call8, %if.end17 ]
   %delta.044 = phi ptr [ %last_delta.045, %if.end42 ], [ %call9, %if.end17 ]
-  %call24 = tail call i32 @BN_add(ptr noundef %call7, ptr noundef %call7, ptr noundef %estimate.0) #2
+  %call24 = tail call i32 @BN_add(ptr noundef nonnull %call7, ptr noundef nonnull %call7, ptr noundef nonnull %estimate.0) #2
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.then35, label %lor.lhs.false26
 
 lor.lhs.false26:                                  ; preds = %lor.lhs.false23
-  %call27 = tail call i32 @BN_rshift1(ptr noundef %estimate.0, ptr noundef %call7) #2
+  %call27 = tail call i32 @BN_rshift1(ptr noundef nonnull %estimate.0, ptr noundef nonnull %call7) #2
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.then35, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %lor.lhs.false26
-  %call30 = tail call i32 @BN_sqr(ptr noundef %call7, ptr noundef %estimate.0, ptr noundef %ctx) #2
+  %call30 = tail call i32 @BN_sqr(ptr noundef nonnull %call7, ptr noundef nonnull %estimate.0, ptr noundef %ctx) #2
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.then35, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %lor.lhs.false29
-  %call33 = tail call i32 @BN_sub(ptr noundef %delta.044, ptr noundef %in, ptr noundef %call7) #2
+  %call33 = tail call i32 @BN_sub(ptr noundef %delta.044, ptr noundef nonnull %in, ptr noundef nonnull %call7) #2
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.then35, label %if.end36
 
@@ -606,12 +606,12 @@ land.lhs.true:                                    ; preds = %if.end36
   br i1 %cmp40, label %for.end, label %if.end42
 
 if.end42:                                         ; preds = %land.lhs.true, %if.end36
-  %call21 = tail call i32 @BN_div(ptr noundef %call7, ptr noundef null, ptr noundef %in, ptr noundef %estimate.0, ptr noundef %ctx) #2
+  %call21 = tail call i32 @BN_div(ptr noundef nonnull %call7, ptr noundef null, ptr noundef nonnull %in, ptr noundef nonnull %estimate.0, ptr noundef %ctx) #2
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.then35, label %lor.lhs.false23
 
 for.end:                                          ; preds = %land.lhs.true
-  %call43 = tail call i32 @BN_cmp(ptr noundef %call7, ptr noundef %in) #2
+  %call43 = tail call i32 @BN_cmp(ptr noundef nonnull %call7, ptr noundef nonnull %in) #2
   %cmp44.not = icmp eq i32 %call43, 0
   br i1 %cmp44.not, label %land.lhs.true48, label %if.then45
 
@@ -623,7 +623,7 @@ land.lhs.true48:                                  ; preds = %for.end
   br i1 %cmp, label %land.lhs.true50, label %if.end54
 
 land.lhs.true50:                                  ; preds = %land.lhs.true48
-  %call51 = tail call ptr @BN_copy(ptr noundef %out_sqrt, ptr noundef %estimate.0) #2
+  %call51 = tail call ptr @BN_copy(ptr noundef %out_sqrt, ptr noundef nonnull %estimate.0) #2
   %tobool52.not = icmp ne ptr %call51, null
   %spec.select = zext i1 %tobool52.not to i32
   br label %if.end54

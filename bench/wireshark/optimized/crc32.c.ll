@@ -26,7 +26,7 @@ define i32 @crc32_ccitt_table_lookup(i8 noundef zeroext %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @crc32c_calculate(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @crc32c_calculate(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @llvm.bswap.i32(i32 %2)
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -55,7 +55,7 @@ define i32 @crc32c_calculate(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @crc32c_calculate_no_swap(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @crc32c_calculate_no_swap(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -82,7 +82,7 @@ define i32 @crc32c_calculate_no_swap(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @crc32_ccitt(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define i32 @crc32_ccitt(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %crc32_ccitt_seed.exit, label %.lr.ph.preheader.i
 
@@ -116,7 +116,7 @@ crc32_ccitt_seed.exit:                            ; preds = %crc32_ccitt_seed.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @crc32_ccitt_seed(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @crc32_ccitt_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -147,7 +147,7 @@ define i32 @crc32_ccitt_seed(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @crc32_mpeg2_seed(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @crc32_mpeg2_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -178,7 +178,7 @@ define i32 @crc32_mpeg2_seed(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @crc32_0x0AA725CF_seed(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @crc32_0x0AA725CF_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not7 = icmp eq i32 %1, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -205,7 +205,7 @@ define i32 @crc32_0x0AA725CF_seed(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 16777216) i32 @crc32_0x5D6DCB_seed(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 16777216) i32 @crc32_0x5D6DCB_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.loopexit, label %.preheader
 

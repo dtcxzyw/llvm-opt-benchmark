@@ -87,7 +87,7 @@ if.end12:                                         ; preds = %if.then11, %for.end
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i16 @vhost_svq_available_slots(ptr nocapture noundef readonly %svq) local_unnamed_addr #2 {
+define dso_local zeroext i16 @vhost_svq_available_slots(ptr noundef readonly captures(none) %svq) local_unnamed_addr #2 {
 entry:
   %num_free = getelementptr inbounds nuw i8, ptr %svq, i64 152
   %0 = load i16, ptr %num_free, align 8
@@ -95,7 +95,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -28, 1) i32 @vhost_svq_add(ptr noundef %svq, ptr nocapture noundef readonly %out_sg, i64 noundef %out_num, ptr nocapture noundef readonly %in_sg, i64 noundef %in_num, ptr noundef %elem) local_unnamed_addr #0 {
+define dso_local range(i32 -28, 1) i32 @vhost_svq_add(ptr noundef %svq, ptr noundef readonly captures(none) %out_sg, i64 noundef %out_num, ptr noundef readonly captures(none) %in_sg, i64 noundef %in_num, ptr noundef %elem) local_unnamed_addr #0 {
 entry:
   %add = add i64 %in_num, %out_num
   %conv = trunc i64 %add to i32
@@ -321,7 +321,7 @@ do.end:                                           ; preds = %while.end, %cleanup
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @vhost_svq_poll(ptr nocapture noundef %svq, i64 noundef %num) local_unnamed_addr #0 {
+define dso_local i64 @vhost_svq_poll(ptr noundef captures(none) %svq, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %r = alloca i32, align 4
   %tobool.not9 = icmp eq i64 %num, 0
@@ -376,7 +376,7 @@ return:                                           ; preds = %do.end, %if.end, %e
 declare i64 @g_get_monotonic_time() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @vhost_svq_get_buf(ptr nocapture noundef %svq, ptr nocapture noundef nonnull writeonly %len) unnamed_addr #0 {
+define internal fastcc ptr @vhost_svq_get_buf(ptr noundef captures(none) %svq, ptr noundef nonnull writeonly captures(none) %len) unnamed_addr #0 {
 entry:
   %used1 = getelementptr inbounds nuw i8, ptr %svq, i64 24
   %0 = load ptr, ptr %used1, align 8
@@ -524,12 +524,12 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @event_notifier_init_fd(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @vhost_svq_get_vring_addr(ptr nocapture noundef readonly %svq, ptr nocapture noundef writeonly initializes((8, 32)) %addr) local_unnamed_addr #4 {
+define dso_local void @vhost_svq_get_vring_addr(ptr noundef readonly captures(none) %svq, ptr noundef writeonly captures(none) initializes((8, 32)) %addr) local_unnamed_addr #4 {
 entry:
   %desc = getelementptr inbounds nuw i8, ptr %svq, i64 8
   %0 = load ptr, ptr %desc, align 8
@@ -550,7 +550,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @vhost_svq_driver_area_size(ptr nocapture noundef readonly %svq) local_unnamed_addr #5 {
+define dso_local i64 @vhost_svq_driver_area_size(ptr noundef readonly captures(none) %svq) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %svq, align 8
   %conv = zext i32 %0 to i64
@@ -565,7 +565,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @vhost_svq_device_area_size(ptr nocapture noundef readonly %svq) local_unnamed_addr #5 {
+define dso_local i64 @vhost_svq_device_area_size(ptr noundef readonly captures(none) %svq) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %svq, align 8
   %conv = zext i32 %0 to i64
@@ -986,7 +986,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @vhost_svq_vring_write_descs(ptr nocapture noundef %svq, ptr nocapture noundef %sg, ptr nocapture noundef readonly %iovec, i64 noundef %num, i1 noundef zeroext %more_descs, i1 noundef zeroext %write) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @vhost_svq_vring_write_descs(ptr noundef captures(none) %svq, ptr noundef captures(none) %sg, ptr noundef readonly captures(none) %iovec, i64 noundef %num, i1 noundef zeroext %more_descs, i1 noundef zeroext %write) unnamed_addr #0 {
 entry:
   %needle.i = alloca %struct.DMAMap, align 8
   %free_head = getelementptr inbounds nuw i8, ptr %svq, i64 146
@@ -1186,10 +1186,10 @@ declare void @virtqueue_flush(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -543,7 +543,7 @@ entry:
   %key.i.i = alloca %struct.dir_entry, align 8
   tail call fastcc void @lazy_init_name_hash(ptr noundef %istate)
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #15
-  tail call void @expand_to_path(ptr noundef %istate, ptr noundef %name, i64 noundef %call, i32 noundef 0) #13
+  tail call void @expand_to_path(ptr noundef %istate, ptr noundef nonnull %name, i64 noundef %call, i32 noundef 0) #13
   %0 = load i8, ptr %name, align 1
   %tobool.not21 = icmp eq i8 %0, 0
   br i1 %tobool.not21, label %while.end23, label %while.cond1.preheader.lr.ph
@@ -611,10 +611,10 @@ while.end23:                                      ; preds = %if.end22, %while.co
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @index_file_exists(ptr noundef %istate, ptr noundef %name, i32 noundef %namelen, i32 noundef %icase) local_unnamed_addr #0 {
@@ -766,7 +766,7 @@ declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr 
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @cache_entry_cmp(ptr nocapture readnone %cmp_data, ptr noundef readnone %eptr, ptr noundef readnone %entry_or_key, ptr noundef readnone %remove) #4 {
+define internal range(i32 0, 2) i32 @cache_entry_cmp(ptr readnone captures(none) %cmp_data, ptr noundef readnone %eptr, ptr noundef readnone %entry_or_key, ptr noundef readnone %remove) #4 {
 entry:
   %tobool.not = icmp ne ptr %remove, null
   %cmp = icmp ne ptr %eptr, %entry_or_key
@@ -776,7 +776,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal range(i32 0, 2) i32 @dir_entry_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr noundef readonly %keydata) #5 {
+define internal range(i32 0, 2) i32 @dir_entry_cmp(ptr readnone captures(none) %cmp_data, ptr noundef readonly captures(none) %eptr, ptr noundef readonly captures(none) %entry_or_key, ptr noundef readonly %keydata) #5 {
 entry:
   %namelen = getelementptr inbounds nuw i8, ptr %eptr, i64 28
   %0 = load i32, ptr %namelen, align 4
@@ -808,7 +808,7 @@ declare void @trace_performance_leave_fl(ptr noundef, i32 noundef, i64 noundef, 
 declare i64 @getnanotime() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare i32 @online_cpus() local_unnamed_addr #1
 
@@ -818,7 +818,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @lazy_dir_thread_proc(ptr nocapture noundef readonly %_data) #0 {
+define internal noalias noundef ptr @lazy_dir_thread_proc(ptr noundef readonly captures(none) %_data) #0 {
 entry:
   %prefix = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %prefix, ptr noundef nonnull align 8 dereferenceable(24) @__const.lazy_dir_thread_proc.prefix, i64 24, i1 false)
@@ -865,7 +865,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #7
 declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @lazy_name_thread_proc(ptr nocapture noundef readonly %_data) #0 {
+define internal noalias noundef ptr @lazy_name_thread_proc(ptr noundef readonly captures(none) %_data) #0 {
 entry:
   %istate = getelementptr inbounds nuw i8, ptr %_data, i64 8
   %0 = load ptr, ptr %istate, align 8
@@ -910,7 +910,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @init_recursive_mutex(ptr noundef) local_unnamed_addr #1
 
@@ -1297,7 +1297,7 @@ while.end:                                        ; preds = %while.cond.backedge
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1393,13 +1393,13 @@ return:                                           ; preds = %while.cond, %if.end
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #12

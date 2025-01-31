@@ -360,7 +360,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core21StaticStrideSchedulerC2ESt6vectorItSaItEEN4absl12lts_2023080212AnyInvocableIFjvEEE(ptr noundef nonnull align 16 dereferenceable(56) %this, ptr nocapture noundef %weights, ptr noundef %next_sequence_func) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core21StaticStrideSchedulerC2ESt6vectorItSaItEEN4absl12lts_2023080212AnyInvocableIFjvEEE(ptr noundef nonnull align 16 dereferenceable(56) %this, ptr noundef captures(none) %weights, ptr noundef %next_sequence_func) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %manager_.i.i.i = getelementptr inbounds nuw i8, ptr %next_sequence_func, i64 16
   %0 = load ptr, ptr %manager_.i.i.i, align 16
@@ -468,10 +468,10 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #2
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8

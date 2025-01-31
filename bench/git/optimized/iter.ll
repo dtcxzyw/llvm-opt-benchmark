@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @indexed_table_ref_iter_vtable = internal global %struct.reftable_iterator_vtable { ptr @indexed_table_ref_iter_next, ptr @indexed_table_ref_iter_close }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @iterator_is_null(ptr nocapture noundef readonly %it) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @iterator_is_null(ptr noundef readonly captures(none) %it) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %it, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @iterator_from_filtering_ref_iterator(ptr nocapture noundef writeonly initializes((0, 16)) %it, ptr noundef %fri) local_unnamed_addr #1 {
+define dso_local void @iterator_from_filtering_ref_iterator(ptr noundef writeonly captures(none) initializes((0, 16)) %it, ptr noundef %fri) local_unnamed_addr #1 {
 entry:
   %iter_arg = getelementptr inbounds nuw i8, ptr %it, i64 8
   store ptr %fri, ptr %iter_arg, align 8
@@ -36,7 +36,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 2) i32 @new_indexed_table_ref_iter(ptr nocapture noundef writeonly %dest, ptr noundef %r, ptr noundef %oid, i32 noundef %oid_len, ptr noundef %offsets, i32 noundef %offset_len) local_unnamed_addr #2 {
+define dso_local range(i32 -2147483648, 2) i32 @new_indexed_table_ref_iter(ptr noundef writeonly captures(none) %dest, ptr noundef %r, ptr noundef %oid, i32 noundef %oid_len, ptr noundef %offsets, i32 noundef %offset_len) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @reftable_calloc(i64 noundef 184) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %call, ptr noundef nonnull align 8 dereferenceable(184) @__const.new_indexed_table_ref_iter.empty, i64 184, i1 false)
@@ -99,7 +99,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @reftable_calloc(i64 noundef) local_unnamed_addr #4
 
@@ -108,7 +108,7 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare void @reftable_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @iterator_from_indexed_table_ref_iter(ptr nocapture noundef writeonly initializes((0, 16)) %it, ptr noundef %itr) local_unnamed_addr #1 {
+define dso_local void @iterator_from_indexed_table_ref_iter(ptr noundef writeonly captures(none) initializes((0, 16)) %it, ptr noundef %itr) local_unnamed_addr #1 {
 entry:
   %iter_arg = getelementptr inbounds nuw i8, ptr %it, i64 8
   store ptr %itr, ptr %iter_arg, align 8
@@ -215,7 +215,7 @@ entry:
 declare i32 @reftable_iterator_next_ref(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @reftable_table_seek_ref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -333,7 +333,7 @@ declare i32 @block_iter_next(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @block_iter_close(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

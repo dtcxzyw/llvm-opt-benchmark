@@ -373,7 +373,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE176ELS1_0ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11VtableStubs11bookkeepingEP14MacroAssemblerP12outputStreamP10VtableStubPhS6_biii(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11VtableStubs11bookkeepingEP14MacroAssemblerP12outputStreamP10VtableStubPhS6_biii(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 align 2 {
   %.str.7..str.8 = select i1 %5, ptr @.str.7, ptr @.str.8
   %..i = select i1 %5, i32 64, i32 256
   %_ZN11VtableStubs15_vtab_stub_sizeE.val.i = load i32, ptr @_ZN11VtableStubs15_vtab_stub_sizeE, align 4
@@ -891,7 +891,7 @@ _ZN11VtableStubs10initializeEv.exit:              ; preds = %5, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11VtableStubs14vtable_stub_doEPFvP10VtableStubE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11VtableStubs14vtable_stub_doEPFvP10VtableStubE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %._crit_edge

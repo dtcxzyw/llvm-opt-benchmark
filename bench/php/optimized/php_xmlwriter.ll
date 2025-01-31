@@ -265,7 +265,7 @@ define internal noundef i32 @zm_shutdown_xmlwriter(i32 %0, i32 %1) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zm_info_xmlwriter(ptr nocapture readnone %0) #0 {
+define internal void @zm_info_xmlwriter(ptr readnone captures(none) %0) #0 {
   tail call void @php_info_print_table_start() #11
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.137) #11
   tail call void @php_info_print_table_end() #11
@@ -273,7 +273,7 @@ define internal void @zm_info_xmlwriter(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_set_indent(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_set_indent(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -334,7 +334,7 @@ declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare i32 @xmlTextWriterSetIndent(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_set_indent_string(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_set_indent_string(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -393,7 +393,7 @@ php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %27
 declare i32 @xmlTextWriterSetIndentString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_start_attribute(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_start_attribute(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -465,7 +465,7 @@ php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %31, %34
 declare i32 @xmlTextWriterStartAttribute(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_end_attribute(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_end_attribute(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -517,7 +517,7 @@ php_xmlwriter_end.exit:                           ; preds = %14, %22, %25
 declare i32 @xmlTextWriterEndAttribute(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_start_attribute_ns(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_start_attribute_ns(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -594,7 +594,7 @@ declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unn
 declare i32 @xmlTextWriterStartAttributeNS(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_write_attribute(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_write_attribute(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -663,7 +663,7 @@ define hidden void @zif_xmlwriter_write_attribute(ptr noundef %0, ptr nocapture 
 declare i32 @xmlTextWriterWriteAttribute(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_write_attribute_ns(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_write_attribute_ns(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -739,7 +739,7 @@ define hidden void @zif_xmlwriter_write_attribute_ns(ptr noundef %0, ptr nocaptu
 declare i32 @xmlTextWriterWriteAttributeNS(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_start_element(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_start_element(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -811,7 +811,7 @@ php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %31, %34
 declare i32 @xmlTextWriterStartElement(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_start_element_ns(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_start_element_ns(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -884,7 +884,7 @@ define hidden void @zif_xmlwriter_start_element_ns(ptr noundef %0, ptr nocapture
 declare i32 @xmlTextWriterStartElementNS(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_end_element(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_end_element(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -936,7 +936,7 @@ php_xmlwriter_end.exit:                           ; preds = %14, %22, %25
 declare i32 @xmlTextWriterEndElement(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_full_end_element(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_full_end_element(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -988,7 +988,7 @@ php_xmlwriter_end.exit:                           ; preds = %14, %22, %25
 declare i32 @xmlTextWriterFullEndElement(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_write_element(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_write_element(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -1081,7 +1081,7 @@ define hidden void @zif_xmlwriter_write_element(ptr noundef %0, ptr nocapture no
 declare i32 @xmlTextWriterWriteElement(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_write_element_ns(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_write_element_ns(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1180,7 +1180,7 @@ define hidden void @zif_xmlwriter_write_element_ns(ptr noundef %0, ptr nocapture
 declare i32 @xmlTextWriterWriteElementNS(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_start_pi(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_start_pi(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -1252,7 +1252,7 @@ php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %31, %34
 declare i32 @xmlTextWriterStartPI(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_end_pi(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_end_pi(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1304,7 +1304,7 @@ php_xmlwriter_end.exit:                           ; preds = %14, %22, %25
 declare i32 @xmlTextWriterEndPI(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_write_pi(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_write_pi(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -1373,7 +1373,7 @@ define hidden void @zif_xmlwriter_write_pi(ptr noundef %0, ptr nocapture noundef
 declare i32 @xmlTextWriterWritePI(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_start_cdata(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_start_cdata(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1423,7 +1423,7 @@ define hidden void @zif_xmlwriter_start_cdata(ptr noundef %0, ptr nocapture noun
 declare i32 @xmlTextWriterStartCDATA(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_end_cdata(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_end_cdata(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1475,7 +1475,7 @@ php_xmlwriter_end.exit:                           ; preds = %14, %22, %25
 declare i32 @xmlTextWriterEndCDATA(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_write_cdata(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_write_cdata(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -1534,7 +1534,7 @@ php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %27
 declare i32 @xmlTextWriterWriteCDATA(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_write_raw(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_write_raw(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -1593,7 +1593,7 @@ php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %27
 declare i32 @xmlTextWriterWriteRaw(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_text(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_text(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -1652,7 +1652,7 @@ php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %27
 declare i32 @xmlTextWriterWriteString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_start_comment(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_start_comment(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1702,7 +1702,7 @@ define hidden void @zif_xmlwriter_start_comment(ptr noundef %0, ptr nocapture no
 declare i32 @xmlTextWriterStartComment(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_end_comment(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_end_comment(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1754,7 +1754,7 @@ php_xmlwriter_end.exit:                           ; preds = %14, %22, %25
 declare i32 @xmlTextWriterEndComment(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_write_comment(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_write_comment(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -1813,7 +1813,7 @@ php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %27
 declare i32 @xmlTextWriterWriteComment(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_start_document(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_start_document(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1875,7 +1875,7 @@ define hidden void @zif_xmlwriter_start_document(ptr noundef %0, ptr nocapture n
 declare i32 @xmlTextWriterStartDocument(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_end_document(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_end_document(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1927,7 +1927,7 @@ php_xmlwriter_end.exit:                           ; preds = %14, %22, %25
 declare i32 @xmlTextWriterEndDocument(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_start_dtd(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_start_dtd(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1988,7 +1988,7 @@ define hidden void @zif_xmlwriter_start_dtd(ptr noundef %0, ptr nocapture nounde
 declare i32 @xmlTextWriterStartDTD(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_end_dtd(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_end_dtd(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2040,7 +2040,7 @@ php_xmlwriter_end.exit:                           ; preds = %14, %22, %25
 declare i32 @xmlTextWriterEndDTD(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_write_dtd(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_write_dtd(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2105,7 +2105,7 @@ define hidden void @zif_xmlwriter_write_dtd(ptr noundef %0, ptr nocapture nounde
 declare i32 @xmlTextWriterWriteDTD(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_start_dtd_element(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_start_dtd_element(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2177,7 +2177,7 @@ php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %31, %34
 declare i32 @xmlTextWriterStartDTDElement(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_end_dtd_element(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_end_dtd_element(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2229,7 +2229,7 @@ php_xmlwriter_end.exit:                           ; preds = %14, %22, %25
 declare i32 @xmlTextWriterEndDTDElement(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_write_dtd_element(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_write_dtd_element(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -2298,7 +2298,7 @@ define hidden void @zif_xmlwriter_write_dtd_element(ptr noundef %0, ptr nocaptur
 declare i32 @xmlTextWriterWriteDTDElement(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_start_dtd_attlist(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_start_dtd_attlist(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2370,7 +2370,7 @@ php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %31, %34
 declare i32 @xmlTextWriterStartDTDAttlist(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_end_dtd_attlist(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_end_dtd_attlist(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2422,7 +2422,7 @@ php_xmlwriter_end.exit:                           ; preds = %14, %22, %25
 declare i32 @xmlTextWriterEndDTDAttlist(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_write_dtd_attlist(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_write_dtd_attlist(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -2491,7 +2491,7 @@ define hidden void @zif_xmlwriter_write_dtd_attlist(ptr noundef %0, ptr nocaptur
 declare i32 @xmlTextWriterWriteDTDAttlist(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_start_dtd_entity(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_start_dtd_entity(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -2562,7 +2562,7 @@ define hidden void @zif_xmlwriter_start_dtd_entity(ptr noundef %0, ptr nocapture
 declare i32 @xmlTextWriterStartDTDEntity(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_end_dtd_entity(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_end_dtd_entity(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2614,7 +2614,7 @@ php_xmlwriter_end.exit:                           ; preds = %14, %22, %25
 declare i32 @xmlTextWriterEndDTDEntity(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_write_dtd_entity(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_write_dtd_entity(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -2701,7 +2701,7 @@ define hidden void @zif_xmlwriter_write_dtd_entity(ptr noundef %0, ptr nocapture
 declare i32 @xmlTextWriterWriteDTDEntity(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_open_uri(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_open_uri(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca %struct.stat, align 8
   %5 = alloca ptr, align 8
@@ -2804,7 +2804,7 @@ define hidden void @zif_xmlwriter_open_uri(ptr nocapture noundef readonly %0, pt
 
 59:                                               ; preds = %57, %.thread.i
   %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03341.i) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %.03341.i, i64 %60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %.03341.i, i64 %60, i1 false)
   %61 = call i64 @php_dirname(ptr noundef nonnull %3, i64 noundef %60) #11
   %.not37.i = icmp eq i64 %61, 0
   br i1 %.not37.i, label %_xmlwriter_get_valid_file_path.exit.thread37, label %62
@@ -2945,7 +2945,7 @@ define internal noundef nonnull ptr @xmlwriter_object_new(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_open_memory(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_open_memory(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i8, ptr %4, align 8
@@ -3059,13 +3059,13 @@ declare ptr @xmlBufferCreate() local_unnamed_addr #2
 declare ptr @xmlNewTextWriterMemory(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_output_memory(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_output_memory(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   store i8 1, ptr %4, align 1
@@ -3135,7 +3135,7 @@ define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture n
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i64 %39, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr align 1 %38, i64 %39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 1 %38, i64 %39, i1 false)
   %47 = getelementptr inbounds [1 x i8], ptr %46, i64 0, i64 %39
   store i8 0, ptr %47, align 1
   store ptr %42, ptr %1, align 8
@@ -3161,7 +3161,7 @@ define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xmlwriter_flush(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xmlwriter_flush(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
@@ -3173,7 +3173,7 @@ declare ptr @xmlURIEscapeStr(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @xmlParseURIReference(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare void @xmlFreeURI(ptr noundef) local_unnamed_addr #2
 
@@ -3182,18 +3182,18 @@ declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i64 @php_dirname(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @zend_object_std_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3253,10 +3253,10 @@ declare void @php_info_print_table_row(i32 noundef, ...) local_unnamed_addr #2
 declare void @php_info_print_table_end() local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

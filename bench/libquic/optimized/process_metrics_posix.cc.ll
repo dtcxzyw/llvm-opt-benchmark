@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4base14ProcessMetricsD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base14ProcessMetricsD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN4base21TimeValToMicrosecondsERK7timeval(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %tv) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN4base21TimeValToMicrosecondsERK7timeval(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %tv) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %tv, align 8
   %mul = mul nsw i64 %0, 1000000
@@ -37,7 +37,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4base14ProcessMetricsD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base14ProcessMetricsD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }

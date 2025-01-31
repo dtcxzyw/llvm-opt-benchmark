@@ -126,7 +126,7 @@ $_ZTIN6duckdb17InternalExceptionE = comdat any
 @_ZN6duckdb19ArrowArrayScanStateC1ERNS_19ArrowScanLocalStateE = unnamed_addr alias void (ptr, ptr), ptr @_ZN6duckdb19ArrowArrayScanStateC2ERNS_19ArrowScanLocalStateE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14ArrowTableType9AddColumnEmNS_10unique_ptrINS_9ArrowTypeESt14default_deleteIS2_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %index, ptr nocapture noundef %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14ArrowTableType9AddColumnEmNS_10unique_ptrINS_9ArrowTypeESt14default_deleteIS2_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %index, ptr noundef captures(none) %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.std::pair.4", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #20
@@ -162,7 +162,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -185,7 +185,7 @@ _ZNSt10unique_ptrIN6duckdb9ArrowTypeESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6duckdb14ArrowTableType10GetColumnsEv(ptr noundef nonnull readnone returned align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
@@ -222,7 +222,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_9ArrowTypeESt14default_deleteIS2_ELb1EEESa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb9ArrowType14AssignChildrenENS_6vectorINS_10unique_ptrIS0_St14default_deleteIS0_ELb1EEELb1EEE(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((40, 48)) %this, ptr nocapture noundef %children) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb9ArrowType14AssignChildrenENS_6vectorINS_10unique_ptrIS0_St14default_deleteIS0_ELb1EEELb1EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((40, 48)) %this, ptr noundef captures(none) %children) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %children2, align 8, !tbaa !23
@@ -268,7 +268,7 @@ _ZN6duckdb6vectorINS_10unique_ptrINS_9ArrowTypeESt14default_deleteIS2_ELb1EEELb1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb9ArrowType13SetDictionaryENS_10unique_ptrIS0_St14default_deleteIS0_ELb1EEE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %dictionary) local_unnamed_addr #4 align 2 {
+define void @_ZN6duckdb9ArrowType13SetDictionaryENS_10unique_ptrIS0_St14default_deleteIS0_ELb1EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, ptr noundef captures(none) %dictionary) local_unnamed_addr #4 align 2 {
 entry:
   %dictionary_type = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %dictionary, align 8, !tbaa !19
@@ -288,7 +288,7 @@ _ZN6duckdb10unique_ptrINS_9ArrowTypeESt14default_deleteIS1_ELb1EEaSEOS4_.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6duckdb9ArrowType13HasDictionaryEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK6duckdb9ArrowType13HasDictionaryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
 entry:
   %dictionary_type = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %dictionary_type, align 8, !tbaa !19
@@ -1385,7 +1385,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb9UnionType13G
 declare void @_ZN6duckdb11LogicalType5UNIONENS_6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_ELb1EEE(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZNK6duckdb9ArrowType11GetSizeTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
+define noundef zeroext i8 @_ZNK6duckdb9ArrowType11GetSizeTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
 entry:
   %size_type = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i8, ptr %size_type, align 8, !tbaa !55
@@ -1393,7 +1393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZNK6duckdb9ArrowType15GetDateTimeTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
+define noundef zeroext i8 @_ZNK6duckdb9ArrowType15GetDateTimeTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
 entry:
   %date_time_precision = getelementptr inbounds nuw i8, ptr %this, i64 49
   %0 = load i8, ptr %date_time_precision, align 1, !tbaa !63
@@ -1410,7 +1410,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6duckdb9ArrowType9FixedSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZNK6duckdb9ArrowType9FixedSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
 entry:
   %fixed_size = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %fixed_size, align 8, !tbaa !64
@@ -1691,7 +1691,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb19ArrowArrayScanState13AddDictionaryENS_10unique_ptrINS_6VectorESt14default_deleteIS2_ELb1EEE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %dictionary_p) local_unnamed_addr #4 align 2 {
+define void @_ZN6duckdb19ArrowArrayScanState13AddDictionaryENS_10unique_ptrINS_6VectorESt14default_deleteIS2_ELb1EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, ptr noundef captures(none) %dictionary_p) local_unnamed_addr #4 align 2 {
 entry:
   %dictionary = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %dictionary_p, align 8, !tbaa !19
@@ -1711,7 +1711,7 @@ _ZN6duckdb10unique_ptrINS_6VectorESt14default_deleteIS1_ELb1EEaSEOS4_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6duckdb19ArrowArrayScanState13HasDictionaryEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK6duckdb19ArrowArrayScanState13HasDictionaryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
 entry:
   %dictionary = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %dictionary, align 8, !tbaa !19
@@ -1799,7 +1799,7 @@ _ZN6duckdb10unique_ptrINS_6VectorESt14default_deleteIS1_ELb1EE13AssertNotNullEb.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
@@ -1879,7 +1879,7 @@ declare void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 derefer
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb19ArrowArrayScanStateD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {

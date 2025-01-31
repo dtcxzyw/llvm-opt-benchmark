@@ -70,7 +70,7 @@ define void @jpeg_mem_src_tj(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @init_mem_source(ptr nocapture readnone %0) #1 {
+define internal void @init_mem_source(ptr readnone captures(none) %0) #1 {
   ret void
 }
 
@@ -136,7 +136,7 @@ define internal void @skip_input_data(ptr noundef %0, i64 noundef %1) #0 {
 declare i32 @jpeg_resync_to_restart(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @term_source(ptr nocapture readnone %0) #1 {
+define internal void @term_source(ptr readnone captures(none) %0) #1 {
   ret void
 }
 

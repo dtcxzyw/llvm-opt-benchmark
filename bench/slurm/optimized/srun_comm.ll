@@ -343,7 +343,7 @@ define dso_local void @srun_allocate_abort(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_srun_set_addr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @_srun_set_addr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 216, ptr noundef nonnull @__func__._srun_set_addr) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -468,7 +468,7 @@ declare ptr @find_node_record(ptr noundef) local_unnamed_addr #1
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_srun_node_fail(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @_srun_node_fail(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load ptr, ptr %4, align 8
@@ -602,7 +602,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #2
 declare i32 @list_for_each_ro(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_srun_ping(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @_srun_ping(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -672,7 +672,7 @@ define internal noundef i32 @_srun_ping(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @srun_timeout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @srun_timeout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 255
@@ -749,7 +749,7 @@ define dso_local void @srun_timeout(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_srun_step_timeout(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_srun_step_timeout(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -834,7 +834,7 @@ _srun_set_addr.exit:                              ; preds = %23, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2038) i32 @srun_user_message(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2038) i32 @srun_user_message(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -971,7 +971,7 @@ declare void @set_agent_arg_r_uid(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @agent_queue_request(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @srun_job_complete(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @srun_job_complete(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %3 = load i16, ptr %2, align 8
   %.not = icmp eq i16 %3, 0
@@ -1034,7 +1034,7 @@ define dso_local void @srun_job_complete(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_srun_job_complete(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_srun_job_complete(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, -5
@@ -1049,7 +1049,7 @@ define internal noundef i32 @_srun_job_complete(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @srun_job_suspend(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @srun_job_suspend(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %4 = load i16, ptr %3, align 8
   %.not = icmp eq i16 %4, 0
@@ -1108,7 +1108,7 @@ define dso_local noundef zeroext i1 @srun_job_suspend(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @srun_step_complete(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @srun_step_complete(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i16, ptr %3, align 8
@@ -1182,10 +1182,10 @@ _srun_set_addr.exit:                              ; preds = %15, %16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @srun_step_missing(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @srun_step_missing(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load i16, ptr %4, align 8
@@ -1262,7 +1262,7 @@ _srun_set_addr.exit:                              ; preds = %16, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @srun_step_signal(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local void @srun_step_signal(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load i16, ptr %4, align 8
@@ -1375,10 +1375,10 @@ declare void @slurm_free_resource_allocation_response_msg(ptr noundef) local_unn
 declare i32 @bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

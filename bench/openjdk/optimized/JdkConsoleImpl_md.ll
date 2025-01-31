@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [17 x i8] c"tcsetattr failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_jdk_internal_io_JdkConsoleImpl_echo(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_jdk_internal_io_JdkConsoleImpl_echo(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.termios, align 4
   %5 = load ptr, ptr @stdin, align 8
   %6 = tail call i32 @fileno(ptr noundef %5) #4
@@ -49,7 +49,7 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_internal_io_JdkConsoleImpl_echo(ptr n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare i32 @tcgetattr(i32 noundef, ptr noundef) local_unnamed_addr #2

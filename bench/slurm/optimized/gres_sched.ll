@@ -166,7 +166,7 @@ define noundef zeroext i1 @gres_sched_test(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_sched_add(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @gres_sched_add(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %41, label %4
 
@@ -264,7 +264,7 @@ declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @slurm_gres_find_sock_by_job_state(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @gres_sched_consec(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @gres_sched_consec(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %33, label %4
 

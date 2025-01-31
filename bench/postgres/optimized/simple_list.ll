@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @simple_oid_list_append(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @simple_oid_list_append(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @pg_malloc(i64 noundef 16) #6
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -21,7 +21,7 @@ define dso_local void @simple_oid_list_append(ptr nocapture noundef %0, i32 noun
 declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @simple_oid_list_member(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @simple_oid_list_member(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   br label %3
 
 3:                                                ; preds = %4, %2
@@ -41,7 +41,7 @@ define dso_local noundef zeroext i1 @simple_oid_list_member(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @simple_string_list_append(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @simple_string_list_append(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   %4 = add i64 %3, 10
   %5 = tail call ptr @pg_malloc(i64 noundef %4) #6
@@ -60,13 +60,13 @@ define dso_local void @simple_string_list_append(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @simple_string_list_member(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @simple_string_list_member(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   br label %3
 
 3:                                                ; preds = %4, %2
@@ -91,10 +91,10 @@ define dso_local noundef zeroext i1 @simple_string_list_member(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @simple_oid_list_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @simple_oid_list_destroy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not5 = icmp eq ptr %2, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -113,7 +113,7 @@ define dso_local void @simple_oid_list_destroy(ptr nocapture noundef readonly %0
 declare void @pg_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @simple_string_list_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @simple_string_list_destroy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not5 = icmp eq ptr %2, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -130,7 +130,7 @@ define dso_local void @simple_string_list_destroy(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @simple_string_list_not_touched(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @simple_string_list_not_touched(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   br label %2
 
 2:                                                ; preds = %3, %1
@@ -155,7 +155,7 @@ define dso_local ptr @simple_string_list_not_touched(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @simple_ptr_list_append(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @simple_ptr_list_append(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @pg_malloc(i64 noundef 16) #6
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8

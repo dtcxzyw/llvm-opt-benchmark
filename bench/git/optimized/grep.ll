@@ -2414,12 +2414,12 @@ return:                                           ; preds = %if.end859, %free_re
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @parse_opt_color_flag_cb(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @context_callback(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @context_callback(ptr noundef readonly captures(none) %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %endp = alloca ptr, align 8
   %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
@@ -2471,7 +2471,7 @@ return:                                           ; preds = %if.end7, %_.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_callback(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal noundef i32 @file_callback(ptr noundef readonly captures(none) %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %sb = alloca %struct.strbuf, align 8
   %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
@@ -2569,7 +2569,7 @@ if.end23:                                         ; preds = %if.then22, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pattern_callback(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal noundef i32 @pattern_callback(ptr noundef readonly captures(none) %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %do.end, label %if.then
@@ -2586,7 +2586,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @and_callback(ptr nocapture noundef readonly %opt, ptr noundef readnone %arg, i32 noundef %unset) #0 {
+define internal noundef i32 @and_callback(ptr noundef readonly captures(none) %opt, ptr noundef readnone %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -2611,7 +2611,7 @@ do.end5:                                          ; preds = %do.body1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @not_callback(ptr nocapture noundef readonly %opt, ptr noundef readnone %arg, i32 noundef %unset) #0 {
+define internal noundef i32 @not_callback(ptr noundef readonly captures(none) %opt, ptr noundef readnone %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -2636,7 +2636,7 @@ do.end5:                                          ; preds = %do.body1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @open_callback(ptr nocapture noundef readonly %opt, ptr noundef readnone %arg, i32 noundef %unset) #0 {
+define internal noundef i32 @open_callback(ptr noundef readonly captures(none) %opt, ptr noundef readnone %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -2661,7 +2661,7 @@ do.end5:                                          ; preds = %do.body1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @close_callback(ptr nocapture noundef readonly %opt, ptr noundef readnone %arg, i32 noundef %unset) #0 {
+define internal noundef i32 @close_callback(ptr noundef readonly captures(none) %opt, ptr noundef readnone %arg, i32 noundef %unset) #0 {
 entry:
   %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -2711,7 +2711,7 @@ if.end5:                                          ; preds = %if.else, %entry
 
 if.then7:                                         ; preds = %if.end5
   %0 = load ptr, ptr %ctx, align 8
-  %call8 = tail call i32 @git_config_int(ptr noundef %var, ptr noundef %value, ptr noundef %0) #13
+  %call8 = tail call i32 @git_config_int(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %0) #13
   store i32 %call8, ptr @num_threads, align 4
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %if.then10, label %if.end14
@@ -2719,7 +2719,7 @@ if.then7:                                         ; preds = %if.end5
 if.then10:                                        ; preds = %if.then7
   %call11 = tail call fastcc ptr @_(ptr noundef nonnull @.str.129)
   %1 = load i32, ptr @num_threads, align 4
-  tail call void (ptr, ...) @die(ptr noundef %call11, i32 noundef %1, ptr noundef %var) #14
+  tail call void (ptr, ...) @die(ptr noundef %call11, i32 noundef %1, ptr noundef nonnull %var) #14
   unreachable
 
 if.end14:                                         ; preds = %if.then7, %if.end5
@@ -2728,7 +2728,7 @@ if.end14:                                         ; preds = %if.then7, %if.end5
   br i1 %tobool16.not, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.end14
-  %call18 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #13
+  %call18 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #13
   store i32 %call18, ptr @recurse_submodules, align 4
   br label %if.end19
 
@@ -2745,14 +2745,14 @@ declare i32 @git_config_get_bool(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @setup_git_directory() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @append_grep_pattern(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @git_pager(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @append_path(ptr nocapture noundef readonly %opt, ptr noundef %data, i64 noundef %len) #0 {
+define internal void @append_path(ptr noundef readonly captures(none) %opt, ptr noundef %data, i64 noundef %len) #0 {
 entry:
   %output_priv = getelementptr inbounds nuw i8, ptr %opt, i64 872
   %0 = load ptr, ptr %output_priv, align 8
@@ -2808,7 +2808,7 @@ declare void @verify_non_filename(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @add_object_array_with_path(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @verify_filename(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2825,10 +2825,10 @@ declare ptr @get_packed_git(ptr noundef) local_unnamed_addr #2
 declare void @compile_grep_patterns(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -3154,7 +3154,7 @@ declare void @free_grep_patterns(ptr noundef) local_unnamed_addr #2
 declare void @object_array_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
@@ -3173,7 +3173,7 @@ declare i32 @strbuf_getline(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @append_grep_pat(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
@@ -3207,7 +3207,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @grep_opt_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @strbuf_out(ptr nocapture noundef readonly %opt, ptr noundef %buf, i64 noundef %size) #0 {
+define internal void @strbuf_out(ptr noundef readonly captures(none) %opt, ptr noundef %buf, i64 noundef %size) #0 {
 entry:
   %output_priv = getelementptr inbounds nuw i8, ptr %opt, i64 872
   %0 = load ptr, ptr %output_priv, align 8
@@ -3396,7 +3396,7 @@ declare i32 @fill_directory(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @dir_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @grep_source_name(ptr nocapture noundef nonnull readonly %opt, ptr noundef %filename, i32 noundef %tree_name_len, ptr noundef nonnull initializes((8, 16)) %out) unnamed_addr #0 {
+define internal fastcc void @grep_source_name(ptr noundef nonnull readonly captures(none) %opt, ptr noundef %filename, i32 noundef %tree_name_len, ptr noundef nonnull initializes((8, 16)) %out) unnamed_addr #0 {
 entry:
   %rel_buf = alloca %struct.strbuf, align 8
   %len2.i = getelementptr inbounds nuw i8, ptr %out, i64 8
@@ -3439,13 +3439,13 @@ if.then5:                                         ; preds = %if.then3
 
 if.end:                                           ; preds = %if.then5, %if.then3
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #15
-  call void @strbuf_add(ptr noundef nonnull %out, ptr noundef %call, i64 noundef %call.i) #13
+  call void @strbuf_add(ptr noundef nonnull %out, ptr noundef nonnull %call, i64 noundef %call.i) #13
   call void @strbuf_release(ptr noundef nonnull %rel_buf) #13
   br label %if.end24
 
 if.else:                                          ; preds = %if.then
   %call.i21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #15
-  tail call void @strbuf_add(ptr noundef nonnull %out, ptr noundef %filename, i64 noundef %call.i21) #13
+  tail call void @strbuf_add(ptr noundef nonnull %out, ptr noundef nonnull %filename, i64 noundef %call.i21) #13
   br label %if.end24
 
 if.end7:                                          ; preds = %strbuf_setlen.exit
@@ -3477,7 +3477,7 @@ if.end24:                                         ; preds = %if.end, %if.else, %
 declare void @grep_source_init_file(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_work(ptr nocapture noundef nonnull readonly %opt, ptr noundef nonnull %gs) unnamed_addr #0 {
+define internal fastcc void @add_work(ptr noundef nonnull readonly captures(none) %opt, ptr noundef nonnull %gs) unnamed_addr #0 {
 entry:
   %binary = getelementptr inbounds nuw i8, ptr %opt, i64 96
   %0 = load i32, ptr %binary, align 8
@@ -3619,7 +3619,7 @@ if.then9:                                         ; preds = %while.body
   %7 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %idx.ext
   %call.i32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #15
-  call void @strbuf_add(ptr noundef nonnull %name, ptr noundef %add.ptr, i64 noundef %call.i32) #13
+  call void @strbuf_add(ptr noundef nonnull %name, ptr noundef nonnull %add.ptr, i64 noundef %call.i32) #13
   %8 = load ptr, ptr %index, align 8
   %call10 = call i32 @tree_entry_interesting(ptr noundef %8, ptr noundef nonnull %entry2, ptr noundef nonnull %name, ptr noundef nonnull %pathspec) #13
   %9 = load i64, ptr %name, align 8
@@ -3799,7 +3799,7 @@ declare i32 @match_pathspec(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare i32 @submodule_path_match(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @grep_submodule(ptr nocapture noundef nonnull readonly %opt, ptr noundef nonnull %pathspec, ptr noundef %oid, ptr noundef %filename, ptr noundef %path, i32 noundef %cached) unnamed_addr #0 {
+define internal fastcc i32 @grep_submodule(ptr noundef nonnull readonly captures(none) %opt, ptr noundef nonnull %pathspec, ptr noundef %oid, ptr noundef %filename, ptr noundef %path, i32 noundef %cached) unnamed_addr #0 {
 entry:
   %subopt = alloca %struct.grep_opt, align 8
   %tree = alloca %struct.tree_desc, align 8
@@ -3926,7 +3926,7 @@ if.then27:                                        ; preds = %obj_read_unlock.exi
 
 if.end30:                                         ; preds = %obj_read_unlock.exit29
   %call.i30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #15
-  call void @strbuf_add(ptr noundef nonnull %base, ptr noundef %filename, i64 noundef %call.i30) #13
+  call void @strbuf_add(ptr noundef nonnull %base, ptr noundef nonnull %filename, i64 noundef %call.i30) #13
   %14 = load i64, ptr %base, align 8
   %tobool.not.i.i = icmp eq i64 %14, 0
   br i1 %tobool.not.i.i, label %if.then.i32, label %strbuf_avail.exit.i
@@ -4042,10 +4042,10 @@ declare void @repo_clear(ptr noundef) local_unnamed_addr #2
 declare i64 @llvm.usub.sat.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

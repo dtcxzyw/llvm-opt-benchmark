@@ -197,7 +197,7 @@ _ZN10OopStorage12weak_oops_doI17BoolObjectClosure10OopClosureEEvPT_PT0_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare noundef zeroext i1 @_ZNK10OopStorage22should_report_num_deadEv(ptr noundef nonnull align 8 dereferenceable(126)) local_unnamed_addr #2
 
@@ -296,7 +296,7 @@ define hidden noundef i32 @_ZN13WeakProcessor12ergo_workersEj(i32 noundef %0) lo
 declare noundef i64 @_ZNK10OopStorage16allocation_countEv(ptr noundef nonnull align 8 dereferenceable(126)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13WeakProcessor4Task10initializeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(584) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13WeakProcessor4Task10initializeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(584) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
@@ -361,7 +361,7 @@ _ZN13WeakProcessor4Task10initializeEv.exit:       ; preds = %3, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13WeakProcessor4Task15report_num_deadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(584) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13WeakProcessor4Task15report_num_deadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(584) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 

@@ -106,7 +106,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @si_mem_available() #0 a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @first_online_pgdat() local_unnamed_addr #2
@@ -115,10 +115,10 @@ declare dso_local ptr @first_online_pgdat() local_unnamed_addr #2
 declare dso_local ptr @next_zone(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @si_meminfo(ptr nocapture noundef writeonly initializes((32, 64), (88, 108)) %0) #0 align 16 {
+define dso_local void @si_meminfo(ptr noundef writeonly captures(none) initializes((32, 64), (88, 108)) %0) #0 align 16 {
   %2 = load volatile i64, ptr @_totalram_pages, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %2, ptr %3, align 8
@@ -144,7 +144,7 @@ define dso_local void @si_meminfo(ptr nocapture noundef writeonly initializes((3
 declare dso_local i64 @nr_blockdev_pages() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @si_meminfo_node(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @si_meminfo_node(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -918,7 +918,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 declare dso_local ptr @next_online_pgdat(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"

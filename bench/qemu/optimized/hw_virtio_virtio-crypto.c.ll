@@ -115,7 +115,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_crypto_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @virtio_crypto_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #11
@@ -351,7 +351,7 @@ for.end:                                          ; preds = %for.body, %cond.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_crypto_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config) #0 {
+define internal void @virtio_crypto_get_config(ptr noundef %vdev, ptr noundef writeonly captures(none) %config) #0 {
 entry:
   %crypto_cfg = alloca %struct.virtio_crypto_config, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 35, ptr noundef nonnull @__func__.VIRTIO_CRYPTO) #11
@@ -413,7 +413,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @virtio_crypto_get_features(ptr nocapture readnone %vdev, i64 noundef returned %features, ptr nocapture readnone %errp) #2 {
+define internal noundef i64 @virtio_crypto_get_features(ptr readnone captures(none) %vdev, i64 noundef returned %features, ptr readnone captures(none) %errp) #2 {
 entry:
   ret i64 %features
 }
@@ -620,7 +620,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @qemu_bh_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_crypto_dataq_bh(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @virtio_crypto_dataq_bh(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %iov.addr.i.i.i = alloca ptr, align 8
   %out_num.addr.i.i.i = alloca i32, align 4
@@ -1447,7 +1447,7 @@ return:                                           ; preds = %entry, %if.end21
 declare ptr @virtqueue_pop(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @virtio_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1598,7 +1598,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i64 @iov_to_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1977,7 +1977,7 @@ out:                                              ; preds = %if.end8, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -14, 1) i32 @virtio_crypto_cipher_session_helper(ptr noundef %vdev, ptr nocapture noundef initializes((0, 8), (25, 26)) %info, ptr nocapture noundef nonnull readonly %cipher_para, ptr noundef nonnull %iov, ptr nocapture noundef nonnull %out_num) unnamed_addr #0 {
+define internal fastcc range(i32 -14, 1) i32 @virtio_crypto_cipher_session_helper(ptr noundef %vdev, ptr noundef captures(none) initializes((0, 8), (25, 26)) %info, ptr noundef nonnull readonly captures(none) %cipher_para, ptr noundef nonnull %iov, ptr noundef nonnull captures(none) %out_num) unnamed_addr #0 {
 entry:
   %num = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 35, ptr noundef nonnull @__func__.VIRTIO_CRYPTO) #11
@@ -2066,10 +2066,10 @@ declare zeroext i1 @cryptodev_vhost_virtqueue_pending(ptr noundef, i32 noundef, 
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

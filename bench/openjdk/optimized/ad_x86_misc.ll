@@ -13200,7 +13200,7 @@ $_ZN26GrowableArrayWithAllocatorIP5Label13GrowableArrayIS1_EE9expand_toEi = comd
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MoveF2VLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MoveF2VLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -13209,12 +13209,12 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MoveF2VLNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13MoveF2LEGNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13MoveF2LEGNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MoveVL2FNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MoveVL2FNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13223,7 +13223,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MoveVL2FNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13MoveLEG2FNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13MoveLEG2FNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13232,7 +13232,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13MoveLEG2FNo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MoveD2VLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MoveD2VLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -13241,12 +13241,12 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MoveD2VLNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13MoveD2LEGNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13MoveD2LEGNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MoveVL2DNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MoveVL2DNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13255,7 +13255,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MoveVL2DNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13MoveLEG2DNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13MoveLEG2DNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13264,152 +13264,152 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13MoveLEG2DNo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadB2LNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadB2LNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10loadUBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10loadUBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadUB2LNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadUB2LNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17loadUB2L_immINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17loadUB2L_immINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadSNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadSNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadS2BNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadS2BNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadS2LNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadS2LNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10loadUSNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10loadUSNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadUS2BNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadUS2BNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadUS2LNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadUS2LNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21loadUS2L_immI_255Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21loadUS2L_immI_255Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17loadUS2L_immINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17loadUS2L_immINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadI2BNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadI2BNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadI2UBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadI2UBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadI2SNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadI2SNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadI2USNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadI2USNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadI2LNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadI2LNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20loadI2L_immI_255Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20loadI2L_immI_255Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22loadI2L_immI_65535Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22loadI2L_immI_65535Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18loadI2L_immU31Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18loadI2L_immU31Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadUI2LNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadUI2LNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadRangeNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadRangeNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadNNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadNNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadKlassNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadKlassNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14loadNKlassNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14loadNKlassNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13418,7 +13418,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadFNode11o
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17loadD_partialNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17loadD_partialNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13427,7 +13427,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17loadD_parti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadDNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadDNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13436,172 +13436,172 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadDNode11o
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12maxF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12maxF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22maxF_reduction_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22maxF_reduction_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12maxD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12maxD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22maxD_reduction_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22maxD_reduction_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12minF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12minF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22minF_reduction_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22minF_reduction_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12minD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12minD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22minD_reduction_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22minD_reduction_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9leaP8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9leaP8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10leaP32Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10leaP32Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14leaPIdxOffNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14leaPIdxOffNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16leaPIdxScaleNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16leaPIdxScaleNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19leaPPosIdxScaleNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19leaPPosIdxScaleNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19leaPIdxScaleOffNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19leaPIdxScaleOffNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17leaPPosIdxOffNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17leaPPosIdxOffNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22leaPPosIdxScaleOffNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22leaPPosIdxScaleOffNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27leaPCompressedOopOffsetNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27leaPCompressedOopOffsetNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15leaP8NarrowNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15leaP8NarrowNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16leaP32NarrowNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16leaP32NarrowNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20leaPIdxOffNarrowNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20leaPIdxOffNarrowNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22leaPIdxScaleNarrowNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22leaPIdxScaleNarrowNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25leaPIdxScaleOffNarrowNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25leaPIdxScaleOffNarrowNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23leaPPosIdxOffNarrowNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23leaPPosIdxOffNarrowNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK28leaPPosIdxScaleOffNarrowNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK28leaPPosIdxScaleOffNarrowNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConI0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConI0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConL0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConL0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15loadConUL32Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15loadConUL32Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14loadConL32Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14loadConL32Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConP0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConP0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14loadConP31Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14loadConP31Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13610,22 +13610,22 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConFNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConN0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConN0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConNNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConNNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17loadConNKlassNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17loadConNKlassNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConF0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConF0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13634,7 +13634,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConF0No
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConDNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConDNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13643,7 +13643,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadConDNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConD0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConD0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13652,22 +13652,22 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13loadConD0No
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadSSINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadSSINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadSSLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadSSLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadSSPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadSSPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadSSFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadSSFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13676,7 +13676,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadSSFNode
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadSSDNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadSSDNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -13685,167 +13685,167 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11loadSSDNode
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17prefetchAllocNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17prefetchAllocNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20prefetchAllocNTANode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20prefetchAllocNTANode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19prefetchAllocT0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19prefetchAllocT0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19prefetchAllocT2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19prefetchAllocT2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeCNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeCNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storePNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storePNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeImmP0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeImmP0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13storeImmPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13storeImmPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeNNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeNNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15storeNKlassNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15storeNKlassNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeImmN0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeImmN0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13storeImmNNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13storeImmNNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18storeImmNKlassNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18storeImmNKlassNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeImmI0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeImmI0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13storeImmINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13storeImmINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeImmL0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeImmL0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13storeImmLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13storeImmLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeImmC0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeImmC0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15storeImmI16Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15storeImmI16Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeImmB0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeImmB0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13storeImmBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13storeImmBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19storeImmCM0_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19storeImmCM0_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15storeImmCM0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15storeImmCM0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11storeF0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11storeF0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeF_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14storeF_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeDNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeDNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15storeD0_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15storeD0_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11storeD0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11storeD0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -13857,7 +13857,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSINod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -13869,7 +13869,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSLNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -13881,7 +13881,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSPNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -13893,7 +13893,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSFNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSDNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSDNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -13905,417 +13905,417 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12storeSSDNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11cacheWBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11cacheWBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18cacheWBPreSyncNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18cacheWBPreSyncNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19cacheWBPostSyncNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19cacheWBPostSyncNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21bytes_reverse_intNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21bytes_reverse_intNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22bytes_reverse_longNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22bytes_reverse_longNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32bytes_reverse_unsigned_shortNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32bytes_reverse_unsigned_shortNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23bytes_reverse_shortNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23bytes_reverse_shortNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22countLeadingZerosINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22countLeadingZerosINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26countLeadingZerosI_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26countLeadingZerosI_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26countLeadingZerosI_bsrNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26countLeadingZerosI_bsrNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22countLeadingZerosLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22countLeadingZerosLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26countLeadingZerosL_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26countLeadingZerosL_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26countLeadingZerosL_bsrNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26countLeadingZerosL_bsrNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23countTrailingZerosINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23countTrailingZerosINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27countTrailingZerosI_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27countTrailingZerosI_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27countTrailingZerosI_bsfNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27countTrailingZerosI_bsfNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23countTrailingZerosLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23countTrailingZerosLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27countTrailingZerosL_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27countTrailingZerosL_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27countTrailingZerosL_bsfNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27countTrailingZerosL_bsfNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24bytes_reversebit_intNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24bytes_reversebit_intNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK29bytes_reversebit_int_gfniNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK29bytes_reversebit_int_gfniNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25bytes_reversebit_longNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25bytes_reversebit_longNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK30bytes_reversebit_long_gfniNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK30bytes_reversebit_long_gfniNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13popCountINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13popCountINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17popCountI_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17popCountI_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13popCountLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13popCountLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17popCountL_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17popCountL_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18membar_acquireNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18membar_acquireNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20membar_acquire_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20membar_acquire_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23membar_acquire_lockNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23membar_acquire_lockNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18membar_releaseNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18membar_releaseNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20membar_release_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20membar_release_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23membar_release_lockNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23membar_release_lockNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19membar_volatileNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19membar_volatileNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31unnecessary_membar_volatileNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31unnecessary_membar_volatileNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21membar_storestoreNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21membar_storestoreNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23membar_storestore_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23membar_storestore_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11castX2PNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11castX2PNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11castP2XNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11castP2XNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11convP2INode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11convP2INode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11convN2INode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11convN2INode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17encodeHeapOopNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17encodeHeapOopNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26encodeHeapOop_not_nullNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26encodeHeapOop_not_nullNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17decodeHeapOopNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17decodeHeapOopNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26decodeHeapOop_not_nullNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26decodeHeapOop_not_nullNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24encodeKlass_not_nullNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24encodeKlass_not_nullNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24decodeKlass_not_nullNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24decodeKlass_not_nullNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19jumpXtnd_offsetNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19jumpXtnd_offsetNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17jumpXtnd_addrNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17jumpXtnd_addrNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12jumpXtndNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12jumpXtndNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovI_imm_01Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovI_imm_01Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovI_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovI_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmovI_imm_01UNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmovI_imm_01UNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovI_regUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovI_regUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19cmovI_imm_01UCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19cmovI_imm_01UCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovI_regUCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovI_regUCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovI_regUCF2_neNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovI_regUCF2_neNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovI_regUCF2_eqNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovI_regUCF2_eqNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovI_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovI_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovI_memUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovI_memUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovI_memUCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovI_memUCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovN_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovN_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovN_regUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovN_regUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovN_regUCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovN_regUCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovN_regUCF2_neNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovN_regUCF2_neNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovN_regUCF2_eqNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovN_regUCF2_eqNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovP_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovP_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovP_regUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovP_regUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovP_regUCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovP_regUCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovP_regUCF2_neNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovP_regUCF2_neNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovP_regUCF2_eqNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovP_regUCF2_eqNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovL_imm_01Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovL_imm_01Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovL_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovL_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovL_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovL_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmovL_imm_01UNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmovL_imm_01UNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovL_regUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovL_regUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19cmovL_imm_01UCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19cmovL_imm_01UCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovL_regUCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovL_regUCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovL_regUCF2_neNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovL_regUCF2_neNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovL_regUCF2_eqNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cmovL_regUCF2_eqNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovL_memUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovL_memUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovL_memUCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovL_memUCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -14324,7 +14324,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovF_regNo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovF_regUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovF_regUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -14333,7 +14333,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovF_regUN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovF_regUCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovF_regUCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -14342,7 +14342,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovF_regUC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -14351,7 +14351,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmovD_regNo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovD_regUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovD_regUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -14360,7 +14360,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmovD_regUN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovD_regUCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovD_regUCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -14369,207 +14369,207 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16cmovD_regUC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13addI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13addI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addI_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addI_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addI_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addI_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19addI_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19addI_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addI_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addI_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19addI_mem_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19addI_mem_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addI_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addI_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13incI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13incI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12incI_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12incI_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13decI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13decI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12decI_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12decI_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24leaI_rReg_immI2_immINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24leaI_rReg_immI2_immINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23leaI_rReg_rReg_immINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23leaI_rReg_rReg_immINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24leaI_rReg_rReg_immI2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24leaI_rReg_rReg_immI2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26leaI_rReg_rReg_immI2_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26leaI_rReg_rReg_immI2_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK29leaI_rReg_rReg_immI2_immINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK29leaI_rReg_rReg_immI2_immINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31leaI_rReg_rReg_immI2_immI_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31leaI_rReg_rReg_immI2_immI_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13addL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13addL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addL_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addL_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19addL_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19addL_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addL_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addL_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19addL_mem_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19addL_mem_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addL_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addL_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13incL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13incL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12incL_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12incL_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13decL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13decL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12decL_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12decL_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26leaL_rReg_immI2_immL32Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26leaL_rReg_immI2_immL32Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25leaL_rReg_rReg_immL32Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25leaL_rReg_rReg_immL32Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24leaL_rReg_rReg_immI2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24leaL_rReg_rReg_immI2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26leaL_rReg_rReg_immI2_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26leaL_rReg_rReg_immI2_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31leaL_rReg_rReg_immI2_immL32Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31leaL_rReg_rReg_immI2_immL32Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33leaL_rReg_rReg_immI2_immL32_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33leaL_rReg_rReg_immI2_immL32_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13addP_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13addP_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addP_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17addP_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15checkCastPPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15checkCastPPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castPPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castPPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castIINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castIINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castLLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castLLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castFFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castFFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -14578,7 +14578,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castFFNode1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castDDNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castDDNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -14587,1262 +14587,1262 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castDDNode1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compareAndSwapPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compareAndSwapPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compareAndSwapP_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compareAndSwapP_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compareAndSwapLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compareAndSwapLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compareAndSwapL_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compareAndSwapL_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compareAndSwapINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compareAndSwapINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compareAndSwapI_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compareAndSwapI_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compareAndSwapBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compareAndSwapBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compareAndSwapB_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compareAndSwapB_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compareAndSwapSNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compareAndSwapSNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compareAndSwapS_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compareAndSwapS_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compareAndSwapNNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compareAndSwapNNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compareAndSwapN_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compareAndSwapN_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compareAndExchangeBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compareAndExchangeBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compareAndExchangeSNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compareAndExchangeSNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compareAndExchangeINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compareAndExchangeINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compareAndExchangeLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compareAndExchangeLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compareAndExchangeNNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compareAndExchangeNNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compareAndExchangePNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compareAndExchangePNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddB_reg_no_resNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddB_reg_no_resNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddB_imm_no_resNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddB_imm_no_resNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xaddBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xaddBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddS_reg_no_resNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddS_reg_no_resNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddS_imm_no_resNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddS_imm_no_resNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xaddSNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xaddSNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddI_reg_no_resNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddI_reg_no_resNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddI_imm_no_resNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddI_imm_no_resNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xaddINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xaddINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddL_reg_no_resNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddL_reg_no_resNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddL_imm_no_resNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xaddL_imm_no_resNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xaddLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xaddLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xchgBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xchgBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xchgSNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xchgSNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xchgINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xchgINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xchgLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xchgLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xchgPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xchgPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xchgNNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9xchgNNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13absI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13absI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13absL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13absL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13subI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13subI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17subI_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17subI_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17subI_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17subI_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13subL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13subL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17subL_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17subL_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17subL_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17subL_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13subP_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13subP_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13negI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13negI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15negI_rReg_2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15negI_rReg_2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12negI_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12negI_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13negL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13negL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15negL_rReg_2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15negL_rReg_2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12negL_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12negL_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13mulI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13mulI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17mulI_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17mulI_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulI_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulI_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14mulI_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14mulI_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulI_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulI_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18mulAddS2I_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18mulAddS2I_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13mulL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13mulL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17mulL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17mulL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulL_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulL_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14mulL_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14mulL_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulL_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulL_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15mulHiL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15mulHiL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_RDX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16umulHiL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16umulHiL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_RDX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13divI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13divI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13divL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13divL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14udivI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14udivI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14udivL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14udivL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23divModI_rReg_divmodNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23divModI_rReg_divmodNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23divModL_rReg_divmodNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23divModL_rReg_divmodNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24udivModI_rReg_divmodNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24udivModI_rReg_divmodNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24udivModL_rReg_divmodNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24udivModL_rReg_divmodNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13modI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13modI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RDX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13modL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13modL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_RDX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14umodI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14umodI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RDX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14umodL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14umodL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_RDX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19salI_rReg_immI2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19salI_rReg_immI2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17salI_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17salI_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16salI_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16salI_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16salI_rReg_CLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16salI_rReg_CLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15salI_mem_CLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15salI_mem_CLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18salI_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18salI_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17salI_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17salI_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17sarI_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17sarI_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16sarI_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16sarI_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16sarI_rReg_CLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16sarI_rReg_CLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15sarI_mem_CLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15sarI_mem_CLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18sarI_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18sarI_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17sarI_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17sarI_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17shrI_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17shrI_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16shrI_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16shrI_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16shrI_rReg_CLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16shrI_rReg_CLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15shrI_mem_CLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15shrI_mem_CLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18shrI_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18shrI_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17shrI_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17shrI_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19salL_rReg_immI2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19salL_rReg_immI2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17salL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17salL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16salL_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16salL_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16salL_rReg_CLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16salL_rReg_CLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15salL_mem_CLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15salL_mem_CLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18salL_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18salL_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17salL_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17salL_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17sarL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17sarL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16sarL_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16sarL_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16sarL_rReg_CLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16sarL_rReg_CLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15sarL_mem_CLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15sarL_mem_CLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18sarL_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18sarL_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17sarL_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17sarL_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17shrL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17shrL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16shrL_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16shrL_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16shrL_rReg_CLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16shrL_rReg_CLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15shrL_mem_CLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15shrL_mem_CLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18shrL_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18shrL_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17shrL_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17shrL_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7i2bNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7i2bNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7i2sNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7i2sNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21rolI_immI8_legacyNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21rolI_immI8_legacyNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rolI_immI8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rolI_immI8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rolI_mem_immI8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rolI_mem_immI8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17rolI_rReg_VarNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17rolI_rReg_VarNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21rorI_immI8_legacyNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21rorI_immI8_legacyNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rorI_immI8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rorI_immI8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rorI_mem_immI8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rorI_mem_immI8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17rorI_rReg_VarNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17rorI_rReg_VarNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21rolL_immI8_legacyNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21rolL_immI8_legacyNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rolL_immI8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rolL_immI8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rolL_mem_immI8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rolL_mem_immI8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17rolL_rReg_VarNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17rolL_rReg_VarNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21rorL_immI8_legacyNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21rorL_immI8_legacyNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rorL_immI8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rorL_immI8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rorL_mem_immI8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rorL_mem_immI8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17rorL_rReg_VarNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17rorL_rReg_VarNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compressBitsL_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compressBitsL_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19expandBitsL_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19expandBitsL_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compressBitsL_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compressBitsL_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19expandBitsL_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19expandBitsL_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13andI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13andI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20andI_rReg_imm255Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20andI_rReg_imm255Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22andI2L_rReg_imm255Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22andI2L_rReg_imm255Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22andI_rReg_imm65535Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22andI_rReg_imm65535Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24andI2L_rReg_imm65535Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24andI2L_rReg_imm65535Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31convI2LAndI_reg_immIbitmaskNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31convI2LAndI_reg_immIbitmaskNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andI_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andI_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andI_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andI_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19andI_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19andI_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andB_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andB_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19andB_mem_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19andB_mem_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andI_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andI_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19andI_mem_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19andI_mem_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16andI_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16andI_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23andnI_rReg_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23andnI_rReg_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25andnI_rReg_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25andnI_rReg_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24andnI_rReg_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24andnI_rReg_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26andnI_rReg_rReg_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26andnI_rReg_rReg_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19blsiI_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19blsiI_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21blsiI_rReg_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21blsiI_rReg_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18blsiI_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18blsiI_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20blsiI_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20blsiI_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20blsmskI_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20blsmskI_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22blsmskI_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22blsmskI_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21blsmskI_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21blsmskI_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23blsmskI_rReg_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23blsmskI_rReg_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19blsrI_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19blsrI_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21blsrI_rReg_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21blsrI_rReg_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18blsrI_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18blsrI_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20blsrI_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20blsrI_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12orI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12orI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orI_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orI_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orI_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orI_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18orI_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18orI_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orB_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orB_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18orB_mem_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18orB_mem_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orI_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orI_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18orI_mem_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18orI_mem_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15orI_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15orI_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13xorI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13xorI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorI_rReg_im1Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorI_rReg_im1Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorI_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorI_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorI_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorI_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19xorI_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19xorI_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorB_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorB_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19xorB_mem_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19xorB_mem_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorI_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorI_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19xorI_mem_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19xorI_mem_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16xorI_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16xorI_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13andL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13andL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20andL_rReg_imm255Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20andL_rReg_imm255Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22andL_rReg_imm65535Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22andL_rReg_imm65535Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andL_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andL_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19andL_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19andL_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andL_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17andL_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19andL_mem_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19andL_mem_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16andL_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16andL_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16btrL_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16btrL_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23andnL_rReg_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23andnL_rReg_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25andnL_rReg_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25andnL_rReg_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24andnL_rReg_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24andnL_rReg_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26andnL_rReg_rReg_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26andnL_rReg_rReg_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19blsiL_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19blsiL_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21blsiL_rReg_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21blsiL_rReg_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18blsiL_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18blsiL_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20blsiL_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20blsiL_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20blsmskL_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20blsmskL_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22blsmskL_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22blsmskL_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21blsmskL_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21blsmskL_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23blsmskL_rReg_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23blsmskL_rReg_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19blsrL_rReg_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19blsrL_rReg_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21blsrL_rReg_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21blsrL_rReg_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18blsrL_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18blsrL_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20blsrL_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20blsrL_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12orL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12orL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20orL_rReg_castP2XNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20orL_rReg_castP2XNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22orL_rReg_castP2X_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22orL_rReg_castP2X_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orL_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orL_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18orL_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18orL_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orL_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16orL_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18orL_mem_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18orL_mem_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15orL_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15orL_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16btsL_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16btsL_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13xorL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13xorL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorL_rReg_im1Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorL_rReg_im1Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorL_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorL_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19xorL_rReg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19xorL_rReg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorL_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17xorL_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19xorL_mem_rReg_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19xorL_mem_rReg_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16xorL_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16xorL_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmpLTMaskNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13cmpLTMaskNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmpLTMask0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14cmpLTMask0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18cadd_cmpLTMaskNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18cadd_cmpLTMaskNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cadd_cmpLTMask_1Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cadd_cmpLTMask_1Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cadd_cmpLTMask_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cadd_cmpLTMask_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cadd_cmpLTMask_2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20cadd_cmpLTMask_2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17and_cmpLTMaskNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17and_cmpLTMaskNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19and_cmpLTMask_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19and_cmpLTMask_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15cmpF_cc_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15cmpF_cc_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18cmpF_cc_reg_CFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18cmpF_cc_reg_CFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpF_cc_memCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpF_cc_memCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpF_cc_immCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpF_cc_immCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15cmpD_cc_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15cmpD_cc_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18cmpD_cc_reg_CFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18cmpD_cc_reg_CFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpD_cc_memCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpD_cc_memCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpD_cc_immCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpD_cc_immCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12cmpF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12cmpF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12cmpF_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12cmpF_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12cmpF_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12cmpF_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12cmpD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12cmpD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12cmpD_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12cmpD_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12cmpD_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12cmpD_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convF2D_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convF2D_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -15851,7 +15851,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convF2D_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convF2D_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convF2D_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -15860,7 +15860,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convF2D_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convD2F_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convD2F_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -15869,7 +15869,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convD2F_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convD2F_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convD2F_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -15878,37 +15878,37 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convD2F_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convF2I_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convF2I_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convF2L_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convF2L_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convD2I_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convD2I_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convD2L_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convD2L_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20round_double_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20round_double_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19round_float_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19round_float_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2F_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2F_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -15917,7 +15917,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2F_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2F_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2F_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -15926,7 +15926,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2F_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2D_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2D_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -15935,7 +15935,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2D_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2D_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2D_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -15944,7 +15944,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2D_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16convXI2F_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16convXI2F_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -15953,7 +15953,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16convXI2F_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16convXI2D_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16convXI2D_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -15962,7 +15962,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16convXI2D_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2F_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2F_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -15971,7 +15971,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2F_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2F_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2F_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -15980,7 +15980,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2F_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2D_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2D_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -15989,7 +15989,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2D_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2D_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2D_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -15998,37 +15998,37 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2D_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2L_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convI2L_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23convI2L_reg_reg_zexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23convI2L_reg_reg_zexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23convI2L_reg_mem_zexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23convI2L_reg_mem_zexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22zerox_long_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22zerox_long_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2I_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19convL2I_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveF2I_stack_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveF2I_stack_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveI2F_stack_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveI2F_stack_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16037,12 +16037,12 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveI2F_sta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveD2L_stack_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveD2L_stack_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK29MoveL2D_stack_reg_partialNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK29MoveL2D_stack_reg_partialNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16051,7 +16051,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK29MoveL2D_sta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveL2D_stack_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveL2D_stack_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16060,7 +16060,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveL2D_sta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveF2I_reg_stackNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveF2I_reg_stackNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -16072,7 +16072,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveF2I_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveI2F_reg_stackNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveI2F_reg_stackNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -16084,7 +16084,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveI2F_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveD2L_reg_stackNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveD2L_reg_stackNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -16096,7 +16096,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveD2L_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveL2D_reg_stackNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveL2D_reg_stackNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -16108,17 +16108,17 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21MoveL2D_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19MoveF2I_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19MoveF2I_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19MoveD2L_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19MoveD2L_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19MoveI2F_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19MoveI2F_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16127,7 +16127,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19MoveI2F_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19MoveL2D_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19MoveL2D_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16136,717 +16136,717 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19MoveL2D_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12rep_stosNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12rep_stosNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17rep_stos_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17rep_stos_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rep_stos_largeNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rep_stos_largeNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23rep_stos_large_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23rep_stos_large_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15rep_stos_imNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15rep_stos_imNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19string_compareLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19string_compareLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24string_compareL_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24string_compareL_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19string_compareUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19string_compareUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24string_compareU_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24string_compareU_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20string_compareLUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20string_compareLUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25string_compareLU_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25string_compareLU_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20string_compareULNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20string_compareULNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25string_compareUL_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25string_compareUL_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23string_indexof_conLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23string_indexof_conLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RBX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23string_indexof_conUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23string_indexof_conUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RBX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24string_indexof_conULNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24string_indexof_conULNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RBX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19string_indexofLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19string_indexofLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RBX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19string_indexofUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19string_indexofUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RBX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20string_indexofULNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20string_indexofULNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RBX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23string_indexof_charNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23string_indexof_charNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RBX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24stringL_indexof_charNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24stringL_indexof_charNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RBX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17string_equalsNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17string_equalsNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22string_equals_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22string_equals_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17array_equalsBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17array_equalsBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22array_equalsB_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22array_equalsB_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17array_equalsCNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17array_equalsCNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22array_equalsC_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22array_equalsC_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19arrays_hashcodeNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19arrays_hashcodeNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RBX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19count_positivesNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19count_positivesNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24count_positives_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24count_positives_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19string_compressNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19string_compressNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24string_compress_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24string_compress_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18string_inflateNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18string_inflateNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23string_inflate_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23string_inflate_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20encode_iso_arrayNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20encode_iso_arrayNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22encode_ascii_arrayNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22encode_ascii_arrayNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowAddI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowAddI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25overflowAddI_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25overflowAddI_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowAddL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowAddL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25overflowAddL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25overflowAddL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowSubI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowSubI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25overflowSubI_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25overflowSubI_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowSubL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowSubL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25overflowSubL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25overflowSubL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowNegI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowNegI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowNegL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowNegL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowMulI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowMulI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25overflowMulI_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25overflowMulI_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowMulL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21overflowMulL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25overflowMulL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25overflowMulL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14compI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14compI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compI_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compI_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compI_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compI_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testI_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testI_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testI_reg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testI_reg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testI_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testI_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testI_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testI_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19testI_reg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19testI_reg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14compU_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14compU_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compU_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compU_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compU_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compU_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testU_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testU_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14compP_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14compP_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compP_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compP_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compP_mem_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compP_mem_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testP_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testP_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testP_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testP_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18testP_mem_reg0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18testP_mem_reg0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14compN_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14compN_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compN_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compN_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compN_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compN_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17compN_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17compN_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24compN_rReg_imm_klassNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24compN_rReg_imm_klassNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compN_mem_imm_klassNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23compN_mem_imm_klassNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testN_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testN_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testN_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testN_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18testN_mem_reg0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18testN_mem_reg0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14compL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14compL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compL_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18compL_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testL_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13testL_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testL_reg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testL_reg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testL_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testL_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testL_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testL_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19testL_reg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19testL_reg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18testL_reg_mem2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18testL_reg_mem2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20testL_reg_mem2_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20testL_reg_mem2_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpU3_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpU3_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpL3_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpL3_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18cmpUL3_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18cmpUL3_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15compUL_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15compUL_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compUL_rReg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compUL_rReg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compUL_rReg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19compUL_rReg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14testUL_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14testUL_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17compB_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17compB_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18testUB_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18testUB_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testB_mem_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17testB_mem_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15cmovI_reg_gNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15cmovI_reg_gNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13minI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13minI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15cmovI_reg_lNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15cmovI_reg_lNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13maxI_rRegNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13maxI_rRegNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10jmpDirNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10jmpDirNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10jmpConNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10jmpConNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14jmpLoopEndNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14jmpLoopEndNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11jmpConUNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11jmpConUNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13jmpConUCFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13jmpConUCFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14jmpConUCF2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14jmpConUCF2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23partialSubtypeCheckNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23partialSubtypeCheckNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_RDI_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33partialSubtypeCheckConstSuperNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33partialSubtypeCheckConstSuperNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_RDI_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31partialSubtypeCheck_vs_ZeroNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31partialSubtypeCheck_vs_ZeroNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16jmpDir_shortNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16jmpDir_shortNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16jmpCon_shortNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16jmpCon_shortNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20jmpLoopEnd_shortNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20jmpLoopEnd_shortNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17jmpConU_shortNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17jmpConU_shortNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19jmpConUCF_shortNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19jmpConUCF_shortNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20jmpConUCF2_shortNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20jmpConUCF2_shortNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15cmpFastLockNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15cmpFastLockNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpFastUnlockNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17cmpFastUnlockNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26cmpFastLockLightweightNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26cmpFastLockLightweightNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK28cmpFastUnlockLightweightNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK28cmpFastUnlockLightweightNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22safePoint_poll_tlsNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22safePoint_poll_tlsNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18mask_all_evexLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18mask_all_evexLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23mask_all_evexI_GT32Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23mask_all_evexI_GT32Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24CallStaticJavaDirectNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24CallStaticJavaDirectNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25CallDynamicJavaDirectNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25CallDynamicJavaDirectNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21CallRuntimeDirectNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21CallRuntimeDirectNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18CallLeafDirectNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18CallLeafDirectNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24CallLeafDirectVectorNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24CallLeafDirectVectorNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22CallLeafNoFPDirectNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22CallLeafNoFPDirectNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7RetNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7RetNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18TailCalljmpIndNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18TailCalljmpIndNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14tailjmpIndNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14tailjmpIndNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19CreateExceptionNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19CreateExceptionNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20RethrowExceptionNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20RethrowExceptionNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12tlsLoadPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12tlsLoadPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_R15_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23leaI_rReg_rReg_peepNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23leaI_rReg_rReg_peepNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23leaI_rReg_immI_peepNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23leaI_rReg_immI_peepNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24leaI_rReg_immI2_peepNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24leaI_rReg_immI2_peepNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23leaL_rReg_rReg_peepNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23leaL_rReg_rReg_peepNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25leaL_rReg_immL32_peepNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25leaL_rReg_immL32_peepNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24leaL_rReg_immI2_peepNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24leaL_rReg_immI2_peepNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22ShouldNotReachHereNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22ShouldNotReachHereNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16855,7 +16855,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addF_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addF_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addF_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16864,7 +16864,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addF_memNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14addF_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14addF_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16873,7 +16873,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14addF_mem_0N
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addF_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addF_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16882,7 +16882,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addF_immNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addF_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addF_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16891,7 +16891,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addF_reg_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addF_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addF_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16900,7 +16900,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addF_reg_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18addF_reg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18addF_reg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16909,7 +16909,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18addF_reg_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addF_reg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addF_reg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16918,7 +16918,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addF_reg_im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16927,7 +16927,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addD_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addD_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addD_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16936,7 +16936,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addD_memNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14addD_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14addD_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16945,7 +16945,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14addD_mem_0N
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addD_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addD_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16954,7 +16954,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12addD_immNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addD_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addD_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16963,7 +16963,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addD_reg_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addD_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addD_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16972,7 +16972,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addD_reg_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18addD_reg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18addD_reg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16981,7 +16981,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18addD_reg_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addD_reg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addD_reg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16990,7 +16990,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16addD_reg_im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16999,7 +16999,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subF_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subF_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subF_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17008,7 +17008,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subF_memNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subF_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subF_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17017,7 +17017,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subF_immNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subF_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subF_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17026,7 +17026,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subF_reg_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subF_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subF_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17035,7 +17035,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subF_reg_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subF_reg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subF_reg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17044,7 +17044,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subF_reg_im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17053,7 +17053,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subD_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subD_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subD_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17062,7 +17062,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subD_memNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subD_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subD_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17071,7 +17071,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12subD_immNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subD_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subD_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17080,7 +17080,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subD_reg_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subD_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subD_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17089,7 +17089,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subD_reg_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subD_reg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subD_reg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17098,7 +17098,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16subD_reg_im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17107,7 +17107,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulF_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulF_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulF_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17116,7 +17116,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulF_memNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14mulF_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14mulF_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17125,7 +17125,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14mulF_mem_0N
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulF_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulF_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17134,7 +17134,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulF_immNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulF_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulF_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17143,7 +17143,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulF_reg_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulF_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulF_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17152,7 +17152,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulF_reg_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18mulF_reg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18mulF_reg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17161,7 +17161,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18mulF_reg_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulF_reg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulF_reg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17170,7 +17170,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulF_reg_im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17179,7 +17179,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulD_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulD_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulD_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17188,7 +17188,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulD_memNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14mulD_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14mulD_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17197,7 +17197,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14mulD_mem_0N
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulD_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulD_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17206,7 +17206,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12mulD_immNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulD_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulD_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17215,7 +17215,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulD_reg_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulD_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulD_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17224,7 +17224,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulD_reg_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18mulD_reg_mem_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18mulD_reg_mem_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17233,7 +17233,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18mulD_reg_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulD_reg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulD_reg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17242,7 +17242,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mulD_reg_im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17251,7 +17251,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divF_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divF_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divF_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17260,7 +17260,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divF_memNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divF_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divF_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17269,7 +17269,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divF_immNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divF_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divF_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17278,7 +17278,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divF_reg_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divF_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divF_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17287,7 +17287,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divF_reg_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divF_reg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divF_reg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17296,7 +17296,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divF_reg_im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17305,7 +17305,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divD_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divD_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divD_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17314,7 +17314,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divD_memNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divD_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divD_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17323,7 +17323,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12divD_immNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divD_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divD_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17332,7 +17332,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divD_reg_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divD_reg_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divD_reg_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17341,7 +17341,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divD_reg_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divD_reg_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divD_reg_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17350,7 +17350,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16divD_reg_im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12absF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12absF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17359,7 +17359,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12absF_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16absF_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16absF_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -17368,7 +17368,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16absF_reg_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12absD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12absD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17377,7 +17377,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12absD_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16absD_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16absD_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -17386,7 +17386,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16absD_reg_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12negF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12negF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17395,7 +17395,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12negF_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16negF_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16negF_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -17404,7 +17404,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16negF_reg_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12negD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12negD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17413,7 +17413,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12negD_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16negD_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16negD_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -17422,7 +17422,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16negD_reg_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13sqrtF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13sqrtF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17431,7 +17431,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13sqrtF_regNo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13sqrtD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13sqrtD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17440,17 +17440,17 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13sqrtD_regNo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20convF2HF_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20convF2HF_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20convF2HF_mem_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20convF2HF_mem_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vconvF2HFNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vconvF2HFNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17462,12 +17462,12 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vconvF2HFNo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vconvF2HF_mem_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vconvF2HF_mem_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20convHF2F_reg_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20convHF2F_reg_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -17476,7 +17476,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20convHF2F_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vconvHF2F_reg_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vconvHF2F_reg_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17488,7 +17488,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vconvHF2F_r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vconvHF2FNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vconvHF2FNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17500,27 +17500,27 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vconvHF2FNo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20reinterpret_maskNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20reinterpret_maskNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24reinterpret_mask_W2BNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24reinterpret_mask_W2BNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24reinterpret_mask_D2BNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24reinterpret_mask_D2BNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24reinterpret_mask_Q2BNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24reinterpret_mask_Q2BNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reinterpretNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reinterpretNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17532,7 +17532,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reinterpret
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22reinterpret_expandNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22reinterpret_expandNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17544,7 +17544,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22reinterpret
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vreinterpret_expand4Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vreinterpret_expand4Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17556,7 +17556,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vreinterpre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vreinterpret_expandNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vreinterpret_expandNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17568,7 +17568,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vreinterpre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22reinterpret_shrinkNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22reinterpret_shrinkNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17580,17 +17580,17 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22reinterpret
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14roundD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14roundD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14roundD_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14roundD_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vroundD_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vroundD_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17602,7 +17602,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vroundD_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vround8D_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vround8D_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17614,7 +17614,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vround8D_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vroundD_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vroundD_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17626,7 +17626,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vroundD_mem
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vround8D_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vround8D_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17638,12 +17638,12 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vround8D_me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14onspinwaitNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14onspinwaitNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12fmaD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12fmaD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17652,7 +17652,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12fmaD_regNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12fmaF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12fmaF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17661,7 +17661,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12fmaF_regNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15MoveVec2LegNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15MoveVec2LegNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17673,7 +17673,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15MoveVec2Leg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15MoveLeg2VecNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15MoveLeg2VecNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17685,7 +17685,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15MoveLeg2Vec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadVNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadVNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17697,12 +17697,12 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9loadVNode11o
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeVNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10storeVNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10gatherNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10gatherNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17714,7 +17714,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10gatherNode1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12evgatherNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12evgatherNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17726,7 +17726,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12evgatherNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19evgather_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19evgather_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17738,7 +17738,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19evgather_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vgather_subwordLE8BNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vgather_subwordLE8BNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17750,7 +17750,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vgather_sub
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vgather_subwordGT8BNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vgather_subwordGT8BNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17762,7 +17762,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vgather_sub
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vgather_subwordLE8B_offNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vgather_subwordLE8B_offNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17774,7 +17774,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vgather_sub
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vgather_subwordGT8B_offNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vgather_subwordGT8B_offNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17786,7 +17786,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vgather_sub
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vgather_masked_subwordLE8B_avx3Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vgather_masked_subwordLE8B_avx3Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17798,7 +17798,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vgather_mas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vgather_masked_subwordGT8B_avx3Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vgather_masked_subwordGT8B_avx3Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17810,7 +17810,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vgather_mas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vgather_masked_subwordLE8B_off_avx3Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vgather_masked_subwordLE8B_off_avx3Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17822,7 +17822,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vgather_mas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vgather_masked_subwordGT8B_off_avx3Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vgather_masked_subwordGT8B_off_avx3Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17834,7 +17834,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vgather_mas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vgather_masked_subwordLE8B_avx2Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vgather_masked_subwordLE8B_avx2Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17846,7 +17846,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vgather_mas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vgather_masked_subwordGT8B_avx2Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vgather_masked_subwordGT8B_avx2Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17858,7 +17858,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vgather_mas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vgather_masked_subwordLE8B_off_avx2Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vgather_masked_subwordLE8B_off_avx2Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17870,7 +17870,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vgather_mas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vgather_masked_subwordGT8B_off_avx2Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vgather_masked_subwordGT8B_off_avx2Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17882,17 +17882,17 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vgather_mas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11scatterNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11scatterNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18scatter_maskedNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18scatter_maskedNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vReplB_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vReplB_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17904,7 +17904,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vReplB_regN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplB_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplB_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17916,7 +17916,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplB_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vReplS_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vReplS_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17928,7 +17928,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vReplS_regN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplS_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplS_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17940,7 +17940,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplS_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplI_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplI_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17952,7 +17952,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplI_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplI_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplI_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17964,7 +17964,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplI_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplI_immNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplI_immNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17976,7 +17976,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplI_immNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14ReplI_zeroNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14ReplI_zeroNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17988,7 +17988,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14ReplI_zeroN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12ReplI_M1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12ReplI_M1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18000,7 +18000,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12ReplI_M1Nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplL_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplL_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18012,7 +18012,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplL_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplL_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplL_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18024,7 +18024,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplL_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplL_immNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplL_immNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18036,7 +18036,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplL_immNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14ReplL_zeroNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14ReplL_zeroNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18048,7 +18048,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14ReplL_zeroN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12ReplL_M1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12ReplL_M1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18060,7 +18060,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12ReplL_M1Nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vReplF_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vReplF_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18072,7 +18072,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vReplF_regN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplF_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplF_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18084,7 +18084,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplF_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplF_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplF_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18096,7 +18096,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplF_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplF_immNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplF_immNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18108,7 +18108,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplF_immNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14ReplF_zeroNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14ReplF_zeroNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18120,7 +18120,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14ReplF_zeroN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vReplD_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vReplD_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18132,7 +18132,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vReplD_regN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplD_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplD_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18144,7 +18144,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplD_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplD_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplD_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18156,7 +18156,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplD_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplD_immNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplD_immNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18168,7 +18168,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ReplD_immNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14ReplD_zeroNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14ReplD_zeroNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18180,7 +18180,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14ReplD_zeroN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10insertNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10insertNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18192,7 +18192,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10insertNode1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert32Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert32Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18204,7 +18204,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert32Nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert64Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert64Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18216,7 +18216,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert64Nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert2LNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert2LNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18228,7 +18228,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert2LNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert4LNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert4LNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18240,7 +18240,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert4LNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert8LNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert8LNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18252,7 +18252,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert8LNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11insertFNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11insertFNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18264,7 +18264,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11insertFNode
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vinsertFNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vinsertFNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18276,7 +18276,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vinsertFNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert2DNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert2DNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18288,7 +18288,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert2DNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert4DNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert4DNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18300,7 +18300,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert4DNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert8DNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert8DNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18312,112 +18312,112 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12insert8DNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14reductionINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14reductionINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionI_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionI_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionI_1Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionI_1Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionI_2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionI_2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionI_3Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionI_3Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionI_4Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionI_4Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionI_5Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionI_5Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14reductionLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14reductionLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionL_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionL_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionL_1Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionL_1Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionL_2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionL_2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionL_3Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionL_3Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionL_4Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionL_4Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionL_5Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionL_5Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23reductionL_avx512dqNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23reductionL_avx512dqNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionL_avx512dq_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionL_avx512dq_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionL_avx512dq_1Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionL_avx512dq_1Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionL_avx512dq_2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionL_avx512dq_2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionL_avx512dq_3Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionL_avx512dq_3Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionL_avx512dq_4Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionL_avx512dq_4Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionL_avx512dq_5Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionL_avx512dq_5Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reductionF128Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reductionF128Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18426,7 +18426,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reductionF1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19reductionF128_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19reductionF128_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18435,7 +18435,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19reductionF1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reduction8FNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reduction8FNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18444,7 +18444,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reduction8F
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reduction8F_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reduction8F_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18453,7 +18453,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reduction8F
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reduction16FNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reduction16FNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18462,7 +18462,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reduction16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18reduction16F_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18reduction16F_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18471,7 +18471,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18reduction16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reduction2DNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reduction2DNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18480,7 +18480,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reduction2D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reduction2D_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reduction2D_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18489,7 +18489,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reduction2D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reduction4DNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reduction4DNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18498,7 +18498,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reduction4D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reduction4D_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reduction4D_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18507,7 +18507,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reduction4D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reduction8DNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reduction8DNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18516,7 +18516,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15reduction8D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reduction8D_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reduction8D_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18525,192 +18525,192 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17reduction8D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14reductionBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14reductionBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionB_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionB_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionB_1Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionB_1Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionB_2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionB_2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionB_3Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionB_3Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionB_4Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionB_4Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23reductionB_avx512bwNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23reductionB_avx512bwNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionB_avx512bw_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionB_avx512bw_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionB_avx512bw_1Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionB_avx512bw_1Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionB_avx512bw_2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionB_avx512bw_2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionB_avx512bw_3Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionB_avx512bw_3Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionB_avx512bw_4Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25reductionB_avx512bw_4Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14reductionSNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14reductionSNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionS_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionS_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionS_1Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionS_1Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionS_2Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionS_2Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionS_3Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionS_3Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionS_4Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionS_4Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionS_5Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16reductionS_5Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18mul_reductionBNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18mul_reductionBNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20mul_reduction64BNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20mul_reduction64BNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22minmax_reduction2FNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22minmax_reduction2FNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24minmax_reduction2F_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24minmax_reduction2F_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21minmax_reductionFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21minmax_reductionFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23minmax_reductionF_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23minmax_reductionF_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25minmax_reduction2F_avNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25minmax_reduction2F_avNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27minmax_reduction2F_av_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27minmax_reduction2F_av_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24minmax_reductionF_avNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24minmax_reductionF_avNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26minmax_reductionF_av_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26minmax_reductionF_av_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22minmax_reduction2DNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22minmax_reduction2DNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24minmax_reduction2D_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24minmax_reduction2D_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21minmax_reductionDNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21minmax_reductionDNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23minmax_reductionD_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23minmax_reductionD_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25minmax_reduction2D_avNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25minmax_reduction2D_avNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27minmax_reduction2D_av_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27minmax_reduction2D_av_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24minmax_reductionD_avNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24minmax_reductionD_avNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26minmax_reductionD_av_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26minmax_reductionD_av_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddBNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddBNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18722,7 +18722,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddBNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddB_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddB_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18734,7 +18734,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddB_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddB_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddB_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18746,7 +18746,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddB_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddB_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddB_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18758,7 +18758,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddB_mem_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddSNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddSNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18770,7 +18770,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddSNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddS_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddS_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18782,7 +18782,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddS_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddS_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddS_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18794,7 +18794,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddS_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddS_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddS_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18806,7 +18806,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddS_mem_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddINode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddINode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18818,7 +18818,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddINode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddI_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddI_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18830,7 +18830,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddI_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddI_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddI_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18842,7 +18842,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddI_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddI_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddI_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18854,7 +18854,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddI_mem_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddLNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddLNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18866,7 +18866,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddLNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddL_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddL_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18878,7 +18878,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddL_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddL_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddL_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18890,7 +18890,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddL_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddL_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddL_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18902,7 +18902,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddL_mem_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddFNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddFNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18914,7 +18914,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddFNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddF_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddF_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18926,7 +18926,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddF_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddF_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddF_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18938,7 +18938,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddF_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddF_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddF_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18950,7 +18950,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddF_mem_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddDNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddDNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18962,7 +18962,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vaddDNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddD_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddD_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18974,7 +18974,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddD_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddD_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddD_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18986,7 +18986,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vaddD_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddD_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddD_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18998,7 +18998,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vaddD_mem_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubBNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubBNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19010,7 +19010,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubBNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubB_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubB_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19022,7 +19022,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubB_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubB_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubB_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19034,7 +19034,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubB_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubSNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubSNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19046,7 +19046,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubSNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubS_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubS_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19058,7 +19058,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubS_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubS_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubS_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19070,7 +19070,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubS_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubINode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubINode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19082,7 +19082,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubINode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubI_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubI_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19094,7 +19094,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubI_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubI_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubI_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19106,7 +19106,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubI_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubLNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubLNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19118,7 +19118,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubLNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubL_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubL_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19130,7 +19130,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubL_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubL_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubL_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19142,7 +19142,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubL_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubFNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubFNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19154,7 +19154,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubFNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubF_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubF_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19166,7 +19166,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubF_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubF_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubF_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19178,7 +19178,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubF_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubDNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubDNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19190,7 +19190,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vsubDNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubD_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubD_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19202,7 +19202,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubD_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubD_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubD_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19214,7 +19214,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vsubD_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10vmul8BNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10vmul8BNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19226,7 +19226,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10vmul8BNode1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulBNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulBNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19238,7 +19238,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulBNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulB_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulB_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19250,7 +19250,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulB_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulSNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulSNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19262,7 +19262,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulSNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulS_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulS_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19274,7 +19274,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulS_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulS_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulS_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19286,7 +19286,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulS_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vmulS_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vmulS_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19298,7 +19298,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vmulS_mem_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulINode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulINode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19310,7 +19310,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulINode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulI_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulI_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19322,7 +19322,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulI_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulI_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulI_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19334,7 +19334,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulI_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vmulI_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vmulI_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19346,7 +19346,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vmulI_mem_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14evmulL_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14evmulL_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19358,7 +19358,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14evmulL_regN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14evmulL_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14evmulL_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19370,7 +19370,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14evmulL_memN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16evmulL_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16evmulL_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19382,7 +19382,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16evmulL_mem_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulLNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulLNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19394,7 +19394,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulLNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulL_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulL_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19406,7 +19406,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulL_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulFNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulFNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19418,7 +19418,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulFNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulF_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulF_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19430,7 +19430,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulF_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulF_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulF_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19442,7 +19442,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulF_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vmulF_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vmulF_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19454,7 +19454,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vmulF_mem_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulDNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulDNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19466,7 +19466,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vmulDNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulD_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulD_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19478,7 +19478,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulD_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulD_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulD_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19490,7 +19490,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmulD_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vmulD_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vmulD_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19502,7 +19502,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vmulD_mem_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vdivFNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vdivFNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19514,7 +19514,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vdivFNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vdivF_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vdivF_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19526,7 +19526,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vdivF_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vdivF_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vdivF_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19538,7 +19538,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vdivF_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vdivDNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vdivDNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19550,7 +19550,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vdivDNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vdivD_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vdivD_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19562,7 +19562,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vdivD_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vdivD_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vdivD_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19574,7 +19574,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vdivD_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18minmax_reg_sseNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18minmax_reg_sseNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19586,7 +19586,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18minmax_reg_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20minmax_reg_sse_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20minmax_reg_sse_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19598,7 +19598,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20minmax_reg_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vminmax_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vminmax_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19610,7 +19610,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vminmax_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vminmax_reg_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vminmax_reg_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19622,7 +19622,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vminmax_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19minmaxL_reg_sseNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19minmaxL_reg_sseNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19634,7 +19634,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19minmaxL_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21minmaxL_reg_sse_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21minmaxL_reg_sse_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19646,7 +19646,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21minmaxL_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vminmaxL_reg_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vminmaxL_reg_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19658,7 +19658,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vminmaxL_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vminmaxL_reg_avx_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vminmaxL_reg_avx_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19670,7 +19670,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vminmaxL_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vminmaxL_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vminmaxL_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19682,7 +19682,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vminmaxL_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vminmaxL_reg_evex_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vminmaxL_reg_evex_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19694,7 +19694,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vminmaxL_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16minmaxFP_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16minmaxFP_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19706,7 +19706,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16minmaxFP_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18minmaxFP_reg_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18minmaxFP_reg_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19718,7 +19718,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18minmaxFP_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23evminmaxFP_reg_eavxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23evminmaxFP_reg_eavxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19730,7 +19730,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23evminmaxFP_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25evminmaxFP_reg_eavx_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25evminmaxFP_reg_eavx_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19742,7 +19742,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25evminmaxFP_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15signumF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15signumF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19751,7 +19751,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15signumF_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15signumD_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15signumD_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19760,7 +19760,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15signumD_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19signumV_reg_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19signumV_reg_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19772,7 +19772,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19signumV_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21signumV_reg_avx_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21signumV_reg_avx_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19784,7 +19784,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21signumV_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20signumV_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20signumV_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19796,7 +19796,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20signumV_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22signumV_reg_evex_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22signumV_reg_evex_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19808,7 +19808,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22signumV_reg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17copySignF_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17copySignF_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19817,7 +19817,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17copySignF_r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17copySignD_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17copySignD_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19826,27 +19826,27 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17copySignD_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compressBitsI_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compressBitsI_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19expandBitsI_regNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19expandBitsI_regNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compressBitsI_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21compressBitsI_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19expandBitsI_memNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19expandBitsI_memNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vsqrtF_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vsqrtF_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19858,7 +19858,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vsqrtF_regN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vsqrtF_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vsqrtF_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19870,7 +19870,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vsqrtF_memN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vsqrtD_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vsqrtD_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19882,7 +19882,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vsqrtD_regN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vsqrtD_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vsqrtD_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19894,7 +19894,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vsqrtD_memN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftcntNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftcntNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19906,7 +19906,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftcntNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftcnt_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftcnt_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19918,7 +19918,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftcnt_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vshiftBNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vshiftBNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19930,7 +19930,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vshiftBNode
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftB_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftB_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19942,7 +19942,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftB_0No
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftB_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftB_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19954,7 +19954,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftB_1No
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshift16BNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshift16BNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19966,7 +19966,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshift16BNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshift16B_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshift16B_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19978,7 +19978,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshift16B_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshift16B_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshift16B_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -19990,7 +19990,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshift16B_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshift16B_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshift16B_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20002,7 +20002,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshift16B_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift16B_avx_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift16B_avx_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20014,7 +20014,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift16B_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift16B_avx_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift16B_avx_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20026,7 +20026,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift16B_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshift32B_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshift32B_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20038,7 +20038,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshift32B_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift32B_avx_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift32B_avx_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20050,7 +20050,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift32B_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift32B_avx_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift32B_avx_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20062,7 +20062,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift32B_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshift64B_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshift64B_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20074,7 +20074,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshift64B_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift64B_avx_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift64B_avx_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20086,7 +20086,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift64B_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift64B_avx_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift64B_avx_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20098,7 +20098,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vshift64B_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vshiftSNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vshiftSNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20110,7 +20110,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vshiftSNode
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftS_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftS_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20122,7 +20122,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftS_0No
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftS_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftS_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20134,7 +20134,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftS_1No
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vshiftINode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vshiftINode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20146,7 +20146,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vshiftINode
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftI_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftI_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20158,7 +20158,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftI_0No
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftI_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftI_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20170,7 +20170,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftI_1No
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftI_immNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftI_immNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20182,7 +20182,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftI_imm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftI_imm_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftI_imm_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20194,7 +20194,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftI_imm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftI_imm_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftI_imm_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20206,7 +20206,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftI_imm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vshiftLNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vshiftLNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20218,7 +20218,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vshiftLNode
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftL_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftL_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20230,7 +20230,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vshiftL_0No
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftL_immNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftL_immNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20242,7 +20242,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftL_imm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftL_imm_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftL_imm_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20254,7 +20254,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftL_imm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vshiftL_arith_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vshiftL_arith_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20266,7 +20266,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vshiftL_ari
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vshiftL_arith_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vshiftL_arith_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20278,7 +20278,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vshiftL_ari
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vshift8B_var_nobwNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vshift8B_var_nobwNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20290,7 +20290,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vshift8B_va
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshift8B_var_nobw_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshift8B_var_nobw_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20302,7 +20302,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshift8B_va
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshift8B_var_nobw_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshift8B_var_nobw_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20314,7 +20314,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshift8B_va
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vshift16B_var_nobwNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vshift16B_var_nobwNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20326,7 +20326,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vshift16B_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift16B_var_nobw_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift16B_var_nobw_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20338,7 +20338,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift16B_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift16B_var_nobw_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift16B_var_nobw_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20350,7 +20350,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift16B_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vshift32B_var_nobwNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vshift32B_var_nobwNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20362,7 +20362,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vshift32B_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift32B_var_nobw_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift32B_var_nobw_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20374,7 +20374,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift32B_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift32B_var_nobw_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift32B_var_nobw_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20386,7 +20386,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift32B_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshiftB_var_evex_bwNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshiftB_var_evex_bwNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20398,7 +20398,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshiftB_var
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vshiftB_var_evex_bw_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vshiftB_var_evex_bw_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20410,7 +20410,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vshiftB_var
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vshiftB_var_evex_bw_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vshiftB_var_evex_bw_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20422,7 +20422,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vshiftB_var
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vshift64B_var_evex_bwNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vshift64B_var_evex_bwNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20434,7 +20434,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vshift64B_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vshift64B_var_evex_bw_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vshift64B_var_evex_bw_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20446,7 +20446,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vshift64B_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vshift64B_var_evex_bw_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vshift64B_var_evex_bw_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20458,7 +20458,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vshift64B_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vshift8S_var_nobwNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vshift8S_var_nobwNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20470,7 +20470,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vshift8S_va
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshift8S_var_nobw_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshift8S_var_nobw_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20482,7 +20482,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshift8S_va
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshift8S_var_nobw_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshift8S_var_nobw_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20494,7 +20494,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vshift8S_va
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vshift16S_var_nobwNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vshift16S_var_nobwNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20506,7 +20506,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vshift16S_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift16S_var_nobw_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift16S_var_nobw_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20518,7 +20518,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift16S_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift16S_var_nobw_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift16S_var_nobw_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20530,7 +20530,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vshift16S_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vshift16S_var_evex_bwNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vshift16S_var_evex_bwNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20542,7 +20542,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vshift16S_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vshift16S_var_evex_bw_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vshift16S_var_evex_bw_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20554,7 +20554,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vshift16S_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vshift16S_var_evex_bw_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vshift16S_var_evex_bw_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20566,7 +20566,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vshift16S_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftI_varNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftI_varNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20578,7 +20578,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftI_var
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftI_var_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftI_var_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20590,7 +20590,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftI_var
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftI_var_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftI_var_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20602,7 +20602,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftI_var
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftL_varNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftL_varNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20614,7 +20614,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vshiftL_var
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftL_var_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftL_var_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20626,7 +20626,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vshiftL_var
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vshiftL_arith_varNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vshiftL_arith_varNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20638,7 +20638,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vshiftL_ari
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vshiftL_arith_var_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vshiftL_arith_var_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20650,7 +20650,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vshiftL_ari
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK8vandNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK8vandNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20662,7 +20662,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK8vandNode11ou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vand_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vand_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20674,7 +20674,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vand_regNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vand_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vand_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20686,7 +20686,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vand_memNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vand_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vand_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20698,7 +20698,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vand_mem_0N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7vorNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7vorNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20710,7 +20710,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7vorNode11out
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vor_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vor_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20722,7 +20722,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vor_regNode
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vor_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vor_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20734,7 +20734,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11vor_memNode
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vor_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vor_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20746,7 +20746,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vor_mem_0No
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK8vxorNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK8vxorNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20758,7 +20758,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK8vxorNode11ou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vxor_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vxor_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20770,7 +20770,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vxor_regNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vxor_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vxor_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20782,7 +20782,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vxor_memNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vxor_mem_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vxor_mem_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20794,7 +20794,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vxor_mem_0N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vcastBtoXNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vcastBtoXNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20806,7 +20806,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vcastBtoXNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vcastBtoDNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vcastBtoDNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20818,7 +20818,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vcastBtoDNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12castStoXNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12castStoXNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20830,7 +20830,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12castStoXNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vcastStoXNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vcastStoXNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20842,7 +20842,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vcastStoXNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vcastStoX_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vcastStoX_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20854,7 +20854,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vcastStoX_e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12castItoXNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12castItoXNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20866,7 +20866,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12castItoXNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vcastItoXNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vcastItoXNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20878,7 +20878,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vcastItoXNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vcastItoX_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vcastItoX_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20890,7 +20890,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vcastItoX_e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vcastLtoBSNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vcastLtoBSNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20902,7 +20902,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vcastLtoBSN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vcastLtoX_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vcastLtoX_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20914,7 +20914,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vcastLtoX_e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vcastFtoD_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vcastFtoD_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20926,7 +20926,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vcastFtoD_r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20castFtoX_reg_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20castFtoX_reg_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20938,7 +20938,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20castFtoX_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21castFtoX_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21castFtoX_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20950,7 +20950,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21castFtoX_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vcastDtoF_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vcastDtoF_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20962,7 +20962,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vcastDtoF_r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20castDtoX_reg_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20castDtoX_reg_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20974,7 +20974,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20castDtoX_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21castDtoX_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21castDtoX_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20986,7 +20986,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21castDtoX_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10vucastNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10vucastNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -20998,7 +20998,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10vucastNode1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vucast_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vucast_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21010,7 +21010,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vucast_0Nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vucast_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vucast_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21022,7 +21022,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vucast_1Nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vround_float_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vround_float_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21034,7 +21034,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vround_floa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vround_float_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vround_float_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21046,7 +21046,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vround_floa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vround_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vround_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21058,7 +21058,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vround_reg_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10vcmpFDNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10vcmpFDNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21070,7 +21070,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10vcmpFDNode1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13evcmpFD64Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13evcmpFD64Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21082,12 +21082,12 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13evcmpFD64No
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11evcmpFDNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11evcmpFDNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vcmp_directNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vcmp_directNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21099,7 +21099,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vcmp_direct
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vcmp_negateNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vcmp_negateNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21111,7 +21111,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vcmp_negate
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vcmpuNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vcmpuNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21123,7 +21123,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9vcmpuNode11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10vcmp64Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10vcmp64Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21135,72 +21135,72 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10vcmp64Node1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9evcmpNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK9evcmpNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12extractINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12extractINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14extractI_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14extractI_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14extractI_1Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14extractI_1Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vextractINode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vextractINode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vextractI_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vextractI_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vextractI_1Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vextractI_1Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12extractLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12extractLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vextractLNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vextractLNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12extractFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12extractFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vextractFNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vextractFNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12extractDNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12extractDNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vextractDNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vextractDNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11blendvpNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11blendvpNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21212,7 +21212,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11blendvpNode
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vblendvpINode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vblendvpINode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21224,7 +21224,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vblendvpINo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vblendvpFDNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vblendvpFDNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21236,7 +21236,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vblendvpFDN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vblendvpNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vblendvpNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21248,7 +21248,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vblendvpNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15evblendvp64Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15evblendvp64Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21260,7 +21260,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15evblendvp64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22evblendvp64_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22evblendvp64_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21272,7 +21272,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22evblendvp64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsB_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsB_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21284,7 +21284,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsB_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsS_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsS_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21296,7 +21296,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsS_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsI_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsI_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21308,7 +21308,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsI_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsL_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsL_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21320,7 +21320,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsL_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vabsnegFNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vabsnegFNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21332,7 +21332,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vabsnegFNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vabsnegF_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vabsnegF_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21344,7 +21344,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vabsnegF_0N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsneg4FNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsneg4FNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21356,7 +21356,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vabsneg4FNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vabsneg4F_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vabsneg4F_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21368,7 +21368,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vabsneg4F_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vabsnegDNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vabsnegDNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21380,7 +21380,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vabsnegDNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vabsnegD_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vabsnegD_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21392,32 +21392,32 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vabsnegD_0N
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vptest_lt16Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vptest_lt16Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vptest_ge16Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vptest_ge16Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21ktest_alltrue_le8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21ktest_alltrue_le8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21ktest_anytrue_le8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21ktest_anytrue_le8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ktest_ge8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13ktest_ge8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadMaskNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadMaskNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21429,17 +21429,17 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12loadMaskNod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14loadMask64Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14loadMask64Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17loadMask_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17loadMask_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vstoreMask1BNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vstoreMask1BNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21451,7 +21451,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vstoreMask1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vstoreMask2BNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vstoreMask2BNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21463,7 +21463,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vstoreMask2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vstoreMask4BNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vstoreMask4BNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21475,7 +21475,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vstoreMask4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15storeMask8BNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15storeMask8BNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21487,7 +21487,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15storeMask8B
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19storeMask8B_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19storeMask8B_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21499,7 +21499,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19storeMask8B
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vstoreMask4B_evex_novectmaskNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vstoreMask4B_evex_novectmaskNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21511,7 +21511,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vstoreMask4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vstoreMask8B_evex_novectmaskNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vstoreMask8B_evex_novectmaskNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21523,7 +21523,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vstoreMask8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK28vstoreMask_evex_vectmaskNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK28vstoreMask_evex_vectmaskNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21535,7 +21535,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK28vstoreMask_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vstoreMask_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vstoreMask_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21547,12 +21547,12 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vstoreMask_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vmaskcast_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vmaskcast_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmaskcastNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmaskcastNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21564,7 +21564,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmaskcastNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vmaskcast_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vmaskcast_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21576,7 +21576,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vmaskcast_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19loadIotaIndicesNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19loadIotaIndicesNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21588,7 +21588,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19loadIotaInd
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23VectorPopulateIndexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23VectorPopulateIndexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21600,7 +21600,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23VectorPopul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24VectorPopulateLIndexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24VectorPopulateLIndexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21612,7 +21612,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24VectorPopul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16loadShuffleBNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16loadShuffleBNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21624,7 +21624,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16loadShuffle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rearrangeBNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rearrangeBNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21636,7 +21636,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rearrangeBN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rearrangeB_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rearrangeB_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21648,7 +21648,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rearrangeB_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19rearrangeB_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19rearrangeB_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21660,7 +21660,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19rearrangeB_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24rearrangeB_evex_vbmiNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24rearrangeB_evex_vbmiNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21672,7 +21672,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24rearrangeB_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16loadShuffleSNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16loadShuffleSNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21684,7 +21684,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16loadShuffle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rearrangeSNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rearrangeSNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21696,7 +21696,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rearrangeSN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rearrangeS_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rearrangeS_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21708,7 +21708,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rearrangeS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21loadShuffleS_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21loadShuffleS_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21720,7 +21720,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21loadShuffle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19rearrangeS_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19rearrangeS_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21732,7 +21732,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19rearrangeS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16loadShuffleINode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16loadShuffleINode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21744,7 +21744,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16loadShuffle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rearrangeINode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rearrangeINode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21756,7 +21756,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rearrangeIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20loadShuffleI_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20loadShuffleI_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21768,7 +21768,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20loadShuffle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rearrangeI_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rearrangeI_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21780,7 +21780,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18rearrangeI_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16loadShuffleLNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16loadShuffleLNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21792,7 +21792,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16loadShuffle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rearrangeLNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rearrangeLNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21804,7 +21804,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14rearrangeLN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21loadShuffleL_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21loadShuffleL_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21816,7 +21816,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21loadShuffle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19rearrangeL_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19rearrangeL_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21828,7 +21828,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19rearrangeL_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vfmaF_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vfmaF_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21840,7 +21840,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vfmaF_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vfmaF_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vfmaF_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21852,7 +21852,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vfmaF_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vfmaD_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vfmaD_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21864,7 +21864,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vfmaD_regNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vfmaD_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vfmaD_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21876,7 +21876,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vfmaD_memNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vmuladdS2I_reg_sseNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vmuladdS2I_reg_sseNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21888,7 +21888,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vmuladdS2I_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vmuladdS2I_reg_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vmuladdS2I_reg_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21900,7 +21900,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vmuladdS2I_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmuladdaddS2I_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmuladdaddS2I_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21912,7 +21912,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmuladdaddS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vmuladdaddS2I_reg_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vmuladdaddS2I_reg_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21924,7 +21924,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vmuladdaddS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31vpopcount_integral_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31vpopcount_integral_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21936,7 +21936,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31vpopcount_i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33vpopcount_integral_reg_evex_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33vpopcount_integral_reg_evex_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21948,7 +21948,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33vpopcount_i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK38vpopcount_integral_reg_evex_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK38vpopcount_integral_reg_evex_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21960,7 +21960,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK38vpopcount_i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK40vpopcount_integral_reg_evex_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK40vpopcount_integral_reg_evex_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21972,7 +21972,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK40vpopcount_i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vpopcount_avx_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vpopcount_avx_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21984,7 +21984,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vpopcount_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vpopcount_avx_reg_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vpopcount_avx_reg_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -21996,7 +21996,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vpopcount_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK34vcount_trailing_zeros_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK34vcount_trailing_zeros_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22008,7 +22008,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK34vcount_trai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK40vcount_trailing_zeros_short_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK40vcount_trailing_zeros_short_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22020,7 +22020,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK40vcount_trai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vcount_trailing_zeros_byte_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vcount_trailing_zeros_byte_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22032,7 +22032,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vcount_trai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33vcount_trailing_zeros_reg_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33vcount_trailing_zeros_reg_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22044,7 +22044,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33vcount_trai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vpternlogNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vpternlogNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22056,7 +22056,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vpternlogNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vpternlog_memNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vpternlog_memNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22068,7 +22068,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vpternlog_m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vprotate_immI8Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vprotate_immI8Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22080,7 +22080,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vprotate_im
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vprotate_immI8_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vprotate_immI8_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22092,7 +22092,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vprotate_im
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vprorateNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vprorateNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22104,7 +22104,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12vprorateNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vprorate_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vprorate_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22116,7 +22116,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK14vprorate_0N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vmasked_load_avx_non_subwordNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vmasked_load_avx_non_subwordNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22128,7 +22128,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vmasked_loa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmasked_load_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmasked_load_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22140,97 +22140,97 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmasked_loa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33vmasked_store_avx_non_subwordNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33vmasked_store_avx_non_subwordNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vmasked_store_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vmasked_store_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27verify_vector_alignmentNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27verify_vector_alignmentNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vmask_cmp_nodeNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vmask_cmp_nodeNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmask_genNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13vmask_genNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vmask_gen_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vmask_gen_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmask_tolong_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmask_tolong_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmask_tolong_boolNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmask_tolong_boolNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vmask_tolong_avxNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vmask_tolong_avxNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vmask_truecount_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vmask_truecount_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vmask_truecount_boolNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vmask_truecount_boolNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vmask_truecount_avxNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vmask_truecount_avxNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33vmask_first_or_last_true_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33vmask_first_or_last_true_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vmask_first_or_last_true_evex_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vmask_first_or_last_true_evex_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33vmask_first_or_last_true_boolNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK33vmask_first_or_last_true_boolNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vmask_first_or_last_true_bool_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK35vmask_first_or_last_true_bool_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vmask_first_or_last_true_avxNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vmask_first_or_last_true_avxNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK34vmask_first_or_last_true_avx_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK34vmask_first_or_last_true_avx_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vcompress_reg_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vcompress_reg_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22242,7 +22242,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vcompress_r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vcompress_reg_avx_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vcompress_reg_avx_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22254,7 +22254,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vcompress_r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK29vcompress_expand_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK29vcompress_expand_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22266,7 +22266,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK29vcompress_e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31vcompress_expand_reg_evex_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31vcompress_expand_reg_evex_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22278,12 +22278,12 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK31vcompress_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vcompress_mask_reg_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK27vcompress_mask_reg_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vreverse_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vreverse_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22295,7 +22295,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16vreverse_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vreverse_reg_gfniNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vreverse_reg_gfniNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22307,7 +22307,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vreverse_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vreverse_byte_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vreverse_byte_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22319,7 +22319,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vreverse_by
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vreverse_byte64_regNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vreverse_byte64_regNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22331,7 +22331,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vreverse_by
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK36vcount_leading_zeros_IL_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK36vcount_leading_zeros_IL_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22343,7 +22343,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK36vcount_lead
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK43vcount_leading_zeros_IL_reg_evex_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK43vcount_leading_zeros_IL_reg_evex_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22355,7 +22355,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK43vcount_lead
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vcount_leading_zeros_short_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vcount_leading_zeros_short_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22367,7 +22367,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK39vcount_lead
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK38vcount_leading_zeros_byte_reg_evexNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK38vcount_leading_zeros_byte_reg_evexNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22379,7 +22379,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK38vcount_lead
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK36vcount_leading_zeros_int_reg_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK36vcount_leading_zeros_int_reg_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22391,7 +22391,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK36vcount_lead
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vcount_leading_zeros_reg_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vcount_leading_zeros_reg_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22403,7 +22403,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32vcount_lead
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vadd_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vadd_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22415,7 +22415,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vadd_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22427,7 +22427,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22439,7 +22439,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_masked_2Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_masked_2Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22451,7 +22451,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_masked_3Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_masked_3Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22463,7 +22463,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_masked_4Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_masked_4Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22475,7 +22475,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vadd_mem_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vadd_mem_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22487,7 +22487,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vadd_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22499,7 +22499,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22511,7 +22511,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_masked_2Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_masked_2Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22523,7 +22523,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_masked_3Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_masked_3Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22535,7 +22535,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_masked_4Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_masked_4Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22547,7 +22547,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vadd_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vxor_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vxor_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22559,7 +22559,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vxor_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vxor_mem_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vxor_mem_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22571,7 +22571,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vxor_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vor_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vor_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22583,7 +22583,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vor_reg_mas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vor_mem_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vor_mem_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22595,7 +22595,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18vor_mem_mas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vand_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vand_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22607,7 +22607,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vand_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vand_mem_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vand_mem_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22619,7 +22619,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vand_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vsub_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vsub_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22631,7 +22631,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vsub_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22643,7 +22643,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22655,7 +22655,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_masked_2Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_masked_2Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22667,7 +22667,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_masked_3Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_masked_3Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22679,7 +22679,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_masked_4Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_masked_4Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22691,7 +22691,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vsub_mem_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vsub_mem_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22703,7 +22703,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vsub_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22715,7 +22715,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22727,7 +22727,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_masked_2Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_masked_2Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22739,7 +22739,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_masked_3Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_masked_3Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22751,7 +22751,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_masked_4Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_masked_4Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22763,7 +22763,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vsub_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vmul_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vmul_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22775,7 +22775,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vmul_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22787,7 +22787,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_reg_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_reg_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22799,7 +22799,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_reg_masked_2Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_reg_masked_2Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22811,7 +22811,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_reg_masked_3Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_reg_masked_3Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22823,7 +22823,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vmul_mem_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vmul_mem_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22835,7 +22835,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vmul_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_mem_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_mem_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22847,7 +22847,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_mem_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_mem_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22859,7 +22859,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_mem_masked_2Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_mem_masked_2Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22871,7 +22871,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_mem_masked_3Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_mem_masked_3Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22883,7 +22883,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vmul_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vsqrt_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vsqrt_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22895,7 +22895,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vsqrt_reg_m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vsqrt_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vsqrt_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22907,7 +22907,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vsqrt_reg_m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vdiv_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vdiv_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22919,7 +22919,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vdiv_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vdiv_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vdiv_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22931,7 +22931,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vdiv_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vdiv_mem_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vdiv_mem_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22943,7 +22943,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vdiv_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vdiv_mem_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vdiv_mem_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22955,7 +22955,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vdiv_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vrol_imm_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vrol_imm_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22967,7 +22967,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vrol_imm_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vrol_imm_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vrol_imm_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22979,7 +22979,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vrol_imm_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vrol_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vrol_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -22991,7 +22991,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vrol_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vrol_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vrol_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23003,7 +23003,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vrol_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vlshift_imm_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vlshift_imm_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23015,7 +23015,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vlshift_imm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vlshift_imm_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vlshift_imm_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23027,7 +23027,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vlshift_imm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vlshift_imm_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vlshift_imm_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23039,7 +23039,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vlshift_imm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vlshift_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vlshift_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23051,7 +23051,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vlshift_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vlshift_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vlshift_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23063,7 +23063,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vlshift_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vlshift_reg_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vlshift_reg_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23075,7 +23075,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vlshift_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vlshiftv_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vlshiftv_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23087,7 +23087,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vlshiftv_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vlshiftv_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vlshiftv_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23099,7 +23099,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vlshiftv_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vlshiftv_reg_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vlshiftv_reg_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23111,7 +23111,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vlshiftv_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vrshift_imm_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vrshift_imm_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23123,7 +23123,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vrshift_imm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vrshift_imm_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vrshift_imm_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23135,7 +23135,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vrshift_imm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vrshift_imm_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vrshift_imm_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23147,7 +23147,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vrshift_imm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vrshift_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vrshift_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23159,7 +23159,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22vrshift_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vrshift_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vrshift_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23171,7 +23171,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vrshift_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vrshift_reg_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vrshift_reg_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23183,7 +23183,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vrshift_reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vrshiftv_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vrshiftv_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23195,7 +23195,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vrshiftv_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vrshiftv_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vrshiftv_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23207,7 +23207,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vrshiftv_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vrshiftv_reg_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vrshiftv_reg_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23219,7 +23219,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vrshiftv_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vurshift_imm_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vurshift_imm_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23231,7 +23231,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vurshift_im
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vurshift_imm_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vurshift_imm_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23243,7 +23243,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vurshift_im
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vurshift_imm_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vurshift_imm_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23255,7 +23255,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vurshift_im
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vurshift_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vurshift_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23267,7 +23267,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vurshift_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vurshift_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vurshift_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23279,7 +23279,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vurshift_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vurshift_reg_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vurshift_reg_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23291,7 +23291,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK25vurshift_re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vurshiftv_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vurshiftv_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23303,7 +23303,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vurshiftv_r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vurshiftv_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vurshiftv_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23315,7 +23315,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vurshiftv_r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vurshiftv_reg_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vurshiftv_reg_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23327,7 +23327,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vurshiftv_r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vmaxv_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vmaxv_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23339,7 +23339,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vmaxv_reg_m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vmaxv_mem_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vmaxv_mem_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23351,7 +23351,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vmaxv_mem_m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vminv_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vminv_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23363,7 +23363,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vminv_reg_m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vminv_mem_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vminv_mem_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23375,7 +23375,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20vminv_mem_m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vrearrangev_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vrearrangev_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23387,7 +23387,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK26vrearrangev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vabs_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vabs_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23399,7 +23399,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15vabs_masked
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vabs_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vabs_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23411,7 +23411,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vabs_masked
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vabs_masked_1Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vabs_masked_1Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23423,7 +23423,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vabs_masked
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vabs_masked_2Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vabs_masked_2Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23435,7 +23435,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17vabs_masked
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vfma_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vfma_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23447,7 +23447,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vfma_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vfma_reg_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vfma_reg_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23459,7 +23459,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vfma_reg_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vfma_mem_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vfma_mem_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23471,7 +23471,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19vfma_mem_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vfma_mem_masked_0Node11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vfma_mem_masked_0Node11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23483,27 +23483,27 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21vfma_mem_ma
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16evcmp_maskedNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16evcmp_maskedNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23mask_all_evexI_LE32Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23mask_all_evexI_LE32Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19mask_not_immLT8Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19mask_not_immLT8Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mask_not_immNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16mask_not_immNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23long_to_maskLE8_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23long_to_maskLE8_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23515,7 +23515,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23long_to_mas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23long_to_maskGT8_avxNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23long_to_maskGT8_avxNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23527,56 +23527,27 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23long_to_mas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21long_to_mask_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21long_to_mask_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19mask_opers_evexNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19mask_opers_evexNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21mask_opers_evex_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21mask_opers_evex_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21mask_opers_evex_1Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK21mask_opers_evex_1Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vternlog_reg_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #7
-  ret ptr %8
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vternlogd_mem_maskedNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #7
-  ret ptr %8
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castMMNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
-  ret ptr @_VECTMASK_REG_mask
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castVVNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK23vternlog_reg_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23588,7 +23559,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castVVNode1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13castVVLegNode11out_RegMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24vternlogd_mem_maskedNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23600,107 +23571,136 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13castVVLegNo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK36FloatClassCheck_reg_reg_vfpclassNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castMMNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
+  ret ptr @_VECTMASK_REG_mask
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10castVVNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #7
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13castVVLegNode11out_RegMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #3 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #7
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK36FloatClassCheck_reg_reg_vfpclassNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK37DoubleClassCheck_reg_reg_vfpclassNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK37DoubleClassCheck_reg_reg_vfpclassNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK30compareAndSwapP_shenandoahNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK30compareAndSwapP_shenandoahNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32compareAndSwapP_shenandoah_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32compareAndSwapP_shenandoah_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK30compareAndSwapN_shenandoahNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK30compareAndSwapN_shenandoahNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32compareAndSwapN_shenandoah_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK32compareAndSwapN_shenandoah_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK34compareAndExchangeN_shenandoahNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK34compareAndExchangeN_shenandoahNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK34compareAndExchangeP_shenandoahNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK34compareAndExchangeP_shenandoahNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10xLoadPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10xLoadPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24xCompareAndExchangePNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24xCompareAndExchangePNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xCompareAndSwapPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20xCompareAndSwapPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22xCompareAndSwapP_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22xCompareAndSwapP_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10xXChgPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10xXChgPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10zLoadPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10zLoadPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19zLoadPNullCheckNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK19zLoadPNullCheckNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11zStorePNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11zStorePNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15zStorePNullNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK15zStorePNullNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24zCompareAndExchangePNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK24zCompareAndExchangePNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20zCompareAndSwapPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK20zCompareAndSwapPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22zCompareAndSwapP_0Node11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK22zCompareAndSwapP_0Node11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10zXChgPNode11out_RegMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK10zXChgPNode11out_RegMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret ptr @_PTR_REG_mask
 }
 

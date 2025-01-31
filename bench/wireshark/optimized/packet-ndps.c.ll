@@ -4289,7 +4289,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @ndps_hash(ptr nocapture noundef readonly %0) #2 {
+define internal i32 @ndps_hash(ptr noundef readonly captures(none) %0) #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
@@ -4300,7 +4300,7 @@ define internal i32 @ndps_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @ndps_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @ndps_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -6975,7 +6975,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   br i1 %exitcond3698, label %57, label %59
 
 57:                                               ; preds = %.lr.ph3486
-  %58 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %55, ptr noundef nonnull @ei_ndps_truncated) #6
+  %58 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %55, ptr noundef nonnull @ei_ndps_truncated) #6
   br label %.loopexit
 
 59:                                               ; preds = %.lr.ph3486
@@ -8715,7 +8715,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   br i1 %exitcond3650, label %1100, label %1102
 
 1100:                                             ; preds = %.lr.ph3373
-  %1101 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1098, ptr noundef nonnull @ei_ndps_truncated) #6
+  %1101 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %1098, ptr noundef nonnull @ei_ndps_truncated) #6
   br label %.loopexit3191
 
 1102:                                             ; preds = %.lr.ph3373
@@ -8825,7 +8825,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   br i1 %exitcond3646, label %1150, label %1152
 
 1150:                                             ; preds = %.lr.ph3365
-  %1151 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1148, ptr noundef nonnull @ei_ndps_truncated) #6
+  %1151 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %1148, ptr noundef nonnull @ei_ndps_truncated) #6
   br label %.loopexit3191
 
 1152:                                             ; preds = %.lr.ph3365
@@ -9002,7 +9002,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   br i1 %exitcond3640, label %1234, label %1236
 
 1234:                                             ; preds = %.lr.ph3353
-  %1235 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1232, ptr noundef nonnull @ei_ndps_truncated) #6
+  %1235 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %1232, ptr noundef nonnull @ei_ndps_truncated) #6
   br label %.loopexit3191
 
 1236:                                             ; preds = %.lr.ph3353
@@ -9655,7 +9655,7 @@ qualifiedname.exit:                               ; preds = %1257, %.sink.split.
   br i1 %exitcond3627, label %1620, label %1622
 
 1620:                                             ; preds = %.lr.ph3325
-  %1621 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1618, ptr noundef nonnull @ei_ndps_truncated) #6
+  %1621 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %1618, ptr noundef nonnull @ei_ndps_truncated) #6
   br label %.loopexit3191
 
 1622:                                             ; preds = %.lr.ph3325
@@ -13250,7 +13250,7 @@ define internal fastcc noundef i32 @server_entry(ptr noundef %0, ptr noundef %1,
   %13 = call ptr @wmem_packet_scope() #6
   %14 = load ptr, ptr %5, align 8
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #7
-  %16 = call ptr @format_text(ptr noundef %13, ptr noundef %14, i64 noundef %15) #6
+  %16 = call ptr @format_text(ptr noundef %13, ptr noundef nonnull %14, i64 noundef %15) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3512, ptr noundef %16) #6
   %17 = load i32, ptr @hf_ndps_server_type, align 4
   %18 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %17, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #6
@@ -13389,7 +13389,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @tvb_ensure_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -13400,7 +13400,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @credentials(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -13701,7 +13701,7 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 4, 65540) i32 @get_ndps_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 4, 65540) i32 @get_ndps_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %5) #6
   %7 = zext i16 %6 to i32
@@ -13710,7 +13710,7 @@ define internal range(i32 4, 65540) i32 @get_ndps_pdu_len(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ndps_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ndps_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.541) #6
@@ -13726,13 +13726,13 @@ define internal i32 @dissect_ndps_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

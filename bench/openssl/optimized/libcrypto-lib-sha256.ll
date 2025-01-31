@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SHA224_Init(ptr nocapture noundef writeonly initializes((0, 112)) %c) local_unnamed_addr #0 {
+define noundef i32 @SHA224_Init(ptr noundef writeonly captures(none) initializes((0, 112)) %c) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %c, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
@@ -29,10 +29,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SHA256_Init(ptr nocapture noundef writeonly initializes((0, 112)) %c) local_unnamed_addr #0 {
+define noundef i32 @SHA256_Init(ptr noundef writeonly captures(none) initializes((0, 112)) %c) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %c, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
@@ -57,7 +57,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_sha256_192_init(ptr nocapture noundef writeonly initializes((0, 112)) %c) local_unnamed_addr #0 {
+define noundef i32 @ossl_sha256_192_init(ptr noundef writeonly captures(none) initializes((0, 112)) %c) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %c, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
@@ -251,14 +251,14 @@ return:                                           ; preds = %if.end38, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SHA224_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @SHA224_Final(ptr noundef writeonly captures(none) %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @SHA256_Final(ptr noundef %md, ptr noundef %c)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SHA256_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(none) %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %c, i64 40
   %num = getelementptr inbounds nuw i8, ptr %c, i64 104
@@ -440,7 +440,7 @@ return:                                           ; preds = %for.body93, %for.bo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @sha256_block_data_order(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 

@@ -183,7 +183,7 @@ declare dso_local void @restore_boot_irq_mode() local_unnamed_addr #1
 declare dso_local void @hpet_disable() local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @native_machine_restart(ptr nocapture readnone %0) #4 align 16 {
+define internal void @native_machine_restart(ptr readnone captures(none) %0) #4 align 16 {
   %2 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.46) #8
   %3 = load i32, ptr @reboot_force, align 4
   %4 = icmp eq i32 %3, 0
@@ -590,7 +590,7 @@ declare dso_local zeroext i1 @efi_reboot_required() local_unnamed_addr #1
 declare dso_local zeroext i1 @efi_runtime_disabled() local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @set_kbd_reboot(ptr nocapture noundef readonly %0) #2 section ".init.text" align 16 {
+define internal noundef i32 @set_kbd_reboot(ptr noundef readonly captures(none) %0) #2 section ".init.text" align 16 {
   %2 = load i32, ptr @reboot_type, align 4
   %3 = icmp eq i32 %2, 107
   br i1 %3, label %8, label %4
@@ -607,7 +607,7 @@ define internal noundef i32 @set_kbd_reboot(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @set_efi_reboot(ptr nocapture noundef readonly %0) #2 section ".init.text" align 16 {
+define internal noundef i32 @set_efi_reboot(ptr noundef readonly captures(none) %0) #2 section ".init.text" align 16 {
   %2 = load i32, ptr @reboot_type, align 4
   %3 = icmp eq i32 %2, 101
   br i1 %3, label %10, label %4
@@ -628,7 +628,7 @@ define internal noundef i32 @set_efi_reboot(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @set_pci_reboot(ptr nocapture noundef readonly %0) #2 section ".init.text" align 16 {
+define internal noundef i32 @set_pci_reboot(ptr noundef readonly captures(none) %0) #2 section ".init.text" align 16 {
   %2 = load i32, ptr @reboot_type, align 4
   %3 = icmp eq i32 %2, 112
   br i1 %3, label %8, label %4
@@ -645,7 +645,7 @@ define internal noundef i32 @set_pci_reboot(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @set_bios_reboot(ptr nocapture noundef readonly %0) #2 section ".init.text" align 16 {
+define internal noundef i32 @set_bios_reboot(ptr noundef readonly captures(none) %0) #2 section ".init.text" align 16 {
   %2 = load i32, ptr @reboot_type, align 4
   %3 = icmp eq i32 %2, 98
   br i1 %3, label %8, label %4
@@ -662,7 +662,7 @@ define internal noundef i32 @set_bios_reboot(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @set_acpi_reboot(ptr nocapture noundef readonly %0) #2 section ".init.text" align 16 {
+define internal noundef i32 @set_acpi_reboot(ptr noundef readonly captures(none) %0) #2 section ".init.text" align 16 {
   %2 = load i32, ptr @reboot_type, align 4
   %3 = icmp eq i32 %2, 97
   br i1 %3, label %8, label %4

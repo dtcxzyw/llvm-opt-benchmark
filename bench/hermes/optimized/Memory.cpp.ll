@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 poison, i32 7], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i64 } @_ZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code(i64 noundef %NumBytes, ptr noundef readonly %NearBlock, i32 noundef %PFlags, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %EC) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i64 } @_ZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code(i64 noundef %NumBytes, ptr noundef readonly %NearBlock, i32 noundef %PFlags, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %EC) local_unnamed_addr #0 align 2 {
 entry:
   %Result = alloca %"class.llvh::sys::MemoryBlock", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #7
@@ -150,7 +150,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, ptr } @_ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %M, i32 noundef %Flags) local_unnamed_addr #0 align 2 {
+define hidden { i32, ptr } @_ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %M, i32 noundef %Flags) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -245,7 +245,7 @@ return:                                           ; preds = %if.end25, %if.then1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, ptr } @_ZN4llvh3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %M) local_unnamed_addr #0 align 2 {
+define hidden { i32, ptr } @_ZN4llvh3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %M) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %M, align 8
   %cmp = icmp eq ptr %0, null
@@ -307,7 +307,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_catego
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

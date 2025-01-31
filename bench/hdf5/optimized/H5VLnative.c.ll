@@ -90,19 +90,19 @@ declare i64 @H5VL__register_connector(ptr noundef, i1 noundef zeroext, i64 nound
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5VL__native_introspect_get_conn_cls(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #2 {
+define noundef i32 @H5VL__native_introspect_get_conn_cls(ptr readnone captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #2 {
   store ptr @H5VL_native_cls_g, ptr %2, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5VL__native_introspect_get_cap_flags(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
+define noundef i32 @H5VL__native_introspect_get_cap_flags(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
   store i64 137438928892, ptr %1, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL_native_get_file_addr_len(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL_native_get_file_addr_len(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i32 @H5I_get_type(i64 noundef %0) #6
   %5 = icmp slt i32 %4, 0
@@ -159,7 +159,7 @@ declare i32 @H5I_get_type(i64 noundef) local_unnamed_addr #1
 declare ptr @H5VL_object(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL__native_get_file_addr_len(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL__native_get_file_addr_len(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = call i32 @H5VL_native_get_file_struct(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
   %6 = icmp slt i32 %5, 0
@@ -184,7 +184,7 @@ define range(i32 -1, 1) i32 @H5VL__native_get_file_addr_len(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL_native_get_file_struct(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL_native_get_file_struct(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   switch i32 %1, label %16 [
     i32 1, label %.thread
@@ -396,7 +396,7 @@ declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #1
 declare i32 @H5E_dump_api_stack() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @H5F_addr_encode_len(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -646,10 +646,10 @@ declare i32 @H5VL__native_token_to_str(ptr noundef, i32 noundef, ptr noundef, pt
 declare i32 @H5VL__native_str_to_token(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

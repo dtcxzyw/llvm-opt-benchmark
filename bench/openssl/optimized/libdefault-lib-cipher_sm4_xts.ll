@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @sm4_xts_known_settable_ctx_params = internal constant [2 x %struct.ossl_param_st] [%struct.ossl_param_st { ptr @.str.1, i32 4, ptr null, i64 0, i64 -1 }, %struct.ossl_param_st zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm4_128_xts_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @sm4_128_xts_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 504, ptr noundef nonnull @.str, i32 noundef 80) #3
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm4_xts_stream_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @sm4_xts_stream_update(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %cmp = icmp ult i64 %outsize, %inl
   br i1 %cmp, label %return.sink.split, label %if.end
@@ -72,7 +72,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm4_xts_stream_final(ptr nocapture readnone %vctx, ptr nocapture readnone %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @sm4_xts_stream_final(ptr readnone captures(none) %vctx, ptr readnone captures(none) %out, ptr noundef writeonly captures(none) %outl, i64 %outsize) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -88,7 +88,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm4_xts_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @sm4_xts_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -240,7 +240,7 @@ declare i32 @ossl_cipher_generic_get_ctx_params(ptr noundef, ptr noundef) #1
 declare ptr @ossl_cipher_generic_gettable_ctx_params(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm4_xts_set_ctx_params(ptr nocapture noundef writeonly %vxctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @sm4_xts_set_ctx_params(ptr noundef writeonly captures(none) %vxctx, ptr noundef %params) #0 {
 entry:
   %xts_standard = alloca ptr, align 8
   %cmp = icmp eq ptr %params, null
@@ -303,7 +303,7 @@ return:                                           ; preds = %if.end, %if.then15,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @sm4_xts_settable_ctx_params(ptr nocapture readnone %cctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @sm4_xts_settable_ctx_params(ptr readnone captures(none) %cctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @sm4_xts_known_settable_ctx_params
 }

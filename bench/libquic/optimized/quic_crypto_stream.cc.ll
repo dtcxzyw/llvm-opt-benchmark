@@ -118,19 +118,19 @@ entry:
 declare noundef i64 @_ZN3net17QuicPacketCreator25StreamFramePacketOverheadENS_11QuicVersionENS_22QuicConnectionIdLengthEbbbNS_22QuicPacketNumberLengthEm(i32 noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i8 noundef signext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %framer) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %framer) unnamed_addr #3 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZThn384_N3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE(ptr nocapture readnone %this, ptr nocapture readnone %framer) unnamed_addr #3 align 2 {
+define dso_local void @_ZThn384_N3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE(ptr readnone captures(none) %this, ptr readnone captures(none) %framer) unnamed_addr #3 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(72) %message) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(72) %message) unnamed_addr #0 align 2 {
 entry:
   %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_.i, align 8
@@ -142,7 +142,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZThn384_N3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(72) %message) unnamed_addr #4 align 2 {
+define dso_local void @_ZThn384_N3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(72) %message) unnamed_addr #4 align 2 {
 entry:
   %session_.i.i = getelementptr inbounds i8, ptr %this, i64 -160
   %0 = load ptr, ptr %session_.i.i, align 8

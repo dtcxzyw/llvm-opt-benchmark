@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opn = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @Proutespline(ptr noundef %0, i32 noundef %1, ptr %2, i32 %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @Proutespline(ptr noundef %0, i32 noundef %1, ptr %2, i32 %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = load double, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load double, ptr %8, align 8
@@ -66,7 +66,7 @@ define range(i32 -1, 1) i32 @Proutespline(ptr noundef %0, i32 noundef %1, ptr %2
   %31 = load double, ptr %8, align 8
   %32 = load double, ptr %15, align 8
   %33 = load double, ptr %17, align 8
-  %34 = tail call fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, double %30, double %31, double %32, double %33)
+  %34 = tail call fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, double %30, double %31, double %32, double %33)
   %35 = icmp eq i32 %34, -1
   br i1 %35, label %growops.exit, label %36
 
@@ -84,7 +84,7 @@ growops.exit:                                     ; preds = %25, %28, %36
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, double %4, double %5, double %6, double %7) unnamed_addr #0 {
@@ -1005,7 +1005,7 @@ splinefits.exit:                                  ; preds = %395, %374
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #3
@@ -1022,10 +1022,10 @@ declare i32 @solve3(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare double @llvm.sqrt.f64(double) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -1505,7 +1505,7 @@ for.end84:                                        ; preds = %if.end76, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow7compute9Hashing327HashBitEbljPKhPj(i1 noundef zeroext %combine_hashes, i64 noundef %bit_offset, i32 noundef %num_keys, ptr nocapture noundef readonly %keys, ptr nocapture noundef %hashes) local_unnamed_addr #2 align 2 {
+define void @_ZN5arrow7compute9Hashing327HashBitEbljPKhPj(i1 noundef zeroext %combine_hashes, i64 noundef %bit_offset, i32 noundef %num_keys, ptr noundef readonly captures(none) %keys, ptr noundef captures(none) %hashes) local_unnamed_addr #2 align 2 {
 entry:
   %cmp8.not.i = icmp eq i32 %num_keys, 0
   br i1 %combine_hashes, label %if.then, label %if.else
@@ -1573,7 +1573,7 @@ if.end:                                           ; preds = %for.body.i7, %for.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow7compute9Hashing327HashIntEbjmPKhPj(i1 noundef zeroext %combine_hashes, i32 noundef %num_keys, i64 noundef %length_key, ptr nocapture noundef readonly %keys, ptr nocapture noundef %hashes) local_unnamed_addr #2 align 2 {
+define void @_ZN5arrow7compute9Hashing327HashIntEbjmPKhPj(i1 noundef zeroext %combine_hashes, i32 noundef %num_keys, i64 noundef %length_key, ptr noundef readonly captures(none) %keys, ptr noundef captures(none) %hashes) local_unnamed_addr #2 align 2 {
 entry:
   switch i64 %length_key, label %sw.epilog [
     i64 1, label %sw.bb
@@ -2455,7 +2455,7 @@ for.end38:                                        ; preds = %_ZN5arrow7compute9H
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute9Hashing3215HashMultiColumnERKSt6vectorINS0_14KeyColumnArrayESaIS3_EEPNS0_12LightContextEPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cols, ptr nocapture noundef readonly %ctx, ptr noundef %hashes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute9Hashing3215HashMultiColumnERKSt6vectorINS0_14KeyColumnArrayESaIS3_EEPNS0_12LightContextEPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cols, ptr noundef readonly captures(none) %ctx, ptr noundef %hashes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hash_temp_buf = alloca %"class.arrow::util::TempVectorHolder", align 8
   %null_indices_buf = alloca %"class.arrow::util::TempVectorHolder.0", align 8
@@ -3143,7 +3143,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute9Hashing329HashBatchERKNS0_9ExecBatchEPjRSt6vectorINS0_14KeyColumnArrayESaIS7_EElPNS_4util15TempVectorStackEll(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %key_batch, ptr noundef %hashes, ptr noundef nonnull align 8 dereferenceable(24) %column_arrays, i64 noundef %hardware_flags, ptr noundef %temp_stack, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute9Hashing329HashBatchERKNS0_9ExecBatchEPjRSt6vectorINS0_14KeyColumnArrayESaIS7_EElPNS_4util15TempVectorStackEll(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %key_batch, ptr noundef %hashes, ptr noundef nonnull align 8 dereferenceable(24) %column_arrays, i64 noundef %hardware_flags, ptr noundef %temp_stack, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ctx = alloca %"struct.arrow::compute::LightContext", align 8
@@ -4784,7 +4784,7 @@ for.end84:                                        ; preds = %if.end76, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow7compute9Hashing647HashBitEbljPKhPm(i1 noundef zeroext %combine_hashes, i64 noundef %bit_offset, i32 noundef %num_keys, ptr nocapture noundef readonly %keys, ptr nocapture noundef %hashes) local_unnamed_addr #2 align 2 {
+define void @_ZN5arrow7compute9Hashing647HashBitEbljPKhPm(i1 noundef zeroext %combine_hashes, i64 noundef %bit_offset, i32 noundef %num_keys, ptr noundef readonly captures(none) %keys, ptr noundef captures(none) %hashes) local_unnamed_addr #2 align 2 {
 entry:
   %cmp8.not.i = icmp eq i32 %num_keys, 0
   br i1 %combine_hashes, label %if.then, label %if.else
@@ -4852,7 +4852,7 @@ if.end:                                           ; preds = %for.body.i7, %for.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow7compute9Hashing647HashIntEbjmPKhPm(i1 noundef zeroext %combine_hashes, i32 noundef %num_keys, i64 noundef %length_key, ptr nocapture noundef readonly %keys, ptr nocapture noundef %hashes) local_unnamed_addr #2 align 2 {
+define void @_ZN5arrow7compute9Hashing647HashIntEbjmPKhPm(i1 noundef zeroext %combine_hashes, i32 noundef %num_keys, i64 noundef %length_key, ptr noundef readonly captures(none) %keys, ptr noundef captures(none) %hashes) local_unnamed_addr #2 align 2 {
 entry:
   switch i64 %length_key, label %sw.epilog [
     i64 1, label %sw.bb
@@ -5746,7 +5746,7 @@ for.end38:                                        ; preds = %_ZN5arrow7compute9H
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute9Hashing6415HashMultiColumnERKSt6vectorINS0_14KeyColumnArrayESaIS3_EEPNS0_12LightContextEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cols, ptr nocapture noundef readonly %ctx, ptr noundef %hashes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute9Hashing6415HashMultiColumnERKSt6vectorINS0_14KeyColumnArrayESaIS3_EEPNS0_12LightContextEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cols, ptr noundef readonly captures(none) %ctx, ptr noundef %hashes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %null_indices_buf = alloca %"class.arrow::util::TempVectorHolder.0", align 8
   %num_null_indices = alloca i32, align 4
@@ -6322,7 +6322,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute9Hashing649HashBatchERKNS0_9ExecBatchEPmRSt6vectorINS0_14KeyColumnArrayESaIS7_EElPNS_4util15TempVectorStackEll(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %key_batch, ptr noundef %hashes, ptr noundef nonnull align 8 dereferenceable(24) %column_arrays, i64 noundef %hardware_flags, ptr noundef %temp_stack, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute9Hashing649HashBatchERKNS0_9ExecBatchEPmRSt6vectorINS0_14KeyColumnArrayESaIS7_EElPNS_4util15TempVectorStackEll(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %key_batch, ptr noundef %hashes, ptr noundef nonnull align 8 dereferenceable(24) %column_arrays, i64 noundef %hardware_flags, ptr noundef %temp_stack, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ctx = alloca %"struct.arrow::compute::LightContext", align 8
@@ -6359,7 +6359,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #3

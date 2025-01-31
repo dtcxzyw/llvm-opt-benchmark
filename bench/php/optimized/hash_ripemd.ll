@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @PADDING = internal constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_RIPEMD128Init(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_RIPEMD128Init(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %4, align 4
@@ -43,7 +43,7 @@ define void @PHP_RIPEMD128Init(ptr nocapture noundef writeonly initializes((0, 2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD128Update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
+define void @PHP_RIPEMD128Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4
@@ -81,7 +81,7 @@ define void @PHP_RIPEMD128Update(ptr nocapture noundef %0, ptr nocapture noundef
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.031 = phi i64 [ %28, %.lr.ph ], [ %20, %21 ]
   %27 = getelementptr inbounds i8, ptr %1, i64 %.031
-  tail call fastcc void @RIPEMD128Transform(ptr noundef %0, ptr noundef %27)
+  tail call fastcc void @RIPEMD128Transform(ptr noundef nonnull %0, ptr noundef nonnull %27)
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
   %30 = icmp ult i64 %29, %2
@@ -103,7 +103,7 @@ define void @PHP_RIPEMD128Update(ptr nocapture noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD128Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #1 {
+define void @PHP_RIPEMD128Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [8 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4
@@ -171,7 +171,7 @@ define void @PHP_RIPEMD128Final(ptr nocapture noundef writeonly %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
   %49 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @RIPEMD128Transform(ptr noundef %1, ptr noundef nonnull readonly %49)
+  tail call fastcc void @RIPEMD128Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %49)
   %50 = add nuw nsw i64 %.031.i, 64
   %51 = add nuw nsw i64 %.031.i, 127
   %52 = icmp samesign ult i64 %51, %33
@@ -267,7 +267,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #2
 declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_RIPEMD160Init(ptr nocapture noundef writeonly initializes((0, 28)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_RIPEMD160Init(ptr noundef writeonly captures(none) initializes((0, 28)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %4, align 4
@@ -285,7 +285,7 @@ define void @PHP_RIPEMD160Init(ptr nocapture noundef writeonly initializes((0, 2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD160Update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
+define void @PHP_RIPEMD160Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
@@ -323,7 +323,7 @@ define void @PHP_RIPEMD160Update(ptr nocapture noundef %0, ptr nocapture noundef
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.031 = phi i64 [ %28, %.lr.ph ], [ %20, %21 ]
   %27 = getelementptr inbounds i8, ptr %1, i64 %.031
-  tail call fastcc void @RIPEMD160Transform(ptr noundef %0, ptr noundef %27)
+  tail call fastcc void @RIPEMD160Transform(ptr noundef nonnull %0, ptr noundef nonnull %27)
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
   %30 = icmp ult i64 %29, %2
@@ -345,7 +345,7 @@ define void @PHP_RIPEMD160Update(ptr nocapture noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD160Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #1 {
+define void @PHP_RIPEMD160Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [8 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
@@ -413,7 +413,7 @@ define void @PHP_RIPEMD160Final(ptr nocapture noundef writeonly %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
   %49 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @RIPEMD160Transform(ptr noundef %1, ptr noundef nonnull readonly %49)
+  tail call fastcc void @RIPEMD160Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %49)
   %50 = add nuw nsw i64 %.031.i, 64
   %51 = add nuw nsw i64 %.031.i, 127
   %52 = icmp samesign ult i64 %51, %33
@@ -503,7 +503,7 @@ RIPEMDEncode.exit:                                ; preds = %77
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_RIPEMD256Init(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_RIPEMD256Init(ptr noundef writeonly captures(none) initializes((0, 40)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -527,7 +527,7 @@ define void @PHP_RIPEMD256Init(ptr nocapture noundef writeonly initializes((0, 4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD256Update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
+define void @PHP_RIPEMD256Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 4
@@ -565,7 +565,7 @@ define void @PHP_RIPEMD256Update(ptr nocapture noundef %0, ptr nocapture noundef
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.031 = phi i64 [ %28, %.lr.ph ], [ %20, %21 ]
   %27 = getelementptr inbounds i8, ptr %1, i64 %.031
-  tail call fastcc void @RIPEMD256Transform(ptr noundef %0, ptr noundef %27)
+  tail call fastcc void @RIPEMD256Transform(ptr noundef nonnull %0, ptr noundef nonnull %27)
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
   %30 = icmp ult i64 %29, %2
@@ -587,7 +587,7 @@ define void @PHP_RIPEMD256Update(ptr nocapture noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD256Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #1 {
+define void @PHP_RIPEMD256Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [8 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 4
@@ -655,7 +655,7 @@ define void @PHP_RIPEMD256Final(ptr nocapture noundef writeonly %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
   %49 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @RIPEMD256Transform(ptr noundef %1, ptr noundef nonnull readonly %49)
+  tail call fastcc void @RIPEMD256Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %49)
   %50 = add nuw nsw i64 %.031.i, 64
   %51 = add nuw nsw i64 %.031.i, 127
   %52 = icmp samesign ult i64 %51, %33
@@ -745,7 +745,7 @@ RIPEMDEncode.exit:                                ; preds = %77
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_RIPEMD320Init(ptr nocapture noundef writeonly initializes((0, 48)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_RIPEMD320Init(ptr noundef writeonly captures(none) initializes((0, 48)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %4, align 4
@@ -773,7 +773,7 @@ define void @PHP_RIPEMD320Init(ptr nocapture noundef writeonly initializes((0, 4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD320Update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
+define void @PHP_RIPEMD320Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 4
@@ -811,7 +811,7 @@ define void @PHP_RIPEMD320Update(ptr nocapture noundef %0, ptr nocapture noundef
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.031 = phi i64 [ %28, %.lr.ph ], [ %20, %21 ]
   %27 = getelementptr inbounds i8, ptr %1, i64 %.031
-  tail call fastcc void @RIPEMD320Transform(ptr noundef %0, ptr noundef %27)
+  tail call fastcc void @RIPEMD320Transform(ptr noundef nonnull %0, ptr noundef nonnull %27)
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
   %30 = icmp ult i64 %29, %2
@@ -833,7 +833,7 @@ define void @PHP_RIPEMD320Update(ptr nocapture noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD320Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #1 {
+define void @PHP_RIPEMD320Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [8 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 4
@@ -901,7 +901,7 @@ define void @PHP_RIPEMD320Final(ptr nocapture noundef writeonly %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
   %49 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @RIPEMD320Transform(ptr noundef %1, ptr noundef nonnull readonly %49)
+  tail call fastcc void @RIPEMD320Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %49)
   %50 = add nuw nsw i64 %.031.i, 64
   %51 = add nuw nsw i64 %.031.i, 127
   %52 = icmp samesign ult i64 %51, %33
@@ -991,10 +991,10 @@ RIPEMDEncode.exit:                                ; preds = %77
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RIPEMD128Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @RIPEMD128Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca [16 x i32], align 16
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1273,7 +1273,7 @@ RIPEMDDecode.exit:                                ; preds = %11, %RIPEMDDecode.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RIPEMD256Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @RIPEMD256Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca [16 x i32], align 16
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1564,7 +1564,7 @@ RIPEMDDecode.exit:                                ; preds = %19, %RIPEMDDecode.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RIPEMD160Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @RIPEMD160Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca [16 x i32], align 16
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1934,7 +1934,7 @@ RIPEMDDecode.exit:                                ; preds = %13, %RIPEMDDecode.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RIPEMD320Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @RIPEMD320Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca [16 x i32], align 16
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4

@@ -489,7 +489,7 @@ define ptr @PaUtil_SelectConverter(i64 noundef %0, i64 noundef %1, i64 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Float32_To_Int32(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Float32_To_Int32(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not11 = icmp eq i32 %4, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -517,7 +517,7 @@ define internal void @Float32_To_Int32(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Float32_To_Int32_Dither(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Float32_To_Int32_Dither(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not13 = icmp eq i32 %4, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -548,7 +548,7 @@ define internal void @Float32_To_Int32_Dither(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Float32_To_Int32_Clip(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Float32_To_Int32_Clip(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not15 = icmp eq i32 %4, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -587,7 +587,7 @@ define internal void @Float32_To_Int32_Clip(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Float32_To_Int32_DitherClip(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Float32_To_Int32_DitherClip(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not17 = icmp eq i32 %4, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -628,7 +628,7 @@ define internal void @Float32_To_Int32_DitherClip(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Float32_To_Int24(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Float32_To_Int24(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not16 = icmp eq i32 %4, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
@@ -668,7 +668,7 @@ define internal void @Float32_To_Int24(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Float32_To_Int24_Dither(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Float32_To_Int24_Dither(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not18 = icmp eq i32 %4, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -710,7 +710,7 @@ define internal void @Float32_To_Int24_Dither(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Float32_To_Int24_Clip(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Float32_To_Int24_Clip(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not20 = icmp eq i32 %4, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -760,7 +760,7 @@ define internal void @Float32_To_Int24_Clip(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Float32_To_Int24_DitherClip(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Float32_To_Int24_DitherClip(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not22 = icmp eq i32 %4, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
@@ -812,7 +812,7 @@ define internal void @Float32_To_Int24_DitherClip(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Float32_To_Int16(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Float32_To_Int16(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not11 = icmp eq i32 %4, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -840,7 +840,7 @@ define internal void @Float32_To_Int16(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Float32_To_Int16_Dither(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Float32_To_Int16_Dither(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not13 = icmp eq i32 %4, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -869,7 +869,7 @@ define internal void @Float32_To_Int16_Dither(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Float32_To_Int16_Clip(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Float32_To_Int16_Clip(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not14 = icmp eq i32 %4, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -897,7 +897,7 @@ define internal void @Float32_To_Int16_Clip(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Float32_To_Int16_DitherClip(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Float32_To_Int16_DitherClip(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not17 = icmp eq i32 %4, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -926,7 +926,7 @@ define internal void @Float32_To_Int16_DitherClip(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Float32_To_Int8(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Float32_To_Int8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not11 = icmp eq i32 %4, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -954,7 +954,7 @@ define internal void @Float32_To_Int8(ptr nocapture noundef writeonly %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Float32_To_Int8_Dither(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Float32_To_Int8_Dither(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not14 = icmp eq i32 %4, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -984,7 +984,7 @@ define internal void @Float32_To_Int8_Dither(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Float32_To_Int8_Clip(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Float32_To_Int8_Clip(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not14 = icmp eq i32 %4, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -1012,7 +1012,7 @@ define internal void @Float32_To_Int8_Clip(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Float32_To_Int8_DitherClip(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Float32_To_Int8_DitherClip(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not17 = icmp eq i32 %4, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -1041,7 +1041,7 @@ define internal void @Float32_To_Int8_DitherClip(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Float32_To_UInt8(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Float32_To_UInt8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not11 = icmp eq i32 %4, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -1070,7 +1070,7 @@ define internal void @Float32_To_UInt8(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Float32_To_UInt8_Dither(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Float32_To_UInt8_Dither(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not14 = icmp eq i32 %4, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -1101,7 +1101,7 @@ define internal void @Float32_To_UInt8_Dither(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Float32_To_UInt8_Clip(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Float32_To_UInt8_Clip(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not14 = icmp eq i32 %4, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -1130,7 +1130,7 @@ define internal void @Float32_To_UInt8_Clip(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Float32_To_UInt8_DitherClip(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Float32_To_UInt8_DitherClip(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not17 = icmp eq i32 %4, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -1160,7 +1160,7 @@ define internal void @Float32_To_UInt8_DitherClip(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int32_To_Float32(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int32_To_Float32(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1189,7 +1189,7 @@ define internal void @Int32_To_Float32(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int32_To_Int24(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int32_To_Int24(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not14 = icmp eq i32 %4, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -1228,12 +1228,12 @@ define internal void @Int32_To_Int24(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @Int32_To_Int24_Dither(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, i32 %3, i32 %4, ptr nocapture readnone %5) #4 {
+define internal void @Int32_To_Int24_Dither(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3, i32 %4, ptr readnone captures(none) %5) #4 {
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int32_To_Int16(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int32_To_Int16(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1261,7 +1261,7 @@ define internal void @Int32_To_Int16(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Int32_To_Int16_Dither(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Int32_To_Int16_Dither(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not12 = icmp eq i32 %4, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -1292,7 +1292,7 @@ define internal void @Int32_To_Int16_Dither(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int32_To_Int8(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int32_To_Int8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1320,7 +1320,7 @@ define internal void @Int32_To_Int8(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Int32_To_Int8_Dither(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Int32_To_Int8_Dither(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not12 = icmp eq i32 %4, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -1351,7 +1351,7 @@ define internal void @Int32_To_Int8_Dither(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int32_To_UInt8(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int32_To_UInt8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1380,12 +1380,12 @@ define internal void @Int32_To_UInt8(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @Int32_To_UInt8_Dither(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, i32 %3, i32 %4, ptr nocapture readnone %5) #4 {
+define internal void @Int32_To_UInt8_Dither(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3, i32 %4, ptr readnone captures(none) %5) #4 {
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int24_To_Float32(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int24_To_Float32(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not15 = icmp eq i32 %4, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -1422,7 +1422,7 @@ define internal void @Int24_To_Float32(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int24_To_Int32(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int24_To_Int32(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not15 = icmp eq i32 %4, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -1456,7 +1456,7 @@ define internal void @Int24_To_Int32(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int24_To_Int16(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int24_To_Int16(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not13 = icmp eq i32 %4, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -1484,7 +1484,7 @@ define internal void @Int24_To_Int16(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Int24_To_Int16_Dither(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Int24_To_Int16_Dither(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not17 = icmp eq i32 %4, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -1522,7 +1522,7 @@ define internal void @Int24_To_Int16_Dither(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int24_To_Int8(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int24_To_Int8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1550,7 +1550,7 @@ define internal void @Int24_To_Int8(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Int24_To_Int8_Dither(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal void @Int24_To_Int8_Dither(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %.not17 = icmp eq i32 %4, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -1588,7 +1588,7 @@ define internal void @Int24_To_Int8_Dither(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int24_To_UInt8(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int24_To_UInt8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1617,12 +1617,12 @@ define internal void @Int24_To_UInt8(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @Int24_To_UInt8_Dither(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, i32 %3, i32 %4, ptr nocapture readnone %5) #4 {
+define internal void @Int24_To_UInt8_Dither(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3, i32 %4, ptr readnone captures(none) %5) #4 {
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int16_To_Float32(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int16_To_Float32(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not11 = icmp eq i32 %4, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -1650,7 +1650,7 @@ define internal void @Int16_To_Float32(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int16_To_Int32(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int16_To_Int32(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1678,7 +1678,7 @@ define internal void @Int16_To_Int32(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int16_To_Int24(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int16_To_Int24(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not14 = icmp eq i32 %4, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -1712,7 +1712,7 @@ define internal void @Int16_To_Int24(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int16_To_Int8(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int16_To_Int8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1740,12 +1740,12 @@ define internal void @Int16_To_Int8(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @Int16_To_Int8_Dither(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, i32 %3, i32 %4, ptr nocapture readnone %5) #4 {
+define internal void @Int16_To_Int8_Dither(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3, i32 %4, ptr readnone captures(none) %5) #4 {
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int16_To_UInt8(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int16_To_UInt8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1774,12 +1774,12 @@ define internal void @Int16_To_UInt8(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @Int16_To_UInt8_Dither(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, i32 %3, i32 %4, ptr nocapture readnone %5) #4 {
+define internal void @Int16_To_UInt8_Dither(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3, i32 %4, ptr readnone captures(none) %5) #4 {
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int8_To_Float32(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int8_To_Float32(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not11 = icmp eq i32 %4, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -1807,7 +1807,7 @@ define internal void @Int8_To_Float32(ptr nocapture noundef writeonly %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int8_To_Int32(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int8_To_Int32(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1835,7 +1835,7 @@ define internal void @Int8_To_Int32(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int8_To_Int24(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int8_To_Int24(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not12 = icmp eq i32 %4, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -1866,7 +1866,7 @@ define internal void @Int8_To_Int24(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int8_To_Int16(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int8_To_Int16(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1894,7 +1894,7 @@ define internal void @Int8_To_Int16(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Int8_To_UInt8(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Int8_To_UInt8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1921,7 +1921,7 @@ define internal void @Int8_To_UInt8(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UInt8_To_Float32(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @UInt8_To_Float32(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not11 = icmp eq i32 %4, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -1951,7 +1951,7 @@ define internal void @UInt8_To_Float32(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UInt8_To_Int32(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @UInt8_To_Int32(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1980,7 +1980,7 @@ define internal void @UInt8_To_Int32(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UInt8_To_Int24(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @UInt8_To_Int24(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not12 = icmp eq i32 %4, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -2012,7 +2012,7 @@ define internal void @UInt8_To_Int24(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UInt8_To_Int16(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @UInt8_To_Int16(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -2041,7 +2041,7 @@ define internal void @UInt8_To_Int16(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UInt8_To_Int8(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @UInt8_To_Int8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -2068,7 +2068,7 @@ define internal void @UInt8_To_Int8(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Copy_8_To_8(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Copy_8_To_8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -2094,7 +2094,7 @@ define internal void @Copy_8_To_8(ptr nocapture noundef writeonly %0, i32 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Copy_16_To_16(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Copy_16_To_16(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -2120,7 +2120,7 @@ define internal void @Copy_16_To_16(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Copy_24_To_24(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Copy_24_To_24(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not14 = icmp eq i32 %4, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -2156,7 +2156,7 @@ define internal void @Copy_24_To_24(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Copy_32_To_32(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @Copy_32_To_32(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -2223,7 +2223,7 @@ define ptr @PaUtil_SelectZeroer(i64 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @ZeroU8(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) #5 {
+define internal void @ZeroU8(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) #5 {
   %.not5 = icmp eq i32 %2, 0
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -2245,7 +2245,7 @@ define internal void @ZeroU8(ptr nocapture noundef writeonly %0, i32 noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @Zero8(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) #5 {
+define internal void @Zero8(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) #5 {
   %.not5 = icmp eq i32 %2, 0
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -2267,7 +2267,7 @@ define internal void @Zero8(ptr nocapture noundef writeonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @Zero16(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) #5 {
+define internal void @Zero16(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) #5 {
   %.not5 = icmp eq i32 %2, 0
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -2289,7 +2289,7 @@ define internal void @Zero16(ptr nocapture noundef writeonly %0, i32 noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @Zero24(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) #5 {
+define internal void @Zero24(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) #5 {
   %.not7 = icmp eq i32 %2, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -2316,7 +2316,7 @@ define internal void @Zero24(ptr nocapture noundef writeonly %0, i32 noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @Zero32(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) #5 {
+define internal void @Zero32(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) #5 {
   %.not5 = icmp eq i32 %2, 0
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 

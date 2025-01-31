@@ -1169,7 +1169,7 @@ return:                                           ; preds = %out_error, %if.end3
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @qmp_query_client_list(ptr nocapture noundef nonnull readonly %vd) unnamed_addr #0 {
+define internal fastcc noundef ptr @qmp_query_client_list(ptr noundef nonnull readonly captures(none) %vd) unnamed_addr #0 {
 entry:
   %err.i = alloca ptr, align 8
   %client.06 = load ptr, ptr %vd, align 8
@@ -1253,7 +1253,7 @@ declare void @qapi_free_SocketAddress(ptr noundef) local_unnamed_addr #2
 declare void @qapi_free_VncInfo(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qmp_query_vnc_servers(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @qmp_query_vnc_servers(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %vd.042 = load ptr, ptr @vnc_displays, align 8
   %tobool.not43 = icmp eq ptr %vd.042, null
@@ -1793,7 +1793,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vnc_server_fb_stride(ptr nocapture noundef readonly %vd) local_unnamed_addr #0 {
+define dso_local i32 @vnc_server_fb_stride(ptr noundef readonly captures(none) %vd) local_unnamed_addr #0 {
 entry:
   %server = getelementptr inbounds nuw i8, ptr %vd, i64 284920
   %0 = load ptr, ptr %server, align 8
@@ -1804,7 +1804,7 @@ entry:
 declare i32 @pixman_image_get_stride(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @vnc_server_fb_ptr(ptr nocapture noundef readonly %vd, i32 noundef %x, i32 noundef %y) local_unnamed_addr #0 {
+define dso_local ptr @vnc_server_fb_ptr(ptr noundef readonly captures(none) %vd, i32 noundef %x, i32 noundef %y) local_unnamed_addr #0 {
 entry:
   %server = getelementptr inbounds nuw i8, ptr %vd, i64 284920
   %0 = load ptr, ptr %server, align 8
@@ -1823,7 +1823,7 @@ entry:
 declare ptr @pixman_image_get_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @vnc_convert_pixel(ptr nocapture noundef readonly %vs, ptr nocapture noundef writeonly initializes((0, 1)) %buf, i32 noundef %v) local_unnamed_addr #5 {
+define dso_local void @vnc_convert_pixel(ptr noundef readonly captures(none) %vs, ptr noundef writeonly captures(none) initializes((0, 1)) %buf, i32 noundef %v) local_unnamed_addr #5 {
 entry:
   %and = lshr i32 %v, 16
   %shr = and i32 %and, 255
@@ -2340,7 +2340,7 @@ for.end:                                          ; preds = %for.body
 declare void @vnc_jobs_join(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_qmp_event(ptr nocapture noundef readonly %vs, i32 noundef range(i32 37, 40) %event) unnamed_addr #0 {
+define internal fastcc void @vnc_qmp_event(ptr noundef readonly captures(none) %vs, i32 noundef range(i32 37, 40) %event) unnamed_addr #0 {
 entry:
   %err.i = alloca ptr, align 8
   %info = getelementptr inbounds nuw i8, ptr %vs, i64 49304
@@ -2838,7 +2838,7 @@ entry:
 declare i64 @qio_channel_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @vnc_read_when(ptr nocapture noundef writeonly initializes((49480, 49496)) %vs, ptr noundef %func, i64 noundef %expecting) local_unnamed_addr #6 {
+define dso_local void @vnc_read_when(ptr noundef writeonly captures(none) initializes((49480, 49496)) %vs, ptr noundef %func, i64 noundef %expecting) local_unnamed_addr #6 {
 entry:
   %read_handler = getelementptr inbounds nuw i8, ptr %vs, i64 49480
   store ptr %func, ptr %read_handler, align 8
@@ -2863,7 +2863,7 @@ entry:
 declare i64 @qio_channel_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @vnc_client_io(ptr nocapture readnone %ioc, i32 noundef %condition, ptr noundef %opaque) #0 {
+define dso_local noundef i32 @vnc_client_io(ptr readnone captures(none) %ioc, i32 noundef %condition, ptr noundef %opaque) #0 {
 entry:
   %err.i.i.i = alloca ptr, align 8
   %0 = load i64, ptr %opaque, align 8
@@ -3391,7 +3391,7 @@ vnc_client_write_plain.exit:                      ; preds = %entry, %if.end23.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @read_u32(ptr nocapture noundef readonly %data, i64 noundef %offset) local_unnamed_addr #8 {
+define dso_local i32 @read_u32(ptr noundef readonly captures(none) %data, i64 noundef %offset) local_unnamed_addr #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %data, i64 %offset
   %0 = load i8, ptr %arrayidx, align 1
@@ -3415,7 +3415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @start_client_init(ptr nocapture noundef writeonly initializes((49480, 49496)) %vs) local_unnamed_addr #6 {
+define dso_local void @start_client_init(ptr noundef writeonly captures(none) initializes((49480, 49496)) %vs) local_unnamed_addr #6 {
 entry:
   %read_handler.i = getelementptr inbounds nuw i8, ptr %vs, i64 49480
   store ptr @protocol_client_init, ptr %read_handler.i, align 8
@@ -3425,7 +3425,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @protocol_client_init(ptr noundef %vs, ptr nocapture noundef readonly %data, i64 %len) #0 {
+define internal noundef i32 @protocol_client_init(ptr noundef %vs, ptr noundef readonly captures(none) %data, i64 %len) #0 {
 entry:
   %buf.i45 = alloca [4 x i8], align 1
   %buf.i40 = alloca [2 x i8], align 1
@@ -3922,7 +3922,7 @@ vnc_flush.exit:                                   ; preds = %if.end.i, %if.end6.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @protocol_client_auth_vnc(ptr noundef %vs, ptr nocapture noundef readonly %data, i64 %len) #0 {
+define internal noundef i32 @protocol_client_auth_vnc(ptr noundef %vs, ptr noundef readonly captures(none) %data, i64 %len) #0 {
 entry:
   %buf.i = alloca [4 x i8], align 4
   %_now.i.i89 = alloca %struct.timeval, align 8
@@ -4299,7 +4299,7 @@ return:                                           ; preds = %reject, %vnc_flush.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @vnc_sent_lossy_rect(ptr nocapture noundef readonly %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #9 {
+define dso_local void @vnc_sent_lossy_rect(ptr noundef readonly captures(none) %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #9 {
 entry:
   %add = add i32 %w, %x
   %div = sdiv i32 %add, 64
@@ -4350,7 +4350,7 @@ for.end12:                                        ; preds = %for.cond5.for.inc10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local double @vnc_update_freq(ptr nocapture noundef readonly %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #10 {
+define dso_local double @vnc_update_freq(ptr noundef readonly captures(none) %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #10 {
 entry:
   %div = sdiv i32 %x, 64
   %mul = shl nsw i32 %div, 6
@@ -4471,7 +4471,7 @@ vnc_flush.exit:                                   ; preds = %if.end.i, %if.end6.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @protocol_version(ptr noundef %vs, ptr nocapture noundef readonly %version, i64 %len) #0 {
+define internal noundef i32 @protocol_version(ptr noundef %vs, ptr noundef readonly captures(none) %version, i64 %len) #0 {
 entry:
   %value.addr.i133 = alloca i8, align 1
   %value.addr.i = alloca i8, align 1
@@ -4911,7 +4911,7 @@ return:                                           ; preds = %vnc_flush.exit150, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @check_pointer_type_change(ptr noundef %notifier, ptr nocapture readnone %data) #0 {
+define internal void @check_pointer_type_change(ptr noundef %notifier, ptr readnone captures(none) %data) #0 {
 entry:
   %buf.i.i.i = alloca [4 x i8], align 1
   %buf.i15.i = alloca [2 x i8], align 1
@@ -5179,7 +5179,7 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 declare ptr @init_keyboard_layout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -5285,7 +5285,7 @@ return:                                           ; preds = %for.inc.i, %for.con
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @vnc_display_update(ptr nocapture noundef readonly %arg, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @vnc_display_update(ptr noundef readonly captures(none) %arg, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @vnc_displays, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -5987,7 +5987,7 @@ glib_autoptr_cleanup_SocketAddressList.exit117:   ; preds = %if.then, %if.end, %
 declare ptr @qemu_opts_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_display_close(ptr nocapture noundef nonnull initializes((284960, 284961), (284984, 284992)) %vd) unnamed_addr #0 {
+define internal fastcc void @vnc_display_close(ptr noundef nonnull captures(none) initializes((284960, 284961), (284984, 284992)) %vd) unnamed_addr #0 {
 entry:
   %is_unix = getelementptr inbounds nuw i8, ptr %vd, i64 284960
   store i8 0, ptr %is_unix, align 8
@@ -6084,10 +6084,10 @@ declare ptr @object_ref(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @qcrypto_tls_creds_check_endpoint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @vnc_display_setup_auth(ptr nocapture noundef nonnull writeonly %auth, ptr nocapture noundef nonnull writeonly %subauth, ptr noundef %tlscreds, i1 noundef zeroext %password, i1 noundef zeroext %websocket, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @vnc_display_setup_auth(ptr noundef nonnull writeonly captures(none) %auth, ptr noundef nonnull writeonly captures(none) %subauth, ptr noundef %tlscreds, i1 noundef zeroext %password, i1 noundef zeroext %websocket, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %tobool3 = icmp eq ptr %tlscreds, null
   %or.cond.not = or i1 %tobool3, %websocket
@@ -6187,7 +6187,7 @@ _nocheck__trace_vnc_auth_init.exit:               ; preds = %entry, %land.lhs.tr
 declare ptr @qemu_add_led_event_handler(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @kbd_leds(ptr nocapture noundef %opaque, i32 noundef %ledstate) #0 {
+define internal void @kbd_leds(ptr noundef captures(none) %opaque, i32 noundef %ledstate) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %and = and i32 %ledstate, 4
@@ -6269,7 +6269,7 @@ declare void @unregister_displaychangelistener(ptr noundef) local_unnamed_addr #
 declare void @qkbd_state_set_delay(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @vnc_display_connect(ptr noundef nonnull %vd, ptr nocapture noundef nonnull readonly %saddr_list, ptr noundef readnone %wsaddr_list, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @vnc_display_connect(ptr noundef nonnull %vd, ptr noundef nonnull readonly captures(none) %saddr_list, ptr noundef readnone %wsaddr_list, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %wsaddr_list, null
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
@@ -6804,7 +6804,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #14
 declare ptr @qemu_opts_id(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @vnc_init_func(ptr nocapture noundef readnone %opaque, ptr noundef %opts, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @vnc_init_func(ptr noundef readnone captures(none) %opaque, ptr noundef %opts, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -6859,7 +6859,7 @@ declare ptr @qcrypto_tls_session_get_peer_name(ptr noundef) local_unnamed_addr #
 declare ptr @qio_channel_socket_get_remote_address(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_init_basic_info(ptr nocapture noundef nonnull readonly %addr, ptr nocapture noundef writeonly %info, ptr noundef nonnull %errp) unnamed_addr #0 {
+define internal fastcc void @vnc_init_basic_info(ptr noundef nonnull readonly captures(none) %addr, ptr noundef writeonly captures(none) %info, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %addr, align 8
   switch i32 %0, label %sw.default [
@@ -6927,7 +6927,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -6948,7 +6948,7 @@ declare void @qemu_pixman_image_unref(ptr noundef) local_unnamed_addr #2
 declare ptr @pixman_image_create_bits(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 declare i32 @pixman_image_get_width(ptr noundef) local_unnamed_addr #2
 
@@ -7052,7 +7052,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 1048585) i32 @protocol_client_msg(ptr noundef %vs, ptr noundef %data, i64 noundef %len) #0 {
@@ -8568,7 +8568,7 @@ return:                                           ; preds = %if.end246, %sw.bb24
 declare void @qemu_default_pixelformat(ptr sret(%struct.PixelFormat) align 4, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 declare void @vnc_hextile_set_pixel_conversion(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -8583,7 +8583,7 @@ entry:
 declare void @update_displaychangelistener(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @key_event(ptr nocapture noundef readonly %vs, i32 noundef range(i32 0, 65536) %down, i32 noundef %sym) unnamed_addr #0 {
+define internal fastcc void @key_event(ptr noundef readonly captures(none) %vs, i32 noundef range(i32 0, 65536) %down, i32 noundef %sym) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = add i32 %sym, -65
@@ -8736,7 +8736,7 @@ vnc_flush.exit:                                   ; preds = %if.end.i, %if.end6.
 declare void @qemu_system_reset_request(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ext_key_event(ptr nocapture noundef readonly %vs, i32 noundef range(i32 0, 65536) %down, i32 noundef %sym, i16 noundef zeroext %keycode) unnamed_addr #0 {
+define internal fastcc void @ext_key_event(ptr noundef readonly captures(none) %vs, i32 noundef range(i32 0, 65536) %down, i32 noundef %sym, i16 noundef zeroext %keycode) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr @keyboard_layout, align 8
@@ -9290,7 +9290,7 @@ declare void @graphic_hw_update(ptr noundef) local_unnamed_addr #2
 declare i32 @qemu_pixman_get_format(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vnc_write_pixels_generic(ptr noundef %vs, ptr nocapture noundef readonly %pixels1, i32 noundef %size) #0 {
+define internal void @vnc_write_pixels_generic(ptr noundef %vs, ptr noundef readonly captures(none) %pixels1, i32 noundef %size) #0 {
 entry:
   %buf = alloca [4 x i8], align 1
   %shr = ashr i32 %size, 2
@@ -10022,7 +10022,7 @@ declare zeroext i1 @qemu_console_is_graphic(ptr noundef) local_unnamed_addr #2
 declare i32 @keysym2scancode(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_key_event(ptr nocapture noundef readonly %vs, i32 noundef range(i32 0, 65536) %down, i32 noundef range(i32 0, 65536) %keycode, i32 noundef %sym) unnamed_addr #0 {
+define internal fastcc void @do_key_event(ptr noundef readonly captures(none) %vs, i32 noundef range(i32 0, 65536) %down, i32 noundef range(i32 0, 65536) %keycode, i32 noundef %sym) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef %keycode) #25
@@ -10437,7 +10437,7 @@ _nocheck__trace_vnc_key_sync_numlock.exit:        ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @press_key(ptr nocapture noundef readonly %vs, i32 noundef range(i32 61, 73) %qcode) unnamed_addr #0 {
+define internal fastcc void @press_key(ptr noundef readonly captures(none) %vs, i32 noundef range(i32 61, 73) %qcode) unnamed_addr #0 {
 entry:
   %vd = getelementptr inbounds nuw i8, ptr %vs, i64 49192
   %0 = load ptr, ptr %vd, align 8
@@ -10727,7 +10727,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @audio_capture_destroy(ptr nocapture readnone %opaque) #19 {
+define internal void @audio_capture_destroy(ptr readnone captures(none) %opaque) #19 {
 entry:
   ret void
 }
@@ -10920,7 +10920,7 @@ declare ptr @AUD_add_capture(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 declare i64 @time(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare ptr @qcrypto_cipher_new(i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -10929,10 +10929,10 @@ declare i32 @qcrypto_cipher_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 n
 declare void @qcrypto_cipher_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @protocol_client_auth(ptr noundef %vs, ptr nocapture noundef readonly %data, i64 %len) #0 {
+define internal noundef i32 @protocol_client_auth(ptr noundef %vs, ptr noundef readonly captures(none) %data, i64 %len) #0 {
 entry:
   %_now.i.i47 = alloca %struct.timeval, align 8
   %_now.i.i33 = alloca %struct.timeval, align 8
@@ -12461,13 +12461,13 @@ for.end:                                          ; preds = %vnc_set_area_dirty.
 declare zeroext i1 @qemu_pixman_check_format(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @vnc_mouse_set(ptr nocapture readnone %dcl, i32 %x, i32 %y, i32 %visible) #19 {
+define internal void @vnc_mouse_set(ptr readnone captures(none) %dcl, i32 %x, i32 %y, i32 %visible) #19 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vnc_dpy_cursor_define(ptr nocapture noundef initializes((136, 140)) %dcl, ptr noundef %c) #0 {
+define internal void @vnc_dpy_cursor_define(ptr noundef captures(none) initializes((136, 140)) %dcl, ptr noundef %c) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %dcl, i64 -64
   %cursor_mask = getelementptr i8, ptr %dcl, i64 144
@@ -12564,7 +12564,7 @@ declare void @qemu_opt_iter_init(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @qemu_opt_iter_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vnc_display_get_address(ptr noundef nonnull %addrstr, i1 noundef zeroext %websocket, i1 noundef zeroext %reverse, i32 noundef range(i32 -1, -2147483648) %displaynum, i32 noundef %to, i1 noundef zeroext %has_ipv4, i1 noundef zeroext %has_ipv6, i1 noundef zeroext %ipv4, i1 noundef zeroext %ipv6, ptr nocapture noundef nonnull writeonly %retaddr, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @vnc_display_get_address(ptr noundef nonnull %addrstr, i1 noundef zeroext %websocket, i1 noundef zeroext %reverse, i32 noundef range(i32 -1, -2147483648) %displaynum, i32 noundef %to, i1 noundef zeroext %has_ipv4, i1 noundef zeroext %has_ipv6, i1 noundef zeroext %ipv4, i1 noundef zeroext %ipv6, ptr noundef nonnull writeonly captures(none) %retaddr, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %baseport = alloca i64, align 8
   %frombool2 = zext i1 %has_ipv4 to i8
@@ -12777,7 +12777,7 @@ if.end113:                                        ; preds = %cleanup.thread67, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #13
@@ -12828,7 +12828,7 @@ declare void @qemu_add_opts(ptr noundef) local_unnamed_addr #2
 declare i32 @llvm.umin.i32(i32, i32) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #21
@@ -12843,10 +12843,10 @@ declare i8 @llvm.bitreverse.i8(i8) #21
 declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #21

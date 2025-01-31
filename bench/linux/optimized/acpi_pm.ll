@@ -86,19 +86,19 @@ define dso_local range(i32 0, 16777216) i32 @acpi_pm_read_verified() local_unnam
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @acpi_pm_good_setup(ptr nocapture readnone %0) #2 section ".init.text" align 16 {
+define internal noundef i32 @acpi_pm_good_setup(ptr readnone captures(none) %0) #2 section ".init.text" align 16 {
   store i1 true, ptr @acpi_pm_good, align 4
   ret i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_pm_check_blacklist(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @acpi_pm_check_blacklist(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load i1, ptr @acpi_pm_good, align 4
   br i1 %2, label %9, label %3
 
@@ -119,7 +119,7 @@ define internal void @acpi_pm_check_blacklist(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_pm_check_graylist(ptr nocapture readnone %0) #0 align 16 {
+define internal void @acpi_pm_check_graylist(ptr readnone captures(none) %0) #0 align 16 {
   %2 = load i1, ptr @acpi_pm_good, align 4
   br i1 %2, label %5, label %3
 
@@ -233,7 +233,7 @@ define internal noundef i32 @parse_pmtmr(ptr noundef %0) #3 section ".init.text"
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 0, 16777216) i64 @acpi_pm_read_slow(ptr nocapture readnone %0) #0 align 16 {
+define internal range(i64 0, 16777216) i64 @acpi_pm_read_slow(ptr readnone captures(none) %0) #0 align 16 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1
@@ -269,7 +269,7 @@ define internal range(i64 0, 16777216) i64 @acpi_pm_read_slow(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 0, 16777216) i64 @acpi_pm_read(ptr nocapture readnone %0) #0 align 16 {
+define internal range(i64 0, 16777216) i64 @acpi_pm_read(ptr readnone captures(none) %0) #0 align 16 {
   %2 = load i32, ptr @pmtmr_ioport, align 4
   %3 = trunc i32 %2 to i16
   %4 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %3) #6, !srcloc !5

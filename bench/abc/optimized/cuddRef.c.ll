@@ -18,7 +18,7 @@ define void @Cudd_Ref(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cudd_RecursiveDeref(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @Cudd_RecursiveDeref(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
@@ -113,7 +113,7 @@ define void @Cudd_RecursiveDeref(ptr nocapture noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cudd_IterDerefBdd(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @Cudd_IterDerefBdd(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
@@ -194,7 +194,7 @@ define void @Cudd_IterDerefBdd(ptr nocapture noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cudd_DelayedDerefBdd(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @Cudd_DelayedDerefBdd(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -320,7 +320,7 @@ define void @Cudd_DelayedDerefBdd(ptr nocapture noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cudd_RecursiveDerefZdd(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define void @Cudd_RecursiveDerefZdd(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -765,7 +765,7 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @cuddClearDeathRow(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @cuddClearDeathRow(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8
@@ -876,7 +876,7 @@ Cudd_IterDerefBdd.exit:                           ; preds = %60
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @cuddReclaim(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @cuddReclaim(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -970,7 +970,7 @@ define void @cuddReclaim(ptr nocapture noundef %0, ptr noundef %1) local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @cuddReclaimZdd(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define void @cuddReclaimZdd(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -1038,7 +1038,7 @@ define void @cuddReclaimZdd(ptr nocapture noundef %0, ptr nocapture noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cuddShrinkDeathRow(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @cuddShrinkDeathRow(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 3
@@ -1190,13 +1190,13 @@ Cudd_IterDerefBdd.exit:                           ; preds = %66
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @cuddIsInDeathRow(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define range(i32 -2147483648, 2147483647) i32 @cuddIsInDeathRow(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -1230,7 +1230,7 @@ define range(i32 -2147483648, 2147483647) i32 @cuddIsInDeathRow(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @cuddTimesInDeathRow(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define i32 @cuddTimesInDeathRow(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0

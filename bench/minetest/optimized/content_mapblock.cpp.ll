@@ -144,18 +144,18 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4 align 2
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -590,7 +590,7 @@ ehcleanup:                                        ; preds = %if.then.i.i38, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef zeroext i1 @_ZNK8Settings7getBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -823,7 +823,7 @@ declare void @_Z11getNodeTile7MapNodeRKN3irr4core8vector3dIsEES5_P12MeshMakeData
 declare void @_ZNK7MapNode8getColorERK15ContentFeaturesPN3irr5video6SColorE(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(3706), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr nocapture noundef readonly %coords, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %normal, float noundef %vertical_tiling) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef readonly captures(none) %coords, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %normal, float noundef %vertical_tiling) local_unnamed_addr #8 align 2 {
 entry:
   %vertices = alloca [4 x %"struct.irr::video::S3DVertex"], align 16
   %normal2 = alloca %"class.irr::core::vector3d.0", align 8
@@ -1671,7 +1671,7 @@ if.end29.3:                                       ; preds = %if.then25.3, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZN21MapblockMeshGenerator15blendLightColorERKN3irr4core8vector3dIfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(660) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vertex_pos) local_unnamed_addr #8 align 2 {
+define dso_local i32 @_ZN21MapblockMeshGenerator15blendLightColorERKN3irr4core8vector3dIfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(660) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %vertex_pos) local_unnamed_addr #8 align 2 {
 entry:
   %Z.i = getelementptr inbounds nuw i8, ptr %vertex_pos, i64 8
   %0 = load float, ptr %Z.i, align 4, !tbaa !50
@@ -1840,7 +1840,7 @@ declare void @_Z17applyFacesShadingRN3irr5video6SColorERKNS_4core8vector3dIfEE(p
 declare void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21MapblockMeshGenerator19getSmoothLightFrameEv(ptr nocapture noundef nonnull align 8 dereferenceable(660) initializes((140, 148)) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN21MapblockMeshGenerator19getSmoothLightFrameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(660) initializes((140, 148)) %this) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::vector3d", align 8
   %sunlight = getelementptr inbounds nuw i8, ptr %this, i64 140
@@ -1911,7 +1911,7 @@ if.end:                                           ; preds = %if.then, %for.body6
 declare noundef zeroext i16 @_Z25getSmoothLightTransparentRKN3irr4core8vector3dIsEES4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6), ptr noundef nonnull align 2 dereferenceable(6), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, float } @_ZN21MapblockMeshGenerator10blendLightERKN3irr4core8vector3dIfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(660) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vertex_pos) local_unnamed_addr #9 align 2 {
+define dso_local { <2 x float>, float } @_ZN21MapblockMeshGenerator10blendLightERKN3irr4core8vector3dIfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(660) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %vertex_pos) local_unnamed_addr #9 align 2 {
 entry:
   %Z = getelementptr inbounds nuw i8, ptr %vertex_pos, i64 8
   %0 = load float, ptr %Z, align 4, !tbaa !50
@@ -2058,7 +2058,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZN21MapblockMeshGenerator15blendLightColorERKN3irr4core8vector3dIfEES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(660) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vertex_pos, ptr noundef nonnull align 4 dereferenceable(12) %vertex_normal) local_unnamed_addr #8 align 2 {
+define dso_local i32 @_ZN21MapblockMeshGenerator15blendLightColorERKN3irr4core8vector3dIfEES5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(660) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %vertex_pos, ptr noundef nonnull align 4 dereferenceable(12) %vertex_normal) local_unnamed_addr #8 align 2 {
 entry:
   %retval = alloca %"class.irr::video::SColor", align 4
   %Z.i = getelementptr inbounds nuw i8, ptr %vertex_pos, i64 8
@@ -2243,7 +2243,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN21MapblockMeshGenerator27generateCuboidTextureCoordsERKN3irr4core8aabbox3dIfEEPf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(660) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %box, ptr nocapture noundef writeonly initializes((0, 96)) %coords) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN21MapblockMeshGenerator27generateCuboidTextureCoordsERKN3irr4core8aabbox3dIfEEPf(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(660) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %box, ptr noundef writeonly captures(none) initializes((0, 96)) %coords) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load <4 x float>, ptr %box, align 4
   %Y = getelementptr inbounds nuw i8, ptr %box, i64 4
@@ -2306,7 +2306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecih(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr nocapture noundef byval(%"class.irr::core::aabbox3d") align 8 %box, ptr noundef readonly %txc, ptr noundef %tiles, i32 noundef %tile_count, i8 noundef zeroext %mask) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecih(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef byval(%"class.irr::core::aabbox3d") align 8 captures(none) %box, ptr noundef readonly %txc, ptr noundef %tiles, i32 noundef %tile_count, i8 noundef zeroext %mask) local_unnamed_addr #8 align 2 {
 entry:
   %color.i.i = alloca %"class.irr::video::SColor", align 4
   %vertices.i140 = alloca %"struct.std::array.131", align 4
@@ -4722,7 +4722,7 @@ declare noundef zeroext i16 @_Z12getFaceLight7MapNodeS_PK14NodeDefManager(i32, i
 declare noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6), ptr noundef nonnull align 2 dereferenceable(6), ptr noundef nonnull align 2 dereferenceable(6), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext range(i8 0, 64) i8 @_ZNK21MapblockMeshGenerator14getNodeBoxMaskEN3irr4core8aabbox3dIfEEhh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(660) %this, ptr nocapture noundef readonly byval(%"class.irr::core::aabbox3d") align 8 %box, i8 noundef zeroext %solid_neighbors, i8 noundef zeroext %sametype_neighbors) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext range(i8 0, 64) i8 @_ZNK21MapblockMeshGenerator14getNodeBoxMaskEN3irr4core8aabbox3dIfEEhh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(660) %this, ptr noundef readonly byval(%"class.irr::core::aabbox3d") align 8 captures(none) %box, i8 noundef zeroext %solid_neighbors, i8 noundef zeroext %sametype_neighbors) local_unnamed_addr #12 align 2 {
 entry:
   %MaxEdge = getelementptr inbounds nuw i8, ptr %box, i64 12
   %0 = load float, ptr %MaxEdge, align 4, !tbaa !135
@@ -5176,7 +5176,7 @@ cleanup:                                          ; preds = %if.end92, %if.end60
 declare noundef zeroext i16 @_Z16getInteriorLight7MapNodeiPK14NodeDefManager(i32, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21MapblockMeshGenerator21getLiquidNeighborhoodEv(ptr nocapture noundef nonnull align 8 dereferenceable(660) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN21MapblockMeshGenerator21getLiquidNeighborhoodEv(ptr noundef nonnull align 8 captures(none) dereferenceable(660) %this) local_unnamed_addr #6 align 2 {
 entry:
   %voxel_area.i191 = alloca %class.VoxelArea, align 8
   %voxel_area.i = alloca %class.VoxelArea, align 8
@@ -5481,7 +5481,7 @@ cleanup:                                          ; preds = %if.then98, %_ZN16Vo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN21MapblockMeshGenerator21calculateCornerLevelsEv(ptr nocapture noundef nonnull align 8 dereferenceable(660) initializes((608, 624)) %this) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN21MapblockMeshGenerator21calculateCornerLevelsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(660) initializes((608, 624)) %this) local_unnamed_addr #11 align 2 {
 entry:
   %neighbors.i = getelementptr inbounds nuw i8, ptr %this, i64 536
   %c_source.i = getelementptr inbounds nuw i8, ptr %this, i64 530
@@ -6023,7 +6023,7 @@ _ZNK21MapblockMeshGenerator14getCornerLevelEii.exit.1.1: ; preds = %if.then40.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK21MapblockMeshGenerator14getCornerLevelEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(660) %this, i32 noundef %i, i32 noundef %k) local_unnamed_addr #9 align 2 {
+define dso_local noundef float @_ZNK21MapblockMeshGenerator14getCornerLevelEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(660) %this, i32 noundef %i, i32 noundef %k) local_unnamed_addr #9 align 2 {
 entry:
   %neighbors = getelementptr inbounds nuw i8, ptr %this, i64 536
   %c_source = getelementptr inbounds nuw i8, ptr %this, i64 530
@@ -9229,7 +9229,7 @@ if.end222:                                        ; preds = %_ZN21MapblockMeshGe
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21MapblockMeshGenerator16drawAllfacesNodeEv(ptr noundef nonnull align 8 dereferenceable(660) %this) local_unnamed_addr #6 align 2 {
@@ -12017,7 +12017,7 @@ if.end36:                                         ; preds = %if.then33, %_ZNK14N
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN21MapblockMeshGenerator10isSameRailEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(660) %this, i48 %dir.coerce) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN21MapblockMeshGenerator10isSameRailEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(660) %this, i48 %dir.coerce) local_unnamed_addr #6 align 2 {
 entry:
   %voxel_area.i = alloca %class.VoxelArea, align 8
   %dir.sroa.0.0.extract.trunc = trunc i48 %dir.coerce to i16
@@ -14499,7 +14499,7 @@ declare void @_Z22recalculateBoundingBoxPN3irr5scene5IMeshE(ptr noundef) local_u
 declare void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtjNS3_4core8vector3dIfEENS4_6SColorEh(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, i32 noundef, ptr noundef, i32 noundef, <2 x float>, float, i32, i8 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: noreturn uwtable
-define dso_local void @_ZN21MapblockMeshGenerator20errorUnknownDrawtypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(660) %this) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN21MapblockMeshGenerator20errorUnknownDrawtypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(660) %this) local_unnamed_addr #14 align 2 {
 entry:
   %__c.addr.i.i.i = alloca i8, align 1
   %.not.i = icmp eq ptr @_ZTH10infostream, null
@@ -15251,7 +15251,7 @@ declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #15
 declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL19setupCuboidVerticesRKN3irr4core8aabbox3dIfEEPKfP8TileSpeci(ptr dead_on_unwind noalias nonnull writable align 4 initializes((0, 24), (28, 60), (64, 96), (100, 132), (136, 168), (172, 204), (208, 240), (244, 276), (280, 312), (316, 348), (352, 384), (388, 420), (424, 456), (460, 492), (496, 528), (532, 564), (568, 600), (604, 636), (640, 672), (676, 708), (712, 744), (748, 780), (784, 816), (820, 852), (856, 864)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %box, ptr nocapture noundef nonnull readonly %txc, ptr nocapture noundef readonly %tiles, i32 noundef %tilecount) unnamed_addr #11 {
+define internal fastcc void @_ZL19setupCuboidVerticesRKN3irr4core8aabbox3dIfEEPKfP8TileSpeci(ptr dead_on_unwind noalias nonnull writable align 4 initializes((0, 24), (28, 60), (64, 96), (100, 132), (136, 168), (172, 204), (208, 240), (244, 276), (280, 312), (316, 348), (352, 384), (388, 420), (424, 456), (460, 492), (496, 528), (532, 564), (568, 600), (604, 636), (640, 672), (676, 708), (712, 744), (748, 780), (784, 816), (820, 852), (856, 864)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %box, ptr noundef nonnull readonly captures(none) %txc, ptr noundef readonly captures(none) %tiles, i32 noundef %tilecount) unnamed_addr #11 {
 entry:
   %min.sroa.27.0.MinEdge.sroa_idx = getelementptr inbounds nuw i8, ptr %box, i64 8
   %min.sroa.27.0.copyload = load float, ptr %min.sroa.27.0.MinEdge.sroa_idx, align 4, !tbaa !49
@@ -16052,7 +16052,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -16376,7 +16376,7 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 declare i8 @llvm.umax.i8(i8, i8) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

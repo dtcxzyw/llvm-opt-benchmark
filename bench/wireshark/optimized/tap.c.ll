@@ -36,7 +36,7 @@ define void @tap_register_plugin(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @register_all_tap_listeners(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @register_all_tap_listeners(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @tap_plugins, align 8
   tail call void @g_slist_foreach(ptr noundef %2, ptr noundef nonnull @call_plugin_register_tap_listener, ptr noundef null) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -61,7 +61,7 @@ define void @register_all_tap_listeners(ptr nocapture noundef readonly %0) local
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @call_plugin_register_tap_listener(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal void @call_plugin_register_tap_listener(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -122,7 +122,7 @@ define i32 @register_tap(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
@@ -493,7 +493,7 @@ declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_list_reverse(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @find_tap_id(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define i32 @find_tap_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %.069 = load ptr, ptr @tap_dissector_list, align 8
   %.not10 = icmp eq ptr %.069, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph

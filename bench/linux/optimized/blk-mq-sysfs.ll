@@ -43,7 +43,7 @@ define dso_local void @blk_mq_hctx_kobj_init(ptr noundef %0) local_unnamed_addr 
 declare dso_local void @kobject_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_mq_sysfs_deinit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @blk_mq_sysfs_deinit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %3
 
@@ -84,16 +84,16 @@ define dso_local void @blk_mq_sysfs_deinit(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kobject_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_mq_sysfs_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @blk_mq_sysfs_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   tail call void @kobject_init(ptr noundef %3, ptr noundef nonnull @blk_mq_ktype) #5
@@ -139,7 +139,7 @@ define dso_local void @blk_mq_sysfs_init(ptr nocapture noundef readonly %0) loca
 declare dso_local ptr @kobject_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @blk_mq_sysfs_register(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @blk_mq_sysfs_register(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -339,7 +339,7 @@ declare dso_local ptr @xa_find_after(ptr noundef, ptr noundef, i64 noundef, i32 
 declare dso_local void @kobject_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_mq_sysfs_unregister(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @blk_mq_sysfs_unregister(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
@@ -531,7 +531,7 @@ declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #1
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @blk_mq_hw_sysfs_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal i64 @blk_mq_hw_sysfs_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -554,7 +554,7 @@ define internal i64 @blk_mq_hw_sysfs_show(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_nr_tags_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_nr_tags_show(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 64
   %5 = load i32, ptr %4, align 8
@@ -564,10 +564,10 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_nr_reserved_tags_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_nr_reserved_tags_show(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -578,7 +578,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_cpus_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_cpus_show(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %4
 
@@ -626,7 +626,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_cpus_sho
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @blk_mq_sysfs_release(ptr noundef %0) #0 align 16 {
@@ -638,7 +638,7 @@ define internal void @blk_mq_sysfs_release(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_mq_ctx_sysfs_release(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @blk_mq_ctx_sysfs_release(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %3 = load ptr, ptr %2, align 16
   tail call void @kobject_put(ptr noundef %3) #5

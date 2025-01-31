@@ -373,7 +373,7 @@ _ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManagerD2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManager14getInstantiateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManager14getInstantiateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_instantiate = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load ptr, ptr %d_instantiate, align 8
@@ -381,7 +381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManager12getSkolemizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManager12getSkolemizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_skolemize = getelementptr inbounds nuw i8, ptr %this, i64 368
   %0 = load ptr, ptr %d_skolemize, align 8

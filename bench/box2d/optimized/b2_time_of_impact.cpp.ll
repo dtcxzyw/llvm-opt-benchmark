@@ -29,7 +29,7 @@ $_ZNK20b2SeparationFunction8EvaluateEiif = comdat any
 @b2_toiMaxRootIters = local_unnamed_addr global i32 0, align 4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14b2TimeOfImpactP11b2TOIOutputPK10b2TOIInput(ptr nocapture noundef writeonly initializes((0, 8)) %output, ptr noundef %input) local_unnamed_addr #0 {
+define void @_Z14b2TimeOfImpactP11b2TOIOutputPK10b2TOIInput(ptr noundef writeonly captures(none) initializes((0, 8)) %output, ptr noundef %input) local_unnamed_addr #0 {
 entry:
   %timer = alloca %class.b2Timer, align 8
   %sweepA = alloca %struct.b2Sweep, align 4
@@ -196,7 +196,7 @@ if.then17:                                        ; preds = %if.end
   br label %for.end88
 
 if.end20:                                         ; preds = %if.end
-  %call21 = call noundef float @_ZN20b2SeparationFunction10InitializeEPK14b2SimplexCachePK15b2DistanceProxyRK7b2SweepS5_S8_f(ptr noundef nonnull align 8 dereferenceable(108) %fcn, ptr noundef nonnull %cache, ptr noundef %input, ptr noundef nonnull align 4 dereferenceable(36) %sweepA, ptr noundef nonnull %proxyB2, ptr noundef nonnull align 4 dereferenceable(36) %sweepB, float noundef %t1.0)
+  %call21 = call noundef float @_ZN20b2SeparationFunction10InitializeEPK14b2SimplexCachePK15b2DistanceProxyRK7b2SweepS5_S8_f(ptr noundef nonnull align 8 dereferenceable(108) %fcn, ptr noundef nonnull %cache, ptr noundef nonnull %input, ptr noundef nonnull align 4 dereferenceable(36) %sweepA, ptr noundef nonnull %proxyB2, ptr noundef nonnull align 4 dereferenceable(36) %sweepB, float noundef %t1.0)
   br label %for.cond22
 
 for.cond22:                                       ; preds = %for.end, %if.end20
@@ -332,7 +332,7 @@ for.end88:                                        ; preds = %for.end77.thread, %
 declare void @_ZN7b2TimerC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_Z10b2DistanceP16b2DistanceOutputP14b2SimplexCachePK15b2DistanceInput(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

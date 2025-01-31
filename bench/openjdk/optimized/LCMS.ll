@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Java_sun_java2d_cmm_lcms_LCMS_colorConvert.4 = private unnamed_addr constant [3 x i64] [i64 1536, i64 1552, i64 1560], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @errorHandler(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define hidden void @errorHandler(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [256 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
@@ -56,15 +56,15 @@ define hidden void @errorHandler(ptr nocapture readnone %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   store ptr %0, ptr @javaVM, align 8
   tail call void @cmsSetLogErrorHandler(ptr noundef nonnull @errorHandler) #8
   ret i32 65542
@@ -73,7 +73,7 @@ define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1
 declare void @cmsSetLogErrorHandler(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @LCMS_freeProfile(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define hidden void @LCMS_freeProfile(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %1 to ptr
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %9, label %4
@@ -98,10 +98,10 @@ define hidden void @LCMS_freeProfile(ptr nocapture readnone %0, i64 noundef %1) 
 declare i32 @cmsCloseProfile(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @LCMS_freeTransform(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define hidden void @LCMS_freeTransform(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %1 to ptr
   tail call void @cmsDeleteTransform(ptr noundef %3) #8
   ret void
@@ -110,7 +110,7 @@ define hidden void @LCMS_freeTransform(ptr nocapture readnone %0, i64 noundef %1
 declare void @cmsDeleteTransform(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_java2d_cmm_lcms_LCMS_createNativeTransform(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define i64 @Java_sun_java2d_cmm_lcms_LCMS_createNativeTransform(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [32 x ptr], align 16
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1368
@@ -279,7 +279,7 @@ declare ptr @cmsCreateMultiprofileTransform(ptr noundef, i32 noundef, i32 nounde
 declare void @Disposer_AddRecord(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @Java_sun_java2d_cmm_lcms_LCMS_loadProfileNative(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef i64 @Java_sun_java2d_cmm_lcms_LCMS_loadProfileNative(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %2, null
   %7 = load ptr, ptr %0, align 8
@@ -438,7 +438,7 @@ declare ptr @cmsOpenProfileFromMem(ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @cmsSaveProfileToMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_java2d_cmm_lcms_LCMS_getProfileDataNative(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_java2d_cmm_lcms_LCMS_getProfileDataNative(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = inttoptr i64 %2 to ptr
   store i32 0, ptr %4, align 4
@@ -499,7 +499,7 @@ define ptr @Java_sun_java2d_cmm_lcms_LCMS_getProfileDataNative(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_java2d_cmm_lcms_LCMS_getTagNative(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Java_sun_java2d_cmm_lcms_LCMS_getTagNative(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = inttoptr i64 %2 to ptr
   %7 = icmp eq i32 %3, 1751474532
@@ -642,7 +642,7 @@ declare i32 @cmsIsTag(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @cmsReadRawTag(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_cmm_lcms_LCMS_setTagDataNative(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_java2d_cmm_lcms_LCMS_setTagDataNative(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.cmsICCHeader, align 8
   %8 = alloca %struct.cmsICCHeader, align 8
@@ -982,7 +982,7 @@ ThrowIllegalArgumentException.exit:               ; preds = %_setHeaderInfo.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_cmm_lcms_LCMS_colorConvert(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #0 {
+define void @Java_sun_java2d_cmm_lcms_LCMS_colorConvert(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #0 {
   %14 = inttoptr i64 %2 to ptr
   %15 = icmp eq i64 %2, 0
   br i1 %15, label %16, label %17
@@ -1069,7 +1069,7 @@ declare ptr @JNU_NewStringPlatform(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @JNU_NewObjectByName(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @cmsSetHeaderFlags(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -1124,10 +1124,10 @@ declare i32 @cmsGetTagSignature(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @cmsReadTag(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

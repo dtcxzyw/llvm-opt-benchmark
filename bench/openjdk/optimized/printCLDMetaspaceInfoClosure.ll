@@ -62,7 +62,7 @@ $_ZTVN9metaspace17CountKlassClosureE = comdat any
 @_ZN9metaspace28PrintCLDMetaspaceInfoClosureC1EP12outputStreammbbb = hidden unnamed_addr alias void (ptr, ptr, i64, i1, i1, i1), ptr @_ZN9metaspace28PrintCLDMetaspaceInfoClosureC2EP12outputStreammbbb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN9metaspace28PrintCLDMetaspaceInfoClosureC2EP12outputStreammbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7528) initializes((0, 27), (32, 56)) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace28PrintCLDMetaspaceInfoClosureC2EP12outputStreammbbb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(7528) initializes((0, 27), (32, 56)) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %3 to i8
   %8 = zext i1 %4 to i8
   %9 = zext i1 %5 to i8
@@ -160,7 +160,7 @@ _ZN9metaspace9ClmsStatsC2Ev.exit14:               ; preds = %32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace28PrintCLDMetaspaceInfoClosure6do_cldEP15ClassLoaderData(ptr noundef nonnull align 8 dereferenceable(7528) %0, ptr noundef %1) unnamed_addr #2 align 2 {

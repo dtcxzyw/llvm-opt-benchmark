@@ -1444,7 +1444,7 @@ declare dso_local void @tcp_rack_reo_timeout(ptr noundef) local_unnamed_addr #1
 declare dso_local void @tcp_send_loss_probe(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_syn_ack_timeout(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @tcp_syn_ack_timeout(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 432

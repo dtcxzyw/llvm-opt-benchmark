@@ -475,10 +475,10 @@ for.end:                                          ; preds = %for.body
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @megasas_class_init(ptr noundef %oc, ptr nocapture noundef readonly %data) #0 {
+define internal void @megasas_class_init(ptr noundef %oc, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %call.i26 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #14
@@ -778,7 +778,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %trace_megasas_init.exit
   %bus = getelementptr inbounds nuw i8, ptr %call.i, i64 265976
-  %call.i86 = call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %call.i86 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   call void @scsi_bus_init_named(ptr noundef nonnull %bus, i64 noundef 144, ptr noundef %call.i86, ptr noundef nonnull @megasas_scsi_info, ptr noundef null) #14
   br label %return
 
@@ -4148,7 +4148,7 @@ sw.epilog:                                        ; preds = %megasas_unmap_frame
 declare i32 @msix_present(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -4484,7 +4484,7 @@ _nocheck__trace_megasas_intr_enabled.exit:        ; preds = %entry, %land.lhs.tr
 declare void @scsi_req_cancel(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @scsi_device_unit_attention_reported(ptr noundef) local_unnamed_addr #1
 
@@ -4849,7 +4849,7 @@ declare void @msix_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @msi_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_dummy(ptr nocapture readnone %s, ptr nocapture noundef readonly %cmd) #0 {
+define internal noundef i32 @megasas_dcmd_dummy(ptr readnone captures(none) %s, ptr noundef readonly captures(none) %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i32, ptr %cmd, align 8
@@ -4893,7 +4893,7 @@ trace_megasas_dcmd_dummy.exit:                    ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @megasas_finish_dcmd(ptr nocapture noundef readonly %cmd, i32 noundef %iov_size) unnamed_addr #0 {
+define internal fastcc void @megasas_finish_dcmd(ptr noundef readonly captures(none) %cmd, i32 noundef %iov_size) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i32, ptr %cmd, align 8
@@ -5257,7 +5257,7 @@ return:                                           ; preds = %if.end71, %trace_me
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 4) i32 @megasas_dcmd_get_properties(ptr nocapture readnone %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_get_properties(ptr readnone captures(none) %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %info = alloca %struct.mfi_ctrl_props, align 1
@@ -5341,7 +5341,7 @@ return:                                           ; preds = %if.end, %trace_mega
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 4) i32 @megasas_dcmd_set_properties(ptr nocapture readnone %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_set_properties(ptr readnone captures(none) %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -5436,7 +5436,7 @@ return:                                           ; preds = %trace_megasas_dcmd_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_event_info(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal noundef i32 @megasas_event_info(ptr noundef readonly captures(none) %s, ptr noundef %cmd) #0 {
 entry:
   %info = alloca %struct.mfi_evt_log_state, align 4
   %residual = alloca i64, align 8
@@ -5464,7 +5464,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 3, 256) i32 @megasas_event_wait(ptr nocapture noundef %s, ptr noundef %cmd) #0 {
+define internal range(i32 3, 256) i32 @megasas_event_wait(ptr noundef captures(none) %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %iov_size = getelementptr inbounds nuw i8, ptr %cmd, i64 104
@@ -5541,7 +5541,7 @@ return:                                           ; preds = %if.end, %trace_mega
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @megasas_ctrl_shutdown(ptr nocapture noundef writeonly initializes((3428, 3432)) %s, ptr nocapture readnone %cmd) #6 {
+define internal noundef i32 @megasas_ctrl_shutdown(ptr noundef writeonly captures(none) initializes((3428, 3432)) %s, ptr readnone captures(none) %cmd) #6 {
 entry:
   %fw_state = getelementptr inbounds nuw i8, ptr %s, i64 3428
   store i32 -1342177280, ptr %fw_state, align 4
@@ -5549,7 +5549,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_get_fw_time(ptr nocapture readnone %s, ptr noundef %cmd) #0 {
+define internal noundef i32 @megasas_dcmd_get_fw_time(ptr readnone captures(none) %s, ptr noundef %cmd) #0 {
 entry:
   %curtime.i = alloca %struct.tm, align 8
   %fw_time = alloca i64, align 8
@@ -5602,7 +5602,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_dcmd_set_fw_time(ptr nocapture readnone %s, ptr nocapture noundef readonly %cmd) #0 {
+define internal noundef i32 @megasas_dcmd_set_fw_time(ptr readnone captures(none) %s, ptr noundef readonly captures(none) %cmd) #0 {
 entry:
   %curtime.i = alloca %struct.tm, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -5652,7 +5652,7 @@ trace_megasas_dcmd_set_fw_time.exit:              ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 4) i32 @megasas_dcmd_get_bios_info(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_get_bios_info(ptr noundef readonly captures(none) %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %info = alloca %struct.mfi_bios_data, align 1
@@ -5732,7 +5732,7 @@ return:                                           ; preds = %if.end3, %trace_meg
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 4) i32 @megasas_mfc_get_defaults(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_mfc_get_defaults(ptr noundef readonly captures(none) %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %info = alloca %struct.mfi_defaults, align 8
@@ -5822,14 +5822,14 @@ return:                                           ; preds = %if.end, %trace_mega
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_cache_flush(ptr nocapture readnone %s, ptr nocapture readnone %cmd) #0 {
+define internal noundef i32 @megasas_cache_flush(ptr readnone captures(none) %s, ptr readnone captures(none) %cmd) #0 {
 entry:
   tail call void @blk_drain_all() #14
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 4) i32 @megasas_dcmd_pd_get_list(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_pd_get_list(ptr noundef readonly captures(none) %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i41 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -6005,7 +6005,7 @@ return:                                           ; preds = %trace_megasas_dcmd_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 4) i32 @megasas_dcmd_pd_list_query(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_pd_list_query(ptr noundef readonly captures(none) %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %frame = getelementptr inbounds nuw i8, ptr %cmd, i64 40
@@ -6132,7 +6132,7 @@ return:                                           ; preds = %trace_megasas_dcmd_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 4) i32 @megasas_dcmd_ld_get_list(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_ld_get_list(ptr noundef readonly captures(none) %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i34 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -6288,7 +6288,7 @@ return:                                           ; preds = %trace_megasas_dcmd_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 4) i32 @megasas_dcmd_ld_list_query(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_ld_list_query(ptr noundef readonly captures(none) %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i51 = alloca %struct.timeval, align 8
   %_now.i.i37 = alloca %struct.timeval, align 8
@@ -6557,7 +6557,7 @@ return:                                           ; preds = %if.end12, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 4) i32 @megasas_dcmd_cfg_read(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
+define internal range(i32 0, 4) i32 @megasas_dcmd_cfg_read(ptr noundef readonly captures(none) %s, ptr noundef %cmd) #0 {
 entry:
   %data = alloca [4096 x i8], align 16
   %residual = alloca i64, align 8
@@ -6729,7 +6729,7 @@ return:                                           ; preds = %for.end, %entry, %f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @megasas_cluster_reset_ld(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %cmd) #0 {
+define internal noundef i32 @megasas_cluster_reset_ld(ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %frame = getelementptr inbounds nuw i8, ptr %cmd, i64 40
@@ -6815,14 +6815,14 @@ for.end:                                          ; preds = %for.inc, %trace_meg
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @qemu_hw_version() local_unnamed_addr #1
 
 declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @dma_buf_read(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32) local_unnamed_addr #1
 
@@ -7347,7 +7347,7 @@ declare void @qemu_sglist_add(ptr noundef, i64 noundef, i64 noundef) local_unnam
 declare void @qemu_sglist_init(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @megasas_write_sense(ptr nocapture noundef nonnull readonly %cmd, i24 %sense.coerce) unnamed_addr #0 {
+define internal fastcc void @megasas_write_sense(ptr noundef nonnull readonly captures(none) %cmd, i24 %sense.coerce) unnamed_addr #0 {
 entry:
   %sense_buf = alloca [252 x i8], align 16
   %sense.sroa.0.0.extract.trunc = trunc i24 %sense.coerce to i8
@@ -7887,7 +7887,7 @@ _nocheck__trace_megasas_scsi_nodata.exit:         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, -2147483647) i32 @megasas_enqueue_req(ptr nocapture noundef nonnull %cmd, i1 noundef zeroext %is_write) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483647) i32 @megasas_enqueue_req(ptr noundef nonnull captures(none) %cmd, i1 noundef zeroext %is_write) unnamed_addr #0 {
 entry:
   %_now.i.i53 = alloca %struct.timeval, align 8
   %_now.i.i39 = alloca %struct.timeval, align 8
@@ -8113,13 +8113,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @megasas_queue_read(ptr nocapture readnone %opaque, i64 %addr, i32 %size) #10 {
+define internal noundef i64 @megasas_queue_read(ptr readnone captures(none) %opaque, i64 %addr, i32 %size) #10 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @megasas_queue_write(ptr nocapture readnone %opaque, i64 %addr, i64 %val, i32 %size) #10 {
+define internal void @megasas_queue_write(ptr readnone captures(none) %opaque, i64 %addr, i64 %val, i32 %size) #10 {
 entry:
   ret void
 }
@@ -8236,7 +8236,7 @@ if.end38:                                         ; preds = %if.end38.sink.split
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @megasas_command_complete(ptr nocapture noundef readonly %req, i64 noundef %residual) #0 {
+define internal void @megasas_command_complete(ptr noundef readonly captures(none) %req, i64 noundef %residual) #0 {
 entry:
   %sense_buf.i = alloca [252 x i8], align 16
   %_now.i.i19 = alloca %struct.timeval, align 8
@@ -8531,7 +8531,7 @@ return:                                           ; preds = %sw.epilog.i, %trace
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @megasas_command_cancelled(ptr nocapture noundef readonly %req) #0 {
+define internal void @megasas_command_cancelled(ptr noundef readonly captures(none) %req) #0 {
 entry:
   %hba_private = getelementptr inbounds nuw i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
@@ -8551,7 +8551,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal ptr @megasas_get_sg_list(ptr nocapture noundef readonly %req) #11 {
+define internal ptr @megasas_get_sg_list(ptr noundef readonly captures(none) %req) #11 {
 entry:
   %hba_private = getelementptr inbounds nuw i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
@@ -8629,10 +8629,10 @@ declare void @msi_uninit(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #12

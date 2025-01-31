@@ -506,7 +506,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @run_script(ptr noundef %script, ptr noundef nonnull %script_name, i32 noundef range(i32 -1, 2) %free_order, i32 noundef range(i32 -1, 2) %blocking) unnamed_addr #1 {
@@ -922,7 +922,7 @@ out:                                              ; preds = %join_threads.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_21_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_21_inject_plain(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [8 x i8], align 1
@@ -1234,7 +1234,7 @@ if.then37:                                        ; preds = %helper_local_get_c_
 if.end.i452:                                      ; preds = %if.then37
   %11 = load ptr, ptr %s_streams.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i449)
-  %call.i.i453 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %10) #14
+  %call.i.i453 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef nonnull %10) #14
   %tobool.not.i.i454 = icmp eq i32 %call.i.i453, 0
   br i1 %tobool.not.i.i454, label %get_stream_info.exit.thread.i470, label %if.end.i.i455
 
@@ -1600,7 +1600,7 @@ lor.lhs.false180:                                 ; preds = %sw.bb176
 
 if.end186:                                        ; preds = %lor.lhs.false180
   %add.ptr = getelementptr inbounds nuw i8, ptr %call182, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %44, i64 %call177, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %44, i64 %call177, i1 false)
   %conv187 = trunc i64 %call177 to i8
   store i8 %conv187, ptr %call182, align 1
   %45 = load ptr, ptr %c_conn, align 8
@@ -3879,15 +3879,15 @@ if.end28:                                         ; preds = %if.then24, %if.end2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @stream_info_hash(ptr nocapture noundef readonly %info) #1 {
+define internal i64 @stream_info_hash(ptr noundef readonly captures(none) %info) #1 {
 entry:
   %0 = load ptr, ptr %info, align 8
   %call = tail call i64 @OPENSSL_LH_strhash(ptr noundef %0) #14
@@ -3895,7 +3895,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @stream_info_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #6 {
+define internal i32 @stream_info_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #6 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -3935,7 +3935,7 @@ declare ptr @qtest_get_bio_method() local_unnamed_addr #2
 declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @get_time(ptr nocapture noundef readonly %arg) #1 {
+define internal i64 @get_time(ptr noundef readonly captures(none) %arg) #1 {
 entry:
   %time_lock = getelementptr inbounds nuw i8, ptr %arg, i64 168
   %0 = load ptr, ptr %time_lock, align 8
@@ -3989,7 +3989,7 @@ declare ptr @ossl_crypto_condvar_new() local_unnamed_addr #2
 declare ptr @ossl_crypto_thread_native_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @server_helper_thread(ptr nocapture noundef readonly %arg) #1 {
+define internal noundef i32 @server_helper_thread(ptr noundef readonly captures(none) %arg) #1 {
 entry:
   %m = getelementptr inbounds nuw i8, ptr %arg, i64 288
   %0 = load ptr, ptr %m, align 8
@@ -4044,7 +4044,7 @@ declare ptr @OPENSSL_LH_new(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i64 @OPENSSL_LH_strhash(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #2
 
@@ -4071,7 +4071,7 @@ declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @s_lock(ptr nocapture noundef %h, i32 %hl.16.val) unnamed_addr #1 {
+define internal fastcc void @s_lock(ptr noundef captures(none) %h, i32 %hl.16.val) unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i32 %hl.16.val, 0
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
@@ -4117,7 +4117,7 @@ declare i32 @test_size_t_lt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @test_size_t_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @test_size_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -4232,7 +4232,7 @@ declare i64 @SSL_get_stream_id(ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_quic_tserver_stream_new(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @helper_set_s_stream(ptr nocapture noundef readonly %h, ptr noundef %stream_name, i64 noundef %s_stream_id) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @helper_set_s_stream(ptr noundef readonly captures(none) %h, ptr noundef %stream_name, i64 noundef %s_stream_id) unnamed_addr #1 {
 entry:
   %key.i = alloca %struct.stream_info, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %stream_name, ptr noundef nonnull dereferenceable(8) @.str.154) #16
@@ -4243,7 +4243,7 @@ if.end:                                           ; preds = %entry
   %s_streams = getelementptr inbounds nuw i8, ptr %h, i64 72
   %0 = load ptr, ptr %s_streams, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i)
-  %call.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %stream_name) #14
+  %call.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef nonnull %stream_name) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %get_stream_info.exit.thread, label %if.end.i
 
@@ -4321,7 +4321,7 @@ declare i32 @SSL_stream_reset(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @run_script_child_thread(ptr nocapture noundef initializes((48, 56)) %arg) #1 {
+define internal noundef i32 @run_script_child_thread(ptr noundef captures(none) initializes((48, 56)) %arg) #1 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   %script = getelementptr inbounds nuw i8, ptr %arg, i64 8
@@ -4348,7 +4348,7 @@ declare i32 @BIO_closesocket(i32 noundef) local_unnamed_addr #2
 declare i32 @qtest_fault_set_packet_plain_listener(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @helper_packet_plain_listener(ptr nocapture readnone %qtf, ptr noundef %hdr, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %arg) #1 {
+define internal i32 @helper_packet_plain_listener(ptr readnone captures(none) %qtf, ptr noundef %hdr, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %arg) #1 {
 entry:
   %qtf_packet_plain_cb = getelementptr inbounds nuw i8, ptr %arg, i64 216
   %0 = load ptr, ptr %qtf_packet_plain_cb, align 8
@@ -4359,7 +4359,7 @@ entry:
 declare i32 @qtest_fault_set_handshake_listener(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @helper_handshake_listener(ptr nocapture readnone %fault, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %arg) #1 {
+define internal i32 @helper_handshake_listener(ptr readnone captures(none) %fault, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %arg) #1 {
 entry:
   %qtf_handshake_cb = getelementptr inbounds nuw i8, ptr %arg, i64 224
   %0 = load ptr, ptr %qtf_handshake_cb, align 8
@@ -4370,7 +4370,7 @@ entry:
 declare i32 @qtest_fault_set_datagram_listener(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @helper_datagram_listener(ptr nocapture readnone %fault, ptr noundef %msg, i64 noundef %stride, ptr noundef %arg) #1 {
+define internal i32 @helper_datagram_listener(ptr readnone captures(none) %fault, ptr noundef %msg, i64 noundef %stride, ptr noundef %arg) #1 {
 entry:
   %qtf_datagram_cb = getelementptr inbounds nuw i8, ptr %arg, i64 232
   %0 = load ptr, ptr %qtf_datagram_cb, align 8
@@ -4427,7 +4427,7 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #2
 declare void @ossl_crypto_condvar_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_rejected(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @check_rejected(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %check_op = getelementptr inbounds nuw i8, ptr %hl, i64 24
   %0 = load ptr, ptr %check_op, align 8
@@ -4543,7 +4543,7 @@ declare i32 @ossl_quic_tserver_stream_has_peer_stop_sending(ptr noundef, i64 nou
 declare i32 @ossl_quic_tserver_stream_has_peer_reset_stream(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_stream_reset(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal i32 @check_stream_reset(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %aec = alloca i64, align 8
   %check_op = getelementptr inbounds nuw i8, ptr %hl, i64 24
@@ -4615,7 +4615,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_stream_stopped(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @check_stream_stopped(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %check_op = getelementptr inbounds nuw i8, ptr %hl, i64 24
   %0 = load ptr, ptr %check_op, align 8
@@ -4680,7 +4680,7 @@ return:                                           ; preds = %s_lock.exit, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @override_key_update(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hl) #1 {
+define internal noundef i32 @override_key_update(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %c_conn = getelementptr inbounds nuw i8, ptr %h, i64 112
   %0 = load ptr, ptr %c_conn, align 8
@@ -4694,7 +4694,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @skip_time_ms(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @skip_time_ms(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %time_lock = getelementptr inbounds nuw i8, ptr %h, i64 168
   %0 = load ptr, ptr %time_lock, align 8
@@ -4725,7 +4725,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_key_update_ge(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @check_key_update_ge(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %c_conn = getelementptr inbounds nuw i8, ptr %h, i64 112
   %0 = load ptr, ptr %c_conn, align 8
@@ -4772,7 +4772,7 @@ declare i32 @test_int64_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef,
 declare i32 @test_uint64_t_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_key_update_lt(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @check_key_update_lt(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %c_conn = getelementptr inbounds nuw i8, ptr %h, i64 112
   %0 = load ptr, ptr %c_conn, align 8
@@ -4791,7 +4791,7 @@ entry:
 declare i32 @test_uint64_t_lt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @trigger_key_update(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
+define internal range(i32 0, 2) i32 @trigger_key_update(ptr noundef readonly captures(none) %h, ptr readnone captures(none) %hl) #1 {
 entry:
   %c_conn = getelementptr inbounds nuw i8, ptr %h, i64 112
   %0 = load ptr, ptr %c_conn, align 8
@@ -4807,7 +4807,7 @@ entry:
 declare i32 @SSL_key_update(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_20_wait1(ptr noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal noundef i32 @script_20_wait1(ptr noundef %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %scratch0 = getelementptr inbounds nuw i8, ptr %h, i64 256
   %check_op = getelementptr inbounds nuw i8, ptr %hl, i64 24
@@ -4840,7 +4840,7 @@ script_20_wait.exit:                              ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_20_trigger2(ptr noundef %h, ptr nocapture readnone %hl) #1 {
+define internal noundef i32 @script_20_trigger2(ptr noundef %h, ptr readnone captures(none) %hl) #1 {
 entry:
   %scratch1 = getelementptr inbounds nuw i8, ptr %h, i64 264
   %misc_m.i = getelementptr inbounds nuw i8, ptr %h, i64 144
@@ -4858,7 +4858,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_20_trigger1(ptr noundef %h, ptr nocapture readnone %hl) #1 {
+define internal noundef i32 @script_20_trigger1(ptr noundef %h, ptr readnone captures(none) %hl) #1 {
 entry:
   %scratch0 = getelementptr inbounds nuw i8, ptr %h, i64 256
   %misc_m.i = getelementptr inbounds nuw i8, ptr %h, i64 144
@@ -4876,7 +4876,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_20_wait2(ptr noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal noundef i32 @script_20_wait2(ptr noundef %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %scratch1 = getelementptr inbounds nuw i8, ptr %h, i64 264
   %check_op = getelementptr inbounds nuw i8, ptr %hl, i64 24
@@ -4911,7 +4911,7 @@ script_20_wait.exit:                              ; preds = %if.end.i, %entry
 declare void @ossl_crypto_condvar_broadcast(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @script_22_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef %hdr, ptr nocapture readnone %buf, i64 %len) #9 {
+define internal noundef i32 @script_22_inject_plain(ptr noundef readonly captures(none) %h, ptr noundef captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #9 {
 entry:
   %inject_word0 = getelementptr inbounds nuw i8, ptr %h, i64 240
   %0 = load i64, ptr %inject_word0, align 8
@@ -4930,7 +4930,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_23_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_23_inject_plain(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [16 x i8], align 16
@@ -5000,7 +5000,7 @@ return:                                           ; preds = %if.then32, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_24_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_24_inject_plain(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [16 x i8], align 16
@@ -5072,7 +5072,7 @@ return:                                           ; preds = %if.then32, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_28_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_28_inject_plain(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [32 x i8], align 16
@@ -5167,7 +5167,7 @@ return:                                           ; preds = %if.then48, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_32_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_32_inject_plain(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [64 x i8], align 16
@@ -5299,7 +5299,7 @@ return:                                           ; preds = %if.then55, %if.else
 declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_39_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_39_inject_plain(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [64 x i8], align 16
@@ -5496,7 +5496,7 @@ declare ptr @ossl_quic_tserver_get_channel(ptr noundef) local_unnamed_addr #2
 declare void @ossl_quic_channel_get_diag_local_cid(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_41_inject_plain(ptr nocapture noundef %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_41_inject_plain(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [16 x i8], align 16
@@ -5577,7 +5577,7 @@ return:                                           ; preds = %if.then36, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_41_setup(ptr noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal noundef i32 @script_41_setup(ptr noundef %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %0 = getelementptr i8, ptr %hl, i64 16
   %hl.val = load i32, ptr %0, align 8
@@ -5628,7 +5628,7 @@ s_lock.exit:                                      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_41_check(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
+define internal range(i32 0, 2) i32 @script_41_check(ptr noundef readonly captures(none) %h, ptr readnone captures(none) %hl) #1 {
 entry:
   %scratch0 = getelementptr inbounds nuw i8, ptr %h, i64 256
   %0 = load i64, ptr %scratch0, align 8
@@ -5652,7 +5652,7 @@ return:                                           ; preds = %if.end, %entry
 declare void @ossl_quic_tserver_set_msg_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @script_41_trace(i32 %write_p, i32 noundef %version, i32 noundef %content_type, ptr noundef %buf, i64 noundef %len, ptr nocapture readnone %ssl, ptr nocapture noundef %arg) #1 {
+define internal void @script_41_trace(i32 %write_p, i32 noundef %version, i32 noundef %content_type, ptr noundef %buf, i64 noundef %len, ptr readnone captures(none) %ssl, ptr noundef captures(none) %arg) #1 {
 entry:
   %frame_type = alloca i64, align 8
   %frame_data = alloca i64, align 8
@@ -5728,7 +5728,7 @@ declare i32 @ossl_quic_wire_decode_frame_path_response(ptr noundef, ptr noundef)
 declare i32 @test_uint64_t_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_42_inject_plain(ptr nocapture noundef %h, ptr nocapture readnone %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_42_inject_plain(ptr noundef captures(none) %h, ptr readnone captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %frame_buf = alloca [64 x i8], align 16
   %written = alloca i64, align 8
@@ -5812,7 +5812,7 @@ return:                                           ; preds = %if.then43, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_44_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_44_inject_plain(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [16 x i8], align 16
@@ -5876,7 +5876,7 @@ return:                                           ; preds = %if.then26, %if.else
 declare i32 @ossl_quic_wire_encode_padding(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @force_ping(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @force_ping(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %0 = getelementptr i8, ptr %hl, i64 16
   %hl.val4 = load i32, ptr %0, align 8
@@ -5979,7 +5979,7 @@ s_lock.exit25:                                    ; preds = %if.then.i16, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @wait_incoming_acks_increased(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @wait_incoming_acks_increased(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %0 = getelementptr i8, ptr %hl, i64 16
   %hl.val = load i32, ptr %0, align 8
@@ -6046,7 +6046,7 @@ return:                                           ; preds = %s_lock.exit, %if.th
 declare zeroext i16 @ossl_quic_channel_get_diag_num_rx_ack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_46_inject_plain(ptr nocapture noundef %h, ptr nocapture readnone %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_46_inject_plain(ptr noundef captures(none) %h, ptr readnone captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [16 x i8], align 16
@@ -6216,7 +6216,7 @@ return:                                           ; preds = %if.then94, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_52_inject_plain(ptr nocapture noundef %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_52_inject_plain(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %frame_buf = alloca [64 x i8], align 16
   %written = alloca i64, align 8
@@ -6302,7 +6302,7 @@ return:                                           ; preds = %if.then45, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_53_inject_plain(ptr nocapture noundef %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_53_inject_plain(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %written = alloca i64, align 8
   %wpkt = alloca %struct.wpacket_st, align 8
@@ -6411,7 +6411,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @script_54_inject_handshake(ptr nocapture readnone %h, ptr nocapture noundef %buf, i64 noundef %buf_len) #10 {
+define internal noundef i32 @script_54_inject_handshake(ptr readnone captures(none) %h, ptr noundef captures(none) %buf, i64 noundef %buf_len) #10 {
 entry:
   %cmp3.not = icmp eq i64 %buf_len, 0
   br i1 %cmp3.not, label %for.end, label %for.body
@@ -6431,7 +6431,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_58_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_58_inject_plain(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %frame_buf = alloca [64 x i8], align 16
   %written = alloca i64, align 8
@@ -6514,7 +6514,7 @@ return:                                           ; preds = %if.then44, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i32 @init_reason(ptr nocapture readnone %h, ptr nocapture readnone %hl) #11 {
+define internal noundef i32 @init_reason(ptr readnone captures(none) %h, ptr readnone captures(none) %hl) #11 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2018) getelementptr inbounds nuw (i8, ptr @long_reason, i64 29), i8 126, i64 2018, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(29) @long_reason, ptr noundef nonnull align 1 dereferenceable(29) @.str.244, i64 29, i1 false)
@@ -6523,7 +6523,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_shutdown_reason(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @check_shutdown_reason(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %0 = getelementptr i8, ptr %hl, i64 16
   %hl.val = load i32, ptr %0, align 8
@@ -6602,7 +6602,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 declare i32 @test_size_t_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_61_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_61_inject_plain(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [32 x i8], align 16
@@ -6696,7 +6696,7 @@ return:                                           ; preds = %if.then48, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_65_inject_plain(ptr nocapture noundef %h, ptr nocapture readnone %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_65_inject_plain(ptr noundef captures(none) %h, ptr readnone captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %frame_buf = alloca [64 x i8], align 16
   %written = alloca i64, align 8
@@ -6770,7 +6770,7 @@ return:                                           ; preds = %if.then37, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_66_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_66_inject_plain(ptr noundef readonly captures(none) %h, ptr noundef readonly captures(none) %hdr, ptr readnone captures(none) %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [64 x i8], align 16
@@ -6857,7 +6857,7 @@ return:                                           ; preds = %if.then46, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_68_inject_handshake(ptr nocapture noundef readonly %h, ptr nocapture noundef writeonly %msg, i64 %msglen) #1 {
+define internal range(i32 0, 2) i32 @script_68_inject_handshake(ptr noundef readonly captures(none) %h, ptr noundef writeonly captures(none) %msg, i64 %msglen) #1 {
 entry:
   %inject_word0 = getelementptr inbounds nuw i8, ptr %h, i64 240
   %0 = load i64, ptr %inject_word0, align 8
@@ -6898,7 +6898,7 @@ return:                                           ; preds = %sw.epilog, %entry, 
 declare i32 @qtest_fault_resize_message(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @set_max_early_data(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @set_max_early_data(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   %0 = getelementptr i8, ptr %hl, i64 16
   %hl.val = load i32, ptr %0, align 8
@@ -6961,7 +6961,7 @@ s_lock.exit:                                      ; preds = %if.then.i, %if.end.
 declare i32 @ossl_quic_tserver_set_max_early_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_72_check(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
+define internal range(i32 0, 2) i32 @script_72_check(ptr noundef readonly captures(none) %h, ptr readnone captures(none) %hl) #1 {
 entry:
   %fail_count = getelementptr inbounds nuw i8, ptr %h, i64 272
   %0 = load i64, ptr %fail_count, align 8
@@ -6972,7 +6972,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @server_gen_version_neg(ptr nocapture noundef %h, ptr nocapture noundef readonly %msg, i64 %stride) #1 {
+define internal range(i32 0, 2) i32 @server_gen_version_neg(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %msg, i64 %stride) #1 {
 entry:
   %hdr.i = alloca %struct.quic_pkt_hdr_st, align 8
   %l = alloca i64, align 8
@@ -7079,7 +7079,7 @@ declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @script_76_check(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
+define internal range(i32 0, 2) i32 @script_76_check(ptr noundef readonly captures(none) %h, ptr readnone captures(none) %hl) #1 {
 entry:
   %c_conn = getelementptr inbounds nuw i8, ptr %h, i64 112
   %0 = load ptr, ptr %c_conn, align 8
@@ -7093,7 +7093,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @setup_session(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
+define internal noundef i32 @setup_session(ptr noundef readonly captures(none) %h, ptr readnone captures(none) %hl) #1 {
 entry:
   %c_ctx = getelementptr inbounds nuw i8, ptr %h, i64 104
   %0 = load ptr, ptr %c_ctx, align 8
@@ -7104,7 +7104,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @trigger_late_session_ticket(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @trigger_late_session_ticket(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %hl) #1 {
 entry:
   store i64 0, ptr @new_session_count, align 8
   %0 = getelementptr i8, ptr %hl, i64 16
@@ -7161,7 +7161,7 @@ s_lock.exit:                                      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_got_session_ticket(ptr nocapture readnone %h, ptr nocapture readnone %hl) #1 {
+define internal range(i32 0, 2) i32 @check_got_session_ticket(ptr readnone captures(none) %h, ptr readnone captures(none) %hl) #1 {
 entry:
   %0 = load i64, ptr @new_session_count, align 8
   %call = tail call i32 @test_size_t_gt(ptr noundef nonnull @.str.14, i32 noundef 5021, ptr noundef nonnull @.str.262, ptr noundef nonnull @.str.32, i64 noundef %0, i64 noundef 0) #14
@@ -7175,7 +7175,7 @@ declare i64 @SSL_CTX_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) lo
 declare void @SSL_CTX_sess_set_new_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i32 @on_new_session(ptr nocapture readnone %s, ptr nocapture readnone %sess) #11 {
+define internal noundef i32 @on_new_session(ptr readnone captures(none) %s, ptr readnone captures(none) %sess) #11 {
 entry:
   %0 = load i64, ptr @new_session_count, align 8
   %inc = add i64 %0, 1
@@ -7184,10 +7184,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #13

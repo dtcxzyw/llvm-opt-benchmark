@@ -416,7 +416,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node15DeleteACHHandleclEPNS_9ACHHandleE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr noundef %handle) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node15DeleteACHHandleclEPNS_9ACHHandleE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef %handle) local_unnamed_addr #3 align 2 {
 entry:
   %isnull = icmp eq ptr %handle, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -956,7 +956,7 @@ entry:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node36RemoveEnvironmentCleanupHookInternalEPNS_9ACHHandleE(ptr nocapture noundef readonly %handle) local_unnamed_addr #3 {
+define dso_local void @_ZN4node36RemoveEnvironmentCleanupHookInternalEPNS_9ACHHandleE(ptr noundef readonly captures(none) %handle) local_unnamed_addr #3 {
 entry:
   %search.i.i = alloca %"class.node::CleanupQueue::CleanupHookCallback", align 8
   %0 = load ptr, ptr %handle, align 8
@@ -1421,7 +1421,7 @@ declare void @_ZN4node9AsyncWrap11EmitDestroyEPNS_11EnvironmentEd(ptr noundef, d
 declare noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
@@ -1869,7 +1869,7 @@ return:                                           ; preds = %if.end3.i, %lor.lhs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4nodeL22FinishAsyncCleanupHookEPv(ptr nocapture noundef %arg) #3 {
+define internal void @_ZN4nodeL22FinishAsyncCleanupHookEPv(ptr noundef captures(none) %arg) #3 {
 entry:
   %self = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %_M_refcount3.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 40
@@ -2189,7 +2189,7 @@ declare i32 @uv_async_send(ptr noundef) local_unnamed_addr #0
 declare void @_ZN4node11Environment22RequestInterruptFromV8Ev(ptr noundef nonnull align 8 dereferenceable(2872)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_16RequestInterruptES2_PFvPvES5_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_16RequestInterruptES2_PFvPvES5_E3$_0ED2Ev"(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2231,7 +2231,7 @@ _ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_16RequestInterruptES2_PFvPvES5_E3$_0E4CallES2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %args) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_16RequestInterruptES2_PFvPvES5_E3$_0E4CallES2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly captures(none) %args) unnamed_addr #3 align 2 {
 entry:
   %scope.i = alloca %"class.v8::Isolate::DisallowJavascriptExecutionScope", align 8
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2294,10 +2294,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -238,7 +238,7 @@ declare noundef i32 @_ZNK10CodeBuffer21total_relocation_sizeEv(ptr noundef nonnu
 declare noundef i32 @_ZNK10CodeBuffer18total_content_sizeEv(ptr noundef nonnull align 8 dereferenceable(448)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8CodeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr nocapture noundef nonnull align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull %3, i32 noundef %4, i16 noundef zeroext %5, i16 noundef signext %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #1 align 2 {
+define hidden void @_ZN8CodeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 captures(none) dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull %3, i32 noundef %4, i16 noundef zeroext %5, i16 noundef signext %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #1 align 2 {
   %11 = zext i1 %9 to i8
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV8CodeBlob, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -301,7 +301,7 @@ _ZN8CodeBlob12set_oop_mapsEP9OopMapSet.exit:      ; preds = %10, %44
 declare noundef i32 @_ZNK10CodeBuffer15total_offset_ofEPK11CodeSection(ptr noundef nonnull align 8 dereferenceable(448), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8CodeBlob12set_oop_mapsEP9OopMapSet(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8CodeBlob12set_oop_mapsEP9OopMapSet(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(54) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -317,7 +317,7 @@ define hidden void @_ZN8CodeBlob12set_oop_mapsEP9OopMapSet(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN8CodeBlobC2EPKc12CodeBlobKindit(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #3 align 2 {
+define hidden void @_ZN8CodeBlobC2EPKc12CodeBlobKindit(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV8CodeBlob, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %6, align 8
@@ -355,7 +355,7 @@ define hidden void @_ZN8CodeBlobC2EPKc12CodeBlobKindit(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8CodeBlob5purgeEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8CodeBlob5purgeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -773,7 +773,7 @@ declare void @_ZN5Forte13register_stubEPKcPhS2_(ptr noundef, ptr noundef, ptr no
 declare void @_ZN11JvmtiExport27post_dynamic_code_generatedEPKcPKvS3_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN10BufferBlobC2EPKc12CodeBlobKindi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #3 align 2 {
+define hidden void @_ZN10BufferBlobC2EPKc12CodeBlobKindi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV8CodeBlob, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
@@ -1506,7 +1506,7 @@ define hidden noundef ptr @_ZN10VtableBlobnwEmj(i64 noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN10VtableBlobC2EPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN10VtableBlobC2EPKci(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV8CodeBlob, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
@@ -2910,7 +2910,7 @@ define hidden void @_ZNK8CodeBlob5printEv(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK8CodeBlob14print_value_onEP12outputStream(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
+define hidden void @_ZNK8CodeBlob14print_value_onEP12outputStream(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.21) #10
   ret void
 }
@@ -3206,7 +3206,7 @@ declare void @_ZN7nmethod13print_nmethodEb(ptr noundef nonnull align 8 dereferen
 declare void @_ZNK7nmethod5printEP12outputStream(ptr noundef nonnull align 8 dereferenceable(214), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN10BufferBlob6verifyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN10BufferBlob6verifyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
@@ -3234,7 +3234,7 @@ define hidden void @_ZNK10BufferBlob14print_value_onEP12outputStream(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11RuntimeStub6verifyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN11RuntimeStub6verifyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
@@ -3266,7 +3266,7 @@ define hidden void @_ZNK11RuntimeStub14print_value_onEP12outputStream(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13SingletonBlob6verifyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN13SingletonBlob6verifyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
@@ -3287,7 +3287,7 @@ define hidden void @_ZNK13SingletonBlob8print_onEP12outputStream(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13SingletonBlob14print_value_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(54) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
+define hidden void @_ZNK13SingletonBlob14print_value_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(54) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.33, ptr noundef %4) #10
@@ -3295,13 +3295,13 @@ define hidden void @_ZNK13SingletonBlob14print_value_onEP12outputStream(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18DeoptimizationBlob14print_value_onEP12outputStream(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
+define hidden void @_ZNK18DeoptimizationBlob14print_value_onEP12outputStream(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.35) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN10UpcallStub6verifyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN10UpcallStub6verifyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret void
 }
 

@@ -1766,7 +1766,7 @@ define hidden void @proto_register_lldp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mdi_power_base(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @mdi_power_base(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = udiv i32 %1, 10
   %4 = urem i32 %1, 10
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.923, i32 noundef %3, i32 noundef %4) #8
@@ -1774,7 +1774,7 @@ define internal void @mdi_power_base(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @latitude_or_longitude_resolution(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) #1 {
+define internal void @latitude_or_longitude_resolution(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) #1 {
   %3 = and i8 %1, 63
   %4 = zext nneg i8 %3 to i32
   %5 = sub nsw i32 8, %4
@@ -1822,7 +1822,7 @@ define internal void @latitude_or_longitude_resolution(ptr nocapture noundef wri
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @latitude_base(ptr nocapture noundef writeonly %0, i64 noundef %1) #1 {
+define internal void @latitude_base(ptr noundef writeonly captures(none) %0, i64 noundef %1) #1 {
   %3 = and i64 %1, 17179869183
   %4 = and i64 %1, 8589934592
   %.not.i.not.i = icmp eq i64 %4, 0
@@ -1847,7 +1847,7 @@ define internal void @latitude_base(ptr nocapture noundef writeonly %0, i64 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @longitude_base(ptr nocapture noundef writeonly %0, i64 noundef %1) #1 {
+define internal void @longitude_base(ptr noundef writeonly captures(none) %0, i64 noundef %1) #1 {
   %3 = and i64 %1, 17179869183
   %4 = and i64 %1, 8589934592
   %.not.i.not.i = icmp eq i64 %4, 0
@@ -1872,7 +1872,7 @@ define internal void @longitude_base(ptr nocapture noundef writeonly %0, i64 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @altitude_resolution(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) #1 {
+define internal void @altitude_resolution(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) #1 {
   %3 = and i8 %1, 63
   %4 = zext nneg i8 %3 to i32
   %5 = sub nsw i32 21, %4
@@ -1920,7 +1920,7 @@ define internal void @altitude_resolution(ptr nocapture noundef writeonly %0, i8
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @altitude_base(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @altitude_base(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
 get2sComplementAbsoluteValue.exit:
   %2 = and i32 %1, 1073741823
   %3 = zext nneg i32 %2 to i64
@@ -1943,7 +1943,7 @@ get2sComplementAbsoluteValue.exit:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @media_power_base(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @media_power_base(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = mul i32 %1, 100
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.999, i32 noundef %3) #8
   ret void
@@ -1954,7 +1954,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_lldp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_lldp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.791) #8
@@ -2043,19 +2043,19 @@ define internal i32 @dissect_lldp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 53:                                               ; preds = %47
-  %54 = tail call fastcc i32 @dissect_lldp_chassis_id(ptr noundef %52, ptr noundef %1, ptr noundef %11, ptr noundef %18)
+  %54 = tail call fastcc i32 @dissect_lldp_chassis_id(ptr noundef %52, ptr noundef nonnull %1, ptr noundef %11, ptr noundef %18)
   %55 = load i32, ptr @column_info_selection, align 4
   %56 = icmp eq i32 %55, 1
   br i1 %56, label %dissect_lldp_management_address.exit.thread119.sink.split, label %dissect_lldp_management_address.exit.thread119
 
 57:                                               ; preds = %47
-  %58 = tail call fastcc i32 @dissect_lldp_port_id(ptr noundef %52, ptr noundef %1, ptr noundef %11, ptr noundef %18)
+  %58 = tail call fastcc i32 @dissect_lldp_port_id(ptr noundef %52, ptr noundef nonnull %1, ptr noundef %11, ptr noundef %18)
   %59 = load i32, ptr @column_info_selection, align 4
   %60 = icmp eq i32 %59, 1
   br i1 %60, label %dissect_lldp_management_address.exit.thread119.sink.split, label %dissect_lldp_management_address.exit.thread119
 
 61:                                               ; preds = %47
-  %62 = tail call fastcc i32 @dissect_lldp_time_to_live(ptr noundef %52, ptr noundef %1, ptr noundef %11)
+  %62 = tail call fastcc i32 @dissect_lldp_time_to_live(ptr noundef %52, ptr noundef nonnull %1, ptr noundef %11)
   %63 = load i32, ptr @column_info_selection, align 4
   %64 = icmp eq i32 %63, 1
   br i1 %64, label %dissect_lldp_management_address.exit.thread119.sink.split, label %dissect_lldp_management_address.exit.thread119
@@ -2268,7 +2268,7 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   %226 = tail call i32 @tvb_get_ntoh24(ptr noundef %52, i32 noundef 2) #8
   %227 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %52, i32 noundef 5) #8
   %228 = load ptr, ptr @oui_unique_code_table, align 8
-  %229 = tail call i32 @dissector_try_uint(ptr noundef %228, i32 noundef %226, ptr noundef %52, ptr noundef %1, ptr noundef %11) #8
+  %229 = tail call i32 @dissector_try_uint(ptr noundef %228, i32 noundef %226, ptr noundef %52, ptr noundef nonnull %1, ptr noundef %11) #8
   %.not.i113 = icmp eq i32 %229, 0
   br i1 %.not.i113, label %230, label %dissect_lldp_management_address.exit
 
@@ -2583,7 +2583,7 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   br i1 %364, label %365, label %367
 
 365:                                              ; preds = %357
-  %366 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %362, ptr noundef nonnull @ei_lldp_bad_length, ptr noundef nonnull @.str.1112, i32 noundef %363) #8
+  %366 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %362, ptr noundef nonnull @ei_lldp_bad_length, ptr noundef nonnull @.str.1112, i32 noundef %363) #8
   br label %dissect_lldp_management_address.exit
 
 367:                                              ; preds = %357
@@ -2617,19 +2617,19 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   br label %388
 
 374:                                              ; preds = %367
-  tail call fastcc void @dissect_ieee_802_3_tlv(ptr noundef %371, ptr noundef %1, ptr noundef %358)
+  tail call fastcc void @dissect_ieee_802_3_tlv(ptr noundef %371, ptr noundef nonnull %1, ptr noundef %358)
   br label %388
 
 375:                                              ; preds = %367
-  tail call fastcc void @dissect_media_tlv(ptr noundef %371, ptr noundef %1, ptr noundef %358)
+  tail call fastcc void @dissect_media_tlv(ptr noundef %371, ptr noundef nonnull %1, ptr noundef %358)
   br label %388
 
 376:                                              ; preds = %367
-  tail call fastcc void @dissect_profinet_tlv(ptr noundef %371, ptr noundef %1, ptr noundef %358, ptr noundef %18)
+  tail call fastcc void @dissect_profinet_tlv(ptr noundef %371, ptr noundef nonnull %1, ptr noundef %358, ptr noundef %18)
   br label %388
 
 377:                                              ; preds = %367
-  tail call fastcc void @dissect_cisco_tlv(ptr noundef %371, ptr noundef %1, ptr noundef %358)
+  tail call fastcc void @dissect_cisco_tlv(ptr noundef %371, ptr noundef nonnull %1, ptr noundef %358)
   br label %388
 
 378:                                              ; preds = %367
@@ -2637,7 +2637,7 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   br label %388
 
 379:                                              ; preds = %367
-  tail call fastcc void @dissect_hytec_tlv(ptr noundef %371, ptr noundef %1, ptr noundef %358)
+  tail call fastcc void @dissect_hytec_tlv(ptr noundef %371, ptr noundef nonnull %1, ptr noundef %358)
   br label %388
 
 380:                                              ; preds = %367
@@ -2661,7 +2661,7 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   br label %388
 
 385:                                              ; preds = %367
-  %386 = tail call i32 @dissect_lldp_cip_tlv(ptr noundef %371, ptr noundef %1, ptr noundef %358) #8
+  %386 = tail call i32 @dissect_lldp_cip_tlv(ptr noundef %371, ptr noundef nonnull %1, ptr noundef %358) #8
   br label %388
 
 387:                                              ; preds = %367
@@ -2739,7 +2739,7 @@ define hidden void @proto_reg_handoff_lldp() local_unnamed_addr #0 {
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2756,7 +2756,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #8
@@ -2968,7 +2968,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr nound
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #8
@@ -3175,7 +3175,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 5) i32 @dissect_lldp_time_to_live(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 5) i32 @dissect_lldp_time_to_live(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #8
   %.mask = and i16 %4, -512
   %.not = icmp eq i16 %.mask, 1536
@@ -4367,7 +4367,7 @@ define internal fastcc void @dissect_media_tlv(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_profinet_tlv(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_profinet_tlv(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
   %6 = load i32, ptr @hf_profinet_tlv_subtype, align 4
   %7 = zext i8 %5 to i32
@@ -4649,7 +4649,7 @@ set_port_id_for_profinet_specialized_column_info.exit: ; preds = %47, %44, %set_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #8
   %6 = icmp eq ptr %2, null
@@ -4765,16 +4765,16 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
   %.1240 = phi i32 [ 1, %.lr.ph ], [ %76, %65 ]
   %.1229239 = phi i32 [ %11, %.lr.ph ], [ %77, %65 ]
   %66 = load i32, ptr @hf_cisco_aci_apicid, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %.1240, i32 noundef 1, i32 noundef 0) #8
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %66, ptr noundef %0, i32 noundef %.1240, i32 noundef 1, i32 noundef 0) #8
   %68 = load ptr, ptr %64, align 8
   %69 = tail call ptr @proto_item_get_display_repr(ptr noundef %68, ptr noundef %67) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %69) #8
   %70 = add i32 %.1240, 1
   %71 = load i32, ptr @hf_cisco_aci_apicipv4, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef 0) #8
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %71, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef 0) #8
   %73 = add i32 %.1240, 5
   %74 = load i32, ptr @hf_cisco_aci_apicuuid, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef %73, i32 noundef 36, i32 noundef 0) #8
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %74, ptr noundef %0, i32 noundef %73, i32 noundef 36, i32 noundef 0) #8
   %76 = add i32 %.1240, 41
   %77 = add i32 %.1229239, -41
   %.not = icmp eq i32 %77, 0
@@ -5747,7 +5747,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #2
 

@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_Py_NoneStruct = external global %struct._object, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyUnstable_AtExit(ptr nocapture noundef %interp, ptr noundef %func, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyUnstable_AtExit(ptr noundef captures(none) %interp, ptr noundef %func, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyMem_Malloc(i64 noundef 24) #4
   %cmp = icmp eq ptr %call, null
@@ -80,7 +80,7 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyAtExit_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr nocapture noundef writeonly initializes((4304, 4320)) %interp) local_unnamed_addr #0 {
+define hidden void @_PyAtExit_Init(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef writeonly captures(none) initializes((4304, 4320)) %interp) local_unnamed_addr #0 {
 entry:
   %callback_len = getelementptr inbounds nuw i8, ptr %interp, i64 4316
   store i32 32, ptr %callback_len, align 4
@@ -112,10 +112,10 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyAtExit_Fini(ptr nocapture noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyAtExit_Fini(ptr noundef captures(none) %interp) local_unnamed_addr #0 {
 entry:
   %atexit = getelementptr inbounds nuw i8, ptr %interp, i64 4288
   %ncallbacks.i = getelementptr inbounds nuw i8, ptr %interp, i64 4312
@@ -179,7 +179,7 @@ while.end:                                        ; preds = %while.body, %atexit
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyAtExit_Call(ptr nocapture noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyAtExit_Call(ptr noundef captures(none) %interp) local_unnamed_addr #0 {
 entry:
   %atexit = getelementptr inbounds nuw i8, ptr %interp, i64 4288
   tail call fastcc void @atexit_callfuncs(ptr noundef nonnull %atexit)
@@ -187,7 +187,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @atexit_callfuncs(ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc void @atexit_callfuncs(ptr noundef captures(none) %state) unnamed_addr #0 {
 entry:
   %ncallbacks = getelementptr inbounds nuw i8, ptr %state, i64 24
   %0 = load i32, ptr %ncallbacks, align 8
@@ -324,7 +324,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @atexit_delete_cb(ptr nocapture %state.16.val, i32 noundef %i) unnamed_addr #0 {
+define internal fastcc void @atexit_delete_cb(ptr captures(none) %state.16.val, i32 noundef %i) unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr ptr, ptr %state.16.val, i64 %idxprom
@@ -398,7 +398,7 @@ declare ptr @PyObject_Call(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare void @PyErr_FormatUnraisable(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @atexit_register(ptr nocapture readnone %module, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal ptr @atexit_register(ptr readnone captures(none) %module, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %0, align 8
@@ -525,7 +525,7 @@ return:                                           ; preds = %if.end.i.i23, %_Py_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @atexit_clear(ptr nocapture readnone %module, ptr nocapture readnone %unused) #0 {
+define internal noundef nonnull ptr @atexit_clear(ptr readnone captures(none) %module, ptr readnone captures(none) %unused) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -568,7 +568,7 @@ atexit_cleanup.exit:                              ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @atexit_unregister(ptr nocapture readnone %module, ptr noundef %func) #0 {
+define internal noundef ptr @atexit_unregister(ptr readnone captures(none) %module, ptr noundef %func) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -620,7 +620,7 @@ return:                                           ; preds = %if.end, %for.inc, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @atexit_run_exitfuncs(ptr nocapture readnone %module, ptr nocapture readnone %unused) #0 {
+define internal noundef nonnull ptr @atexit_run_exitfuncs(ptr readnone captures(none) %module, ptr readnone captures(none) %unused) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -632,7 +632,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @atexit_ncallbacks(ptr nocapture readnone %module, ptr nocapture readnone %unused) #0 {
+define internal ptr @atexit_ncallbacks(ptr readnone captures(none) %module, ptr readnone captures(none) %unused) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8

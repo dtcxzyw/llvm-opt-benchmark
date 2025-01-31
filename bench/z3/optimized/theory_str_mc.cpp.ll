@@ -19150,7 +19150,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt10theory_str22fixed_length_reduce_eqERNS_6kernelE7obj_refI4expr11ast_managerES6_RS6_(ptr noundef nonnull align 8 dereferenceable(1800) %this, ptr noundef nonnull align 8 dereferenceable(8) %subsolver, ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %rhs, ptr noundef nonnull align 8 dereferenceable(16) %cex) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3smt10theory_str22fixed_length_reduce_eqERNS_6kernelE7obj_refI4expr11ast_managerES6_RS6_(ptr noundef nonnull align 8 dereferenceable(1800) %this, ptr noundef nonnull align 8 dereferenceable(8) %subsolver, ptr noundef readonly captures(none) %lhs, ptr noundef readonly captures(none) %rhs, ptr noundef nonnull align 8 dereferenceable(16) %cex) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i = alloca %"struct.obj_map<expr, std::tuple<rational, expr *, expr *>>::key_data", align 8
   %lhs_chars = alloca %class.ref_vector, align 8
@@ -20701,7 +20701,7 @@ ehcleanup105:                                     ; preds = %ehcleanup101, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN3smt10theory_str31fixed_length_model_constructionE10ref_vectorI4expr11ast_managerERS4_S5_R7obj_mapIS2_7zstringES5_(ptr noundef nonnull align 8 dereferenceable(1800) %this, ptr nocapture noundef readonly %formulas, ptr noundef nonnull align 8 dereferenceable(16) %precondition, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %free_variables, ptr noundef nonnull align 8 dereferenceable(24) %model, ptr noundef nonnull align 8 dereferenceable(16) %cex) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN3smt10theory_str31fixed_length_model_constructionE10ref_vectorI4expr11ast_managerERS4_S5_R7obj_mapIS2_7zstringES5_(ptr noundef nonnull align 8 dereferenceable(1800) %this, ptr noundef readonly captures(none) %formulas, ptr noundef nonnull align 8 dereferenceable(16) %precondition, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %free_variables, ptr noundef nonnull align 8 dereferenceable(24) %model, ptr noundef nonnull align 8 dereferenceable(16) %cex) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.addr.i3892 = alloca ptr, align 8
   %a.addr.i = alloca ptr, align 8
@@ -28322,7 +28322,7 @@ invoke.cont1365:                                  ; preds = %invoke.cont1363
           to label %invoke.cont1368 unwind label %lpad1350.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1368:                                  ; preds = %invoke.cont1365
-  %call1371 = invoke noundef ptr @_ZN3smt7context10mk_eq_atomEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(11616) %971, ptr noundef %937, ptr noundef %call1369)
+  %call1371 = invoke noundef ptr @_ZN3smt7context10mk_eq_atomEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(11616) %971, ptr noundef nonnull %937, ptr noundef %call1369)
           to label %invoke.cont1370 unwind label %lpad1350.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1370:                                  ; preds = %invoke.cont1368
@@ -28443,7 +28443,7 @@ invoke.cont1394:                                  ; preds = %invoke.cont1392
           to label %invoke.cont1397 unwind label %lpad1350.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1397:                                  ; preds = %invoke.cont1394
-  %call1400 = invoke noundef ptr @_ZN3smt7context10mk_eq_atomEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(11616) %987, ptr noundef %937, ptr noundef %call1398)
+  %call1400 = invoke noundef ptr @_ZN3smt7context10mk_eq_atomEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(11616) %987, ptr noundef nonnull %937, ptr noundef %call1398)
           to label %invoke.cont1399 unwind label %lpad1350.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1399:                                  ; preds = %invoke.cont1397
@@ -32189,7 +32189,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad6, 
 declare void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN3smt6kernelC1ER11ast_managerR10smt_paramsRK10params_ref(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(800), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
@@ -33044,7 +33044,7 @@ _ZNSt11_Tuple_implILm1EJ7obj_refI4expr11ast_managerES3_EED2Ev.exit: ; preds = %_
 declare noundef ptr @_Z5mk_orR11ast_managerjPKP4expr(ptr noundef nonnull align 8 dereferenceable(976), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIjS2_E(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) local_unnamed_addr #3 comdat align 2 {
@@ -33811,7 +33811,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -39293,13 +39293,13 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17

@@ -483,7 +483,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.33
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970(i32 noundef %0, ptr noalias nocapture noundef nonnull readonly align 2 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull readonly align 4 %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i32 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970(i32 noundef %0, ptr noalias noundef nonnull readonly align 2 captures(none) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 4 captures(none) %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = mul i32 %0, -1640531527
   %8 = mul i32 %0, 826366246
   %9 = xor i32 %7, %8
@@ -525,7 +525,7 @@ define hidden noundef i32 @_ZN21unicode_normalization12perfect_hash10mph_lookup1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970(i32 noundef %0, ptr noalias nocapture noundef nonnull readonly align 2 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull readonly align 4 %3, i64 noundef %4, i48 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970(i32 noundef %0, ptr noalias noundef nonnull readonly align 2 captures(none) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 4 captures(none) %3, i64 noundef %4, i48 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = mul i32 %0, -1640531527
   %8 = mul i32 %0, 826366246
   %9 = xor i32 %7, %8
@@ -580,7 +580,7 @@ define hidden i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i8 @_ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.3355593342274400970(i32 noundef %0, ptr noalias nocapture noundef nonnull readonly align 2 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull readonly align 4 %3, i64 noundef %4, i8 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i8 @_ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.3355593342274400970(i32 noundef %0, ptr noalias noundef nonnull readonly align 2 captures(none) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 4 captures(none) %3, i64 noundef %4, i8 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = mul i32 %0, -1640531527
   %8 = mul i32 %0, 826366246
   %9 = xor i32 %7, %8

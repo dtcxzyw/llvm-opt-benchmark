@@ -65,7 +65,7 @@ _ZN4llvh14raw_os_ostreamD2Ev.exit:                ; preds = %entry, %if.then.i.i
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14raw_os_ostream10write_implEPKcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %Ptr, i64 noundef %Size) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14raw_os_ostream10write_implEPKcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef %Ptr, i64 noundef %Size) unnamed_addr #0 align 2 {
 entry:
   %OS = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %OS, align 8
@@ -76,7 +76,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK4llvh14raw_os_ostream11current_posEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK4llvh14raw_os_ostream11current_posEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
   %OS = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %OS, align 8

@@ -165,7 +165,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_statem_clear(ptr nocapture noundef initializes((144, 148), (164, 168), (172, 176), (188, 192)) %s) local_unnamed_addr #2 {
+define void @ossl_statem_clear(ptr noundef captures(none) initializes((144, 148), (164, 168), (172, 176), (188, 192)) %s) local_unnamed_addr #2 {
 entry:
   %statem = getelementptr inbounds nuw i8, ptr %s, i64 144
   store i32 0, ptr %statem, align 8
@@ -197,7 +197,7 @@ ossl_statem_set_in_init.exit:                     ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_statem_set_in_init(ptr nocapture noundef initializes((172, 176)) %s, i32 noundef %init) local_unnamed_addr #2 {
+define void @ossl_statem_set_in_init(ptr noundef captures(none) initializes((172, 176)) %s, i32 noundef %init) local_unnamed_addr #2 {
 entry:
   %in_init = getelementptr inbounds nuw i8, ptr %s, i64 172
   store i32 %init, ptr %in_init, align 4
@@ -223,7 +223,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_statem_set_renegotiate(ptr nocapture noundef initializes((168, 176)) %s) local_unnamed_addr #2 {
+define void @ossl_statem_set_renegotiate(ptr noundef captures(none) initializes((168, 176)) %s) local_unnamed_addr #2 {
 entry:
   %in_init.i = getelementptr inbounds nuw i8, ptr %s, i64 172
   store i32 1, ptr %in_init.i, align 4
@@ -351,7 +351,7 @@ ossl_statem_send_fatal.exit:                      ; preds = %land.lhs.true.i, %o
 declare void @ERR_vset_error(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_statem_in_error(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_statem_in_error(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %statem = getelementptr inbounds nuw i8, ptr %s, i64 144
   %0 = load i32, ptr %statem, align 8
@@ -361,7 +361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_statem_get_in_handshake(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define i32 @ossl_statem_get_in_handshake(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %in_handshake = getelementptr inbounds nuw i8, ptr %s, i64 180
   %0 = load i32, ptr %in_handshake, align 4
@@ -369,7 +369,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_statem_set_in_handshake(ptr nocapture noundef %s, i32 noundef %inhand) local_unnamed_addr #4 {
+define void @ossl_statem_set_in_handshake(ptr noundef captures(none) %s, i32 noundef %inhand) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i32 %inhand, 0
   %in_handshake2 = getelementptr inbounds nuw i8, ptr %s, i64 180
@@ -381,7 +381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_statem_skip_early_data(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_statem_skip_early_data(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %early_data = getelementptr inbounds nuw i8, ptr %s, i64 2680
   %0 = load i32, ptr %early_data, align 8
@@ -413,7 +413,7 @@ return:                                           ; preds = %lor.lhs.false2, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_statem_check_finish_init(ptr nocapture noundef %s, i32 noundef %sending) local_unnamed_addr #2 {
+define void @ossl_statem_check_finish_init(ptr noundef captures(none) %s, i32 noundef %sending) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %sending, -1
   br i1 %cmp, label %if.then, label %if.else
@@ -552,7 +552,7 @@ if.end47:                                         ; preds = %if.then.i37, %land.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_statem_set_hello_verify_done(ptr nocapture noundef initializes((144, 148), (164, 168), (172, 176)) %s) local_unnamed_addr #2 {
+define void @ossl_statem_set_hello_verify_done(ptr noundef captures(none) initializes((144, 148), (164, 168), (172, 176)) %s) local_unnamed_addr #2 {
 entry:
   %statem = getelementptr inbounds nuw i8, ptr %s, i64 144
   store i32 0, ptr %statem, align 8
@@ -1632,7 +1632,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @statem_flush(ptr nocapture noundef initializes((96, 100)) %s) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @statem_flush(ptr noundef captures(none) initializes((96, 100)) %s) local_unnamed_addr #2 {
 entry:
   %rwstate = getelementptr inbounds nuw i8, ptr %s, i64 96
   store i32 2, ptr %rwstate, align 8
@@ -1655,7 +1655,7 @@ return:                                           ; preds = %entry, %if.end
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_statem_app_data_allowed(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_statem_app_data_allowed(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %statem = getelementptr inbounds nuw i8, ptr %s, i64 144
   %0 = load i32, ptr %statem, align 8
@@ -1699,7 +1699,7 @@ return:                                           ; preds = %if.else, %if.then6,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_statem_export_allowed(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_statem_export_allowed(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %previous_server_finished_len = getelementptr inbounds nuw i8, ptr %s, i64 1072
   %0 = load i64, ptr %previous_server_finished_len, align 8
@@ -1719,7 +1719,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_statem_export_early_allowed(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_statem_export_early_allowed(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %early_data = getelementptr inbounds nuw i8, ptr %s, i64 2680
   %0 = load i32, ptr %early_data, align 8
@@ -1830,10 +1830,10 @@ declare void @llvm.va_start.p0(ptr) #6
 declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

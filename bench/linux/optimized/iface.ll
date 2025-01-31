@@ -163,10 +163,10 @@ define dso_local noundef zeroext i1 @__ieee80211_recalc_txpower(ptr noundef %0) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ieee80211_hw_config(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -690,7 +690,7 @@ ieee80211_set_sdata_offload_flags.exit:           ; preds = %73, %167, %162, %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @ieee80211_adjust_monitor_flags(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local void @ieee80211_adjust_monitor_flags(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1904
@@ -960,7 +960,7 @@ declare dso_local i32 @rtnl_is_locked() local_unnamed_addr #2
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @drv_add_interface(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -969,7 +969,7 @@ declare dso_local i32 @drv_add_interface(ptr noundef, ptr noundef) local_unnamed
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_check_queues(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_check_queues(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -1075,7 +1075,7 @@ declare dso_local void @synchronize_net() local_unnamed_addr #2
 declare dso_local void @drv_remove_interface(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_iface_work(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @ieee80211_iface_work(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -1600
   %4 = getelementptr i8, ptr %1, i64 -344
   %5 = load ptr, ptr %4, align 8
@@ -2231,7 +2231,7 @@ thread-pre-split:                                 ; preds = %307
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @drv_start(ptr noundef) local_unnamed_addr #2
@@ -3184,7 +3184,7 @@ define dso_local i32 @ieee80211_if_add(ptr noundef %0, ptr noundef %1, i8 nounde
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_assign_perm_addr(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_assign_perm_addr(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3514,7 +3514,7 @@ declare dso_local void @free_netdev(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @dev_alloc_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_if_free(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ieee80211_if_free(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   tail call void @free_percpu(ptr noundef %3) #15
@@ -3534,7 +3534,7 @@ declare dso_local void @ieee80211_delayed_tailroom_dec(ptr noundef, ptr noundef)
 declare dso_local void @ieee80211_get_vht_mask_from_cap(i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @netdev_set_default_ethtool_ops(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -5010,7 +5010,7 @@ define internal i32 @ieee80211_change_mac(ptr noundef %0, ptr noundef %1) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_get_stats64(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @ieee80211_get_stats64(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   tail call void @dev_fetch_sw_netstats(ptr noundef %1, ptr noundef %4) #15
@@ -5806,7 +5806,7 @@ declare dso_local void @ieee80211_link_stop(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @ieee80211_vif_set_links(ptr noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_activate_links_work(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @ieee80211_activate_links_work(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 32
   %4 = getelementptr i8, ptr %1, i64 24
   %5 = load i16, ptr %4, align 8
@@ -5833,7 +5833,7 @@ declare dso_local i32 @ieee80211_set_active_links(ptr noundef, i16 noundef zeroe
 declare dso_local i32 @ieee80211_monitor_start_xmit(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @ieee80211_monitor_select_queue(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal zeroext i16 @ieee80211_monitor_select_queue(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2304
   %5 = getelementptr i8, ptr %0, i64 3560
   %6 = load ptr, ptr %5, align 8
@@ -5969,7 +5969,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 declare dso_local void @skb_queue_purge_reason(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef range(i32 0, 2) i32 @netdev_notify(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define internal noundef range(i32 0, 2) i32 @netdev_notify(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #3 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq i64 %1, 11
   br i1 %5, label %6, label %21

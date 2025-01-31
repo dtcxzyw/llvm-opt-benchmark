@@ -74,10 +74,10 @@ define void @ADIOI_Print_flatlist_node(ptr noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #2 {
+define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #2 {
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
@@ -284,8 +284,8 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   store i64 %133, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 144
   store ptr %21, ptr %135, align 8
-  %136 = call i32 @ADIOI_init_view_state(i32 noundef %2, i32 noundef 1, ptr noundef %129, i32 noundef 0) #9
-  %137 = call i32 @ADIOI_init_view_state(i32 noundef %2, i32 noundef 1, ptr noundef %129, i32 noundef 1) #9
+  %136 = call i32 @ADIOI_init_view_state(i32 noundef %2, i32 noundef 1, ptr noundef nonnull %129, i32 noundef 0) #9
+  %137 = call i32 @ADIOI_init_view_state(i32 noundef %2, i32 noundef 1, ptr noundef nonnull %129, i32 noundef 1) #9
   %138 = getelementptr inbounds %struct.view_state, ptr %8, i64 %128
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %139, i8 0, i64 96, i1 false)
@@ -714,7 +714,7 @@ declare i32 @PMPI_Irecv(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 
 declare i32 @PMPI_Isend(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @ADIOI_init_view_state(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -725,13 +725,13 @@ declare i32 @PMPI_Waitall(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare void @ADIOI_Free_fn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

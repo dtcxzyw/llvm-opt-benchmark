@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [66 x i8] c"Speedup stopped adding choices because there was too many to add.\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Gia_LutDelayTraceSortPins(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Gia_LutDelayTraceSortPins(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 264
   %6 = sext i32 %1 to i64
   %.val55 = load ptr, ptr %5, align 8
@@ -152,7 +152,7 @@ define void @Gia_LutDelayTraceSortPins(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Gia_LutWhereIsPin(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @Gia_LutWhereIsPin(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %0, i64 264
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val, i64 8
@@ -196,7 +196,7 @@ define range(i32 -2147483648, 2147483647) i32 @Gia_LutWhereIsPin(ptr nocapture n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define float @Gia_ObjComputeArrival(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define float @Gia_ObjComputeArrival(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [32 x i32], align 16
   %5 = alloca [32 x float], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -517,7 +517,7 @@ define float @Gia_ObjComputeArrival(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define float @Gia_ObjPropagateRequired(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define float @Gia_ObjPropagateRequired(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [32 x i32], align 16
   %5 = alloca [32 x float], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -1309,7 +1309,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge6, %209
 declare i32 @Gia_ManLutSizeMax(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #4
 
@@ -1441,7 +1441,7 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %62 = sitofp i32 %61 to double
   %63 = fmul double %62, 1.000000e+02
-  %64 = tail call i32 @Gia_ManLutNum(ptr noundef %0) #13
+  %64 = tail call i32 @Gia_ManLutNum(ptr noundef nonnull %0) #13
   %65 = sitofp i32 %64 to double
   %66 = fdiv double %63, %65
   %67 = trunc nuw i64 %indvars.iv.next71 to i32
@@ -1462,7 +1462,7 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %77 = sitofp i32 %73 to double
   %78 = fmul double %77, 1.000000e+02
-  %79 = tail call i32 @Gia_ManLutNum(ptr noundef %0) #13
+  %79 = tail call i32 @Gia_ManLutNum(ptr noundef nonnull %0) #13
   %80 = sitofp i32 %79 to double
   %81 = fdiv double %78, %80
   %82 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %76, ptr noundef nonnull %58, i32 noundef %73, double noundef %81)
@@ -1517,15 +1517,15 @@ declare i32 @Gia_ManLutLevel(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @Gia_ManLutNum(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Gia_LutDelayTraceTCEdges(ptr nocapture noundef readonly %0, i32 noundef %1, float noundef %2) local_unnamed_addr #1 {
+define i32 @Gia_LutDelayTraceTCEdges(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #1 {
   %4 = alloca [32 x i32], align 16
   %5 = alloca [32 x float], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -1890,7 +1890,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManSpeedupObj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #3 {
+define void @Gia_ManSpeedupObj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
   %6 = alloca [32 x i32], align 16
   tail call void @Gia_ManIncrementTravId(ptr noundef %1) #13
   %7 = getelementptr i8, ptr %1, i64 32
@@ -2414,7 +2414,7 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %109 = phi ptr [ %32, %.thread498 ], [ %37, %107 ]
   %.0244.lcssa = phi i32 [ 0, %.thread498 ], [ %.3247, %107 ]
   %.0241.lcssa = phi i32 [ 0, %.thread498 ], [ %.1242, %107 ]
-  %110 = tail call i32 @Gia_ManLutFaninCount(ptr noundef %0) #13
+  %110 = tail call i32 @Gia_ManLutFaninCount(ptr noundef nonnull %0) #13
   %.not264 = icmp eq i32 %.0244.lcssa, 0
   %111 = sitofp i32 %.0241.lcssa to double
   %112 = sitofp i32 %.0244.lcssa to double
@@ -2426,7 +2426,7 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 ._crit_edge.thread:                               ; preds = %27, %._crit_edge388, %._crit_edge
   %116 = phi ptr [ %108, %._crit_edge388 ], [ %36, %._crit_edge ], [ %30, %27 ]
   %117 = phi ptr [ %109, %._crit_edge388 ], [ %37, %._crit_edge ], [ %28, %27 ]
-  %118 = tail call ptr @Gia_ManDup(ptr noundef %0) #13
+  %118 = tail call ptr @Gia_ManDup(ptr noundef nonnull %0) #13
   tail call void @Gia_ManHashStart(ptr noundef %118) #13
   %119 = getelementptr i8, ptr %118, i64 24
   %.val312 = load i32, ptr %119, align 8
@@ -3178,7 +3178,7 @@ declare ptr @Gia_ManDup(ptr noundef) local_unnamed_addr #4
 declare void @Gia_ManHashStart(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @Vec_IntPushUnique(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -3280,10 +3280,10 @@ declare ptr @Gia_ManEquivToChoices(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11

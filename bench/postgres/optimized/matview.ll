@@ -59,7 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 @RecentXmin = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SetMatViewPopulatedState(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local void @SetMatViewPopulatedState(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call ptr @table_open(i32 noundef 1259, i32 noundef 3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
@@ -114,7 +114,7 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @CommandCounterIncrement() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @ExecRefreshMatView(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @ExecRefreshMatView(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.StringInfoData, align 8
   %6 = alloca %struct.StringInfoData, align 8
   %7 = alloca i32, align 4
@@ -342,7 +342,7 @@ list_length.exit.thread:                          ; preds = %86, %list_length.ex
   br i1 %137, label %133, label %.loopexit
 
 .thread107:                                       ; preds = %133
-  call void @index_close(ptr noundef %105, i32 noundef 1) #8
+  call void @index_close(ptr noundef nonnull %105, i32 noundef 1) #8
   call void @list_free(ptr noundef nonnull %97) #8
   br label %152
 
@@ -886,7 +886,7 @@ is_usable_unique_index.exit.thread.i:             ; preds = %324, %379, %is_usab
   %419 = add i32 %418, -1
   store i32 %419, ptr @matview_maintenance_depth, align 4
   call void @table_close(ptr noundef %218, i32 noundef 0) #8
-  call void @table_close(ptr noundef %209, i32 noundef 0) #8
+  call void @table_close(ptr noundef nonnull %209, i32 noundef 0) #8
   call void @resetStringInfo(ptr noundef nonnull %6) #8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.33, ptr noundef %227, ptr noundef %226) #8
   %420 = load ptr, ptr %6, align 8
@@ -1032,7 +1032,7 @@ declare void @AtEOXact_GUC(i1 noundef zeroext, i32 noundef) local_unnamed_addr #
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @transientrel_receive(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef zeroext i1 @transientrel_receive(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1050,7 +1050,7 @@ define internal noundef zeroext i1 @transientrel_receive(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @transientrel_startup(ptr nocapture noundef initializes((48, 72)) %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal void @transientrel_startup(ptr noundef captures(none) initializes((48, 72)) %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = tail call ptr @table_open(i32 noundef %5, i32 noundef 0) #8
@@ -1068,7 +1068,7 @@ define internal void @transientrel_startup(ptr nocapture noundef initializes((48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @transientrel_shutdown(ptr nocapture noundef %0) #0 {
+define internal void @transientrel_shutdown(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   tail call void @FreeBulkInsertState(ptr noundef %3) #8
@@ -1190,10 +1190,10 @@ declare ptr @RelationGetIndexPredicate(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

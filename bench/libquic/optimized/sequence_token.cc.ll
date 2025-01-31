@@ -19,7 +19,7 @@ $__clang_call_terminate = comdat any
 @_ZN4base38ScopedSetSequenceTokenForCurrentThreadD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base38ScopedSetSequenceTokenForCurrentThreadD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base13SequenceTokeneqERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %other) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base13SequenceTokeneqERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %other) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %other, align 4
@@ -30,7 +30,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base13SequenceToken7IsValidEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base13SequenceToken7IsValidEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp = icmp ne i32 %0, -1
@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base13SequenceTokenneERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %other) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base13SequenceTokenneERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %other) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %other, align 4
@@ -90,7 +90,7 @@ cond.end:                                         ; preds = %_ZN4base12LazyInsta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base9TaskTokeneqERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %other) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base9TaskTokeneqERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %other) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %other, align 4
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base9TaskToken7IsValidEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base9TaskToken7IsValidEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp = icmp ne i32 %0, -1
@@ -109,7 +109,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base9TaskTokenneERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %other) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base9TaskTokenneERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %other) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %other, align 4
@@ -161,7 +161,7 @@ cond.end:                                         ; preds = %_ZN4base12LazyInsta
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base38ScopedSetSequenceTokenForCurrentThreadC2ERKNS_13SequenceTokenE(ptr noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %sequence_token) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base38ScopedSetSequenceTokenForCurrentThreadC2ERKNS_13SequenceTokenE(ptr noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %sequence_token) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %sequence_token, align 4
   store i32 %0, ptr %this, align 4
@@ -210,7 +210,7 @@ _ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_9TaskTokenEEENS_8internal23Le
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base38ScopedSetSequenceTokenForCurrentThreadD2Ev(ptr nocapture nonnull readnone align 4 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base38ScopedSetSequenceTokenForCurrentThreadD2Ev(ptr nonnull readnone align 4 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end20:
   %0 = load atomic volatile i64, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE acquire, align 8
   %tobool.not.i.i = icmp ult i64 %0, 2

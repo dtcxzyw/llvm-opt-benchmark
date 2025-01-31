@@ -585,7 +585,7 @@ progress_meter.exit:                              ; preds = %266, %269, %271
 declare i32 @curl_mfprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @Curl_pgrsResetTransferSizes(ptr nocapture noundef initializes((2680, 2696)) %0) local_unnamed_addr #2 {
+define dso_local void @Curl_pgrsResetTransferSizes(ptr noundef captures(none) initializes((2680, 2696)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2680
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2724
   store i64 0, ptr %2, align 8
@@ -598,7 +598,7 @@ define dso_local void @Curl_pgrsResetTransferSizes(ptr nocapture noundef initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @Curl_pgrsSetDownloadSize(ptr nocapture noundef initializes((2680, 2688)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local void @Curl_pgrsSetDownloadSize(ptr noundef captures(none) initializes((2680, 2688)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = icmp sgt i64 %1, -1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2680
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2724
@@ -623,7 +623,7 @@ define dso_local void @Curl_pgrsSetDownloadSize(ptr nocapture noundef initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @Curl_pgrsSetUploadSize(ptr nocapture noundef initializes((2688, 2696)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local void @Curl_pgrsSetUploadSize(ptr noundef captures(none) initializes((2688, 2696)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = icmp sgt i64 %1, -1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2724
@@ -648,7 +648,7 @@ define dso_local void @Curl_pgrsSetUploadSize(ptr nocapture noundef initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_pgrsTimeWas(ptr nocapture noundef %0, i32 noundef %1, i64 %2, i32 %3) local_unnamed_addr #0 {
+define dso_local void @Curl_pgrsTimeWas(ptr noundef captures(none) %0, i32 noundef %1, i64 %2, i32 %3) local_unnamed_addr #0 {
   switch i32 %1, label %.thread [
     i32 11, label %36
     i32 1, label %5
@@ -754,12 +754,12 @@ define dso_local void @Curl_pgrsTimeWas(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i64 @Curl_timediff_us(i64, i32, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @Curl_pgrsTime(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @Curl_pgrsTime(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call { i64, i32 } @Curl_now() #9
   %4 = extractvalue { i64, i32 } %3, 0
   %5 = extractvalue { i64, i32 } %3, 1
@@ -770,7 +770,7 @@ define dso_local { i64, i32 } @Curl_pgrsTime(ptr nocapture noundef %0, i32 nound
 declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_pgrsStartNow(ptr nocapture noundef initializes((2808, 2820), (3064, 3068)) %0) local_unnamed_addr #0 {
+define dso_local void @Curl_pgrsStartNow(ptr noundef captures(none) initializes((2808, 2820), (3064, 3068)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3064
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2808
@@ -845,7 +845,7 @@ Curl_ratelimit.exit:                              ; preds = %29, %32, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_ratelimit(ptr nocapture noundef %0, i64 %1, i32 %2) local_unnamed_addr #0 {
+define dso_local void @Curl_ratelimit(ptr noundef captures(none) %0, i64 %1, i32 %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
@@ -898,7 +898,7 @@ define dso_local void @Curl_ratelimit(ptr nocapture noundef %0, i64 %1, i32 %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @Curl_pgrsLimitWaitTime(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i32 %4, ptr nocapture noundef readonly byval(%struct.curltime) align 8 %5) local_unnamed_addr #0 {
+define dso_local i64 @Curl_pgrsLimitWaitTime(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i32 %4, ptr noundef readonly byval(%struct.curltime) align 8 captures(none) %5) local_unnamed_addr #0 {
   %7 = sub nsw i64 %0, %1
   %8 = icmp ne i64 %2, 0
   %9 = icmp ne i64 %0, %1
@@ -940,7 +940,7 @@ define dso_local i64 @Curl_pgrsLimitWaitTime(i64 noundef %0, i64 noundef %1, i64
 declare i64 @Curl_timediff_ceil(i64, i32, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @Curl_pgrsSetDownloadCounter(ptr nocapture noundef writeonly initializes((2696, 2704)) %0, i64 noundef %1) local_unnamed_addr #4 {
+define dso_local noundef i32 @Curl_pgrsSetDownloadCounter(ptr noundef writeonly captures(none) initializes((2696, 2704)) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2696
   store i64 %1, ptr %3, align 8
   ret i32 0
@@ -949,7 +949,7 @@ define dso_local noundef i32 @Curl_pgrsSetDownloadCounter(ptr nocapture noundef 
 declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_pgrsSetUploadCounter(ptr nocapture noundef writeonly initializes((2704, 2712)) %0, i64 noundef %1) local_unnamed_addr #4 {
+define dso_local void @Curl_pgrsSetUploadCounter(ptr noundef writeonly captures(none) initializes((2704, 2712)) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2704
   store i64 %1, ptr %3, align 8
   ret void
@@ -1040,7 +1040,7 @@ define internal fastcc noundef nonnull ptr @max5data(i64 noundef %0, ptr noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1051,13 +1051,13 @@ declare i64 @llvm.smax.i64(i64, i64) #6
 declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

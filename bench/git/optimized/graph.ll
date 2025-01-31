@@ -56,7 +56,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @diff_output_prefix_callback(ptr nocapture noundef readonly %opt, ptr noundef %data) #2 {
+define internal noundef nonnull ptr @diff_output_prefix_callback(ptr noundef readonly captures(none) %opt, ptr noundef %data) #2 {
 entry:
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @diff_output_prefix_callback.msgbuf, i64 8), align 8
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @diff_output_prefix_callback.msgbuf, i64 16), align 8
@@ -128,12 +128,12 @@ if.else:                                          ; preds = %if.then
 
 while.body.i:                                     ; preds = %if.else, %if.end.i
   %start.02.i = phi ptr [ %add.ptr10.i, %if.end.i ], [ %2, %if.else ]
-  %call1.i = call ptr @strchrnul(ptr noundef %start.02.i, i32 noundef 44) #16
+  %call1.i = call ptr @strchrnul(ptr noundef nonnull %start.02.i, i32 noundef 44) #16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call1.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %start.02.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %call2.i = call i32 @color_parse_mem(ptr noundef %start.02.i, i32 noundef %conv.i, ptr noundef nonnull %color.i) #15
+  %call2.i = call i32 @color_parse_mem(ptr noundef nonnull %start.02.i, i32 noundef %conv.i, ptr noundef nonnull %color.i) #15
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
@@ -152,7 +152,7 @@ if.end3.i.i:                                      ; preds = %if.else.i
 
 _.exit.i:                                         ; preds = %if.end3.i.i, %if.else.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.1, %if.else.i ]
-  call void (ptr, ...) @warning(ptr noundef %retval.0.i.i, i32 noundef %conv.i, ptr noundef %start.02.i) #15
+  call void (ptr, ...) @warning(ptr noundef %retval.0.i.i, i32 noundef %conv.i, ptr noundef nonnull %start.02.i) #15
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_.exit.i, %if.then.i
@@ -254,7 +254,7 @@ declare i32 @git_config_get_string(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @strvec_clear(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @graph_clear(ptr noundef %graph) local_unnamed_addr #5 {
@@ -1054,7 +1054,7 @@ if.end11:                                         ; preds = %graph_needs_pre_com
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @graph_width(ptr nocapture noundef readonly %graph) local_unnamed_addr #6 {
+define dso_local i32 @graph_width(ptr noundef readonly captures(none) %graph) local_unnamed_addr #6 {
 entry:
   %width = getelementptr inbounds nuw i8, ptr %graph, i64 20
   %0 = load i32, ptr %width, align 4
@@ -1407,7 +1407,7 @@ if.end.i.i:                                       ; preds = %if.then11.i
   %60 = load ptr, ptr %revs.i.i, align 8
   %call.i.i = tail call ptr @get_revision_mark(ptr noundef %60, ptr noundef nonnull %52) #15
   %call.i.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i) #16
-  tail call void @strbuf_add(ptr noundef %46, ptr noundef %call.i.i, i64 noundef %call.i.i.i.i) #15
+  tail call void @strbuf_add(ptr noundef %46, ptr noundef nonnull %call.i.i, i64 noundef %call.i.i.i.i) #15
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i) #16
   br label %graph_output_commit_char.exit.i
 
@@ -1459,7 +1459,7 @@ if.then.i101.i:                                   ; preds = %for.body.i.i
   %arrayidx.i.i.i104.i = getelementptr inbounds nuw ptr, ptr %70, i64 %idxprom.i.i.i103.i
   %71 = load ptr, ptr %arrayidx.i.i.i104.i, align 8
   %call.i.i.i105.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #16
-  tail call void @strbuf_add(ptr noundef %46, ptr noundef %71, i64 noundef %call.i.i.i105.i) #15
+  tail call void @strbuf_add(ptr noundef %46, ptr noundef nonnull %71, i64 noundef %call.i.i.i105.i) #15
   br label %if.end.i77.i
 
 if.end.i77.i:                                     ; preds = %if.then.i101.i, %for.body.i.i
@@ -1501,7 +1501,7 @@ if.then10.i92.i:                                  ; preds = %graph_line_addch.ex
   %arrayidx.i.i8.i95.i = getelementptr inbounds nuw ptr, ptr %80, i64 %idxprom.i.i7.i94.i
   %81 = load ptr, ptr %arrayidx.i.i8.i95.i, align 8
   %call.i.i9.i96.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #16
-  tail call void @strbuf_add(ptr noundef nonnull %46, ptr noundef %81, i64 noundef %call.i.i9.i96.i) #15
+  tail call void @strbuf_add(ptr noundef nonnull %46, ptr noundef nonnull %81, i64 noundef %call.i.i9.i96.i) #15
   %.pre121.i = load i16, ptr %color.i75.i, align 8
   %.pre122.i = load i16, ptr @column_colors_max, align 2
   br label %graph_line_write_column.exit106.i
@@ -1520,7 +1520,7 @@ if.then.i72.i:                                    ; preds = %graph_line_write_co
   %arrayidx.i.i.i73.i = getelementptr inbounds nuw ptr, ptr %84, i64 %idxprom.i.i.i.i
   %85 = load ptr, ptr %arrayidx.i.i.i73.i, align 8
   %call.i.i.i74.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #16
-  tail call void @strbuf_add(ptr noundef nonnull %46, ptr noundef %85, i64 noundef %call.i.i.i74.i) #15
+  tail call void @strbuf_add(ptr noundef nonnull %46, ptr noundef nonnull %85, i64 noundef %call.i.i.i74.i) #15
   br label %if.end.i57.i
 
 if.end.i57.i:                                     ; preds = %if.then.i72.i, %graph_line_write_column.exit106.i
@@ -1562,7 +1562,7 @@ if.then10.i.i:                                    ; preds = %graph_line_addch.ex
   %arrayidx.i.i8.i.i = getelementptr inbounds nuw ptr, ptr %94, i64 %idxprom.i.i7.i.i
   %95 = load ptr, ptr %arrayidx.i.i8.i.i, align 8
   %call.i.i9.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #16
-  tail call void @strbuf_add(ptr noundef nonnull %46, ptr noundef %95, i64 noundef %call.i.i9.i.i) #15
+  tail call void @strbuf_add(ptr noundef nonnull %46, ptr noundef nonnull %95, i64 noundef %call.i.i9.i.i) #15
   %.pre.i = load i16, ptr @column_colors_max, align 2
   br label %graph_line_write_column.exit.i
 
@@ -1896,7 +1896,7 @@ if.then.i.i151:                                   ; preds = %graph_find_new_colu
   %arrayidx.i.i.i.i154 = getelementptr inbounds nuw ptr, ptr %153, i64 %idxprom.i.i.i.i153
   %154 = load ptr, ptr %arrayidx.i.i.i.i154, align 8
   %call.i.i.i49.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %154) #16
-  tail call void @strbuf_add(ptr noundef %line.val.i.i152, ptr noundef %154, i64 noundef %call.i.i.i49.i) #15
+  tail call void @strbuf_add(ptr noundef %line.val.i.i152, ptr noundef nonnull %154, i64 noundef %call.i.i.i49.i) #15
   br label %if.end.i46.i
 
 if.end.i46.i:                                     ; preds = %if.then.i.i151, %graph_find_new_column_by_commit.exit.i
@@ -1940,7 +1940,7 @@ if.then10.i.i143:                                 ; preds = %graph_line_addch.ex
   %arrayidx.i.i8.i.i146 = getelementptr inbounds nuw ptr, ptr %163, i64 %idxprom.i.i7.i.i145
   %164 = load ptr, ptr %arrayidx.i.i8.i.i146, align 8
   %call.i.i9.i.i147 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %164) #16
-  tail call void @strbuf_add(ptr noundef nonnull %line.val.i.i152, ptr noundef %164, i64 noundef %call.i.i9.i.i147) #15
+  tail call void @strbuf_add(ptr noundef nonnull %line.val.i.i152, ptr noundef nonnull %164, i64 noundef %call.i.i9.i.i147) #15
   br label %graph_line_write_column.exit.i126
 
 graph_line_write_column.exit.i126:                ; preds = %if.then10.i.i143, %graph_line_addch.exit.i.i118
@@ -2567,7 +2567,7 @@ return:                                           ; preds = %if.then.i227, %sw.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @graph_is_commit_finished(ptr nocapture noundef readonly %graph) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @graph_is_commit_finished(ptr noundef readonly captures(none) %graph) local_unnamed_addr #6 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %graph, i64 28
   %0 = load i32, ptr %state, align 4
@@ -2709,7 +2709,7 @@ return:                                           ; preds = %graph_show_line_pre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @graph_show_padding(ptr noundef %graph) local_unnamed_addr #2 {
@@ -2757,10 +2757,10 @@ return:                                           ; preds = %graph_show_line_pre
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
 
@@ -3022,7 +3022,7 @@ return:                                           ; preds = %if.end, %graph_show
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @graph_show_commit_msg(ptr noundef %graph, ptr nocapture noundef %file, ptr nocapture noundef readonly %sb) local_unnamed_addr #2 {
+define dso_local void @graph_show_commit_msg(ptr noundef %graph, ptr noundef captures(none) %file, ptr noundef readonly captures(none) %sb) local_unnamed_addr #2 {
 entry:
   %msgbuf.i.i = alloca %struct.strbuf, align 8
   %buf.i = getelementptr inbounds nuw i8, ptr %sb, i64 16
@@ -3194,7 +3194,7 @@ if.end15:                                         ; preds = %land.end.thread, %i
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #10
@@ -3218,7 +3218,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @want_color_fd(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @graph_line_write_column(ptr nocapture noundef nonnull %line, ptr nocapture noundef readonly %c, i8 noundef signext %col_char) unnamed_addr #2 {
+define internal fastcc void @graph_line_write_column(ptr noundef nonnull captures(none) %line, ptr noundef readonly captures(none) %c, i8 noundef signext %col_char) unnamed_addr #2 {
 entry:
   %color = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i16, ptr %color, align 8
@@ -3233,7 +3233,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
-  tail call void @strbuf_add(ptr noundef %line.val, ptr noundef %3, i64 noundef %call.i.i) #15
+  tail call void @strbuf_add(ptr noundef %line.val, ptr noundef nonnull %3, i64 noundef %call.i.i) #15
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -3285,7 +3285,7 @@ if.then10:                                        ; preds = %graph_line_addch.ex
   %arrayidx.i.i8 = getelementptr inbounds nuw ptr, ptr %14, i64 %idxprom.i.i7
   %15 = load ptr, ptr %arrayidx.i.i8, align 8
   %call.i.i9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #16
-  tail call void @strbuf_add(ptr noundef %line.val5, ptr noundef %15, i64 noundef %call.i.i9) #15
+  tail call void @strbuf_add(ptr noundef %line.val5, ptr noundef nonnull %15, i64 noundef %call.i.i9) #15
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %graph_line_addch.exit
@@ -3302,13 +3302,13 @@ declare ptr @get_revision_mark(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

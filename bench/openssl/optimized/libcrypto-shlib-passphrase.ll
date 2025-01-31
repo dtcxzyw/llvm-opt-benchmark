@@ -55,7 +55,7 @@ if.end4:                                          ; preds = %if.end, %entry
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_pw_clear_passphrase_cache(ptr nocapture noundef %data) local_unnamed_addr #0 {
+define void @ossl_pw_clear_passphrase_cache(ptr noundef captures(none) %data) local_unnamed_addr #0 {
 entry:
   %cached_passphrase = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %cached_passphrase, align 8
@@ -67,7 +67,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_pw_set_passphrase(ptr noundef %data, ptr noundef %passphrase, i64 noundef %passphrase_len) local_unnamed_addr #0 {
@@ -281,7 +281,7 @@ return:                                           ; preds = %ossl_pw_clear_passp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_pw_enable_passphrase_caching(ptr nocapture noundef %data) local_unnamed_addr #3 {
+define noundef i32 @ossl_pw_enable_passphrase_caching(ptr noundef captures(none) %data) local_unnamed_addr #3 {
 entry:
   %flag_cache_passphrase = getelementptr inbounds nuw i8, ptr %data, i64 24
   %bf.load = load i8, ptr %flag_cache_passphrase, align 8
@@ -291,7 +291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_pw_disable_passphrase_caching(ptr nocapture noundef %data) local_unnamed_addr #3 {
+define noundef i32 @ossl_pw_disable_passphrase_caching(ptr noundef captures(none) %data) local_unnamed_addr #3 {
 entry:
   %flag_cache_passphrase = getelementptr inbounds nuw i8, ptr %data, i64 24
   %bf.load = load i8, ptr %flag_cache_passphrase, align 8
@@ -301,7 +301,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_pw_get_passphrase(ptr noundef %pass, i64 noundef %pass_size, ptr noundef %pass_len, ptr noundef %params, i32 noundef %verify, ptr nocapture noundef %data) local_unnamed_addr #0 {
+define i32 @ossl_pw_get_passphrase(ptr noundef %pass, i64 noundef %pass_size, ptr noundef %pass_len, ptr noundef %params, i32 noundef %verify, ptr noundef captures(none) %data) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %data, align 8
   %cmp = icmp eq i32 %0, 1
@@ -617,7 +617,7 @@ return:                                           ; preds = %do_cache, %land.lhs
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -630,7 +630,7 @@ declare ptr @CRYPTO_clear_realloc(ptr noundef, i64 noundef, i64 noundef, ptr nou
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_pw_pem_password(ptr noundef %buf, i32 noundef %size, i32 noundef %rwflag, ptr nocapture noundef %userdata) local_unnamed_addr #0 {
+define i32 @ossl_pw_pem_password(ptr noundef %buf, i32 noundef %size, i32 noundef %rwflag, ptr noundef captures(none) %userdata) local_unnamed_addr #0 {
 entry:
   %password_len.i = alloca i64, align 8
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
@@ -652,7 +652,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_pw_pvk_password(ptr noundef %buf, i32 noundef %size, i32 noundef %rwflag, ptr nocapture noundef %userdata) local_unnamed_addr #0 {
+define i32 @ossl_pw_pvk_password(ptr noundef %buf, i32 noundef %size, i32 noundef %rwflag, ptr noundef captures(none) %userdata) local_unnamed_addr #0 {
 entry:
   %password_len.i = alloca i64, align 8
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
@@ -674,14 +674,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_pw_passphrase_callback_enc(ptr noundef %pass, i64 noundef %pass_size, ptr noundef %pass_len, ptr noundef %params, ptr nocapture noundef %arg) local_unnamed_addr #0 {
+define i32 @ossl_pw_passphrase_callback_enc(ptr noundef %pass, i64 noundef %pass_size, ptr noundef %pass_len, ptr noundef %params, ptr noundef captures(none) %arg) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_pw_get_passphrase(ptr noundef %pass, i64 noundef %pass_size, ptr noundef %pass_len, ptr noundef %params, i32 noundef 1, ptr noundef %arg)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_pw_passphrase_callback_dec(ptr noundef %pass, i64 noundef %pass_size, ptr noundef %pass_len, ptr noundef %params, ptr nocapture noundef %arg) local_unnamed_addr #0 {
+define i32 @ossl_pw_passphrase_callback_dec(ptr noundef %pass, i64 noundef %pass_size, ptr noundef %pass_len, ptr noundef %params, ptr noundef captures(none) %arg) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_pw_get_passphrase(ptr noundef %pass, i64 noundef %pass_size, ptr noundef %pass_len, ptr noundef %params, i32 noundef 0, ptr noundef %arg)
   ret i32 %call
@@ -713,10 +713,10 @@ declare void @UI_free(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

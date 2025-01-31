@@ -162,13 +162,13 @@ define dso_local noundef range(i32 6, 5) i32 @acpi_bus_get_status_handle(ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -19, 1) i32 @acpi_bus_get_status(ptr noundef %0) #0 align 16 {
@@ -226,7 +226,7 @@ declare dso_local zeroext i1 @acpi_device_override_status(ptr noundef, ptr nound
 declare dso_local zeroext i1 @acpi_device_is_battery(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @acpi_bus_private_data_handler(ptr nocapture readnone %0, ptr nocapture readnone %1) #3 align 16 {
+define dso_local void @acpi_bus_private_data_handler(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 align 16 {
   ret void
 }
 
@@ -399,7 +399,7 @@ define dso_local i32 @acpi_run_osc(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @guid_parse(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -414,7 +414,7 @@ declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unna
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -19, 1) i32 @acpi_dev_install_notify_handler(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local range(i32 -19, 1) i32 @acpi_dev_install_notify_handler(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @acpi_install_notify_handler(ptr noundef %6, i32 noundef %1, ptr noundef %2, ptr noundef %3) #15
@@ -427,7 +427,7 @@ define dso_local range(i32 -19, 1) i32 @acpi_dev_install_notify_handler(ptr noca
 declare dso_local i32 @acpi_install_notify_handler(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_dev_remove_notify_handler(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local void @acpi_dev_remove_notify_handler(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @acpi_remove_notify_handler(ptr noundef %5, i32 noundef %1, ptr noundef %2) #15
@@ -539,7 +539,7 @@ define dso_local ptr @acpi_companion_match(ptr noundef readonly %0) local_unname
 declare dso_local zeroext i1 @is_acpi_device_node(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_set_modalias(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local void @acpi_set_modalias(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -918,7 +918,7 @@ define dso_local noundef range(i32 -2, 1) i32 @acpi_match_device_ids(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @acpi_driver_match_device(ptr noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef zeroext i1 @acpi_driver_match_device(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1129,7 +1129,7 @@ define dso_local void @acpi_bus_unregister_driver(ptr noundef %0) #0 align 16 {
 declare dso_local void @driver_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @acpi_bus_match(ptr noundef %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal noundef range(i32 0, 2) i32 @acpi_bus_match(ptr noundef %0, ptr noundef readonly captures(none) %1) #6 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -500
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 16
@@ -1291,7 +1291,7 @@ define dso_local i32 @acpi_dev_for_each_child(ptr noundef %0, ptr noundef %1, pt
 declare dso_local i32 @device_for_each_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @acpi_dev_for_one_check(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @acpi_dev_for_one_check(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @acpi_bus_type
@@ -1485,16 +1485,16 @@ define internal noundef range(i32 -19, 1) i32 @acpi_init() #8 section ".init.tex
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare dso_local i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare dso_local i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__acpi_device_uevent_modalias(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1506,7 +1506,7 @@ declare dso_local zeroext i1 @acpi_is_pnp_device(ptr noundef) local_unnamed_addr
 declare dso_local ptr @get_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_notify_device(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define internal void @acpi_notify_device(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 720
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -8
@@ -1519,7 +1519,7 @@ define internal void @acpi_notify_device(ptr nocapture readnone %0, i32 noundef 
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @set_copy_dsdt(ptr nocapture noundef readonly %0) #13 align 16 {
+define internal noundef i32 @set_copy_dsdt(ptr noundef readonly captures(none) %0) #13 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %3) #17
@@ -1914,7 +1914,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_bus_init_irq() unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_bus_notify(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal void @acpi_bus_notify(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   switch i32 %1, label %17 [
     i32 0, label %7
     i32 1, label %7
@@ -1996,7 +1996,7 @@ declare dso_local i32 @acpi_hotplug_schedule(ptr noundef, i32 noundef) local_unn
 declare dso_local i32 @acpi_evaluate_ost(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_sb_notify(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal void @acpi_sb_notify(ptr readnone captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = icmp eq i32 %1, 129
   br i1 %4, label %5, label %11
 
@@ -2019,7 +2019,7 @@ define internal void @acpi_sb_notify(ptr nocapture readnone %0, i32 noundef %1, 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
-define internal void @sb_notify_work(ptr nocapture readnone %0) #14 align 16 {
+define internal void @sb_notify_work(ptr readnone captures(none) %0) #14 align 16 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
   store ptr null, ptr %2, align 8, !annotation !5

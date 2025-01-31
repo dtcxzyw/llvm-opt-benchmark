@@ -40,7 +40,7 @@ $_ZTIN36btDiscreteCollisionDetectorInterface6ResultE = comdat any
 @_ZN16btManifoldResultC1EPK24btCollisionObjectWrapperS2_ = dso_local unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN16btManifoldResultC2EPK24btCollisionObjectWrapperS2_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN16btManifoldResult28calculateCombinedRestitutionEPK17btCollisionObjectS2_(ptr nocapture noundef readonly %body0, ptr nocapture noundef readonly %body1) #0 align 2 {
+define dso_local noundef float @_ZN16btManifoldResult28calculateCombinedRestitutionEPK17btCollisionObjectS2_(ptr noundef readonly captures(none) %body0, ptr noundef readonly captures(none) %body1) #0 align 2 {
 entry:
   %m_restitution.i = getelementptr inbounds nuw i8, ptr %body0, i64 252
   %0 = load float, ptr %m_restitution.i, align 4
@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN16btManifoldResult25calculateCombinedFrictionEPK17btCollisionObjectS2_(ptr nocapture noundef readonly %body0, ptr nocapture noundef readonly %body1) #0 align 2 {
+define dso_local noundef float @_ZN16btManifoldResult25calculateCombinedFrictionEPK17btCollisionObjectS2_(ptr noundef readonly captures(none) %body0, ptr noundef readonly captures(none) %body1) #0 align 2 {
 entry:
   %m_friction.i = getelementptr inbounds nuw i8, ptr %body0, i64 248
   %0 = load float, ptr %m_friction.i, align 8
@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN16btManifoldResult32calculateCombinedRollingFrictionEPK17btCollisionObjectS2_(ptr nocapture noundef readonly %body0, ptr nocapture noundef readonly %body1) #0 align 2 {
+define dso_local noundef float @_ZN16btManifoldResult32calculateCombinedRollingFrictionEPK17btCollisionObjectS2_(ptr noundef readonly captures(none) %body0, ptr noundef readonly captures(none) %body1) #0 align 2 {
 entry:
   %m_rollingFriction.i = getelementptr inbounds nuw i8, ptr %body0, i64 256
   %0 = load float, ptr %m_rollingFriction.i, align 8
@@ -86,7 +86,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN16btManifoldResult33calculateCombinedSpinningFrictionEPK17btCollisionObjectS2_(ptr nocapture noundef readonly %body0, ptr nocapture noundef readonly %body1) #0 align 2 {
+define dso_local noundef float @_ZN16btManifoldResult33calculateCombinedSpinningFrictionEPK17btCollisionObjectS2_(ptr noundef readonly captures(none) %body0, ptr noundef readonly captures(none) %body1) #0 align 2 {
 entry:
   %m_spinningFriction.i = getelementptr inbounds nuw i8, ptr %body0, i64 260
   %0 = load float, ptr %m_spinningFriction.i, align 4
@@ -106,7 +106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN16btManifoldResult31calculateCombinedContactDampingEPK17btCollisionObjectS2_(ptr nocapture noundef readonly %body0, ptr nocapture noundef readonly %body1) #0 align 2 {
+define dso_local noundef float @_ZN16btManifoldResult31calculateCombinedContactDampingEPK17btCollisionObjectS2_(ptr noundef readonly captures(none) %body0, ptr noundef readonly captures(none) %body1) #0 align 2 {
 entry:
   %m_contactDamping.i = getelementptr inbounds nuw i8, ptr %body0, i64 264
   %0 = load float, ptr %m_contactDamping.i, align 8
@@ -117,7 +117,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN16btManifoldResult33calculateCombinedContactStiffnessEPK17btCollisionObjectS2_(ptr nocapture noundef readonly %body0, ptr nocapture noundef readonly %body1) #0 align 2 {
+define dso_local noundef float @_ZN16btManifoldResult33calculateCombinedContactStiffnessEPK17btCollisionObjectS2_(ptr noundef readonly captures(none) %body0, ptr noundef readonly captures(none) %body1) #0 align 2 {
 entry:
   %m_contactStiffness.i = getelementptr inbounds nuw i8, ptr %body0, i64 268
   %0 = load float, ptr %m_contactStiffness.i, align 4
@@ -134,7 +134,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16btManifoldResultC2EPK24btCollisionObjectWrapperS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 52)) %this, ptr noundef %body0Wrap, ptr noundef %body1Wrap) unnamed_addr #2 align 2 {
+define dso_local void @_ZN16btManifoldResultC2EPK24btCollisionObjectWrapperS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(52) initializes((0, 52)) %this, ptr noundef %body0Wrap, ptr noundef %body1Wrap) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btManifoldResult, i64 16), ptr %this, align 8
   %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -151,7 +151,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normalOnBInWorld, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pointInWorld, float noundef %depth) unnamed_addr #3 align 2 {
+define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %normalOnBInWorld, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pointInWorld, float noundef %depth) unnamed_addr #3 align 2 {
 entry:
   %newPt = alloca %class.btManifoldPoint, align 8
   %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -649,7 +649,7 @@ if.end155:                                        ; preds = %if.end149, %entry, 
 declare noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr noundef nonnull align 8 dereferenceable(880)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noundef i32 @_ZNK20btPersistentManifold13getCacheEntryERK15btManifoldPoint(ptr noundef nonnull align 8 dereferenceable(880), ptr noundef nonnull align 8 dereferenceable(204)) local_unnamed_addr #4
 
@@ -695,7 +695,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 declare float @llvm.fabs.f32(float) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #9

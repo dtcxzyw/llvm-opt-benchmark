@@ -304,7 +304,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -869,10 +869,10 @@ return:                                           ; preds = %cleanup, %if.then8.
 declare noundef ptr @_ZNK6icu_756Locale11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare i32 @uhash_geti_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -886,7 +886,7 @@ declare noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr nounde
 declare void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7514DayPeriodRulesC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(100) initializes((0, 2), (4, 100)) %this) unnamed_addr #10 align 2 {
+define void @_ZN6icu_7514DayPeriodRulesC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(100) initializes((0, 2), (4, 100)) %this) unnamed_addr #10 align 2 {
 entry:
   store i8 0, ptr %this, align 4
   %fHasNoon = getelementptr inbounds nuw i8, ptr %this, i64 1
@@ -897,7 +897,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef double @_ZNK6icu_7514DayPeriodRules23getMidPointForDayPeriodENS0_9DayPeriodER10UErrorCode(ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %this, i32 noundef %dayPeriod, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #11 align 2 {
+define noundef double @_ZNK6icu_7514DayPeriodRules23getMidPointForDayPeriodENS0_9DayPeriodER10UErrorCode(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(100) %this, i32 noundef %dayPeriod, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1039,7 +1039,7 @@ return:                                           ; preds = %if.end.i, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7514DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode(ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %this, i32 noundef %dayPeriod, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7514DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(100) %this, i32 noundef %dayPeriod, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1107,7 +1107,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7514DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode(ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %this, i32 noundef %dayPeriod, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7514DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(100) %this, i32 noundef %dayPeriod, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1175,7 +1175,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -1, 12) i32 @_ZN6icu_7514DayPeriodRules22getDayPeriodFromStringEPKc(ptr nocapture noundef readonly %type_str) local_unnamed_addr #12 align 2 {
+define noundef range(i32 -1, 12) i32 @_ZN6icu_7514DayPeriodRules22getDayPeriodFromStringEPKc(ptr noundef readonly captures(none) %type_str) local_unnamed_addr #12 align 2 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %type_str, ptr noundef nonnull dereferenceable(9) @.str.4) #22
   %cmp = icmp eq i32 %call, 0
@@ -1259,10 +1259,10 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN6icu_7514DayPeriodRules3addEiiNS0_9DayPeriodE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(100) %this, i32 noundef %startHour, i32 noundef %limitHour, i32 noundef %period) local_unnamed_addr #13 align 2 {
+define void @_ZN6icu_7514DayPeriodRules3addEiiNS0_9DayPeriodE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(100) %this, i32 noundef %startHour, i32 noundef %limitHour, i32 noundef %period) local_unnamed_addr #13 align 2 {
 entry:
   %cmp.not4 = icmp eq i32 %startHour, %limitHour
   br i1 %cmp.not4, label %for.end, label %for.body.lr.ph
@@ -1287,7 +1287,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7514DayPeriodRules14allHoursAreSetEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %this) local_unnamed_addr #14 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7514DayPeriodRules14allHoursAreSetEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(100) %this) local_unnamed_addr #14 align 2 {
 entry:
   %fDayPeriodForHour = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %for.body
@@ -2317,13 +2317,13 @@ declare noundef signext i8 @_ZNK6icu_7513ResourceArray8getValueEiRNS_13ResourceV
 declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

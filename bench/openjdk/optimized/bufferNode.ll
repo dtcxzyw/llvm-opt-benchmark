@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN10BufferNode9AllocatorC1EPKcm = hidden unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN10BufferNode9AllocatorC2EPKcm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10BufferNode15AllocatorConfigC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN10BufferNode15AllocatorConfigC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 10, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN10BufferNode15AllocatorConfigE, i64 16), ptr %0, align 8
@@ -20,7 +20,7 @@ define hidden void @_ZN10BufferNode15AllocatorConfigC2Em(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10BufferNode15AllocatorConfig8allocateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN10BufferNode15AllocatorConfig8allocateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = shl i64 %3, 3
@@ -32,7 +32,7 @@ define hidden noundef ptr @_ZN10BufferNode15AllocatorConfig8allocateEv(ptr nocap
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BufferNode15AllocatorConfig10deallocateEPv(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN10BufferNode15AllocatorConfig10deallocateEPv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   tail call void @_Z8FreeHeapPv(ptr noundef %1) #3
   ret void
 }

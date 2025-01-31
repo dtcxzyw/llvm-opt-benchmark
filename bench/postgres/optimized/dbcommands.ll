@@ -190,7 +190,7 @@ target triple = "x86_64-pc-linux-gnu"
 @my_wait_event_info = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @createdb(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @createdb(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.xl_dbase_create_file_copy_rec, align 4
   %5 = alloca %struct.HeapTupleData, align 8
@@ -999,7 +999,7 @@ database_is_invalid_oid.exit:                     ; preds = %311
   %354 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   call void @llvm.assume(i1 %354)
   %355 = call i32 @errcode(i32 noundef 50856066) #15
-  %356 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef %347) #15
+  %356 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef nonnull %347) #15
   %357 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.38) #15
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 1018, ptr noundef nonnull @__func__.createdb) #15
   unreachable
@@ -1206,7 +1206,7 @@ database_is_invalid_oid.exit:                     ; preds = %311
   call void @llvm.assume(i1 %454)
   %455 = call i32 @errcode(i32 noundef 50856066) #15
   %456 = load ptr, ptr %12, align 8
-  %457 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, ptr noundef %392, ptr noundef %456) #15
+  %457 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, ptr noundef nonnull %392, ptr noundef %456) #15
   %458 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.52) #15
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 1139, ptr noundef nonnull @__func__.createdb) #15
   unreachable
@@ -1222,7 +1222,7 @@ database_is_invalid_oid.exit:                     ; preds = %311
   call void @llvm.assume(i1 %463)
   %464 = call i32 @errcode(i32 noundef 50856066) #15
   %465 = load ptr, ptr %13, align 8
-  %466 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53, ptr noundef %400, ptr noundef %465) #15
+  %466 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53, ptr noundef nonnull %400, ptr noundef %465) #15
   %467 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.54) #15
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 1146, ptr noundef nonnull @__func__.createdb) #15
   unreachable
@@ -1263,7 +1263,7 @@ database_is_invalid_oid.exit:                     ; preds = %311
   call void @llvm.assume(i1 %481)
   %482 = call i32 @errcode(i32 noundef 50856066) #15
   %483 = load ptr, ptr %14, align 8
-  %484 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57, ptr noundef %.3, ptr noundef %483) #15
+  %484 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57, ptr noundef nonnull %.3, ptr noundef %483) #15
   %485 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.58) #15
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 1167, ptr noundef nonnull @__func__.createdb) #15
   unreachable
@@ -2008,10 +2008,10 @@ CreateDatabaseUsingFileCopy.exit:                 ; preds = %.backedge.i, %784
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
 declare void @errorConflictingDefElem(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -2082,7 +2082,7 @@ define dso_local zeroext i1 @have_createdb_privilege() local_unnamed_addr #0 {
 declare void @check_can_set_role(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @get_db_info(ptr noundef %0, i32 noundef range(i32 5, 9) %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef writeonly %11, ptr noundef writeonly %12, ptr noundef writeonly %13, ptr noundef writeonly %14, ptr noundef writeonly %15, ptr noundef writeonly %16) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @get_db_info(ptr noundef %0, i32 noundef range(i32 5, 9) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef writeonly %11, ptr noundef writeonly %12, ptr noundef writeonly %13, ptr noundef writeonly %14, ptr noundef writeonly %15, ptr noundef writeonly %16) unnamed_addr #0 {
   %18 = alloca %struct.ScanKeyData, align 8
   %19 = alloca i8, align 1
   %20 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 1) #15
@@ -2437,7 +2437,7 @@ declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @GetDatabasePath(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare zeroext i1 @directory_is_empty(ptr noundef) local_unnamed_addr #5
 
@@ -3161,7 +3161,7 @@ declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DropDatabase(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @DropDatabase(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3219,7 +3219,7 @@ define dso_local void @DropDatabase(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @AlterDatabase(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local i32 @AlterDatabase(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ScanKeyData, align 8
   %5 = alloca [18 x i64], align 16
   %6 = alloca [18 x i8], align 16
@@ -3826,7 +3826,7 @@ declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, pt
 declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @database_is_invalid_form(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local zeroext i1 @database_is_invalid_form(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, -2
@@ -3838,7 +3838,7 @@ declare ptr @heap_modify_tuple(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @systable_endscan(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterDatabaseRefreshColl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterDatabaseRefreshColl(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   %3 = alloca i8, align 1
   %4 = alloca [18 x i8], align 16
@@ -4117,7 +4117,7 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #5
 declare void @heap_freetuple(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @AlterDatabaseSet(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @AlterDatabaseSet(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @get_database_oid(ptr noundef %3, i1 noundef zeroext false)
@@ -4287,7 +4287,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #5
 declare void @changeDependencyOnOwner(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_database_collation_actual_version(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_database_collation_actual_version(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -4347,7 +4347,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #5
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dbase_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @dbase_redo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -4569,7 +4569,7 @@ define internal fastcc void @recovery_create_dbdir(ptr noundef %0, i1 noundef ze
 10:                                               ; preds = %7
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #16
   tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.120, ptr noundef %0) #15
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.120, ptr noundef nonnull %0) #15
   tail call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 3166, ptr noundef nonnull @__func__.recovery_create_dbdir) #15
   unreachable
 
@@ -4809,7 +4809,7 @@ declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @movedb_failure_callback(i32 %0, i64 noundef %1) #0 {
@@ -4836,14 +4836,14 @@ declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 declare void @list_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @pg_mkdir_p(ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -4858,7 +4858,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 declare i32 @pg_fsync(i32 noundef) local_unnamed_addr #5
 
@@ -4872,10 +4872,10 @@ declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #5
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

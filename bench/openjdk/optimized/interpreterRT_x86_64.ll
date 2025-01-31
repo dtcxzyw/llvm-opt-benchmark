@@ -149,7 +149,7 @@ define hidden noundef i32 @_ZN18InterpreterRuntime25SignatureHandlerGenerator4fr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN18InterpreterRuntime25SignatureHandlerGenerator2toEv() local_unnamed_addr #1 align 2 {
@@ -162,7 +162,7 @@ define hidden noundef i32 @_ZN18InterpreterRuntime25SignatureHandlerGenerator4te
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGenerator8pass_intEv(ptr nocapture noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGenerator8pass_intEv(ptr noundef nonnull align 8 captures(none) dereferenceable(84) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.Address, align 8
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
@@ -299,7 +299,7 @@ declare void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull align 8 d
 declare void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGenerator9pass_longEv(ptr nocapture noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGenerator9pass_longEv(ptr noundef nonnull align 8 captures(none) dereferenceable(84) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.Address, align 8
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
@@ -437,7 +437,7 @@ declare void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull a
 declare void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGenerator10pass_floatEv(ptr nocapture noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGenerator10pass_floatEv(ptr noundef nonnull align 8 captures(none) dereferenceable(84) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.Address, align 8
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
@@ -534,7 +534,7 @@ define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGenerator10pass_flo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGenerator11pass_doubleEv(ptr nocapture noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGenerator11pass_doubleEv(ptr noundef nonnull align 8 captures(none) dereferenceable(84) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.Address, align 8
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
@@ -662,7 +662,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %31, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGenerator11pass_objectEv(ptr nocapture noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGenerator11pass_objectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(84) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.Address, align 8
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
@@ -1038,7 +1038,7 @@ declare void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40
 declare void @_ZN17AbstractAssembler5flushEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN23SignatureHandlerLibrary14pd_set_handlerEPh(ptr nocapture noundef readnone %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23SignatureHandlerLibrary14pd_set_handlerEPh(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 align 2 {
   ret void
 }
 
@@ -1899,13 +1899,13 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

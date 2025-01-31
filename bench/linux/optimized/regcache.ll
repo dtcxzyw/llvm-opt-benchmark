@@ -76,7 +76,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_regcache_reg
 @llvm.compiler.used = appending global [17 x ptr] [ptr @__UNIQUE_ID___addressable_regcache_cache_bypass569, ptr @__UNIQUE_ID___addressable_regcache_cache_only565, ptr @__UNIQUE_ID___addressable_regcache_drop_region562, ptr @__UNIQUE_ID___addressable_regcache_mark_dirty566, ptr @__UNIQUE_ID___addressable_regcache_reg_cached570, ptr @__UNIQUE_ID___addressable_regcache_sync557, ptr @__UNIQUE_ID___addressable_regcache_sync_region561, ptr @trace_regcache_drop_region.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace542, ptr @trace_regcache_drop_region.__UNIQUE_ID___addressable___SCK__tp_func_regcache_drop_region541, ptr @trace_regcache_sync.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace444, ptr @trace_regcache_sync.__UNIQUE_ID___addressable___SCK__tp_func_regcache_sync443, ptr @trace_regmap_cache_bypass.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace472, ptr @trace_regmap_cache_bypass.__UNIQUE_ID___addressable___SCK__tp_func_regmap_cache_bypass471, ptr @trace_regmap_cache_only.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace458, ptr @trace_regmap_cache_only.__UNIQUE_ID___addressable___SCK__tp_func_regmap_cache_only457, ptr @trace_regmap_reg_read_cache.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace346, ptr @trace_regmap_reg_read_cache.__UNIQUE_ID___addressable___SCK__tp_func_regmap_reg_read_cache345], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @regcache_init(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %5 = load i32, ptr %4, align 8
@@ -517,7 +517,7 @@ regcache_hw_init.exit:                            ; preds = %195
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -532,7 +532,7 @@ declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unna
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @regcache_exit(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -755,7 +755,7 @@ define dso_local noundef zeroext i1 @regcache_reg_needs_sync(ptr noundef %0, i32
 declare dso_local zeroext i1 @regmap_writeable(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regcache_lookup_reg(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @regcache_lookup_reg(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.reg_default, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store i32 %1, ptr %3, align 8
@@ -1458,7 +1458,7 @@ define dso_local void @regcache_cache_only(ptr noundef initializes((548, 549)) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @regcache_mark_dirty(ptr nocapture noundef initializes((576, 578)) %0) #0 align 16 {
+define dso_local void @regcache_mark_dirty(ptr noundef captures(none) initializes((576, 578)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1566,7 +1566,7 @@ define dso_local zeroext i1 @regcache_reg_cached(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @regcache_set_val(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @regcache_set_val(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -1618,7 +1618,7 @@ define dso_local void @regcache_set_val(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regcache_get_val(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @regcache_get_val(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %32, label %5
 
@@ -1678,7 +1678,7 @@ define dso_local i32 @regcache_get_val(ptr nocapture noundef readonly %0, ptr no
 declare dso_local ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @regcache_default_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define internal i32 @regcache_default_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 align 16 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = sub i32 %3, %4

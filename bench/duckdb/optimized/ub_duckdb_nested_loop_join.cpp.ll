@@ -596,7 +596,7 @@ return:                                           ; preds = %cleanup, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZN6duckdb30NestedLoopJoinComparisonSwitchINS_21InitialNestedLoopJoinEEEmRNS_6VectorES3_mmRmS4_RNS_15SelectionVectorES6_mNS_14ExpressionTypeE(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %left_size, i64 noundef %right_size, ptr noundef nonnull align 8 dereferenceable(8) %lpos, ptr noundef nonnull align 8 dereferenceable(8) %rpos, ptr noundef nonnull align 8 dereferenceable(24) %lvector, ptr noundef nonnull align 8 dereferenceable(24) %rvector, i64 noundef %current_match_count, i8 noundef zeroext %comparison_type) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -2635,10 +2635,10 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18NestedLoopJoinMark7PerformERNS_9DataChunkERNS_20ColumnDataCollectionEPbRKNS_6vectorINS_13JoinConditionELb1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %left, ptr noundef nonnull align 8 dereferenceable(97) %right, ptr nocapture noundef %found_match, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %conditions) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18NestedLoopJoinMark7PerformERNS_9DataChunkERNS_20ColumnDataCollectionEPbRKNS_6vectorINS_13JoinConditionELb1EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %left, ptr noundef nonnull align 8 dereferenceable(97) %right, ptr noundef captures(none) %found_match, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %conditions) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i109 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -3686,7 +3686,7 @@ declare noundef zeroext i1 @_ZNK6duckdb20ColumnDataCollection4ScanERNS_19ColumnD
 declare void @_ZN6duckdb9DataChunkD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_6EqualsEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr nocapture noundef %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_6EqualsEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr noundef captures(none) %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %left_data.i1817 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %right_data.i1818 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -8905,7 +8905,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_9NotEqualsEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr nocapture noundef %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_9NotEqualsEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr noundef captures(none) %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %left_data.i1923 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %right_data.i1924 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -14124,7 +14124,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_8LessThanEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr nocapture noundef %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_8LessThanEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr noundef captures(none) %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %left_data.i1923 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %right_data.i1924 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -19363,7 +19363,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_11GreaterThanEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr nocapture noundef %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_11GreaterThanEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr noundef captures(none) %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %left_data.i1922 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %right_data.i1923 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -24602,7 +24602,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_14LessThanEqualsEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr nocapture noundef %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_14LessThanEqualsEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr noundef captures(none) %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %left_data.i1923 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %right_data.i1924 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -29839,7 +29839,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_17GreaterThanEqualsEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr nocapture noundef %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_17GreaterThanEqualsEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr noundef captures(none) %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %left_data.i1923 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %right_data.i1924 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -35076,7 +35076,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_12DistinctFromEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr nocapture noundef %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL14MarkJoinSwitchINS_12DistinctFromEEEvRNS_6VectorES3_mmPb(ptr noundef nonnull align 8 dereferenceable(104) %left, ptr noundef nonnull align 8 dereferenceable(104) %right, i64 noundef %lcount, i64 noundef %rcount, ptr noundef captures(none) %found_match) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %left_data.i2064 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %right_data.i2065 = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -41032,7 +41032,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
@@ -41115,7 +41115,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -41271,7 +41271,7 @@ declare noundef zeroext i1 @_ZN6duckdb6Equals9OperationIfEEbRKT_S4_(ptr noundef 
 declare noundef zeroext i1 @_ZN6duckdb6Equals9OperationIdEEbRKT_S4_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 declare noundef zeroext i1 @_ZN6duckdb11GreaterThan9OperationIfEEbRKT_S4_(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
@@ -41284,7 +41284,7 @@ declare noundef zeroext i1 @_ZN6duckdb17GreaterThanEquals9OperationIdEEbRKT_S4_(
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
 declare void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
@@ -128991,7 +128991,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #15

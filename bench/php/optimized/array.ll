@@ -114,7 +114,7 @@ define hidden noundef i32 @zm_shutdown_array(i32 noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_krsort(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_krsort(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -253,7 +253,7 @@ declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #3
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ksort(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_ksort(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -383,7 +383,7 @@ php_get_key_compare_func.exit:                    ; preds = %46, %44, %.thread14
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @php_count_recursive(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define i64 @php_count_recursive(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 64
@@ -677,13 +677,13 @@ declare void @zend_argument_type_error(i32 noundef, ptr noundef, ...) local_unna
 declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_natsort(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_natsort(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_natsort(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_natsort(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc void @php_natsort(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
@@ -758,13 +758,13 @@ define internal fastcc void @php_natsort(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_natcasesort(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_natcasesort(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_natsort(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_asort(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_asort(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -894,7 +894,7 @@ php_get_data_compare_func.exit:                   ; preds = %46, %44, %.thread14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_arsort(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_arsort(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1024,7 +1024,7 @@ php_get_data_compare_func.exit:                   ; preds = %46, %44, %.thread14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_sort(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_sort(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1154,7 +1154,7 @@ php_get_data_compare_func.exit:                   ; preds = %46, %44, %.thread14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_rsort(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_rsort(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1284,13 +1284,13 @@ php_get_data_compare_func.exit:                   ; preds = %46, %44, %.thread14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_usort(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_usort(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_usort(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @php_array_user_compare, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_usort(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc void @php_usort(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
   %5 = alloca %struct._zend_fcall_info, align 8
   %6 = alloca %struct._zend_fcall_info_cache, align 8
   %7 = alloca ptr, align 8
@@ -1389,7 +1389,7 @@ define internal fastcc void @php_usort(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @php_array_user_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @php_array_user_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = tail call i32 @php_array_user_compare_unstable(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -1408,19 +1408,19 @@ define internal range(i32 -1, 2) i32 @php_array_user_compare(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_uasort(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_uasort(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_usort(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @php_array_user_compare, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_uksort(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_uksort(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_usort(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @php_array_user_key_compare, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @php_array_user_key_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @php_array_user_key_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = tail call i32 @php_array_user_key_compare_unstable(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -1439,7 +1439,7 @@ define internal range(i32 -1, 2) i32 @php_array_user_key_compare(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_end(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_end(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -1657,7 +1657,7 @@ get_ht_for_iap.exit:                              ; preds = %.thread131, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_prev(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_prev(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -1875,7 +1875,7 @@ get_ht_for_iap.exit:                              ; preds = %.thread131, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_next(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_next(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -2093,7 +2093,7 @@ get_ht_for_iap.exit:                              ; preds = %.thread131, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_reset(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_reset(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -2311,7 +2311,7 @@ get_ht_for_iap.exit:                              ; preds = %.thread131, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_current(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_current(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -2487,7 +2487,7 @@ get_ht_for_iap.exit:                              ; preds = %15, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_min(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_min(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -2767,7 +2767,7 @@ define internal i32 @php_data_compare(ptr noundef %0, ptr noundef %1) #2 {
 declare i32 @zend_compare(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_min_2(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden void @zflf_min_2(ptr noundef writeonly captures(none) initializes((0, 12)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
   switch i8 %5, label %60 [
@@ -2898,7 +2898,7 @@ define hidden void @zflf_min_2(ptr nocapture noundef writeonly initializes((0, 1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_max(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_max(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -3168,7 +3168,7 @@ define hidden void @zif_max(ptr noundef %0, ptr nocapture noundef writeonly %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_max_2(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden void @zflf_max_2(ptr noundef writeonly captures(none) initializes((0, 12)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
   switch i8 %5, label %59 [
@@ -3299,7 +3299,7 @@ define hidden void @zflf_max_2(ptr nocapture noundef writeonly initializes((0, 1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_walk(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_walk(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.php_array_walk_context, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3776,7 +3776,7 @@ zend_get_typed_property_info_for_slot.exit.thread: ; preds = %52, %zend_get_type
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_walk_recursive(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_walk_recursive(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.php_array_walk_context, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3876,13 +3876,13 @@ define hidden void @zif_array_walk_recursive(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_in_array(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_in_array(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_search_array(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_search_array(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc void @php_search_array(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = alloca i8, align 1
   store i8 0, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3952,7 +3952,7 @@ define internal fastcc void @php_search_array(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_in_array_2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden void @zflf_in_array_2(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 7
@@ -3973,7 +3973,7 @@ define hidden void @zflf_in_array_2(ptr nocapture noundef writeonly %0, ptr noun
 declare void @zend_wrong_parameter_type_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_php_search_array(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
+define internal fastcc void @_php_search_array(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
   br i1 %3, label %8, label %108
@@ -4588,7 +4588,7 @@ define internal fastcc void @_php_search_array(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_in_array_3(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define hidden void @zflf_in_array_3(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i8, ptr %6, align 8
@@ -4638,13 +4638,13 @@ define hidden void @zflf_in_array_3(ptr nocapture noundef writeonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_search(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_search(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_search_array(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_prefix_varname(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #2 {
+define noundef i32 @php_prefix_varname(ptr noundef writeonly captures(none) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = zext i1 %4 to i64
@@ -4683,10 +4683,10 @@ define noundef i32 @php_prefix_varname(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_extract(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_extract(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -5062,7 +5062,7 @@ define hidden void @zif_extract(ptr noundef %0, ptr nocapture noundef writeonly 
 declare ptr @zend_rebuild_symbol_table() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_ref_if_exists(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_ref_if_exists(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -5240,7 +5240,7 @@ define internal fastcc i64 @php_extract_ref_if_exists(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_ref_overwrite(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_ref_overwrite(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -5456,7 +5456,7 @@ define internal fastcc i64 @php_extract_ref_overwrite(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_ref_prefix_if_exists(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_ref_prefix_if_exists(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -5728,7 +5728,7 @@ php_prefix_varname.exit:                          ; preds = %29, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_ref_prefix_same(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_ref_prefix_same(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -6103,7 +6103,7 @@ define internal fastcc i64 @php_extract_ref_prefix_same(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_ref_prefix_all(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_ref_prefix_all(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
@@ -6387,7 +6387,7 @@ php_prefix_varname.exit137:                       ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_ref_prefix_invalid(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_ref_prefix_invalid(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
@@ -6802,7 +6802,7 @@ php_prefix_varname.exit224:                       ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_ref_skip(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_ref_skip(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -7003,7 +7003,7 @@ define internal fastcc i64 @php_extract_ref_skip(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_if_exists(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_if_exists(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -7204,7 +7204,7 @@ define internal fastcc i64 @php_extract_if_exists(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_overwrite(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_overwrite(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -7431,7 +7431,7 @@ define internal fastcc i64 @php_extract_overwrite(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_prefix_if_exists(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_prefix_if_exists(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -7757,7 +7757,7 @@ php_prefix_varname.exit:                          ; preds = %29, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_prefix_same(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_prefix_same(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -8177,7 +8177,7 @@ define internal fastcc i64 @php_extract_prefix_same(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_prefix_all(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_prefix_all(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
@@ -8514,7 +8514,7 @@ php_prefix_varname.exit154:                       ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_prefix_invalid(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_prefix_invalid(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
@@ -8982,7 +8982,7 @@ php_prefix_varname.exit241:                       ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_extract_skip(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc i64 @php_extract_skip(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -9175,7 +9175,7 @@ define internal fastcc i64 @php_extract_skip(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_compact(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_compact(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -9287,7 +9287,7 @@ declare ptr @_zend_new_array(i32 noundef) local_unnamed_addr #3
 declare ptr @_zend_new_array_0() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_compact_var(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #2 {
+define internal fastcc void @php_compact_var(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #2 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i8, ptr %6, align 8
@@ -9489,7 +9489,7 @@ select.unfold:                                    ; preds = %21, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_fill(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_fill(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -9729,7 +9729,7 @@ declare ptr @zend_hash_index_add_new(ptr noundef, i64 noundef, ptr noundef) loca
 declare ptr @zend_hash_next_index_insert_new(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_fill_keys(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_fill_keys(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -9909,7 +9909,7 @@ define hidden void @zif_array_fill_keys(ptr noundef %0, ptr nocapture noundef %1
 declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_range(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -10744,7 +10744,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
 declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 8) i8 @php_range_process_input(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 3) %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #2 {
+define internal fastcc zeroext range(i8 0, 8) i8 @php_range_process_input(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 3) %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
   switch i8 %6, label %46 [
@@ -10859,7 +10859,7 @@ declare double @_php_math_round(double noundef, i32 noundef, i32 noundef) local_
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @php_array_data_shuffle(ptr nocapture readonly %0, ptr %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define noundef zeroext i1 @php_array_data_shuffle(ptr readonly captures(none) %0, ptr %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %6 = load i32, ptr %5, align 4
@@ -11202,7 +11202,7 @@ declare void @zend_hash_to_packed(ptr noundef) local_unnamed_addr #3
 declare i32 @zend_hash_iterators_lower_pos(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_shuffle(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_shuffle(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -11276,7 +11276,7 @@ define hidden void @zif_shuffle(ptr noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_push(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_push(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -11425,7 +11425,7 @@ define hidden void @zif_array_push(ptr noundef %0, ptr nocapture noundef writeon
 declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_pop(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_pop(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -11674,7 +11674,7 @@ declare void @zend_hash_packed_del_val(ptr noundef, ptr noundef) local_unnamed_a
 declare void @zend_hash_del_bucket(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_shift(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_shift(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -12128,7 +12128,7 @@ define hidden void @zif_array_shift(ptr noundef %0, ptr nocapture noundef writeo
 declare void @zend_hash_rehash(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_unshift(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_unshift(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zend_array, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -12384,7 +12384,7 @@ declare void @zend_hash_iterators_advance(ptr noundef, i32 noundef) local_unname
 declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_splice(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_splice(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zend_array, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -13366,7 +13366,7 @@ php_splice.exit:                                  ; preds = %292, %439, %.loopex
 declare void @convert_to_array(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_slice(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_slice(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -13862,7 +13862,7 @@ find_bucket_at_offset.exit:                       ; preds = %184, %187, %176, %1
 declare void @zval_add_ref(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @php_array_merge_recursive(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @php_array_merge_recursive(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -14227,7 +14227,7 @@ declare i32 @add_next_index_null(ptr noundef) local_unnamed_addr #3
 declare void @zend_cannot_add_element() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_array_merge(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define noundef i32 @php_array_merge(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -14434,7 +14434,7 @@ declare void @zend_hash_extend(ptr noundef, i32 noundef, i1 noundef zeroext) loc
 declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @php_array_replace_recursive(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @php_array_replace_recursive(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
@@ -14764,7 +14764,7 @@ define range(i32 0, 2) i32 @php_array_replace_recursive(ptr noundef %0, ptr noca
 declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_merge(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_merge(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -15237,7 +15237,7 @@ select.unfold:                                    ; preds = %29, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_merge_recursive(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_merge_recursive(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -15710,7 +15710,7 @@ select.unfold:                                    ; preds = %29, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_replace(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_replace(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -15820,7 +15820,7 @@ define hidden void @zif_array_replace(ptr noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_replace_recursive(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_replace_recursive(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -15930,7 +15930,7 @@ define hidden void @zif_array_replace_recursive(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_keys(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_keys(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca i8, align 1
   store i8 0, ptr %4, align 1
@@ -16538,7 +16538,7 @@ define hidden void @zif_array_key_last(ptr noundef %0, ptr noundef %1) local_unn
 declare void @zend_hash_internal_pointer_end_ex(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_values(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_values(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -16625,7 +16625,7 @@ define hidden void @zif_array_values(ptr noundef %0, ptr nocapture noundef write
 declare ptr @zend_array_to_list(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_count_values(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_count_values(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -16829,7 +16829,7 @@ define hidden void @zif_array_count_values(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_column(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_column(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -17205,10 +17205,10 @@ define hidden void @zif_array_column(ptr noundef %0, ptr nocapture noundef %1) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @array_column_fetch_prop(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #2 {
+define internal fastcc ptr @array_column_fetch_prop(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i8, ptr %7, align 8
@@ -17411,7 +17411,7 @@ define internal fastcc ptr @array_column_fetch_prop(ptr nocapture noundef readon
 declare i32 @array_set_zval_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_reverse(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_reverse(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i8, align 1
   store i8 0, ptr %3, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -17673,7 +17673,7 @@ define hidden void @zif_array_reverse(ptr noundef %0, ptr nocapture noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_pad(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_pad(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -18095,7 +18095,7 @@ define hidden void @zif_array_pad(ptr noundef %0, ptr nocapture noundef %1) loca
 declare i64 @imaxabs(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_flip(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_flip(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -18300,7 +18300,7 @@ define hidden void @zif_array_flip(ptr noundef %0, ptr nocapture noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_change_key_case(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_change_key_case(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -18463,7 +18463,7 @@ define hidden void @zif_array_change_key_case(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_unique(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_unique(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca %struct._zend_array, align 8
   store i64 2, ptr %3, align 8
@@ -18939,7 +18939,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #9
 declare void @zend_sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @array_bucketindex_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) #10 {
+define internal void @array_bucketindex_swap(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #10 {
   %3 = alloca %struct.bucketindex, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
@@ -18952,12 +18952,12 @@ declare i32 @zend_hash_index_del(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_intersect_key(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_intersect_key(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
   tail call fastcc void @php_array_intersect_key(i32 %.val, ptr noundef %1, i32 noundef -1)
@@ -18965,7 +18965,7 @@ define hidden void @zif_array_intersect_key(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_array_intersect_key(i32 %.44.val, ptr nocapture noundef %0, i32 noundef range(i32 -1, 2) %1) unnamed_addr #2 {
+define internal fastcc void @php_array_intersect_key(i32 %.44.val, ptr noundef captures(none) %0, i32 noundef range(i32 -1, 2) %1) unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 %.44.val, ptr %3, align 4
@@ -19225,13 +19225,13 @@ define internal fastcc void @php_array_intersect_key(i32 %.44.val, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_intersect_ukey(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_intersect_ukey(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_array_intersect(ptr noundef %0, ptr noundef %1, i32 noundef 2, i32 noundef 0, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 1, 7) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
+define internal fastcc void @php_array_intersect(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 1, 7) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct._zend_fcall_info, align 8
@@ -19888,19 +19888,19 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_intersect(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_intersect(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_array_intersect(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_uintersect(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_uintersect(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_array_intersect(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_intersect_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_intersect_assoc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
   tail call fastcc void @php_array_intersect_key(i32 %.val, ptr noundef %1, i32 noundef 0)
@@ -19908,13 +19908,13 @@ define hidden void @zif_array_intersect_assoc(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_intersect_uassoc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_intersect_uassoc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_array_intersect(ptr noundef %0, ptr noundef %1, i32 noundef 6, i32 noundef 0, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_uintersect_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_uintersect_assoc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
   tail call fastcc void @php_array_intersect_key(i32 %.val, ptr noundef %1, i32 noundef 1)
@@ -19922,13 +19922,13 @@ define hidden void @zif_array_uintersect_assoc(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_uintersect_uassoc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_uintersect_uassoc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_array_intersect(ptr noundef %0, ptr noundef %1, i32 noundef 6, i32 noundef 1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_diff_key(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_diff_key(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
   tail call fastcc void @php_array_diff_key(i32 %.val, ptr noundef %1, i32 noundef -1)
@@ -19936,7 +19936,7 @@ define hidden void @zif_array_diff_key(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_array_diff_key(i32 %.44.val, ptr nocapture noundef %0, i32 noundef range(i32 -1, 2) %1) unnamed_addr #2 {
+define internal fastcc void @php_array_diff_key(i32 %.44.val, ptr noundef captures(none) %0, i32 noundef range(i32 -1, 2) %1) unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 %.44.val, ptr %3, align 4
@@ -20197,13 +20197,13 @@ define internal fastcc void @php_array_diff_key(i32 %.44.val, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_diff_ukey(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_diff_ukey(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_array_diff(ptr noundef %0, ptr noundef %1, i32 noundef 2, i32 noundef 0, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 1, 7) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
+define internal fastcc void @php_array_diff(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 1, 7) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct._zend_fcall_info, align 8
@@ -20759,7 +20759,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_diff(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_diff(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zend_array, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -21389,13 +21389,13 @@ define hidden void @zif_array_diff(ptr noundef %0, ptr nocapture noundef %1) loc
 declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_udiff(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_udiff(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_array_diff(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_diff_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_diff_assoc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
   tail call fastcc void @php_array_diff_key(i32 %.val, ptr noundef %1, i32 noundef 0)
@@ -21403,13 +21403,13 @@ define hidden void @zif_array_diff_assoc(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_diff_uassoc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_diff_uassoc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_array_diff(ptr noundef %0, ptr noundef %1, i32 noundef 6, i32 noundef 0, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_udiff_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_udiff_assoc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
   tail call fastcc void @php_array_diff_key(i32 %.val, ptr noundef %1, i32 noundef 1)
@@ -21417,13 +21417,13 @@ define hidden void @zif_array_udiff_assoc(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_udiff_uassoc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_udiff_uassoc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   tail call fastcc void @php_array_diff(ptr noundef %0, ptr noundef %1, i32 noundef 6, i32 noundef 1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @php_multisort_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define range(i32 -1, 2) i32 @php_multisort_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   br label %5
@@ -21466,7 +21466,7 @@ define range(i32 -1, 2) i32 @php_multisort_compare(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_multisort(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_multisort(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -22059,7 +22059,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @array_bucket_p_sawp(ptr nocapture noundef %0, ptr nocapture noundef %1) #10 {
+define internal void @array_bucket_p_sawp(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
@@ -22068,7 +22068,7 @@ define internal void @array_bucket_p_sawp(ptr nocapture noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @php_array_pick_keys(ptr nocapture readonly %0, ptr %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4, i1 noundef zeroext %5) local_unnamed_addr #2 {
+define noundef zeroext i1 @php_array_pick_keys(ptr readonly captures(none) %0, ptr %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, i1 noundef zeroext %5) local_unnamed_addr #2 {
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %9 = load i32, ptr %8, align 4
@@ -22531,14 +22531,14 @@ define noundef zeroext i1 @php_array_pick_keys(ptr nocapture readonly %0, ptr %1
   br i1 %139, label %237, label %.loopexit
 
 237:                                              ; preds = %._crit_edge286
-  call void @_efree(ptr noundef %145) #18
+  call void @_efree(ptr noundef nonnull %145) #18
   br label %.loopexit
 
 .loopexit270:                                     ; preds = %149, %165, %164
   br i1 %139, label %238, label %.loopexit
 
 238:                                              ; preds = %.loopexit270
-  call void @_efree(ptr noundef %145) #18
+  call void @_efree(ptr noundef nonnull %145) #18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader267, %.preheader, %238, %.loopexit270, %237, %._crit_edge286, %126, %127, %117, %111, %113, %68, %62, %64, %21, %11, %12, %90
@@ -22547,7 +22547,7 @@ define noundef zeroext i1 @php_array_pick_keys(ptr nocapture readonly %0, ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_rand(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_rand(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   store i64 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -22918,7 +22918,7 @@ php_array_binop.exit:                             ; preds = %66, %12, %13, %19
 declare i32 @mul_function(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_reduce(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_reduce(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [2 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zend_fcall_info, align 8
@@ -23135,7 +23135,7 @@ define hidden void @zif_array_reduce(ptr noundef %0, ptr nocapture noundef %1) l
 declare i32 @zend_call_function(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_filter(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_filter(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [2 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca i64, align 8
@@ -23506,7 +23506,7 @@ define hidden void @zif_array_filter(ptr noundef %0, ptr nocapture noundef %1) l
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_map(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_map(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zend_fcall_info, align 8
   %5 = alloca %struct._zend_fcall_info_cache, align 8
@@ -24250,7 +24250,7 @@ declare void @zend_hash_real_init(ptr noundef, i1 noundef zeroext) local_unnamed
 declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_key_exists(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @zif_array_key_exists(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -24431,7 +24431,7 @@ define hidden void @zif_array_key_exists(ptr noundef %0, ptr nocapture noundef w
 declare void @zend_use_resource_as_offset(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_chunk(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_chunk(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
   %5 = alloca %struct._zval_struct, align 8
@@ -24669,7 +24669,7 @@ define hidden void @zif_array_chunk(ptr noundef %0, ptr nocapture noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_combine(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @zif_array_combine(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -24899,7 +24899,7 @@ define hidden void @zif_array_combine(ptr noundef %0, ptr nocapture noundef %1) 
 declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @php_array_reverse_key_compare_numeric(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @php_array_reverse_key_compare_numeric(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -24967,7 +24967,7 @@ php_array_reverse_key_compare_numeric_unstable.exit.thread: ; preds = %28, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @php_array_key_compare_numeric(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @php_array_key_compare_numeric(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -25035,7 +25035,7 @@ define internal range(i32 -1, 2) i32 @php_array_key_compare_numeric(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare_string_case(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare_string_case(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca [21 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3)
@@ -25193,7 +25193,7 @@ php_array_reverse_key_compare_string_case_unstable.exit: ; preds = %39, %.loopex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_key_compare_string_case(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @php_array_key_compare_string_case(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca [21 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -25346,7 +25346,7 @@ define internal i32 @php_array_key_compare_string_case(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare_string(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare_string(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = tail call i32 @php_array_key_compare_string_unstable(ptr noundef readonly %0, ptr noundef readonly %1)
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
@@ -25366,7 +25366,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_key_compare_string(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @php_array_key_compare_string(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca [21 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -25519,7 +25519,7 @@ define internal i32 @php_array_key_compare_string(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_key_compare_string_natural_case(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @php_array_reverse_key_compare_string_natural_case(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = tail call fastcc i32 @php_array_key_compare_string_natural_general(ptr noundef %1, ptr noundef %0, i32 noundef 1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -25538,7 +25538,7 @@ define internal i32 @php_array_reverse_key_compare_string_natural_case(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_key_compare_string_natural_case(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @php_array_key_compare_string_natural_case(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = tail call fastcc i32 @php_array_key_compare_string_natural_general(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -25557,7 +25557,7 @@ define internal i32 @php_array_key_compare_string_natural_case(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_key_compare_string_natural(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @php_array_reverse_key_compare_string_natural(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = tail call fastcc i32 @php_array_key_compare_string_natural_general(ptr noundef %1, ptr noundef %0, i32 noundef 0)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -25576,7 +25576,7 @@ define internal i32 @php_array_reverse_key_compare_string_natural(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_key_compare_string_natural(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @php_array_key_compare_string_natural(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = tail call fastcc i32 @php_array_key_compare_string_natural_general(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -25595,7 +25595,7 @@ define internal i32 @php_array_key_compare_string_natural(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare_string_locale(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare_string_locale(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca [21 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3)
@@ -25733,7 +25733,7 @@ php_array_reverse_key_compare_string_locale_unstable.exit: ; preds = %51, %33, %
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal i32 @php_array_key_compare_string_locale(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal i32 @php_array_key_compare_string_locale(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca [21 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -25866,7 +25866,7 @@ define internal i32 @php_array_key_compare_string_locale(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -25955,7 +25955,7 @@ php_array_reverse_key_compare_unstable.exit:      ; preds = %18, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_key_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @php_array_key_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -26041,7 +26041,7 @@ declare double @zend_strtod(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @zend_binary_strcasecmp_l(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_key_compare_string_unstable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @php_array_key_compare_string_unstable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca [21 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -26183,7 +26183,7 @@ define internal i32 @php_array_key_compare_string_unstable(ptr nocapture noundef
 declare i32 @zend_binary_strcmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @php_array_key_compare_string_natural_general(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc i32 @php_array_key_compare_string_natural_general(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = alloca [21 x i8], align 16
   %5 = alloca [21 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -26326,7 +26326,7 @@ define internal fastcc i32 @php_array_key_compare_string_natural_general(ptr noc
 declare i32 @strnatcmp_ex(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcoll(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcoll(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 declare i32 @zendi_smart_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -27074,7 +27074,7 @@ define internal i32 @php_array_data_compare_unstable(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @php_array_user_compare_unstable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @php_array_user_compare_unstable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca [2 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr %0, align 8
@@ -27231,7 +27231,7 @@ define internal range(i32 -1, 2) i32 @php_array_user_compare_unstable(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @php_array_user_key_compare_unstable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @php_array_user_key_compare_unstable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca [2 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -27515,7 +27515,7 @@ declare ptr @zend_string_toupper_ex(ptr noundef, i1 noundef zeroext) local_unnam
 declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @zval_user_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal range(i32 -1, 2) i32 @zval_user_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
   %3 = alloca [2 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr %0, align 8
@@ -27588,7 +27588,7 @@ declare i64 @zend_string_hash_func(ptr noundef) local_unnamed_addr #3
 declare void @zend_incompatible_double_to_long_error(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #16
@@ -27597,10 +27597,10 @@ declare i64 @llvm.smax.i64(i64, i64) #16
 declare i32 @llvm.scmp.i32.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #16

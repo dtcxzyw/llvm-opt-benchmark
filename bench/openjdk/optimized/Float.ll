@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef float @Java_java_lang_Float_intBitsToFloat(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef float @Java_java_lang_Float_intBitsToFloat(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = bitcast i32 %2 to float
   ret float %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Java_java_lang_Float_floatToRawIntBits(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, float noundef %2) local_unnamed_addr #0 {
+define noundef i32 @Java_java_lang_Float_floatToRawIntBits(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, float noundef %2) local_unnamed_addr #0 {
   %4 = bitcast float %2 to i32
   ret i32 %4
 }

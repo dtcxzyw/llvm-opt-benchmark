@@ -76,7 +76,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.45 = private unnamed_addr constant [34 x i8] c"The ending ')' was expected here.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parse_switch_body(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @parse_switch_body(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 17
@@ -197,7 +197,7 @@ switch.early.test65:                              ; preds = %switch.early.test65
   ]
 
 55:                                               ; preds = %switch.early.test65
-  %56 = tail call ptr @parse_stmt(ptr noundef %0)
+  %56 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.critedge.i58, label %58
 
@@ -324,7 +324,7 @@ parse_default_stmt.exit:                          ; preds = %parse_case_stmts.ex
   %110 = zext i32 %109 to i64
   %111 = getelementptr inbounds nuw ptr, ptr %107, i64 %110
   store ptr %.044, ptr %111, align 8
-  %112 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 24) #5
+  %112 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #5
   br i1 %112, label %.loopexit, label %15, !llvm.loop !9
 
 .loopexit:                                        ; preds = %21, %76, %104, %.critedge54, %8, %79
@@ -1333,7 +1333,7 @@ define dso_local ptr @parse_compound_stmt(ptr noundef %0) local_unnamed_addr #0 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
   %.03439 = phi ptr [ %25, %.critedge ], [ %14, %.lr.ph.preheader ]
-  %15 = tail call ptr @parse_stmt(ptr noundef %0)
+  %15 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.critedge, label %17
 
@@ -1360,7 +1360,7 @@ define dso_local ptr @parse_compound_stmt(ptr noundef %0) local_unnamed_addr #0 
   %phi.call = trunc i64 %phi.call.in to i32
   store i32 %phi.call, ptr %.03439, align 4
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %26 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 24) #5
+  %26 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #5
   br i1 %26, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.critedge, %.critedge38
@@ -3575,7 +3575,7 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
 
 .lr.ph.i:                                         ; preds = %47, %.critedge63.backedge.i
   %.05766.i = phi ptr [ %81, %.critedge63.backedge.i ], [ null, %47 ]
-  %49 = tail call fastcc ptr @parse_asm_expr(ptr noundef %0)
+  %49 = tail call fastcc ptr @parse_asm_expr(ptr noundef nonnull %0)
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.critedge.i, label %51
 
@@ -3638,11 +3638,11 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   %82 = zext i32 %79 to i64
   %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
   store ptr %49, ptr %83, align 8
-  %84 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #5
+  %84 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #5
   br i1 %84, label %.critedge63.backedge.i, label %86
 
 .critedge63.backedge.i:                           ; preds = %86, %78
-  %85 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 9) #5
+  %85 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #5
   br i1 %85, label %parse_asm_stmt.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 86:                                               ; preds = %78
@@ -3692,7 +3692,7 @@ parse_asm_stmt.exit:                              ; preds = %51, %33, %42, %89
   %phi.call = trunc i64 %phi.call.in to i32
   store i32 %phi.call, ptr %.085102, align 4
   %102 = getelementptr inbounds nuw i8, ptr %.056.i99, i64 8
-  %103 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 24) #5
+  %103 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #5
   br i1 %103, label %._crit_edge, label %28, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.critedge, %23
@@ -4329,7 +4329,7 @@ parse_default_stmt.exit:                          ; preds = %86, %47
   %127 = zext i32 %124 to i64
   %128 = getelementptr inbounds nuw ptr, ptr %126, i64 %127
   store ptr %.051, ptr %128, align 8
-  %129 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 158) #5
+  %129 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 158) #5
   br i1 %129, label %._crit_edge, label %37, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %123, %34
@@ -4487,7 +4487,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
   %.07184 = phi ptr [ %92, %.critedge2 ], [ %81, %.lr.ph.preheader ]
-  %82 = tail call ptr @parse_stmt(ptr noundef %0)
+  %82 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.critedge2, label %84
 
@@ -4514,7 +4514,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   %phi.call76 = trunc i64 %phi.call76.in to i32
   store i32 %phi.call76, ptr %.07184, align 4
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %93 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 156) #5
+  %93 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 156) #5
   br i1 %93, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.critedge2, %.critedge83, %88, %66, %59, %49, %45, %29, %9
@@ -4700,7 +4700,7 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge6
   %.087112 = phi ptr [ %94, %.critedge6 ], [ %83, %.lr.ph.preheader ]
-  %84 = tail call ptr @parse_stmt(ptr noundef %0)
+  %84 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.critedge6, label %86
 
@@ -4727,7 +4727,7 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
   %phi.call98 = trunc i64 %phi.call98.in to i32
   store i32 %phi.call98, ptr %.087112, align 4
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %95 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 155) #5
+  %95 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 155) #5
   br i1 %95, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge6, %.critedge109, %90, %68, %62, %47, %40, %29, %23, %9
@@ -4817,7 +4817,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.critedge2, %68
   %.04862 = phi ptr [ %71, %68 ], [ null, %.critedge2 ]
-  %37 = tail call ptr @parse_expr(ptr noundef %0) #5
+  %37 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.critedge4, label %39
 
@@ -4884,7 +4884,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   %72 = zext i32 %69 to i64
   %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %72
   store ptr %37, ptr %73, align 8
-  %74 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #5
+  %74 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #5
   br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %68, %.critedge2
@@ -4894,7 +4894,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %76
 
 76:                                               ; preds = %.critedge, %._crit_edge
-  %77 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef %0, i32 noundef 26, ptr noundef nonnull @.str.45) #5
+  %77 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 26, ptr noundef nonnull @.str.45) #5
   br i1 %77, label %80, label %78
 
 78:                                               ; preds = %76
@@ -4902,14 +4902,14 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %consume_eos.exit
 
 80:                                               ; preds = %76
-  %81 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 9) #5
+  %81 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #5
   br i1 %81, label %consume_eos.exit, label %82
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %84 = load i64, ptr %83, align 8
   tail call void (i64, ptr, ...) @sema_error_at_after(i64 %84, ptr noundef nonnull @.str.15) #5
-  tail call void @advance(ptr noundef %0) #5
+  tail call void @advance(ptr noundef nonnull %0) #5
   %85 = load ptr, ptr @poisoned_ast, align 8
   br label %consume_eos.exit
 
@@ -4924,7 +4924,7 @@ declare ptr @token_type_to_string(i32 noundef) local_unnamed_addr #1
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_short_body(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -5237,7 +5237,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   %.0112164 = phi ptr [ %133, %130 ], [ %79, %76 ]
   %.0113163 = phi ptr [ %.1, %130 ], [ null, %76 ]
   %83 = tail call ptr @copy_type_info_single(ptr noundef %1) #5
-  %84 = tail call ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %83) #5
+  %84 = tail call ptr @parse_local_decl_after_type(ptr noundef nonnull %0, ptr noundef %83) #5
   %.not129 = icmp eq ptr %84, null
   br i1 %.not129, label %.critedge2, label %85
 
@@ -5328,7 +5328,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   %134 = zext i32 %131 to i64
   %135 = getelementptr inbounds nuw ptr, ptr %133, i64 %134
   store ptr %84, ptr %135, align 8
-  %136 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #5
+  %136 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #5
   br i1 %136, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %130
@@ -5429,7 +5429,7 @@ declare ptr @expr_new_const_bool(i64, ptr noundef, i1 noundef zeroext) local_unn
 declare ptr @parse_expression_list(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parse_foreach_var(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parse_foreach_var(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %5 [
@@ -6005,7 +6005,7 @@ extend_span_with_token.exit69:                    ; preds = %210, %211
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parse_asm_offset(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parse_asm_offset(ptr noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 77
@@ -6043,7 +6043,7 @@ define internal fastcc noundef zeroext i1 @parse_asm_offset(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parse_asm_scale(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parse_asm_scale(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 77

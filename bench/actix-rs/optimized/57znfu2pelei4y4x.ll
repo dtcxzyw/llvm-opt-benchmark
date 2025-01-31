@@ -41,14 +41,14 @@ __rust_try.exit:                                  ; preds = %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN3std9panicking3try7do_call17h4a61001411ee32bfE(ptr nocapture readonly %0) unnamed_addr #1 {
+define void @_ZN3std9panicking3try7do_call17h4a61001411ee32bfE(ptr readonly captures(none) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   tail call void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h664234db6826138fE"(ptr nonnull align 8 %2)
   ret void
 }
 
 ; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
-define void @_ZN3std9panicking3try8do_catch17he591ad0bc2025366E(ptr nocapture writeonly %0, ptr %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN3std9panicking3try8do_catch17he591ad0bc2025366E(ptr writeonly captures(none) %0, ptr %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr %1)
           to label %6 unwind label %4
 

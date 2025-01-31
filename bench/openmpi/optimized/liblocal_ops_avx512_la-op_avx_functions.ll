@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_op_avx_component = external local_unnamed_addr global %struct.ompi_op_avx_component_t, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_max_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_max_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -218,7 +218,7 @@ default.unreachable:                              ; preds = %.lr.ph185
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_max_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_max_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -423,7 +423,7 @@ default.unreachable:                              ; preds = %.lr.ph185
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_max_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_max_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -630,7 +630,7 @@ default.unreachable:                              ; preds = %.lr.ph185
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_max_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_max_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -837,7 +837,7 @@ default.unreachable:                              ; preds = %.lr.ph185
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_max_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_max_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -1044,7 +1044,7 @@ default.unreachable:                              ; preds = %.lr.ph178
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_max_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_max_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -1251,7 +1251,7 @@ default.unreachable:                              ; preds = %.lr.ph178
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_max_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_max_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -1458,7 +1458,7 @@ default.unreachable:                              ; preds = %.lr.ph178
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_max_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_max_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -1665,7 +1665,7 @@ default.unreachable:                              ; preds = %.lr.ph178
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @ompi_op_avx_2buff_max_float_avx512(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -1878,7 +1878,7 @@ default.unreachable:                              ; preds = %.lr.ph180
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @ompi_op_avx_2buff_max_double_avx512(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -2091,7 +2091,7 @@ default.unreachable:                              ; preds = %.lr.ph180
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_min_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_min_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -2296,7 +2296,7 @@ default.unreachable:                              ; preds = %.lr.ph185
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_min_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_min_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -2501,7 +2501,7 @@ default.unreachable:                              ; preds = %.lr.ph185
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_min_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_min_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -2708,7 +2708,7 @@ default.unreachable:                              ; preds = %.lr.ph185
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_min_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_min_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -2915,7 +2915,7 @@ default.unreachable:                              ; preds = %.lr.ph185
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_min_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_min_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -3122,7 +3122,7 @@ default.unreachable:                              ; preds = %.lr.ph178
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_min_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_min_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -3329,7 +3329,7 @@ default.unreachable:                              ; preds = %.lr.ph178
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_min_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_min_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -3536,7 +3536,7 @@ default.unreachable:                              ; preds = %.lr.ph178
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_min_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_min_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -3743,7 +3743,7 @@ default.unreachable:                              ; preds = %.lr.ph178
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @ompi_op_avx_2buff_min_float_avx512(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -3956,7 +3956,7 @@ default.unreachable:                              ; preds = %.lr.ph180
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @ompi_op_avx_2buff_min_double_avx512(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -4169,7 +4169,7 @@ default.unreachable:                              ; preds = %.lr.ph180
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_sum_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_sum_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -4374,7 +4374,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_sum_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_sum_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -4579,7 +4579,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_sum_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_sum_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -4786,7 +4786,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_sum_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_sum_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -4993,7 +4993,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_sum_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_sum_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -5200,7 +5200,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_sum_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_sum_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -5407,7 +5407,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_sum_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_sum_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -5614,7 +5614,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_sum_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_sum_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -5821,7 +5821,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_2buff_add_float_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @ompi_op_avx_2buff_add_float_avx512(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -6026,7 +6026,7 @@ default.unreachable:                              ; preds = %.lr.ph141
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_2buff_add_double_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @ompi_op_avx_2buff_add_double_avx512(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -6231,7 +6231,7 @@ default.unreachable:                              ; preds = %.lr.ph141
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_2buff_prod_int8_t_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal void @ompi_op_avx_2buff_prod_int8_t_avx512(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -6369,7 +6369,7 @@ default.unreachable:                              ; preds = %.lr.ph78
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_2buff_prod_uint8_t_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal void @ompi_op_avx_2buff_prod_uint8_t_avx512(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -6507,7 +6507,7 @@ default.unreachable:                              ; preds = %.lr.ph78
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_prod_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_prod_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -6714,7 +6714,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_prod_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_prod_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -6921,7 +6921,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_prod_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_prod_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -7128,7 +7128,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_prod_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_prod_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -7335,7 +7335,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_prod_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_prod_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -7542,7 +7542,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_prod_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_prod_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -7749,7 +7749,7 @@ default.unreachable:                              ; preds = %.lr.ph139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_2buff_mul_float_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @ompi_op_avx_2buff_mul_float_avx512(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -7954,7 +7954,7 @@ default.unreachable:                              ; preds = %.lr.ph141
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_2buff_mul_double_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @ompi_op_avx_2buff_mul_double_avx512(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -8159,7 +8159,7 @@ default.unreachable:                              ; preds = %.lr.ph141
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_band_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_band_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -8364,7 +8364,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_band_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_band_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -8569,7 +8569,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_band_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_band_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -8774,7 +8774,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_band_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_band_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -8979,7 +8979,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_band_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_band_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -9184,7 +9184,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_band_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_band_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -9389,7 +9389,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_band_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_band_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -9594,7 +9594,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_band_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_band_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -9799,7 +9799,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bor_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bor_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -10004,7 +10004,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bor_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bor_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -10209,7 +10209,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bor_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bor_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -10414,7 +10414,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bor_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bor_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -10619,7 +10619,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bor_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bor_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -10824,7 +10824,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bor_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bor_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -11029,7 +11029,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bor_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bor_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -11234,7 +11234,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bor_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bor_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -11439,7 +11439,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bxor_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bxor_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -11644,7 +11644,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -11849,7 +11849,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bxor_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bxor_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -12054,7 +12054,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -12259,7 +12259,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bxor_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bxor_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -12464,7 +12464,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -12669,7 +12669,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bxor_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bxor_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -12874,7 +12874,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 256
@@ -13079,7 +13079,7 @@ default.unreachable:                              ; preds = %.lr.ph140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_max_int8_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_max_int8_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -13299,7 +13299,7 @@ default.unreachable:                              ; preds = %.lr.ph208
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_max_uint8_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_max_uint8_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -13519,7 +13519,7 @@ default.unreachable:                              ; preds = %.lr.ph208
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_max_int16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_max_int16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -13741,7 +13741,7 @@ default.unreachable:                              ; preds = %.lr.ph208
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_max_uint16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_max_uint16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -13963,7 +13963,7 @@ default.unreachable:                              ; preds = %.lr.ph208
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_max_int32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_max_int32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -14185,7 +14185,7 @@ default.unreachable:                              ; preds = %.lr.ph201
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_max_uint32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_max_uint32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -14407,7 +14407,7 @@ default.unreachable:                              ; preds = %.lr.ph201
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_max_int64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_max_int64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -14629,7 +14629,7 @@ default.unreachable:                              ; preds = %.lr.ph201
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_max_uint64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_max_uint64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -14851,7 +14851,7 @@ default.unreachable:                              ; preds = %.lr.ph201
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_3buff_max_float_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
+define internal void @ompi_op_avx_3buff_max_float_avx512(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -15084,7 +15084,7 @@ default.unreachable:                              ; preds = %.lr.ph203
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_3buff_max_double_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
+define internal void @ompi_op_avx_3buff_max_double_avx512(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -15317,7 +15317,7 @@ default.unreachable:                              ; preds = %.lr.ph203
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_min_int8_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_min_int8_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -15537,7 +15537,7 @@ default.unreachable:                              ; preds = %.lr.ph208
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_min_uint8_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_min_uint8_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -15757,7 +15757,7 @@ default.unreachable:                              ; preds = %.lr.ph208
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_min_int16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_min_int16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -15979,7 +15979,7 @@ default.unreachable:                              ; preds = %.lr.ph208
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_min_uint16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_min_uint16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -16201,7 +16201,7 @@ default.unreachable:                              ; preds = %.lr.ph208
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_min_int32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_min_int32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -16423,7 +16423,7 @@ default.unreachable:                              ; preds = %.lr.ph201
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_min_uint32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_min_uint32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -16645,7 +16645,7 @@ default.unreachable:                              ; preds = %.lr.ph201
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_min_int64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_min_int64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -16867,7 +16867,7 @@ default.unreachable:                              ; preds = %.lr.ph201
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_min_uint64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_min_uint64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -17089,7 +17089,7 @@ default.unreachable:                              ; preds = %.lr.ph201
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_3buff_min_float_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
+define internal void @ompi_op_avx_3buff_min_float_avx512(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -17322,7 +17322,7 @@ default.unreachable:                              ; preds = %.lr.ph203
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_3buff_min_double_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
+define internal void @ompi_op_avx_3buff_min_double_avx512(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -17555,7 +17555,7 @@ default.unreachable:                              ; preds = %.lr.ph203
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_sum_int8_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_sum_int8_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -17775,7 +17775,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_sum_uint8_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_sum_uint8_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -17995,7 +17995,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_sum_int16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_sum_int16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -18217,7 +18217,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_sum_uint16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_sum_uint16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -18439,7 +18439,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_sum_int32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_sum_int32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -18661,7 +18661,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_sum_uint32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_sum_uint32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -18883,7 +18883,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_sum_int64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_sum_int64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -19105,7 +19105,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_sum_uint64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_sum_uint64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -19327,7 +19327,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_3buff_add_float_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
+define internal void @ompi_op_avx_3buff_add_float_avx512(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -19552,7 +19552,7 @@ default.unreachable:                              ; preds = %.lr.ph164
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_3buff_add_double_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
+define internal void @ompi_op_avx_3buff_add_double_avx512(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -19777,7 +19777,7 @@ default.unreachable:                              ; preds = %.lr.ph164
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_3buff_prod_int8_t_avx512(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
+define internal void @ompi_op_avx_3buff_prod_int8_t_avx512(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #2 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -19928,7 +19928,7 @@ default.unreachable:                              ; preds = %.lr.ph89
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_3buff_prod_uint8_t_avx512(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
+define internal void @ompi_op_avx_3buff_prod_uint8_t_avx512(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #2 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -20079,7 +20079,7 @@ default.unreachable:                              ; preds = %.lr.ph89
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_prod_int16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_prod_int16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -20301,7 +20301,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_prod_uint16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_prod_uint16_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -20523,7 +20523,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_prod_int32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_prod_int32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -20745,7 +20745,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_prod_uint32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_prod_uint32_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -20967,7 +20967,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_prod_int64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_prod_int64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -21189,7 +21189,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_prod_uint64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_prod_uint64_t_avx512(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -21411,7 +21411,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_3buff_mul_float_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
+define internal void @ompi_op_avx_3buff_mul_float_avx512(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -21636,7 +21636,7 @@ default.unreachable:                              ; preds = %.lr.ph164
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_3buff_mul_double_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
+define internal void @ompi_op_avx_3buff_mul_double_avx512(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -21861,7 +21861,7 @@ default.unreachable:                              ; preds = %.lr.ph164
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_and_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_and_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -22086,7 +22086,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_and_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_and_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -22311,7 +22311,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_and_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_and_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -22536,7 +22536,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_and_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_and_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -22761,7 +22761,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_and_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_and_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -22986,7 +22986,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_and_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_and_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -23211,7 +23211,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_and_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_and_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -23436,7 +23436,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_and_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_and_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -23661,7 +23661,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_or_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_or_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -23886,7 +23886,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_or_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_or_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -24111,7 +24111,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_or_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_or_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -24336,7 +24336,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_or_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_or_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -24561,7 +24561,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_or_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_or_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -24786,7 +24786,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_or_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_or_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -25011,7 +25011,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_or_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_or_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -25236,7 +25236,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_or_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_or_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -25461,7 +25461,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_xor_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_xor_int8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -25686,7 +25686,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_xor_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_xor_uint8_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -25911,7 +25911,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_xor_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_xor_int16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -26136,7 +26136,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_xor_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_xor_uint16_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -26361,7 +26361,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_xor_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_xor_int32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -26586,7 +26586,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_xor_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_xor_uint32_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -26811,7 +26811,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_xor_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_xor_int64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256
@@ -27036,7 +27036,7 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @ompi_op_avx_3buff_xor_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @ompi_op_avx_3buff_xor_uint64_t_avx512(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 256

@@ -333,7 +333,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [38 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @nbd_do_cmd_read, ptr @.str.210, ptr @.str.211, i32 2728, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_send_generic_reply, ptr @.str.210, ptr @.str.211, i32 2709, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_send_sparse_read, ptr @.str.210, ptr @.str.211, i32 2079, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_writev_all, ptr @.str.212, ptr @.str.213, i32 359, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_pdiscard, ptr @.str.210, ptr @.str.214, i32 212, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_unlock, ptr @.str.210, ptr @.str.215, i32 152, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_read_eof, ptr @.str.210, ptr @.str.211, i32 1407, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_do_cmd_cache, ptr @.str.210, ptr @.str.211, i32 2779, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_read_all, ptr @.str.212, ptr @.str.213, i32 463, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_send_extents, ptr @.str.210, ptr @.str.211, i32 2319, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_flush, ptr @.str.210, ptr @.str.214, i32 216, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_send_chunk_read, ptr @.str.210, ptr @.str.211, i32 2024, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_block_status_above, ptr @.str.210, ptr @.str.214, i32 120, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_yield, ptr @.str.210, ptr @.str.213, i32 740, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_pread, ptr @.str.210, ptr @.str.214, i32 141, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_preadv, ptr @.str.210, ptr @.str.214, i32 147, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_send_simple_reply, ptr @.str.210, ptr @.str.211, i32 1942, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_send_iov, ptr @.str.210, ptr @.str.211, i32 1917, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_write_all, ptr @.str.212, ptr @.str.213, i32 482, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_send_bitmap, ptr @.str.210, ptr @.str.211, i32 2419, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_pwrite_zeroes, ptr @.str.210, ptr @.str.214, i32 190, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blockstatus_to_extents, ptr @.str.210, ptr @.str.211, i32 2260, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_client_start, ptr @.str.210, ptr @.str.211, i32 3041, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_receive_request, ptr @.str.210, ptr @.str.211, i32 1444, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_is_allocated_above, ptr @.str.210, ptr @.str.214, i32 125, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_send_block_status, ptr @.str.210, ptr @.str.211, i32 2362, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blockalloc_to_extents, ptr @.str.210, ptr @.str.211, i32 2288, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_send_chunk_error, ptr @.str.210, ptr @.str.211, i32 2049, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_trip, ptr @.str.210, ptr @.str.211, i32 2936, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_send_chunk_done, ptr @.str.210, ptr @.str.211, i32 2009, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_pwrite, ptr @.str.210, ptr @.str.214, i32 162, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_negotiate, ptr @.str.210, ptr @.str.211, i32 1351, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_unref, ptr @.str.216, ptr @.str.217, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_receive_request, ptr @.str.210, ptr @.str.211, i32 2527, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock, ptr @.str.210, ptr @.str.215, i32 146, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.216, ptr @.str.214, i32 81, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.212, ptr @.str.214, i32 81, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_handle_request, ptr @.str.210, ptr @.str.211, i32 2798, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nbd_client_get(ptr nocapture noundef %client) local_unnamed_addr #0 {
+define dso_local void @nbd_client_get(ptr noundef captures(none) %client) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %client, align 8
   %inc = add i32 %0, 1
@@ -464,7 +464,7 @@ if.end4:                                          ; preds = %if.end
 declare void @blk_ref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nbd_eject_notifier(ptr noundef %n, ptr nocapture readnone %data) #1 {
+define internal void @nbd_eject_notifier(ptr noundef %n, ptr readnone captures(none) %data) #1 {
 entry:
   %add.ptr = getelementptr i8, ptr %n, i64 -128
   tail call void @blk_exp_request_shutdown(ptr noundef %add.ptr) #20
@@ -474,7 +474,7 @@ entry:
 declare void @blk_add_remove_bs_notifier(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @nbd_export_find(ptr nocapture noundef readonly %name) local_unnamed_addr #4 {
+define dso_local ptr @nbd_export_find(ptr noundef readonly captures(none) %name) local_unnamed_addr #4 {
 entry:
   %exp.04 = load ptr, ptr @exports, align 8
   %tobool.not5 = icmp eq ptr %exp.04, null
@@ -500,10 +500,10 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @nbd_export_aio_context(ptr nocapture noundef readonly %exp) local_unnamed_addr #6 {
+define dso_local ptr @nbd_export_aio_context(ptr noundef readonly captures(none) %exp) local_unnamed_addr #6 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %exp, i64 24
   %0 = load ptr, ptr %ctx, align 8
@@ -511,7 +511,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_export_create(ptr noundef %blk_exp, ptr nocapture noundef readonly %exp_args, ptr noundef %errp) #1 {
+define internal i32 @nbd_export_create(ptr noundef %blk_exp, ptr noundef readonly captures(none) %exp_args, ptr noundef %errp) #1 {
 entry:
   %perm = alloca i64, align 8
   %shared_perm = alloca i64, align 8
@@ -562,7 +562,7 @@ if.end9:                                          ; preds = %if.end6
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end9
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1701, ptr noundef nonnull @__func__.nbd_export_create, ptr noundef nonnull @.str.7, ptr noundef %cond) #20
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1701, ptr noundef nonnull @__func__.nbd_export_create, ptr noundef nonnull @.str.7, ptr noundef nonnull %cond) #20
   br label %return
 
 if.end13:                                         ; preds = %if.end9
@@ -600,7 +600,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %tobool.not.i, label %if.end24, label %for.body.i, !llvm.loop !5
 
 if.then23:                                        ; preds = %for.body.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1711, ptr noundef nonnull @__func__.nbd_export_create, ptr noundef nonnull @.str.9, ptr noundef %cond) #20
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1711, ptr noundef nonnull @__func__.nbd_export_create, ptr noundef nonnull @.str.9, ptr noundef nonnull %cond) #20
   br label %return
 
 if.end24:                                         ; preds = %for.inc.i, %if.end20
@@ -628,7 +628,7 @@ do.body35:                                        ; preds = %if.end29
   store ptr null, ptr %clients, align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %blk_exp, i64 96
   store ptr %clients, ptr %tql_prev, align 8
-  %call39 = call noalias ptr @g_strdup(ptr noundef %cond) #20
+  %call39 = call noalias ptr @g_strdup(ptr noundef nonnull %cond) #20
   %name40 = getelementptr inbounds nuw i8, ptr %blk_exp, i64 56
   store ptr %call39, ptr %name40, align 8
   %10 = load ptr, ptr %description, align 8
@@ -1105,7 +1105,7 @@ declare zeroext i1 @nbd_server_is_running() local_unnamed_addr #3
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i64 @blk_getlength(ptr noundef) #3
 
@@ -1141,7 +1141,7 @@ declare void @blk_set_disable_request_queuing(ptr noundef, i1 noundef zeroext) l
 declare void @blk_add_aio_context_notifier(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_aio_attached(ptr noundef %ctx, ptr nocapture noundef initializes((24, 32)) %opaque) #1 {
+define internal void @blk_aio_attached(ptr noundef %ctx, ptr noundef captures(none) initializes((24, 32)) %opaque) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %name = getelementptr inbounds nuw i8, ptr %opaque, i64 56
@@ -1229,7 +1229,7 @@ for.end:                                          ; preds = %for.cond, %trace_nb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_aio_detach(ptr nocapture noundef %opaque) #1 {
+define internal void @blk_aio_detach(ptr noundef captures(none) %opaque) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %name = getelementptr inbounds nuw i8, ptr %opaque, i64 56
@@ -1281,14 +1281,14 @@ declare void @bdrv_graph_rdunlock_main_loop() local_unnamed_addr #3
 declare ptr @bdrv_filter_or_cow_child(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @nbd_drained_begin(ptr nocapture noundef readonly %opaque) #10 {
+define internal void @nbd_drained_begin(ptr noundef readonly captures(none) %opaque) #10 {
 entry:
   %clients = getelementptr inbounds nuw i8, ptr %opaque, i64 88
   %client.03 = load ptr, ptr %clients, align 8
@@ -1309,7 +1309,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nbd_drained_end(ptr nocapture noundef readonly %opaque) #1 {
+define internal void @nbd_drained_end(ptr noundef readonly captures(none) %opaque) #1 {
 entry:
   %clients = getelementptr inbounds nuw i8, ptr %opaque, i64 88
   %client.04 = load ptr, ptr %clients, align 8
@@ -1355,7 +1355,7 @@ for.end:                                          ; preds = %nbd_client_receive_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @nbd_drained_poll(ptr nocapture noundef readonly %opaque) #1 {
+define internal noundef zeroext i1 @nbd_drained_poll(ptr noundef readonly captures(none) %opaque) #1 {
 entry:
   %clients = getelementptr inbounds nuw i8, ptr %opaque, i64 88
   %client.09 = load ptr, ptr %clients, align 8
@@ -1643,12 +1643,12 @@ return:                                           ; preds = %client_close.exit, 
 declare void @aio_co_schedule(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @aio_wait_kick() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @nbd_co_receive_request(ptr nocapture noundef %req, ptr nocapture noundef %request, ptr noundef %errp) #1 {
+define internal range(i32 -2147483648, 1) i32 @nbd_co_receive_request(ptr noundef captures(none) %req, ptr noundef captures(none) %request, ptr noundef %errp) #1 {
 entry:
   %_now.i.i110 = alloca %struct.timeval, align 8
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
@@ -2361,7 +2361,7 @@ return:                                           ; preds = %nbd_co_block_status
 declare void @qio_channel_set_cork(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @nbd_send_generic_reply(ptr noundef %client, ptr nocapture noundef readonly %request, i32 noundef %ret, ptr noundef %error_msg, ptr noundef %errp) #1 {
+define internal range(i32 -5, 1) i32 @nbd_send_generic_reply(ptr noundef %client, ptr noundef readonly captures(none) %request, i32 noundef %ret, ptr noundef %error_msg, ptr noundef %errp) #1 {
 entry:
   %mode = getelementptr inbounds nuw i8, ptr %client, i64 156
   %0 = load i32, ptr %mode, align 4
@@ -2399,7 +2399,7 @@ declare ptr @error_get_pretty(ptr noundef) local_unnamed_addr #3
 declare void @error_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @nbd_handle_request(ptr noundef %client, ptr nocapture noundef readonly %request, ptr noundef %data, ptr noundef %errp) #1 {
+define internal range(i32 -2147483648, 1) i32 @nbd_handle_request(ptr noundef %client, ptr noundef readonly captures(none) %request, ptr noundef %data, ptr noundef %errp) #1 {
 entry:
   %exp1 = getelementptr inbounds nuw i8, ptr %client, i64 16
   %0 = load ptr, ptr %exp1, align 8
@@ -2905,7 +2905,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare ptr @qemu_coroutine_self() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @nbd_receive_request(ptr nocapture noundef %client, ptr nocapture noundef writeonly %request, ptr noundef %errp) #1 {
+define internal range(i32 -22, 1) i32 @nbd_receive_request(ptr noundef captures(none) %client, ptr noundef writeonly captures(none) %request, ptr noundef %errp) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca [32 x i8], align 16
@@ -3060,7 +3060,7 @@ _nocheck__trace_nbd_co_receive_align_compliance.exit: ; preds = %entry, %land.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -11, 2) i32 @nbd_read_eof(ptr nocapture noundef %client, ptr noundef %buffer, i64 noundef %size, ptr noundef %errp) #1 {
+define internal range(i32 -11, 2) i32 @nbd_read_eof(ptr noundef captures(none) %client, ptr noundef %buffer, i64 noundef %size, ptr noundef %errp) #1 {
 entry:
   %iov = alloca %struct.iovec, align 8
   %tobool.not = icmp eq i64 %size, 0
@@ -3147,7 +3147,7 @@ declare i32 @qio_channel_read_all(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @nbd_co_send_chunk_error(ptr noundef %client, ptr nocapture noundef readonly %request, i32 noundef %error, ptr noundef %msg, ptr noundef %errp) #1 {
+define internal range(i32 -5, 1) i32 @nbd_co_send_chunk_error(ptr noundef %client, ptr noundef readonly captures(none) %request, i32 noundef %error, ptr noundef %msg, ptr noundef %errp) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %hdr = alloca %union.NBDReply, align 8
@@ -3337,7 +3337,7 @@ nbd_co_send_iov.exit:                             ; preds = %set_be_chunk.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @nbd_co_send_chunk_done(ptr noundef %client, ptr nocapture noundef readonly %request, ptr noundef %errp) #1 {
+define internal range(i32 -5, 1) i32 @nbd_co_send_chunk_done(ptr noundef %client, ptr noundef readonly captures(none) %request, ptr noundef %errp) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %hdr = alloca %union.NBDReply, align 8
@@ -3440,7 +3440,7 @@ nbd_co_send_iov.exit:                             ; preds = %set_be_chunk.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @nbd_co_send_simple_reply(ptr noundef %client, ptr nocapture noundef readonly %request, i32 noundef %error, ptr noundef %data, i64 noundef %len, ptr noundef %errp) #1 {
+define internal range(i32 -5, 1) i32 @nbd_co_send_simple_reply(ptr noundef %client, ptr noundef readonly captures(none) %request, i32 noundef %error, ptr noundef %data, i64 noundef %len, ptr noundef %errp) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %reply = alloca %struct.NBDSimpleReply, align 4
@@ -3627,7 +3627,7 @@ declare i32 @qio_channel_writev_all(ptr noundef, ptr noundef, i64 noundef, ptr n
 declare void @qemu_co_mutex_unlock(ptr noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @nbd_do_cmd_cache(ptr noundef %client, ptr nocapture noundef readonly %request, ptr noundef %errp) #1 {
+define internal range(i32 -5, 1) i32 @nbd_do_cmd_cache(ptr noundef %client, ptr noundef readonly captures(none) %request, ptr noundef %errp) #1 {
 entry:
   %exp1 = getelementptr inbounds nuw i8, ptr %client, i64 16
   %0 = load ptr, ptr %exp1, align 8
@@ -3688,7 +3688,7 @@ nbd_send_generic_reply.exit:                      ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @nbd_do_cmd_read(ptr noundef %client, ptr nocapture noundef readonly %request, ptr noundef %data, ptr noundef %errp) #1 {
+define internal range(i32 -2147483648, 1) i32 @nbd_do_cmd_read(ptr noundef %client, ptr noundef readonly captures(none) %request, ptr noundef %data, ptr noundef %errp) #1 {
 entry:
   %exp1 = getelementptr inbounds nuw i8, ptr %client, i64 16
   %0 = load ptr, ptr %exp1, align 8
@@ -3826,7 +3826,7 @@ declare i32 @blk_co_flush(ptr noundef) #3
 declare i32 @blk_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @nbd_co_send_block_status(ptr noundef %client, ptr nocapture noundef readonly %request, ptr noundef %blk, i64 noundef %offset, i64 noundef %length, i1 noundef zeroext %dont_fragment, i1 noundef zeroext %last, i32 noundef %context_id, ptr noundef %errp) #1 {
+define internal range(i32 -5, 1) i32 @nbd_co_send_block_status(ptr noundef %client, ptr noundef readonly captures(none) %request, ptr noundef %blk, i64 noundef %offset, i64 noundef %length, i1 noundef zeroext %dont_fragment, i1 noundef zeroext %last, i32 noundef %context_id, ptr noundef %errp) #1 {
 entry:
   %num.i12 = alloca i64, align 8
   %num.i = alloca i64, align 8
@@ -3940,7 +3940,7 @@ glib_autoptr_cleanup_NBDExtentArray.exit:         ; preds = %if.end9, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @nbd_co_send_bitmap(ptr noundef %client, ptr nocapture noundef readonly %request, ptr noundef %bitmap, i64 noundef %offset, i64 noundef %length, i1 noundef zeroext %dont_fragment, i1 noundef zeroext %last, i32 noundef %context_id, ptr noundef %errp) #1 {
+define internal range(i32 -5, 1) i32 @nbd_co_send_bitmap(ptr noundef %client, ptr noundef readonly captures(none) %request, ptr noundef %bitmap, i64 noundef %offset, i64 noundef %length, i1 noundef zeroext %dont_fragment, i1 noundef zeroext %last, i32 noundef %context_id, ptr noundef %errp) #1 {
 entry:
   %dirty_start.i = alloca i64, align 8
   %dirty_count.i = alloca i64, align 8
@@ -4018,7 +4018,7 @@ declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @blk_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @nbd_co_send_sparse_read(ptr noundef %client, ptr nocapture noundef readonly %request, i64 noundef %offset, ptr noundef %data, i64 noundef %size, ptr noundef %errp) #1 {
+define internal range(i32 -2147483648, 1) i32 @nbd_co_send_sparse_read(ptr noundef %client, ptr noundef readonly captures(none) %request, i64 noundef %offset, ptr noundef %data, i64 noundef %size, ptr noundef %errp) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %pnum = alloca i64, align 8
@@ -4230,7 +4230,7 @@ return:                                           ; preds = %if.end43, %if.end47
 declare i32 @blk_co_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @nbd_co_send_chunk_read(ptr noundef %client, ptr nocapture noundef readonly %request, i64 noundef %offset, ptr noundef %data, i64 noundef %size, i1 noundef zeroext %final, ptr noundef %errp) #1 {
+define internal range(i32 -5, 1) i32 @nbd_co_send_chunk_read(ptr noundef %client, ptr noundef readonly captures(none) %request, i64 noundef %offset, ptr noundef %data, i64 noundef %size, i1 noundef zeroext %final, ptr noundef %errp) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %hdr = alloca %union.NBDReply, align 8
@@ -4384,7 +4384,7 @@ declare i32 @blk_co_block_status_above(ptr noundef, ptr noundef, i64 noundef, i6
 declare ptr @strerror(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @blockstatus_to_extents(ptr noundef %blk, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef %ea) #1 {
+define internal range(i32 -2147483648, 1) i32 @blockstatus_to_extents(ptr noundef %blk, i64 noundef %offset, i64 noundef %bytes, ptr noundef captures(none) %ea) #1 {
 entry:
   %num = alloca i64, align 8
   %tobool.not7 = icmp eq i64 %bytes, 0
@@ -4418,7 +4418,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @blockalloc_to_extents(ptr noundef %blk, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef %ea) #1 {
+define internal range(i32 -2147483648, 1) i32 @blockalloc_to_extents(ptr noundef %blk, i64 noundef %offset, i64 noundef %bytes, ptr noundef captures(none) %ea) #1 {
 entry:
   %num = alloca i64, align 8
   %tobool.not6 = icmp eq i64 %bytes, 0
@@ -4450,7 +4450,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @nbd_co_send_extents(ptr noundef %client, ptr nocapture noundef readonly %request, ptr nocapture noundef %ea, i1 noundef zeroext %last, i32 noundef %context_id, ptr noundef %errp) #1 {
+define internal range(i32 -5, 1) i32 @nbd_co_send_extents(ptr noundef %client, ptr noundef readonly captures(none) %request, ptr noundef captures(none) %ea, i1 noundef zeroext %last, i32 noundef %context_id, ptr noundef %errp) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %hdr = alloca %union.NBDReply, align 8
@@ -4732,7 +4732,7 @@ nbd_co_send_iov.exit:                             ; preds = %set_be_chunk.exit
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @nbd_extent_array_add(ptr nocapture noundef %ea, i64 noundef %length, i32 noundef range(i32 0, -2147483648) %flags) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @nbd_extent_array_add(ptr noundef captures(none) %ea, i64 noundef %length, i32 noundef range(i32 0, -2147483648) %flags) unnamed_addr #1 {
 entry:
   %can_add = getelementptr inbounds nuw i8, ptr %ea, i64 25
   %0 = load i8, ptr %can_add, align 1
@@ -5947,11 +5947,11 @@ if.then22.i:                                      ; preds = %for.inc.i.i, %if.en
   br i1 %cmp.i129.i, label %if.then.i.i191, label %if.end.i130.i
 
 if.then.i.i191:                                   ; preds = %if.then22.i
-  %call1.i132.i = call noalias ptr @g_strdup(ptr noundef %name.val.pre.i) #20
+  %call1.i132.i = call noalias ptr @g_strdup(ptr noundef nonnull %name.val.pre.i) #20
   br label %nbd_sanitize_name.exit.i
 
 if.end.i130.i:                                    ; preds = %if.then22.i
-  %call2.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.179, ptr noundef %name.val.pre.i) #20
+  %call2.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.179, ptr noundef nonnull %name.val.pre.i) #20
   br label %nbd_sanitize_name.exit.i
 
 nbd_sanitize_name.exit.i:                         ; preds = %if.end.i130.i, %if.then.i.i191
@@ -5979,7 +5979,7 @@ if.end29.i:                                       ; preds = %if.then.i133.i, %if
 
 if.then31.i:                                      ; preds = %if.end29.i
   %115 = load i32, ptr %namelen.i, align 4
-  %call32.i = call fastcc i32 @nbd_negotiate_send_info(ptr noundef nonnull %client, i16 noundef zeroext 1, i32 noundef %115, ptr noundef %name.val.pre.i, ptr noundef %errp)
+  %call32.i = call fastcc i32 @nbd_negotiate_send_info(ptr noundef nonnull %client, i16 noundef zeroext 1, i32 noundef %115, ptr noundef nonnull %name.val.pre.i, ptr noundef %errp)
   %cmp33.i = icmp slt i32 %call32.i, 0
   br i1 %cmp33.i, label %nbd_negotiate_handle_info.exit.thread, label %if.end37.i
 
@@ -6159,7 +6159,7 @@ nbd_negotiate_handle_info.exit.thread319:         ; preds = %if.end149.i
   store ptr %next.i194, ptr %tql_prev165.i, align 8
   %145 = load ptr, ptr %exp154.i, align 8
   call void @blk_exp_ref(ptr noundef %145) #20
-  call void @g_free(ptr noundef %name.val.pre.i) #20
+  call void @g_free(ptr noundef nonnull %name.val.pre.i) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %requests.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %request.i)
@@ -6332,16 +6332,16 @@ if.then16.i:                                      ; preds = %for.inc.i.i241, %if
   br i1 %cmp.i68.i, label %if.then.i.i248, label %if.end.i.i244
 
 if.then.i.i248:                                   ; preds = %if.then16.i
-  %call1.i.i249 = call noalias ptr @g_strdup(ptr noundef %export_name.val.pre.i) #20
+  %call1.i.i249 = call noalias ptr @g_strdup(ptr noundef nonnull %export_name.val.pre.i) #20
   br label %nbd_sanitize_name.exit.i246
 
 if.end.i.i244:                                    ; preds = %if.then16.i
-  %call2.i.i245 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.179, ptr noundef %export_name.val.pre.i) #20
+  %call2.i.i245 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.179, ptr noundef nonnull %export_name.val.pre.i) #20
   br label %nbd_sanitize_name.exit.i246
 
 nbd_sanitize_name.exit.i246:                      ; preds = %if.end.i.i244, %if.then.i.i248
   %retval.0.i.i = phi ptr [ %call1.i.i249, %if.then.i.i248 ], [ %call2.i.i245, %if.end.i.i244 ]
-  %call18.i = call i32 (ptr, i32, ptr, ptr, ...) @nbd_opt_drop(ptr noundef %client, i32 noundef -2147483642, ptr noundef %errp, ptr noundef nonnull @.str.168, ptr noundef %retval.0.i.i)
+  %call18.i = call i32 (ptr, i32, ptr, ptr, ...) @nbd_opt_drop(ptr noundef nonnull %client, i32 noundef -2147483642, ptr noundef %errp, ptr noundef nonnull @.str.168, ptr noundef %retval.0.i.i)
   call void @g_free(ptr noundef %retval.0.i.i) #20
   br label %nbd_negotiate_meta_queries.exit
 
@@ -6403,11 +6403,11 @@ if.then8.i.i.i286:                                ; preds = %if.then.i.i.i283
   %call10.i.i.i288 = call i32 @qemu_get_thread_id() #20
   %171 = load i64, ptr %_now.i.i.i229, align 8
   %172 = load i64, ptr %tv_usec.i.i.i289, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.188, i32 noundef %call10.i.i.i288, i64 noundef %171, i64 noundef %172, ptr noundef %call34.i, ptr noundef %export_name.val.pre.i, i32 noundef %166) #20
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.188, i32 noundef %call10.i.i.i288, i64 noundef %171, i64 noundef %172, ptr noundef %call34.i, ptr noundef nonnull %export_name.val.pre.i, i32 noundef %166) #20
   br label %trace_nbd_negotiate_meta_context.exit.i
 
 if.else.i.i.i285:                                 ; preds = %if.then.i.i.i283
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.189, ptr noundef %call34.i, ptr noundef %export_name.val.pre.i, i32 noundef %166) #20
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.189, ptr noundef %call34.i, ptr noundef nonnull %export_name.val.pre.i, i32 noundef %166) #20
   br label %trace_nbd_negotiate_meta_context.exit.i
 
 trace_nbd_negotiate_meta_context.exit.i:          ; preds = %if.else.i.i.i285, %if.then8.i.i.i286, %land.lhs.true5.i.i.i280, %if.end31.i
@@ -7184,7 +7184,7 @@ if.end58.i:                                       ; preds = %for.inc.i, %for.con
   br i1 %tobool60.i, label %if.then61.i, label %if.end68.i
 
 if.then61.i:                                      ; preds = %if.end58.i
-  %call62.i = call fastcc i32 @nbd_negotiate_send_meta_context(ptr noundef %client, ptr noundef nonnull @.str.185, i32 noundef 0, ptr noundef %errp)
+  %call62.i = call fastcc i32 @nbd_negotiate_send_meta_context(ptr noundef nonnull %client, ptr noundef nonnull @.str.185, i32 noundef 0, ptr noundef %errp)
   %cmp63.i = icmp slt i32 %call62.i, 0
   br i1 %cmp63.i, label %nbd_negotiate_meta_queries.exit, label %if.end68.i
 
@@ -7196,7 +7196,7 @@ if.end68.i:                                       ; preds = %if.then61.i, %if.en
   br i1 %tobool70.i, label %if.then71.i, label %if.end78.i
 
 if.then71.i:                                      ; preds = %if.end68.i
-  %call72.i = call fastcc i32 @nbd_negotiate_send_meta_context(ptr noundef %client, ptr noundef nonnull @.str.186, i32 noundef 1, ptr noundef %errp)
+  %call72.i = call fastcc i32 @nbd_negotiate_send_meta_context(ptr noundef nonnull %client, ptr noundef nonnull @.str.186, i32 noundef 1, ptr noundef %errp)
   %cmp73.i = icmp slt i32 %call72.i, 0
   br i1 %cmp73.i, label %nbd_negotiate_meta_queries.exit, label %if.end76.i
 
@@ -7231,7 +7231,7 @@ if.end88.i:                                       ; preds = %for.body84.i
   %call92.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.187, ptr noundef %call91.i) #20
   %310 = trunc i64 %i.1142.i to i32
   %conv93.i = add i32 %310, 2
-  %call94.i = call fastcc i32 @nbd_negotiate_send_meta_context(ptr noundef %client, ptr noundef %call92.i, i32 noundef %conv93.i, ptr noundef %errp)
+  %call94.i = call fastcc i32 @nbd_negotiate_send_meta_context(ptr noundef nonnull %client, ptr noundef %call92.i, i32 noundef %conv93.i, ptr noundef %errp)
   %cmp95.i = icmp slt i32 %call94.i, 0
   br i1 %cmp95.i, label %cleanup.i, label %if.end98.i
 
@@ -7256,7 +7256,7 @@ for.inc100.i:                                     ; preds = %if.end98.i, %for.bo
 
 for.end102.i:                                     ; preds = %for.inc100.i, %if.end78.i
   %count.2.lcssa.i = phi i64 [ %count.1.i, %if.end78.i ], [ %count.3.ph.i, %for.inc100.i ]
-  %call.i77.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i77.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   %cmp104.i = icmp eq i32 %call.i77.i, 0
   br i1 %cmp104.i, label %if.then106.i, label %nbd_negotiate_meta_queries.exit
 
@@ -7343,7 +7343,7 @@ declare i32 @qio_channel_write_all(ptr noundef, ptr noundef, i64 noundef, ptr no
 declare ptr @nbd_opt_lookup(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @nbd_reject_length(ptr nocapture noundef %client, i1 noundef zeroext %fatal, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc i32 @nbd_reject_length(ptr noundef captures(none) %client, i1 noundef zeroext %fatal, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %optlen = getelementptr inbounds nuw i8, ptr %client, i64 196
   %0 = load i32, ptr %optlen, align 4
@@ -7375,7 +7375,7 @@ return:                                           ; preds = %if.end, %if.then4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_opt_drop(ptr nocapture noundef %client, i32 noundef range(i32 -2147483647, -2147483641) %type, ptr noundef %errp, ptr noundef %fmt, ...) unnamed_addr #1 {
+define internal i32 @nbd_opt_drop(ptr noundef captures(none) %client, i32 noundef range(i32 -2147483647, -2147483641) %type, ptr noundef %errp, ptr noundef %fmt, ...) unnamed_addr #1 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -7547,7 +7547,7 @@ for.inc.i:                                        ; preds = %for.body.i
 if.then22:                                        ; preds = %for.inc.i, %trace_nbd_negotiate_handle_export_name_request.exit
   %exp76 = getelementptr inbounds nuw i8, ptr %client, i64 16
   store ptr null, ptr %exp76, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 506, ptr noundef nonnull @__func__.nbd_negotiate_handle_export_name, ptr noundef nonnull @.str.161) #20
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 506, ptr noundef nonnull @__func__.nbd_negotiate_handle_export_name, ptr noundef nonnull @.str.161) #20
   br label %cleanup
 
 if.end23:                                         ; preds = %for.body.i
@@ -7630,12 +7630,12 @@ trace_nbd_negotiate_new_style_size_flags.exit:    ; preds = %if.end41, %land.lhs
   store i16 %34, ptr %add.ptr, align 8
   %cond = select i1 %no_zeroes, i64 10, i64 134
   %35 = load ptr, ptr %ioc, align 8
-  %call.i71 = call i32 @qio_channel_write_all(ptr noundef %35, ptr noundef nonnull %buf, i64 noundef range(i64 0, 4294967296) %cond, ptr noundef %spec.select) #20
+  %call.i71 = call i32 @qio_channel_write_all(ptr noundef %35, ptr noundef nonnull %buf, i64 noundef range(i64 0, 4294967296) %cond, ptr noundef nonnull %spec.select) #20
   %cmp.i72 = icmp slt i32 %call.i71, 0
   br i1 %cmp.i72, label %if.then54, label %do.body56
 
 if.then54:                                        ; preds = %trace_nbd_negotiate_new_style_size_flags.exit
-  call void (ptr, ptr, ...) @error_prepend(ptr noundef %spec.select, ptr noundef nonnull @.str.110) #20
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.110) #20
   br label %cleanup
 
 do.body56:                                        ; preds = %trace_nbd_negotiate_new_style_size_flags.exit
@@ -7665,7 +7665,7 @@ cleanup:                                          ; preds = %if.then5.i, %do.bod
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @nbd_negotiate_send_rep_err(ptr nocapture noundef readonly %client, i32 noundef range(i32 -2147483646, -2147483637) %type, ptr noundef %errp, ptr noundef %fmt, ...) unnamed_addr #1 {
+define internal range(i32 -5, 1) i32 @nbd_negotiate_send_rep_err(ptr noundef readonly captures(none) %client, i32 noundef range(i32 -2147483646, -2147483637) %type, ptr noundef %errp, ptr noundef %fmt, ...) unnamed_addr #1 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -7675,7 +7675,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_opt_invalid(ptr nocapture noundef %client, ptr noundef %errp, ptr noundef %fmt, ...) unnamed_addr #1 {
+define internal i32 @nbd_opt_invalid(ptr noundef captures(none) %client, ptr noundef %errp, ptr noundef %fmt, ...) unnamed_addr #1 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -7700,7 +7700,7 @@ nbd_opt_vdrop.exit:                               ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_verr(ptr nocapture noundef readonly %client, i32 noundef range(i32 -2147483647, -2147483637) %type, ptr noundef %errp, ptr noundef %fmt, ptr noundef nonnull %va) unnamed_addr #1 {
+define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_verr(ptr noundef readonly captures(none) %client, i32 noundef range(i32 -2147483647, -2147483637) %type, ptr noundef %errp, ptr noundef %fmt, ptr noundef nonnull %va) unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
@@ -7746,11 +7746,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.140, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %call) #20
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.140, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %call) #20
   br label %trace_nbd_negotiate_send_rep_err.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141, ptr noundef %call) #20
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141, ptr noundef nonnull %call) #20
   br label %trace_nbd_negotiate_send_rep_err.exit
 
 trace_nbd_negotiate_send_rep_err.exit:            ; preds = %if.end6, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7763,7 +7763,7 @@ trace_nbd_negotiate_send_rep_err.exit:            ; preds = %if.end6, %land.lhs.
 if.end11:                                         ; preds = %trace_nbd_negotiate_send_rep_err.exit
   %ioc = getelementptr inbounds nuw i8, ptr %client, i64 48
   %6 = load ptr, ptr %ioc, align 8
-  %call.i = call i32 @qio_channel_write_all(ptr noundef %6, ptr noundef %call, i64 noundef range(i64 0, 4294967296) %call3, ptr noundef nonnull %spec.select) #20
+  %call.i = call i32 @qio_channel_write_all(ptr noundef %6, ptr noundef nonnull %call, i64 noundef range(i64 0, 4294967296) %call3, ptr noundef nonnull %spec.select) #20
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then15, label %cleanup
 
@@ -7773,7 +7773,7 @@ if.then15:                                        ; preds = %if.end11
 
 cleanup:                                          ; preds = %if.end11, %trace_nbd_negotiate_send_rep_err.exit, %if.then15
   %retval.0 = phi i32 [ -5, %if.then15 ], [ %call7, %trace_nbd_negotiate_send_rep_err.exit ], [ 0, %if.end11 ]
-  call void @g_free(ptr noundef %call) #20
+  call void @g_free(ptr noundef nonnull %call) #20
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val10 = load ptr, ptr %errp1, align 8
   call void @error_propagate(ptr noundef %_auto_errp_prop.val10, ptr noundef %_auto_errp_prop.val) #20
@@ -7783,7 +7783,7 @@ cleanup:                                          ; preds = %if.end11, %trace_nb
 declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr nocapture noundef readonly %client, i32 noundef range(i32 -2147483647, 4) %type, i32 noundef %len, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef readonly captures(none) %client, i32 noundef range(i32 -2147483647, 4) %type, i32 noundef %len, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %rep = alloca %struct.NBDOptionReply, align 8
@@ -7912,7 +7912,7 @@ _nocheck__trace_nbd_negotiate_new_style_size_flags.exit: ; preds = %entry, %land
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @nbd_opt_read_name(ptr nocapture noundef %client, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %name, ptr noundef writeonly %length, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc i32 @nbd_opt_read_name(ptr noundef captures(none) %client, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %name, ptr noundef writeonly %length, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %len = alloca i32, align 4
   store ptr null, ptr %name, align 8
@@ -8012,7 +8012,7 @@ cleanup:                                          ; preds = %if.end.i13, %if.end
 declare ptr @nbd_info_lookup(i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_info(ptr nocapture noundef readonly %client, i16 noundef zeroext range(i16 0, 4) %info, i32 noundef %length, ptr noundef %buf, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_info(ptr noundef readonly captures(none) %client, i16 noundef zeroext range(i16 0, 4) %info, i32 noundef %length, ptr noundef %buf, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %info.addr = alloca i16, align 2
@@ -8084,10 +8084,10 @@ declare i32 @blk_get_request_alignment(ptr noundef) local_unnamed_addr #3
 declare i32 @blk_get_max_transfer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_meta_context(ptr nocapture noundef readonly %client, ptr noundef %context, i32 noundef %context_id, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_meta_context(ptr noundef readonly captures(none) %client, ptr noundef %context, i32 noundef %context_id, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opt = alloca %struct.NBDOptionReplyMetaContext, align 8
@@ -8137,11 +8137,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.206, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %context, i32 noundef %spec.select) #20
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.206, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %context, i32 noundef %spec.select) #20
   br label %trace_nbd_negotiate_meta_query_reply.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, ptr noundef %context, i32 noundef %spec.select) #20
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, ptr noundef nonnull %context, i32 noundef %spec.select) #20
   br label %trace_nbd_negotiate_meta_query_reply.exit
 
 trace_nbd_negotiate_meta_query_reply.exit:        ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -8172,7 +8172,7 @@ trace_nbd_negotiate_meta_query_reply.exit:        ; preds = %if.end, %land.lhs.t
 declare ptr @bdrv_dirty_bitmap_name(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #16
@@ -8187,10 +8187,10 @@ declare i32 @llvm.umax.i32(i32, i32) #17
 declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

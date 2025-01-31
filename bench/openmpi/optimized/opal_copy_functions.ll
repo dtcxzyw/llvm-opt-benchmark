@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_datatype_copy_functions = local_unnamed_addr global [28 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @copy_bytes_1, ptr @copy_bytes_2, ptr @copy_bytes_4, ptr @copy_bytes_8, ptr @copy_bytes_16, ptr @copy_bytes_1, ptr @copy_bytes_2, ptr @copy_bytes_4, ptr @copy_bytes_8, ptr @copy_bytes_16, ptr @copy_float_2, ptr @copy_float_4, ptr @copy_float_8, ptr null, ptr @copy_float_16, ptr @copy_short_float_complex, ptr @copy_float_complex, ptr @copy_double_complex, ptr @copy_long_double_complex, ptr @copy_bool, ptr @copy_wchar, ptr @copy_bytes_8, ptr @copy_bytes_8, ptr null], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i64 @copy_bytes_1(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i64 @copy_bytes_1(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %10 = icmp eq i64 %4, 1
   %11 = icmp eq i64 %7, 1
@@ -40,7 +40,7 @@ define internal noundef i64 @copy_bytes_1(ptr nocapture readnone %0, i64 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i64 @copy_bytes_2(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i64 @copy_bytes_2(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 1
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 1
@@ -78,7 +78,7 @@ define internal noundef i64 @copy_bytes_2(ptr nocapture readnone %0, i64 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i64 @copy_bytes_4(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i64 @copy_bytes_4(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 2
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 2
@@ -116,7 +116,7 @@ define internal noundef i64 @copy_bytes_4(ptr nocapture readnone %0, i64 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i64 @copy_bytes_8(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i64 @copy_bytes_8(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 3
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 3
@@ -154,7 +154,7 @@ define internal noundef i64 @copy_bytes_8(ptr nocapture readnone %0, i64 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i64 @copy_bytes_16(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i64 @copy_bytes_16(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 4
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 4
@@ -191,7 +191,7 @@ define internal noundef i64 @copy_bytes_16(ptr nocapture readnone %0, i64 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @copy_float_2(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i32 @copy_float_2(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 1
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 1
@@ -230,7 +230,7 @@ define internal noundef i32 @copy_float_2(ptr nocapture readnone %0, i64 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @copy_float_4(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i32 @copy_float_4(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 2
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 2
@@ -269,7 +269,7 @@ define internal noundef i32 @copy_float_4(ptr nocapture readnone %0, i64 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @copy_float_8(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i32 @copy_float_8(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 3
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 3
@@ -308,7 +308,7 @@ define internal noundef i32 @copy_float_8(ptr nocapture readnone %0, i64 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @copy_float_16(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i32 @copy_float_16(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 4
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 4
@@ -346,7 +346,7 @@ define internal noundef i32 @copy_float_16(ptr nocapture readnone %0, i64 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @copy_short_float_complex(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i32 @copy_short_float_complex(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 2
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 2
@@ -385,7 +385,7 @@ define internal noundef i32 @copy_short_float_complex(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @copy_float_complex(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i32 @copy_float_complex(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 3
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 3
@@ -424,7 +424,7 @@ define internal noundef i32 @copy_float_complex(ptr nocapture readnone %0, i64 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @copy_double_complex(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i32 @copy_double_complex(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 4
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 4
@@ -462,7 +462,7 @@ define internal noundef i32 @copy_double_complex(ptr nocapture readnone %0, i64 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @copy_long_double_complex(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i32 @copy_long_double_complex(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 5
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 5
@@ -500,7 +500,7 @@ define internal noundef i32 @copy_long_double_complex(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @copy_bool(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i32 @copy_bool(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %10 = icmp eq i64 %4, 1
   %11 = icmp eq i64 %7, 1
@@ -535,7 +535,7 @@ define internal noundef i32 @copy_bool(ptr nocapture readnone %0, i64 noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @copy_wchar(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i32 @copy_wchar(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = shl i64 %1, 2
   %11 = icmp ugt i64 %10, %3
   %12 = lshr i64 %3, 2
@@ -574,7 +574,7 @@ define internal noundef i32 @copy_wchar(ptr nocapture readnone %0, i64 noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #2

@@ -104,7 +104,7 @@ declare ptr @zcalloc(ptr noundef, i32 noundef, i32 noundef) #1
 declare void @zcfree(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 2) i32 @inflateBack(ptr noundef %strm, ptr nocapture noundef readonly %in, ptr noundef %in_desc, ptr nocapture noundef readonly %out, ptr noundef %out_desc) local_unnamed_addr #0 {
+define range(i32 -5, 2) i32 @inflateBack(ptr noundef %strm, ptr noundef readonly captures(none) %in, ptr noundef %in_desc, ptr noundef readonly captures(none) %out, ptr noundef %out_desc) local_unnamed_addr #0 {
 entry:
   %next = alloca ptr, align 8
   %cmp = icmp eq ptr %strm, null
@@ -1700,7 +1700,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @inflate_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

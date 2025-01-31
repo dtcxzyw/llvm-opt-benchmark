@@ -2435,7 +2435,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @get_frame(ptr nocapture noundef readonly byval(%struct._address) align 8 %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @get_frame(ptr noundef readonly byval(%struct._address) align 8 captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.gtp_info_t, align 8
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2481,7 +2481,7 @@ define hidden void @remove_frame_info(i32 noundef %0) local_unnamed_addr #1 {
 declare i32 @wmem_map_foreach_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @frame_equal(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal range(i32 0, 2) i32 @frame_equal(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = ptrtoint ptr %2 to i64
   %5 = trunc i64 %4 to i32
   %6 = ptrtoint ptr %1 to i64
@@ -2536,7 +2536,7 @@ declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #0
 declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ip_exists(ptr nocapture noundef readonly byval(%struct._address) align 8 %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ip_exists(ptr noundef readonly byval(%struct._address) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @wmem_list_head(ptr noundef %1) #13
   %.not8 = icmp eq ptr %3, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -7333,7 +7333,7 @@ declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef,
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_gtp_uli(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) local_unnamed_addr #1 {
+define hidden void @dissect_gtp_uli(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) local_unnamed_addr #1 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #13
   %7 = load i32, ptr @hf_gtp_uli_geo_loc_type, align 4
   %8 = zext i8 %6 to i32
@@ -7655,7 +7655,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @pdcp_uat_fld_ip_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #1 {
+define internal noundef zeroext i1 @pdcp_uat_fld_ip_chk_cb(ptr readnone captures(none) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) #1 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.e_in6_addr, align 1
   %.not = icmp eq ptr %1, null
@@ -7681,7 +7681,7 @@ define internal noundef zeroext i1 @pdcp_uat_fld_ip_chk_cb(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_ip_addr_str_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_ip_addr_str_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = load ptr, ptr %0, align 8
@@ -7691,7 +7691,7 @@ define internal void @pdcp_lte_users_ip_addr_str_set_cb(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_ip_addr_str_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_ip_addr_str_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -7716,7 +7716,7 @@ define internal void @pdcp_lte_users_ip_addr_str_tostr_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @pdcp_uat_fld_teid_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #1 {
+define internal noundef zeroext i1 @pdcp_uat_fld_teid_chk_cb(ptr readnone captures(none) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) #1 {
   %7 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %sub_0
@@ -7748,7 +7748,7 @@ sub_0:                                            ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_teid_str_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_teid_str_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7759,7 +7759,7 @@ define internal void @pdcp_lte_users_teid_str_set_cb(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_teid_str_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_teid_str_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -7787,7 +7787,7 @@ define internal void @pdcp_lte_users_teid_str_tostr_cb(ptr nocapture noundef rea
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_header_present_set_cb(ptr nocapture noundef writeonly initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_header_present_set_cb(ptr noundef writeonly captures(none) initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7829,7 +7829,7 @@ define internal void @pdcp_lte_users_header_present_set_cb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_header_present_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_header_present_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -7877,7 +7877,7 @@ define internal void @pdcp_lte_users_header_present_tostr_cb(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_plane_set_cb(ptr nocapture noundef writeonly initializes((52, 56)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_plane_set_cb(ptr noundef writeonly captures(none) initializes((52, 56)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -7919,7 +7919,7 @@ define internal void @pdcp_lte_users_plane_set_cb(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_plane_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_plane_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -7967,7 +7967,7 @@ define internal void @pdcp_lte_users_plane_tostr_cb(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_lte_sn_length_set_cb(ptr nocapture noundef writeonly initializes((56, 60)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_lte_sn_length_set_cb(ptr noundef writeonly captures(none) initializes((56, 60)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8009,7 +8009,7 @@ define internal void @pdcp_lte_users_lte_sn_length_set_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_lte_sn_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_lte_sn_length_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -8057,7 +8057,7 @@ define internal void @pdcp_lte_users_lte_sn_length_tostr_cb(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_rohc_compression_set_cb(ptr nocapture noundef writeonly initializes((60, 64)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_rohc_compression_set_cb(ptr noundef writeonly captures(none) initializes((60, 64)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -8099,7 +8099,7 @@ define internal void @pdcp_lte_users_rohc_compression_set_cb(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_rohc_compression_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_rohc_compression_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -8147,7 +8147,7 @@ define internal void @pdcp_lte_users_rohc_compression_tostr_cb(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_rohc_profile_set_cb(ptr nocapture noundef writeonly initializes((64, 68)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_rohc_profile_set_cb(ptr noundef writeonly captures(none) initializes((64, 68)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -8189,7 +8189,7 @@ define internal void @pdcp_lte_users_rohc_profile_set_cb(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_rohc_profile_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_rohc_profile_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -8239,7 +8239,7 @@ define internal void @pdcp_lte_users_rohc_profile_tostr_cb(ptr nocapture noundef
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pdcp_lte_copy_cb(ptr noundef returned initializes((0, 40), (48, 68)) %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define internal noundef ptr @pdcp_lte_copy_cb(ptr noundef returned initializes((0, 40), (48, 68)) %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
@@ -8392,7 +8392,7 @@ free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_free_cb(ptr nocapture noundef initializes((16, 24)) %0) #1 {
+define internal void @pdcp_lte_free_cb(ptr noundef captures(none) initializes((16, 24)) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8428,7 +8428,7 @@ free_address_wmem.exit:                           ; preds = %1, %8, %12, %15
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_ip_addr_str_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_ip_addr_str_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = load ptr, ptr %0, align 8
@@ -8438,7 +8438,7 @@ define internal void @pdcp_nr_users_ip_addr_str_set_cb(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_ip_addr_str_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_ip_addr_str_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -8463,7 +8463,7 @@ define internal void @pdcp_nr_users_ip_addr_str_tostr_cb(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_teid_str_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_teid_str_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8474,7 +8474,7 @@ define internal void @pdcp_nr_users_teid_str_set_cb(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_teid_str_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_teid_str_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -8500,7 +8500,7 @@ define internal void @pdcp_nr_users_teid_str_tostr_cb(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_direction_set_cb(ptr nocapture noundef writeonly initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_direction_set_cb(ptr noundef writeonly captures(none) initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8542,7 +8542,7 @@ define internal void @pdcp_nr_users_direction_set_cb(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_direction_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_direction_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -8590,7 +8590,7 @@ define internal void @pdcp_nr_users_direction_tostr_cb(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_sdap_header_present_set_cb(ptr nocapture noundef writeonly initializes((52, 56)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_sdap_header_present_set_cb(ptr noundef writeonly captures(none) initializes((52, 56)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -8632,7 +8632,7 @@ define internal void @pdcp_nr_users_sdap_header_present_set_cb(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_sdap_header_present_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_sdap_header_present_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -8680,7 +8680,7 @@ define internal void @pdcp_nr_users_sdap_header_present_tostr_cb(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_mac_i_present_set_cb(ptr nocapture noundef writeonly initializes((56, 60)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_mac_i_present_set_cb(ptr noundef writeonly captures(none) initializes((56, 60)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8722,7 +8722,7 @@ define internal void @pdcp_nr_users_mac_i_present_set_cb(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_mac_i_present_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_mac_i_present_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -8770,7 +8770,7 @@ define internal void @pdcp_nr_users_mac_i_present_tostr_cb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_plane_set_cb(ptr nocapture noundef writeonly initializes((60, 64)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_plane_set_cb(ptr noundef writeonly captures(none) initializes((60, 64)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -8812,7 +8812,7 @@ define internal void @pdcp_nr_users_plane_set_cb(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_plane_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_plane_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -8860,7 +8860,7 @@ define internal void @pdcp_nr_users_plane_tostr_cb(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_pdcp_nr_sn_length_set_cb(ptr nocapture noundef writeonly initializes((64, 68)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_pdcp_nr_sn_length_set_cb(ptr noundef writeonly captures(none) initializes((64, 68)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -8902,7 +8902,7 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_set_cb(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_pdcp_nr_sn_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_pdcp_nr_sn_length_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -8950,7 +8950,7 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_tostr_cb(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_rohc_compression_set_cb(ptr nocapture noundef writeonly initializes((68, 72)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_rohc_compression_set_cb(ptr noundef writeonly captures(none) initializes((68, 72)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -8992,7 +8992,7 @@ define internal void @pdcp_nr_users_rohc_compression_set_cb(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_rohc_compression_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_rohc_compression_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -9040,7 +9040,7 @@ define internal void @pdcp_nr_users_rohc_compression_tostr_cb(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_rohc_profile_set_cb(ptr nocapture noundef writeonly initializes((72, 76)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_rohc_profile_set_cb(ptr noundef writeonly captures(none) initializes((72, 76)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -9082,7 +9082,7 @@ define internal void @pdcp_nr_users_rohc_profile_set_cb(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_rohc_profile_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_rohc_profile_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -9130,7 +9130,7 @@ define internal void @pdcp_nr_users_rohc_profile_tostr_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pdcp_nr_copy_cb(ptr noundef returned initializes((0, 40), (48, 76)) %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define internal noundef ptr @pdcp_nr_copy_cb(ptr noundef returned initializes((0, 40), (48, 76)) %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
@@ -9291,7 +9291,7 @@ free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_free_cb(ptr nocapture noundef initializes((16, 24)) %0) #1 {
+define internal void @pdcp_nr_free_cb(ptr noundef captures(none) initializes((16, 24)) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9327,7 +9327,7 @@ free_address_wmem.exit:                           ; preds = %1, %8, %12, %15
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_gtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 1) #13
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %18, label %6
@@ -9360,13 +9360,13 @@ define internal i32 @dissect_gtp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gtpprime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_gtpprime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call fastcc i32 @dissect_gtp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nrup(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -9709,7 +9709,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #0
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @gtpstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gtpstat_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #1 {
   %6 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %40
@@ -9767,7 +9767,7 @@ define internal range(i32 0, 2) i32 @gtpstat_packet(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gtpstat_init(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @gtpstat_init(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr @gtpstat_msg_idx_hash, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -9796,7 +9796,7 @@ define internal ptr @dissect_radius_qos_umts(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dissect_radius_selection_mode(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #1 {
+define internal ptr @dissect_radius_selection_mode(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #1 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 0) #13
   %5 = add i8 %4, -48
   %6 = load i32, ptr @hf_gtp_sel_mode, align 4
@@ -9817,14 +9817,14 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_diameter_3gpp_qosprofile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_diameter_3gpp_qosprofile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call i32 @decode_qos_umts(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1765, i8 noundef zeroext 3)
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 0) i32 @dissect_gtp_3gpp_mbms_service_area(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 1, 0) i32 @dissect_gtp_3gpp_mbms_service_area(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #13
   %6 = add i8 %5, 1
   %7 = load i32, ptr @hf_gtp_no_of_mbms_sa_codes, align 4
@@ -9849,7 +9849,7 @@ define internal range(i32 1, 0) i32 @dissect_gtp_3gpp_mbms_service_area(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_gtp_mbms_ses_dur(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @dissect_gtp_mbms_ses_dur(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = load i32, ptr @hf_gtp_mbms_ses_dur_days, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef 0) #13
   %7 = load i32, ptr @hf_gtp_mbms_ses_dur_s, align 4
@@ -9858,7 +9858,7 @@ define internal noundef i32 @dissect_gtp_mbms_ses_dur(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_gtp_mbms_time_to_data_tr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @dissect_gtp_mbms_time_to_data_tr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #13
   %6 = add i8 %5, 1
   %7 = load i32, ptr @hf_gtp_time_2_dta_tr, align 4
@@ -9884,7 +9884,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #0
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare zeroext i1 @ws_basestrtou32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -11322,7 +11322,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @gtp_sn_hash(ptr nocapture noundef readonly %0) #5 {
+define internal i32 @gtp_sn_hash(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   ret i32 %3
@@ -11772,7 +11772,7 @@ declare double @llvm.fabs.f64(double) #6
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_sgsn_addr_for_control_plane(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_sgsn_addr_for_control_plane(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4) #1 {
   %6 = load i32, ptr @hf_gtp_sgsn_address_for_control_plane_ipv4, align 4
   %7 = load i32, ptr @hf_gtp_sgsn_address_for_control_plane_ipv6, align 4
   %8 = tail call fastcc i32 @decode_gtp_gsn_addr_common(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.713, i32 noundef %6, i32 noundef %7)
@@ -11780,7 +11780,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_sgsn_addr_for_control_plane(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_sgsn_addr_for_user_plane(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_sgsn_addr_for_user_plane(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4) #1 {
   %6 = load i32, ptr @hf_gtp_sgsn_address_for_user_traffic_ipv4, align 4
   %7 = load i32, ptr @hf_gtp_sgsn_address_for_user_traffic_ipv6, align 4
   %8 = tail call fastcc i32 @decode_gtp_gsn_addr_common(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.1686, i32 noundef %6, i32 noundef %7)
@@ -11788,7 +11788,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_sgsn_addr_for_user_plane(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ggsn_addr_for_control_plane(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ggsn_addr_for_control_plane(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4) #1 {
   %6 = load i32, ptr @hf_gtp_ggsn_address_for_control_plane_ipv4, align 4
   %7 = load i32, ptr @hf_gtp_ggsn_address_for_control_plane_ipv6, align 4
   %8 = tail call fastcc i32 @decode_gtp_gsn_addr_common(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.721, i32 noundef %6, i32 noundef %7)
@@ -11796,7 +11796,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ggsn_addr_for_control_plane(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ggsn_addr_for_user_plane(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ggsn_addr_for_user_plane(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4) #1 {
   %6 = load i32, ptr @hf_gtp_ggsn_address_for_user_traffic_ipv4, align 4
   %7 = load i32, ptr @hf_gtp_ggsn_address_for_user_traffic_ipv6, align 4
   %8 = tail call fastcc i32 @decode_gtp_gsn_addr_common(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.1687, i32 noundef %6, i32 noundef %7)
@@ -11804,7 +11804,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ggsn_addr_for_user_plane(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 3, 65539) i32 @decode_gtp_gsn_addr_common(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 3, 65539) i32 @decode_gtp_gsn_addr_common(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = add i32 %1, 1
   %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %10) #13
@@ -12136,7 +12136,7 @@ declare void @wmem_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_cause(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef writeonly %4) #1 {
+define internal noundef i32 @decode_gtp_cause(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @g_gtp_session, align 4
@@ -12156,14 +12156,14 @@ define internal noundef i32 @decode_gtp_cause(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_imsi(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_imsi(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call ptr @dissect_e212_imsi(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %6, i32 noundef 8, i32 noundef 0) #13
   ret i32 9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_rai(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_rai(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gtp_ies, i64 12), align 4
   %7 = tail call ptr @val_to_str_ext_const(i32 noundef 3, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6, ptr noundef null, ptr noundef %7) #13
@@ -12179,7 +12179,7 @@ define internal noundef i32 @decode_gtp_rai(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_tlli(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_tlli(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @hf_gtp_tlli, align 4
@@ -12188,7 +12188,7 @@ define internal noundef i32 @decode_gtp_tlli(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_ptmsi(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_ptmsi(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr @hf_gtp_ptmsi, align 4
   %7 = add i32 %1, 1
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #13
@@ -12215,14 +12215,14 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_qos_gprs(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_qos_gprs(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   tail call fastcc void @decode_qos_gprs(ptr noundef %0, i32 noundef %6, ptr noundef %3, ptr noundef nonnull @.str.1087, i8 noundef zeroext 1)
   ret i32 4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_reorder(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_reorder(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %8 = and i8 %7, 1
@@ -12233,7 +12233,7 @@ define internal noundef i32 @decode_gtp_reorder(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_auth_tri(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_auth_tri(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gtp_ies, i64 36), align 4
   %7 = tail call ptr @val_to_str_ext_const(i32 noundef 9, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 29, i32 noundef %6, ptr noundef null, ptr noundef %7) #13
@@ -12250,7 +12250,7 @@ define internal noundef i32 @decode_gtp_auth_tri(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_map_cause(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_map_cause(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @hf_gtp_map_cause, align 4
@@ -12260,7 +12260,7 @@ define internal noundef i32 @decode_gtp_map_cause(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_ptmsi_sig(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_ptmsi_sig(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @hf_gtp_ptmsi_sig, align 4
@@ -12269,7 +12269,7 @@ define internal noundef i32 @decode_gtp_ptmsi_sig(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_ms_valid(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_ms_valid(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %8 = and i8 %7, 1
@@ -12280,7 +12280,7 @@ define internal noundef i32 @decode_gtp_ms_valid(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_recovery(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_recovery(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @hf_gtp_recovery, align 4
@@ -12290,7 +12290,7 @@ define internal noundef i32 @decode_gtp_recovery(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_sel_mode(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_sel_mode(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = add i32 %1, 1
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #13
@@ -12308,7 +12308,7 @@ define internal noundef i32 @decode_gtp_sel_mode(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 6) i32 @decode_gtp_16(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4) #1 {
+define internal range(i32 3, 6) i32 @decode_gtp_16(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4) #1 {
   %.b = load i1, ptr @gtp_version, align 1
   %6 = add i32 %1, 1
   br i1 %.b, label %12, label %7
@@ -12376,7 +12376,7 @@ teid_exists.exit.thread:                          ; preds = %21, %teid_exists.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 6) i32 @decode_gtp_17(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal range(i32 3, 6) i32 @decode_gtp_17(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = alloca i32, align 4
   %.b = load i1, ptr @gtp_version, align 1
   %7 = add i32 %1, 1
@@ -12439,7 +12439,7 @@ teid_exists.exit.thread:                          ; preds = %21, %teid_exists.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 4, 7) i32 @decode_gtp_18(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 4, 7) i32 @decode_gtp_18(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %.b = load i1, ptr @gtp_version, align 1
   %6 = add i32 %1, 1
   %7 = add i32 %1, 2
@@ -12474,7 +12474,7 @@ define internal range(i32 4, 7) i32 @decode_gtp_18(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_19(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_19(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %.b = load i1, ptr @gtp_version, align 1
@@ -12498,7 +12498,7 @@ define internal noundef i32 @decode_gtp_19(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_nsapi(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_nsapi(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gtp_ies, i64 80), align 16
   %8 = tail call ptr @val_to_str_ext_const(i32 noundef 20, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
@@ -12515,7 +12515,7 @@ define internal noundef i32 @decode_gtp_nsapi(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_ranap_cause(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_ranap_cause(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i8 %7 to i32
@@ -12560,7 +12560,7 @@ define internal noundef i32 @decode_gtp_ranap_cause(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_rab_cntxt(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_rab_cntxt(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gtp_ies, i64 88), align 8
   %7 = tail call ptr @val_to_str_ext_const(i32 noundef 22, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 10, i32 noundef %6, ptr noundef null, ptr noundef %7) #13
@@ -12583,7 +12583,7 @@ define internal noundef i32 @decode_gtp_rab_cntxt(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_rp_sms(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_rp_sms(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %8 = and i8 %7, 7
@@ -12594,7 +12594,7 @@ define internal noundef i32 @decode_gtp_rp_sms(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_rp(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_rp(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %8 = lshr i8 %7, 4
@@ -12616,7 +12616,7 @@ define internal noundef i32 @decode_gtp_rp(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_pkt_flow_id(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_pkt_flow_id(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %8 = and i8 %7, 15
@@ -12637,7 +12637,7 @@ define internal noundef i32 @decode_gtp_pkt_flow_id(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_chrg_char(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_chrg_char(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @hf_gtp_chrg_char, align 4
@@ -12661,7 +12661,7 @@ define internal noundef i32 @decode_gtp_chrg_char(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_trace_ref(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_trace_ref(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @hf_gtp_trace_ref, align 4
@@ -12671,7 +12671,7 @@ define internal noundef i32 @decode_gtp_trace_ref(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_trace_type(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_trace_type(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @hf_gtp_trace_type, align 4
@@ -12681,7 +12681,7 @@ define internal noundef i32 @decode_gtp_trace_type(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_ms_reason(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_ms_reason(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @hf_gtp_ms_reason, align 4
@@ -12691,7 +12691,7 @@ define internal noundef i32 @decode_gtp_ms_reason(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_tr_comm(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_tr_comm(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @hf_gtp_tr_comm, align 4
@@ -12701,7 +12701,7 @@ define internal noundef i32 @decode_gtp_tr_comm(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_gtp_chrg_id(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @decode_gtp_chrg_id(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @hf_gtp_chrg_id, align 4
@@ -12710,7 +12710,7 @@ define internal noundef i32 @decode_gtp_chrg_id(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_user_addr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_user_addr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.e_in6_addr, align 1
   %8 = add i32 %1, 1
@@ -12856,7 +12856,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_user_addr(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mm_cntxt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mm_cntxt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gtp_ies, i64 516), align 4
   %7 = tail call ptr @val_to_str_ext_const(i32 noundef 129, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6, ptr noundef null, ptr noundef %7) #13
@@ -13073,7 +13073,7 @@ default.unreachable175:                           ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_pdp_cntxt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_pdp_cntxt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = add i32 %1, 1
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
@@ -13307,7 +13307,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_pdp_cntxt(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_apn(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_apn(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = add i32 %1, 1
@@ -13341,7 +13341,7 @@ decode_apn.exit:                                  ; preds = %5, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_proto_conf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_proto_conf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13366,7 +13366,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_proto_conf(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_gsn_addr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_gsn_addr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4) #1 {
   %6 = load i32, ptr @hf_gtp_gsn_ipv4, align 4
   %7 = load i32, ptr @hf_gtp_gsn_ipv6, align 4
   %8 = tail call fastcc i32 @decode_gtp_gsn_addr_common(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.1100, i32 noundef %6, i32 noundef %7)
@@ -13374,7 +13374,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_gsn_addr(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_msisdn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_msisdn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13402,13 +13402,13 @@ define internal range(i32 3, 65539) i32 @decode_gtp_msisdn(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decode_gtp_qos_umts(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal i32 @decode_gtp_qos_umts(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = tail call i32 @decode_qos_umts(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @.str.1087, i8 noundef zeroext 2)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_auth_qui(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_auth_qui(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13447,7 +13447,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_auth_qui(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_tft(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_tft(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13462,7 +13462,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_tft(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_target_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_target_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13512,7 +13512,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_target_id(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_utran_cont(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_utran_cont(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13550,7 +13550,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_utran_cont(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_rab_setup(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_rab_setup(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13591,7 +13591,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_rab_setup(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 2, 258) i32 @decode_gtp_hdr_list(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 2, 258) i32 @decode_gtp_hdr_list(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i8 %7 to i32
@@ -13625,7 +13625,7 @@ define internal range(i32 2, 258) i32 @decode_gtp_hdr_list(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_trigger_id(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_trigger_id(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -13638,7 +13638,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_trigger_id(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_omc_id(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_omc_id(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = load i32, ptr @hf_gtp_ext_length, align 4
@@ -13651,7 +13651,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_omc_id(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ran_tr_cont(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ran_tr_cont(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13676,7 +13676,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ran_tr_cont(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_pdp_cont_prio(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_pdp_cont_prio(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13700,7 +13700,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_pdp_cont_prio(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_add_rab_setup_inf(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_add_rab_setup_inf(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13734,7 +13734,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_add_rab_setup_inf(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_sgsn_no(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_sgsn_no(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13753,7 +13753,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_sgsn_no(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_common_flgs(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_common_flgs(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13784,7 +13784,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_common_flgs(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_apn_res(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_apn_res(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13812,7 +13812,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_apn_res(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ra_prio_lcs(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ra_prio_lcs(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13829,7 +13829,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ra_prio_lcs(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_rat_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_rat_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = add i32 %1, 1
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
@@ -13863,7 +13863,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_rat_type(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_usr_loc_inf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_usr_loc_inf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13879,7 +13879,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_usr_loc_inf(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ms_time_zone(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ms_time_zone(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = add i32 %1, 1
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
@@ -13914,7 +13914,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ms_time_zone(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_imeisv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_imeisv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = add i32 %1, 1
@@ -13939,7 +13939,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_imeisv(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_camel_chg_inf_con(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_camel_chg_inf_con(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -13956,7 +13956,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_camel_chg_inf_con(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ue_ctx(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ue_ctx(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -14075,7 +14075,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ue_ctx(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_tmgi(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_tmgi(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14096,7 +14096,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_tmgi(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_rim_ra(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_rim_ra(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14162,7 +14162,7 @@ gtp_get_private_data.exit:                        ; preds = %23, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mbms_prot_conf_opt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mbms_prot_conf_opt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14179,7 +14179,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_prot_conf_opt(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mbms_sa(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mbms_sa(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14215,7 +14215,7 @@ dissect_gtp_3gpp_mbms_service_area.exit:          ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_src_rnc_pdp_ctx_inf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_src_rnc_pdp_ctx_inf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14233,7 +14233,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_src_rnc_pdp_ctx_inf(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_add_trs_inf(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_add_trs_inf(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14267,7 +14267,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_add_trs_inf(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_hop_count(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_hop_count(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14284,7 +14284,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_hop_count(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_sel_plmn_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_sel_plmn_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14300,7 +14300,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_sel_plmn_id(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ses_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ses_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14316,7 +14316,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ses_id(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mbms_2g_3g_ind(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mbms_2g_3g_ind(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14333,7 +14333,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_2g_3g_ind(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_enh_nsapi(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_enh_nsapi(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14364,7 +14364,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_enh_nsapi(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ses_dur(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ses_dur(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14383,7 +14383,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ses_dur(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_add_mbms_trs_inf(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_add_mbms_trs_inf(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14424,7 +14424,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_add_mbms_trs_inf(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ses_id_rep_no(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ses_id_rep_no(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14440,7 +14440,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ses_id_rep_no(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mbms_time_to_data_tr(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mbms_time_to_data_tr(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14460,7 +14460,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_time_to_data_tr(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ps_ho_req_ctx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ps_ho_req_ctx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14476,7 +14476,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ps_ho_req_ctx(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_bss_cont(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_bss_cont(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14511,7 +14511,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_bss_cont(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_cell_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_cell_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca i32, align 4
   %7 = add i32 %1, 1
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
@@ -14578,7 +14578,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_cell_id(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_pdu_no(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_pdu_no(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14607,7 +14607,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_pdu_no(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_bssgp_cause(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_bssgp_cause(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14624,7 +14624,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_bssgp_cause(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mbms_bearer_cap(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mbms_bearer_cap(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14638,7 +14638,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_bearer_cap(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_rim_ra_disc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_rim_ra_disc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca i32, align 4
   %7 = tail call ptr @wmem_file_scope() #13
   %8 = load i32, ptr @proto_gtp, align 4
@@ -14676,7 +14676,7 @@ gtp_get_private_data.exit:                        ; preds = %5, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_lst_set_up_pfc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_lst_set_up_pfc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14694,7 +14694,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_lst_set_up_pfc(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 4, 65540) i32 @decode_gtp_ps_handover_xid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 4, 65540) i32 @decode_gtp_ps_handover_xid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14735,7 +14735,7 @@ define internal range(i32 4, 65540) i32 @decode_gtp_ps_handover_xid(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ms_inf_chg_rep_act(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ms_inf_chg_rep_act(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14752,7 +14752,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ms_inf_chg_rep_act(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_direct_tnl_flg(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_direct_tnl_flg(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14782,7 +14782,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_direct_tnl_flg(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_corrl_id(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_corrl_id(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14799,7 +14799,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_corrl_id(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_bearer_cntrl_mod(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_bearer_cntrl_mod(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14818,7 +14818,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_bearer_cntrl_mod(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mbms_flow_id(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mbms_flow_id(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14837,7 +14837,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_flow_id(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ip_mcast_dist(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ip_mcast_dist(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14855,7 +14855,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ip_mcast_dist(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mbms_dist_ack(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mbms_dist_ack(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14874,7 +14874,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_dist_ack(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_reliable_irat_ho_inf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_reliable_irat_ho_inf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14892,7 +14892,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_reliable_irat_ho_inf(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_rfsp_index(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_rfsp_index(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14911,7 +14911,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_rfsp_index(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_fqdn(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_fqdn(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14940,7 +14940,7 @@ decode_fqdn.exit:                                 ; preds = %5, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_evolved_allc_rtn_p1(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_evolved_allc_rtn_p1(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14963,7 +14963,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_evolved_allc_rtn_p1(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_evolved_allc_rtn_p2(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_evolved_allc_rtn_p2(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -14989,7 +14989,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_evolved_allc_rtn_p2(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_extended_common_flgs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_extended_common_flgs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15032,7 +15032,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_extended_common_flgs(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_uci(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_uci(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15058,7 +15058,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_uci(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_csg_inf_rep_act(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_csg_inf_rep_act(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15076,7 +15076,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_csg_inf_rep_act(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_csg_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_csg_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15094,7 +15094,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_csg_id(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_cmi(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_cmi(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15113,7 +15113,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_cmi(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_apn_ambr(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_apn_ambr(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15135,7 +15135,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_apn_ambr(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ue_network_cap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ue_network_cap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15151,7 +15151,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ue_network_cap(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ue_ambr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ue_ambr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15193,7 +15193,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ue_ambr(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_apn_ambr_with_nsapi(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_apn_ambr_with_nsapi(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15217,7 +15217,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_apn_ambr_with_nsapi(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ggsn_back_off_time(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ggsn_back_off_time(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15238,7 +15238,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ggsn_back_off_time(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_sig_pri_ind(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_sig_pri_ind(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15257,7 +15257,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_sig_pri_ind(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_sig_pri_ind_w_nsapi(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_sig_pri_ind_w_nsapi(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15279,7 +15279,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_sig_pri_ind_w_nsapi(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_higher_br_16mb_flg(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_higher_br_16mb_flg(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15298,7 +15298,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_higher_br_16mb_flg(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_max_mbr_apn_ambr(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_max_mbr_apn_ambr(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15330,7 +15330,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_max_mbr_apn_ambr(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_add_mm_ctx_srvcc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_add_mm_ctx_srvcc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca i32, align 4
   %7 = add i32 %1, 1
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
@@ -15390,7 +15390,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_add_mm_ctx_srvcc(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_add_flgs_srvcc(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_add_flgs_srvcc(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15409,7 +15409,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_add_flgs_srvcc(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_stn_sr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_stn_sr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15427,7 +15427,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_stn_sr(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_c_msisdn(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_c_msisdn(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15445,7 +15445,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_c_msisdn(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ext_ranap_cause(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ext_ranap_cause(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15464,7 +15464,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_ranap_cause(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ext_enodeb_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ext_enodeb_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca i32, align 4
   %7 = add i32 %1, 1
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
@@ -15515,7 +15515,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_enodeb_id(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ext_sel_mode_w_nsapi(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ext_sel_mode_w_nsapi(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15537,7 +15537,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_sel_mode_w_nsapi(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ext_uli_timestamp(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ext_uli_timestamp(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15556,7 +15556,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_uli_timestamp(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ext_lhn_id_w_sapi(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ext_lhn_id_w_sapi(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15578,7 +15578,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_lhn_id_w_sapi(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ext_cn_op_sel_entity(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ext_cn_op_sel_entity(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15607,7 +15607,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_cn_op_sel_entity(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ue_usage_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ue_usage_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15636,7 +15636,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ue_usage_type(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_extended_common_flgs_II(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_extended_common_flgs_II(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15671,7 +15671,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_extended_common_flgs_II(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ext_node_id(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ext_node_id(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca i32, align 4
   %7 = add i32 %1, 1
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
@@ -15695,7 +15695,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ext_node_id(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_ciot_opt_sup_ind(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_ciot_opt_sup_ind(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15728,7 +15728,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ciot_opt_sup_ind(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_scef_pdn_conn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_scef_pdn_conn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -15785,7 +15785,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_scef_pdn_conn(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_iov_updates_counter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_iov_updates_counter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15814,7 +15814,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_iov_updates_counter(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_mapped_ue_usage_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_mapped_ue_usage_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15843,7 +15843,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mapped_ue_usage_type(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_up_fun_sel_ind_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_up_fun_sel_ind_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15874,7 +15874,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_up_fun_sel_ind_flags(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_rel_pack(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_rel_pack(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15905,7 +15905,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_rel_pack(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_can_pack(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_can_pack(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -15936,7 +15936,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_can_pack(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_chrg_addr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_chrg_addr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = add i32 %1, 1
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
@@ -15985,7 +15985,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_chrg_addr(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_data_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_data_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr @ett_gtp_ext, align 4
   %7 = tail call ptr @val_to_str_ext_const(i32 noundef 252, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6, ptr noundef null, ptr noundef %7) #13
@@ -16166,7 +16166,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_data_req(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_data_resp(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_data_resp(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = add i32 %1, 1
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #13
   %8 = zext i16 %7 to i32
@@ -16197,7 +16197,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_data_resp(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_node_addr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_node_addr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = add i32 %1, 1
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #13
@@ -16244,7 +16244,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_node_addr(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 65539) i32 @decode_gtp_priv_ext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 3, 65539) i32 @decode_gtp_priv_ext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @ett_gtp_ext, align 4
   %8 = tail call ptr @val_to_str_ext_const(i32 noundef 255, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1688) #13
@@ -16289,7 +16289,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_priv_ext(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decode_gtp_unknown(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal i32 @decode_gtp_unknown(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = tail call ptr @proto_tree_add_expert(ptr noundef %3, ptr noundef %2, ptr noundef nonnull @ei_gtp_unknown_extension_header, ptr noundef %0, i32 noundef %1, i32 noundef 1) #13
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #13
   ret i32 %7
@@ -16361,7 +16361,7 @@ define internal fastcc void @decode_qos_gprs(ptr noundef %0, i32 noundef %1, ptr
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @proto_tree_add_ipv6_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
@@ -16511,7 +16511,7 @@ declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr nound
 declare ptr @enterprises_lookup(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @wmem_map_remove(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -16536,7 +16536,7 @@ define internal i32 @gtp_info_hash(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @gtp_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 0, 2) i32 @gtp_info_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -16599,13 +16599,13 @@ declare ptr @init_srt_table(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

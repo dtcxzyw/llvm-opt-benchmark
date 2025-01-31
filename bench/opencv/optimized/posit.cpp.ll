@@ -533,7 +533,7 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @cvReleasePOSITObject(ptr nocapture noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @cvReleasePOSITObject(ptr noundef captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @cvFree_(ptr noundef %2)
   store ptr null, ptr %0, align 8

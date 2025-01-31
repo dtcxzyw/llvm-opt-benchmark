@@ -132,7 +132,7 @@ if.end24:                                         ; preds = %entry, %if.end20.th
 declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @wc_InitMutex(ptr noundef) local_unnamed_addr #1
 
@@ -789,13 +789,13 @@ if.end47:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @wolfSSL_CertManagerLoadCA(ptr noundef %cm, ptr noundef %file, ptr noundef %path) local_unnamed_addr #0 {
@@ -999,7 +999,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @wolfssl_make_rng(ptr noundef %rng, ptr nocapture noundef writeonly initializes((0, 4)) %local) local_unnamed_addr #0 {
+define noundef ptr @wolfssl_make_rng(ptr noundef %rng, ptr noundef writeonly captures(none) initializes((0, 4)) %local) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %local, align 4
   %cmp.not = icmp eq ptr %rng, null
@@ -1141,7 +1141,7 @@ entry:
 declare void @FreeSSL_Ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wolfSSL_CTX_AllowEncryptThenMac(ptr nocapture noundef %ctx, i32 noundef %set) local_unnamed_addr #3 {
+define noundef i32 @wolfSSL_CTX_AllowEncryptThenMac(ptr noundef captures(none) %ctx, i32 noundef %set) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq i32 %set, 0
   %disallowEncThenMac = getelementptr inbounds nuw i8, ptr %ctx, i64 173
@@ -1154,7 +1154,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wolfSSL_AllowEncryptThenMac(ptr nocapture noundef %ssl, i32 noundef %set) local_unnamed_addr #3 {
+define noundef i32 @wolfSSL_AllowEncryptThenMac(ptr noundef captures(none) %ssl, i32 noundef %set) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq i32 %set, 0
   %disallowEncThenMac = getelementptr inbounds nuw i8, ptr %ssl, i64 1008
@@ -1234,7 +1234,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wolfSSL_use_old_poly(ptr nocapture noundef %ssl, i32 noundef %value) local_unnamed_addr #3 {
+define noundef i32 @wolfSSL_use_old_poly(ptr noundef captures(none) %ssl, i32 noundef %value) local_unnamed_addr #3 {
 entry:
   %oldPoly = getelementptr inbounds nuw i8, ptr %ssl, i64 1008
   %bf.load = load i64, ptr %oldPoly, align 8
@@ -1401,7 +1401,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.then7:                                         ; preds = %for.body
   %conv11 = sext i32 %len.addr.017 to i64
-  %call12 = tail call ptr @strncpy(ptr noundef nonnull %buf.addr.018, ptr noundef %1, i64 noundef %conv11) #20
+  %call12 = tail call ptr @strncpy(ptr noundef nonnull %buf.addr.018, ptr noundef nonnull %1, i64 noundef %conv11) #20
   %sext = shl i64 %call4, 32
   %idx.ext = ashr exact i64 %sext, 32
   %add.ptr = getelementptr inbounds i8, ptr %buf.addr.018, i64 %idx.ext
@@ -1427,10 +1427,10 @@ return:                                           ; preds = %for.body, %if.end16
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -173, 2) i32 @wolfSSL_get_ciphers_iana(ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
@@ -1474,7 +1474,7 @@ if.end5:                                          ; preds = %for.body
 
 if.then12:                                        ; preds = %if.end5
   %conv16 = sext i32 %len.addr.019 to i64
-  %call17 = tail call ptr @strncpy(ptr noundef %buf.addr.020, ptr noundef %3, i64 noundef %conv16) #20
+  %call17 = tail call ptr @strncpy(ptr noundef %buf.addr.020, ptr noundef nonnull %3, i64 noundef %conv16) #20
   %sext = shl i64 %call8, 32
   %idx.ext = ashr exact i64 %sext, 32
   %add.ptr = getelementptr inbounds i8, ptr %buf.addr.020, i64 %idx.ext
@@ -1517,7 +1517,7 @@ if.end:                                           ; preds = %entry
   %conv = add i32 %0, 1
   %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %len, i32 %conv)
   %conv3 = sext i32 %cond.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 %call, i64 %conv3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 1 %call, i64 %conv3, i1 false)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1528,7 +1528,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @wolfSSL_get_cipher_name_iana(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @wolfSSL_get_fd(ptr noundef readonly %ssl) local_unnamed_addr #7 {
@@ -1622,13 +1622,13 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @wolfSSL_dtls_set_peer(ptr nocapture noundef readnone %ssl, ptr nocapture noundef readnone %peer, i32 noundef %peerSz) local_unnamed_addr #6 {
+define noundef i32 @wolfSSL_dtls_set_peer(ptr noundef readnone captures(none) %ssl, ptr noundef readnone captures(none) %peer, i32 noundef %peerSz) local_unnamed_addr #6 {
 entry:
   ret i32 -3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @wolfSSL_dtls_get_peer(ptr nocapture noundef readnone %ssl, ptr nocapture noundef readnone %peer, ptr nocapture noundef readnone %peerSz) local_unnamed_addr #6 {
+define noundef i32 @wolfSSL_dtls_get_peer(ptr noundef readnone captures(none) %ssl, ptr noundef readnone captures(none) %peer, ptr noundef readnone captures(none) %peerSz) local_unnamed_addr #6 {
 entry:
   ret i32 -3
 }
@@ -3736,7 +3736,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @wolfSSL_want_read(ptr nocapture noundef readonly %ssl) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @wolfSSL_want_read(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #7 {
 entry:
   %error = getelementptr inbounds nuw i8, ptr %ssl, i64 648
   %0 = load i32, ptr %error, align 8
@@ -3746,7 +3746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @wolfSSL_want_write(ptr nocapture noundef readonly %ssl) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @wolfSSL_want_write(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #7 {
 entry:
   %error = getelementptr inbounds nuw i8, ptr %ssl, i64 648
   %0 = load i32, ptr %error, align 8
@@ -3978,7 +3978,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wolfSSL_ERR_print_errors_fp(ptr nocapture noundef %fp, i32 noundef %err) local_unnamed_addr #0 {
+define void @wolfSSL_ERR_print_errors_fp(ptr noundef captures(none) %fp, i32 noundef %err) local_unnamed_addr #0 {
 entry:
   %data = alloca [81 x i8], align 16
   call void @SetErrorString(i32 noundef %err, ptr noundef nonnull %data) #20
@@ -4357,7 +4357,7 @@ return:                                           ; preds = %if.end, %entry, %wh
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @GetCAByName(ptr noundef %vp, ptr nocapture noundef readonly %hash) local_unnamed_addr #0 {
+define ptr @GetCAByName(ptr noundef %vp, ptr noundef readonly captures(none) %hash) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %vp, null
   br i1 %cmp, label %return, label %if.end
@@ -6151,7 +6151,7 @@ declare i32 @wc_ecc_get_oid(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare i32 @AllocateCtxSuites(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ProcessFile(ptr noundef %ctx, ptr noundef readonly %fname, i32 noundef %format, i32 noundef %type, ptr noundef %ssl, i32 noundef %userChain, ptr nocapture readnone %crl, i32 noundef %verify) local_unnamed_addr #0 {
+define i32 @ProcessFile(ptr noundef %ctx, ptr noundef readonly %fname, i32 noundef %format, i32 noundef %type, ptr noundef %ssl, i32 noundef %userChain, ptr readnone captures(none) %crl, i32 noundef %verify) local_unnamed_addr #0 {
 entry:
   %staticBuffer = alloca [1024 x i8], align 16
   %header = alloca ptr, align 8
@@ -6284,10 +6284,10 @@ return:                                           ; preds = %if.end77, %if.then8
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @wc_PemGetHeaderFooter(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -7047,7 +7047,7 @@ return:                                           ; preds = %entry, %ModeToVerif
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @wolfSSL_set_verify_result(ptr nocapture noundef readnone %ssl, i64 noundef %v) local_unnamed_addr #6 {
+define void @wolfSSL_set_verify_result(ptr noundef readnone captures(none) %ssl, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   ret void
 }
@@ -7156,7 +7156,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @AddSessionToCache(ptr nocapture readnone %ctx, ptr noundef %addSession, ptr noundef %id, i8 noundef zeroext %idSz, ptr nocapture readnone %sessionIndex, i32 noundef %side, i16 noundef zeroext %useTicket, ptr noundef writeonly %clientCacheEntry) local_unnamed_addr #0 {
+define i32 @AddSessionToCache(ptr readnone captures(none) %ctx, ptr noundef %addSession, ptr noundef %id, i8 noundef zeroext %idSz, ptr readnone captures(none) %sessionIndex, i32 noundef %side, i16 noundef zeroext %useTicket, ptr noundef writeonly %clientCacheEntry) local_unnamed_addr #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %cmp = icmp eq i8 %idSz, 0
@@ -7712,7 +7712,7 @@ return:                                           ; preds = %if.then14, %do.end2
 declare i32 @wc_ShaHash(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @wolfSSL_GetSessionClient(ptr nocapture noundef readonly %ssl, ptr noundef %id, i32 noundef %len) local_unnamed_addr #0 {
+define ptr @wolfSSL_GetSessionClient(ptr noundef readonly captures(none) %ssl, ptr noundef %id, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %0 = load ptr, ptr %ssl, align 16
@@ -7942,13 +7942,13 @@ return:                                           ; preds = %if.end, %entry, %lo
 declare i32 @SetCipherList_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @wolfSSL_dtls_get_using_nonblock(ptr nocapture noundef readnone %ssl) local_unnamed_addr #6 {
+define noundef i32 @wolfSSL_dtls_get_using_nonblock(ptr noundef readnone captures(none) %ssl) local_unnamed_addr #6 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @wolfSSL_dtls_set_using_nonblock(ptr nocapture noundef readnone %ssl, i32 noundef %nonblock) local_unnamed_addr #6 {
+define void @wolfSSL_dtls_set_using_nonblock(ptr noundef readnone captures(none) %ssl, i32 noundef %nonblock) local_unnamed_addr #6 {
 entry:
   ret void
 }
@@ -7972,7 +7972,7 @@ wolfSSLv23_client_method_ex.exit:                 ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wolfSSLv23_client_method_ex(ptr nocapture noundef readnone %heap) local_unnamed_addr #0 {
+define ptr @wolfSSLv23_client_method_ex(ptr noundef readnone captures(none) %heap) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @wolfSSL_Malloc(i64 noundef 4) #20
   %tobool.not = icmp eq ptr %call, null
@@ -8032,7 +8032,7 @@ wolfSSLv23_server_method_ex.exit:                 ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wolfSSLv23_server_method_ex(ptr nocapture noundef readnone %heap) local_unnamed_addr #0 {
+define ptr @wolfSSLv23_server_method_ex(ptr noundef readnone captures(none) %heap) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @wolfSSL_Malloc(i64 noundef 4) #20
   %tobool.not = icmp eq ptr %call, null
@@ -8084,7 +8084,7 @@ declare i32 @wc_FreeRwLock(ptr noundef) local_unnamed_addr #1
 declare i32 @wolfCrypt_Cleanup() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @SetupSession(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define void @SetupSession(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #0 {
 entry:
   %session1 = getelementptr inbounds nuw i8, ptr %ssl, i64 608
   %0 = load ptr, ptr %session1, align 16
@@ -8184,13 +8184,13 @@ if.end29:                                         ; preds = %if.then24, %land.lh
 declare i32 @LowResTimer() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @wolfSSL_flush_sessions(ptr nocapture noundef readnone %ctx, i64 noundef %tm) local_unnamed_addr #6 {
+define void @wolfSSL_flush_sessions(ptr noundef readnone captures(none) %ctx, i64 noundef %tm) local_unnamed_addr #6 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wolfSSL_CTX_flush_sessions(ptr nocapture noundef readnone %ctx, i64 noundef %tm) local_unnamed_addr #0 {
+define void @wolfSSL_CTX_flush_sessions(ptr noundef readnone captures(none) %ctx, i64 noundef %tm) local_unnamed_addr #0 {
 entry:
   %id = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %id, i8 0, i64 32, i1 false)
@@ -8321,7 +8321,7 @@ if.end7:                                          ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @HashObject(ptr noundef %o, i32 noundef %len, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %error) unnamed_addr #0 {
+define internal fastcc i32 @HashObject(ptr noundef %o, i32 noundef %len, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %error) unnamed_addr #0 {
 entry:
   %digest = alloca [64 x i8], align 16
   %call = call i32 @wc_Md5Hash(ptr noundef %o, i32 noundef %len, ptr noundef nonnull %digest) #20
@@ -8364,14 +8364,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TlsSessionCacheGetAndRdLock(ptr noundef %id, ptr nocapture noundef initializes((0, 8)) %sess, ptr nocapture noundef writeonly %lockedRow, i8 noundef zeroext %side) local_unnamed_addr #0 {
+define i32 @TlsSessionCacheGetAndRdLock(ptr noundef %id, ptr noundef captures(none) initializes((0, 8)) %sess, ptr noundef writeonly captures(none) %lockedRow, i8 noundef zeroext %side) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef %id, ptr noundef %sess, ptr noundef %lockedRow, i8 noundef zeroext 1, i8 noundef zeroext %side)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef %id, ptr nocapture noundef initializes((0, 8)) %sess, ptr nocapture noundef writeonly %lockedRow, i8 noundef zeroext range(i8 0, 2) %readOnly, i8 noundef zeroext %side) unnamed_addr #0 {
+define internal fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef %id, ptr noundef captures(none) initializes((0, 8)) %sess, ptr noundef writeonly captures(none) %lockedRow, i8 noundef zeroext range(i8 0, 2) %readOnly, i8 noundef zeroext %side) unnamed_addr #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   store ptr null, ptr %sess, align 8
@@ -8485,14 +8485,14 @@ return:                                           ; preds = %HashObject.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TlsSessionCacheGetAndWrLock(ptr noundef %id, ptr nocapture noundef initializes((0, 8)) %sess, ptr nocapture noundef writeonly %lockedRow, i8 noundef zeroext %side) local_unnamed_addr #0 {
+define i32 @TlsSessionCacheGetAndWrLock(ptr noundef %id, ptr noundef captures(none) initializes((0, 8)) %sess, ptr noundef writeonly captures(none) %lockedRow, i8 noundef zeroext %side) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef %id, ptr noundef %sess, ptr noundef %lockedRow, i8 noundef zeroext 0, i8 noundef zeroext %side)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wolfSSL_GetSessionFromCache(ptr nocapture noundef readonly %ssl, ptr noundef %output) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wolfSSL_GetSessionFromCache(ptr noundef readonly captures(none) %ssl, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   %sess = alloca ptr, align 8
   %row = alloca i32, align 4
@@ -8709,7 +8709,7 @@ wolfSSL_DupSessionEx.exit:                        ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wolfSSL_GetSession(ptr nocapture noundef readonly %ssl, ptr noundef writeonly %masterSecret, i8 noundef zeroext %restoreSessionCerts) local_unnamed_addr #0 {
+define ptr @wolfSSL_GetSession(ptr noundef readonly captures(none) %ssl, ptr noundef writeonly %masterSecret, i8 noundef zeroext %restoreSessionCerts) local_unnamed_addr #0 {
 entry:
   %session = getelementptr inbounds nuw i8, ptr %ssl, i64 608
   %0 = load ptr, ptr %session, align 16
@@ -8836,7 +8836,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wolfSSL_FreeSession(ptr nocapture readnone %ctx, ptr noundef %session) local_unnamed_addr #0 {
+define void @wolfSSL_FreeSession(ptr readnone captures(none) %ctx, ptr noundef %session) local_unnamed_addr #0 {
 entry:
   %ret = alloca i32, align 4
   %isZero = alloca i32, align 4
@@ -9250,13 +9250,13 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @wolfSSL_set_compression(ptr nocapture noundef readnone %ssl) local_unnamed_addr #6 {
+define noundef i32 @wolfSSL_set_compression(ptr noundef readnone captures(none) %ssl) local_unnamed_addr #6 {
 entry:
   ret i32 -174
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -303, -2147483648) i32 @wolfSSL_writev(ptr noundef %ssl, ptr nocapture noundef readonly %iov, i32 noundef %iovcnt) local_unnamed_addr #0 {
+define range(i32 -303, -2147483648) i32 @wolfSSL_writev(ptr noundef %ssl, ptr noundef readonly captures(none) %iov, i32 noundef %iovcnt) local_unnamed_addr #0 {
 entry:
   %staticBuffer = alloca [1024 x i8], align 16
   %cmp20 = icmp sgt i32 %iovcnt, 0
@@ -10206,7 +10206,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wolfSSL_CTX_add_session(ptr nocapture noundef readnone %ctx, ptr noundef %session) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wolfSSL_CTX_add_session(ptr noundef readnone captures(none) %ctx, ptr noundef %session) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ClientSessionToSession(ptr noundef %session)
   %cmp = icmp eq ptr %call, null
@@ -10685,7 +10685,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65280) i32 @wolfSSL_version(ptr nocapture noundef readonly %ssl) local_unnamed_addr #7 {
+define range(i32 0, 65280) i32 @wolfSSL_version(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #7 {
 entry:
   %version = getelementptr inbounds nuw i8, ptr %ssl, i64 694
   %0 = load i8, ptr %version, align 2
@@ -10724,14 +10724,14 @@ return:                                           ; preds = %if.then13, %switch.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @wolfSSL_get_SSL_CTX(ptr nocapture noundef readonly %ssl) local_unnamed_addr #7 {
+define ptr @wolfSSL_get_SSL_CTX(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %ssl, align 16
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wolfSSL_X509_check_host(ptr noundef readonly %x, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags, ptr nocapture noundef readnone %peername) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wolfSSL_X509_check_host(ptr noundef readonly %x, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags, ptr noundef readnone captures(none) %peername) local_unnamed_addr #0 {
 entry:
   %dCert = alloca [1 x %struct.DecodedCert], align 16
   %cmp = icmp eq ptr %x, null
@@ -10844,16 +10844,16 @@ declare i32 @llvm.umax.i32(i32, i32) #16
 declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16

@@ -749,7 +749,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_139Waiter_PrintPlatformImplementation_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_139Waiter_PrintPlatformImplementation_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -762,7 +762,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_139Waiter_PrintPlatformImplementation_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_139Waiter_PrintPlatformImplementation_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -806,7 +806,7 @@ declare void @_ZN7testing4Test5SetUpEv(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN7testing4Test8TearDownEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_139Waiter_PrintPlatformImplementation_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_139Waiter_PrintPlatformImplementation_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZN4absl24synchronization_internal11FutexWaiter5kNameE)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -866,7 +866,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -874,7 +874,7 @@ declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr sret(%"cl
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal5posix5AbortEv() local_unnamed_addr #12 comdat {
@@ -1028,7 +1028,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #15
@@ -1169,7 +1169,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -1238,26 +1238,15 @@ cond.true:                                        ; preds = %entry
 
 call.i.noexc:                                     ; preds = %cond.true
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %.noexc unwind label %lpad
+          to label %if.end.i unwind label %lpad
 
-.noexc:                                           ; preds = %call.i.noexc
-  %cmp.i = icmp eq ptr %str, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %.noexc
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.27) #30
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %if.then.i
-  unreachable
-
-lpad.i:                                           ; preds = %if.end.i, %if.then.i
+lpad.i:                                           ; preds = %if.end.i
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #27
   br label %eh.resume
 
-if.end.i:                                         ; preds = %.noexc
+if.end.i:                                         ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #27
   %add.ptr.i = getelementptr inbounds i8, ptr %str, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %str, ptr noundef nonnull %add.ptr.i)
@@ -1275,7 +1264,7 @@ call.i.noexc8:                                    ; preds = %cond.false
 .noexc10:                                         ; preds = %call.i.noexc8
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %str, ptr noundef nonnull %call)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %str, ptr noundef nonnull %call)
           to label %cleanup.done10 unwind label %lpad.i6
 
 lpad.i6:                                          ; preds = %.noexc10
@@ -1387,7 +1376,7 @@ if.end:                                           ; preds = %_ZNKSt3mapINSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_110WaiterTestENS0_9TemplatesINS2_23gtest_suite_WaiterTest_17WaitDurationWokenEJNS5_13WaitTimeWokenENS5_19WaitDurationReachedENS5_15WaitTimeReachedEEEENS0_5TypesIN4absl24synchronization_internal11FutexWaiterEJEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESI_SI_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EE(ptr noundef nonnull %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_110WaiterTestENS0_9TemplatesINS2_23gtest_suite_WaiterTest_17WaitDurationWokenEJNS5_13WaitTimeWokenENS5_19WaitDurationReachedENS5_15WaitTimeReachedEEEENS0_5TypesIN4absl24synchronization_internal11FutexWaiterEJEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESI_SI_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EE(ptr noundef nonnull %code_location, ptr noundef %test_names, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %__guard.i.i = alloca %struct._Guard, align 8
@@ -3508,7 +3497,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad.bo
 declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #18
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31CanonicalizeForStdLibVersioningENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %s) local_unnamed_addr #3 comdat {
@@ -3555,7 +3544,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal11FutexWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal11FutexWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -3568,7 +3557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal11FutexWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal11FutexWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -3624,7 +3613,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal11FutexWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal11FutexWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %lhs.i.i16 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -3946,7 +3935,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110WaiterTestIN4absl24synchronization_internal11FutexWaiterEED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #19 align 2 {
+define internal void @_ZN12_GLOBAL__N_110WaiterTestIN4absl24synchronization_internal11FutexWaiterEED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #19 align 2 {
 entry:
   tail call void @llvm.trap() #28
   unreachable
@@ -4591,7 +4580,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EED2Ev.exit:   ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Deque_baseIN4absl12AnyInvocableIFvvEEESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__num_elements) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5148,10 +5137,10 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutINS_24synchronization_internal11FutexWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr nocapture noundef readonly %state) #3 {
+define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutINS_24synchronization_internal11FutexWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr noundef readonly captures(none) %state) #3 {
 entry:
   %0 = load ptr, ptr %state, align 8
   tail call void @_ZN4absl24synchronization_internal11FutexWaiter4PokeEv(ptr noundef nonnull align 4 dereferenceable(4) %0)
@@ -5791,7 +5780,7 @@ declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEd(p
 declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal11FutexWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal11FutexWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -5804,7 +5793,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal11FutexWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal11FutexWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -5860,7 +5849,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal11FutexWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal11FutexWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %lhs.i.i19 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -6300,7 +6289,7 @@ ehcleanup85:                                      ; preds = %ehcleanup84, %ehcle
 declare void @_ZN4absl24synchronization_internal13KernelTimeoutC1ENS_8DurationE(ptr noundef nonnull align 8 dereferenceable(8), i64, i32) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenINS_24synchronization_internal11FutexWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr nocapture noundef readonly %state) #3 {
+define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenINS_24synchronization_internal11FutexWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr noundef readonly captures(none) %state) #3 {
 entry:
   %0 = load ptr, ptr %state, align 8
   tail call void @_ZN4absl24synchronization_internal11FutexWaiter4PokeEv(ptr noundef nonnull align 4 dereferenceable(4) %0)
@@ -6311,7 +6300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal11FutexWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal11FutexWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -6324,7 +6313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal11FutexWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal11FutexWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -6380,7 +6369,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal11FutexWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal11FutexWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %lhs.i.i22 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -6829,7 +6818,7 @@ ehcleanup90:                                      ; preds = %ehcleanup89, %ehcle
 declare void @_ZN4absl24synchronization_internal13KernelTimeoutC1ENS_4TimeE(ptr noundef nonnull align 8 dereferenceable(8), i64, i32) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenINS_24synchronization_internal11FutexWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr nocapture noundef readonly %state) #3 {
+define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenINS_24synchronization_internal11FutexWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr noundef readonly captures(none) %state) #3 {
 entry:
   %0 = load ptr, ptr %state, align 8
   tail call void @_ZN4absl24synchronization_internal11FutexWaiter4PokeEv(ptr noundef nonnull align 4 dereferenceable(4) %0)
@@ -6842,7 +6831,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull align 4 dereferenceable(12), i64, i32) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal11FutexWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal11FutexWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -6855,7 +6844,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal11FutexWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal11FutexWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -6911,7 +6900,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal11FutexWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal11FutexWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i18 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -7295,7 +7284,7 @@ eh.resume:                                        ; preds = %lpad58, %_ZN7testin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal11FutexWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal11FutexWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -7308,7 +7297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal11FutexWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal11FutexWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -7364,7 +7353,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal11FutexWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal11FutexWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i21 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -7912,7 +7901,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_110WaiterTestENS0_9TemplatesINS2_23gtest_suite_WaiterTest_17WaitDurationWokenEJNS5_13WaitTimeWokenENS5_19WaitDurationReachedENS5_15WaitTimeReachedEEEENS0_5TypesIN4absl24synchronization_internal13PthreadWaiterEJEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESI_SI_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EE(ptr noundef nonnull %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_110WaiterTestENS0_9TemplatesINS2_23gtest_suite_WaiterTest_17WaitDurationWokenEJNS5_13WaitTimeWokenENS5_19WaitDurationReachedENS5_15WaitTimeReachedEEEENS0_5TypesIN4absl24synchronization_internal13PthreadWaiterEJEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESI_SI_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EE(ptr noundef nonnull %code_location, ptr noundef %test_names, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %__guard.i.i = alloca %struct._Guard, align 8
@@ -9918,7 +9907,7 @@ eh.resume:                                        ; preds = %lpad19.body, %ehcle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal13PthreadWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal13PthreadWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -9931,7 +9920,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal13PthreadWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal13PthreadWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -9987,7 +9976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal13PthreadWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal13PthreadWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i16 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -10312,7 +10301,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110WaiterTestIN4absl24synchronization_internal13PthreadWaiterEED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #19 align 2 {
+define internal void @_ZN12_GLOBAL__N_110WaiterTestIN4absl24synchronization_internal13PthreadWaiterEED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #19 align 2 {
 entry:
   tail call void @llvm.trap() #28
   unreachable
@@ -10323,7 +10312,7 @@ declare void @_ZN4absl24synchronization_internal13PthreadWaiterC1Ev(ptr noundef 
 declare noundef zeroext i1 @_ZN4absl24synchronization_internal13PthreadWaiter4WaitENS0_13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(96), i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutINS_24synchronization_internal13PthreadWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr nocapture noundef readonly %state) #3 {
+define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutINS_24synchronization_internal13PthreadWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr noundef readonly captures(none) %state) #3 {
 entry:
   %0 = load ptr, ptr %state, align 8
   tail call void @_ZN4absl24synchronization_internal13PthreadWaiter4PokeEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
@@ -10341,7 +10330,7 @@ declare void @_ZN4absl24synchronization_internal13PthreadWaiter4PokeEv(ptr nound
 declare void @_ZN4absl24synchronization_internal13PthreadWaiter4PostEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal13PthreadWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal13PthreadWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -10354,7 +10343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal13PthreadWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal13PthreadWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -10410,7 +10399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal13PthreadWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal13PthreadWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i19 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -10851,7 +10840,7 @@ ehcleanup85:                                      ; preds = %ehcleanup84, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenINS_24synchronization_internal13PthreadWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr nocapture noundef readonly %state) #3 {
+define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenINS_24synchronization_internal13PthreadWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr noundef readonly captures(none) %state) #3 {
 entry:
   %0 = load ptr, ptr %state, align 8
   tail call void @_ZN4absl24synchronization_internal13PthreadWaiter4PokeEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
@@ -10862,7 +10851,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal13PthreadWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal13PthreadWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -10875,7 +10864,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal13PthreadWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal13PthreadWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -10931,7 +10920,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal13PthreadWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal13PthreadWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i22 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -11381,7 +11370,7 @@ ehcleanup90:                                      ; preds = %ehcleanup89, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenINS_24synchronization_internal13PthreadWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr nocapture noundef readonly %state) #3 {
+define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenINS_24synchronization_internal13PthreadWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr noundef readonly captures(none) %state) #3 {
 entry:
   %0 = load ptr, ptr %state, align 8
   tail call void @_ZN4absl24synchronization_internal13PthreadWaiter4PokeEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
@@ -11392,7 +11381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal13PthreadWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal13PthreadWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -11405,7 +11394,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal13PthreadWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal13PthreadWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -11461,7 +11450,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal13PthreadWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal13PthreadWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i18 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -11845,7 +11834,7 @@ eh.resume:                                        ; preds = %lpad58, %_ZN7testin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal13PthreadWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal13PthreadWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -11858,7 +11847,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal13PthreadWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal13PthreadWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -11914,7 +11903,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal13PthreadWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal13PthreadWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i21 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -12384,7 +12373,7 @@ lpad:                                             ; preds = %if.else.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_110WaiterTestENS0_9TemplatesINS2_23gtest_suite_WaiterTest_17WaitDurationWokenEJNS5_13WaitTimeWokenENS5_19WaitDurationReachedENS5_15WaitTimeReachedEEEENS0_5TypesIN4absl24synchronization_internal9SemWaiterEJEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESI_SI_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EE(ptr noundef nonnull %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_110WaiterTestENS0_9TemplatesINS2_23gtest_suite_WaiterTest_17WaitDurationWokenEJNS5_13WaitTimeWokenENS5_19WaitDurationReachedENS5_15WaitTimeReachedEEEENS0_5TypesIN4absl24synchronization_internal9SemWaiterEJEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESI_SI_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EE(ptr noundef nonnull %code_location, ptr noundef %test_names, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %__guard.i.i = alloca %struct._Guard, align 8
@@ -14390,7 +14379,7 @@ eh.resume:                                        ; preds = %lpad19.body, %ehcle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal9SemWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal9SemWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -14403,7 +14392,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal9SemWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal9SemWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -14459,7 +14448,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal9SemWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal9SemWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i16 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -14784,7 +14773,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110WaiterTestIN4absl24synchronization_internal9SemWaiterEED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #19 align 2 {
+define internal void @_ZN12_GLOBAL__N_110WaiterTestIN4absl24synchronization_internal9SemWaiterEED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #19 align 2 {
 entry:
   tail call void @llvm.trap() #28
   unreachable
@@ -14795,7 +14784,7 @@ declare void @_ZN4absl24synchronization_internal9SemWaiterC1Ev(ptr noundef nonnu
 declare noundef zeroext i1 @_ZN4absl24synchronization_internal9SemWaiter4WaitENS0_13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(36), i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutINS_24synchronization_internal9SemWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr nocapture noundef readonly %state) #3 {
+define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutINS_24synchronization_internal9SemWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr noundef readonly captures(none) %state) #3 {
 entry:
   %0 = load ptr, ptr %state, align 8
   tail call void @_ZN4absl24synchronization_internal9SemWaiter4PokeEv(ptr noundef nonnull align 8 dereferenceable(36) %0)
@@ -14813,7 +14802,7 @@ declare void @_ZN4absl24synchronization_internal9SemWaiter4PokeEv(ptr noundef no
 declare void @_ZN4absl24synchronization_internal9SemWaiter4PostEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal9SemWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal9SemWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -14826,7 +14815,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal9SemWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal9SemWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -14882,7 +14871,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal9SemWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal9SemWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i19 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -15323,7 +15312,7 @@ ehcleanup85:                                      ; preds = %ehcleanup84, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenINS_24synchronization_internal9SemWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr nocapture noundef readonly %state) #3 {
+define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenINS_24synchronization_internal9SemWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr noundef readonly captures(none) %state) #3 {
 entry:
   %0 = load ptr, ptr %state, align 8
   tail call void @_ZN4absl24synchronization_internal9SemWaiter4PokeEv(ptr noundef nonnull align 8 dereferenceable(36) %0)
@@ -15334,7 +15323,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal9SemWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal9SemWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -15347,7 +15336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal9SemWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal9SemWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -15403,7 +15392,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal9SemWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal9SemWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i22 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -15853,7 +15842,7 @@ ehcleanup90:                                      ; preds = %ehcleanup89, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenINS_24synchronization_internal9SemWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr nocapture noundef readonly %state) #3 {
+define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenINS_24synchronization_internal9SemWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr noundef readonly captures(none) %state) #3 {
 entry:
   %0 = load ptr, ptr %state, align 8
   tail call void @_ZN4absl24synchronization_internal9SemWaiter4PokeEv(ptr noundef nonnull align 8 dereferenceable(36) %0)
@@ -15864,7 +15853,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal9SemWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal9SemWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -15877,7 +15866,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal9SemWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal9SemWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -15933,7 +15922,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal9SemWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal9SemWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i18 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -16317,7 +16306,7 @@ eh.resume:                                        ; preds = %lpad58, %_ZN7testin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal9SemWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal9SemWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -16330,7 +16319,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal9SemWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal9SemWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -16386,7 +16375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal9SemWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal9SemWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i21 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -16856,7 +16845,7 @@ lpad:                                             ; preds = %if.else.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_110WaiterTestENS0_9TemplatesINS2_23gtest_suite_WaiterTest_17WaitDurationWokenEJNS5_13WaitTimeWokenENS5_19WaitDurationReachedENS5_15WaitTimeReachedEEEENS0_5TypesIN4absl24synchronization_internal12StdcppWaiterEJEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESI_SI_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EE(ptr noundef nonnull %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_110WaiterTestENS0_9TemplatesINS2_23gtest_suite_WaiterTest_17WaitDurationWokenEJNS5_13WaitTimeWokenENS5_19WaitDurationReachedENS5_15WaitTimeReachedEEEENS0_5TypesIN4absl24synchronization_internal12StdcppWaiterEJEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESI_SI_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EE(ptr noundef nonnull %code_location, ptr noundef %test_names, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %__guard.i.i = alloca %struct._Guard, align 8
@@ -18862,7 +18851,7 @@ eh.resume:                                        ; preds = %lpad19.body, %ehcle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal12StdcppWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal12StdcppWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -18875,7 +18864,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal12StdcppWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal12StdcppWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -18931,7 +18920,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal12StdcppWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutIN4absl24synchronization_internal12StdcppWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i17 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -19269,7 +19258,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110WaiterTestIN4absl24synchronization_internal12StdcppWaiterEED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #19 align 2 {
+define internal void @_ZN12_GLOBAL__N_110WaiterTestIN4absl24synchronization_internal12StdcppWaiterEED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #19 align 2 {
 entry:
   tail call void @llvm.trap() #28
   unreachable
@@ -19280,7 +19269,7 @@ declare void @_ZN4absl24synchronization_internal12StdcppWaiterC1Ev(ptr noundef n
 declare noundef zeroext i1 @_ZN4absl24synchronization_internal12StdcppWaiter4WaitENS0_13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(96), i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutINS_24synchronization_internal12StdcppWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr nocapture noundef readonly %state) #3 {
+define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitNoTimeoutINS_24synchronization_internal12StdcppWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr noundef readonly captures(none) %state) #3 {
 entry:
   %0 = load ptr, ptr %state, align 8
   tail call void @_ZN4absl24synchronization_internal12StdcppWaiter4PokeEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
@@ -19301,7 +19290,7 @@ declare void @_ZN4absl24synchronization_internal12StdcppWaiter4PostEv(ptr nounde
 declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal12StdcppWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal12StdcppWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -19314,7 +19303,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal12StdcppWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal12StdcppWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -19370,7 +19359,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal12StdcppWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenIN4absl24synchronization_internal12StdcppWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i20 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -19824,7 +19813,7 @@ ehcleanup87:                                      ; preds = %ehcleanup86, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenINS_24synchronization_internal12StdcppWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr nocapture noundef readonly %state) #3 {
+define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_17WaitDurationWokenINS_24synchronization_internal12StdcppWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr noundef readonly captures(none) %state) #3 {
 entry:
   %0 = load ptr, ptr %state, align 8
   tail call void @_ZN4absl24synchronization_internal12StdcppWaiter4PokeEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
@@ -19835,7 +19824,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal12StdcppWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal12StdcppWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -19848,7 +19837,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal12StdcppWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal12StdcppWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -19904,7 +19893,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal12StdcppWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenIN4absl24synchronization_internal12StdcppWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i23 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -20367,7 +20356,7 @@ ehcleanup92:                                      ; preds = %ehcleanup91, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenINS_24synchronization_internal12StdcppWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr nocapture noundef readonly %state) #3 {
+define internal void @_ZN4absl22internal_any_invocable12LocalInvokerILb0EvRZN12_GLOBAL__N_123gtest_suite_WaiterTest_13WaitTimeWokenINS_24synchronization_internal12StdcppWaiterEE8TestBodyEvEUlvE_JEEET0_PNS0_15TypeErasedStateEDpNS0_18ForwardedParameterIT2_E4typeE(ptr noundef readonly captures(none) %state) #3 {
 entry:
   %0 = load ptr, ptr %state, align 8
   tail call void @_ZN4absl24synchronization_internal12StdcppWaiter4PokeEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
@@ -20378,7 +20367,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal12StdcppWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal12StdcppWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -20391,7 +20380,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal12StdcppWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal12StdcppWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -20447,7 +20436,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal12StdcppWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_19WaitDurationReachedIN4absl24synchronization_internal12StdcppWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i18 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -20866,7 +20855,7 @@ ehcleanup79:                                      ; preds = %ehcleanup78, %ehcle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal12StdcppWaiterEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal12StdcppWaiterEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -20879,7 +20868,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal12StdcppWaiterEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal12StdcppWaiterEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -20935,7 +20924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal12StdcppWaiterEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123gtest_suite_WaiterTest_15WaitTimeReachedIN4absl24synchronization_internal12StdcppWaiterEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i21 = alloca %"class.absl::Duration", align 8
   %lhs.i.i = alloca %"class.absl::Duration", align 8
@@ -24015,10 +24004,10 @@ __cxx_global_var_init.24.exit:                    ; preds = %invoke.cont.i15.i69
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25

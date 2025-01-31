@@ -141,7 +141,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.74 = private unnamed_addr constant [65 x i8] c"net_rx_pkt_l4_csum_fix_csum L4 Checksum: Offset: %u, value 0x%X\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_rx_pkt_init(ptr nocapture noundef writeonly initializes((0, 8)) %pkt) local_unnamed_addr #0 {
+define dso_local void @net_rx_pkt_init(ptr noundef writeonly captures(none) initializes((0, 8)) %pkt) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(248) ptr @g_malloc0(i64 noundef 248) #10
   %vec = getelementptr inbounds nuw i8, ptr %call, i64 32
@@ -414,7 +414,7 @@ if.end:                                           ; preds = %entry
 declare i64 @eth_strip_vlan_ex(ptr noundef, i32 noundef, i64 noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @net_rx_pkt_dump(ptr nocapture noundef readnone %pkt) local_unnamed_addr #4 {
+define dso_local void @net_rx_pkt_dump(ptr noundef readnone captures(none) %pkt) local_unnamed_addr #4 {
 entry:
   ret void
 }
@@ -494,7 +494,7 @@ if.end:                                           ; preds = %entry
 declare void @eth_get_protocols(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_rx_pkt_get_protocols(ptr noundef readonly %pkt, ptr nocapture noundef writeonly %hasip4, ptr nocapture noundef writeonly %hasip6, ptr nocapture noundef writeonly %l4hdr_proto) local_unnamed_addr #0 {
+define dso_local void @net_rx_pkt_get_protocols(ptr noundef readonly %pkt, ptr noundef writeonly captures(none) %hasip4, ptr noundef writeonly captures(none) %hasip6, ptr noundef writeonly captures(none) %l4hdr_proto) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -581,7 +581,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @net_rx_pkt_calc_rss_hash(ptr noundef %pkt, i32 noundef %type, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local i32 @net_rx_pkt_calc_rss_hash(ptr noundef %pkt, i32 noundef %type, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %_now.i.i143 = alloca %struct.timeval, align 8
   %_now.i.i128 = alloca %struct.timeval, align 8
@@ -1197,7 +1197,7 @@ trace_net_rx_pkt_rss_hash.exit:                   ; preds = %net_toeplitz_add.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @_net_rx_rss_prepare_ip4(ptr nocapture noundef nonnull writeonly %rss_input, ptr noundef %pkt, ptr nocapture noundef nonnull %bytes_written) unnamed_addr #0 {
+define internal fastcc void @_net_rx_rss_prepare_ip4(ptr noundef nonnull writeonly captures(none) %rss_input, ptr noundef %pkt, ptr noundef nonnull captures(none) %bytes_written) unnamed_addr #0 {
 entry:
   %_now.i.i.i4 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1290,7 +1290,7 @@ _net_rx_rss_add_chunk.exit20:                     ; preds = %_net_rx_rss_add_chu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @_net_rx_rss_prepare_tcp(ptr nocapture noundef nonnull writeonly %rss_input, ptr noundef %pkt, ptr nocapture noundef nonnull %bytes_written) unnamed_addr #0 {
+define internal fastcc void @_net_rx_rss_prepare_tcp(ptr noundef nonnull writeonly captures(none) %rss_input, ptr noundef %pkt, ptr noundef nonnull captures(none) %bytes_written) unnamed_addr #0 {
 entry:
   %_now.i.i.i4 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1383,7 +1383,7 @@ _net_rx_rss_add_chunk.exit20:                     ; preds = %_net_rx_rss_add_chu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @_net_rx_rss_prepare_ip6(ptr nocapture noundef nonnull writeonly %rss_input, ptr noundef %pkt, i1 noundef zeroext %ipv6ex, ptr nocapture noundef nonnull %bytes_written) unnamed_addr #0 {
+define internal fastcc void @_net_rx_rss_prepare_ip6(ptr noundef nonnull writeonly captures(none) %rss_input, ptr noundef %pkt, i1 noundef zeroext %ipv6ex, ptr noundef nonnull captures(none) %bytes_written) unnamed_addr #0 {
 entry:
   %_now.i.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1500,7 +1500,7 @@ _net_rx_rss_add_chunk.exit25:                     ; preds = %cond.end8, %land.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @_net_rx_rss_prepare_udp(ptr nocapture noundef nonnull writeonly %rss_input, ptr noundef %pkt, ptr nocapture noundef nonnull %bytes_written) unnamed_addr #0 {
+define internal fastcc void @_net_rx_rss_prepare_udp(ptr noundef nonnull writeonly captures(none) %rss_input, ptr noundef %pkt, ptr noundef nonnull captures(none) %bytes_written) unnamed_addr #0 {
 entry:
   %_now.i.i.i4 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1707,7 +1707,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_rx_pkt_set_vhdr(ptr noundef writeonly %pkt, ptr nocapture noundef readonly %vhdr) local_unnamed_addr #0 {
+define dso_local void @net_rx_pkt_set_vhdr(ptr noundef writeonly %pkt, ptr noundef readonly captures(none) %vhdr) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1722,7 +1722,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @net_rx_pkt_set_vhdr_iovec(ptr noundef %pkt, ptr noundef %iov, i32 noundef %iovcnt) local_unnamed_addr #0 {
@@ -1773,7 +1773,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @net_rx_pkt_is_vlan_stripped(ptr noundef readonly %pkt) local_unnamed_addr #0 {
@@ -1809,7 +1809,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @net_rx_pkt_validate_l3_csum(ptr nocapture noundef readonly %pkt, ptr nocapture noundef writeonly %csum_valid) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_rx_pkt_validate_l3_csum(ptr noundef readonly captures(none) %pkt, ptr noundef writeonly captures(none) %csum_valid) local_unnamed_addr #0 {
 entry:
   %_now.i.i25 = alloca %struct.timeval, align 8
   %_now.i.i11 = alloca %struct.timeval, align 8
@@ -1958,7 +1958,7 @@ declare i32 @net_checksum_add_iov(ptr noundef, i32 noundef, i32 noundef, i32 nou
 declare zeroext i16 @net_checksum_finish(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @net_rx_pkt_validate_l4_csum(ptr noundef %pkt, ptr nocapture noundef writeonly %csum_valid) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_rx_pkt_validate_l4_csum(ptr noundef %pkt, ptr noundef writeonly captures(none) %csum_valid) local_unnamed_addr #0 {
 entry:
   %_now.i.i51 = alloca %struct.timeval, align 8
   %_now.i.i37 = alloca %struct.timeval, align 8
@@ -3069,7 +3069,7 @@ declare i32 @iov_copy(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 no
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -3094,10 +3094,10 @@ declare i32 @iov_crc32c(i32 noundef, ptr noundef, i64 noundef) local_unnamed_add
 declare i64 @iov_from_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

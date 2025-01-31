@@ -152,7 +152,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @locale_traverse(ptr noundef %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @locale_traverse(ptr noundef %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #6
   %0 = load ptr, ptr %call.i, align 8
@@ -231,7 +231,7 @@ locale_clear.exit:                                ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_locale_setlocale(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_locale_setlocale(ptr noundef %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %locale_length = alloca i64, align 8
   %0 = add i64 %nargs, -1
@@ -329,7 +329,7 @@ exit:                                             ; preds = %if.end13.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_locale_localeconv(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_locale_localeconv(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %decimal_point.i = alloca ptr, align 8
   %thousands_sep.i = alloca ptr, align 8
@@ -1208,7 +1208,7 @@ _locale_localeconv_impl.exit:                     ; preds = %entry, %if.end181.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_locale_strcoll(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_locale_strcoll(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -1276,7 +1276,7 @@ exit:                                             ; preds = %if.end11.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_locale_strxfrm(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_locale_strxfrm(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %n1.i = alloca i64, align 8
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -1388,7 +1388,7 @@ exit:                                             ; preds = %_locale_strxfrm_imp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_locale_nl_langinfo(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_locale_nl_langinfo(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #6
   %cmp = icmp eq i32 %call, -1
@@ -1457,7 +1457,7 @@ exit:                                             ; preds = %for.end.i13, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_locale_gettext(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_locale_gettext(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %in_length = alloca i64, align 8
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -1499,7 +1499,7 @@ exit:                                             ; preds = %if.end, %if.end8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_locale_dgettext(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_locale_dgettext(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %domain_length = alloca i64, align 8
   %in_length = alloca i64, align 8
@@ -1588,7 +1588,7 @@ exit:                                             ; preds = %if.end28, %if.then8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_locale_dcgettext(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_locale_dcgettext(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %domain_length = alloca i64, align 8
   %msgid_length = alloca i64, align 8
@@ -1694,7 +1694,7 @@ exit:                                             ; preds = %if.end37.split, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_locale_textdomain(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_locale_textdomain(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %domain_length = alloca i64, align 8
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
@@ -1750,7 +1750,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_locale_bindtextdomain(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_locale_bindtextdomain(ptr noundef %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %dirname_bytes.i = alloca ptr, align 8
   %domain_length = alloca i64, align 8
@@ -1883,7 +1883,7 @@ exit:                                             ; preds = %if.end7, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_locale_bind_textdomain_codeset(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_locale_bind_textdomain_codeset(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %domain_length = alloca i64, align 8
   %codeset_length = alloca i64, align 8
@@ -1976,7 +1976,7 @@ exit:                                             ; preds = %if.then.i, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_locale_getencoding(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_locale_getencoding(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @_Py_GetLocaleEncodingObject() #6
   ret ptr %call.i
@@ -1991,7 +1991,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2010,7 +2010,7 @@ declare ptr @PyDict_New() local_unnamed_addr #1
 declare ptr @localeconv() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @copy_grouping(ptr nocapture noundef readonly %s) unnamed_addr #0 {
+define internal fastcc ptr @copy_grouping(ptr noundef readonly captures(none) %s) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %s, align 1
   %cmp = icmp eq i8 %0, 0
@@ -2125,7 +2125,7 @@ declare ptr @_PyMem_Strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
@@ -2139,7 +2139,7 @@ declare ptr @PyUnicode_AsWideCharString(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @wcscoll(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
@@ -2268,10 +2268,10 @@ declare ptr @PyErr_NewException(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

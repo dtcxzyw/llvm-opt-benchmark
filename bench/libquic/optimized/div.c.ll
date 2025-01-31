@@ -935,7 +935,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 declare i32 @BN_num_bits_word(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @BN_mod_word(ptr nocapture noundef readonly %a, i64 noundef %w) local_unnamed_addr #2 {
+define hidden i64 @BN_mod_word(ptr noundef readonly captures(none) %a, i64 noundef %w) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %w, 0
   br i1 %cmp, label %return, label %if.end

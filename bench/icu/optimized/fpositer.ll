@@ -52,7 +52,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7521FieldPositionIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7521FieldPositionIteratorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7521FieldPositionIteratorE, i64 16), ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -63,7 +63,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521FieldPositionIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521FieldPositionIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 20)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7521FieldPositionIteratorE, i64 16), ptr %this, align 8
@@ -180,7 +180,7 @@ return:                                           ; preds = %if.end5, %cond.true
 declare noundef zeroext i1 @_ZNK6icu_759UVector32eqERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521FieldPositionIterator7setDataEPNS_9UVector32ER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %adopt, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7521FieldPositionIterator7setDataEPNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %adopt, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -292,7 +292,7 @@ return:                                           ; preds = %if.end20.thread, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7521FieldPositionIterator4nextERNS_13FieldPositionE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %fp) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7521FieldPositionIterator4nextERNS_13FieldPositionE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) %fp) local_unnamed_addr #5 align 2 {
 entry:
   %pos = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %pos, align 8

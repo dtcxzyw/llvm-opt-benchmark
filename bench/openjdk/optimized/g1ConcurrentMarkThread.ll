@@ -436,7 +436,7 @@ declare void @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 derefer
 declare void @_ZN18ConcurrentGCThread16create_and_startE14ThreadPriority(ptr noundef nonnull align 8 dereferenceable(918), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZN22G1ConcurrentMarkThread13mmu_delay_endEP8G1Policyb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(948) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef double @_ZN22G1ConcurrentMarkThread13mmu_delay_endEP8G1Policyb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(948) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN20SuspendibleThreadSet4joinEv() #11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -760,7 +760,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm128EEC2EPKcz(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1ConcurrentMarkThread22concurrent_cycle_startEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22G1ConcurrentMarkThread22concurrent_cycle_startEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN16G1ConcurrentMark22concurrent_cycle_startEv(ptr noundef nonnull align 8 dereferenceable(1849) %3) #11
@@ -859,7 +859,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1ConcurrentMarkThread24concurrent_undo_cycle_doEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22G1ConcurrentMarkThread24concurrent_undo_cycle_doEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.HandleMark, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
@@ -918,7 +918,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %28, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1ConcurrentMarkThread20concurrent_cycle_endEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(948) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22G1ConcurrentMarkThread20concurrent_cycle_endEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(948) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
 _ZN26SuspendibleThreadSetJoinerD2Ev.exit:
   tail call void @_ZN23ConcurrentGCBreakpoints2atEPKc(ptr noundef nonnull @.str.21) #11
   tail call void @_ZN20SuspendibleThreadSet4joinEv() #11
@@ -1007,7 +1007,7 @@ declare void @_ZN16G1ConcurrentMark21abort_marking_threadsEv(ptr noundef nonnull
 declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread29phase_clear_cld_claimed_marksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread29phase_clear_cld_claimed_marksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.TimeInstant, align 8
   %3 = alloca %class.TimeInstant, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 936
@@ -1238,7 +1238,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_80ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread24subphase_mark_from_rootsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread24subphase_mark_from_rootsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.TimeInstant, align 8
   %3 = alloca %class.TimeInstant, align 8
   tail call void @_ZN23ConcurrentGCBreakpoints2atEPKc(ptr noundef nonnull @.str.12) #11
@@ -1295,7 +1295,7 @@ _ZN16G1ConcPhaseTimerD2Ev.exit:                   ; preds = %_ZN16G1ConcPhaseTim
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread17subphase_precleanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread17subphase_precleanEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.TimeInstant, align 8
   %3 = alloca %class.TimeInstant, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 936
@@ -1408,7 +1408,7 @@ _ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit: ; preds = %1, %6, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden noundef zeroext i1 @_ZNK22G1ConcurrentMarkThread23mark_loop_needs_restartEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(948) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK22G1ConcurrentMarkThread23mark_loop_needs_restartEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(948) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1492
@@ -1520,7 +1520,7 @@ define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread38phase_delay_to_ke
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread13phase_cleanupEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread13phase_cleanupEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.VM_G1PauseCleanup, align 8
   tail call void @_ZN23ConcurrentGCBreakpoints2atEPKc(ptr noundef nonnull @.str.18) #11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1541,7 +1541,7 @@ define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread13phase_cleanupEv(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread32phase_clear_bitmap_for_next_markEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22G1ConcurrentMarkThread32phase_clear_bitmap_for_next_markEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(948) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.TimeInstant, align 8
   %3 = alloca %class.TimeInstant, align 8
   tail call void @_ZN23ConcurrentGCBreakpoints2atEPKc(ptr noundef nonnull @.str.19) #11
@@ -3462,7 +3462,7 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -5537,7 +5537,7 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %8
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -7472,7 +7472,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI14G1CMOopClosureE5Ta
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #11
-  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc14G1CMOopClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
+  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc14G1CMOopClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0)
   %7 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %8 = ptrtoint ptr %1 to i64
   %9 = sext i32 %7 to i64
@@ -7521,7 +7521,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass15oop_oop_iterateI9
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %6, i1 noundef zeroext false) #11
-  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop14G1CMOopClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2)
+  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop14G1CMOopClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2)
   %7 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %8 = ptrtoint ptr %1 to i64
   %9 = sext i32 %7 to i64
@@ -7829,7 +7829,7 @@ declare void @_ZN23InstanceStackChunkKlass26oop_oop_iterate_stack_slowEP17stackC
 declare void @_ZN23InstanceStackChunkKlass10do_methodsEP17stackChunkOopDescP17OopIterateClosure(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #2
@@ -12723,10 +12723,10 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

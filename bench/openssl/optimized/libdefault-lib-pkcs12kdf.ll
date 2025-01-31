@@ -160,7 +160,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %vctx, ptr nocapture noundef writeonly %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %vctx, ptr noundef writeonly captures(none) %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -307,7 +307,7 @@ for.cond56.loopexit.i:                            ; preds = %for.inc125.i, %for.
 lor.lhs.false58.i:                                ; preds = %for.cond56.loopexit.i, %lor.lhs.false58.lr.ph.i
   %out.addr.0104.i = phi ptr [ %key, %lor.lhs.false58.lr.ph.i ], [ %add.ptr.i, %for.cond56.loopexit.i ]
   %n.addr.0103.i = phi i64 [ %keylen, %lor.lhs.false58.lr.ph.i ], [ %sub92.i, %for.cond56.loopexit.i ]
-  %call59.i = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call.i, ptr noundef %call8.i, i64 noundef %conv7.i) #6
+  %call59.i = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call.i, ptr noundef nonnull %call8.i, i64 noundef %conv7.i) #6
   %tobool60.not.i = icmp eq i32 %call59.i, 0
   br i1 %tobool60.not.i, label %pkcs12kdf_derive.exit, label %lor.lhs.false61.i
 
@@ -422,7 +422,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @kdf_pkcs12_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @kdf_pkcs12_settable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @kdf_pkcs12_settable_ctx_params.known_settable_ctx_params
 }
@@ -540,13 +540,13 @@ return:                                           ; preds = %if.then4.i21, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @kdf_pkcs12_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @kdf_pkcs12_gettable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @kdf_pkcs12_gettable_ctx_params.known_gettable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kdf_pkcs12_get_ctx_params(ptr nocapture readnone %vctx, ptr noundef %params) #0 {
+define internal i32 @kdf_pkcs12_get_ctx_params(ptr readnone captures(none) %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.7) #6
   %cmp.not = icmp eq ptr %call, null
@@ -576,7 +576,7 @@ declare void @ossl_prov_digest_reset(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @ERR_new() local_unnamed_addr #2
 
@@ -601,7 +601,7 @@ declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
 

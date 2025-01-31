@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [32 x i8] c"Cannot allocate pixmap for text\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @AWTDrawGlyphList(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define void @AWTDrawGlyphList(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.XGCValues, align 8
   %9 = inttoptr i64 %2 to ptr
   %10 = icmp eq i64 %2, 0
@@ -495,7 +495,7 @@ declare i32 @XSetForeground(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @XSetBackground(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4

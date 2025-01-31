@@ -170,7 +170,7 @@ declare i32 @opal_pointer_array_init(ptr noundef, i32 noundef, i32 noundef, i32 
 declare i32 @opal_hash_table_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_pvar_find(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @mca_base_pvar_find(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = call i32 @mca_base_var_generate_full_name4(ptr noundef null, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6) #16
@@ -181,7 +181,7 @@ define i32 @mca_base_pvar_find(ptr nocapture readnone %0, ptr noundef %1, ptr no
   %9 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
-  %11 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull @mca_base_pvar_index_hash, ptr noundef %9, i64 noundef %10, ptr noundef nonnull %5) #16
+  %11 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull @mca_base_pvar_index_hash, ptr noundef nonnull %9, i64 noundef %10, ptr noundef nonnull %5) #16
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %.sink.split
 
@@ -249,10 +249,10 @@ opal_pointer_array_get_item.exit.i.i:             ; preds = %32, %25
 declare i32 @mca_base_var_generate_full_name4(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_pvar_find_by_name(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @mca_base_pvar_find_by_name(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
-  %6 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull @mca_base_pvar_index_hash, ptr noundef %0, i64 noundef %5, ptr noundef nonnull %4) #16
+  %6 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull @mca_base_pvar_index_hash, ptr noundef nonnull %0, i64 noundef %5, ptr noundef nonnull %4) #16
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %mca_base_pvar_get_internal.exit.thread
 
@@ -322,12 +322,12 @@ mca_base_pvar_get_internal.exit.thread:           ; preds = %opal_pointer_array_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @opal_hash_table_get_value_ptr(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @mca_base_pvar_finalize() local_unnamed_addr #0 {
@@ -464,7 +464,7 @@ opal_obj_run_destructors.exit20:                  ; preds = %.lr.ph.i17, %opal_o
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define noundef i32 @mca_base_pvar_get_count(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #4 {
+define noundef i32 @mca_base_pvar_get_count(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr @pvar_count, align 4
   store i32 %2, ptr %0, align 4
   ret i32 0
@@ -685,7 +685,7 @@ opal_obj_new.exit.thread121:                      ; preds = %.lr.ph.i.i, %80
   %106 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #17
   %107 = sext i32 %104 to i64
   %108 = inttoptr i64 %107 to ptr
-  %109 = tail call i32 @opal_hash_table_set_value_ptr(ptr noundef nonnull @mca_base_pvar_index_hash, ptr noundef %105, i64 noundef %106, ptr noundef %108) #16
+  %109 = tail call i32 @opal_hash_table_set_value_ptr(ptr noundef nonnull @mca_base_pvar_index_hash, ptr noundef nonnull %105, i64 noundef %106, ptr noundef %108) #16
   %110 = load i32, ptr @pvar_count, align 4
   %111 = add nsw i32 %110, 1
   store i32 %111, ptr @pvar_count, align 4
@@ -808,7 +808,7 @@ mca_base_pvar_get_internal.exit:                  ; preds = %79, %27, %21, %opal
 declare i32 @mca_base_var_group_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare i32 @opal_pointer_array_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -817,7 +817,7 @@ declare i32 @mca_base_var_group_add_pvar(i32 noundef, i32 noundef) local_unnamed
 declare i32 @opal_hash_table_set_value_ptr(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @mca_base_pvar_default_get_value(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #6 {
+define internal noundef i32 @mca_base_pvar_default_get_value(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr readnone captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -830,7 +830,7 @@ define internal noundef i32 @mca_base_pvar_default_get_value(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mca_base_pvar_notify_ignore(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #7 {
+define internal noundef i32 @mca_base_pvar_notify_ignore(ptr readnone captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(none) %3) #7 {
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %6, label %7
 
@@ -843,7 +843,7 @@ define internal noundef i32 @mca_base_pvar_notify_ignore(ptr nocapture readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @mca_base_pvar_default_set_value(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #6 {
+define internal noundef i32 @mca_base_pvar_default_set_value(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -866,7 +866,7 @@ define i32 @mca_base_component_pvar_register(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -18, 1) i32 @mca_base_pvar_get(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -18, 1) i32 @mca_base_pvar_get(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @pvar_count, align 4
   %.not.i = icmp slt i32 %0, %3
   br i1 %.not.i, label %4, label %mca_base_pvar_get_internal.exit
@@ -967,7 +967,7 @@ mca_base_pvar_get_internal.exit.thread:           ; preds = %opal_pointer_array_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_pvar_notify(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @mca_base_pvar_notify(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 68
@@ -1070,7 +1070,7 @@ mca_base_pvar_get_internal.exit.thread:           ; preds = %36, %27, %opal_poin
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_pvar_handle_update(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define i32 @mca_base_pvar_handle_update(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 68
@@ -1366,7 +1366,7 @@ mca_base_pvar_handle_is_running.exit.thread:      ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_pvar_handle_alloc(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @mca_base_pvar_handle_alloc(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @pvar_count, align 4
   %.not.i = icmp slt i32 %1, %6
   br i1 %.not.i, label %7, label %.thread
@@ -1707,7 +1707,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_pvar_handle_read_value(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @mca_base_pvar_handle_read_value(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 68
@@ -1771,10 +1771,10 @@ mca_base_pvar_handle_is_running.exit.thread:      ; preds = %12, %mca_base_pvar_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_pvar_handle_write_value(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @mca_base_pvar_handle_write_value(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 68
@@ -1825,7 +1825,7 @@ define i32 @mca_base_pvar_handle_write_value(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_pvar_handle_start(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define i32 @mca_base_pvar_handle_start(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 68
@@ -1897,7 +1897,7 @@ mca_base_pvar_notify.exit.thread:                 ; preds = %11, %30, %21, %mca_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_pvar_handle_stop(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define i32 @mca_base_pvar_handle_stop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 68
@@ -1946,7 +1946,7 @@ mca_base_pvar_notify.exit:                        ; preds = %14, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_pvar_handle_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @mca_base_pvar_handle_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 68
@@ -2032,10 +2032,10 @@ mca_base_pvar_handle_is_running.exit.thread:      ; preds = %8, %mca_base_pvar_h
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_pvar_dump(i32 noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @mca_base_pvar_dump(i32 noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -2706,10 +2706,10 @@ declare i64 @llvm.smax.i64(i64, i64) #13
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

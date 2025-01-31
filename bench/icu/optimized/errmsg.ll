@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [17 x i8] c"%s:%u: warning: \00", align 1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define dso_local void @error(i32 noundef %linenumber, ptr nocapture noundef readonly %msg, ...) local_unnamed_addr #0 {
+define dso_local void @error(i32 noundef %linenumber, ptr noundef readonly captures(none) %msg, ...) local_unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -30,10 +30,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @setShowWarning(i8 noundef signext %val) local_unnamed_addr #2 {
@@ -78,7 +78,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @warning(i32 noundef %linenumber, ptr nocapture noundef readonly %msg, ...) local_unnamed_addr #4 {
+define dso_local void @warning(i32 noundef %linenumber, ptr noundef readonly captures(none) %msg, ...) local_unnamed_addr #4 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i8, ptr @gShowWarning, align 1
@@ -108,7 +108,7 @@ declare void @llvm.va_start.p0(ptr) #5
 declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

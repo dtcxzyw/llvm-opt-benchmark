@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @compiler_globals = external local_unnamed_addr global %struct._zend_compiler_globals, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @zend_multibyte_set_functions(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_multibyte_set_functions(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -43,35 +43,35 @@ define range(i32 -1, 1) i32 @zend_multibyte_set_functions(ptr nocapture noundef 
   %6 = tail call ptr %5(ptr noundef nonnull @.str) #12
   store ptr %6, ptr @zend_multibyte_encoding_utf32be, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %37, label %7
+  br i1 %.not, label %33, label %7
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %4, align 8
   %9 = tail call ptr %8(ptr noundef nonnull @.str.1) #12
   store ptr %9, ptr @zend_multibyte_encoding_utf32le, align 8
   %.not8 = icmp eq ptr %9, null
-  br i1 %.not8, label %37, label %10
+  br i1 %.not8, label %33, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %4, align 8
   %12 = tail call ptr %11(ptr noundef nonnull @.str.2) #12
   store ptr %12, ptr @zend_multibyte_encoding_utf16be, align 8
   %.not9 = icmp eq ptr %12, null
-  br i1 %.not9, label %37, label %13
+  br i1 %.not9, label %33, label %13
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %4, align 8
   %15 = tail call ptr %14(ptr noundef nonnull @.str.4) #12
   store ptr %15, ptr @zend_multibyte_encoding_utf16le, align 8
   %.not10 = icmp eq ptr %15, null
-  br i1 %.not10, label %37, label %16
+  br i1 %.not10, label %33, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %4, align 8
   %18 = tail call ptr %17(ptr noundef nonnull @.str.3) #12
   store ptr %18, ptr @zend_multibyte_encoding_utf8, align 8
   %.not11 = icmp eq ptr %18, null
-  br i1 %.not11, label %37, label %19
+  br i1 %.not11, label %33, label %19
 
 19:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) @multibyte_functions_dummy, ptr noundef nonnull align 8 dereferenceable(72) @multibyte_functions, i64 72, i1 false)
@@ -82,64 +82,47 @@ define range(i32 -1, 1) i32 @zend_multibyte_set_functions(ptr nocapture noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %2, align 8
   store i64 0, ptr %3, align 8
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %22, label %25
-
-22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
-  %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %zend_multibyte_set_script_encoding.exit.i, label %24
-
-24:                                               ; preds = %22
-  tail call void @free(ptr noundef nonnull %23) #12
-  br label %zend_multibyte_set_script_encoding.exit.i
-
-zend_multibyte_set_script_encoding.exit.i:        ; preds = %24, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), i8 0, i64 16, i1 false)
-  br label %zend_multibyte_set_script_encoding_by_string.exit
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @multibyte_functions, i64 48), align 8
+  %23 = call i32 %22(ptr noundef nonnull %20, i64 noundef %21, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext true) #12
+  %24 = icmp eq i32 %23, -1
+  br i1 %24, label %zend_multibyte_set_script_encoding_by_string.exit, label %25
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @multibyte_functions, i64 48), align 8
-  %27 = call i32 %26(ptr noundef nonnull %20, i64 noundef %21, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext true) #12
-  %28 = icmp eq i32 %27, -1
-  br i1 %28, label %zend_multibyte_set_script_encoding_by_string.exit, label %29
+  %26 = load i64, ptr %3, align 8
+  %27 = icmp eq i64 %26, 0
+  %28 = load ptr, ptr %2, align 8
+  br i1 %27, label %29, label %30
 
 29:                                               ; preds = %25
-  %30 = load i64, ptr %3, align 8
-  %31 = icmp eq i64 %30, 0
-  %32 = load ptr, ptr %2, align 8
-  br i1 %31, label %33, label %34
-
-33:                                               ; preds = %29
-  call void @free(ptr noundef %32) #12
+  call void @free(ptr noundef %28) #12
   br label %zend_multibyte_set_script_encoding_by_string.exit
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
-  %.not.i5.i = icmp eq ptr %35, null
-  br i1 %.not.i5.i, label %zend_multibyte_set_script_encoding.exit6.i, label %36
+30:                                               ; preds = %25
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
+  %.not.i5.i = icmp eq ptr %31, null
+  br i1 %.not.i5.i, label %zend_multibyte_set_script_encoding.exit6.i, label %32
 
-36:                                               ; preds = %34
-  call void @free(ptr noundef nonnull %35) #12
+32:                                               ; preds = %30
+  call void @free(ptr noundef nonnull %31) #12
   br label %zend_multibyte_set_script_encoding.exit6.i
 
-zend_multibyte_set_script_encoding.exit6.i:       ; preds = %36, %34
-  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
-  store i64 %30, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 408), align 8
+zend_multibyte_set_script_encoding.exit6.i:       ; preds = %32, %30
+  store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 400), align 8
+  store i64 %26, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 408), align 8
   br label %zend_multibyte_set_script_encoding_by_string.exit
 
-zend_multibyte_set_script_encoding_by_string.exit: ; preds = %zend_multibyte_set_script_encoding.exit.i, %25, %33, %zend_multibyte_set_script_encoding.exit6.i
+zend_multibyte_set_script_encoding_by_string.exit: ; preds = %19, %29, %zend_multibyte_set_script_encoding.exit6.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %37
+  br label %33
 
-37:                                               ; preds = %16, %13, %10, %7, %1, %zend_multibyte_set_script_encoding_by_string.exit
+33:                                               ; preds = %16, %13, %10, %7, %1, %zend_multibyte_set_script_encoding_by_string.exit
   %.0 = phi i32 [ 0, %zend_multibyte_set_script_encoding_by_string.exit ], [ -1, %1 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @zend_ini_string(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -201,7 +184,7 @@ zend_multibyte_set_script_encoding.exit6:         ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define void @zend_multibyte_restore_functions() local_unnamed_addr #4 {
@@ -290,7 +273,7 @@ define noundef i32 @zend_multibyte_set_script_encoding(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define i32 @zend_multibyte_set_internal_encoding(ptr noundef %0) local_unnamed_addr #0 {
@@ -300,7 +283,7 @@ define i32 @zend_multibyte_set_internal_encoding(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @dummy_encoding_fetcher(ptr nocapture readnone %0) #8 {
+define internal noalias noundef ptr @dummy_encoding_fetcher(ptr readnone captures(none) %0) #8 {
   ret ptr null
 }
 
@@ -310,22 +293,22 @@ define internal noundef ptr @dummy_encoding_name_getter(ptr noundef readnone ret
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @dummy_encoding_lexer_compatibility_checker(ptr nocapture readnone %0) #8 {
+define internal noundef zeroext i1 @dummy_encoding_lexer_compatibility_checker(ptr readnone captures(none) %0) #8 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @dummy_encoding_detector(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, i64 %3) #8 {
+define internal noalias noundef ptr @dummy_encoding_detector(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2, i64 %3) #8 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @dummy_encoding_converter(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #8 {
+define internal noundef i64 @dummy_encoding_converter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #8 {
   ret i64 -1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dummy_encoding_list_parser(ptr nocapture readnone %0, i64 %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i1 noundef zeroext %4) #0 {
+define internal noundef i32 @dummy_encoding_list_parser(ptr readnone captures(none) %0, i64 %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i1 noundef zeroext %4) #0 {
   br i1 %4, label %6, label %8
 
 6:                                                ; preds = %5
@@ -349,7 +332,7 @@ define internal noalias noundef ptr @dummy_internal_encoding_getter() #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_internal_encoding_setter(ptr nocapture readnone %0) #8 {
+define internal noundef i32 @dummy_internal_encoding_setter(ptr readnone captures(none) %0) #8 {
   ret i32 -1
 }
 
@@ -359,13 +342,13 @@ declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #9
 declare noalias ptr @_emalloc_8() local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

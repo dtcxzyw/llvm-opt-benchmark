@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.22 = private unnamed_addr constant [40 x i8] c"\014lockd: rejected NSM callback from %s\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @nlm4svc_proc_null(ptr nocapture readnone %0) #0 align 16 {
+define internal noundef i32 @nlm4svc_proc_null(ptr readnone captures(none) %0) #0 align 16 {
   ret i32 0
 }
 
@@ -324,7 +324,7 @@ define internal range(i32 0, 83886081) i32 @nlm4svc_proc_granted_msg(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nlm4svc_proc_granted_res(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef i32 @nlm4svc_proc_granted_res(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = load ptr, ptr @nlmsvc_ops, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4
@@ -425,7 +425,7 @@ define internal noundef range(i32 0, 83886081) i32 @nlm4svc_proc_sm_notify(ptr n
 declare dso_local zeroext i1 @nlm4svc_decode_reboot(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @nlm4svc_proc_unused(ptr nocapture readnone %0) #0 align 16 {
+define internal noundef i32 @nlm4svc_proc_unused(ptr readnone captures(none) %0) #0 align 16 {
   ret i32 50331648
 }
 
@@ -680,13 +680,13 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_test(ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) unnamed_addr #2 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store ptr null, ptr %5, align 8
@@ -813,7 +813,7 @@ declare dso_local void @nlmsvc_release_host(ptr noundef) local_unnamed_addr #1
 declare dso_local void @nlm_release_file(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @nlmsvc_lookup_host(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -831,7 +831,7 @@ declare dso_local i32 @nlm_lookup_file(ptr noundef, ptr noundef, ptr noundef) lo
 declare dso_local void @nlmsvc_locks_init_private(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_lock(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_lock(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 40)) %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 11296
@@ -884,7 +884,7 @@ declare dso_local i32 @nlmsvc_lock(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare dso_local void @nlmsvc_release_lockowner(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_cancel(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_cancel(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 40)) %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 11296
@@ -952,7 +952,7 @@ declare dso_local zeroext i1 @locks_in_grace(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @nlmsvc_cancel_blocked(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_unlock(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_unlock(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 40)) %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 11296
@@ -1029,7 +1029,7 @@ declare dso_local void @nlmsvc_release_call(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @nlm_async_reply(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @nlm4svc_callback_exit(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @nlm4svc_callback_exit(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   ret void
 }
 
@@ -1043,7 +1043,7 @@ define internal void @nlm4svc_callback_release(ptr noundef %0) #2 align 16 {
 declare dso_local void @nlmsvc_grant_reply(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6

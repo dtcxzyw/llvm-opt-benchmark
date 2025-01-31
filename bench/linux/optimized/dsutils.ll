@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [22 x i8] c"While creating Arg %u\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_ds_clear_implicit_return(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_ds_clear_implicit_return(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load i8, ptr @acpi_gbl_enable_interpreter_slack, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %9, label %4
@@ -36,7 +36,7 @@ define dso_local void @acpi_ds_clear_implicit_return(ptr nocapture noundef %0) l
 declare dso_local void @acpi_ut_remove_reference(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_do_implicit_return(ptr noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_do_implicit_return(ptr noundef %0, ptr noundef captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = load i8, ptr @acpi_gbl_enable_interpreter_slack, align 1
   %5 = icmp ne i8 %4, 0
   %6 = icmp ne ptr %0, null
@@ -75,7 +75,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_do_implicit_return(p
 declare dso_local void @acpi_ut_add_reference(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_is_result_used(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_is_result_used(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -183,7 +183,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_is_result_used(ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -192,7 +192,7 @@ declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) l
 declare dso_local ptr @acpi_ps_get_opcode_info(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_ds_delete_result_if_not_used(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
@@ -263,7 +263,7 @@ define dso_local i32 @acpi_ds_resolve_operands(ptr noundef %0) local_unnamed_add
 declare dso_local i32 @acpi_ex_resolve_to_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_ds_clear_operands(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_ds_clear_operands(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 0
@@ -574,7 +574,7 @@ define dso_local i32 @acpi_ds_create_operands(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_ds_obj_stack_pop_and_delete(i32 noundef, ptr noundef) local_unnamed_addr #1

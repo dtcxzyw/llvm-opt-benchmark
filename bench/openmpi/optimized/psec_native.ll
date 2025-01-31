@@ -81,7 +81,7 @@ define internal void @native_finalize() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -47, 1) i32 @create_cred(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) #0 {
+define internal range(i32 -47, 1) i32 @create_cred(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) #0 {
   tail call void @PMIx_Byte_object_construct(ptr noundef %5) #6
   %7 = icmp ne ptr %1, null
   %8 = icmp ne i64 %2, 0
@@ -183,7 +183,7 @@ define internal range(i32 -47, 1) i32 @create_cred(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef readonly %5) #0 {
+define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca %struct.ucred, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -415,12 +415,12 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @PMIx_Byte_object_construct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 

@@ -57,13 +57,13 @@ for.body10.us:                                    ; preds = %if.else.us, %for.bo
   %sub.us = sub nuw i64 %call.fr, %done.030.us
   %spec.select.us = call i64 @llvm.umin.i64(i64 %stride.031.us, i64 %sub.us)
   %arrayidx.us = getelementptr inbounds i8, ptr %0, i64 %done.030.us
-  %call14.us = call i32 @RIPEMD160_Update(ptr noundef nonnull %ctx, ptr noundef %arrayidx.us, i64 noundef %spec.select.us)
+  %call14.us = call i32 @RIPEMD160_Update(ptr noundef nonnull %ctx, ptr noundef nonnull %arrayidx.us, i64 noundef %spec.select.us)
   %add.us = add i64 %spec.select.us, %done.030.us
   %cmp9.us = icmp ult i64 %add.us, %call.fr
   br i1 %cmp9.us, label %for.body10.us, label %for.cond8.for.end_crit_edge.us, !llvm.loop !7
 
 if.then.us:                                       ; preds = %for.body3.us
-  %call6.us = call ptr @RIPEMD160(ptr noundef %0, i64 noundef %call.fr, ptr noundef nonnull %digest)
+  %call6.us = call ptr @RIPEMD160(ptr noundef nonnull %0, i64 noundef %call.fr, ptr noundef nonnull %digest)
   br label %if.end17.us
 
 if.end17.us:                                      ; preds = %if.then.us, %for.cond8.for.end_crit_edge.us
@@ -90,7 +90,7 @@ for.cond8.for.end_crit_edge.us:                   ; preds = %for.body10.us
   br label %if.end17.us
 
 if.end17:                                         ; preds = %for.body
-  %call6 = call ptr @RIPEMD160(ptr noundef %0, i64 noundef 0, ptr noundef nonnull %digest)
+  %call6 = call ptr @RIPEMD160(ptr noundef nonnull %0, i64 noundef 0, ptr noundef nonnull %digest)
   %bcmp20 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %digest, ptr noundef nonnull dereferenceable(20) %expected, i64 20)
   %cmp21.not = icmp eq i32 %bcmp20, 0
   br i1 %cmp21.not, label %for.inc28, label %if.then22
@@ -147,7 +147,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit23: ; preds = %if.then39, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @RIPEMD160(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -158,7 +158,7 @@ declare i32 @RIPEMD160_Update(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @RIPEMD160_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @hexdump(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -166,7 +166,7 @@ declare void @hexdump(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -174,13 +174,13 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

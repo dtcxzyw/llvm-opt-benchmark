@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [48 x i8] c"COPY stream ended before last file was finished\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_tar_parser_content(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4) #0 {
+define internal void @bbstreamer_tar_parser_content(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4) #0 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph, label %.loopexit
 
@@ -247,7 +247,7 @@ bbstreamer_buffer_until.exit43.thread:            ; preds = %bbstreamer_buffer_u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_tar_parser_finalize(ptr nocapture noundef readonly %0) #0 {
+define internal void @bbstreamer_tar_parser_finalize(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %8 [
@@ -289,7 +289,7 @@ define internal void @bbstreamer_tar_parser_finalize(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_tar_parser_free(ptr nocapture noundef readonly %0) #0 {
+define internal void @bbstreamer_tar_parser_free(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @pfree(ptr noundef %3) #7
@@ -303,7 +303,7 @@ define internal void @bbstreamer_tar_parser_free(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_tar_archiver_content(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @bbstreamer_tar_archiver_content(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = icmp eq i32 %4, 1
   %8 = icmp ne i32 %3, 512
@@ -366,7 +366,7 @@ define internal void @bbstreamer_tar_archiver_content(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_tar_archiver_finalize(ptr nocapture noundef readonly %0) #0 {
+define internal void @bbstreamer_tar_archiver_finalize(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -389,7 +389,7 @@ define internal void @bbstreamer_tar_archiver_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_tar_terminator_content(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @bbstreamer_tar_terminator_content(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
@@ -399,7 +399,7 @@ define internal void @bbstreamer_tar_terminator_content(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_tar_terminator_finalize(ptr nocapture noundef readonly %0) #0 {
+define internal void @bbstreamer_tar_terminator_finalize(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca [1024 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %2, i8 0, i64 1024, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -482,7 +482,7 @@ declare i32 @tarCreateHeader(ptr noundef, ptr noundef, ptr noundef, i64 noundef,
 declare i64 @time(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

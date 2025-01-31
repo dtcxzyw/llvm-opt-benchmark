@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_ctr128_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr noundef %ecount_buf, ptr nocapture noundef %num, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define hidden void @CRYPTO_ctr128_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr noundef %ecount_buf, ptr noundef captures(none) %num, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %num, align 4
   %tobool47 = icmp ne i32 %0, 0
@@ -133,7 +133,7 @@ if.end:                                           ; preds = %while.body25, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_ctr128_encrypt_ctr32(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr noundef %ecount_buf, ptr nocapture noundef %num, ptr nocapture noundef readonly %func) local_unnamed_addr #0 {
+define hidden void @CRYPTO_ctr128_encrypt_ctr32(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr noundef %ecount_buf, ptr noundef captures(none) %num, ptr noundef readonly captures(none) %func) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %num, align 4
   %tobool78 = icmp ne i32 %0, 0
@@ -250,7 +250,7 @@ while.end54:                                      ; preds = %if.end50, %while.en
 
 if.then56:                                        ; preds = %while.end54
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ecount_buf, i8 0, i64 16, i1 false)
-  tail call void %func(ptr noundef %ecount_buf, ptr noundef %ecount_buf, i64 noundef 1, ptr noundef %key, ptr noundef nonnull %ivec) #3
+  tail call void %func(ptr noundef nonnull %ecount_buf, ptr noundef nonnull %ecount_buf, i64 noundef 1, ptr noundef %key, ptr noundef nonnull %ivec) #3
   %inc = add i32 %ctr32.0.lcssa, 1
   %shr57 = lshr i32 %inc, 24
   %conv58 = trunc nuw i32 %shr57 to i8
@@ -306,7 +306,7 @@ if.end92:                                         ; preds = %while.body79, %whil
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #2

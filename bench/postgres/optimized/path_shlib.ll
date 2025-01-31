@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [5 x i8] c"HOME\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @has_drive_prefix(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @has_drive_prefix(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i1 false
 }
 
@@ -101,12 +101,12 @@ define ptr @last_dir_separator(ptr noundef readonly %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @make_native_path(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @make_native_path(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @cleanup_path(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @cleanup_path(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
@@ -144,7 +144,7 @@ declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @canonicalize_path(ptr noundef %0) local_unnamed_addr #6 {
@@ -545,7 +545,7 @@ append_subdir_to_path.exit122:                    ; preds = %129, %130
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @path_contains_parent_reference(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define zeroext i1 @path_contains_parent_reference(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 46
   br i1 %3, label %4, label %11
@@ -570,7 +570,7 @@ define zeroext i1 @path_contains_parent_reference(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @path_is_relative_and_below_cwd(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define noundef zeroext i1 @path_is_relative_and_below_cwd(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %path_contains_parent_reference.exit.thread.fold.split [
     i8 47, label %path_contains_parent_reference.exit.thread
@@ -602,11 +602,11 @@ path_contains_parent_reference.exit.thread:       ; preds = %path_contains_paren
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @path_is_prefix_of_path(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define zeroext i1 @path_is_prefix_of_path(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %sext = shl i64 %3, 32
   %4 = ashr exact i64 %sext, 32
-  %5 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %1, i64 noundef %4) #19
+  %5 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %4) #19
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %10
 
@@ -624,7 +624,7 @@ define zeroext i1 @path_is_prefix_of_path(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @get_progname(ptr noundef %0) local_unnamed_addr #2 {
@@ -666,7 +666,7 @@ last_dir_separator.exit:                          ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
@@ -770,7 +770,7 @@ declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #12
 declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 declare ptr @pg_strerror(i32 noundef) local_unnamed_addr #4
 
@@ -989,7 +989,7 @@ dir_strcmp.exit.thread:                           ; preds = %.lr.ph.i, %3, %trim
   br label %join_path_components.exit
 
 join_path_components.exit:                        ; preds = %85, %trim_trailing_separator.exit, %dir_strcmp.exit.thread
-  tail call void @canonicalize_path(ptr noundef %0)
+  tail call void @canonicalize_path(ptr noundef nonnull %0)
   ret void
 }
 
@@ -1079,7 +1079,7 @@ define zeroext i1 @get_home_path(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #15
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare zeroext i1 @pg_get_user_home_dir(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -1140,7 +1140,7 @@ trim_directory.exit:                              ; preds = %1, %.critedge.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

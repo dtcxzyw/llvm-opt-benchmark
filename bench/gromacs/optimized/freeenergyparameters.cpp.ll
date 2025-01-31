@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.gmx::EnumerationArray") align 4 %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias writable writeonly sret(%"struct.gmx::EnumerationArray") align 4 captures(none) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load double, ptr %5, align 8
   %7 = fcmp oeq double %6, 0.000000e+00

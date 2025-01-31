@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL7Schemes = internal constant [16 x %struct.ReorderingScheme] [%struct.ReorderingScheme { i8 0, i32 0, i8 0, i32 1, i32 0, i32 0, i8 0, [7 x ptr] [ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reorderP14UBiDiTransformP10UErrorCode, ptr null, ptr null, ptr null, ptr null] }, %struct.ReorderingScheme { i8 1, i32 0, i8 0, i32 1, i32 0, i32 4, i8 1, [7 x ptr] [ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reorderP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr null, ptr null, ptr null, ptr null] }, %struct.ReorderingScheme { i8 0, i32 0, i8 1, i32 1, i32 0, i32 0, i8 0, [7 x ptr] [ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reorderP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reverseP14UBiDiTransformP10UErrorCode, ptr null, ptr null, ptr null] }, %struct.ReorderingScheme { i8 1, i32 0, i8 1, i32 1, i32 0, i32 4, i8 1, [7 x ptr] [ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reorderP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reverseP14UBiDiTransformP10UErrorCode, ptr null, ptr null, ptr null] }, %struct.ReorderingScheme { i8 0, i32 1, i8 1, i32 0, i32 0, i32 4, i8 1, [7 x ptr] [ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr @_ZL17action_setInverseP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reorderP14UBiDiTransformP10UErrorCode, ptr null, ptr null, ptr null] }, %struct.ReorderingScheme { i8 1, i32 1, i8 1, i32 0, i32 0, i32 4, i8 1, [7 x ptr] [ptr @_ZL14action_reverseP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr @_ZL17action_setInverseP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reorderP14UBiDiTransformP10UErrorCode, ptr null, ptr null] }, %struct.ReorderingScheme { i8 0, i32 1, i8 0, i32 0, i32 0, i32 0, i8 0, [7 x ptr] [ptr @_ZL17action_setInverseP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reorderP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr null, ptr null, ptr null] }, %struct.ReorderingScheme { i8 1, i32 1, i8 0, i32 0, i32 0, i32 0, i8 0, [7 x ptr] [ptr @_ZL14action_reverseP14UBiDiTransformP10UErrorCode, ptr @_ZL17action_setInverseP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reorderP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr null, ptr null] }, %struct.ReorderingScheme { i8 0, i32 0, i8 1, i32 0, i32 0, i32 0, i8 0, [7 x ptr] [ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_setRunsOnlyP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reorderP14UBiDiTransformP10UErrorCode, ptr null] }, %struct.ReorderingScheme { i8 1, i32 0, i8 0, i32 0, i32 0, i32 0, i8 1, [7 x ptr] [ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_setRunsOnlyP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reorderP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr null] }, %struct.ReorderingScheme { i8 0, i32 1, i8 1, i32 1, i32 0, i32 4, i8 0, [7 x ptr] [ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr @_ZL17action_setInverseP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reverseP14UBiDiTransformP10UErrorCode, ptr null, ptr null] }, %struct.ReorderingScheme { i8 1, i32 1, i8 0, i32 1, i32 0, i32 4, i8 0, [7 x ptr] [ptr @_ZL14action_reverseP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr @_ZL17action_setInverseP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode, ptr null, ptr null] }, %struct.ReorderingScheme { i8 0, i32 0, i8 0, i32 0, i32 0, i32 0, i8 0, [7 x ptr] [ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr null, ptr null, ptr null, ptr null] }, %struct.ReorderingScheme { i8 1, i32 0, i8 1, i32 0, i32 4, i32 0, i8 1, [7 x ptr] [ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr null, ptr null, ptr null, ptr null] }, %struct.ReorderingScheme { i8 0, i32 1, i8 0, i32 1, i32 0, i32 4, i8 0, [7 x ptr] [ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr null, ptr null, ptr null, ptr null] }, %struct.ReorderingScheme { i8 1, i32 1, i8 1, i32 1, i32 0, i32 4, i8 0, [7 x ptr] [ptr @_ZL14action_reverseP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_resolveP14UBiDiTransformP10UErrorCode, ptr @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode, ptr @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode, ptr @_ZL14action_reverseP14UBiDiTransformP10UErrorCode, ptr null, ptr null] }], align 16
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @ubiditransform_open_75(ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define noalias noundef ptr @ubiditransform_open_75(ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -380,7 +380,7 @@ return:                                           ; preds = %if.then27, %if.then
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20resolveBaseDirectionPKDsjPhS1_(ptr noundef nonnull %text, i32 noundef %length, ptr nocapture noundef nonnull %pInLevel, ptr nocapture noundef nonnull %pOutLevel) unnamed_addr #0 {
+define internal fastcc void @_ZL20resolveBaseDirectionPKDsjPhS1_(ptr noundef nonnull %text, i32 noundef %length, ptr noundef nonnull captures(none) %pInLevel, ptr noundef nonnull captures(none) %pOutLevel) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %pInLevel, align 1
   %switch = icmp ugt i8 %0, -3
@@ -418,7 +418,7 @@ sw.epilog:                                        ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode(ptr nocapture noundef %pTransform, ptr noundef %newSrc, i32 noundef %newLength, i32 noundef %newSize, ptr noundef %pErrorCode) unnamed_addr #0 {
+define internal fastcc void @_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode(ptr noundef captures(none) %pTransform, ptr noundef %newSrc, i32 noundef %newLength, i32 noundef %newSize, ptr noundef %pErrorCode) unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %newSize, %newLength
   br i1 %cmp, label %if.then, label %if.end
@@ -490,7 +490,7 @@ declare ptr @u_strncpy_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @ubidi_getBaseDirection_75(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode(ptr nocapture noundef %pTransform, ptr noundef %pErrorCode) #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL18action_shapeArabicP14UBiDiTransformP10UErrorCode(ptr noundef captures(none) %pTransform, ptr noundef %pErrorCode) #0 {
 entry:
   %letters = getelementptr inbounds nuw i8, ptr %pTransform, i64 64
   %0 = load i32, ptr %letters, align 8
@@ -608,7 +608,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL14action_resolveP14UBiDiTransformP10UErrorCode(ptr nocapture noundef readonly %pTransform, ptr noundef %pErrorCode) #0 {
+define internal noundef signext i8 @_ZL14action_resolveP14UBiDiTransformP10UErrorCode(ptr noundef readonly captures(none) %pTransform, ptr noundef %pErrorCode) #0 {
 entry:
   %0 = load ptr, ptr %pTransform, align 8
   %src = getelementptr inbounds nuw i8, ptr %pTransform, i64 16
@@ -624,7 +624,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL14action_reorderP14UBiDiTransformP10UErrorCode(ptr nocapture noundef %pTransform, ptr noundef %pErrorCode) #0 {
+define internal noundef signext i8 @_ZL14action_reorderP14UBiDiTransformP10UErrorCode(ptr noundef captures(none) %pTransform, ptr noundef %pErrorCode) #0 {
 entry:
   %0 = load ptr, ptr %pTransform, align 8
   %dest = getelementptr inbounds nuw i8, ptr %pTransform, i64 24
@@ -645,7 +645,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL14action_reverseP14UBiDiTransformP10UErrorCode(ptr nocapture noundef readonly %pTransform, ptr noundef %pErrorCode) #0 {
+define internal noundef signext i8 @_ZL14action_reverseP14UBiDiTransformP10UErrorCode(ptr noundef readonly captures(none) %pTransform, ptr noundef %pErrorCode) #0 {
 entry:
   %src = getelementptr inbounds nuw i8, ptr %pTransform, i64 16
   %0 = load ptr, ptr %src, align 8
@@ -664,7 +664,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL17action_setInverseP14UBiDiTransformP10UErrorCode(ptr nocapture noundef readonly %pTransform, ptr nocapture readnone %pErrorCode) #0 {
+define internal noundef signext i8 @_ZL17action_setInverseP14UBiDiTransformP10UErrorCode(ptr noundef readonly captures(none) %pTransform, ptr readnone captures(none) %pErrorCode) #0 {
 entry:
   %0 = load ptr, ptr %pTransform, align 8
   tail call void @ubidi_setInverse_75(ptr noundef %0, i8 noundef signext 1)
@@ -674,7 +674,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode(ptr nocapture noundef %pTransform, ptr nocapture noundef writeonly %pErrorCode) #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTransformP10UErrorCode(ptr noundef captures(none) %pTransform, ptr noundef writeonly captures(none) %pErrorCode) #0 {
 entry:
   %reorderingOptions = getelementptr inbounds nuw i8, ptr %pTransform, i64 56
   %0 = load i32, ptr %reorderingOptions, align 8
@@ -812,7 +812,7 @@ return:                                           ; preds = %entry, %do.end66, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL18action_setRunsOnlyP14UBiDiTransformP10UErrorCode(ptr nocapture noundef readonly %pTransform, ptr nocapture readnone %pErrorCode) #0 {
+define internal noundef signext i8 @_ZL18action_setRunsOnlyP14UBiDiTransformP10UErrorCode(ptr noundef readonly captures(none) %pTransform, ptr readnone captures(none) %pErrorCode) #0 {
 entry:
   %0 = load ptr, ptr %pTransform, align 8
   tail call void @ubidi_setReorderingMode_75(ptr noundef %0, i32 noundef 3)

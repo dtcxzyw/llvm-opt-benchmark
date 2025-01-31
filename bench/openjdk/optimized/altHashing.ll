@@ -184,13 +184,13 @@ declare noundef i64 @_ZN2os14javaTimeMillisEv() local_unnamed_addr #1
 declare noundef i32 @_ZN2os6randomEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN10AltHashing14halfsiphash_64EPKji(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZN10AltHashing14halfsiphash_64EPKji(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef i64 @_ZN10AltHashing14halfsiphash_64EmPKji(i64 noundef 0, ptr noundef %0, i32 noundef %1)
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKvi(i64 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKvi(i64 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = trunc i64 %0 to i32
   %5 = lshr i64 %0, 32
   %6 = trunc nuw i64 %5 to i32
@@ -380,7 +380,7 @@ _ZL20halfsiphash_finish32Pji.exit:                ; preds = %107
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = trunc i64 %0 to i32
   %5 = lshr i64 %0, 32
   %6 = trunc nuw i64 %5 to i32
@@ -525,7 +525,7 @@ _ZL20halfsiphash_finish32Pji.exit:                ; preds = %77
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN10AltHashing14halfsiphash_64EmPKji(i64 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZN10AltHashing14halfsiphash_64EmPKji(i64 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = trunc i64 %0 to i32
   %5 = lshr i64 %0, 32
   %6 = trunc nuw i64 %5 to i32

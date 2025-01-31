@@ -139,7 +139,7 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_reset_interrupt(ptr nocapture noundef %cpu, i32 noundef %mask) local_unnamed_addr #0 {
+define dso_local void @cpu_reset_interrupt(ptr noundef captures(none) %cpu, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_mutex_iothread_locked() #11
   br i1 %call, label %if.end3.critedge, label %if.then
@@ -173,7 +173,7 @@ declare void @qemu_mutex_lock_iothread_impl(ptr noundef, i32 noundef) local_unna
 declare void @qemu_mutex_unlock_iothread() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_exit(ptr nocapture noundef writeonly %cpu) local_unnamed_addr #0 {
+define dso_local void @cpu_exit(ptr noundef writeonly captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %exit_request = getelementptr inbounds nuw i8, ptr %cpu, i64 207
   store atomic i8 1, ptr %exit_request monotonic, align 1
@@ -320,7 +320,7 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -380,7 +380,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cpu_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @cpu_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #11
@@ -480,7 +480,7 @@ while.end:                                        ; preds = %if.then5, %if.end.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @cpu_common_get_arch_id(ptr nocapture noundef readonly %cpu) #5 {
+define internal range(i64 -2147483648, 2147483648) i64 @cpu_common_get_arch_id(ptr noundef readonly captures(none) %cpu) #5 {
 entry:
   %cpu_index = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   %0 = load i32, ptr %cpu_index, align 8
@@ -489,25 +489,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @cpu_common_has_work(ptr nocapture readnone %cs) #6 {
+define internal noundef zeroext i1 @cpu_common_has_work(ptr readnone captures(none) %cs) #6 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @cpu_common_gdb_read_register(ptr nocapture readnone %cpu, ptr nocapture readnone %buf, i32 %reg) #6 {
+define internal noundef i32 @cpu_common_gdb_read_register(ptr readnone captures(none) %cpu, ptr readnone captures(none) %buf, i32 %reg) #6 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @cpu_common_gdb_write_register(ptr nocapture readnone %cpu, ptr nocapture readnone %buf, i32 %reg) #6 {
+define internal noundef i32 @cpu_common_gdb_write_register(ptr readnone captures(none) %cpu, ptr readnone captures(none) %buf, i32 %reg) #6 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cpu_common_realizefn(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @cpu_common_realizefn(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call = tail call ptr @qdev_get_machine() #11
   %call1 = tail call ptr @object_dynamic_cast(ptr noundef %call, ptr noundef nonnull @.str.14) #11
@@ -636,7 +636,7 @@ if.end:                                           ; preds = %cpu_dump_state.exit
 declare void @cpu_class_init_props(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
@@ -671,10 +671,10 @@ declare ptr @qemu_log_trylock() local_unnamed_addr #1
 declare void @qemu_log_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -76,14 +76,14 @@ declare ptr @EVP_aes_192_cbc() local_unnamed_addr #1
 declare ptr @EVP_aes_256_cbc() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EVP_CIPHER_CTX_init(ptr nocapture noundef writeonly initializes((0, 152)) %ctx) local_unnamed_addr #2 {
+define hidden void @EVP_CIPHER_CTX_init(ptr noundef writeonly captures(none) initializes((0, 152)) %ctx) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define hidden noalias noundef ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #4 {
@@ -134,7 +134,7 @@ if.end6:                                          ; preds = %if.end, %entry
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @EVP_CIPHER_CTX_free(ptr noundef %ctx) local_unnamed_addr #0 {
@@ -280,10 +280,10 @@ return:                                           ; preds = %if.end18, %if.then2
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr nocapture readnone %engine, ptr noundef %key, ptr noundef %iv, i32 noundef %enc) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr readnone captures(none) %engine, ptr noundef %key, ptr noundef %iv, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %enc, -1
   br i1 %cmp, label %if.then, label %if.else
@@ -546,7 +546,7 @@ return:                                           ; preds = %if.end4, %if.then7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, -63) i32 @EVP_CIPHER_CTX_flags(ptr nocapture noundef readonly %ctx) local_unnamed_addr #8 {
+define hidden range(i32 0, -63) i32 @EVP_CIPHER_CTX_flags(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %flags = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -556,7 +556,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 64) i32 @EVP_CIPHER_CTX_mode(ptr nocapture noundef readonly %ctx) local_unnamed_addr #8 {
+define hidden range(i32 0, 64) i32 @EVP_CIPHER_CTX_mode(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %flags = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -566,7 +566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @EVP_CIPHER_CTX_iv_length(ptr nocapture noundef readonly %ctx) local_unnamed_addr #8 {
+define hidden i32 @EVP_CIPHER_CTX_iv_length(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %iv_len = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -575,21 +575,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_EncryptInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr nocapture noundef readnone %impl, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_EncryptInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr noundef readnone captures(none) %impl, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_DecryptInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr nocapture noundef readnone %impl, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DecryptInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr noundef readnone captures(none) %impl, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_EncryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef %out_len, ptr noundef %in, i32 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_EncryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr noundef captures(none) %out_len, ptr noundef %in, i32 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %flags = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -739,7 +739,7 @@ return:                                           ; preds = %if.then61, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_EncryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len) local_unnamed_addr #0 {
+define hidden i32 @EVP_EncryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr noundef writeonly captures(none) %out_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %flags = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -826,7 +826,7 @@ return:                                           ; preds = %for.end, %if.then24
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_DecryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef %out_len, ptr noundef %in, i32 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DecryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr noundef captures(none) %out_len, ptr noundef %in, i32 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %flags = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -935,7 +935,7 @@ return:                                           ; preds = %if.end38, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_DecryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly initializes((0, 4)) %out_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DecryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr noundef writeonly captures(none) initializes((0, 4)) %out_len) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %out_len, align 4
   %0 = load ptr, ptr %ctx, align 8
@@ -1070,7 +1070,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_CipherUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef %out_len, ptr noundef %in, i32 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_CipherUpdate(ptr noundef %ctx, ptr noundef %out, ptr noundef captures(none) %out_len, ptr noundef %in, i32 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %encrypt = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   %0 = load i32, ptr %encrypt, align 4
@@ -1091,7 +1091,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_CipherFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len) local_unnamed_addr #0 {
+define hidden i32 @EVP_CipherFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr noundef writeonly captures(none) %out_len) local_unnamed_addr #0 {
 entry:
   %encrypt = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   %0 = load i32, ptr %encrypt, align 4
@@ -1188,14 +1188,14 @@ return:                                           ; preds = %if.then24.i, %for.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @EVP_CIPHER_CTX_cipher(ptr nocapture noundef readonly %ctx) local_unnamed_addr #9 {
+define hidden ptr @EVP_CIPHER_CTX_cipher(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @EVP_CIPHER_CTX_nid(ptr nocapture noundef readonly %ctx) local_unnamed_addr #8 {
+define hidden i32 @EVP_CIPHER_CTX_nid(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %1 = load i32, ptr %0, align 8
@@ -1203,7 +1203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @EVP_CIPHER_CTX_block_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #8 {
+define hidden i32 @EVP_CIPHER_CTX_block_size(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %block_size = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1212,7 +1212,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EVP_CIPHER_CTX_key_length(ptr nocapture noundef readonly %ctx) local_unnamed_addr #9 {
+define hidden i32 @EVP_CIPHER_CTX_key_length(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #9 {
 entry:
   %key_len = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load i32, ptr %key_len, align 8
@@ -1220,7 +1220,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @EVP_CIPHER_CTX_get_app_data(ptr nocapture noundef readonly %ctx) local_unnamed_addr #9 {
+define hidden ptr @EVP_CIPHER_CTX_get_app_data(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #9 {
 entry:
   %app_data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %app_data, align 8
@@ -1228,7 +1228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EVP_CIPHER_CTX_set_app_data(ptr nocapture noundef writeonly initializes((8, 16)) %ctx, ptr noundef %data) local_unnamed_addr #2 {
+define hidden void @EVP_CIPHER_CTX_set_app_data(ptr noundef writeonly captures(none) initializes((8, 16)) %ctx, ptr noundef %data) local_unnamed_addr #2 {
 entry:
   %app_data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr %data, ptr %app_data, align 8
@@ -1236,7 +1236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @EVP_CIPHER_CTX_set_padding(ptr nocapture noundef %ctx, i32 noundef %pad) local_unnamed_addr #10 {
+define hidden noundef i32 @EVP_CIPHER_CTX_set_padding(ptr noundef captures(none) %ctx, i32 noundef %pad) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq i32 %pad, 0
   %flags1 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
@@ -1249,7 +1249,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_CIPHER_CTX_set_key_length(ptr nocapture noundef %c, i32 noundef %key_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef captures(none) %c, i32 noundef %key_len) local_unnamed_addr #0 {
 entry:
   %key_len1 = getelementptr inbounds nuw i8, ptr %c, i64 24
   %0 = load i32, ptr %key_len1, align 8
@@ -1282,14 +1282,14 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EVP_CIPHER_nid(ptr nocapture noundef readonly %cipher) local_unnamed_addr #9 {
+define hidden i32 @EVP_CIPHER_nid(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %cipher, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EVP_CIPHER_block_size(ptr nocapture noundef readonly %cipher) local_unnamed_addr #9 {
+define hidden i32 @EVP_CIPHER_block_size(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #9 {
 entry:
   %block_size = getelementptr inbounds nuw i8, ptr %cipher, i64 4
   %0 = load i32, ptr %block_size, align 4
@@ -1297,7 +1297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EVP_CIPHER_key_length(ptr nocapture noundef readonly %cipher) local_unnamed_addr #9 {
+define hidden i32 @EVP_CIPHER_key_length(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #9 {
 entry:
   %key_len = getelementptr inbounds nuw i8, ptr %cipher, i64 8
   %0 = load i32, ptr %key_len, align 8
@@ -1305,7 +1305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EVP_CIPHER_iv_length(ptr nocapture noundef readonly %cipher) local_unnamed_addr #9 {
+define hidden i32 @EVP_CIPHER_iv_length(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #9 {
 entry:
   %iv_len = getelementptr inbounds nuw i8, ptr %cipher, i64 12
   %0 = load i32, ptr %iv_len, align 4
@@ -1313,7 +1313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, -63) i32 @EVP_CIPHER_flags(ptr nocapture noundef readonly %cipher) local_unnamed_addr #9 {
+define hidden range(i32 0, -63) i32 @EVP_CIPHER_flags(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #9 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %flags, align 4
@@ -1322,7 +1322,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 64) i32 @EVP_CIPHER_mode(ptr nocapture noundef readonly %cipher) local_unnamed_addr #9 {
+define hidden range(i32 0, 64) i32 @EVP_CIPHER_mode(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #9 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %flags, align 4
@@ -1377,7 +1377,7 @@ EVP_CipherInit.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @EVP_add_cipher_alias(ptr nocapture noundef readnone %a, ptr nocapture noundef readnone %b) local_unnamed_addr #11 {
+define hidden noundef i32 @EVP_add_cipher_alias(ptr noundef readnone captures(none) %a, ptr noundef readnone captures(none) %b) local_unnamed_addr #11 {
 entry:
   ret i32 1
 }

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Alpha_to = internal unnamed_addr global [256 x i32] zeroinitializer, align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @encode_rs(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 48)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @encode_rs(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 48)) %1) local_unnamed_addr #0 {
   %.b = load i1, ptr @RS_init, align 4
   br i1 %.b, label %.preheader41, label %3
 
@@ -291,7 +291,7 @@ gen_poly.exit:                                    ; preds = %.preheader.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @eras_dec_rs(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @eras_dec_rs(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [49 x i32], align 16
   %5 = alloca [49 x i32], align 16
   %6 = alloca [49 x i32], align 16
@@ -1061,16 +1061,16 @@ modnn.exit297:                                    ; preds = %.lr.ph.i295, %303
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4

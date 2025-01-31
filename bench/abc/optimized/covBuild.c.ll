@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [48 x i8] c"Abc_NtkCovDerive: The network check has failed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkCovDeriveCube(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Abc_NtkCovDeriveCube(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp ult i32 %7, 4194304
@@ -159,7 +159,7 @@ declare ptr @Abc_NtkCreateNodeConst0(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_NtkCreateNodeConst1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Min_CubeGetLits(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) unnamed_addr #0 {
+define internal fastcc void @Min_CubeGetLits(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((4, 8)) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -284,7 +284,7 @@ declare ptr @Abc_SopCreateAnd(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare void @Abc_SopComplement(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkCovDeriveNode_rec(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Abc_NtkCovDeriveNode_rec(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 20
   %.val49 = load i32, ptr %5, align 4
   %6 = and i32 %.val49, 15
@@ -408,7 +408,7 @@ Min_CoverCountCubes.exit.thread:                  ; preds = %.critedge
 declare ptr @Abc_SopCreateXorSpecial(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkCovDerive(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Abc_NtkCovDerive(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Abc_NtkStartFrom(ptr noundef %1, i32 noundef 2, i32 noundef 1) #6
   %4 = getelementptr i8, ptr %1, i64 64
   %.val19 = load ptr, ptr %4, align 8
@@ -472,7 +472,7 @@ declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #1
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkCovDeriveInv(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Abc_NtkCovDeriveInv(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %14, label %4
 
@@ -500,7 +500,7 @@ define ptr @Abc_NtkCovDeriveInv(ptr noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkCovDeriveCubeInv(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define ptr @Abc_NtkCovDeriveCubeInv(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp ult i32 %6, 4194304
@@ -667,7 +667,7 @@ Vec_IntFree.exit54:                               ; preds = %._crit_edge, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkCovDeriveNodeInv_rec(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Abc_NtkCovDeriveNodeInv_rec(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -802,7 +802,7 @@ Abc_NtkCovDeriveInv.exit:                         ; preds = %Abc_NtkCovDeriveInv
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkCovDeriveClean(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Abc_NtkCovDeriveClean(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Abc_NtkStartFrom(ptr noundef %1, i32 noundef 2, i32 noundef 1) #6
   %4 = getelementptr i8, ptr %1, i64 64
   %.val21 = load ptr, ptr %4, align 8
@@ -862,7 +862,7 @@ define ptr @Abc_NtkCovDeriveClean(ptr nocapture noundef readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkCovDerive_rec(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define ptr @Abc_NtkCovDerive_rec(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1178,7 +1178,7 @@ declare void @Min_CoverCreate(ptr noundef, ptr noundef, i8 noundef signext) loca
 declare ptr @Abc_SopRegister(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkCovDeriveRegular(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Abc_NtkCovDeriveRegular(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Abc_NtkStartFrom(ptr noundef %1, i32 noundef 2, i32 noundef 1) #6
   %4 = tail call ptr @Abc_AigConst1(ptr noundef %1) #6
   %5 = getelementptr i8, ptr %4, i64 44
@@ -1291,15 +1291,15 @@ declare ptr @Abc_AigConst1(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

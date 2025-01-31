@@ -587,7 +587,7 @@ find_next_boundary.exit.i:                        ; preds = %177, %159
   br i1 %212, label %213, label %216
 
 213:                                              ; preds = %208
-  %214 = call i32 @g_ascii_strncasecmp(ptr noundef %203, ptr noundef %210, i64 noundef %207) #7
+  %214 = call i32 @g_ascii_strncasecmp(ptr noundef %203, ptr noundef nonnull %210, i64 noundef %207) #7
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %is_known_multipart_header.exit.i, label %216
 
@@ -665,7 +665,7 @@ is_known_multipart_header.exit.thread.i:          ; preds = %225, %is_known_mult
 
 249:                                              ; preds = %245, %241
   %250 = load ptr, ptr %23, align 8
-  %251 = call ptr @wmem_ascii_strdown(ptr noundef %250, ptr noundef %spec.select242.i, i64 noundef -1) #7
+  %251 = call ptr @wmem_ascii_strdown(ptr noundef %250, ptr noundef nonnull %spec.select242.i, i64 noundef -1) #7
   store ptr %251, ptr %51, align 8
   br label %289
 
@@ -685,7 +685,7 @@ is_known_multipart_header.exit.thread.i:          ; preds = %225, %is_known_mult
   %storemerge.i = phi ptr [ %257, %254 ], [ null, %252 ]
   store ptr %storemerge.i, ptr %113, align 8
   %259 = load ptr, ptr %23, align 8
-  %260 = call ptr @wmem_ascii_strdown(ptr noundef %259, ptr noundef %234, i64 noundef -1) #7
+  %260 = call ptr @wmem_ascii_strdown(ptr noundef %259, ptr noundef nonnull %234, i64 noundef -1) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %126, ptr noundef nonnull @.str.80, ptr noundef %260) #7
   %261 = load ptr, ptr %23, align 8
   %262 = call ptr @ws_find_media_type_parameter(ptr noundef %261, ptr noundef %storemerge.i, ptr noundef nonnull @.str.81) #7
@@ -703,7 +703,7 @@ is_known_multipart_header.exit.thread.i:          ; preds = %225, %is_known_mult
 
 268:                                              ; preds = %267
   %269 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %265) #8
-  %270 = call i32 @g_ascii_strncasecmp(ptr noundef %260, ptr noundef nonnull %265, i64 noundef %269) #7
+  %270 = call i32 @g_ascii_strncasecmp(ptr noundef nonnull %260, ptr noundef nonnull %265, i64 noundef %269) #7
   %.not231.i = icmp eq i32 %270, 0
   br i1 %.not231.i, label %289, label %process_body_part.exit.thread
 
@@ -718,7 +718,7 @@ is_known_multipart_header.exit.thread.i:          ; preds = %225, %is_known_mult
 
 274:                                              ; preds = %273, %271
   %275 = load ptr, ptr %23, align 8
-  %276 = call ptr @wmem_ascii_strdown(ptr noundef %275, ptr noundef %234, i64 noundef -1) #7
+  %276 = call ptr @wmem_ascii_strdown(ptr noundef %275, ptr noundef nonnull %234, i64 noundef -1) #7
   br label %289
 
 277:                                              ; preds = %230
@@ -732,7 +732,7 @@ is_known_multipart_header.exit.thread.i:          ; preds = %225, %is_known_mult
 
 280:                                              ; preds = %279, %277
   %281 = load ptr, ptr %23, align 8
-  %282 = call ptr @wmem_ascii_strdown(ptr noundef %281, ptr noundef %234, i64 noundef -1) #7
+  %282 = call ptr @wmem_ascii_strdown(ptr noundef %281, ptr noundef nonnull %234, i64 noundef -1) #7
   br label %289
 
 283:                                              ; preds = %230
@@ -1016,7 +1016,7 @@ declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %62, label %4
 
@@ -1209,12 +1209,12 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
 declare ptr @ws_find_media_type_parameter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @tvb_offset_exists(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1223,7 +1223,7 @@ declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loc
 declare i32 @tvb_find_line_end(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @imf_find_field_end(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1270,10 +1270,10 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare ptr @base64_to_tvb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

@@ -239,16 +239,16 @@ declare void @_ZN9TraceTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(56))
 declare void @_ZN19AbstractInterpreter5printEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10EntryPointC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN10EntryPointC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 80)) %0) unnamed_addr #4 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10EntryPointC2EPhS0_S0_S0_S0_S0_S0_S0_S0_S0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #4 align 2 {
+define hidden void @_ZN10EntryPointC2EPhS0_S0_S0_S0_S0_S0_S0_S0_S0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 80)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %12, align 8
@@ -272,7 +272,7 @@ define hidden void @_ZN10EntryPointC2EPhS0_S0_S0_S0_S0_S0_S0_S0_S0_(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10EntryPointC2EPhS0_S0_S0_S0_S0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #4 align 2 {
+define hidden void @_ZN10EntryPointC2EPhS0_S0_S0_S0_S0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 80)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #4 align 2 {
   store ptr %2, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %8, align 8
@@ -296,7 +296,7 @@ define hidden void @_ZN10EntryPointC2EPhS0_S0_S0_S0_S0_(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10EntryPoint9set_entryE8TosStatePh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN10EntryPoint9set_entryE8TosStatePh(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw [10 x ptr], ptr %0, i64 0, i64 %4
   store ptr %2, ptr %5, align 8
@@ -304,7 +304,7 @@ define hidden void @_ZN10EntryPoint9set_entryE8TosStatePh(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK10EntryPoint5entryE8TosState(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZNK10EntryPoint5entryE8TosState(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw [10 x ptr], ptr %0, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -312,7 +312,7 @@ define hidden noundef ptr @_ZNK10EntryPoint5entryE8TosState(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10EntryPoint5printEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10EntryPoint5printEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.5) #15
   br label %3
@@ -346,7 +346,7 @@ define hidden void @_ZN10EntryPoint5printEv(ptr nocapture noundef nonnull readon
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN10EntryPointeqERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN10EntryPointeqERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #5 align 2 {
   br label %3
 
 3:                                                ; preds = %5, %2
@@ -368,7 +368,7 @@ define hidden noundef zeroext i1 @_ZN10EntryPointeqERKS_(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK13DispatchTable5entryEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.EntryPoint) align 8 initializes((0, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20480) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define hidden void @_ZNK13DispatchTable5entryEi(ptr dead_on_unwind noalias writable writeonly sret(%class.EntryPoint) align 8 captures(none) initializes((0, 80)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20480) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds [256 x ptr], ptr %1, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
@@ -422,7 +422,7 @@ define hidden void @_ZNK13DispatchTable5entryEi(ptr dead_on_unwind noalias nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13DispatchTable9set_entryEiR10EntryPoint(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20480) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %2) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN13DispatchTable9set_entryEiR10EntryPoint(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20480) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %2) local_unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %2, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [256 x ptr], ptr %0, i64 0, i64 %5
@@ -476,7 +476,7 @@ define hidden void @_ZN13DispatchTable9set_entryEiR10EntryPoint(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN13DispatchTableeqERS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20480) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20480) %1) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN13DispatchTableeqERS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20480) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20480) %1) local_unnamed_addr #7 align 2 {
   %3 = alloca %class.EntryPoint, align 8
   %4 = alloca %class.EntryPoint, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -1041,7 +1041,7 @@ declare void @llvm.va_end.p0(ptr) #12
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14

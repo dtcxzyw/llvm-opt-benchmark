@@ -490,7 +490,7 @@ declare i32 @H5SM_can_share(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare i32 @H5A__dense_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5O__attr_to_dense_cb(ptr noundef %0, ptr noundef %1, i32 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4) #0 {
+define internal range(i32 -1, 1) i32 @H5O__attr_to_dense_cb(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef writeonly captures(none) %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
@@ -721,7 +721,7 @@ declare void @H5AC_tag(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @H5O_protect(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @H5O__attr_find_opened_attr(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @H5O__attr_find_opened_attr(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -870,7 +870,7 @@ declare ptr @H5A__copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @H5A__dense_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5O__attr_open_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef %4) #0 {
+define internal range(i32 -1, 2) i32 @H5O__attr_open_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -1045,7 +1045,7 @@ define ptr @H5O__attr_open_by_idx(ptr noundef %0, i32 noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5O__attr_open_by_idx_cb(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal range(i32 -1, 2) i32 @H5O__attr_open_by_idx_cb(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = tail call ptr @H5A__copy(ptr noundef null, ptr noundef %0) #9
   store ptr %3, ptr %1, align 8
   %4 = icmp eq ptr %3, null
@@ -1456,7 +1456,7 @@ define range(i32 -1, 1) i32 @H5O__attr_write(ptr noundef %0, ptr noundef %1) loc
 declare i32 @H5A__dense_write(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5O__attr_write_cb(ptr noundef %0, ptr nocapture noundef %1, i32 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) #0 {
+define internal range(i32 -1, 2) i32 @H5O__attr_write_cb(ptr noundef %0, ptr noundef captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -1711,7 +1711,7 @@ define range(i32 -1, 1) i32 @H5O__attr_rename(ptr noundef %0, ptr noundef %1, pt
 declare i32 @H5A__dense_rename(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @H5O__attr_rename_chk_cb(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 %2, ptr nocapture readnone %3, ptr nocapture noundef %4) #2 {
+define internal range(i32 0, 2) i32 @H5O__attr_rename_chk_cb(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr noundef captures(none) %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -1735,7 +1735,7 @@ define internal range(i32 0, 2) i32 @H5O__attr_rename_chk_cb(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5O__attr_rename_mod_cb(ptr noundef %0, ptr noundef %1, i32 %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #0 {
+define internal range(i32 -1, 2) i32 @H5O__attr_rename_mod_cb(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -1899,7 +1899,7 @@ define internal range(i32 -1, 2) i32 @H5O__attr_rename_mod_cb(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @H5A__dense_iterate(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2080,7 +2080,7 @@ define range(i32 -1, 1) i32 @H5O__attr_remove(ptr noundef %0, ptr noundef %1) lo
 declare i32 @H5A__dense_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5O__attr_remove_cb(ptr noundef %0, ptr noundef %1, i32 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) #0 {
+define internal range(i32 -1, 2) i32 @H5O__attr_remove_cb(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -2117,7 +2117,7 @@ define internal range(i32 -1, 2) i32 @H5O__attr_remove_cb(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.H5A_attr_table_t, align 8
   %5 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -2535,7 +2535,7 @@ define range(i32 -1, 1) i32 @H5O__attr_remove_by_idx(ptr noundef %0, i32 noundef
 declare i32 @H5A__dense_remove_by_idx(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O__attr_count_real(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O__attr_count_real(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5O_ainfo_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %6 = load i8, ptr %5, align 8
@@ -2699,7 +2699,7 @@ define range(i32 -1, 1) i32 @H5O__attr_exists(ptr noundef %0, ptr noundef %1, pt
 declare i32 @H5A__dense_exists(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @H5O__attr_exists_cb(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 %2, ptr nocapture readnone %3, ptr nocapture noundef readonly %4) #4 {
+define internal range(i32 0, 2) i32 @H5O__attr_exists_cb(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -2901,7 +2901,7 @@ declare i32 @H5B2_close(ptr noundef) local_unnamed_addr #1
 declare i32 @H5O__release_mesg(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @H5F_get_fileno(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2915,12 +2915,12 @@ declare i32 @H5F_get_obj_ids(ptr noundef, i32 noundef, i64 noundef, ptr noundef,
 declare ptr @H5VL_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @H5O__chunk_protect(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @H5O__chunk_unprotect(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -2931,7 +2931,7 @@ declare noalias ptr @H5MM_xstrdup(ptr noundef) local_unnamed_addr #1
 declare i32 @H5A__set_version(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @H5A__dense_build_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

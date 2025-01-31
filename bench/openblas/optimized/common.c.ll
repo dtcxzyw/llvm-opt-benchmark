@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @srand_generate(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @srand_generate(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %.loopexit
 
@@ -31,7 +31,7 @@ define void @srand_generate(ptr nocapture noundef writeonly %0, i32 noundef %1) 
 declare i32 @rand() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @drand_generate(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @drand_generate(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %.loopexit
 
@@ -55,7 +55,7 @@ define void @drand_generate(ptr nocapture noundef writeonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define float @smatrix_difference(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define float @smatrix_difference(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %7, label %.loopexit2
 
@@ -114,7 +114,7 @@ define float @smatrix_difference(ptr noundef %0, ptr nocapture noundef readonly 
 declare float @cblas_snrm2(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define double @dmatrix_difference(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define double @dmatrix_difference(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %7, label %.loopexit2
 
@@ -173,7 +173,7 @@ define double @dmatrix_difference(ptr noundef %0, ptr nocapture noundef readonly
 declare double @cblas_dnrm2(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @cconjugate_vector(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+define void @cconjugate_vector(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %5, label %.loopexit
 
@@ -199,7 +199,7 @@ define void @cconjugate_vector(i32 noundef %0, i32 noundef %1, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zconjugate_vector(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+define void @zconjugate_vector(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %5, label %.loopexit
 
@@ -225,7 +225,7 @@ define void @zconjugate_vector(i32 noundef %0, i32 noundef %1, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stranspose(i32 noundef %0, i32 noundef %1, float noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #3 {
+define void @stranspose(i32 noundef %0, i32 noundef %1, float noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = icmp eq i32 %1, 0
   br i1 %8, label %.loopexit2, label %9
 
@@ -266,7 +266,7 @@ define void @stranspose(i32 noundef %0, i32 noundef %1, float noundef %2, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @dtranspose(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #3 {
+define void @dtranspose(i32 noundef %0, i32 noundef %1, double noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = icmp eq i32 %1, 0
   br i1 %8, label %.loopexit2, label %9
 
@@ -307,7 +307,7 @@ define void @dtranspose(i32 noundef %0, i32 noundef %1, double noundef %2, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = icmp eq i32 %1, 0
   br i1 %9, label %.loopexit2, label %10
 
@@ -379,7 +379,7 @@ define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr nocapture noundef re
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = icmp eq i32 %1, 0
   br i1 %9, label %.loopexit2, label %10
 
@@ -451,7 +451,7 @@ define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr nocapture noundef re
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @scopy(i32 noundef %0, i32 noundef %1, float noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #3 {
+define void @scopy(i32 noundef %0, i32 noundef %1, float noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = icmp eq i32 %0, 0
   br i1 %8, label %.loopexit2, label %9
 
@@ -492,7 +492,7 @@ define void @scopy(i32 noundef %0, i32 noundef %1, float noundef %2, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @dcopy(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #3 {
+define void @dcopy(i32 noundef %0, i32 noundef %1, double noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = icmp eq i32 %0, 0
   br i1 %8, label %.loopexit2, label %9
 
@@ -533,7 +533,7 @@ define void @dcopy(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ccopy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define void @ccopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = icmp eq i32 %0, 0
   br i1 %9, label %.loopexit2, label %10
 
@@ -597,7 +597,7 @@ define void @ccopy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zcopy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define void @zcopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = icmp eq i32 %0, 0
   br i1 %9, label %.loopexit2, label %10
 

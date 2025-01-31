@@ -47,7 +47,7 @@ $__clang_call_terminate = comdat any
 @switch.table._ZN4base4File18OSErrorToFileErrorEi = private unnamed_addr constant [30 x i32] [i32 -5, i32 -4, i32 poison, i32 poison, i32 -16, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 -7, i32 -5, i32 poison, i32 poison, i32 -2, i32 -3, i32 poison, i32 poison, i32 -9, i32 -5, i32 poison, i32 poison, i32 -6, i32 poison, i32 -2, i32 poison, i32 -8, i32 poison, i32 -5], align 4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base4File4Info8FromStatERK6stat64(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 10), (16, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %stat_info) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base4File4Info8FromStatERK6stat64(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 10), (16, 40)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %stat_info) local_unnamed_addr #0 align 2 {
 entry:
   %st_mode = getelementptr inbounds nuw i8, ptr %stat_info, i64 24
   %0 = load i32, ptr %st_mode, align 8
@@ -98,7 +98,7 @@ entry:
 declare i64 @_ZN4base4Time9FromTimeTEl(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base4File7IsValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base4File7IsValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp.i = icmp ne i32 %0, -1
@@ -106,14 +106,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4base4File15GetPlatformFileEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef i32 @_ZNK4base4File15GetPlatformFileEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZN4base4File16TakePlatformFileEv(ptr nocapture noundef nonnull align 8 dereferenceable(50) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN4base4File16TakePlatformFileEv(ptr noundef nonnull align 8 captures(none) dereferenceable(50) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   store i32 -1, ptr %this, align 8
@@ -211,7 +211,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base4File4ReadElPci(ptr noundef nonnull align 8 dereferenceable(50) %this, i64 noundef %offset, ptr nocapture noundef %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4base4File4ReadElPci(ptr noundef nonnull align 8 dereferenceable(50) %this, i64 noundef %offset, ptr noundef captures(none) %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scoped_file_trace = alloca %"class.base::FileTracing::ScopedTrace", align 8
   %cmp = icmp slt i32 %size, 0
@@ -296,13 +296,13 @@ return:                                           ; preds = %entry, %do.end22
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @pread(i32 noundef, ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base4File16ReadAtCurrentPosEPci(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr nocapture noundef %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4base4File16ReadAtCurrentPosEPci(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef captures(none) %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scoped_file_trace = alloca %"class.base::FileTracing::ScopedTrace", align 8
   %cmp = icmp slt i32 %size, 0
@@ -386,10 +386,10 @@ return:                                           ; preds = %entry, %do.end20
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base4File16ReadNoBestEffortElPci(ptr noundef nonnull align 8 dereferenceable(50) %this, i64 noundef %offset, ptr nocapture noundef %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4base4File16ReadNoBestEffortElPci(ptr noundef nonnull align 8 dereferenceable(50) %this, i64 noundef %offset, ptr noundef captures(none) %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scoped_file_trace = alloca %"class.base::FileTracing::ScopedTrace", align 8
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace)
@@ -444,7 +444,7 @@ do.end:                                           ; preds = %invoke.cont6, %land
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base4File28ReadAtCurrentPosNoBestEffortEPci(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr nocapture noundef %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4base4File28ReadAtCurrentPosNoBestEffortEPci(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef captures(none) %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scoped_file_trace = alloca %"class.base::FileTracing::ScopedTrace", align 8
   %cmp = icmp slt i32 %size, 0
@@ -507,7 +507,7 @@ return:                                           ; preds = %entry, %do.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base4File5WriteElPKci(ptr noundef nonnull align 8 dereferenceable(50) %this, i64 noundef %offset, ptr nocapture noundef readonly %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4base4File5WriteElPKci(ptr noundef nonnull align 8 dereferenceable(50) %this, i64 noundef %offset, ptr noundef readonly captures(none) %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scoped_file_trace = alloca %"class.base::FileTracing::ScopedTrace", align 8
   %0 = load i32, ptr %this, align 8
@@ -603,7 +603,7 @@ return:                                           ; preds = %if.end, %do.end28, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base4File17WriteAtCurrentPosEPKci(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr nocapture noundef readonly %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4base4File17WriteAtCurrentPosEPKci(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef readonly captures(none) %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scoped_file_trace = alloca %"class.base::FileTracing::ScopedTrace", align 8
   %cmp = icmp slt i32 %size, 0
@@ -687,13 +687,13 @@ return:                                           ; preds = %entry, %do.end20
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @pwrite(i32 noundef, ptr nocapture noundef readonly, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @pwrite(i32 noundef, ptr noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base4File29WriteAtCurrentPosNoBestEffortEPKci(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr nocapture noundef readonly %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4base4File29WriteAtCurrentPosNoBestEffortEPKci(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef readonly captures(none) %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scoped_file_trace = alloca %"class.base::FileTracing::ScopedTrace", align 8
   %cmp = icmp slt i32 %size, 0
@@ -890,7 +890,7 @@ invoke.cont9:                                     ; preds = %invoke.cont6
 declare { i64, i64 } @_ZNK4base4Time9ToTimeValEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base4File7GetInfoEPNS0_4InfoE(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr nocapture noundef writeonly %info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base4File7GetInfoEPNS0_4InfoE(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef writeonly captures(none) %info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scoped_file_trace = alloca %"class.base::FileTracing::ScopedTrace", align 8
   %file_info = alloca %struct.stat64, align 8
@@ -1279,7 +1279,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr nocapture noundef nonnull align 8 dereferenceable(50) initializes((48, 49)) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i32 noundef %flags) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull align 8 captures(none) dereferenceable(50) initializes((48, 49)) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i32 noundef %flags) local_unnamed_addr #0 align 2 {
 entry:
   %and = and i32 %flags, 2
   %tobool.not = icmp eq i32 %and, 0
@@ -1447,13 +1447,13 @@ return:                                           ; preds = %_ZN4base13ScopedGen
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4base4File5FlushEv(ptr noundef nonnull align 8 dereferenceable(50) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1512,7 +1512,7 @@ do.end:                                           ; preds = %invoke.cont5, %land
 declare i32 @fdatasync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base4File15SetPlatformFileEi(ptr nocapture noundef nonnull align 8 dereferenceable(50) %this, i32 noundef %file) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base4File15SetPlatformFileEi(ptr noundef nonnull align 8 captures(none) dereferenceable(50) %this, i32 noundef %file) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp.not.i = icmp eq i32 %0, -1
@@ -1538,7 +1538,7 @@ _ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEE5resetERKi.exit: ; p
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #4
@@ -1662,13 +1662,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

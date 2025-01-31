@@ -683,7 +683,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_TransferPermuteTime(ptr nocapture noundef readnone %0, ptr noundef initializes((448, 452)) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Extra_TransferPermuteTime(ptr noundef readnone captures(none) %0, ptr noundef initializes((448, 452)) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 448
@@ -724,7 +724,7 @@ define ptr @Extra_TransferPermuteTime(ptr nocapture noundef readnone %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %24 = load ptr, ptr %7, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %24) #5
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %24) #5
   %25 = call i32 @st__gen(ptr noundef nonnull %21, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %.not27.i = icmp eq i32 %25, 0
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
@@ -987,10 +987,10 @@ declare i32 @st__add_direct(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare i32 @llvm.umin.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

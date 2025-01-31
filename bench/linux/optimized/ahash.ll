@@ -87,7 +87,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_crypto_hash_
 @llvm.compiler.used = appending global [27 x ptr] [ptr @__UNIQUE_ID___addressable_ahash_register_instance468, ptr @__UNIQUE_ID___addressable_crypto_ahash_digest455, ptr @__UNIQUE_ID___addressable_crypto_ahash_export456, ptr @__UNIQUE_ID___addressable_crypto_ahash_final453, ptr @__UNIQUE_ID___addressable_crypto_ahash_finup454, ptr @__UNIQUE_ID___addressable_crypto_ahash_import457, ptr @__UNIQUE_ID___addressable_crypto_ahash_init451, ptr @__UNIQUE_ID___addressable_crypto_ahash_setkey450, ptr @__UNIQUE_ID___addressable_crypto_ahash_update452, ptr @__UNIQUE_ID___addressable_crypto_alloc_ahash459, ptr @__UNIQUE_ID___addressable_crypto_clone_ahash461, ptr @__UNIQUE_ID___addressable_crypto_grab_ahash458, ptr @__UNIQUE_ID___addressable_crypto_has_ahash460, ptr @__UNIQUE_ID___addressable_crypto_hash_alg_has_setkey469, ptr @__UNIQUE_ID___addressable_crypto_hash_walk_done448, ptr @__UNIQUE_ID___addressable_crypto_hash_walk_first449, ptr @__UNIQUE_ID___addressable_crypto_register_ahash462, ptr @__UNIQUE_ID___addressable_crypto_register_ahashes464, ptr @__UNIQUE_ID___addressable_crypto_unregister_ahash463, ptr @__UNIQUE_ID___addressable_crypto_unregister_ahashes465, ptr @__UNIQUE_ID___addressable_shash_ahash_digest444, ptr @__UNIQUE_ID___addressable_shash_ahash_finup440, ptr @__UNIQUE_ID___addressable_shash_ahash_update439, ptr @__UNIQUE_ID_description472, ptr @__UNIQUE_ID_file470, ptr @__UNIQUE_ID_license471, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched206], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -291,7 +291,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local range(i32 0, 4097) i32 @crypto_hash_walk_first(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((24, 32)) %1) #1 align 16 {
+define dso_local range(i32 0, 4097) i32 @crypto_hash_walk_first(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((24, 32)) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -358,7 +358,7 @@ define dso_local range(i32 0, 4097) i32 @crypto_hash_walk_first(ptr nocapture no
 declare dso_local i32 @crypto_shash_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @crypto_hash_walk_done(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @crypto_hash_walk_done(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -461,7 +461,7 @@ define dso_local i32 @crypto_hash_walk_done(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @shash_ahash_finup(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @shash_ahash_finup(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -625,7 +625,7 @@ declare dso_local i32 @crypto_shash_final(ptr noundef, ptr noundef) local_unname
 declare dso_local i32 @crypto_shash_finup(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @shash_ahash_digest(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @shash_ahash_digest(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1188,7 +1188,7 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @crypto_hash_alg_has_setkey(ptr nocapture noundef readonly %0) #3 align 16 {
+define dso_local zeroext i1 @crypto_hash_alg_has_setkey(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @crypto_shash_type
@@ -1440,7 +1440,7 @@ define dso_local i32 @ahash_register_instance(ptr noundef %0, ptr noundef %1) #0
 declare dso_local i32 @crypto_register_instance(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @ahash_nosetkey(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #4 align 16 {
+define internal noundef i32 @ahash_nosetkey(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #4 align 16 {
   ret i32 -38
 }
 
@@ -1559,7 +1559,7 @@ define internal i32 @crypto_ahash_init_tfm(ptr noundef initializes((-12, -8)) %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @crypto_ahash_show(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @crypto_ahash_show(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.2) #9
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
@@ -1605,7 +1605,7 @@ declare dso_local ptr @crypto_mod_get(ptr noundef) local_unnamed_addr #2
 declare dso_local void @crypto_mod_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @crypto_exit_ahash_using_shash(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @crypto_exit_ahash_using_shash(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1805,7 +1805,7 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ahash_def_finup_done1(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define internal void @ahash_def_finup_done1(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq i32 %1, -115
   br i1 %3, label %40, label %4
 
@@ -1891,7 +1891,7 @@ declare dso_local void @kfree_sensitive(ptr noundef) local_unnamed_addr #2
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ahash_def_finup_done2(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define internal void @ahash_def_finup_done2(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq i32 %1, -115
   br i1 %3, label %25, label %4
 
@@ -1931,7 +1931,7 @@ define internal void @ahash_def_finup_done2(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @shash_no_setkey(ptr noundef, ptr noundef, i32 noundef) #2

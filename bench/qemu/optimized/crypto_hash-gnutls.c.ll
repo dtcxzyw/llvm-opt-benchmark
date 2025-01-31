@@ -54,7 +54,7 @@ return:                                           ; preds = %for.body, %for.cond
 declare ptr @gnutls_digest_list() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcrypto_gnutls_hash_bytesv(i32 noundef %alg, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture noundef %result, ptr nocapture noundef %resultlen, ptr noundef %errp) #2 {
+define internal range(i32 -1, 1) i32 @qcrypto_gnutls_hash_bytesv(i32 noundef %alg, ptr noundef readonly captures(none) %iov, i64 noundef %niov, ptr noundef captures(none) %result, ptr noundef captures(none) %resultlen, ptr noundef %errp) #2 {
 entry:
   %hash = alloca ptr, align 8
   %cmp.i = icmp ugt i32 %alg, 6

@@ -64,7 +64,7 @@ define dso_local noundef ptr @virtio_gpu_fence_alloc(ptr noundef %0, i64 noundef
 declare dso_local void @dma_fence_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_fence_emit(ptr noundef %0, ptr nocapture noundef initializes((8, 16)) %1, ptr noundef initializes((40, 48), (72, 80)) %2) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_fence_emit(ptr noundef %0, ptr noundef captures(none) initializes((8, 16)) %1, ptr noundef initializes((40, 48), (72, 80)) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 62112
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 62080
@@ -340,17 +340,17 @@ declare dso_local void @drm_send_event(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef nonnull ptr @virtio_gpu_get_driver_name(ptr nocapture readnone %0) #3 align 16 {
+define internal noundef nonnull ptr @virtio_gpu_get_driver_name(ptr readnone captures(none) %0) #3 align 16 {
   ret ptr @.str.1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef nonnull ptr @virtio_gpu_get_timeline_name(ptr nocapture readnone %0) #3 align 16 {
+define internal noundef nonnull ptr @virtio_gpu_get_timeline_name(ptr readnone captures(none) %0) #3 align 16 {
   ret ptr @.str.2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @virtio_gpu_fence_signaled(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef zeroext i1 @virtio_gpu_fence_signaled(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -367,7 +367,7 @@ define internal noundef zeroext i1 @virtio_gpu_fence_signaled(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal void @virtio_gpu_fence_value_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #4 align 16 {
+define internal void @virtio_gpu_fence_value_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #4 align 16 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
@@ -378,7 +378,7 @@ define internal void @virtio_gpu_fence_value_str(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal void @virtio_gpu_timeline_value_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #4 align 16 {
+define internal void @virtio_gpu_timeline_value_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #4 align 16 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
@@ -388,7 +388,7 @@ define internal void @virtio_gpu_timeline_value_str(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #1

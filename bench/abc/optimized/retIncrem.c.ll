@@ -272,13 +272,13 @@ Abc_NtkRetimeNodeIsEnabled.exit.i:                ; preds = %88, %.loopexit49.Ab
   br i1 %.not.i, label %.loopexit50.i.thread73, label %.loopexit50.i.thread
 
 .loopexit50.i.thread:                             ; preds = %.thread, %.loopexit50.i
-  tail call void @Abc_NtkRetimeTranferFromCopy(ptr noundef %0) #8
+  tail call void @Abc_NtkRetimeTranferFromCopy(ptr noundef nonnull %0) #8
   br label %Abc_NtkRetimeOneWay.exit
 
 .loopexit50.i.thread73:                           ; preds = %28, %.loopexit50.i
   %.034.i6177 = phi ptr [ %.034.i61, %.loopexit50.i ], [ %29, %28 ]
   %.0.i6376 = phi ptr [ %.0.i63, %.loopexit50.i ], [ %30, %28 ]
-  tail call void @Abc_NtkRetimeBackwardInitialFinish(ptr noundef %0, ptr noundef %.0.i6376, ptr noundef %.034.i6177, i32 noundef %6) #8
+  tail call void @Abc_NtkRetimeBackwardInitialFinish(ptr noundef nonnull %0, ptr noundef %.0.i6376, ptr noundef %.034.i6177, i32 noundef %6) #8
   tail call void @Abc_NtkDelete(ptr noundef %.0.i6376) #8
   %106 = getelementptr inbounds nuw i8, ptr %.034.i6177, i64 8
   %107 = load ptr, ptr %106, align 8
@@ -294,9 +294,9 @@ Vec_IntFree.exit.i:                               ; preds = %108, %.loopexit50.i
   br label %Abc_NtkRetimeOneWay.exit
 
 Abc_NtkRetimeOneWay.exit:                         ; preds = %.loopexit50.i.thread, %Vec_IntFree.exit.i, %Abc_NtkRetimeOneWay.exit.thread
-  tail call void @Abc_NtkRetimeShareLatches(ptr noundef %0, i32 noundef 0)
+  tail call void @Abc_NtkRetimeShareLatches(ptr noundef nonnull %0, i32 noundef 0)
   store ptr %25, ptr %24, align 8
-  %109 = tail call i32 @Abc_NtkRetimeFinalizeLatches(ptr noundef %0, ptr noundef %23, i32 noundef %.val43.val, i32 noundef %5)
+  %109 = tail call i32 @Abc_NtkRetimeFinalizeLatches(ptr noundef nonnull %0, ptr noundef %23, i32 noundef %.val43.val, i32 noundef %5)
   tail call void @st__free_table(ptr noundef %23) #8
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %118, label %111
@@ -328,7 +328,7 @@ declare i32 @Abc_NtkLevel(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_NtkDup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkRetimePrepareLatches(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Abc_NtkRetimePrepareLatches(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 80
   %.val26 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val26, i64 4
@@ -438,7 +438,7 @@ define ptr @Abc_NtkRetimePrepareLatches(ptr nocapture noundef readonly %0) local
 declare void @st__free_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkRetimeShareLatches(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Abc_NtkRetimeShareLatches(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
@@ -1414,7 +1414,7 @@ declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #1
 declare i32 @st__lookup_int(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1423,7 +1423,7 @@ declare void @Abc_ObjPatchFanin(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @Abc_NtkDeleteObj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Abc_NtkRetimeNodeIsEnabled(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Abc_NtkRetimeNodeIsEnabled(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.preheader, label %.preheader27
 
@@ -1747,7 +1747,7 @@ declare void @Abc_NodeCollectFanouts(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @Abc_NtkCreateNodeBuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_NtkRetimeCheckCompatibleLatchFanouts(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @Abc_NtkRetimeCheckCompatibleLatchFanouts(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 44
   %.val15 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val15, 0
@@ -1813,12 +1813,12 @@ define i32 @Abc_NtkRetimeCheckCompatibleLatchFanouts(ptr nocapture noundef reado
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @Abc_NtkRetimeTranferToCopy(ptr noundef) local_unnamed_addr #1
 
@@ -1831,10 +1831,10 @@ declare void @Abc_NtkRetimeTranferFromCopy(ptr noundef) local_unnamed_addr #1
 declare void @Abc_NtkRetimeBackwardInitialFinish(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -87,13 +87,13 @@ define dso_local noundef ptr @intel_plane_alloc() local_unnamed_addr #0 align 16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_plane_free(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -105,7 +105,7 @@ define dso_local void @intel_plane_free(ptr noundef %0) local_unnamed_addr #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_plane_destroy_state(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_plane_destroy_state(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -230,7 +230,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__drm_atomic_helper_plane_destroy_state(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_adjusted_rate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
+define dso_local i32 @intel_adjusted_rate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 4
@@ -267,7 +267,7 @@ define dso_local i32 @intel_adjusted_rate(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_plane_pixel_rate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 16 {
+define dso_local i32 @intel_plane_pixel_rate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 856
@@ -308,7 +308,7 @@ define dso_local i32 @intel_plane_pixel_rate(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_plane_data_rate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 align 16 {
+define dso_local i32 @intel_plane_data_rate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %5 = load i8, ptr %4, align 4, !range !17, !noundef !18
   %6 = icmp eq i8 %5, 0
@@ -369,7 +369,7 @@ define dso_local i32 @intel_plane_data_rate(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_plane_calc_min_cdclk(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_plane_calc_min_cdclk(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -477,7 +477,7 @@ declare dso_local ptr @intel_atomic_get_cdclk_state(ptr noundef) local_unnamed_a
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_plane_copy_uapi_to_hw_state(ptr nocapture noundef initializes((108, 140), (176, 184), (192, 216)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_plane_copy_uapi_to_hw_state(ptr noundef captures(none) initializes((108, 140), (176, 184), (192, 216)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -580,10 +580,10 @@ define dso_local void @intel_plane_copy_uapi_to_hw_state(ptr nocapture noundef i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_plane_copy_hw_state(ptr nocapture noundef initializes((176, 184), (192, 216)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_plane_copy_hw_state(ptr noundef captures(none) initializes((176, 184), (192, 216)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -613,7 +613,7 @@ define dso_local void @intel_plane_copy_hw_state(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @intel_plane_set_invisible(ptr nocapture noundef %0, ptr nocapture noundef initializes((140, 141)) %1) local_unnamed_addr #7 align 16 {
+define dso_local void @intel_plane_set_invisible(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((140, 141)) %1) local_unnamed_addr #7 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1324
   %5 = load i32, ptr %4, align 4
@@ -692,7 +692,7 @@ define dso_local void @intel_plane_set_invisible(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_plane_atomic_check_with_state(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef initializes((140, 141)) %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_plane_atomic_check_with_state(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef initializes((140, 141)) %3) local_unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 184
@@ -1835,7 +1835,7 @@ define dso_local i32 @intel_plane_atomic_check_with_state(ptr nocapture noundef 
 declare dso_local zeroext i1 @intel_format_info_is_yuv_semiplanar(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_plane_atomic_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_plane_atomic_check(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2115,7 +2115,7 @@ define dso_local void @intel_plane_disable_arm(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_crtc_planes_update_noarm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_crtc_planes_update_noarm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -2247,7 +2247,7 @@ define dso_local void @intel_crtc_planes_update_noarm(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_crtc_planes_update_arm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_crtc_planes_update_arm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [8 x %struct.skl_ddb_entry], align 16
   %4 = alloca [8 x %struct.skl_ddb_entry], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2853,7 +2853,7 @@ declare dso_local zeroext i1 @drm_rect_clip_scaled(ptr noundef, ptr noundef, ptr
 declare dso_local void @drm_rect_rotate_inv(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @intel_plane_check_src_coordinates(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_plane_check_src_coordinates(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -2986,7 +2986,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_plane_check_src_coordinate
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @intel_plane_helper_add(ptr nocapture noundef writeonly initializes((1232, 1240)) %0) local_unnamed_addr #8 align 16 {
+define dso_local void @intel_plane_helper_add(ptr noundef writeonly captures(none) initializes((1232, 1240)) %0) local_unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   store ptr @intel_plane_helper_funcs, ptr %2, align 8
   ret void
@@ -2996,7 +2996,7 @@ define dso_local void @intel_plane_helper_add(ptr nocapture noundef writeonly in
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__drm_atomic_helper_plane_state_reset(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -3255,7 +3255,7 @@ define internal i32 @intel_prepare_plane_fb(ptr noundef %0, ptr noundef %1) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_cleanup_plane_fb(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @intel_cleanup_plane_fb(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

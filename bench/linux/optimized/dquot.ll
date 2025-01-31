@@ -241,16 +241,16 @@ define dso_local void @__quota_error(ptr noundef %0, ptr noundef %1, ptr noundef
 declare dso_local i32 @__printk_ratelimit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @register_quota_format(ptr noundef initializes((24, 32)) %0) #0 align 16 {
@@ -357,7 +357,7 @@ define dso_local range(i32 0, 2) i32 @dquot_mark_dquot_dirty(ptr noundef %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mark_info_dirty(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local void @mark_info_dirty(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @dq_data_lock) #12
   %3 = sext i32 %1 to i64
   %.idx = mul nsw i64 %3, 72
@@ -649,7 +649,7 @@ define dso_local void @dquot_destroy(ptr noundef %0) #0 align 16 {
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dquot_scan_active(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local i32 @dquot_scan_active(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load volatile i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
@@ -1243,7 +1243,7 @@ declare dso_local void @truncate_inode_pages(ptr noundef, i64 noundef) local_unn
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias ptr @dquot_alloc(ptr nocapture readnone %0, i32 %1) #0 align 16 {
+define dso_local noalias ptr @dquot_alloc(ptr readnone captures(none) %0, i32 %1) #0 align 16 {
   %3 = load ptr, ptr @dquot_cachep, align 8
   %4 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %3, i32 noundef 3392) #12
   ret ptr %4
@@ -2428,7 +2428,7 @@ define dso_local noundef range(i32 -122, 1) i32 @__dquot_alloc_space(ptr noundef
 declare dso_local void @inode_add_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -122, 1) i32 @dquot_add_space(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -122, 1) i32 @dquot_add_space(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2841,7 +2841,7 @@ define dso_local noundef range(i32 -122, 1) i32 @dquot_alloc_inode(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -122, 1) i32 @dquot_add_inodes(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -122, 1) i32 @dquot_add_inodes(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_raw_spin_lock(ptr noundef nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -3907,7 +3907,7 @@ select.unfold:                                    ; preds = %58, %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__dquot_transfer(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local i32 @__dquot_transfer(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca [3 x ptr], align 16
   %5 = alloca [3 x i8], align 1
@@ -4649,7 +4649,7 @@ select.unfold33:                                  ; preds = %189, %186
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dquot_transfer(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local i32 @dquot_transfer(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -5931,7 +5931,7 @@ define dso_local i32 @dquot_resume(ptr noundef %0, i32 noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dquot_quota_on(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define dso_local i32 @dquot_quota_on(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @security_quota_on(ptr noundef %6) #12
@@ -5960,7 +5960,7 @@ define dso_local i32 @dquot_quota_on(ptr noundef readnone %0, i32 noundef %1, i3
 declare dso_local i32 @security_quota_on(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dquot_quota_on_mount(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local i32 @dquot_quota_on_mount(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef %1) #12
@@ -5999,13 +5999,13 @@ define dso_local i32 @dquot_quota_on_mount(ptr nocapture noundef readonly %0, pt
 declare dso_local ptr @lookup_positive_unlocked(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @dput(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dquot_get_dqblk(ptr noundef %0, i64 %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local i32 @dquot_get_dqblk(ptr noundef %0, i64 %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = tail call ptr @dqget(ptr noundef %0, i64 %1)
   %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
   br i1 %5, label %6, label %9
@@ -6064,7 +6064,7 @@ define dso_local i32 @dquot_get_dqblk(ptr noundef %0, i64 %1, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dquot_get_next_dqblk(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local i32 @dquot_get_next_dqblk(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -6137,7 +6137,7 @@ define dso_local i32 @dquot_get_next_dqblk(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dquot_set_dqblk(ptr noundef %0, i64 %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local i32 @dquot_set_dqblk(ptr noundef %0, i64 %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = tail call ptr @dqget(ptr noundef %0, i64 %1)
   %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
   br i1 %5, label %6, label %9
@@ -6501,7 +6501,7 @@ define dso_local i32 @dquot_set_dqblk(ptr noundef %0, i64 %1, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dquot_get_state(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 176)) %1) #0 align 16 {
+define dso_local noundef i32 @dquot_get_state(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 176)) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(176) %1, i8 0, i64 176, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6607,7 +6607,7 @@ define dso_local noundef i32 @dquot_get_state(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dquot_set_dqinfo(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local i32 @dquot_set_dqinfo(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load i32, ptr %2, align 4
   %5 = and i32 %4, 3840
   %6 = icmp eq i32 %5, 0
@@ -6937,7 +6937,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 sect
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @quota_release_workfn(ptr nocapture readnone %0) #0 align 16 {
+define internal void @quota_release_workfn(ptr readnone captures(none) %0) #0 align 16 {
   %2 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
   tail call void @_raw_spin_lock(ptr noundef nonnull @dq_list_lock) #12
@@ -7214,7 +7214,7 @@ declare dso_local i32 @__percpu_counter_init_many(ptr noundef, i64 noundef, i32 
 declare dso_local ptr @shrinker_alloc(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none)
-define internal i64 @dqcache_shrink_count(ptr nocapture readnone %0, ptr nocapture readnone %1) #9 align 16 {
+define internal i64 @dqcache_shrink_count(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #9 align 16 {
   %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @dqstats, i64 312), align 8
   %4 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
   %5 = load i32, ptr @sysctl_vfs_cache_pressure, align 4
@@ -7229,7 +7229,7 @@ define internal i64 @dqcache_shrink_count(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @dqcache_shrink_scan(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 align 16 {
+define internal i64 @dqcache_shrink_scan(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @dq_list_lock) #12
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load volatile ptr, ptr @free_dquots, align 8

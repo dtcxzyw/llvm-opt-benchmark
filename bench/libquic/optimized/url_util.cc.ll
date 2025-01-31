@@ -169,7 +169,7 @@ if.end6:                                          ; preds = %_ZNSt6vectorIN3url1
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url17AddStandardSchemeEPKcNS_10SchemeTypeE(ptr nocapture noundef readonly %new_scheme, i32 noundef %type) local_unnamed_addr #0 {
+define dso_local void @_ZN3url17AddStandardSchemeEPKcNS_10SchemeTypeE(ptr noundef readonly captures(none) %new_scheme, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @_ZN3url12_GLOBAL__N_111InitSchemesEPPSt6vectorINS_14SchemeWithTypeESaIS2_EEPKS2_m(ptr noundef nonnull @_ZN3url12_GLOBAL__N_116standard_schemesE, ptr noundef nonnull @_ZN3url12_GLOBAL__N_119kStandardURLSchemesE, i64 noundef 8)
   %0 = load ptr, ptr @_ZN3url12_GLOBAL__N_116standard_schemesE, align 8
@@ -178,7 +178,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_111DoAddSchemeEPKcNS_10SchemeTypeEPSt6vectorINS_14SchemeWithTypeESaIS5_EE(ptr nocapture noundef readonly %new_scheme, i32 noundef %type, ptr nocapture noundef %schemes) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_111DoAddSchemeEPKcNS_10SchemeTypeEPSt6vectorINS_14SchemeWithTypeESaIS5_EE(ptr noundef readonly captures(none) %new_scheme, i32 noundef %type, ptr noundef captures(none) %schemes) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %new_scheme) #15
   %cmp = icmp eq i64 %call, 0
@@ -187,7 +187,7 @@ entry:
 if.end:                                           ; preds = %entry
   %add = add i64 %call, 1
   %call1 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr align 1 %new_scheme, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr nonnull align 1 %new_scheme, i64 %add, i1 false)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %schemes, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %schemes, i64 16
@@ -259,7 +259,7 @@ return:                                           ; preds = %_ZNSt6vectorIN3url1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url17AddReferrerSchemeEPKcNS_10SchemeTypeE(ptr nocapture noundef readonly %new_scheme, i32 noundef %type) local_unnamed_addr #0 {
+define dso_local void @_ZN3url17AddReferrerSchemeEPKcNS_10SchemeTypeE(ptr noundef readonly captures(none) %new_scheme, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @_ZN3url12_GLOBAL__N_111InitSchemesEPPSt6vectorINS_14SchemeWithTypeESaIS2_EEPKS2_m(ptr noundef nonnull @_ZN3url12_GLOBAL__N_116referrer_schemesE, ptr noundef nonnull @_ZN3url12_GLOBAL__N_119kReferrerURLSchemesE, i64 noundef 2)
   %0 = load ptr, ptr @_ZN3url12_GLOBAL__N_116referrer_schemesE, align 8
@@ -274,7 +274,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url10IsStandardEPKcRKNS_9ComponentE(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %scheme) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url10IsStandardEPKcRKNS_9ComponentE(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %scheme) local_unnamed_addr #0 {
 entry:
   %agg.tmp.i.i = alloca %"class.base::BasicStringPiece", align 8
   %agg.tmp6.i.i = alloca %"class.base::BasicStringPiece", align 8
@@ -325,7 +325,7 @@ _ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url21GetStandardSchemeTypeEPKcRKNS_9ComponentEPNS_10SchemeTypeE(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %scheme, ptr nocapture noundef writeonly %type) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url21GetStandardSchemeTypeEPKcRKNS_9ComponentEPNS_10SchemeTypeE(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %scheme, ptr noundef writeonly captures(none) %type) local_unnamed_addr #0 {
 entry:
   %agg.tmp.i.i = alloca %"class.base::BasicStringPiece", align 8
   %agg.tmp6.i.i = alloca %"class.base::BasicStringPiece", align 8
@@ -384,7 +384,7 @@ _ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url10IsStandardEPKtRKNS_9ComponentE(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %scheme) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url10IsStandardEPKtRKNS_9ComponentE(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %scheme) local_unnamed_addr #0 {
 entry:
   %agg.tmp.i.i = alloca %"class.base::BasicStringPiece.4", align 8
   %agg.tmp6.i.i = alloca %"class.base::BasicStringPiece", align 8
@@ -435,7 +435,7 @@ _ZN3url12_GLOBAL__N_112DoIsStandardItEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url16IsReferrerSchemeEPKcRKNS_9ComponentE(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %scheme) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url16IsReferrerSchemeEPKcRKNS_9ComponentE(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %scheme) local_unnamed_addr #0 {
 entry:
   %agg.tmp.i = alloca %"class.base::BasicStringPiece", align 8
   %agg.tmp6.i = alloca %"class.base::BasicStringPiece", align 8
@@ -840,7 +840,7 @@ declare noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPiece
 declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #4
 
@@ -2985,7 +2985,7 @@ return:                                           ; preds = %delete.notnull.i.i7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url24DecodeURLEscapeSequencesEPKciPNS_12CanonOutputTItEE(ptr nocapture noundef readonly %input, i32 noundef %length, ptr noundef %output) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3url24DecodeURLEscapeSequencesEPKciPNS_12CanonOutputTItEE(ptr noundef readonly captures(none) %input, i32 noundef %length, ptr noundef %output) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %unescaped_chars = alloca %"class.url::RawCanonOutputT", align 8
   %next_character = alloca i32, align 4
@@ -3592,7 +3592,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url18EncodeURIComponentEPKciPNS_12CanonOutputTIcEE(ptr nocapture noundef readonly %input, i32 noundef %length, ptr noundef %output) local_unnamed_addr #0 {
+define dso_local void @_ZN3url18EncodeURIComponentEPKciPNS_12CanonOutputTIcEE(ptr noundef readonly captures(none) %input, i32 noundef %length, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   %cmp6 = icmp sgt i32 %length, 0
   br i1 %cmp6, label %for.body.lr.ph, label %for.end
@@ -3811,7 +3811,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit51:      ; preds = %do.body.i.i34, %ret
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %component, ptr noundef %compare_to) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %component, ptr noundef %compare_to) local_unnamed_addr #0 {
 entry:
   %agg.tmp.i = alloca %"class.base::BasicStringPiece", align 8
   %agg.tmp3.i = alloca %"class.base::BasicStringPiece", align 8
@@ -3851,7 +3851,7 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %component, ptr noundef %compare_to) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %component, ptr noundef %compare_to) local_unnamed_addr #0 {
 entry:
   %agg.tmp.i = alloca %"class.base::BasicStringPiece.4", align 8
   %agg.tmp3.i = alloca %"class.base::BasicStringPiece", align 8
@@ -3891,7 +3891,7 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_111InitSchemesEPPSt6vectorINS_14SchemeWithTypeESaIS2_EEPKS2_m(ptr nocapture noundef %schemes, ptr nocapture noundef readonly %initial_schemes, i64 noundef range(i64 2, 9) %size) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_111InitSchemesEPPSt6vectorINS_14SchemeWithTypeESaIS2_EEPKS2_m(ptr noundef captures(none) %schemes, ptr noundef readonly captures(none) %initial_schemes, i64 noundef range(i64 2, 9) %size) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %schemes, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -4014,13 +4014,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
@@ -4366,10 +4366,10 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11

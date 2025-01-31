@@ -129,7 +129,7 @@ return:                                           ; preds = %if.then13, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @nbiof_puts(ptr nocapture noundef readonly %bp, ptr noundef %str) #2 {
+define internal i32 @nbiof_puts(ptr noundef readonly captures(none) %bp, ptr noundef %str) #2 {
 entry:
   %next_bio = getelementptr inbounds nuw i8, ptr %bp, i64 72
   %0 = load ptr, ptr %next_bio, align 8
@@ -146,7 +146,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @nbiof_gets(ptr nocapture noundef readonly %bp, ptr noundef %buf, i32 noundef %size) #2 {
+define internal i32 @nbiof_gets(ptr noundef readonly captures(none) %bp, ptr noundef %buf, i32 noundef %size) #2 {
 entry:
   %next_bio = getelementptr inbounds nuw i8, ptr %bp, i64 72
   %0 = load ptr, ptr %next_bio, align 8
@@ -193,7 +193,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @nbiof_new(ptr nocapture noundef writeonly %bi) #2 {
+define internal range(i32 0, 2) i32 @nbiof_new(ptr noundef writeonly captures(none) %bi) #2 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 8, ptr noundef nonnull @.str.1, i32 noundef 58) #4
   %cmp = icmp eq ptr %call, null
@@ -237,7 +237,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @nbiof_callback_ctrl(ptr nocapture noundef readonly %b, i32 noundef %cmd, ptr noundef %fp) #2 {
+define internal i64 @nbiof_callback_ctrl(ptr noundef readonly captures(none) %b, i32 noundef %cmd, ptr noundef %fp) #2 {
 entry:
   %next_bio = getelementptr inbounds nuw i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8

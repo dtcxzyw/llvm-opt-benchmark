@@ -676,7 +676,7 @@ declare i64 @get_time() local_unnamed_addr #1
 declare zeroext i16 @crc16(i16 noundef signext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare zeroext i8 @check_data_types() local_unnamed_addr #1
 
@@ -686,7 +686,7 @@ declare void @portable_fini(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.umax.i32(i32, i32) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #4

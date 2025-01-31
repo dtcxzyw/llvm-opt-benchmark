@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Nthreads = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z23tMPI_Free_env_list_initP18free_envelope_listi(ptr nocapture noundef initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z23tMPI_Free_env_list_initP18free_envelope_listi(ptr noundef captures(none) initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = mul nsw i64 %3, 184
   %5 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %4)
@@ -61,7 +61,7 @@ define noundef range(i32 0, 2) i32 @_Z23tMPI_Free_env_list_initP18free_envelope_
 declare noundef ptr @_Z11tMPI_Mallocm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_Z26tMPI_Free_env_list_destroyP18free_envelope_list(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #2 {
+define void @_Z26tMPI_Free_env_list_destroyP18free_envelope_list(ptr noundef captures(none) initializes((0, 8)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #11
@@ -70,7 +70,7 @@ define void @_Z26tMPI_Free_env_list_destroyP18free_envelope_list(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @_Z23tMPI_Send_env_list_initP18send_envelope_listi(ptr noundef initializes((144, 160)) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -143,7 +143,7 @@ define noundef range(i32 0, 2) i32 @_Z23tMPI_Send_env_list_initP18send_envelope_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_Z26tMPI_Send_env_list_destroyP18send_envelope_list(ptr nocapture noundef initializes((8, 16), (136, 144)) %0) local_unnamed_addr #2 {
+define void @_Z26tMPI_Send_env_list_destroyP18send_envelope_list(ptr noundef captures(none) initializes((8, 16), (136, 144)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #11
@@ -166,13 +166,13 @@ define noundef i32 @_Z23tMPI_Recv_env_list_initP18recv_envelope_list(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z26tMPI_Recv_env_list_destroyP18recv_envelope_list(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #4 {
+define void @_Z26tMPI_Recv_env_list_destroyP18recv_envelope_list(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #4 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z18tMPI_Req_list_initP8req_listi(ptr nocapture noundef initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z18tMPI_Req_list_initP8req_listi(ptr noundef captures(none) initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = mul nsw i64 %3, 72
   %5 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %4)
@@ -228,7 +228,7 @@ define noundef range(i32 0, 2) i32 @_Z18tMPI_Req_list_initP8req_listi(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_Z21tMPI_Req_list_destroyP8req_list(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #2 {
+define void @_Z21tMPI_Req_list_destroyP8req_list(ptr noundef captures(none) initializes((0, 8)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #11
@@ -237,7 +237,7 @@ define void @_Z21tMPI_Req_list_destroyP8req_list(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z12tMPI_Get_reqP8req_list(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef ptr @_Z12tMPI_Get_reqP8req_list(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %6
@@ -261,7 +261,7 @@ define noundef ptr @_Z12tMPI_Get_reqP8req_list(ptr nocapture noundef %0) local_u
 declare noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr nocapture noundef %0, ptr noundef initializes((56, 72)) %1) local_unnamed_addr #5 {
+define void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef captures(none) %0, ptr noundef initializes((56, 72)) %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %3, ptr %4, align 8
@@ -296,7 +296,7 @@ define void @_Z13tMPI_Req_initP9tmpi_req_P8envelope(ptr noundef initializes((0, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z15tMPI_Set_statusP9tmpi_req_P12tmpi_status_(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define void @_Z15tMPI_Set_statusP9tmpi_req_P12tmpi_status_(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %21, label %3
 
@@ -509,7 +509,7 @@ _ZL23tMPI_Prep_recv_envelopeP11tmpi_threadP10tmpi_comm_S0_S0_PviP14tmpi_datatype
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr readonly %.136.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #6 {
+define internal fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr readonly %.136.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #6 {
   %.0.in4 = getelementptr inbounds nuw i8, ptr %.136.val, i64 136
   %.05 = load ptr, ptr %.0.in4, align 8
   %.not6 = icmp eq ptr %.05, %.136.val
@@ -667,7 +667,7 @@ _ZL29tMPI_Send_env_list_remove_oldP8envelope.exit: ; preds = %._crit_edge.i, %71
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_(ptr nocapture noundef nonnull initializes((60, 64)) %0, ptr nocapture noundef nonnull initializes((0, 4), (16, 24), (60, 64)) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL9tMPI_XferP11tmpi_threadP8envelopeS2_(ptr noundef nonnull captures(none) initializes((60, 64)) %0, ptr noundef nonnull captures(none) initializes((0, 4), (16, 24), (60, 64)) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1225,7 +1225,7 @@ _ZL9tMPI_XferP11tmpi_threadP8envelopeS2_.exit:    ; preds = %_ZL25tMPI_Recv_env_
 declare noundef i32 @_Z15tMPI_Event_waitP12tMPI_Event_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #7 {
+define noundef i32 @_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1315,7 +1315,7 @@ _ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit:      ; preds = %27, %29, %.sink.spl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z16tMPI_Wait_singleP11tmpi_threadP9tmpi_req_(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @_Z16tMPI_Wait_singleP11tmpi_threadP9tmpi_req_(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1416,7 +1416,7 @@ _Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread: ; preds = %12, %_Z16t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_Z15tMPI_Test_multiP11tmpi_threadP9tmpi_req_Pi(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
+define noundef range(i32 0, 2) i32 @_Z15tMPI_Test_multiP11tmpi_threadP9tmpi_req_Pi(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -1565,16 +1565,16 @@ _Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread._crit_edge: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

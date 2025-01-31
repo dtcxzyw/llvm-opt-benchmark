@@ -6,13 +6,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @lj_vm_exit_handler = external hidden global [0 x i8], align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @lj_mcode_sync(ptr nocapture noundef readnone %start, ptr nocapture noundef readnone %end) local_unnamed_addr #0 {
+define hidden void @lj_mcode_sync(ptr noundef readnone captures(none) %start, ptr noundef readnone captures(none) %end) local_unnamed_addr #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_mcode_free(ptr nocapture noundef initializes((3080, 3088)) %J) local_unnamed_addr #1 {
+define hidden void @lj_mcode_free(ptr noundef captures(none) initializes((3080, 3088)) %J) local_unnamed_addr #1 {
 entry:
   %mcarea = getelementptr inbounds nuw i8, ptr %J, i64 3048
   %0 = load ptr, ptr %mcarea, align 8
@@ -40,7 +40,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare hidden void @lj_err_deregister_mcode(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_mcode_reserve(ptr noundef %J, ptr nocapture noundef writeonly %lim) local_unnamed_addr #1 {
+define hidden ptr @lj_mcode_reserve(ptr noundef %J, ptr noundef writeonly captures(none) %lim) local_unnamed_addr #1 {
 entry:
   %mcarea = getelementptr inbounds nuw i8, ptr %J, i64 3048
   %0 = load ptr, ptr %mcarea, align 8
@@ -177,7 +177,7 @@ mcode_alloc.exit:                                 ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_mcode_commit(ptr nocapture noundef initializes((3056, 3064)) %J, ptr noundef %top) local_unnamed_addr #1 {
+define hidden void @lj_mcode_commit(ptr noundef captures(none) initializes((3056, 3064)) %J, ptr noundef %top) local_unnamed_addr #1 {
 entry:
   %mctop = getelementptr inbounds nuw i8, ptr %J, i64 3056
   store ptr %top, ptr %mctop, align 8
@@ -208,7 +208,7 @@ mcode_protect.exit:                               ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_mcode_abort(ptr nocapture noundef %J) local_unnamed_addr #1 {
+define hidden void @lj_mcode_abort(ptr noundef captures(none) %J) local_unnamed_addr #1 {
 entry:
   %mcarea = getelementptr inbounds nuw i8, ptr %J, i64 3048
   %0 = load ptr, ptr %mcarea, align 8
@@ -241,7 +241,7 @@ if.end:                                           ; preds = %if.end.i, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_mcode_patch(ptr nocapture noundef %J, ptr noundef %ptr, i32 noundef %finish) local_unnamed_addr #1 {
+define hidden ptr @lj_mcode_patch(ptr noundef captures(none) %J, ptr noundef %ptr, i32 noundef %finish) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %finish, 0
   %mcarea8 = getelementptr inbounds nuw i8, ptr %J, i64 3048
@@ -348,7 +348,7 @@ return:                                           ; preds = %if.end.i31, %if.the
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @mcode_protfail(ptr nocapture noundef readonly %J) unnamed_addr #3 {
+define internal fastcc void @mcode_protfail(ptr noundef readonly captures(none) %J) unnamed_addr #3 {
 entry:
   %panic1 = getelementptr inbounds i8, ptr %J, i64 -376
   %0 = load ptr, ptr %panic1, align 8

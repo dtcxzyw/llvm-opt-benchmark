@@ -102,7 +102,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.validate_expr.4 = private unnamed_addr constant [3 x ptr] [ptr @.str.68, ptr @.str.69, ptr @.str.70], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyAST_Validate(ptr nocapture noundef readonly %mod) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyAST_Validate(ptr noundef readonly captures(none) %mod) local_unnamed_addr #0 {
 entry:
   %state = alloca %struct.validator, align 4
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -211,7 +211,7 @@ return:                                           ; preds = %if.then.us12.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_stmts(ptr nocapture noundef nonnull %state, ptr noundef readonly %seq) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_stmts(ptr noundef nonnull captures(none) %state, ptr noundef readonly %seq) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %seq, null
   %typed_elements = getelementptr inbounds nuw i8, ptr %seq, i64 16
@@ -1658,7 +1658,7 @@ return:                                           ; preds = %validate_body.exit5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_expr(ptr nocapture noundef nonnull %state, ptr noundef readonly %exp, i32 noundef range(i32 1, 4) %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_expr(ptr noundef nonnull captures(none) %state, ptr noundef readonly %exp, i32 noundef range(i32 1, 4) %ctx) unnamed_addr #0 {
 entry:
   %lineno = getelementptr inbounds nuw i8, ptr %exp, i64 32
   %0 = load i32, ptr %lineno, align 8
@@ -2215,7 +2215,7 @@ return:                                           ; preds = %sw.bb289, %sw.bb278
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_exprs(ptr nocapture noundef nonnull %state, ptr noundef readonly %exprs, i32 noundef range(i32 1, 4) %ctx, i32 noundef range(i32 0, 2) %null_ok) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_exprs(ptr noundef nonnull captures(none) %state, ptr noundef readonly %exprs, i32 noundef range(i32 1, 4) %ctx, i32 noundef range(i32 0, 2) %null_ok) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %exprs, null
   %typed_elements = getelementptr inbounds nuw i8, ptr %exprs, i64 16
@@ -2328,7 +2328,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_body(ptr nocapture noundef nonnull %state, ptr noundef %body, ptr noundef %owner) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_body(ptr noundef nonnull captures(none) %state, ptr noundef %body, ptr noundef %owner) unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %body, null
   br i1 %cmp.i, label %_validate_nonempty_seq.exit.thread, label %cond.false.i
@@ -2353,7 +2353,7 @@ land.end:                                         ; preds = %_validate_nonempty_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_type_params(ptr nocapture noundef nonnull %state, ptr noundef readonly %tps) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_type_params(ptr noundef nonnull captures(none) %state, ptr noundef readonly %tps) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %tps, null
   %typed_elements = getelementptr inbounds nuw i8, ptr %tps, i64 16
@@ -2532,7 +2532,7 @@ return:                                           ; preds = %cond.end, %validate
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_arguments(ptr nocapture noundef nonnull %state, ptr nocapture noundef readonly %args) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_arguments(ptr noundef nonnull captures(none) %state, ptr noundef readonly captures(none) %args) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %call = tail call fastcc i32 @validate_args(ptr noundef %state, ptr noundef %0)
@@ -2720,7 +2720,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_keywords(ptr nocapture noundef nonnull %state, ptr noundef readonly %keywords) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_keywords(ptr noundef nonnull captures(none) %state, ptr noundef readonly %keywords) unnamed_addr #0 {
 entry:
   %typed_elements = getelementptr inbounds nuw i8, ptr %keywords, i64 16
   %cmp = icmp eq ptr %keywords, null
@@ -2748,7 +2748,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr nocapture noundef nonnull %state, ptr nocapture noundef readonly %p, i32 noundef range(i32 0, 2) %star_ok) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull captures(none) %state, ptr noundef readonly captures(none) %p, i32 noundef range(i32 0, 2) %star_ok) unnamed_addr #0 {
 entry:
   %lineno = getelementptr inbounds nuw i8, ptr %p, i64 40
   %0 = load i32, ptr %lineno, align 8
@@ -3188,7 +3188,7 @@ return:                                           ; preds = %for.cond, %if.then
 declare i32 @_PyUnicode_EqualToASCIIString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_args(ptr nocapture noundef nonnull %state, ptr noundef readonly %args) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_args(ptr noundef nonnull captures(none) %state, ptr noundef readonly %args) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %args, null
   %typed_elements = getelementptr inbounds nuw i8, ptr %args, i64 16
@@ -3286,7 +3286,7 @@ return:                                           ; preds = %for.inc, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_pattern_match_value(ptr nocapture noundef nonnull %state, ptr noundef %exp) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_pattern_match_value(ptr noundef nonnull captures(none) %state, ptr noundef %exp) unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %exp, i32 noundef 1)
   %tobool.not = icmp eq i32 %call, 0
@@ -3426,7 +3426,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_patterns(ptr nocapture noundef nonnull %state, ptr noundef readonly %patterns, i32 noundef range(i32 0, 2) %star_ok) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_patterns(ptr noundef nonnull captures(none) %state, ptr noundef readonly %patterns, i32 noundef range(i32 0, 2) %star_ok) unnamed_addr #0 {
 entry:
   %typed_elements = getelementptr inbounds nuw i8, ptr %patterns, i64 16
   %cmp = icmp eq ptr %patterns, null
@@ -3487,7 +3487,7 @@ return:                                           ; preds = %for.cond.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_comprehension(ptr nocapture noundef nonnull %state, ptr noundef readonly %gens) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_comprehension(ptr noundef nonnull captures(none) %state, ptr noundef readonly %gens) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %gens, null
   br i1 %cmp, label %return.sink.split, label %cond.false
@@ -3564,7 +3564,7 @@ return:                                           ; preds = %lor.lhs.false, %for
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_constant(ptr nocapture noundef nonnull %state, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_constant(ptr noundef nonnull captures(none) %state, ptr noundef %value) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %value, @_Py_NoneStruct
   %cmp1 = icmp eq ptr %value, @_Py_EllipsisObject

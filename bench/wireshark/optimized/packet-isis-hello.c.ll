@@ -655,14 +655,14 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare void @isis_dissect_clvs(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_area_address_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_area_address_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_hello_area_address, align 4
   tail call void @isis_dissect_area_address_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_isis_hello_short_clv, i32 noundef %7, i32 noundef %3, i32 noundef %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_instance_identifier_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_instance_identifier_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_hello_instance_identifier, align 4
   %8 = load i32, ptr @hf_isis_hello_supported_itid, align 4
   tail call void @isis_dissect_instance_identifier_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_isis_hello_short_clv, i32 noundef %7, i32 noundef %8, i32 noundef %3, i32 noundef %5) #4
@@ -670,12 +670,12 @@ define internal void @dissect_hello_instance_identifier_clv(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @dissect_hello_padding_clv(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3, ptr nocapture readnone %4, i32 %5) #2 {
+define internal void @dissect_hello_padding_clv(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, ptr readnone captures(none) %4, i32 %5) #2 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_nlpid_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_nlpid_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @ett_isis_hello_clv_nlpid_nlpid, align 4
   %8 = load i32, ptr @hf_isis_hello_clv_nlpid_nlpid, align 4
   tail call void @isis_dissect_nlpid_clv(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %3, i32 noundef %5) #4
@@ -683,21 +683,21 @@ define internal void @dissect_hello_nlpid_clv(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_ip_int_addr_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_ip_int_addr_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_hello_clv_ipv4_int_addr, align 4
   tail call void @isis_dissect_ip_int_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_isis_hello_short_clv, i32 noundef %3, i32 noundef %5, i32 noundef %7) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_ipv6_int_addr_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_ipv6_int_addr_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_hello_clv_ipv6_int_addr, align 4
   tail call void @isis_dissect_ipv6_int_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_isis_hello_short_clv, i32 noundef %3, i32 noundef %5, i32 noundef %7) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_authentication_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_authentication_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_hello_authentication, align 4
   %8 = load i32, ptr @hf_isis_clv_key_id, align 4
   tail call void @isis_dissect_authentication_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @ei_isis_hello_authentication, i32 noundef %3, i32 noundef %5) #4
@@ -705,7 +705,7 @@ define internal void @dissect_hello_authentication_clv(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_ip_authentication_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_ip_authentication_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %7
 
@@ -719,7 +719,7 @@ define internal void @dissect_hello_ip_authentication_clv(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %5, 1
   br i1 %7, label %8, label %.loopexit
 
@@ -954,7 +954,7 @@ dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit: ; preds = %113, %.lr.ph.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_restart_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_restart_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %8, label %.thread25
 
@@ -996,7 +996,7 @@ define internal void @dissect_hello_restart_clv(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_ptp_adj_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_ptp_adj_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = add i32 %5, -1
   %8 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 31)
   switch i32 %8, label %47 [
@@ -1061,14 +1061,14 @@ define internal void @dissect_hello_ptp_adj_clv(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_mt_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_mt_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_hello_clv_mt, align 4
   tail call void @isis_dissect_mt_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %7, ptr noundef nonnull @ei_isis_hello_clv_mt) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_checksum_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_checksum_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i16, align 2
   store i16 0, ptr %7, align 2
   %.not = icmp eq i32 %5, 2
@@ -1114,14 +1114,14 @@ define internal void @dissect_hello_checksum_clv(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_ipv6_glb_int_addr_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_ipv6_glb_int_addr_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_hello_clv_ipv6_glb_int_addr, align 4
   tail call void @isis_dissect_ipv6_int_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_isis_hello_short_clv, i32 noundef %3, i32 noundef %5, i32 noundef %7) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_bfd_enabled_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_bfd_enabled_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %5, 2
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -1250,7 +1250,7 @@ declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 
 declare i32 @osi_check_and_get_checksum(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_is_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_is_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
@@ -1277,7 +1277,7 @@ define internal void @dissect_hello_is_neighbors_clv(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_trill_neighbor_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_hello_trill_neighbor_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #4
   %8 = and i8 %7, 31
   %9 = icmp eq i8 %8, 0
@@ -1323,7 +1323,7 @@ define internal void @dissect_hello_trill_neighbor_clv(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_hello_reverse_metric_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal void @dissect_hello_reverse_metric_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_isis_hello_reverse_metric_flags, align 4
   %9 = load i32, ptr @ett_isis_hello_reverse_metric_flags, align 4

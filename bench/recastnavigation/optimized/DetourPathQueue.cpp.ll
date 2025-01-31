@@ -11,7 +11,7 @@ $__clang_call_terminate = comdat any
 @_ZN11dtPathQueueD1Ev = unnamed_addr alias void (ptr), ptr @_ZN11dtPathQueueD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN11dtPathQueueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(600) initializes((576, 588), (592, 600)) %0) unnamed_addr #0 align 2 {
+define void @_ZN11dtPathQueueC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(600) initializes((576, 588), (592, 600)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 580
@@ -35,7 +35,7 @@ define void @_ZN11dtPathQueueC2Ev(ptr nocapture noundef nonnull writeonly align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11dtPathQueueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11dtPathQueueD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(600) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z18dtFreeNavMeshQueryP14dtNavMeshQuery(ptr noundef %3)
@@ -79,7 +79,7 @@ _ZN11dtPathQueue5purgeEv.exit:                    ; preds = %.noexc1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11dtPathQueue5purgeEv(ptr nocapture noundef nonnull align 8 dereferenceable(600) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN11dtPathQueue5purgeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(600) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z18dtFreeNavMeshQueryP14dtNavMeshQuery(ptr noundef %3)
@@ -119,7 +119,7 @@ declare void @_Z18dtFreeNavMeshQueryP14dtNavMeshQuery(ptr noundef) local_unnamed
 declare void @_Z6dtFreePv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11dtPathQueue4initEiiP9dtNavMesh(ptr nocapture noundef nonnull align 8 dereferenceable(600) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN11dtPathQueue4initEiiP9dtNavMesh(ptr noundef nonnull align 8 captures(none) dereferenceable(600) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = load ptr, ptr %5, align 8
   tail call void @_Z18dtFreeNavMeshQueryP14dtNavMeshQuery(ptr noundef %6)
@@ -303,7 +303,7 @@ declare noundef i32 @_ZN14dtNavMeshQuery20updateSlicedFindPathEiPi(ptr noundef n
 declare noundef i32 @_ZN14dtNavMeshQuery22finalizeSlicedFindPathEPjPii(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN11dtPathQueue7requestEjjPKfS1_PK13dtQueryFilter(ptr nocapture noundef nonnull align 8 dereferenceable(600) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN11dtPathQueue7requestEjjPKfS1_PK13dtQueryFilter(ptr noundef nonnull align 8 captures(none) dereferenceable(600) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   br label %7
 
 7:                                                ; preds = %6, %11
@@ -369,7 +369,7 @@ define noundef i32 @_ZN11dtPathQueue7requestEjjPKfS1_PK13dtQueryFilter(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK11dtPathQueue16getRequestStatusEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK11dtPathQueue16getRequestStatusEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(600) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   br label %4
 
 3:                                                ; preds = %4
@@ -395,7 +395,7 @@ define noundef i32 @_ZNK11dtPathQueue16getRequestStatusEj(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 1073741824, -2147483647) i32 @_ZN11dtPathQueue13getPathResultEjPjPii(ptr nocapture noundef nonnull align 8 dereferenceable(600) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
+define noundef range(i32 1073741824, -2147483647) i32 @_ZN11dtPathQueue13getPathResultEjPjPii(ptr noundef nonnull align 8 captures(none) dereferenceable(600) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   br label %7
 
 6:                                                ; preds = %7
@@ -434,7 +434,7 @@ define noundef range(i32 1073741824, -2147483647) i32 @_ZN11dtPathQueue13getPath
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

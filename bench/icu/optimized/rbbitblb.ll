@@ -24,7 +24,7 @@ $_ZN6icu_7515MaybeStackArrayIPvLi16EED2Ev = comdat any
 @_ZN6icu_7519RBBIStateDescriptorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7519RBBIStateDescriptorD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilderC2EPNS_15RBBIRuleBuilderEPPNS_8RBBINodeER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 52)) %this, ptr noundef %rb, ptr noundef %rootNode, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516RBBITableBuilderC2EPNS_15RBBIRuleBuilderEPPNS_8RBBINodeER10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(52) initializes((0, 52)) %this, ptr noundef %rb, ptr noundef %rootNode, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %rb, ptr %this, align 8
   %fTree = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -83,7 +83,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7516RBBITableBuilderD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516RBBITableBuilderD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fDStates = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fDStates, align 8
@@ -731,7 +731,7 @@ if.end34:                                         ; preds = %for.body26, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder20calcChainedFollowPosEPNS_8RBBINodeES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr noundef %tree, ptr noundef %endMarkNode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516RBBITableBuilder20calcChainedFollowPosEPNS_8RBBINodeES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, ptr noundef %tree, ptr noundef %endMarkNode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %leafNodes = alloca %"class.icu_75::UVector", align 8
   %ruleRootNodes = alloca %"class.icu_75::UVector", align 8
@@ -921,7 +921,7 @@ ehcleanup69:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder8bofFixupEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516RBBITableBuilder8bofFixupEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fStatus = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fStatus, align 8
@@ -983,7 +983,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder15buildStateTableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516RBBITableBuilder15buildStateTableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fStatus = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fStatus, align 8
@@ -1384,7 +1384,7 @@ eh.resume:                                        ; preds = %lpad165.split.us, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder17mapLookAheadRulesEv(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #13
   %new.isnull = icmp eq ptr %call, null
@@ -1566,7 +1566,7 @@ for.end66:                                        ; preds = %for.inc64, %if.end9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder19flagAcceptingStatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516RBBITableBuilder19flagAcceptingStatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %endMarkerNodes = alloca %"class.icu_75::UVector", align 8
   %fStatus = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1747,7 +1747,7 @@ cleanup.cont:                                     ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder19flagLookAheadStatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516RBBITableBuilder19flagLookAheadStatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lookAheadNodes = alloca %"class.icu_75::UVector", align 8
   %fStatus = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1881,7 +1881,7 @@ cleanup.cont:                                     ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder16flagTaggedStatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516RBBITableBuilder16flagTaggedStatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tagNodes = alloca %"class.icu_75::UVector", align 8
   %fStatus = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2001,7 +2001,7 @@ cleanup.cont:                                     ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder19mergeRuleStatusValsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516RBBITableBuilder19mergeRuleStatusValsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %fRuleStatusVals = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -2172,7 +2172,7 @@ for.end73:                                        ; preds = %for.inc71, %if.end
 declare void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder6setAddEPNS_7UVectorES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr noundef %dest, ptr noundef %source) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516RBBITableBuilder6setAddEPNS_7UVectorES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, ptr noundef %dest, ptr noundef %source) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %destArray = alloca %"class.icu_75::MaybeStackArray", align 8
   %sourceArray = alloca %"class.icu_75::MaybeStackArray", align 8
@@ -2438,7 +2438,7 @@ _ZN6icu_7515MaybeStackArrayIPvLi16EED2Ev.exit72:  ; preds = %_ZN6icu_7515MaybeSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder16addRuleRootNodesEPNS_7UVectorEPNS_8RBBINodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr noundef %dest, ptr noundef %node) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516RBBITableBuilder16addRuleRootNodesEPNS_7UVectorEPNS_8RBBINodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, ptr noundef %dest, ptr noundef %node) local_unnamed_addr #0 align 2 {
 entry:
   %cmp8 = icmp eq ptr %node, null
   br i1 %cmp8, label %return, label %lor.lhs.false.lr.ph
@@ -2485,7 +2485,7 @@ declare void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare noundef i32 @_ZNK6icu_7514RBBISetBuilder20getNumCharCategoriesEv(ptr noundef nonnull align 8 dereferenceable(53)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7516RBBITableBuilder9setEqualsEPNS_7UVectorES2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(52) %this, ptr noundef nonnull %a, ptr noundef nonnull %b) local_unnamed_addr #0 align 2 {
+define noundef signext i8 @_ZN6icu_7516RBBITableBuilder9setEqualsEPNS_7UVectorES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(52) %this, ptr noundef nonnull %a, ptr noundef nonnull %b) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_757UVector6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %a, ptr noundef nonnull align 8 dereferenceable(40) %b)
   ret i8 %call
@@ -2502,7 +2502,7 @@ declare void @_ZN6icu_759UVector327setSizeEi(ptr noundef nonnull align 8 derefer
 declare noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder9sortedAddEPPNS_7UVectorEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr nocapture noundef %vector, i32 noundef %val) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516RBBITableBuilder9sortedAddEPPNS_7UVectorEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, ptr noundef captures(none) %vector, i32 noundef %val) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vector, align 8
   %cmp = icmp eq ptr %0, null
@@ -2590,7 +2590,7 @@ declare void @_ZN6icu_757UVector7setSizeEiR10UErrorCode(ptr noundef nonnull alig
 declare void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7515MaybeStackArrayIPvLi16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2619,7 +2619,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 declare noundef signext i8 @_ZNK6icu_757UVector6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6icu_7516RBBITableBuilder21findDuplCharClassFromEPSt4pairIiiE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr nocapture noundef %categories) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6icu_7516RBBITableBuilder21findDuplCharClassFromEPSt4pairIiiE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, ptr noundef captures(none) %categories) local_unnamed_addr #0 align 2 {
 entry:
   %fDStates = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fDStates, align 8
@@ -2774,7 +2774,7 @@ return:                                           ; preds = %for.inc39.split, %f
 declare noundef i32 @_ZNK6icu_7514RBBISetBuilder22getDictCategoriesStartEv(ptr noundef nonnull align 8 dereferenceable(53)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder12removeColumnEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, i32 noundef %column) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516RBBITableBuilder12removeColumnEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, i32 noundef %column) local_unnamed_addr #0 align 2 {
 entry:
   %fDStates = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fDStates, align 8
@@ -2801,7 +2801,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @_ZN6icu_759UVector3215removeElementAtEi(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6icu_7516RBBITableBuilder18findDuplicateStateEPSt4pairIiiE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr nocapture noundef %states) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6icu_7516RBBITableBuilder18findDuplicateStateEPSt4pairIiiE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, ptr noundef captures(none) %states) local_unnamed_addr #0 align 2 {
 entry:
   %fDStates = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fDStates, align 8
@@ -3013,7 +3013,7 @@ return:                                           ; preds = %for.inc47, %lor.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6icu_7516RBBITableBuilder22findDuplicateSafeStateEPSt4pairIiiE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr nocapture noundef %states) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6icu_7516RBBITableBuilder22findDuplicateSafeStateEPSt4pairIiiE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, ptr noundef captures(none) %states) local_unnamed_addr #0 align 2 {
 entry:
   %fSafeTable = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %fSafeTable, align 8
@@ -3191,7 +3191,7 @@ return:                                           ; preds = %for.inc37, %for.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder11removeStateESt4pairIiiE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, i64 %duplStates.coerce) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516RBBITableBuilder11removeStateESt4pairIiiE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, i64 %duplStates.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %duplStates.sroa.0.0.extract.trunc = trunc i64 %duplStates.coerce to i32
   %duplStates.sroa.2.0.extract.shift = lshr i64 %duplStates.coerce, 32
@@ -3284,7 +3284,7 @@ for.end19:                                        ; preds = %for.body, %for.cond
 declare void @_ZN6icu_757UVector15removeElementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder15removeSafeStateESt4pairIiiE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, i64 %duplStates.coerce) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516RBBITableBuilder15removeSafeStateESt4pairIiiE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, i64 %duplStates.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %duplStates.sroa.0.0.extract.trunc = trunc i64 %duplStates.coerce to i16
   %duplStates.sroa.2.0.extract.shift = lshr i64 %duplStates.coerce, 32
@@ -3366,7 +3366,7 @@ for.end18:                                        ; preds = %for.inc16, %entry
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9setCharAtEiDs(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7516RBBITableBuilder21removeDuplicateStatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7516RBBITableBuilder21removeDuplicateStatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
 entry:
   %dupls = alloca %"struct.std::pair", align 8
   store i32 3, ptr %dupls, align 8
@@ -3389,7 +3389,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483628, -2147483648) i32 @_ZNK6icu_7516RBBITableBuilder12getTableSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483628, -2147483648) i32 @_ZNK6icu_7516RBBITableBuilder12getTableSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fTree = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTree, align 8
@@ -3424,7 +3424,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7516RBBITableBuilder16use8BitsForTableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7516RBBITableBuilder16use8BitsForTableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #8 align 2 {
 entry:
   %fDStates = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fDStates, align 8
@@ -3435,7 +3435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder11exportTableEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr nocapture noundef %where) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516RBBITableBuilder11exportTableEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, ptr noundef captures(none) %where) local_unnamed_addr #0 align 2 {
 entry:
   %fStatus = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fStatus, align 8
@@ -3707,7 +3707,7 @@ for.end86:                                        ; preds = %for.inc84, %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder21buildSafeReverseTableER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516RBBITableBuilder21buildSafeReverseTableER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i50 = alloca i16, align 2
   %srcChar.addr.i = alloca i16, align 2
@@ -4116,7 +4116,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483628, -2147483648) i32 @_ZNK6icu_7516RBBITableBuilder16getSafeTableSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483628, -2147483648) i32 @_ZNK6icu_7516RBBITableBuilder16getSafeTableSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fSafeTable = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %fSafeTable, align 8
@@ -4148,7 +4148,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7516RBBITableBuilder20use8BitsForSafeTableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7516RBBITableBuilder20use8BitsForSafeTableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) local_unnamed_addr #8 align 2 {
 entry:
   %fSafeTable = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %fSafeTable, align 8
@@ -4159,7 +4159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder15exportSafeTableEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr nocapture noundef %where) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516RBBITableBuilder15exportSafeTableEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, ptr noundef captures(none) %where) local_unnamed_addr #0 align 2 {
 entry:
   %fStatus = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fStatus, align 8
@@ -4372,7 +4372,7 @@ for.end53:                                        ; preds = %for.inc51, %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7519RBBIStateDescriptorC2EiP10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 1), (4, 12), (16, 28), (32, 48)) %this, i32 noundef %lastInputSymbol, ptr noundef %fStatus) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7519RBBIStateDescriptorC2EiP10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 1), (4, 12), (16, 28), (32, 48)) %this, i32 noundef %lastInputSymbol, ptr noundef %fStatus) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8
   %fAccepting = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -4426,7 +4426,7 @@ return:                                           ; preds = %new.cont.thread, %n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7519RBBIStateDescriptorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7519RBBIStateDescriptorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   %fPositions = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %fPositions, align 8
@@ -4480,13 +4480,13 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

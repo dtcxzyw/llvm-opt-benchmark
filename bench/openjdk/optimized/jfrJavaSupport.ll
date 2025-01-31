@@ -818,7 +818,7 @@ define hidden void @_ZN14JfrJavaSupport10new_objectEP16JfrJavaArgumentsP10JavaTh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13create_objectP16JfrJavaArgumentsP9JavaValueP10JavaThread(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL13create_objectP16JfrJavaArgumentsP9JavaValueP10JavaThread(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %class.HandleMark, align 8
   %5 = alloca %class.HandleMark, align 8
   %6 = tail call noundef ptr @_ZNK16JfrJavaArguments5klassEv(ptr noundef nonnull align 8 dereferenceable(300) %0) #13
@@ -1564,7 +1564,7 @@ define hidden void @_ZN14JfrJavaSupport9get_fieldEP16JfrJavaArgumentsP10JavaThre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10read_fieldP16JfrJavaArgumentsP9JavaValueP10JavaThread(ptr noundef nonnull %0, ptr nocapture noundef writeonly initializes((8, 16)) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL10read_fieldP16JfrJavaArgumentsP9JavaValueP10JavaThread(ptr noundef nonnull %0, ptr noundef writeonly captures(none) initializes((8, 16)) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %class.fieldDescriptor, align 8
   %5 = alloca %class.HandleMark, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1913,7 +1913,7 @@ define hidden noundef ptr @_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb(ptr noun
   br i1 %.not, label %20, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call noundef i32 @_ZN16java_lang_String11utf8_lengthEP7oopDescP16typeArrayOopDesc(ptr noundef %0, ptr noundef nonnull %7) #13
+  %9 = tail call noundef i32 @_ZN16java_lang_String11utf8_lengthEP7oopDescP16typeArrayOopDesc(ptr noundef nonnull %0, ptr noundef nonnull %7) #13
   %10 = add nsw i32 %9, 1
   %11 = sext i32 %10 to i64
   br i1 %2, label %12, label %14
@@ -1932,7 +1932,7 @@ _ZL15allocate_stringbiP6Thread.exit:              ; preds = %12, %14
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %_ZL15allocate_stringbiP6Thread.exit
-  %19 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDescPci(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %16, i32 noundef %10) #13
+  %19 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDescPci(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %16, i32 noundef %10) #13
   br label %20
 
 20:                                               ; preds = %3, %18, %_ZL15allocate_stringbiP6Thread.exit
@@ -1983,7 +1983,7 @@ _ZN14JfrJavaSupport16resolve_non_nullEP8_jobject.exit: ; preds = %7, %11, %15
   br i1 %.not.i, label %_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb.exit, label %21
 
 21:                                               ; preds = %_ZN14JfrJavaSupport16resolve_non_nullEP8_jobject.exit
-  %22 = tail call noundef i32 @_ZN16java_lang_String11utf8_lengthEP7oopDescP16typeArrayOopDesc(ptr noundef %.0.i.i.i, ptr noundef nonnull %20) #13
+  %22 = tail call noundef i32 @_ZN16java_lang_String11utf8_lengthEP7oopDescP16typeArrayOopDesc(ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull %20) #13
   %23 = add nsw i32 %22, 1
   %24 = sext i32 %23 to i64
   br i1 %2, label %25, label %27
@@ -2002,7 +2002,7 @@ _ZL15allocate_stringbiP6Thread.exit.i:            ; preds = %27, %25
   br i1 %30, label %_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb.exit, label %31
 
 31:                                               ; preds = %_ZL15allocate_stringbiP6Thread.exit.i
-  %32 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDescPci(ptr noundef %.0.i.i.i, ptr noundef nonnull %20, ptr noundef nonnull %29, i32 noundef %23) #13
+  %32 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDescPci(ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull %20, ptr noundef nonnull %29, i32 noundef %23) #13
   br label %_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb.exit
 
 _ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb.exit: ; preds = %31, %_ZL15allocate_stringbiP6Thread.exit.i, %_ZN14JfrJavaSupport16resolve_non_nullEP8_jobject.exit, %3
@@ -2025,7 +2025,7 @@ define hidden void @_ZN14JfrJavaSupport10free_c_strEPKcb(ptr noundef %0, i1 noun
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14JfrJavaSupport12symbol_arrayEP13_jobjectArrayP10JavaThreadPlb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14JfrJavaSupport12symbol_arrayEP13_jobjectArrayP10JavaThreadPlb(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 3
   switch i64 %6, label %15 [
@@ -2114,7 +2114,7 @@ _ZL21allocate_symbol_arraybiP6Thread.exit:        ; preds = %24, %26
   br i1 %.not.i, label %_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb.exit, label %53
 
 53:                                               ; preds = %39
-  %54 = tail call noundef i32 @_ZN16java_lang_String11utf8_lengthEP7oopDescP16typeArrayOopDesc(ptr noundef %48, ptr noundef nonnull %52) #13
+  %54 = tail call noundef i32 @_ZN16java_lang_String11utf8_lengthEP7oopDescP16typeArrayOopDesc(ptr noundef nonnull %48, ptr noundef nonnull %52) #13
   %55 = add nsw i32 %54, 1
   %56 = sext i32 %55 to i64
   br i1 %3, label %57, label %59
@@ -2133,18 +2133,18 @@ _ZL15allocate_stringbiP6Thread.exit.i:            ; preds = %59, %57
   br i1 %62, label %_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb.exit, label %63
 
 63:                                               ; preds = %_ZL15allocate_stringbiP6Thread.exit.i
-  %64 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDescPci(ptr noundef %48, ptr noundef nonnull %52, ptr noundef nonnull %61, i32 noundef %55) #13
+  %64 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDescPci(ptr noundef nonnull %48, ptr noundef nonnull %52, ptr noundef nonnull %61, i32 noundef %55) #13
   br label %_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb.exit
 
 _ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb.exit: ; preds = %39, %_ZL15allocate_stringbiP6Thread.exit.i, %63
   %.0.i = phi ptr [ null, %_ZL15allocate_stringbiP6Thread.exit.i ], [ %61, %63 ], [ null, %39 ]
   %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #15
   %66 = trunc i64 %65 to i32
-  %67 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %.0.i, i32 noundef %66) #13
+  %67 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %.0.i, i32 noundef %66) #13
   br i1 %3, label %68, label %_ZN14JfrJavaSupport10free_c_strEPKcb.exit
 
 68:                                               ; preds = %_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb.exit
-  tail call void @_Z8FreeHeapPv(ptr noundef %.0.i) #13
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.0.i) #13
   br label %_ZN14JfrJavaSupport10free_c_strEPKcb.exit
 
 _ZN14JfrJavaSupport10free_c_strEPKcb.exit:        ; preds = %68, %_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb.exit, %.lr.ph
@@ -2250,7 +2250,7 @@ _ZN14JfrJavaSupport16resolve_non_nullEP8_jobject.exit.i: ; preds = %24, %20, %16
   br i1 %.not.i.i, label %_ZN14JfrJavaSupport5c_strEP8_jstringP6Threadb.exit.thread, label %30
 
 30:                                               ; preds = %_ZN14JfrJavaSupport16resolve_non_nullEP8_jobject.exit.i
-  %31 = tail call noundef i32 @_ZN16java_lang_String11utf8_lengthEP7oopDescP16typeArrayOopDesc(ptr noundef %.0.i.i.i.i, ptr noundef nonnull %29) #13
+  %31 = tail call noundef i32 @_ZN16java_lang_String11utf8_lengthEP7oopDescP16typeArrayOopDesc(ptr noundef nonnull %.0.i.i.i.i, ptr noundef nonnull %29) #13
   %32 = add nsw i32 %31, 1
   %33 = sext i32 %32 to i64
   %34 = tail call noundef ptr @_Z23resource_allocate_bytesP6ThreadmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %1, i64 noundef %33, i32 noundef 0) #13
@@ -2258,7 +2258,7 @@ _ZN14JfrJavaSupport16resolve_non_nullEP8_jobject.exit.i: ; preds = %24, %20, %16
   br i1 %35, label %_ZN14JfrJavaSupport5c_strEP8_jstringP6Threadb.exit.thread, label %36
 
 36:                                               ; preds = %30
-  %37 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDescPci(ptr noundef %.0.i.i.i.i, ptr noundef nonnull %29, ptr noundef nonnull %34, i32 noundef %32) #13
+  %37 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDescPci(ptr noundef nonnull %.0.i.i.i.i, ptr noundef nonnull %29, ptr noundef nonnull %34, i32 noundef %32) #13
   %38 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not2.i = icmp eq ptr %38, null
   br i1 %.not2.i, label %_ZN14JfrJavaSupport5c_strEP8_jstringP6Threadb.exit.thread, label %39
@@ -2716,7 +2716,7 @@ _ZL38is_jdk_jfr_module_in_readability_graphv.exit: ; preds = %_ZN16SymbolHandleB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14JfrJavaSupport27is_jdk_jfr_module_availableEP12outputStreamP10JavaThread(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14JfrJavaSupport27is_jdk_jfr_module_availableEP12outputStreamP10JavaThread(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull @.str.23, i32 noundef 7) #13
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.i.i, label %4
@@ -3456,7 +3456,7 @@ _ZL34get_configuration_field_descriptorRK6HandleP15fieldDescriptorP10JavaThread.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14JfrJavaSupport15is_instrumentedEP8_jobjectP10JavaThread(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14JfrJavaSupport15is_instrumentedEP8_jobjectP10JavaThread(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 3
   switch i64 %4, label %13 [
@@ -3534,7 +3534,7 @@ _ZN14JfrJavaSupport11is_excludedEP6Thread.exit.thread: ; preds = %11, %13, %_ZN1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14JfrJavaSupport20compute_field_offsetERiP5KlassP6SymbolS4_bb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14JfrJavaSupport20compute_field_offsetERiP5KlassP6SymbolS4_bb(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.fieldDescriptor, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %8, i8 0, i64 22, i1 false)
@@ -6116,7 +6116,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 declare noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -7059,16 +7059,16 @@ declare void @llvm.va_end.p0(ptr) #9
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

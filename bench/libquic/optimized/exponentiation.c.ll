@@ -67,17 +67,17 @@ if.end27:                                         ; preds = %if.else22, %if.then
 
 for.body:                                         ; preds = %if.end27, %for.inc
   %i.030 = phi i32 [ %inc, %for.inc ], [ 1, %if.end27 ]
-  %call29 = tail call i32 @BN_sqr(ptr noundef %call5, ptr noundef %call5, ptr noundef %ctx) #7
+  %call29 = tail call i32 @BN_sqr(ptr noundef nonnull %call5, ptr noundef nonnull %call5, ptr noundef %ctx) #7
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %err, label %if.end32
 
 if.end32:                                         ; preds = %for.body
-  %call33 = tail call i32 @BN_is_bit_set(ptr noundef %p, i32 noundef %i.030) #7
+  %call33 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %p, i32 noundef %i.030) #7
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %for.inc, label %if.then35
 
 if.then35:                                        ; preds = %if.end32
-  %call36 = tail call i32 @BN_mul(ptr noundef %rr.0, ptr noundef %rr.0, ptr noundef %call5, ptr noundef %ctx) #7
+  %call36 = tail call i32 @BN_mul(ptr noundef %rr.0, ptr noundef %rr.0, ptr noundef nonnull %call5, ptr noundef %ctx) #7
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %err, label %for.inc
 
@@ -1792,7 +1792,7 @@ declare void @RSAZ_512_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2062,7 +2062,7 @@ return:                                           ; preds = %entry, %if.end87
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2246,7 +2246,7 @@ if.then117:                                       ; preds = %lor.lhs.false114, %
 
 if.end125:                                        ; preds = %if.then117, %lor.lhs.false114
   %a_mod_m.1 = phi ptr [ %a2, %lor.lhs.false114 ], [ %call12, %if.then117 ]
-  %call126 = tail call i32 @BN_is_zero(ptr noundef %a_mod_m.1) #7
+  %call126 = tail call i32 @BN_is_zero(ptr noundef nonnull %a_mod_m.1) #7
   %tobool127.not = icmp eq i32 %call126, 0
   br i1 %tobool127.not, label %if.end129, label %if.then128
 
@@ -2255,7 +2255,7 @@ if.then128:                                       ; preds = %if.end125
   br label %err
 
 if.end129:                                        ; preds = %if.end125
-  %call131 = tail call i32 @BN_to_montgomery(ptr noundef nonnull %call12, ptr noundef %a_mod_m.1, ptr noundef nonnull %mont.addr.0, ptr noundef %ctx) #7
+  %call131 = tail call i32 @BN_to_montgomery(ptr noundef nonnull %call12, ptr noundef nonnull %a_mod_m.1, ptr noundef nonnull %mont.addr.0, ptr noundef %ctx) #7
   %tobool132.not = icmp eq i32 %call131, 0
   br i1 %tobool132.not, label %err, label %if.end134
 
@@ -2599,7 +2599,7 @@ if.end60.i:                                       ; preds = %if.end56.i
 
 while.cond.i:                                     ; preds = %if.end72.i, %if.end60.i
   %j.0.i = phi i32 [ 0, %if.end60.i ], [ %inc.i, %if.end72.i ]
-  %call63.i = tail call i32 @BN_ucmp(ptr noundef %r.0.i, ptr noundef nonnull %recp) #7
+  %call63.i = tail call i32 @BN_ucmp(ptr noundef nonnull %r.0.i, ptr noundef nonnull %recp) #7
   %cmp64.i = icmp sgt i32 %call63.i, -1
   br i1 %cmp64.i, label %while.body.i, label %while.end.i
 
@@ -2613,17 +2613,17 @@ if.then66.i:                                      ; preds = %while.body.i
   br label %BN_div_recp.exit
 
 if.end67.i:                                       ; preds = %while.body.i
-  %call69.i = tail call i32 @BN_usub(ptr noundef %r.0.i, ptr noundef %r.0.i, ptr noundef nonnull %recp) #7
+  %call69.i = tail call i32 @BN_usub(ptr noundef nonnull %r.0.i, ptr noundef nonnull %r.0.i, ptr noundef nonnull %recp) #7
   %tobool70.not.i = icmp eq i32 %call69.i, 0
   br i1 %tobool70.not.i, label %BN_div_recp.exit, label %if.end72.i
 
 if.end72.i:                                       ; preds = %if.end67.i
-  %call73.i = tail call i32 @BN_add_word(ptr noundef %call2.i, i64 noundef 1) #7
+  %call73.i = tail call i32 @BN_add_word(ptr noundef nonnull %call2.i, i64 noundef 1) #7
   %tobool74.not.i = icmp eq i32 %call73.i, 0
   br i1 %tobool74.not.i, label %BN_div_recp.exit, label %while.cond.i, !llvm.loop !45
 
 while.end.i:                                      ; preds = %while.cond.i
-  %call77.i = tail call i32 @BN_is_zero(ptr noundef %r.0.i) #7
+  %call77.i = tail call i32 @BN_is_zero(ptr noundef nonnull %r.0.i) #7
   %tobool78.not.i = icmp eq i32 %call77.i, 0
   br i1 %tobool78.not.i, label %cond.false.i, label %cond.end.i
 
@@ -2679,10 +2679,10 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

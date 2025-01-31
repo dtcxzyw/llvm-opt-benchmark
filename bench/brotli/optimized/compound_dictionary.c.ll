@@ -279,7 +279,7 @@ return:                                           ; preds = %entry, %if.end
 declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @AttachPreparedDictionary(ptr nocapture noundef %compound, ptr noundef %dictionary) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @AttachPreparedDictionary(ptr noundef captures(none) %compound, ptr noundef %dictionary) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %compound, align 8
   %cmp = icmp eq i64 %0, 15
@@ -344,7 +344,7 @@ return:                                           ; preds = %entry, %if.end20
 declare hidden ptr @BrotliAllocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4

@@ -72,7 +72,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @preallocate_reopen_prepare(ptr nocapture noundef %reopen_state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @preallocate_reopen_prepare(ptr noundef captures(none) %reopen_state, ptr readnone captures(none) %queue, ptr noundef %errp) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #7
   %call1 = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -145,7 +145,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @preallocate_reopen_commit(ptr nocapture noundef %state) #0 {
+define internal void @preallocate_reopen_commit(ptr noundef captures(none) %state) #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -160,7 +160,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @preallocate_reopen_abort(ptr nocapture noundef %state) #0 {
+define internal void @preallocate_reopen_abort(ptr noundef captures(none) %state) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %state, i64 56
   %0 = load ptr, ptr %opaque, align 8
@@ -232,7 +232,7 @@ return:                                           ; preds = %do.end, %glib_autop
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @preallocate_close(ptr nocapture noundef readonly %bs) #0 {
+define internal void @preallocate_close(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -265,7 +265,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then3, %do.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @preallocate_set_perm(ptr nocapture noundef readonly %bs, i64 noundef %perm, i64 %shared) #0 {
+define internal void @preallocate_set_perm(ptr noundef readonly captures(none) %bs, i64 noundef %perm, i64 %shared) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -334,7 +334,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @preallocate_co_preadv_part(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
+define internal i32 @preallocate_co_preadv_part(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -343,7 +343,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @preallocate_co_pwritev_part(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
+define internal i32 @preallocate_co_pwritev_part(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %call = tail call zeroext i1 @handle_write(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext false)
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
@@ -353,7 +353,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @preallocate_co_pwrite_zeroes(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
+define internal i32 @preallocate_co_pwrite_zeroes(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
   %and = and i32 %flags, -259
   %tobool.not = icmp eq i32 %and, 0
@@ -372,7 +372,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @preallocate_co_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
+define internal i32 @preallocate_co_pdiscard(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -381,7 +381,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @preallocate_co_flush(ptr nocapture noundef readonly %bs) #0 {
+define internal i32 @preallocate_co_flush(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -391,7 +391,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @preallocate_co_truncate(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 noundef %flags, ptr noundef %errp) #0 {
+define internal i32 @preallocate_co_truncate(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
@@ -510,7 +510,7 @@ cleanup:                                          ; preds = %if.end55, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @preallocate_co_getlength(ptr nocapture noundef readonly %bs) #0 {
+define internal i64 @preallocate_co_getlength(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -551,7 +551,7 @@ declare zeroext i1 @qemu_in_main_thread() local_unnamed_addr #1
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @preallocate_absorb_opts(ptr nocapture noundef %dest, ptr noundef %options, ptr nocapture noundef readonly %child_bs, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @preallocate_absorb_opts(ptr noundef captures(none) %dest, ptr noundef %options, ptr noundef readonly captures(none) %child_bs, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_opts_create(ptr noundef nonnull @runtime_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #6
   %call1 = tail call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef %call, ptr noundef %options, ptr noundef %errp) #6
@@ -607,7 +607,7 @@ declare void @qemu_opts_del(ptr noundef) local_unnamed_addr #1
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @preallocate_truncate_to_real_size(ptr nocapture noundef readonly %bs, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @preallocate_truncate_to_real_size(ptr noundef readonly captures(none) %bs, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -673,7 +673,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare i32 @bdrv_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @qemu_bh_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -730,7 +730,7 @@ declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noun
 declare i32 @bdrv_co_preadv_part(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @handle_write(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %want_merge_zero) #0 {
+define internal zeroext i1 @handle_write(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %want_merge_zero) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -867,7 +867,7 @@ return:                                           ; preds = %if.then56, %land.rh
 declare i32 @bdrv_co_pwritev_part(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @has_prealloc_perms(ptr nocapture readonly %bs.24.val, ptr nocapture readonly %bs.16840.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @has_prealloc_perms(ptr readonly captures(none) %bs.24.val, ptr readonly captures(none) %bs.16840.val) unnamed_addr #0 {
 entry:
   %perm = getelementptr inbounds nuw i8, ptr %bs.16840.val, i64 40
   %0 = load i64, ptr %perm, align 8

@@ -1020,7 +1020,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @iter_traverse(ptr nocapture noundef readonly %it, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @iter_traverse(ptr noundef readonly captures(none) %it, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %it_seq = getelementptr inbounds nuw i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
@@ -1043,7 +1043,7 @@ return:                                           ; preds = %if.then, %do.end
 declare ptr @PyObject_SelfIter(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iter_iternext(ptr nocapture noundef %iterator) #0 {
+define internal ptr @iter_iternext(ptr noundef captures(none) %iterator) #0 {
 entry:
   %it_seq = getelementptr inbounds nuw i8, ptr %iterator, i64 24
   %0 = load ptr, ptr %it_seq, align 8
@@ -1234,7 +1234,7 @@ Py_XDECREF.exit11:                                ; preds = %Py_XDECREF.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @calliter_traverse(ptr nocapture noundef readonly %it, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @calliter_traverse(ptr noundef readonly captures(none) %it, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %it_callable = getelementptr inbounds nuw i8, ptr %it, i64 16
   %0 = load ptr, ptr %it_callable, align 8
@@ -1266,7 +1266,7 @@ return:                                           ; preds = %if.then7, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @calliter_iternext(ptr nocapture noundef %it) #0 {
+define internal ptr @calliter_iternext(ptr noundef captures(none) %it) #0 {
 entry:
   %it_callable = getelementptr inbounds nuw i8, ptr %it, i64 16
   %0 = load ptr, ptr %it_callable, align 8
@@ -1510,7 +1510,7 @@ Py_XDECREF.exit11:                                ; preds = %Py_XDECREF.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @anextawaitable_traverse(ptr nocapture noundef readonly %obj, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @anextawaitable_traverse(ptr noundef readonly captures(none) %obj, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %wrapped = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %0 = load ptr, ptr %wrapped, align 8
@@ -1542,7 +1542,7 @@ return:                                           ; preds = %if.then7, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @anextawaitable_iternext(ptr nocapture noundef readonly %obj) #0 {
+define internal ptr @anextawaitable_iternext(ptr noundef readonly captures(none) %obj) #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 16
   %obj.val = load ptr, ptr %0, align 8
@@ -1666,7 +1666,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_Clear() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iter_len(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @iter_len(ptr noundef readonly captures(none) %it, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %it_seq = getelementptr inbounds nuw i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
@@ -1705,7 +1705,7 @@ return:                                           ; preds = %if.then, %if.then3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iter_reduce(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @iter_reduce(ptr noundef readonly captures(none) %it, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176)) #4
   %it_seq = getelementptr inbounds nuw i8, ptr %it, i64 24
@@ -1729,7 +1729,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @iter_setstate(ptr nocapture noundef %it, ptr noundef %state) #0 {
+define internal noundef ptr @iter_setstate(ptr noundef captures(none) %it, ptr noundef %state) #0 {
 entry:
   %call = tail call i64 @PyLong_AsSsize_t(ptr noundef %state) #4
   %cmp = icmp eq i64 %call, -1
@@ -1780,7 +1780,7 @@ declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @calliter_reduce(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @calliter_reduce(ptr noundef readonly captures(none) %it, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176)) #4
   %it_callable = getelementptr inbounds nuw i8, ptr %it, i64 16
@@ -1891,7 +1891,7 @@ declare ptr @_PyCoro_GetAwaitableIter(ptr noundef) local_unnamed_addr #1
 declare i32 @PyIter_Check(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @anextawaitable_send(ptr nocapture noundef readonly %obj, ptr noundef %arg) #0 {
+define internal ptr @anextawaitable_send(ptr noundef readonly captures(none) %obj, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 16
   %obj.val.i = load ptr, ptr %0, align 8
@@ -1938,7 +1938,7 @@ anextawaitable_proxy.exit:                        ; preds = %entry, %Py_DECREF.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @anextawaitable_throw(ptr nocapture noundef readonly %obj, ptr noundef %arg) #0 {
+define internal ptr @anextawaitable_throw(ptr noundef readonly captures(none) %obj, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 16
   %obj.val.i = load ptr, ptr %0, align 8
@@ -1985,7 +1985,7 @@ anextawaitable_proxy.exit:                        ; preds = %entry, %Py_DECREF.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @anextawaitable_close(ptr nocapture noundef readonly %obj, ptr noundef %arg) #0 {
+define internal ptr @anextawaitable_close(ptr noundef readonly captures(none) %obj, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 16
   %obj.val.i = load ptr, ptr %0, align 8

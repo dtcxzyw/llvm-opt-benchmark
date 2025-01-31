@@ -2790,7 +2790,7 @@ define linkonce_odr dso_local i8 @_ZNK13AstBasicDType7keywordEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN7AstNode11privateCastI12AstNodeFTaskPS_EEPT_S2_(ptr noundef %0) #3 comdat align 2 {
@@ -8846,7 +8846,7 @@ _ZNSt8_Rb_treeIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12581,7 +12581,7 @@ declare void @_ZN6AstVar11combineTypeE8VVarType(ptr noundef nonnull align 8 dere
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN7AstNode9privateIsI11AstArraySelKPS_EEbPKS_(ptr noundef %0) #3 comdat align 2 {
@@ -19152,7 +19152,7 @@ _ZN9AstConcatC2EP8FileLineP11AstNodeExprS3_.exit: ; preds = %205, %.noexc70, %19
   %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8
   store ptr %230, ptr %229, align 8
   %.not.i.i.i.i.i.i71 = icmp eq ptr %230, null
-  br i1 %.not.i.i.i.i.i.i71, label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i73, label %231
+  br i1 %.not.i.i.i.i.i.i71, label %239, label %231
 
 231:                                              ; preds = %.noexc76
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 8
@@ -19164,18 +19164,14 @@ _ZN9AstConcatC2EP8FileLineP11AstNodeExprS3_.exit: ; preds = %205, %.noexc70, %19
   %235 = load i32, ptr %232, align 4
   %236 = add nsw i32 %235, 1
   store i32 %236, ptr %232, align 4
-  br label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i73
+  br label %239
 
 237:                                              ; preds = %231
   %238 = atomicrmw volatile add ptr %232, i32 1 acq_rel, align 4
-  br label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i73
+  br label %239
 
-_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i73:    ; preds = %237, %234, %.noexc76
+239:                                              ; preds = %.noexc76, %234, %237
   store ptr %16, ptr %225, align 8
-  %.not.i.i.i.i74 = icmp eq ptr %16, null
-  br i1 %.not.i.i.i.i74, label %247, label %239
-
-239:                                              ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i73
   %240 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %241 = load ptr, ptr %240, align 8
   %242 = getelementptr inbounds nuw i8, ptr %223, i64 72
@@ -19190,7 +19186,7 @@ _ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i73:    ; preds = %237, %234, %.noexc7
   store i64 %246, ptr @_ZN7AstNode12s_editCntGblE, align 8
   br label %247
 
-247:                                              ; preds = %244, %239, %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i73
+247:                                              ; preds = %244, %239
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9AstVarRef, i64 16), ptr %223, align 8
   %248 = invoke noundef ptr @_ZN12SplitVarImpl9newAssignEP8FileLineP11AstNodeExprS3_PK6AstVar(ptr noundef %155, ptr noundef nonnull %223, ptr noundef nonnull %.036.lcssa, ptr noundef nonnull %16)
           to label %249 unwind label %.loopexit.split-lp
@@ -26175,10 +26171,10 @@ declare i32 @llvm.smin.i32(i32, i32) #18
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15MetadataHandles24allocate_metadata_handleEP8Metadata(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15MetadataHandles24allocate_metadata_handleEP8Metadata(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -190,7 +190,7 @@ tailrecurse.backedge:                             ; preds = %78, %._crit_edge27.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15MetadataHandles17rebuild_free_listEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15MetadataHandles17rebuild_free_listEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
   %.01722 = load ptr, ptr %0, align 8
   %.not23 = icmp eq ptr %.01722, null
   br i1 %.not23, label %._crit_edge27.thread, label %.preheader.lr.ph
@@ -267,7 +267,7 @@ define hidden void @_ZN15MetadataHandles17rebuild_free_listEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15MetadataHandles5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 24)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15MetadataHandles5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((8, 24)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
@@ -294,7 +294,7 @@ define hidden void @_ZN15MetadataHandles5clearEv(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15MetadataHandles11metadata_doEPFvP8MetadataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15MetadataHandles11metadata_doEPFvP8MetadataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %.020 = load ptr, ptr %0, align 8
   %.not21 = icmp eq ptr %.020, null
   br i1 %.not21, label %._crit_edge23, label %.preheader
@@ -345,7 +345,7 @@ define hidden void @_ZN15MetadataHandles11metadata_doEPFvP8MetadataE(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15MetadataHandles12do_unloadingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15MetadataHandles12do_unloadingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %.034 = load ptr, ptr %0, align 8
   %.not35 = icmp eq ptr %.034, null
   br i1 %.not35, label %._crit_edge37, label %.preheader

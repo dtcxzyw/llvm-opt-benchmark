@@ -149,7 +149,7 @@ declare ptr @_ZNK4node4quic11BindingData30logstream_constructor_templateEv(ptr n
 declare ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef, ptr noundef, ptr, ptr, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZN2v816FunctionTemplate7InheritENS_5LocalIS0_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
@@ -273,7 +273,7 @@ declare void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS
 declare void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9LogStream4EmitEPKhmNS1_10EmitOptionE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef readonly %data, i64 noundef %len, i32 noundef %option) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9LogStream4EmitEPKhmNS1_10EmitOptionE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef readonly captures(none) %data, i64 noundef %len, i32 noundef %option) local_unnamed_addr #3 align 2 {
 entry:
   %buf = alloca %struct.uv_buf_t, align 8
   %ref.tmp = alloca %"struct.node::quic::LogStream::Chunk", align 8
@@ -457,7 +457,7 @@ if.end23:                                         ; preds = %entry, %if.then19, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9LogStream12ensure_spaceEm(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this, i64 noundef %amt) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9LogStream12ensure_spaceEm(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this, i64 noundef %amt) local_unnamed_addr #3 align 2 {
 entry:
   %total_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i64, ptr %total_, align 8
@@ -519,14 +519,14 @@ while.end:                                        ; preds = %_ZNSt5dequeIN4node4
 declare { ptr, i64 } @uv_buf_init(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9LogStream4EmitESt17basic_string_viewIcSt11char_traitsIcEENS1_10EmitOptionE(ptr noundef nonnull align 8 dereferenceable(216) %this, i64 %line.coerce0, ptr nocapture readonly %line.coerce1, i32 noundef %option) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9LogStream4EmitESt17basic_string_viewIcSt11char_traitsIcEENS1_10EmitOptionE(ptr noundef nonnull align 8 dereferenceable(216) %this, i64 %line.coerce0, ptr readonly captures(none) %line.coerce1, i32 noundef %option) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node4quic9LogStream4EmitEPKhmNS1_10EmitOptionE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %line.coerce1, i64 noundef %line.coerce0, i32 noundef %option)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node4quic9LogStream3EndEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((129, 130)) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4node4quic9LogStream3EndEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(216) initializes((129, 130)) %this) local_unnamed_addr #5 align 2 {
 entry:
   %ended_ = getelementptr inbounds nuw i8, ptr %this, i64 129
   store i8 1, ptr %ended_, align 1
@@ -671,7 +671,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZN4node4quic9LogStream8ReadStopEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((130, 131)) %this) unnamed_addr #5 align 2 {
+define dso_local noundef i32 @_ZN4node4quic9LogStream8ReadStopEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(216) initializes((130, 131)) %this) unnamed_addr #5 align 2 {
 entry:
   %reading_ = getelementptr inbounds nuw i8, ptr %this, i64 130
   store i8 0, ptr %reading_, align 2
@@ -679,7 +679,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZThn56_N4node4quic9LogStream8ReadStopEv(ptr nocapture noundef writeonly initializes((74, 75)) %this) unnamed_addr #5 align 2 {
+define dso_local noundef i32 @_ZThn56_N4node4quic9LogStream8ReadStopEv(ptr noundef writeonly captures(none) initializes((74, 75)) %this) unnamed_addr #5 align 2 {
 entry:
   %reading_.i = getelementptr inbounds nuw i8, ptr %this, i64 74
   store i8 0, ptr %reading_.i, align 2
@@ -687,7 +687,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind uwtable
-define dso_local noundef i32 @_ZN4node4quic9LogStream10DoShutdownEPNS_12ShutdownWrapE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %req_wrap) unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZN4node4quic9LogStream10DoShutdownEPNS_12ShutdownWrapE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %req_wrap) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic9LogStream10DoShutdownEPNS_12ShutdownWrapEE4args) #18
   tail call void @abort() #19
@@ -700,7 +700,7 @@ declare void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i32 @_ZThn56_N4node4quic9LogStream10DoShutdownEPNS_12ShutdownWrapE(ptr nocapture readnone %this, ptr nocapture readnone %req_wrap) unnamed_addr #9 align 2 {
+define dso_local noundef i32 @_ZThn56_N4node4quic9LogStream10DoShutdownEPNS_12ShutdownWrapE(ptr readnone captures(none) %this, ptr readnone captures(none) %req_wrap) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic9LogStream10DoShutdownEPNS_12ShutdownWrapEE4args) #18
   tail call void @abort() #19
@@ -708,7 +708,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind uwtable
-define dso_local noundef i32 @_ZN4node4quic9LogStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %w, ptr nocapture readnone %bufs, i64 %count, ptr nocapture readnone %send_handle) unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZN4node4quic9LogStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %w, ptr readnone captures(none) %bufs, i64 %count, ptr readnone captures(none) %send_handle) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic9LogStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE4args) #18
   tail call void @abort() #19
@@ -716,7 +716,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i32 @_ZThn56_N4node4quic9LogStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr nocapture readnone %this, ptr nocapture readnone %w, ptr nocapture readnone %bufs, i64 %count, ptr nocapture readnone %send_handle) unnamed_addr #9 align 2 {
+define dso_local noundef i32 @_ZThn56_N4node4quic9LogStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr readnone captures(none) %this, ptr readnone captures(none) %w, ptr readnone captures(none) %bufs, i64 %count, ptr readnone captures(none) %send_handle) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic9LogStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE4args) #18
   tail call void @abort() #19
@@ -724,7 +724,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4node4quic9LogStream7IsAliveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node4quic9LogStream7IsAliveEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this) unnamed_addr #10 align 2 {
 entry:
   %ended_ = getelementptr inbounds nuw i8, ptr %this, i64 129
   %0 = load i8, ptr %ended_, align 1
@@ -734,7 +734,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZThn56_N4node4quic9LogStream7IsAliveEv(ptr nocapture noundef readonly %this) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZThn56_N4node4quic9LogStream7IsAliveEv(ptr noundef readonly captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   %ended_.i = getelementptr inbounds nuw i8, ptr %this, i64 73
   %0 = load i8, ptr %ended_.i, align 1
@@ -744,7 +744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4node4quic9LogStream9IsClosingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node4quic9LogStream9IsClosingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this) unnamed_addr #10 align 2 {
 entry:
   %ended_ = getelementptr inbounds nuw i8, ptr %this, i64 129
   %0 = load i8, ptr %ended_, align 1
@@ -753,7 +753,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZThn56_N4node4quic9LogStream9IsClosingEv(ptr nocapture noundef readonly %this) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZThn56_N4node4quic9LogStream9IsClosingEv(ptr noundef readonly captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   %ended_.i = getelementptr inbounds nuw i8, ptr %this, i64 73
   %0 = load i8, ptr %ended_.i, align 1
@@ -775,7 +775,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node4quic9LogStream10MemoryInfoEPNS_13MemoryTrackerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr nocapture noundef readonly %tracker) unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node4quic9LogStream10MemoryInfoEPNS_13MemoryTrackerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef readonly captures(none) %tracker) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::unique_ptr.342", align 8
   %total_ = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -1551,7 +1551,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_logstream.cc() #6 section ".text.startup" {
@@ -1562,16 +1562,16 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

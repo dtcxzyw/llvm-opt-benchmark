@@ -68,10 +68,10 @@ define noalias noundef ptr @RBTreeCreate(ptr noundef %0, ptr noundef %1, ptr nou
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @RBTreeInsert(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define noundef ptr @RBTreeInsert(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #6
   %5 = icmp eq ptr %4, null
   br i1 %5, label %163, label %6
@@ -405,7 +405,7 @@ LeftRotate.exit60:                                ; preds = %151, %152
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @TreeSuccessor(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define ptr @TreeSuccessor(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -442,7 +442,7 @@ define ptr @TreeSuccessor(ptr nocapture noundef readonly %0, ptr noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @TreePredecessor(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define ptr @TreePredecessor(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -524,7 +524,7 @@ common.ret12:                                     ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @RBExactQuery(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define noundef ptr @RBExactQuery(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -560,7 +560,7 @@ define noundef ptr @RBExactQuery(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @RBDelete(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @RBDelete(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -707,7 +707,7 @@ TreeSuccessor.exit:                               ; preds = %.preheader24.i, %2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @RBDeleteFixUp(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @RBDeleteFixUp(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24

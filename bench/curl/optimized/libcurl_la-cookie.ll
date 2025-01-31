@@ -312,7 +312,7 @@ declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @Curl_share_unlock(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Curl_cookie_add(ptr noundef %data, ptr nocapture noundef %c, i1 noundef zeroext %httpheader, i1 noundef zeroext %noexpire, ptr noundef %lineptr, ptr noundef %domain, ptr noundef %path, i1 noundef zeroext %secure) local_unnamed_addr #0 {
+define hidden ptr @Curl_cookie_add(ptr noundef %data, ptr noundef captures(none) %c, i1 noundef zeroext %httpheader, i1 noundef zeroext %noexpire, ptr noundef %lineptr, ptr noundef %domain, ptr noundef %path, i1 noundef zeroext %secure) local_unnamed_addr #0 {
 entry:
   %date = alloca [128 x i8], align 16
   %tok_buf = alloca ptr, align 8
@@ -1788,10 +1788,10 @@ return:                                           ; preds = %if.end952, %land.lh
 declare i64 @time(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
@@ -1904,7 +1904,7 @@ return:                                           ; preds = %if.end13.thread, %i
 declare zeroext i1 @Curl_host_is_ipnum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @cookie_tailmatch(ptr noundef %cookie_domain, i64 noundef %cookie_domain_len, ptr noundef %hostname) unnamed_addr #0 {
@@ -1917,7 +1917,7 @@ if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %hostname, i64 %call
   %idx.neg = sub i64 0, %cookie_domain_len
   %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %call2 = tail call i32 @curl_strnequal(ptr noundef %cookie_domain, ptr noundef %add.ptr1, i64 noundef %cookie_domain_len) #12
+  %call2 = tail call i32 @curl_strnequal(ptr noundef %cookie_domain, ptr noundef nonnull %add.ptr1, i64 noundef %cookie_domain_len) #12
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end4
 
@@ -1939,7 +1939,7 @@ return:                                           ; preds = %if.end7, %if.end4, 
 declare i32 @curlx_strtoofft(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i64 @Curl_getdate_capped(ptr noundef) local_unnamed_addr #1
 
@@ -1954,15 +1954,15 @@ declare ptr @Curl_memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_a
 declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_expired(ptr nocapture noundef %cookies) unnamed_addr #0 {
+define internal fastcc void @remove_expired(ptr noundef captures(none) %cookies) unnamed_addr #0 {
 entry:
   %call = tail call i64 @time(ptr noundef null) #12
   %next_expiration = getelementptr inbounds nuw i8, ptr %cookies, i64 504
@@ -2164,12 +2164,12 @@ return:                                           ; preds = %while.end.loopexit.
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare ptr @Curl_get_line(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_cookie_cleanup(ptr noundef %c) local_unnamed_addr #0 {
@@ -2281,7 +2281,7 @@ if.end.i:                                         ; preds = %land.lhs.true15
   %add.ptr.i = getelementptr inbounds i8, ptr %host, i64 %call.i
   %idx.neg.i = sub i64 0, %call18
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  %call2.i = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef %add.ptr1.i, i64 noundef %call18) #12
+  %call2.i = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %add.ptr1.i, i64 noundef %call18) #12
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %lor.lhs.false20, label %if.end4.i
 
@@ -2624,10 +2624,10 @@ return:                                           ; preds = %while.body.i, %if.e
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @cookie_sort(ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2) #8 {
+define internal range(i32 -1, 2) i32 @cookie_sort(ptr noundef readonly captures(none) %p1, ptr noundef readonly captures(none) %p2) #8 {
 entry:
   %0 = load ptr, ptr %p1, align 8
   %1 = load ptr, ptr %p2, align 8
@@ -3258,23 +3258,19 @@ cookie_output.exit:                               ; preds = %error53.i, %land.lh
   call void %38(ptr noundef %39) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tempstore.i)
-  %tobool7.not = icmp eq ptr %data, null
-  br i1 %tobool7.not, label %if.end17, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %cookie_output.exit
   %verbose = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %40 = and i64 %bf.load, 536870912
   %tobool9.not = icmp eq i64 %40, 0
   br i1 %tobool9.not, label %if.end17, label %if.then10
 
-if.then10:                                        ; preds = %land.lhs.true
+if.then10:                                        ; preds = %cookie_output.exit
   %41 = load ptr, ptr %arrayidx, align 8
   %call14 = call ptr @curl_easy_strerror(i32 noundef %error.0.i) #12
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.32, ptr noundef %41, ptr noundef %call14) #12
   br label %if.end17
 
-if.end17:                                         ; preds = %entry, %cookie_output.exit.thread, %cookie_output.exit, %land.lhs.true, %if.then10
+if.end17:                                         ; preds = %entry, %cookie_output.exit.thread, %cookie_output.exit, %if.then10
   br i1 %cleanup, label %land.lhs.true19, label %if.end27
 
 land.lhs.true19:                                  ; preds = %if.end17
@@ -3346,14 +3342,14 @@ Curl_cookie_cleanup.exit:                         ; preds = %if.then24, %for.end
   br label %if.end27
 
 if.end27:                                         ; preds = %Curl_cookie_cleanup.exit, %lor.lhs.false, %if.end17
-  %call28 = call i32 @Curl_share_unlock(ptr noundef %data, i32 noundef 2) #12
+  %call28 = call i32 @Curl_share_unlock(ptr noundef nonnull %data, i32 noundef 2) #12
   ret void
 }
 
 declare ptr @curl_easy_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare signext i8 @Curl_raw_toupper(i8 noundef signext) local_unnamed_addr #1
 
@@ -3366,7 +3362,7 @@ declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @Curl_fopen(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @cookie_sort_ct(ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2) #9 {
+define internal range(i32 -1, 2) i32 @cookie_sort_ct(ptr noundef readonly captures(none) %p1, ptr noundef readonly captures(none) %p2) #9 {
 entry:
   %0 = load ptr, ptr %p1, align 8
   %1 = load ptr, ptr %p2, align 8
@@ -3384,16 +3380,16 @@ declare i32 @curl_mfprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @Curl_rename(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

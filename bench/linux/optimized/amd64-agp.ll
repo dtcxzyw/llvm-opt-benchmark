@@ -140,7 +140,7 @@ define dso_local i32 @agp_amd64_init() local_unnamed_addr #0 section ".init.text
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -158,7 +158,7 @@ declare dso_local zeroext i16 @amd_nb_num() local_unnamed_addr #2
 declare dso_local i32 @driver_attach(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @agp_amd64_cleanup() #0 section ".exit.text" align 16 {
@@ -185,7 +185,7 @@ define internal i32 @agp_amd64_mod_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, ptr nocapture readnone %1) #4 align 16 {
+define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, ptr readnone captures(none) %1) #4 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -599,7 +599,7 @@ thread-pre-split:                                 ; preds = %135
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @agp_amd64_remove(ptr nocapture noundef readonly %0) #4 align 16 {
+define internal void @agp_amd64_remove(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -963,7 +963,7 @@ define internal void @amd64_cleanup() #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @amd64_tlbflush(ptr nocapture readnone %0) #4 align 16 {
+define internal void @amd64_tlbflush(ptr readnone captures(none) %0) #4 align 16 {
   tail call void @amd_flush_garts() #6
   ret void
 }
@@ -981,7 +981,7 @@ declare dso_local i32 @agp_generic_create_gatt_table(ptr noundef) #2
 declare dso_local i32 @agp_generic_free_gatt_table(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #4 align 16 {
+define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @agp_num_entries() #6
@@ -1231,7 +1231,7 @@ declare dso_local ptr @__request_region(ptr noundef, i64 noundef, i64 noundef, p
 declare dso_local zeroext i1 @e820__mapped_any(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @pcibios_resource_to_bus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

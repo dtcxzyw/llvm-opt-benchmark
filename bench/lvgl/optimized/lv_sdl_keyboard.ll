@@ -40,7 +40,7 @@ declare void @lv_indev_set_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @lv_indev_set_read_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @sdl_keyboard_read(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @sdl_keyboard_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = tail call ptr @lv_indev_get_driver_data(ptr noundef %0) #3
   %4 = tail call i64 @lv_strlen(ptr noundef %3) #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -265,7 +265,7 @@ declare ptr @lv_indev_get_driver_data(ptr noundef) local_unnamed_addr #1
 declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #2
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #2
 
 declare void @lv_indev_read(ptr noundef) local_unnamed_addr #1
 

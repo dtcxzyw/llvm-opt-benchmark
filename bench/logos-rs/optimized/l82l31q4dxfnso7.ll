@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.e2611376bfac35d21c1642dcf963882e.32 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.e2611376bfac35d21c1642dcf963882e.13, [16 x i8] c"\1E\00\00\00\00\00\00\00\FB\01\00\00\1E\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17ha2cee1a609b59c43E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17ha2cee1a609b59c43E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call zeroext i1 @"_ZN67_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..fmt..Display$GT$3fmt17h21bd1929831684f3E"(ptr align 4 %3, ptr align 8 %1)
   ret i1 %4
@@ -58,7 +58,7 @@ define range(i64 0, 1537228672809129302) i64 @"_ZN4core3ptr9const_ptr33_$LT$impl
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h18f7181ebee830ceE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h18f7181ebee830ceE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 4
   tail call void @_ZN4core4hash6Hasher9write_u3217h27546f1ece9eb5bdE(ptr align 8 %1, i32 %4)
@@ -68,7 +68,7 @@ define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$R
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hdffc771d598f1e5aE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hdffc771d598f1e5aE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 4
   tail call void @_ZN4core4hash6Hasher9write_u3217h27546f1ece9eb5bdE(ptr align 8 %1, i32 %4)
@@ -137,13 +137,13 @@ define zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i32, i32 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hac92c29dd83f81e1E"(i32 %0, ptr nocapture readnone align 8 %1) unnamed_addr #2 {
+define { i32, i32 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hac92c29dd83f81e1E"(i32 %0, ptr readnone align 8 captures(none) %1) unnamed_addr #2 {
   %3 = tail call { i32, i32 } @"_ZN108_$LT$logos_codegen..graph..rope..Miss$u20$as$u20$core..convert..From$LT$logos_codegen..graph..NodeId$GT$$GT$4from17hba3eef33fb30327aE"(i32 %0)
   ret { i32, i32 } %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i32 @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hff71eeffce0ee670E"(i32 %0, ptr nocapture readnone align 8 %1) unnamed_addr #2 {
+define i32 @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hff71eeffce0ee670E"(i32 %0, ptr readnone align 8 captures(none) %1) unnamed_addr #2 {
   %3 = tail call i32 @"_ZN78_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h76ba2ae5b0b24adfE"(i32 %0)
   ret i32 %3
 }
@@ -180,7 +180,7 @@ define zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h6de8b320b0bb86afE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 4 %1, i64 %2) unnamed_addr #2 {
+define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h6de8b320b0bb86afE"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr readonly align 4 captures(none) %1, i64 %2) unnamed_addr #2 {
   %4 = alloca [24 x i8], align 8
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h3af43f6ca7415fc5E"(ptr nonnull sret([24 x i8]) align 8 %4, i64 %2, i1 zeroext false)
   %5 = load i64, ptr %4, align 8
@@ -219,7 +219,7 @@ define zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From$LT$logos_codegen..graph..fork..Fork$GT$$u20$for$u20$logos_codegen..graph..Node$LT$T$GT$$GT$4from17h6b2e47f0bb8a5f0dE"(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 20)) %0, ptr align 4 %1, i32 %2) unnamed_addr #4 {
+define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From$LT$logos_codegen..graph..fork..Fork$GT$$u20$for$u20$logos_codegen..graph..Node$LT$T$GT$$GT$4from17h6b2e47f0bb8a5f0dE"(ptr writeonly sret([88 x i8]) align 8 captures(none) initializes((0, 20)) %0, ptr align 4 %1, i32 %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -229,7 +229,7 @@ define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From$LT$logos_codegen..graph..rope..Rope$GT$$u20$for$u20$logos_codegen..graph..Node$LT$T$GT$$GT$4from17h04df9a23ad5e7325E"(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 48)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From$LT$logos_codegen..graph..rope..Rope$GT$$u20$for$u20$logos_codegen..graph..Node$LT$T$GT$$GT$4from17h04df9a23ad5e7325E"(ptr writeonly sret([88 x i8]) align 8 captures(none) initializes((0, 48)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   store i64 -9223372036854775805, ptr %0, align 8
@@ -923,7 +923,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3new17h3b815831b5b583a1E"(ptr nocapture writeonly sret([120 x i8]) align 8 initializes((0, 80), (88, 104), (112, 120)) %0) unnamed_addr #0 {
+define hidden void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3new17h3b815831b5b583a1E"(ptr writeonly sret([120 x i8]) align 8 captures(none) initializes((0, 80), (88, 104), (112, 120)) %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = tail call ptr @_ZN5alloc5alloc15exchange_malloc17hb0a9e51216425750E(i64 88, i64 8)
   store i64 -9223372036854775804, ptr %3, align 8
@@ -2428,7 +2428,7 @@ select.unfold57:                                  ; preds = %158, %.noexc35
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge_rope17h5c872b0d922fc64bE"(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr nonnull align 8 %2, i32 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge_rope17h5c872b0d922fc64bE"(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr align 8 %1, ptr nonnull align 8 %2, i32 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = alloca [40 x i8], align 8
@@ -2698,7 +2698,7 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge_rope28_$u7b$$u7b$closure$u7d$$u7d$17he800c5f17738c835E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define hidden zeroext i1 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge_rope28_$u7b$$u7b$closure$u7d$$u7d$17he800c5f17738c835E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #2 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
   %5 = load ptr, ptr %0, align 8
@@ -2939,7 +2939,7 @@ default.unreachable:                              ; preds = %"_ZN119_$LT$logos_c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E"(ptr nocapture readonly align 8 %0, i32 %1) unnamed_addr #0 {
+define align 8 ptr @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E"(ptr readonly align 8 captures(none) %0, i32 %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2961,7 +2961,7 @@ define align 8 ptr @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr nocapture readonly align 8 %0, i32 %1, ptr align 8 %2) unnamed_addr #0 {
+define align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr readonly align 8 captures(none) %0, i32 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2985,7 +2985,7 @@ select.unfold:                                    ; preds = %11, %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i32 @"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$4miss17haf0694526b14e4feE"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden i32 @"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$4miss17haf0694526b14e4feE"(ptr readonly align 8 captures(none) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = add i64 %2, 9223372036854775806
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
@@ -3091,7 +3091,7 @@ default.unreachable:                              ; preds = %1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN65_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..hash..Hash$GT$4hash17h79ec2b4850dda206E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN65_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..hash..Hash$GT$4hash17h79ec2b4850dda206E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = load i32, ptr %0, align 4
   tail call void @_ZN4core4hash6Hasher9write_u3217h27546f1ece9eb5bdE(ptr align 8 %1, i32 %3)
   ret void
@@ -3125,7 +3125,7 @@ declare i32 @"_ZN78_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..convert..
 declare void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h3af43f6ca7415fc5E"(ptr sret([24 x i8]) align 8, i64, i1 zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64, i64) unnamed_addr #7
@@ -3443,13 +3443,13 @@ declare hidden void @_ZN13logos_codegen5graph4rope4Rope5shake17hd5d4df5245d57fe4
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -147,7 +147,7 @@ $_ZTV20AttachListenerThread = comdat any
 @llvm.used = appending global [4 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20AttachListenerThread12thread_entryEP10JavaThreadS1_(ptr noundef %0, ptr nocapture readnone %1) #0 align 2 {
+define hidden void @_ZN20AttachListenerThread12thread_entryEP10JavaThreadS1_(ptr noundef %0, ptr readnone captures(none) %1) #0 align 2 {
   %3 = alloca %class.bufferedStream, align 8
   %4 = tail call noundef i32 @_ZN2os12set_priorityEP6Thread14ThreadPriority(ptr noundef %0, i32 noundef 9) #8
   %5 = tail call noundef i32 @_ZN14AttachListener7pd_initEv() #8
@@ -261,7 +261,7 @@ declare noundef ptr @_ZN14AttachListener7dequeueEv() local_unnamed_addr #1
 declare void @_ZN14bufferedStreamC1Emm(ptr noundef nonnull align 8 dereferenceable(89), i64 noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14AttachListener9detachallEv() local_unnamed_addr #0 align 2 {
@@ -443,14 +443,14 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef range(i32 -1, 1) i32 @_ZL20get_agent_propertiesP15AttachOperationP12outputStream(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal noundef range(i32 -1, 1) i32 @_ZL20get_agent_propertiesP15AttachOperationP12outputStream(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9064), align 8
   %4 = tail call fastcc noundef i32 @_ZL14get_propertiesP15AttachOperationP12outputStreamP6Symbol(ptr noundef %1, ptr noundef %3)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL9data_dumpP15AttachOperationP12outputStream(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_ZL9data_dumpP15AttachOperationP12outputStream(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load i8, ptr @ReduceSignalUsage, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %6, label %5
@@ -639,14 +639,14 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %33, %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef range(i32 -1, 1) i32 @_ZL21get_system_propertiesP15AttachOperationP12outputStream(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal noundef range(i32 -1, 1) i32 @_ZL21get_system_propertiesP15AttachOperationP12outputStream(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9056), align 8
   %4 = tail call fastcc noundef i32 @_ZL14get_propertiesP15AttachOperationP12outputStreamP6Symbol(ptr noundef %1, ptr noundef %3)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL11thread_dumpP15AttachOperationP12outputStream(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @_ZL11thread_dumpP15AttachOperationP12outputStream(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %class.VM_PrintThreads, align 8
   %4 = alloca %class.VM_FindDeadlocks, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -1011,7 +1011,7 @@ declare void @_ZN14AttachListener12pd_data_dumpEv() local_unnamed_addr #1
 declare void @_ZN11JvmtiExport14post_data_dumpEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare noundef zeroext i1 @_ZN9Arguments10parse_uintEPKcPjj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

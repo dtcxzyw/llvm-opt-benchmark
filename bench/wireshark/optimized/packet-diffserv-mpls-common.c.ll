@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [15 x i8] c"PHB id code %u\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_diffserv_mpls_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define hidden void @dissect_diffserv_mpls_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   switch i32 %2, label %61 [
     i32 1, label %7
     i32 2, label %23

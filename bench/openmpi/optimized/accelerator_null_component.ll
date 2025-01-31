@@ -39,17 +39,17 @@ define internal noundef nonnull ptr @accelerator_null_init() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @accelerator_null_finalize(ptr nocapture readnone %0) #0 {
+define internal void @accelerator_null_finalize(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_check_addr(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @accelerator_null_check_addr(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @accelerator_null_create_stream(i32 %0, ptr nocapture noundef writeonly %1) #1 {
+define internal noundef i32 @accelerator_null_create_stream(i32 %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator_stream_t_class, i64 56), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #9
   %5 = load i32, ptr @opal_class_init_epoch, align 4
@@ -89,7 +89,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @accelerator_null_create_event(i32 %0, ptr nocapture noundef writeonly %1, i1 zeroext %2) #1 {
+define internal noundef i32 @accelerator_null_create_event(i32 %0, ptr noundef writeonly captures(none) %1, i1 zeroext %2) #1 {
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator_event_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #9
   %6 = load i32, ptr @opal_class_init_epoch, align 4
@@ -129,53 +129,53 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_record_event(i32 %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @accelerator_null_record_event(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_query_event(i32 %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @accelerator_null_query_event(i32 %0, ptr readnone captures(none) %1) #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_wait_event(i32 %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @accelerator_null_wait_event(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @accelerator_null_memcpy_async(i32 %0, i32 %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture readnone %5, i32 %6) #2 {
+define internal noundef i32 @accelerator_null_memcpy_async(i32 %0, i32 %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5, i32 %6) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %3, i64 %4, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @accelerator_null_memcpy(i32 %0, i32 %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i64 noundef %4, i32 %5) #2 {
+define internal noundef i32 @accelerator_null_memcpy(i32 %0, i32 %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i32 %5) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %3, i64 %4, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @accelerator_null_memmove(i32 %0, i32 %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i64 noundef %4, i32 %5) #2 {
+define internal noundef i32 @accelerator_null_memmove(i32 %0, i32 %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i32 %5) #2 {
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2, ptr align 1 %3, i64 %4, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @accelerator_null_mem_alloc(i32 %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i64 noundef %2) #3 {
+define internal noundef i32 @accelerator_null_mem_alloc(i32 %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i64 noundef %2) #3 {
   %4 = tail call noalias ptr @malloc(i64 noundef %2) #9
   store ptr %4, ptr %1, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @accelerator_null_mem_release(i32 %0, ptr nocapture noundef %1) #4 {
+define internal noundef i32 @accelerator_null_mem_release(i32 %0, ptr noundef captures(none) %1) #4 {
   tail call void @free(ptr noundef %1) #10
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_get_address_range(i32 %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @accelerator_null_get_address_range(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   ret i32 -7
 }
 
@@ -185,67 +185,67 @@ define internal noundef zeroext i1 @accelerator_null_is_ipc_enabled() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_get_ipc_handle(i32 %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @accelerator_null_get_ipc_handle(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   ret i32 -7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_import_ipc_handle(i32 %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @accelerator_null_import_ipc_handle(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   ret i32 -7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_open_ipc_handle(i32 %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @accelerator_null_open_ipc_handle(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   ret i32 -7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_compare_ipc_handles(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @accelerator_null_compare_ipc_handles(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   ret i32 -7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_get_ipc_event_handle(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @accelerator_null_get_ipc_event_handle(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   ret i32 -7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_import_ipc_event_handle(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @accelerator_null_import_ipc_event_handle(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   ret i32 -7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_open_ipc_event_handle(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @accelerator_null_open_ipc_event_handle(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   ret i32 -7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_host_register(i32 %0, ptr nocapture readnone %1, i64 %2) #0 {
+define internal noundef i32 @accelerator_null_host_register(i32 %0, ptr readnone captures(none) %1, i64 %2) #0 {
   ret i32 -7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_host_unregister(i32 %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @accelerator_null_host_unregister(i32 %0, ptr readnone captures(none) %1) #0 {
   ret i32 -7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_get_device(ptr nocapture readnone %0) #0 {
+define internal noundef i32 @accelerator_null_get_device(ptr readnone captures(none) %0) #0 {
   ret i32 -7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_get_device_pci_attr(i32 %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @accelerator_null_get_device_pci_attr(i32 %0, ptr readnone captures(none) %1) #0 {
   ret i32 -7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_device_can_access_peer(ptr nocapture readnone %0, i32 %1, i32 %2) #0 {
+define internal noundef i32 @accelerator_null_device_can_access_peer(ptr readnone captures(none) %0, i32 %1, i32 %2) #0 {
   ret i32 -7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @accelerator_null_get_buffer_id(i32 %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @accelerator_null_get_buffer_id(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   ret i32 -7
 }
 
@@ -255,13 +255,13 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

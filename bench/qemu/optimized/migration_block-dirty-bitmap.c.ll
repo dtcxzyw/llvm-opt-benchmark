@@ -153,7 +153,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 242, ptr noundef nonnull @__func__.construct_alias_map, ptr noundef nonnull @.str.4, ptr noundef %2, i32 noundef 255) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 242, ptr noundef nonnull @__func__.construct_alias_map, ptr noundef nonnull @.str.4, ptr noundef nonnull %2, i32 noundef 255) #11
   br label %fail
 
 if.end7:                                          ; preds = %if.end
@@ -163,14 +163,14 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end7
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @__func__.construct_alias_map, ptr noundef nonnull @.str.5, ptr noundef %3, i64 noundef 31) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @__func__.construct_alias_map, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, i64 noundef 31) #11
   br label %fail
 
 if.end12:                                         ; preds = %if.end7
   br i1 %name_to_alias, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.end12
-  %call16 = tail call i32 @g_hash_table_contains(ptr noundef %call, ptr noundef %3) #11
+  %call16 = tail call i32 @g_hash_table_contains(ptr noundef %call, ptr noundef nonnull %3) #11
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.end31, label %if.then18
 
@@ -180,7 +180,7 @@ if.then18:                                        ; preds = %if.then14
   br label %fail
 
 if.else:                                          ; preds = %if.end12
-  %call24 = tail call i32 @g_hash_table_contains(ptr noundef %call, ptr noundef %2) #11
+  %call24 = tail call i32 @g_hash_table_contains(ptr noundef %call, ptr noundef nonnull %2) #11
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.end31, label %if.then26
 
@@ -227,12 +227,12 @@ if.end46.us:                                      ; preds = %for.body39.us
   br i1 %cmp48.us, label %if.then49, label %if.end51.us
 
 if.end51.us:                                      ; preds = %if.end46.us
-  %call56.us = tail call i32 @g_hash_table_contains(ptr noundef %call32, ptr noundef %8) #11
+  %call56.us = tail call i32 @g_hash_table_contains(ptr noundef %call32, ptr noundef nonnull %8) #11
   %tobool57.not.us = icmp eq i32 %call56.us, 0
   br i1 %tobool57.not.us, label %if.end71.us, label %if.then58
 
 if.end71.us:                                      ; preds = %if.end51.us
-  %call72.us = tail call noalias ptr @g_strdup(ptr noundef %8) #11
+  %call72.us = tail call noalias ptr @g_strdup(ptr noundef nonnull %8) #11
   %call73.us = tail call ptr @qapi_clone(ptr noundef nonnull %6, ptr noundef nonnull @visit_type_BitmapMigrationBitmapAlias) #11
   %call74.us = tail call i32 @g_hash_table_insert(ptr noundef %call32, ptr noundef %call72.us, ptr noundef %call73.us) #11
   %bmbal.0.us = load ptr, ptr %bmbal.097.us, align 8
@@ -251,7 +251,7 @@ for.body39:                                       ; preds = %for.body39.lr.ph, %
 
 if.then44:                                        ; preds = %for.body39, %for.body39.us
   %.us-phi = phi ptr [ %7, %for.body39.us ], [ %10, %for.body39 ]
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 291, ptr noundef nonnull @__func__.construct_alias_map, ptr noundef nonnull @.str.8, ptr noundef %.us-phi, i32 noundef 255) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 291, ptr noundef nonnull @__func__.construct_alias_map, ptr noundef nonnull @.str.8, ptr noundef nonnull %.us-phi, i32 noundef 255) #11
   br label %fail
 
 if.end46:                                         ; preds = %for.body39
@@ -262,11 +262,11 @@ if.end46:                                         ; preds = %for.body39
 
 if.then49:                                        ; preds = %if.end46, %if.end46.us
   %.us-phi98 = phi ptr [ %8, %if.end46.us ], [ %11, %if.end46 ]
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 297, ptr noundef nonnull @__func__.construct_alias_map, ptr noundef nonnull @.str.9, ptr noundef %.us-phi98, i32 noundef 1023) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 297, ptr noundef nonnull @__func__.construct_alias_map, ptr noundef nonnull @.str.9, ptr noundef nonnull %.us-phi98, i32 noundef 1023) #11
   br label %fail
 
 if.end51:                                         ; preds = %if.end46
-  %call65 = tail call i32 @g_hash_table_contains(ptr noundef %call32, ptr noundef %10) #11
+  %call65 = tail call i32 @g_hash_table_contains(ptr noundef %call32, ptr noundef nonnull %10) #11
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %if.end71, label %if.then67
 
@@ -284,7 +284,7 @@ if.then67:                                        ; preds = %if.end51
   br label %fail
 
 if.end71:                                         ; preds = %if.end51
-  %call72 = tail call noalias ptr @g_strdup(ptr noundef %10) #11
+  %call72 = tail call noalias ptr @g_strdup(ptr noundef nonnull %10) #11
   %call73 = tail call ptr @qapi_clone(ptr noundef nonnull %9, ptr noundef nonnull @visit_type_BitmapMigrationBitmapAlias) #11
   %call74 = tail call i32 @g_hash_table_insert(ptr noundef %call32, ptr noundef %call72, ptr noundef %call73) #11
   %bmbal.0 = load ptr, ptr %bmbal.097, align 8
@@ -335,7 +335,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @before_vm_start_handle_item(ptr noundef %item, ptr nocapture noundef %opaque) #0 {
+define internal void @before_vm_start_handle_item(ptr noundef %item, ptr noundef captures(none) %opaque) #0 {
 entry:
   %enabled = getelementptr inbounds nuw i8, ptr %item, i64 17
   %0 = load i8, ptr %enabled, align 1
@@ -431,7 +431,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @cancel_incoming_locked(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc void @cancel_incoming_locked(ptr noundef captures(none) %s) unnamed_addr #0 {
 entry:
   %cancelled = getelementptr inbounds nuw i8, ptr %s, i64 1576
   %0 = load i8, ptr %cancelled, align 8
@@ -544,7 +544,7 @@ declare zeroext i1 @id_wellformed(ptr noundef) local_unnamed_addr #1
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @g_hash_table_contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1022,7 +1022,7 @@ dirty_bitmap_save_cleanup.exit:                   ; preds = %if.end.i.i, %trace_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @dirty_bitmap_is_active(ptr nocapture noundef readonly %opaque) #0 {
+define internal zeroext i1 @dirty_bitmap_is_active(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %call = tail call zeroext i1 @migrate_dirty_bitmaps() #11
   br i1 %call, label %land.rhs, label %land.end
@@ -1040,13 +1040,13 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @dirty_bitmap_has_postcopy(ptr nocapture readnone %opaque) #5 {
+define internal noundef zeroext i1 @dirty_bitmap_has_postcopy(ptr readnone captures(none) %opaque) #5 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @dirty_bitmap_is_active_iterate(ptr nocapture noundef readonly %opaque) #0 {
+define internal zeroext i1 @dirty_bitmap_is_active_iterate(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %call.i = tail call zeroext i1 @migrate_dirty_bitmaps() #11
   br i1 %call.i, label %dirty_bitmap_is_active.exit, label %land.end
@@ -1068,7 +1068,7 @@ land.end:                                         ; preds = %entry, %land.rhs, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @dirty_bitmap_save_iterate(ptr noundef %f, ptr nocapture noundef %opaque) #0 {
+define internal range(i32 0, 2) i32 @dirty_bitmap_save_iterate(ptr noundef %f, ptr noundef captures(none) %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call zeroext i1 @migration_in_postcopy() #11
@@ -1130,7 +1130,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dirty_bitmap_state_pending(ptr nocapture noundef readonly %opaque, ptr nocapture readnone %must_precopy, ptr nocapture noundef %can_postcopy) #0 {
+define internal void @dirty_bitmap_state_pending(ptr noundef readonly captures(none) %opaque, ptr readnone captures(none) %must_precopy, ptr noundef captures(none) %can_postcopy) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 777) #11
@@ -2017,14 +2017,14 @@ declare ptr @blk_next(ptr noundef) local_unnamed_addr #1
 declare ptr @blk_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @blk_bs(ptr noundef) local_unnamed_addr #1
 
 declare zeroext i1 @bdrv_has_named_bitmaps(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_bitmaps_to_list(ptr nocapture noundef %s, ptr noundef nonnull %bs, ptr noundef %bs_name, ptr noundef %alias_map) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_bitmaps_to_list(ptr noundef captures(none) %s, ptr noundef nonnull %bs, ptr noundef %bs_name, ptr noundef %alias_map) unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -2275,7 +2275,7 @@ declare zeroext i1 @bdrv_dirty_bitmap_enabled(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @bdrv_dirty_bitmap_get_persistence(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @send_bitmap_header(ptr noundef %f, ptr nocapture noundef %s, ptr nocapture noundef readonly %dbms, i32 noundef range(i32 16, 67) %additional_flags) unnamed_addr #0 {
+define internal fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef captures(none) %s, ptr noundef readonly captures(none) %dbms, i32 noundef range(i32 16, 67) %additional_flags) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %dbms, align 8
@@ -2372,14 +2372,14 @@ declare void @qemu_put_byte(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @qemu_put_counted_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bulk_phase(ptr noundef %f, ptr nocapture noundef %s, i1 noundef zeroext %limit) unnamed_addr #0 {
+define internal fastcc void @bulk_phase(ptr noundef %f, ptr noundef captures(none) %s, i1 noundef zeroext %limit) unnamed_addr #0 {
 entry:
   %_now.i.i28.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i.i = alloca %struct.timeval, align 8
@@ -2627,13 +2627,13 @@ declare void @bdrv_dirty_bitmap_deserialize_part(ptr noundef, ptr noundef, i64 n
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

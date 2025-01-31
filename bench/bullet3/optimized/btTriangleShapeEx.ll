@@ -14,7 +14,7 @@ $_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_ = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(280) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %plane, float noundef %margin, ptr nocapture noundef readonly %points, i32 noundef %point_count) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(280) initializes((0, 8)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %plane, float noundef %margin, ptr noundef readonly captures(none) %points, i32 noundef %point_count) local_unnamed_addr #0 align 2 {
 entry:
   %point_indices = alloca [16 x i32], align 16
   %m_point_count = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -114,10 +114,10 @@ for.end32:                                        ; preds = %for.body23, %entry,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle25overlap_test_conservativeERKS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(72) %other) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle25overlap_test_conservativeERKS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(72) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(72) %other) local_unnamed_addr #2 align 2 {
 entry:
   %m_margin = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load float, ptr %m_margin, align 4
@@ -219,7 +219,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(72) %this, ptr noundef nonnull align 4 dereferenceable(72) %other, ptr noundef %clipped_points) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 4 dereferenceable(72) %other, ptr noundef %clipped_points) local_unnamed_addr #3 align 2 {
 entry:
   %temp_points = alloca [16 x %class.btVector3], align 16
   %edgeplane = alloca %class.btVector4, align 4
@@ -733,7 +733,7 @@ _Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit60: ; preds = %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT(ptr noundef nonnull align 4 dereferenceable(72) %this, ptr noundef nonnull align 4 dereferenceable(72) %other, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(280) %contacts) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT(ptr noundef nonnull align 4 dereferenceable(72) %this, ptr noundef nonnull align 4 dereferenceable(72) %other, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(280) %contacts) local_unnamed_addr #4 align 2 {
 entry:
   %point_indices.i9 = alloca [16 x i32], align 16
   %point_indices.i = alloca [16 x i32], align 16
@@ -1161,10 +1161,10 @@ declare float @llvm.fmuladd.f32(float, float, float) #5
 declare float @llvm.sqrt.f32(float) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -215,7 +215,7 @@ define void @_ZN8WasmEdge21convertValVecToHexStrEN5cxx204spanIKhLm18446744073709
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge20convertHexStrToBytesESt17basic_string_viewIcSt11char_traitsIcEERSt6vectorIhSaIhEEjb(i64 %0, ptr %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge20convertHexStrToBytesESt17basic_string_viewIcSt11char_traitsIcEERSt6vectorIhSaIhEEjb(i64 %0, ptr %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -721,7 +721,7 @@ declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6cbeginEv(ptr
 declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4cendEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge21convertHexStrToValVecESt17basic_string_viewIcSt11char_traitsIcEERSt6vectorIhSaIhEEj(i64 %0, ptr %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3) local_unnamed_addr #1 {
+define void @_ZN8WasmEdge21convertHexStrToValVecESt17basic_string_viewIcSt11char_traitsIcEERSt6vectorIhSaIhEEj(i64 %0, ptr %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2, i32 noundef %3) local_unnamed_addr #1 {
   tail call void @_ZN8WasmEdge20convertHexStrToBytesESt17basic_string_viewIcSt11char_traitsIcEERSt6vectorIhSaIhEEjb(i64 %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, i1 noundef zeroext false)
   ret void
 }
@@ -775,7 +775,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
@@ -787,10 +787,10 @@ declare i64 @llvm.umax.i64(i64, i64) #8
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

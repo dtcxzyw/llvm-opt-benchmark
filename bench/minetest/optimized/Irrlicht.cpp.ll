@@ -24,7 +24,7 @@ $_ZN3irr5video9SMaterialD2Ev = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_Irrlicht.cpp, ptr null }]
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @createDevice(i32 noundef %driverType, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %windowSize, i32 noundef %bits, i1 noundef zeroext %fullscreen, i1 noundef zeroext %stencilbuffer, i1 noundef zeroext %vsync, ptr noundef %res) local_unnamed_addr #0 {
+define noundef ptr @createDevice(i32 noundef %driverType, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %windowSize, i32 noundef %bits, i1 noundef zeroext %fullscreen, i1 noundef zeroext %stencilbuffer, i1 noundef zeroext %vsync, ptr noundef %res) local_unnamed_addr #0 {
 entry:
   %p = alloca %"struct.irr::SIrrlichtCreationParameters", align 16
   %frombool = zext i1 %fullscreen to i8
@@ -198,7 +198,7 @@ _ZN3irr27SIrrlichtCreationParametersD2Ev.exit:    ; preds = %if.then.i.i.i.i, %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @createDeviceEx(ptr noundef nonnull align 8 dereferenceable(112) %params) local_unnamed_addr #0 {
@@ -254,7 +254,7 @@ if.end17:                                         ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
@@ -262,7 +262,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare void @_ZN3irr13CIrrDeviceSDLC1ERKNS_27SIrrlichtCreationParametersE(ptr noundef nonnull align 8 dereferenceable(452), ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #1
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %this) unnamed_addr #4 comdat align 2 {
@@ -331,7 +331,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_Irrlicht.cpp() #9 section ".text.startup" {

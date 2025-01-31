@@ -29,7 +29,7 @@ define noundef i32 @mca_sharedfp_lockedfile_component_init_query(i1 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mca_sharedfp_lockedfile_component_file_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define noundef ptr @mca_sharedfp_lockedfile_component_file_query(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.flock, align 8
   %4 = alloca [256 x i8], align 16
   %5 = load i32, ptr @mca_sharedfp_lockedfile_priority, align 4
@@ -160,13 +160,13 @@ define noundef ptr @mca_sharedfp_lockedfile_component_file_query(ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #4
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #4
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_unnamed_addr #5
 
@@ -183,20 +183,20 @@ declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #5
 declare i32 @close(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_sharedfp_lockedfile_component_file_unquery(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @mca_sharedfp_lockedfile_component_file_unquery(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_sharedfp_lockedfile_module_init(ptr nocapture readnone %0) #0 {
+define noundef i32 @mca_sharedfp_lockedfile_module_init(ptr readnone captures(none) %0) #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_sharedfp_lockedfile_module_finalize(ptr nocapture readnone %0) #0 {
+define noundef i32 @mca_sharedfp_lockedfile_module_finalize(ptr readnone captures(none) %0) #0 {
   ret i32 0
 }
 

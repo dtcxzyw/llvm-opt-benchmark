@@ -167,7 +167,7 @@ for.cond.i:                                       ; preds = %invoke.cont11.i
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.066.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
   %call10.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #10
-  %call12.i = invoke i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx.i, ptr noundef %3, i64 noundef %call10.i)
+  %call12.i = invoke i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx.i, ptr noundef nonnull %3, i64 noundef %call10.i)
           to label %invoke.cont11.i unwind label %lpad.loopexit.split-lp.loopexit.i
 
 invoke.cont11.i:                                  ; preds = %for.body.i
@@ -237,7 +237,7 @@ invoke.cont28.i:                                  ; preds = %for.end.i.i
   %input.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %21 = load ptr, ptr %input.i.i, align 8
   %conv12.i.i = trunc i64 %2 to i32
-  %call15.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.7, ptr noundef %20, ptr noundef %21, i32 noundef %conv12.i.i, ptr noundef nonnull %digest_hex.i.i, ptr noundef %18) #8
+  %call15.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.7, ptr noundef %20, ptr noundef %21, i32 noundef %conv12.i.i, ptr noundef nonnull %digest_hex.i.i, ptr noundef nonnull %18) #8
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i.i)
   br label %cleanup.i
 
@@ -398,7 +398,7 @@ invoke.cont101.i:                                 ; preds = %for.end.i43.i
   %input.i50.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %49 = load ptr, ptr %input.i50.i, align 8
   %conv12.i52.i = trunc i64 %2 to i32
-  %call15.i53.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.7, ptr noundef %48, ptr noundef %49, i32 noundef %conv12.i52.i, ptr noundef nonnull %digest_hex.i28.i, ptr noundef %18) #8
+  %call15.i53.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.7, ptr noundef %48, ptr noundef %49, i32 noundef %conv12.i52.i, ptr noundef nonnull %digest_hex.i28.i, ptr noundef nonnull %18) #8
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i28.i)
   br label %cleanup.i
 
@@ -415,7 +415,7 @@ if.then109.i:                                     ; preds = %if.end104.i
   %input112.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %51 = load ptr, ptr %input112.i, align 8
   %call114.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #10
-  %call117.i = invoke noundef ptr %50(ptr noundef %51, i64 noundef %call114.i, ptr noundef nonnull %digest.i)
+  %call117.i = invoke noundef ptr %50(ptr noundef nonnull %51, i64 noundef %call114.i, ptr noundef nonnull %digest.i)
           to label %invoke.cont116.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont116.i:                                 ; preds = %if.then109.i
@@ -474,7 +474,7 @@ for.end.i29:                                      ; preds = %for.body.i16, %invo
 _ZL13CompareDigestPK10TestVectorPKhm.exit40:      ; preds = %for.end.i29
   %60 = load ptr, ptr @stderr, align 8
   %61 = load ptr, ptr %0, align 8
-  %call15.i39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.7, ptr noundef %61, ptr noundef %51, i32 noundef 1, ptr noundef nonnull %digest_hex.i14, ptr noundef %18) #8
+  %call15.i39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.7, ptr noundef %61, ptr noundef nonnull %51, i32 noundef 1, ptr noundef nonnull %digest_hex.i14, ptr noundef nonnull %18) #8
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i14)
   br label %cleanup.i
 
@@ -482,7 +482,7 @@ if.end134.i:                                      ; preds = %for.end.i29
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i14)
   %62 = load ptr, ptr %one_shot_func.i, align 8
   %call139.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #10
-  %call141.i = invoke noundef ptr %62(ptr noundef %51, i64 noundef %call139.i, ptr noundef null)
+  %call141.i = invoke noundef ptr %62(ptr noundef nonnull %51, i64 noundef %call139.i, ptr noundef null)
           to label %invoke.cont140.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont140.i:                                 ; preds = %if.end134.i
@@ -536,7 +536,7 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit.thread: ; preds = %for.end.i9
 _ZL13CompareDigestPK10TestVectorPKhm.exit:        ; preds = %for.end.i9
   %69 = load ptr, ptr @stderr, align 8
   %70 = load ptr, ptr %0, align 8
-  %call15.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.7, ptr noundef %70, ptr noundef %51, i32 noundef 1, ptr noundef nonnull %digest_hex.i, ptr noundef %18) #8
+  %call15.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.7, ptr noundef %70, ptr noundef nonnull %51, i32 noundef 1, ptr noundef nonnull %digest_hex.i, ptr noundef nonnull %18) #8
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i)
   br label %cleanup.i
 
@@ -596,7 +596,7 @@ return:                                           ; preds = %for.end, %lor.lhs.f
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -605,7 +605,7 @@ declare i32 @__gxx_personality_v0(...)
 declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -616,7 +616,7 @@ declare void @EVP_MD_CTX_init(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
@@ -661,16 +661,16 @@ declare ptr @EVP_md5_sha1() #1
 declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

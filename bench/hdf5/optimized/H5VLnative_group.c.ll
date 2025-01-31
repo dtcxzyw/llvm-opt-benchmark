@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [18 x i8] c"can't close group\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5VL__native_group_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr nocapture noundef readnone %7) local_unnamed_addr #0 {
+define ptr @H5VL__native_group_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef readnone captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.H5G_loc_t, align 8
   %10 = alloca %struct.H5G_obj_create_t, align 8
   %11 = load i32, ptr %1, align 8
@@ -135,7 +135,7 @@ declare i32 @H5G_loc_real(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @H5G__create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -146,7 +146,7 @@ declare ptr @H5G_oloc(ptr noundef) local_unnamed_addr #1
 declare i32 @H5O_dec_rc_by_loc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5VL__native_group_open(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef readnone %5) local_unnamed_addr #0 {
+define ptr @H5VL__native_group_open(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5G_loc_t, align 8
   %8 = load i32, ptr %1, align 8
   %9 = call i32 @H5G_loc_real(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %7) #3
@@ -178,7 +178,7 @@ define ptr @H5VL__native_group_open(ptr noundef %0, ptr nocapture noundef readon
 declare ptr @H5G__open_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL__native_group_get(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL__native_group_get(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5G_loc_t, align 8
   %6 = load i32, ptr %1, align 8
   switch i32 %6, label %69 [
@@ -297,7 +297,7 @@ declare i32 @H5G__get_info_by_name(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @H5G__get_info_by_idx(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL__native_group_specific(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL__native_group_specific(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5G_loc_t, align 8
   %6 = alloca %struct.H5G_loc_t, align 8
   %7 = load i32, ptr %1, align 8
@@ -421,7 +421,7 @@ declare i32 @H5O_flush_common(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @H5O_refresh_metadata(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5VL__native_group_optional(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define i32 @H5VL__native_group_optional(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5G_link_iterate_t, align 8
   %6 = alloca %struct.H5G_loc_t, align 8
   %7 = alloca %struct.H5G_loc_t, align 8
@@ -515,7 +515,7 @@ declare i32 @H5G_iterate(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64
 declare i32 @H5G__get_objinfo(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL__native_group_close(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL__native_group_close(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @H5G_close(ptr noundef %0) #3
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10

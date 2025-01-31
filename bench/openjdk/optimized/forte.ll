@@ -67,7 +67,7 @@ $_ZN5frameC2EPlS0_S0_Ph = comdat any
 @_ZN17vframeStreamForteC1EP10JavaThread5frameb = hidden unnamed_addr alias void (ptr, ptr, ptr, i1), ptr @_ZN17vframeStreamForteC2EP10JavaThread5frameb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17vframeStreamForteC2EP10JavaThread5frameb(ptr noundef nonnull align 8 dereferenceable(5104) initializes((0, 5048), (5080, 5089), (5096, 5104)) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%class.frame) align 8 %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN17vframeStreamForteC2EP10JavaThread5frameb(ptr noundef nonnull align 8 dereferenceable(5104) initializes((0, 5048), (5080, 5089), (5096, 5104)) %0, ptr noundef %1, ptr noundef readonly byval(%class.frame) align 8 captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %class.RegisterMap, align 8
   %6 = zext i1 %3 to i8
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %5, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
@@ -91,7 +91,7 @@ define hidden void @_ZN17vframeStreamForteC2EP10JavaThread5frameb(ptr noundef no
 declare void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983), ptr noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN18vframeStreamCommon15fill_from_frameEv(ptr noundef nonnull align 8 dereferenceable(5104) %0) local_unnamed_addr #0 comdat align 2 {
@@ -407,7 +407,7 @@ _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %34, %_ZNK11Register
 declare noundef zeroext i1 @_ZN5frame15safe_for_senderEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @AsyncGetCallTrace(ptr nocapture noundef initializes((8, 12)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @AsyncGetCallTrace(ptr noundef captures(none) initializes((8, 12)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %class.frame, align 8
   %5 = alloca %class.frame, align 8
   %6 = tail call noundef zeroext i1 @_ZN18ThreadLocalStorage14is_initializedEv() #8
@@ -573,7 +573,7 @@ _ZN6Thread20current_or_null_safeEv.exit.thread:   ; preds = %3, %16, %11, %_ZN6T
 declare noundef zeroext i1 @_ZN10JavaThread35pd_get_top_frame_for_signal_handlerEP5framePvb(ptr noundef nonnull align 8 dereferenceable(1800), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31forte_fill_call_trace_given_topP10JavaThreadP15ASGCT_CallTracei5frame(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.frame) align 8 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL31forte_fill_call_trace_given_topP10JavaThreadP15ASGCT_CallTracei5frame(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readonly byval(%class.frame) align 8 captures(none) %3) unnamed_addr #0 {
   %5 = alloca %class.RegisterMap, align 8
   %6 = alloca %class.frame, align 8
   %7 = alloca %class.RegisterMap, align 8
@@ -2048,13 +2048,13 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

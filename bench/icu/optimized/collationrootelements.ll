@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7521CollationRootElements23lastCEWithPrimaryBeforeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7521CollationRootElements23lastCEWithPrimaryBeforeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %p, 0
   br i1 %cmp, label %return, label %if.end
@@ -161,7 +161,7 @@ return:                                           ; preds = %entry, %if.end32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7521CollationRootElements5findPEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK6icu_7521CollationRootElements5findPEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -257,7 +257,7 @@ while.end:                                        ; preds = %for.cond20.preheade
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7521CollationRootElements25firstCEWithPrimaryAtLeastEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7521CollationRootElements25firstCEWithPrimaryAtLeastEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %p, 0
   br i1 %cmp, label %return, label %if.end
@@ -381,7 +381,7 @@ return:                                           ; preds = %entry, %if.end11
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7521CollationRootElements16getPrimaryBeforeEja(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p, i8 noundef signext %isCompressible) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7521CollationRootElements16getPrimaryBeforeEja(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i32 noundef %p, i8 noundef signext %isCompressible) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -523,7 +523,7 @@ return:                                           ; preds = %if.else20, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7521CollationRootElements11findPrimaryEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK6icu_7521CollationRootElements11findPrimaryEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -622,7 +622,7 @@ declare noundef i32 @_ZN6icu_759Collation26decTwoBytePrimaryByOneStepEjai(i32 no
 declare noundef i32 @_ZN6icu_759Collation28decThreeBytePrimaryByOneStepEjai(i32 noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 65536) i32 @_ZNK6icu_7521CollationRootElements18getSecondaryBeforeEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p, i32 noundef %s) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZNK6icu_7521CollationRootElements18getSecondaryBeforeEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i32 noundef %p, i32 noundef %s) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %p, 0
   %0 = load ptr, ptr %this, align 8
@@ -763,7 +763,7 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 83887361) i32 @_ZNK6icu_7521CollationRootElements24getFirstSecTerForPrimaryEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 83887361) i32 @_ZNK6icu_7521CollationRootElements24getFirstSecTerForPrimaryEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %idxprom = sext i32 %index to i64
@@ -778,7 +778,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 65536) i32 @_ZNK6icu_7521CollationRootElements17getTertiaryBeforeEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p, i32 noundef %s, i32 noundef %t) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZNK6icu_7521CollationRootElements17getTertiaryBeforeEjjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i32 noundef %p, i32 noundef %s, i32 noundef %t) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %p, 0
   br i1 %cmp, label %if.then, label %if.else8
@@ -932,7 +932,7 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7521CollationRootElements15getPrimaryAfterEjia(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p, i32 noundef %index, i8 noundef signext %isCompressible) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7521CollationRootElements15getPrimaryAfterEjia(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i32 noundef %p, i32 noundef %index, i8 noundef signext %isCompressible) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = sext i32 %index to i64
@@ -985,7 +985,7 @@ declare noundef i32 @_ZN6icu_759Collation25incTwoBytePrimaryByOffsetEjai(i32 nou
 declare noundef i32 @_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai(i32 noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 65537) i32 @_ZNK6icu_7521CollationRootElements17getSecondaryAfterEij(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %index, i32 noundef %s) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 65537) i32 @_ZNK6icu_7521CollationRootElements17getSecondaryAfterEij(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i32 noundef %index, i32 noundef %s) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %index, 0
   %0 = load ptr, ptr %this, align 8
@@ -1041,7 +1041,7 @@ return:                                           ; preds = %if.end7, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 65536) i32 @_ZNK6icu_7521CollationRootElements16getTertiaryAfterEijj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %index, i32 noundef %s, i32 noundef %t) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZNK6icu_7521CollationRootElements16getTertiaryAfterEijj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i32 noundef %index, i32 noundef %s, i32 noundef %t) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %index, 0
   br i1 %cmp, label %if.then, label %if.else8

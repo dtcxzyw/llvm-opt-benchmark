@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [17 x i8] c"-._~!$&'()*+,;=:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %28, label %6
@@ -452,7 +452,7 @@ declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 2) i32 @php_filter_parse_hex(ptr noundef readonly %0, i64 noundef range(i64 1, 0) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @php_filter_parse_hex(ptr noundef readonly %0, i64 noundef range(i64 1, 0) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = icmp sgt i64 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -507,7 +507,7 @@ define internal fastcc range(i32 -1, 2) i32 @php_filter_parse_hex(ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
@@ -637,10 +637,10 @@ define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca double, align 8
   %7 = load ptr, ptr %0, align 8
@@ -1217,12 +1217,12 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #4
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_filter_validate_regexp(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @php_filter_validate_regexp(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %19, label %6
@@ -1370,7 +1370,7 @@ declare ptr @php_pcre_mctx() local_unnamed_addr #1
 declare void @php_pcre_free_match_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_filter_validate_domain(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @php_filter_validate_domain(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2286,7 +2286,7 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %17, %43, %44, %37, 
 declare void @php_url_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_filter_validate_email(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @php_filter_validate_email(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2436,10 +2436,10 @@ define hidden void @php_filter_validate_email(ptr noundef %0, i64 noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [8 x i32], align 16
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -2987,7 +2987,7 @@ switch.early.test:                                ; preds = %103
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_filter_validate_mac(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @php_filter_validate_mac(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3253,10 +3253,10 @@ declare void @llvm.assume(i1 noundef) #10
 declare double @llvm.fabs.f64(double) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

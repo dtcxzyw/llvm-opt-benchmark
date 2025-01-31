@@ -146,7 +146,7 @@ mca_coll_han_algorithm_id_is_valid.exit.thread:   ; preds = %2, %8, %mca_coll_ha
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @mca_coll_han_algorithm_name_to_id(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define i32 @mca_coll_han_algorithm_name_to_id(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str) #9
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %5
@@ -190,7 +190,7 @@ define i32 @mca_coll_han_algorithm_name_to_id(i32 noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @mca_coll_han_init_algorithms() local_unnamed_addr #1 {
@@ -319,7 +319,7 @@ mca_coll_han_free_algorithms.exit:                ; preds = %mca_han_algorithm_e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @mca_coll_han_free_algorithms() local_unnamed_addr #1 {
@@ -346,7 +346,7 @@ define noundef i32 @mca_coll_han_free_algorithms() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6

@@ -751,7 +751,7 @@ _ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20Shena
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ShenandoahControlThread29service_stw_degenerated_cycleEN7GCCause5CauseEN12ShenandoahGC20ShenandoahDegenPointE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1868) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN23ShenandoahControlThread29service_stw_degenerated_cycleEN7GCCause5CauseEN12ShenandoahGC20ShenandoahDegenPointE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1868) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.GCIdMark, align 4
   %5 = alloca %class.ShenandoahGCSession, align 8
   %6 = alloca %class.ShenandoahDegenGC, align 8
@@ -765,7 +765,7 @@ define hidden void @_ZN23ShenandoahControlThread29service_stw_degenerated_cycleE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ShenandoahControlThread22service_stw_full_cycleEN7GCCause5CauseE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1868) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN23ShenandoahControlThread22service_stw_full_cycleEN7GCCause5CauseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1868) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.GCIdMark, align 4
   %4 = alloca %class.ShenandoahGCSession, align 8
   %5 = alloca %class.ShenandoahFullGC, align 8
@@ -875,7 +875,7 @@ declare void @_ZN19ShenandoahGCSessionD1Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN23ShenandoahControlThread12stop_serviceEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN23ShenandoahControlThread12stop_serviceEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -1293,10 +1293,10 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

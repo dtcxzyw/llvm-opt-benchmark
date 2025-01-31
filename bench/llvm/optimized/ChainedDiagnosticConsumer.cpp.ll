@@ -24,7 +24,7 @@ $_ZN5clang25ChainedDiagnosticConsumer16HandleDiagnosticENS_17DiagnosticsEngine5L
 @_ZTVN5clang25ChainedDiagnosticConsumerE = unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr null, ptr @_ZN5clang25ChainedDiagnosticConsumerD2Ev, ptr @_ZN5clang25ChainedDiagnosticConsumerD0Ev, ptr @_ZN5clang18DiagnosticConsumer5clearEv, ptr @_ZN5clang25ChainedDiagnosticConsumer15BeginSourceFileERKNS_11LangOptionsEPKNS_12PreprocessorE, ptr @_ZN5clang25ChainedDiagnosticConsumer13EndSourceFileEv, ptr @_ZN5clang25ChainedDiagnosticConsumer6finishEv, ptr @_ZNK5clang25ChainedDiagnosticConsumer25IncludeInDiagnosticCountsEv, ptr @_ZN5clang25ChainedDiagnosticConsumer16HandleDiagnosticENS_17DiagnosticsEngine5LevelERKNS_10DiagnosticE, ptr @_ZN5clang25ChainedDiagnosticConsumer6anchorEv] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5clang25ChainedDiagnosticConsumer6anchorEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang25ChainedDiagnosticConsumer6anchorEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 

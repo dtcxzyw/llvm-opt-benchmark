@@ -40,7 +40,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18OpenImageIO_v2_6_014TextureOptionsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((0, 37), (40, 52), (56, 68), (72, 84), (88, 100), (104, 116), (120, 132), (136, 148), (152, 164), (168, 180), (184, 188), (192, 204), (208, 220)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_014TextureOptionsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((0, 37), (40, 52), (56, 68), (72, 84), (88, 100), (104, 116), (120, 132), (136, 148), (152, 164), (168, 180), (184, 188), (192, 204), (208, 220)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont11:
   %interpmode = getelementptr inbounds nuw i8, ptr %this, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %this, i8 0, i64 28, i1 false)
@@ -99,7 +99,7 @@ invoke.cont11:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18OpenImageIO_v2_6_014TextureOptionsC2ERKNS_10TextureOptE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((0, 37), (40, 52), (56, 68), (72, 84), (88, 100), (104, 116), (120, 132), (136, 148), (152, 164), (168, 180), (184, 188), (192, 204), (208, 220)) %this, ptr noundef nonnull align 8 dereferenceable(104) %opt) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_014TextureOptionsC2ERKNS_10TextureOptE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((0, 37), (40, 52), (56, 68), (72, 84), (88, 100), (104, 116), (120, 132), (136, 148), (152, 164), (168, 180), (184, 188), (192, 204), (208, 220)) %this, ptr noundef nonnull align 8 dereferenceable(104) %opt) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %opt, align 8
   store i32 %0, ptr %this, align 8
@@ -200,7 +200,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_010TextureOptC2ERKNS_14TextureOptionsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 37), (40, 60), (64, 96), (100, 104)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %opt, i32 noundef %index) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_010TextureOptC2ERKNS_14TextureOptionsEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((0, 37), (40, 60), (64, 96), (100, 104)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %opt, i32 noundef %index) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %opt, align 8
   store i32 %0, ptr %this, align 8
@@ -358,7 +358,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 7) i32 @_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc(ptr nocapture noundef readonly %name) local_unnamed_addr #6 {
+define noundef range(i32 0, 7) i32 @_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc(ptr noundef readonly captures(none) %name) local_unnamed_addr #6 {
 entry:
   br label %for.body
 
@@ -385,10 +385,10 @@ return:                                           ; preds = %for.inc, %return.sp
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 7) i32 @_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeENS_7ustringE(ptr nocapture noundef readonly %name) local_unnamed_addr #8 {
+define noundef range(i32 0, 7) i32 @_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeENS_7ustringE(ptr noundef readonly captures(none) %name) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %name, align 8
   br label %for.body
@@ -415,7 +415,7 @@ return:                                           ; preds = %for.inc, %return.sp
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_03Tex15parse_wrapmodesEPKcRNS0_4WrapES4_(ptr nocapture noundef readonly %wrapmodes, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %swrapcode, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %twrapcode) local_unnamed_addr #9 {
+define void @_ZN18OpenImageIO_v2_6_03Tex15parse_wrapmodesEPKcRNS0_4WrapES4_(ptr noundef readonly captures(none) %wrapmodes, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %swrapcode, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %twrapcode) local_unnamed_addr #9 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %wrapmodes) #13
   %add = add i64 %call, 1
@@ -500,7 +500,7 @@ _ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit27: ; preds = %for.inc.i22,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef) local_unnamed_addr #0
 
@@ -570,13 +570,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

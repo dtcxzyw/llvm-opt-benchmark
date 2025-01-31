@@ -4536,7 +4536,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(3152) ptr @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage9_Internal11corecursiveEPKS1_(ptr nocapture noundef readonly %msg) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(3152) ptr @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage9_Internal11corecursiveEPKS1_(ptr noundef readonly captures(none) %msg) local_unnamed_addr #6 align 2 {
 entry:
   %corecursive_ = getelementptr inbounds nuw i8, ptr %msg, i64 24
   %0 = load ptr, ptr %corecursive_, align 8
@@ -4544,7 +4544,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -4570,7 +4570,7 @@ invoke.cont2:                                     ; preds = %if.then.i.i, %entry
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -4637,7 +4637,7 @@ if.end:                                           ; preds = %invoke.cont4, %if.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
@@ -4738,13 +4738,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage9ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage9ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
@@ -4767,7 +4767,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((32, 36)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((32, 36)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_, align 8
@@ -6415,7 +6415,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
 declare noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_, align 8
@@ -6687,7 +6687,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_7 = getelementptr inbounds nuw i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_7, align 8
@@ -8653,7 +8653,7 @@ return:                                           ; preds = %entry, %_ZN22protob
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -8899,7 +8899,7 @@ return:                                           ; preds = %if.then.i35, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage12InternalSwapEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef captures(none) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -9050,7 +9050,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -9063,7 +9063,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i, i8 0, i64 20, i1 false)
@@ -9074,7 +9074,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -9091,7 +9091,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -9143,7 +9143,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto246Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -9166,7 +9166,7 @@ entry:
 declare void @_ZN6google8protobuf7Message9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i, i8 0, i64 28, i1 false)
@@ -9177,7 +9177,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -9190,7 +9190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -9242,7 +9242,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto246Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -9263,7 +9263,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i, i8 0, i64 20, i1 false)
@@ -9274,7 +9274,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -9291,7 +9291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -9343,7 +9343,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto248Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -9364,7 +9364,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i, i8 0, i64 28, i1 false)
@@ -9375,7 +9375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -9388,7 +9388,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -9440,7 +9440,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto248Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -9461,7 +9461,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i, i8 0, i64 20, i1 false)
@@ -9472,7 +9472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -9489,7 +9489,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -9541,7 +9541,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto248Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -9562,7 +9562,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i, i8 0, i64 28, i1 false)
@@ -9573,7 +9573,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -9586,7 +9586,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -9638,7 +9638,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto248Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -9659,7 +9659,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i, i8 0, i64 20, i1 false)
@@ -9670,7 +9670,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -9687,7 +9687,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -9739,7 +9739,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto250Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -9760,7 +9760,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i, i8 0, i64 28, i1 false)
@@ -9771,7 +9771,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -9784,7 +9784,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -9836,7 +9836,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto250Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -9857,7 +9857,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i, i8 0, i64 20, i1 false)
@@ -9868,7 +9868,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -9885,7 +9885,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -9937,7 +9937,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto252Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -9958,7 +9958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i, i8 0, i64 28, i1 false)
@@ -9969,7 +9969,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -9982,7 +9982,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -10034,7 +10034,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto252Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -10055,7 +10055,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i, i8 0, i64 20, i1 false)
@@ -10066,7 +10066,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -10083,7 +10083,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -10135,7 +10135,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto246Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -10156,7 +10156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 20), (24, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 20), (24, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -10173,7 +10173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 20), (24, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 20), (24, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -10190,7 +10190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -10242,7 +10242,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto247Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -10263,7 +10263,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 18), (20, 32)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 18), (20, 32)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -10280,7 +10280,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 18), (20, 32)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 18), (20, 32)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -10297,7 +10297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUse9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUse9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %other, i64 20
   %0 = load i32, ptr %_has_bits_.i, align 4
@@ -10351,7 +10351,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto244Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -10372,7 +10372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -10389,7 +10389,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -10523,7 +10523,7 @@ if.end18:                                         ; preds = %if.end, %_ZNK6googl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -10544,7 +10544,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -10561,7 +10561,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -10695,7 +10695,7 @@ if.end18:                                         ; preds = %if.end, %_ZNK6googl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -10716,7 +10716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -10733,7 +10733,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -10863,7 +10863,7 @@ if.end18:                                         ; preds = %if.end, %_ZN6google
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -10884,7 +10884,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -10901,7 +10901,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -11062,7 +11062,7 @@ if.end18:                                         ; preds = %if.end, %_ZN6google
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -11083,7 +11083,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -11100,7 +11100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -11198,7 +11198,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto252Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -11219,7 +11219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -11236,7 +11236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i, align 8
@@ -11334,7 +11334,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto253Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -11361,7 +11361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_DataC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_DataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -11372,7 +11372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_DataC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_DataC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -11414,7 +11414,7 @@ invoke.cont:                                      ; preds = %if.then.i15.i.i, %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_DataD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_DataD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
@@ -11529,13 +11529,13 @@ _ZN22protobuf_test_messages6proto223TestAllTypesProto2_DataD2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data9ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data9ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto223TestAllTypesProto2_Data13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto223TestAllTypesProto2_Data13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
@@ -11558,7 +11558,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_, align 8
@@ -11599,10 +11599,10 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %group_depth_.i = getelementptr inbounds nuw i8, ptr %ctx, i64 92
@@ -11841,7 +11841,7 @@ success:                                          ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto223TestAllTypesProto2_Data18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto223TestAllTypesProto2_Data18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_, align 8
@@ -12095,7 +12095,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_7 = getelementptr inbounds nuw i8, ptr %from, i64 8
@@ -12309,13 +12309,13 @@ return:                                           ; preds = %entry, %_ZN22protob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto223TestAllTypesProto2_Data13IsInitializedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto223TestAllTypesProto2_Data13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data12InternalSwapEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef captures(none) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -12460,7 +12460,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto223TestAllTypesProto2_Data11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto223TestAllTypesProto2_Data11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -12707,13 +12707,13 @@ _ZN22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrectD2Ev.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrect9ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrect9ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrect13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrect13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
@@ -13281,7 +13281,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
 declare void @_ZN6google8protobuf8internal12ExtensionSet4SwapEPS2_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrect11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrect11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -13301,7 +13301,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension1C2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension1C2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -13325,7 +13325,7 @@ invoke.cont2:                                     ; preds = %if.then.i.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension1C2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension1C2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -13441,7 +13441,7 @@ if.end:                                           ; preds = %if.else, %_ZN6googl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension1D2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension1D2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %str_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %str_.i, align 8
@@ -13536,13 +13536,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension19ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension19ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension113SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension113SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
@@ -13565,7 +13565,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension15ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension15ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_, align 8
@@ -13779,7 +13779,7 @@ success:                                          ; preds = %if.end.i.i, %_ZN6go
 declare noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension118_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension118_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_, align 8
@@ -13913,7 +13913,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension19MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension19MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_7 = getelementptr inbounds nuw i8, ptr %from, i64 8
@@ -14129,13 +14129,13 @@ return:                                           ; preds = %entry, %_ZN22protob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension113IsInitializedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension113IsInitializedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension112InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension112InternalSwapEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef captures(none) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -14280,7 +14280,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension111GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension111GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -14300,7 +14300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension2C2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension2C2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -14315,7 +14315,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension2C2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension2C2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -14357,7 +14357,7 @@ invoke.cont:                                      ; preds = %if.then.i15.i.i, %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension2D2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension2D2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
@@ -14472,13 +14472,13 @@ _ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtensio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension29ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension29ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension213SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension213SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
@@ -14501,7 +14501,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension25ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 20), (24, 28)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension25ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((16, 20), (24, 28)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %i_, align 8
@@ -14533,7 +14533,7 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %group_depth_.i = getelementptr inbounds nuw i8, ptr %ctx, i64 92
@@ -14721,7 +14721,7 @@ success:                                          ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension218_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension218_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_, align 8
@@ -14881,7 +14881,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension29MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension29MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_7 = getelementptr inbounds nuw i8, ptr %from, i64 8
@@ -15057,13 +15057,13 @@ return:                                           ; preds = %entry, %_ZN22protob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension213IsInitializedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension213IsInitializedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension212InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension212InternalSwapEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef captures(none) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -15208,7 +15208,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension211GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension211GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -15241,7 +15241,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto29_Internal23optional_nested_messageEPKS1_(ptr nocapture noundef readonly %msg) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto29_Internal23optional_nested_messageEPKS1_(ptr noundef readonly captures(none) %msg) local_unnamed_addr #6 align 2 {
 entry:
   %optional_nested_message_ = getelementptr inbounds nuw i8, ptr %msg, i64 2872
   %0 = load ptr, ptr %optional_nested_message_, align 8
@@ -15249,7 +15249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto29_Internal24optional_foreign_messageEPKS1_(ptr nocapture noundef readonly %msg) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto29_Internal24optional_foreign_messageEPKS1_(ptr noundef readonly captures(none) %msg) local_unnamed_addr #6 align 2 {
 entry:
   %optional_foreign_message_ = getelementptr inbounds nuw i8, ptr %msg, i64 2880
   %0 = load ptr, ptr %optional_foreign_message_, align 8
@@ -15257,7 +15257,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(3152) ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto29_Internal17recursive_messageEPKS1_(ptr nocapture noundef readonly %msg) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(3152) ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto29_Internal17recursive_messageEPKS1_(ptr noundef readonly captures(none) %msg) local_unnamed_addr #6 align 2 {
 entry:
   %recursive_message_ = getelementptr inbounds nuw i8, ptr %msg, i64 2888
   %0 = load ptr, ptr %recursive_message_, align 8
@@ -15265,7 +15265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto29_Internal20oneof_nested_messageEPKS1_(ptr nocapture noundef readonly %msg) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto29_Internal20oneof_nested_messageEPKS1_(ptr noundef readonly captures(none) %msg) local_unnamed_addr #6 align 2 {
 entry:
   %oneof_field_ = getelementptr inbounds nuw i8, ptr %msg, i64 3136
   %0 = load ptr, ptr %oneof_field_, align 8
@@ -15273,7 +15273,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto29_Internal4dataEPKS1_(ptr nocapture noundef readonly %msg) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto29_Internal4dataEPKS1_(ptr noundef readonly captures(none) %msg) local_unnamed_addr #6 align 2 {
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %msg, i64 2896
   %0 = load ptr, ptr %data_, align 8
@@ -15281,7 +15281,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto218TestAllTypesProto234set_allocated_oneof_nested_messageEPNS0_32TestAllTypesProto2_NestedMessageE(ptr nocapture noundef nonnull align 8 dereferenceable(3152) %this, ptr noundef %oneof_nested_message) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto218TestAllTypesProto234set_allocated_oneof_nested_messageEPNS0_32TestAllTypesProto2_NestedMessageE(ptr noundef nonnull align 8 captures(none) dereferenceable(3152) %this, ptr noundef %oneof_nested_message) local_unnamed_addr #3 align 2 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
@@ -15338,7 +15338,7 @@ if.end5:                                          ; preds = %if.end, %_ZNK6googl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto218TestAllTypesProto217clear_oneof_fieldEv(ptr nocapture noundef nonnull align 8 dereferenceable(3152) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto218TestAllTypesProto217clear_oneof_fieldEv(ptr noundef nonnull align 8 captures(none) dereferenceable(3152) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_oneof_case_.i = getelementptr inbounds nuw i8, ptr %this, i64 3144
   %0 = load i32, ptr %_oneof_case_.i, align 8
@@ -20736,13 +20736,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto218TestAllTypesProto29ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto218TestAllTypesProto29ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3152) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(3152) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
@@ -21771,7 +21771,7 @@ if.end:                                           ; preds = %do.end.i.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 20), (24, 28)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((16, 20), (24, 28)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %c_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %c_, align 8
@@ -50012,7 +50012,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS2_(ptr noundef 
 declare void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto29MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto29MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_7 = getelementptr inbounds nuw i8, ptr %from, i64 8
@@ -51392,7 +51392,7 @@ _ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto253Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto218TestAllTypesProto211GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto218TestAllTypesProto211GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -51412,7 +51412,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto2C2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto2C2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -51427,7 +51427,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto2C2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto2C2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -51469,7 +51469,7 @@ invoke.cont:                                      ; preds = %if.then.i15.i.i, %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto2D2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto2D2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
@@ -51584,13 +51584,13 @@ _ZN22protobuf_test_messages6proto220ForeignMessageProto2D2Ev.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto29ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto29ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto220ForeignMessageProto213SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto220ForeignMessageProto213SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
@@ -51613,7 +51613,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN22protobuf_test_messages6proto220ForeignMessageProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN22protobuf_test_messages6proto220ForeignMessageProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %group_depth_.i = getelementptr inbounds nuw i8, ptr %ctx, i64 92
@@ -51801,7 +51801,7 @@ success:                                          ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto220ForeignMessageProto218_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto220ForeignMessageProto218_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_, align 8
@@ -52050,13 +52050,13 @@ return:                                           ; preds = %entry, %_ZN22protob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto220ForeignMessageProto213IsInitializedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto220ForeignMessageProto213IsInitializedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto212InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto220ForeignMessageProto212InternalSwapEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef captures(none) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -52201,7 +52201,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto220ForeignMessageProto211GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto220ForeignMessageProto211GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -52221,7 +52221,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroupC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroupC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -52236,7 +52236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroupC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroupC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -52278,7 +52278,7 @@ invoke.cont:                                      ; preds = %if.then.i15.i.i, %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroupD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroupD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
@@ -52393,13 +52393,13 @@ _ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroupD2Ev.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup9ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup9ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
@@ -52422,7 +52422,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 20), (24, 28)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((16, 20), (24, 28)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %a_, align 8
@@ -52454,7 +52454,7 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %group_depth_.i = getelementptr inbounds nuw i8, ptr %ctx, i64 92
@@ -52642,7 +52642,7 @@ success:                                          ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_, align 8
@@ -52802,7 +52802,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_7 = getelementptr inbounds nuw i8, ptr %from, i64 8
@@ -52978,13 +52978,13 @@ return:                                           ; preds = %entry, %_ZN22protob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup13IsInitializedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup12InternalSwapEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef captures(none) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -53129,7 +53129,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -53151,7 +53151,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN22protobuf_test_messages6proto221UnknownToTestAllTypes9_Internal14nested_messageEPKS1_(ptr nocapture noundef readonly %msg) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN22protobuf_test_messages6proto221UnknownToTestAllTypes9_Internal14nested_messageEPKS1_(ptr noundef readonly captures(none) %msg) local_unnamed_addr #6 align 2 {
 entry:
   %nested_message_ = getelementptr inbounds nuw i8, ptr %msg, i64 48
   %0 = load ptr, ptr %nested_message_, align 8
@@ -53159,7 +53159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN22protobuf_test_messages6proto221UnknownToTestAllTypes9_Internal13optionalgroupEPKS1_(ptr nocapture noundef readonly %msg) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN22protobuf_test_messages6proto221UnknownToTestAllTypes9_Internal13optionalgroupEPKS1_(ptr noundef readonly captures(none) %msg) local_unnamed_addr #6 align 2 {
 entry:
   %optionalgroup_ = getelementptr inbounds nuw i8, ptr %msg, i64 56
   %0 = load ptr, ptr %optionalgroup_, align 8
@@ -53698,13 +53698,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto221UnknownToTestAllTypes9ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto221UnknownToTestAllTypes9ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto221UnknownToTestAllTypes13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto221UnknownToTestAllTypes13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
@@ -55516,7 +55516,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto221UnknownToTestAllTypes13IsInitializedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto221UnknownToTestAllTypes13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
@@ -55687,7 +55687,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto221UnknownToTestAllTypes11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto221UnknownToTestAllTypes11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -55707,7 +55707,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto2C2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto2C2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 20)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -55718,7 +55718,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto2C2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto2C2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 20)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -55752,7 +55752,7 @@ invoke.cont:                                      ; preds = %if.then.i15.i.i, %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto2D2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto2D2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
@@ -55867,13 +55867,13 @@ _ZN22protobuf_test_messages6proto220NullHypothesisProto2D2Ev.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto29ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto29ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto220NullHypothesisProto213SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto220NullHypothesisProto213SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
@@ -55896,7 +55896,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto25ClearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto25ClearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
@@ -55924,7 +55924,7 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN22protobuf_test_messages6proto220NullHypothesisProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN22protobuf_test_messages6proto220NullHypothesisProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %group_depth_.i = getelementptr inbounds nuw i8, ptr %ctx, i64 92
@@ -56058,7 +56058,7 @@ success:                                          ; preds = %if.end.i.i, %_ZN6go
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto220NullHypothesisProto218_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto220NullHypothesisProto218_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
@@ -56182,7 +56182,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto29MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto29MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_7 = getelementptr inbounds nuw i8, ptr %from, i64 8
@@ -56381,13 +56381,13 @@ return:                                           ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto220NullHypothesisProto213IsInitializedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto220NullHypothesisProto213IsInitializedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto212InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto220NullHypothesisProto212InternalSwapEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef captures(none) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -56520,7 +56520,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto220NullHypothesisProto211GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto220NullHypothesisProto211GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -56540,7 +56540,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto2C2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto2C2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 20)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -56551,7 +56551,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto2C2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto2C2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 20)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -56585,7 +56585,7 @@ invoke.cont:                                      ; preds = %if.then.i15.i.i, %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto2D2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto2D2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
@@ -56700,13 +56700,13 @@ _ZN22protobuf_test_messages6proto214EnumOnlyProto2D2Ev.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto29ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto29ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto214EnumOnlyProto213SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto214EnumOnlyProto213SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
@@ -56729,7 +56729,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto25ClearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto25ClearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
@@ -56757,7 +56757,7 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN22protobuf_test_messages6proto214EnumOnlyProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN22protobuf_test_messages6proto214EnumOnlyProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %group_depth_.i = getelementptr inbounds nuw i8, ptr %ctx, i64 92
@@ -56891,7 +56891,7 @@ success:                                          ; preds = %if.end.i.i, %_ZN6go
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto214EnumOnlyProto218_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto214EnumOnlyProto218_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
@@ -57015,7 +57015,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto29MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto29MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_7 = getelementptr inbounds nuw i8, ptr %from, i64 8
@@ -57214,13 +57214,13 @@ return:                                           ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto214EnumOnlyProto213IsInitializedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto214EnumOnlyProto213IsInitializedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto212InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto214EnumOnlyProto212InternalSwapEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef captures(none) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -57353,7 +57353,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto214EnumOnlyProto211GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto214EnumOnlyProto211GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -57373,7 +57373,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto2C2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto2C2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -57397,7 +57397,7 @@ invoke.cont2:                                     ; preds = %if.then.i.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto2C2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto2C2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -57463,7 +57463,7 @@ if.end:                                           ; preds = %invoke.cont14, %inv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto2D2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto2D2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %data_.i, align 8
@@ -57558,13 +57558,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto29ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto29ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto215OneStringProto213SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto215OneStringProto213SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
@@ -57587,7 +57587,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto25ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto25ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_, align 8
@@ -57799,7 +57799,7 @@ success:                                          ; preds = %if.end.i.i, %_ZN6go
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto215OneStringProto218_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto215OneStringProto218_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_, align 8
@@ -57931,7 +57931,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto29MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto29MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_7 = getelementptr inbounds nuw i8, ptr %from, i64 8
@@ -58147,13 +58147,13 @@ return:                                           ; preds = %entry, %_ZN22protob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto215OneStringProto213IsInitializedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto215OneStringProto213IsInitializedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto212InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto215OneStringProto212InternalSwapEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef captures(none) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -58298,7 +58298,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto215OneStringProto211GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto215OneStringProto211GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -58318,7 +58318,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywordsC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywordsC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %this, ptr noundef %arena) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -58333,7 +58333,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywordsC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywordsC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -58375,7 +58375,7 @@ invoke.cont:                                      ; preds = %if.then.i15.i.i, %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywordsD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywordsD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
@@ -58490,13 +58490,13 @@ _ZN22protobuf_test_messages6proto217ProtoWithKeywordsD2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywords9ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywords9ArenaDtorEPv(ptr noundef readnone captures(none) %object) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK22protobuf_test_messages6proto217ProtoWithKeywords13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
+define dso_local void @_ZNK22protobuf_test_messages6proto217ProtoWithKeywords13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %size) unnamed_addr #13 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
@@ -58519,7 +58519,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywords5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 20), (24, 28)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywords5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((16, 20), (24, 28)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %inline__ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %inline__, align 8
@@ -58551,7 +58551,7 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN22protobuf_test_messages6proto217ProtoWithKeywords14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN22protobuf_test_messages6proto217ProtoWithKeywords14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %group_depth_.i = getelementptr inbounds nuw i8, ptr %ctx, i64 92
@@ -58739,7 +58739,7 @@ success:                                          ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto217ProtoWithKeywords18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK22protobuf_test_messages6proto217ProtoWithKeywords18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_has_bits_, align 8
@@ -58899,7 +58899,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywords9MergeFromERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywords9MergeFromERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_7 = getelementptr inbounds nuw i8, ptr %from, i64 8
@@ -59075,13 +59075,13 @@ return:                                           ; preds = %entry, %_ZN22protob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto217ProtoWithKeywords13IsInitializedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK22protobuf_test_messages6proto217ProtoWithKeywords13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywords12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22protobuf_test_messages6proto217ProtoWithKeywords12InternalSwapEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef captures(none) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -59226,7 +59226,7 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto217ProtoWithKeywords11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local { ptr, ptr } @_ZNK22protobuf_test_messages6proto217ProtoWithKeywords11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i64 88), align 8
@@ -73977,7 +73977,7 @@ return:                                           ; preds = %if.end36, %if.end31
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #19
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE4findERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -74764,7 +74764,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap5AllocINSC_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignEnumProto2>::InnerMap::iterator_base.300") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef %retval.0.i.i)
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignEnumProto2>::InnerMap::iterator_base.300") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef nonnull %retval.0.i.i)
   %10 = load i64, ptr %this, align 8
   %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
@@ -78277,7 +78277,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedEnum>::InnerMap::iterator_base.328") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef %retval.0.i.i)
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedEnum>::InnerMap::iterator_base.328") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef nonnull %retval.0.i.i)
   %10 = load i64, ptr %this, align 8
   %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
@@ -81618,7 +81618,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap5AllocINSC_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignMessageProto2>::InnerMap::iterator_base.339") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef %retval.0.i.i)
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignMessageProto2>::InnerMap::iterator_base.339") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef nonnull %retval.0.i.i)
   %10 = load i64, ptr %this, align 8
   %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
@@ -85056,7 +85056,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedMessage>::InnerMap::iterator_base.350") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef %retval.0.i.i)
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedMessage>::InnerMap::iterator_base.350") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef nonnull %retval.0.i.i)
   %10 = load i64, ptr %this, align 8
   %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
@@ -88310,7 +88310,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap5AllocINS9_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap12InsertUniqueEmPNS9_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::InnerMap::iterator_base.361") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef %retval.0.i.i)
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap12InsertUniqueEmPNS9_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::InnerMap::iterator_base.361") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef nonnull %retval.0.i.i)
   %10 = load i64, ptr %this, align 8
   %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
@@ -92665,7 +92665,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf3MapIbbE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapIbbE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<bool, bool>::InnerMap::iterator_base.376") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
+  call void @_ZN6google8protobuf3MapIbbE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<bool, bool>::InnerMap::iterator_base.376") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef nonnull %retval.0.i.i)
   %30 = load i64, ptr %this, align 8
   %inc = add i64 %30, 1
   store i64 %inc, ptr %this, align 8
@@ -96304,7 +96304,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf3MapIidE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapIidE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<int, double>::InnerMap::iterator_base.409") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
+  call void @_ZN6google8protobuf3MapIidE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<int, double>::InnerMap::iterator_base.409") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef nonnull %retval.0.i.i)
   %24 = load i64, ptr %this, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
@@ -99668,7 +99668,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf3MapIifE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapIifE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<int, float>::InnerMap::iterator_base.441") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
+  call void @_ZN6google8protobuf3MapIifE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<int, float>::InnerMap::iterator_base.441") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef nonnull %retval.0.i.i)
   %24 = load i64, ptr %this, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
@@ -103156,7 +103156,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf3MapIllE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapIllE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<long, long>::InnerMap::iterator_base.455") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
+  call void @_ZN6google8protobuf3MapIllE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<long, long>::InnerMap::iterator_base.455") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef nonnull %retval.0.i.i)
   %24 = load i64, ptr %this, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
@@ -106519,7 +106519,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf3MapIiiE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapIiiE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<int, int>::InnerMap::iterator_base.487") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
+  call void @_ZN6google8protobuf3MapIiiE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<int, int>::InnerMap::iterator_base.487") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef nonnull %retval.0.i.i)
   %24 = load i64, ptr %this, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
@@ -110007,7 +110007,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf3MapImmE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapImmE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<unsigned long, unsigned long>::InnerMap::iterator_base.501") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
+  call void @_ZN6google8protobuf3MapImmE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<unsigned long, unsigned long>::InnerMap::iterator_base.501") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef nonnull %retval.0.i.i)
   %24 = load i64, ptr %this, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
@@ -113604,7 +113604,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf3MapIjjE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapIjjE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<unsigned int, unsigned int>::InnerMap::iterator_base.536") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
+  call void @_ZN6google8protobuf3MapIjjE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<unsigned int, unsigned int>::InnerMap::iterator_base.536") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef nonnull %retval.0.i.i)
   %24 = load i64, ptr %this, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
@@ -122102,7 +122102,7 @@ return:                                           ; preds = %_ZSt13__adjust_heap
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt16__introsort_loopIPN6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEElN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_T0_T1_(ptr noundef %__first, ptr noundef %__last, i64 noundef %__depth_limit) local_unnamed_addr #3 comdat {
@@ -154447,7 +154447,7 @@ invoke.cont4:                                     ; preds = %if.end.i.i.i3.i, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -154533,7 +154533,7 @@ __cxx_global_var_init.44.exit:                    ; preds = %__cxx_global_var_in
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25
@@ -154548,10 +154548,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 declare i32 @llvm.smin.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #25

@@ -1438,7 +1438,7 @@ print_flags.exit217:                              ; preds = %if.then8.i210, %if.
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @print_flags(ptr nocapture noundef readonly %f, i64 noundef %flags, i32 noundef range(i32 0, 2) %last) unnamed_addr #0 {
+define internal fastcc void @print_flags(ptr noundef readonly captures(none) %f, i64 noundef %flags, i32 noundef range(i32 0, 2) %last) unnamed_addr #0 {
 entry:
   %f_string18 = getelementptr inbounds nuw i8, ptr %f, i64 16
   %0 = load ptr, ptr %f_string18, align 8
@@ -1568,7 +1568,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @qemu_log_trylock() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #3
@@ -1637,7 +1637,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @print_taken_signal(i32 noundef %target_signum, ptr nocapture noundef readonly %tinfo) local_unnamed_addr #0 {
+define dso_local void @print_taken_signal(i32 noundef %target_signum, ptr noundef readonly captures(none) %tinfo) local_unnamed_addr #0 {
 entry:
   %format.i.i = alloca [64 x i8], align 16
   %call = tail call ptr @qemu_log_trylock() #9
@@ -1676,7 +1676,7 @@ return:                                           ; preds = %entry, %print_signa
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @print_siginfo(ptr nocapture noundef readonly %tinfo) unnamed_addr #0 {
+define internal fastcc void @print_siginfo(ptr noundef readonly captures(none) %tinfo) unnamed_addr #0 {
 entry:
   %format.i.i = alloca [64 x i8], align 16
   %si_code = getelementptr inbounds nuw i8, ptr %tinfo, i64 8
@@ -1831,10 +1831,10 @@ sw.epilog:                                        ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_accept(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_accept(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -1883,7 +1883,7 @@ print_number.exit:                                ; preds = %if.then.i5, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_acct(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_acct(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -1914,7 +1914,7 @@ print_string.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_syscall_ret_adjtimex(ptr nocapture readnone %cpu_env, ptr nocapture readnone %name, i64 noundef %ret, i64 %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_syscall_ret_adjtimex(ptr readnone captures(none) %cpu_env, ptr readnone captures(none) %name, i64 noundef %ret, i64 %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.787) #9
   %cmp.i.i = icmp ult i64 %ret, -4096
@@ -1972,7 +1972,7 @@ if.end:                                           ; preds = %print_syscall_err.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_bind(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_bind(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i.i2 = alloca [64 x i8], align 16
   %format.i.i = alloca [64 x i8], align 16
@@ -2163,7 +2163,7 @@ print_sockaddr.exit:                              ; preds = %for.end.i, %sw.bb11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_brk(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_brk(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -2185,7 +2185,7 @@ print_pointer.exit:                               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_syscall_ret_addr(ptr nocapture readnone %cpu_env, ptr nocapture readnone %name, i64 noundef %ret, i64 %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_syscall_ret_addr(ptr readnone captures(none) %cpu_env, ptr readnone captures(none) %name, i64 noundef %ret, i64 %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.787) #9
   %cmp.i.i = icmp ult i64 %ret, -4096
@@ -2212,7 +2212,7 @@ if.end:                                           ; preds = %print_syscall_err.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_chdir(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_chdir(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -2243,7 +2243,7 @@ print_string.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_chroot(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_chroot(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -2274,7 +2274,7 @@ print_string.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_clock_adjtime(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_clock_adjtime(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -2328,7 +2328,7 @@ print_pointer.exit:                               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_clock_gettime(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_clock_gettime(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -2382,7 +2382,7 @@ print_pointer.exit:                               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_syscall_ret_clock_gettime(ptr nocapture readnone %cpu_env, ptr nocapture readnone %name, i64 noundef %ret, i64 %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_syscall_ret_clock_gettime(ptr readnone captures(none) %cpu_env, ptr readnone captures(none) %name, i64 noundef %ret, i64 %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.787) #9
   %cmp.i.i = icmp ult i64 %ret, -4096
@@ -2435,7 +2435,7 @@ if.end:                                           ; preds = %print_syscall_err.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_clock_nanosleep(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_clock_nanosleep(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -2530,7 +2530,7 @@ print_timespec.exit10:                            ; preds = %print_pointer.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_clock_settime(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_clock_settime(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -2596,7 +2596,7 @@ print_timespec.exit:                              ; preds = %print_pointer.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_clone(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5, i64 %arg6) #0 {
+define internal void @print_clone(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5, i64 %arg6) #0 {
 entry:
   %format.i5.i = alloca [64 x i8], align 16
   %format.i3.i = alloca [64 x i8], align 16
@@ -2682,7 +2682,7 @@ do_print_clone.exit:                              ; preds = %if.then8.i.i, %if.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_execve(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5, i64 %arg6) #0 {
+define internal void @print_execve(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5, i64 %arg6) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -2714,7 +2714,7 @@ print_string.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_execveat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 noundef %arg5, i64 %arg6) #0 {
+define internal void @print_execveat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 noundef %arg5, i64 %arg6) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -2814,7 +2814,7 @@ print_flags.exit:                                 ; preds = %if.then8.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_faccessat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_faccessat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -2968,7 +2968,7 @@ print_flags.exit35:                               ; preds = %if.then8.i28, %if.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_fallocate(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_fallocate(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i4 = alloca [64 x i8], align 16
   %format.i2 = alloca [64 x i8], align 16
@@ -3048,7 +3048,7 @@ print_flags.exit:                                 ; preds = %if.then8.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_fchmodat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_fchmodat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -3195,7 +3195,7 @@ print_flags.exit:                                 ; preds = %if.then8.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_fchownat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 %arg5) #0 {
+define internal void @print_fchownat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 %arg5) #0 {
 entry:
   %format.i4 = alloca [64 x i8], align 16
   %format.i = alloca [64 x i8], align 16
@@ -3304,7 +3304,7 @@ print_flags.exit:                                 ; preds = %if.then8.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_fcntl(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_fcntl(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i67 = alloca [64 x i8], align 16
   %format.i65 = alloca [64 x i8], align 16
@@ -3583,7 +3583,7 @@ sw.epilog:                                        ; preds = %if.else.i70, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_fgetxattr(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_fgetxattr(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i4 = alloca [64 x i8], align 16
   %format.i = alloca [64 x i8], align 16
@@ -3636,7 +3636,7 @@ print_pointer.exit:                               ; preds = %if.then.i3, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_flistxattr(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_flistxattr(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i2 = alloca [64 x i8], align 16
   %format.i = alloca [64 x i8], align 16
@@ -3668,7 +3668,7 @@ print_pointer.exit:                               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_syscall_ret_listxattr(ptr nocapture readnone %cpu_env, ptr nocapture readnone %name, i64 noundef %ret, i64 %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_syscall_ret_listxattr(ptr readnone captures(none) %cpu_env, ptr readnone captures(none) %name, i64 noundef %ret, i64 %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.787) #9
   %cmp.i.i = icmp ult i64 %ret, -4096
@@ -3750,7 +3750,7 @@ if.end9:                                          ; preds = %print_syscall_err.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_fremovexattr(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_fremovexattr(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -3786,7 +3786,7 @@ print_string.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_fstat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_fstat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -3813,7 +3813,7 @@ print_pointer.exit:                               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_futex(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 %arg5) #0 {
+define internal void @print_futex(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 %arg5) #0 {
 entry:
   %format.i21 = alloca [64 x i8], align 16
   %format.i = alloca [64 x i8], align 16
@@ -3926,7 +3926,7 @@ print_pointer.exit20:                             ; preds = %if.then.i19, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_getitimer(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_getitimer(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -3980,7 +3980,7 @@ print_pointer.exit:                               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_syscall_ret_getitimer(ptr nocapture readnone %cpu_env, ptr nocapture readnone %name, i64 noundef %ret, i64 %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_syscall_ret_getitimer(ptr readnone captures(none) %cpu_env, ptr readnone captures(none) %name, i64 noundef %ret, i64 %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.787) #9
   %cmp.i.i = icmp ult i64 %ret, -4096
@@ -4010,7 +4010,7 @@ if.end:                                           ; preds = %print_syscall_err.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_gettimeofday(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_gettimeofday(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -4044,7 +4044,7 @@ print_pointer.exit5:                              ; preds = %if.then.i4, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_syscall_ret_gettimeofday(ptr nocapture readnone %cpu_env, ptr nocapture readnone %name, i64 noundef %ret, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_syscall_ret_gettimeofday(ptr readnone captures(none) %cpu_env, ptr readnone captures(none) %name, i64 noundef %ret, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.787) #9
   %cmp.i.i = icmp ult i64 %ret, -4096
@@ -4121,7 +4121,7 @@ if.end:                                           ; preds = %print_syscall_err.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_getxattr(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_getxattr(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -4190,7 +4190,7 @@ print_pointer.exit:                               ; preds = %if.then.i11, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_ioctl(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_ioctl(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i32 = alloca [64 x i8], align 16
   %format.i30 = alloca [64 x i8], align 16
@@ -4375,7 +4375,7 @@ if.end30:                                         ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_syscall_ret_ioctl(ptr nocapture readnone %cpu_env, ptr nocapture readnone %name, i64 noundef %ret, i64 %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_syscall_ret_ioctl(ptr readnone captures(none) %cpu_env, ptr readnone captures(none) %name, i64 noundef %ret, i64 %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.787) #9
   %cmp.i.i = icmp ult i64 %ret, -4096
@@ -4502,7 +4502,7 @@ if.end25:                                         ; preds = %print_syscall_err.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_kill(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_kill(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i.i = alloca [64 x i8], align 16
   %format.i = alloca [64 x i8], align 16
@@ -4536,7 +4536,7 @@ print_signal.exit:                                ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_linkat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 %arg5) #0 {
+define internal void @print_linkat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -4669,7 +4669,7 @@ print_flags.exit:                                 ; preds = %if.then8.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_listxattr(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_listxattr(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -4717,7 +4717,7 @@ print_pointer.exit:                               ; preds = %if.then.i3, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_removexattr(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_removexattr(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -4769,7 +4769,7 @@ print_string.exit9:                               ; preds = %if.then.i4, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_lseek(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_lseek(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i5 = alloca [64 x i8], align 16
   %format.i3 = alloca [64 x i8], align 16
@@ -4826,7 +4826,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_madvise(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_madvise(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -4885,7 +4885,7 @@ print_enums.exit:                                 ; preds = %for.end.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_mkdirat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_mkdirat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -4977,7 +4977,7 @@ print_file_mode.exit:                             ; preds = %print_string.exit, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_mknodat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_mknodat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i9 = alloca [64 x i8], align 16
   %format.i = alloca [64 x i8], align 16
@@ -5095,7 +5095,7 @@ if.end:                                           ; preds = %print_file_mode.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_mlockall(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_mlockall(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -5160,7 +5160,7 @@ print_flags.exit:                                 ; preds = %if.then8.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_mmap(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5) #0 {
+define internal void @print_mmap(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5) #0 {
 entry:
   %format.i42.i = alloca [64 x i8], align 16
   %format.i40.i = alloca [64 x i8], align 16
@@ -5307,7 +5307,7 @@ print_mmap_both.exit:                             ; preds = %if.then8.i32.i, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_mount(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 %arg5) #0 {
+define internal void @print_mount(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -5447,7 +5447,7 @@ print_pointer.exit:                               ; preds = %if.then.i22, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_mprotect(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_mprotect(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -5529,7 +5529,7 @@ print_flags.exit:                                 ; preds = %if.then8.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_mq_open(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_mq_open(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = trunc i64 %arg1 to i32
   %conv = and i32 %0, 64
@@ -5629,7 +5629,7 @@ if.end:                                           ; preds = %if.else.i5, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_mq_unlink(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_mq_unlink(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -5660,7 +5660,7 @@ print_string.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_munmap(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_munmap(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -5687,7 +5687,7 @@ print_pointer.exit:                               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_fstatat64(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_fstatat64(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -5798,7 +5798,7 @@ print_flags.exit:                                 ; preds = %if.then8.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_openat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_openat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = trunc i64 %arg2 to i32
   %conv = and i32 %0, 64
@@ -5902,7 +5902,7 @@ if.end:                                           ; preds = %print_file_mode.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_pread64(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_pread64(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i5 = alloca [64 x i8], align 16
   %format.i3 = alloca [64 x i8], align 16
@@ -5939,7 +5939,7 @@ print_pointer.exit:                               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_prlimit64(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_prlimit64(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i4 = alloca [64 x i8], align 16
   %format.i = alloca [64 x i8], align 16
@@ -5985,7 +5985,7 @@ print_pointer.exit:                               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_syscall_ret_prlimit64(ptr nocapture readnone %cpu_env, ptr nocapture readnone %name, i64 noundef %ret, i64 %arg0, i64 %arg1, i64 %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_syscall_ret_prlimit64(ptr readnone captures(none) %cpu_env, ptr readnone captures(none) %name, i64 noundef %ret, i64 %arg0, i64 %arg1, i64 %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.787) #9
   %cmp.i.i = icmp ult i64 %ret, -4096
@@ -6019,7 +6019,7 @@ if.end2:                                          ; preds = %print_syscall_err.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_readlinkat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_readlinkat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -6080,7 +6080,7 @@ print_pointer.exit:                               ; preds = %if.then.i7, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_rt_sigaction(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_rt_sigaction(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -6133,7 +6133,7 @@ print_pointer.exit5:                              ; preds = %if.then.i4, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_rt_sigprocmask(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_rt_sigprocmask(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -6183,7 +6183,7 @@ print_pointer.exit5:                              ; preds = %if.then.i4, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_rt_sigqueueinfo(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_rt_sigqueueinfo(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i.i = alloca [64 x i8], align 16
   %format.i = alloca [64 x i8], align 16
@@ -6302,7 +6302,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_rt_tgsigqueueinfo(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_rt_tgsigqueueinfo(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i.i = alloca [64 x i8], align 16
   %format.i6 = alloca [64 x i8], align 16
@@ -6426,7 +6426,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_semctl(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 %arg5, i64 %arg6) #0 {
+define internal void @print_semctl(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 %arg5, i64 %arg6) #0 {
 entry:
   %name1 = getelementptr inbounds nuw i8, ptr %name, i64 8
   %0 = load ptr, ptr %name1, align 8
@@ -6512,7 +6512,7 @@ print_ipc_cmd.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_setitimer(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_setitimer(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -6567,7 +6567,7 @@ print_pointer.exit:                               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_syscall_ret_setitimer(ptr nocapture readnone %cpu_env, ptr nocapture readnone %name, i64 noundef %ret, i64 %arg0, i64 %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_syscall_ret_setitimer(ptr readnone captures(none) %cpu_env, ptr readnone captures(none) %name, i64 noundef %ret, i64 %arg0, i64 %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.787) #9
   %cmp.i.i = icmp ult i64 %ret, -4096
@@ -6597,7 +6597,7 @@ if.end:                                           ; preds = %print_syscall_err.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_settimeofday(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_settimeofday(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -6655,7 +6655,7 @@ print_timezone.exit:                              ; preds = %print_pointer.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_socket(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_socket(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -6922,7 +6922,7 @@ print_socket_protocol.exit:                       ; preds = %sw.bb.i15, %sw.defa
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_statfs(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_statfs(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -6965,7 +6965,7 @@ print_pointer.exit:                               ; preds = %if.then.i3, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_symlinkat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_symlinkat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -7030,7 +7030,7 @@ print_string.exit11:                              ; preds = %if.then.i5, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_syslog(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_syslog(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %format.i.i = alloca [64 x i8], align 16
@@ -7075,7 +7075,7 @@ print_pointer.exit:                               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_tgkill(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_tgkill(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i.i = alloca [64 x i8], align 16
   %format.i2 = alloca [64 x i8], align 16
@@ -7114,7 +7114,7 @@ print_signal.exit:                                ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_tkill(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_tkill(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i.i = alloca [64 x i8], align 16
   %format.i = alloca [64 x i8], align 16
@@ -7148,7 +7148,7 @@ print_signal.exit:                                ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_truncate(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_truncate(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %name, i64 8
@@ -7184,7 +7184,7 @@ print_string.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_umount2(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_umount2(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -7270,7 +7270,7 @@ print_flags.exit:                                 ; preds = %if.then8.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_unlinkat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_unlinkat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -7339,7 +7339,7 @@ print_flags.exit:                                 ; preds = %if.then8.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_unshare(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_unshare(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 %arg1, i64 %arg2, i64 %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -7404,7 +7404,7 @@ print_flags.exit:                                 ; preds = %if.then8.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_utimensat(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_utimensat(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -7515,7 +7515,7 @@ print_flags.exit:                                 ; preds = %if.then8.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_pidfd_send_signal(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
+define internal void @print_pidfd_send_signal(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 %arg4, i64 %arg5) #0 {
 entry:
   %format.i6 = alloca [64 x i8], align 16
   %format.i.i = alloca [64 x i8], align 16
@@ -7639,7 +7639,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @print_statx(ptr nocapture readnone %cpu_env, ptr nocapture noundef readonly %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 %arg5) #0 {
+define internal void @print_statx(ptr readnone captures(none) %cpu_env, ptr noundef readonly captures(none) %name, i64 noundef %arg0, i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 %arg5) #0 {
 entry:
   %0 = getelementptr i8, ptr %name, i64 8
   %name.val = load ptr, ptr %0, align 8
@@ -8067,21 +8067,21 @@ if.end6:                                          ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @target_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

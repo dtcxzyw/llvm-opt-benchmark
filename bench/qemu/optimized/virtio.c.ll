@@ -207,7 +207,7 @@ do.end:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qvirtqueue_cleanup(ptr nocapture noundef readonly %bus, ptr noundef %vq, ptr noundef %alloc) local_unnamed_addr #0 {
+define dso_local void @qvirtqueue_cleanup(ptr noundef readonly captures(none) %bus, ptr noundef %vq, ptr noundef %alloc) local_unnamed_addr #0 {
 entry:
   %virtqueue_cleanup = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %0 = load ptr, ptr %virtqueue_cleanup, align 8
@@ -444,7 +444,7 @@ if.else15:                                        ; preds = %do.body10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qvirtqueue_get_buf(ptr noundef %qts, ptr nocapture noundef %vq, ptr noundef writeonly %desc_idx, ptr noundef writeonly %len) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qvirtqueue_get_buf(ptr noundef %qts, ptr noundef captures(none) %vq, ptr noundef writeonly %desc_idx, ptr noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %vq, align 8
   %used = getelementptr inbounds nuw i8, ptr %vq, i64 24
@@ -550,7 +550,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qvring_init(ptr noundef %qts, ptr nocapture noundef readnone %alloc, ptr nocapture noundef initializes((8, 32)) %vq, i64 noundef %addr) local_unnamed_addr #0 {
+define dso_local void @qvring_init(ptr noundef %qts, ptr noundef readnone captures(none) %alloc, ptr noundef captures(none) initializes((8, 32)) %vq, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %desc = getelementptr inbounds nuw i8, ptr %vq, i64 8
   store i64 %addr, ptr %desc, align 8
@@ -728,7 +728,7 @@ qvirtio_writew.exit91:                            ; preds = %qvirtio_writew.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @qvring_indirect_desc_setup(ptr noundef %qs, ptr nocapture noundef readonly %d, ptr noundef %alloc, i16 noundef zeroext %elem) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qvring_indirect_desc_setup(ptr noundef %qs, ptr noundef readonly captures(none) %d, ptr noundef %alloc, i16 noundef zeroext %elem) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #8
   %index = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -808,7 +808,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 declare i64 @guest_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qvring_indirect_desc_add(ptr nocapture noundef readonly %d, ptr noundef %qts, ptr nocapture noundef %indirect, i64 noundef %data, i32 noundef %len, i1 noundef zeroext %write) local_unnamed_addr #0 {
+define dso_local void @qvring_indirect_desc_add(ptr noundef readonly captures(none) %d, ptr noundef %qts, ptr noundef captures(none) %indirect, i64 noundef %data, i32 noundef %len, i1 noundef zeroext %write) local_unnamed_addr #0 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %indirect, i64 8
   %0 = load i16, ptr %index, align 8
@@ -922,7 +922,7 @@ qvirtio_writew.exit:                              ; preds = %qvirtio_writel.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qvirtqueue_add(ptr noundef %qts, ptr nocapture noundef %vq, i64 noundef %data, i32 noundef %len, i1 noundef zeroext %write, i1 noundef zeroext %next) local_unnamed_addr #0 {
+define dso_local i32 @qvirtqueue_add(ptr noundef %qts, ptr noundef captures(none) %vq, i64 noundef %data, i32 noundef %len, i1 noundef zeroext %write, i1 noundef zeroext %next) local_unnamed_addr #0 {
 entry:
   %num_free = getelementptr inbounds nuw i8, ptr %vq, i64 44
   %0 = load i32, ptr %num_free, align 4
@@ -1005,7 +1005,7 @@ qvirtio_writew.exit:                              ; preds = %qvirtio_writel.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qvirtqueue_add_indirect(ptr noundef %qts, ptr nocapture noundef %vq, ptr nocapture noundef readonly %indirect) local_unnamed_addr #0 {
+define dso_local i32 @qvirtqueue_add_indirect(ptr noundef %qts, ptr noundef captures(none) %vq, ptr noundef readonly captures(none) %indirect) local_unnamed_addr #0 {
 entry:
   %indirect1 = getelementptr inbounds nuw i8, ptr %vq, i64 54
   %0 = load i8, ptr %indirect1, align 2
@@ -1249,7 +1249,7 @@ if.end:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qvirtqueue_set_used_event(ptr noundef %qts, ptr nocapture noundef readonly %vq, i16 noundef zeroext %idx) local_unnamed_addr #0 {
+define dso_local void @qvirtqueue_set_used_event(ptr noundef %qts, ptr noundef readonly captures(none) %vq, i16 noundef zeroext %idx) local_unnamed_addr #0 {
 entry:
   %event = getelementptr inbounds nuw i8, ptr %vq, i64 55
   %0 = load i8, ptr %event, align 1
@@ -1356,7 +1356,7 @@ qvirtio_set_driver.exit:                          ; preds = %qvirtio_set_acknowl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qvirtio_is_big_endian(ptr nocapture noundef readonly %d) local_unnamed_addr #4 {
+define dso_local zeroext i1 @qvirtio_is_big_endian(ptr noundef readonly captures(none) %d) local_unnamed_addr #4 {
 entry:
   %big_endian = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load i8, ptr %big_endian, align 8

@@ -781,7 +781,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN5arrow9ArrayDataESaIvELN9__gnu_cxx12_Lock_poli
 @switch.table._ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114SchemaExporterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.336 = private unnamed_addr constant [4 x ptr] [ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36], align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10ExportTypeERKNS_8DataTypeEP11ArrowSchema(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10ExportTypeERKNS_8DataTypeEP11ArrowSchema(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %ref.tmp10.i = alloca %"class.arrow::Status", align 8
@@ -874,7 +874,7 @@ cleanup12:                                        ; preds = %cleanup12.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter10ExportTypeERKNS_8DataTypeE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(384) initializes((320, 328)) %this, ptr noundef nonnull align 8 dereferenceable(72) %orig_type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter10ExportTypeERKNS_8DataTypeE(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(384) initializes((320, 328)) %this, ptr noundef nonnull align 8 dereferenceable(72) %orig_type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp10 = alloca %"class.arrow::Status", align 8
@@ -1003,7 +1003,7 @@ if.end:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter6FinishEP11ArrowSchema(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr nocapture noundef writeonly %c_struct) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter6FinishEP11ArrowSchema(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef writeonly captures(none) %c_struct) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i = alloca ptr, align 8
   %_s.i = alloca %"class.arrow::Status", align 8
@@ -1573,7 +1573,7 @@ _ZN5arrow12_GLOBAL__N_125ExportedSchemaPrivateDataD2Ev.exit: ; preds = %_ZN5arro
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow11ExportFieldERKNS_5FieldEP11ArrowSchema(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %field, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow11ExportFieldERKNS_5FieldEP11ArrowSchema(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %field, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %exporter = alloca %"struct.arrow::(anonymous namespace)::SchemaExporter", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -1626,7 +1626,7 @@ cleanup12:                                        ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter11ExportFieldERKNS_5FieldE(ptr noalias nocapture nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(96) %field) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter11ExportFieldERKNS_5FieldE(ptr noalias nonnull align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(96) %field) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp16 = alloca %"class.arrow::Status", align 8
@@ -1797,7 +1797,7 @@ return:                                           ; preds = %_ZNSt10shared_ptrIK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow12ExportSchemaERKNS_6SchemaEP11ArrowSchema(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %schema, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow12ExportSchemaERKNS_6SchemaEP11ArrowSchema(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %schema, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::vector.16", align 8
   %ref.tmp2.i = alloca %"class.arrow::Status", align 8
@@ -1930,7 +1930,7 @@ cleanup12:                                        ; preds = %cleanup12.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow11ExportArrayERKNS_5ArrayEP10ArrowArrayP11ArrowSchema(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef writeonly %out, ptr noundef %out_schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow11ExportArrayERKNS_5ArrayEP10ArrowArrayP11ArrowSchema(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %array, ptr noundef writeonly captures(none) %out, ptr noundef %out_schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %guard = alloca %"class.arrow::internal::ExportGuard", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -2097,7 +2097,7 @@ ehcleanup48:                                      ; preds = %lpad18, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp63 = alloca %"class.std::unique_ptr.60", align 8
   %ref.tmp65 = alloca %"class.arrow::Status", align 8
@@ -2996,7 +2996,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6FinishEP10ArrowArray(ptr noundef nonnull align 8 dereferenceable(376) %this, ptr nocapture noundef writeonly %c_struct_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6FinishEP10ArrowArray(ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef writeonly captures(none) %c_struct_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i = alloca ptr, align 8
   %_s.i = alloca %"class.arrow::Status", align 8
@@ -3463,7 +3463,7 @@ cond.end:                                         ; preds = %while.end18, %cond.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(376) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %child_exporters_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   %0 = load ptr, ptr %child_exporters_, align 8
@@ -3538,7 +3538,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow17ExportRecordBatchERKNS_11RecordBatchEP10ArrowArrayP11ArrowSchema(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr nocapture noundef writeonly %out, ptr noundef %out_schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow17ExportRecordBatchERKNS_11RecordBatchEP10ArrowArrayP11ArrowSchema(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef writeonly captures(none) %out, ptr noundef %out_schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result", align 8
   %array = alloca %"class.std::shared_ptr.80", align 8
@@ -4177,7 +4177,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow18ValidateDeviceInfoERKNS_9ArrayDataEPSt8optionalINS_20DeviceAllocationTypeEEPl(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %data, ptr nocapture noundef %device_type, ptr nocapture noundef %device_id) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow18ValidateDeviceInfoERKNS_9ArrayDataEPSt8optionalINS_20DeviceAllocationTypeEEPl(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %data, ptr noundef captures(none) %device_type, ptr noundef captures(none) %device_id) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp42 = alloca %"class.arrow::Status", align 8
   %buffers = getelementptr inbounds nuw i8, ptr %data, i64 40
@@ -4284,10 +4284,10 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow18ValidateDeviceInfoERKNS_9ArrayDataE(ptr noalias sret(%"class.arrow::Result.115") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %data) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow18ValidateDeviceInfoERKNS_9ArrayDataE(ptr noalias sret(%"class.arrow::Result.115") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %data) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %device_type = alloca %"class.std::optional", align 2
   %device_id = alloca i64, align 8
@@ -4542,7 +4542,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow17ExportDeviceArrayERKNS_5ArrayESt10shared_ptrINS_6Device9SyncEventEEP16ArrowDeviceArrayP11ArrowSchema(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef %sync, ptr nocapture noundef %out, ptr noundef %out_schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow17ExportDeviceArrayERKNS_5ArrayESt10shared_ptrINS_6Device9SyncEventEEP16ArrowDeviceArrayP11ArrowSchema(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %array, ptr noundef captures(none) %sync, ptr noundef captures(none) %out, ptr noundef %out_schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %guard = alloca %"class.arrow::internal::ExportGuard", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -5070,7 +5070,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry, %_ZN5arrow6S
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow23ExportDeviceRecordBatchERKNS_11RecordBatchESt10shared_ptrINS_6Device9SyncEventEEP16ArrowDeviceArrayP11ArrowSchema(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr nocapture noundef %sync, ptr nocapture noundef %out, ptr noundef %out_schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow23ExportDeviceRecordBatchERKNS_11RecordBatchESt10shared_ptrINS_6Device9SyncEventEEP16ArrowDeviceArrayP11ArrowSchema(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef captures(none) %sync, ptr noundef captures(none) %out, ptr noundef %out_schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result", align 8
   %array = alloca %"class.std::shared_ptr.80", align 8
@@ -6441,7 +6441,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK5arrow12_GLOBAL__N_114SchemaImporter9MakeFieldEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK5arrow12_GLOBAL__N_114SchemaImporter9MakeFieldEv(ptr noalias writeonly align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.220", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7429,7 +7429,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow11ImportArrayEP10ArrowArraySt10shared_ptrINS_8DataTypeEE(ptr noalias sret(%"class.arrow::Result.147") align 8 %agg.result, ptr nocapture noundef %array, ptr noundef %type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow11ImportArrayEP10ArrowArraySt10shared_ptrINS_8DataTypeEE(ptr noalias sret(%"class.arrow::Result.147") align 8 %agg.result, ptr noundef captures(none) %array, ptr noundef %type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr.374", align 8
   %importer = alloca %"struct.arrow::(anonymous namespace)::ArrayImporter", align 8
@@ -7617,7 +7617,7 @@ cleanup11:                                        ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP10ArrowArray(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr nocapture noundef %src) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP10ArrowArray(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef captures(none) %src) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %release.i = getelementptr inbounds nuw i8, ptr %src, i64 64
   %0 = load ptr, ptr %release.i, align 8
@@ -7867,7 +7867,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporterD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporterD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
@@ -8609,7 +8609,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow17ImportRecordBatchEP10ArrowArraySt10shared_ptrINS_6SchemaEE(ptr noalias sret(%"class.arrow::Result.159") align 8 %agg.result, ptr nocapture noundef %array, ptr nocapture noundef %schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow17ImportRecordBatchEP10ArrowArraySt10shared_ptrINS_6SchemaEE(ptr noalias sret(%"class.arrow::Result.159") align 8 %agg.result, ptr noundef captures(none) %array, ptr noundef captures(none) %schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca %"class.std::shared_ptr", align 8
   %importer = alloca %"struct.arrow::(anonymous namespace)::ArrayImporter", align 8
@@ -9092,7 +9092,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15MakeRecordBatchESt10shared_ptrINS_6SchemaEE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, ptr nocapture noundef nonnull %schema) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15MakeRecordBatchESt10shared_ptrINS_6SchemaEE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %this, ptr noundef nonnull captures(none) %schema) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp14 = alloca %"class.arrow::Status", align 8
@@ -9919,7 +9919,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow17ImportDeviceArrayEP16ArrowDeviceArraySt10shared_ptrINS_8DataTypeEERKSt8functionIFNS_6ResultIS2_INS_13MemoryManagerEEEEilEE(ptr noalias sret(%"class.arrow::Result.147") align 8 %agg.result, ptr nocapture noundef %array, ptr noundef %type, ptr noundef nonnull align 8 dereferenceable(32) %mapper) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow17ImportDeviceArrayEP16ArrowDeviceArraySt10shared_ptrINS_8DataTypeEERKSt8functionIFNS_6ResultIS2_INS_13MemoryManagerEEEEilEE(ptr noalias sret(%"class.arrow::Result.147") align 8 %agg.result, ptr noundef captures(none) %array, ptr noundef %type, ptr noundef nonnull align 8 dereferenceable(32) %mapper) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr.374", align 8
   %importer = alloca %"struct.arrow::(anonymous namespace)::ArrayImporter", align 8
@@ -10107,7 +10107,7 @@ cleanup11:                                        ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP16ArrowDeviceArrayRKSt8functionIFNS_6ResultISt10shared_ptrINS_13MemoryManagerEEEEilEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr nocapture noundef %src, ptr noundef nonnull align 8 dereferenceable(32) %mapper) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP16ArrowDeviceArrayRKSt8functionIFNS_6ResultISt10shared_ptrINS_13MemoryManagerEEEEilEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef captures(none) %src, ptr noundef nonnull align 8 dereferenceable(32) %mapper) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca i32, align 4
   %__args.addr2.i = alloca i64, align 8
@@ -10753,7 +10753,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow23ImportDeviceRecordBatchEP16ArrowDeviceArraySt10shared_ptrINS_6SchemaEERKSt8functionIFNS_6ResultIS2_INS_13MemoryManagerEEEEilEE(ptr noalias sret(%"class.arrow::Result.159") align 8 %agg.result, ptr nocapture noundef %array, ptr nocapture noundef %schema, ptr noundef nonnull align 8 dereferenceable(32) %mapper) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow23ImportDeviceRecordBatchEP16ArrowDeviceArraySt10shared_ptrINS_6SchemaEERKSt8functionIFNS_6ResultIS2_INS_13MemoryManagerEEEEilEE(ptr noalias sret(%"class.arrow::Result.159") align 8 %agg.result, ptr noundef captures(none) %array, ptr noundef captures(none) %schema, ptr noundef nonnull align 8 dereferenceable(32) %mapper) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca %"class.std::shared_ptr", align 8
   %importer = alloca %"struct.arrow::(anonymous namespace)::ArrayImporter", align 8
@@ -11256,7 +11256,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow23ExportRecordBatchReaderESt10shared_ptrINS_17RecordBatchReaderEEP16ArrowArrayStream(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef %reader, ptr nocapture noundef writeonly initializes((0, 40)) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow23ExportRecordBatchReaderESt10shared_ptrINS_17RecordBatchReaderEEP16ArrowArrayStream(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef captures(none) %reader, ptr noundef writeonly captures(none) initializes((0, 40)) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow17RecordBatchReaderEED2Ev.exit:
   store ptr @_ZN5arrow12_GLOBAL__N_119ExportedArrayStream15StaticGetSchemaEP16ArrowArrayStreamP11ArrowSchema, ptr %out, align 8
   %get_next = getelementptr inbounds nuw i8, ptr %out, i64 8
@@ -11282,7 +11282,7 @@ _ZNSt10shared_ptrIN5arrow17RecordBatchReaderEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 39) i32 @_ZN5arrow12_GLOBAL__N_119ExportedArrayStream15StaticGetSchemaEP16ArrowArrayStreamP11ArrowSchema(ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %out_schema) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 39) i32 @_ZN5arrow12_GLOBAL__N_119ExportedArrayStream15StaticGetSchemaEP16ArrowArrayStreamP11ArrowSchema(ptr noundef readonly captures(none) %stream, ptr noundef writeonly captures(none) %out_schema) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i1 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::shared_ptr.77", align 8
@@ -11525,7 +11525,7 @@ lpad:                                             ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 39) i32 @_ZN5arrow12_GLOBAL__N_119ExportedArrayStream13StaticGetNextEP16ArrowArrayStreamP10ArrowArray(ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %out_array) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 39) i32 @_ZN5arrow12_GLOBAL__N_119ExportedArrayStream13StaticGetNextEP16ArrowArrayStreamP10ArrowArray(ptr noundef readonly captures(none) %stream, ptr noundef writeonly captures(none) %out_array) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i1 = alloca %"class.std::__cxx11::basic_string", align 8
   %batch.i = alloca %"class.std::shared_ptr.377", align 8
@@ -11794,7 +11794,7 @@ lpad:                                             ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN5arrow12_GLOBAL__N_119ExportedArrayStream18StaticGetLastErrorEP16ArrowArrayStream(ptr nocapture noundef readonly %stream) #1 align 2 {
+define internal noundef ptr @_ZN5arrow12_GLOBAL__N_119ExportedArrayStream18StaticGetLastErrorEP16ArrowArrayStream(ptr noundef readonly captures(none) %stream) #1 align 2 {
 entry:
   %0 = getelementptr i8, ptr %stream, i64 32
   %ref.tmp.val.val = load ptr, ptr %0, align 8
@@ -11812,7 +11812,7 @@ _ZN5arrow12_GLOBAL__N_119ExportedArrayStream12GetLastErrorEv.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_119ExportedArrayStream13StaticReleaseEP16ArrowArrayStream(ptr nocapture noundef %stream) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_119ExportedArrayStream13StaticReleaseEP16ArrowArrayStream(ptr noundef captures(none) %stream) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %release.i.i = getelementptr inbounds nuw i8, ptr %stream, i64 24
   %0 = load ptr, ptr %release.i.i, align 8
@@ -12396,7 +12396,7 @@ _ZN5arrow12_GLOBAL__N_122ArrayStreamBatchReader4MakeEP16ArrowArrayStream.exit: ;
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
@@ -12501,7 +12501,7 @@ eh.resume:                                        ; preds = %lpad9, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter12ExportFormatERKNS_8DataTypeE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter12ExportFormatERKNS_8DataTypeE(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp15 = alloca %"class.std::unique_ptr", align 8
@@ -12598,7 +12598,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS5_EE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(384) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fields) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS5_EE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(384) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %fields) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -12918,7 +12918,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportMetadataEPKNS_16KeyValueMetadataE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef %orig_metadata) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportMetadataEPKNS_16KeyValueMetadataE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef %orig_metadata) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.228", align 8
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13638,7 +13638,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
@@ -15977,7 +15977,7 @@ return:                                           ; preds = %sw.epilog, %_ZN5arr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5arrow12_GLOBAL__N_114SchemaExporterESt14default_deleteIS2_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5arrow12_GLOBAL__N_114SchemaExporterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -16067,7 +16067,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_11DecimalTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(84) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_11DecimalTypeE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(84) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16338,7 +16338,7 @@ eh.resume:                                        ; preds = %lpad26, %ehcleanup5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_9UnionTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(120) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_9UnionTypeE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(120) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str.56)
@@ -18598,7 +18598,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5arrow16KeyValueMet
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture %this.8.val, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr readonly captures(none) %this.0.val, ptr captures(none) %this.8.val, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %ref.tmp = alloca %"class.arrow::Result.234", align 8
@@ -19165,7 +19165,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121ReleaseExportedSchemaEP11ArrowSchema(ptr nocapture noundef %schema) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121ReleaseExportedSchemaEP11ArrowSchema(ptr noundef captures(none) %schema) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %release.i = getelementptr inbounds nuw i8, ptr %schema, i64 56
   %0 = load ptr, ptr %release.i, align 8
@@ -19316,13 +19316,13 @@ declare void @_ZN5arrow4util8ArrowLogC1EPKciNS0_13ArrowLogLevelE(ptr noundef non
 declare void @_ZN5arrow4util8ArrowLogD1Ev(ptr noundef nonnull align 8 dereferenceable(17)) unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19618,7 +19618,7 @@ _ZNSt12__shared_ptrIN5arrow5FieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pre
 declare noundef i64 @_ZNK5arrow9ArrayData12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5arrow12_GLOBAL__N_113ArrayExporterESt14default_deleteIS2_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNSt10unique_ptrIN5arrow12_GLOBAL__N_113ArrayExporterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -19738,7 +19738,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNKSt14default_deleteIN5arrow12_GLOBAL__N_113ArrayExporterEEclEPS2_(ptr noundef %__ptr) unnamed_addr #1 align 2 {
@@ -19794,7 +19794,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIN5arrow12_GLOBAL__N_113ArrayExporterEEvPT_(ptr nocapture noundef nonnull %__pointer) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIN5arrow12_GLOBAL__N_113ArrayExporterEEvPT_(ptr noundef nonnull captures(none) %__pointer) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %child_exporters_.i = getelementptr inbounds nuw i8, ptr %__pointer, i64 352
   %0 = load ptr, ptr %child_exporters_.i, align 8
@@ -19980,7 +19980,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_120ReleaseExportedArrayEP10ArrowArray(ptr nocapture noundef %array) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_120ReleaseExportedArrayEP10ArrowArray(ptr noundef captures(none) %array) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %release.i = getelementptr inbounds nuw i8, ptr %array, i64 64
   %0 = load ptr, ptr %release.i, align 8
@@ -20088,7 +20088,7 @@ return:                                           ; preds = %entry, %delete.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_124ExportedArrayPrivateDataD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(344) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_124ExportedArrayPrivateDataD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(344) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %variadic_buffer_sizes_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %0 = load ptr, ptr %variadic_buffer_sizes_, align 8
@@ -20380,7 +20380,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -20715,7 +20715,7 @@ nrvo.skipdtor.thread.i:                           ; preds = %do.body21
   br label %do.end8.i
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %do.body21
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp2.i, i64 0, ptr %26)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp2.i, i64 0, ptr nonnull %26)
   %.pr.i = load ptr, ptr %ref.tmp2.i, align 8, !noalias !861
   call void @llvm.experimental.noalias.scope.decl(metadata !863)
   store ptr %.pr.i, ptr %ref.tmp23, align 8, !alias.scope !861
@@ -25749,7 +25749,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(168) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %n_children.addr.i.i = alloca i64, align 8
@@ -30564,7 +30564,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow11binary_viewE
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow9utf8_viewEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser8ParseIntIiEENS_6ResultIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 %v.coerce0, ptr %v.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser8ParseIntIiEENS_6ResultIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i64 %v.coerce0, ptr %v.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.arrow::internal::StringConverter", align 1
   %value = alloca i32, align 4
@@ -31392,7 +31392,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6date32Ev() lo
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6date64Ev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser13ParseTimeUnitEv(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser13ParseTimeUnitEv(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__s = alloca %"class.arrow::Status", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -31892,7 +31892,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListViewINS_12ListViewTypeEEENS_6StatusEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListViewINS_12ListViewTypeEEENS_6StatusEv(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %n_children.addr.i = alloca i64, align 8
@@ -32303,7 +32303,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListViewINS_17LargeListViewTypeEEENS_6StatusEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListViewINS_17LargeListViewTypeEEENS_6StatusEv(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %n_children.addr.i = alloca i64, align 8
@@ -32714,7 +32714,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %this.48.val, i64 noundef range(i64 -9223372036854775808, 54901024028897475) %child_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias nonnull align 8 %agg.result, ptr readonly captures(none) %this.48.val, i64 noundef range(i64 -9223372036854775808, 54901024028897475) %child_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %add.ptr.i = getelementptr inbounds %"struct.arrow::(anonymous namespace)::SchemaImporter", ptr %this.48.val, i64 %child_id
@@ -33688,7 +33688,7 @@ for.end:                                          ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow13LargeListTypeESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 comdat align 2 {
@@ -34257,7 +34257,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 declare void @_ZN5arrow15fixed_size_listERKSt10shared_ptrINS_5FieldEEi(ptr sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15MakeChildFieldsEv(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15MakeChildFieldsEv(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fields = alloca %"class.std::vector.16", align 8
   %ref.tmp4 = alloca %"class.arrow::Result.139", align 8
@@ -35793,7 +35793,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5arrow6ResultINS_12_GLOBAL__N_115DecodedMetadataEEC2ERKNS_6StatusE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow6ResultINS_12_GLOBAL__N_115DecodedMetadataEEC2ERKNS_6StatusE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -35977,7 +35977,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -36250,7 +36250,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayImporterESaIS2_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayImporterESaIS2_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -36968,7 +36968,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIN5arrow12_GLOBAL__N_113ArrayImporterEEvPT_(ptr nocapture noundef readonly %__pointer) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIN5arrow12_GLOBAL__N_113ArrayImporterEEvPT_(ptr noundef readonly captures(none) %__pointer) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_refcount.i.i64 = getelementptr inbounds nuw i8, ptr %__pointer, i64 104
   %0 = load ptr, ptr %_M_refcount.i.i64, align 8
@@ -40602,7 +40602,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_117ImportedArrayDataESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_117ImportedArrayDataESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
@@ -40941,7 +40941,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
@@ -41134,7 +41134,7 @@ _ZN5arrow12_GLOBAL__N_113ArrayImporter24ImportFixedSizePrimitiveERKNS_14FixedWid
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_8ListTypeE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_8ListTypeE(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
@@ -41268,7 +41268,7 @@ _ZN5arrow12_GLOBAL__N_113ArrayImporter14ImportListLikeINS_8ListTypeEEENS_6Status
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(113) initializes((40, 48)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(113) initializes((40, 48)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %type_, align 8
@@ -41535,7 +41535,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPN5arrow12_GLOBAL__N_113ArrayImpor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef range(i64 0, 4) %n_buffers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %this, i64 noundef range(i64 0, 4) %n_buffers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %n_buffers.addr = alloca i64, align 8
@@ -41645,7 +41645,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE14_M_insert_rvalEN9__gnu_cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef range(i64 0, 3) %n_children) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %this, i64 noundef range(i64 0, 3) %n_children) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %n_children.addr = alloca i64, align 8
@@ -43084,7 +43084,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef %buffer_id, i64 noundef %buffer_size, i1 noundef zeroext %is_null_bitmap) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %this, i32 noundef %buffer_id, i64 noundef %buffer_size, i1 noundef zeroext %is_null_bitmap) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i.i.i = alloca %"class.std::shared_ptr.103", align 8
   %agg.tmp2.i.i.i.i.i.i.i.i = alloca %"class.std::shared_ptr.100", align 8
@@ -43851,7 +43851,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_114ImportedBufferESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_114ImportedBufferESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
@@ -44298,7 +44298,7 @@ _ZN5arrow12_GLOBAL__N_114ImportedBufferD2Ev.exit: ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_114ImportedBuffer17device_sync_eventEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.52") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_114ImportedBuffer17device_sync_eventEv(ptr noalias writeonly sret(%"class.std::shared_ptr.52") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %import_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %import_.val = load ptr, ptr %import_, align 8
@@ -44376,7 +44376,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16ImportBinaryViewERKNS_14BinaryViewTypeE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16ImportBinaryViewERKNS_14BinaryViewTypeE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -45517,13 +45517,13 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt17_Function_handlerIFvPvEZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP16ArrowDeviceArrayRKSt8functionIFNS2_6ResultISt10shared_ptrINS2_13MemoryManagerEEEEilEEEUlS0_E_E9_M_invokeERKSt9_Any_dataOS0_(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readnone align 8 %__args) #17 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvPvEZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP16ArrowDeviceArrayRKSt8functionIFNS2_6ResultISt10shared_ptrINS2_13MemoryManagerEEEEilEEEUlS0_E_E9_M_invokeERKSt9_Any_dataOS0_(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readnone align 8 captures(none) %__args) #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPvEZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP16ArrowDeviceArrayRKSt8functionIFNS2_6ResultISt10shared_ptrINS2_13MemoryManagerEEEEilEEEUlS0_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPvEZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP16ArrowDeviceArrayRKSt8functionIFNS2_6ResultISt10shared_ptrINS2_13MemoryManagerEEEEilEEEUlS0_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -45977,7 +45977,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_122ArrayStreamBatchReaderESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_122ArrayStreamBatchReaderESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
@@ -46161,7 +46161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK5arrow12_GLOBAL__N_122ArrayStreamBatchReader6schemaEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.77") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5arrow12_GLOBAL__N_122ArrayStreamBatchReader6schemaEv(ptr noalias writeonly sret(%"class.std::shared_ptr.77") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %schema_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %schema_, align 8
@@ -46532,7 +46532,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry, %_ZN5arrow6S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_122ArrayStreamBatchReader5CloseEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_122ArrayStreamBatchReader5CloseEv(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   %release.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %release.i, align 8
@@ -47187,10 +47187,10 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #23

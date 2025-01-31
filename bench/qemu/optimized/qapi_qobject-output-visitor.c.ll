@@ -78,7 +78,7 @@ entry:
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_output_start_struct(ptr nocapture noundef %v, ptr noundef %name, ptr noundef %obj, i64 %unused, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @qobject_output_start_struct(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef %obj, i64 %unused, ptr readnone captures(none) %errp) #0 {
 entry:
   %call1 = tail call ptr @qdict_new() #7
   tail call fastcc void @qobject_output_add_obj(ptr noundef %v, ptr noundef %name, ptr noundef %call1)
@@ -113,7 +113,7 @@ qobject_output_push_obj.exit:                     ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qobject_output_end_struct(ptr nocapture noundef %v, ptr noundef readnone %obj) #0 {
+define internal void @qobject_output_end_struct(ptr noundef captures(none) %v, ptr noundef readnone %obj) #0 {
 entry:
   %stack.i = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load ptr, ptr %stack.i, align 8
@@ -171,7 +171,7 @@ if.end:                                           ; preds = %qobject_type.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_output_start_list(ptr nocapture noundef %v, ptr noundef %name, ptr noundef %listp, i64 %size, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @qobject_output_start_list(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef %listp, i64 %size, ptr readnone captures(none) %errp) #0 {
 entry:
   %call1 = tail call ptr @qlist_new() #7
   tail call fastcc void @qobject_output_add_obj(ptr noundef %v, ptr noundef %name, ptr noundef %call1)
@@ -206,14 +206,14 @@ qobject_output_push_obj.exit:                     ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal ptr @qobject_output_next_list(ptr nocapture readnone %v, ptr nocapture noundef readonly %tail, i64 %size) #2 {
+define internal ptr @qobject_output_next_list(ptr readnone captures(none) %v, ptr noundef readonly captures(none) %tail, i64 %size) #2 {
 entry:
   %0 = load ptr, ptr %tail, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qobject_output_end_list(ptr nocapture noundef %v, ptr noundef readnone %obj) #0 {
+define internal void @qobject_output_end_list(ptr noundef captures(none) %v, ptr noundef readnone %obj) #0 {
 entry:
   %stack.i = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load ptr, ptr %stack.i, align 8
@@ -271,7 +271,7 @@ if.end:                                           ; preds = %qobject_type.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_output_type_int64(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef readonly %obj, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @qobject_output_type_int64(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef readonly captures(none) %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %0 = load i64, ptr %obj, align 8
   %call1 = tail call ptr @qnum_from_int(i64 noundef %0) #7
@@ -280,7 +280,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_output_type_uint64(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef readonly %obj, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @qobject_output_type_uint64(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef readonly captures(none) %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %0 = load i64, ptr %obj, align 8
   %call1 = tail call ptr @qnum_from_uint(i64 noundef %0) #7
@@ -289,7 +289,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_output_type_bool(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef readonly %obj, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @qobject_output_type_bool(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef readonly captures(none) %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %0 = load i8, ptr %obj, align 1
   %tobool = trunc i8 %0 to i1
@@ -299,7 +299,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_output_type_str(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef readonly %obj, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @qobject_output_type_str(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef readonly captures(none) %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -310,7 +310,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_output_type_number(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef readonly %obj, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @qobject_output_type_number(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef readonly captures(none) %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %0 = load double, ptr %obj, align 8
   %call1 = tail call ptr @qnum_from_double(double noundef %0) #7
@@ -319,7 +319,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_output_type_any(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef readonly %obj, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @qobject_output_type_any(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef readonly captures(none) %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -339,7 +339,7 @@ cond.end:                                         ; preds = %entry, %qobject_ref
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_output_type_null(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture readnone %obj, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @qobject_output_type_null(ptr noundef captures(none) %v, ptr noundef %name, ptr readnone captures(none) %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @qnull_, i64 8), align 8
   %inc.i.i = add i64 %0, 1
@@ -349,7 +349,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @qobject_output_policy_skip(ptr nocapture noundef readonly %v, ptr nocapture readnone %name, i32 noundef %special_features) #2 {
+define internal zeroext i1 @qobject_output_policy_skip(ptr noundef readonly captures(none) %v, ptr readnone captures(none) %name, i32 noundef %special_features) #2 {
 entry:
   %and = and i32 %special_features, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -378,7 +378,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qobject_output_complete(ptr nocapture noundef %v, ptr noundef readnone %opaque) #0 {
+define internal void @qobject_output_complete(ptr noundef captures(none) %v, ptr noundef readnone %opaque) #0 {
 entry:
   %root = getelementptr inbounds nuw i8, ptr %v, i64 224
   %0 = load ptr, ptr %root, align 8
@@ -469,7 +469,7 @@ qobject_unref_impl.exit:                          ; preds = %while.end, %land.lh
 declare ptr @qdict_new() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qobject_output_add_obj(ptr nocapture noundef %qov, ptr noundef %name, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc void @qobject_output_add_obj(ptr noundef captures(none) %qov, ptr noundef %name, ptr noundef %value) unnamed_addr #0 {
 entry:
   %stack = getelementptr inbounds nuw i8, ptr %qov, i64 216
   %0 = load ptr, ptr %stack, align 8

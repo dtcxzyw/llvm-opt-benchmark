@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [10 x i8] c"\08http/1.1\00", align 1
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 2) i32 @nghttp2_select_next_protocol(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i32 noundef %inlen) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @nghttp2_select_next_protocol(ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %outlen, ptr noundef %in, i32 noundef %inlen) local_unnamed_addr #0 {
 entry:
   %cmp.not11.i = icmp ult i32 %inlen, 3
   br i1 %cmp.not11.i, label %return, label %for.body.i
@@ -68,7 +68,7 @@ return:                                           ; preds = %for.inc.i13, %retur
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 2) i32 @nghttp2_select_alpn(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i32 noundef %inlen) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @nghttp2_select_alpn(ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %outlen, ptr noundef %in, i32 noundef %inlen) local_unnamed_addr #0 {
 entry:
   %cmp.not11.i = icmp ult i32 %inlen, 3
   br i1 %cmp.not11.i, label %return, label %for.body.i
@@ -129,7 +129,7 @@ return:                                           ; preds = %for.inc.i13, %retur
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #1
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #1
 
 attributes #0 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind willreturn memory(argmem: read) }

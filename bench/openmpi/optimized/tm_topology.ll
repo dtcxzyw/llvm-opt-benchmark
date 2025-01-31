@@ -52,7 +52,7 @@ define hidden i32 @tm_get_numbering() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @tm_nb_processing_units(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden i32 @tm_nb_processing_units(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -213,7 +213,7 @@ declare i32 @hwloc_topology_load(ptr noundef) local_unnamed_addr #4
 declare hidden i32 @tm_get_verbose_level() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
@@ -230,7 +230,7 @@ declare i32 @hwloc_get_nbobjs_by_depth(ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @hwloc_get_closest_objs(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_process_tab_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc void @build_process_tab_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @tm_get_verbose_level() #22
@@ -362,12 +362,12 @@ define internal fastcc void @build_process_tab_id(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @tm_free_topology(ptr nocapture noundef %0) local_unnamed_addr #10 {
+define hidden void @tm_free_topology(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #22
@@ -899,7 +899,7 @@ hwloc_to_tm.exit:                                 ; preds = %._crit_edge73.i, %2
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @tm_display_topology(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define hidden void @tm_display_topology(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -999,10 +999,10 @@ define hidden void @tm_display_topology(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @tm_display_arity(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define hidden void @tm_display_arity(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1045,7 +1045,7 @@ define hidden void @tm_display_arity(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -1, 2) i32 @tm_int_cmp_inc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define hidden range(i32 -1, 2) i32 @tm_int_cmp_inc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4
@@ -1054,7 +1054,7 @@ define hidden range(i32 -1, 2) i32 @tm_int_cmp_inc(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @tm_topology_set_binding_constraints(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((72, 84)) %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @tm_topology_set_binding_constraints(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((72, 84)) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %1, ptr %4, align 8
   %5 = sext i32 %1 to i64
@@ -1114,7 +1114,7 @@ tm_topology_set_binding_constraints_cpy.exit:     ; preds = %15, %3, %27, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @tm_topology_add_binding_constraints(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @tm_topology_add_binding_constraints(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca [1000000 x i8], align 16
   %4 = tail call i32 @tm_get_verbose_level() #22
   %5 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.12)
@@ -1320,31 +1320,31 @@ tm_topology_set_binding_constraints_cpy.exit:     ; preds = %75, %66, %87, %89
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #12
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr nocapture noundef) local_unnamed_addr #5
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tm_optimize_topology(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define hidden void @tm_optimize_topology(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -1568,7 +1568,7 @@ tm_display_arity.exit27:                          ; preds = %103, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @optimize_arity(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc void @optimize_arity(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3) unnamed_addr #3 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = icmp slt i32 %3, 0
@@ -1774,7 +1774,7 @@ tailrecurse:                                      ; preds = %54
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noalias noundef ptr @tm_build_synthetic_topology(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #11 {
+define hidden noalias noundef ptr @tm_build_synthetic_topology(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #11 {
   %6 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i32 0, ptr %7, align 8
@@ -1904,10 +1904,10 @@ define hidden noalias noundef ptr @tm_build_synthetic_topology(ptr nocapture nou
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tm_enable_oversubscribing(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @tm_enable_oversubscribing(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ult i32 %1, 2
   br i1 %3, label %59, label %4
 
@@ -1999,20 +1999,20 @@ define hidden void @tm_enable_oversubscribing(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #17
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 declare i32 @hwloc_topology_set_xml(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare i32 @tm_in_tab(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #19
@@ -2021,10 +2021,10 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #19
 declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1019,7 +1019,7 @@ Py_DECREF.exit:                                   ; preds = %if.end5, %if.then1.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @stringio_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @stringio_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -1084,7 +1084,7 @@ return:                                           ; preds = %if.then41, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stringio_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @stringio_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %readnl = getelementptr inbounds nuw i8, ptr %self, i64 128
   %0 = load ptr, ptr %readnl, align 8
@@ -1720,7 +1720,7 @@ exit:                                             ; preds = %if.end165.i, %resiz
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stringio_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #0 {
+define internal ptr @stringio_new(ptr noundef %type, ptr readnone captures(none) %args, ptr readnone captures(none) %kwds) #0 {
 entry:
   %tp_alloc = getelementptr inbounds nuw i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
@@ -1926,7 +1926,7 @@ declare ptr @PyUnicode_FromKindAndData(i32 noundef, ptr noundef, i64 noundef) lo
 declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io_StringIO_close(ptr noundef initializes((113, 114)) %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io_StringIO_close(ptr noundef initializes((113, 114)) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %closed.i = getelementptr inbounds nuw i8, ptr %self, i64 113
   store i8 1, ptr %closed.i, align 1
@@ -2043,14 +2043,14 @@ _io_StringIO_close_impl.exit:                     ; preds = %resize_buffer.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_StringIO_getvalue(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_io_StringIO_getvalue(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call fastcc ptr @_io_StringIO_getvalue_impl(ptr noundef %self)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_StringIO_read(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io_StringIO_read(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %size = alloca i64, align 8
   store i64 -1, ptr %size, align 8
@@ -2183,7 +2183,7 @@ exit:                                             ; preds = %if.end30.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_StringIO_readline(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io_StringIO_readline(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %consumed.i.i = alloca i64, align 8
   %size = alloca i64, align 8
@@ -2291,7 +2291,7 @@ exit:                                             ; preds = %_stringio_readline.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_StringIO_tell(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_io_StringIO_tell(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ok.i = getelementptr inbounds nuw i8, ptr %self, i64 112
   %0 = load i8, ptr %ok.i, align 8
@@ -2326,7 +2326,7 @@ _io_StringIO_tell_impl.exit:                      ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_StringIO_truncate(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io_StringIO_truncate(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %size = alloca i64, align 8
   %pos = getelementptr inbounds nuw i8, ptr %self, i64 24
@@ -2473,7 +2473,7 @@ exit:                                             ; preds = %if.end22.i, %overfl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_StringIO_seek(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io_StringIO_seek(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 2
@@ -2675,7 +2675,7 @@ _io_StringIO_write_impl.exit:                     ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io_StringIO_seekable(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io_StringIO_seekable(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ok.i = getelementptr inbounds nuw i8, ptr %self, i64 112
   %0 = load i8, ptr %ok.i, align 8
@@ -2700,7 +2700,7 @@ _io_StringIO_seekable_impl.exit:                  ; preds = %if.end.i, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io_StringIO_readable(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io_StringIO_readable(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ok.i = getelementptr inbounds nuw i8, ptr %self, i64 112
   %0 = load i8, ptr %ok.i, align 8
@@ -2725,7 +2725,7 @@ _io_StringIO_readable_impl.exit:                  ; preds = %if.end.i, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io_StringIO_writable(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io_StringIO_writable(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ok.i = getelementptr inbounds nuw i8, ptr %self, i64 112
   %0 = load i8, ptr %ok.i, align 8
@@ -2750,7 +2750,7 @@ _io_StringIO_writable_impl.exit:                  ; preds = %if.end.i, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_StringIO___getstate__(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_io_StringIO___getstate__(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call fastcc ptr @_io_StringIO_getvalue_impl(ptr noundef %self)
   %cmp.i = icmp eq ptr %call.i, null
@@ -3425,7 +3425,7 @@ declare ptr @_PyIncrementalNewlineDecoder_decode(ptr noundef, ptr noundef, i32 n
 declare ptr @PyUnicode_Replace(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @PyDict_Copy(ptr noundef) local_unnamed_addr #1
 
@@ -3436,12 +3436,12 @@ declare ptr @PyTuple_GetSlice(ptr noundef, i64 noundef, i64 noundef) local_unnam
 declare ptr @PyUnicode_AsUCS4Copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @PyDict_Update(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_StringIO_closed_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_context) #0 {
+define internal ptr @_io_StringIO_closed_get(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_context) #0 {
 entry:
   %ok.i = getelementptr inbounds nuw i8, ptr %self, i64 112
   %0 = load i8, ptr %ok.i, align 8
@@ -3466,7 +3466,7 @@ _io_StringIO_closed_get_impl.exit:                ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_StringIO_newlines_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_context) #0 {
+define internal ptr @_io_StringIO_newlines_get(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_context) #0 {
 entry:
   %ok.i = getelementptr inbounds nuw i8, ptr %self, i64 112
   %0 = load i8, ptr %ok.i, align 8
@@ -3505,7 +3505,7 @@ _io_StringIO_newlines_get_impl.exit:              ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io_StringIO_line_buffering_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_context) #0 {
+define internal noundef ptr @_io_StringIO_line_buffering_get(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_context) #0 {
 entry:
   %ok.i = getelementptr inbounds nuw i8, ptr %self, i64 112
   %0 = load i8, ptr %ok.i, align 8
@@ -3554,10 +3554,10 @@ declare i64 @llvm.smax.i64(i64, i64) #4
 declare i64 @llvm.smin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

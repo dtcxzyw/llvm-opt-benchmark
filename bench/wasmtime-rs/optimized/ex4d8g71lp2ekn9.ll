@@ -104,7 +104,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.21253c77e3fc4844456cc94e3b0b613d.101 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.21253c77e3fc4844456cc94e3b0b613d.0, [16 x i8] c"#\00\00\00\00\00\00\00\B0\01\00\00\16\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15wiggle_generate5funcs11define_func17h1d256a1b9dc21d5aE(ptr nocapture writeonly sret({ { i64, [3 x i64] }, {} }) align 8 initializes((0, 32)) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
+define void @_ZN15wiggle_generate5funcs11define_func17h1d256a1b9dc21d5aE(ptr writeonly sret({ { i64, [3 x i64] }, {} }) align 8 captures(none) initializes((0, 32)) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
   %5 = alloca { { { i64, [3 x i64] }, {} }, { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   call fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a9E(ptr noalias align 8 %5, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3)
@@ -116,7 +116,7 @@ define void @_ZN15wiggle_generate5funcs11define_func17h1d256a1b9dc21d5aE(ptr noc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN15wiggle_generate5funcs11func_bounds17h959f448e0f2572a7E(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 initializes((0, 24)) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
+define hidden void @_ZN15wiggle_generate5funcs11func_bounds17h959f448e0f2572a7E(ptr writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) initializes((0, 24)) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
   %5 = alloca { { { i64, [3 x i64] }, {} }, { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { { i64, [3 x i64] }, {} }, align 8
   call fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a9E(ptr noalias align 8 %5, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3)
@@ -128,7 +128,7 @@ define hidden void @_ZN15wiggle_generate5funcs11func_bounds17h959f448e0f2572a7E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a9E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a9E(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { { i64, [3 x i64] }, {} }, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
@@ -1768,7 +1768,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774ad632E(ptr nocapture readonly align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774ad632E(ptr readonly align 8 captures(none) %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !8, !noundef !3
@@ -1996,7 +1996,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$14allocate_space17h8c69bbf2959cbad3E"(ptr nocapture readnone align 8 %0, i64 %1, ptr nocapture readnone align 8 %2) unnamed_addr #1 {
+define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$14allocate_space17h8c69bbf2959cbad3E"(ptr readnone align 8 captures(none) %0, i64 %1, ptr readnone align 8 captures(none) %2) unnamed_addr #1 {
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.38, i64 15, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.41) #8
   unreachable
 }
@@ -5290,7 +5290,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr align 8) unnamed_addr #0
@@ -5545,10 +5545,10 @@ declare zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4091
 declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

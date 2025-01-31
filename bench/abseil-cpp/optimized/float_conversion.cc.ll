@@ -1753,10 +1753,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_113FloatToBufferILNS1_11FormatStyleE1EeEEbNS1_10DecomposedIT0_EEmPNS1_6BufferEPi(ptr nocapture noundef readonly byval(%"struct.absl::str_format_internal::(anonymous namespace)::Decomposed") align 16 %decomposed, i64 noundef %precision, ptr noundef nonnull %out, ptr nocapture noundef nonnull %exp) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_113FloatToBufferILNS1_11FormatStyleE1EeEEbNS1_10DecomposedIT0_EEmPNS1_6BufferEPi(ptr noundef readonly byval(%"struct.absl::str_format_internal::(anonymous namespace)::Decomposed") align 16 captures(none) %decomposed, i64 noundef %precision, ptr noundef nonnull %out, ptr noundef nonnull captures(none) %exp) unnamed_addr #2 {
 entry:
   %cmp = icmp ugt i64 %precision, 39
   br i1 %cmp, label %return, label %if.end
@@ -2342,7 +2342,7 @@ return:                                           ; preds = %for.body.i65, %for.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_118FallbackToSnprintfIeEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(x86_fp80 noundef %v, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %conv, ptr noundef %sink) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_118FallbackToSnprintfIeEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(x86_fp80 noundef %v, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %conv, ptr noundef %sink) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %fmt = alloca [32 x i8], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2505,7 +2505,7 @@ eh.resume:                                        ; preds = %lpad20, %lpad18.bod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE(i32 noundef %exp, i8 noundef signext range(i8 69, 102) %e, ptr nocapture noundef nonnull %out) unnamed_addr #3 {
+define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE(i32 noundef %exp, i8 noundef signext range(i8 69, 102) %e, ptr noundef nonnull captures(none) %out) unnamed_addr #3 {
 entry:
   %end.i = getelementptr inbounds nuw i8, ptr %out, i64 96
   %0 = load ptr, ptr %end.i, align 8
@@ -2852,7 +2852,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit118: ; preds = %_ZN4
 declare noundef zeroext i1 @_ZN4absl19str_format_internal14FormatSinkImpl15PutPaddedStringESt17basic_string_viewIcSt11char_traitsIcEEiib(ptr noundef nonnull align 8 dereferenceable(1056), i64, ptr, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 declare void @_ZN4absl7uint128C1Ee(ptr noundef nonnull align 16 dereferenceable(16), x86_fp80 noundef) unnamed_addr #4
 
@@ -3799,10 +3799,10 @@ declare i32 @__gxx_personality_v0(...)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS_7uint128EiNS_11FunctionRefIFvS4_EEEEUlNS_4SpanIjEEE_vJSA_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE(ptr nocapture readonly %ptr.coerce, ptr %args.coerce0, i64 %args.coerce1) unnamed_addr #0 {
+define internal fastcc void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunConversionENS_7uint128EiNS_11FunctionRefIFvS4_EEEEUlNS_4SpanIjEEE_vJSA_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE(ptr readonly captures(none) %ptr.coerce, ptr %args.coerce0, i64 %args.coerce1) unnamed_addr #0 {
 entry:
   %agg.tmp2.i.i.i.i = alloca %"class.absl::str_format_internal::(anonymous namespace)::BinaryToDecimal", align 8
   %agg.tmp.i.i.i.i = alloca %"class.absl::str_format_internal::(anonymous namespace)::BinaryToDecimal", align 8
@@ -3955,7 +3955,7 @@ _ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13RunCo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4absl19functional_internal12InvokeObjectIZNS_19str_format_internal12_GLOBAL__N_122FormatFPositiveExpSlowENS_7uint128EiRKNS3_11FormatStateEE3$_0vJNS3_15BinaryToDecimalEEEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE"(ptr nocapture readonly %ptr.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %args) #0 {
+define internal void @"_ZN4absl19functional_internal12InvokeObjectIZNS_19str_format_internal12_GLOBAL__N_122FormatFPositiveExpSlowENS_7uint128EiRKNS3_11FormatStateEE3$_0vJNS3_15BinaryToDecimalEEEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE"(ptr readonly captures(none) %ptr.coerce, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %args) #0 {
 entry:
   %agg.tmp1.i.i.i = alloca %"class.absl::str_format_internal::(anonymous namespace)::BinaryToDecimal", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp1.i.i.i)
@@ -4440,7 +4440,7 @@ while.end.i166.i.i.i.i:                           ; preds = %if.end8.i182.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4absl19functional_internal12InvokeObjectIZNS_19str_format_internal12_GLOBAL__N_122FormatFNegativeExpSlowENS_7uint128EiRKNS3_11FormatStateEE3$_0vJNS3_24FractionalDigitGeneratorEEEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE"(ptr nocapture readonly %ptr.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %args) unnamed_addr #0 {
+define internal fastcc void @"_ZN4absl19functional_internal12InvokeObjectIZNS_19str_format_internal12_GLOBAL__N_122FormatFNegativeExpSlowENS_7uint128EiRKNS3_11FormatStateEE3$_0vJNS3_24FractionalDigitGeneratorEEEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE"(ptr readonly captures(none) %ptr.coerce, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %args) unnamed_addr #0 {
 entry:
   %agg.tmp.sroa.4.0.__args.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 16
   %agg.tmp.sroa.4.0.copyload.i.i.i = load ptr, ptr %agg.tmp.sroa.4.0.__args.sroa_idx.i.i.i, align 8
@@ -4955,7 +4955,7 @@ return:                                           ; preds = %while.body10, %retu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %state, i64 %data.coerce0, ptr %data.coerce1, i64 noundef range(i64 0, 3) %padding_offset, i64 noundef %trailing_zeros, i64 %data_postfix.0.val, ptr %data_postfix.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %state, i64 %data.coerce0, ptr %data.coerce1, i64 noundef range(i64 0, 3) %padding_offset, i64 noundef %trailing_zeros, i64 %data_postfix.0.val, ptr %data_postfix.8.val) unnamed_addr #0 {
 entry:
   %conv = getelementptr inbounds nuw i8, ptr %state, i64 16
   %0 = load ptr, ptr %conv, align 8
@@ -5586,10 +5586,10 @@ return:                                           ; preds = %while.end.i275, %_Z
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %extra_digits, i1 noundef zeroext %has_leftover_value, ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull %exp_out) unnamed_addr #2 {
+define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPi(i64 noundef %extra_digits, i1 noundef zeroext %has_leftover_value, ptr noundef nonnull captures(none) %out, ptr noundef nonnull captures(none) %exp_out) unnamed_addr #2 {
 entry:
   %end = getelementptr inbounds nuw i8, ptr %out, i64 96
   %0 = load ptr, ptr %end, align 8
@@ -5787,7 +5787,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #4
 
@@ -5972,7 +5972,7 @@ return:                                           ; preds = %for.end57, %for.end
 declare noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_113FloatToBufferILNS1_11FormatStyleE1EdEEbNS1_10DecomposedIT0_EEmPNS1_6BufferEPi(i64 %decomposed.coerce0, i32 range(i32 -2147483648, 2147483595) %decomposed.coerce1, i64 noundef %precision, ptr noundef nonnull %out, ptr nocapture noundef nonnull %exp) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_113FloatToBufferILNS1_11FormatStyleE1EdEEbNS1_10DecomposedIT0_EEmPNS1_6BufferEPi(i64 %decomposed.coerce0, i32 range(i32 -2147483648, 2147483595) %decomposed.coerce1, i64 noundef %precision, ptr noundef nonnull %out, ptr noundef nonnull captures(none) %exp) unnamed_addr #2 {
 entry:
   %cmp = icmp ugt i64 %precision, 39
   br i1 %cmp, label %return, label %if.end
@@ -6550,7 +6550,7 @@ return:                                           ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_118FallbackToSnprintfIdEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef %v, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %conv, ptr noundef %sink) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_118FallbackToSnprintfIdEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef %v, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %conv, ptr noundef %sink) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %fmt = alloca [32 x i8], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6711,7 +6711,7 @@ eh.resume:                                        ; preds = %lpad17, %lpad.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #6
@@ -6729,10 +6729,10 @@ declare double @llvm.fabs.f64(double) #14
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14

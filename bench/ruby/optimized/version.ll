@@ -73,7 +73,7 @@ declare void @ruby_set_script_name(i64 noundef) local_unnamed_addr #1
 declare void @rb_provide(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @Init_ruby_description(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @Init_ruby_description(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -149,10 +149,10 @@ define dso_local void @ruby_show_version() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local void @ruby_show_copyright() local_unnamed_addr #2 {

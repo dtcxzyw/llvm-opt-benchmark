@@ -477,7 +477,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__15HioIsCompresse
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14HioGetDataSizeENS_9HioFormatERKNS_7GfVec3iE(i32 noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #0 {
+define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14HioGetDataSizeENS_9HioFormatERKNS_7GfVec3iE(i32 noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = call noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22HioGetDataSizeOfFormatENS_9HioFormatEPmS1_(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)

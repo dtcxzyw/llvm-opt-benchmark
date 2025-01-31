@@ -273,7 +273,7 @@ return:                                           ; preds = %if.end89, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 17, 33) i64 @last_blocks_correction(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %len) #2 {
+define internal range(i64 17, 33) i64 @last_blocks_correction(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %len) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr align 1 %in, i64 %len, i1 false)
   %rem = and i64 %len, 15
@@ -292,7 +292,7 @@ declare i64 @CRYPTO_cts128_decrypt_block(ptr noundef, ptr noundef, i64 noundef, 
 declare i64 @CRYPTO_cts128_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_cts128(ptr nocapture noundef readonly %fixture, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_cts128(ptr noundef readonly captures(none) %fixture, i32 noundef %num) unnamed_addr #0 {
 entry:
   %iv = alloca [16 x i8], align 16
   %cleartext = alloca [64 x i8], align 16
@@ -416,7 +416,7 @@ return:                                           ; preds = %lor.lhs.false76, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -437,7 +437,7 @@ declare i32 @AES_set_encrypt_key(ptr noundef, i32 noundef, ptr noundef) local_un
 declare i32 @AES_set_decrypt_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @last_blocks_correction_nist(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %len) #2 {
+define internal noundef i64 @last_blocks_correction_nist(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %len) #2 {
 entry:
   %rem = and i64 %len, 15
   %cmp = icmp eq i64 %rem, 0
@@ -467,7 +467,7 @@ declare void @CRYPTO_gcm128_init(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @CRYPTO_gcm128_setiv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @CRYPTO_gcm128_aad(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

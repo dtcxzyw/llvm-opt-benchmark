@@ -236,7 +236,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @hk_depth_search(ptr nocapture noundef readonly %0, i32 noundef range(i32 -2147483648, 32768) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @hk_depth_search(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -2147483648, 32768) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24

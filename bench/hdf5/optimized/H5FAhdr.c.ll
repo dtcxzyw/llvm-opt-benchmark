@@ -157,7 +157,7 @@ define range(i32 -1, 1) i32 @H5FA__hdr_dest(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FA__hdr_init(ptr nocapture noundef initializes((280, 288), (296, 304), (320, 328)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FA__hdr_init(ptr noundef captures(none) initializes((280, 288), (296, 304), (320, 328)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 12
@@ -198,7 +198,7 @@ define range(i32 -1, 1) i32 @H5FA__hdr_init(ptr nocapture noundef initializes((2
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5FA__hdr_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i64 @H5FA__hdr_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5FA_hdr_t_reg_free_list) #4
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %12
@@ -385,7 +385,7 @@ define i64 @H5FA__hdr_create(ptr noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i64 @H5MF_alloc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -462,7 +462,7 @@ define range(i32 -1, 1) i32 @H5FA__hdr_decr(ptr noundef %0) local_unnamed_addr #
 declare i32 @H5AC_unpin_entry(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5FA__hdr_fuse_incr(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define noundef i32 @H5FA__hdr_fuse_incr(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 1
@@ -471,7 +471,7 @@ define noundef i32 @H5FA__hdr_fuse_incr(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @H5FA__hdr_fuse_decr(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define i64 @H5FA__hdr_fuse_decr(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, -1

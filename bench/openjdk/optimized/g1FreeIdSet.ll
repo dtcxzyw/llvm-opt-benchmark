@@ -61,7 +61,7 @@ define hidden void @_ZN11G1FreeIdSetD2Ev(ptr noundef nonnull align 8 dereference
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK11G1FreeIdSet10head_indexEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK11G1FreeIdSet10head_indexEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, %1
@@ -70,7 +70,7 @@ define hidden noundef i32 @_ZNK11G1FreeIdSet10head_indexEm(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK11G1FreeIdSet9make_headEjm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK11G1FreeIdSet9make_headEjm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8

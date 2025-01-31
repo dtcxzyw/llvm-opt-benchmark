@@ -246,14 +246,14 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %tobool5.not, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  tail call void @qdict_put_str(ptr noundef %options, ptr noundef nonnull @.str.1, ptr noundef %add.ptr) #17
+  tail call void @qdict_put_str(ptr noundef %options, ptr noundef nonnull @.str.1, ptr noundef nonnull %add.ptr) #17
   br label %if.end18
 
 if.end:                                           ; preds = %if.then
   %sub.ptr.lhs.cast = ptrtoint ptr %call4 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call7 = tail call noalias ptr @g_strndup(ptr noundef %add.ptr, i64 noundef %sub.ptr.sub) #17
+  %call7 = tail call noalias ptr @g_strndup(ptr noundef nonnull %add.ptr, i64 noundef %sub.ptr.sub) #17
   tail call void @qdict_put_str(ptr noundef %options, ptr noundef nonnull @.str.1, ptr noundef %call7) #17
   tail call void @g_free(ptr noundef %call7) #17
   %add.ptr8 = getelementptr i8, ptr %call4, i64 1
@@ -286,7 +286,7 @@ if.end18:                                         ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @nvme_reopen_prepare(ptr nocapture readnone %reopen_state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #2 {
+define internal noundef i32 @nvme_reopen_prepare(ptr readnone captures(none) %reopen_state, ptr readnone captures(none) %queue, ptr readnone captures(none) %errp) #2 {
 entry:
   ret i32 0
 }
@@ -769,13 +769,13 @@ while.end121.i:                                   ; preds = %while.cond109.i
   br i1 %tobool125.not.i, label %if.end127.i, label %nvme_init.exit
 
 if.end127.i:                                      ; preds = %while.end121.i
-  %call128.i = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #17
+  %call128.i = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #17
   tail call void @aio_set_event_notifier(ptr noundef %call128.i, ptr noundef nonnull %irq_notifier.i, ptr noundef nonnull @nvme_handle_event, ptr noundef nonnull @nvme_poll_cb, ptr noundef nonnull @nvme_poll_ready) #17
-  %call131.i = tail call fastcc zeroext i1 @nvme_identify(ptr noundef %bs, i32 noundef %conv, ptr noundef %errp)
+  %call131.i = tail call fastcc zeroext i1 @nvme_identify(ptr noundef nonnull %bs, i32 noundef %conv, ptr noundef %errp)
   br i1 %call131.i, label %if.end133.i, label %nvme_init.exit
 
 if.end133.i:                                      ; preds = %if.end127.i
-  %call134.i = tail call fastcc zeroext i1 @nvme_add_io_queue(ptr noundef %bs, ptr noundef %errp)
+  %call134.i = tail call fastcc zeroext i1 @nvme_add_io_queue(ptr noundef nonnull %bs, ptr noundef %errp)
   %spec.select = select i1 %call134.i, i32 0, i32 -5
   br label %nvme_init.exit
 
@@ -819,7 +819,7 @@ if.else:                                          ; preds = %if.then9
   store i32 %75, ptr %nsid.i17, align 1
   %cdw10.i = getelementptr inbounds nuw i8, ptr %cmd.i, i64 40
   store i32 6, ptr %cdw10.i, align 1
-  %call4.i = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef %bs, ptr noundef %cmd.i)
+  %call4.i = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef nonnull %bs, ptr noundef %cmd.i)
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.end15.thread24, label %if.end15
 
@@ -834,7 +834,7 @@ if.end15:                                         ; preds = %if.else
 
 fail:                                             ; preds = %if.end15, %if.end15.thread, %nvme_init.exit.thread, %nvme_init.exit
   %ret.0 = phi i32 [ %ret.0.ph.i, %nvme_init.exit ], [ %call4.i, %if.end15 ], [ %retval.0.i.ph, %nvme_init.exit.thread ], [ -22, %if.end15.thread ]
-  tail call void @nvme_close(ptr noundef %bs)
+  tail call void @nvme_close(ptr noundef nonnull %bs)
   br label %return
 
 return:                                           ; preds = %if.end15.thread24, %if.end7, %fail, %if.then
@@ -892,7 +892,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare i32 @bdrv_co_create_opts_simple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal void @nvme_refresh_filename(ptr nocapture noundef %bs) #3 {
+define internal void @nvme_refresh_filename(ptr noundef captures(none) %bs) #3 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -906,7 +906,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @nvme_refresh_limits(ptr nocapture noundef initializes((16464, 16468), (16472, 16484), (16488, 16500), (16504, 16508), (16536, 16544)) %bs, ptr nocapture readnone %errp) #4 {
+define internal void @nvme_refresh_limits(ptr noundef captures(none) initializes((16464, 16468), (16472, 16484), (16488, 16500), (16504, 16508), (16536, 16544)) %bs, ptr readnone captures(none) %errp) #4 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -989,7 +989,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_attach_aio_context(ptr nocapture noundef readonly %bs, ptr noundef %new_context) #0 {
+define internal void @nvme_attach_aio_context(ptr noundef readonly captures(none) %bs, ptr noundef %new_context) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1024,7 +1024,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @nvme_probe_blocksizes(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bsz) #0 {
+define internal noundef i32 @nvme_probe_blocksizes(ptr noundef readonly captures(none) %bs, ptr noundef writeonly captures(none) %bsz) #0 {
 entry:
   %0 = getelementptr i8, ptr %bs, i64 24
   %bs.val = load ptr, ptr %0, align 8
@@ -1047,7 +1047,7 @@ nvme_get_blocksize.exit:                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @nvme_register_buf(ptr nocapture noundef readonly %bs, ptr noundef %host, i64 noundef %size, ptr noundef %errp) #0 {
+define internal zeroext i1 @nvme_register_buf(ptr noundef readonly captures(none) %bs, ptr noundef %host, i64 noundef %size, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1059,7 +1059,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_unregister_buf(ptr nocapture noundef readonly %bs, ptr noundef %host, i64 %size) #0 {
+define internal void @nvme_unregister_buf(ptr noundef readonly captures(none) %bs, ptr noundef %host, i64 %size) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1600,7 +1600,7 @@ if.end12:                                         ; preds = %if.then11, %if.end6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -95, 1) i32 @nvme_co_truncate(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i32 -95, 1) i32 @nvme_co_truncate(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %cmp.not = icmp eq i32 %prealloc, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1641,7 +1641,7 @@ return:                                           ; preds = %if.else, %if.then5,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @nvme_co_getlength(ptr nocapture noundef readonly %bs) #5 {
+define internal i64 @nvme_co_getlength(ptr noundef readonly captures(none) %bs) #5 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1655,7 +1655,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @nvme_get_specific_stats(ptr nocapture noundef readonly %bs) #0 {
+define internal noalias noundef ptr @nvme_get_specific_stats(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #19
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1677,10 +1677,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
@@ -1984,7 +1984,7 @@ trace_nvme_handle_event.exit:                     ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @nvme_poll_cb(ptr nocapture noundef readonly %opaque) #8 {
+define internal noundef zeroext i1 @nvme_poll_cb(ptr noundef readonly captures(none) %opaque) #8 {
 entry:
   %queue_count = getelementptr i8, ptr %opaque, i64 -28
   %0 = load i32, ptr %queue_count, align 8
@@ -2026,7 +2026,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_poll_ready(ptr nocapture noundef readonly %e) #0 {
+define internal void @nvme_poll_ready(ptr noundef readonly captures(none) %e) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %e, i64 -68
   tail call fastcc void @nvme_poll_queues(ptr noundef %add.ptr)
@@ -2298,7 +2298,7 @@ return:                                           ; preds = %if.end, %out_error,
 declare void @qemu_vfio_pci_unmap_bar(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2315,7 +2315,7 @@ declare i32 @event_notifier_get_fd(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_try_memalign(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 
@@ -2778,7 +2778,7 @@ declare void @qemu_bh_schedule(ptr noundef) local_unnamed_addr #1
 declare void @warn_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare void @qemu_bh_cancel(ptr noundef) local_unnamed_addr #1
 
@@ -2791,7 +2791,7 @@ declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @event_notifier_test_and_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nvme_poll_queues(ptr nocapture noundef readonly %s) unnamed_addr #0 {
+define internal fastcc void @nvme_poll_queues(ptr noundef readonly captures(none) %s) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %queue_count = getelementptr inbounds nuw i8, ptr %s, i64 40
@@ -2870,11 +2870,11 @@ while.end.i:                                      ; preds = %trace_nvme_poll_que
   br label %while.cond4.i
 
 while.cond4.i:                                    ; preds = %while.cond4.i, %while.end.i
-  %call5.i = tail call fastcc zeroext i1 @nvme_process_completion(ptr noundef %2)
+  %call5.i = tail call fastcc zeroext i1 @nvme_process_completion(ptr noundef nonnull %2)
   br i1 %call5.i, label %while.cond4.i, label %while.end7.i, !llvm.loop !19
 
 while.end7.i:                                     ; preds = %while.cond4.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef 644) #17
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i32 noundef 644) #17
   br label %nvme_poll_queue.exit
 
 nvme_poll_queue.exit:                             ; preds = %trace_nvme_poll_queue.exit.i, %while.end7.i
@@ -2888,7 +2888,7 @@ for.end:                                          ; preds = %nvme_poll_queue.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @nvme_admin_cmd_sync(ptr noundef %bs, ptr nocapture noundef nonnull %cmd) unnamed_addr #0 {
+define internal fastcc i32 @nvme_admin_cmd_sync(ptr noundef %bs, ptr noundef nonnull captures(none) %cmd) unnamed_addr #0 {
 entry:
   %ret = alloca i32, align 4
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -3008,7 +3008,7 @@ return:                                           ; preds = %nvme_get_free_req_n
 declare void @qemu_vfio_dma_unmap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nvme_submit_command(ptr noundef %q, ptr nocapture noundef nonnull %req, ptr nocapture noundef nonnull %cmd, ptr noundef %cb, ptr noundef nonnull %opaque) unnamed_addr #0 {
+define internal fastcc void @nvme_submit_command(ptr noundef %q, ptr noundef nonnull captures(none) %req, ptr noundef nonnull captures(none) %cmd, ptr noundef %cb, ptr noundef nonnull %opaque) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3169,7 +3169,7 @@ nvme_trace_command.exit:                          ; preds = %trace_nvme_submit_c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_admin_cmd_sync_cb(ptr nocapture noundef writeonly initializes((0, 4)) %opaque, i32 noundef %ret) #0 {
+define internal void @nvme_admin_cmd_sync_cb(ptr noundef writeonly captures(none) initializes((0, 4)) %opaque, i32 noundef %ret) #0 {
 entry:
   store i32 %ret, ptr %opaque, align 4
   tail call void @aio_wait_kick() #17
@@ -3288,7 +3288,7 @@ declare void @event_notifier_cleanup(ptr noundef) local_unnamed_addr #1
 declare void @qemu_vfio_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @nvme_co_prw(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i1 noundef zeroext %is_write, i32 noundef %flags) #0 {
@@ -3829,7 +3829,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %trace_nvme_free_req
 declare void @qemu_co_mutex_lock(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nvme_cmd_map_qiov(ptr nocapture noundef readonly %bs, ptr noundef %cmd, ptr noundef %req, ptr noundef %qiov) #0 {
+define internal i32 @nvme_cmd_map_qiov(ptr noundef readonly captures(none) %bs, ptr noundef %cmd, ptr noundef %req, ptr noundef %qiov) #0 {
 entry:
   %_now.i.i112 = alloca %struct.timeval, align 8
   %_now.i.i98 = alloca %struct.timeval, align 8
@@ -4283,7 +4283,7 @@ declare ptr @qemu_coroutine_self() local_unnamed_addr #1
 declare void @qemu_coroutine_yield() #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nvme_cmd_unmap_qiov(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %qiov) #0 {
+define internal i32 @nvme_cmd_unmap_qiov(ptr noundef readonly captures(none) %bs, ptr noundef readonly captures(none) %qiov) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -4328,7 +4328,7 @@ declare void @abort() local_unnamed_addr #14
 declare void @error_reportf_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_rw_cb_bh(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @nvme_rw_cb_bh(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   tail call void @qemu_coroutine_enter(ptr noundef %0) #17
@@ -4348,10 +4348,10 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

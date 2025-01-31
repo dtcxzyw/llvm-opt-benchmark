@@ -123,7 +123,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.llvm_emit_break = private unnamed_addr constant [8 x i64] [i64 32, i64 poison, i64 32, i64 24, i64 poison, i64 poison, i64 poison, i64 32], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_compound_stmt(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_compound_stmt(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -440,7 +440,7 @@ define dso_local void @llvm_emit_local_decl(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 
@@ -594,7 +594,7 @@ declare void @llvm_value_set_decl_address(ptr noundef, ptr noundef, ptr noundef)
 declare void @llvm_emit_assign_expr(ptr dead_on_unwind writable sret(%struct.BEValue) align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @llvm_value_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -619,7 +619,7 @@ declare ptr @llvm_basic_block_new(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @llvm_emit_block(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.BEValue, align 8
   %4 = alloca %struct.BEValue, align 8
   %5 = alloca %struct.BEValue, align 8
@@ -1039,7 +1039,7 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
   store ptr null, ptr %76, align 8
   %85 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8
-  call void @llvm_emit_parameter(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %86, ptr noundef nonnull %9, ptr noundef %80) #9
+  call void @llvm_emit_parameter(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %86, ptr noundef nonnull %9, ptr noundef %80) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %87, label %77, !llvm.loop !9
@@ -1062,10 +1062,10 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
   %94 = call ptr @type_get_subarray(ptr noundef %93) #9
   %95 = load ptr, ptr @type_anyptr, align 8
   %96 = call ptr @type_get_array(ptr noundef %95, i32 noundef %.0140) #9
-  %97 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %96) #9
+  %97 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %96) #9
   %98 = call i32 @type_alloca_alignment(ptr noundef %96) #9
   %99 = load ptr, ptr @varargslots_name, align 8
-  %100 = call ptr @llvm_emit_alloca(ptr noundef %0, ptr noundef %97, i32 noundef %98, ptr noundef %99) #9
+  %100 = call ptr @llvm_emit_alloca(ptr noundef nonnull %0, ptr noundef %97, i32 noundef %98, ptr noundef %99) #9
   br i1 %.not155, label %._crit_edge, label %101
 
 101:                                              ; preds = %92
@@ -1081,10 +1081,10 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv161 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next162, %.lr.ph ]
   %104 = trunc nuw i64 %indvars.iv161 to i32
-  %105 = call ptr @llvm_emit_array_gep_raw(ptr noundef %0, ptr noundef %100, ptr noundef %97, i32 noundef %104, i32 noundef %98, ptr noundef nonnull %10) #9
+  %105 = call ptr @llvm_emit_array_gep_raw(ptr noundef nonnull %0, ptr noundef %100, ptr noundef %97, i32 noundef %104, i32 noundef %98, ptr noundef nonnull %10) #9
   %106 = getelementptr inbounds nuw %struct.BEValue, ptr %4, i64 %indvars.iv161
   %107 = load i32, ptr %10, align 4
-  %108 = call ptr @llvm_store_to_ptr_aligned(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %106, i32 noundef %107) #9
+  %108 = call ptr @llvm_store_to_ptr_aligned(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %106, i32 noundef %107) #9
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count
   br i1 %exitcond164.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -1093,7 +1093,7 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
   %109 = load ptr, ptr @type_usz, align 8
   %110 = zext i32 %.0140 to i64
   %111 = call fastcc ptr @type_lowering(ptr noundef %109)
-  %112 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %111) #9
+  %112 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %111) #9
   %113 = load i32, ptr %111, align 8
   %114 = icmp eq i32 %113, 31
   br i1 %114, label %115, label %119
@@ -1110,14 +1110,14 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
   %121 = icmp ult i32 %120, 5
   %122 = zext i1 %121 to i32
   %123 = call ptr @LLVMConstInt(ptr noundef %112, i64 noundef %110, i32 noundef %122) #9
-  call void @llvm_value_aggregate_two(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %94, ptr noundef %100, ptr noundef %123) #9
+  call void @llvm_value_aggregate_two(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef %94, ptr noundef %100, ptr noundef %123) #9
   %124 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %125 = load ptr, ptr %124, align 8
   %126 = load ptr, ptr @temp_name, align 8
   call void @LLVMSetValueName2(ptr noundef %125, ptr noundef %126, i64 noundef 6) #9
   %127 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %128 = load ptr, ptr %127, align 8
-  call void @llvm_emit_parameter(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %128, ptr noundef nonnull %11, ptr noundef %94) #9
+  call void @llvm_emit_parameter(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %128, ptr noundef nonnull %11, ptr noundef %94) #9
   %129 = load ptr, ptr %15, align 8
   %.not156 = icmp eq ptr %129, null
   br i1 %.not156, label %131, label %130
@@ -1137,8 +1137,8 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
   br label %149
 
 138:                                              ; preds = %87
-  call void @llvm_value_set_decl(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %20) #9
-  call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %13) #9
+  call void @llvm_value_set_decl(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %20) #9
+  call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %13) #9
   %139 = load ptr, ptr %15, align 8
   %.not154 = icmp eq ptr %139, null
   br i1 %.not154, label %141, label %140
@@ -1169,7 +1169,7 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.BEValue, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -2005,9 +2005,9 @@ llvm_emit_block_exit_return.exit:                 ; preds = %._crit_edge, %._cri
   %.173.i57 = phi ptr [ null, %.preheader.preheader.i ], [ %324, %321 ]
   %295 = getelementptr inbounds nuw ptr, ptr %290, i64 %indvars.iv.i
   %296 = load ptr, ptr %295, align 8
-  call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %296) #9
+  call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %296) #9
   %297 = load ptr, ptr %296, align 8
-  call void @llvm_emit_any_from_value(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %297) #9
+  call void @llvm_emit_any_from_value(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %297) #9
   %.not.i71.i = icmp eq ptr %.173.i57, null
   br i1 %.not.i71.i, label %298, label %301
 
@@ -2067,8 +2067,8 @@ llvm_emit_block_exit_return.exit:                 ; preds = %._crit_edge, %._cri
   %.062.i = phi ptr [ null, %278 ], [ null, %285 ], [ null, %291 ], [ %324, %321 ]
   %.061.i = phi ptr [ null, %278 ], [ null, %285 ], [ null, %291 ], [ %288, %321 ]
   %.060.i = phi ptr [ @.str.49, %278 ], [ %288, %285 ], [ %288, %291 ], [ @.str.49, %321 ]
-  call void @llvm_emit_panic(ptr noundef %0, ptr noundef %.060.i, i64 %.sroa.0.0.copyload.i, ptr noundef %.061.i, ptr noundef %.062.i)
-  call void @llvm_emit_block(ptr noundef %0, ptr noundef %280) #9
+  call void @llvm_emit_panic(ptr noundef nonnull %0, ptr noundef %.060.i, i64 %.sroa.0.0.copyload.i, ptr noundef %.061.i, ptr noundef %.062.i)
+  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %280) #9
   %327 = load ptr, ptr %16, align 8
   %.not69.i = icmp eq ptr %327, null
   br i1 %.not69.i, label %llvm_emit_assert_stmt.exit, label %328
@@ -2100,7 +2100,7 @@ llvm_emit_compound_stmt.exit:                     ; preds = %36, %27, %30, %267,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_switch(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_switch(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.BEValue, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8
@@ -2172,7 +2172,7 @@ define dso_local void @llvm_emit_switch(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_switch_body(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_switch_body(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.BEValue, align 8
   %6 = alloca %struct.BEValue, align 8
   %7 = alloca %struct.BEValue, align 8
@@ -2553,7 +2553,7 @@ llvm_emit_switch_body_if_chain.exit:              ; preds = %._crit_edge, %105, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_break(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_break(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %.not16 = icmp eq i32 %4, 0
@@ -2607,7 +2607,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_continue(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_continue(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %.not13 = icmp eq i32 %4, 0
@@ -2657,7 +2657,7 @@ define dso_local void @llvm_emit_continue(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gencontext_emit_next_stmt(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @gencontext_emit_next_stmt(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.BEValue, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2783,10 +2783,10 @@ define dso_local ptr @llvm_emit_string_const(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_emit_empty_string_const(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @llvm_emit_empty_string_const(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @LLVMConstNull(ptr noundef %3) #9
@@ -2855,12 +2855,12 @@ define dso_local ptr @llvm_emit_zstring_named(ptr noundef %0, ptr noundef %1, pt
   %35 = and i64 %23, 4294967295
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call ptr @LLVMConstStringInContext(ptr noundef %37, ptr noundef %1, i32 noundef %24, i32 noundef 0) #9
+  %38 = tail call ptr @LLVMConstStringInContext(ptr noundef %37, ptr noundef nonnull %1, i32 noundef %24, i32 noundef 0) #9
   tail call void @LLVMSetInitializer(ptr noundef %31, ptr noundef %38) #9
   %39 = call ptr @llvm_emit_array_gep_raw(ptr noundef %0, ptr noundef %31, ptr noundef %28, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4) #9
-  %40 = call ptr @str_copy(ptr noundef %1, i64 noundef %35) #9
+  %40 = call ptr @str_copy(ptr noundef nonnull %1, i64 noundef %35) #9
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
-  %42 = call ptr @str_copy(ptr noundef %2, i64 noundef %41) #9
+  %42 = call ptr @str_copy(ptr noundef nonnull %2, i64 noundef %41) #9
   %43 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %44, label %47
@@ -2936,7 +2936,7 @@ define dso_local ptr @llvm_emit_zstring(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @LLVMArrayType(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2951,7 +2951,7 @@ declare ptr @llvm_emit_array_gep_raw(ptr noundef, ptr noundef, ptr noundef, i32 
 declare ptr @str_copy(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_unreachable(ptr nocapture noundef initializes((80, 88)) %0) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_unreachable(ptr noundef captures(none) initializes((80, 88)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @LLVMBuildUnreachable(ptr noundef %3) #9
@@ -3875,7 +3875,7 @@ codegen_append_constraints.exit289:               ; preds = %codegen_new_constra
   %241 = load i8, ptr %15, align 8
   %242 = and i8 %241, 1
   %243 = zext nneg i8 %242 to i32
-  %244 = call ptr @LLVMGetInlineAsm(ptr noundef %238, ptr noundef %.0126301, i64 noundef %239, ptr noundef %.0128299, i64 noundef %240, i32 noundef %243, i32 noundef 1, i32 noundef 0, i32 noundef 0) #9
+  %244 = call ptr @LLVMGetInlineAsm(ptr noundef %238, ptr noundef nonnull %.0126301, i64 noundef %239, ptr noundef nonnull %.0128299, i64 noundef %240, i32 noundef %243, i32 noundef 1, i32 noundef 0, i32 noundef 0) #9
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %246 = load ptr, ptr %245, align 8
   %247 = call ptr @LLVMBuildCall2(ptr noundef %246, ptr noundef %238, ptr noundef %244, ptr noundef nonnull %6, i32 noundef %.3295, ptr noundef nonnull @.str.24) #9
@@ -4020,7 +4020,7 @@ declare i32 @LLVMIsConstant(ptr noundef) local_unnamed_addr #1
 declare void @llvm_emit_ignored_expr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @llvm_emit_int_comp_zero(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4043,7 +4043,7 @@ declare void @llvm_value_addr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @LLVMTypeOf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @LLVMStructTypeInContext(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4165,10 +4165,10 @@ declare void @llvm_emit_assume_raw(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

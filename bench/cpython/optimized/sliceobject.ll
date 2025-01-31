@@ -916,7 +916,7 @@ _Py_SetImmortal.exit:                             ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ellipsis_repr(ptr nocapture readnone %op) #1 {
+define internal ptr @ellipsis_repr(ptr readnone captures(none) %op) #1 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.3) #6
   ret ptr %call
@@ -925,7 +925,7 @@ entry:
 declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ellipsis_new(ptr nocapture readnone %type, ptr nocapture noundef readonly %args, ptr noundef readonly %kwargs) #1 {
+define internal noundef ptr @ellipsis_new(ptr readnone captures(none) %type, ptr noundef readonly captures(none) %args, ptr noundef readonly %kwargs) #1 {
 entry:
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %0, align 8
@@ -953,7 +953,7 @@ return:                                           ; preds = %lor.lhs.false, %lan
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PySlice_Fini(ptr nocapture noundef %interp) local_unnamed_addr #1 {
+define hidden void @_PySlice_Fini(ptr noundef captures(none) %interp) local_unnamed_addr #1 {
 entry:
   %slice_cache = getelementptr inbounds nuw i8, ptr %interp, i64 303008
   %0 = load ptr, ptr %slice_cache, align 8
@@ -1196,7 +1196,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PySlice_GetIndices(ptr nocapture noundef readonly %_r, i64 noundef %length, ptr nocapture noundef %start, ptr nocapture noundef writeonly %stop, ptr nocapture noundef %step) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @PySlice_GetIndices(ptr noundef readonly captures(none) %_r, i64 noundef %length, ptr noundef captures(none) %start, ptr noundef writeonly captures(none) %stop, ptr noundef captures(none) %step) local_unnamed_addr #1 {
 entry:
   %step1 = getelementptr inbounds nuw i8, ptr %_r, i64 32
   %0 = load ptr, ptr %step1, align 8
@@ -1314,7 +1314,7 @@ return:                                           ; preds = %if.end52, %if.end49
 declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PySlice_Unpack(ptr nocapture noundef readonly %_r, ptr noundef %start, ptr noundef %stop, ptr noundef %step) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @PySlice_Unpack(ptr noundef readonly captures(none) %_r, ptr noundef %start, ptr noundef %stop, ptr noundef %step) local_unnamed_addr #1 {
 entry:
   %step1 = getelementptr inbounds nuw i8, ptr %_r, i64 32
   %0 = load ptr, ptr %step1, align 8
@@ -1392,7 +1392,7 @@ declare i32 @_PyEval_SliceIndex(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @PySlice_AdjustIndices(i64 noundef %length, ptr nocapture noundef %start, ptr nocapture noundef %stop, i64 noundef %step) local_unnamed_addr #3 {
+define dso_local i64 @PySlice_AdjustIndices(i64 noundef %length, ptr noundef captures(none) %start, ptr noundef captures(none) %stop, i64 noundef %step) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %start, align 8
   %cmp = icmp slt i64 %0, 0
@@ -1486,7 +1486,7 @@ return:                                           ; preds = %if.then39, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PySlice_GetIndicesEx(ptr nocapture noundef readonly %_r, i64 noundef %length, ptr noundef %start, ptr noundef %stop, ptr noundef %step, ptr nocapture noundef writeonly %slicelength) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @PySlice_GetIndicesEx(ptr noundef readonly captures(none) %_r, i64 noundef %length, ptr noundef %start, ptr noundef %stop, ptr noundef %step, ptr noundef writeonly captures(none) %slicelength) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @PySlice_Unpack(ptr noundef %_r, ptr noundef %start, ptr noundef %stop, ptr noundef %step)
   %cmp = icmp slt i32 %call, 0
@@ -1591,7 +1591,7 @@ return:                                           ; preds = %entry, %PySlice_Adj
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_PySlice_GetLongIndices(ptr nocapture noundef readonly %self, ptr noundef %length, ptr nocapture noundef writeonly initializes((0, 8)) %start_ptr, ptr nocapture noundef writeonly initializes((0, 8)) %stop_ptr, ptr nocapture noundef writeonly initializes((0, 8)) %step_ptr) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @_PySlice_GetLongIndices(ptr noundef readonly captures(none) %self, ptr noundef %length, ptr noundef writeonly captures(none) initializes((0, 8)) %start_ptr, ptr noundef writeonly captures(none) initializes((0, 8)) %stop_ptr, ptr noundef writeonly captures(none) initializes((0, 8)) %step_ptr) local_unnamed_addr #1 {
 entry:
   %step1 = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %step1, align 8
@@ -2190,7 +2190,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @slice_repr(ptr nocapture noundef readonly %r) #1 {
+define internal ptr @slice_repr(ptr noundef readonly captures(none) %r) #1 {
 entry:
   %start = getelementptr inbounds nuw i8, ptr %r, i64 16
   %0 = load ptr, ptr %start, align 8
@@ -2203,7 +2203,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @slicehash(ptr nocapture noundef readonly %v) #1 {
+define internal i64 @slicehash(ptr noundef readonly captures(none) %v) #1 {
 entry:
   %start = getelementptr inbounds nuw i8, ptr %v, i64 16
   %0 = load ptr, ptr %start, align 8
@@ -2248,7 +2248,7 @@ return:                                           ; preds = %if.end17, %if.end6,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @slice_traverse(ptr nocapture noundef readonly %v, ptr nocapture noundef readonly %visit, ptr noundef %arg) #1 {
+define internal i32 @slice_traverse(ptr noundef readonly captures(none) %v, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #1 {
 entry:
   %start = getelementptr inbounds nuw i8, ptr %v, i64 16
   %0 = load ptr, ptr %start, align 8
@@ -2412,7 +2412,7 @@ return:                                           ; preds = %if.end.i.i29, %sw.d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @slice_new(ptr nocapture readnone %type, ptr noundef %args, ptr noundef %kw) #1 {
+define internal ptr @slice_new(ptr readnone captures(none) %type, ptr noundef %args, ptr noundef %kw) #1 {
 entry:
   %start = alloca ptr, align 8
   %stop = alloca ptr, align 8
@@ -2485,7 +2485,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ellipsis_reduce(ptr nocapture readnone %op, ptr nocapture readnone %_unused_ignored) #1 {
+define internal ptr @ellipsis_reduce(ptr readnone captures(none) %op, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.3) #6
   ret ptr %call
@@ -2511,7 +2511,7 @@ declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #2
 declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @slice_indices(ptr nocapture noundef readonly %self, ptr noundef %len) #1 {
+define internal ptr @slice_indices(ptr noundef readonly captures(none) %self, ptr noundef %len) #1 {
 entry:
   %start = alloca ptr, align 8
   %stop = alloca ptr, align 8
@@ -2579,7 +2579,7 @@ return:                                           ; preds = %Py_DECREF.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @slice_reduce(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #1 {
+define internal ptr @slice_reduce(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8

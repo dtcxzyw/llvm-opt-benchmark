@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union._znode_op = type { i32 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %5 = load i32, ptr %4, align 4
@@ -788,7 +788,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @zend_optimizer_add_literal(ptr noundef, ptr noundef) local_unnamed_addr #3
 

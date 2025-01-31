@@ -31,7 +31,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_rb_first_pos
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable___rb_erase_color91, ptr @__UNIQUE_ID___addressable___rb_insert_augmented94, ptr @__UNIQUE_ID___addressable_rb_erase93, ptr @__UNIQUE_ID___addressable_rb_first95, ptr @__UNIQUE_ID___addressable_rb_first_postorder102, ptr @__UNIQUE_ID___addressable_rb_insert_color92, ptr @__UNIQUE_ID___addressable_rb_last96, ptr @__UNIQUE_ID___addressable_rb_next97, ptr @__UNIQUE_ID___addressable_rb_next_postorder101, ptr @__UNIQUE_ID___addressable_rb_prev98, ptr @__UNIQUE_ID___addressable_rb_replace_node99, ptr @__UNIQUE_ID___addressable_rb_replace_node_rcu100], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   br label %4
 
 4:                                                ; preds = %59, %3
@@ -1012,7 +1012,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load i64, ptr %0, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %.loopexit15, label %.preheader, !prof !7
@@ -1208,7 +1208,7 @@ define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @rb_first(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local ptr @rb_first(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -1226,7 +1226,7 @@ define dso_local ptr @rb_first(ptr nocapture noundef readonly %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @rb_last(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local ptr @rb_last(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -1373,7 +1373,7 @@ define dso_local void @rb_replace_node(ptr noundef readonly %0, ptr noundef init
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rb_replace_node_rcu(ptr noundef readonly %0, ptr noundef initializes((0, 24)) %1, ptr noundef %2) #0 align 16 {
@@ -1478,7 +1478,7 @@ define dso_local ptr @rb_next_postorder(ptr noundef readonly %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @rb_first_postorder(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local ptr @rb_first_postorder(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_pcre2_utf8_table2 = external local_unnamed_addr constant [0 x i32], align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @_pcre2_utf8_table1_size, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge26

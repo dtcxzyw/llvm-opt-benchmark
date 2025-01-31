@@ -17,7 +17,7 @@ $_ZGVZN8QuantLib9SingletonINS_13SeedGeneratorESt17integral_constantIbLb0EEE8inst
 @_ZN8QuantLib28Xoshiro256StarStarUniformRngC1Emmmm = unnamed_addr alias void (ptr, i64, i64, i64, i64), ptr @_ZN8QuantLib28Xoshiro256StarStarUniformRngC2Emmmm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28Xoshiro256StarStarUniformRngC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28Xoshiro256StarStarUniformRngC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq i64 %seed, 0
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -101,7 +101,7 @@ cond.end:                                         ; preds = %entry, %_ZN8QuantLi
 declare noundef i64 @_ZN8QuantLib13SeedGenerator3getEv(ptr noundef nonnull align 8 dereferenceable(5000)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib28Xoshiro256StarStarUniformRngC2Emmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, i64 noundef %s0, i64 noundef %s1, i64 noundef %s2, i64 noundef %s3) unnamed_addr #2 align 2 {
+define void @_ZN8QuantLib28Xoshiro256StarStarUniformRngC2Emmmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, i64 noundef %s0, i64 noundef %s1, i64 noundef %s2, i64 noundef %s3) unnamed_addr #2 align 2 {
 entry:
   store i64 %s0, ptr %this, align 8, !tbaa !4
   %s1_ = getelementptr inbounds nuw i8, ptr %this, i64 8

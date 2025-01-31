@@ -194,7 +194,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.134 = private unnamed_addr constant [27 x i8] c"No fault value '%s' found.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @sema_analyse_ct_assert_stmt(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @sema_analyse_ct_assert_stmt(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 0
@@ -311,12 +311,12 @@ declare void @sema_error_at(i64, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @sema_check_comp_time_bool(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @sema_error_prev_at(i64, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @sema_analyse_ct_echo_stmt(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @sema_analyse_ct_echo_stmt(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %4) #9
@@ -421,10 +421,10 @@ define dso_local noundef zeroext i1 @sema_analyse_ct_echo_stmt(ptr noundef %0, p
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare ptr @int_to_str(ptr noundef byval(%struct.Int) align 8, i32 noundef) local_unnamed_addr #1
 
@@ -676,7 +676,7 @@ define dso_local noundef zeroext i1 @sema_analyse_statement(ptr noundef %0, ptr 
   %indvars.iv.i127 = phi i64 [ 0, %.lr.ph.preheader.i124 ], [ %indvars.iv.next.i128, %113 ]
   %114 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.i127
   %115 = load ptr, ptr %114, align 8
-  %116 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %115) #9
+  %116 = tail call zeroext i1 @sema_analyse_expr(ptr noundef nonnull %0, ptr noundef %115) #9
   br i1 %116, label %117, label %.sink.split
 
 117:                                              ; preds = %.lr.ph.i126
@@ -924,7 +924,7 @@ context_labels_exist_in_scope.exit.i:             ; preds = %.lr.ph.i.i118
   %241 = getelementptr inbounds nuw %struct.Ast_, ptr %239, i64 %240
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %243 = load i32, ptr %242, align 8
-  %244 = tail call zeroext i1 @sema_analyse_statement(ptr noundef %0, ptr noundef nonnull %241)
+  %244 = tail call zeroext i1 @sema_analyse_statement(ptr noundef nonnull %0, ptr noundef nonnull %241)
   br i1 %244, label %247, label %245
 
 245:                                              ; preds = %.lr.ph389
@@ -3177,7 +3177,7 @@ sema_return_optional_check_is_valid_in_scope.exit.thread.i.i: ; preds = %1335, %
   br label %sema_analyse_macro_constant_ensures.exit.thread64.i.i
 
 1409:                                             ; preds = %.lr.ph.i55.i.i
-  %1410 = tail call zeroext i1 @sema_analyse_cond_expr(ptr noundef %0, ptr noundef nonnull %1401) #9
+  %1410 = tail call zeroext i1 @sema_analyse_cond_expr(ptr noundef nonnull %0, ptr noundef nonnull %1401) #9
   br i1 %1410, label %1411, label %sema_analyse_macro_constant_ensures.exit.thread64.i.i
 
 1411:                                             ; preds = %1409
@@ -5089,7 +5089,7 @@ sema_analyse_statement_inner.exit:                ; preds = %247, %233
   %.not21.i.i107 = icmp eq ptr %.017.i.i102.lcssa, null
   %2342 = getelementptr inbounds nuw i8, ptr %.017.i.i102.lcssa, i64 8
   %2343 = select i1 %.not21.i.i107, ptr %237, ptr %2342
-  tail call void @context_pop_defers(ptr noundef %0, ptr noundef nonnull %2343) #9
+  tail call void @context_pop_defers(ptr noundef nonnull %0, ptr noundef nonnull %2343) #9
   %2344 = load i8, ptr %24, align 4
   %.lobit.i = and i8 %2344, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %234, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
@@ -5143,7 +5143,7 @@ sema_analyse_statement_inner.exit.thread188:      ; preds = %73, %.thread, %sema
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sema_append_contract_asserts(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @sema_append_contract_asserts(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %23, label %3
 
@@ -5189,7 +5189,7 @@ define dso_local void @sema_append_contract_asserts(i32 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @sema_analyse_contracts(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @sema_analyse_contracts(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %.not50 = icmp eq i32 %1, 0
   br i1 %.not50, label %sema_analyse_optional_returns.exit.thread, label %.lr.ph
 
@@ -5542,7 +5542,7 @@ vec_resize.exit112:                               ; preds = %vec_resize.exit, %3
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %51 ]
   %52 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call zeroext i1 @sema_add_local(ptr noundef %0, ptr noundef %53) #9
+  %54 = tail call zeroext i1 @sema_add_local(ptr noundef nonnull %0, ptr noundef %53) #9
   br i1 %54, label %51, label %.loopexit
 
 ._crit_edge:                                      ; preds = %51, %vec_resize.exit112, %48
@@ -5582,7 +5582,7 @@ vec_resize.exit112:                               ; preds = %vec_resize.exit, %3
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, -4097
   store i32 %70, ptr %68, align 8
-  %71 = tail call zeroext i1 @sema_add_local(ptr noundef %0, ptr noundef %67) #9
+  %71 = tail call zeroext i1 @sema_add_local(ptr noundef nonnull %0, ptr noundef %67) #9
   br i1 %71, label %65, label %.loopexit
 
 .loopexit118:                                     ; preds = %65, %58, %62, %._crit_edge
@@ -5592,7 +5592,7 @@ vec_resize.exit112:                               ; preds = %vec_resize.exit, %3
   store i8 0, ptr %6, align 1
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %73 = load i32, ptr %72, align 4
-  %74 = call zeroext i1 @sema_analyse_contracts(ptr noundef %0, i32 noundef %73, ptr noundef nonnull %5, i64 0, ptr noundef nonnull %6)
+  %74 = call zeroext i1 @sema_analyse_contracts(ptr noundef nonnull %0, i32 noundef %73, ptr noundef nonnull %5, i64 0, ptr noundef nonnull %6)
   br i1 %74, label %75, label %.loopexit
 
 75:                                               ; preds = %.loopexit118
@@ -5690,7 +5690,7 @@ sema_append_contract_asserts.exit:                ; preds = %._crit_edge.i, %85,
   %127 = getelementptr inbounds nuw %struct.Ast_, ptr %125, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i32, ptr %128, align 8
-  %130 = call zeroext i1 @sema_analyse_statement(ptr noundef %0, ptr noundef nonnull %127)
+  %130 = call zeroext i1 @sema_analyse_statement(ptr noundef nonnull %0, ptr noundef nonnull %127)
   br i1 %130, label %133, label %131
 
 131:                                              ; preds = %.lr.ph.i114
@@ -5709,7 +5709,7 @@ sema_analyse_compound_statement_no_scope.exit:    ; preds = %133, %121
   %.not21.i = icmp eq ptr %.017.lcssa.i, null
   %134 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i, i64 8
   %135 = select i1 %.not21.i, ptr %123, ptr %134
-  call void @context_pop_defers(ptr noundef %0, ptr noundef nonnull %135) #9
+  call void @context_pop_defers(ptr noundef nonnull %0, ptr noundef nonnull %135) #9
   br i1 %.0.lcssa.i117, label %136, label %.loopexit
 
 136:                                              ; preds = %sema_analyse_compound_statement_no_scope.exit
@@ -5769,7 +5769,7 @@ sema_analyse_compound_statement_no_scope.exit:    ; preds = %133, %121
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @context_change_scope_with_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -7257,7 +7257,7 @@ declare zeroext i1 @sema_analyse_ct_expr(ptr noundef, ptr noundef) local_unnamed
 declare zeroext i1 @sema_analyse_cond_expr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sema_analyse_label(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @sema_analyse_label(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -7470,7 +7470,7 @@ declare ptr @type_get_ptr(ptr noundef) local_unnamed_addr #1
 declare ptr @sema_find_operator(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @type_flatten(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @type_flatten(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %16, %1
@@ -7595,7 +7595,7 @@ declare void @context_change_scope_for_label(ptr noundef, i32 noundef) local_unn
 declare void @context_pop_defers_and_replace_ast(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @sema_analyse_cond(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @sema_analyse_cond(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
   %4 = icmp ne i32 %2, 0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -8657,7 +8657,7 @@ declare void @sema_erase_var(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @sema_erase_unwrapped(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sema_inline_return_defers(ptr noundef %0, ptr nocapture noundef initializes((24, 28)) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @sema_inline_return_defers(ptr noundef %0, ptr noundef captures(none) initializes((24, 28)) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @context_get_defers(ptr noundef %0, i32 noundef %2, i32 noundef %3, i1 noundef zeroext true) #9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -8748,7 +8748,7 @@ define internal fastcc void @sema_inline_return_defers(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @assert_create_from_contract(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @assert_create_from_contract(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i64 %3) unnamed_addr #0 {
   %5 = tail call ptr @copy_ast_single(ptr noundef %1) #9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -8917,10 +8917,10 @@ declare void @context_pop_defers(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

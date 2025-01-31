@@ -311,7 +311,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN13VM_ThreadDumpC1EP16ThreadDumpResultP13GrowableArrayI14instanceHandleEiibb = hidden unnamed_addr alias void (ptr, ptr, ptr, i32, i32, i1, i1), ptr @_ZN13VM_ThreadDumpC2EP16ThreadDumpResultP13GrowableArrayI14instanceHandleEiibb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12VM_Operation18set_calling_threadEP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12VM_Operation18set_calling_threadEP6Thread(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
@@ -448,7 +448,7 @@ define hidden void @_ZNK12VM_Operation14print_on_errorEP12outputStream(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11VM_ClearICs4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN11VM_ClearICs4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -471,7 +471,7 @@ declare void @_ZN9CodeCache30cleanup_inline_caches_whiteboxEv() local_unnamed_ad
 declare void @_ZN9CodeCache19clear_inline_cachesEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN33VM_CleanClassLoaderDataMetaspaces4doitEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN33VM_CleanClassLoaderDataMetaspaces4doitEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN20ClassLoaderDataGraph34walk_metadata_and_clean_metaspacesEv() #10
   ret void
 }
@@ -479,7 +479,7 @@ define hidden void @_ZN33VM_CleanClassLoaderDataMetaspaces4doitEv(ptr nocapture 
 declare void @_ZN20ClassLoaderDataGraph34walk_metadata_and_clean_metaspacesEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20VM_RehashStringTable4doitEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN20VM_RehashStringTable4doitEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN11StringTable12rehash_tableEv() #10
   ret void
 }
@@ -487,7 +487,7 @@ define hidden void @_ZN20VM_RehashStringTable4doitEv(ptr nocapture nonnull readn
 declare void @_ZN11StringTable12rehash_tableEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20VM_RehashSymbolTable4doitEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN20VM_RehashSymbolTable4doitEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN11SymbolTable12rehash_tableEv() #10
   ret void
 }
@@ -495,7 +495,7 @@ define hidden void @_ZN20VM_RehashSymbolTable4doitEv(ptr nocapture nonnull readn
 declare void @_ZN11SymbolTable12rehash_tableEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18VM_DeoptimizeFrameC2EP10JavaThreadPli(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN18VM_DeoptimizeFrameC2EP10JavaThreadPli(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) initializes((0, 36)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV18VM_DeoptimizeFrame, i64 16), ptr %0, align 8
@@ -509,7 +509,7 @@ define hidden void @_ZN18VM_DeoptimizeFrameC2EP10JavaThreadPli(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18VM_DeoptimizeFrame4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN18VM_DeoptimizeFrame4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -523,7 +523,7 @@ define hidden void @_ZN18VM_DeoptimizeFrame4doitEv(ptr nocapture noundef nonnull
 declare void @_ZN14Deoptimization25deoptimize_frame_internalEP10JavaThreadPlNS_11DeoptReasonE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN15VM_PrintThreads13doit_prologueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %0) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN15VM_PrintThreads13doit_prologueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -541,7 +541,7 @@ define hidden noundef zeroext i1 @_ZN15VM_PrintThreads13doit_prologueEv(ptr noca
 declare void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15VM_PrintThreads4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN15VM_PrintThreads4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -570,7 +570,7 @@ declare void @_ZN7Threads8print_onEP12outputStreambbbb(ptr noundef, i1 noundef z
 declare void @_ZN10JNIHandles8print_onEP12outputStream(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15VM_PrintThreads13doit_epilogueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN15VM_PrintThreads13doit_epilogueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -588,7 +588,7 @@ define hidden void @_ZN15VM_PrintThreads13doit_epilogueEv(ptr nocapture noundef 
 declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16VM_PrintMetadata4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN16VM_PrintMetadata4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -698,7 +698,7 @@ declare void @_ZNK13DeadlockCycle13print_on_withEP11ThreadsListP12outputStream(p
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13VM_ThreadDumpC2EP16ThreadDumpResultibb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(46) initializes((0, 28), (32, 46)) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN13VM_ThreadDumpC2EP16ThreadDumpResultibb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(46) initializes((0, 28), (32, 46)) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %3 to i8
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -720,7 +720,7 @@ define hidden void @_ZN13VM_ThreadDumpC2EP16ThreadDumpResultibb(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13VM_ThreadDumpC2EP16ThreadDumpResultP13GrowableArrayI14instanceHandleEiibb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(46) initializes((0, 28), (32, 46)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN13VM_ThreadDumpC2EP16ThreadDumpResultP13GrowableArrayI14instanceHandleEiibb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(46) initializes((0, 28), (32, 46)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = zext i1 %5 to i8
   %9 = zext i1 %6 to i8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -742,7 +742,7 @@ define hidden void @_ZN13VM_ThreadDumpC2EP16ThreadDumpResultP13GrowableArrayI14i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13VM_ThreadDump13doit_prologueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(46) %0) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN13VM_ThreadDump13doit_prologueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(46) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -758,7 +758,7 @@ define hidden noundef zeroext i1 @_ZN13VM_ThreadDump13doit_prologueEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13VM_ThreadDump13doit_epilogueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(46) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN13VM_ThreadDump13doit_epilogueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(46) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -774,7 +774,7 @@ define hidden void @_ZN13VM_ThreadDump13doit_epilogueEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13VM_ThreadDump4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(46) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN13VM_ThreadDump4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(46) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ConcurrentLocksDump, align 8
   %3 = alloca %class.ObjectMonitorsDump, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1030,7 +1030,7 @@ declare noundef ptr @_ZN16ThreadDumpResult6t_listEv(ptr noundef nonnull align 8 
 declare noundef ptr @_ZN19ConcurrentLocksDump23thread_concurrent_locksEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(17), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13VM_ThreadDump15snapshot_threadEP10JavaThreadP21ThreadConcurrentLocksP18ObjectMonitorsView(ptr nocapture noundef nonnull readonly align 8 dereferenceable(46) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13VM_ThreadDump15snapshot_threadEP10JavaThreadP21ThreadConcurrentLocksP18ObjectMonitorsView(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(46) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @_ZN16ThreadDumpResult19add_thread_snapshotEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef %1) #10
@@ -1327,7 +1327,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread: ; preds = %_ZN28Jav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7VM_Exit4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN7VM_Exit4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %3 = alloca %class.HandleMark, align 8
   %4 = load i8, ptr @VerifyBeforeExit, align 1
@@ -1469,7 +1469,7 @@ define hidden void @_ZN7VM_Exit17wait_if_vm_exitedEv() local_unnamed_addr #1 ali
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20VM_PrintCompileQueue4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN20VM_PrintCompileQueue4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN13CompileBroker20print_compile_queuesEP12outputStream(ptr noundef %3) #10
@@ -1479,7 +1479,7 @@ define hidden void @_ZN20VM_PrintCompileQueue4doitEv(ptr nocapture noundef nonnu
 declare void @_ZN13CompileBroker20print_compile_queuesEP12outputStream(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22VM_PrintClassHierarchy4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN22VM_PrintClassHierarchy4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1884,7 +1884,7 @@ _ZN18ObjectMonitorsDump5visitEP14MonitorClosureP10JavaThread.exit: ; preds = %20
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noundef ptr @_ZNK13ObjectMonitor11object_peekEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #2
 
@@ -2539,10 +2539,10 @@ define linkonce_odr hidden void @_ZN17LogStreamImplBaseD0Ev(ptr noundef nonnull 
 declare void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

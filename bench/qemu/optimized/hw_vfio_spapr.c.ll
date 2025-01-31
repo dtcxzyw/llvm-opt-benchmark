@@ -74,7 +74,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.34 = private unnamed_addr constant [51 x i8] c"vfio_prereg_unregister va=0x%lx size=0x%lx ret=%d\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vfio_container_add_section_window(ptr noundef %container, ptr nocapture noundef readonly %section, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @vfio_container_add_section_window(ptr noundef %container, ptr noundef readonly captures(none) %section, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %create.i = alloca %struct.vfio_iommu_spapr_tce_create, align 8
@@ -408,7 +408,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_container_del_section_window(ptr nocapture noundef readonly %container, ptr nocapture noundef readonly %section) local_unnamed_addr #0 {
+define dso_local void @vfio_container_del_section_window(ptr noundef readonly captures(none) %container, ptr noundef readonly captures(none) %section) local_unnamed_addr #0 {
 entry:
   %iommu_type = getelementptr inbounds nuw i8, ptr %container, i64 400
   %0 = load i32, ptr %iommu_type, align 8
@@ -707,7 +707,7 @@ declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @memory_listener_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -781,7 +781,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i64 @memory_region_iommu_get_min_page_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i64 @qemu_minrampagesize() local_unnamed_addr #1
 
@@ -799,7 +799,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
 declare i32 @getpagesize() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -809,7 +809,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_prereg_listener_region_add(ptr noundef %listener, ptr nocapture noundef readonly %section) #0 {
+define internal void @vfio_prereg_listener_region_add(ptr noundef %listener, ptr noundef readonly captures(none) %section) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %reg = alloca %struct.vfio_iommu_spapr_register_memory, align 8
@@ -1001,7 +1001,7 @@ if.end51:                                         ; preds = %if.end51.critedge, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_prereg_listener_region_del(ptr nocapture noundef readonly %listener, ptr nocapture noundef readonly %section) #0 {
+define internal void @vfio_prereg_listener_region_del(ptr noundef readonly captures(none) %listener, ptr noundef readonly captures(none) %section) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %reg = alloca %struct.vfio_iommu_spapr_register_memory, align 8
@@ -1261,10 +1261,10 @@ _nocheck__trace_vfio_prereg_unregister.exit:      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

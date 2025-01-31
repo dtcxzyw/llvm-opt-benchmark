@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hash_algos = external constant [3 x %struct.git_hash_algo], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @record_resolve_undo(ptr nocapture noundef %istate, ptr noundef %ce) local_unnamed_addr #0 {
+define dso_local void @record_resolve_undo(ptr noundef captures(none) %istate, ptr noundef %ce) local_unnamed_addr #0 {
 entry:
   %ce_flags = getelementptr inbounds nuw i8, ptr %ce, i64 56
   %0 = load i32, ptr %ce_flags, align 8
@@ -79,7 +79,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @string_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @resolve_undo_write(ptr noundef %sb, ptr nocapture noundef readonly %resolve_undo) local_unnamed_addr #0 {
+define dso_local void @resolve_undo_write(ptr noundef %sb, ptr noundef readonly captures(none) %resolve_undo) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %resolve_undo, align 8
   %tobool.not21 = icmp eq ptr %0, null
@@ -105,7 +105,7 @@ for.body:                                         ; preds = %land.rhs.lr.ph, %fo
 if.end:                                           ; preds = %for.body
   %4 = load ptr, ptr %item.02230, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
-  tail call void @strbuf_add(ptr noundef %sb, ptr noundef %4, i64 noundef %call.i) #6
+  tail call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %4, i64 noundef %call.i) #6
   %5 = load i64, ptr %sb, align 8
   %tobool.not.i.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
@@ -220,7 +220,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.not, label %if.end, label %error
 
 if.end:                                           ; preds = %while.body
-  %call4 = tail call ptr @string_list_insert(ptr noundef %call, ptr noundef %data.addr.049) #6
+  %call4 = tail call ptr @string_list_insert(ptr noundef %call, ptr noundef nonnull %data.addr.049) #6
   %util = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %3 = load ptr, ptr %util, align 8
   %tobool5.not = icmp eq ptr %3, null
@@ -327,17 +327,17 @@ return:                                           ; preds = %while.cond.loopexit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @resolve_undo_clear_index(ptr nocapture noundef %istate) local_unnamed_addr #0 {
+define dso_local void @resolve_undo_clear_index(ptr noundef captures(none) %istate) local_unnamed_addr #0 {
 entry:
   %resolve_undo1 = getelementptr inbounds nuw i8, ptr %istate, i64 24
   %0 = load ptr, ptr %resolve_undo1, align 8
@@ -359,14 +359,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @unmerge_index_entry(ptr noundef %istate, ptr noundef %path, ptr noundef %ru, i32 noundef %ce_flags) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #7
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @index_name_pos(ptr noundef %istate, ptr noundef %path, i32 noundef %conv) #6
+  %call1 = tail call i32 @index_name_pos(ptr noundef %istate, ptr noundef nonnull %path, i32 noundef %conv) #6
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -410,7 +410,7 @@ if.end16:                                         ; preds = %for.body
   %arrayidx21 = getelementptr inbounds nuw [3 x %struct.object_id], ptr %oid, i64 0, i64 %indvars.iv
   %4 = add nuw nsw i64 %indvars.iv, 1
   %5 = trunc nuw nsw i64 %4 to i32
-  %call22 = tail call ptr @make_cache_entry(ptr noundef %istate, i32 noundef %3, ptr noundef nonnull %arrayidx21, ptr noundef %path, i32 noundef %5, i32 noundef 0) #6
+  %call22 = tail call ptr @make_cache_entry(ptr noundef %istate, i32 noundef %3, ptr noundef nonnull %arrayidx21, ptr noundef nonnull %path, i32 noundef %5, i32 noundef 0) #6
   %ce_flags23 = getelementptr inbounds nuw i8, ptr %call22, i64 56
   %6 = load i32, ptr %ce_flags23, align 8
   %or = or i32 %6, %ce_flags
@@ -420,7 +420,7 @@ if.end16:                                         ; preds = %for.body
   br i1 %tobool25.not, label %for.inc, label %if.then26
 
 if.then26:                                        ; preds = %if.end16
-  %call27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef %path) #6
+  %call27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull %path) #6
   br label %return
 
 for.inc:                                          ; preds = %for.body.for.inc_crit_edge, %if.end16
@@ -436,7 +436,7 @@ return:                                           ; preds = %for.inc, %land.lhs.
 declare i32 @index_name_pos(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @remove_index_entry_at(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -479,12 +479,12 @@ for.body:                                         ; preds = %land.rhs.preheader,
 if.end9:                                          ; preds = %for.body
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %conv = trunc i64 %call to i32
-  %call12 = tail call i32 @match_pathspec(ptr noundef nonnull %istate, ptr noundef %pathspec, ptr noundef %6, i32 noundef %conv, i32 noundef 0, ptr noundef null, i32 noundef 0) #6
+  %call12 = tail call i32 @match_pathspec(ptr noundef nonnull %istate, ptr noundef %pathspec, ptr noundef nonnull %6, i32 noundef %conv, i32 noundef 0, ptr noundef null, i32 noundef 0) #6
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %for.inc, label %if.end15
 
 if.end15:                                         ; preds = %if.end9
-  %call16 = tail call i32 @unmerge_index_entry(ptr noundef nonnull %istate, ptr noundef %6, ptr noundef nonnull %7, i32 noundef %ce_flags)
+  %call16 = tail call i32 @unmerge_index_entry(ptr noundef nonnull %istate, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %ce_flags)
   tail call void @free(ptr noundef nonnull %7) #6
   store ptr null, ptr %util, align 8
   br label %for.inc
@@ -508,7 +508,7 @@ declare void @ensure_full_index(ptr noundef) local_unnamed_addr #1
 declare i32 @match_pathspec(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 

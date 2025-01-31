@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @meshopt_buildMeshlets(ptr nocapture noundef writeonly %meshlets, ptr nocapture noundef %meshlet_vertices, ptr nocapture noundef writeonly %meshlet_triangles, ptr nocapture noundef readonly %indices, i64 noundef %index_count, ptr nocapture noundef readonly %vertex_positions, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, i64 noundef %max_vertices, i64 noundef %max_triangles, float noundef %cone_weight) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none) %meshlets, ptr noundef captures(none) %meshlet_vertices, ptr noundef writeonly captures(none) %meshlet_triangles, ptr noundef readonly captures(none) %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, i64 noundef %max_vertices, i64 noundef %max_triangles, float noundef %cone_weight) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   %adjacency = alloca %"struct.meshopt::TriangleAdjacency2", align 8
@@ -736,18 +736,18 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @sqrtf(float noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfmPjmm(i64 noundef %offset, ptr nocapture noundef %nodes, ptr nocapture noundef readonly %points, ptr nocapture noundef %indices, i64 noundef %count) unnamed_addr #5 {
+define internal fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfmPjmm(i64 noundef %offset, ptr noundef captures(none) %nodes, ptr noundef readonly captures(none) %points, ptr noundef captures(none) %indices, i64 noundef %count) unnamed_addr #5 {
 entry:
   %mean = alloca [3 x float], align 4
   %vars = alloca [3 x float], align 4
@@ -932,7 +932,7 @@ return:                                           ; preds = %_ZN7meshoptL15kdtre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN7meshoptL19getNeighborTriangleERK15meshopt_MeshletPKNS_4ConeEPjPKjRKNS_18TriangleAdjacency2ES5_S8_PKhffS6_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %meshlet, ptr noundef readonly %meshlet_cone, ptr nocapture noundef readonly %meshlet_vertices, ptr nocapture noundef readonly %indices, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %adjacency, ptr nocapture noundef readonly %triangles, ptr nocapture noundef readonly %live_triangles, ptr nocapture noundef readonly %used, float noundef %meshlet_expected_radius, float noundef %cone_weight, ptr noundef writeonly %out_extra) unnamed_addr #6 {
+define internal fastcc noundef i32 @_ZN7meshoptL19getNeighborTriangleERK15meshopt_MeshletPKNS_4ConeEPjPKjRKNS_18TriangleAdjacency2ES5_S8_PKhffS6_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %meshlet, ptr noundef readonly %meshlet_cone, ptr noundef readonly captures(none) %meshlet_vertices, ptr noundef readonly captures(none) %indices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %adjacency, ptr noundef readonly captures(none) %triangles, ptr noundef readonly captures(none) %live_triangles, ptr noundef readonly captures(none) %used, float noundef %meshlet_expected_radius, float noundef %cone_weight, ptr noundef writeonly %out_extra) unnamed_addr #6 {
 entry:
   %vertex_count = getelementptr inbounds nuw i8, ptr %meshlet, i64 8
   %0 = load i32, ptr %vertex_count, align 4
@@ -1237,7 +1237,7 @@ if.end103:                                        ; preds = %if.then102, %for.en
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf(ptr nocapture noundef readonly %nodes, i32 noundef %root, ptr nocapture noundef readonly %points, ptr nocapture noundef readonly %emitted_flags, ptr nocapture noundef nonnull readonly %position, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %limit) unnamed_addr #5 {
+define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf(ptr noundef readonly captures(none) %nodes, i32 noundef %root, ptr noundef readonly captures(none) %points, ptr noundef readonly captures(none) %emitted_flags, ptr noundef nonnull readonly captures(none) %position, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %limit) unnamed_addr #5 {
 entry:
   %idxprom47 = zext i32 %root to i64
   %arrayidx48 = getelementptr inbounds nuw %"struct.meshopt::KDNode", ptr %nodes, i64 %idxprom47
@@ -1340,7 +1340,7 @@ if.end51:                                         ; preds = %if.else, %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN7meshoptL13appendMeshletER15meshopt_MeshletjjjPhPS0_PjS2_mmm(ptr nocapture noundef nonnull align 4 dereferenceable(16) %meshlet, i32 noundef %a, i32 noundef %b, i32 noundef %c, ptr nocapture noundef %used, ptr nocapture noundef writeonly %meshlets, ptr nocapture noundef %meshlet_vertices, ptr nocapture noundef writeonly %meshlet_triangles, i64 noundef %meshlet_offset, i64 noundef %max_vertices, i64 noundef %max_triangles) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @_ZN7meshoptL13appendMeshletER15meshopt_MeshletjjjPhPS0_PjS2_mmm(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %meshlet, i32 noundef %a, i32 noundef %b, i32 noundef %c, ptr noundef captures(none) %used, ptr noundef writeonly captures(none) %meshlets, ptr noundef captures(none) %meshlet_vertices, ptr noundef writeonly captures(none) %meshlet_triangles, i64 noundef %meshlet_offset, i64 noundef %max_vertices, i64 noundef %max_triangles) unnamed_addr #7 {
 entry:
   %idxprom = zext i32 %a to i64
   %arrayidx = getelementptr inbounds nuw i8, ptr %used, i64 %idxprom
@@ -1560,7 +1560,7 @@ terminate.lpad:                                   ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @meshopt_buildMeshletsScan(ptr nocapture noundef writeonly %meshlets, ptr nocapture noundef %meshlet_vertices, ptr nocapture noundef writeonly %meshlet_triangles, ptr nocapture noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, i64 noundef %max_vertices, i64 noundef %max_triangles) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @meshopt_buildMeshletsScan(ptr noundef writeonly captures(none) %meshlets, ptr noundef captures(none) %meshlet_vertices, ptr noundef writeonly captures(none) %meshlet_triangles, ptr noundef readonly captures(none) %indices, i64 noundef %index_count, i64 noundef %vertex_count, i64 noundef %max_vertices, i64 noundef %max_triangles) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   %meshlet = alloca %struct.meshopt_Meshlet, align 4
@@ -1662,7 +1662,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define dso_local void @meshopt_computeClusterBounds(ptr noalias nocapture writeonly sret(%struct.meshopt_Bounds) align 4 %agg.result, ptr nocapture noundef readonly %indices, i64 noundef %index_count, ptr nocapture noundef readonly %vertex_positions, i64 %vertex_count, i64 noundef %vertex_positions_stride) local_unnamed_addr #9 {
+define dso_local void @meshopt_computeClusterBounds(ptr noalias writeonly sret(%struct.meshopt_Bounds) align 4 captures(none) %agg.result, ptr noundef readonly captures(none) %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions, i64 %vertex_count, i64 noundef %vertex_positions_stride) local_unnamed_addr #9 {
 entry:
   %normals = alloca [512 x [3 x float]], align 16
   %corners = alloca [512 x [3 x [3 x float]]], align 16
@@ -1948,7 +1948,7 @@ return:                                           ; preds = %for.end.thread, %fo
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr nocapture noundef nonnull writeonly %result, ptr nocapture noundef nonnull readonly %points, i64 noundef %count) unnamed_addr #9 {
+define internal fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr noundef nonnull writeonly captures(none) %result, ptr noundef nonnull readonly captures(none) %points, i64 noundef %count) unnamed_addr #9 {
 entry:
   %pmin = alloca [3 x i64], align 16
   %pmax = alloca [3 x i64], align 16
@@ -2120,7 +2120,7 @@ for.end146:                                       ; preds = %for.inc144, %for.en
 declare float @llvm.fabs.f32(float) #10
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define dso_local void @meshopt_computeMeshletBounds(ptr noalias nocapture writeonly sret(%struct.meshopt_Bounds) align 4 %agg.result, ptr nocapture noundef readonly %meshlet_vertices, ptr nocapture noundef readonly %meshlet_triangles, i64 noundef %triangle_count, ptr nocapture noundef readonly %vertex_positions, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride) local_unnamed_addr #9 {
+define dso_local void @meshopt_computeMeshletBounds(ptr noalias writeonly sret(%struct.meshopt_Bounds) align 4 captures(none) %agg.result, ptr noundef readonly captures(none) %meshlet_vertices, ptr noundef readonly captures(none) %meshlet_triangles, i64 noundef %triangle_count, ptr noundef readonly captures(none) %vertex_positions, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride) local_unnamed_addr #9 {
 entry:
   %indices = alloca [1536 x i32], align 16
   %mul = mul i64 %triangle_count, 3

@@ -199,7 +199,7 @@ declare void @_ZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt
 declare noundef i32 @_ZNK5arrow7compute16RowTableMetadata18num_varbinary_colsEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute15RowTableEncoder22PrepareKeyColumnArraysEllRKSt6vectorINS0_14KeyColumnArrayESaIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, i64 noundef %start_row, i64 noundef %num_rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cols_in) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute15RowTableEncoder22PrepareKeyColumnArraysEllRKSt6vectorINS0_14KeyColumnArrayESaIS3_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, i64 noundef %start_row, i64 noundef %num_rows, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cols_in) local_unnamed_addr #0 align 2 {
 entry:
   %col_window = alloca %"class.arrow::compute::KeyColumnArray", align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %cols_in, i64 8
@@ -303,10 +303,10 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 declare void @_ZNK5arrow7compute14KeyColumnArray5SliceEll(ptr sret(%"class.arrow::compute::KeyColumnArray") align 8, ptr noundef nonnull align 8 dereferenceable(72), i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute15RowTableEncoder24DecodeFixedLengthBuffersElllRKNS0_12RowTableImplEPSt6vectorINS0_14KeyColumnArrayESaIS6_EElPNS_4util15TempVectorStackE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, i64 noundef %start_row_input, i64 noundef %start_row_output, i64 noundef %num_rows, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr nocapture noundef nonnull readonly %cols, i64 noundef %hardware_flags, ptr noundef %temp_stack) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute15RowTableEncoder24DecodeFixedLengthBuffersElllRKNS0_12RowTableImplEPSt6vectorINS0_14KeyColumnArrayESaIS6_EElPNS_4util15TempVectorStackE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, i64 noundef %start_row_input, i64 noundef %start_row_output, i64 noundef %num_rows, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef nonnull readonly captures(none) %cols, i64 noundef %hardware_flags, ptr noundef %temp_stack) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ctx = alloca %"struct.arrow::compute::LightContext", align 8
   %temp_buffer_holder_A = alloca %"class.arrow::util::TempVectorHolder", align 8
@@ -633,7 +633,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN5arrow7compute14KeyColumnArrayC1ERKNS0_17KeyColumnMetadataElPhS5_S5_ii(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(8), i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute14EncoderOffsets6DecodeEjjRKNS0_12RowTableImplEPSt6vectorINS0_14KeyColumnArrayESaIS6_EERKS5_IjSaIjEEPNS0_12LightContextE(i32 noundef %start_row, i32 noundef %num_rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %rows, ptr nocapture noundef readonly %varbinary_cols, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %varbinary_cols_base_offset, ptr nocapture noundef readnone %ctx) local_unnamed_addr #3 align 2 {
+define void @_ZN5arrow7compute14EncoderOffsets6DecodeEjjRKNS0_12RowTableImplEPSt6vectorINS0_14KeyColumnArrayESaIS6_EERKS5_IjSaIjEEPNS0_12LightContextE(i32 noundef %start_row, i32 noundef %num_rows, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(209) %rows, ptr noundef readonly captures(none) %varbinary_cols, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %varbinary_cols_base_offset, ptr noundef readnone captures(none) %ctx) local_unnamed_addr #3 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %varbinary_cols, i64 8
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 160
@@ -743,7 +743,7 @@ for.end104:                                       ; preds = %for.inc102, %for.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute13EncoderBinary6DecodeEjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEPNS0_12LightContextES6_(i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col, ptr nocapture noundef readonly %ctx, ptr noundef %temp) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute13EncoderBinary6DecodeEjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEPNS0_12LightContextES6_(i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col, ptr noundef readonly captures(none) %ctx, ptr noundef %temp) local_unnamed_addr #0 align 2 {
 entry:
   %metadata.i.i = alloca %"struct.arrow::compute::KeyColumnMetadata", align 4
   %ref.tmp.i.i = alloca %"class.arrow::compute::KeyColumnArray", align 8
@@ -960,7 +960,7 @@ if.end18:                                         ; preds = %if.end14, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute17EncoderBinaryPair6DecodeEjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES6_PNS0_12LightContextES6_S6_(i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2, ptr nocapture noundef readonly %ctx, ptr noundef %temp1, ptr noundef %temp2) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute17EncoderBinaryPair6DecodeEjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES6_PNS0_12LightContextES6_S6_(i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2, ptr noundef readonly captures(none) %ctx, ptr noundef %temp1, ptr noundef %temp2) local_unnamed_addr #0 align 2 {
 entry:
   %metadata.i.i42 = alloca %"struct.arrow::compute::KeyColumnMetadata", align 4
   %ref.tmp.i.i43 = alloca %"class.arrow::compute::KeyColumnArray", align 8
@@ -1130,7 +1130,7 @@ if.end64:                                         ; preds = %if.end60, %if.then.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute12EncoderNulls6DecodeEjjRKNS0_12RowTableImplEPSt6vectorINS0_14KeyColumnArrayESaIS6_EE(i32 noundef %start_row, i32 noundef %num_rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %rows, ptr nocapture noundef readonly %cols) local_unnamed_addr #3 align 2 {
+define void @_ZN5arrow7compute12EncoderNulls6DecodeEjjRKNS0_12RowTableImplEPSt6vectorINS0_14KeyColumnArrayESaIS6_EE(i32 noundef %start_row, i32 noundef %num_rows, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(209) %rows, ptr noundef readonly captures(none) %cols) local_unnamed_addr #3 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %cols, i64 8
   %null_masks_.i = getelementptr inbounds nuw i8, ptr %rows, i64 128
@@ -1322,7 +1322,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute15RowTableEncoder26DecodeVaryingLengthBuffersElllRKNS0_12RowTableImplEPSt6vectorINS0_14KeyColumnArrayESaIS6_EElPNS_4util15TempVectorStackE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, i64 noundef %start_row_input, i64 noundef %start_row_output, i64 noundef %num_rows, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr nocapture noundef nonnull readonly %cols, i64 noundef %hardware_flags, ptr noundef %temp_stack) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute15RowTableEncoder26DecodeVaryingLengthBuffersElllRKNS0_12RowTableImplEPSt6vectorINS0_14KeyColumnArrayESaIS6_EElPNS_4util15TempVectorStackE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, i64 noundef %start_row_input, i64 noundef %start_row_output, i64 noundef %num_rows, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef nonnull readonly captures(none) %cols, i64 noundef %hardware_flags, ptr noundef %temp_stack) local_unnamed_addr #0 align 2 {
 entry:
   %ctx = alloca %"struct.arrow::compute::LightContext", align 8
   tail call void @_ZN5arrow7compute15RowTableEncoder22PrepareKeyColumnArraysEllRKSt6vectorINS0_14KeyColumnArrayESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %start_row_output, i64 noundef %num_rows, ptr noundef nonnull align 8 dereferenceable(24) %cols)
@@ -1367,7 +1367,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute16EncoderVarBinary6DecodeEjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEPNS0_12LightContextE(i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %varbinary_col_id, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col, ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute16EncoderVarBinary6DecodeEjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEPNS0_12LightContextE(i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %varbinary_col_id, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col, ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i64, ptr %ctx, align 8
   %and.i = and i64 %0, 32
@@ -1516,14 +1516,14 @@ if.end3:                                          ; preds = %_ZZN5arrow7compute1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute15RowTableEncoder21PrepareEncodeSelectedEllRKSt6vectorINS0_14KeyColumnArrayESaIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, i64 noundef %start_row, i64 noundef %num_rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cols) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute15RowTableEncoder21PrepareEncodeSelectedEllRKSt6vectorINS0_14KeyColumnArrayESaIS3_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, i64 noundef %start_row, i64 noundef %num_rows, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cols) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN5arrow7compute15RowTableEncoder22PrepareKeyColumnArraysEllRKSt6vectorINS0_14KeyColumnArrayESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %start_row, i64 noundef %num_rows, ptr noundef nonnull align 8 dereferenceable(24) %cols)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute15RowTableEncoder14EncodeSelectedEPNS0_12RowTableImplEjPKt(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef nonnull %rows, i32 noundef %num_selected, ptr nocapture noundef readonly %selection) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute15RowTableEncoder14EncodeSelectedEPNS0_12RowTableImplEjPKt(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef nonnull %rows, i32 noundef %num_selected, ptr noundef readonly captures(none) %selection) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp11 = alloca %"class.arrow::Status", align 8
@@ -1807,7 +1807,7 @@ declare void @_ZN5arrow7compute12RowTableImpl5CleanEv(ptr noundef nonnull align 
 declare void @_ZN5arrow7compute12RowTableImpl11AppendEmptyEjj(ptr sret(%"class.arrow::Status") align 8, ptr noundef nonnull align 8 dereferenceable(209), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute14EncoderOffsets21GetRowOffsetsSelectedEPNS0_12RowTableImplERKSt6vectorINS0_14KeyColumnArrayESaIS5_EEjPKt(ptr nocapture noundef readonly %rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cols, i32 noundef %num_selected, ptr nocapture noundef readonly %selection) local_unnamed_addr #3 align 2 {
+define void @_ZN5arrow7compute14EncoderOffsets21GetRowOffsetsSelectedEPNS0_12RowTableImplERKSt6vectorINS0_14KeyColumnArrayESaIS5_EEjPKt(ptr noundef readonly captures(none) %rows, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cols, i32 noundef %num_selected, ptr noundef readonly captures(none) %selection) local_unnamed_addr #3 align 2 {
 entry:
   %metadata_.i = getelementptr inbounds nuw i8, ptr %rows, i64 8
   %0 = load i8, ptr %metadata_.i, align 8
@@ -1982,7 +1982,7 @@ return:                                           ; preds = %entry, %for.end97
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute13EncoderBinary14EncodeSelectedEjPNS0_12RowTableImplERKNS0_14KeyColumnArrayEjPKt(i32 noundef %offset_within_row, ptr nocapture noundef readonly %rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %col, i32 noundef %num_selected, ptr nocapture noundef readonly %selection) local_unnamed_addr #3 align 2 {
+define void @_ZN5arrow7compute13EncoderBinary14EncodeSelectedEjPNS0_12RowTableImplERKNS0_14KeyColumnArrayEjPKt(i32 noundef %offset_within_row, ptr noundef readonly captures(none) %rows, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %col, i32 noundef %num_selected, ptr noundef readonly captures(none) %selection) local_unnamed_addr #3 align 2 {
 entry:
   %is_null_type = getelementptr inbounds nuw i8, ptr %col, i64 49
   %0 = load i8, ptr %is_null_type, align 1
@@ -2928,7 +2928,7 @@ if.end33:                                         ; preds = %for.inc87.i278, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute14EncoderOffsets14EncodeSelectedEPNS0_12RowTableImplERKSt6vectorINS0_14KeyColumnArrayESaIS5_EEjPKt(ptr nocapture noundef readonly %rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cols, i32 noundef %num_selected, ptr nocapture noundef readonly %selection) local_unnamed_addr #3 align 2 {
+define void @_ZN5arrow7compute14EncoderOffsets14EncodeSelectedEPNS0_12RowTableImplERKSt6vectorINS0_14KeyColumnArrayESaIS5_EEjPKt(ptr noundef readonly captures(none) %rows, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cols, i32 noundef %num_selected, ptr noundef readonly captures(none) %selection) local_unnamed_addr #3 align 2 {
 entry:
   %metadata_.i = getelementptr inbounds nuw i8, ptr %rows, i64 8
   %0 = load i8, ptr %metadata_.i, align 8
@@ -3173,7 +3173,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute16EncoderVarBinary14EncodeSelectedEjPNS0_12RowTableImplERKNS0_14KeyColumnArrayEjPKt(i32 noundef %ivarbinary, ptr nocapture noundef readonly %rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %cols, i32 noundef %num_selected, ptr nocapture noundef readonly %selection) local_unnamed_addr #3 align 2 {
+define void @_ZN5arrow7compute16EncoderVarBinary14EncodeSelectedEjPNS0_12RowTableImplERKNS0_14KeyColumnArrayEjPKt(i32 noundef %ivarbinary, ptr noundef readonly captures(none) %rows, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %cols, i32 noundef %num_selected, ptr noundef readonly captures(none) %selection) local_unnamed_addr #3 align 2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 160
   %0 = load ptr, ptr %arrayidx.i.i, align 8
@@ -3272,7 +3272,7 @@ if.end:                                           ; preds = %for.body18, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute12EncoderNulls14EncodeSelectedEPNS0_12RowTableImplERKSt6vectorINS0_14KeyColumnArrayESaIS5_EEjPKt(ptr nocapture noundef readonly %rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cols, i32 noundef %num_selected, ptr nocapture noundef readonly %selection) local_unnamed_addr #3 align 2 {
+define void @_ZN5arrow7compute12EncoderNulls14EncodeSelectedEPNS0_12RowTableImplERKSt6vectorINS0_14KeyColumnArrayESaIS5_EEjPKt(ptr noundef readonly captures(none) %rows, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cols, i32 noundef %num_selected, ptr noundef readonly captures(none) %selection) local_unnamed_addr #3 align 2 {
 entry:
   %null_masks_.i = getelementptr inbounds nuw i8, ptr %rows, i64 128
   %0 = load ptr, ptr %null_masks_.i, align 8
@@ -3376,7 +3376,7 @@ for.end22:                                        ; preds = %for.inc20.us, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrow7compute14EncoderInteger9IsBooleanERKNS0_17KeyColumnMetadataE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %metadata) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN5arrow7compute14EncoderInteger9IsBooleanERKNS0_17KeyColumnMetadataE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %metadata) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i8, ptr %metadata, align 4
   %tobool = trunc i8 %0 to i1
@@ -3393,7 +3393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrow7compute14EncoderInteger13UsesTransformERKNS0_14KeyColumnArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %column) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN5arrow7compute14EncoderInteger13UsesTransformERKNS0_14KeyColumnArrayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %column) local_unnamed_addr #5 align 2 {
 entry:
   %metadata_.i = getelementptr inbounds nuw i8, ptr %column, i64 48
   %0 = load i8, ptr %metadata_.i, align 8
@@ -3450,7 +3450,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute14EncoderInteger10PostDecodeERKNS0_14KeyColumnArrayEPS2_PNS0_12LightContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %input, ptr nocapture noundef readonly %output, ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute14EncoderInteger10PostDecodeERKNS0_14KeyColumnArrayEPS2_PNS0_12LightContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %input, ptr noundef readonly captures(none) %output, ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 align 2 {
 entry:
   %metadata_.i = getelementptr inbounds nuw i8, ptr %output, i64 48
   %0 = load i8, ptr %metadata_.i, align 4
@@ -3485,7 +3485,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute14EncoderInteger6DecodeEjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEPNS0_12LightContextES6_(i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %rows, ptr noundef %col, ptr nocapture noundef readonly %ctx, ptr noundef %temp) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute14EncoderInteger6DecodeEjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEPNS0_12LightContextES6_(i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(209) %rows, ptr noundef %col, ptr noundef readonly captures(none) %ctx, ptr noundef %temp) local_unnamed_addr #0 align 2 {
 entry:
   %metadata.i.i = alloca %"struct.arrow::compute::KeyColumnMetadata", align 4
   %ref.tmp.i.i = alloca %"class.arrow::compute::KeyColumnArray", align 8
@@ -3784,7 +3784,7 @@ if.end165:                                        ; preds = %if.end162, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrow7compute13EncoderBinary9IsIntegerERKNS0_17KeyColumnMetadataE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %metadata) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN5arrow7compute13EncoderBinary9IsIntegerERKNS0_17KeyColumnMetadataE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %metadata) local_unnamed_addr #5 align 2 {
 entry:
   %is_null_type = getelementptr inbounds nuw i8, ptr %metadata, i64 1
   %0 = load i8, ptr %is_null_type, align 1
@@ -5276,7 +5276,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @_ZN5arrow7compute16EncoderVarBinary17DecodeHelper_avx2EjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayE(i32 noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(209), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
@@ -5414,7 +5414,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5532,10 +5532,10 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.35627bd746950b698b589b3f6d6bf3b0.4 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.35627bd746950b698b589b3f6d6bf3b0.2, [8 x i8] c"\16\00\00\00\00\00\00\00", ptr @anon.35627bd746950b698b589b3f6d6bf3b0.3, [8 x i8] c"\0C\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) %0, ptr align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
@@ -238,7 +238,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) %0, ptr align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
@@ -466,7 +466,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hb94ab8bff0b733d8E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hb94ab8bff0b733d8E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { ptr, i64 }, align 8
   %4 = load i64, ptr %1, align 8, !range !4, !noundef !3
   %5 = add nsw i64 %4, -39
@@ -494,7 +494,7 @@ define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hc82c3eade77e6d48E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hc82c3eade77e6d48E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { ptr, i64 }, align 8
   %4 = load i64, ptr %1, align 8, !range !4, !noundef !3
   %5 = add nsw i64 %4, -39
@@ -540,7 +540,7 @@ declare void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h0ec8ec770807ffbf
 declare i32 @_ZN5quote7spanned10join_spans17hb3248c53475767b1E(ptr align 8) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb0ca04e7b67dfadE"(ptr align 8, ptr align 8) unnamed_addr #0

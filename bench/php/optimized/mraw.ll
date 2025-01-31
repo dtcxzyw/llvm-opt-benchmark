@@ -110,7 +110,7 @@ declare ptr @lexbor_bst_destroy(ptr noundef, i1 noundef zeroext) local_unnamed_a
 declare ptr @lexbor_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_mraw_alloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @lexbor_mraw_alloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %.biased.i = add i64 %1, 7
   %3 = and i64 %.biased.i, -8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -240,10 +240,10 @@ lexbor_mraw_mem_alloc.exit.thread:                ; preds = %53, %27, %15, %lexb
 declare ptr @lexbor_bst_remove_close(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_mraw_calloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @lexbor_mraw_calloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lexbor_mraw_alloc(ptr noundef %0, i64 noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -259,10 +259,10 @@ define hidden ptr @lexbor_mraw_calloc(ptr nocapture noundef %0, i64 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_mraw_realloc(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @lexbor_mraw_realloc(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.lexbor_mem_chunk, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %5, align 8
@@ -422,7 +422,7 @@ lexbor_mraw_realloc_tail.exit:                    ; preds = %26
 declare ptr @lexbor_bst_insert(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @lexbor_mraw_free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @lexbor_mraw_free(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 -8
   %.val = load i64, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -437,21 +437,21 @@ define hidden noalias noundef ptr @lexbor_mraw_free(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @lexbor_mraw_data_size_noi(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i64 @lexbor_mraw_data_size_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %2, align 8
   ret i64 %.val
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_mraw_data_size_set_noi(ptr nocapture noundef writeonly initializes((-8, 0)) %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden void @lexbor_mraw_data_size_set_noi(ptr noundef writeonly captures(none) initializes((-8, 0)) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
   store i64 %1, ptr %3, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_mraw_dup_noi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @lexbor_mraw_dup_noi(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @lexbor_mraw_alloc(ptr noundef %0, i64 noundef %2)
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %lexbor_mraw_dup.exit, label %5
@@ -471,10 +471,10 @@ declare ptr @lexbor_mem_chunk_init(ptr noundef, ptr noundef, i64 noundef) local_
 declare ptr @lexbor_mem_chunk_make(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

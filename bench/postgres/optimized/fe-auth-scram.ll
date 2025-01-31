@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [51 x i8] c"malformed SCRAM message (invalid server signature)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @scram_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal noalias noundef ptr @scram_init(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %calloc = tail call dereferenceable_or_null(168) ptr @calloc(i64 1, i64 168)
   %.not = icmp eq ptr %calloc, null
@@ -98,7 +98,7 @@ define internal noalias noundef ptr @scram_init(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @scram_exchange(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 1)) %5, ptr nocapture noundef writeonly initializes((0, 1)) %6) #0 {
+define internal void @scram_exchange(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 1)) %5, ptr noundef writeonly captures(none) initializes((0, 1)) %6) #0 {
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16
   %10 = alloca [32 x i8], align 16
@@ -249,7 +249,7 @@ build_client_first_message.exit.thread:           ; preds = %41, %34, %.thread, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   %79 = load ptr, ptr %21, align 8
-  %80 = tail call noalias ptr @strdup(ptr noundef %1) #13
+  %80 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #13
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %80, ptr %81, align 8
   %82 = icmp eq ptr %80, null
@@ -315,7 +315,7 @@ read_attr_value.exit.i:                           ; preds = %94, %98
   br i1 %107, label %109, label %108
 
 108:                                              ; preds = %102
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %93, ptr %105, i64 %106)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %93, ptr nonnull %105, i64 %106)
   %.not.i45 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i45, label %110, label %109
 
@@ -545,7 +545,7 @@ read_server_first_message.exit.thread:            ; preds = %83, %109, %114, %13
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %220 = load ptr, ptr %219, align 8
   %221 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %220) #14
-  %222 = call i32 @pg_hmac_update(ptr noundef nonnull %186, ptr noundef %220, i64 noundef %221) #13
+  %222 = call i32 @pg_hmac_update(ptr noundef nonnull %186, ptr noundef nonnull %220, i64 noundef %221) #13
   %223 = icmp slt i32 %222, 0
   br i1 %223, label %247, label %224
 
@@ -557,7 +557,7 @@ read_server_first_message.exit.thread:            ; preds = %83, %109, %114, %13
 227:                                              ; preds = %224
   %228 = load ptr, ptr %81, align 8
   %229 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %228) #14
-  %230 = call i32 @pg_hmac_update(ptr noundef nonnull %186, ptr noundef %228, i64 noundef %229) #13
+  %230 = call i32 @pg_hmac_update(ptr noundef nonnull %186, ptr noundef nonnull %228, i64 noundef %229) #13
   %231 = icmp slt i32 %230, 0
   br i1 %231, label %247, label %232
 
@@ -684,7 +684,7 @@ build_client_final_message.exit.thread:           ; preds = %168, %279, %269, %2
 
 283:                                              ; preds = %31
   %284 = load ptr, ptr %21, align 8
-  %285 = tail call noalias ptr @strdup(ptr noundef %1) #13
+  %285 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #13
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %285, ptr %286, align 8
   %.not.i48 = icmp eq ptr %285, null
@@ -860,7 +860,7 @@ read_attr_value.exit40.i:                         ; preds = %313, %317
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %360 = load ptr, ptr %359, align 8
   %361 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %360) #14
-  %362 = call i32 @pg_hmac_update(ptr noundef nonnull %342, ptr noundef %360, i64 noundef %361) #13
+  %362 = call i32 @pg_hmac_update(ptr noundef nonnull %342, ptr noundef nonnull %360, i64 noundef %361) #13
   %363 = icmp slt i32 %362, 0
   br i1 %363, label %387, label %364
 
@@ -873,7 +873,7 @@ read_attr_value.exit40.i:                         ; preds = %313, %317
   %368 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %369 = load ptr, ptr %368, align 8
   %370 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %369) #14
-  %371 = call i32 @pg_hmac_update(ptr noundef nonnull %342, ptr noundef %369, i64 noundef %370) #13
+  %371 = call i32 @pg_hmac_update(ptr noundef nonnull %342, ptr noundef nonnull %369, i64 noundef %370) #13
   %372 = icmp slt i32 %371, 0
   br i1 %372, label %387, label %373
 
@@ -886,7 +886,7 @@ read_attr_value.exit40.i:                         ; preds = %313, %317
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %378 = load ptr, ptr %377, align 8
   %379 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %378) #14
-  %380 = call i32 @pg_hmac_update(ptr noundef nonnull %342, ptr noundef %378, i64 noundef %379) #13
+  %380 = call i32 @pg_hmac_update(ptr noundef nonnull %342, ptr noundef nonnull %378, i64 noundef %379) #13
   %381 = icmp slt i32 %380, 0
   br i1 %381, label %387, label %382
 
@@ -970,7 +970,7 @@ define internal zeroext i1 @scram_channel_bound(ptr noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @scram_free(ptr nocapture noundef %0) #2 {
+define internal void @scram_free(ptr noundef captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #13
@@ -1047,7 +1047,7 @@ declare i32 @pg_saslprep(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare zeroext i1 @pg_strong_random(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @scram_build_secret(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1055,15 +1055,15 @@ declare ptr @scram_build_secret(i32 noundef, i32 noundef, ptr noundef, i32 nound
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @libpq_append_conn_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @pg_b64_enc_len(i32 noundef) local_unnamed_addr #3
 
@@ -1080,7 +1080,7 @@ declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @read_attr_value(ptr nocapture noundef nonnull %0, i8 noundef signext range(i8 101, 119) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @read_attr_value(ptr noundef nonnull captures(none) %0, i8 noundef signext range(i8 101, 119) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %6 = zext nneg i8 %1 to i32
@@ -1137,7 +1137,7 @@ declare i32 @pg_b64_dec_len(i32 noundef) local_unnamed_addr #3
 declare i32 @pg_b64_decode(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 declare void @libpq_append_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -1162,18 +1162,18 @@ declare i32 @pg_hmac_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @pg_hmac_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare i32 @scram_ServerKey(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12

@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @type_uint = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local ptr @x86_classify_return(i32 %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @type_lowering(ptr noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -247,7 +247,7 @@ create_indirect_return_x86.exit:                  ; preds = %114, %110, %107, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 
@@ -513,7 +513,7 @@ declare ptr @abi_arg_new_direct_int_ext(ptr noundef) local_unnamed_addr #1
 declare i32 @type_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @c_abi_func_create_x86(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @c_abi_func_create_x86(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.Regs, align 8
   store i64 0, ptr %2, align 8
   %3 = load i16, ptr %0, align 8
@@ -635,7 +635,7 @@ x86_create_params.exit21:                         ; preds = %54, %x86_create_par
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @x86_classify_argument(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @x86_classify_argument(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @type_lowering(ptr noundef %1)
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %212 [
@@ -1144,7 +1144,7 @@ declare ptr @abi_arg_new_indirect_realigned(i32 noundef, ptr noundef) local_unna
 declare ptr @abi_arg_new_indirect_by_val(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @type_is_union_struct_with_simd_vector(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @type_is_union_struct_with_simd_vector(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 31
   br i1 %3, label %4, label %8

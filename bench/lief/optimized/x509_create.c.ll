@@ -141,7 +141,7 @@ x509_attr_descr_from_name.exit:                   ; preds = %19
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.153.ph) #4
   %39 = ptrtoint ptr %.1.ph to i64
   %40 = sub i64 %39, %6
-  %41 = call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %.153.ph, i64 noundef %38, ptr noundef nonnull %3, i64 noundef %40) #5
+  %41 = call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef nonnull %.153.ph, i64 noundef %38, ptr noundef nonnull %3, i64 noundef %40) #5
   %42 = icmp eq ptr %41, null
   br i1 %42, label %x509_attr_descr_from_name.exit.thread, label %43
 
@@ -207,14 +207,14 @@ x509_attr_descr_from_name.exit.thread:            ; preds = %37, %57, %30, %33, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @mbedtls_asn1_free_named_data_list(ptr noundef) local_unnamed_addr #2
 
 declare ptr @mbedtls_asn1_store_named_data(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -10368, 1) i32 @mbedtls_x509_set_extension(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 -10368, 1) i32 @mbedtls_x509_set_extension(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = add i64 %5, 1
   %8 = tail call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef %7) #5
   %9 = icmp eq ptr %8, null
@@ -236,7 +236,7 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_set_extension(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509_write_names(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
@@ -333,7 +333,7 @@ declare i32 @mbedtls_asn1_write_len(ptr noundef, ptr noundef, i64 noundef) local
 declare i32 @mbedtls_asn1_write_tag(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_write_sig(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_write_sig(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = icmp ult ptr %7, %1
   br i1 %8, label %37, label %9
@@ -496,7 +496,7 @@ x509_write_extension.exit.thread:                 ; preds = %x509_write_extensio
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 declare i32 @mbedtls_asn1_write_tagged_string(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 

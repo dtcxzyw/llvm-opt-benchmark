@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_asn1_get_prefix(ptr noundef %b, ptr nocapture noundef writeonly %pprefix, ptr nocapture noundef writeonly %pprefix_free) local_unnamed_addr #1 {
+define i32 @BIO_asn1_get_prefix(ptr noundef %b, ptr noundef writeonly captures(none) %pprefix, ptr noundef writeonly captures(none) %pprefix_free) local_unnamed_addr #1 {
 entry:
   %extmp.i = alloca %struct.BIO_ASN1_EX_FUNCS_st, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %extmp.i)
@@ -68,7 +68,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_asn1_get_suffix(ptr noundef %b, ptr nocapture noundef writeonly %psuffix, ptr nocapture noundef writeonly %psuffix_free) local_unnamed_addr #1 {
+define i32 @BIO_asn1_get_suffix(ptr noundef %b, ptr noundef writeonly captures(none) %psuffix, ptr noundef writeonly captures(none) %psuffix_free) local_unnamed_addr #1 {
 entry:
   %extmp.i = alloca %struct.BIO_ASN1_EX_FUNCS_st, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %extmp.i)
@@ -284,7 +284,7 @@ define internal i32 @asn1_bio_puts(ptr noundef %b, ptr noundef %str) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #7
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @asn1_bio_write(ptr noundef %b, ptr noundef %str, i32 noundef %conv)
+  %call1 = tail call i32 @asn1_bio_write(ptr noundef %b, ptr noundef nonnull %str, i32 noundef %conv)
   ret i32 %call1
 }
 
@@ -636,7 +636,7 @@ declare void @BIO_copy_next_retry(ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -658,10 +658,10 @@ declare i64 @BIO_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

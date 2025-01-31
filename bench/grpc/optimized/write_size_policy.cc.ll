@@ -21,14 +21,14 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN9grpc_core21Chttp2WriteSizePolicy15WriteTargetSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #3 align 2 {
+define noundef i64 @_ZN9grpc_core21Chttp2WriteSizePolicy15WriteTargetSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   ret i64 %0
 }
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core21Chttp2WriteSizePolicy10BeginWriteEm(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this, i64 noundef %size) local_unnamed_addr #4 align 2 {
+define void @_ZN9grpc_core21Chttp2WriteSizePolicy10BeginWriteEm(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %this, i64 noundef %size) local_unnamed_addr #4 align 2 {
 entry:
   %experiment_start_time_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %experiment_start_time_, align 8
@@ -81,7 +81,7 @@ return:                                           ; preds = %if.then4, %if.then6
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core21Chttp2WriteSizePolicy8EndWriteEb(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
+define void @_ZN9grpc_core21Chttp2WriteSizePolicy8EndWriteEb(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
 entry:
   %experiment_start_time_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %experiment_start_time_, align 8

@@ -32,7 +32,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7517AnyTransliteratorC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7517AnyTransliteratorC2ERKS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7517ScriptRunIteratorC2ERKNS_11ReplaceableEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 16), (24, 28)) %this, ptr noundef nonnull align 8 dereferenceable(8) %theText, i32 noundef %myStart, i32 noundef %myLimit) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7517ScriptRunIteratorC2ERKNS_11ReplaceableEii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((0, 16), (24, 28)) %this, ptr noundef nonnull align 8 dereferenceable(8) %theText, i32 noundef %myStart, i32 noundef %myLimit) unnamed_addr #0 align 2 {
 entry:
   store ptr %theText, ptr %this, align 8
   %textStart = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7517ScriptRunIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 24)) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7517ScriptRunIterator4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((16, 24)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %ec = alloca i32, align 4
   store i32 0, ptr %ec, align 4
@@ -137,7 +137,7 @@ return:                                           ; preds = %if.else28, %if.end3
 declare i32 @uscript_getScript_75(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7517ScriptRunIterator11adjustLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %delta) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7517ScriptRunIterator11adjustLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %this, i32 noundef %delta) local_unnamed_addr #3 align 2 {
 entry:
   %limit = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %limit, align 8
@@ -157,7 +157,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7517AnyTransliterator17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7517AnyTransliterator17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret ptr @_ZZN6icu_7517AnyTransliterator16getStaticClassIDEvE7classID
 }
@@ -1283,10 +1283,10 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(p
 declare i32 @uscript_getCode_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

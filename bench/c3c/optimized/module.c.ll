@@ -15,7 +15,7 @@ define dso_local ptr @module_find_symbol(ptr noundef %0, ptr noundef %1) local_u
 declare ptr @htable_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @module_create_object_file_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @module_create_object_file_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   tail call void @scratch_buffer_clear() #2
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8

@@ -340,7 +340,7 @@ define dso_local void @CreateSharedBackendStatus() local_unnamed_addr #0 {
 declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_beinit() local_unnamed_addr #0 {
@@ -551,7 +551,7 @@ pgstat_report_appname.exit:                       ; preds = %38, %36, %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @GetSessionUserId() local_unnamed_addr #1
 
@@ -567,7 +567,7 @@ define dso_local void @pgstat_report_appname(ptr noundef %0) local_unnamed_addr 
 3:                                                ; preds = %1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %5 = trunc i64 %4 to i32
-  %6 = tail call i32 @pg_mbcliplen(ptr noundef %0, i32 noundef %5, i32 noundef 63) #11
+  %6 = tail call i32 @pg_mbcliplen(ptr noundef nonnull %0, i32 noundef %5, i32 noundef 63) #11
   %7 = load volatile i32, ptr @CritSectionCount, align 4
   %8 = add i32 %7, 1
   store volatile i32 %8, ptr @CritSectionCount, align 4
@@ -578,7 +578,7 @@ define dso_local void @pgstat_report_appname(ptr noundef %0) local_unnamed_addr 
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %12 = load volatile ptr, ptr %11, align 8
   %13 = sext i32 %6 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %0, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr nonnull align 1 %0, i64 %13, i1 false)
   %14 = load volatile ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %13
   store i8 0, ptr %15, align 1
@@ -781,7 +781,7 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
 declare i64 @GetCurrentStatementStartTimestamp() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i64 @GetCurrentTimestamp() local_unnamed_addr #1
 
@@ -942,7 +942,7 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
   %40 = trunc i64 %39 to i32
   %41 = load i32, ptr @pgstat_track_activity_query_size, align 4
   %42 = add i32 %41, -1
-  %43 = tail call i32 @pg_mbcliplen(ptr noundef %38, i32 noundef %40, i32 noundef %42) #11
+  %43 = tail call i32 @pg_mbcliplen(ptr noundef nonnull %38, i32 noundef %40, i32 noundef %42) #11
   %44 = sext i32 %43 to i64
   %45 = getelementptr i8, ptr %38, i64 %44
   store i8 0, ptr %45, align 1
@@ -976,7 +976,7 @@ define dso_local noundef ptr @pgstat_clip_activity(ptr noundef %0) local_unnamed
   %7 = trunc i64 %6 to i32
   %8 = load i32, ptr @pgstat_track_activity_query_size, align 4
   %9 = add i32 %8, -1
-  %10 = tail call i32 @pg_mbcliplen(ptr noundef %5, i32 noundef %7, i32 noundef %9) #11
+  %10 = tail call i32 @pg_mbcliplen(ptr noundef nonnull %5, i32 noundef %7, i32 noundef %9) #11
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %5, i64 %11
   store i8 0, ptr %12, align 1
@@ -1249,7 +1249,7 @@ pgstat_setup_backend_status_context.exit:         ; preds = %2, %4
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmp_lbestatus(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal i32 @cmp_lbestatus(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 432
@@ -1287,7 +1287,7 @@ declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @MemoryContextAllocHuge(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 declare void @ProcNumberGetTransactionIds(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1303,10 +1303,10 @@ declare i64 @llvm.umax.i64(i64, i64) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

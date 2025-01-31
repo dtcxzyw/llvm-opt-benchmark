@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::double_conversion::Bignum" = type { i16, i16, [128 x i32] }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v, i32 noundef %mode, i32 noundef %requested_digits, ptr nocapture %buffer.coerce0, i32 %buffer.coerce1, ptr nocapture noundef %length, ptr nocapture noundef %decimal_point) local_unnamed_addr #0 {
+define void @_ZN6icu_7517double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v, i32 noundef %mode, i32 noundef %requested_digits, ptr captures(none) %buffer.coerce0, i32 %buffer.coerce1, ptr noundef captures(none) %length, ptr noundef captures(none) %decimal_point) local_unnamed_addr #0 {
 entry:
   %numerator = alloca %"class.icu_75::double_conversion::Bignum", align 4
   %denominator = alloca %"class.icu_75::double_conversion::Bignum", align 4
@@ -428,7 +428,7 @@ return:                                           ; preds = %sw.epilog, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_7517double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %count, ptr nocapture noundef %decimal_point, ptr noundef nonnull %numerator, ptr noundef nonnull %denominator, ptr nocapture %buffer.coerce0, ptr nocapture noundef writeonly %length) unnamed_addr #0 {
+define internal fastcc void @_ZN6icu_7517double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %count, ptr noundef captures(none) %decimal_point, ptr noundef nonnull %numerator, ptr noundef nonnull %denominator, ptr captures(none) %buffer.coerce0, ptr noundef writeonly captures(none) %length) unnamed_addr #0 {
 entry:
   %sub = add i32 %count, -1
   %cmp34 = icmp sgt i32 %count, 1

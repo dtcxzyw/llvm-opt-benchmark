@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @stb_easy_font_spacing_val = local_unnamed_addr global float 0.000000e+00, align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @stb_easy_font_draw_segs(float noundef %x, float noundef %y, ptr nocapture noundef readonly %segs, i32 noundef %num_segs, i32 noundef %vertical, i32 %c.coerce, ptr nocapture noundef writeonly %vbuf, i32 noundef %vbuf_size, i32 noundef %offset) local_unnamed_addr #0 {
+define i32 @stb_easy_font_draw_segs(float noundef %x, float noundef %y, ptr noundef readonly captures(none) %segs, i32 noundef %num_segs, i32 noundef %vertical, i32 %c.coerce, ptr noundef writeonly captures(none) %vbuf, i32 noundef %vbuf_size, i32 noundef %offset) local_unnamed_addr #0 {
 entry:
   %cmp27 = icmp sgt i32 %num_segs, 0
   br i1 %cmp27, label %for.body.lr.ph, label %for.end56
@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 67108864) i32 @stb_easy_font_print(float noundef %x, float noundef %y, ptr nocapture noundef readonly %text, ptr noundef readonly %color, ptr nocapture noundef writeonly %vertex_buffer, i32 noundef %vbuf_size) local_unnamed_addr #2 {
+define range(i32 0, 67108864) i32 @stb_easy_font_print(float noundef %x, float noundef %y, ptr noundef readonly captures(none) %text, ptr noundef readonly %color, ptr noundef writeonly captures(none) %vertex_buffer, i32 noundef %vbuf_size) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %color, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -400,7 +400,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @stb_easy_font_width(ptr nocapture noundef readonly %text) local_unnamed_addr #3 {
+define i32 @stb_easy_font_width(ptr noundef readonly captures(none) %text) local_unnamed_addr #3 {
 entry:
   %0 = load float, ptr @stb_easy_font_spacing_val, align 4
   br label %while.cond
@@ -446,7 +446,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @stb_easy_font_height(ptr nocapture noundef readonly %text) local_unnamed_addr #4 {
+define i32 @stb_easy_font_height(ptr noundef readonly captures(none) %text) local_unnamed_addr #4 {
 entry:
   br label %while.cond
 

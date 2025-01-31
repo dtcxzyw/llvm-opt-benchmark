@@ -35,7 +35,7 @@ entry:
 declare void @qht_init(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal zeroext i1 @tb_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp) #2 {
+define internal zeroext i1 @tb_cmp(ptr noundef readonly captures(none) %ap, ptr noundef readonly captures(none) %bp) #2 {
 entry:
   %cflags.i = getelementptr inbounds nuw i8, ptr %ap, i64 20
   %0 = load atomic i32, ptr %cflags.i monotonic, align 4
@@ -135,7 +135,7 @@ if.end4:                                          ; preds = %if.then1, %if.else,
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_tb_flush(ptr nocapture readnone %cpu, i64 %tb_flush_count.coerce) #0 {
+define internal void @do_tb_flush(ptr readnone captures(none) %cpu, i64 %tb_flush_count.coerce) #0 {
 entry:
   %tb_flush_count.sroa.0.0.extract.trunc = trunc i64 %tb_flush_count.coerce to i32
   tail call void @mmap_lock() #8
@@ -394,8 +394,8 @@ while.end42.i:                                    ; preds = %while.end31.i, %for
   br i1 %tobool16.not.i, label %tb_jmp_cache_inval_tb.exit, label %for.body17.i, !llvm.loop !17
 
 tb_jmp_cache_inval_tb.exit:                       ; preds = %for.body.i, %while.end42.i, %while.end.i, %if.else.i
-  tail call fastcc void @tb_remove_from_jmp_list(ptr noundef %tb, i32 noundef 0)
-  tail call fastcc void @tb_remove_from_jmp_list(ptr noundef %tb, i32 noundef 1)
+  tail call fastcc void @tb_remove_from_jmp_list(ptr noundef nonnull %tb, i32 noundef 0)
+  tail call fastcc void @tb_remove_from_jmp_list(ptr noundef nonnull %tb, i32 noundef 1)
   %19 = atomicrmw xchg ptr %jmp_lock, i32 1 seq_cst, align 4
   %tobool.not3.i.i = icmp eq i32 %19, 0
   br i1 %tobool.not3.i.i, label %qemu_spin_lock.exit.i, label %while.cond6.preheader.i.i
@@ -706,7 +706,7 @@ declare void @mmap_unlock() local_unnamed_addr #1
 declare void @qemu_plugin_flush_cb() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare zeroext i1 @qht_remove(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

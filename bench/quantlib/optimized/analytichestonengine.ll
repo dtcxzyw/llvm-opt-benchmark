@@ -1070,7 +1070,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib15ExpSinhIntegralEEE = comdat a
 @_ZN8QuantLib20AnalyticHestonEngine11IntegrationC1ENS1_9AlgorithmEN5boost10shared_ptrINS_18GaussianQuadratureEEE = unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN8QuantLib20AnalyticHestonEngine11IntegrationC2ENS1_9AlgorithmEN5boost10shared_ptrINS_18GaussianQuadratureEEE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1155,7 +1155,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -1292,7 +1292,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngine9Fj_HelperC2EddddddPKS0_NS0_17ComplexLogFormulaEdddm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 44), (48, 108), (112, 128)) %this, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %s0, double noundef %rho, ptr noundef %engine, i32 noundef %cpxLog, double noundef %term, double noundef %strike, double noundef %ratio, i64 noundef %j) unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib20AnalyticHestonEngine9Fj_HelperC2EddddddPKS0_NS0_17ComplexLogFormulaEdddm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) initializes((0, 44), (48, 108), (112, 128)) %this, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %s0, double noundef %rho, ptr noundef %engine, i32 noundef %cpxLog, double noundef %term, double noundef %strike, double noundef %ratio, i64 noundef %j) unnamed_addr #11 align 2 {
 entry:
   store i64 %j, ptr %this, align 8, !tbaa !39
   %kappa_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1341,7 +1341,7 @@ entry:
 declare double @log(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine9Fj_HelperclEd(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, double noundef %phi) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine9Fj_HelperclEd(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this, double noundef %phi) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp481 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2141,13 +2141,13 @@ declare double @exp(double noundef) local_unnamed_addr #12
 declare double @llvm.fmuladd.f64(double, double, double) #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @fmod(double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngine12OptimalAlphaC2EdPKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this, double noundef %t, ptr noundef %enginePtr) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20AnalyticHestonEngine12OptimalAlphaC2EdPKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((0, 8)) %this, double noundef %t, ptr noundef %enginePtr) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.29", align 8
   %ref.tmp12 = alloca %"class.boost::shared_ptr.29", align 8
@@ -3313,7 +3313,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha1kEdi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, double noundef %x, i32 noundef %sgn) local_unnamed_addr #15 align 2 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha1kEdi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, double noundef %x, i32 noundef %sgn) local_unnamed_addr #15 align 2 {
 entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load double, ptr %sigma_, align 8, !tbaa !88
@@ -3343,7 +3343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, double %strike) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, double %strike) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Brent", align 8
   %ref.tmp18 = alloca %"class.QuantLib::Brent", align 8
@@ -3668,10 +3668,10 @@ unreachable:                                      ; preds = %invoke.cont68
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_dddd"(ptr nocapture noundef nonnull align 8 dereferenceable(74) %this, ptr nocapture readonly %f.0.val, double noundef %accuracy, double noundef %guess, double noundef %xMin, double noundef %xMax) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_dddd"(ptr noundef nonnull align 8 captures(none) dereferenceable(74) %this, ptr readonly captures(none) %f.0.val, double noundef %accuracy, double noundef %guess, double noundef %xMin, double noundef %xMax) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5602,7 +5602,7 @@ unreachable:                                      ; preds = %invoke.cont346, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha16alphaGreaterZeroEd(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, double noundef %strike) local_unnamed_addr #8 align 2 {
+define { double, double } @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha16alphaGreaterZeroEd(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, double noundef %strike) local_unnamed_addr #8 align 2 {
 entry:
   %call = tail call noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEd(ptr noundef nonnull align 8 dereferenceable(88) %this, double poison)
   %eps_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -5616,7 +5616,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha10findMinimaEddd(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, double noundef %lower, double noundef %upper, double noundef %strike) local_unnamed_addr #8 align 2 {
+define { double, double } @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha10findMinimaEddd(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, double noundef %lower, double noundef %upper, double noundef %strike) local_unnamed_addr #8 align 2 {
 entry:
   %z.i85.i.i = alloca %"class.std::complex", align 8
   %z.i.i.i = alloca %"class.std::complex", align 8
@@ -5841,7 +5841,7 @@ do.cond.i.i:                                      ; preds = %if.then104.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, double %strike) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, double %strike) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream.i.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7522,7 +7522,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha20alphaSmallerMinusOneEd(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, double noundef %strike) local_unnamed_addr #8 align 2 {
+define { double, double } @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha20alphaSmallerMinusOneEd(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, double noundef %strike) local_unnamed_addr #8 align 2 {
 entry:
   %call = tail call noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEd(ptr noundef nonnull align 8 dereferenceable(88) %this, double poison)
   %add = fadd double %call, 1.000000e+00
@@ -7537,7 +7537,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlphaclEd(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, double noundef %strike) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlphaclEd(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, double noundef %strike) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i4 = invoke noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEd(ptr noundef nonnull align 8 dereferenceable(88) %this, double poison)
           to label %call.i.noexc unwind label %lpad
@@ -7613,7 +7613,7 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #17
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha19numberOfEvaluationsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #18 align 2 {
+define noundef i64 @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha19numberOfEvaluationsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this) local_unnamed_addr #18 align 2 {
 entry:
   %evaluations_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i64, ptr %evaluations_, align 8, !tbaa !92
@@ -7621,7 +7621,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha1MEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, double noundef %k) local_unnamed_addr #15 align 2 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha1MEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, double noundef %k) local_unnamed_addr #15 align 2 {
 entry:
   %kappa_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load double, ptr %kappa_, align 8, !tbaa !86
@@ -7680,7 +7680,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #12
 declare double @atan(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngine9AP_HelperC2EdddNS0_17ComplexLogFormulaEPKS0_d(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 36), (40, 64), (80, 112)) %this, double noundef %term, double noundef %fwd, double noundef %strike, i32 noundef %cpxLog, ptr noundef %enginePtr, double noundef %alpha) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20AnalyticHestonEngine9AP_HelperC2EdddNS0_17ComplexLogFormulaEPKS0_d(ptr noundef nonnull align 8 captures(none) dereferenceable(112) initializes((0, 36), (40, 64), (80, 112)) %this, double noundef %term, double noundef %fwd, double noundef %strike, i32 noundef %cpxLog, ptr noundef %enginePtr, double noundef %alpha) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8326,7 +8326,7 @@ unreachable:                                      ; preds = %invoke.cont161, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QuantLib20AnalyticHestonEngine3chFERKSt7complexIdEd(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %z, double noundef %t) local_unnamed_addr #8 align 2 {
+define { double, double } @_ZNK8QuantLib20AnalyticHestonEngine3chFERKSt7complexIdEd(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %z, double noundef %t) local_unnamed_addr #8 align 2 {
 entry:
   %model_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_11HestonModelEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %model_)
@@ -9017,7 +9017,7 @@ return:                                           ; preds = %_ZStmlIdESt7complex
 declare double @tan(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine9AP_HelperclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, double noundef %u) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine9AP_HelperclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, double noundef %u) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9689,7 +9689,7 @@ unreachable:                                      ; preds = %invoke.cont199, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine9AP_Helper19controlVariateValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine9AP_Helper19controlVariateValueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::BlackCalculator", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -10213,7 +10213,7 @@ declare { double, double } @_ZN8QuantLib19ExponentialIntegral2CiERKSt7complexIdE
 declare { double, double } @_ZN8QuantLib19ExponentialIntegral2SiERKSt7complexIdE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QuantLib20AnalyticHestonEngine5lnChFERKSt7complexIdEd(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %z, double noundef %t) local_unnamed_addr #8 align 2 {
+define { double, double } @_ZNK8QuantLib20AnalyticHestonEngine5lnChFERKSt7complexIdEd(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %z, double noundef %t) local_unnamed_addr #8 align 2 {
 entry:
   %ref.tmp81 = alloca %"class.std::complex", align 8
   %ref.tmp107 = alloca %"class.std::complex", align 8
@@ -11504,7 +11504,7 @@ lpad1:                                            ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngineC2ERKN5boost10shared_ptrINS_11HestonModelEEENS0_17ComplexLogFormulaERKNS0_11IntegrationEdd(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull align 8 dereferenceable(16) %model, i32 noundef %cpxLog, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %integration, double noundef %andersenPiterbargEpsilon, double noundef %alpha) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20AnalyticHestonEngineC2ERKN5boost10shared_ptrINS_11HestonModelEEENS0_17ComplexLogFormulaERKNS0_11IntegrationEdd(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull align 8 dereferenceable(16) %model, i32 noundef %cpxLog, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %integration, double noundef %andersenPiterbargEpsilon, double noundef %alpha) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11779,7 +11779,7 @@ unreachable:                                      ; preds = %invoke.cont23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib20AnalyticHestonEngine11Integration21isAdaptiveIntegrationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #18 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib20AnalyticHestonEngine11Integration21isAdaptiveIntegrationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #18 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8, !tbaa !186
   %1 = icmp ult i32 %0, 11
@@ -11829,7 +11829,7 @@ return:                                           ; preds = %land.lhs.true5, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib20AnalyticHestonEngine19numberOfEvaluationsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) local_unnamed_addr #18 align 2 {
+define noundef i64 @_ZNK8QuantLib20AnalyticHestonEngine19numberOfEvaluationsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this) local_unnamed_addr #18 align 2 {
 entry:
   %evaluations_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   %0 = load i64, ptr %evaluations_, align 8, !tbaa !137
@@ -11837,7 +11837,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine18priceVanillaPayoffERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(8) %maturity) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine18priceVanillaPayoffERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(8) %maturity) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.29", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #35
@@ -12029,7 +12029,7 @@ lpad:                                             ; preds = %call.i.noexc34, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine18priceVanillaPayoffERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdd(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %maturity, double noundef %fwd) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine18priceVanillaPayoffERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdd(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %maturity, double noundef %fwd) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %maturity.addr = alloca double, align 8
   %ref.tmp = alloca %"class.boost::shared_ptr.29", align 8
@@ -13863,7 +13863,7 @@ unreachable:                                      ; preds = %invoke.cont391, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine18priceVanillaPayoffERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEd(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %maturity) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine18priceVanillaPayoffERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEd(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %maturity) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.29", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #35
@@ -14040,7 +14040,7 @@ lpad:                                             ; preds = %cond.false.i27, %co
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIFddEERKS2_IFdvEEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, double noundef %c_inf, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(32) %maxBound, double noundef %scaling) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIFddEERKS2_IFdvEEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, double noundef %c_inf, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(32) %maxBound, double noundef %scaling) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::function", align 8
   %__args.addr.i.i.i = alloca double, align 8
@@ -15305,7 +15305,7 @@ unreachable:                                      ; preds = %invoke.cont93
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8QuantLib20AnalyticHestonEngine11Integration19numberOfEvaluationsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK8QuantLib20AnalyticHestonEngine11Integration19numberOfEvaluationsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16018,7 +16018,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngine11IntegrationC2ENS1_9AlgorithmEN5boost10shared_ptrINS_10IntegratorEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 4), (8, 40)) %this, i32 noundef %intAlgo, ptr nocapture noundef %integrator) unnamed_addr #21 align 2 {
+define void @_ZN8QuantLib20AnalyticHestonEngine11IntegrationC2ENS1_9AlgorithmEN5boost10shared_ptrINS_10IntegratorEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 4), (8, 40)) %this, i32 noundef %intAlgo, ptr noundef captures(none) %integrator) unnamed_addr #21 align 2 {
 entry:
   store i32 %intAlgo, ptr %this, align 8, !tbaa !186
   %integrator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -16035,7 +16035,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngine11IntegrationC2ENS1_9AlgorithmEN5boost10shared_ptrINS_18GaussianQuadratureEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 4), (8, 40)) %this, i32 noundef %intAlgo, ptr nocapture noundef %gaussianQuadrature) unnamed_addr #21 align 2 {
+define void @_ZN8QuantLib20AnalyticHestonEngine11IntegrationC2ENS1_9AlgorithmEN5boost10shared_ptrINS_18GaussianQuadratureEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 4), (8, 40)) %this, i32 noundef %intAlgo, ptr noundef captures(none) %gaussianQuadrature) unnamed_addr #21 align 2 {
 entry:
   store i32 %intAlgo, ptr %this, align 8, !tbaa !186
   %integrator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -17252,7 +17252,7 @@ declare noundef i64 @_ZNK8QuantLib10Integrator19numberOfEvaluationsEv(ptr nounde
 declare noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(32), double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIFddEEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, double noundef %c_inf, ptr noundef nonnull align 8 dereferenceable(32) %f, double noundef %maxBound) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIFddEEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, double noundef %c_inf, ptr noundef nonnull align 8 dereferenceable(32) %f, double noundef %maxBound) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function.59", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #35
@@ -19161,7 +19161,7 @@ cleanup:                                          ; preds = %catch, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngine13doCalculationEddddddddddRKNS_10TypePayoffERKNS0_11IntegrationENS0_17ComplexLogFormulaEPKS0_RdRm(double noundef %riskFreeDiscount, double noundef %dividendDiscount, double noundef %spotPrice, double noundef %strikePrice, double noundef %term, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %rho, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %integration, i32 noundef %cpxLog, ptr noundef %enginePtr, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %value, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %evaluations) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20AnalyticHestonEngine13doCalculationEddddddddddRKNS_10TypePayoffERKNS0_11IntegrationENS0_17ComplexLogFormulaEPKS0_RdRm(double noundef %riskFreeDiscount, double noundef %dividendDiscount, double noundef %spotPrice, double noundef %strikePrice, double noundef %term, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %rho, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %integration, i32 noundef %cpxLog, ptr noundef %enginePtr, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %value, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %evaluations) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %term.addr = alloca double, align 8
   %v0.addr = alloca double, align 8
@@ -24262,7 +24262,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPSt6vectorIdSaIdEEEEvT_S6_.exit: ; preds = %
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE13_M_assign_auxIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -24922,7 +24922,7 @@ _ZSt8_DestroyIN5boost4math10quadrature6detail15exp_sinh_detailIdNS1_8policies6po
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #28
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #29 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -27027,7 +27027,7 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #40
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %with) #40
   %call.i.i8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #35
-  %call2.i9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %what, i64 noundef 0, i64 noundef %call.i.i8) #35
+  %call2.i9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull %what, i64 noundef 0, i64 noundef %call.i.i8) #35
   %cmp.not10 = icmp eq i64 %call2.i9, -1
   br i1 %cmp.not10, label %while.end, label %while.body.lr.ph
 
@@ -27049,10 +27049,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit: ; pred
   %call.i.i6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %with) #35
   %sub.i.i.i = sub nuw i64 %0, %call2.i11
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %call, i64 %sub.i.i.i)
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call2.i11, i64 noundef %spec.select.i.i.i, ptr noundef %with, i64 noundef %call.i.i6)
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call2.i11, i64 noundef %spec.select.i.i.i, ptr noundef nonnull %with, i64 noundef %call.i.i6)
   %add = add i64 %call2.i11, %call1
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #35
-  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %what, i64 noundef %add, i64 noundef %call.i.i) #35
+  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull %what, i64 noundef %add, i64 noundef %call.i.i) #35
   %cmp.not = icmp eq i64 %call2.i, -1
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !363
 
@@ -27217,7 +27217,7 @@ declare void @_ZNSt12domain_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traits
 declare void @_ZNSt12domain_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #28
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #25
@@ -30965,7 +30965,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @"_ZNSt17_Function_handlerIFdvEZNK8QuantLib20AnalyticHestonEngine18priceVanillaPayoffERKN5boost10shared_ptrINS1_18PlainVanillaPayoffEEEddE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #8 align 2 {
+define internal noundef double @"_ZNSt17_Function_handlerIFdvEZNK8QuantLib20AnalyticHestonEngine18priceVanillaPayoffERKN5boost10shared_ptrINS1_18PlainVanillaPayoffEEEddE3$_0E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #8 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8, !tbaa !3
   %0 = load ptr, ptr %__functor.val, align 8, !tbaa !395
@@ -30984,7 +30984,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFdvEZNK8QuantLib20AnalyticHestonEngine18priceVanillaPayoffERKN5boost10shared_ptrINS1_18PlainVanillaPayoffEEEddE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #8 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFdvEZNK8QuantLib20AnalyticHestonEngine18priceVanillaPayoffERKN5boost10shared_ptrINS1_18PlainVanillaPayoffEEEddE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #8 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -31765,7 +31765,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @"_ZNSt17_Function_handlerIFddEZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIS0_ERKS4_IFdvEEdE3$_0E9_M_invokeERKSt9_Any_dataOd"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #8 align 2 {
+define internal noundef double @"_ZNSt17_Function_handlerIFddEZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIS0_ERKS4_IFdvEEdE3$_0E9_M_invokeERKSt9_Any_dataOd"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #8 align 2 {
 entry:
   %__args.addr.i.i.i.i = alloca double, align 8
   %__functor.val = load ptr, ptr %__functor, align 8, !tbaa !3
@@ -31793,7 +31793,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFddEZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIS0_ERKS4_IFdvEEdE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFddEZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIS0_ERKS4_IFdvEEdE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.default [
     i32 0, label %sw.bb
@@ -31900,7 +31900,7 @@ sw.epilog:                                        ; preds = %"_ZZNK8QuantLib20An
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL__N_110integrand2EE9_M_invokeERKSt9_Any_dataOd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #8 align 2 {
+define internal noundef double @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL__N_110integrand2EE9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #8 align 2 {
 entry:
   %__args.addr.i.i.i.i = alloca double, align 8
   %__functor.val = load ptr, ptr %__functor, align 8, !tbaa !3
@@ -31942,7 +31942,7 @@ _ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand2EJdEENSt9enable_ifIX16is_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL__N_110integrand2EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL__N_110integrand2EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.default [
     i32 0, label %sw.bb
@@ -32049,7 +32049,7 @@ sw.epilog:                                        ; preds = %_ZN8QuantLib12_GLOB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL__N_110integrand3EE9_M_invokeERKSt9_Any_dataOd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #8 align 2 {
+define internal noundef double @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL__N_110integrand3EE9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #8 align 2 {
 entry:
   %__args.addr.i.i.i.i.i = alloca double, align 8
   %__functor.val = load ptr, ptr %__functor, align 8, !tbaa !3
@@ -32092,7 +32092,7 @@ _ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand3EJdEENSt9enable_ifIX16is_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL__N_110integrand3EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL__N_110integrand3EE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.default [
     i32 0, label %sw.bb
@@ -32199,14 +32199,14 @@ sw.epilog:                                        ; preds = %_ZN8QuantLib12_GLOB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef double @"_ZNSt17_Function_handlerIFdvEZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIFddEEdE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #18 align 2 {
+define internal noundef double @"_ZNSt17_Function_handlerIFdvEZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIFddEEdE3$_0E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #18 align 2 {
 entry:
   %call.val = load double, ptr %__functor, align 8, !tbaa !401
   ret double %call.val
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFdvEZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIFddEEdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFdvEZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIFddEEdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -32232,7 +32232,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @"_ZNSt17_Function_handlerIFdvEZN8QuantLib20AnalyticHestonEngine13doCalculationEddddddddddRKNS1_10TypePayoffERKNS2_11IntegrationENS2_17ComplexLogFormulaEPKS2_RdRmE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #8 align 2 {
+define internal noundef double @"_ZNSt17_Function_handlerIFdvEZN8QuantLib20AnalyticHestonEngine13doCalculationEddddddddddRKNS1_10TypePayoffERKNS2_11IntegrationENS2_17ComplexLogFormulaEPKS2_RdRmE3$_0E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #8 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8, !tbaa !3
   %0 = load ptr, ptr %__functor.val, align 8, !tbaa !403
@@ -32251,7 +32251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFdvEZN8QuantLib20AnalyticHestonEngine13doCalculationEddddddddddRKNS1_10TypePayoffERKNS2_11IntegrationENS2_17ComplexLogFormulaEPKS2_RdRmE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #8 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFdvEZN8QuantLib20AnalyticHestonEngine13doCalculationEddddddddddRKNS1_10TypePayoffERKNS2_11IntegrationENS2_17ComplexLogFormulaEPKS2_RdRmE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #8 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb

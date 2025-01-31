@@ -69,7 +69,7 @@ define dso_local void @MemoryContextInit() local_unnamed_addr #0 {
 declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @MemoryContextAllowInCriticalSection(ptr nocapture noundef writeonly initializes((5, 6)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local void @MemoryContextAllowInCriticalSection(ptr noundef writeonly captures(none) initializes((5, 6)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 %3, ptr %4, align 1
@@ -126,7 +126,7 @@ MemoryContextResetOnly.exit:                      ; preds = %.lr.ph.i.i, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @MemoryContextDeleteChildren(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @MemoryContextDeleteChildren(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not4 = icmp eq ptr %3, null
@@ -257,7 +257,7 @@ MemoryContextCallResetCallbacks.exit:             ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @MemoryContextResetChildren(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @MemoryContextResetChildren(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.05 = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %.05, null
@@ -462,7 +462,7 @@ define dso_local void @MemoryContextSetParent(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @MemoryContextRegisterResetCallback(ptr nocapture noundef initializes((4, 5)) %0, ptr noundef initializes((16, 24)) %1) local_unnamed_addr #4 {
+define dso_local void @MemoryContextRegisterResetCallback(ptr noundef captures(none) initializes((4, 5)) %0, ptr noundef initializes((16, 24)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -474,7 +474,7 @@ define dso_local void @MemoryContextRegisterResetCallback(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @MemoryContextSetIdentifier(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @MemoryContextSetIdentifier(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
@@ -503,7 +503,7 @@ define dso_local i64 @GetMemoryChunkSpace(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @MemoryContextGetParent(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local ptr @MemoryContextGetParent(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -530,7 +530,7 @@ define dso_local zeroext i1 @MemoryContextIsEmpty(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @MemoryContextMemAllocated(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
+define dso_local i64 @MemoryContextMemAllocated(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   br i1 %1, label %5, label %.loopexit
@@ -559,12 +559,12 @@ define dso_local i64 @MemoryContextMemAllocated(ptr nocapture noundef readonly %
 ; Function Attrs: nounwind uwtable
 define dso_local void @MemoryContextMemConsumed(ptr noundef %0, ptr noundef initializes((0, 32)) %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
-  tail call fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0, ptr noundef %1, i1 noundef zeroext false)
+  tail call fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %1, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
@@ -833,7 +833,7 @@ define dso_local void @MemoryContextCreate(ptr noundef initializes((0, 5), (8, 8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @MemoryContextAllocationFailure(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @MemoryContextAllocationFailure(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %2, 2
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %14
@@ -862,7 +862,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local void @MemoryContextSizeFailure(ptr nocapture noundef readnone %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
+define dso_local void @MemoryContextSizeFailure(ptr noundef readnone captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i64 noundef %1) #16
@@ -1264,7 +1264,7 @@ define dso_local ptr @repalloc_huge(ptr noundef %0, i64 noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @MemoryContextStrdup(ptr noundef initializes((4, 5)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @MemoryContextStrdup(ptr noundef initializes((4, 5)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %4 = add i64 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1273,18 +1273,18 @@ define dso_local ptr @MemoryContextStrdup(ptr noundef initializes((4, 5)) %0, pt
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef %0, i64 noundef %4, i32 noundef 0) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %1, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 1 %1, i64 %4, i1 false)
   ret ptr %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @pstrdup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @pstrdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @CurrentMemoryContext, align 8
   %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #18
   %4 = add i64 %3, 1
@@ -1294,12 +1294,12 @@ define dso_local ptr @pstrdup(ptr nocapture noundef readonly %0) local_unnamed_a
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef %2, i64 noundef %4, i32 noundef 0) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr readonly align 1 %0, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull readonly align 1 %0, i64 %4, i1 false)
   ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @pnstrdup(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @pnstrdup(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strnlen(ptr noundef %0, i64 noundef %1) #18
   %4 = add i64 %3, 1
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1316,10 +1316,10 @@ define dso_local ptr @pnstrdup(ptr nocapture noundef readonly %0, i64 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @pchomp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @pchomp(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %.not6 = icmp eq i64 %2, 0
@@ -1339,7 +1339,7 @@ define dso_local ptr @pchomp(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 .critedge:                                        ; preds = %.lr.ph, %5, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ 0, %5 ], [ %.07, %.lr.ph ]
-  %7 = tail call i64 @strnlen(ptr noundef readonly %0, i64 noundef %.0.lcssa) #18
+  %7 = tail call i64 @strnlen(ptr noundef nonnull readonly %0, i64 noundef %.0.lcssa) #18
   %8 = add i64 %7, 1
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -1348,7 +1348,7 @@ define dso_local ptr @pchomp(ptr nocapture noundef readonly %0) local_unnamed_ad
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef %9, i64 noundef %8, i32 noundef 0) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr readonly align 1 %0, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull readonly align 1 %0, i64 %7, i1 false)
   %15 = getelementptr i8, ptr %14, i64 %7
   store i8 0, ptr %15, align 1
   ret ptr %14
@@ -1461,7 +1461,7 @@ declare ptr @AlignedAllocGetChunkContext(ptr noundef) #1
 declare i64 @AlignedAllocGetChunkSpace(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @MemoryContextStatsPrint(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) #0 {
+define internal void @MemoryContextStatsPrint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) #0 {
   %5 = alloca [110 x i8], align 16
   %6 = load i32, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1564,7 +1564,7 @@ define internal void @MemoryContextStatsPrint(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @pg_mbcliplen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1575,10 +1575,10 @@ declare void @llvm.assume(i1 noundef) #13
 declare i8 @llvm.umax.i8(i8, i8) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

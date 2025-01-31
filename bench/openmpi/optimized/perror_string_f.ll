@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Error_string_f08 = weak alias void (ptr, ptr, ptr, ptr, i32), ptr @ompi_error_string_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_error_string_f(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef %4) #0 {
+define void @ompi_error_string_f(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef %4) #0 {
   %6 = alloca [257 x i8], align 16
   %7 = load i32, ptr %0, align 4
   %8 = call i32 @PMPI_Error_string(i32 noundef %7, ptr noundef nonnull %6, ptr noundef %2) #4

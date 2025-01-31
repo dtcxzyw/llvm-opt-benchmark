@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [10 x i8] c"CNAME: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @Curl_doh(ptr noundef initializes((400, 408)) %data, ptr noundef %hostname, i32 noundef %port, ptr nocapture noundef writeonly initializes((0, 4)) %waitp) local_unnamed_addr #0 {
+define hidden noundef ptr @Curl_doh(ptr noundef initializes((400, 408)) %data, ptr noundef %hostname, i32 noundef %port, ptr noundef writeonly captures(none) initializes((0, 4)) %waitp) local_unnamed_addr #0 {
 entry:
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -649,7 +649,7 @@ declare i32 @curl_multi_remove_handle(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @Curl_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_doh_is_resolved(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 8)) %dnsp) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_doh_is_resolved(ptr noundef %data, ptr noundef writeonly captures(none) initializes((0, 8)) %dnsp) local_unnamed_addr #0 {
 entry:
   %buffer.i = alloca [128 x i8], align 16
   %index.i = alloca i32, align 4
@@ -1451,7 +1451,7 @@ if.end11.i:                                       ; preds = %for.body.i73
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %add.ptr.i76, i64 %..i
   %ai_canonname.i = getelementptr inbounds nuw i8, ptr %call8.i, i64 24
   store ptr %add.ptr13.i, ptr %ai_canonname.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr13.i, ptr readonly align 1 %85, i64 %add.i68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr13.i, ptr nonnull readonly align 1 %85, i64 %add.i68, i1 false)
   %tobool15.not.i = icmp eq ptr %firstai.044.i, null
   %spec.select.i = select i1 %tobool15.not.i, ptr %call8.i, ptr %firstai.044.i
   %tobool18.not.i = icmp eq ptr %prevai.045.i, null
@@ -1587,7 +1587,7 @@ return:                                           ; preds = %for.body.i81, %if.t
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @Curl_dyn_uptr(ptr noundef) local_unnamed_addr #1
 
@@ -1624,7 +1624,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @doh_done(ptr nocapture noundef readonly %doh, i32 noundef %result) #0 {
+define internal noundef i32 @doh_done(ptr noundef readonly captures(none) %doh, i32 noundef %result) #0 {
 land.lhs.true:
   %dohfor = getelementptr inbounds nuw i8, ptr %doh, i64 2648
   %0 = load ptr, ptr %dohfor, align 8
@@ -1678,13 +1678,13 @@ if.end25:                                         ; preds = %if.then23, %if.end2
 declare i32 @curl_multi_add_handle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1693,7 +1693,7 @@ declare ptr @curl_easy_strerror(i32 noundef) local_unnamed_addr #1
 declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 3) i32 @skipqname(ptr nocapture noundef nonnull readonly %doh, i64 noundef range(i64 12, 0) %dohlen, ptr nocapture noundef nonnull %indexp) unnamed_addr #5 {
+define internal fastcc range(i32 0, 3) i32 @skipqname(ptr noundef nonnull readonly captures(none) %doh, i64 noundef range(i64 12, 0) %dohlen, ptr noundef nonnull captures(none) %indexp) unnamed_addr #5 {
 entry:
   %indexp.promoted = load i32, ptr %indexp, align 4
   br label %do.body
@@ -1900,10 +1900,10 @@ declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #1
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

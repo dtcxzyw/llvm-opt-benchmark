@@ -37,7 +37,7 @@ define void @lib_blkoutstream_close(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @close_blockdriver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @lib_blkoutstream_open(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -124,13 +124,13 @@ define range(i32 -2147483648, 1) i32 @lib_blkoutstream_open(ptr noundef %0, ptr 
 declare i32 @open_blockdriver(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @blkoutstream_putc(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define internal void @blkoutstream_putc(ptr noundef captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca i8, align 1
   %4 = trunc i32 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -229,7 +229,7 @@ blkoutstream_puts.exit:                           ; preds = %31, %47, %61, %.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @blkoutstream_puts(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal i32 @blkoutstream_puts(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i16, ptr %4, align 8
   %6 = sext i16 %5 to i64
@@ -331,7 +331,7 @@ define internal i32 @blkoutstream_puts(ptr nocapture noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @blkoutstream_flush(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @blkoutstream_flush(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i16, ptr %2, align 8
   %4 = sext i16 %3 to i64
@@ -362,7 +362,7 @@ define internal i32 @blkoutstream_flush(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

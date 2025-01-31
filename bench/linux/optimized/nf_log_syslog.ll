@@ -283,7 +283,7 @@ define dso_local void @cleanup_module() #0 section ".exit.text" align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @register_pernet_subsys(ptr noundef) local_unnamed_addr #2
@@ -301,7 +301,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local void @unregister_pernet_subsys(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nf_log_syslog_net_init(ptr noundef %0) #4 align 16 {
@@ -423,7 +423,7 @@ define internal void @nf_log_ip_packet(ptr noundef %0, i8 zeroext %1, i32 %2, pt
 declare dso_local ptr @nf_log_buf_open() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dump_mac_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #4 align 16 {
+define internal fastcc void @dump_mac_header(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %1, align 4
@@ -552,7 +552,7 @@ define internal fastcc void @dump_mac_header(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
   %6 = alloca %struct.iphdr, align 4
   %7 = alloca [40 x i8], align 16
   %8 = alloca %struct.icmphdr, align 8
@@ -1215,7 +1215,7 @@ declare dso_local i32 @nf_log_buf_add(ptr noundef, ptr noundef, ...) local_unnam
 declare i16 @llvm.bswap.i16(i16) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #4 align 16 {
@@ -1590,7 +1590,7 @@ define internal void @nf_log_arp_packet(ptr noundef readnone %0, i8 zeroext %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #4 align 16 {
+define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #4 align 16 {
   %5 = alloca %struct.arppayload, align 1
   %6 = alloca %struct.arphdr, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #7
@@ -1806,7 +1806,7 @@ define internal void @nf_log_ip6_packet(ptr noundef %0, i8 zeroext %1, i32 %2, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #4 align 16 {
+define internal fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #4 align 16 {
   %7 = alloca %struct.ipv6hdr, align 4
   %8 = alloca %struct.ipv6_opt_hdr, align 2
   %9 = alloca %struct.frag_hdr, align 8

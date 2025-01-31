@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5arrow8internal17ComputeBitmapHashEPKhmll(ptr nocapture noundef readonly %bitmap, i64 noundef %seed, i64 noundef %bits_offset, i64 noundef %num_bits) local_unnamed_addr #0 {
+define noundef i64 @_ZN5arrow8internal17ComputeBitmapHashEPKhmll(ptr noundef readonly captures(none) %bitmap, i64 noundef %seed, i64 noundef %bits_offset, i64 noundef %num_bits) local_unnamed_addr #0 {
 entry:
   %mul.i = mul i64 %num_bits, -4132994306676758123
   %xor.i = xor i64 %mul.i, %seed

@@ -126,7 +126,7 @@ _ZN5boost10shared_ptrIN8QuantLib13UnitOfMeasure4DataEED2Ev.exit: ; preds = %entr
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN8QuantLib8QuantitypLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %m) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN8QuantLib8QuantitypLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %m) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %"class.QuantLib::Quantity", align 8
   %tmp10 = alloca %"class.QuantLib::Quantity", align 8
@@ -805,7 +805,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -894,7 +894,7 @@ _ZN8QuantLib13CommodityTypeD2Ev.exit:             ; preds = %_ZN8QuantLib13UnitO
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_19convertToERNS_8QuantityERKNS_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(40) %m, ptr noundef nonnull align 8 dereferenceable(16) %target) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
@@ -1391,7 +1391,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #6 align 2
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN8QuantLib8QuantitymIERKS0_(ptr noundef nonnull returned align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %m) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN8QuantLib8QuantitymIERKS0_(ptr noundef nonnull returned align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %m) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %"class.QuantLib::Quantity", align 8
   %tmp10 = alloca %"class.QuantLib::Quantity", align 8
@@ -1893,7 +1893,7 @@ unreachable:                                      ; preds = %invoke.cont31
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLibdvERKNS_8QuantityES2_(ptr noundef nonnull align 8 dereferenceable(40) %m1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %m2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN8QuantLibdvERKNS_8QuantityES2_(ptr noundef nonnull align 8 dereferenceable(40) %m1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %m2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp1 = alloca %"class.QuantLib::Quantity", align 8
   %tmp2 = alloca %"class.QuantLib::Quantity", align 8
@@ -2523,7 +2523,7 @@ unreachable:                                      ; preds = %invoke.cont37
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLibeqERKNS_8QuantityES2_(ptr noundef nonnull align 8 dereferenceable(40) %m1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %m2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8QuantLibeqERKNS_8QuantityES2_(ptr noundef nonnull align 8 dereferenceable(40) %m1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %m2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp1 = alloca %"class.QuantLib::Quantity", align 8
   %tmp2 = alloca %"class.QuantLib::Quantity", align 8
@@ -3153,7 +3153,7 @@ unreachable:                                      ; preds = %invoke.cont38
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLibltERKNS_8QuantityES2_(ptr noundef nonnull align 8 dereferenceable(40) %m1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %m2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8QuantLibltERKNS_8QuantityES2_(ptr noundef nonnull align 8 dereferenceable(40) %m1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %m2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp1 = alloca %"class.QuantLib::Quantity", align 8
   %tmp2 = alloca %"class.QuantLib::Quantity", align 8
@@ -3783,7 +3783,7 @@ unreachable:                                      ; preds = %invoke.cont38
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLibleERKNS_8QuantityES2_(ptr noundef nonnull align 8 dereferenceable(40) %m1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %m2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8QuantLibleERKNS_8QuantityES2_(ptr noundef nonnull align 8 dereferenceable(40) %m1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %m2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp1 = alloca %"class.QuantLib::Quantity", align 8
   %tmp2 = alloca %"class.QuantLib::Quantity", align 8
@@ -4413,7 +4413,7 @@ unreachable:                                      ; preds = %invoke.cont38
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLib5closeERKNS_8QuantityES2_m(ptr noundef nonnull align 8 dereferenceable(40) %m1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %m2, i64 noundef %n) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8QuantLib5closeERKNS_8QuantityES2_m(ptr noundef nonnull align 8 dereferenceable(40) %m1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %m2, i64 noundef %n) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp1 = alloca %"class.QuantLib::Quantity", align 8
   %tmp2 = alloca %"class.QuantLib::Quantity", align 8
@@ -5068,7 +5068,7 @@ unreachable:                                      ; preds = %invoke.cont38
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLib12close_enoughERKNS_8QuantityES2_m(ptr noundef nonnull align 8 dereferenceable(40) %m1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %m2, i64 noundef %n) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8QuantLib12close_enoughERKNS_8QuantityES2_m(ptr noundef nonnull align 8 dereferenceable(40) %m1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %m2, i64 noundef %n) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp1 = alloca %"class.QuantLib::Quantity", align 8
   %tmp2 = alloca %"class.QuantLib::Quantity", align 8
@@ -5723,7 +5723,7 @@ unreachable:                                      ; preds = %invoke.cont38
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKNS_8QuantityE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %quantity) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKNS_8QuantityE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %quantity) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %quantity, align 8, !tbaa !26
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -5957,12 +5957,12 @@ declare double @llvm.fabs.f64(double) #11
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -5979,7 +5979,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 attributes #0 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

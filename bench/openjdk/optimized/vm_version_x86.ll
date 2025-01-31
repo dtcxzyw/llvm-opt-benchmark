@@ -3022,7 +3022,7 @@ _ZN10VM_Version26allocate_prefetch_distanceEb.exit: ; preds = %1000, %1011, %101
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9CpuidInfo13feature_flagsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(672) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9CpuidInfo13feature_flagsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(672) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 8
@@ -3986,10 +3986,10 @@ define hidden void @_ZN10VM_Version21check_virtualizationsEv() local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZN21VirtualizationSupport10initializeEv() local_unnamed_addr #4
 
@@ -7984,7 +7984,7 @@ define hidden noundef ptr @_ZN10VM_Version16cpu_brand_stringEv() local_unnamed_a
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN10VM_Version25cpu_extended_brand_stringEPcm(ptr nocapture noundef writeonly initializes((0, 48)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN10VM_Version25cpu_extended_brand_stringEPcm(ptr noundef writeonly captures(none) initializes((0, 48)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZL24getCPUIDBrandString_stub, align 8
   tail call void %3(ptr noundef nonnull @_ZN10VM_Version11_cpuid_infoE) #14
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
@@ -9411,13 +9411,13 @@ declare i32 @llvm.umax.i32(i32, i32) #11
 declare i64 @llvm.ctpop.i64(i64) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11

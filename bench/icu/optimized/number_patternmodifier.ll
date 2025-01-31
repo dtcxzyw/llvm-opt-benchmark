@@ -336,7 +336,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -573,13 +573,13 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_756number4impl20AffixPatternProviderD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number4impl20AffixPatternProviderD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
@@ -666,7 +666,7 @@ declare void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull ali
 declare void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl22MutablePatternModifier14setPatternInfoEPKNS1_20AffixPatternProviderENS_22FormattedStringBuilder5FieldE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) initializes((32, 41)) %this, ptr noundef %patternInfo, i8 %field.coerce) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_756number4impl22MutablePatternModifier14setPatternInfoEPKNS1_20AffixPatternProviderENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(392) initializes((32, 41)) %this, ptr noundef %patternInfo, i8 %field.coerce) local_unnamed_addr #11 align 2 {
 entry:
   %fPatternInfo = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %patternInfo, ptr %fPatternInfo, align 8
@@ -676,7 +676,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl22MutablePatternModifier20setPatternAttributesE18UNumberSignDisplaybb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) initializes((44, 50)) %this, i32 noundef %signDisplay, i1 noundef zeroext %perMille, i1 noundef zeroext %approximately) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_756number4impl22MutablePatternModifier20setPatternAttributesE18UNumberSignDisplaybb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(392) initializes((44, 50)) %this, i32 noundef %signDisplay, i1 noundef zeroext %perMille, i1 noundef zeroext %approximately) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %perMille to i8
   %frombool1 = zext i1 %approximately to i8
@@ -772,7 +772,7 @@ declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl22MutablePatternModifier19setNumberPropertiesENS1_6SignumENS_14StandardPlural4FormE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) initializes((312, 320)) %this, i32 noundef %signum, i32 noundef %plural) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_756number4impl22MutablePatternModifier19setNumberPropertiesENS1_6SignumENS_14StandardPlural4FormE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(392) initializes((312, 320)) %this, i32 noundef %signum, i32 noundef %plural) local_unnamed_addr #11 align 2 {
 entry:
   %fSignum = getelementptr inbounds nuw i8, ptr %this, i64 312
   store i32 %signum, ptr %fSignum, align 8
@@ -782,7 +782,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_756number4impl22MutablePatternModifier12needsPluralsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6icu_756number4impl22MutablePatternModifier12needsPluralsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(392) %this) local_unnamed_addr #1 align 2 {
 entry:
   %statusLocal = alloca i32, align 4
   store i32 0, ptr %statusLocal, align 4
@@ -1263,7 +1263,7 @@ return:                                           ; preds = %if.end26, %new.notn
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #10
@@ -1330,7 +1330,7 @@ declare void @_ZN6icu_756number4impl30CurrencySpacingEnabledModifierC1ERKNS_22Fo
 declare void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl24ImmutablePatternModifierC2EPNS1_21AdoptingModifierStoreEPKNS_11PluralRulesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %pm, ptr noundef %rules) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl24ImmutablePatternModifierC2EPNS1_21AdoptingModifierStoreEPKNS_11PluralRulesE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef %pm, ptr noundef %rules) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl24ImmutablePatternModifierE, i64 16), ptr %this, align 8
   %pm2 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1343,7 +1343,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number4impl24ImmutablePatternModifier15processQuantityERNS1_15DecimalQuantityERNS1_10MicroPropsER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr noundef nonnull align 8 dereferenceable(489) %micros, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_756number4impl24ImmutablePatternModifier15processQuantityERNS1_15DecimalQuantityERNS1_10MicroPropsER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr noundef nonnull align 8 dereferenceable(489) %micros, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %parent = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %parent, align 8
@@ -1397,7 +1397,7 @@ return:                                           ; preds = %entry, %_ZNK6icu_75
 declare void @_ZNK6icu_756number4impl12RoundingImpl5applyERNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37), ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number4impl24ImmutablePatternModifier13applyToMicrosERNS1_10MicroPropsERKNS1_15DecimalQuantityER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(489) %micros, ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_756number4impl24ImmutablePatternModifier13applyToMicrosERNS1_10MicroPropsERKNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(489) %micros, ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %rules = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %rules, align 8
@@ -1496,7 +1496,7 @@ cleanup:                                          ; preds = %_ZN6icu_756number4i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_756number4impl24ImmutablePatternModifier11getModifierENS1_6SignumENS_14StandardPlural4FormE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %signum, i32 noundef %plural) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK6icu_756number4impl24ImmutablePatternModifier11getModifierENS1_6SignumENS_14StandardPlural4FormE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %signum, i32 noundef %plural) local_unnamed_addr #1 align 2 {
 entry:
   %rules = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %rules, align 8
@@ -1525,7 +1525,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl24ImmutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %this, ptr noundef %parent) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_756number4impl24ImmutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((24, 32)) %this, ptr noundef %parent) local_unnamed_addr #11 align 2 {
 entry:
   %parent2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %parent, ptr %parent2, align 8
@@ -1841,7 +1841,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_756number4impl22MutablePatternModifier8isStrongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this) unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK6icu_756number4impl22MutablePatternModifier8isStrongEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(392) %this) unnamed_addr #14 align 2 {
 entry:
   %fStrong = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %fStrong, align 8
@@ -1850,7 +1850,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZThn8_NK6icu_756number4impl22MutablePatternModifier8isStrongEv(ptr nocapture noundef readonly %this) unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZThn8_NK6icu_756number4impl22MutablePatternModifier8isStrongEv(ptr noundef readonly captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   %fStrong.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %fStrong.i, align 8
@@ -1859,7 +1859,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define noundef zeroext i1 @_ZNK6icu_756number4impl22MutablePatternModifier13containsFieldENS_22FormattedStringBuilder5FieldE(ptr nocapture nonnull readnone align 8 %this, i8 %field.coerce) unnamed_addr #15 align 2 {
+define noundef zeroext i1 @_ZNK6icu_756number4impl22MutablePatternModifier13containsFieldENS_22FormattedStringBuilder5FieldE(ptr nonnull readnone align 8 captures(none) %this, i8 %field.coerce) unnamed_addr #15 align 2 {
 entry:
   tail call void @abort() #24
   unreachable
@@ -1869,35 +1869,35 @@ entry:
 declare void @abort() local_unnamed_addr #16
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define noundef zeroext i1 @_ZThn8_NK6icu_756number4impl22MutablePatternModifier13containsFieldENS_22FormattedStringBuilder5FieldE(ptr nocapture readnone %this, i8 %field.coerce) unnamed_addr #17 align 2 {
+define noundef zeroext i1 @_ZThn8_NK6icu_756number4impl22MutablePatternModifier13containsFieldENS_22FormattedStringBuilder5FieldE(ptr readnone captures(none) %this, i8 %field.coerce) unnamed_addr #17 align 2 {
 entry:
   tail call void @abort() #24
   unreachable
 }
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define void @_ZNK6icu_756number4impl22MutablePatternModifier13getParametersERNS1_8Modifier10ParametersE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %output) unnamed_addr #15 align 2 {
+define void @_ZNK6icu_756number4impl22MutablePatternModifier13getParametersERNS1_8Modifier10ParametersE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %output) unnamed_addr #15 align 2 {
 entry:
   tail call void @abort() #24
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define void @_ZThn8_NK6icu_756number4impl22MutablePatternModifier13getParametersERNS1_8Modifier10ParametersE(ptr nocapture readnone %this, ptr nocapture nonnull readnone align 8 %output) unnamed_addr #17 align 2 {
+define void @_ZThn8_NK6icu_756number4impl22MutablePatternModifier13getParametersERNS1_8Modifier10ParametersE(ptr readnone captures(none) %this, ptr nonnull readnone align 8 captures(none) %output) unnamed_addr #17 align 2 {
 entry:
   tail call void @abort() #24
   unreachable
 }
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define noundef zeroext i1 @_ZNK6icu_756number4impl22MutablePatternModifier22semanticallyEquivalentERKNS1_8ModifierE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %other) unnamed_addr #15 align 2 {
+define noundef zeroext i1 @_ZNK6icu_756number4impl22MutablePatternModifier22semanticallyEquivalentERKNS1_8ModifierE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %other) unnamed_addr #15 align 2 {
 entry:
   tail call void @abort() #24
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define noundef zeroext i1 @_ZThn8_NK6icu_756number4impl22MutablePatternModifier22semanticallyEquivalentERKNS1_8ModifierE(ptr nocapture readnone %this, ptr nocapture nonnull readnone align 8 %other) unnamed_addr #17 align 2 {
+define noundef zeroext i1 @_ZThn8_NK6icu_756number4impl22MutablePatternModifier22semanticallyEquivalentERKNS1_8ModifierE(ptr readnone captures(none) %this, ptr nonnull readnone align 8 captures(none) %other) unnamed_addr #17 align 2 {
 entry:
   tail call void @abort() #24
   unreachable
@@ -2071,7 +2071,7 @@ declare void @_ZNK6icu_756number4impl15CurrencySymbols23getFormalCurrencySymbolE
 declare void @_ZNK6icu_756number4impl15CurrencySymbols24getVariantCurrencySymbolER10UErrorCode(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(232), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define void @_ZNK6icu_756number4impl22MutablePatternModifier15toUnicodeStringEv(ptr noalias nocapture readnone sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(392) %this) local_unnamed_addr #15 align 2 {
+define void @_ZNK6icu_756number4impl22MutablePatternModifier15toUnicodeStringEv(ptr noalias readnone sret(%"class.icu_75::UnicodeString") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(392) %this) local_unnamed_addr #15 align 2 {
 entry:
   tail call void @abort() #24
   unreachable
@@ -2366,10 +2366,10 @@ declare i32 @llvm.smin.i32(i32, i32) #19
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -64,7 +64,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2) i32 @rsa_encrypt(ptr nocapture noundef %vprsactx, ptr noundef %out, ptr nocapture noundef writeonly %outlen, i64 %outsize, ptr noundef %in, i64 noundef %inlen) #0 {
+define internal range(i32 -2147483648, 2) i32 @rsa_encrypt(ptr noundef captures(none) %vprsactx, ptr noundef %out, ptr noundef writeonly captures(none) %outlen, i64 %outsize, ptr noundef %in, i64 noundef %inlen) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -182,7 +182,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_decrypt(ptr nocapture noundef %vprsactx, ptr noundef %out, ptr nocapture noundef %outlen, i64 noundef %outsize, ptr noundef %in, i64 noundef %inlen) #0 {
+define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %vprsactx, ptr noundef %out, ptr noundef captures(none) %outlen, i64 noundef %outsize, ptr noundef %in, i64 noundef %inlen) #0 {
 entry:
   %rsa = getelementptr inbounds nuw i8, ptr %vprsactx, i64 8
   %0 = load ptr, ptr %rsa, align 8
@@ -385,7 +385,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_dupctx(ptr nocapture noundef readonly %vprsactx) #0 {
+define internal ptr @rsa_dupctx(ptr noundef readonly captures(none) %vprsactx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -622,7 +622,7 @@ return:                                           ; preds = %land.lhs.true79, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @rsa_gettable_ctx_params(ptr nocapture readnone %vprsactx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @rsa_gettable_ctx_params(ptr readnone captures(none) %vprsactx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_gettable_ctx_params
 }
@@ -880,7 +880,7 @@ return:                                           ; preds = %if.end119, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @rsa_settable_ctx_params(ptr nocapture readnone %vprsactx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @rsa_settable_ctx_params(ptr readnone captures(none) %vprsactx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_settable_ctx_params
 }
@@ -978,7 +978,7 @@ declare i32 @ossl_rsa_padding_check_PKCS1_type_2_TLS(ptr noundef, ptr noundef, i
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @EVP_MD_up_ref(ptr noundef) local_unnamed_addr #2
 
@@ -995,7 +995,7 @@ declare i32 @OSSL_PARAM_set_octet_ptr(ptr noundef, ptr noundef, i64 noundef) loc
 declare i32 @OSSL_PARAM_set_uint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1004,7 +1004,7 @@ declare i32 @OSSL_PARAM_get_utf8_string(ptr noundef, ptr noundef, i64 noundef) l
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 

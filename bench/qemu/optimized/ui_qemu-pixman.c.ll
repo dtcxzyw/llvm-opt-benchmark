@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qemu_pixman_linebuf_create = private unnamed_addr constant [70 x i8] c"pixman_image_t *qemu_pixman_linebuf_create(pixman_format_code_t, int)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_pixelformat_from_pixman(ptr noalias nocapture writeonly sret(%struct.PixelFormat) align 4 initializes((0, 3), (28, 32)) %agg.result, i32 noundef %format) local_unnamed_addr #0 {
+define dso_local void @qemu_pixelformat_from_pixman(ptr noalias writeonly sret(%struct.PixelFormat) align 4 captures(none) initializes((0, 3), (28, 32)) %agg.result, i32 noundef %format) local_unnamed_addr #0 {
 entry:
   %shr = lshr i32 %format, 24
   %shr1 = lshr i32 %format, 22
@@ -302,7 +302,7 @@ if.end14:                                         ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, -15728640) i32 @qemu_pixman_get_format(ptr nocapture noundef readonly %pf) local_unnamed_addr #0 {
+define dso_local range(i32 0, -15728640) i32 @qemu_pixman_get_format(ptr noundef readonly captures(none) %pf) local_unnamed_addr #0 {
 entry:
   %rshift = getelementptr inbounds nuw i8, ptr %pf, i64 20
   %0 = load i8, ptr %rshift, align 4
@@ -365,7 +365,7 @@ qemu_pixman_get_type.exit:                        ; preds = %if.then.i, %if.else
 declare i32 @pixman_format_supported_source(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @qemu_pixman_check_format(ptr nocapture noundef readnone %dcl, i32 noundef %format) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @qemu_pixman_check_format(ptr noundef readnone captures(none) %dcl, i32 noundef %format) local_unnamed_addr #2 {
 entry:
   switch i32 %format, label %sw.default [
     i32 537004168, label %return
@@ -451,7 +451,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @pixman_image_unref(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qemu_pixman_glyph_from_vgafont(i32 noundef %height, ptr nocapture noundef readonly %font, i32 noundef %ch) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_pixman_glyph_from_vgafont(i32 noundef %height, ptr noundef readonly captures(none) %font, i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @pixman_image_create_bits(i32 noundef 134316032, i32 noundef 8, i32 noundef %height, ptr noundef null, i32 noundef 0) #7
   %call1 = tail call ptr @pixman_image_get_data(ptr noundef %call) #7

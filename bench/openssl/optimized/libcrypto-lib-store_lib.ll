@@ -347,7 +347,7 @@ return:                                           ; preds = %if.end94, %if.end79
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -391,7 +391,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -403,7 +403,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_STORE_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ...) local_unnamed_addr #0 {
+define i32 @OSSL_STORE_ctrl(ptr noundef readonly captures(none) %ctx, i32 noundef %cmd, ...) local_unnamed_addr #0 {
 entry:
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
   %on.i = alloca i32, align 4
@@ -492,7 +492,7 @@ OSSL_STORE_vctrl.exit:                            ; preds = %if.then.i, %sw.epil
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_STORE_vctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %args) local_unnamed_addr #0 {
+define i32 @OSSL_STORE_vctrl(ptr noundef readonly captures(none) %ctx, i32 noundef %cmd, ptr noundef %args) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %on = alloca i32, align 4
@@ -653,7 +653,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_STORE_find(ptr nocapture noundef readonly %ctx, ptr noundef %search) local_unnamed_addr #0 {
+define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %ctx, ptr noundef %search) local_unnamed_addr #0 {
 entry:
   %name_der = alloca ptr, align 8
   %loading = getelementptr inbounds nuw i8, ptr %ctx, i64 56
@@ -1005,7 +1005,7 @@ return:                                           ; preds = %if.end48, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_STORE_eof(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_STORE_eof(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %fetched_loader = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %fetched_loader, align 8
@@ -1042,7 +1042,7 @@ if.end7:                                          ; preds = %if.then3, %if.end
 declare i32 @ossl_store_handle_load_result(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @OSSL_STORE_INFO_get_type(ptr nocapture noundef readonly %info) local_unnamed_addr #5 {
+define i32 @OSSL_STORE_INFO_get_type(ptr noundef readonly captures(none) %info) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %info, align 8
   ret i32 %0
@@ -1174,7 +1174,7 @@ return:                                           ; preds = %entry, %if.end19, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_STORE_error(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @OSSL_STORE_error(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %fetched_loader = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %fetched_loader, align 8
@@ -1295,7 +1295,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_STORE_INFO_set0_NAME_description(ptr nocapture noundef %info, ptr noundef %desc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_STORE_INFO_set0_NAME_description(ptr noundef captures(none) %info, ptr noundef %desc) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp.not = icmp eq i32 %0, 1
@@ -1433,7 +1433,7 @@ if.end:                                           ; preds = %OSSL_STORE_INFO_new
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_INFO_get0_data(i32 noundef %type, ptr nocapture noundef readonly %info) local_unnamed_addr #5 {
+define ptr @OSSL_STORE_INFO_get0_data(i32 noundef %type, ptr noundef readonly captures(none) %info) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, %type
@@ -1450,7 +1450,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_INFO_get0_NAME(ptr nocapture noundef readonly %info) local_unnamed_addr #5 {
+define ptr @OSSL_STORE_INFO_get0_NAME(ptr noundef readonly captures(none) %info) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 1
@@ -1467,7 +1467,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @OSSL_STORE_INFO_get1_NAME(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define noalias ptr @OSSL_STORE_INFO_get1_NAME(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 1
@@ -1491,7 +1491,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_INFO_get0_NAME_description(ptr nocapture noundef readonly %info) local_unnamed_addr #5 {
+define ptr @OSSL_STORE_INFO_get0_NAME_description(ptr noundef readonly captures(none) %info) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 1
@@ -1508,7 +1508,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @OSSL_STORE_INFO_get1_NAME_description(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define noalias ptr @OSSL_STORE_INFO_get1_NAME_description(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 1
@@ -1534,7 +1534,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_INFO_get0_PARAMS(ptr nocapture noundef readonly %info) local_unnamed_addr #5 {
+define ptr @OSSL_STORE_INFO_get0_PARAMS(ptr noundef readonly captures(none) %info) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 2
@@ -1551,7 +1551,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_STORE_INFO_get1_PARAMS(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define ptr @OSSL_STORE_INFO_get1_PARAMS(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 2
@@ -1578,7 +1578,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_INFO_get0_PUBKEY(ptr nocapture noundef readonly %info) local_unnamed_addr #5 {
+define ptr @OSSL_STORE_INFO_get0_PUBKEY(ptr noundef readonly captures(none) %info) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 3
@@ -1595,7 +1595,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_STORE_INFO_get1_PUBKEY(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define ptr @OSSL_STORE_INFO_get1_PUBKEY(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 3
@@ -1620,7 +1620,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_INFO_get0_PKEY(ptr nocapture noundef readonly %info) local_unnamed_addr #5 {
+define ptr @OSSL_STORE_INFO_get0_PKEY(ptr noundef readonly captures(none) %info) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 4
@@ -1637,7 +1637,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_STORE_INFO_get1_PKEY(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define ptr @OSSL_STORE_INFO_get1_PKEY(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 4
@@ -1662,7 +1662,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_INFO_get0_CERT(ptr nocapture noundef readonly %info) local_unnamed_addr #5 {
+define ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef readonly captures(none) %info) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 5
@@ -1679,7 +1679,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_STORE_INFO_get1_CERT(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define ptr @OSSL_STORE_INFO_get1_CERT(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 5
@@ -1706,7 +1706,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_INFO_get0_CRL(ptr nocapture noundef readonly %info) local_unnamed_addr #5 {
+define ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef readonly captures(none) %info) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 6
@@ -1723,7 +1723,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_STORE_INFO_get1_CRL(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define ptr @OSSL_STORE_INFO_get1_CRL(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 6
@@ -1756,7 +1756,7 @@ declare void @X509_free(ptr noundef) local_unnamed_addr #2
 declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_STORE_supports_search(ptr nocapture noundef readonly %ctx, i32 noundef %search_type) local_unnamed_addr #0 {
+define i32 @OSSL_STORE_supports_search(ptr noundef readonly captures(none) %ctx, i32 noundef %search_type) local_unnamed_addr #0 {
 entry:
   %tmp_search = alloca %struct.ossl_store_search_st, align 8
   %fetched_loader = getelementptr inbounds nuw i8, ptr %ctx, i64 8
@@ -1933,7 +1933,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @OSSL_STORE_SEARCH_free(ptr noundef %search) local_unnamed_addr #0 {
@@ -1943,14 +1943,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @OSSL_STORE_SEARCH_get_type(ptr nocapture noundef readonly %criterion) local_unnamed_addr #5 {
+define i32 @OSSL_STORE_SEARCH_get_type(ptr noundef readonly captures(none) %criterion) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %criterion, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_SEARCH_get0_name(ptr nocapture noundef readonly %criterion) local_unnamed_addr #5 {
+define ptr @OSSL_STORE_SEARCH_get0_name(ptr noundef readonly captures(none) %criterion) local_unnamed_addr #5 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %criterion, i64 8
   %0 = load ptr, ptr %name, align 8
@@ -1958,7 +1958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_SEARCH_get0_serial(ptr nocapture noundef readonly %criterion) local_unnamed_addr #5 {
+define ptr @OSSL_STORE_SEARCH_get0_serial(ptr noundef readonly captures(none) %criterion) local_unnamed_addr #5 {
 entry:
   %serial = getelementptr inbounds nuw i8, ptr %criterion, i64 16
   %0 = load ptr, ptr %serial, align 8
@@ -1966,7 +1966,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @OSSL_STORE_SEARCH_get0_bytes(ptr nocapture noundef readonly %criterion, ptr nocapture noundef writeonly initializes((0, 8)) %length) local_unnamed_addr #6 {
+define ptr @OSSL_STORE_SEARCH_get0_bytes(ptr noundef readonly captures(none) %criterion, ptr noundef writeonly captures(none) initializes((0, 8)) %length) local_unnamed_addr #6 {
 entry:
   %stringlength = getelementptr inbounds nuw i8, ptr %criterion, i64 40
   %0 = load i64, ptr %stringlength, align 8
@@ -1977,7 +1977,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_SEARCH_get0_string(ptr nocapture noundef readonly %criterion) local_unnamed_addr #5 {
+define ptr @OSSL_STORE_SEARCH_get0_string(ptr noundef readonly captures(none) %criterion) local_unnamed_addr #5 {
 entry:
   %string = getelementptr inbounds nuw i8, ptr %criterion, i64 32
   %0 = load ptr, ptr %string, align 8
@@ -1985,7 +1985,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_SEARCH_get0_digest(ptr nocapture noundef readonly %criterion) local_unnamed_addr #5 {
+define ptr @OSSL_STORE_SEARCH_get0_digest(ptr noundef readonly captures(none) %criterion) local_unnamed_addr #5 {
 entry:
   %digest = getelementptr inbounds nuw i8, ptr %criterion, i64 24
   %0 = load ptr, ptr %digest, align 8
@@ -2169,10 +2169,10 @@ declare void @llvm.va_start.p0(ptr) #7
 declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

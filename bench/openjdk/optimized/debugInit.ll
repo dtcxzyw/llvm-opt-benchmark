@@ -147,7 +147,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.122 = private unnamed_addr constant [17 x i8] c"End initialize()\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [80 x i8], align 16
   %5 = alloca [80 x i8], align 16
   %6 = alloca ptr, align 8
@@ -1210,7 +1210,7 @@ get_tok.exit290.i:                                ; preds = %.lr.ph.i284.i, %.lr
   br i1 %.not163.i, label %get_tok.exit.thread.i, label %443
 
 443:                                              ; preds = %get_tok.exit290.i
-  %444 = tail call i64 @strtol(ptr nocapture noundef nonnull %.0106410.i, ptr noundef null, i32 noundef 0) #17
+  %444 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.0106410.i, ptr noundef null, i32 noundef 0) #17
   %445 = trunc i64 %444 to i32
   store i32 %445, ptr @logflags, align 4
   br label %506
@@ -1264,7 +1264,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
   br i1 %.not162.i, label %get_tok.exit.thread.i, label %466
 
 466:                                              ; preds = %get_tok.exit300.i
-  %467 = tail call i64 @strtol(ptr nocapture noundef nonnull %.0106410.i, ptr noundef null, i32 noundef 0) #17
+  %467 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.0106410.i, ptr noundef null, i32 noundef 0) #17
   %468 = trunc i64 %467 to i32
   %469 = load ptr, ptr @gdata, align 8
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 28
@@ -1718,7 +1718,7 @@ declare i32 @jvmtiMinorVersion() local_unnamed_addr #1
 declare i32 @jvmtiMicroVersion() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @jvmtiErrorText(i32 noundef) local_unnamed_addr #1
 
@@ -1776,7 +1776,7 @@ define internal fastcc i32 @set_event_notification(i32 noundef range(i32 0, 2) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbEarlyVMInit(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @cbEarlyVMInit(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr @gdata, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 528
   %6 = load i32, ptr %5, align 8
@@ -1832,7 +1832,7 @@ define internal void @cbEarlyVMInit(ptr nocapture readnone %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbEarlyVMDeath(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @cbEarlyVMDeath(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @gdata, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 528
   %5 = load i32, ptr %4, align 8
@@ -2179,7 +2179,7 @@ thread-pre-split:                                 ; preds = %111, %98
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Agent_OnUnload(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @Agent_OnUnload(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @gdata, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 576
   store i8 0, ptr %3, align 8
@@ -2356,7 +2356,7 @@ declare void @commonRef_reset(ptr noundef) local_unnamed_addr #1
 declare zeroext i8 @bagEnumerateOver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @startTransport(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal noundef zeroext i8 @startTransport(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = load ptr, ptr @gdata, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 528
   %5 = load i32, ptr %4, align 8
@@ -2952,7 +2952,7 @@ signalInitComplete.exit:                          ; preds = %70, %76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i8 @getFirstTransport(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #7 {
+define internal noundef zeroext i8 @getFirstTransport(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #7 {
   store ptr %0, ptr %1, align 8
   ret i8 0
 }
@@ -2970,7 +2970,7 @@ declare zeroext i8 @isVThread(ptr noundef) local_unnamed_addr #1
 declare i32 @classSignature(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @jvmtiDeallocate(ptr noundef) local_unnamed_addr #1
 
@@ -2981,25 +2981,25 @@ declare ptr @jdwpErrorText(i16 noundef zeroext) local_unnamed_addr #1
 declare void @debugMonitorNotifyAll(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @jvmtiAllocate(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 declare ptr @bagCreateBag(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @bagAdd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @get_boolean(ptr nocapture noundef nonnull %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) unnamed_addr #12 {
+define internal fastcc zeroext range(i8 0, 2) i8 @get_boolean(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) unnamed_addr #12 {
   %3 = alloca [80 x i8], align 16
   store i8 0, ptr %1, align 1
   %4 = load ptr, ptr %0, align 8
@@ -3057,7 +3057,7 @@ get_tok.exit.thread:                              ; preds = %7, %get_tok.exit.th
 declare void @do_pause() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #13
 
 declare void @setup_logging(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3073,7 +3073,7 @@ define internal void @atexit_finish_logging() #0 {
 declare i32 @bagSize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @checkAddress(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal zeroext range(i8 0, 2) i8 @checkAddress(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3106,10 +3106,10 @@ define internal zeroext range(i8 0, 2) i8 @checkAddress(ptr nocapture noundef re
 declare void @tty_message(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 declare void @commonRef_initialize() local_unnamed_addr #1
 
@@ -3150,13 +3150,13 @@ declare signext i8 @eventHelper_reportEvents(i8 noundef signext, ptr noundef) lo
 declare void @bagDestroyBag(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

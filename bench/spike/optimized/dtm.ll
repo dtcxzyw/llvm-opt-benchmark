@@ -32,7 +32,7 @@ $_ZN6htif_t20is_address_preloadedEmm = comdat any
 @_ZN5dtm_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5dtm_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5dtm_t10do_commandENS_3reqE(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i64 %1, i32 %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5dtm_t10do_commandENS_3reqE(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i64 %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store i64 %1, ptr %4, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -46,12 +46,12 @@ define noundef i32 @_ZN5dtm_t10do_commandENS_3reqE(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5dtm_t4readEj(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %.sroa.01.0.insert.ext = zext i32 %1 to i64
   %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.01.0.insert.ext, 4294967296
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 872
@@ -67,7 +67,7 @@ define noundef i32 @_ZN5dtm_t4readEj(ptr nocapture noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5dtm_t5writeEjj(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %.sroa.01.0.insert.ext = zext i32 %1 to i64
   %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.01.0.insert.ext, 8589934592
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
@@ -83,7 +83,7 @@ define noundef i32 @_ZN5dtm_t5writeEjj(ptr nocapture noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t3nopEv(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t3nopEv(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store i64 0, ptr %2, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -95,7 +95,7 @@ define void @_ZN5dtm_t3nopEv(ptr nocapture noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t11select_hartEi(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884), (924, 928)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t11select_hartEi(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884), (924, 928)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store i64 4294967312, ptr %3, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -119,7 +119,7 @@ define void @_ZN5dtm_t11select_hartEi(ptr nocapture noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 3) i32 @_ZN5dtm_t15enumerate_hartsEv(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884), (924, 928)) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 3) i32 @_ZN5dtm_t15enumerate_hartsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884), (924, 928)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store i64 4294967312, ptr %2, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -184,7 +184,7 @@ define noundef range(i32 0, 3) i32 @_ZN5dtm_t15enumerate_hartsEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t4haltEi(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 892
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -244,7 +244,7 @@ define void @_ZN5dtm_t4haltEi(ptr nocapture noundef nonnull align 8 dereferencea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t6resumeEi(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = shl nsw i32 %1, 26
   %4 = and i32 %3, 67108864
   %5 = or disjoint i32 %4, 1073741825
@@ -301,7 +301,7 @@ define void @_ZN5dtm_t6resumeEi(ptr nocapture noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5dtm_t8save_regEj(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 900
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 5
@@ -361,7 +361,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 8) i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4, i64 noundef %5) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 8) i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, i64 noundef %5) local_unnamed_addr #0 align 2 {
   %.not48 = icmp eq i64 %3, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
@@ -468,7 +468,7 @@ define noundef range(i32 0, 8) i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t3dieEj(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ult i32 %1, 5
   br i1 %3, label %4, label %8
 
@@ -493,7 +493,7 @@ define void @_ZN5dtm_t3dieEj(ptr nocapture noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t11restore_regEjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 900
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 5
@@ -550,7 +550,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %23, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 0, 536870912) i64 @_ZN5dtm_t11chunk_alignEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(928) %0) unnamed_addr #3 align 2 {
+define noundef range(i64 0, 536870912) i64 @_ZN5dtm_t11chunk_alignEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(928) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 900
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 3
@@ -559,7 +559,7 @@ define noundef range(i64 0, 536870912) i64 @_ZN5dtm_t11chunk_alignEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t10read_chunkEmmPv(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t10read_chunkEmmPv(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %6 = load i64, ptr %5, align 8
   %7 = alloca i32, i64 %6, align 16
@@ -704,7 +704,7 @@ _ZN5dtm_t3dieEj.exit29:                           ; preds = %68, %70
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t11write_chunkEmmPKv(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t11write_chunkEmmPKv(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %6 = load i64, ptr %5, align 8
   %7 = alloca i32, i64 %6, align 16
@@ -935,10 +935,10 @@ _ZN5dtm_t3dieEj.exit42:                           ; preds = %105, %107
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t11clear_chunkEmm(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t11clear_chunkEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %5 = load i64, ptr %4, align 8
   %6 = alloca i32, i64 %5, align 16
@@ -1052,13 +1052,13 @@ _ZN5dtm_t3dieEj.exit21:                           ; preds = %58, %60
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t9write_csrEjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t9write_csrEjm(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2, i32 noundef 1)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [6 x i32], align 16
   %6 = alloca [2 x i32], align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 924
@@ -1163,30 +1163,30 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %42, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t7set_csrEjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t7set_csrEjm(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2, i32 noundef 2)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t9clear_csrEjm(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t9clear_csrEjm(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2, i32 noundef 3)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t8read_csrEj(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t8read_csrEj(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef 0, i32 noundef 2)
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN5dtm_t14chunk_max_sizeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define noundef i64 @_ZN5dtm_t14chunk_max_sizeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret i64 4096
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 32, 65) i32 @_ZN5dtm_t8get_xlenEv(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 32, 65) i32 @_ZN5dtm_t8get_xlenEv(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store i64 8589934615, ptr %2, align 8
   %.sroa.22.0..sroa_idx.i.i34.i = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -1318,7 +1318,7 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t7fence_iEv(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [2 x i32], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 924
   %4 = load i32, ptr %3, align 4
@@ -1472,7 +1472,7 @@ define void @_ZN5dtm_t15producer_threadEv(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884), (924, 928)) %0) unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884), (924, 928)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1536,7 +1536,7 @@ define void @_ZN5dtm_t5resetEv(ptr nocapture noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t4idleEv(ptr nocapture noundef nonnull align 8 dereferenceable(928) initializes((872, 884)) %0) unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t4idleEv(ptr noundef nonnull align 8 captures(none) dereferenceable(928) initializes((872, 884)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 880
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 728

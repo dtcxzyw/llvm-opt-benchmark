@@ -173,13 +173,13 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_arch_haltpol
 @llvm.compiler.used = appending global [14 x ptr] [ptr @__UNIQUE_ID___addressable_activate_jump_labels627, ptr @__UNIQUE_ID___addressable_arch_haltpoll_disable629, ptr @__UNIQUE_ID___addressable_arch_haltpoll_enable628, ptr @__UNIQUE_ID___addressable_kvm_alloc_cpumask623, ptr @__UNIQUE_ID___addressable_kvm_arch_para_hints625, ptr @__UNIQUE_ID___addressable_kvm_async_pf_task_wait_schedule597, ptr @__UNIQUE_ID___addressable_kvm_async_pf_task_wake598, ptr @__UNIQUE_ID___addressable_kvm_para_available624, ptr @__UNIQUE_ID___addressable_kvm_read_and_reset_apf_flags599, ptr @__UNIQUE_ID___addressable_setup_efi_kvm_sev_migration620, ptr @__setup_parse_no_kvmapf, ptr @__setup_parse_no_stealacc, ptr @apic_eoi.__UNIQUE_ID___addressable___SCK__apic_call_eoi538, ptr @apic_native_eoi.__UNIQUE_ID___addressable___SCK__apic_call_native_eoi539], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @parse_no_kvmapf(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @parse_no_kvmapf(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   store i1 true, ptr @kvmapf, align 4
   ret i32 0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @parse_no_stealacc(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @parse_no_stealacc(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   store i1 true, ptr @steal_acc, align 4
   ret i32 0
 }
@@ -286,10 +286,10 @@ define dso_local void @kvm_async_pf_task_wait_schedule(i32 noundef %0) #1 align 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @prepare_to_swait_exclusive(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -301,7 +301,7 @@ declare dso_local void @schedule() local_unnamed_addr #4
 declare dso_local void @finish_swait(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
@@ -1258,7 +1258,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #11
 declare dso_local i32 @smp_call_function_single(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kvm_disable_host_haltpoll(ptr nocapture readnone %0) #1 align 16 {
+define internal void @kvm_disable_host_haltpoll(ptr readnone captures(none) %0) #1 align 16 {
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947013, i32 0, i32 0) #17, !srcloc !46
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %3 [label %2], !srcloc !47
@@ -1341,7 +1341,7 @@ __kvm_cpuid_base.exit:                            ; preds = %5, %8, %26
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kvm_enable_host_haltpoll(ptr nocapture readnone %0) #1 align 16 {
+define internal void @kvm_enable_host_haltpoll(ptr readnone captures(none) %0) #1 align 16 {
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947013, i32 1, i32 0) #17, !srcloc !46
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %3 [label %2], !srcloc !47
@@ -1723,7 +1723,7 @@ define internal fastcc void @kvm_setup_pv_ipi() unnamed_addr #10 section ".init.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kvm_send_ipi_mask(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define internal void @kvm_send_ipi_mask(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   tail call fastcc void @__send_ipi_mask(ptr noundef %0, i32 noundef %1)
   ret void
 }
@@ -1735,7 +1735,7 @@ declare dso_local void @__static_call_update(ptr noundef, ptr noundef, ptr nound
 declare dso_local void @__SCT__apic_call_send_IPI_mask(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kvm_send_ipi_mask_allbutself(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define internal void @kvm_send_ipi_mask_allbutself(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !56
   %4 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @__pv_cpu_mask) #19, !srcloc !57
   %5 = inttoptr i64 %4 to ptr
@@ -1751,7 +1751,7 @@ define internal void @kvm_send_ipi_mask_allbutself(ptr nocapture noundef readonl
 declare dso_local void @__SCT__apic_call_send_IPI_mask_allbutself(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__send_ipi_mask(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @__send_ipi_mask(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i128, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
@@ -1999,7 +1999,7 @@ declare dso_local void @alloc_intr_gate(i32 noundef, ptr noundef) local_unnamed_
 declare dso_local void @asm_sysvec_kvm_asyncpf_interrupt() #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kvm_flush_tlb_multi(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal void @kvm_flush_tlb_multi(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @__pv_cpu_mask) #19, !srcloc !78
   %4 = inttoptr i64 %3 to ptr
   %5 = load i64, ptr %0, align 8
@@ -2156,7 +2156,7 @@ define internal void @kvm_io_delay() #14 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kvm_pv_reboot_notify(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture readnone %2) #1 align 16 {
+define internal noundef i32 @kvm_pv_reboot_notify(ptr readnone captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #1 align 16 {
   %4 = icmp eq i64 %1, 1
   br i1 %4, label %5, label %6
 
@@ -2169,7 +2169,7 @@ define internal noundef i32 @kvm_pv_reboot_notify(ptr nocapture readnone %0, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kvm_pv_guest_cpu_reboot(ptr nocapture readnone %0) #1 align 16 {
+define internal void @kvm_pv_guest_cpu_reboot(ptr readnone captures(none) %0) #1 align 16 {
   tail call fastcc void @kvm_guest_cpu_offline(i1 noundef zeroext true)
   ret void
 }
@@ -2896,7 +2896,7 @@ declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef)
 declare dso_local zeroext i1 @static_key_slow_inc(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #16

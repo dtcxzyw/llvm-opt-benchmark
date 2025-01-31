@@ -76,7 +76,7 @@ define dso_local noundef range(i32 -12, 1) i32 @snd_jack_add_new_kctl(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #0 align 16 {
   br i1 %4, label %7, label %22
 
 7:                                                ; preds = %6
@@ -215,7 +215,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_jack_dev_free(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @snd_jack_dev_free(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -287,7 +287,7 @@ define internal noundef i32 @snd_jack_dev_free(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_jack_dev_register(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal i32 @snd_jack_dev_register(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -373,7 +373,7 @@ define internal i32 @snd_jack_dev_register(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_jack_dev_disconnect(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @snd_jack_dev_disconnect(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -465,7 +465,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_jack_set_key(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_jack_set_key(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %1, i32 -1) #6, !srcloc !14
   %5 = sub i32 14, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -638,7 +638,7 @@ declare dso_local ptr @snd_kctl_jack_new(ptr noundef, ptr noundef) local_unnamed
 declare dso_local i32 @snd_ctl_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_jack_kctl_private_free(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @snd_jack_kctl_private_free(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -668,7 +668,7 @@ declare dso_local void @snd_ctl_free_one(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @snd_ctl_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @input_register_device(ptr noundef) local_unnamed_addr #1

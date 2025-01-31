@@ -238,9 +238,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN104_$LT$aws_smithy_async..future..timeout..Timeout$LT$T$C$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d12f935e8b73115E"(ptr noalias nocapture noundef writeonly sret({ i64, [132 x i64] }) align 8 dereferenceable(1064) initializes((0, 8)) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define hidden void @"_ZN104_$LT$aws_smithy_async..future..timeout..Timeout$LT$T$C$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d12f935e8b73115E"(ptr noalias noundef writeonly sret({ i64, [132 x i64] }) align 8 captures(none) dereferenceable(1064) initializes((0, 8)) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { i64, [132 x i64] }, align 8
-  call void @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_stop_point28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha9714fe692fbc2f3E.llvm.1595154212725285208"(ptr noalias nocapture noundef nonnull sret({ i64, [132 x i64] }) align 8 dereferenceable(1064) %4, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  call void @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_stop_point28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha9714fe692fbc2f3E.llvm.1595154212725285208"(ptr noalias noundef nonnull sret({ i64, [132 x i64] }) align 8 captures(none) dereferenceable(1064) %4, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %5 = load i64, ptr %4, align 8, !range !4, !noundef !5
   %.not = icmp eq i64 %5, 4
   br i1 %.not, label %"_ZN4core3ptr322drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$aws_smithy_runtime_api..client..interceptors..context..InterceptorContext$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$$GT$17h30ddd4739e3596bdE.llvm.1595154212725285208.exit", label %6
@@ -267,9 +267,9 @@ define hidden void @"_ZN104_$LT$aws_smithy_async..future..timeout..Timeout$LT$T$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN104_$LT$aws_smithy_async..future..timeout..Timeout$LT$T$C$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hfb8e8aef032fb629E"(ptr noalias nocapture noundef writeonly sret({ i64, [31 x i64] }) align 8 dereferenceable(256) initializes((0, 8)) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define hidden void @"_ZN104_$LT$aws_smithy_async..future..timeout..Timeout$LT$T$C$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hfb8e8aef032fb629E"(ptr noalias noundef writeonly sret({ i64, [31 x i64] }) align 8 captures(none) dereferenceable(256) initializes((0, 8)) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { i64, [31 x i64] }, align 8
-  call void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fb80fb9fa3b6582E.llvm.1595154212725285208"(ptr noalias nocapture noundef nonnull sret({ i64, [31 x i64] }) align 8 dereferenceable(256) %4, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  call void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fb80fb9fa3b6582E.llvm.1595154212725285208"(ptr noalias noundef nonnull sret({ i64, [31 x i64] }) align 8 captures(none) dereferenceable(256) %4, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %5 = load i64, ptr %4, align 8, !range !6, !noundef !5
   %.not = icmp eq i64 %5, 8
   br i1 %.not, label %"_ZN4core3ptr257drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$$GT$17hec7d3ea76f8d31d5E.llvm.1595154212725285208.exit", label %6
@@ -770,7 +770,7 @@ default.unreachable2735:                          ; preds = %1364, %537, %2
   %415 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   %416 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %417 = load ptr, ptr %416, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt17h522d4d5feab8ccc7E"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %398, ptr noundef nonnull %411, ptr noundef %412, ptr noundef nonnull align 8 %414, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %415, ptr noalias noundef nonnull align 8 dereferenceable(80) %417)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt17h522d4d5feab8ccc7E"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %398, ptr noundef nonnull %411, ptr noundef %412, ptr noundef nonnull align 8 %414, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %415, ptr noalias noundef nonnull align 8 dereferenceable(80) %417)
           to label %420 unwind label %418
 
 418:                                              ; preds = %410
@@ -793,7 +793,7 @@ default.unreachable2735:                          ; preds = %1364, %537, %2
   %425 = load ptr, ptr %413, align 8, !nonnull !5, !align !8, !noundef !5
   %426 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   %427 = load ptr, ptr %416, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint17ha6486d101d6be0b1E(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, ptr, [176 x i8], i8, [7 x i8] }) align 8 dereferenceable(208) %384, ptr noalias noundef nonnull align 8 dereferenceable(1064) %425, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %426, ptr noalias noundef nonnull align 8 dereferenceable(80) %427)
+  invoke void @_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint17ha6486d101d6be0b1E(ptr noalias noundef nonnull sret({ ptr, ptr, ptr, [176 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(208) %384, ptr noalias noundef nonnull align 8 dereferenceable(1064) %425, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %426, ptr noalias noundef nonnull align 8 dereferenceable(80) %427)
           to label %430 unwind label %428
 
 428:                                              ; preds = %424
@@ -985,7 +985,7 @@ default.unreachable2735:                          ; preds = %1364, %537, %2
   store i64 1, ptr %496, align 8, !alias.scope !36, !noalias !39
   %497 = getelementptr inbounds nuw i8, ptr %390, i64 16
   store ptr %480, ptr %497, align 8, !alias.scope !36, !noalias !39
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %454, ptr noundef nonnull align 1 %469, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %470, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %391, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %390)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %454, ptr noundef nonnull align 1 %469, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %470, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %391, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %390)
           to label %500 unwind label %498
 
 498:                                              ; preds = %491
@@ -1069,7 +1069,7 @@ default.unreachable2735:                          ; preds = %1364, %537, %2
   store i64 1, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx1702 = getelementptr inbounds nuw i8, ptr %396, i64 16
   store ptr %504, ptr %.sroa.10.0..sroa_idx1702, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7955b16a672338b3E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %396)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7955b16a672338b3E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %396)
           to label %522 unwind label %520
 
 520:                                              ; preds = %515
@@ -1096,7 +1096,7 @@ default.unreachable2735:                          ; preds = %1364, %537, %2
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %386, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i, i64 54, i1 false), !noalias !63
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %524, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %386)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %524, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %386)
           to label %527 unwind label %525
 
 525:                                              ; preds = %523
@@ -1348,7 +1348,7 @@ common.ret:                                       ; preds = %527, %1160, %1259, 
   store i64 1, ptr %611, align 8, !alias.scope !93, !noalias !96
   %612 = getelementptr inbounds nuw i8, ptr %144, i64 16
   store ptr %595, ptr %612, align 8, !alias.scope !93, !noalias !96
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %569, ptr noundef nonnull align 1 %584, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %585, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %145, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %144)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %569, ptr noundef nonnull align 1 %584, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %585, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %145, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %144)
           to label %615 unwind label %613
 
 613:                                              ; preds = %606
@@ -1376,7 +1376,7 @@ common.ret:                                       ; preds = %527, %1160, %1259, 
 617:                                              ; preds = %"_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc9fc67afa94d8f12E.exit.i", %592, %565, %.thread493.i
   %618 = load ptr, ptr %546, align 8, !noalias !67, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %107), !noalias !99
-  invoke void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %107, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %618)
+  invoke void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 captures(none) dereferenceable(24) %107, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %618)
           to label %.noexc212.i unwind label %666, !noalias !71
 
 .noexc212.i:                                      ; preds = %617
@@ -1504,7 +1504,7 @@ common.ret:                                       ; preds = %527, %1160, %1259, 
 662:                                              ; preds = %.noexc228.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %105), !noalias !118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false), !noalias !118
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %649, ptr noundef nonnull align 1 %657, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %658, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %105, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %150)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %649, ptr noundef nonnull align 1 %657, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %658, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %105, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %150)
           to label %.noexc229.i unwind label %664
 
 .noexc229.i:                                      ; preds = %662
@@ -1554,7 +1554,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   %672 = load ptr, ptr %546, align 8, !noalias !67, !nonnull !5, !align !8, !noundef !5
   %673 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %104), !noalias !121
-  invoke void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %104, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %672)
+  invoke void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 captures(none) dereferenceable(24) %104, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %672)
           to label %.noexc233.i unwind label %679, !noalias !71
 
 .noexc233.i:                                      ; preds = %670
@@ -1816,7 +1816,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   store i64 3, ptr %755, align 8, !alias.scope !157, !noalias !160
   %756 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store ptr %728, ptr %756, align 8, !alias.scope !157, !noalias !160
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %702, ptr noundef nonnull align 1 %717, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %718, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %131, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %702, ptr noundef nonnull align 1 %717, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %718, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %131, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130)
           to label %759 unwind label %757
 
 757:                                              ; preds = %752
@@ -2034,7 +2034,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
 811:                                              ; preds = %.noexc300.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %102), !noalias !191
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %103, i64 24, i1 false), !noalias !191
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %798, ptr noundef nonnull align 1 %806, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %807, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %102, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %140)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %798, ptr noundef nonnull align 1 %806, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %807, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %102, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %140)
           to label %.noexc301.i unwind label %813
 
 .noexc301.i:                                      ; preds = %811
@@ -2103,7 +2103,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   %.elt139.i = extractvalue { ptr, ptr } %822, 1
   store ptr %.elt139.i, ptr %.repack138.i, align 8, !noalias !67
   %827 = load ptr, ptr %671, align 8, !noalias !67, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN142_$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$u20$as$u20$aws_smithy_runtime_api..client..endpoint..ResolveEndpoint$GT$16resolve_endpoint17h80234082b3b95e15E"(ptr noalias nocapture noundef nonnull sret({ { { i64, [15 x i64] } } }) align 8 dereferenceable(128) %121, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %826, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %827)
+  invoke void @"_ZN142_$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$u20$as$u20$aws_smithy_runtime_api..client..endpoint..ResolveEndpoint$GT$16resolve_endpoint17h80234082b3b95e15E"(ptr noalias noundef nonnull sret({ { { i64, [15 x i64] } } }) align 8 captures(none) dereferenceable(128) %121, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %826, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %827)
           to label %830 unwind label %828, !noalias !71
 
 828:                                              ; preds = %825
@@ -2169,7 +2169,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
 841:                                              ; preds = %830, %541
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %120), !noalias !67
   %842 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  invoke void @"_ZN105_$LT$aws_smithy_runtime_api..client..endpoint..EndpointFuture$u20$as$u20$core..future..future..Future$GT$4poll17h083059851f789b51E"(ptr noalias nocapture noundef nonnull sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %120, ptr noalias noundef nonnull align 8 dereferenceable(128) %842, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @"_ZN105_$LT$aws_smithy_runtime_api..client..endpoint..EndpointFuture$u20$as$u20$core..future..future..Future$GT$4poll17h083059851f789b51E"(ptr noalias noundef nonnull sret({ i64, [15 x i64] }) align 8 captures(none) dereferenceable(128) %120, ptr noalias noundef nonnull align 8 dereferenceable(128) %842, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %845 unwind label %843, !noalias !71
 
 843:                                              ; preds = %841
@@ -2457,7 +2457,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   store i64 1, ptr %943, align 8, !alias.scope !258, !noalias !261
   %944 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %926, ptr %944, align 8, !alias.scope !258, !noalias !261
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %900, ptr noundef nonnull align 1 %915, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %916, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %112)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %900, ptr noundef nonnull align 1 %915, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %916, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %112)
           to label %947 unwind label %945
 
 945:                                              ; preds = %937
@@ -2560,7 +2560,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   store i64 1, ptr %.sroa.9460.0..sroa_idx.i, align 8, !noalias !67
   %.sroa.10461.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %959, ptr %.sroa.10461.0..sroa_idx.i, align 8, !noalias !67
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha56a6fd0206f64c8E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %119)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha56a6fd0206f64c8E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %119)
           to label %978 unwind label %976, !noalias !71
 
 976:                                              ; preds = %970
@@ -2605,12 +2605,12 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %99, ptr noundef nonnull align 8 dereferenceable(120) %122, i64 120, i1 false), !noalias !67
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %101), !noalias !281
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %100), !noalias !281
-  invoke void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h24a3f748a48fc392E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }) align 8 dereferenceable(48) %100, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %99)
+  invoke void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h24a3f748a48fc392E(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }) align 8 captures(none) dereferenceable(48) %100, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %99)
           to label %.noexc336.i unwind label %955, !noalias !71
 
 .noexc336.i:                                      ; preds = %989
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %99), !noalias !281
-  invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7b91893eaf70fb3aE.llvm.11161914831801431366"(ptr noalias nocapture noundef nonnull sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %101, ptr noalias noundef nonnull align 8 dereferenceable(56) %986, i128 noundef -100555405782720378330669381402363516066, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %100)
+  invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7b91893eaf70fb3aE.llvm.11161914831801431366"(ptr noalias noundef nonnull sret({ ptr, [5 x i64] }) align 8 captures(none) dereferenceable(48) %101, ptr noalias noundef nonnull align 8 dereferenceable(56) %986, i128 noundef -100555405782720378330669381402363516066, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %100)
           to label %.noexc337.i unwind label %955, !noalias !71
 
 .noexc337.i:                                      ; preds = %.noexc336.i
@@ -2740,7 +2740,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   %1032 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   %1033 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1034 = load ptr, ptr %1033, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing17h662b03fe74fa8f10E"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %371, ptr noundef nonnull %1028, ptr noundef %1029, ptr noalias noundef nonnull align 8 dereferenceable(1064) %1031, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1032, ptr noalias noundef nonnull align 8 dereferenceable(80) %1034)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing17h662b03fe74fa8f10E"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %371, ptr noundef nonnull %1028, ptr noundef %1029, ptr noalias noundef nonnull align 8 dereferenceable(1064) %1031, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1032, ptr noalias noundef nonnull align 8 dereferenceable(80) %1034)
           to label %1037 unwind label %1035
 
 1035:                                             ; preds = %1027
@@ -2772,7 +2772,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   %1049 = load ptr, ptr %1030, align 8, !nonnull !5, !align !8, !noundef !5
   %1050 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   %1051 = load ptr, ptr %1033, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing17ha4df58b52c675ea1E"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %358, ptr noundef nonnull %1047, ptr noundef %1048, ptr noundef nonnull align 8 %1049, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1050, ptr noalias noundef nonnull align 8 dereferenceable(80) %1051)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing17ha4df58b52c675ea1E"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %358, ptr noundef nonnull %1047, ptr noundef %1048, ptr noundef nonnull align 8 %1049, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1050, ptr noalias noundef nonnull align 8 dereferenceable(80) %1051)
           to label %1054 unwind label %1052
 
 1052:                                             ; preds = %1046
@@ -2795,7 +2795,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   %1059 = load ptr, ptr %1030, align 8, !nonnull !5, !align !8, !noundef !5
   %1060 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   %1061 = load ptr, ptr %1033, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth17h70940c0ca76d2948E(ptr noalias nocapture noundef nonnull sret({ [62 x i64], ptr, ptr, ptr, [4 x i8], i8, [3 x i8] }) align 8 dereferenceable(528) %344, ptr noalias noundef nonnull align 8 dereferenceable(1064) %1059, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1060, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1061)
+  invoke void @_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth17h70940c0ca76d2948E(ptr noalias noundef nonnull sret({ [62 x i64], ptr, ptr, ptr, [4 x i8], i8, [3 x i8] }) align 8 captures(none) dereferenceable(528) %344, ptr noalias noundef nonnull align 8 dereferenceable(1064) %1059, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1060, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1061)
           to label %1064 unwind label %1062
 
 1062:                                             ; preds = %1058
@@ -2986,7 +2986,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   store i64 1, ptr %1129, align 8, !alias.scope !327, !noalias !330
   %1130 = getelementptr inbounds nuw i8, ptr %350, i64 16
   store ptr %1113, ptr %1130, align 8, !alias.scope !327, !noalias !330
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1087, ptr noundef nonnull align 1 %1102, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1103, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %351, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %350)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1087, ptr noundef nonnull align 1 %1102, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1103, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %351, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %350)
           to label %1133 unwind label %1131
 
 1131:                                             ; preds = %1124
@@ -3070,7 +3070,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   store i64 1, ptr %.sroa.91810.0..sroa_idx, align 8
   %.sroa.101811.0..sroa_idx = getelementptr inbounds nuw i8, ptr %356, i64 16
   store ptr %1137, ptr %.sroa.101811.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2c4358cb9a21b5abE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %356)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2c4358cb9a21b5abE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %356)
           to label %1155 unwind label %1153
 
 1153:                                             ; preds = %1148
@@ -3097,7 +3097,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   %.sroa.4.0..sroa_idx.i.i1122 = getelementptr inbounds nuw i8, ptr %346, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1122, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1120, i64 54, i1 false), !noalias !354
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1120)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1157, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %346)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1157, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %346)
           to label %1160 unwind label %1158
 
 1158:                                             ; preds = %1156
@@ -3302,7 +3302,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   store i64 1, ptr %1228, align 8, !alias.scope !378, !noalias !381
   %1229 = getelementptr inbounds nuw i8, ptr %363, i64 16
   store ptr %1212, ptr %1229, align 8, !alias.scope !378, !noalias !381
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1186, ptr noundef nonnull align 1 %1201, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1202, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %364, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %363)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1186, ptr noundef nonnull align 1 %1201, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1202, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %364, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %363)
           to label %1232 unwind label %1230
 
 1230:                                             ; preds = %1223
@@ -3386,7 +3386,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   store i64 1, ptr %.sroa.91775.0..sroa_idx, align 8
   %.sroa.101776.0..sroa_idx = getelementptr inbounds nuw i8, ptr %369, i64 16
   store ptr %1236, ptr %.sroa.101776.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e56d423a966f936E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %369)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e56d423a966f936E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %369)
           to label %1254 unwind label %1252
 
 1252:                                             ; preds = %1247
@@ -3413,7 +3413,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   %.sroa.4.0..sroa_idx.i.i1154 = getelementptr inbounds nuw i8, ptr %359, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1154, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1152, i64 54, i1 false), !noalias !405
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1152)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1256, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %359)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1256, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %359)
           to label %1259 unwind label %1257
 
 1257:                                             ; preds = %1255
@@ -3628,7 +3628,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   store i64 1, ptr %1328, align 8, !alias.scope !429, !noalias !432
   %1329 = getelementptr inbounds nuw i8, ptr %376, i64 16
   store ptr %1312, ptr %1329, align 8, !alias.scope !429, !noalias !432
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1286, ptr noundef nonnull align 1 %1301, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1302, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %377, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %376)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1286, ptr noundef nonnull align 1 %1301, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1302, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %377, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %376)
           to label %1332 unwind label %1330
 
 1330:                                             ; preds = %1323
@@ -3712,7 +3712,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   store i64 1, ptr %.sroa.91739.0..sroa_idx, align 8
   %.sroa.101740.0..sroa_idx = getelementptr inbounds nuw i8, ptr %382, i64 16
   store ptr %1336, ptr %.sroa.101740.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd2a1c59288c00b73E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %382)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd2a1c59288c00b73E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %382)
           to label %1354 unwind label %1352
 
 1352:                                             ; preds = %1347
@@ -3734,7 +3734,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   %1357 = load ptr, ptr %1356, align 8, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %372)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %372, ptr noundef nonnull align 8 dereferenceable(112) %383, i64 112, i1 false)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1357, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %372)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1357, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %372)
           to label %1360 unwind label %1358
 
 1358:                                             ; preds = %1355
@@ -3804,7 +3804,7 @@ select.unfold.i:                                  ; preds = %621, %.noexc213.i
   %1381 = load ptr, ptr %1380, align 8, !noalias !451, !nonnull !5, !align !8, !noundef !5
   store ptr %1381, ptr %1379, align 8, !noalias !451
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !455
-  invoke void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1381)
+  invoke void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1381)
           to label %.noexc.i unwind label %1388, !noalias !458
 
 .noexc.i:                                         ; preds = %1368
@@ -3870,7 +3870,7 @@ select.unfold.i1214:                              ; preds = %1384, %.noexc523.i
   store ptr %.elt300.i, ptr %.repack299.i, align 8, !noalias !451
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %98), !noalias !451
   %1401 = load ptr, ptr %1393, align 8, !noalias !451, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN151_$LT$aws_smithy_runtime_api..client..auth..SharedAuthSchemeOptionResolver$u20$as$u20$aws_smithy_runtime_api..client..auth..ResolveAuthSchemeOptions$GT$27resolve_auth_scheme_options17h1506599a5174bdb5E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %98, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1395, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1401)
+  invoke void @"_ZN151_$LT$aws_smithy_runtime_api..client..auth..SharedAuthSchemeOptionResolver$u20$as$u20$aws_smithy_runtime_api..client..auth..ResolveAuthSchemeOptions$GT$27resolve_auth_scheme_options17h1506599a5174bdb5E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %98, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1395, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1401)
           to label %1404 unwind label %1402, !noalias !458
 
 1402:                                             ; preds = %1400
@@ -3901,7 +3901,7 @@ select.unfold.i1214:                              ; preds = %1384, %.noexc523.i
   store i64 %.sroa.12.8.copyload835.i, ptr %.sroa.5.0..sroa_idx.i1203, align 8, !noalias !451
   %1412 = load ptr, ptr %1379, align 8, !noalias !451, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !467
-  invoke void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1412)
+  invoke void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1412)
           to label %.noexc527.i unwind label %1418, !noalias !458
 
 .noexc527.i:                                      ; preds = %1410
@@ -4173,7 +4173,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 3, ptr %1496, align 8, !alias.scope !503, !noalias !506
   %1497 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store ptr %1469, ptr %1497, align 8, !alias.scope !503, !noalias !506
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1443, ptr noundef nonnull align 1 %1458, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1459, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %88, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %87)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1443, ptr noundef nonnull align 1 %1458, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1459, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %88, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %87)
           to label %1500 unwind label %1498
 
 1498:                                             ; preds = %1493
@@ -4218,7 +4218,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %1505 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !509)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %8), !noalias !512
-  invoke void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h563321dffbe35e75E"(ptr noalias nocapture noundef nonnull sret([8 x { { ptr, i64 }, i8, [7 x i8] }]) align 8 dereferenceable(192) %8)
+  invoke void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h563321dffbe35e75E"(ptr noalias noundef nonnull sret([8 x { { ptr, i64 }, i8, [7 x i8] }]) align 8 captures(none) dereferenceable(192) %8)
           to label %1542 unwind label %1540, !noalias !458
 
 1506:                                             ; preds = %2017, %1628, %1606, %1554, %1540, %1454, %1435, %1429, %1420, %1418
@@ -4356,7 +4356,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 3, ptr %.sroa.15.0..sroa_idx.i, align 8, !noalias !451
   %.sroa.16.0..sroa_idx840.i = getelementptr inbounds nuw i8, ptr %97, i64 16
   store ptr %1510, ptr %.sroa.16.0..sroa_idx840.i, align 8, !noalias !451
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0bd6a4904b76132eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %97)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0bd6a4904b76132eE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %97)
           to label %1539 unwind label %1537, !noalias !458
 
 1537:                                             ; preds = %1534
@@ -4566,7 +4566,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
 
 1611:                                             ; preds = %1608
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !552
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h275227e8a5eba334E"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1411)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h275227e8a5eba334E"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1411)
           to label %.noexc584.i unwind label %1622, !noalias !458
 
 .noexc584.i:                                      ; preds = %1611
@@ -4640,7 +4640,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store ptr %.elt329.i, ptr %1564, align 8, !noalias !451
   store ptr %.elt331.i, ptr %1565, align 8, !noalias !451
   %1634 = load ptr, ptr %1376, align 8, !noalias !451, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN123_$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$u20$as$u20$aws_smithy_runtime_api..client..auth..AuthScheme$GT$17identity_resolver17h04b05648847ad754E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %1566, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1564, ptr noundef nonnull align 1 %1634, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f9b583159730a5a8946e561fc02c84c0.65)
+  invoke void @"_ZN123_$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$u20$as$u20$aws_smithy_runtime_api..client..auth..AuthScheme$GT$17identity_resolver17h04b05648847ad754E"(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %1566, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1564, ptr noundef nonnull align 1 %1634, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f9b583159730a5a8946e561fc02c84c0.65)
           to label %1638 unwind label %1636, !noalias !458
 
 1635:                                             ; preds = %1632
@@ -4974,7 +4974,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store ptr %64, ptr %65, align 8, !alias.scope !616, !noalias !619
   store i64 5, ptr %1590, align 8, !alias.scope !616, !noalias !619
   store ptr %1702, ptr %1591, align 8, !alias.scope !616, !noalias !619
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1678, ptr noundef nonnull align 1 %1691, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1692, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %65)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1678, ptr noundef nonnull align 1 %1691, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1692, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %65)
           to label %1734 unwind label %1732
 
 1732:                                             ; preds = %1731
@@ -5032,7 +5032,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   br label %1687
 
 1740:                                             ; preds = %"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he0c6449026d1c2f3E.exit.i", %1699, %1674, %.thread1232.i
-  invoke void @_ZN18aws_smithy_runtime6client12orchestrator4auth35extract_endpoint_auth_scheme_config17h3b21bf61b4142abcE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %1365, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1413, ptr noalias noundef nonnull readonly align 1 %1601, i64 noundef %1603)
+  invoke void @_ZN18aws_smithy_runtime6client12orchestrator4auth35extract_endpoint_auth_scheme_config17h3b21bf61b4142abcE(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %1365, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1413, ptr noalias noundef nonnull readonly align 1 %1601, i64 noundef %1603)
           to label %1797 unwind label %1795, !noalias !458
 
 1741:                                             ; preds = %1979, %1687, %1670, %1664, %1655
@@ -5245,7 +5245,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
 1791:                                             ; preds = %.noexc682.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !662
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !662
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1780, ptr noundef nonnull align 1 %1786, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1787, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %79)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1780, ptr noundef nonnull align 1 %1786, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1787, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %79)
           to label %.noexc683.i unwind label %1793
 
 .noexc683.i:                                      ; preds = %1791
@@ -5497,7 +5497,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 2, ptr %1869, align 8, !alias.scope !692, !noalias !695
   %1870 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %1848, ptr %1870, align 8, !alias.scope !692, !noalias !695
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1822, ptr noundef nonnull align 1 %1837, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1822, ptr noundef nonnull align 1 %1837, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45)
           to label %1873 unwind label %1871
 
 1871:                                             ; preds = %1867
@@ -5539,7 +5539,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %1567, i64 24, i1 false), !noalias !451
   %1877 = load ptr, ptr %1376, align 8, !noalias !451, !nonnull !5, !align !8, !noundef !5
   %1878 = load ptr, ptr %1379, align 8, !noalias !451, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN145_$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$u20$as$u20$aws_smithy_runtime_api..client..identity..ResolveCachedIdentity$GT$23resolve_cached_identity17h6a857205df6bccbfE"(ptr noalias nocapture noundef nonnull sret({ { { [10 x i32], i32, [1 x i32] } } }) align 8 dereferenceable(48) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1568, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1877, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1878)
+  invoke void @"_ZN145_$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$u20$as$u20$aws_smithy_runtime_api..client..identity..ResolveCachedIdentity$GT$23resolve_cached_identity17h6a857205df6bccbfE"(ptr noalias noundef nonnull sret({ { { [10 x i32], i32, [1 x i32] } } }) align 8 captures(none) dereferenceable(48) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1568, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1877, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1878)
           to label %1908 unwind label %1906, !noalias !458
 
 .body.i1195:                                      ; preds = %.body821.i, %1922, %1918, %1912, %1833, %1814, %1808
@@ -5642,7 +5642,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 2, ptr %.sroa.121031.0..sroa_idx.i, align 8, !noalias !451
   %.sroa.13.0..sroa_idx1032.i = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %1882, ptr %.sroa.13.0..sroa_idx1032.i, align 8, !noalias !451
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2dd69dac9967b3eaE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %53)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2dd69dac9967b3eaE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %53)
           to label %1905 unwind label %1903, !noalias !458
 
 1903:                                             ; preds = %1901
@@ -5795,7 +5795,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
 
 1943:                                             ; preds = %1940
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !758
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h163a741ddb426c0dE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1592)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h163a741ddb426c0dE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1592)
           to label %.noexc732.i unwind label %1952, !noalias !458
 
 .noexc732.i:                                      ; preds = %1943
@@ -6083,7 +6083,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
 2027:                                             ; preds = %1908, %1387
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36), !noalias !451
   %2028 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  invoke void @"_ZN105_$LT$aws_smithy_runtime_api..client..identity..IdentityFuture$u20$as$u20$core..future..future..Future$GT$4poll17hcc67e30e7c45e1a5E"(ptr noalias nocapture noundef nonnull sret({ [10 x i32], i32, [1 x i32] }) align 8 dereferenceable(48) %36, ptr noalias noundef nonnull align 8 dereferenceable(48) %2028, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @"_ZN105_$LT$aws_smithy_runtime_api..client..identity..IdentityFuture$u20$as$u20$core..future..future..Future$GT$4poll17hcc67e30e7c45e1a5E"(ptr noalias noundef nonnull sret({ [10 x i32], i32, [1 x i32] }) align 8 captures(none) dereferenceable(48) %36, ptr noalias noundef nonnull align 8 dereferenceable(48) %2028, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %2031 unwind label %2029, !noalias !458
 
 2029:                                             ; preds = %2027
@@ -6344,7 +6344,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 2, ptr %2111, align 8, !alias.scope !865, !noalias !868
   %2112 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %2090, ptr %2112, align 8, !alias.scope !865, !noalias !868
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2064, ptr noundef nonnull align 1 %2079, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2080, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2064, ptr noundef nonnull align 1 %2079, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2080, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27)
           to label %2115 unwind label %2113
 
 2113:                                             ; preds = %2109
@@ -6476,7 +6476,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 2, ptr %.sroa.121109.0..sroa_idx.i, align 8, !noalias !451
   %.sroa.131110.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %2121, ptr %.sroa.131110.0..sroa_idx.i, align 8, !noalias !451
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h37151f4f9e4ae114E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %35)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h37151f4f9e4ae114E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %35)
           to label %2144 unwind label %2142, !noalias !458
 
 2142:                                             ; preds = %2140
@@ -6662,7 +6662,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %2208, align 8, !alias.scope !914, !noalias !917
   %2209 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %2192, ptr %2209, align 8, !alias.scope !914, !noalias !917
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2166, ptr noundef nonnull align 1 %2181, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2182, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2166, ptr noundef nonnull align 1 %2181, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2182, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %2212 unwind label %2210
 
 2210:                                             ; preds = %2203
@@ -6746,7 +6746,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.91166.0..sroa_idx.i, align 8, !noalias !451
   %.sroa.101167.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %2216, ptr %.sroa.101167.0..sroa_idx.i, align 8, !noalias !451
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha6ff483c9fe8f6caE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %21)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha6ff483c9fe8f6caE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %21)
           to label %2234 unwind label %2232, !noalias !458
 
 2232:                                             ; preds = %2227
@@ -6940,7 +6940,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
 
 2301:                                             ; preds = %"_ZN4core3ptr75drop_in_place$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$17h11a95ba014ae484dE.exit824.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !983
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h275227e8a5eba334E"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2298)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h275227e8a5eba334E"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2298)
           to label %.noexc829.i unwind label %1622, !noalias !458
 
 .noexc829.i:                                      ; preds = %2301
@@ -7051,7 +7051,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %2345 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   %2346 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2347 = load ptr, ptr %2346, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing17h19baae3ebeb26cd2E"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %331, ptr noundef nonnull %2341, ptr noundef %2342, ptr noundef nonnull align 8 %2344, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2345, ptr noalias noundef nonnull align 8 dereferenceable(80) %2347)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing17h19baae3ebeb26cd2E"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %331, ptr noundef nonnull %2341, ptr noundef %2342, ptr noundef nonnull align 8 %2344, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2345, ptr noalias noundef nonnull align 8 dereferenceable(80) %2347)
           to label %2350 unwind label %2348
 
 2348:                                             ; preds = %2340
@@ -7083,7 +7083,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %2362 = load ptr, ptr %2343, align 8, !nonnull !5, !align !8, !noundef !5
   %2363 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   %2364 = load ptr, ptr %2346, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit17haa2577d178f5ec5dE"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %318, ptr noundef nonnull %2360, ptr noundef %2361, ptr noalias noundef nonnull align 8 dereferenceable(1064) %2362, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2363, ptr noalias noundef nonnull align 8 dereferenceable(80) %2364)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit17haa2577d178f5ec5dE"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %318, ptr noundef nonnull %2360, ptr noundef %2361, ptr noalias noundef nonnull align 8 dereferenceable(1064) %2362, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2363, ptr noalias noundef nonnull align 8 dereferenceable(80) %2364)
           to label %2367 unwind label %2365
 
 2365:                                             ; preds = %2359
@@ -7115,7 +7115,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %2379 = load ptr, ptr %2343, align 8, !nonnull !5, !align !8, !noundef !5
   %2380 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   %2381 = load ptr, ptr %2346, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit17h0dbdd219f0c3bef7E"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %305, ptr noundef nonnull %2377, ptr noundef %2378, ptr noundef nonnull align 8 %2379, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2380, ptr noalias noundef nonnull align 8 dereferenceable(80) %2381)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit17h0dbdd219f0c3bef7E"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %305, ptr noundef nonnull %2377, ptr noundef %2378, ptr noundef nonnull align 8 %2379, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2380, ptr noalias noundef nonnull align 8 dereferenceable(80) %2381)
           to label %2384 unwind label %2382
 
 2382:                                             ; preds = %2376
@@ -7308,7 +7308,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %2457, align 8, !alias.scope !1011, !noalias !1014
   %2458 = getelementptr inbounds nuw i8, ptr %286, i64 16
   store ptr %2441, ptr %2458, align 8, !alias.scope !1011, !noalias !1014
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2415, ptr noundef nonnull align 1 %2430, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2431, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %287, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %286)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2415, ptr noundef nonnull align 1 %2430, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2431, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %287, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %286)
           to label %2461 unwind label %2459
 
 2459:                                             ; preds = %2452
@@ -7392,7 +7392,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.91994.0..sroa_idx, align 8
   %.sroa.101995.0..sroa_idx = getelementptr inbounds nuw i8, ptr %292, i64 16
   store ptr %2465, ptr %.sroa.101995.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd38b921eb650e976E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %292)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd38b921eb650e976E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %292)
           to label %2483 unwind label %2481
 
 2481:                                             ; preds = %2476
@@ -7651,7 +7651,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 2, ptr %2562, align 8, !alias.scope !1070, !noalias !1073
   %2563 = getelementptr inbounds nuw i8, ptr %274, i64 16
   store ptr %2541, ptr %2563, align 8, !alias.scope !1070, !noalias !1073
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2515, ptr noundef nonnull align 1 %2530, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2531, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %275, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %274)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2515, ptr noundef nonnull align 1 %2530, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2531, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %275, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %274)
           to label %2566 unwind label %2564
 
 2564:                                             ; preds = %2560
@@ -7787,7 +7787,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 2, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.132039.0..sroa_idx = getelementptr inbounds nuw i8, ptr %282, i64 16
   store ptr %2575, ptr %.sroa.132039.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hac47614cb4531e3cE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %282)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hac47614cb4531e3cE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %282)
           to label %2598 unwind label %2596
 
 2596:                                             ; preds = %2594
@@ -7814,7 +7814,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
 2601:                                             ; preds = %2569
   %2602 = extractvalue { ptr, ptr } %2571, 0
   %2603 = extractvalue { ptr, ptr } %2571, 1
-  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17hbd4e7d7d061579e8E"(ptr noalias nocapture noundef align 8 dereferenceable(112) %268, ptr noundef %2602, ptr %2603)
+  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17hbd4e7d7d061579e8E"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %268, ptr noundef %2602, ptr %2603)
           to label %2606 unwind label %2604
 
 2604:                                             ; preds = %2601
@@ -7863,7 +7863,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
 
 "_ZN4core6option15Option$LT$T$GT$6expect17h3bb0faa904fce51dE.exit": ; preds = %2619
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %255)
-  invoke void @_ZN22aws_smithy_runtime_api6client4http21HttpConnectorSettings7builder17ha2e54495e2661995E(ptr noalias nocapture noundef nonnull sret({ { i64, i32 }, { i64, i32 } }) align 8 dereferenceable(32) %255)
+  invoke void @_ZN22aws_smithy_runtime_api6client4http21HttpConnectorSettings7builder17ha2e54495e2661995E(ptr noalias noundef nonnull sret({ { i64, i32 }, { i64, i32 } }) align 8 captures(none) dereferenceable(32) %255)
           to label %2627 unwind label %2625
 
 2624:                                             ; preds = %2629, %2635, %2647, %2639, %2625
@@ -7915,7 +7915,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %254)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %254, ptr noundef nonnull align 8 dereferenceable(32) %255, i64 32, i1 false)
   %2646 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  invoke void @_ZN22aws_smithy_runtime_api6client4http28HttpConnectorSettingsBuilder5build17h66bf048ad47ada05E(ptr noalias nocapture noundef nonnull sret({ { i64, i32 }, { i64, i32 } }) align 8 dereferenceable(32) %2646, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %254)
+  invoke void @_ZN22aws_smithy_runtime_api6client4http28HttpConnectorSettingsBuilder5build17h66bf048ad47ada05E(ptr noalias noundef nonnull sret({ { i64, i32 }, { i64, i32 } }) align 8 captures(none) dereferenceable(32) %2646, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %254)
           to label %2649 unwind label %2647
 
 2647:                                             ; preds = %2645
@@ -7948,7 +7948,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %253)
   call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %252)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %252, ptr noundef nonnull align 8 dereferenceable(344) %2489, i64 344, i1 false)
-  invoke void @"_ZN129_$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$u20$as$u20$aws_smithy_runtime_api..client..http..HttpConnector$GT$4call17h9176ea4b0e0847cfE"(ptr noalias nocapture noundef nonnull sret({ { { i64, [25 x i64] } } }) align 8 dereferenceable(208) %253, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2651, ptr noalias nocapture noundef nonnull align 8 dereferenceable(344) %252)
+  invoke void @"_ZN129_$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$u20$as$u20$aws_smithy_runtime_api..client..http..HttpConnector$GT$4call17h9176ea4b0e0847cfE"(ptr noalias noundef nonnull sret({ { { i64, [25 x i64] } } }) align 8 captures(none) dereferenceable(208) %253, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2651, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(344) %252)
           to label %2660 unwind label %2658
 
 2658:                                             ; preds = %2655
@@ -7959,7 +7959,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
 
 2660:                                             ; preds = %2655
   call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %252)
-  invoke void @_ZN18aws_smithy_runtime6client4http4body18minimum_throughput32MaybeUploadThroughputCheckFuture3new17hd74b0df2593a6265E(ptr noalias nocapture noundef nonnull sret({ i64, [46 x i64] }) align 8 dereferenceable(376) %251, ptr noalias noundef nonnull align 8 dereferenceable(80) %2656, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2657, ptr noalias nocapture noundef nonnull align 8 dereferenceable(208) %253)
+  invoke void @_ZN18aws_smithy_runtime6client4http4body18minimum_throughput32MaybeUploadThroughputCheckFuture3new17hd74b0df2593a6265E(ptr noalias noundef nonnull sret({ i64, [46 x i64] }) align 8 captures(none) dereferenceable(376) %251, ptr noalias noundef nonnull align 8 dereferenceable(80) %2656, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2657, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(208) %253)
           to label %2664 unwind label %2662
 
 2661:                                             ; preds = %2662, %2658
@@ -8154,7 +8154,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %2730, align 8, !alias.scope !1120, !noalias !1123
   %2731 = getelementptr inbounds nuw i8, ptr %260, i64 16
   store ptr %2714, ptr %2731, align 8, !alias.scope !1120, !noalias !1123
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2688, ptr noundef nonnull align 1 %2703, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2704, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %261, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %260)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2688, ptr noundef nonnull align 1 %2703, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2704, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %261, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %260)
           to label %2734 unwind label %2732
 
 2732:                                             ; preds = %2725
@@ -8238,7 +8238,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.92091.0..sroa_idx, align 8
   %.sroa.102092.0..sroa_idx = getelementptr inbounds nuw i8, ptr %266, i64 16
   store ptr %2738, ptr %.sroa.102092.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd51dfa9b39f5a4f2E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %266)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd51dfa9b39f5a4f2E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %266)
           to label %2756 unwind label %2754
 
 2754:                                             ; preds = %2749
@@ -8259,7 +8259,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %2758 = load ptr, ptr %2343, align 8, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %256)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %256, ptr noundef nonnull align 8 dereferenceable(112) %267, i64 112, i1 false)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %2758, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %256)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %2758, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %256)
           to label %2761 unwind label %2759
 
 2759:                                             ; preds = %2757
@@ -8487,7 +8487,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %2833, align 8, !alias.scope !1163, !noalias !1166
   %2834 = getelementptr inbounds nuw i8, ptr %297, i64 16
   store ptr %2817, ptr %2834, align 8, !alias.scope !1163, !noalias !1166
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2791, ptr noundef nonnull align 1 %2806, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2807, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %298, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %297)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2791, ptr noundef nonnull align 1 %2806, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2807, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %298, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %297)
           to label %2837 unwind label %2835
 
 2835:                                             ; preds = %2828
@@ -8571,7 +8571,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.91959.0..sroa_idx, align 8
   %.sroa.101960.0..sroa_idx = getelementptr inbounds nuw i8, ptr %303, i64 16
   store ptr %2841, ptr %.sroa.101960.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h496df27e917f9a2eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %303)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h496df27e917f9a2eE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %303)
           to label %2859 unwind label %2857
 
 2857:                                             ; preds = %2852
@@ -8598,7 +8598,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %.sroa.4.0..sroa_idx.i.i1348 = getelementptr inbounds nuw i8, ptr %293, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1348, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1346, i64 54, i1 false), !noalias !1190
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1346)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %2861, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %293)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %2861, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %293)
           to label %2864 unwind label %2862
 
 2862:                                             ; preds = %2860
@@ -8803,7 +8803,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %2932, align 8, !alias.scope !1214, !noalias !1217
   %2933 = getelementptr inbounds nuw i8, ptr %310, i64 16
   store ptr %2916, ptr %2933, align 8, !alias.scope !1214, !noalias !1217
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2890, ptr noundef nonnull align 1 %2905, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2906, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %311, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %310)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2890, ptr noundef nonnull align 1 %2905, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2906, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %311, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %310)
           to label %2936 unwind label %2934
 
 2934:                                             ; preds = %2927
@@ -8887,7 +8887,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.91924.0..sroa_idx, align 8
   %.sroa.101925.0..sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 16
   store ptr %2940, ptr %.sroa.101925.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8fe92197603e460E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %316)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8fe92197603e460E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %316)
           to label %2958 unwind label %2956
 
 2956:                                             ; preds = %2951
@@ -8914,7 +8914,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %.sroa.4.0..sroa_idx.i.i1380 = getelementptr inbounds nuw i8, ptr %306, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1380, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1378, i64 54, i1 false), !noalias !1241
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1378)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %2960, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %306)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %2960, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %306)
           to label %2963 unwind label %2961
 
 2961:                                             ; preds = %2959
@@ -9119,7 +9119,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %3031, align 8, !alias.scope !1265, !noalias !1268
   %3032 = getelementptr inbounds nuw i8, ptr %323, i64 16
   store ptr %3015, ptr %3032, align 8, !alias.scope !1265, !noalias !1268
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2989, ptr noundef nonnull align 1 %3004, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3005, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %324, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %323)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2989, ptr noundef nonnull align 1 %3004, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3005, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %324, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %323)
           to label %3035 unwind label %3033
 
 3033:                                             ; preds = %3026
@@ -9203,7 +9203,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.91889.0..sroa_idx, align 8
   %.sroa.101890.0..sroa_idx = getelementptr inbounds nuw i8, ptr %329, i64 16
   store ptr %3039, ptr %.sroa.101890.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2946d9b16d126ff5E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %329)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2946d9b16d126ff5E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %329)
           to label %3057 unwind label %3055
 
 3055:                                             ; preds = %3050
@@ -9230,7 +9230,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %.sroa.4.0..sroa_idx.i.i1412 = getelementptr inbounds nuw i8, ptr %319, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1412, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1410, i64 54, i1 false), !noalias !1292
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1410)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3059, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %319)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3059, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %319)
           to label %3062 unwind label %3060
 
 3060:                                             ; preds = %3058
@@ -9445,7 +9445,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %3131, align 8, !alias.scope !1316, !noalias !1319
   %3132 = getelementptr inbounds nuw i8, ptr %336, i64 16
   store ptr %3115, ptr %3132, align 8, !alias.scope !1316, !noalias !1319
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3089, ptr noundef nonnull align 1 %3104, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3105, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %337, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %336)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3089, ptr noundef nonnull align 1 %3104, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3105, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %337, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %336)
           to label %3135 unwind label %3133
 
 3133:                                             ; preds = %3126
@@ -9529,7 +9529,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.91853.0..sroa_idx, align 8
   %.sroa.101854.0..sroa_idx = getelementptr inbounds nuw i8, ptr %342, i64 16
   store ptr %3139, ptr %.sroa.101854.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfbb75d5fb904068aE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %342)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfbb75d5fb904068aE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %342)
           to label %3157 unwind label %3155
 
 3155:                                             ; preds = %3150
@@ -9551,7 +9551,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %3160 = load ptr, ptr %3159, align 8, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %332)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %332, ptr noundef nonnull align 8 dereferenceable(112) %343, i64 112, i1 false)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3160, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %332)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3160, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %332)
           to label %3163 unwind label %3161
 
 3161:                                             ; preds = %3158
@@ -9592,7 +9592,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
 3167:                                             ; preds = %2, %2664
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %250)
   %3168 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  invoke void @"_ZN141_$LT$aws_smithy_runtime..client..http..body..minimum_throughput..MaybeUploadThroughputCheckFuture$u20$as$u20$core..future..future..Future$GT$4poll17hd81db8cbb227730cE"(ptr noalias nocapture noundef nonnull sret({ i64, [25 x i64] }) align 8 dereferenceable(208) %250, ptr noalias noundef nonnull align 8 dereferenceable(376) %3168, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @"_ZN141_$LT$aws_smithy_runtime..client..http..body..minimum_throughput..MaybeUploadThroughputCheckFuture$u20$as$u20$core..future..future..Future$GT$4poll17hd81db8cbb227730cE"(ptr noalias noundef nonnull sret({ i64, [25 x i64] }) align 8 captures(none) dereferenceable(208) %250, ptr noalias noundef nonnull align 8 dereferenceable(376) %3168, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %3171 unwind label %3169
 
 3169:                                             ; preds = %3167
@@ -9920,7 +9920,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 2, ptr %3276, align 8, !alias.scope !1401, !noalias !1404
   %3277 = getelementptr inbounds nuw i8, ptr %229, i64 16
   store ptr %3255, ptr %3277, align 8, !alias.scope !1401, !noalias !1404
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3229, ptr noundef nonnull align 1 %3244, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3245, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %230, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %229)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3229, ptr noundef nonnull align 1 %3244, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3245, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %230, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %229)
           to label %3280 unwind label %3278
 
 3278:                                             ; preds = %3274
@@ -10077,7 +10077,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 2, ptr %.sroa.122166.0..sroa_idx, align 8
   %.sroa.132167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 16
   store ptr %3297, ptr %.sroa.132167.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2104f577d2db2e25E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %237)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2104f577d2db2e25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %237)
           to label %3320 unwind label %3318
 
 3318:                                             ; preds = %3316
@@ -10126,7 +10126,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %3334 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   %3335 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3336 = load ptr, ptr %3335, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit17h81090678d0a87c10E"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %222, ptr noundef nonnull %3331, ptr noundef %3332, ptr noundef nonnull align 8 %3333, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %3334, ptr noalias noundef nonnull align 8 dereferenceable(80) %3336)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit17h81090678d0a87c10E"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %222, ptr noundef nonnull %3331, ptr noundef %3332, ptr noundef nonnull align 8 %3333, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %3334, ptr noalias noundef nonnull align 8 dereferenceable(80) %3336)
           to label %3339 unwind label %3337
 
 3337:                                             ; preds = %3330
@@ -10158,7 +10158,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %3351 = load ptr, ptr %3284, align 8, !nonnull !5, !align !8, !noundef !5
   %3352 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   %3353 = load ptr, ptr %3335, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization17hc5232c5030f2b17bE"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %209, ptr noundef nonnull %3349, ptr noundef %3350, ptr noalias noundef nonnull align 8 dereferenceable(1064) %3351, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %3352, ptr noalias noundef nonnull align 8 dereferenceable(80) %3353)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization17hc5232c5030f2b17bE"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %209, ptr noundef nonnull %3349, ptr noundef %3350, ptr noalias noundef nonnull align 8 dereferenceable(1064) %3351, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %3352, ptr noalias noundef nonnull align 8 dereferenceable(80) %3353)
           to label %3356 unwind label %3354
 
 3354:                                             ; preds = %3348
@@ -10190,7 +10190,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %3368 = load ptr, ptr %3284, align 8, !nonnull !5, !align !8, !noundef !5
   %3369 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   %3370 = load ptr, ptr %3335, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization17h8d1929399eab2bb4E"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %196, ptr noundef nonnull %3366, ptr noundef %3367, ptr noundef nonnull align 8 %3368, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %3369, ptr noalias noundef nonnull align 8 dereferenceable(80) %3370)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization17h8d1929399eab2bb4E"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %196, ptr noundef nonnull %3366, ptr noundef %3367, ptr noundef nonnull align 8 %3368, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %3369, ptr noalias noundef nonnull align 8 dereferenceable(80) %3370)
           to label %3373 unwind label %3371
 
 3371:                                             ; preds = %3365
@@ -10323,7 +10323,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 0, ptr %3419, align 8, !alias.scope !1449, !noalias !1452
   %3420 = getelementptr inbounds nuw i8, ptr %178, i64 16
   store ptr %3418, ptr %3420, align 8, !alias.scope !1449, !noalias !1452
-  invoke void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40) %179, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3417, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %178)
+  invoke void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40) %179, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3417, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %178)
           to label %3421 unwind label %3414
 
 3421:                                             ; preds = %3416
@@ -10529,7 +10529,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %3490, align 8, !alias.scope !1488, !noalias !1491
   %3491 = getelementptr inbounds nuw i8, ptr %188, i64 16
   store ptr %3474, ptr %3491, align 8, !alias.scope !1488, !noalias !1491
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3448, ptr noundef nonnull align 1 %3463, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3464, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %189, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %188)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3448, ptr noundef nonnull align 1 %3463, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3464, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %189, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %188)
           to label %3494 unwind label %3492
 
 3492:                                             ; preds = %3485
@@ -10613,7 +10613,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.92293.0..sroa_idx, align 8
   %.sroa.102294.0..sroa_idx = getelementptr inbounds nuw i8, ptr %194, i64 16
   store ptr %3498, ptr %.sroa.102294.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb2ccfeefe22b1ea6E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %194)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb2ccfeefe22b1ea6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %194)
           to label %3516 unwind label %3514
 
 3514:                                             ; preds = %3509
@@ -10640,7 +10640,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %.sroa.4.0..sroa_idx.i.i1529 = getelementptr inbounds nuw i8, ptr %184, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1529, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1527, i64 54, i1 false), !noalias !1515
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1527)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3518, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %184)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3518, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %184)
           to label %3521 unwind label %3519
 
 3519:                                             ; preds = %3517
@@ -10850,7 +10850,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %3591, align 8, !alias.scope !1539, !noalias !1542
   %3592 = getelementptr inbounds nuw i8, ptr %201, i64 16
   store ptr %3575, ptr %3592, align 8, !alias.scope !1539, !noalias !1542
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3549, ptr noundef nonnull align 1 %3564, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3565, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %202, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %201)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3549, ptr noundef nonnull align 1 %3564, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3565, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %202, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %201)
           to label %3595 unwind label %3593
 
 3593:                                             ; preds = %3586
@@ -10934,7 +10934,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.92258.0..sroa_idx, align 8
   %.sroa.102259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 16
   store ptr %3599, ptr %.sroa.102259.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb2e60d9dd73b732eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %207)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb2e60d9dd73b732eE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %207)
           to label %3617 unwind label %3615
 
 3615:                                             ; preds = %3610
@@ -10961,7 +10961,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %.sroa.4.0..sroa_idx.i.i1561 = getelementptr inbounds nuw i8, ptr %197, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1561, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1559, i64 54, i1 false), !noalias !1566
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1559)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3619, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %197)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3619, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %197)
           to label %3622 unwind label %3620
 
 3620:                                             ; preds = %3618
@@ -11166,7 +11166,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %3690, align 8, !alias.scope !1590, !noalias !1593
   %3691 = getelementptr inbounds nuw i8, ptr %214, i64 16
   store ptr %3674, ptr %3691, align 8, !alias.scope !1590, !noalias !1593
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3648, ptr noundef nonnull align 1 %3663, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3664, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %215, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %214)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3648, ptr noundef nonnull align 1 %3663, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3664, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %215, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %214)
           to label %3694 unwind label %3692
 
 3692:                                             ; preds = %3685
@@ -11250,7 +11250,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.92223.0..sroa_idx, align 8
   %.sroa.102224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %220, i64 16
   store ptr %3698, ptr %.sroa.102224.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9e52897b473877f8E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %220)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9e52897b473877f8E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %220)
           to label %3716 unwind label %3714
 
 3714:                                             ; preds = %3709
@@ -11277,7 +11277,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %.sroa.4.0..sroa_idx.i.i1593 = getelementptr inbounds nuw i8, ptr %210, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1593, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1591, i64 54, i1 false), !noalias !1617
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1591)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3718, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %210)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3718, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %210)
           to label %3721 unwind label %3719
 
 3719:                                             ; preds = %3717
@@ -11494,7 +11494,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %3791, align 8, !alias.scope !1641, !noalias !1644
   %3792 = getelementptr inbounds nuw i8, ptr %242, i64 16
   store ptr %3775, ptr %3792, align 8, !alias.scope !1641, !noalias !1644
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3749, ptr noundef nonnull align 1 %3764, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3765, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %243, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %242)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3749, ptr noundef nonnull align 1 %3764, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3765, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %243, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %242)
           to label %3795 unwind label %3793
 
 3793:                                             ; preds = %3786
@@ -11578,7 +11578,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.92130.0..sroa_idx, align 8
   %.sroa.102131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 16
   store ptr %3799, ptr %.sroa.102131.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9fc365d97fc2ced2E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %248)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9fc365d97fc2ced2E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %248)
           to label %3817 unwind label %3815
 
 3815:                                             ; preds = %3810
@@ -11600,7 +11600,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %3820 = load ptr, ptr %3819, align 8, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %238)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %238, ptr noundef nonnull align 8 dereferenceable(112) %249, i64 112, i1 false)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3820, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %238)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3820, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %238)
           to label %3823 unwind label %3821
 
 3821:                                             ; preds = %3818
@@ -11639,7 +11639,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
 3829:                                             ; preds = %407, %3422
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %175)
   %3830 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  invoke void @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hce58aa4c6b7d3bcfE"(ptr noalias nocapture noundef nonnull sret({ i16, [55 x i16] }) align 8 dereferenceable(112) %175, ptr noundef nonnull align 8 %3830, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hce58aa4c6b7d3bcfE"(ptr noalias noundef nonnull sret({ i16, [55 x i16] }) align 8 captures(none) dereferenceable(112) %175, ptr noundef nonnull align 8 %3830, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %3833 unwind label %3831
 
 3831:                                             ; preds = %3829
@@ -11845,7 +11845,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %3903, align 8, !alias.scope !1680, !noalias !1683
   %3904 = getelementptr inbounds nuw i8, ptr %168, i64 16
   store ptr %3891, ptr %3904, align 8, !alias.scope !1680, !noalias !1683
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3865, ptr noundef nonnull align 1 %3880, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3881, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %169, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %168)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3865, ptr noundef nonnull align 1 %3880, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3881, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %169, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %168)
           to label %3907 unwind label %3905
 
 3905:                                             ; preds = %3902
@@ -11950,7 +11950,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.92332.0..sroa_idx, align 8
   %.sroa.102333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %174, i64 16
   store ptr %3920, ptr %.sroa.102333.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h267c09a5cea4ec5fE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %174)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h267c09a5cea4ec5fE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %174)
           to label %3934 unwind label %3932
 
 3932:                                             ; preds = %3931
@@ -11997,7 +11997,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %3948 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
   %3949 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3950 = load ptr, ptr %3949, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization17h2c205531c56d5fd3E"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %163, ptr noundef nonnull %3945, ptr noundef %3946, ptr noundef nonnull align 8 %3947, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %3948, ptr noalias noundef nonnull align 8 dereferenceable(80) %3950)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization17h2c205531c56d5fd3E"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %163, ptr noundef nonnull %3945, ptr noundef %3946, ptr noundef nonnull align 8 %3947, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %3948, ptr noalias noundef nonnull align 8 dereferenceable(80) %3950)
           to label %3953 unwind label %3951
 
 3951:                                             ; preds = %3944
@@ -12187,7 +12187,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %4022, align 8, !alias.scope !1726, !noalias !1729
   %4023 = getelementptr inbounds nuw i8, ptr %155, i64 16
   store ptr %4006, ptr %4023, align 8, !alias.scope !1726, !noalias !1729
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3980, ptr noundef nonnull align 1 %3995, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3996, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %156, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %155)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3980, ptr noundef nonnull align 1 %3995, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3996, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %156, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %155)
           to label %4026 unwind label %4024
 
 4024:                                             ; preds = %4017
@@ -12271,7 +12271,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   store i64 1, ptr %.sroa.92367.0..sroa_idx, align 8
   %.sroa.102368.0..sroa_idx = getelementptr inbounds nuw i8, ptr %161, i64 16
   store ptr %4030, ptr %.sroa.102368.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcf910c0a8754c881E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %161)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcf910c0a8754c881E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %161)
           to label %4048 unwind label %4046
 
 4046:                                             ; preds = %4041
@@ -12298,7 +12298,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
   %.sroa.4.0..sroa_idx.i.i1688 = getelementptr inbounds nuw i8, ptr %151, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1688, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1686, i64 54, i1 false), !noalias !1753
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1686)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %4050, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %151)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %4050, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %151)
           to label %4053 unwind label %4051
 
 4051:                                             ; preds = %4049
@@ -12358,7 +12358,7 @@ select.unfold1207.i:                              ; preds = %1415, %.noexc528.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2104f577d2db2e25E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2104f577d2db2e25E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12402,7 +12402,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -12412,7 +12412,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h267c09a5cea4ec5fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h267c09a5cea4ec5fE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12456,7 +12456,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -12466,7 +12466,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2946d9b16d126ff5E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2946d9b16d126ff5E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12510,7 +12510,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -12520,7 +12520,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2c4358cb9a21b5abE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2c4358cb9a21b5abE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12564,7 +12564,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -12574,7 +12574,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h496df27e917f9a2eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h496df27e917f9a2eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12618,7 +12618,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -12628,7 +12628,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e56d423a966f936E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e56d423a966f936E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12672,7 +12672,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -12682,7 +12682,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7955b16a672338b3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7955b16a672338b3E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12726,7 +12726,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -12736,7 +12736,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9e52897b473877f8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9e52897b473877f8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12780,7 +12780,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -12790,7 +12790,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9fc365d97fc2ced2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9fc365d97fc2ced2E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12834,7 +12834,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -12844,7 +12844,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hac47614cb4531e3cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hac47614cb4531e3cE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12888,7 +12888,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -12898,7 +12898,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb2ccfeefe22b1ea6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb2ccfeefe22b1ea6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12942,7 +12942,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -12952,7 +12952,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb2e60d9dd73b732eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb2e60d9dd73b732eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12996,7 +12996,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -13006,7 +13006,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcf910c0a8754c881E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcf910c0a8754c881E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -13050,7 +13050,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -13060,7 +13060,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd2a1c59288c00b73E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd2a1c59288c00b73E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -13104,7 +13104,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -13114,7 +13114,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd38b921eb650e976E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd38b921eb650e976E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -13158,7 +13158,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -13168,7 +13168,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd51dfa9b39f5a4f2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd51dfa9b39f5a4f2E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -13212,7 +13212,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -13222,7 +13222,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8fe92197603e460E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8fe92197603e460E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -13266,7 +13266,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -13276,7 +13276,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfbb75d5fb904068aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_attempt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfbb75d5fb904068aE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -13320,7 +13320,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -13330,7 +13330,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator11try_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_stop_point28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha9714fe692fbc2f3E.llvm.1595154212725285208"(ptr noalias nocapture noundef writeonly sret({ i64, [132 x i64] }) align 8 dereferenceable(1064) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_stop_point28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha9714fe692fbc2f3E.llvm.1595154212725285208"(ptr noalias noundef writeonly sret({ i64, [132 x i64] }) align 8 captures(none) dereferenceable(1064) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, align 8
   %5 = alloca { i64, { ptr, i64 } }, align 8
   %6 = alloca { i64, { ptr, i64 } }, align 8
@@ -13428,7 +13428,7 @@ default.unreachable72:                            ; preds = %294, %213, %86, %3
   %71 = load ptr, ptr %70, align 8, !nonnull !5, !align !24, !noundef !5
   %72 = load i8, ptr %71, align 1, !range !789, !noundef !5
   %73 = trunc nuw i8 %72 to i1
-  invoke void @_ZN18aws_smithy_runtime6client12orchestrator6try_op17hf17902088c5f808fE(ptr noalias nocapture noundef nonnull sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, i8, [1196 x i8] }) align 8 dereferenceable(1264) %55, ptr noalias noundef nonnull align 8 dereferenceable(1064) %1, ptr noalias noundef nonnull align 8 dereferenceable(80) %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %69, i1 noundef zeroext %73)
+  invoke void @_ZN18aws_smithy_runtime6client12orchestrator6try_op17hf17902088c5f808fE(ptr noalias noundef nonnull sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, i8, [1196 x i8] }) align 8 captures(none) dereferenceable(1264) %55, ptr noalias noundef nonnull align 8 dereferenceable(1064) %1, ptr noalias noundef nonnull align 8 dereferenceable(80) %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %69, i1 noundef zeroext %73)
           to label %76 unwind label %74
 
 74:                                               ; preds = %65
@@ -13456,7 +13456,7 @@ default.unreachable72:                            ; preds = %294, %213, %86, %3
   %81 = load ptr, ptr %80, align 8, !nonnull !5, !align !8, !noundef !5
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 1072
   %83 = load ptr, ptr %82, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @_ZN18aws_smithy_runtime6client12orchestrator10finally_op17hf4924d78919a6e8eE(ptr noalias nocapture noundef nonnull sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, [77 x i8] }) align 8 dereferenceable(144) %53, ptr noalias noundef nonnull align 8 dereferenceable(1064) %1, ptr noalias noundef nonnull align 8 dereferenceable(80) %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %83)
+  invoke void @_ZN18aws_smithy_runtime6client12orchestrator10finally_op17hf4924d78919a6e8eE(ptr noalias noundef nonnull sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, [77 x i8] }) align 8 captures(none) dereferenceable(144) %53, ptr noalias noundef nonnull align 8 dereferenceable(1064) %1, ptr noalias noundef nonnull align 8 dereferenceable(80) %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %83)
           to label %204 unwind label %202
 
 84:                                               ; preds = %3
@@ -13603,7 +13603,7 @@ default.unreachable72:                            ; preds = %294, %213, %86, %3
   store i64 0, ptr %138, align 8, !alias.scope !1775, !noalias !1778
   %139 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %137, ptr %139, align 8, !alias.scope !1775, !noalias !1778
-  invoke void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40) %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %136, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %50)
+  invoke void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40) %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %136, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %50)
           to label %140 unwind label %133, !noalias !1761
 
 140:                                              ; preds = %135
@@ -13959,7 +13959,7 @@ common.ret:                                       ; preds = %617, %607, %198
   store i64 0, ptr %261, align 8, !alias.scope !1799, !noalias !1802
   %262 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %260, ptr %262, align 8, !alias.scope !1799, !noalias !1802
-  invoke void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40) %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %259, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45)
+  invoke void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40) %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %259, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45)
           to label %263 unwind label %256, !noalias !1785
 
 263:                                              ; preds = %258
@@ -14109,7 +14109,7 @@ common.ret:                                       ; preds = %617, %607, %198
   %307 = load ptr, ptr %297, align 8, !noalias !1785, !nonnull !5, !align !8, !noundef !5
   %308 = getelementptr inbounds nuw i8, ptr %1, i64 1184
   %309 = load ptr, ptr %308, align 8, !noalias !1785, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion17he57d464516f15a8eE"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %42, ptr noundef nonnull %303, ptr noundef %304, ptr noalias noundef nonnull align 8 dereferenceable(1064) %306, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %307, ptr noalias noundef nonnull align 8 dereferenceable(80) %309)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion17he57d464516f15a8eE"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %42, ptr noundef nonnull %303, ptr noundef %304, ptr noalias noundef nonnull align 8 dereferenceable(1064) %306, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %307, ptr noalias noundef nonnull align 8 dereferenceable(80) %309)
           to label %312 unwind label %310
 
 310:                                              ; preds = %302
@@ -14327,7 +14327,7 @@ common.ret:                                       ; preds = %617, %607, %198
   store i64 2, ptr %383, align 8, !alias.scope !1833, !noalias !1836
   %384 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %362, ptr %384, align 8, !alias.scope !1833, !noalias !1836
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %336, ptr noundef nonnull align 1 %351, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %352, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %336, ptr noundef nonnull align 1 %351, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %352, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32)
           to label %387 unwind label %385
 
 385:                                              ; preds = %381
@@ -14502,7 +14502,7 @@ common.ret:                                       ; preds = %617, %607, %198
 432:                                              ; preds = %.noexc172.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1861
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !1861
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %419, ptr noundef nonnull align 1 %427, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %428, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %40)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %419, ptr noundef nonnull align 1 %427, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %428, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %40)
           to label %.noexc173.i.i unwind label %434
 
 .noexc173.i.i:                                    ; preds = %432
@@ -14539,7 +14539,7 @@ common.ret:                                       ; preds = %617, %607, %198
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i.i.i, i64 54, i1 false), !noalias !1869
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i.i.i)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %437, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %26)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %437, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %26)
           to label %.thread.i.i unwind label %438, !noalias !1785
 
 438:                                              ; preds = %436
@@ -14604,7 +14604,7 @@ common.ret:                                       ; preds = %617, %607, %198
   %455 = load ptr, ptr %305, align 8, !noalias !1785, !nonnull !5, !align !8, !noundef !5
   %456 = load ptr, ptr %297, align 8, !noalias !1785, !nonnull !5, !align !8, !noundef !5
   %457 = load ptr, ptr %308, align 8, !noalias !1785, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution17h3343866d914d601eE"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %25, ptr noundef nonnull %453, ptr noundef %454, ptr noundef nonnull align 8 %455, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %456, ptr noalias noundef nonnull align 8 dereferenceable(80) %457)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution17h3343866d914d601eE"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %25, ptr noundef nonnull %453, ptr noundef %454, ptr noundef nonnull align 8 %455, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %456, ptr noalias noundef nonnull align 8 dereferenceable(80) %457)
           to label %460 unwind label %458
 
 458:                                              ; preds = %452
@@ -14822,7 +14822,7 @@ common.ret:                                       ; preds = %617, %607, %198
   store i64 2, ptr %531, align 8, !alias.scope !1899, !noalias !1902
   %532 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %510, ptr %532, align 8, !alias.scope !1899, !noalias !1902
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %484, ptr noundef nonnull align 1 %499, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %500, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %484, ptr noundef nonnull align 1 %499, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %500, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %535 unwind label %533
 
 533:                                              ; preds = %529
@@ -14997,7 +14997,7 @@ common.ret:                                       ; preds = %617, %607, %198
 580:                                              ; preds = %.noexc226.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1927
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !1927
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %567, ptr noundef nonnull align 1 %575, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %576, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %567, ptr noundef nonnull align 1 %575, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %576, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
           to label %.noexc227.i.i unwind label %582
 
 .noexc227.i.i:                                    ; preds = %580
@@ -15034,7 +15034,7 @@ common.ret:                                       ; preds = %617, %607, %198
   %.sroa.4.0..sroa_idx.i.i202.i.i = getelementptr inbounds nuw i8, ptr %9, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i202.i.i, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i200.i.i, i64 54, i1 false), !noalias !1935
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i200.i.i)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %585, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %9)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %585, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %9)
           to label %.thread125.i.i unwind label %586, !noalias !1785
 
 586:                                              ; preds = %584
@@ -15159,7 +15159,7 @@ common.ret:                                       ; preds = %617, %607, %198
   %616 = getelementptr inbounds nuw i8, ptr %1, i64 1089
   store i8 0, ptr %616, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1064) %51, ptr noundef nonnull align 8 dereferenceable(1064) %1, i64 1064, i1 false)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$8finalize17hab2b34e32ac856a0E"(ptr noalias nocapture noundef nonnull sret({ i64, [31 x i64] }) align 8 dereferenceable(256) %52, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1064) %51)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$8finalize17hab2b34e32ac856a0E"(ptr noalias noundef nonnull sret({ i64, [31 x i64] }) align 8 captures(none) dereferenceable(256) %52, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1064) %51)
           to label %620 unwind label %618
 
 617:                                              ; preds = %630, %613
@@ -15231,7 +15231,7 @@ common.ret:                                       ; preds = %617, %607, %198
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0bd6a4904b76132eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0bd6a4904b76132eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -15275,7 +15275,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth1
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -15285,7 +15285,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2dd69dac9967b3eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2dd69dac9967b3eaE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -15329,7 +15329,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth1
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -15339,7 +15339,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h37151f4f9e4ae114E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h37151f4f9e4ae114E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -15383,7 +15383,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth1
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -15393,7 +15393,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha6ff483c9fe8f6caE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha6ff483c9fe8f6caE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -15437,7 +15437,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator4auth1
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -15815,7 +15815,7 @@ default.unreachable3223:                          ; preds = %"_ZN4core3ptr81drop
   %319 = load ptr, ptr %306, align 8, !nonnull !5, !align !8, !noundef !5
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %321 = load ptr, ptr %320, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization17h682c3e048434a175E"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %300, ptr noundef nonnull %315, ptr noundef %316, ptr noundef nonnull align 8 %318, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %319, ptr noalias noundef nonnull align 8 dereferenceable(80) %321)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization17h682c3e048434a175E"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %300, ptr noundef nonnull %315, ptr noundef %316, ptr noundef nonnull align 8 %318, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %319, ptr noalias noundef nonnull align 8 dereferenceable(80) %321)
           to label %324 unwind label %322
 
 322:                                              ; preds = %314
@@ -15847,7 +15847,7 @@ default.unreachable3223:                          ; preds = %"_ZN4core3ptr81drop
   %336 = load ptr, ptr %317, align 8, !nonnull !5, !align !8, !noundef !5
   %337 = load ptr, ptr %306, align 8, !nonnull !5, !align !8, !noundef !5
   %338 = load ptr, ptr %320, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization17h692c4bd6a9bbede4E"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %287, ptr noundef nonnull %334, ptr noundef %335, ptr noalias noundef nonnull align 8 dereferenceable(1064) %336, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %337, ptr noalias noundef nonnull align 8 dereferenceable(80) %338)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization17h692c4bd6a9bbede4E"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %287, ptr noundef nonnull %334, ptr noundef %335, ptr noalias noundef nonnull align 8 dereferenceable(1064) %336, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %337, ptr noalias noundef nonnull align 8 dereferenceable(80) %338)
           to label %341 unwind label %339
 
 339:                                              ; preds = %333
@@ -16002,7 +16002,7 @@ default.unreachable3223:                          ; preds = %"_ZN4core3ptr81drop
   store ptr %35, ptr %392, align 8, !alias.scope !1963, !noalias !1966
   %393 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i64 1, ptr %393, align 8, !alias.scope !1963, !noalias !1966
-  invoke fastcc void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %273, ptr noalias noundef nonnull readonly align 1 @anon.f9b583159730a5a8946e561fc02c84c0.182, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %36)
+  invoke fastcc void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %273, ptr noalias noundef nonnull readonly align 1 @anon.f9b583159730a5a8946e561fc02c84c0.182, i64 noundef 21, ptr noalias noundef align 8 captures(none) dereferenceable(48) %36)
           to label %.noexc1177 unwind label %394
 
 .noexc1177:                                       ; preds = %.noexc1176
@@ -16044,7 +16044,7 @@ default.unreachable3223:                          ; preds = %"_ZN4core3ptr81drop
   store i64 0, ptr %405, align 8, !alias.scope !1969, !noalias !1972
   %406 = getelementptr inbounds nuw i8, ptr %272, i64 16
   store ptr %404, ptr %406, align 8, !alias.scope !1969, !noalias !1972
-  invoke void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40) %273, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %403, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %272)
+  invoke void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40) %273, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %403, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %272)
           to label %407 unwind label %400
 
 407:                                              ; preds = %402
@@ -16062,7 +16062,7 @@ default.unreachable3223:                          ; preds = %"_ZN4core3ptr81drop
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %269)
   %409 = load ptr, ptr %320, align 8, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33), !noalias !1975
-  invoke void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %409)
+  invoke void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %409)
           to label %.noexc1291 unwind label %414
 
 .noexc1291:                                       ; preds = %408
@@ -16154,7 +16154,7 @@ select.unfold:                                    ; preds = %412, %.noexc1292
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.72071.0..sroa_idx2072, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.72071.0..sroa_idx, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %268)
   %436 = load ptr, ptr %320, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN140_$LT$aws_smithy_runtime_api..client..ser_de..SharedRequestSerializer$u20$as$u20$aws_smithy_runtime_api..client..ser_de..SerializeRequest$GT$15serialize_input17he2c7214337a47013E"(ptr noalias nocapture noundef nonnull sret({ i64, [42 x i64] }) align 8 dereferenceable(344) %268, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %269, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %267, ptr noalias noundef nonnull align 8 dereferenceable(80) %436)
+  invoke void @"_ZN140_$LT$aws_smithy_runtime_api..client..ser_de..SharedRequestSerializer$u20$as$u20$aws_smithy_runtime_api..client..ser_de..SerializeRequest$GT$15serialize_input17he2c7214337a47013E"(ptr noalias noundef nonnull sret({ i64, [42 x i64] }) align 8 captures(none) dereferenceable(344) %268, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %269, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %267, ptr noalias noundef nonnull align 8 dereferenceable(80) %436)
           to label %439 unwind label %437
 
 437:                                              ; preds = %435
@@ -16257,7 +16257,7 @@ select.unfold:                                    ; preds = %412, %.noexc1292
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %274)
   %458 = load ptr, ptr %320, align 8, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32), !noalias !2012
-  invoke void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %458)
+  invoke void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias noundef nonnull sret({ { ptr, ptr }, ptr }) align 8 captures(none) dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %458)
           to label %.noexc1299 unwind label %464
 
 .noexc1299:                                       ; preds = %457
@@ -16461,7 +16461,7 @@ select.unfold:                                    ; preds = %412, %.noexc1292
   store i64 1, ptr %535, align 8, !alias.scope !2036, !noalias !2039
   %536 = getelementptr inbounds nuw i8, ptr %248, i64 16
   store ptr %519, ptr %536, align 8, !alias.scope !2036, !noalias !2039
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %493, ptr noundef nonnull align 1 %508, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %509, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %249, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %248)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %493, ptr noundef nonnull align 1 %508, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %509, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %249, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %248)
           to label %539 unwind label %537
 
 537:                                              ; preds = %530
@@ -16488,7 +16488,7 @@ select.unfold:                                    ; preds = %412, %.noexc1292
 
 541:                                              ; preds = %516, %489, %.thread2840, %563
   %542 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  invoke void @_ZN16aws_smithy_types4body7SdkBody5taken17h02b32830b4e11482E(ptr noalias nocapture noundef nonnull sret({ { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } }) align 8 dereferenceable(88) %542)
+  invoke void @_ZN16aws_smithy_types4body7SdkBody5taken17h02b32830b4e11482E(ptr noalias noundef nonnull sret({ { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } }) align 8 captures(none) dereferenceable(88) %542)
           to label %568 unwind label %566
 
 543:                                              ; preds = %487
@@ -16550,7 +16550,7 @@ select.unfold:                                    ; preds = %412, %.noexc1292
   store i64 1, ptr %.sroa.92152.0..sroa_idx, align 8
   %.sroa.102153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %254, i64 16
   store ptr %545, ptr %.sroa.102153.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc392e548cb287714E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %254)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc392e548cb287714E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %254)
           to label %563 unwind label %561
 
 561:                                              ; preds = %556
@@ -16625,7 +16625,7 @@ _ZN4core3mem4swap17hef4e5343614c92c5E.exit:       ; preds = %577
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %240)
   store i8 0, ptr %304, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %240, ptr noundef nonnull align 8 dereferenceable(88) %542, i64 88, i1 false)
-  invoke void @_ZN16aws_smithy_types11byte_stream10ByteStream3new17hb92b2d1fe3f60728E(ptr noalias nocapture noundef nonnull sret({ { { { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } } } }) align 8 dereferenceable(88) %241, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %240)
+  invoke void @_ZN16aws_smithy_types11byte_stream10ByteStream3new17hb92b2d1fe3f60728E(ptr noalias noundef nonnull sret({ { { { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } } } }) align 8 captures(none) dereferenceable(88) %241, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %240)
           to label %585 unwind label %583
 
 583:                                              ; preds = %_ZN4core3mem4swap17hef4e5343614c92c5E.exit
@@ -16636,7 +16636,7 @@ _ZN4core3mem4swap17hef4e5343614c92c5E.exit:       ; preds = %577
 
 585:                                              ; preds = %_ZN4core3mem4swap17hef4e5343614c92c5E.exit
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %240)
-  invoke void @_ZN16aws_smithy_types11byte_stream10ByteStream7collect17h9084f2cb7fa1fd4bE(ptr noalias nocapture noundef nonnull sret({ { { { { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } } } }, [352 x i8], i8, [7 x i8] }) align 8 dereferenceable(448) %242, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %241)
+  invoke void @_ZN16aws_smithy_types11byte_stream10ByteStream7collect17h9084f2cb7fa1fd4bE(ptr noalias noundef nonnull sret({ { { { { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } } } }, [352 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(448) %242, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %241)
           to label %589 unwind label %587
 
 586:                                              ; preds = %587, %583
@@ -16855,7 +16855,7 @@ _ZN4core3mem4swap17hef4e5343614c92c5E.exit:       ; preds = %577
   store i64 1, ptr %662, align 8, !alias.scope !2091, !noalias !2094
   %663 = getelementptr inbounds nuw i8, ptr %259, i64 16
   store ptr %646, ptr %663, align 8, !alias.scope !2091, !noalias !2094
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %620, ptr noundef nonnull align 1 %635, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %636, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %260, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %259)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %620, ptr noundef nonnull align 1 %635, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %636, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %260, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %259)
           to label %666 unwind label %664
 
 664:                                              ; preds = %657
@@ -16939,7 +16939,7 @@ _ZN4core3mem4swap17hef4e5343614c92c5E.exit:       ; preds = %577
   store i64 1, ptr %.sroa.92101.0..sroa_idx, align 8
   %.sroa.102102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 16
   store ptr %670, ptr %.sroa.102102.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h258382f4553edbb0E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %265)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h258382f4553edbb0E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %265)
           to label %688 unwind label %686
 
 686:                                              ; preds = %681
@@ -16960,7 +16960,7 @@ _ZN4core3mem4swap17hef4e5343614c92c5E.exit:       ; preds = %577
   %690 = load ptr, ptr %317, align 8, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %255)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %255, ptr noundef nonnull align 8 dereferenceable(112) %266, i64 112, i1 false)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %690, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %255)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %690, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %255)
           to label %693 unwind label %691
 
 691:                                              ; preds = %689
@@ -17195,7 +17195,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %767, align 8, !alias.scope !2144, !noalias !2147
   %768 = getelementptr inbounds nuw i8, ptr %279, i64 16
   store ptr %751, ptr %768, align 8, !alias.scope !2144, !noalias !2147
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %725, ptr noundef nonnull align 1 %740, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %741, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %280, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %279)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %725, ptr noundef nonnull align 1 %740, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %741, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %280, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %279)
           to label %771 unwind label %769
 
 769:                                              ; preds = %762
@@ -17279,7 +17279,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92034.0..sroa_idx, align 8
   %.sroa.102035.0..sroa_idx = getelementptr inbounds nuw i8, ptr %285, i64 16
   store ptr %775, ptr %.sroa.102035.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4ac6c6dd6b052c3E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %285)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4ac6c6dd6b052c3E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %285)
           to label %793 unwind label %791
 
 791:                                              ; preds = %786
@@ -17306,7 +17306,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %275, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i, i64 54, i1 false), !noalias !2171
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %795, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %275)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %795, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %275)
           to label %798 unwind label %796
 
 796:                                              ; preds = %794
@@ -17511,7 +17511,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %866, align 8, !alias.scope !2195, !noalias !2198
   %867 = getelementptr inbounds nuw i8, ptr %292, i64 16
   store ptr %850, ptr %867, align 8, !alias.scope !2195, !noalias !2198
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %824, ptr noundef nonnull align 1 %839, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %840, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %293, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %292)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %824, ptr noundef nonnull align 1 %839, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %840, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %293, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %292)
           to label %870 unwind label %868
 
 868:                                              ; preds = %861
@@ -17595,7 +17595,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx2005 = getelementptr inbounds nuw i8, ptr %298, i64 16
   store ptr %874, ptr %.sroa.10.0..sroa_idx2005, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6ef61c6b6723cf1dE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %298)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6ef61c6b6723cf1dE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %298)
           to label %892 unwind label %890
 
 890:                                              ; preds = %885
@@ -17622,7 +17622,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %.sroa.4.0..sroa_idx.i.i1404 = getelementptr inbounds nuw i8, ptr %288, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1404, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1402, i64 54, i1 false), !noalias !2222
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1402)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %894, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %288)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %894, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %288)
           to label %897 unwind label %895
 
 895:                                              ; preds = %893
@@ -17684,7 +17684,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %29, ptr noundef nonnull align 8 dereferenceable(88) %905, i64 88, i1 false), !noalias !2225
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %30), !noalias !2225
-  invoke void @_ZN16aws_smithy_types11byte_stream5Inner7collect17h1a744ac53e87c976E(ptr noalias nocapture noundef nonnull sret({ { { { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } } }, [256 x i8], i8, [7 x i8] }) align 8 dereferenceable(352) %30, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %29)
+  invoke void @_ZN16aws_smithy_types11byte_stream5Inner7collect17h1a744ac53e87c976E(ptr noalias noundef nonnull sret({ { { { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } } }, [256 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(352) %30, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %29)
           to label %912 unwind label %910, !noalias !2229
 
 909:                                              ; preds = %904
@@ -17825,7 +17825,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26), !noalias !2241
   call void @llvm.experimental.noalias.scope.decl(metadata !2257)
   call void @llvm.experimental.noalias.scope.decl(metadata !2258)
-  invoke void @_ZN16aws_smithy_types4body7SdkBody9poll_next17h7e80a2b3f91529e3E(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %26, ptr noalias noundef nonnull align 8 dereferenceable(88) %952, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @_ZN16aws_smithy_types4body7SdkBody9poll_next17h7e80a2b3f91529e3E(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %26, ptr noalias noundef nonnull align 8 dereferenceable(88) %952, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %"_ZN87_$LT$core..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1bf0995075287919E.exit.i.i.i" unwind label %953, !noalias !2259
 
 953:                                              ; preds = %951
@@ -17886,7 +17886,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 %964, ptr %.sroa.376.0..sroa_idx.i.i, align 8, !noalias !2266
   %.sroa.577.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 %.sroa.488.sroa.7.0.copyload.i.i, ptr %.sroa.577.0..sroa_idx.i.i, align 8, !noalias !2266
-  invoke void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9push_back17hf008a32e6c28153cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %962, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %25)
+  invoke void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9push_back17hf008a32e6c28153cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %962, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %25)
           to label %.noexc56.i.i unwind label %.loopexit.split-lp.i.i, !noalias !2256
 
 .noexc56.i.i:                                     ; preds = %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h986ca1a4a1f4e0f0E.exit.i.i"
@@ -17919,7 +17919,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
 
 .noexc.i.i.i:                                     ; preds = %975
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24), !noalias !2274
-  invoke void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hde77bf130b020688E"(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %24, ptr noalias noundef nonnull align 8 dereferenceable(40) %962)
+  invoke void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hde77bf130b020688E"(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %24, ptr noalias noundef nonnull align 8 dereferenceable(40) %962)
           to label %.noexc57.i.i unwind label %.loopexit.i.i, !noalias !2256
 
 .noexc57.i.i:                                     ; preds = %.noexc.i.i.i
@@ -17964,7 +17964,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %991 = phi ptr [ %935, %930 ], [ %.pre.i.i, %"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$4push17h4b580ec2b203cf37E.exit.i.i" ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27), !noalias !2234
-  invoke void @_ZN16aws_smithy_types4body7SdkBody4next17h564b4f09cf5d0c25E(ptr noalias nocapture noundef nonnull sret({ ptr, [16 x i8], i8, [7 x i8] }) align 8 dereferenceable(32) %27, ptr noalias noundef nonnull align 8 dereferenceable(88) %991)
+  invoke void @_ZN16aws_smithy_types4body7SdkBody4next17h564b4f09cf5d0c25E(ptr noalias noundef nonnull sret({ ptr, [16 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(32) %27, ptr noalias noundef nonnull align 8 dereferenceable(88) %991)
           to label %994 unwind label %992, !noalias !2256
 
 992:                                              ; preds = %990
@@ -18090,7 +18090,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store ptr %.sroa.380.0.i.i2892, ptr %22, align 8, !noalias !2302
   %1030 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %.sroa.482.0.i.i2893, ptr %1030, align 8, !noalias !2302
-  invoke void @"_ZN138_$LT$aws_smithy_types..byte_stream..error..Error$u20$as$u20$core..convert..From$LT$aws_smithy_types..byte_stream..error..ErrorKind$GT$$GT$4from17h3f7b2a319ec76fbcE"(ptr noalias nocapture noundef nonnull sret({ { ptr, [1 x i64] } }) align 8 dereferenceable(16) %23, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %22)
+  invoke void @"_ZN138_$LT$aws_smithy_types..byte_stream..error..Error$u20$as$u20$core..convert..From$LT$aws_smithy_types..byte_stream..error..ErrorKind$GT$$GT$4from17h3f7b2a319ec76fbcE"(ptr noalias noundef nonnull sret({ { ptr, [1 x i64] } }) align 8 captures(none) dereferenceable(16) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %22)
           to label %.noexc21.i unwind label %.body19.i, !noalias !2229
 
 .noexc21.i:                                       ; preds = %1027
@@ -18190,7 +18190,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store ptr %.sroa.526.0.i, ptr %.sroa.132190.8..sroa_idx, align 8
   %.sroa.132190.sroa.9.0..sroa.132190.8..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %239, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.132190.sroa.9.0..sroa.132190.8..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.92201, i64 16, i1 false)
-  invoke void @_ZN16aws_smithy_types11byte_stream15AggregatedBytes10into_bytes17hb2633e677bc71c6dE(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %244, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %239)
+  invoke void @_ZN16aws_smithy_types11byte_stream15AggregatedBytes10into_bytes17hb2633e677bc71c6dE(ptr noalias noundef nonnull sret({ ptr, ptr, i64, { ptr } }) align 8 captures(none) dereferenceable(32) %244, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %239)
           to label %1050 unwind label %1037
 
 1050:                                             ; preds = %1049
@@ -18206,7 +18206,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %1055 = load ptr, ptr %1054, align 8, !noalias !2327, !noundef !5
   %1056 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %1057 = load i64, ptr %1056, align 8, !noalias !2327, !noundef !5
-  invoke void %1052(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %225, ptr noundef nonnull align 8 %1053, ptr noundef %1055, i64 noundef %1057)
+  invoke void %1052(ptr noalias noundef nonnull sret({ ptr, ptr, i64, { ptr } }) align 8 captures(none) dereferenceable(32) %225, ptr noundef nonnull align 8 %1053, ptr noundef %1055, i64 noundef %1057)
           to label %"_ZN58_$LT$bytes..bytes..Bytes$u20$as$u20$core..clone..Clone$GT$5clone17h13860dbdb7992444E.exit" unwind label %1058
 
 1058:                                             ; preds = %1050
@@ -18215,7 +18215,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   br label %1060
 
 "_ZN58_$LT$bytes..bytes..Bytes$u20$as$u20$core..clone..Clone$GT$5clone17h13860dbdb7992444E.exit": ; preds = %1050
-  invoke void @"_ZN98_$LT$aws_smithy_types..body..SdkBody$u20$as$u20$core..convert..From$LT$bytes..bytes..Bytes$GT$$GT$4from17h235b8cca7e060020E"(ptr noalias nocapture noundef nonnull sret({ { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } }) align 8 dereferenceable(88) %226, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %225)
+  invoke void @"_ZN98_$LT$aws_smithy_types..body..SdkBody$u20$as$u20$core..convert..From$LT$bytes..bytes..Bytes$GT$$GT$4from17h235b8cca7e060020E"(ptr noalias noundef nonnull sret({ { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } }) align 8 captures(none) dereferenceable(88) %226, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %225)
           to label %1063 unwind label %1061
 
 1060:                                             ; preds = %1061, %1058
@@ -18281,12 +18281,12 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 2, ptr %18, align 8, !noalias !2340
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20), !noalias !2333
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19), !noalias !2333
-  invoke void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h07ba54c115036648E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }) align 8 dereferenceable(48) %19, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %18)
+  invoke void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h07ba54c115036648E(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }) align 8 captures(none) dereferenceable(48) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %18)
           to label %.noexc1428 unwind label %1875
 
 .noexc1428:                                       ; preds = %1081
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18), !noalias !2333
-  invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7b91893eaf70fb3aE.llvm.11161914831801431366"(ptr noalias nocapture noundef nonnull sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %20, ptr noalias noundef nonnull align 8 dereferenceable(56) %1078, i128 noundef 23816378079026304926731167662487364509, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %19)
+  invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7b91893eaf70fb3aE.llvm.11161914831801431366"(ptr noalias noundef nonnull sret({ ptr, [5 x i64] }) align 8 captures(none) dereferenceable(48) %20, ptr noalias noundef nonnull align 8 dereferenceable(56) %1078, i128 noundef 23816378079026304926731167662487364509, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19)
           to label %.noexc1429 unwind label %1875
 
 .noexc1429:                                       ; preds = %.noexc1428
@@ -18330,7 +18330,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %1099 = load ptr, ptr %1090, align 8, !nonnull !5, !align !8, !noundef !5
   %1100 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1101 = load ptr, ptr %1100, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization17ha97d949c3dd9551bE"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %224, ptr noundef nonnull %1096, ptr noundef %1097, ptr noundef nonnull align 8 %1098, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1099, ptr noalias noundef nonnull align 8 dereferenceable(80) %1101)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization17ha97d949c3dd9551bE"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %224, ptr noundef nonnull %1096, ptr noundef %1097, ptr noundef nonnull align 8 %1098, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1099, ptr noalias noundef nonnull align 8 dereferenceable(80) %1101)
           to label %1104 unwind label %1102
 
 1102:                                             ; preds = %1095
@@ -18362,7 +18362,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %1116 = load ptr, ptr %470, align 8, !nonnull !5, !align !8, !noundef !5
   %1117 = load ptr, ptr %1090, align 8, !nonnull !5, !align !8, !noundef !5
   %1118 = load ptr, ptr %1100, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop17h3ad6070746e8643cE"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %211, ptr noundef nonnull %1114, ptr noundef %1115, ptr noalias noundef nonnull align 8 dereferenceable(1064) %1116, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1117, ptr noalias noundef nonnull align 8 dereferenceable(80) %1118)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop17h3ad6070746e8643cE"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %211, ptr noundef nonnull %1114, ptr noundef %1115, ptr noalias noundef nonnull align 8 dereferenceable(1064) %1116, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1117, ptr noalias noundef nonnull align 8 dereferenceable(80) %1118)
           to label %1121 unwind label %1119
 
 1119:                                             ; preds = %1113
@@ -18397,7 +18397,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %1131 = load ptr, ptr %1090, align 8, !nonnull !5, !align !8, !noundef !5
   %1132 = load ptr, ptr %1100, align 8, !nonnull !5, !align !8, !noundef !5
   %1133 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN135_$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$u20$as$u20$aws_smithy_runtime_api..client..retries..RetryStrategy$GT$30should_attempt_initial_request17ha614b69a27fda349E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %1133, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %198, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1131, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1132)
+  invoke void @"_ZN135_$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$u20$as$u20$aws_smithy_runtime_api..client..retries..RetryStrategy$GT$30should_attempt_initial_request17ha614b69a27fda349E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %1133, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %198, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1131, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1132)
           to label %1136 unwind label %1134
 
 1134:                                             ; preds = %1130
@@ -18628,7 +18628,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %1221, align 8, !alias.scope !2376, !noalias !2379
   %1222 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store ptr %1205, ptr %1222, align 8, !alias.scope !2376, !noalias !2379
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1179, ptr noundef nonnull align 1 %1194, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1195, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %191)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1179, ptr noundef nonnull align 1 %1194, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1195, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %191)
           to label %1225 unwind label %1223
 
 1223:                                             ; preds = %1216
@@ -18725,7 +18725,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92316.0..sroa_idx, align 8
   %.sroa.102317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %197, i64 16
   store ptr %1233, ptr %.sroa.102317.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8d7b4cd11f0c5a84E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %197)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8d7b4cd11f0c5a84E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %197)
           to label %1251 unwind label %1249
 
 1249:                                             ; preds = %1244
@@ -18920,7 +18920,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %1317, align 8, !alias.scope !2419, !noalias !2422
   %1318 = getelementptr inbounds nuw i8, ptr %181, i64 16
   store ptr %1301, ptr %1318, align 8, !alias.scope !2419, !noalias !2422
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1275, ptr noundef nonnull align 1 %1290, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1291, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %182, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %181)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1275, ptr noundef nonnull align 1 %1290, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1291, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %182, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %181)
           to label %1321 unwind label %1319
 
 1319:                                             ; preds = %1312
@@ -19004,7 +19004,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92353.0..sroa_idx, align 8
   %.sroa.102354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %187, i64 16
   store ptr %1325, ptr %.sroa.102354.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17habf57736062da949E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %187)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17habf57736062da949E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %187)
           to label %1343 unwind label %1341
 
 1341:                                             ; preds = %1336
@@ -19031,7 +19031,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store ptr %1150, ptr %.sroa.52386.0..sroa_idx, align 8, !alias.scope !2441
   %.sroa.62387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 16
   store ptr @anon.f9b583159730a5a8946e561fc02c84c0.1, ptr %.sroa.62387.0..sroa_idx, align 8, !alias.scope !2441
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1345, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %177)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1345, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %177)
           to label %1349 unwind label %1347
 
 1347:                                             ; preds = %1344
@@ -19068,7 +19068,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
 1355:                                             ; preds = %1151
   %1356 = extractvalue { ptr, ptr } %1157, 0
   %1357 = extractvalue { ptr, ptr } %1157, 1
-  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17hfdc857753f6b3d1bE"(ptr noalias nocapture noundef align 8 dereferenceable(112) %165, ptr noundef %1356, ptr %1357)
+  invoke fastcc void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17hfdc857753f6b3d1bE"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %165, ptr noundef %1356, ptr %1357)
           to label %1360 unwind label %1358
 
 1358:                                             ; preds = %1355
@@ -19261,7 +19261,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %1433, align 8, !alias.scope !2470, !noalias !2473
   %1434 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store ptr %1416, ptr %1434, align 8, !alias.scope !2470, !noalias !2473
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1390, ptr noundef nonnull align 1 %1405, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1406, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %146, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %145)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1390, ptr noundef nonnull align 1 %1405, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1406, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %146, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %145)
           to label %1437 unwind label %1435
 
 1435:                                             ; preds = %1427
@@ -19363,7 +19363,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92471.0..sroa_idx, align 8
   %.sroa.102472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %152, i64 16
   store ptr %1446, ptr %.sroa.102472.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbbe197f0b8cf5e28E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %152)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbbe197f0b8cf5e28E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %152)
           to label %1465 unwind label %1463
 
 1463:                                             ; preds = %1457
@@ -19571,7 +19571,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %1537, align 8, !alias.scope !2515, !noalias !2518
   %1538 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store ptr %1521, ptr %1538, align 8, !alias.scope !2515, !noalias !2518
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1495, ptr noundef nonnull align 1 %1510, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1511, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %158, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %157)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1495, ptr noundef nonnull align 1 %1510, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1511, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %158, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %157)
           to label %1541 unwind label %1539
 
 1539:                                             ; preds = %1532
@@ -19655,7 +19655,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92435.0..sroa_idx, align 8
   %.sroa.102436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 16
   store ptr %1545, ptr %.sroa.102436.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50a21fc5f7a11c24E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %163)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50a21fc5f7a11c24E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %163)
           to label %1563 unwind label %1561
 
 1561:                                             ; preds = %1556
@@ -19676,7 +19676,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %1565 = load ptr, ptr %470, align 8, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %153)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %153, ptr noundef nonnull align 8 dereferenceable(112) %164, i64 112, i1 false)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1565, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %153)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1565, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %153)
           to label %1568 unwind label %1566
 
 1566:                                             ; preds = %1564
@@ -19884,7 +19884,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %1640, align 8, !alias.scope !2558, !noalias !2561
   %1641 = getelementptr inbounds nuw i8, ptr %170, i64 16
   store ptr %1624, ptr %1641, align 8, !alias.scope !2558, !noalias !2561
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1598, ptr noundef nonnull align 1 %1613, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1614, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %171, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %170)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1598, ptr noundef nonnull align 1 %1613, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1614, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %171, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %170)
           to label %1644 unwind label %1642
 
 1642:                                             ; preds = %1635
@@ -19968,7 +19968,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92395.0..sroa_idx, align 8
   %.sroa.102396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %176, i64 16
   store ptr %1648, ptr %.sroa.102396.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0e4ca23b44b81cf1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %176)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0e4ca23b44b81cf1E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %176)
           to label %1666 unwind label %1664
 
 1664:                                             ; preds = %1659
@@ -19993,7 +19993,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store ptr %1575, ptr %.sroa.52428.0..sroa_idx, align 8, !alias.scope !2580
   %.sroa.62429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 16
   store ptr %1577, ptr %.sroa.62429.0..sroa_idx, align 8, !alias.scope !2580
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1668, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %166)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1668, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %166)
           to label %1671 unwind label %1669
 
 1669:                                             ; preds = %1667
@@ -20197,7 +20197,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %1740, align 8, !alias.scope !2608, !noalias !2611
   %1741 = getelementptr inbounds nuw i8, ptr %203, i64 16
   store ptr %1724, ptr %1741, align 8, !alias.scope !2608, !noalias !2611
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1698, ptr noundef nonnull align 1 %1713, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1714, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %204, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %203)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1698, ptr noundef nonnull align 1 %1713, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1714, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %204, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %203)
           to label %1744 unwind label %1742
 
 1742:                                             ; preds = %1735
@@ -20281,7 +20281,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92281.0..sroa_idx, align 8
   %.sroa.102282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %209, i64 16
   store ptr %1748, ptr %.sroa.102282.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb76eb50c3e913d8aE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %209)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb76eb50c3e913d8aE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %209)
           to label %1766 unwind label %1764
 
 1764:                                             ; preds = %1759
@@ -20308,7 +20308,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %.sroa.4.0..sroa_idx.i.i1601 = getelementptr inbounds nuw i8, ptr %199, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1601, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1599, i64 54, i1 false), !noalias !2635
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1599)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1768, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %199)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1768, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %199)
           to label %1771 unwind label %1769
 
 1769:                                             ; preds = %1767
@@ -20513,7 +20513,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %1839, align 8, !alias.scope !2659, !noalias !2662
   %1840 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store ptr %1823, ptr %1840, align 8, !alias.scope !2659, !noalias !2662
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1797, ptr noundef nonnull align 1 %1812, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1813, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %217, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %216)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1797, ptr noundef nonnull align 1 %1812, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1813, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %217, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %216)
           to label %1843 unwind label %1841
 
 1841:                                             ; preds = %1834
@@ -20597,7 +20597,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92246.0..sroa_idx, align 8
   %.sroa.102247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %222, i64 16
   store ptr %1847, ptr %.sroa.102247.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5ee53947ca67f899E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %222)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5ee53947ca67f899E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %222)
           to label %1865 unwind label %1863
 
 1863:                                             ; preds = %1858
@@ -20624,7 +20624,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %.sroa.4.0..sroa_idx.i.i1633 = getelementptr inbounds nuw i8, ptr %212, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i1633, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i1631, i64 54, i1 false), !noalias !2686
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i1631)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1867, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %212)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1867, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %212)
           to label %1870 unwind label %1868
 
 1868:                                             ; preds = %1866
@@ -20866,7 +20866,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %1943, align 8, !alias.scope !2711, !noalias !2714
   %1944 = getelementptr inbounds nuw i8, ptr %231, i64 16
   store ptr %1927, ptr %1944, align 8, !alias.scope !2711, !noalias !2714
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1901, ptr noundef nonnull align 1 %1916, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1917, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %232, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %231)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1901, ptr noundef nonnull align 1 %1916, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1917, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %232, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %231)
           to label %1947 unwind label %1945
 
 1945:                                             ; preds = %1938
@@ -20950,7 +20950,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92208.0..sroa_idx, align 8
   %.sroa.102209.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 16
   store ptr %1951, ptr %.sroa.102209.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1211a1b8f85e1d5fE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %237)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1211a1b8f85e1d5fE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %237)
           to label %1969 unwind label %1967
 
 1967:                                             ; preds = %1962
@@ -20972,7 +20972,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %1972 = load ptr, ptr %1971, align 8, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %227)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %227, ptr noundef nonnull align 8 dereferenceable(112) %238, i64 112, i1 false)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1972, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %227)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %1972, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %227)
           to label %1975 unwind label %1973
 
 1973:                                             ; preds = %1970
@@ -21104,7 +21104,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
 2012:                                             ; preds = %311, %2912
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %90)
   %2013 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  invoke void @"_ZN123_$LT$aws_smithy_runtime..client..timeout..MaybeTimeoutFuture$LT$InnerFuture$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h4d2279b7ed3f2a73E"(ptr noalias nocapture noundef nonnull sret({ i64, [31 x i64] }) align 8 dereferenceable(256) %90, ptr noundef nonnull align 8 %2013, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @"_ZN123_$LT$aws_smithy_runtime..client..timeout..MaybeTimeoutFuture$LT$InnerFuture$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h4d2279b7ed3f2a73E"(ptr noalias noundef nonnull sret({ i64, [31 x i64] }) align 8 captures(none) dereferenceable(256) %90, ptr noundef nonnull align 8 %2013, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %2016 unwind label %2014
 
 2014:                                             ; preds = %2012
@@ -21156,7 +21156,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %.sroa.32644.0..sroa_idx2645 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %.sroa.32644.0..sroa_idx2645, ptr noundef nonnull align 8 dereferenceable(248) %.sroa.32644, i64 248, i1 false), !noalias !2753
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %16), !noalias !2759
-  invoke void @"_ZN22aws_smithy_runtime_api6client6result21SdkError$LT$E$C$R$GT$11into_source17hcc85875fcac847f9E"(ptr noalias nocapture noundef nonnull sret({ i64, [31 x i64] }) align 8 dereferenceable(256) %16, ptr noalias nocapture noundef nonnull align 8 dereferenceable(256) %17)
+  invoke void @"_ZN22aws_smithy_runtime_api6client6result21SdkError$LT$E$C$R$GT$11into_source17hcc85875fcac847f9E"(ptr noalias noundef nonnull sret({ i64, [31 x i64] }) align 8 captures(none) dereferenceable(256) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(256) %17)
           to label %.noexc1680 unwind label %2034
 
 .noexc1680:                                       ; preds = %2025
@@ -21416,7 +21416,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 2, ptr %2112, align 8, !alias.scope !2794, !noalias !2797
   %2113 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store ptr %2091, ptr %2113, align 8, !alias.scope !2794, !noalias !2797
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2065, ptr noundef nonnull align 1 %2080, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2081, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %80)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2065, ptr noundef nonnull align 1 %2080, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2081, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %80)
           to label %2116 unwind label %2114
 
 2114:                                             ; preds = %2110
@@ -21591,7 +21591,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
 2161:                                             ; preds = %.noexc1732
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !2822
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !2822
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2148, ptr noundef nonnull align 1 %2156, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2157, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %88)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2148, ptr noundef nonnull align 1 %2156, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2157, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %88)
           to label %.noexc1733 unwind label %2163
 
 .noexc1733:                                       ; preds = %2161
@@ -21623,7 +21623,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %2167 = load ptr, ptr %2166, align 8, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %74)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %74, ptr noundef nonnull align 8 dereferenceable(112) %89, i64 112, i1 false)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %2167, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %74)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %2167, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %74)
           to label %2170 unwind label %2168
 
 2168:                                             ; preds = %2165
@@ -21683,7 +21683,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %2182 = load ptr, ptr %2037, align 8, !nonnull !5, !align !8, !noundef !5
   %2183 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %2184 = load ptr, ptr %2183, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN135_$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$u20$as$u20$aws_smithy_runtime_api..client..retries..RetryStrategy$GT$20should_attempt_retry17hb20bf6b9a54aa5b6E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 %2181, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2182, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %2184)
+  invoke void @"_ZN135_$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$u20$as$u20$aws_smithy_runtime_api..client..retries..RetryStrategy$GT$20should_attempt_retry17hb20bf6b9a54aa5b6E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 %2181, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2182, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %2184)
           to label %2187 unwind label %2185
 
 2185:                                             ; preds = %2179
@@ -21914,7 +21914,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %2270, align 8, !alias.scope !2861, !noalias !2864
   %2271 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %2254, ptr %2271, align 8, !alias.scope !2861, !noalias !2864
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2228, ptr noundef nonnull align 1 %2243, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2244, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %53)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2228, ptr noundef nonnull align 1 %2243, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2244, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %53)
           to label %2274 unwind label %2272
 
 2272:                                             ; preds = %2265
@@ -22003,7 +22003,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92745.0..sroa_idx, align 8
   %.sroa.102746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr %2280, ptr %.sroa.102746.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0d1fc06c00bb1ff6E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %59)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0d1fc06c00bb1ff6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %59)
           to label %2298 unwind label %2296
 
 2296:                                             ; preds = %2291
@@ -22434,7 +22434,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %2444, align 8, !alias.scope !2962, !noalias !2965
   %2445 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %2427, ptr %2445, align 8, !alias.scope !2962, !noalias !2965
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2401, ptr noundef nonnull align 1 %2416, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2417, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %133)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2401, ptr noundef nonnull align 1 %2416, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2417, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %133)
           to label %2448 unwind label %2446
 
 2446:                                             ; preds = %2438
@@ -22580,7 +22580,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
 2494:                                             ; preds = %.noexc1818
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !2985
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !2985
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2481, ptr noundef nonnull align 1 %2489, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2490, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %140)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2481, ptr noundef nonnull align 1 %2489, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2490, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %140)
           to label %.noexc1819 unwind label %2496
 
 .noexc1819:                                       ; preds = %2494
@@ -22788,7 +22788,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %2568, align 8, !alias.scope !3009, !noalias !3012
   %2569 = getelementptr inbounds nuw i8, ptr %122, i64 16
   store ptr %2552, ptr %2569, align 8, !alias.scope !3009, !noalias !3012
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2526, ptr noundef nonnull align 1 %2541, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2542, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %123, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %122)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2526, ptr noundef nonnull align 1 %2541, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2542, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %123, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %122)
           to label %2572 unwind label %2570
 
 2570:                                             ; preds = %2563
@@ -22872,7 +22872,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92541.0..sroa_idx, align 8
   %.sroa.102542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %128, i64 16
   store ptr %2576, ptr %.sroa.102542.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2bb4b78af2ed7198E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %128)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2bb4b78af2ed7198E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %128)
           to label %2594 unwind label %2592
 
 2592:                                             ; preds = %2587
@@ -22922,12 +22922,12 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store ptr null, ptr %7, align 8, !noalias !3037
   %.sroa.4.0..sroa_idx.i1850 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %2601, ptr %.sroa.4.0..sroa_idx.i1850, align 8, !noalias !3037
-  invoke void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h69580f34fecf560aE(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }) align 8 dereferenceable(48) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h69580f34fecf560aE(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }) align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %7)
           to label %.noexc1851 unwind label %2607
 
 .noexc1851:                                       ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9263c082b24d39f9E.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !3031
-  invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7b91893eaf70fb3aE.llvm.11161914831801431366"(ptr noalias nocapture noundef nonnull sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %9, ptr noalias noundef nonnull align 8 dereferenceable(56) %2504, i128 noundef 137448116625166367224871954603287263483, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7b91893eaf70fb3aE.llvm.11161914831801431366"(ptr noalias noundef nonnull sret({ ptr, [5 x i64] }) align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull align 8 dereferenceable(56) %2504, i128 noundef 137448116625166367224871954603287263483, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
           to label %.noexc1852 unwind label %2607
 
 .noexc1852:                                       ; preds = %.noexc1851
@@ -23155,7 +23155,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %2690, align 8, !alias.scope !3069, !noalias !3072
   %2691 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store ptr %2673, ptr %2691, align 8, !alias.scope !3069, !noalias !3072
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2647, ptr noundef nonnull align 1 %2662, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2663, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %111, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %110)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2647, ptr noundef nonnull align 1 %2662, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2663, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %111, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %110)
           to label %2694 unwind label %2692
 
 2692:                                             ; preds = %2684
@@ -23300,7 +23300,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
 2737:                                             ; preds = %.noexc1888
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !3092
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !3092
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2724, ptr noundef nonnull align 1 %2732, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2733, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %117)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2724, ptr noundef nonnull align 1 %2732, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2733, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %117)
           to label %.noexc1889 unwind label %2739
 
 .noexc1889:                                       ; preds = %2737
@@ -23418,7 +23418,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %2774 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %2775 = load ptr, ptr %2774, align 8, !nonnull !5, !align !8, !noundef !5
   %2776 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  invoke void @_ZN18aws_smithy_runtime6client7timeout18MaybeTimeoutConfig3new17h54f32b06e5d9899fE(ptr noalias nocapture noundef nonnull sret({ { i64, i32 }, { ptr, ptr }, i8, [7 x i8] }) align 8 dereferenceable(40) %2776, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2773, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %2775, i1 noundef zeroext true)
+  invoke void @_ZN18aws_smithy_runtime6client7timeout18MaybeTimeoutConfig3new17h54f32b06e5d9899fE(ptr noalias noundef nonnull sret({ { i64, i32 }, { ptr, ptr }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %2776, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %2773, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %2775, i1 noundef zeroext true)
           to label %2791 unwind label %2789
 
 2777:                                             ; preds = %2767
@@ -23620,7 +23620,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %2851, align 8, !alias.scope !3131, !noalias !3134
   %2852 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store ptr %2839, ptr %2852, align 8, !alias.scope !3131, !noalias !3134
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2813, ptr noundef nonnull align 1 %2828, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2829, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %100, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %99)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2813, ptr noundef nonnull align 1 %2828, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2829, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %100, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %99)
           to label %2855 unwind label %2853
 
 2853:                                             ; preds = %2850
@@ -23670,7 +23670,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %91)
   store i8 0, ptr %2792, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %91, ptr noundef nonnull align 8 dereferenceable(40) %2776, i64 40, i1 false)
-  invoke void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout..MaybeTimeout$LT$T$GT$$GT$13maybe_timeout17ha76b693411c6a190E"(ptr noalias nocapture noundef nonnull sret({ [2 x i32], i32, [251 x i32] }) align 8 dereferenceable(1016) %93, ptr noalias nocapture noundef nonnull align 8 dereferenceable(976) %92, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %91)
+  invoke void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout..MaybeTimeout$LT$T$GT$$GT$13maybe_timeout17ha76b693411c6a190E"(ptr noalias noundef nonnull sret({ [2 x i32], i32, [251 x i32] }) align 8 captures(none) dereferenceable(1016) %93, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(976) %92, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %91)
           to label %2912 unwind label %2910
 
 2869:                                             ; preds = %2824, %2799, %2805, %2914, %2303
@@ -23779,7 +23779,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
 2906:                                             ; preds = %.noexc1934
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !3148
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2893, ptr noundef nonnull align 1 %2901, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2902, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %105)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2893, ptr noundef nonnull align 1 %2901, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2902, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %105)
           to label %.noexc1935 unwind label %2908
 
 .noexc1935:                                       ; preds = %2906
@@ -24019,7 +24019,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %2982, align 8, !alias.scope !3176, !noalias !3179
   %2983 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %2966, ptr %2983, align 8, !alias.scope !3176, !noalias !3179
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2940, ptr noundef nonnull align 1 %2955, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2956, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2940, ptr noundef nonnull align 1 %2955, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2956, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41)
           to label %2986 unwind label %2984
 
 2984:                                             ; preds = %2977
@@ -24103,7 +24103,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92784.0..sroa_idx, align 8
   %.sroa.102785.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr %2990, ptr %.sroa.102785.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h138e13a9fe0f3ba6E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %47)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h138e13a9fe0f3ba6E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %47)
           to label %3008 unwind label %3006
 
 3006:                                             ; preds = %3001
@@ -24124,7 +24124,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %3010 = load ptr, ptr %2180, align 8, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %48, i64 112, i1 false)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3010, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %37)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3010, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %37)
           to label %3013 unwind label %3011
 
 3011:                                             ; preds = %3009
@@ -24337,7 +24337,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %3085, align 8, !alias.scope !3219, !noalias !3222
   %3086 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %3069, ptr %3086, align 8, !alias.scope !3219, !noalias !3222
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3043, ptr noundef nonnull align 1 %3058, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3059, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3043, ptr noundef nonnull align 1 %3058, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3059, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64)
           to label %3089 unwind label %3087
 
 3087:                                             ; preds = %3080
@@ -24421,7 +24421,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   store i64 1, ptr %.sroa.92709.0..sroa_idx, align 8
   %.sroa.102710.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %3093, ptr %.sroa.102710.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9c80fa71694157a1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %70)
+  invoke fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9c80fa71694157a1E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %70)
           to label %3111 unwind label %3109
 
 3109:                                             ; preds = %3104
@@ -24442,7 +24442,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
   %3113 = load ptr, ptr %2180, align 8, !nonnull !5, !align !8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %60)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %60, ptr noundef nonnull align 8 dereferenceable(112) %71, i64 112, i1 false)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3113, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %60)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %3113, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %60)
           to label %3116 unwind label %3114
 
 3114:                                             ; preds = %3112
@@ -24568,7 +24568,7 @@ common.ret:                                       ; preds = %2751, %1987, %698, 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0d1fc06c00bb1ff6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0d1fc06c00bb1ff6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -24612,7 +24612,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -24622,7 +24622,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0e4ca23b44b81cf1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0e4ca23b44b81cf1E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -24666,7 +24666,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -24676,7 +24676,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1211a1b8f85e1d5fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1211a1b8f85e1d5fE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -24720,7 +24720,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -24730,7 +24730,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h138e13a9fe0f3ba6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h138e13a9fe0f3ba6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -24774,7 +24774,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -24784,7 +24784,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h258382f4553edbb0E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h258382f4553edbb0E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -24828,7 +24828,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -24838,7 +24838,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2bb4b78af2ed7198E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2bb4b78af2ed7198E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -24882,7 +24882,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -24892,7 +24892,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fb80fb9fa3b6582E.llvm.1595154212725285208"(ptr noalias nocapture noundef writeonly sret({ i64, [31 x i64] }) align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fb80fb9fa3b6582E.llvm.1595154212725285208"(ptr noalias noundef writeonly sret({ i64, [31 x i64] }) align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, i64 } }, align 8
   %5 = alloca { i64, { ptr, i64 } }, align 8
   %.sroa.4.i.i200.i.i = alloca [27 x i16], align 2
@@ -25152,7 +25152,7 @@ default.unreachable148:                           ; preds = %414, %333, %206, %3
   store i64 1, ptr %137, align 8, !alias.scope !3290, !noalias !3293
   %138 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %119, ptr %138, align 8, !alias.scope !3290, !noalias !3293
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %93, ptr noundef nonnull align 1 %108, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %109, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %93, ptr noundef nonnull align 1 %108, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %109, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60)
           to label %141 unwind label %139
 
 139:                                              ; preds = %130
@@ -25192,7 +25192,7 @@ default.unreachable148:                           ; preds = %414, %333, %206, %3
   %151 = load ptr, ptr %150, align 8, !nonnull !5, !align !24, !noundef !5
   %152 = load i8, ptr %151, align 1, !range !789, !noundef !5
   %153 = trunc nuw i8 %152 to i1
-  invoke void @_ZN18aws_smithy_runtime6client12orchestrator11try_attempt17h056eebbafb8236a0E(ptr noalias nocapture noundef nonnull sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, i8, [860 x i8] }) align 8 dereferenceable(928) %54, ptr noalias noundef nonnull align 8 dereferenceable(1064) %145, ptr noalias noundef nonnull align 8 dereferenceable(80) %147, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %149, i1 noundef zeroext %153)
+  invoke void @_ZN18aws_smithy_runtime6client12orchestrator11try_attempt17h056eebbafb8236a0E(ptr noalias noundef nonnull sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, i8, [860 x i8] }) align 8 captures(none) dereferenceable(928) %54, ptr noalias noundef nonnull align 8 dereferenceable(1064) %145, ptr noalias noundef nonnull align 8 dereferenceable(80) %147, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %149, i1 noundef zeroext %153)
           to label %200 unwind label %198
 
 154:                                              ; preds = %104, %79, %85, %203, %330, %202
@@ -25312,7 +25312,7 @@ default.unreachable148:                           ; preds = %414, %333, %206, %3
 194:                                              ; preds = %.noexc91
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50), !noalias !3313
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false), !noalias !3313
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %181, ptr noundef nonnull align 1 %189, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %190, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %67)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %181, ptr noundef nonnull align 1 %189, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %190, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %67)
           to label %.noexc92 unwind label %196
 
 .noexc92:                                         ; preds = %194
@@ -25507,7 +25507,7 @@ default.unreachable148:                           ; preds = %414, %333, %206, %3
   store i64 0, ptr %258, align 8, !alias.scope !3334, !noalias !3337
   %259 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %257, ptr %259, align 8, !alias.scope !3334, !noalias !3337
-  invoke void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40) %207, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %256, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %49)
+  invoke void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40) %207, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %256, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %49)
           to label %260 unwind label %253, !noalias !3320
 
 260:                                              ; preds = %255
@@ -25708,7 +25708,7 @@ common.ret:                                       ; preds = %730, %727, %317
   %324 = load ptr, ptr %323, align 8, !nonnull !5, !align !8, !noundef !5
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %326 = load ptr, ptr %325, align 8, !nonnull !5, !align !8, !noundef !5
-  invoke void @_ZN18aws_smithy_runtime6client12orchestrator15finally_attempt17h9a9d23171ba0a8d9E(ptr noalias nocapture noundef nonnull sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, [77 x i8] }) align 8 dereferenceable(144) %52, ptr noalias noundef nonnull align 8 dereferenceable(1064) %322, ptr noalias noundef nonnull align 8 dereferenceable(80) %324, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %326)
+  invoke void @_ZN18aws_smithy_runtime6client12orchestrator15finally_attempt17h9a9d23171ba0a8d9E(ptr noalias noundef nonnull sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, [77 x i8] }) align 8 captures(none) dereferenceable(144) %52, ptr noalias noundef nonnull align 8 dereferenceable(1064) %322, ptr noalias noundef nonnull align 8 dereferenceable(80) %324, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %326)
           to label %329 unwind label %327
 
 327:                                              ; preds = %320
@@ -25864,7 +25864,7 @@ common.ret:                                       ; preds = %730, %727, %317
   store i64 0, ptr %381, align 8, !alias.scope !3358, !noalias !3361
   %382 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %380, ptr %382, align 8, !alias.scope !3358, !noalias !3361
-  invoke void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40) %334, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %379, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44)
+  invoke void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40) %334, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %379, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44)
           to label %383 unwind label %376, !noalias !3344
 
 383:                                              ; preds = %378
@@ -26014,7 +26014,7 @@ common.ret:                                       ; preds = %730, %727, %317
   %427 = load ptr, ptr %417, align 8, !noalias !3344, !nonnull !5, !align !8, !noundef !5
   %428 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %429 = load ptr, ptr %428, align 8, !noalias !3344, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion17hee9a846955c12db6E"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %41, ptr noundef nonnull %423, ptr noundef %424, ptr noalias noundef nonnull align 8 dereferenceable(1064) %426, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %427, ptr noalias noundef nonnull align 8 dereferenceable(80) %429)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion17hee9a846955c12db6E"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %41, ptr noundef nonnull %423, ptr noundef %424, ptr noalias noundef nonnull align 8 dereferenceable(1064) %426, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %427, ptr noalias noundef nonnull align 8 dereferenceable(80) %429)
           to label %432 unwind label %430
 
 430:                                              ; preds = %422
@@ -26232,7 +26232,7 @@ common.ret:                                       ; preds = %730, %727, %317
   store i64 2, ptr %503, align 8, !alias.scope !3391, !noalias !3394
   %504 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %482, ptr %504, align 8, !alias.scope !3391, !noalias !3394
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %456, ptr noundef nonnull align 1 %471, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %472, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %456, ptr noundef nonnull align 1 %471, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %472, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31)
           to label %507 unwind label %505
 
 505:                                              ; preds = %501
@@ -26407,7 +26407,7 @@ common.ret:                                       ; preds = %730, %727, %317
 552:                                              ; preds = %.noexc172.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !3419
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !3419
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %539, ptr noundef nonnull align 1 %547, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %548, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %39)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %539, ptr noundef nonnull align 1 %547, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %548, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %39)
           to label %.noexc173.i.i unwind label %554
 
 .noexc173.i.i:                                    ; preds = %552
@@ -26444,7 +26444,7 @@ common.ret:                                       ; preds = %730, %727, %317
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i.i.i, i64 54, i1 false), !noalias !3427
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i.i.i)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %557, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %25)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %557, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %25)
           to label %.thread.i.i unwind label %558, !noalias !3344
 
 558:                                              ; preds = %556
@@ -26509,7 +26509,7 @@ common.ret:                                       ; preds = %730, %727, %317
   %575 = load ptr, ptr %425, align 8, !noalias !3344, !nonnull !5, !align !8, !noundef !5
   %576 = load ptr, ptr %417, align 8, !noalias !3344, !nonnull !5, !align !8, !noundef !5
   %577 = load ptr, ptr %428, align 8, !noalias !3344, !nonnull !5, !align !8, !noundef !5
-  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt17h898a2b8ded935826E"(ptr noalias nocapture noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48) %24, ptr noundef nonnull %573, ptr noundef %574, ptr noundef nonnull align 8 %575, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %576, ptr noalias noundef nonnull align 8 dereferenceable(80) %577)
+  invoke void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt17h898a2b8ded935826E"(ptr noalias noundef nonnull sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %24, ptr noundef nonnull %573, ptr noundef %574, ptr noundef nonnull align 8 %575, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %576, ptr noalias noundef nonnull align 8 dereferenceable(80) %577)
           to label %580 unwind label %578
 
 578:                                              ; preds = %572
@@ -26727,7 +26727,7 @@ common.ret:                                       ; preds = %730, %727, %317
   store i64 2, ptr %651, align 8, !alias.scope !3457, !noalias !3460
   %652 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %630, ptr %652, align 8, !alias.scope !3457, !noalias !3460
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %604, ptr noundef nonnull align 1 %619, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %620, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %604, ptr noundef nonnull align 1 %619, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %620, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %655 unwind label %653
 
 653:                                              ; preds = %649
@@ -26902,7 +26902,7 @@ common.ret:                                       ; preds = %730, %727, %317
 700:                                              ; preds = %.noexc226.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3485
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !3485
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %687, ptr noundef nonnull align 1 %695, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %696, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %687, ptr noundef nonnull align 1 %695, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %696, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
           to label %.noexc227.i.i unwind label %702
 
 .noexc227.i.i:                                    ; preds = %700
@@ -26939,7 +26939,7 @@ common.ret:                                       ; preds = %730, %727, %317
   %.sroa.4.0..sroa_idx.i.i202.i.i = getelementptr inbounds nuw i8, ptr %8, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.0..sroa_idx.i.i202.i.i, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.4.i.i200.i.i, i64 54, i1 false), !noalias !3493
   call void @llvm.lifetime.end.p0(i64 54, ptr nonnull %.sroa.4.i.i200.i.i)
-  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %705, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %8)
+  invoke void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %705, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %8)
           to label %.thread125.i.i unwind label %706, !noalias !3344
 
 706:                                              ; preds = %704
@@ -27051,7 +27051,7 @@ common.ret:                                       ; preds = %730, %727, %317
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50a21fc5f7a11c24E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50a21fc5f7a11c24E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -27095,7 +27095,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -27105,7 +27105,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5ee53947ca67f899E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5ee53947ca67f899E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -27149,7 +27149,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -27159,7 +27159,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6ef61c6b6723cf1dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6ef61c6b6723cf1dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -27203,7 +27203,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -27213,7 +27213,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8d7b4cd11f0c5a84E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8d7b4cd11f0c5a84E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -27257,7 +27257,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -27267,7 +27267,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9c80fa71694157a1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9c80fa71694157a1E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -27311,7 +27311,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -27321,7 +27321,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17habf57736062da949E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17habf57736062da949E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -27365,7 +27365,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -27375,7 +27375,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4ac6c6dd6b052c3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4ac6c6dd6b052c3E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -27419,7 +27419,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -27429,7 +27429,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb76eb50c3e913d8aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb76eb50c3e913d8aE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -27473,7 +27473,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -27483,7 +27483,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbbe197f0b8cf5e28E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbbe197f0b8cf5e28E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -27527,7 +27527,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -27537,7 +27537,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc392e548cb287714E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc392e548cb287714E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -27581,7 +27581,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -27591,7 +27591,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator6try_o
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha56a6fd0206f64c8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha56a6fd0206f64c8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -27635,7 +27635,7 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator9endpo
 24:                                               ; preds = %.critedge9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   br label %25
 
@@ -27909,7 +27909,7 @@ define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3496
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h275227e8a5eba334E"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h275227e8a5eba334E"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !559, !noalias !3496, !noundef !5
   %.not.i.i.i = icmp eq i64 %8, 0
@@ -28017,12 +28017,12 @@ common.ret:                                       ; preds = %1, %20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr110drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..http..request..Request$GT$$GT$17h3f5f0d35c1e9ebd3E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr110drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..http..request..Request$GT$$GT$17h3f5f0d35c1e9ebd3E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr112drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..http..response..Response$GT$$GT$17hc55c1dc8245ad11eE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr112drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..http..response..Response$GT$$GT$17hc55c1dc8245ad11eE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
@@ -28149,7 +28149,7 @@ common.ret:                                       ; preds = %52, %"_ZN4core3ptr1
 
 35:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$17h11a95ba014ae484dE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3540
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h275227e8a5eba334E"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h275227e8a5eba334E"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32)
           to label %.noexc11 unwind label %46
 
 .noexc11:                                         ; preds = %35
@@ -28273,7 +28273,7 @@ define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr114drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..identity..Identity$GT$$GT$17h4cde5d6684561d21E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr114drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..identity..Identity$GT$$GT$17h4cde5d6684561d21E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
@@ -28294,37 +28294,35 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$
   resume { ptr, i32 } %4
 
 6:                                                ; preds = %0
-  %7 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %9 = load i64, ptr %8, align 8, !range !3570, !invariant.load !5
-  %10 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %11 = load i64, ptr %10, align 8, !range !3571, !invariant.load !5
-  %12 = icmp ult i64 %11, -9223372036854775807
-  tail call void @llvm.assume(i1 %12)
-  %13 = icmp eq i64 %9, 0
-  br i1 %13, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7aad922b0a5543c0E.exit", label %14
+  %7 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %8 = load i64, ptr %7, align 8, !range !3570, !invariant.load !5
+  %9 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  %10 = load i64, ptr %9, align 8, !range !3571, !invariant.load !5
+  %11 = icmp ult i64 %10, -9223372036854775807
+  tail call void @llvm.assume(i1 %11)
+  %12 = icmp eq i64 %8, 0
+  br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7aad922b0a5543c0E.exit", label %13
 
-14:                                               ; preds = %6
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %9, i64 noundef range(i64 1, -9223372036854775807) %11) #19
+13:                                               ; preds = %6
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %8, i64 noundef range(i64 1, -9223372036854775807) %10) #19
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7aad922b0a5543c0E.exit"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7aad922b0a5543c0E.exit": ; preds = %6, %14
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7aad922b0a5543c0E.exit": ; preds = %6, %13
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr118drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$$RF$dyn$u20$aws_smithy_runtime_api..client..auth..Sign$GT$$GT$17h607db27b4590238dE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr118drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$$RF$dyn$u20$aws_smithy_runtime_api..client..auth..Sign$GT$$GT$17h607db27b4590238dE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr118drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h5aff80472746748dE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr118drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h5aff80472746748dE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr119drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime..client..timeout..MaybeTimeoutConfig$GT$$GT$17h106051ae2cb2d1abE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr119drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime..client..timeout..MaybeTimeoutConfig$GT$$GT$17h106051ae2cb2d1abE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
@@ -28431,12 +28429,12 @@ common.ret:                                       ; preds = %32, %"_ZN4core3ptr7
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr125drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h3e79f3af7a599182E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr125drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h3e79f3af7a599182E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr126drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..auth..AuthSchemeEndpointConfig$GT$$GT$17h1bafa4e0e6b1d50dE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr126drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..auth..AuthSchemeEndpointConfig$GT$$GT$17h1bafa4e0e6b1d50dE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
@@ -28664,7 +28662,7 @@ common.ret:                                       ; preds = %31, %"_ZN4core3ptr6
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr128drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$17hb0ffa01dc15cfe98E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr128drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$17hb0ffa01dc15cfe98E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
@@ -28817,27 +28815,27 @@ common.ret:                                       ; preds = %4, %6, %"_ZN4core3p
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr132drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$$RF$aws_smithy_runtime_api..client..endpoint..EndpointResolverParams$GT$$GT$17h890b8679055a0908E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr132drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$$RF$aws_smithy_runtime_api..client..endpoint..EndpointResolverParams$GT$$GT$17h890b8679055a0908E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr133drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$$GT$17h41320b574e1a7034E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr133drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$$GT$17h41320b574e1a7034E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr136drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$$RF$aws_smithy_runtime_api..client..auth..AuthSchemeOptionResolverParams$GT$$GT$17h690cc32d2bff6ee8E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr136drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$$RF$aws_smithy_runtime_api..client..auth..AuthSchemeOptionResolverParams$GT$$GT$17h690cc32d2bff6ee8E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr150drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$$GT$17h2cbcbf49fe44406eE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr150drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$$GT$17h2cbcbf49fe44406eE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr152drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$core..option..Option$LT$$RF$aws_smithy_runtime_api..client..endpoint..EndpointPrefix$GT$$GT$$GT$17hc07ae8d0f3d9b586E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr152drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$core..option..Option$LT$$RF$aws_smithy_runtime_api..client..endpoint..EndpointPrefix$GT$$GT$$GT$17hc07ae8d0f3d9b586E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
@@ -29076,7 +29074,7 @@ common.resume:                                    ; preds = %.body.i, %.body.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr195drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$$GT$17h557ef407e1450d07E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr195drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$$GT$17h557ef407e1450d07E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
@@ -29208,7 +29206,7 @@ define hidden void @"_ZN4core3ptr257drop_in_place$LT$core..task..poll..Poll$LT$c
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr287drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$core..result..Result$LT$aws_smithy_runtime_api..client..interceptors..context..Output$C$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$$GT$$GT$17h906b61b89a6954a7E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr287drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$core..result..Result$LT$aws_smithy_runtime_api..client..interceptors..context..Output$C$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$$GT$$GT$17h906b61b89a6954a7E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
@@ -29319,7 +29317,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   store ptr %3, ptr %20, align 8, !alias.scope !3730, !noalias !3733
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %21, align 8, !alias.scope !3730, !noalias !3733
-  invoke fastcc void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 @anon.f9b583159730a5a8946e561fc02c84c0.174, i64 noundef 13, ptr noalias nocapture noundef align 8 dereferenceable(48) %4)
+  invoke fastcc void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 @anon.f9b583159730a5a8946e561fc02c84c0.174, i64 noundef 13, ptr noalias noundef align 8 captures(none) dereferenceable(48) %4)
           to label %.noexc5 unwind label %22
 
 .noexc5:                                          ; preds = %.noexc4
@@ -29375,7 +29373,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17h2bd9d41fe9901ec9E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17h2bd9d41fe9901ec9E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
@@ -29430,7 +29428,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..Ente
   store ptr %3, ptr %19, align 8, !alias.scope !3758, !noalias !3761
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %20, align 8, !alias.scope !3758, !noalias !3761
-  invoke fastcc void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 @anon.f9b583159730a5a8946e561fc02c84c0.182, i64 noundef 21, ptr noalias nocapture noundef align 8 dereferenceable(48) %4)
+  invoke fastcc void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 @anon.f9b583159730a5a8946e561fc02c84c0.182, i64 noundef 21, ptr noalias noundef align 8 captures(none) dereferenceable(48) %4)
           to label %.noexc5 unwind label %21
 
 .noexc5:                                          ; preds = %.noexc4
@@ -29509,7 +29507,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$aws_smithy_runtime.
 
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3783
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h163a741ddb426c0dE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h163a741ddb426c0dE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8, !range !559, !noalias !3783, !noundef !5
   %.not.i.i.i.i.i = icmp eq i64 %11, 0
@@ -29687,12 +29685,12 @@ common.ret:                                       ; preds = %1, %24
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$$LP$log..kv..key..Key$C$log..kv..value..Value$RP$$GT$$GT$17h9b064a0938342674E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$$LP$log..kv..key..Key$C$log..kv..value..Value$RP$$GT$$GT$17h9b064a0938342674E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17hbd4e7d7d061579e8E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1, ptr %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17hbd4e7d7d061579e8E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(112) %0, ptr noundef %1, ptr %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %20
@@ -29762,7 +29760,7 @@ define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17hbd4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17hfdc857753f6b3d1bE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1, ptr %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$10ok_or_else17hfdc857753f6b3d1bE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(112) %0, ptr noundef %1, ptr %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %20
@@ -29903,7 +29901,7 @@ define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 13, 22) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #1 {
+define internal fastcc void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 13, 22) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3) unnamed_addr #1 {
   %5 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, { ptr, ptr } }, align 8
   %6 = alloca i64, align 8
   %7 = alloca [2 x { ptr, ptr }], align 8
@@ -30115,10 +30113,10 @@ define internal fastcc void @_ZN7tracing4span4Span3log17hec43ba3be1da64bbE(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h563321dffbe35e75E"(ptr noalias nocapture noundef sret([8 x { { ptr, i64 }, i8, [7 x i8] }]) align 8 dereferenceable(192)) unnamed_addr #0
+declare hidden void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h563321dffbe35e75E"(ptr noalias noundef sret([8 x { { ptr, i64 }, i8, [7 x i8] }]) align 8 captures(none) dereferenceable(192)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN83_$LT$aws_smithy_async..rt..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17h44467e2d684591b5E"(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
@@ -30154,7 +30152,7 @@ declare hidden void @_ZN4core5error5Error7provide17h4eeabece2bb54e1aE(ptr noalia
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN16aws_smithy_types11byte_stream5Inner7collect17h1a744ac53e87c976E(ptr noalias nocapture noundef sret({ { { { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } } }, [256 x i8], i8, [7 x i8] }) align 8 dereferenceable(352), ptr noalias nocapture noundef align 8 dereferenceable(88)) unnamed_addr #0
+declare void @_ZN16aws_smithy_types11byte_stream5Inner7collect17h1a744ac53e87c976E(ptr noalias noundef sret({ { { { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } } }, [256 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(352), ptr noalias noundef align 8 captures(none) dereferenceable(88)) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #7
@@ -30163,7 +30161,7 @@ declare void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef n
 declare void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN16aws_smithy_types4body7SdkBody4next17h564b4f09cf5d0c25E(ptr noalias nocapture noundef sret({ ptr, [16 x i8], i8, [7 x i8] }) align 8 dereferenceable(32), ptr noalias noundef align 8 dereferenceable(88)) unnamed_addr #0
+declare void @_ZN16aws_smithy_types4body7SdkBody4next17h564b4f09cf5d0c25E(ptr noalias noundef sret({ ptr, [16 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef align 8 dereferenceable(88)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef readonly align 8 dereferenceable(120), i8 noundef) unnamed_addr #0
@@ -30172,13 +30170,13 @@ declare noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a51
 declare noundef align 8 dereferenceable(40) ptr @_ZN7tracing4span4Span10record_all17h98718504e78d109aE(ptr noalias noundef readonly align 8 dereferenceable(40), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias nocapture noundef sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40), ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+declare void @_ZN7tracing4span4Span3new17hedd32398282d0e4eE(ptr noalias noundef sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40), ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, ptr } @_ZN22aws_smithy_runtime_api6client18runtime_components17RuntimeComponents12interceptors17hf7b6fa5941bf70baE(ptr noalias noundef readonly align 8 dereferenceable(368)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion17he57d464516f15a8eE"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion17he57d464516f15a8eE"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef readonly align 8 dereferenceable(120)) unnamed_addr #0
@@ -30193,40 +30191,40 @@ declare void @"_ZN67_$LT$core..fmt..Arguments$u20$as$u20$tracing_core..field..Va
 declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$u20$tracing_core..field..Value$GT$6record17h5efabca22c860d03E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef readonly align 8 dereferenceable(120), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+declare void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef readonly align 8 dereferenceable(120), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef align 8 dereferenceable(1064), ptr noalias nocapture noundef align 8 dereferenceable(112)) unnamed_addr #0
+declare hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$4fail17haa3f172c9baf9ad8E"(ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef align 8 captures(none) dereferenceable(112)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution17h3343866d914d601eE"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution17h3343866d914d601eE"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN12tracing_core5event5Event8dispatch17h2c7677b016771da4E(ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt17h522d4d5feab8ccc7E"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt17h522d4d5feab8ccc7E"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint17ha6486d101d6be0b1E(ptr noalias nocapture noundef sret({ ptr, ptr, ptr, [176 x i8], i8, [7 x i8] }) align 8 dereferenceable(208), ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare void @_ZN18aws_smithy_runtime6client12orchestrator9endpoints20orchestrate_endpoint17ha6486d101d6be0b1E(ptr noalias noundef sret({ ptr, ptr, ptr, [176 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(208), ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing17h662b03fe74fa8f10E"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing17h662b03fe74fa8f10E"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing17ha4df58b52c675ea1E"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing17ha4df58b52c675ea1E"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth17h70940c0ca76d2948E(ptr noalias nocapture noundef sret({ [62 x i64], ptr, ptr, ptr, [4 x i8], i8, [3 x i8] }) align 8 dereferenceable(528), ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef readonly align 8 dereferenceable(80)) unnamed_addr #0
+declare void @_ZN18aws_smithy_runtime6client12orchestrator4auth16orchestrate_auth17h70940c0ca76d2948E(ptr noalias noundef sret({ [62 x i64], ptr, ptr, ptr, [4 x i8], i8, [3 x i8] }) align 8 captures(none) dereferenceable(528), ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef readonly align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing17h19baae3ebeb26cd2E"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing17h19baae3ebeb26cd2E"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit17haa2577d178f5ec5dE"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit17haa2577d178f5ec5dE"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit17h0dbdd219f0c3bef7E"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit17h0dbdd219f0c3bef7E"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$20enter_transmit_phase17h23696ead6dd541a1E"(ptr noalias noundef align 8 dereferenceable(1064)) unnamed_addr #0
@@ -30238,7 +30236,7 @@ declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$
 declare { ptr, ptr } @_ZN22aws_smithy_runtime_api6client18runtime_components17RuntimeComponents11http_client17h64d58e069cf81542E(ptr noalias noundef readonly align 8 dereferenceable(368)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN22aws_smithy_runtime_api6client4http21HttpConnectorSettings7builder17ha2e54495e2661995E(ptr noalias nocapture noundef sret({ { i64, i32 }, { i64, i32 } }) align 8 dereferenceable(32)) unnamed_addr #0
+declare void @_ZN22aws_smithy_runtime_api6client4http21HttpConnectorSettings7builder17ha2e54495e2661995E(ptr noalias noundef sret({ { i64, i32 }, { i64, i32 } }) align 8 captures(none) dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare { i64, i32 } @_ZN16aws_smithy_types7timeout13TimeoutConfig15connect_timeout17h7c3f46ed0dda4077E(ptr noalias noundef readonly align 8 dereferenceable(64)) unnamed_addr #0
@@ -30253,19 +30251,19 @@ declare { i64, i32 } @_ZN16aws_smithy_types7timeout13TimeoutConfig12read_timeout
 declare noundef align 8 dereferenceable(32) ptr @_ZN22aws_smithy_runtime_api6client4http28HttpConnectorSettingsBuilder16set_read_timeout17h4ddfec26729087c5E(ptr noalias noundef align 8 dereferenceable(32), i64, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN22aws_smithy_runtime_api6client4http28HttpConnectorSettingsBuilder5build17h66bf048ad47ada05E(ptr noalias nocapture noundef sret({ { i64, i32 }, { i64, i32 } }) align 8 dereferenceable(32), ptr noalias nocapture noundef align 8 dereferenceable(32)) unnamed_addr #0
+declare void @_ZN22aws_smithy_runtime_api6client4http28HttpConnectorSettingsBuilder5build17h66bf048ad47ada05E(ptr noalias noundef sret({ { i64, i32 }, { i64, i32 } }) align 8 captures(none) dereferenceable(32), ptr noalias noundef align 8 captures(none) dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, ptr } @"_ZN123_$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$u20$as$u20$aws_smithy_runtime_api..client..http..HttpClient$GT$14http_connector17h4534dd87f93992b5E"(ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef readonly align 8 dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(368)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN129_$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$u20$as$u20$aws_smithy_runtime_api..client..http..HttpConnector$GT$4call17h9176ea4b0e0847cfE"(ptr noalias nocapture noundef sret({ { { i64, [25 x i64] } } }) align 8 dereferenceable(208), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(344)) unnamed_addr #0
+declare void @"_ZN129_$LT$aws_smithy_runtime_api..client..http..SharedHttpConnector$u20$as$u20$aws_smithy_runtime_api..client..http..HttpConnector$GT$4call17h9176ea4b0e0847cfE"(ptr noalias noundef sret({ { { i64, [25 x i64] } } }) align 8 captures(none) dereferenceable(208), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(344)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN18aws_smithy_runtime6client4http4body18minimum_throughput32MaybeUploadThroughputCheckFuture3new17hd74b0df2593a6265E(ptr noalias nocapture noundef sret({ i64, [46 x i64] }) align 8 dereferenceable(376), ptr noalias noundef align 8 dereferenceable(80), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias nocapture noundef align 8 dereferenceable(208)) unnamed_addr #0
+declare void @_ZN18aws_smithy_runtime6client4http4body18minimum_throughput32MaybeUploadThroughputCheckFuture3new17hd74b0df2593a6265E(ptr noalias noundef sret({ i64, [46 x i64] }) align 8 captures(none) dereferenceable(376), ptr noalias noundef align 8 dereferenceable(80), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 captures(none) dereferenceable(208)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN141_$LT$aws_smithy_runtime..client..http..body..minimum_throughput..MaybeUploadThroughputCheckFuture$u20$as$u20$core..future..future..Future$GT$4poll17hd81db8cbb227730cE"(ptr noalias nocapture noundef sret({ i64, [25 x i64] }) align 8 dereferenceable(208), ptr noalias noundef align 8 dereferenceable(376), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
+declare void @"_ZN141_$LT$aws_smithy_runtime..client..http..body..minimum_throughput..MaybeUploadThroughputCheckFuture$u20$as$u20$core..future..future..Future$GT$4poll17hd81db8cbb227730cE"(ptr noalias noundef sret({ i64, [25 x i64] }) align 8 captures(none) dereferenceable(208), ptr noalias noundef align 8 dereferenceable(376), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$u20$tracing_core..field..Value$GT$6record17hb3c333e2910f54e4E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
@@ -30274,13 +30272,13 @@ declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$
 declare hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$34enter_before_deserialization_phase17h8b1bc4657dd8f0cfE"(ptr noalias noundef align 8 dereferenceable(1064)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit17h81090678d0a87c10E"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit17h81090678d0a87c10E"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization17hc5232c5030f2b17bE"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization17hc5232c5030f2b17bE"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization17h8d1929399eab2bb4E"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization17h8d1929399eab2bb4E"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$27enter_deserialization_phase17h6d1ed0de83fbda50E"(ptr noalias noundef align 8 dereferenceable(1064)) unnamed_addr #0
@@ -30292,25 +30290,25 @@ declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$
 declare hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$33enter_after_deserialization_phase17ha339aeef6cbfc008E"(ptr noalias noundef align 8 dereferenceable(1064)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization17h2c205531c56d5fd3E"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization17h2c205531c56d5fd3E"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion17hee9a846955c12db6E"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion17hee9a846955c12db6E"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt17h898a2b8ded935826E"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt17h898a2b8ded935826E"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN18aws_smithy_runtime6client12orchestrator6try_op17hf17902088c5f808fE(ptr noalias nocapture noundef sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, i8, [1196 x i8] }) align 8 dereferenceable(1264), ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef align 8 dereferenceable(80), ptr noalias noundef readonly align 8 dereferenceable(368), i1 noundef zeroext) unnamed_addr #0
+declare void @_ZN18aws_smithy_runtime6client12orchestrator6try_op17hf17902088c5f808fE(ptr noalias noundef sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, i8, [1196 x i8] }) align 8 captures(none) dereferenceable(1264), ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef align 8 dereferenceable(80), ptr noalias noundef readonly align 8 dereferenceable(368), i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN18aws_smithy_runtime6client12orchestrator10finally_op17hf4924d78919a6e8eE(ptr noalias nocapture noundef sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, [77 x i8] }) align 8 dereferenceable(144), ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef align 8 dereferenceable(80), ptr noalias noundef readonly align 8 dereferenceable(368)) unnamed_addr #0
+declare void @_ZN18aws_smithy_runtime6client12orchestrator10finally_op17hf4924d78919a6e8eE(ptr noalias noundef sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, [77 x i8] }) align 8 captures(none) dereferenceable(144), ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef align 8 dereferenceable(80), ptr noalias noundef readonly align 8 dereferenceable(368)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, ptr } @_ZN22aws_smithy_runtime_api6client18runtime_components17RuntimeComponents27auth_scheme_option_resolver17h4e40e7ffe065f9f5E(ptr noalias noundef readonly align 8 dereferenceable(368)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN151_$LT$aws_smithy_runtime_api..client..auth..SharedAuthSchemeOptionResolver$u20$as$u20$aws_smithy_runtime_api..client..auth..ResolveAuthSchemeOptions$GT$27resolve_auth_scheme_options17h1506599a5174bdb5E"(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef readonly align 8 dereferenceable(48)) unnamed_addr #0
+declare void @"_ZN151_$LT$aws_smithy_runtime_api..client..auth..SharedAuthSchemeOptionResolver$u20$as$u20$aws_smithy_runtime_api..client..auth..ResolveAuthSchemeOptions$GT$27resolve_auth_scheme_options17h1506599a5174bdb5E"(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef readonly align 8 dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$u20$tracing_core..field..Value$GT$6record17h0cd9d8f1695d5914E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
@@ -30325,10 +30323,10 @@ declare { ptr, ptr } @_ZN22aws_smithy_runtime_api6client18runtime_components17Ru
 declare hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..RuntimeComponents$GT$17hb547ab2c73031400E"(ptr noalias noundef align 8 dereferenceable(368)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN161_$LT$aws_smithy_runtime_api..client..runtime_components..RuntimeComponents$u20$as$u20$aws_smithy_runtime_api..client..runtime_components..GetIdentityResolver$GT$17identity_resolver17h32c77169fedde028E"(ptr noalias nocapture noundef sret({ ptr, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare void @"_ZN161_$LT$aws_smithy_runtime_api..client..runtime_components..RuntimeComponents$u20$as$u20$aws_smithy_runtime_api..client..runtime_components..GetIdentityResolver$GT$17identity_resolver17h32c77169fedde028E"(ptr noalias noundef sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN123_$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$u20$as$u20$aws_smithy_runtime_api..client..auth..AuthScheme$GT$17identity_resolver17h04b05648847ad754E"(ptr noalias nocapture noundef sret({ ptr, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+declare void @"_ZN123_$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$u20$as$u20$aws_smithy_runtime_api..client..auth..AuthScheme$GT$17identity_resolver17h04b05648847ad754E"(ptr noalias noundef sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN142_$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$u20$as$u20$aws_smithy_runtime_api..client..identity..ResolveIdentity$GT$14cache_location17hd711a8b44dcff41cE"(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
@@ -30355,49 +30353,49 @@ declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$
 declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$u20$tracing_core..field..Value$GT$6record17hb53ba9dfbc1302c7E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN18aws_smithy_runtime6client12orchestrator4auth35extract_endpoint_auth_scheme_config17h3b21bf61b4142abcE(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare void @_ZN18aws_smithy_runtime6client12orchestrator4auth35extract_endpoint_auth_scheme_config17h3b21bf61b4142abcE(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$u20$tracing_core..field..Value$GT$6record17h3445952444e3b698E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN145_$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$u20$as$u20$aws_smithy_runtime_api..client..identity..ResolveCachedIdentity$GT$23resolve_cached_identity17h6a857205df6bccbfE"(ptr noalias nocapture noundef sret({ { { [10 x i32], i32, [1 x i32] } } }) align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef readonly align 8 dereferenceable(80)) unnamed_addr #0
+declare void @"_ZN145_$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$u20$as$u20$aws_smithy_runtime_api..client..identity..ResolveCachedIdentity$GT$23resolve_cached_identity17h6a857205df6bccbfE"(ptr noalias noundef sret({ { { [10 x i32], i32, [1 x i32] } } }) align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef readonly align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN18aws_smithy_runtime6client12orchestrator4auth12ExploredList4push17h2703713f378f61faE(ptr noalias noundef align 8 dereferenceable(208), ptr noalias noundef nonnull readonly align 1, i64 noundef, i8 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN105_$LT$aws_smithy_runtime_api..client..identity..IdentityFuture$u20$as$u20$core..future..future..Future$GT$4poll17hcc67e30e7c45e1a5E"(ptr noalias nocapture noundef sret({ [10 x i32], i32, [1 x i32] }) align 8 dereferenceable(48), ptr noalias noundef align 8 dereferenceable(48), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
+declare void @"_ZN105_$LT$aws_smithy_runtime_api..client..identity..IdentityFuture$u20$as$u20$core..future..future..Future$GT$4poll17hcc67e30e7c45e1a5E"(ptr noalias noundef sret({ [10 x i32], i32, [1 x i32] }) align 8 captures(none) dereferenceable(48), ptr noalias noundef align 8 dereferenceable(48), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$u20$tracing_core..field..Value$GT$6record17h20446ae1d221e5b5E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization17h682c3e048434a175E"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization17h682c3e048434a175E"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization17h692c4bd6a9bbede4E"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization17h692c4bd6a9bbede4E"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$25enter_serialization_phase17h37a93c303a81fa46E"(ptr noalias noundef align 8 dereferenceable(1064)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN140_$LT$aws_smithy_runtime_api..client..ser_de..SharedRequestSerializer$u20$as$u20$aws_smithy_runtime_api..client..ser_de..SerializeRequest$GT$15serialize_input17he2c7214337a47013E"(ptr noalias nocapture noundef sret({ i64, [42 x i64] }) align 8 dereferenceable(344), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare void @"_ZN140_$LT$aws_smithy_runtime_api..client..ser_de..SharedRequestSerializer$u20$as$u20$aws_smithy_runtime_api..client..ser_de..SerializeRequest$GT$15serialize_input17he2c7214337a47013E"(ptr noalias noundef sret({ i64, [42 x i64] }) align 8 captures(none) dereferenceable(344), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN16aws_smithy_types4body7SdkBody5taken17h02b32830b4e11482E(ptr noalias nocapture noundef sret({ { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } }) align 8 dereferenceable(88)) unnamed_addr #0
+declare void @_ZN16aws_smithy_types4body7SdkBody5taken17h02b32830b4e11482E(ptr noalias noundef sret({ { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } }) align 8 captures(none) dereferenceable(88)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN16aws_smithy_types11byte_stream10ByteStream3new17hb92b2d1fe3f60728E(ptr noalias nocapture noundef sret({ { { { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } } } }) align 8 dereferenceable(88), ptr noalias nocapture noundef align 8 dereferenceable(88)) unnamed_addr #0
+declare void @_ZN16aws_smithy_types11byte_stream10ByteStream3new17hb92b2d1fe3f60728E(ptr noalias noundef sret({ { { { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } } } }) align 8 captures(none) dereferenceable(88), ptr noalias noundef align 8 captures(none) dereferenceable(88)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN16aws_smithy_types11byte_stream10ByteStream7collect17h9084f2cb7fa1fd4bE(ptr noalias nocapture noundef sret({ { { { { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } } } }, [352 x i8], i8, [7 x i8] }) align 8 dereferenceable(448), ptr noalias nocapture noundef align 8 dereferenceable(88)) unnamed_addr #0
+declare void @_ZN16aws_smithy_types11byte_stream10ByteStream7collect17h9084f2cb7fa1fd4bE(ptr noalias noundef sret({ { { { { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } } } }, [352 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(448), ptr noalias noundef align 8 captures(none) dereferenceable(88)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN16aws_smithy_types11byte_stream15AggregatedBytes10into_bytes17hb2633e677bc71c6dE(ptr noalias nocapture noundef sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32), ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #0
+declare void @_ZN16aws_smithy_types11byte_stream15AggregatedBytes10into_bytes17hb2633e677bc71c6dE(ptr noalias noundef sret({ ptr, ptr, i64, { ptr } }) align 8 captures(none) dereferenceable(32), ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN98_$LT$aws_smithy_types..body..SdkBody$u20$as$u20$core..convert..From$LT$bytes..bytes..Bytes$GT$$GT$4from17h235b8cca7e060020E"(ptr noalias nocapture noundef sret({ { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } }) align 8 dereferenceable(88), ptr noalias nocapture noundef align 8 dereferenceable(32)) unnamed_addr #0
+declare void @"_ZN98_$LT$aws_smithy_types..body..SdkBody$u20$as$u20$core..convert..From$LT$bytes..bytes..Bytes$GT$$GT$4from17h235b8cca7e060020E"(ptr noalias noundef sret({ { i64, [4 x i64] }, { ptr, ptr }, { ptr, [3 x i64] } }) align 8 captures(none) dereferenceable(88), ptr noalias noundef align 8 captures(none) dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef align 8 dereferenceable(56) ptr @_ZN16aws_smithy_types10config_bag9ConfigBag17interceptor_state17hd86b822a1751e20bE(ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
@@ -30406,16 +30404,16 @@ declare noundef align 8 dereferenceable(56) ptr @_ZN16aws_smithy_types10config_b
 declare hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$27enter_before_transmit_phase17h7c7449763fa763fcE"(ptr noalias noundef align 8 dereferenceable(1064)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization17ha97d949c3dd9551bE"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization17ha97d949c3dd9551bE"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop17h3ad6070746e8643cE"(ptr noalias nocapture noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop17h3ad6070746e8643cE"(ptr noalias noundef sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48), ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, ptr } @_ZN22aws_smithy_runtime_api6client18runtime_components17RuntimeComponents14retry_strategy17h9ce17afe1e0b81e0E(ptr noalias noundef readonly align 8 dereferenceable(368)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN135_$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$u20$as$u20$aws_smithy_runtime_api..client..retries..RetryStrategy$GT$30should_attempt_initial_request17ha614b69a27fda349E"(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef readonly align 8 dereferenceable(80)) unnamed_addr #0
+declare void @"_ZN135_$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$u20$as$u20$aws_smithy_runtime_api..client..retries..RetryStrategy$GT$30should_attempt_initial_request17ha614b69a27fda349E"(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef readonly align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, ptr } @_ZN22aws_smithy_runtime_api6client18runtime_components17RuntimeComponents10sleep_impl17h810e713c92e69030E(ptr noalias noundef readonly align 8 dereferenceable(368)) unnamed_addr #0
@@ -30427,34 +30425,34 @@ declare { ptr, ptr } @"_ZN105_$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$
 declare hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$15save_checkpoint17h91ccde1ab426c6b1E"(ptr noalias noundef align 8 dereferenceable(1064)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN123_$LT$aws_smithy_runtime..client..timeout..MaybeTimeoutFuture$LT$InnerFuture$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h4d2279b7ed3f2a73E"(ptr noalias nocapture noundef sret({ i64, [31 x i64] }) align 8 dereferenceable(256), ptr noundef nonnull align 8, ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
+declare hidden void @"_ZN123_$LT$aws_smithy_runtime..client..timeout..MaybeTimeoutFuture$LT$InnerFuture$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h4d2279b7ed3f2a73E"(ptr noalias noundef sret({ i64, [31 x i64] }) align 8 captures(none) dereferenceable(256), ptr noundef nonnull align 8, ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$u20$tracing_core..field..Value$GT$6record17hfb7a9a4832e46339E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN135_$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$u20$as$u20$aws_smithy_runtime_api..client..retries..RetryStrategy$GT$20should_attempt_retry17hb20bf6b9a54aa5b6E"(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef readonly align 8 dereferenceable(80)) unnamed_addr #0
+declare void @"_ZN135_$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$u20$as$u20$aws_smithy_runtime_api..client..retries..RetryStrategy$GT$20should_attempt_retry17hb20bf6b9a54aa5b6E"(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noundef nonnull align 8, ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef readonly align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef i8 @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$6rewind17ha8fc1a30491566beE"(ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN18aws_smithy_runtime6client7timeout18MaybeTimeoutConfig3new17h54f32b06e5d9899fE(ptr noalias nocapture noundef sret({ { i64, i32 }, { ptr, ptr }, i8, [7 x i8] }) align 8 dereferenceable(40), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef readonly align 8 dereferenceable(80), i1 noundef zeroext) unnamed_addr #0
+declare void @_ZN18aws_smithy_runtime6client7timeout18MaybeTimeoutConfig3new17h54f32b06e5d9899fE(ptr noalias noundef sret({ { i64, i32 }, { ptr, ptr }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40), ptr noalias noundef readonly align 8 dereferenceable(368), ptr noalias noundef readonly align 8 dereferenceable(80), i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$u20$tracing_core..field..Value$GT$6record17hcceaa914cac27863E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout..MaybeTimeout$LT$T$GT$$GT$13maybe_timeout17ha76b693411c6a190E"(ptr noalias nocapture noundef sret({ [2 x i32], i32, [251 x i32] }) align 8 dereferenceable(1016), ptr noalias nocapture noundef align 8 dereferenceable(976), ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #0
+declare hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout..MaybeTimeout$LT$T$GT$$GT$13maybe_timeout17ha76b693411c6a190E"(ptr noalias noundef sret({ [2 x i32], i32, [251 x i32] }) align 8 captures(none) dereferenceable(1016), ptr noalias noundef align 8 captures(none) dereferenceable(976), ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN22aws_smithy_runtime_api6client6result21SdkError$LT$E$C$R$GT$11into_source17hcc85875fcac847f9E"(ptr noalias nocapture noundef sret({ i64, [31 x i64] }) align 8 dereferenceable(256), ptr noalias nocapture noundef align 8 dereferenceable(256)) unnamed_addr #0
+declare hidden void @"_ZN22aws_smithy_runtime_api6client6result21SdkError$LT$E$C$R$GT$11into_source17hcc85875fcac847f9E"(ptr noalias noundef sret({ i64, [31 x i64] }) align 8 captures(none) dereferenceable(256), ptr noalias noundef align 8 captures(none) dereferenceable(256)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN18aws_smithy_runtime6client12orchestrator11try_attempt17h056eebbafb8236a0E(ptr noalias nocapture noundef sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, i8, [860 x i8] }) align 8 dereferenceable(928), ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef align 8 dereferenceable(80), ptr noalias noundef readonly align 8 dereferenceable(368), i1 noundef zeroext) unnamed_addr #0
+declare void @_ZN18aws_smithy_runtime6client12orchestrator11try_attempt17h056eebbafb8236a0E(ptr noalias noundef sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, i8, [860 x i8] }) align 8 captures(none) dereferenceable(928), ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef align 8 dereferenceable(80), ptr noalias noundef readonly align 8 dereferenceable(368), i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN18aws_smithy_runtime6client12orchestrator15finally_attempt17h9a9d23171ba0a8d9E(ptr noalias nocapture noundef sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, [77 x i8] }) align 8 dereferenceable(144), ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef align 8 dereferenceable(80), ptr noalias noundef readonly align 8 dereferenceable(368)) unnamed_addr #0
+declare void @_ZN18aws_smithy_runtime6client12orchestrator15finally_attempt17h9a9d23171ba0a8d9E(ptr noalias noundef sret({ [5 x i64], ptr, ptr, ptr, [2 x i8], i8, [77 x i8] }) align 8 captures(none) dereferenceable(144), ptr noalias noundef align 8 dereferenceable(1064), ptr noalias noundef align 8 dereferenceable(80), ptr noalias noundef readonly align 8 dereferenceable(368)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$u20$tracing_core..field..Value$GT$6record17h92b8dc049c19dbd8E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
@@ -30466,10 +30464,10 @@ declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$
 declare { ptr, ptr } @_ZN22aws_smithy_runtime_api6client18runtime_components17RuntimeComponents17endpoint_resolver17he5775a3938ddae18E(ptr noalias noundef readonly align 8 dereferenceable(368)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN142_$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$u20$as$u20$aws_smithy_runtime_api..client..endpoint..ResolveEndpoint$GT$16resolve_endpoint17h80234082b3b95e15E"(ptr noalias nocapture noundef sret({ { { i64, [15 x i64] } } }) align 8 dereferenceable(128), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef readonly align 8 dereferenceable(48)) unnamed_addr #0
+declare void @"_ZN142_$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$u20$as$u20$aws_smithy_runtime_api..client..endpoint..ResolveEndpoint$GT$16resolve_endpoint17h80234082b3b95e15E"(ptr noalias noundef sret({ { { i64, [15 x i64] } } }) align 8 captures(none) dereferenceable(128), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef readonly align 8 dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN105_$LT$aws_smithy_runtime_api..client..endpoint..EndpointFuture$u20$as$u20$core..future..future..Future$GT$4poll17h083059851f789b51E"(ptr noalias nocapture noundef sret({ i64, [15 x i64] }) align 8 dereferenceable(128), ptr noalias noundef align 8 dereferenceable(128), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
+declare void @"_ZN105_$LT$aws_smithy_runtime_api..client..endpoint..EndpointFuture$u20$as$u20$core..future..future..Future$GT$4poll17h083059851f789b51E"(ptr noalias noundef sret({ i64, [15 x i64] }) align 8 captures(none) dereferenceable(128), ptr noalias noundef align 8 dereferenceable(128), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, ptr } @_ZN18aws_smithy_runtime6client12orchestrator9endpoints14apply_endpoint17h9649052e62983c9bE(ptr noalias noundef align 8 dereferenceable(344), ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef readonly align 8 dereferenceable_or_null(24)) unnamed_addr #0
@@ -30526,10 +30524,10 @@ declare void @llvm.trap() #11
 declare noundef align 8 dereferenceable(8) ptr @_ZN12tracing_core8metadata8Metadata5level17h123764718be49a0eE(ptr noalias noundef readonly align 8 dereferenceable(120)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv..source..Source$GT$5visit17hd5dc14e2792484bdE"(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv..source..Source$GT$5visit17hd5dc14e2792484bdE"(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv..source..Source$GT$3get17hed48f2bf11043638E"(ptr noalias nocapture noundef sret({ i8, [23 x i8] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv..source..Source$GT$3get17hed48f2bf11043638E"(ptr noalias noundef sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef i64 @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv..source..Source$GT$5count17h07e60ed8188b54f8E"(ptr noalias noundef readonly align 8 dereferenceable(40)) unnamed_addr #0
@@ -30559,10 +30557,10 @@ declare void @_ZN12tracing_core10dispatcher8Dispatch4exit17h728a8fc0b74f19b9E(pt
 declare void @_ZN12tracing_core10dispatcher8Dispatch5enter17hcece315f84220bfdE(ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h02be8d0b950a0931E.llvm.17228757137531789492"(ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
@@ -30598,10 +30596,10 @@ declare hidden noundef zeroext i1 @"_ZN91_$LT$tracing..instrument..Instrumented$
 declare hidden noundef zeroext i1 @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc2c33453701fa927E"(ptr noundef nonnull align 8, ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hce58aa4c6b7d3bcfE"(ptr noalias nocapture noundef sret({ i16, [55 x i16] }) align 8 dereferenceable(112), ptr noundef nonnull align 8, ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
+declare hidden void @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hce58aa4c6b7d3bcfE"(ptr noalias noundef sret({ i16, [55 x i16] }) align 8 captures(none) dereferenceable(112), ptr noundef nonnull align 8, ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h275227e8a5eba334E"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h275227e8a5eba334E"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h367b708d6aafb14dE"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
@@ -30685,7 +30683,7 @@ declare hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..cli
 declare hidden void @"_ZN4core3ptr68drop_in_place$LT$aws_smithy_types..type_erasure..TypeErasedError$GT$17h77878dede860a50dE.llvm.9405825265181994393"(ptr noalias noundef align 8 dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h163a741ddb426c0dE"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h163a741ddb426c0dE"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h88646246bef7413aE.llvm.9405825265181994393"(ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #0
@@ -30790,16 +30788,16 @@ declare hidden void @"_ZN4core3ptr89drop_in_place$LT$aws_smithy_runtime_api..cli
 declare hidden void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..InterceptorContext$GT$17h8774bb30488fcbd4E"(ptr noalias noundef align 8 dereferenceable(1064)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$8finalize17hab2b34e32ac856a0E"(ptr noalias nocapture noundef sret({ i64, [31 x i64] }) align 8 dereferenceable(256), ptr noalias nocapture noundef align 8 dereferenceable(1064)) unnamed_addr #0
+declare hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35InterceptorContext$LT$I$C$O$C$E$GT$8finalize17hab2b34e32ac856a0E"(ptr noalias noundef sret({ i64, [31 x i64] }) align 8 captures(none) dereferenceable(256), ptr noalias noundef align 8 captures(none) dereferenceable(1064)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hde77bf130b020688E"(ptr noalias nocapture noundef sret({ ptr, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
+declare hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hde77bf130b020688E"(ptr noalias noundef sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9push_back17hf008a32e6c28153cE"(ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 8 dereferenceable(32)) unnamed_addr #0
+declare hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9push_back17hf008a32e6c28153cE"(ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 8 captures(none) dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN16aws_smithy_types4body7SdkBody9poll_next17h7e80a2b3f91529e3E(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40), ptr noalias noundef align 8 dereferenceable(88), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
+declare void @_ZN16aws_smithy_types4body7SdkBody9poll_next17h7e80a2b3f91529e3E(ptr noalias noundef sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40), ptr noalias noundef align 8 dereferenceable(88), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$aws_smithy_types..config_bag..ItemIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0ed7b115a2999cb1E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
@@ -30820,19 +30818,19 @@ declare hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN106_$LT$aws_
 declare hidden noundef align 8 dereferenceable_or_null(120) ptr @"_ZN106_$LT$aws_smithy_types..config_bag..ItemIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd769e8f0f94a9e4E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h07ba54c115036648E(ptr noalias nocapture noundef sret({ { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }) align 8 dereferenceable(48), ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #0
+declare hidden void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h07ba54c115036648E(ptr noalias noundef sret({ { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }) align 8 captures(none) dereferenceable(48), ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7b91893eaf70fb3aE.llvm.11161914831801431366"(ptr noalias nocapture noundef sret({ ptr, [5 x i64] }) align 8 dereferenceable(48), ptr noalias noundef align 8 dereferenceable(32), i128 noundef, ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7b91893eaf70fb3aE.llvm.11161914831801431366"(ptr noalias noundef sret({ ptr, [5 x i64] }) align 8 captures(none) dereferenceable(48), ptr noalias noundef align 8 dereferenceable(32), i128 noundef, ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h69580f34fecf560aE(ptr noalias nocapture noundef sret({ { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }) align 8 dereferenceable(48), ptr noalias nocapture noundef align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h69580f34fecf560aE(ptr noalias noundef sret({ { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }) align 8 captures(none) dereferenceable(48), ptr noalias noundef align 8 captures(none) dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h24a3f748a48fc392E(ptr noalias nocapture noundef sret({ { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }) align 8 dereferenceable(48), ptr noalias nocapture noundef align 8 dereferenceable(120)) unnamed_addr #0
+declare hidden void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h24a3f748a48fc392E(ptr noalias noundef sret({ { ptr, ptr }, { ptr, ptr }, { ptr, ptr } }) align 8 captures(none) dereferenceable(48), ptr noalias noundef align 8 captures(none) dereferenceable(120)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias nocapture noundef sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(80)) unnamed_addr #0
+declare void @_ZN16aws_smithy_types10config_bag9ConfigBag6layers17hdee84c8926695062E(ptr noalias noundef sret({ { ptr, ptr }, ptr }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN16aws_smithy_types10config_bag9ConfigBag4load17h55b2d1eb68bb53e8E(ptr noalias noundef readonly align 8 dereferenceable(80)) unnamed_addr #0
@@ -30844,7 +30842,7 @@ declare hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898ea
 declare hidden void @"_ZN4core3ptr91drop_in_place$LT$aws_smithy_runtime..client..orchestrator..auth..AuthOrchestrationError$GT$17hfd339f0149741fedE.llvm.17484987761838435091"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN138_$LT$aws_smithy_types..byte_stream..error..Error$u20$as$u20$core..convert..From$LT$aws_smithy_types..byte_stream..error..ErrorKind$GT$$GT$4from17h3f7b2a319ec76fbcE"(ptr noalias nocapture noundef sret({ { ptr, [1 x i64] } }) align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(16)) unnamed_addr #0
+declare void @"_ZN138_$LT$aws_smithy_types..byte_stream..error..Error$u20$as$u20$core..convert..From$LT$aws_smithy_types..byte_stream..error..ErrorKind$GT$$GT$4from17h3f7b2a319ec76fbcE"(ptr noalias noundef sret({ { ptr, [1 x i64] } }) align 8 captures(none) dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13
@@ -30856,7 +30854,7 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

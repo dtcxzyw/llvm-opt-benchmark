@@ -50,7 +50,7 @@ define hidden void @VP8LDspInitSSE2() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Predictor5_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @Predictor5_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -78,7 +78,7 @@ define internal i32 @Predictor5_SSE2(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Predictor6_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @Predictor6_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 -4
   %5 = load i32, ptr %4, align 4
@@ -97,7 +97,7 @@ define internal i32 @Predictor6_SSE2(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Predictor7_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @Predictor7_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %3, i64 0
@@ -115,7 +115,7 @@ define internal i32 @Predictor7_SSE2(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Predictor8_SSE2(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @Predictor8_SSE2(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 4
@@ -134,7 +134,7 @@ define internal i32 @Predictor8_SSE2(ptr nocapture readnone %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Predictor9_SSE2(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @Predictor9_SSE2(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -153,7 +153,7 @@ define internal i32 @Predictor9_SSE2(ptr nocapture readnone %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Predictor10_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @Predictor10_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 -4
   %5 = load i32, ptr %4, align 4
@@ -189,7 +189,7 @@ define internal i32 @Predictor10_SSE2(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Predictor11_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @Predictor11_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i32, ptr %1, align 4
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 -4
@@ -228,7 +228,7 @@ define internal i32 @Predictor11_SSE2(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Predictor12_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @Predictor12_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 -4
@@ -254,7 +254,7 @@ define internal i32 @Predictor12_SSE2(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Predictor13_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @Predictor13_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 -4
@@ -286,7 +286,7 @@ define internal i32 @Predictor13_SSE2(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorAdd0_SSE2(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #2 {
+define internal void @PredictorAdd0_SSE2(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #2 {
   %.not34 = icmp slt i32 %2, 4
   br i1 %.not34, label %._crit_edge, label %.lr.ph.preheader
 
@@ -530,7 +530,7 @@ define internal void @PredictorAdd4_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @PredictorAdd5_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) #3 {
+define internal void @PredictorAdd5_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) #3 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -588,7 +588,7 @@ define internal void @PredictorAdd5_SSE2(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @PredictorAdd6_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) #3 {
+define internal void @PredictorAdd6_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) #3 {
   %invariant.gep = getelementptr i8, ptr %1, i64 -4
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -637,7 +637,7 @@ define internal void @PredictorAdd6_SSE2(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @PredictorAdd7_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) #3 {
+define internal void @PredictorAdd7_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) #3 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1181,7 +1181,7 @@ define internal void @PredictorAdd12_SSE2(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @PredictorAdd13_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) #3 {
+define internal void @PredictorAdd13_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) #3 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 

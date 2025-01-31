@@ -61,7 +61,7 @@ $_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi = c
 @_ZN14StackMapReaderC1EP13ClassVerifierP14StackMapStreamPciP10JavaThread = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, i32, ptr), ptr @_ZN14StackMapReaderC2EP13ClassVerifierP14StackMapStreamPciP10JavaThread
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StackMapTableC2EP14StackMapReaderP13StackMapFramettPciP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 align 2 {
+define hidden void @_ZN13StackMapTableC2EP14StackMapReaderP13StackMapFramettPciP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 align 2 {
   %9 = alloca %class.ErrorContext, align 8
   store i32 %6, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -168,7 +168,7 @@ _ZN14StackMapReader9check_endEP10JavaThread.exit: ; preds = %30, %26, %61, %_ZN1
 declare noundef ptr @_Z23resource_allocate_bytesP6ThreadmN17AllocFailStrategy13AllocFailEnumE(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14StackMapReader4nextEP13StackMapFramebttP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, i1 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14StackMapReader4nextEP13StackMapFramebttP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, i1 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1029,7 +1029,7 @@ _ZN14StackMapStream6get_u2EP10JavaThread.exit.thread: ; preds = %.lr.ph345, %.lr
 declare void @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192), ptr noundef byval(%class.ErrorContext) align 8, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK13StackMapTable21get_index_from_offsetEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK13StackMapTable21get_index_from_offsetEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1064,7 +1064,7 @@ define hidden noundef i32 @_ZNK13StackMapTable21get_index_from_offsetEi(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
@@ -1100,7 +1100,7 @@ _ZNK13StackMapTable21get_index_from_offsetEi.exit: ; preds = %18, %7, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMapFrameiibbP12ErrorContextP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMapFrameiibbP12ErrorContextP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
   %9 = icmp sgt i32 %3, -1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
@@ -1245,7 +1245,7 @@ declare void @_ZN13StackMapFrame11copy_localsEPKS_(ptr noundef nonnull align 8 d
 declare void @_ZN13StackMapFrame10copy_stackEPKS_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.ErrorContext, align 8
   store i32 -1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1359,7 +1359,7 @@ _ZNK13StackMapTable14match_stackmapEP13StackMapFrameiibbP12ErrorContextP10JavaTh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13StackMapTable8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK13StackMapTable8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN12outputStream6indentEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1582,7 +1582,7 @@ define linkonce_odr hidden noundef zeroext i16 @_ZN14StackMapStream6get_u2EP10Ja
 declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN14StackMapReader4chopEP16VerificationTypeii(ptr nocapture nonnull readnone align 8 %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN14StackMapReader4chopEP16VerificationTypeii(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.loopexit, label %6
 
@@ -1625,7 +1625,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN14StackMapRead
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN14StackMapReader23parse_verification_typeEPhP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN14StackMapReader23parse_verification_typeEPhP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -2073,7 +2073,7 @@ declare i32 @llvm.ctpop.i32(i32) #7
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

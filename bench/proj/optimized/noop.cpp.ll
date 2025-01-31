@@ -64,7 +64,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_noopP8PJconsts(ptr n
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL4noopR8PJ_COORDP8PJconsts(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) #3 {
+define internal void @_ZL4noopR8PJ_COORDP8PJconsts(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) #3 {
   ret void
 }
 

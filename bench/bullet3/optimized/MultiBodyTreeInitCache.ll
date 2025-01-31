@@ -30,7 +30,7 @@ $_ZN20b3AlignedObjectArrayIPvE7reserveEi = comdat any
 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(172) initializes((4, 12), (16, 25), (36, 44), (48, 57), (64, 68), (76, 84), (88, 97), (108, 116), (120, 129), (140, 148), (152, 161), (168, 172)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(172) initializes((4, 12), (16, 25), (36, 44), (48, 57), (64, 68), (76, 84), (88, 97), (108, 116), (120, 129), (140, 148), (152, 161), (168, 172)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont15:
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
@@ -82,7 +82,7 @@ invoke.cont15:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache7addBodyEiiNS_9JointTypeERKNS_4vec3ERKNS_5mat33ES5_fS5_S8_iPv(ptr noundef nonnull align 8 dereferenceable(172) %this, i32 noundef %body_index, i32 noundef %parent_index, i32 noundef %joint_type, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %parent_r_parent_body_ref, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %body_T_parent_ref, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %body_axis_of_motion, float noundef %mass, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %body_r_body_com, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %body_I_body, i32 noundef %user_int, ptr noundef %user_ptr) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache7addBodyEiiNS_9JointTypeERKNS_4vec3ERKNS_5mat33ES5_fS5_S8_iPv(ptr noundef nonnull align 8 dereferenceable(172) %this, i32 noundef %body_index, i32 noundef %parent_index, i32 noundef %joint_type, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %parent_r_parent_body_ref, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %body_T_parent_ref, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %body_axis_of_motion, float noundef %mass, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %body_r_body_com, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %body_I_body, i32 noundef %user_int, ptr noundef %user_ptr) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %joint.sroa.4 = alloca [4 x float], align 4
   %joint.sroa.5 = alloca [4 x float], align 4
@@ -289,10 +289,10 @@ return:                                           ; preds = %_ZN20b3AlignedObjec
 declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache14getInertiaDataEiPNS_11InertiaDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, i32 noundef %index, ptr nocapture noundef writeonly %inertia) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache14getInertiaDataEiPNS_11InertiaDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %this, i32 noundef %index, ptr noundef writeonly captures(none) %inertia) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %index, 0
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -329,7 +329,7 @@ return:                                           ; preds = %if.end, %do.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserIntEiPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, i32 noundef %index, ptr nocapture noundef writeonly %user_int) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserIntEiPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %this, i32 noundef %index, ptr noundef writeonly captures(none) %user_int) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %index, 0
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 108
@@ -358,7 +358,7 @@ return:                                           ; preds = %if.end, %do.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserPtrEiPPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, i32 noundef %index, ptr nocapture noundef writeonly %user_ptr) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserPtrEiPPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %this, i32 noundef %index, ptr noundef writeonly captures(none) %user_ptr) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %index, 0
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 140
@@ -387,7 +387,7 @@ return:                                           ; preds = %if.end, %do.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache12getJointDataEiPNS_9JointDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, i32 noundef %index, ptr nocapture noundef writeonly %joint) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache12getJointDataEiPNS_9JointDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %this, i32 noundef %index, ptr noundef writeonly captures(none) %joint) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %index, 0
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 36

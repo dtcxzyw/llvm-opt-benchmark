@@ -106,7 +106,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @mca_allocator_bucket_alloc(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @mca_allocator_bucket_alloc(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = add i64 %1, 16
   %5 = icmp ugt i64 %4, 8
@@ -274,7 +274,7 @@ define ptr @mca_allocator_bucket_alloc(ptr nocapture noundef readonly %0, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mca_allocator_bucket_alloc_align(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @mca_allocator_bucket_alloc_align(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = add i64 %1, 32
   %6 = add i64 %5, %2
@@ -413,7 +413,7 @@ define ptr @mca_allocator_bucket_alloc_align(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mca_allocator_bucket_realloc(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @mca_allocator_bucket_realloc(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 -8
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 3
@@ -474,10 +474,10 @@ mca_allocator_bucket_free.exit:                   ; preds = %33, %24, %10, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @mca_allocator_bucket_free(ptr nocapture noundef readonly %0, ptr noundef initializes((-4, 0)) %1) local_unnamed_addr #0 {
+define void @mca_allocator_bucket_free(ptr noundef readonly captures(none) %0, ptr noundef initializes((-4, 0)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
   %4 = getelementptr inbounds i8, ptr %1, i64 -8
   %5 = load i32, ptr %4, align 8
@@ -522,7 +522,7 @@ define void @mca_allocator_bucket_free(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_allocator_bucket_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @mca_allocator_bucket_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0

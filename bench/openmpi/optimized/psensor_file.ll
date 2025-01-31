@@ -66,7 +66,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [15 x i8] c"psensor_file.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1366, 1) i32 @start(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4) #0 {
+define internal range(i32 -1366, 1) i32 @start(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %20
@@ -179,7 +179,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %28, %2
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %60
-  %65 = tail call i32 @PMIx_Info_true(ptr noundef %61) #12
+  %65 = tail call i32 @PMIx_Info_true(ptr noundef nonnull %61) #12
   %66 = icmp eq i32 %65, 0
   %67 = zext i1 %66 to i8
   store i8 %67, ptr %59, align 8
@@ -191,7 +191,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %28, %2
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %68
-  %72 = tail call i32 @PMIx_Info_true(ptr noundef %61) #12
+  %72 = tail call i32 @PMIx_Info_true(ptr noundef nonnull %61) #12
   %73 = icmp eq i32 %72, 0
   %74 = zext i1 %73 to i8
   store i8 %74, ptr %58, align 1
@@ -203,7 +203,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %28, %2
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %75
-  %79 = tail call i32 @PMIx_Info_true(ptr noundef %61) #12
+  %79 = tail call i32 @PMIx_Info_true(ptr noundef nonnull %61) #12
   %80 = icmp eq i32 %79, 0
   %81 = zext i1 %80 to i8
   store i8 %81, ptr %57, align 2
@@ -419,7 +419,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ft_constructor(ptr nocapture noundef writeonly initializes((144, 161), (424, 444), (456, 459), (464, 501), (504, 520)) %0) #1 {
+define internal void @ft_constructor(ptr noundef writeonly captures(none) initializes((144, 161), (424, 444), (456, 459), (464, 501), (504, 520)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -555,14 +555,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cd_con(ptr nocapture noundef writeonly initializes((248, 264)) %0) #1 {
+define internal void @cd_con(ptr noundef writeonly captures(none) initializes((248, 264)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cd_des(ptr nocapture noundef %0) #0 {
+define internal void @cd_des(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -643,7 +643,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @event_del(ptr noundef) local_unnamed_addr #3
 
@@ -656,7 +656,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #7
@@ -667,10 +667,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 declare i32 @PMIx_Info_true(ptr noundef) local_unnamed_addr #3
 
@@ -985,7 +985,7 @@ pmix_strncpy.exit:                                ; preds = %141, %144
 declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare ptr @ctime(ptr noundef) local_unnamed_addr #4
@@ -1222,7 +1222,7 @@ pmix_obj_run_destructors.exit53:                  ; preds = %.lr.ph.i50, %63
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

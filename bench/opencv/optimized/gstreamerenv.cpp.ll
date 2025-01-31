@@ -77,7 +77,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN2cv4gapi3wip3gst12GStreamerEnvC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4gapi3wip3gst12GStreamerEnvC2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
@@ -109,7 +109,7 @@ define hidden void @_ZN2cv4gapi3wip3gst12GStreamerEnvC2Ev(ptr nocapture nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN2cv4gapi3wip3gst12GStreamerEnvD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv4gapi3wip3gst12GStreamerEnvD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #5 align 2 {
   ret void
 }
 

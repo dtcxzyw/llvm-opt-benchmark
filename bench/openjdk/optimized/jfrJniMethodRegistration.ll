@@ -151,7 +151,7 @@ $_ZN9LogPrefixILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @_ZN24JfrJniMethodRegistrationC1EP7JNIEnv_ = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN24JfrJniMethodRegistrationC2EP7JNIEnv_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24JfrJniMethodRegistrationC2EP7JNIEnv_(ptr nocapture nonnull readnone align 1 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24JfrJniMethodRegistrationC2EP7JNIEnv_(ptr nonnull readnone align 1 captures(none) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca [67 x %struct.JNINativeMethod], align 16
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -382,7 +382,7 @@ declare i64 @jfr_unregister_stack_filter(ptr noundef, ptr noundef, i64 noundef) 
 declare i64 @jfr_nanos_now(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #0 comdat align 2 {

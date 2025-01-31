@@ -243,7 +243,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %109 = zext i1 %.not88 to i32
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %109, ptr %110, align 8
-  call void @output_draw(ptr noundef %0) #14
+  call void @output_draw(ptr noundef nonnull %0) #14
   %111 = load i32, ptr %81, align 8
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %.preheader94.lr.ph, label %._crit_edge
@@ -518,7 +518,7 @@ set_color.exit:                                   ; preds = %.preheader94, %set_
   br label %255
 
 255:                                              ; preds = %253, %._crit_edge
-  call void @destroy_colors(ptr noundef %0) #14
+  call void @destroy_colors(ptr noundef nonnull %0) #14
   br label %256
 
 256:                                              ; preds = %255, %7
@@ -529,7 +529,7 @@ set_color.exit:                                   ; preds = %.preheader94, %set_
 declare noalias ptr @open_output(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
@@ -552,12 +552,12 @@ define internal i32 @myputchar(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare i32 @tgetflag(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @output_draw(ptr noundef) local_unnamed_addr #1
 
@@ -572,7 +572,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare ptr @nl_langinfo(i32 noundef) local_unnamed_addr #3
@@ -580,12 +580,12 @@ declare ptr @nl_langinfo(i32 noundef) local_unnamed_addr #3
 declare i32 @putwc(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @destroy_colors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ascii_declare_color(ptr nocapture readnone %0, ptr noundef initializes((16, 20)) %1) #0 {
+define internal noundef i32 @ascii_declare_color(ptr readnone captures(none) %0, ptr noundef initializes((16, 20)) %1) #0 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -648,7 +648,7 @@ define internal noundef i32 @ascii_declare_color(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ascii_box(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture readnone %7, i32 %8) #10 {
+define internal void @ascii_box(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr readnone captures(none) %7, i32 %8) #10 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %11 = load ptr, ptr %10, align 8
   %12 = shl i32 %3, 1
@@ -787,7 +787,7 @@ put.exit.us78:                                    ; preds = %47, %45, %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ascii_line(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture readnone %6, i32 %7) #10 {
+define internal void @ascii_line(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr readnone captures(none) %6, i32 %7) #10 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %10 = load ptr, ptr %9, align 8
   %11 = shl i32 %2, 1
@@ -846,7 +846,7 @@ define internal void @ascii_line(ptr nocapture noundef readonly %0, i32 %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ascii_text(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture readnone %7, i32 %8) #0 {
+define internal void @ascii_text(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr readnone captures(none) %7, i32 %8) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %11 = load ptr, ptr %10, align 8
   %12 = udiv i32 %5, 10
@@ -854,7 +854,7 @@ define internal void @ascii_text(ptr nocapture noundef readonly %0, ptr noundef 
   %14 = add i64 %13, 1
   %15 = shl i64 %14, 2
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #17
-  %17 = tail call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef %16, i64 noundef %14, ptr noundef nonnull @.str.3, ptr noundef %6) #14
+  %17 = tail call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef %16, i64 noundef %14, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #14
   %18 = load i32, ptr %16, align 4
   %.not18 = icmp eq i32 %18, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -938,7 +938,7 @@ put.exit:                                         ; preds = %43, %.lr.ph.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ascii_textsize(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #11 {
+define internal void @ascii_textsize(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #11 {
   %6 = mul i32 %2, 10
   %7 = lshr exact i32 %6, 1
   store i32 %7, ptr %4, align 4
@@ -948,7 +948,7 @@ define internal void @ascii_textsize(ptr nocapture readnone %0, ptr nocapture re
 declare ptr @tparm(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @merge(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 13) %3, i32 noundef range(i32 0, 9) %4, ptr noundef %5) unnamed_addr #12 {
+define internal fastcc void @merge(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 13) %3, i32 noundef range(i32 0, 9) %4, ptr noundef %5) unnamed_addr #12 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %.not = icmp slt i32 %1, %8
@@ -1083,7 +1083,7 @@ put.exit:                                         ; preds = %46, %from_direction
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3

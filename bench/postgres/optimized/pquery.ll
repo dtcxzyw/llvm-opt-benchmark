@@ -611,7 +611,7 @@ declare void @MarkPortalFailed(ptr noundef) local_unnamed_addr #1
 declare void @pg_re_throw() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PortalSetResultFormat(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @PortalSetResultFormat(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -695,7 +695,7 @@ declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -939,7 +939,7 @@ define internal fastcc void @FillPortalStore(ptr noundef %0, i1 noundef zeroext 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1 noundef zeroext %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @PortalRunSelect(ptr noundef captures(none) %0, i1 noundef zeroext %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -1116,7 +1116,7 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PortalRunMulti(ptr nocapture noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 3
@@ -1387,7 +1387,7 @@ define dso_local i64 @PortalRunFetch(ptr noundef %0, i32 noundef %1, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @DoPortalRunFetch(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @DoPortalRunFetch(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   switch i32 %1, label %89 [
     i32 0, label %5
     i32 1, label %7
@@ -1660,7 +1660,7 @@ PortalRunSelect.exit:                             ; preds = %58, %60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @PlannedStmtRequiresSnapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1725,7 +1725,7 @@ declare zeroext i1 @ActiveSnapshotSet() local_unnamed_addr #1
 declare void @PushActiveSnapshotWithLevel(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 noundef range(i32 -1, 2) %1, i64 noundef range(i64 0, -9223372036854775808) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @RunFromStore(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -1, 2) %1, i64 noundef range(i64 0, -9223372036854775808) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %6, ptr noundef nonnull @TTSOpsMinimalTuple) #10
@@ -1823,7 +1823,7 @@ declare ptr @CreateDestReceiver(i32 noundef) local_unnamed_addr #1
 declare void @SetTuplestoreDestReceiverParams(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PortalRunUtility(ptr nocapture noundef initializes((168, 176)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @PortalRunUtility(ptr noundef captures(none) initializes((168, 176)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef %1)
   br i1 %7, label %8, label %17
 
@@ -1967,7 +1967,7 @@ declare void @ExecutorFinish(ptr noundef) local_unnamed_addr #1
 declare void @ExecutorEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @DoPortalRewind(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @DoPortalRewind(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -2044,7 +2044,7 @@ declare void @ExecutorRewind(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #9

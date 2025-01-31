@@ -1316,7 +1316,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_11LOONGARCH64EEEElsIRA2_KcEERS5_OT_.exit: ;
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind
 define weak_odr dso_local { i64, ptr } @_ZN4mold3elf9InputFileINS0_11LOONGARCH64EE10get_stringERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 noundef %idx) local_unnamed_addr #4 comdat align 2 {
@@ -2467,7 +2467,7 @@ if.end103:                                        ; preds = %_ZN4mold4WarnINS_3e
   br label %for.inc
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i100: ; preds = %sw.default
-  %bcmp.i101 = call i32 @bcmp(ptr %add.ptr81, ptr nonnull @.str.38, i64 %call.i.i80)
+  %bcmp.i101 = call i32 @bcmp(ptr nonnull %add.ptr81, ptr nonnull @.str.38, i64 %call.i.i80)
   %cmp.i.i102 = icmp eq i32 %bcmp.i101, 0
   br i1 %cmp.i.i102, label %if.then109, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i110
 
@@ -2481,17 +2481,17 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i110: ; preds = %_ZNSt11char_traits
   br i1 %cmp.i.i112, label %for.inc, label %if.end128
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i120: ; preds = %sw.default
-  %bcmp.i121 = call i32 @bcmp(ptr %add.ptr81, ptr nonnull @.str.40, i64 %call.i.i80)
+  %bcmp.i121 = call i32 @bcmp(ptr nonnull %add.ptr81, ptr nonnull @.str.40, i64 %call.i.i80)
   %cmp.i.i122 = icmp eq i32 %bcmp.i121, 0
   br i1 %cmp.i.i122, label %for.inc, label %if.end128
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i130: ; preds = %sw.default
-  %bcmp.i131 = call i32 @bcmp(ptr %add.ptr81, ptr nonnull @.str.41, i64 %call.i.i80)
+  %bcmp.i131 = call i32 @bcmp(ptr nonnull %add.ptr81, ptr nonnull @.str.41, i64 %call.i.i80)
   %cmp.i.i132 = icmp eq i32 %bcmp.i131, 0
   br i1 %cmp.i.i132, label %for.inc, label %if.end128
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i140: ; preds = %sw.default
-  %bcmp.i141 = call i32 @bcmp(ptr %add.ptr81, ptr nonnull @.str.42, i64 %call.i.i80)
+  %bcmp.i141 = call i32 @bcmp(ptr nonnull %add.ptr81, ptr nonnull @.str.42, i64 %call.i.i80)
   %cmp.i.i142 = icmp eq i32 %bcmp.i141, 0
   br i1 %cmp.i.i142, label %for.inc, label %if.end128
 
@@ -4722,7 +4722,7 @@ land.rhs.i.i:                                     ; preds = %entry
   br i1 %cmp.i2.i.i.i, label %if.then.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %1, ptr %__x, i64 %.sroa.speculated.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %1, ptr nonnull %__x, i64 %.sroa.speculated.i.i)
   %cmp.i.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withES2_.exit
 
@@ -4998,7 +4998,7 @@ _ZNK4mold3elf12InputSectionINS0_11LOONGARCH64EE4nameEv.exit.i: ; preds = %if.end
   %x.0.copyload.i42.i = load i32, ptr %sh_type.i, align 1, !noalias !64
   %conv26.i = zext i32 %x.0.copyload.i42.i to i64
   %x.0.copyload.i43.i = load i64, ptr %sh_flags.i, align 1, !noalias !64
-  %call29.i = call noundef ptr @_ZN4mold3elf13MergedSectionINS0_11LOONGARCH64EE12get_instanceERNS0_7ContextIS2_EESt17basic_string_viewIcSt11char_traitsIcEEllll(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 %retval.sroa.0.0.i.i, ptr %retval.sroa.3.0.i.i, i64 noundef %conv26.i, i64 noundef %x.0.copyload.i43.i, i64 noundef %entsize.0268.i, i64 noundef %spec.store.select.i) #14, !noalias !64
+  %call29.i = call noundef ptr @_ZN4mold3elf13MergedSectionINS0_11LOONGARCH64EE12get_instanceERNS0_7ContextIS2_EESt17basic_string_viewIcSt11char_traitsIcEEllll(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 %retval.sroa.0.0.i.i, ptr nonnull %retval.sroa.3.0.i.i, i64 noundef %conv26.i, i64 noundef %x.0.copyload.i43.i, i64 noundef %entsize.0268.i, i64 noundef %spec.store.select.i) #14, !noalias !64
   store ptr %call29.i, ptr %call23.i, align 8, !noalias !64
   %p2align.i = getelementptr inbounds nuw i8, ptr %5, i64 94
   %18 = load i8, ptr %p2align.i, align 2, !noalias !64
@@ -7365,7 +7365,7 @@ _ZN4mold14update_minimumIhZNS_3elf10ObjectFileINS1_11LOONGARCH64EE16merge_visibi
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL18print_trace_symbolINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EERNS0_9InputFileIS4_EERKNS0_6ElfSymIS4_EERNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr noundef nonnull align 8 dereferenceable(280) %file, i16 %esym.4.val, i16 %esym.6.val, ptr noundef nonnull align 8 dereferenceable(56) %sym) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL18print_trace_symbolINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EERNS0_9InputFileIS4_EERKNS0_6ElfSymIS4_EERNS0_6SymbolIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4568) %ctx, ptr noundef nonnull align 8 dereferenceable(280) %file, i16 %esym.4.val, i16 %esym.6.val, ptr noundef nonnull align 8 dereferenceable(56) %sym) unnamed_addr #4 {
 entry:
   %ref.tmp = alloca %"class.mold::SyncOut", align 8
   %ref.tmp7 = alloca %"class.mold::SyncOut", align 8
@@ -8609,7 +8609,7 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind
 define weak_odr dso_local void @_ZN4mold3elf10ObjectFileINS0_11LOONGARCH64EE19compute_symtab_sizeERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(704) %this, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) local_unnamed_addr #4 comdat align 2 {
@@ -11215,11 +11215,11 @@ if.then.i.i.i:                                    ; preds = %if.then3.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.then3.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %__rhs, i64 %call.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 1 %__rhs, i64 %call.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, i64 noundef %0, i64 noundef 0, ptr noundef %__rhs, i64 noundef %call.i.i)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, i64 noundef %0, i64 noundef 0, ptr noundef nonnull %__rhs, i64 noundef %call.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %if.then.i4.i, %if.then.i.i.i, %if.end.i.i.i.i, %if.else.i.i
@@ -12921,7 +12921,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local noundef ptr @_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE12create_localEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
@@ -13898,7 +13898,7 @@ declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #10
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
@@ -15545,11 +15545,11 @@ if.then.i.i.i12:                                  ; preds = %if.then3.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 if.end.i.i.i.i11:                                 ; preds = %if.then3.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %__lhs, i64 %call.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 1 %__lhs, i64 %call.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %9, i64 noundef 0, ptr noundef %__lhs, i64 noundef %call.i)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %9, i64 noundef 0, ptr noundef nonnull %__lhs, i64 noundef %call.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %if.then.i3.i, %if.then.i.i.i12, %if.end.i.i.i.i11, %if.else.i.i
@@ -17280,7 +17280,7 @@ declare void @llvm.assume(i1 noundef) #17
 declare i64 @llvm.fshl.i64(i64, i64, i64) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #18
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #13
@@ -19682,7 +19682,7 @@ if.end.i:                                         ; preds = %entry
 _ZNK4mold3elf12InputSectionINS0_11LOONGARCH64EE4nameEv.exit: ; preds = %_ZNK4mold3elf12InputSectionINS0_11LOONGARCH64EE4shdrEv.exit.i, %if.end.i
   %retval.sroa.3.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %cond.i, %_ZNK4mold3elf12InputSectionINS0_11LOONGARCH64EE4shdrEv.exit.i ]
   %retval.sroa.0.0.i = phi i64 [ %call.i.i3.i, %if.end.i ], [ %call.i.i.i, %_ZNK4mold3elf12InputSectionINS0_11LOONGARCH64EE4shdrEv.exit.i ]
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef %retval.sroa.3.0.i, i64 noundef %retval.sroa.0.0.i) #14
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef nonnull %retval.sroa.3.0.i, i64 noundef %retval.sroa.0.0.i) #14
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull @.str.62) #14
   ret ptr %out
 }
@@ -19764,7 +19764,7 @@ if.else.sink.split:                               ; preds = %_ZNSt17_Temporary_b
   %.sink = phi i8 [ %3, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4mold3elf9FdeRecordINS3_11LOONGARCH64EEESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit ], [ %1, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4mold3elf9FdeRecordINS3_11LOONGARCH64EEESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.thread20 ]
   %frombool.i.i.i.i.i.i.i = and i8 %.sink, 1
   store atomic i8 %frombool.i.i.i.i.i.i.i, ptr %is_alive3.i.i.i.i.i monotonic, align 1
-  tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf9FdeRecordINS3_11LOONGARCH64EEESt6vectorIS6_SaIS6_EEEES7_lNS0_5__ops15_Iter_comp_iterIZNS3_10ObjectFileIS5_E13parse_ehframeERNS3_7ContextIS5_EEEUlRKS6_SK_E_EEEvT_SN_T0_T1_T2_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i, ptr %__comp.coerce)
+  tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf9FdeRecordINS3_11LOONGARCH64EEESt6vectorIS6_SaIS6_EEEES7_lNS0_5__ops15_Iter_comp_iterIZNS3_10ObjectFileIS5_E13parse_ehframeERNS3_7ContextIS5_EEEUlRKS6_SK_E_EEEvT_SN_T0_T1_T2_(ptr nonnull %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i, ptr %__comp.coerce)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else.sink.split, %if.then7
@@ -26406,7 +26406,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
@@ -26427,10 +26427,10 @@ declare i64 @llvm.smax.i64(i64, i64) #23
 declare i64 @llvm.smin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #23

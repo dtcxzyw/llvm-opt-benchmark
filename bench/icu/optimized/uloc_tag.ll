@@ -405,7 +405,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -642,7 +642,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ultag_isLanguageSubtag_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ultag_isLanguageSubtag_75(ptr noundef readonly captures(none) %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -681,10 +681,10 @@ return:                                           ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ultag_isScriptSubtag_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ultag_isScriptSubtag_75(ptr noundef readonly captures(none) %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -718,7 +718,7 @@ return:                                           ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ultag_isRegionSubtag_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ultag_isRegionSubtag_75(ptr noundef readonly captures(none) %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -836,7 +836,7 @@ _ZL12_isSepListOfPFaPKciES0_i.exit:               ; preds = %if.then5.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL16_isVariantSubtagPKci(ptr nocapture noundef readonly %s, i32 noundef %len) unnamed_addr #1 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL16_isVariantSubtagPKci(ptr noundef readonly captures(none) %s, i32 noundef %len) unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %if.end, label %if.end.i
@@ -1197,7 +1197,7 @@ _ZL12_isSepListOfPFaPKciES0_i.exit:               ; preds = %if.end19.i.thread, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ultag_isUnicodeLocaleAttribute_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ultag_isUnicodeLocaleAttribute_75(ptr noundef readonly captures(none) %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i32 %len, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1380,7 +1380,7 @@ _ZL12_isSepListOfPFaPKciES0_i.exit:               ; preds = %if.end19.i.thread, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ultag_isUnicodeLocaleKey_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ultag_isUnicodeLocaleKey_75(ptr noundef readonly captures(none) %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1425,7 +1425,7 @@ return:                                           ; preds = %land.lhs.true8, %if
 declare signext i8 @uprv_isASCIILetter_75(i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @_isUnicodeLocaleTypeSubtag_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @_isUnicodeLocaleTypeSubtag_75(ptr noundef readonly captures(none) %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i32 %len, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1685,7 +1685,7 @@ return:                                           ; preds = %land.lhs.true3.i, %
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ultag_isTransformedExtensionSubtags_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ultag_isTransformedExtensionSubtags_75(ptr noundef readonly captures(none) %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %state.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i)
@@ -1751,7 +1751,7 @@ _ZL20_isStatefulSepListOfPFaRiPKciES1_i.exit:     ; preds = %if.then4.i, %for.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL29_isTransformedExtensionSubtagRiPKci(ptr nocapture noundef nonnull align 4 dereferenceable(4) %state, ptr nocapture noundef readonly %s, i32 noundef %len) unnamed_addr #1 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL29_isTransformedExtensionSubtagRiPKci(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %state, ptr noundef readonly captures(none) %s, i32 noundef %len) unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -2050,7 +2050,7 @@ return:                                           ; preds = %for.inc.i.i.i114, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ultag_isUnicodeExtensionSubtags_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ultag_isUnicodeExtensionSubtags_75(ptr noundef readonly captures(none) %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %state.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i)
@@ -2116,7 +2116,7 @@ _ZL20_isStatefulSepListOfPFaRiPKciES1_i.exit:     ; preds = %if.then4.i, %for.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL25_isUnicodeExtensionSubtagRiPKci(ptr nocapture noundef nonnull align 4 dereferenceable(4) %state, ptr nocapture noundef readonly %s, i32 noundef %len) unnamed_addr #1 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL25_isUnicodeExtensionSubtagRiPKci(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %state, ptr noundef readonly captures(none) %s, i32 noundef %len) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %state, align 4
   switch i32 %0, label %return [
@@ -3234,7 +3234,7 @@ while.body82.i:                                   ; preds = %while.body82.i.preh
   %vtable87.i = load ptr, ptr %sink, align 8
   %vfn88.i = getelementptr inbounds nuw i8, ptr %vtable87.i, i64 16
   %60 = load ptr, ptr %vfn88.i, align 8
-  invoke void %60(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %59, i32 noundef %conv85.i)
+  invoke void %60(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %59, i32 noundef %conv85.i)
           to label %.noexc142 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc142:                                        ; preds = %.noexc141
@@ -4051,7 +4051,7 @@ invoke.cont239.i:                                 ; preds = %for.body236.i
   %vtable244.i = load ptr, ptr %sink, align 8
   %vfn245.i = getelementptr inbounds nuw i8, ptr %vtable244.i, i64 16
   %133 = load ptr, ptr %vfn245.i, align 8
-  invoke void %133(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %132, i32 noundef %conv243.i)
+  invoke void %133(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %132, i32 noundef %conv243.i)
           to label %for.inc247.i unwind label %lpad15.loopexit.i
 
 for.inc247.i:                                     ; preds = %invoke.cont239.i
@@ -4074,7 +4074,7 @@ invoke.cont252.i:                                 ; preds = %if.else249.i
   %vtable257.i = load ptr, ptr %sink, align 8
   %vfn258.i = getelementptr inbounds nuw i8, ptr %vtable257.i, i64 16
   %136 = load ptr, ptr %vfn258.i, align 8
-  invoke void %136(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %135, i32 noundef %conv256.i)
+  invoke void %136(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %135, i32 noundef %conv256.i)
           to label %invoke.cont259.i unwind label %lpad15.loopexit.split-lp.loopexit.i
 
 invoke.cont259.i:                                 ; preds = %invoke.cont252.i
@@ -4103,7 +4103,7 @@ invoke.cont270.i:                                 ; preds = %if.then267.i
   %vtable275.i = load ptr, ptr %sink, align 8
   %vfn276.i = getelementptr inbounds nuw i8, ptr %vtable275.i, i64 16
   %140 = load ptr, ptr %vfn276.i, align 8
-  invoke void %140(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %139, i32 noundef %conv274.i)
+  invoke void %140(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %139, i32 noundef %conv274.i)
           to label %for.inc280.i unwind label %lpad15.loopexit.split-lp.loopexit.i
 
 for.inc280.i:                                     ; preds = %for.inc247.i, %invoke.cont270.i, %land.lhs.true263.i, %invoke.cont259.i, %for.cond234.preheader.i
@@ -4565,7 +4565,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uloc_forLanguageTag_75(ptr nocapture noundef readonly %langtag, ptr noundef %localeID, i32 noundef %localeIDCapacity, ptr noundef %parsedLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @uloc_forLanguageTag_75(ptr noundef readonly captures(none) %langtag, ptr noundef %localeID, i32 noundef %localeIDCapacity, ptr noundef %parsedLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %sink = alloca %"class.icu_75::CheckedArrayByteSink", align 8
   %0 = load i32, ptr %status, align 4
@@ -4614,7 +4614,7 @@ return:                                           ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ulocimp_forLanguageTag_75(ptr nocapture noundef readonly %langtag, i32 noundef %tagLen, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef writeonly %parsedLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @ulocimp_forLanguageTag_75(ptr noundef readonly captures(none) %langtag, i32 noundef %tagLen, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef writeonly %parsedLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %attrBuf.i.i = alloca [100 x i8], align 16
   %attrPool.i.i = alloca %"class.icu_75::MemoryPool", align 8
@@ -4789,7 +4789,7 @@ land.lhs.true.i:                                  ; preds = %if.end37.i
   br i1 %cmp42.not.i, label %if.end44.i, label %for.inc.i
 
 if.end44.i:                                       ; preds = %land.lhs.true.i, %if.end37.i
-  %call48.i = invoke i32 @uprv_strnicmp_75(ptr noundef %1, ptr noundef nonnull %call8.i, i32 noundef %conv34.i)
+  %call48.i = invoke i32 @uprv_strnicmp_75(ptr noundef nonnull %1, ptr noundef nonnull %call8.i, i32 noundef %conv34.i)
           to label %invoke.cont47.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont47.i:                                  ; preds = %if.end44.i
@@ -4880,7 +4880,7 @@ for.body107.i:                                    ; preds = %for.inc147.i, %for.
   %7 = load ptr, ptr %arrayidx109.i, align 16
   %call110.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
   %conv111.i = trunc i64 %call110.i to i32
-  %call113.i = invoke i32 @uprv_strnicmp_75(ptr noundef %7, ptr noundef %tagBuf.0682.i, i32 noundef %conv111.i)
+  %call113.i = invoke i32 @uprv_strnicmp_75(ptr noundef nonnull %7, ptr noundef %tagBuf.0682.i, i32 noundef %conv111.i)
           to label %invoke.cont112.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont112.i:                                 ; preds = %for.body107.i
@@ -4904,7 +4904,7 @@ if.then121.i:                                     ; preds = %if.then115.i, %if.t
   %call125.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
   %10 = load ptr, ptr %t.i, align 8
   %11 = load ptr, ptr %10, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %9, i64 %call125.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr nonnull align 1 %9, i64 %call125.i, i1 false)
   %12 = load i8, ptr %add.ptr116.i.le, align 1
   %cmp133.i = icmp eq i8 %12, 45
   %add.ptr136.i = getelementptr inbounds i8, ptr %tagBuf.0682.i, i64 %call125.i
@@ -5891,7 +5891,7 @@ if.then19:                                        ; preds = %if.then16
   %vtable = load ptr, ptr %sink, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %72 = load ptr, ptr %vfn, align 8
-  invoke void %72(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %cond, i32 noundef %conv)
+  invoke void %72(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %cond, i32 noundef %conv)
           to label %if.end22 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end22:                                         ; preds = %if.then19, %if.then16, %_ZL20ultag_getExtlangSizePK12ULanguageTag.exit
@@ -7446,7 +7446,7 @@ if.end71.i:                                       ; preds = %do.body.i111
   %vtable76.i = load ptr, ptr %sink, align 8
   %vfn77.i = getelementptr inbounds nuw i8, ptr %vtable76.i, i64 16
   %223 = load ptr, ptr %vfn77.i, align 8
-  invoke void %223(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %222, i32 noundef %conv74.i)
+  invoke void %223(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %222, i32 noundef %conv74.i)
           to label %invoke.cont78.i unwind label %lpad2.loopexit.i
 
 invoke.cont78.i:                                  ; preds = %if.end71.i
@@ -7464,7 +7464,7 @@ invoke.cont81.i:                                  ; preds = %invoke.cont78.i
   %vtable86.i = load ptr, ptr %sink, align 8
   %vfn87.i = getelementptr inbounds nuw i8, ptr %vtable86.i, i64 16
   %226 = load ptr, ptr %vfn87.i, align 8
-  invoke void %226(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %225, i32 noundef %conv84.i)
+  invoke void %226(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %225, i32 noundef %conv84.i)
           to label %invoke.cont88.i unwind label %lpad2.loopexit.i
 
 invoke.cont88.i:                                  ; preds = %invoke.cont81.i
@@ -7641,7 +7641,7 @@ _ZN6icu_7524LocalULanguageTagPointerD2Ev.exit:    ; preds = %cleanup.thread, %cl
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare signext i8 @uprv_toupper_75(i8 noundef signext) local_unnamed_addr #6
 
@@ -7725,7 +7725,7 @@ declare void @uenum_close_75(ptr noundef) local_unnamed_addr #6
 declare i32 @uloc_getLanguage_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare i32 @uloc_getScript_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
@@ -7736,7 +7736,7 @@ declare i32 @uloc_getVariant_75(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare signext i8 @uprv_asciitolower_75(i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6icu_7510MemoryPoolINS_10CharStringELi8EE6createIJRA100_cRiR10UErrorCodeEEEPS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 1 dereferenceable(100) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8060,7 +8060,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL19_addExtensionToListPP18ExtensionListEntryS0_a(ptr nocapture noundef %first, ptr noundef nonnull %ext, i8 noundef signext range(i8 0, 2) %localeToBCP) unnamed_addr #11 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL19_addExtensionToListPP18ExtensionListEntryS0_a(ptr noundef captures(none) %first, ptr noundef nonnull %ext, i8 noundef signext range(i8 0, 2) %localeToBCP) unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %first, align 8
   %cmp = icmp eq ptr %0, null
@@ -8412,12 +8412,12 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6
 declare i32 @uprv_strnicmp_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @T_CString_toUpperCase_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6icu_7510MemoryPoolINS_10CharStringELi8EE6createIJEEEPS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8516,7 +8516,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6
 declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 declare ptr @uloc_toLegacyKey_75(ptr noundef) local_unnamed_addr #6
 
@@ -8734,10 +8734,10 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

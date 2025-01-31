@@ -26,13 +26,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [24 x i8] c"no owned sequence found\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @recordDependencyOn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @recordDependencyOn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @recordMultipleDependencies(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @recordMultipleDependencies(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 1
   %6 = load i32, ptr @Mode, align 4
   %7 = icmp eq i32 %6, 0
@@ -245,7 +245,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
 
@@ -904,7 +904,7 @@ define dso_local ptr @getAutoExtensionsOfObject(i32 noundef %0, i32 noundef %1) 
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @sequenceIsOwned(i32 noundef %0, i8 noundef signext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @sequenceIsOwned(i32 noundef %0, i8 noundef signext %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [2 x %struct.ScanKeyData], align 16
   %6 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #6
   call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef 1259) #6

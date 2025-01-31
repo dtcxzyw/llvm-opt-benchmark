@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qapi_dummy_qapi_visit_transaction_c = dso_local local_unnamed_addr global i8 0, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @visit_type_Abort_members(ptr nocapture noundef readnone %v, ptr nocapture noundef readnone %obj, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_Abort_members(ptr noundef readnone captures(none) %v, ptr noundef readnone captures(none) %obj, ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   ret i1 true
 }
@@ -93,7 +93,7 @@ declare zeroext i1 @visit_is_input(ptr noundef) local_unnamed_addr #2
 declare void @qapi_free_Abort(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ActionCompletionMode(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local zeroext i1 @visit_type_ActionCompletionMode(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -107,7 +107,7 @@ entry:
 declare zeroext i1 @visit_type_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_TransactionActionKind(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local zeroext i1 @visit_type_TransactionActionKind(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -675,7 +675,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DriveBackupWrapper(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_TransactionAction_base_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local zeroext i1 @visit_type_q_obj_TransactionAction_base_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
@@ -1020,10 +1020,10 @@ return:                                           ; preds = %if.then3, %entry, %
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

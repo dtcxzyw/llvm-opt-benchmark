@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.c725cbd2b9876dcebce3629452bceb4e.17 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c725cbd2b9876dcebce3629452bceb4e.4, [16 x i8] c"$\00\00\00\00\00\00\00\0B\01\00\00\09\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter3new17hbb3641677b5a7c30E(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 }, i64 }) align 8 initializes((0, 32)) %0) unnamed_addr #0 {
+define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter3new17hbb3641677b5a7c30E(ptr writeonly sret({ { { i64, ptr, {} }, i64 }, i64 }) align 8 captures(none) initializes((0, 32)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %2, align 8
   store i64 0, ptr %0, align 8
@@ -33,7 +33,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter3new17hbb3641677
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter11indent_push17h4b58db4c760eb653E(ptr nocapture align 8 %0) unnamed_addr #1 {
+define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter11indent_push17h4b58db4c760eb653E(ptr align 8 captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !noundef !3
   %4 = add i64 %3, 1
@@ -42,7 +42,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter11indent_push17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter10indent_pop17h8ea1ea47fdf15b2bE(ptr nocapture align 8 %0) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter10indent_pop17h8ea1ea47fdf15b2bE(ptr align 8 captures(none) %0) unnamed_addr #2 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !3
@@ -69,7 +69,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter10indent_pop17h8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter10get_indent17h8673d3ba106f9111E(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter10get_indent17h8673d3ba106f9111E(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #2 {
   %3 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %4 = alloca i64, align 8
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -240,7 +240,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match17h5e0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN22cranelift_codegen_meta6srcgen15parse_multiline17h077a9fa3a7c4ed06E(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN22cranelift_codegen_meta6srcgen15parse_multiline17h077a9fa3a7c4ed06E(ptr writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) %0, ptr align 1 %1, i64 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [4 x i8], align 4
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -577,7 +577,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match13set_catch_all17hac
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8, ptr align 8) unnamed_addr #4

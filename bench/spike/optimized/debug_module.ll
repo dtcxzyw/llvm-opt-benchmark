@@ -78,7 +78,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14debug_module_tC2EP7simif_tRK21debug_module_config_t(ptr noundef nonnull align 8 dereferenceable(1372) initializes((0, 56)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14debug_module_tC2EP7simif_tRK21debug_module_config_t(ptr noundef nonnull align 8 dereferenceable(1372) initializes((0, 56)) %0, ptr noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14debug_module_t, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
@@ -363,12 +363,12 @@ _ZNSt6vectorI18hart_debug_state_tSaIS0_EED2Ev.exit: ; preds = %169, %.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
@@ -377,10 +377,10 @@ declare void @exit(i32 noundef) local_unnamed_addr #6
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14debug_module_t7write32EPhjj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1372) %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 align 2 {
+define void @_ZN14debug_module_t7write32EPhjj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1372) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 align 2 {
   %5 = shl i32 %2, 2
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
@@ -402,7 +402,7 @@ define void @_ZN14debug_module_t7write32EPhjj(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14debug_module_t5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(1372) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14debug_module_t5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1372) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -536,7 +536,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14debug_module_tD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1372) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14debug_module_tD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(1372) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14debug_module_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -604,7 +604,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 declare i64 @random() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1372) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1372) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #12 align 2 {
   %5 = icmp ugt i64 %1, 2047
   %6 = add i64 %2, %1
   %7 = icmp ult i64 %6, 2165
@@ -703,7 +703,7 @@ define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN14debug_module_t5storeEmmPKh(ptr nocapture noundef nonnull align 8 dereferenceable(1372) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN14debug_module_t5storeEmmPKh(ptr noundef nonnull align 8 captures(none) dereferenceable(1372) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = icmp eq i64 %2, 4
   br i1 %5, label %6, label %9
 
@@ -919,7 +919,7 @@ _ZNK14debug_module_t16selected_hart_idEv.exit:    ; preds = %.loopexit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN14debug_module_t6read32EPhj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1372) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #13 align 2 {
+define noundef i32 @_ZN14debug_module_t6read32EPhj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1372) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #13 align 2 {
   %4 = shl i32 %2, 2
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -928,7 +928,7 @@ define noundef i32 @_ZN14debug_module_t6read32EPhj(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK14debug_module_t14hart_availableEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1372) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define noundef zeroext i1 @_ZNK14debug_module_t14hart_availableEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1372) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
   %3 = icmp ult i32 %1, 2
   br i1 %3, label %4, label %10
 
@@ -946,7 +946,7 @@ define noundef zeroext i1 @_ZNK14debug_module_t14hart_availableEj(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK14debug_module_t16selected_hart_idEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1372) %0) local_unnamed_addr #3 align 2 {
+define noundef i64 @_ZNK14debug_module_t16selected_hart_idEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1372) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -978,7 +978,7 @@ _ZNKSt6vectorImSaImEE2atEm.exit:                  ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK14debug_module_t13hart_selectedEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1372) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK14debug_module_t13hart_selectedEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1372) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -1035,7 +1035,7 @@ _ZNK14debug_module_t16selected_hart_idEv.exit:    ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN14debug_module_t14sb_access_bitsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1372) %0) local_unnamed_addr #13 align 2 {
+define noundef i32 @_ZN14debug_module_t14sb_access_bitsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1372) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %3 = load i32, ptr %2, align 8
   %4 = shl i32 8, %3
@@ -1043,7 +1043,7 @@ define noundef i32 @_ZN14debug_module_t14sb_access_bitsEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14debug_module_t16sb_autoincrementEv(ptr nocapture noundef nonnull align 8 dereferenceable(1372) %0) local_unnamed_addr #14 align 2 {
+define void @_ZN14debug_module_t16sb_autoincrementEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1372) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -1069,7 +1069,7 @@ define void @_ZN14debug_module_t16sb_autoincrementEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK14debug_module_t7sb_busyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1372) %0) local_unnamed_addr #13 align 2 {
+define noundef zeroext i1 @_ZNK14debug_module_t7sb_busyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1372) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1364
   %3 = load i32, ptr %2, align 4
   %.not = icmp ne i32 %3, 0
@@ -1081,7 +1081,7 @@ define noundef zeroext i1 @_ZNK14debug_module_t7sb_busyEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14debug_module_t13sb_read_startEv(ptr nocapture noundef nonnull align 8 dereferenceable(1372) %0) local_unnamed_addr #14 align 2 {
+define void @_ZN14debug_module_t13sb_read_startEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1372) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1364
   %3 = load i32, ptr %2, align 4
   %.not.i = icmp ne i32 %3, 0
@@ -1111,7 +1111,7 @@ define void @_ZN14debug_module_t13sb_read_startEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14debug_module_t7sb_readEv(ptr nocapture noundef nonnull align 8 dereferenceable(1372) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1372) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.target_endian, align 8
   %3 = alloca %"class.std::tuple", align 8
   %4 = alloca %class.target_endian.177, align 4
@@ -1481,7 +1481,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14debug_module_t14sb_write_startEv(ptr nocapture noundef nonnull align 8 dereferenceable(1372) %0) local_unnamed_addr #14 align 2 {
+define void @_ZN14debug_module_t14sb_write_startEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1372) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1364
   %3 = load i32, ptr %2, align 4
   %.not.i = icmp ne i32 %3, 0
@@ -1511,7 +1511,7 @@ define void @_ZN14debug_module_t14sb_write_startEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14debug_module_t8sb_writeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1372) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14debug_module_t8sb_writeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1372) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.target_endian, align 8
   %3 = alloca %"class.std::tuple", align 8
   %4 = alloca %class.target_endian.177, align 4
@@ -1856,7 +1856,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN14debug_module_t8dmi_readEjPj(ptr noundef nonnull align 8 dereferenceable(1372) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN14debug_module_t8dmi_readEjPj(ptr noundef nonnull align 8 dereferenceable(1372) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp ugt i32 %1, 3
   br i1 %4, label %5, label %.thread131
 
@@ -3389,7 +3389,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 1 dereferenceable(4) ptr @_ZN14debug_module_t19selected_hart_stateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1372) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 1 dereferenceable(4) ptr @_ZN14debug_module_t19selected_hart_stateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1372) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -3424,7 +3424,7 @@ _ZNK14debug_module_t16selected_hart_idEv.exit:    ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14debug_module_t13run_test_idleEv(ptr nocapture noundef nonnull align 8 dereferenceable(1372) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN14debug_module_t13run_test_idleEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1372) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1356
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -4291,7 +4291,7 @@ _ZN14debug_module_t13sb_read_startEv.exit:        ; preds = %_ZNSt14_Bit_referen
 declare void @_ZN11processor_t5resetEv(ptr noundef nonnull align 8 dereferenceable(659880)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN14debug_module_t10proc_resetEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1372) %0, i32 noundef %1) local_unnamed_addr #15 align 2 {
+define void @_ZN14debug_module_t10proc_resetEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1372) %0, i32 noundef %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8

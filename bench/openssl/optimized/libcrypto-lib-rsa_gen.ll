@@ -93,7 +93,7 @@ declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_rsa_sp800_56b_generate_key(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr nocapture noundef %rsa, i32 noundef %bits, i32 noundef %primes, ptr noundef %e_value, ptr noundef %cb) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef captures(none) %rsa, i32 noundef %bits, i32 noundef %primes, ptr noundef %e_value, ptr noundef %cb) unnamed_addr #0 {
 entry:
   %bitsr = alloca [5 x i32], align 16
   %cmp = icmp slt i32 %bits, 512

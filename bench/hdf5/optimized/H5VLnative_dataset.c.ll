@@ -104,7 +104,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.57 = private unnamed_addr constant [57 x i8] c"unable to release file dataspace selection for H5S_PLIST\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5VL__native_dataset_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr nocapture noundef readnone %9) local_unnamed_addr #0 {
+define ptr @H5VL__native_dataset_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef readnone captures(none) %9) local_unnamed_addr #0 {
   %11 = alloca %struct.H5G_loc_t, align 8
   %12 = load i32, ptr %1, align 8
   %13 = call i32 @H5G_loc_real(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %11) #4
@@ -212,7 +212,7 @@ declare ptr @H5D_oloc(ptr noundef) local_unnamed_addr #1
 declare i32 @H5O_dec_rc_by_loc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5VL__native_dataset_open(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef readnone %5) local_unnamed_addr #0 {
+define ptr @H5VL__native_dataset_open(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5G_loc_t, align 8
   %8 = load i32, ptr %1, align 8
   %9 = call i32 @H5G_loc_real(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %7) #4
@@ -244,7 +244,7 @@ define ptr @H5VL__native_dataset_open(ptr noundef %0, ptr nocapture noundef read
 declare ptr @H5D__open_name(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL__native_dataset_read(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readnone %7) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL__native_dataset_read(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readnone captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.H5D_dset_io_info_t, align 8
   %10 = icmp ugt i64 %0, 1
   br i1 %10, label %11, label %19
@@ -315,7 +315,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_read(i64 noundef %0, ptr nocap
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull captures(none) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = load ptr, ptr %1, align 8
@@ -567,7 +567,7 @@ declare void @H5CX_set_dxpl(i64 noundef) local_unnamed_addr #1
 declare i32 @H5D__read(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_cleanup(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_cleanup(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %.not23 = icmp eq i64 %0, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
@@ -634,7 +634,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_cleanup(i64
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL__native_dataset_write(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readnone %7) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL__native_dataset_write(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readnone captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.H5D_dset_io_info_t, align 8
   %10 = icmp ugt i64 %0, 1
   br i1 %10, label %11, label %19
@@ -704,7 +704,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_write(i64 noundef %0, ptr noca
 declare i32 @H5D__write(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL__native_dataset_get(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL__native_dataset_get(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %1, align 8
   switch i32 %5, label %56 [
     i32 2, label %6
@@ -817,7 +817,7 @@ declare i64 @H5D_get_access_plist(ptr noundef) local_unnamed_addr #1
 declare i32 @H5D__get_storage_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL__native_dataset_specific(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL__native_dataset_specific(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %1, align 8
   switch i32 %5, label %33 [
     i32 0, label %6
@@ -882,7 +882,7 @@ declare i32 @H5D__flush(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @H5D__refresh(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [33 x i64], align 16
   %6 = alloca [33 x i64], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1351,7 +1351,7 @@ declare i64 @H5D__get_offset(ptr noundef) local_unnamed_addr #1
 declare i32 @H5D__chunk_iter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL__native_dataset_close(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL__native_dataset_close(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @H5D_close(ptr noundef %0) #4
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
@@ -1372,7 +1372,7 @@ declare i32 @H5D_close(ptr noundef) local_unnamed_addr #1
 declare ptr @H5F_get_shared(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @H5P_object_verify(i64 noundef, i64 noundef) local_unnamed_addr #1
 

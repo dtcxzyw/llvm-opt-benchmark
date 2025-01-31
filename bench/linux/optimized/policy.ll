@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [22 x i8] c"include/net/netlink.h\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @netlink_policy_dump_get_policy_idx(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @netlink_policy_dump_get_policy_idx(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i32 %2, 0
   %6 = or i1 %4, %5
@@ -71,13 +71,13 @@ define dso_local i32 @netlink_policy_dump_get_policy_idx(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %16
@@ -322,7 +322,7 @@ define dso_local void @netlink_policy_dump_free(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @netlink_policy_dump_loop(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local zeroext i1 @netlink_policy_dump_loop(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -343,7 +343,7 @@ define dso_local zeroext i1 @netlink_policy_dump_loop(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef range(i32 0, 49) i32 @netlink_policy_dump_attr_size_estimate(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 49) i32 @netlink_policy_dump_attr_size_estimate(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load i8, ptr %0, align 8
   switch i8 %2, label %7 [
     i8 6, label %6
@@ -938,7 +938,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local ptr @krealloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @nla_get_range_unsigned(ptr noundef, ptr noundef) local_unnamed_addr #3

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @acpi_gbl_integer_byte_width = external dso_local local_unnamed_addr global i8, align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 12325) i32 @acpi_ex_get_protocol_buffer_length(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12325) i32 @acpi_ex_get_protocol_buffer_length(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = icmp ugt i32 %0, 15
   br i1 %3, label %9, label %4
 
@@ -40,7 +40,7 @@ define dso_local noundef range(i32 0, 12325) i32 @acpi_ex_get_protocol_buffer_le
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ex_read_data_from_field(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ex_read_data_from_field(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %90, label %5
 
@@ -210,7 +210,7 @@ declare dso_local ptr @acpi_ut_create_integer_object(i64 noundef) local_unnamed_
 declare dso_local i32 @acpi_ex_read_gpio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_ex_acquire_global_lock(i32 noundef) local_unnamed_addr #1

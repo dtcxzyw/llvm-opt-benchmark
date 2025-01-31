@@ -61,23 +61,23 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [8 x i8] c"Regular\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pcf_driver_init(ptr nocapture readnone %0) #0 {
+define internal noundef i32 @pcf_driver_init(ptr readnone captures(none) %0) #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @pcf_driver_done(ptr nocapture readnone %0) #0 {
+define internal void @pcf_driver_done(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pcf_driver_requester(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal ptr @pcf_driver_requester(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @pcf_services, ptr noundef %1) #15
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @PCF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #1 {
+define internal i32 @PCF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr readnone captures(none) %4) #1 {
   %6 = alloca %struct.FT_CharMapRec_, align 8
   %7 = sext i32 %2 to i64
   %8 = tail call fastcc i32 @pcf_load_font(ptr noundef %0, ptr noundef %1, i64 noundef %7)
@@ -349,7 +349,7 @@ define internal void @PCF_Face_Done(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @PCF_Glyph_Load(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 {
+define internal i32 @PCF_Glyph_Load(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.not = icmp eq ptr %5, null
@@ -596,7 +596,7 @@ TwoByteSwap.exit:                                 ; preds = %.lr.ph.i82, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 24) i32 @PCF_Size_Request(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal range(i32 0, 24) i32 @PCF_Size_Request(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -668,7 +668,7 @@ define internal range(i32 0, 24) i32 @PCF_Size_Request(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PCF_Size_Select(ptr nocapture noundef initializes((48, 64), (72, 80)) %0, i64 noundef %1) #1 {
+define internal noundef i32 @PCF_Size_Select(ptr noundef captures(none) initializes((48, 64), (72, 80)) %0, i64 noundef %1) #1 {
   %3 = load ptr, ptr %0, align 8
   tail call void @FT_Select_Metrics(ptr noundef %3, i64 noundef %1) #15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 384
@@ -694,7 +694,7 @@ define internal noundef i32 @PCF_Size_Select(ptr nocapture noundef initializes((
 declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @pcf_get_charset_id(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #3 {
+define internal noundef i32 @pcf_get_charset_id(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
@@ -705,7 +705,7 @@ define internal noundef i32 @pcf_get_charset_id(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 7) i32 @pcf_get_bdf_property(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 {
+define internal range(i32 0, 7) i32 @pcf_get_bdf_property(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -763,7 +763,7 @@ pcf_find_property.exit.thread:                    ; preds = %._crit_edge.i, %3, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @pcf_find_property(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc ptr @pcf_find_property(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -802,15 +802,15 @@ define internal fastcc ptr @pcf_find_property(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pcf_property_set(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i8 zeroext %3) #0 {
+define internal noundef i32 @pcf_property_set(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i8 zeroext %3) #0 {
   ret i32 12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pcf_property_get(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @pcf_property_get(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   ret i32 12
 }
 
@@ -1146,7 +1146,7 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %.loopexi
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i199, %152
   %.085120.us.i = phi i64 [ %153, %152 ], [ 0, %.lr.ph.i199 ]
   %150 = getelementptr inbounds nuw %struct.PCF_ParsePropertyRec_, ptr %148, i64 %.085120.us.i
-  %151 = call i32 @FT_Stream_ReadFields(ptr noundef %0, ptr noundef nonnull @pcf_property_header, ptr noundef %150) #15
+  %151 = call i32 @FT_Stream_ReadFields(ptr noundef nonnull %0, ptr noundef nonnull @pcf_property_header, ptr noundef %150) #15
   store i32 %151, ptr %7, align 4
   %.not106.us.i = icmp eq i32 %151, 0
   br i1 %.not106.us.i, label %152, label %pcf_get_properties.exit
@@ -1159,7 +1159,7 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %.loopexi
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i199, %156
   %.085120.i = phi i64 [ %157, %156 ], [ 0, %.lr.ph.i199 ]
   %154 = getelementptr inbounds nuw %struct.PCF_ParsePropertyRec_, ptr %148, i64 %.085120.i
-  %155 = call i32 @FT_Stream_ReadFields(ptr noundef %0, ptr noundef nonnull @pcf_property_msb_header, ptr noundef %154) #15
+  %155 = call i32 @FT_Stream_ReadFields(ptr noundef nonnull %0, ptr noundef nonnull @pcf_property_msb_header, ptr noundef %154) #15
   store i32 %155, ptr %7, align 4
   %.not107.i = icmp eq i32 %155, 0
   br i1 %.not107.i, label %156, label %pcf_get_properties.exit
@@ -1172,7 +1172,7 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %.loopexi
 ._crit_edge.i200:                                 ; preds = %156, %152, %.preheader.i197
   %158 = sub nsw i64 %.086.i, %..086.i
   %159 = mul nsw i64 %158, 9
-  %160 = call i32 @FT_Stream_Skip(ptr noundef %0, i64 noundef %159) #15
+  %160 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef %159) #15
   store i32 %160, ptr %7, align 4
   %.not94.i = icmp eq i32 %160, 0
   br i1 %.not94.i, label %161, label %.loopexit.sink.split.i193
@@ -1184,7 +1184,7 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %.loopexi
 
 163:                                              ; preds = %161
   %164 = sub nuw nsw i64 4, %162
-  %165 = call i32 @FT_Stream_Skip(ptr noundef %0, i64 noundef %164) #15
+  %165 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef %164) #15
   store i32 %165, ptr %7, align 4
   %.not96.i201 = icmp eq i32 %165, 0
   br i1 %.not96.i201, label %166, label %.loopexit.sink.split.i193
@@ -1193,11 +1193,11 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %.loopexi
   br i1 %.not91.i, label %169, label %167
 
 167:                                              ; preds = %166
-  %168 = call i32 @FT_Stream_ReadULong(ptr noundef %0, ptr noundef nonnull %7) #15
+  %168 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %0, ptr noundef nonnull %7) #15
   br label %171
 
 169:                                              ; preds = %166
-  %170 = call i32 @FT_Stream_ReadULongLE(ptr noundef %0, ptr noundef nonnull %7) #15
+  %170 = call i32 @FT_Stream_ReadULongLE(ptr noundef nonnull %0, ptr noundef nonnull %7) #15
   br label %171
 
 171:                                              ; preds = %169, %167
@@ -1222,7 +1222,7 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %.loopexi
   br i1 %.not99.i203, label %180, label %pcf_get_properties.exit
 
 180:                                              ; preds = %176
-  %181 = call i32 @FT_Stream_Read(ptr noundef %0, ptr noundef %178, i64 noundef %spec.store.select.i) #15
+  %181 = call i32 @FT_Stream_Read(ptr noundef nonnull %0, ptr noundef %178, i64 noundef %spec.store.select.i) #15
   store i32 %181, ptr %7, align 4
   %.not100.i204 = icmp eq i32 %181, 0
   br i1 %.not100.i204, label %182, label %pcf_get_properties.exit
@@ -1472,7 +1472,7 @@ pcf_get_metric.exit.us.i:                         ; preds = %.lr.ph.i215, %306
   %.076.us.i = phi i64 [ %307, %306 ], [ 1, %.lr.ph.i215 ]
   %.pn75.us.i = phi ptr [ %.04177.us.i, %306 ], [ %276, %.lr.ph.i215 ]
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5)
-  %286 = call i32 @FT_Stream_ReadFields(ptr noundef %0, ptr noundef nonnull %285, ptr noundef nonnull %.04177.us.i) #15
+  %286 = call i32 @FT_Stream_ReadFields(ptr noundef nonnull %0, ptr noundef nonnull %285, ptr noundef nonnull %.04177.us.i) #15
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
   store i32 %286, ptr %6, align 4
   %287 = getelementptr inbounds nuw i8, ptr %.pn75.us.i, i64 40
@@ -1521,7 +1521,7 @@ pcf_get_metric.exit.us.i:                         ; preds = %.lr.ph.i215, %306
   %.076.i = phi i64 [ %338, %337 ], [ 1, %.lr.ph.i215 ]
   %.pn75.i = phi ptr [ %.04177.i, %337 ], [ %276, %.lr.ph.i215 ]
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5)
-  %310 = call i32 @FT_Stream_ReadFields(ptr noundef %0, ptr noundef nonnull @pcf_compressed_metric_header, ptr noundef nonnull %5) #15
+  %310 = call i32 @FT_Stream_ReadFields(ptr noundef nonnull %0, ptr noundef nonnull @pcf_compressed_metric_header, ptr noundef nonnull %5) #15
   %.not.i55.i = icmp eq i32 %310, 0
   br i1 %.not.i55.i, label %pcf_get_metric.exit.thread.i, label %pcf_get_metric.exit.thread66.i
 
@@ -1691,7 +1691,7 @@ pcf_get_metrics.exit:                             ; preds = %pcf_get_metric.exit
 
 .lr.ph.split.us.i236:                             ; preds = %.lr.ph.i228, %.lr.ph.split.us.i236
   %.03660.us.i = phi i64 [ %385, %.lr.ph.split.us.i236 ], [ 1, %.lr.ph.i228 ]
-  %380 = call i32 @FT_Stream_ReadULongLE(ptr noundef %0, ptr noundef nonnull %4) #15
+  %380 = call i32 @FT_Stream_ReadULongLE(ptr noundef nonnull %0, ptr noundef nonnull %4) #15
   %.0.us.i = zext i32 %380 to i64
   %381 = icmp ult i64 %360, %.0.us.i
   %382 = select i1 %381, i64 0, i64 %.0.us.i
@@ -1705,7 +1705,7 @@ pcf_get_metrics.exit:                             ; preds = %pcf_get_metric.exit
 
 .lr.ph.split.i229:                                ; preds = %.lr.ph.i228, %.lr.ph.split.i229
   %.03660.i = phi i64 [ %391, %.lr.ph.split.i229 ], [ 1, %.lr.ph.i228 ]
-  %386 = call i32 @FT_Stream_ReadULong(ptr noundef %0, ptr noundef nonnull %4) #15
+  %386 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %0, ptr noundef nonnull %4) #15
   %.0.i230 = zext i32 %386 to i64
   %387 = icmp ult i64 %360, %.0.i230
   %388 = select i1 %387, i64 0, i64 %.0.i230
@@ -1727,7 +1727,7 @@ pcf_get_metrics.exit:                             ; preds = %pcf_get_metric.exit
 
 .preheader.split.us.i:                            ; preds = %.preheader.i234, %395
   %.161.us.i = phi i64 [ %396, %395 ], [ 0, %.preheader.i234 ]
-  %393 = call i32 @FT_Stream_ReadULongLE(ptr noundef %0, ptr noundef nonnull %4) #15
+  %393 = call i32 @FT_Stream_ReadULongLE(ptr noundef nonnull %0, ptr noundef nonnull %4) #15
   %394 = load i32, ptr %4, align 4
   %.not48.us.i = icmp eq i32 %394, 0
   br i1 %.not48.us.i, label %395, label %pcf_get_bitmaps.exit.thread
@@ -1744,7 +1744,7 @@ pcf_get_metrics.exit:                             ; preds = %pcf_get_metric.exit
 
 .preheader.split.i:                               ; preds = %.preheader.i234, %397
   %.161.i = phi i64 [ %398, %397 ], [ 0, %.preheader.i234 ]
-  %399 = call i32 @FT_Stream_ReadULong(ptr noundef %0, ptr noundef nonnull %4) #15
+  %399 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %0, ptr noundef nonnull %4) #15
   %400 = load i32, ptr %4, align 4
   %.not48.i235 = icmp eq i32 %400, 0
   br i1 %.not48.i235, label %397, label %pcf_get_bitmaps.exit.thread
@@ -1758,7 +1758,7 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %345, %.preheader.sp
   store i64 %364, ptr %401, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %10, align 4
-  %402 = call fastcc i32 @pcf_get_encodings(ptr noundef %0, ptr noundef nonnull %1)
+  %402 = call fastcc i32 @pcf_get_encodings(ptr noundef nonnull %0, ptr noundef nonnull %1)
   store i32 %402, ptr %10, align 4
   %.not171 = icmp eq i32 %402, 0
   br i1 %.not171, label %403, label %.thread266
@@ -1767,7 +1767,7 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %345, %.preheader.sp
   br i1 %.not167246, label %406, label %404
 
 404:                                              ; preds = %403
-  %405 = call fastcc i32 @pcf_get_accel(ptr noundef %0, ptr noundef nonnull %1, i64 noundef 256)
+  %405 = call fastcc i32 @pcf_get_accel(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 256)
   store i32 %405, ptr %10, align 4
   %.not172 = icmp eq i32 %405, 0
   br i1 %.not172, label %406, label %.thread266
@@ -2446,7 +2446,7 @@ define internal fastcc i32 @pcf_get_encodings(ptr noundef %0, ptr noundef %1) un
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.073111.us = phi i16 [ %127, %.lr.ph.split.us ], [ %123, %.lr.ph ]
   %.180110.us = phi ptr [ %126, %.lr.ph.split.us ], [ %.079113, %.lr.ph ]
-  %124 = call zeroext i16 @FT_Stream_GetUShortLE(ptr noundef %0) #15
+  %124 = call zeroext i16 @FT_Stream_GetUShortLE(ptr noundef nonnull %0) #15
   %125 = call i16 @llvm.uadd.sat.i16(i16 %124, i16 1)
   %126 = getelementptr inbounds nuw i8, ptr %.180110.us, i64 2
   store i16 %125, ptr %.180110.us, align 2
@@ -2458,7 +2458,7 @@ define internal fastcc i32 @pcf_get_encodings(ptr noundef %0, ptr noundef %1) un
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.073111 = phi i16 [ %132, %.lr.ph.split ], [ %123, %.lr.ph ]
   %.180110 = phi ptr [ %131, %.lr.ph.split ], [ %.079113, %.lr.ph ]
-  %129 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %0) #15
+  %129 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef nonnull %0) #15
   %130 = call i16 @llvm.uadd.sat.i16(i16 %129, i16 1)
   %131 = getelementptr inbounds nuw i8, ptr %.180110, i64 2
   store i16 %130, ptr %.180110, align 2
@@ -2476,7 +2476,7 @@ define internal fastcc i32 @pcf_get_encodings(ptr noundef %0, ptr noundef %1) un
   br i1 %.not95, label %._crit_edge117, label %.lr.ph116.split, !llvm.loop !23
 
 ._crit_edge117:                                   ; preds = %._crit_edge, %.lr.ph116, %116
-  call void @FT_Stream_ExitFrame(ptr noundef %0) #15
+  call void @FT_Stream_ExitFrame(ptr noundef nonnull %0) #15
   %.pre = load i32, ptr %3, align 4
   br label %pcf_seek_to_table_type.exit.thread
 
@@ -2486,7 +2486,7 @@ pcf_seek_to_table_type.exit.thread:               ; preds = %11, %2, %22, %16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pcf_interpret_style(ptr nocapture noundef initializes((24, 32)) %0) unnamed_addr #1 {
+define internal fastcc i32 @pcf_interpret_style(ptr noundef captures(none) initializes((24, 32)) %0) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca [4 x ptr], align 16
   %4 = alloca [4 x i64], align 16
@@ -2800,7 +2800,7 @@ declare hidden i32 @FT_Stream_ReadFields(ptr noundef, ptr noundef, ptr noundef) 
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2890,13 +2890,13 @@ declare hidden zeroext i16 @FT_Stream_GetUShort(ptr noundef) local_unnamed_addr 
 declare hidden zeroext i16 @FT_Stream_GetUShortLE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @pcf_cmap_init(ptr nocapture noundef initializes((24, 32)) %0, ptr nocapture readnone %1) #3 {
+define internal noundef i32 @pcf_cmap_init(ptr noundef captures(none) initializes((24, 32)) %0, ptr readnone captures(none) %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 536
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2905,14 +2905,14 @@ define internal noundef i32 @pcf_cmap_init(ptr nocapture noundef initializes((24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pcf_cmap_done(ptr nocapture noundef writeonly initializes((24, 32)) %0) #9 {
+define internal void @pcf_cmap_done(ptr noundef writeonly captures(none) initializes((24, 32)) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @pcf_cmap_char_index(ptr nocapture noundef readonly %0, i32 noundef %1) #10 {
+define internal range(i32 0, 65536) i32 @pcf_cmap_char_index(ptr noundef readonly captures(none) %0, i32 noundef %1) #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = lshr i32 %1, 8
@@ -2956,7 +2956,7 @@ define internal range(i32 0, 65536) i32 @pcf_cmap_char_index(ptr nocapture nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @pcf_cmap_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #11 {
+define internal range(i32 0, 65536) i32 @pcf_cmap_char_next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -3073,10 +3073,10 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 declare i64 @llvm.abs.i64(i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #13

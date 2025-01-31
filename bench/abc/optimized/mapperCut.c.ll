@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_HashPrimes = internal unnamed_addr constant [10 x i32] [i32 109, i32 499, i32 557, i32 619, i32 631, i32 709, i32 797, i32 881, i32 907, i32 991], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Map_MappingCountAllCuts(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Map_MappingCountAllCuts(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -783,7 +783,7 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %297
 
 .loopexit61.i:                                    ; preds = %Map_CutSortCuts.exit, %.preheader60.i, %Map_CutMergeLists.exit.i
   %.041.i = phi ptr [ %279, %Map_CutMergeLists.exit.i ], [ %279, %.preheader60.i ], [ %.0..0..0..0..0..0..0..0..i.i49, %Map_CutSortCuts.exit ]
-  %301 = call ptr @Map_CutAlloc(ptr noundef %0) #17
+  %301 = call ptr @Map_CutAlloc(ptr noundef nonnull %0) #17
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 76
   store i8 1, ptr %302, align 4
   %303 = getelementptr inbounds nuw i8, ptr %301, i64 24
@@ -867,7 +867,7 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %297
 
 ._crit_edge54.thread.i.i:                         ; preds = %._crit_edge54.i.i, %.preheader.lr.ph.split.i.i, %._crit_edge.us.i.i
   store ptr %306, ptr %.03770.i.i, align 8
-  call void @Map_CutFree(ptr noundef %0, ptr noundef nonnull %.03572.sink.i.i) #17
+  call void @Map_CutFree(ptr noundef nonnull %0, ptr noundef nonnull %.03572.sink.i.i) #17
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %310, %._crit_edge54.thread.i.i
@@ -1070,7 +1070,7 @@ declare i32 @Map_NodeIsAnd(ptr noundef) local_unnamed_addr #2
 declare void @Extra_ProgressBarStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
@@ -1091,7 +1091,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #17
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #17
   call void @free(ptr noundef %9) #17
   br label %16
 
@@ -1108,7 +1108,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Map_CutMergeLists2(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define ptr @Map_CutMergeLists2(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca [6 x ptr], align 16
   %8 = alloca ptr, align 8
   %9 = alloca [7 x ptr], align 16
@@ -1244,10 +1244,10 @@ Map_CutTableRestart.exit:                         ; preds = %14, %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #5 {
+define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = load i8, ptr %5, align 4
   %7 = sext i8 %6 to i32
@@ -1550,7 +1550,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Map_CutTableConsider(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc ptr @Map_CutTableConsider(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef %3) unnamed_addr #1 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader.i.i, label %Map_CutTableHash.exit.thread.i
 
@@ -1723,7 +1723,7 @@ Map_CutTableLookup.exit.thread:                   ; preds = %.lr.ph33.split.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Map_CutSortCuts(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc ptr @Map_CutSortCuts(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1809,7 +1809,7 @@ Map_CutArray2List.exit:                           ; preds = %.lr.ph.i15, %.threa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @Map_CutSortCutsCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define range(i32 -1, 2) i32 @Map_CutSortCutsCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %5 = load i8, ptr %4, align 4
@@ -1832,13 +1832,13 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 declare i32 @Map_NodeComparePhase(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1848,7 +1848,7 @@ declare void @Map_CutFree(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1865,10 +1865,10 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @llvm.scmp.i32.i8(i8, i8) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14

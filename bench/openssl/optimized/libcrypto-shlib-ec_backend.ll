@@ -197,7 +197,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_group_todata(ptr noundef %group, ptr noundef %tmpl, ptr noundef %params, ptr nocapture noundef readnone %libctx, ptr nocapture noundef readnone %propq, ptr noundef %bnctx, ptr noundef %genbuf) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_group_todata(ptr noundef %group, ptr noundef %tmpl, ptr noundef %params, ptr noundef readnone captures(none) %libctx, ptr noundef readnone captures(none) %propq, ptr noundef %bnctx, ptr noundef %genbuf) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %group, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1161,7 +1161,7 @@ declare i32 @CRYPTO_dup_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unn
 declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_encoding_param2id(ptr noundef %p, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_encoding_param2id(ptr noundef %p, ptr noundef writeonly captures(none) %id) local_unnamed_addr #0 {
 entry:
   %name = alloca ptr, align 8
   store ptr null, ptr %name, align 8
@@ -1224,7 +1224,7 @@ return:                                           ; preds = %for.cond.i, %sw.bb1
 declare i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_pt_format_param2id(ptr noundef %p, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_pt_format_param2id(ptr noundef %p, ptr noundef writeonly captures(none) %id) local_unnamed_addr #0 {
 entry:
   %name = alloca ptr, align 8
   store ptr null, ptr %name, align 8
@@ -1509,10 +1509,10 @@ declare void @EC_KEY_set_enc_flags(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @EC_KEY_set_conv_form(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

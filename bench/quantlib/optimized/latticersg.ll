@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8QuantLib10LatticeRsgC1EmSt6vectorIdSaIdEEm = unnamed_addr alias void (ptr, i64, ptr, i64), ptr @_ZN8QuantLib10LatticeRsgC2EmSt6vectorIdSaIdEEm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib10LatticeRsgC2EmSt6vectorIdSaIdEEm(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 48)) %this, i64 noundef %dimensionality, ptr nocapture noundef %z, i64 noundef %N) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib10LatticeRsgC2EmSt6vectorIdSaIdEEm(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 48)) %this, i64 noundef %dimensionality, ptr noundef captures(none) %z, i64 noundef %N) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 %dimensionality, ptr %this, align 8, !tbaa !3
   %N_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -94,7 +94,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit9:                   ; preds = %lpad, %if.then.i.i.
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib10LatticeRsg6skipToEm(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %n) local_unnamed_addr #1 align 2 {
+define void @_ZN8QuantLib10LatticeRsg6skipToEm(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, i64 noundef %n) local_unnamed_addr #1 align 2 {
 entry:
   %i_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %i_, align 8, !tbaa !16
@@ -157,7 +157,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

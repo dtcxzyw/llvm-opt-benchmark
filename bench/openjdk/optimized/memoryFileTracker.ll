@@ -86,7 +86,7 @@ _ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit: ; preds = %6, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17MemoryFileTracker11free_memoryEPNS_10MemoryFileEmm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17MemoryFileTracker11free_memoryEPNS_10MemoryFileEmm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.VMATree::SummaryDiff", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %7 = add i64 %3, %2
@@ -116,7 +116,7 @@ define hidden void @_ZN17MemoryFileTracker11free_memoryEPNS_10MemoryFileEmm(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %1, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str, ptr noundef %5) #10
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #10
@@ -330,7 +330,7 @@ _ZN17MemoryFileTracker10MemoryFileC2EPKc.exit:    ; preds = %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %31, label %4
 
@@ -632,7 +632,7 @@ _ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE.exit: ; preds = %1, %.loopexi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17MemoryFileTracker8Instance15print_report_onEPKNS_10MemoryFileEP12outputStreamm(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17MemoryFileTracker8Instance15print_report_onEPKNS_10MemoryFileEP12outputStreamm(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN17MemoryFileTracker8Instance8_trackerE, align 8
   tail call void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret void
@@ -678,7 +678,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN17MemoryFileTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySnapshot(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySnapshot(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -769,14 +769,14 @@ _ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySnapshot.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17MemoryFileTracker8Instance6LockerC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17MemoryFileTracker8Instance6LockerC2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN17MemoryFileTracker8Instance6_mutexE, align 8
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17MemoryFileTracker8Instance6LockerD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17MemoryFileTracker8Instance6LockerD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN17MemoryFileTracker8Instance6_mutexE, align 8
   %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #10
   ret void
@@ -1095,16 +1095,16 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

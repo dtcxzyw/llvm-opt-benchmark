@@ -3021,10 +3021,10 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN29btDeformableContactProjection6updateEPP17btCollisionObjectiRK19btContactSolverInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(369) %this, ptr nocapture noundef readonly %deformableBodies, i32 noundef %numDeformableBodies, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZN29btDeformableContactProjection6updateEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(369) %this, ptr noundef readonly captures(none) %deformableBodies, i32 noundef %numDeformableBodies, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #3 align 2 {
 entry:
   %cmp112 = icmp sgt i32 %numDeformableBodies, 0
   br i1 %cmp112, label %for.cond2.preheader.lr.ph, label %for.end77
@@ -3208,7 +3208,7 @@ for.end77:                                        ; preds = %for.inc75, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN29btDeformableContactProjection17solveSplitImpulseEPP17btCollisionObjectiRK19btContactSolverInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(369) %this, ptr nocapture noundef readonly %deformableBodies, i32 noundef %numDeformableBodies, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) local_unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZN29btDeformableContactProjection17solveSplitImpulseEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(369) %this, ptr noundef readonly captures(none) %deformableBodies, i32 noundef %numDeformableBodies, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) local_unnamed_addr #3 align 2 {
 entry:
   %cmp58 = icmp sgt i32 %numDeformableBodies, 0
   br i1 %cmp58, label %for.cond2.preheader.lr.ph, label %for.end39
@@ -3328,7 +3328,7 @@ for.end39:                                        ; preds = %for.inc37, %for.con
 declare noundef float @_ZN34btDeformableRigidContactConstraint17solveSplitImpulseERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 4 dereferenceable(128)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN29btDeformableContactProjection14setConstraintsERK19btContactSolverInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(369) %this, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN29btDeformableContactProjection14setConstraintsERK19btContactSolverInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(369) %this, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   %constraint = alloca %class.btDeformableNodeAnchorConstraint, align 8
@@ -4089,7 +4089,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZN32btDeformableNodeAnchorConstraintC1ERKN10btSoftBody25DeformableNodeRigidAnchorERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(872), ptr noundef nonnull align 4 dereferenceable(128)) unnamed_addr #0
 
@@ -4101,7 +4101,7 @@ declare void @_ZN38btDeformableFaceRigidContactConstraintC1ERKN10btSoftBody26Def
 declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN29btDeformableContactProjection7projectER20btAlignedObjectArrayI9btVector3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(369) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %x) unnamed_addr #8 align 2 {
+define dso_local void @_ZN29btDeformableContactProjection7projectER20btAlignedObjectArrayI9btVector3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(369) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %x) unnamed_addr #8 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -6206,7 +6206,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local void @_ZN29btDeformableContactProjection16checkConstraintsERK20btAlignedObjectArrayI9btVector3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(369) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %x) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN29btDeformableContactProjection16checkConstraintsERK20btAlignedObjectArrayI9btVector3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(369) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %x) local_unnamed_addr #9 align 2 {
 entry:
   %d = alloca %class.btVector3, align 4
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 180
@@ -6297,7 +6297,7 @@ for.end26:                                        ; preds = %for.inc24, %entry
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN29btDeformableContactProjection21setLagrangeMultiplierEv(ptr nocapture noundef nonnull align 8 dereferenceable(369) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN29btDeformableContactProjection21setLagrangeMultiplierEv(ptr noundef nonnull align 8 captures(none) dereferenceable(369) %this) unnamed_addr #3 align 2 {
 entry:
   %lm165 = alloca %struct.LagrangeMultiplier, align 4
   %m_softBodies = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6913,7 +6913,7 @@ for.end233:                                       ; preds = %for.inc231, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN29btDeformableContactProjection20applyDynamicFrictionER20btAlignedObjectArrayI9btVector3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(369) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %f) unnamed_addr #5 align 2 {
+define dso_local void @_ZN29btDeformableContactProjection20applyDynamicFrictionER20btAlignedObjectArrayI9btVector3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(369) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %f) unnamed_addr #5 align 2 {
 entry:
   %m_softBodies = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_softBodies, align 8
@@ -12707,13 +12707,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #17

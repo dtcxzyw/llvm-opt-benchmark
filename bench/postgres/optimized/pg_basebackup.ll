@@ -1882,14 +1882,14 @@ sub_0136:                                         ; preds = %439
   br i1 %595, label %596, label %597
 
 596:                                              ; preds = %592
-  call void @AppendStringCommandOption(ptr noundef nonnull %17, i1 noundef zeroext true, ptr noundef nonnull @.str.196, ptr noundef %593) #18
+  call void @AppendStringCommandOption(ptr noundef nonnull %17, i1 noundef zeroext true, ptr noundef nonnull @.str.196, ptr noundef nonnull %593) #18
   br label %604
 
 597:                                              ; preds = %592
   %598 = ptrtoint ptr %594 to i64
   %599 = ptrtoint ptr %593 to i64
   %600 = sub i64 %598, %599
-  %601 = call ptr @pnstrdup(ptr noundef %593, i64 noundef %600) #18
+  %601 = call ptr @pnstrdup(ptr noundef nonnull %593, i64 noundef %600) #18
   call void @AppendStringCommandOption(ptr noundef nonnull %17, i1 noundef zeroext true, ptr noundef nonnull @.str.196, ptr noundef %601) #18
   %602 = getelementptr i8, ptr %594, i64 1
   call void @AppendStringCommandOption(ptr noundef nonnull %17, i1 noundef zeroext true, ptr noundef nonnull @.str.197, ptr noundef %602) #18
@@ -2860,7 +2860,7 @@ declare ptr @get_progname(ptr noundef) local_unnamed_addr #1
 declare void @set_pglocale_pgservice(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @usage() unnamed_addr #0 {
@@ -2917,7 +2917,7 @@ define internal fastcc void @usage() unnamed_addr #0 {
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare i32 @atexit(ptr noundef) local_unnamed_addr #4
@@ -3166,7 +3166,7 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #1
 
@@ -3176,7 +3176,7 @@ declare zeroext i1 @rmtree(ptr noundef, i1 noundef zeroext) local_unnamed_addr #
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #8
@@ -3184,7 +3184,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #8
 declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare void @parse_compress_options(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3195,7 +3195,7 @@ declare i32 @pg_check_dir(ptr noundef) local_unnamed_addr #1
 declare i32 @pg_mkdir_p(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #1
 
@@ -3208,7 +3208,7 @@ declare ptr @GenerateRecoveryConfig(ptr noundef, ptr noundef) local_unnamed_addr
 declare zeroext i1 @RunIdentifySystem(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #11
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #11
 
 declare i32 @PQsendQuery(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3221,7 +3221,7 @@ declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #1
 declare ptr @PQresStatus(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 declare i32 @PQputCopyData(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3244,7 +3244,7 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @isatty(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @PQntuples(ptr noundef) local_unnamed_addr #1
 
@@ -3256,12 +3256,12 @@ declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @PQclear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @PQgetisnull(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3435,10 +3435,10 @@ define internal fastcc void @progress_report(i32 noundef %0, i1 noundef zeroext 
 declare ptr @PQresultErrorField(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3453,10 +3453,10 @@ declare void @sync_pgdata(ptr noundef, i32 noundef, i32 noundef) local_unnamed_a
 declare i32 @durable_rename(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @pipe(ptr noundef) local_unnamed_addr #5
@@ -3661,7 +3661,7 @@ declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReceiveCopyData(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @ReceiveCopyData(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @PQgetResult(ptr noundef %0) #18
   %6 = tail call i32 @PQresultStatus(ptr noundef %5) #18
@@ -4001,7 +4001,7 @@ GetCopyDataEnd.exit80:                            ; preds = %96
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @bbstreamer_inject_file(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4010,7 +4010,7 @@ declare i32 @PQgetCopyData(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare void @PQfreemem(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @CreateBackupStreamer(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @CreateBackupStreamer(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [1024 x i8], align 16
   %8 = alloca [1024 x i8], align 16
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
@@ -4100,7 +4100,7 @@ sub_0:                                            ; preds = %6
   br i1 %brmerge82, label %61, label %52
 
 52:                                               ; preds = %50
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.262, ptr noundef %0) #18
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.262, ptr noundef nonnull %0) #18
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.263) #18
   %53 = load i8, ptr @format, align 1
   %54 = icmp eq i8 %53, 112
@@ -4200,7 +4200,7 @@ sub_091:                                          ; preds = %61
   br label %92
 
 .tail90.thread:                                   ; preds = %sub_091, %.tail90
-  %91 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.85, ptr noundef nonnull %83, ptr noundef %0) #18
+  %91 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.85, ptr noundef nonnull %83, ptr noundef nonnull %0) #18
   br label %92
 
 92:                                               ; preds = %.tail90.thread, %88
@@ -4323,15 +4323,15 @@ progress_update_filename.exit:                    ; preds = %113, %110, %81
 declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @createPQExpBuffer() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @ReportCopyDataParseError(i64 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #13 {
+define internal fastcc void @ReportCopyDataParseError(i64 noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #13 {
   %3 = icmp eq i64 %0, 0
   br i1 %3, label %4, label %5
 
@@ -4379,7 +4379,7 @@ declare ptr @bbstreamer_zstd_decompressor_new(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.bswap.i64(i64) #14
 
 ; Function Attrs: nounwind uwtable
-define internal void @ReceiveTarCopyChunk(i64 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @ReceiveTarCopyChunk(i64 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = trunc i64 %0 to i32
@@ -4403,7 +4403,7 @@ define internal void @ReceiveBackupManifestInMemoryChunk(i64 noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ReceiveBackupManifestChunk(i64 noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @ReceiveBackupManifestChunk(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call ptr @__errno_location() #22
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1024
@@ -4434,19 +4434,19 @@ define internal void @ReceiveBackupManifestChunk(i64 noundef %0, ptr nocapture n
 declare i64 @time(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

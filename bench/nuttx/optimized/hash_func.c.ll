@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_default_hash = local_unnamed_addr global ptr @hash4, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @hash4(ptr nocapture noundef readonly %0, i64 noundef %1) #0 {
+define internal i32 @hash4(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %56, label %3
 

@@ -18,13 +18,13 @@ $_ZN6hermes20ResolveStaticRequireD0Ev = comdat any
 @.str.13 = private unnamed_addr constant [21 x i8] c"ResolveStaticRequire\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6hermes20ResolveStaticRequire11runOnModuleEPNS_6ModuleE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %M) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes20ResolveStaticRequire11runOnModuleEPNS_6ModuleE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %M) unnamed_addr #0 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes26createResolveStaticRequireEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.141") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #1 {
+define hidden void @_ZN6hermes26createResolveStaticRequireEv(ptr noalias writeonly sret(%"class.std::unique_ptr.141") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #1 {
 _ZNSt10unique_ptrIN6hermes20ResolveStaticRequireESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #4, !noalias !4
   %kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8

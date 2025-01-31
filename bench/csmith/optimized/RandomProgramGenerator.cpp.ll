@@ -3928,10 +3928,10 @@ declare noundef i64 @_Z17platform_gen_seedv() local_unnamed_addr #0
 declare void @_ZN9CGOptions20set_default_settingsEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #5 {
   %3 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %0, ptr noundef nonnull @.str.344, ptr noundef %1) #9
   %4 = icmp ne i32 %3, 0
   br i1 %4, label %8, label %5
@@ -4210,7 +4210,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN9CGOptions12conflict
 declare noundef ptr @_ZN19AbsProgramGenerator14CreateInstanceEiPPcm(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_RandomProgramGenerator.cpp() #8 section ".text.startup" {

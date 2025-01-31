@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [10 x i8] c"svg-hooks\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @ft_svg_init(ptr nocapture noundef writeonly initializes((128, 130)) %0) #0 {
+define internal noundef i32 @ft_svg_init(ptr noundef writeonly captures(none) initializes((128, 130)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 129
@@ -53,13 +53,13 @@ define internal void @ft_svg_done(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ft_svg_get_interface(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal ptr @ft_svg_get_interface(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @ft_svg_services, ptr noundef %1) #7
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_svg_render(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @ft_svg_render(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -143,7 +143,7 @@ ft_svg_preset_slot.exit:                          ; preds = %18, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ft_svg_transform(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) #1 {
+define internal noundef i32 @ft_svg_transform(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) #1 {
   %5 = alloca %struct.FT_Matrix_, align 8
   %.sroa.0 = alloca i64, align 8
   %.sroa.2 = alloca i64, align 8
@@ -277,12 +277,12 @@ define internal i32 @ft_svg_preset_slot(ptr noundef %0, ptr noundef %1, i8 nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 13) i32 @ft_svg_property_set(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3) #4 {
+define internal range(i32 0, 13) i32 @ft_svg_property_set(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3) #4 {
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.2) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %22
@@ -327,7 +327,7 @@ define internal range(i32 0, 13) i32 @ft_svg_property_set(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 13) i32 @ft_svg_property_get(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 {
+define internal range(i32 0, 13) i32 @ft_svg_property_get(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #4 {
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.2) #8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
@@ -343,7 +343,7 @@ define internal range(i32 0, 13) i32 @ft_svg_property_get(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -352,7 +352,7 @@ declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @FT_Matrix_Multiply(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

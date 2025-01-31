@@ -388,7 +388,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_watch_node(ptr nocapture readnone %0) #0 {
+define internal noundef ptr @_watch_node(ptr readnone captures(none) %0) #0 {
   %2 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %.preheader

@@ -106,7 +106,7 @@ return:                                           ; preds = %if.else, %entry, %l
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #3
 
@@ -246,7 +246,7 @@ return:                                           ; preds = %if.then15, %do.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @utrie_close_75(ptr noundef %trie) local_unnamed_addr #0 {
@@ -1192,7 +1192,7 @@ return:                                           ; preds = %for.body65, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL21defaultGetFoldedValueP8UNewTrieii(ptr nocapture noundef readonly %trie, i32 noundef %start, i32 noundef %offset) unnamed_addr #9 {
+define internal noundef i32 @_ZL21defaultGetFoldedValueP8UNewTrieii(ptr noundef readonly captures(none) %trie, i32 noundef %start, i32 noundef %offset) unnamed_addr #9 {
 entry.split:
   %data = getelementptr inbounds nuw i8, ptr %trie, i64 139392
   %0 = load ptr, ptr %data, align 8
@@ -1239,7 +1239,7 @@ return:                                           ; preds = %if.end5, %if.else, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL13utrie_compactP8UNewTrieaP10UErrorCode(ptr nocapture noundef nonnull %trie, i8 noundef signext range(i8 0, 2) %overlap, i32 %pErrorCode.0.val) unnamed_addr #8 {
+define internal fastcc void @_ZL13utrie_compactP8UNewTrieaP10UErrorCode(ptr noundef nonnull captures(none) %trie, i8 noundef signext range(i8 0, 2) %overlap, i32 %pErrorCode.0.val) unnamed_addr #8 {
 entry:
   %cmp.i = icmp slt i32 %pErrorCode.0.val, 1
   br i1 %cmp.i, label %if.end3, label %return
@@ -1513,7 +1513,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @utrie_unserialize_75(ptr nocapture noundef writeonly %trie, ptr noundef %data, i32 noundef %length, ptr noundef %pErrorCode) local_unnamed_addr #5 {
+define i32 @utrie_unserialize_75(ptr noundef writeonly captures(none) %trie, ptr noundef %data, i32 noundef %length, ptr noundef %pErrorCode) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1636,7 +1636,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 5376) i32 @utrie_unserializeDummy_75(ptr nocapture noundef %trie, ptr noundef %data, i32 noundef %length, i32 noundef %initialValue, i32 noundef %leadUnitValue, i8 noundef signext %make16BitTrie, ptr noundef %pErrorCode) local_unnamed_addr #11 {
+define range(i32 -1, 5376) i32 @utrie_unserializeDummy_75(ptr noundef captures(none) %trie, ptr noundef %data, i32 noundef %length, i32 noundef %initialValue, i32 noundef %leadUnitValue, i8 noundef signext %make16BitTrie, ptr noundef %pErrorCode) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -2322,22 +2322,22 @@ return:                                           ; preds = %if.then29, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL13enumSameValuePKvj(ptr nocapture readnone %0, i32 noundef returned %value) unnamed_addr #10 {
+define internal noundef i32 @_ZL13enumSameValuePKvj(ptr readnone captures(none) %0, i32 noundef returned %value) unnamed_addr #10 {
 entry:
   ret i32 %value
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

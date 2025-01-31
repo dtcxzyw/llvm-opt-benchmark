@@ -112,7 +112,7 @@ return:                                           ; preds = %if.else, %sw.bb7, %
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 4, 9) i32 @riscv_cpu_gdb_write_register(ptr noundef %cs, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local range(i32 4, 9) i32 @riscv_cpu_gdb_write_register(ptr noundef %cs, ptr noundef readonly captures(none) %mem_buf, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
   %env1 = getelementptr inbounds nuw i8, ptr %call.i, i64 10176
@@ -365,7 +365,7 @@ if.end21:                                         ; preds = %riscv_gen_dynamic_c
 declare void @gdb_register_coprocessor(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 9) i32 @riscv_gdb_get_fpu(ptr nocapture noundef readonly %env, ptr noundef %buf, i32 noundef %n) #0 {
+define internal range(i32 0, 9) i32 @riscv_gdb_get_fpu(ptr noundef readonly captures(none) %env, ptr noundef %buf, i32 noundef %n) #0 {
 entry:
   %to_long.i = alloca i32, align 4
   %to_quad.i = alloca i64, align 8
@@ -414,7 +414,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 9) i32 @riscv_gdb_set_fpu(ptr nocapture noundef writeonly %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #3 {
+define internal range(i32 0, 9) i32 @riscv_gdb_set_fpu(ptr noundef writeonly captures(none) %env, ptr noundef readonly captures(none) %mem_buf, i32 noundef %n) #3 {
 entry:
   %cmp = icmp slt i32 %n, 32
   br i1 %cmp, label %if.then, label %return
@@ -433,7 +433,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 8, 1) i32 @riscv_gdb_get_vector(ptr nocapture noundef readonly %env, ptr noundef %buf, i32 noundef %n) #0 {
+define internal range(i32 8, 1) i32 @riscv_gdb_get_vector(ptr noundef readonly captures(none) %env, ptr noundef %buf, i32 noundef %n) #0 {
 entry:
   %to_quad.i = alloca i64, align 8
   %cmp = icmp slt i32 %n, 32
@@ -473,7 +473,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal range(i32 0, 8192) i32 @riscv_gdb_set_vector(ptr nocapture noundef %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #4 {
+define internal range(i32 0, 8192) i32 @riscv_gdb_set_vector(ptr noundef captures(none) %env, ptr noundef readonly captures(none) %mem_buf, i32 noundef %n) #4 {
 entry:
   %cmp = icmp slt i32 %n, 32
   br i1 %cmp, label %for.cond.preheader, label %return
@@ -512,7 +512,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 9) i32 @riscv_gdb_get_virtual(ptr nocapture readnone %cs, ptr noundef %buf, i32 noundef %n) #0 {
+define internal range(i32 0, 9) i32 @riscv_gdb_get_virtual(ptr readnone captures(none) %cs, ptr noundef %buf, i32 noundef %n) #0 {
 entry:
   %to_quad.i = alloca i64, align 8
   %cmp = icmp eq i32 %n, 0
@@ -531,7 +531,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef range(i32 0, 9) i32 @riscv_gdb_set_virtual(ptr nocapture readnone %cs, ptr nocapture readnone %mem_buf, i32 noundef %n) #5 {
+define internal noundef range(i32 0, 9) i32 @riscv_gdb_set_virtual(ptr readnone captures(none) %cs, ptr readnone captures(none) %mem_buf, i32 noundef %n) #5 {
 entry:
   %cmp = icmp eq i32 %n, 0
   %. = select i1 %cmp, i32 8, i32 0
@@ -566,7 +566,7 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 9) i32 @riscv_gdb_set_csr(ptr noundef %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #0 {
+define internal range(i32 0, 9) i32 @riscv_gdb_set_csr(ptr noundef %env, ptr noundef readonly captures(none) %mem_buf, i32 noundef %n) #0 {
 entry:
   %cmp = icmp slt i32 %n, 4096
   br i1 %cmp, label %if.then, label %if.end4
@@ -605,10 +605,10 @@ declare i32 @riscv_csrrw_debug(ptr noundef, i32 noundef, ptr noundef, i64 nounde
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

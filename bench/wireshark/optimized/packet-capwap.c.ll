@@ -1756,7 +1756,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -1833,7 +1833,7 @@ define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph.i:                                         ; preds = %49, %.lr.ph.i
   %.017.i = phi i32 [ %60, %.lr.ph.i ], [ 0, %49 ]
   %58 = add i32 %.017.i, 8
-  %59 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef nonnull %43, ptr noundef %55, i32 noundef %58, ptr noundef %1)
+  %59 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef nonnull %43, ptr noundef %55, i32 noundef %58, ptr noundef nonnull %1)
   %60 = add i32 %59, %.017.i
   %61 = add i32 %60, 8
   %62 = icmp ult i32 %61, %56
@@ -1865,7 +1865,7 @@ dissect_capwap_message_element.exit:              ; preds = %49, %dissect_capwap
 .lr.ph.i69:                                       ; preds = %65, %.lr.ph.i69
   %.017.i70 = phi i32 [ %77, %.lr.ph.i69 ], [ 0, %65 ]
   %75 = add i32 %.017.i70, %66
-  %76 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %0, ptr noundef %72, i32 noundef %75, ptr noundef %1)
+  %76 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %0, ptr noundef %72, i32 noundef %75, ptr noundef nonnull %1)
   %77 = add i32 %76, %.017.i70
   %78 = add i32 %77, %66
   %79 = icmp ult i32 %78, %73
@@ -1887,7 +1887,7 @@ dissect_capwap_message_element.exit71:            ; preds = %.lr.ph.i69, %65
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -1996,7 +1996,7 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph.i:                                         ; preds = %71, %.lr.ph.i
   %.026.i = phi i32 [ %75, %.lr.ph.i ], [ 2, %71 ]
-  %74 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %.065, ptr noundef %63, i32 noundef %.026.i, ptr noundef %1)
+  %74 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %.065, ptr noundef %63, i32 noundef %.026.i, ptr noundef nonnull %1)
   %75 = add i32 %74, %.026.i
   %76 = icmp ult i32 %75, %72
   br i1 %76, label %.lr.ph.i, label %dissect_capwap_data_keep_alive.exit, !llvm.loop !6
@@ -2076,7 +2076,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 5) i32 @dissect_capwap_preamble(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 5) i32 @dissect_capwap_preamble(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_capwap_preamble, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %6 = load i32, ptr @ett_capwap_preamble, align 4
@@ -2107,7 +2107,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 5) %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %4, ptr nocapture noundef nonnull initializes((0, 1)) %5, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %6, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %7, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %8, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 5) %2, ptr noundef %3, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %4, ptr noundef nonnull captures(none) initializes((0, 1)) %5, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %7, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %8, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %9) unnamed_addr #0 {
   %11 = shl nuw nsw i32 %2, 3
   %12 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %11, i32 noundef 5) #2
   %13 = zext i8 %12 to i32
@@ -2336,7 +2336,7 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_capwap_control_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 1024) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_capwap_control_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 1024) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_capwap_control_header, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 8, i32 noundef 0) #2
   %7 = load i32, ptr @ett_capwap_control_header, align 4

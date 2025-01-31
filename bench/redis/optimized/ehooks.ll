@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @tsd_tls = external thread_local(initialexec) global %struct.tsd_s, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ehooks_init(ptr nocapture noundef writeonly initializes((0, 4)) %ehooks, ptr noundef %extent_hooks, i32 noundef %ind) local_unnamed_addr #0 {
+define hidden void @ehooks_init(ptr noundef writeonly captures(none) initializes((0, 4)) %ehooks, ptr noundef %extent_hooks, i32 noundef %ind) local_unnamed_addr #0 {
 entry:
   store i32 %ind, ptr %ehooks, align 8
   %ptr.i = getelementptr inbounds nuw i8, ptr %ehooks, i64 8
@@ -187,7 +187,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @ehooks_default_merge_impl(ptr nocapture noundef readnone %tsdn, ptr noundef %addr_a, ptr noundef %addr_b) local_unnamed_addr #1 {
+define hidden zeroext i1 @ehooks_default_merge_impl(ptr noundef readnone captures(none) %tsdn, ptr noundef %addr_a, ptr noundef %addr_b) local_unnamed_addr #1 {
 entry:
   %call = tail call zeroext i1 @extent_dss_mergeable(ptr noundef %addr_a, ptr noundef %addr_b) #6
   %retval.0 = xor i1 %call, true
@@ -197,7 +197,7 @@ entry:
 declare zeroext i1 @extent_dss_mergeable(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @ehooks_default_merge(ptr nocapture readnone %extent_hooks, ptr noundef %addr_a, i64 %size_a, ptr noundef %addr_b, i64 %size_b, i1 zeroext %committed, i32 %arena_ind) #1 {
+define hidden zeroext i1 @ehooks_default_merge(ptr readnone captures(none) %extent_hooks, ptr noundef %addr_a, i64 %size_a, ptr noundef %addr_b, i64 %size_b, i1 zeroext %committed, i32 %arena_ind) #1 {
 entry:
   %0 = load i8, ptr @tsd_booted, align 1
   %tobool.i = trunc i8 %0 to i1
@@ -240,7 +240,7 @@ if.end2:                                          ; preds = %if.then1, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ehooks_default_guard_impl(ptr noundef %guard1, ptr noundef %guard2) local_unnamed_addr #1 {
@@ -261,7 +261,7 @@ entry:
 declare void @pages_unmark_guards(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ehooks_default_alloc(ptr nocapture readnone %extent_hooks, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef %zero, ptr noundef %commit, i32 noundef %arena_ind) #1 {
+define internal noundef ptr @ehooks_default_alloc(ptr readnone captures(none) %extent_hooks, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef %zero, ptr noundef %commit, i32 noundef %arena_ind) #1 {
 entry:
   %0 = load i8, ptr @tsd_booted, align 1
   %tobool.i = trunc i8 %0 to i1
@@ -287,7 +287,7 @@ tsdn_fetch.exit:                                  ; preds = %if.then11.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @ehooks_default_dalloc(ptr nocapture readnone %extent_hooks, ptr noundef %addr, i64 noundef %size, i1 zeroext %committed, i32 %arena_ind) #1 {
+define internal zeroext i1 @ehooks_default_dalloc(ptr readnone captures(none) %extent_hooks, ptr noundef %addr, i64 noundef %size, i1 zeroext %committed, i32 %arena_ind) #1 {
 entry:
   %call.i = tail call zeroext i1 @extent_in_dss(ptr noundef %addr) #6
   br i1 %call.i, label %ehooks_default_dalloc_impl.exit, label %if.then.i
@@ -302,7 +302,7 @@ ehooks_default_dalloc_impl.exit:                  ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ehooks_default_destroy(ptr nocapture readnone %extent_hooks, ptr noundef %addr, i64 noundef %size, i1 zeroext %committed, i32 %arena_ind) #1 {
+define internal void @ehooks_default_destroy(ptr readnone captures(none) %extent_hooks, ptr noundef %addr, i64 noundef %size, i1 zeroext %committed, i32 %arena_ind) #1 {
 entry:
   %call.i = tail call zeroext i1 @extent_in_dss(ptr noundef %addr) #6
   br i1 %call.i, label %ehooks_default_destroy_impl.exit, label %if.then.i
@@ -316,7 +316,7 @@ ehooks_default_destroy_impl.exit:                 ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @ehooks_default_commit(ptr nocapture readnone %extent_hooks, ptr noundef %addr, i64 %size, i64 noundef %offset, i64 noundef %length, i32 %arena_ind) #1 {
+define internal zeroext i1 @ehooks_default_commit(ptr readnone captures(none) %extent_hooks, ptr noundef %addr, i64 %size, i64 noundef %offset, i64 noundef %length, i32 %arena_ind) #1 {
 entry:
   %0 = ptrtoint ptr %addr to i64
   %add.i = add i64 %offset, %0
@@ -326,7 +326,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @ehooks_default_decommit(ptr nocapture readnone %extent_hooks, ptr noundef %addr, i64 %size, i64 noundef %offset, i64 noundef %length, i32 %arena_ind) #1 {
+define internal zeroext i1 @ehooks_default_decommit(ptr readnone captures(none) %extent_hooks, ptr noundef %addr, i64 %size, i64 noundef %offset, i64 noundef %length, i32 %arena_ind) #1 {
 entry:
   %0 = ptrtoint ptr %addr to i64
   %add.i = add i64 %offset, %0
@@ -336,7 +336,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @ehooks_default_purge_lazy(ptr nocapture readnone %extent_hooks, ptr noundef %addr, i64 %size, i64 noundef %offset, i64 noundef %length, i32 %arena_ind) #1 {
+define internal zeroext i1 @ehooks_default_purge_lazy(ptr readnone captures(none) %extent_hooks, ptr noundef %addr, i64 %size, i64 noundef %offset, i64 noundef %length, i32 %arena_ind) #1 {
 entry:
   %0 = ptrtoint ptr %addr to i64
   %add.i = add i64 %offset, %0
@@ -346,7 +346,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @ehooks_default_purge_forced(ptr nocapture readnone %extent_hooks, ptr noundef %addr, i64 %size, i64 noundef %offset, i64 noundef %length, i32 %arena_ind) #1 {
+define internal zeroext i1 @ehooks_default_purge_forced(ptr readnone captures(none) %extent_hooks, ptr noundef %addr, i64 %size, i64 noundef %offset, i64 noundef %length, i32 %arena_ind) #1 {
 entry:
   %0 = ptrtoint ptr %addr to i64
   %add.i = add i64 %offset, %0
@@ -356,7 +356,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @ehooks_default_split(ptr nocapture readnone %extent_hooks, ptr nocapture readnone %addr, i64 %size, i64 %size_a, i64 %size_b, i1 zeroext %committed, i32 %arena_ind) #3 {
+define internal noundef zeroext i1 @ehooks_default_split(ptr readnone captures(none) %extent_hooks, ptr readnone captures(none) %addr, i64 %size, i64 %size_a, i64 %size_b, i1 zeroext %committed, i32 %arena_ind) #3 {
 entry:
   ret i1 false
 }

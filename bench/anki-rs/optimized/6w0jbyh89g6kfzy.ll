@@ -60,7 +60,7 @@ define void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..resu
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr43drop_in_place$LT$$RF$std..path..PathBuf$GT$17hdbe3b521203e827fE"(ptr nocapture readnone align 8 %0) unnamed_addr #2 {
+define hidden void @"_ZN4core3ptr43drop_in_place$LT$$RF$std..path..PathBuf$GT$17hdbe3b521203e827fE"(ptr readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 

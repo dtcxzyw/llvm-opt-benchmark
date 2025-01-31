@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZTIN3ue218ResourceLimitErrorE = external constant ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN3ue214buildDvermMaskERKNS_8flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEEPhS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %escape_set, ptr noundef writeonly %m1_out, ptr noundef writeonly %m2_out) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN3ue214buildDvermMaskERKNS_8flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEEPhS9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %escape_set, ptr noundef writeonly %m1_out, ptr noundef writeonly %m2_out) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %escape_set, align 8, !noalias !5
   %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %escape_set, i64 8

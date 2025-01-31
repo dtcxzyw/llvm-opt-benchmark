@@ -322,7 +322,7 @@ if.end160:                                        ; preds = %if.else147
 
 if.then163:                                       ; preds = %if.then156, %if.end160
   %mdname.addr.2175 = phi ptr [ %mdname.addr.0, %if.end160 ], [ %locmdname, %if.then156 ]
-  call void @evp_md_ctx_clear_digest(ptr noundef %ctx, i32 noundef 1, i32 noundef 0) #5
+  call void @evp_md_ctx_clear_digest(ptr noundef nonnull %ctx, i32 noundef 1, i32 noundef 0) #5
   %call164 = call i32 @ERR_set_mark() #5
   %libctx165 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %libctx165, align 8
@@ -1490,7 +1490,7 @@ return:                                           ; preds = %if.end33, %if.end37
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @evp_md_ctx_free_algctx(ptr noundef) local_unnamed_addr #1
 
@@ -1547,7 +1547,7 @@ declare i32 @EVP_PKEY_get_default_digest_nid(ptr noundef, ptr noundef) local_unn
 declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @update(ptr nocapture readnone %ctx, ptr nocapture readnone %data, i64 %datalen) #0 {
+define internal noundef i32 @update(ptr readnone captures(none) %ctx, ptr readnone captures(none) %data, i64 %datalen) #0 {
 entry:
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 23, ptr noundef nonnull @__func__.update) #5
@@ -1566,10 +1566,10 @@ declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @evp_pkey_ctx_use_cached_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

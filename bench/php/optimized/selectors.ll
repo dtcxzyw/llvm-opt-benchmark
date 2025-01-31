@@ -47,7 +47,7 @@ declare ptr @lexbor_dobject_create() local_unnamed_addr #1
 declare i32 @lexbor_dobject_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lxb_selectors_clean(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @lxb_selectors_clean(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @lexbor_dobject_clean(ptr noundef %2) #6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -87,7 +87,7 @@ declare ptr @lexbor_dobject_destroy(ptr noundef, i1 noundef zeroext) local_unnam
 declare ptr @lexbor_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lxb_selectors_find(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lxb_selectors_find(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not10 = icmp eq ptr %2, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -118,7 +118,7 @@ define hidden range(i32 0, 2) i32 @lxb_selectors_find(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lxb_selectors_next_by_selector(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @lxb_selectors_next_by_selector(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = icmp eq ptr %2, null
   br i1 %7, label %8, label %16
 
@@ -271,7 +271,7 @@ lxb_selectors_descendant_next.exit:               ; preds = %50, %48, %.preheade
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 20, 19) i32 @lxb_selectors_find_reverse(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 20, 19) i32 @lxb_selectors_find_reverse(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not32 = icmp eq ptr %2, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
@@ -434,7 +434,7 @@ lxb_selectors_find_by_reverse.exit.thread16:      ; preds = %50, %.lr.ph, %14, %
 declare ptr @lexbor_dobject_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 20, 19) i32 @lxb_selectors_find_by(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef range(i32 20, 19) i32 @lxb_selectors_find_by(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #0 {
   br label %lxb_selectors_descendant_next.exit
 
 lxb_selectors_descendant_next.exit:               ; preds = %lxb_selectors_descendant_next.exit.backedge, %7
@@ -804,7 +804,7 @@ lxb_selectors_descendant_next.exit.backedge:      ; preds = %107, %109, %.prehea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @lxb_selectors_match(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @lxb_selectors_match(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = load i32, ptr %2, align 8
   switch i32 %6, label %596 [
@@ -2169,7 +2169,7 @@ lxb_selectors_match_class.exit:                   ; preds = %339, %334, %325, %.
 declare zeroext i1 @lexbor_str_data_ncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2327,7 +2327,7 @@ declare zeroext i1 @lxb_dom_node_is_empty(ptr noundef) local_unnamed_addr #1
 declare ptr @lxb_dom_document_root(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @lxb_selectors_next(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @lxb_selectors_next(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %.loopexit, label %7
 
@@ -2401,13 +2401,13 @@ define internal fastcc noundef ptr @lxb_selectors_next(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lxb_selectors_first_match(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #2 {
+define internal noundef i32 @lxb_selectors_first_match(ptr readnone captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #2 {
   store i8 1, ptr %2, align 1
   ret i32 19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lxb_selectors_current(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc ptr @lxb_selectors_current(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %.loopexit, label %7
 
@@ -2611,7 +2611,7 @@ lxb_selectors_find_by_selector.exit:              ; preds = %lxb_selectors_desce
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @lxb_selectors_anb_calc(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @lxb_selectors_anb_calc(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #3 {
   %3 = load i64, ptr %0, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %10
@@ -2653,10 +2653,10 @@ define internal fastcc noundef zeroext i1 @lxb_selectors_anb_calc(ptr nocapture 
 declare double @llvm.trunc.f64(double) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

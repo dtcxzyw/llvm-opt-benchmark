@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @H5T_native_order_g = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @H5T__bit_copy(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @H5T__bit_copy(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = lshr i64 %3, 3
   %7 = lshr i64 %1, 3
   %.0139 = and i64 %1, 7
@@ -202,7 +202,7 @@ define void @H5T__bit_copy(ptr nocapture noundef %0, i64 noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5T__bit_shift(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [512 x i8], align 16
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %H5T__bit_set.exit.thread, label %6
@@ -455,7 +455,7 @@ H5T__bit_set.exit.thread:                         ; preds = %._crit_edge.thread.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @H5T__bit_set(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define void @H5T__bit_set(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = trunc i64 %1 to i32
   %6 = sdiv i32 %5, 8
   %7 = and i64 %1, 7
@@ -562,7 +562,7 @@ declare ptr @H5WB_actual(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @H5WB_unwrap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @H5T__bit_get_d(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define i64 @H5T__bit_get_d(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
   call void @H5T__bit_copy(ptr noundef nonnull %4, i64 noundef 0, ptr noundef %0, i64 noundef %1, i64 noundef %2)
@@ -589,7 +589,7 @@ define i64 @H5T__bit_get_d(ptr nocapture noundef readonly %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @H5T__bit_set_d(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
+define void @H5T__bit_set_d(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = alloca i64, align 8
   store i64 %3, ptr %5, align 8
   %6 = load i32, ptr @H5T_native_order_g, align 4
@@ -615,7 +615,7 @@ define void @H5T__bit_set_d(ptr nocapture noundef %0, i64 noundef %1, i64 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
+define i64 @H5T__bit_find(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
   switch i32 %3, label %.loopexit [
     i32 0, label %6
     i32 1, label %64
@@ -866,7 +866,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define zeroext i1 @H5T__bit_inc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define zeroext i1 @H5T__bit_inc(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = lshr i64 %1, 3
   %5 = and i64 %1, 7
   %.not = icmp eq i64 %5, 0
@@ -966,7 +966,7 @@ define zeroext i1 @H5T__bit_inc(ptr nocapture noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define zeroext i1 @H5T__bit_dec(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define zeroext i1 @H5T__bit_dec(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = lshr i64 %1, 3
   %5 = and i64 %1, 7
   %6 = add i64 %1, -1
@@ -1061,7 +1061,7 @@ define zeroext i1 @H5T__bit_dec(ptr nocapture noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @H5T__bit_neg(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @H5T__bit_neg(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x i8], align 1
   %5 = lshr i64 %1, 3
   %6 = and i64 %1, 7
@@ -1124,7 +1124,7 @@ declare i64 @llvm.umin.i64(i64, i64) #5
 declare i64 @llvm.abs.i64(i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

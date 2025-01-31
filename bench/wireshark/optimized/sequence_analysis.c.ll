@@ -88,34 +88,34 @@ declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #2
 declare void @wmem_tree_insert_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @sequence_analysis_get_name(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @sequence_analysis_get_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @sequence_analysis_get_ui_name(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @sequence_analysis_get_ui_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @sequence_analysis_get_tap_listener_name(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @sequence_analysis_get_tap_listener_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @sequence_analysis_get_packet_func(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @sequence_analysis_get_packet_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @sequence_analysis_get_tap_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @sequence_analysis_get_tap_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -140,7 +140,7 @@ define void @sequence_analysis_table_iterate_tables(ptr noundef %0, ptr noundef 
 declare zeroext i1 @wmem_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @sequence_analysis_create_sai_with_addresses(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @sequence_analysis_create_sai_with_addresses(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [2048 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -282,7 +282,7 @@ declare void @set_fd_time(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @sequence_analysis_use_color_filter(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define void @sequence_analysis_use_color_filter(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -337,7 +337,7 @@ define void @sequence_analysis_use_color_filter(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sequence_analysis_use_col_info_as_label_comment(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define void @sequence_analysis_use_col_info_as_label_comment(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -589,7 +589,7 @@ define void @sequence_analysis_list_sort(ptr noundef readonly %0) local_unnamed_
 declare void @g_queue_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @sequence_analysis_sort_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 -1, 2) i32 @sequence_analysis_sort_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #3 {
   %4 = load i32, ptr %0, align 8
   %5 = load i32, ptr %1, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %4, i32 %5)
@@ -672,7 +672,7 @@ free_address.exit11:                              ; preds = %free_address.exit, 
 declare void @g_hash_table_remove_all(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @sequence_analysis_free_nodes(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @sequence_analysis_free_nodes(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %3
 
@@ -727,7 +727,7 @@ define i32 @sequence_analysis_get_nodes(ptr noundef %0) local_unnamed_addr #0 {
 declare void @g_queue_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @sequence_analysis_get_nodes_item_proc(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @sequence_analysis_get_nodes_item_proc(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -917,7 +917,7 @@ add_or_get_node.exit24:                           ; preds = %cmp_address.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sequence_analysis_dump_to_file(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @sequence_analysis_dump_to_file(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca [8 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1648,7 +1648,7 @@ declare ptr @g_queue_peek_nth_link(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare ptr @address_to_display(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1707,7 +1707,7 @@ define internal fastcc void @overwrite(ptr noundef %0, ptr noundef %1, i32 nound
 declare ptr @g_string_truncate(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1725,22 +1725,22 @@ declare ptr @g_string_erase(ptr noundef, i64 noundef, i64 noundef) local_unnamed
 declare ptr @g_string_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11

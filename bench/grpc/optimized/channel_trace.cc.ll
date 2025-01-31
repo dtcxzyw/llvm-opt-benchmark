@@ -168,7 +168,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core8channelz12ChannelTrace10TraceEventC2ENS1_8SeverityERK10grpc_sliceNS_13RefCountedPtrINS0_8BaseNodeEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 4), (8, 72)) %this, i32 noundef %severity, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %data, ptr nocapture noundef %referenced_entity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz12ChannelTrace10TraceEventC2ENS1_8SeverityERK10grpc_sliceNS_13RefCountedPtrINS0_8BaseNodeEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 4), (8, 72)) %this, i32 noundef %severity, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %data, ptr noundef captures(none) %referenced_entity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::Timestamp", align 8
   store i32 %severity, ptr %this, align 8
@@ -235,7 +235,7 @@ _ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit: ; preds = %lpad, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare { i64, i64 } @_ZNK9grpc_core9Timestamp11as_timespecE14gpr_clock_type(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
@@ -244,7 +244,7 @@ declare noundef i64 @_Z23grpc_slice_memory_usage10grpc_slice(ptr noundef byval(%
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core8channelz12ChannelTrace10TraceEventC2ENS1_8SeverityERK10grpc_slice(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 4), (8, 72)) %this, i32 noundef %severity, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %data) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz12ChannelTrace10TraceEventC2ENS1_8SeverityERK10grpc_slice(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 4), (8, 72)) %this, i32 noundef %severity, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %data) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::Timestamp", align 8
   store i32 %severity, ptr %this, align 8
@@ -308,7 +308,7 @@ _ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit: ; preds = %lpad, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core8channelz12ChannelTrace10TraceEventD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz12ChannelTrace10TraceEventD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
@@ -456,7 +456,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 declare void @gpr_mu_destroy(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz12ChannelTrace19AddTraceEventHelperEPNS1_10TraceEventE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %new_trace_event) local_unnamed_addr #9 align 2 {
+define void @_ZN9grpc_core8channelz12ChannelTrace19AddTraceEventHelperEPNS1_10TraceEventE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef %new_trace_event) local_unnamed_addr #9 align 2 {
 entry:
   %num_events_logged_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %num_events_logged_, align 8
@@ -517,7 +517,7 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz12ChannelTrace13AddTraceEventENS1_8SeverityERK10grpc_slice(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %severity, ptr noundef nonnull align 8 dereferenceable(32) %data) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz12ChannelTrace13AddTraceEventENS1_8SeverityERK10grpc_slice(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, i32 noundef %severity, ptr noundef nonnull align 8 dereferenceable(32) %data) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %max_event_memory_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %max_event_memory_, align 8
@@ -613,7 +613,7 @@ lpad:                                             ; preds = %if.end
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz12ChannelTrace26AddTraceEventWithReferenceENS1_8SeverityERK10grpc_sliceNS_13RefCountedPtrINS0_8BaseNodeEEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %severity, ptr noundef nonnull align 8 dereferenceable(32) %data, ptr nocapture noundef %referenced_entity) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz12ChannelTrace26AddTraceEventWithReferenceENS1_8SeverityERK10grpc_sliceNS_13RefCountedPtrINS0_8BaseNodeEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, i32 noundef %severity, ptr noundef nonnull align 8 dereferenceable(32) %data, ptr noundef captures(none) %referenced_entity) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp2 = alloca %"class.grpc_core::RefCountedPtr", align 8
   %max_event_memory_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -746,7 +746,7 @@ eh.resume:                                        ; preds = %lpad, %if.then.i8, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core8channelz12ChannelTrace10TraceEvent16RenderTraceEventEv(ptr noalias sret(%"class.grpc_core::experimental::Json") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core8channelz12ChannelTrace10TraceEvent16RenderTraceEventEv(ptr noalias sret(%"class.grpc_core::experimental::Json") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i90 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %__an.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
@@ -2038,7 +2038,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core8channelz12ChannelTrace10RenderJsonEv(ptr noalias sret(%"class.grpc_core::experimental::Json") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core8channelz12ChannelTrace10RenderJsonEv(ptr noalias sret(%"class.grpc_core::experimental::Json") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %ref.tmp.i.i.i.i.i71 = alloca %class.anon, align 1
@@ -2641,7 +2641,7 @@ eh.resume:                                        ; preds = %ehcleanup, %ehclean
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEEC2IRA18_KcS9_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISG_SH_EEEbE4typeELb1EEEOSG_OSH_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 1 dereferenceable(18) %__x, ptr noundef nonnull align 8 dereferenceable(56) %__y) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3839,7 +3839,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -5196,10 +5196,10 @@ declare extern_weak void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E(
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18

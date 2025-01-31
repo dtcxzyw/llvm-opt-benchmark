@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.deregister_seq_scan = private unnamed_addr constant [20 x i8] c"deregister_seq_scan\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hash_create(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @hash_create(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = and i32 %3, 2048
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -97,7 +97,7 @@ define dso_local ptr @hash_create(ptr nocapture noundef readonly %0, i64 noundef
 
 32:                                               ; preds = %.loopexit157
   %33 = load ptr, ptr @CurrentDynaHashCxt, align 8
-  tail call void @MemoryContextSetIdentifier(ptr noundef %33, ptr noundef %29) #17
+  tail call void @MemoryContextSetIdentifier(ptr noundef %33, ptr noundef nonnull %29) #17
   br label %34
 
 34:                                               ; preds = %32, %.loopexit157
@@ -693,13 +693,13 @@ define internal ptr @DynaHashAlloc(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @MemoryContextSetIdentifier(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -710,20 +710,20 @@ declare i32 @tag_hash(ptr noundef, i64 noundef) #1
 declare i32 @string_hash(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @string_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #5 {
+define internal i32 @string_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #5 {
   %4 = add i64 %2, -1
   %5 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %1, i64 noundef %4) #18
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) #2
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) #2
 
 ; Function Attrs: nofree
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @memcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) #4
+declare ptr @memcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) #4
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #7
@@ -840,7 +840,7 @@ define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @hash
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 848, 841) i64 @hash_get_shared_size(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define dso_local range(i64 848, 841) i64 @hash_get_shared_size(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = shl i64 %4, 3
@@ -864,14 +864,14 @@ define dso_local void @hash_destroy(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @hash_stats(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #8 {
+define dso_local void @hash_stats(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #8 {
   ret void
 }
 
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_hash_value(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @get_hash_value(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1555,7 +1555,7 @@ get_hash_entry.exit:                              ; preds = %.loopexit.sink.spli
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @hash_corrupted(ptr nocapture noundef readonly %0) unnamed_addr #11 {
+define internal fastcc void @hash_corrupted(ptr noundef readonly captures(none) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1582,7 +1582,7 @@ define internal fastcc void @hash_corrupted(ptr nocapture noundef readonly %0) u
 declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @hash_update_hash_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @hash_update_hash_key(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 -16
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 66
@@ -1751,7 +1751,7 @@ calc_bucket.exit73:                               ; preds = %52, %62
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @hash_get_num_entries(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define dso_local i64 @hash_get_num_entries(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1776,7 +1776,7 @@ define dso_local i64 @hash_get_num_entries(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hash_seq_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @hash_seq_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 24)) %0, ptr noundef %1) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -1819,7 +1819,7 @@ register_seq_scan.exit:                           ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hash_seq_search(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @hash_seq_search(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2015,7 +2015,7 @@ hash_seq_term.exit:                               ; preds = %deregister_seq_scan
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hash_seq_term(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @hash_seq_term(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 66
   %4 = load i8, ptr %3, align 2
@@ -2238,10 +2238,10 @@ define dso_local void @AtEOSubXact_HashTables(i1 noundef zeroext %0, i32 noundef
 declare ptr @MemoryContextAllocExtended(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 

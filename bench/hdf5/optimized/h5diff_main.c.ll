@@ -130,7 +130,7 @@ declare i64 @h5diff(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare void @print_info(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @h5diff_exit(i32 noundef %0) local_unnamed_addr #0 {

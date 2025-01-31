@@ -981,16 +981,16 @@ declare void @zend_hash_clean(ptr noundef) local_unnamed_addr #3
 declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @__zend_free(ptr nocapture noundef %0) #5 {
+define void @__zend_free(ptr noundef captures(none) %0) #5 {
   tail call void @free(ptr noundef %0) #39
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind allocsize(1) uwtable
 define noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
@@ -7926,7 +7926,7 @@ define ptr @_safe_erealloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @_safe_realloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define noundef ptr @_safe_realloc(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #45, !srcloc !4
   %.025 = extractvalue { i64, i64 } %5, 1
   %.not.not = icmp eq i64 %.025, 0
@@ -7953,7 +7953,7 @@ __zend_realloc.exit:                              ; preds = %7
 }
 
 ; Function Attrs: nounwind allocsize(1) uwtable
-define noalias noundef ptr @__zend_realloc(ptr nocapture noundef %0, i64 noundef %1) #7 {
+define noalias noundef ptr @__zend_realloc(ptr noundef captures(none) %0, i64 noundef %1) #7 {
   %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #47
   %4 = icmp ne ptr %3, null
   %.not = icmp eq i64 %1, 0
@@ -7987,7 +7987,7 @@ define noalias ptr @_ecalloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @_estrdup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias ptr @_estrdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #48
   %3 = add i64 %2, 1
   %4 = icmp eq i64 %3, 0
@@ -7999,21 +7999,21 @@ define noalias ptr @_estrdup(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 6:                                                ; preds = %1
   %7 = tail call noalias ptr @_emalloc(i64 noundef %3) #46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %0, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr nonnull align 1 %0, i64 %3, i1 false)
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: noreturn
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @_estrndup(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define noalias ptr @_estrndup(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, 1
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %6
@@ -8031,7 +8031,7 @@ define noalias ptr @_estrndup(ptr nocapture noundef readonly %0, i64 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias nonnull ptr @zend_strndup(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @zend_strndup(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, 1
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %6
@@ -8343,7 +8343,7 @@ define ptr @zend_mm_get_heap() local_unnamed_addr #19 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @zend_mm_is_custom_heap(ptr nocapture noundef readnone %0) local_unnamed_addr #8 {
+define zeroext i1 @zend_mm_is_custom_heap(ptr noundef readnone captures(none) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr @alloc_globals.0, align 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ne i32 %3, 0
@@ -8351,7 +8351,7 @@ define zeroext i1 @zend_mm_is_custom_heap(ptr nocapture noundef readnone %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zend_mm_set_custom_handlers(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #20 {
+define void @zend_mm_set_custom_handlers(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #20 {
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
   %or.cond = or i1 %5, %6
@@ -8375,7 +8375,7 @@ define void @zend_mm_set_custom_handlers(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zend_mm_get_custom_handlers(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #21 {
+define void @zend_mm_get_custom_handlers(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #21 {
   %5 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %13, label %6
@@ -8403,7 +8403,7 @@ define void @zend_mm_get_custom_handlers(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @zend_mm_get_storage(ptr nocapture noundef readonly %0) local_unnamed_addr #22 {
+define ptr @zend_mm_get_storage(ptr noundef readonly captures(none) %0) local_unnamed_addr #22 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -8476,7 +8476,7 @@ zend_mm_init.exit:                                ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_mm_startup_ex(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @zend_mm_startup_ex(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zend_mm_storage, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -8576,7 +8576,7 @@ define ptr @zend_mm_startup_ex(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #23
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #23
 
 ; Function Attrs: nounwind allocsize(0,1) uwtable
 define noalias noundef ptr @__zend_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #11 {
@@ -8607,10 +8607,10 @@ __zend_malloc.exit:                               ; preds = %7
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #24
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias nonnull ptr @__zend_strdup(ptr nocapture noundef readonly %0) local_unnamed_addr #25 {
+define noalias nonnull ptr @__zend_strdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #25 {
   %2 = tail call noalias ptr @strdup(ptr noundef %0) #39
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -8624,7 +8624,7 @@ define noalias nonnull ptr @__zend_strdup(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #26
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #27
@@ -9095,7 +9095,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %74, %36, %34, %87, 
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @zend_mm_safe_error(ptr nocapture noundef writeonly initializes((296, 300)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #30 {
+define internal fastcc void @zend_mm_safe_error(ptr noundef writeonly captures(none) initializes((296, 300)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #30 {
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 1, ptr %6, align 8
@@ -9778,7 +9778,7 @@ declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #17
 declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 512) %2, i32 noundef range(i32 0, 1024) %3) unnamed_addr #0 {
+define internal fastcc void @zend_mm_free_pages(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 512) %2, i32 noundef range(i32 0, 1024) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, %3
@@ -10042,10 +10042,10 @@ declare void @exit(i32 noundef) local_unnamed_addr #32
 declare ptr @zend_hash_index_add_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #33
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #33
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atoll(ptr nocapture noundef) local_unnamed_addr #34
+declare i64 @atoll(ptr noundef captures(none)) local_unnamed_addr #34
 
 ; Function Attrs: nounwind uwtable
 define internal void @tracked_free(ptr noundef %0) #0 {
@@ -10169,7 +10169,7 @@ declare void @zend_hash_del_bucket(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i64 @llvm.umin.i64(i64, i64) #35
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #36
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #35

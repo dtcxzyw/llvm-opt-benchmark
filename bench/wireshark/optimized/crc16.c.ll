@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @crc16_precompiled_080F = internal unnamed_addr constant [256 x i32] [i32 0, i32 2063, i32 4126, i32 6161, i32 8252, i32 10291, i32 12322, i32 14381, i32 16504, i32 18551, i32 20582, i32 22633, i32 24644, i32 26699, i32 28762, i32 30805, i32 33008, i32 35071, i32 37102, i32 39137, i32 41164, i32 43203, i32 45266, i32 47325, i32 49288, i32 51335, i32 53398, i32 55449, i32 57524, i32 59579, i32 61610, i32 63653, i32 2543, i32 480, i32 6641, i32 4606, i32 10707, i32 8668, i32 14797, i32 12738, i32 18839, i32 16792, i32 22921, i32 20870, i32 27051, i32 24996, i32 31157, i32 29114, i32 35103, i32 33040, i32 39169, i32 37134, i32 43299, i32 41260, i32 47421, i32 45362, i32 51559, i32 49512, i32 55673, i32 53622, i32 59739, i32 57684, i32 63813, i32 61770, i32 5086, i32 7121, i32 960, i32 3023, i32 13282, i32 15341, i32 9212, i32 11251, i32 21414, i32 23465, i32 17336, i32 19383, i32 29594, i32 31637, i32 25476, i32 27531, i32 37678, i32 39713, i32 33584, i32 35647, i32 45842, i32 47901, i32 41740, i32 43779, i32 54102, i32 56153, i32 49992, i32 52039, i32 62314, i32 64357, i32 58228, i32 60283, i32 6705, i32 4670, i32 2607, i32 544, i32 14861, i32 12802, i32 10771, i32 8732, i32 23113, i32 21062, i32 19031, i32 16984, i32 31349, i32 29306, i32 27243, i32 25188, i32 39617, i32 37582, i32 35551, i32 33488, i32 47869, i32 45810, i32 43747, i32 41708, i32 55993, i32 53942, i32 51879, i32 49832, i32 64133, i32 62090, i32 60059, i32 58004, i32 10172, i32 12211, i32 14242, i32 16301, i32 1920, i32 3983, i32 6046, i32 8081, i32 26564, i32 28619, i32 30682, i32 32725, i32 18424, i32 20471, i32 22502, i32 24553, i32 42828, i32 44867, i32 46930, i32 48989, i32 34672, i32 36735, i32 38766, i32 40801, i32 59188, i32 61243, i32 63274, i32 65317, i32 50952, i32 52999, i32 55062, i32 57113, i32 11859, i32 9820, i32 15949, i32 13890, i32 3695, i32 1632, i32 7793, i32 5758, i32 28203, i32 26148, i32 32309, i32 30266, i32 19991, i32 17944, i32 24073, i32 22022, i32 44707, i32 42668, i32 48829, i32 46770, i32 36511, i32 34448, i32 40577, i32 38542, i32 61147, i32 59092, i32 65221, i32 63178, i32 52967, i32 50920, i32 57081, i32 55030, i32 13410, i32 15469, i32 9340, i32 11379, i32 5214, i32 7249, i32 1088, i32 3151, i32 29722, i32 31765, i32 25604, i32 27659, i32 21542, i32 23593, i32 17464, i32 19511, i32 46226, i32 48285, i32 42124, i32 44163, i32 38062, i32 40097, i32 33968, i32 36031, i32 62698, i32 64741, i32 58612, i32 60667, i32 54486, i32 56537, i32 50376, i32 52423, i32 15757, i32 13698, i32 11667, i32 9628, i32 7601, i32 5566, i32 3503, i32 1440, i32 32245, i32 30202, i32 28139, i32 26084, i32 24009, i32 21958, i32 19927, i32 17880, i32 48509, i32 46450, i32 44387, i32 42348, i32 40257, i32 38222, i32 36191, i32 34128, i32 64773, i32 62730, i32 60699, i32 58644, i32 56633, i32 54582, i32 52519, i32 50472], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i16 @crc16_ccitt(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define zeroext i16 @crc16_ccitt(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_reflected.exit, label %.lr.ph.i
 
@@ -45,7 +45,7 @@ crc16_reflected.exit:                             ; preds = %2, %._crit_edge.loo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i16 @crc16_x25_ccitt_seed(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define zeroext i16 @crc16_x25_ccitt_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_unreflected.exit, label %.lr.ph.preheader.i
 
@@ -81,7 +81,7 @@ crc16_unreflected.exit:                           ; preds = %3, %._crit_edge.loo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i16 @crc16_ccitt_seed(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define zeroext i16 @crc16_ccitt_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_reflected.exit, label %.lr.ph.preheader.i
 
@@ -117,7 +117,7 @@ crc16_reflected.exit:                             ; preds = %3, %._crit_edge.loo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i16 @crc16_iso14443a(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define zeroext i16 @crc16_iso14443a(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_reflected.exit, label %.lr.ph.i
 
@@ -148,7 +148,7 @@ crc16_reflected.exit:                             ; preds = %2, %._crit_edge.loo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i16 @crc16_usb(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define zeroext i16 @crc16_usb(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_reflected.exit, label %.lr.ph.i
 
@@ -180,7 +180,7 @@ crc16_reflected.exit:                             ; preds = %2, %._crit_edge.loo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i16 @crc16_0x5935(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define zeroext i16 @crc16_0x5935(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_unreflected.exit, label %.lr.ph.preheader.i
 
@@ -216,7 +216,7 @@ crc16_unreflected.exit:                           ; preds = %3, %._crit_edge.loo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i16 @crc16_0x755B(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define zeroext i16 @crc16_0x755B(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_unreflected.exit, label %.lr.ph.preheader.i
 
@@ -252,7 +252,7 @@ crc16_unreflected.exit:                           ; preds = %3, %._crit_edge.loo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i16 @crc16_0x9949_seed(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define zeroext i16 @crc16_0x9949_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_reflected.exit, label %.lr.ph.preheader.i
 
@@ -287,7 +287,7 @@ crc16_reflected.exit:                             ; preds = %3, %._crit_edge.loo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i16 @crc16_0x3D65_seed(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define zeroext i16 @crc16_0x3D65_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_reflected.exit, label %.lr.ph.preheader.i
 
@@ -322,7 +322,7 @@ crc16_reflected.exit:                             ; preds = %3, %._crit_edge.loo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i16 @crc16_0x080F_seed(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define zeroext i16 @crc16_0x080F_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.loopexit, label %.preheader
 

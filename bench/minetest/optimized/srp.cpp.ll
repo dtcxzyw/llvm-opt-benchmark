@@ -30,10 +30,10 @@ target triple = "x86_64-unknown-linux-gnu"
 declare noalias noundef ptr @malloc(i64 noundef) #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) #1
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #2
+declare void @free(ptr allocptr noundef captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_Z24srp_set_memory_functionsPFPvmEPFS_S_mEPFvS_E(ptr noundef %new_srp_alloc, ptr noundef %new_srp_realloc, ptr noundef %new_srp_free) local_unnamed_addr #3 {
@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z34srp_create_salted_verification_key17SRP_HashAlgorithm10SRP_NGTypePKcPKhmPPhPmS6_S7_S2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr noundef %username_for_verifier, ptr noundef %password, i64 noundef %len_password, ptr nocapture noundef %bytes_s, ptr nocapture noundef %len_s, ptr nocapture noundef writeonly %bytes_v, ptr nocapture noundef writeonly %len_v, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 2) i32 @_Z34srp_create_salted_verification_key17SRP_HashAlgorithm10SRP_NGTypePKcPKhmPPhPmS6_S7_S2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr noundef %username_for_verifier, ptr noundef %password, i64 noundef %len_password, ptr noundef captures(none) %bytes_s, ptr noundef captures(none) %len_s, ptr noundef writeonly captures(none) %bytes_v, ptr noundef writeonly captures(none) %len_v, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
 entry:
   %v = alloca [1 x %struct.__mpz_struct], align 16
   %x = alloca [1 x %struct.__mpz_struct], align 16
@@ -171,7 +171,7 @@ _ZL9delete_ngP10NGConstant.exit:                  ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind
 declare void @__gmpz_init(ptr noundef) local_unnamed_addr #6
@@ -221,13 +221,13 @@ cleanup17:                                        ; preds = %_ZL9delete_ngP10NGC
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef nonnull %result, i32 noundef %alg, ptr nocapture noundef readonly %salt, i64 noundef %salt_len, ptr noundef %username, ptr noundef %password, i64 noundef %password_len) unnamed_addr #4 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef nonnull %result, i32 noundef %alg, ptr noundef readonly captures(none) %salt, i64 noundef %salt_len, ptr noundef %username, ptr noundef %password, i64 noundef %password_len) unnamed_addr #4 {
 entry:
   %buff.i = alloca [32 x i8], align 16
   %ucp_hash = alloca [32 x i8], align 16
@@ -240,7 +240,7 @@ entry:
 sw.bb.i32:                                        ; preds = %entry
   %call.i = call i32 @SHA256_Init(ptr noundef nonnull %ctx)
   %call137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %username) #18
-  %call.i19 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef %username, i64 noundef %call137)
+  %call.i19 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef nonnull %username, i64 noundef %call137)
   %call.i23 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef nonnull @.str.9, i64 noundef 1)
   %call.i28 = call i32 @SHA256_Update(ptr noundef nonnull %ctx, ptr noundef %password, i64 noundef %password_len)
   %call.i33 = call i32 @SHA256_Final(ptr noundef nonnull %ucp_hash, ptr noundef nonnull %ctx)
@@ -285,7 +285,7 @@ declare void @__gmpz_powm(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 declare void @__gmpz_clear(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z16srp_verifier_new17SRP_HashAlgorithm10SRP_NGTypePKcPKhmS4_mS4_mS4_mPPhPmS2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr noundef %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef %bytes_v, i64 noundef %len_v, ptr noundef %bytes_A, i64 noundef %len_A, ptr noundef %bytes_b, i64 noundef %len_b, ptr nocapture noundef initializes((0, 8)) %bytes_B, ptr nocapture noundef writeonly initializes((0, 8)) %len_B, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
+define dso_local noundef ptr @_Z16srp_verifier_new17SRP_HashAlgorithm10SRP_NGTypePKcPKhmS4_mS4_mS4_mPPhPmS2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr noundef %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef %bytes_v, i64 noundef %len_v, ptr noundef %bytes_A, i64 noundef %len_A, ptr noundef %bytes_b, i64 noundef %len_b, ptr noundef captures(none) initializes((0, 8)) %bytes_B, ptr noundef writeonly captures(none) initializes((0, 8)) %len_B, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
 entry:
   %v = alloca [1 x %struct.__mpz_struct], align 16
   %A = alloca [1 x %struct.__mpz_struct], align 16
@@ -382,7 +382,7 @@ if.then25:                                        ; preds = %if.end19
   br label %cleanup_and_exit
 
 if.end26:                                         ; preds = %if.end19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call20, ptr align 1 %username, i64 %add, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call20, ptr nonnull align 1 %username, i64 %add, i1 false)
   %authenticated = getelementptr inbounds nuw i8, ptr %call13, i64 32
   store i32 0, ptr %authenticated, align 8, !tbaa !21
   call void @__gmpz_mod(ptr noundef nonnull %tmp1, ptr noundef nonnull %A, ptr noundef nonnull %call12)
@@ -478,7 +478,7 @@ if.end105:                                        ; preds = %if.end.i206, %sw.bb
   %12 = load ptr, ptr @srp_free, align 8, !tbaa !4
   call void %12(ptr noundef nonnull %call1.i)
   %M1 = getelementptr inbounds nuw i8, ptr %call13, i64 36
-  %call1112 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %alg.sink, ptr noundef nonnull %call12, ptr noundef nonnull %M1, ptr noundef %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef nonnull %A, ptr noundef nonnull %B, ptr noundef nonnull %session_key), !range !12
+  %call1112 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %alg.sink, ptr noundef nonnull %call12, ptr noundef nonnull %M1, ptr noundef nonnull %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef nonnull %A, ptr noundef nonnull %B, ptr noundef nonnull %session_key), !range !12
   %tobool112.not = icmp eq i32 %call1112, 0
   br i1 %tobool112.not, label %ver_cleanup_and_exit, label %if.end114
 
@@ -550,7 +550,7 @@ ver_cleanup_and_exit:                             ; preds = %if.then130, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @__gmpz_mod(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
@@ -680,7 +680,7 @@ sw.bb.i89:                                        ; preds = %if.end.i64
   %6 = load ptr, ptr @srp_free, align 8, !tbaa !4
   call void %6(ptr noundef nonnull %call1.i62)
   %call9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %I) #18
-  %call.i = call ptr @SHA256(ptr noundef %I, i64 noundef %call9, ptr noundef nonnull %H_I)
+  %call.i = call ptr @SHA256(ptr noundef nonnull %I, i64 noundef %call9, ptr noundef nonnull %H_I)
   %7 = load <16 x i8>, ptr %H_N, align 16, !tbaa !23
   %8 = load <16 x i8>, ptr %H_g, align 16, !tbaa !23
   %9 = xor <16 x i8> %8, %7
@@ -840,10 +840,10 @@ if.end:                                           ; preds = %_ZL9delete_ngP10NGC
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_Z29srp_verifier_is_authenticatedP11SRPVerifier(ptr nocapture noundef readonly %ver) local_unnamed_addr #11 {
+define dso_local noundef i32 @_Z29srp_verifier_is_authenticatedP11SRPVerifier(ptr noundef readonly captures(none) %ver) local_unnamed_addr #11 {
 entry:
   %authenticated = getelementptr inbounds nuw i8, ptr %ver, i64 32
   %0 = load i32, ptr %authenticated, align 8, !tbaa !21
@@ -851,7 +851,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_Z25srp_verifier_get_usernameP11SRPVerifier(ptr nocapture noundef readonly %ver) local_unnamed_addr #11 {
+define dso_local noundef ptr @_Z25srp_verifier_get_usernameP11SRPVerifier(ptr noundef readonly captures(none) %ver) local_unnamed_addr #11 {
 entry:
   %username = getelementptr inbounds nuw i8, ptr %ver, i64 16
   %0 = load ptr, ptr %username, align 8, !tbaa !16
@@ -877,7 +877,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 0, 33) i64 @_Z35srp_verifier_get_session_key_lengthP11SRPVerifier(ptr nocapture noundef readonly %ver) local_unnamed_addr #11 {
+define dso_local noundef range(i64 0, 33) i64 @_Z35srp_verifier_get_session_key_lengthP11SRPVerifier(ptr noundef readonly captures(none) %ver) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %ver, align 8, !tbaa !19
   %cond.i = icmp eq i32 %0, 0
@@ -886,7 +886,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z27srp_verifier_verify_sessionP11SRPVerifierPKhPPh(ptr noundef %ver, ptr nocapture noundef readonly %user_M, ptr nocapture noundef writeonly initializes((0, 8)) %bytes_HAMK) local_unnamed_addr #13 {
+define dso_local void @_Z27srp_verifier_verify_sessionP11SRPVerifierPKhPPh(ptr noundef %ver, ptr noundef readonly captures(none) %user_M, ptr noundef writeonly captures(none) initializes((0, 8)) %bytes_HAMK) local_unnamed_addr #13 {
 entry:
   %M = getelementptr inbounds nuw i8, ptr %ver, i64 36
   %0 = load i32, ptr %ver, align 8, !tbaa !19
@@ -909,7 +909,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z12srp_user_new17SRP_HashAlgorithm10SRP_NGTypePKcS2_PKhmS2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr nocapture noundef readonly %username, ptr nocapture noundef readonly %username_for_verifier, ptr nocapture noundef readonly %bytes_password, i64 noundef %len_password, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
+define dso_local noundef ptr @_Z12srp_user_new17SRP_HashAlgorithm10SRP_NGTypePKcS2_PKhmS2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr noundef readonly captures(none) %username, ptr noundef readonly captures(none) %username_for_verifier, ptr noundef readonly captures(none) %bytes_password, i64 noundef %len_password, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
   %call = tail call noundef ptr %0(i64 noundef 208)
@@ -989,9 +989,9 @@ lor.lhs.false22:                                  ; preds = %if.end13
   br i1 %tobool24.not, label %if.then31, label %if.end26
 
 if.end26:                                         ; preds = %lor.lhs.false22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %username, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %username, i64 %add, i1 false)
   %8 = load ptr, ptr %username_verifier, align 8, !tbaa !28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %username_for_verifier, i64 %add3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 1 %username_for_verifier, i64 %add3, i1 false)
   %9 = load ptr, ptr %password, align 8, !tbaa !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %bytes_password, i64 %len_password, i1 false)
   %authenticated = getelementptr inbounds nuw i8, ptr %call, i64 72
@@ -1117,7 +1117,7 @@ if.end7:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_Z25srp_user_is_authenticatedP7SRPUser(ptr nocapture noundef readonly %usr) local_unnamed_addr #11 {
+define dso_local noundef i32 @_Z25srp_user_is_authenticatedP7SRPUser(ptr noundef readonly captures(none) %usr) local_unnamed_addr #11 {
 entry:
   %authenticated = getelementptr inbounds nuw i8, ptr %usr, i64 72
   %0 = load i32, ptr %authenticated, align 8, !tbaa !31
@@ -1125,7 +1125,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_Z21srp_user_get_usernameP7SRPUser(ptr nocapture noundef readonly %usr) local_unnamed_addr #11 {
+define dso_local noundef ptr @_Z21srp_user_get_usernameP7SRPUser(ptr noundef readonly captures(none) %usr) local_unnamed_addr #11 {
 entry:
   %username = getelementptr inbounds nuw i8, ptr %usr, i64 80
   %0 = load ptr, ptr %username, align 8, !tbaa !27
@@ -1151,7 +1151,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 0, 33) i64 @_Z31srp_user_get_session_key_lengthP7SRPUser(ptr nocapture noundef readonly %usr) local_unnamed_addr #11 {
+define dso_local noundef range(i64 0, 33) i64 @_Z31srp_user_get_session_key_lengthP7SRPUser(ptr noundef readonly captures(none) %usr) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %usr, align 8, !tbaa !24
   %cond.i = icmp eq i32 %0, 0
@@ -1160,7 +1160,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z29srp_user_start_authenticationP7SRPUserPPcPKhmPPhPm(ptr noundef %usr, ptr noundef writeonly %username, ptr noundef %bytes_a, i64 noundef %len_a, ptr nocapture noundef initializes((0, 8)) %bytes_A, ptr nocapture noundef writeonly initializes((0, 8)) %len_A) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 2) i32 @_Z29srp_user_start_authenticationP7SRPUserPPcPKhmPPhPm(ptr noundef %usr, ptr noundef writeonly %username, ptr noundef %bytes_a, i64 noundef %len_a, ptr noundef captures(none) initializes((0, 8)) %bytes_A, ptr noundef writeonly captures(none) initializes((0, 8)) %len_A) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %bytes_a, null
   %a1 = getelementptr inbounds nuw i8, ptr %usr, i64 16
@@ -1251,7 +1251,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z26srp_user_process_challengeP7SRPUserPKhmS2_mPPhPm(ptr noundef %usr, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef %bytes_B, i64 noundef %len_B, ptr nocapture noundef writeonly initializes((0, 8)) %bytes_M, ptr nocapture noundef writeonly initializes((0, 8)) %len_M) local_unnamed_addr #4 {
+define dso_local void @_Z26srp_user_process_challengeP7SRPUserPKhmS2_mPPhPm(ptr noundef %usr, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef %bytes_B, i64 noundef %len_B, ptr noundef writeonly captures(none) initializes((0, 8)) %bytes_M, ptr noundef writeonly captures(none) initializes((0, 8)) %len_M) local_unnamed_addr #4 {
 entry:
   %B = alloca [1 x %struct.__mpz_struct], align 16
   %u = alloca [1 x %struct.__mpz_struct], align 16
@@ -1422,7 +1422,7 @@ declare void @__gmpz_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @__gmpz_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z23srp_user_verify_sessionP7SRPUserPKh(ptr nocapture noundef %usr, ptr nocapture noundef readonly %bytes_HAMK) local_unnamed_addr #13 {
+define dso_local void @_Z23srp_user_verify_sessionP7SRPUserPKh(ptr noundef captures(none) %usr, ptr noundef readonly captures(none) %bytes_HAMK) local_unnamed_addr #13 {
 entry:
   %H_AMK = getelementptr inbounds nuw i8, ptr %usr, i64 144
   %0 = load i32, ptr %usr, align 8, !tbaa !24
@@ -1444,13 +1444,13 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @__gmpz_set_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare i32 @SHA256_Init(ptr noundef) local_unnamed_addr #8
 
@@ -1470,7 +1470,7 @@ declare void @__gmpz_import(ptr noundef, i64 noundef, i32 noundef, i64 noundef, 
 declare void @__gmpz_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 attributes #0 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

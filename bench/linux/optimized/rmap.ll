@@ -323,7 +323,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_folio_mkclea
 declare dso_local i32 @__SCT__tp_func_tlb_flush(ptr noundef, i32 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_tlb_flush(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_tlb_flush(ptr readnone captures(none) %0, i32 noundef %1, i64 noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_tlb_flush, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -344,15 +344,15 @@ define dso_local noundef i32 @__traceiter_tlb_flush(ptr nocapture readnone %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_tlb_flush(ptr nocapture readnone %0, i32 %1, i64 %2) #2 align 16 {
+define dso_local void @__probestub_tlb_flush(ptr readnone captures(none) %0, i32 %1, i64 %2) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @trace_event_raw_event_tlb_flush(ptr noundef %0, i32 noundef %1, i64 noundef %2) #1 align 16 {
@@ -457,7 +457,7 @@ declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 declare dso_local i32 @__SCT__tp_func_mm_migrate_pages(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_migrate_pages(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_migrate_pages(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8) #1 align 16 {
   %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_migrate_pages, i64 72), align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader
@@ -478,7 +478,7 @@ define dso_local noundef i32 @__traceiter_mm_migrate_pages(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_migrate_pages(ptr nocapture readnone %0, i64 %1, i64 %2, i64 %3, i64 %4, i64 %5, i64 %6, i32 %7, i32 %8) #2 align 16 {
+define dso_local void @__probestub_mm_migrate_pages(ptr readnone captures(none) %0, i64 %1, i64 %2, i64 %3, i64 %4, i64 %5, i64 %6, i32 %7, i32 %8) #2 align 16 {
   ret void
 }
 
@@ -486,7 +486,7 @@ define dso_local void @__probestub_mm_migrate_pages(ptr nocapture readnone %0, i
 declare dso_local i32 @__SCT__tp_func_mm_migrate_pages_start(ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_migrate_pages_start(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_migrate_pages_start(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_migrate_pages_start, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -507,7 +507,7 @@ define dso_local noundef i32 @__traceiter_mm_migrate_pages_start(ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_migrate_pages_start(ptr nocapture readnone %0, i32 %1, i32 %2) #2 align 16 {
+define dso_local void @__probestub_mm_migrate_pages_start(ptr readnone captures(none) %0, i32 %1, i32 %2) #2 align 16 {
   ret void
 }
 
@@ -515,7 +515,7 @@ define dso_local void @__probestub_mm_migrate_pages_start(ptr nocapture readnone
 declare dso_local i32 @__SCT__tp_func_set_migration_pte(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_set_migration_pte(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_set_migration_pte(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_set_migration_pte, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -536,7 +536,7 @@ define dso_local noundef i32 @__traceiter_set_migration_pte(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_set_migration_pte(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_set_migration_pte(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -544,7 +544,7 @@ define dso_local void @__probestub_set_migration_pte(ptr nocapture readnone %0, 
 declare dso_local i32 @__SCT__tp_func_remove_migration_pte(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_remove_migration_pte(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_remove_migration_pte(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_remove_migration_pte, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -565,7 +565,7 @@ define dso_local noundef i32 @__traceiter_remove_migration_pte(ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_remove_migration_pte(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_remove_migration_pte(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -1822,7 +1822,7 @@ define dso_local void @flush_tlb_batched_pending(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @page_address_in_vma(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local i64 @page_address_in_vma(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 1
@@ -1955,7 +1955,7 @@ define dso_local i64 @page_address_in_vma(ptr noundef %0, ptr nocapture noundef 
 declare dso_local ptr @folio_anon_vma(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mm_find_pmd(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local ptr @mm_find_pmd(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 64
   %5 = load i32, ptr @pgdir_shift, align 4
@@ -2028,7 +2028,7 @@ define dso_local ptr @mm_find_pmd(ptr nocapture noundef readonly %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @folio_referenced(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #1 align 16 {
+define dso_local i32 @folio_referenced(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #1 align 16 {
   %5 = alloca %struct.folio_referenced_arg, align 8
   %6 = alloca %struct.rmap_walk_control, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
@@ -2139,10 +2139,10 @@ define dso_local i32 @folio_referenced(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @folio_referenced_one(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #1 align 16 {
+define internal zeroext i1 @folio_referenced_one(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #1 align 16 {
   %5 = alloca %struct.page_vma_mapped_walk, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -2440,7 +2440,7 @@ define internal zeroext i1 @folio_referenced_one(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal noundef zeroext i1 @invalid_folio_referenced_vma(ptr nocapture noundef readonly %0, ptr nocapture readonly %1) #6 align 16 {
+define internal noundef zeroext i1 @invalid_folio_referenced_vma(ptr noundef readonly captures(none) %0, ptr readonly captures(none) %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 98304
@@ -2572,7 +2572,7 @@ define dso_local i32 @folio_mkclean(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @page_mkclean_one(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #1 align 16 {
+define internal noundef zeroext i1 @page_mkclean_one(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #1 align 16 {
   %5 = alloca %struct.page_vma_mapped_walk, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
   %6 = load i64, ptr @vmemmap_base, align 8
@@ -2618,7 +2618,7 @@ define internal noundef zeroext i1 @page_mkclean_one(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal zeroext i1 @invalid_mkclean_vma(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 align 16 {
+define internal zeroext i1 @invalid_mkclean_vma(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 8
@@ -2893,7 +2893,7 @@ define dso_local i32 @folio_total_mapcount(ptr noundef %0) local_unnamed_addr #8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @folio_move_anon_rmap(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 align 16 {
+define dso_local void @folio_move_anon_rmap(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 1
@@ -2903,7 +2903,7 @@ define dso_local void @folio_move_anon_rmap(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @folio_add_anon_rmap_ptes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 16 {
+define dso_local void @folio_add_anon_rmap_ptes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
   br label %8
 
@@ -3009,7 +3009,7 @@ define dso_local void @folio_add_anon_rmap_ptes(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @folio_add_anon_rmap_pmd(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local void @folio_add_anon_rmap_pmd(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 16 {
   tail call void asm sideeffect "559: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 559b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 559) #17, !srcloc !55
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.19, i32 1389, i32 2307, i64 12) #17, !srcloc !56
   tail call void asm sideeffect "560: nop\0A\09.pushsection .discard.instr_end\0A\09.long 560b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 560) #17, !srcloc !57
@@ -3017,7 +3017,7 @@ define dso_local void @folio_add_anon_rmap_pmd(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @folio_add_new_anon_rmap(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local void @folio_add_new_anon_rmap(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load volatile i64, ptr %0, align 8
   %5 = and i64 %4, 64
   %6 = icmp eq i64 %5, 0
@@ -3100,7 +3100,7 @@ define dso_local void @folio_add_new_anon_rmap(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__folio_set_anon(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
+define internal fastcc void @__folio_set_anon(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -3135,7 +3135,7 @@ define internal fastcc void @__folio_set_anon(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @folio_add_file_rmap_ptes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 align 16 {
+define dso_local void @folio_add_file_rmap_ptes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
   br label %6
 
@@ -3206,7 +3206,7 @@ define dso_local void @folio_add_file_rmap_ptes(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @folio_add_file_rmap_pmd(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 align 16 {
+define dso_local void @folio_add_file_rmap_pmd(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 align 16 {
   tail call void asm sideeffect "561: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 561b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 561) #17, !srcloc !62
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.19, i32 1497, i32 2307, i64 12) #17, !srcloc !63
   tail call void asm sideeffect "562: nop\0A\09.pushsection .discard.instr_end\0A\09.long 562b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 562) #17, !srcloc !64
@@ -3214,7 +3214,7 @@ define dso_local void @folio_add_file_rmap_pmd(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @folio_remove_rmap_ptes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 align 16 {
+define dso_local void @folio_remove_rmap_ptes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
   br label %6
 
@@ -3287,7 +3287,7 @@ define dso_local void @folio_remove_rmap_ptes(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @folio_remove_rmap_pmd(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 align 16 {
+define dso_local void @folio_remove_rmap_pmd(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 align 16 {
   tail call void asm sideeffect "563: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 563b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 563) #17, !srcloc !67
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.19, i32 1609, i32 2307, i64 12) #17, !srcloc !68
   tail call void asm sideeffect "564: nop\0A\09.pushsection .discard.instr_end\0A\09.long 564b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 564) #17, !srcloc !69
@@ -5299,7 +5299,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal zeroext i1 @invalid_migration_vma(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 align 16 {
+define internal zeroext i1 @invalid_migration_vma(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 98560
@@ -5485,7 +5485,7 @@ define internal fastcc void @rmap_walk_anon(ptr noundef %0, ptr noundef %1, i1 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rmap_walk_file(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc void @rmap_walk_file(ptr noundef %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = tail call ptr @folio_mapping(ptr noundef %0) #17
   %5 = icmp eq ptr %4, null
   br i1 %5, label %94, label %6
@@ -5637,7 +5637,7 @@ define internal fastcc void @rmap_walk_file(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hugetlb_add_anon_rmap(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local void @hugetlb_add_anon_rmap(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #17, !srcloc !28
   %6 = and i32 %3, 1
@@ -5654,7 +5654,7 @@ define dso_local void @hugetlb_add_anon_rmap(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hugetlb_add_new_anon_rmap(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local void @hugetlb_add_new_anon_rmap(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = icmp ugt i64 %4, %2
   br i1 %5, label %10, label %6, !prof !10
@@ -5901,7 +5901,7 @@ declare dso_local void @flush_tlb_mm_range(ptr noundef, i64 noundef, i64 noundef
 declare dso_local zeroext i1 @page_vma_mapped_walk(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @page_vma_mapped_walk_done(ptr nocapture noundef readonly %0) unnamed_addr #12 align 16 {
+define internal fastcc void @page_vma_mapped_walk_done(ptr noundef readonly captures(none) %0) unnamed_addr #12 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

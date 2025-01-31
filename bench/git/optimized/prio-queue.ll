@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @prio_queue_reverse(ptr nocapture noundef readonly %queue) local_unnamed_addr #0 {
+define dso_local void @prio_queue_reverse(ptr noundef readonly captures(none) %queue) local_unnamed_addr #0 {
 entry:
   %_swap_buffer.i = alloca [16 x i8], align 16
   %0 = load ptr, ptr %queue, align 8
@@ -61,7 +61,7 @@ for.end:                                          ; preds = %for.body, %for.cond
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @clear_prio_queue(ptr nocapture noundef initializes((8, 12), (24, 32)) %queue) local_unnamed_addr #2 {
+define dso_local void @clear_prio_queue(ptr noundef captures(none) initializes((8, 12), (24, 32)) %queue) local_unnamed_addr #2 {
 entry:
   %array = getelementptr inbounds nuw i8, ptr %queue, i64 32
   %0 = load ptr, ptr %array, align 8
@@ -74,10 +74,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @prio_queue_put(ptr nocapture noundef %queue, ptr noundef %thing) local_unnamed_addr #0 {
+define dso_local void @prio_queue_put(ptr noundef captures(none) %queue, ptr noundef %thing) local_unnamed_addr #0 {
 entry:
   %_swap_buffer.i = alloca [16 x i8], align 16
   %nr = getelementptr inbounds nuw i8, ptr %queue, i64 28
@@ -196,7 +196,7 @@ for.end:                                          ; preds = %if.end37, %compare.
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @prio_queue_get(ptr nocapture noundef %queue) local_unnamed_addr #0 {
+define dso_local ptr @prio_queue_get(ptr noundef captures(none) %queue) local_unnamed_addr #0 {
 entry:
   %_swap_buffer.i = alloca [16 x i8], align 16
   %nr = getelementptr inbounds nuw i8, ptr %queue, i64 28
@@ -327,10 +327,10 @@ return:                                           ; preds = %compare.exit38, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @prio_queue_peek(ptr nocapture noundef readonly %queue) local_unnamed_addr #6 {
+define dso_local ptr @prio_queue_peek(ptr noundef readonly captures(none) %queue) local_unnamed_addr #6 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %queue, i64 28
   %0 = load i32, ptr %nr, align 4
@@ -365,13 +365,13 @@ return:                                           ; preds = %entry, %if.end4, %i
 declare void @die(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

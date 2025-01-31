@@ -65,7 +65,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define dso_local void @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv(i32 noundef %signal, ptr nocapture readnone %sigInfo, ptr nocapture readnone %context) #0 {
+define dso_local void @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv(i32 noundef %signal, ptr readnone captures(none) %sigInfo, ptr readnone captures(none) %context) #0 {
 entry:
   %switch.tableidx = add i32 %signal, -1
   %0 = icmp ult i32 %switch.tableidx, 11

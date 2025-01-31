@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @prte_ras_base = external local_unnamed_addr global %struct.prte_ras_base_t, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @ras_sim_component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal range(i32 -1, 1) i32 @ras_sim_component_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_simulator_component, i64 224), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

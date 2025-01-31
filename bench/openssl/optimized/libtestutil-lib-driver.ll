@@ -153,10 +153,10 @@ if.end12:                                         ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @test_adjust_streams_tap_level(i32 noundef) local_unnamed_addr #4
 
@@ -192,10 +192,10 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @run_tests(ptr noundef %test_prog_name) local_unnamed_addr #1 {
@@ -806,7 +806,7 @@ if.end14:                                         ; preds = %if.then12, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @glue_strings(ptr nocapture noundef readonly %list, ptr noundef writeonly %out_len) local_unnamed_addr #1 {
+define noundef ptr @glue_strings(ptr noundef readonly captures(none) %list, ptr noundef writeonly %out_len) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %list, align 8
   %cmp.not14 = icmp eq ptr %0, null
@@ -864,14 +864,14 @@ return:                                           ; preds = %for.body13, %for.co
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define ptr @test_mk_file_path(ptr noundef %dir, ptr noundef %file) local_unnamed_addr #1 {
@@ -903,7 +903,7 @@ if.then9:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then9, %if.then
-  %call12 = tail call i64 @OPENSSL_strlcat(ptr noundef nonnull %call5, ptr noundef %file, i64 noundef %add4) #13
+  %call12 = tail call i64 @OPENSSL_strlcat(ptr noundef nonnull %call5, ptr noundef nonnull %file, i64 noundef %add4) #13
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end, %cond.end
@@ -934,7 +934,7 @@ declare ptr @opt_arg() local_unnamed_addr #4
 declare i32 @opt_int(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @test_printf_stderr(ptr noundef, ...) local_unnamed_addr #4
 
@@ -953,10 +953,10 @@ declare void @llvm.va_start.p0(ptr) #11
 declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

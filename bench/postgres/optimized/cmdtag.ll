@@ -201,7 +201,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.192 = private unnamed_addr constant [7 x i8] c"VACUUM\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @InitializeQueryCompletion(ptr nocapture noundef writeonly initializes((0, 4), (8, 16)) %0) local_unnamed_addr #0 {
+define dso_local void @InitializeQueryCompletion(ptr noundef writeonly captures(none) initializes((0, 4), (8, 16)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
@@ -217,7 +217,7 @@ define dso_local ptr @GetCommandTagName(i32 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local ptr @GetCommandTagNameAndLen(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local ptr @GetCommandTagNameAndLen(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -302,7 +302,7 @@ define dso_local i32 @GetCommandTagEnum(ptr noundef %0) local_unnamed_addr #2 {
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
+define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = load i32, ptr %1, align 8
   %5 = zext i32 %4 to i64
   %6 = getelementptr [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %5
@@ -351,7 +351,7 @@ define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @pg_ulltoa_n(i64 noundef, ptr noundef) local_unnamed_addr #3
 

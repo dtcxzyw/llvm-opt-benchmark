@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.b2Vec2 = type { float, float }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z16b2CollideCirclesP10b2ManifoldPK13b2CircleShapeRK11b2TransformS3_S6_(ptr nocapture noundef writeonly initializes((60, 64)) %manifold, ptr nocapture noundef readonly %circleA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %circleB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #0 {
+define void @_Z16b2CollideCirclesP10b2ManifoldPK13b2CircleShapeRK11b2TransformS3_S6_(ptr noundef writeonly captures(none) initializes((60, 64)) %manifold, ptr noundef readonly captures(none) %circleA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xfA, ptr noundef readonly captures(none) %circleB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xfB) local_unnamed_addr #0 {
 entry:
   %pointCount = getelementptr inbounds nuw i8, ptr %manifold, i64 60
   store i32 0, ptr %pointCount, align 4
@@ -81,7 +81,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z25b2CollidePolygonAndCircleP10b2ManifoldPK14b2PolygonShapeRK11b2TransformPK13b2CircleShapeS6_(ptr nocapture noundef writeonly initializes((60, 64)) %manifold, ptr nocapture noundef readonly %polygonA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %circleB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #1 {
+define void @_Z25b2CollidePolygonAndCircleP10b2ManifoldPK14b2PolygonShapeRK11b2TransformPK13b2CircleShapeS6_(ptr noundef writeonly captures(none) initializes((60, 64)) %manifold, ptr noundef readonly captures(none) %polygonA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xfA, ptr noundef readonly captures(none) %circleB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xfB) local_unnamed_addr #1 {
 entry:
   %pointCount = getelementptr inbounds nuw i8, ptr %manifold, i64 60
   store i32 0, ptr %pointCount, align 4

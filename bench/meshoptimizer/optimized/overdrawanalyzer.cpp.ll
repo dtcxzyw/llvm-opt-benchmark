@@ -19,7 +19,7 @@ $_ZN17meshopt_Allocator8StorageTIvE8allocateE = comdat any
 @_ZN17meshopt_Allocator8StorageTIvE8allocateE = linkonce_odr dso_local local_unnamed_addr global ptr @_Znwm, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, float } @meshopt_analyzeOverdraw(ptr nocapture noundef readonly %indices, i64 noundef %index_count, ptr nocapture noundef readonly %vertex_positions, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local { i64, float } @meshopt_analyzeOverdraw(ptr noundef readonly captures(none) %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   %minv = alloca [3 x float], align 4
@@ -225,7 +225,7 @@ for.body116.us.us:                                ; preds = %for.body112.us, %fo
   %arrayidx133.us.us = getelementptr i8, ptr %arrayidx119.us.us, i64 28
   %24 = load float, ptr %arrayidx133.us.us, align 4
   %25 = load float, ptr %arrayidx125.us.us, align 4
-  tail call fastcc void @_ZN7meshoptL9rasterizeEPNS_14OverdrawBufferEfffffffff(ptr noundef %call.i94, float noundef %17, float noundef %18, float noundef %19, float noundef %20, float noundef %21, float noundef %22, float noundef %23, float noundef %24, float noundef %25)
+  tail call fastcc void @_ZN7meshoptL9rasterizeEPNS_14OverdrawBufferEfffffffff(ptr noundef nonnull %call.i94, float noundef %17, float noundef %18, float noundef %19, float noundef %20, float noundef %21, float noundef %22, float noundef %23, float noundef %24, float noundef %25)
   %add159.us.us = add i64 %i113.0103.us.us, 3
   %cmp115.us.us = icmp ult i64 %add159.us.us, %index_count
   br i1 %cmp115.us.us, label %for.body116.us.us, label %for.cond164.preheader.us.preheader, !llvm.loop !13
@@ -251,7 +251,7 @@ for.body116.us105.us:                             ; preds = %for.body112.us, %fo
   %33 = load float, ptr %arrayidx144.us.us, align 4
   %arrayidx145.us.us = getelementptr i8, ptr %arrayidx119.us108.us, i64 28
   %34 = load float, ptr %arrayidx145.us.us, align 4
-  tail call fastcc void @_ZN7meshoptL9rasterizeEPNS_14OverdrawBufferEfffffffff(ptr noundef %call.i94, float noundef %26, float noundef %27, float noundef %28, float noundef %29, float noundef %30, float noundef %31, float noundef %32, float noundef %33, float noundef %34)
+  tail call fastcc void @_ZN7meshoptL9rasterizeEPNS_14OverdrawBufferEfffffffff(ptr noundef nonnull %call.i94, float noundef %26, float noundef %27, float noundef %28, float noundef %29, float noundef %30, float noundef %31, float noundef %32, float noundef %33, float noundef %34)
   %add159.us112.us = add i64 %i113.0103.us106.us, 3
   %cmp115.us113.us = icmp ult i64 %add159.us112.us, %index_count
   br i1 %cmp115.us113.us, label %for.body116.us105.us, label %for.cond164.preheader.us.preheader, !llvm.loop !13
@@ -277,7 +277,7 @@ for.body116.us115.us:                             ; preds = %for.body112.us, %fo
   %42 = load float, ptr %arrayidx125.us120.us, align 4
   %arrayidx156.us.us = getelementptr i8, ptr %arrayidx119.us118.us, i64 32
   %43 = load float, ptr %arrayidx156.us.us, align 4
-  tail call fastcc void @_ZN7meshoptL9rasterizeEPNS_14OverdrawBufferEfffffffff(ptr noundef %call.i94, float noundef %35, float noundef %36, float noundef %37, float noundef %38, float noundef %39, float noundef %40, float noundef %41, float noundef %42, float noundef %43)
+  tail call fastcc void @_ZN7meshoptL9rasterizeEPNS_14OverdrawBufferEfffffffff(ptr noundef nonnull %call.i94, float noundef %35, float noundef %36, float noundef %37, float noundef %38, float noundef %39, float noundef %40, float noundef %41, float noundef %42, float noundef %43)
   %add159.us122.us = add i64 %i113.0103.us116.us, 3
   %cmp115.us123.us = icmp ult i64 %add159.us122.us, %index_count
   br i1 %cmp115.us123.us, label %for.body116.us115.us, label %for.cond164.preheader.us.preheader, !llvm.loop !13
@@ -370,15 +370,15 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN7meshoptL9rasterizeEPNS_14OverdrawBufferEfffffffff(ptr nocapture noundef %buffer, float noundef %v1x, float noundef %v1y, float noundef %v1z, float noundef %v2x, float noundef %v2y, float noundef %v2z, float noundef %v3x, float noundef %v3y, float noundef %v3z) unnamed_addr #3 {
+define internal fastcc void @_ZN7meshoptL9rasterizeEPNS_14OverdrawBufferEfffffffff(ptr noundef captures(none) %buffer, float noundef %v1x, float noundef %v1y, float noundef %v1z, float noundef %v2x, float noundef %v2y, float noundef %v2z, float noundef %v3x, float noundef %v3y, float noundef %v3z) unnamed_addr #3 {
 entry:
   %sub.i = fsub float %v2x, %v1x
   %sub1.i = fsub float %v3y, %v1y

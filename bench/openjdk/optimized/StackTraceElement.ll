@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_lang_StackTraceElement_initStackTraceElement(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_java_lang_StackTraceElement_initStackTraceElement(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call void @JVM_InitStackTraceElement(ptr noundef %0, ptr noundef %2, ptr noundef %3) #2
   ret void
 }
@@ -12,7 +12,7 @@ define void @Java_java_lang_StackTraceElement_initStackTraceElement(ptr noundef 
 declare void @JVM_InitStackTraceElement(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_lang_StackTraceElement_initStackTraceElements(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_java_lang_StackTraceElement_initStackTraceElements(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   tail call void @JVM_InitStackTraceElementArray(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4) #2
   ret void
 }

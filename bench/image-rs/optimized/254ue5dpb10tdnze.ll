@@ -270,7 +270,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h296125ebba634b79E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h296125ebba634b79E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -426,7 +426,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h798cebefd444cfb2E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h798cebefd444cfb2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
 switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !13, !noundef !4
@@ -441,7 +441,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbf90c2f276d39cc9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbf90c2f276d39cc9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
 switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !14, !noundef !4
@@ -456,7 +456,7 @@ switch.lookup:
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef float @"_ZN45_$LT$f32$u20$as$u20$core..ops..arith..Sub$GT$3sub17he2e2503734e2d6e8E.llvm.1609853135345852838"(float noundef %0, float noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden noundef float @"_ZN45_$LT$f32$u20$as$u20$core..ops..arith..Sub$GT$3sub17he2e2503734e2d6e8E.llvm.1609853135345852838"(float noundef %0, float noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 {
   %4 = fsub float %0, %1
   ret float %4
 }
@@ -502,7 +502,7 @@ define hidden { i32, i32 } @"_ZN49_$LT$i32$u20$as$u20$num_traits..cast..NumCast$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr27drop_in_place$LT$$RF$u8$GT$17hea9a8c18a869d252E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #2 {
+define internal void @"_ZN4core3ptr27drop_in_place$LT$$RF$u8$GT$17hea9a8c18a869d252E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
@@ -528,7 +528,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$image..error..ImageError$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !24
   %8 = load ptr, ptr %7, align 8, !alias.scope !24, !nonnull !4, !noundef !4
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %2, ptr noundef nonnull %8), !noalias !24
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %8), !noalias !24
   %9 = load i8, ptr %2, align 8, !range !25, !alias.scope !26, !noalias !24, !noundef !4
   %switch.not.i.i.i.i = icmp eq i8 %9, 3
   br i1 %switch.not.i.i.i.i, label %10, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit"
@@ -595,7 +595,7 @@ define hidden noundef i16 @"_ZN52_$LT$u16$u20$as$u20$num_traits..identities..Zer
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i32, i32 } @"_ZN52_$LT$u8$u20$as$u20$num_traits..cast..ToPrimitive$GT$6to_i3217ha82db231140f2e42E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #3 {
+define hidden { i32, i32 } @"_ZN52_$LT$u8$u20$as$u20$num_traits..cast..ToPrimitive$GT$6to_i3217ha82db231140f2e42E.llvm.1609853135345852838"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #3 {
   %2 = load i8, ptr %0, align 1, !noundef !4
   %3 = zext i8 %2 to i32
   %4 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %3, 1
@@ -603,14 +603,14 @@ define hidden { i32, i32 } @"_ZN52_$LT$u8$u20$as$u20$num_traits..cast..ToPrimiti
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i32, float } @"_ZN53_$LT$f32$u20$as$u20$num_traits..cast..ToPrimitive$GT$6to_f3217h1e8a90968bc1302bE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #3 {
+define hidden { i32, float } @"_ZN53_$LT$f32$u20$as$u20$num_traits..cast..ToPrimitive$GT$6to_f3217h1e8a90968bc1302bE.llvm.1609853135345852838"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #3 {
   %2 = load float, ptr %0, align 4, !noundef !4
   %3 = insertvalue { i32, float } { i32 1, float poison }, float %2, 1
   ret { i32, float } %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i32, i32 } @"_ZN53_$LT$f32$u20$as$u20$num_traits..cast..ToPrimitive$GT$6to_i3217h571ac0eb76df063cE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #3 {
+define hidden { i32, i32 } @"_ZN53_$LT$f32$u20$as$u20$num_traits..cast..ToPrimitive$GT$6to_i3217h571ac0eb76df063cE.llvm.1609853135345852838"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #3 {
   %2 = load float, ptr %0, align 4, !noundef !4
   %3 = fcmp oge float %2, 0xC1E0000000000000
   %4 = fcmp olt float %2, 0x41E0000000000000
@@ -624,7 +624,7 @@ define hidden { i32, i32 } @"_ZN53_$LT$f32$u20$as$u20$num_traits..cast..ToPrimit
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i32, i32 } @"_ZN53_$LT$u16$u20$as$u20$num_traits..cast..ToPrimitive$GT$6to_i3217hc0f1af5e1c6e2b23E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define hidden { i32, i32 } @"_ZN53_$LT$u16$u20$as$u20$num_traits..cast..ToPrimitive$GT$6to_i3217hc0f1af5e1c6e2b23E.llvm.1609853135345852838"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0) unnamed_addr #3 {
   %2 = load i16, ptr %0, align 2, !noundef !4
   %3 = zext i16 %2 to i32
   %4 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %3, 1
@@ -632,7 +632,7 @@ define hidden { i32, i32 } @"_ZN53_$LT$u16$u20$as$u20$num_traits..cast..ToPrimit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17he764390c7ebbd74aE"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %0, i24 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17he764390c7ebbd74aE"(ptr noalias noundef writeonly sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %0, i24 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %5 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h853dd09d47f86c53E"(i64 noundef %2, i1 noundef zeroext false)
@@ -668,7 +668,7 @@ define hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFrom
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine8rotate9017h39164b1eac0b8962E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine8rotate9017h39164b1eac0b8962E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !30, !noundef !4
@@ -687,7 +687,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h39164b1eac0b8962E(ptr n
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %7, ptr %10, align 8, !alias.scope !33
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -793,7 +793,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h39164b1eac0b8962E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine8rotate9017h3b02c97d06eaebf1E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine8rotate9017h3b02c97d06eaebf1E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !43, !noundef !4
@@ -920,7 +920,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h3b02c97d06eaebf1E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine8rotate9017h62ccefcc6e3594d6E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine8rotate9017h62ccefcc6e3594d6E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !56, !noundef !4
@@ -1047,7 +1047,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h62ccefcc6e3594d6E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine8rotate9017h6e045b57ffd38eeaE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine8rotate9017h6e045b57ffd38eeaE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !69, !noundef !4
@@ -1066,7 +1066,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h6e045b57ffd38eeaE(ptr n
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %7, ptr %10, align 8, !alias.scope !72
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -1160,7 +1160,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h6e045b57ffd38eeaE(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine8rotate9017hacdf18294d0a168eE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine8rotate9017hacdf18294d0a168eE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !82, !noundef !4
@@ -1179,7 +1179,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hacdf18294d0a168eE(ptr n
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %7, ptr %10, align 8, !alias.scope !85
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -1284,7 +1284,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hacdf18294d0a168eE(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine8rotate9017hbd991d547f202d50E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine8rotate9017hbd991d547f202d50E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !95, !noundef !4
@@ -1303,7 +1303,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hbd991d547f202d50E(ptr n
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %7, ptr %10, align 8, !alias.scope !98
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -1408,7 +1408,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hbd991d547f202d50E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine8rotate9017hc23e4ff2b93fbba9E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine8rotate9017hc23e4ff2b93fbba9E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !108, !noundef !4
@@ -1535,7 +1535,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hc23e4ff2b93fbba9E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine8rotate9017hcbf1c1ad434c6552E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine8rotate9017hcbf1c1ad434c6552E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !121, !noundef !4
@@ -1650,7 +1650,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hcbf1c1ad434c6552E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine8rotate9017he71b6a36bde27be5E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine8rotate9017he71b6a36bde27be5E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !134, !noundef !4
@@ -1669,7 +1669,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017he71b6a36bde27be5E(ptr n
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %7, ptr %10, align 8, !alias.scope !137
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -1775,7 +1775,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017he71b6a36bde27be5E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine8rotate9017hf914a3fe05119ec1E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine8rotate9017hf914a3fe05119ec1E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !147, !noundef !4
@@ -1794,7 +1794,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hf914a3fe05119ec1E(ptr n
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %7, ptr %10, align 8, !alias.scope !150
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -1900,7 +1900,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hf914a3fe05119ec1E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate18017h0c705807466d7ac5E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate18017h0c705807466d7ac5E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !160, !noundef !4
@@ -2030,7 +2030,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h0c705807466d7ac5E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate18017h0df223190119d3adE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate18017h0df223190119d3adE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !173, !noundef !4
@@ -2049,7 +2049,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h0df223190119d3adE(ptr 
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !176
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -2158,7 +2158,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h0df223190119d3adE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate18017h5023a15d56dae266E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate18017h5023a15d56dae266E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !186, !noundef !4
@@ -2177,7 +2177,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h5023a15d56dae266E(ptr 
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !189
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -2286,7 +2286,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h5023a15d56dae266E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate18017h54a253a2f8bcfec2E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate18017h54a253a2f8bcfec2E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !199, !noundef !4
@@ -2404,7 +2404,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h54a253a2f8bcfec2E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate18017h58ebd1e9f8339de8E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate18017h58ebd1e9f8339de8E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !212, !noundef !4
@@ -2423,7 +2423,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h58ebd1e9f8339de8E(ptr 
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !215
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -2520,7 +2520,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h58ebd1e9f8339de8E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate18017h6d0bebbe0aa2e10fE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate18017h6d0bebbe0aa2e10fE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !225, !noundef !4
@@ -2650,7 +2650,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h6d0bebbe0aa2e10fE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate18017h9a842ad363d91a7aE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate18017h9a842ad363d91a7aE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !238, !noundef !4
@@ -2669,7 +2669,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h9a842ad363d91a7aE(ptr 
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !241
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -2777,7 +2777,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h9a842ad363d91a7aE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate18017hbe4d6ec303c69758E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate18017hbe4d6ec303c69758E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !251, !noundef !4
@@ -2907,7 +2907,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hbe4d6ec303c69758E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate18017hdecd2762337dddd1E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate18017hdecd2762337dddd1E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !264, !noundef !4
@@ -2926,7 +2926,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hdecd2762337dddd1E(ptr 
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !267
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -3035,7 +3035,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hdecd2762337dddd1E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate18017hf561a74b6c6d8d2bE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate18017hf561a74b6c6d8d2bE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !277, !noundef !4
@@ -3054,7 +3054,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hf561a74b6c6d8d2bE(ptr 
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !280
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -3162,7 +3162,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hf561a74b6c6d8d2bE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate27017h0a5854b61bac09ceE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate27017h0a5854b61bac09ceE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !290, !noundef !4
@@ -3289,7 +3289,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h0a5854b61bac09ceE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate27017h0c5003021cffe784E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate27017h0c5003021cffe784E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !303, !noundef !4
@@ -3416,7 +3416,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h0c5003021cffe784E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate27017h38d6570bf1719f2aE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate27017h38d6570bf1719f2aE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !316, !noundef !4
@@ -3435,7 +3435,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h38d6570bf1719f2aE(ptr 
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %7, ptr %10, align 8, !alias.scope !319
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -3541,7 +3541,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h38d6570bf1719f2aE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate27017h40f8bfacfed5426dE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate27017h40f8bfacfed5426dE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !329, !noundef !4
@@ -3560,7 +3560,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h40f8bfacfed5426dE(ptr 
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %7, ptr %10, align 8, !alias.scope !332
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -3665,7 +3665,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h40f8bfacfed5426dE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate27017ha0a77988f794c325E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate27017ha0a77988f794c325E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !342, !noundef !4
@@ -3780,7 +3780,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha0a77988f794c325E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate27017ha1ca1f933f5b1270E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate27017ha1ca1f933f5b1270E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !355, !noundef !4
@@ -3799,7 +3799,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha1ca1f933f5b1270E(ptr 
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %7, ptr %10, align 8, !alias.scope !358
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -3893,7 +3893,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha1ca1f933f5b1270E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate27017hcca26da611c8fb76E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate27017hcca26da611c8fb76E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !368, !noundef !4
@@ -4020,7 +4020,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hcca26da611c8fb76E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate27017hd9c01f41d263d508E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate27017hd9c01f41d263d508E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !381, !noundef !4
@@ -4039,7 +4039,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hd9c01f41d263d508E(ptr 
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %7, ptr %10, align 8, !alias.scope !384
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -4144,7 +4144,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hd9c01f41d263d508E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate27017hee4616d76ee6204fE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate27017hee4616d76ee6204fE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !394, !noundef !4
@@ -4163,7 +4163,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hee4616d76ee6204fE(ptr 
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %7, ptr %10, align 8, !alias.scope !397
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -4269,7 +4269,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hee4616d76ee6204fE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine9rotate27017hfe64b40264f70ae3E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine9rotate27017hfe64b40264f70ae3E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !407, !noundef !4
@@ -4288,7 +4288,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hfe64b40264f70ae3E(ptr 
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %7, ptr %10, align 8, !alias.scope !410
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -4394,7 +4394,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hfe64b40264f70ae3E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine11rotate90_in17h266f63872491b440E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine11rotate90_in17h266f63872491b440E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !420, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -4485,7 +4485,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h266f63872491b440E.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine11rotate90_in17h3e034ffd9864049dE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine11rotate90_in17h3e034ffd9864049dE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !431, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -4577,7 +4577,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h3e034ffd9864049dE.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine11rotate90_in17h431c80afdd614e19E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine11rotate90_in17h431c80afdd614e19E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !439, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -4669,7 +4669,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h431c80afdd614e19E.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine11rotate90_in17h450808dada6b5fd4E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine11rotate90_in17h450808dada6b5fd4E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !447, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -4761,7 +4761,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h450808dada6b5fd4E.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine11rotate90_in17h4fc7f0c8cb42c17dE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine11rotate90_in17h4fc7f0c8cb42c17dE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !455, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -4853,7 +4853,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h4fc7f0c8cb42c17dE.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine11rotate90_in17h5cd3001408b39c08E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine11rotate90_in17h5cd3001408b39c08E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !463, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -4944,7 +4944,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h5cd3001408b39c08E.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine11rotate90_in17h73a64648e5528865E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine11rotate90_in17h73a64648e5528865E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !474, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5027,7 +5027,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h73a64648e5528865E.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine11rotate90_in17hbd4beb87f282cfd1E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine11rotate90_in17hbd4beb87f282cfd1E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !482, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5119,7 +5119,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17hbd4beb87f282cfd1E.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine11rotate90_in17hdaedff5c8f400268E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine11rotate90_in17hdaedff5c8f400268E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !490, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5211,7 +5211,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17hdaedff5c8f400268E.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine11rotate90_in17he1b025d2b57209aeE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine11rotate90_in17he1b025d2b57209aeE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !498, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5294,7 +5294,7 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17he1b025d2b57209aeE.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate180_in17h4c7314abcf01226bE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate180_in17h4c7314abcf01226bE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !506, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5389,7 +5389,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h4c7314abcf01226bE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate180_in17h558af5a1f5d05ef3E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate180_in17h558af5a1f5d05ef3E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !514, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5475,7 +5475,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h558af5a1f5d05ef3E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate180_in17h7355b7d5e4ac00f0E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate180_in17h7355b7d5e4ac00f0E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !522, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5570,7 +5570,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h7355b7d5e4ac00f0E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate180_in17h77aa5956049beb78E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate180_in17h77aa5956049beb78E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !530, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5665,7 +5665,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h77aa5956049beb78E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate180_in17h793c16fb6bb6aadbE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate180_in17h793c16fb6bb6aadbE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !538, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5760,7 +5760,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h793c16fb6bb6aadbE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate180_in17hbe6cc0c3a89a80ccE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate180_in17hbe6cc0c3a89a80ccE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !546, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5846,7 +5846,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hbe6cc0c3a89a80ccE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate180_in17hc13e73a806aecddbE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate180_in17hc13e73a806aecddbE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !554, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5941,7 +5941,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hc13e73a806aecddbE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate180_in17hd521d0908c900114E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate180_in17hd521d0908c900114E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !562, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6036,7 +6036,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hd521d0908c900114E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate180_in17hdc4baccfc67df242E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate180_in17hdc4baccfc67df242E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !570, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6130,7 +6130,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hdc4baccfc67df242E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate180_in17hf9ccd096e99ea21aE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate180_in17hf9ccd096e99ea21aE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !581, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6224,7 +6224,7 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hf9ccd096e99ea21aE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17h0a92986481f3e3cbE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate270_in17h0a92986481f3e3cbE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !592, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6316,7 +6316,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h0a92986481f3e3cbE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17h0c0b7adabf61a6f1E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate270_in17h0c0b7adabf61a6f1E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !600, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6408,7 +6408,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h0c0b7adabf61a6f1E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17h36e2a71ebb5e64adE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate270_in17h36e2a71ebb5e64adE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !608, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6491,7 +6491,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h36e2a71ebb5e64adE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17h383a7fa80e72adeeE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate270_in17h383a7fa80e72adeeE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !616, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6582,7 +6582,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h383a7fa80e72adeeE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17h7ceb42689a176d40E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate270_in17h7ceb42689a176d40E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !627, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6673,7 +6673,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h7ceb42689a176d40E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17h8c4e41229ff8b5eaE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate270_in17h8c4e41229ff8b5eaE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !638, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6765,7 +6765,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h8c4e41229ff8b5eaE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17hbccfb73e1fa18110E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate270_in17hbccfb73e1fa18110E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !646, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6857,7 +6857,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hbccfb73e1fa18110E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17hcc2d81e0ab508b7fE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate270_in17hcc2d81e0ab508b7fE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !654, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6949,7 +6949,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hcc2d81e0ab508b7fE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17hdb559a043ece9456E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate270_in17hdb559a043ece9456E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !662, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -7041,7 +7041,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hdb559a043ece9456E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17he554148410d8764aE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine12rotate270_in17he554148410d8764aE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !670, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -7124,7 +7124,7 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17he554148410d8764aE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine15flip_horizontal17h157782c93c9b3d49E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine15flip_horizontal17h157782c93c9b3d49E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !678, !noundef !4
@@ -7239,7 +7239,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h157782c93c9b3d4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine15flip_horizontal17h20bd3e5b6da93587E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine15flip_horizontal17h20bd3e5b6da93587E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !691, !noundef !4
@@ -7366,7 +7366,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h20bd3e5b6da9358
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine15flip_horizontal17h4a7f32b7b0d10605E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine15flip_horizontal17h4a7f32b7b0d10605E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !704, !noundef !4
@@ -7385,7 +7385,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h4a7f32b7b0d1060
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !707
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -7491,7 +7491,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h4a7f32b7b0d1060
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine15flip_horizontal17h6ef19be8145465a9E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine15flip_horizontal17h6ef19be8145465a9E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !717, !noundef !4
@@ -7618,7 +7618,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h6ef19be8145465a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine15flip_horizontal17h89349abefc7c5a48E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine15flip_horizontal17h89349abefc7c5a48E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !730, !noundef !4
@@ -7637,7 +7637,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h89349abefc7c5a4
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !733
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -7742,7 +7742,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h89349abefc7c5a4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine15flip_horizontal17hc274b4bed2f5e654E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine15flip_horizontal17hc274b4bed2f5e654E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !743, !noundef !4
@@ -7761,7 +7761,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hc274b4bed2f5e65
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !746
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -7867,7 +7867,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hc274b4bed2f5e65
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcc5a24a7152648e2E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcc5a24a7152648e2E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !756, !noundef !4
@@ -7886,7 +7886,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcc5a24a7152648e
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !759
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -7992,7 +7992,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcc5a24a7152648e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcea6f3324b7132eeE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcea6f3324b7132eeE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !769, !noundef !4
@@ -8119,7 +8119,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcea6f3324b7132e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine15flip_horizontal17hced13e7044afa924E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine15flip_horizontal17hced13e7044afa924E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !782, !noundef !4
@@ -8138,7 +8138,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hced13e7044afa92
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !785
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -8243,7 +8243,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hced13e7044afa92
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine15flip_horizontal17hd50408adce3565b8E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine15flip_horizontal17hd50408adce3565b8E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !795, !noundef !4
@@ -8262,7 +8262,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hd50408adce3565b
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !798
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -8356,7 +8356,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hd50408adce3565b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine13flip_vertical17h208575b48ed0f51dE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine13flip_vertical17h208575b48ed0f51dE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !808, !noundef !4
@@ -8484,7 +8484,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h208575b48ed0f51dE
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine13flip_vertical17h321536d834f914b8E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine13flip_vertical17h321536d834f914b8E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !821, !noundef !4
@@ -8503,7 +8503,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h321536d834f914b8E
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !824
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -8608,7 +8608,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h321536d834f914b8E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine13flip_vertical17h671c3b94835badffE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine13flip_vertical17h671c3b94835badffE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !834, !noundef !4
@@ -8627,7 +8627,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h671c3b94835badffE
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !837
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -8733,7 +8733,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h671c3b94835badffE
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine13flip_vertical17h8c7e817064366020E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine13flip_vertical17h8c7e817064366020E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !847, !noundef !4
@@ -8752,7 +8752,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h8c7e817064366020E
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !850
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -8858,7 +8858,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h8c7e817064366020E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine13flip_vertical17h9619b1cb4fac9766E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine13flip_vertical17h9619b1cb4fac9766E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !860, !noundef !4
@@ -8985,7 +8985,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h9619b1cb4fac9766E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine13flip_vertical17haf2aabc265be3a58E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine13flip_vertical17haf2aabc265be3a58E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !873, !noundef !4
@@ -9112,7 +9112,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17haf2aabc265be3a58E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine13flip_vertical17hd538e6a1eb039016E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine13flip_vertical17hd538e6a1eb039016E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !886, !noundef !4
@@ -9131,7 +9131,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hd538e6a1eb039016E
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !889
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -9237,7 +9237,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hd538e6a1eb039016E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine13flip_vertical17hdbc9b822497e11d6E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine13flip_vertical17hdbc9b822497e11d6E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !899, !noundef !4
@@ -9256,7 +9256,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hdbc9b822497e11d6E
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !902
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -9351,7 +9351,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hdbc9b822497e11d6E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine13flip_vertical17he274783432231661E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine13flip_vertical17he274783432231661E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !912, !noundef !4
@@ -9467,7 +9467,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17he274783432231661E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine13flip_vertical17hec343f3be3f80951E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops6affine13flip_vertical17hec343f3be3f80951E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, i32, i32, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !925, !noundef !4
@@ -9486,7 +9486,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hec343f3be3f80951E
 
 .preheader.i:                                     ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %5, ptr %10, align 8, !alias.scope !928
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -9593,7 +9593,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hec343f3be3f80951E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h0bde49abda7e35bdE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h0bde49abda7e35bdE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !938, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -9684,7 +9684,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h0bde49abda7e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1de51ffabc6669cdE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1de51ffabc6669cdE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !949, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -9767,7 +9767,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1de51ffabc66
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1e9e461543f4f433E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1e9e461543f4f433E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !957, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -9859,7 +9859,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1e9e461543f4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h290293b985936fd5E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h290293b985936fd5E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !965, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -9951,7 +9951,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h290293b98593
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h394aa90117267678E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h394aa90117267678E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !973, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10042,7 +10042,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h394aa9011726
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h46fbef9c28a7e41dE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h46fbef9c28a7e41dE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !984, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10125,7 +10125,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h46fbef9c28a7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h5d13567e02306570E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h5d13567e02306570E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !992, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10217,7 +10217,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h5d13567e0230
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h6e0e21fea32fcc49E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h6e0e21fea32fcc49E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1000, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10309,7 +10309,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h6e0e21fea32f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha86b053ba7245770E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha86b053ba7245770E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1008, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10401,7 +10401,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha86b053ba724
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha8db36717e378dfcE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha8db36717e378dfcE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1016, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10493,7 +10493,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha8db36717e37
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h014e661c1b0e5d77E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h014e661c1b0e5d77E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1024, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10585,7 +10585,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h014e661c1b0e5d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h10b60ff047d5b09fE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h10b60ff047d5b09fE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1032, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10677,7 +10677,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h10b60ff047d5b0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h2ab0cd3a788e7345E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h2ab0cd3a788e7345E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1040, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10761,7 +10761,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h2ab0cd3a788e73
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h4887b983ed192e9dE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h4887b983ed192e9dE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1048, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10852,7 +10852,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h4887b983ed192e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h8afdcff2e1827a02E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h8afdcff2e1827a02E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1059, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10944,7 +10944,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h8afdcff2e1827a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hb859d94d3f4992a5E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hb859d94d3f4992a5E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1067, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -11036,7 +11036,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hb859d94d3f4992
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hdbf01ba55f2ac4dcE.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hdbf01ba55f2ac4dcE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1078, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -11120,7 +11120,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hdbf01ba55f2ac4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hddc10b69fbe62fe0E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hddc10b69fbe62fe0E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1086, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -11213,7 +11213,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hddc10b69fbe62f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine16flip_vertical_in17he75347986b6cb556E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine16flip_vertical_in17he75347986b6cb556E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1094, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -11305,7 +11305,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17he75347986b6cb5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hec8d27641da2ab32E.llvm.1609853135345852838(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hec8d27641da2ab32E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !alias.scope !1102, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -11398,7 +11398,7 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hec8d27641da2ab
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17h30f7140e03beb8edE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17h30f7140e03beb8edE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -11514,7 +11514,7 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17h30f7140e0
   store ptr %5, ptr %39, align 8, !alias.scope !1127, !noalias !1130
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %40, align 8, !alias.scope !1127, !noalias !1130
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.19.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.19.llvm.1609853135345852838) #18
           to label %.noexc4 unwind label %.loopexit.split-lp
 
 .noexc4:                                          ; preds = %31
@@ -11557,7 +11557,7 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17h30f7140e0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17h9f20b839062617d2E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17h9f20b839062617d2E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -11595,7 +11595,7 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17h9f20b8390
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !1135
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -11670,7 +11670,7 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17h9f20b8390
   store ptr %5, ptr %45, align 8, !alias.scope !1147, !noalias !1150
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %46, align 8, !alias.scope !1147, !noalias !1150
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.19.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.19.llvm.1609853135345852838) #18
           to label %.noexc4 unwind label %.loopexit.split-lp
 
 .noexc4:                                          ; preds = %37
@@ -11715,7 +11715,7 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17h9f20b8390
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17hcd2471a68d3de827E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17hcd2471a68d3de827E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -11753,7 +11753,7 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17hcd2471a68
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !1156
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -11842,7 +11842,7 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17hcd2471a68
   store ptr %5, ptr %52, align 8, !alias.scope !1167, !noalias !1170
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %53, align 8, !alias.scope !1167, !noalias !1170
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.19.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.19.llvm.1609853135345852838) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
 .noexc1:                                          ; preds = %44
@@ -11903,7 +11903,7 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17hcd2471a68
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h1f9cf7e9f618c2b6E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h1f9cf7e9f618c2b6E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -11941,7 +11941,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h1f9
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !1176
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -12018,7 +12018,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h1f9
   store ptr %5, ptr %46, align 8, !alias.scope !1188, !noalias !1191
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %47, align 8, !alias.scope !1188, !noalias !1191
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.20.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.20.llvm.1609853135345852838) #18
           to label %.noexc3 unwind label %.loopexit.split-lp
 
 .noexc3:                                          ; preds = %38
@@ -12075,7 +12075,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h1f9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h5d2640ce911b0de2E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h5d2640ce911b0de2E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -12113,7 +12113,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h5d2
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !1197
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -12176,7 +12176,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h5d2
   store ptr %5, ptr %37, align 8, !alias.scope !1209, !noalias !1212
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %38, align 8, !alias.scope !1209, !noalias !1212
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.20.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.20.llvm.1609853135345852838) #18
           to label %.noexc3 unwind label %.loopexit.split-lp
 
 .noexc3:                                          ; preds = %29
@@ -12233,7 +12233,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h5d2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h8c4ca332a2bbe366E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h8c4ca332a2bbe366E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -12271,7 +12271,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h8c4
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !1218
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -12362,7 +12362,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h8c4
   store ptr %5, ptr %52, align 8, !alias.scope !1229, !noalias !1232
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %53, align 8, !alias.scope !1229, !noalias !1232
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.20.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.20.llvm.1609853135345852838) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
 .noexc1:                                          ; preds = %44
@@ -12425,7 +12425,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h8c4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h928acfb8ba5c06d9E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h928acfb8ba5c06d9E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -12546,7 +12546,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h928
   store ptr %5, ptr %45, align 8, !alias.scope !1253, !noalias !1256
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %46, align 8, !alias.scope !1253, !noalias !1256
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.20.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.20.llvm.1609853135345852838) #18
           to label %.noexc3 unwind label %.loopexit.split-lp
 
 .noexc3:                                          ; preds = %37
@@ -12602,7 +12602,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h928
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17hf4edd4e27397984bE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17hf4edd4e27397984bE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -12708,7 +12708,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17hf4e
   store ptr %5, ptr %36, align 8, !alias.scope !1277, !noalias !1280
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %37, align 8, !alias.scope !1277, !noalias !1280
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.20.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.20.llvm.1609853135345852838) #18
           to label %.noexc3 unwind label %.loopexit.split-lp
 
 .noexc3:                                          ; preds = %28
@@ -13184,7 +13184,7 @@ define hidden void @_ZN5image8imageops8colorops6invert17hf25f41a8dc1e6f94E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8contrast17h00ad77b38b28ee02E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8contrast17h00ad77b38b28ee02E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -13334,7 +13334,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h00ad77b38b28ee02E(ptr
   store ptr %6, ptr %57, align 8, !alias.scope !1349, !noalias !1352
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %58, align 8, !alias.scope !1349, !noalias !1352
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
           to label %.noexc10 unwind label %.loopexit.split-lp
 
 .noexc10:                                         ; preds = %49
@@ -13390,7 +13390,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h00ad77b38b28ee02E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8contrast17h01339855e8f3f47bE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8contrast17h01339855e8f3f47bE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -13429,7 +13429,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h01339855e8f3f47bE(ptr
 
 17:                                               ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %14, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %9, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %9, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %11, ptr %18, align 8, !alias.scope !1358
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -13535,7 +13535,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h01339855e8f3f47bE(ptr
   store ptr %6, ptr %58, align 8, !alias.scope !1379, !noalias !1382
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %59, align 8, !alias.scope !1379, !noalias !1382
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
           to label %.noexc8 unwind label %.loopexit.split-lp
 
 .noexc8:                                          ; preds = %50
@@ -13592,7 +13592,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h01339855e8f3f47bE(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8contrast17h193584b3e9f92e0dE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8contrast17h193584b3e9f92e0dE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -13742,7 +13742,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h193584b3e9f92e0dE(ptr
   store ptr %6, ptr %57, align 8, !alias.scope !1412, !noalias !1415
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %58, align 8, !alias.scope !1412, !noalias !1415
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
           to label %.noexc8 unwind label %.loopexit.split-lp
 
 .noexc8:                                          ; preds = %49
@@ -13798,7 +13798,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h193584b3e9f92e0dE(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8contrast17h2f99d3279e6ffee3E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8contrast17h2f99d3279e6ffee3E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -13836,7 +13836,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h2f99d3279e6ffee3E(ptr
 
 16:                                               ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %13, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %8, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %8, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %10, ptr %17, align 8, !alias.scope !1421
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 28
@@ -13926,7 +13926,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h2f99d3279e6ffee3E(ptr
   store ptr %6, ptr %54, align 8, !alias.scope !1433, !noalias !1436
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %55, align 8, !alias.scope !1433, !noalias !1436
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
           to label %.noexc11 unwind label %.loopexit.split-lp
 
 .noexc11:                                         ; preds = %46
@@ -13971,7 +13971,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h2f99d3279e6ffee3E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8contrast17h61be420e03ae586eE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8contrast17h61be420e03ae586eE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -14010,7 +14010,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h61be420e03ae586eE(ptr
 
 17:                                               ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %14, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %9, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %9, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %11, ptr %18, align 8, !alias.scope !1442
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -14116,7 +14116,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h61be420e03ae586eE(ptr
   store ptr %6, ptr %58, align 8, !alias.scope !1460, !noalias !1463
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %59, align 8, !alias.scope !1460, !noalias !1463
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
           to label %.noexc10 unwind label %.loopexit.split-lp
 
 .noexc10:                                         ; preds = %50
@@ -14173,7 +14173,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h61be420e03ae586eE(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8contrast17h9e2d54cade3a4914E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8contrast17h9e2d54cade3a4914E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -14213,7 +14213,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h9e2d54cade3a4914E(ptr
 
 17:                                               ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %14, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %9, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %9, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %11, ptr %18, align 8, !alias.scope !1469
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -14301,7 +14301,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h9e2d54cade3a4914E(ptr
   store ptr %6, ptr %51, align 8, !alias.scope !1490, !noalias !1493
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %52, align 8, !alias.scope !1490, !noalias !1493
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
           to label %.noexc5 unwind label %.loopexit.split-lp
 
 .noexc5:                                          ; preds = %43
@@ -14358,7 +14358,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h9e2d54cade3a4914E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8contrast17hbd6fa2c6dc15acb1E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8contrast17hbd6fa2c6dc15acb1E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -14398,7 +14398,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hbd6fa2c6dc15acb1E(ptr
 
 17:                                               ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %14, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %9, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %9, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %11, ptr %18, align 8, !alias.scope !1499
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -14486,7 +14486,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hbd6fa2c6dc15acb1E(ptr
   store ptr %6, ptr %51, align 8, !alias.scope !1520, !noalias !1523
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %52, align 8, !alias.scope !1520, !noalias !1523
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
           to label %.noexc5 unwind label %.loopexit.split-lp
 
 .noexc5:                                          ; preds = %43
@@ -14543,7 +14543,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hbd6fa2c6dc15acb1E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8contrast17hd07d66cc86b13adcE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8contrast17hd07d66cc86b13adcE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -14693,7 +14693,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hd07d66cc86b13adcE(ptr
   store ptr %6, ptr %57, align 8, !alias.scope !1550, !noalias !1553
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %58, align 8, !alias.scope !1550, !noalias !1553
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
           to label %.noexc10 unwind label %.loopexit.split-lp
 
 .noexc10:                                         ; preds = %49
@@ -14749,7 +14749,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hd07d66cc86b13adcE(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8contrast17he4e2c7efb5b8c79bE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8contrast17he4e2c7efb5b8c79bE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -14881,7 +14881,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17he4e2c7efb5b8c79bE(ptr
   store ptr %6, ptr %53, align 8, !alias.scope !1573, !noalias !1576
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %54, align 8, !alias.scope !1573, !noalias !1576
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
           to label %.noexc11 unwind label %.loopexit.split-lp
 
 .noexc11:                                         ; preds = %45
@@ -14924,7 +14924,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17he4e2c7efb5b8c79bE(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8contrast17hfd88831cfa5d1533E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8contrast17hfd88831cfa5d1533E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, float noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -14963,7 +14963,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hfd88831cfa5d1533E(ptr
 
 17:                                               ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %14, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %9, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %9, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %11, ptr %18, align 8, !alias.scope !1581
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -15069,7 +15069,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hfd88831cfa5d1533E(ptr
   store ptr %6, ptr %58, align 8, !alias.scope !1599, !noalias !1602
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %59, align 8, !alias.scope !1599, !noalias !1602
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.23.llvm.1609853135345852838) #18
           to label %.noexc10 unwind label %.loopexit.split-lp
 
 .noexc10:                                         ; preds = %50
@@ -15126,7 +15126,7 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hfd88831cfa5d1533E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8brighten17h06d3c5fd6530ba27E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8brighten17h06d3c5fd6530ba27E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -15166,7 +15166,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h06d3c5fd6530ba27E(ptr
 
 17:                                               ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %14, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %9, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %9, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %11, ptr %18, align 8, !alias.scope !1608
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -15261,7 +15261,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h06d3c5fd6530ba27E(ptr
   store ptr %6, ptr %50, align 8, !alias.scope !1629, !noalias !1632
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !1629, !noalias !1632
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
           to label %.noexc8 unwind label %.loopexit.split-lp
 
 .noexc8:                                          ; preds = %42
@@ -15318,7 +15318,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h06d3c5fd6530ba27E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8brighten17h1b3bfe1a6534f1b4E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8brighten17h1b3bfe1a6534f1b4E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -15358,7 +15358,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h1b3bfe1a6534f1b4E(ptr
 
 17:                                               ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %14, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %9, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %9, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %11, ptr %18, align 8, !alias.scope !1638
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -15453,7 +15453,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h1b3bfe1a6534f1b4E(ptr
   store ptr %6, ptr %50, align 8, !alias.scope !1659, !noalias !1662
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !1659, !noalias !1662
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
           to label %.noexc8 unwind label %.loopexit.split-lp
 
 .noexc8:                                          ; preds = %42
@@ -15510,7 +15510,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h1b3bfe1a6534f1b4E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8brighten17h35be5e44376220d5E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8brighten17h35be5e44376220d5E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -15620,7 +15620,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h35be5e44376220d5E(ptr
   store ptr %6, ptr %40, align 8, !alias.scope !1682, !noalias !1685
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %41, align 8, !alias.scope !1682, !noalias !1685
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
           to label %.noexc9 unwind label %.loopexit.split-lp
 
 .noexc9:                                          ; preds = %32
@@ -15663,7 +15663,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h35be5e44376220d5E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8brighten17h48e73d165d4f9ba6E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8brighten17h48e73d165d4f9ba6E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -15701,7 +15701,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h48e73d165d4f9ba6E(ptr
 
 16:                                               ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %13, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %8, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %8, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %10, ptr %17, align 8, !alias.scope !1690
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 28
@@ -15769,7 +15769,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h48e73d165d4f9ba6E(ptr
   store ptr %6, ptr %41, align 8, !alias.scope !1702, !noalias !1705
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %42, align 8, !alias.scope !1702, !noalias !1705
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
           to label %.noexc9 unwind label %.loopexit.split-lp
 
 .noexc9:                                          ; preds = %33
@@ -15814,7 +15814,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h48e73d165d4f9ba6E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8brighten17h4ffc8b4fbb746dddE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8brighten17h4ffc8b4fbb746dddE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -15853,7 +15853,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h4ffc8b4fbb746dddE(ptr
 
 17:                                               ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %14, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %9, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %9, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %11, ptr %18, align 8, !alias.scope !1711
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -15938,7 +15938,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h4ffc8b4fbb746dddE(ptr
   store ptr %6, ptr %48, align 8, !alias.scope !1735, !noalias !1738
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %49, align 8, !alias.scope !1735, !noalias !1738
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
           to label %.noexc7 unwind label %.loopexit.split-lp
 
 .noexc7:                                          ; preds = %40
@@ -15995,7 +15995,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h4ffc8b4fbb746dddE(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8brighten17h5d0be34efb1e7a17E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8brighten17h5d0be34efb1e7a17E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -16034,7 +16034,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h5d0be34efb1e7a17E(ptr
 
 17:                                               ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %14, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %9, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %9, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %11, ptr %18, align 8, !alias.scope !1744
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -16119,7 +16119,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h5d0be34efb1e7a17E(ptr
   store ptr %6, ptr %48, align 8, !alias.scope !1767, !noalias !1770
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %49, align 8, !alias.scope !1767, !noalias !1770
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
           to label %.noexc8 unwind label %.loopexit.split-lp
 
 .noexc8:                                          ; preds = %40
@@ -16176,7 +16176,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h5d0be34efb1e7a17E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8brighten17h71fa866f45d0547dE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8brighten17h71fa866f45d0547dE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -16305,7 +16305,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h71fa866f45d0547dE(ptr
   store ptr %6, ptr %47, align 8, !alias.scope !1803, !noalias !1806
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %48, align 8, !alias.scope !1803, !noalias !1806
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
           to label %.noexc7 unwind label %.loopexit.split-lp
 
 .noexc7:                                          ; preds = %39
@@ -16361,7 +16361,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h71fa866f45d0547dE(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8brighten17h75f48f95ff6b6f5bE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8brighten17h75f48f95ff6b6f5bE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -16475,7 +16475,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h75f48f95ff6b6f5bE(ptr
   store ptr %6, ptr %40, align 8, !alias.scope !1827, !noalias !1830
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %41, align 8, !alias.scope !1827, !noalias !1830
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
           to label %.noexc8 unwind label %.loopexit.split-lp
 
 .noexc8:                                          ; preds = %32
@@ -16531,7 +16531,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h75f48f95ff6b6f5bE(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8brighten17hdbae2855b93cb8bbE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8brighten17hdbae2855b93cb8bbE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -16569,7 +16569,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17hdbae2855b93cb8bbE(ptr
 
 16:                                               ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %13, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %8, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %8, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %10, ptr %17, align 8, !alias.scope !1836
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 28
@@ -16638,7 +16638,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17hdbae2855b93cb8bbE(ptr
   store ptr %6, ptr %40, align 8, !alias.scope !1848, !noalias !1851
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %41, align 8, !alias.scope !1848, !noalias !1851
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
           to label %.noexc8 unwind label %.loopexit.split-lp
 
 .noexc8:                                          ; preds = %32
@@ -16695,7 +16695,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17hdbae2855b93cb8bbE(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops8brighten17hffa7bf9e38c1b685E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops8brighten17hffa7bf9e38c1b685E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -16824,7 +16824,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17hffa7bf9e38c1b685E(ptr
   store ptr %6, ptr %47, align 8, !alias.scope !1883, !noalias !1886
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %48, align 8, !alias.scope !1883, !noalias !1886
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.27.llvm.1609853135345852838) #18
           to label %.noexc8 unwind label %.loopexit.split-lp
 
 .noexc8:                                          ; preds = %39
@@ -16880,7 +16880,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17hffa7bf9e38c1b685E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops9huerotate17h356f22b824d15908E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops9huerotate17h356f22b824d15908E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, i64, {} }, align 8
@@ -16980,7 +16980,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h356f22b824d15908E(pt
   unreachable
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h4017598605090816E.llvm.1814251078191383949.exit.i": ; preds = %55
-  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcd6553b4f2868b89E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %6, ptr noalias noundef nonnull align 1 %17, i64 noundef %.fca.1.extract.i.i, i64 noundef 3)
+  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcd6553b4f2868b89E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 1 %17, i64 noundef %.fca.1.extract.i.i, i64 noundef 3)
           to label %58 unwind label %.loopexit.split-lp
 
 58:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h4017598605090816E.llvm.1814251078191383949.exit.i"
@@ -17108,7 +17108,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h356f22b824d15908E(pt
   store i64 %.sroa.6.0.copyload.fr, ptr %5, align 8, !noalias !1903
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1903
   store ptr null, ptr %4, align 8, !noalias !1903
-  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc68 unwind label %.loopexit.split-lp
 
 .noexc68:                                         ; preds = %109
@@ -17139,7 +17139,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h356f22b824d15908E(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops9huerotate17h54c3678743e0d078E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops9huerotate17h54c3678743e0d078E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, i64, {} }, align 8
@@ -17239,7 +17239,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h54c3678743e0d078E(pt
   unreachable
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h2b4f361f104a2df7E.llvm.1814251078191383949.exit.i": ; preds = %55
-  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcd6553b4f2868b89E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %6, ptr noalias noundef nonnull align 1 %17, i64 noundef %.fca.1.extract.i.i, i64 noundef 1)
+  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcd6553b4f2868b89E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 1 %17, i64 noundef %.fca.1.extract.i.i, i64 noundef 1)
           to label %58 unwind label %.loopexit.split-lp
 
 58:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h2b4f361f104a2df7E.llvm.1814251078191383949.exit.i"
@@ -17350,7 +17350,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h54c3678743e0d078E(pt
   store i64 %.sroa.6.0.copyload.fr, ptr %5, align 8, !noalias !1920
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1920
   store ptr null, ptr %4, align 8, !noalias !1920
-  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc68 unwind label %.loopexit.split-lp
 
 .noexc68:                                         ; preds = %105
@@ -17381,7 +17381,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h54c3678743e0d078E(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops9huerotate17h64ac2ce6b55ba0b9E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops9huerotate17h64ac2ce6b55ba0b9E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, i64, {} }, align 8
@@ -17413,7 +17413,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h64ac2ce6b55ba0b9E(pt
 
 15:                                               ; preds = %3
   %.fca.1.extract.i59 = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i59)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i59)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !1926
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -17479,7 +17479,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h64ac2ce6b55ba0b9E(pt
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h4ecba5f0895a7ba0E.llvm.1814251078191383949.exit.i": ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !1934, !noalias !1939, !nonnull !4, !noundef !4
-  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcb6f75d3107c0807E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %6, ptr noalias noundef nonnull align 2 %59, i64 noundef %.fca.1.extract.i.i, i64 noundef 3)
+  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcb6f75d3107c0807E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 2 %59, i64 noundef %.fca.1.extract.i.i, i64 noundef 3)
           to label %60 unwind label %.loopexit.split-lp
 
 60:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h4ecba5f0895a7ba0E.llvm.1814251078191383949.exit.i"
@@ -17607,7 +17607,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h64ac2ce6b55ba0b9E(pt
   store i64 %.sroa.6.0.copyload.fr, ptr %5, align 8, !noalias !1940
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1940
   store ptr null, ptr %4, align 8, !noalias !1940
-  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc64 unwind label %.loopexit.split-lp
 
 .noexc64:                                         ; preds = %116
@@ -17638,7 +17638,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h64ac2ce6b55ba0b9E(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [4 x float], align 4
   %5 = alloca { ptr, [5 x i64] }, align 8
   %6 = alloca i64, align 8
@@ -17671,7 +17671,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
 
 16:                                               ; preds = %3
   %.fca.1.extract.i43 = extractvalue { i64, i64 } %13, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %8, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i43)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %8, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i43)
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %10, ptr %17, align 8, !alias.scope !1946
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 28
@@ -17744,7 +17744,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17ha222e1d4aa55372eE.llvm.1814251078191383949.exit.i": ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %61 = load ptr, ptr %60, align 8, !alias.scope !1954, !noalias !1959, !nonnull !4, !noundef !4
-  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hb0e8a1395d1042dfE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 4 %61, i64 noundef %.fca.1.extract.i.i, i64 noundef 4)
+  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hb0e8a1395d1042dfE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull align 4 %61, i64 noundef %.fca.1.extract.i.i, i64 noundef 4)
           to label %62 unwind label %.loopexit.split-lp
 
 62:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17ha222e1d4aa55372eE.llvm.1814251078191383949.exit.i"
@@ -17871,7 +17871,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
   store i64 %.sroa.671.0.copyload.fr, ptr %6, align 8, !noalias !1964
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1964
   store ptr null, ptr %5, align 8, !noalias !1964
-  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc48 unwind label %.loopexit.split-lp
 
 .noexc48:                                         ; preds = %119
@@ -17893,7 +17893,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, i64, {} }, align 8
@@ -17925,7 +17925,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
 
 15:                                               ; preds = %3
   %.fca.1.extract.i59 = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i59)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i59)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !1970
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -17991,7 +17991,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17hda331663880fad07E.llvm.1814251078191383949.exit.i": ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !1978, !noalias !1983, !nonnull !4, !noundef !4
-  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcb6f75d3107c0807E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %6, ptr noalias noundef nonnull align 2 %59, i64 noundef %.fca.1.extract.i.i, i64 noundef 4)
+  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcb6f75d3107c0807E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 2 %59, i64 noundef %.fca.1.extract.i.i, i64 noundef 4)
           to label %60 unwind label %.loopexit.split-lp
 
 60:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17hda331663880fad07E.llvm.1814251078191383949.exit.i"
@@ -18133,7 +18133,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
   store i64 %.sroa.6.0.copyload.fr, ptr %5, align 8, !noalias !1984
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1984
   store ptr null, ptr %4, align 8, !noalias !1984
-  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc64 unwind label %.loopexit.split-lp
 
 .noexc64:                                         ; preds = %122
@@ -18164,7 +18164,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops9huerotate17h9897dffe59774248E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops9huerotate17h9897dffe59774248E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, i64, {} }, align 8
@@ -18196,7 +18196,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9897dffe59774248E(pt
 
 15:                                               ; preds = %3
   %.fca.1.extract.i59 = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i59)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i59)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !1990
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -18262,7 +18262,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9897dffe59774248E(pt
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17hea590f1c98b832d6E.llvm.1814251078191383949.exit.i": ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !1998, !noalias !2003, !nonnull !4, !noundef !4
-  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcb6f75d3107c0807E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %6, ptr noalias noundef nonnull align 2 %59, i64 noundef %.fca.1.extract.i.i, i64 noundef 1)
+  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcb6f75d3107c0807E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 2 %59, i64 noundef %.fca.1.extract.i.i, i64 noundef 1)
           to label %60 unwind label %.loopexit.split-lp
 
 60:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17hea590f1c98b832d6E.llvm.1814251078191383949.exit.i"
@@ -18373,7 +18373,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9897dffe59774248E(pt
   store i64 %.sroa.6.0.copyload.fr, ptr %5, align 8, !noalias !2004
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2004
   store ptr null, ptr %4, align 8, !noalias !2004
-  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc64 unwind label %.loopexit.split-lp
 
 .noexc64:                                         ; preds = %107
@@ -18404,7 +18404,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9897dffe59774248E(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops9huerotate17h9a52b863d3d34e4aE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops9huerotate17h9a52b863d3d34e4aE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, i64, {} }, align 8
@@ -18436,7 +18436,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9a52b863d3d34e4aE(pt
 
 15:                                               ; preds = %3
   %.fca.1.extract.i59 = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i59)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i59)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !2010
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -18502,7 +18502,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9a52b863d3d34e4aE(pt
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17hde7b93a6add7bc41E.llvm.1814251078191383949.exit.i": ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !2018, !noalias !2023, !nonnull !4, !noundef !4
-  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcb6f75d3107c0807E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %6, ptr noalias noundef nonnull align 2 %59, i64 noundef %.fca.1.extract.i.i, i64 noundef 2)
+  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcb6f75d3107c0807E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 2 %59, i64 noundef %.fca.1.extract.i.i, i64 noundef 2)
           to label %60 unwind label %.loopexit.split-lp
 
 60:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17hde7b93a6add7bc41E.llvm.1814251078191383949.exit.i"
@@ -18622,7 +18622,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9a52b863d3d34e4aE(pt
   store i64 %.sroa.6.0.copyload.fr, ptr %5, align 8, !noalias !2024
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2024
   store ptr null, ptr %4, align 8, !noalias !2024
-  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc64 unwind label %.loopexit.split-lp
 
 .noexc64:                                         ; preds = %112
@@ -18653,7 +18653,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9a52b863d3d34e4aE(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops9huerotate17ha1ed3e6d6392ecfdE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops9huerotate17ha1ed3e6d6392ecfdE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, i64, {} }, align 8
@@ -18753,7 +18753,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17ha1ed3e6d6392ecfdE(pt
   unreachable
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h1d9496623e176d03E.llvm.1814251078191383949.exit.i": ; preds = %55
-  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcd6553b4f2868b89E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %6, ptr noalias noundef nonnull align 1 %17, i64 noundef %.fca.1.extract.i.i, i64 noundef 2)
+  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcd6553b4f2868b89E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 1 %17, i64 noundef %.fca.1.extract.i.i, i64 noundef 2)
           to label %58 unwind label %.loopexit.split-lp
 
 58:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h1d9496623e176d03E.llvm.1814251078191383949.exit.i"
@@ -18873,7 +18873,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17ha1ed3e6d6392ecfdE(pt
   store i64 %.sroa.6.0.copyload.fr, ptr %5, align 8, !noalias !2041
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2041
   store ptr null, ptr %4, align 8, !noalias !2041
-  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc68 unwind label %.loopexit.split-lp
 
 .noexc68:                                         ; preds = %107
@@ -18904,7 +18904,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17ha1ed3e6d6392ecfdE(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops9huerotate17habf37beb48e73fcbE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops9huerotate17habf37beb48e73fcbE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, i64, {} }, align 8
@@ -19004,7 +19004,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17habf37beb48e73fcbE(pt
   unreachable
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h9e2396414cfc3140E.llvm.1814251078191383949.exit.i": ; preds = %55
-  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcd6553b4f2868b89E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %6, ptr noalias noundef nonnull align 1 %17, i64 noundef %.fca.1.extract.i.i, i64 noundef 4)
+  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcd6553b4f2868b89E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 1 %17, i64 noundef %.fca.1.extract.i.i, i64 noundef 4)
           to label %58 unwind label %.loopexit.split-lp
 
 58:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h9e2396414cfc3140E.llvm.1814251078191383949.exit.i"
@@ -19146,7 +19146,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17habf37beb48e73fcbE(pt
   store i64 %.sroa.6.0.copyload.fr, ptr %5, align 8, !noalias !2058
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2058
   store ptr null, ptr %4, align 8, !noalias !2058
-  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc68 unwind label %.loopexit.split-lp
 
 .noexc68:                                         ; preds = %115
@@ -19177,7 +19177,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17habf37beb48e73fcbE(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [4 x float], align 4
   %5 = alloca { ptr, [5 x i64] }, align 8
   %6 = alloca i64, align 8
@@ -19210,7 +19210,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
 
 16:                                               ; preds = %3
   %.fca.1.extract.i43 = extractvalue { i64, i64 } %13, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %8, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i43)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %8, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i43)
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %10, ptr %17, align 8, !alias.scope !2064
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 28
@@ -19283,7 +19283,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h04a8529955451ebfE.llvm.1814251078191383949.exit.i": ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %61 = load ptr, ptr %60, align 8, !alias.scope !2072, !noalias !2077, !nonnull !4, !noundef !4
-  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hb0e8a1395d1042dfE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 4 %61, i64 noundef %.fca.1.extract.i.i, i64 noundef 3)
+  invoke void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hb0e8a1395d1042dfE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull align 4 %61, i64 noundef %.fca.1.extract.i.i, i64 noundef 3)
           to label %62 unwind label %.loopexit.split-lp
 
 62:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h04a8529955451ebfE.llvm.1814251078191383949.exit.i"
@@ -19402,7 +19402,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
   store i64 %.sroa.670.0.copyload.fr, ptr %6, align 8, !noalias !2082
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !2082
   store ptr null, ptr %5, align 8, !noalias !2082
-  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc48 unwind label %.loopexit.split-lp
 
 .noexc48:                                         ; preds = %114
@@ -19424,7 +19424,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca { i32, i32 }, align 4
   %7 = alloca [2 x { ptr, ptr }], align 8
@@ -19465,7 +19465,7 @@ define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN5image7buffer_
   store ptr %7, ptr %23, align 8, !alias.scope !2090, !noalias !2093
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !2090, !noalias !2093
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
   unreachable
 
 25:                                               ; preds = %4
@@ -19501,7 +19501,7 @@ define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN5image7buffer_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca { i32, i32 }, align 4
   %7 = alloca [2 x { ptr, ptr }], align 8
@@ -19542,7 +19542,7 @@ define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN5image7buffer_
   store ptr %7, ptr %23, align 8, !alias.scope !2103, !noalias !2106
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !2103, !noalias !2106
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
   unreachable
 
 25:                                               ; preds = %4
@@ -19578,7 +19578,7 @@ define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN5image7buffer_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca { i32, i32 }, align 4
   %7 = alloca [2 x { ptr, ptr }], align 8
@@ -19619,7 +19619,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN5image7buffer_
   store ptr %7, ptr %23, align 8, !alias.scope !2116, !noalias !2119
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !2116, !noalias !2119
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
   unreachable
 
 25:                                               ; preds = %4
@@ -19646,7 +19646,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN5image7buffer_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca { i32, i32 }, align 4
   %7 = alloca [2 x { ptr, ptr }], align 8
@@ -19687,7 +19687,7 @@ define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN5image7buffer_
   store ptr %7, ptr %23, align 8, !alias.scope !2129, !noalias !2132
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !2129, !noalias !2132
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
   unreachable
 
 25:                                               ; preds = %4
@@ -19723,7 +19723,7 @@ define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN5image7buffer_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca { i32, i32 }, align 4
   %7 = alloca [2 x { ptr, ptr }], align 8
@@ -19764,7 +19764,7 @@ define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN5image7buffer_
   store ptr %7, ptr %23, align 8, !alias.scope !2142, !noalias !2145
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !2142, !noalias !2145
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
   unreachable
 
 25:                                               ; preds = %4
@@ -19800,7 +19800,7 @@ define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN5image7buffer_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca { i32, i32 }, align 4
   %7 = alloca [2 x { ptr, ptr }], align 8
@@ -19841,7 +19841,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN5image7buffer
   store ptr %7, ptr %23, align 8, !alias.scope !2155, !noalias !2158
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !2155, !noalias !2158
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
   unreachable
 
 25:                                               ; preds = %4
@@ -19877,7 +19877,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN5image7buffer
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca { i32, i32 }, align 4
   %7 = alloca [2 x { ptr, ptr }], align 8
@@ -19918,7 +19918,7 @@ define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN5image7buffer_
   store ptr %7, ptr %23, align 8, !alias.scope !2168, !noalias !2171
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !2168, !noalias !2171
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
   unreachable
 
 25:                                               ; preds = %4
@@ -19954,7 +19954,7 @@ define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN5image7buffer_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca { i32, i32 }, align 4
   %7 = alloca [2 x { ptr, ptr }], align 8
@@ -19995,7 +19995,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN5image7buffer
   store ptr %7, ptr %23, align 8, !alias.scope !2181, !noalias !2184
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !2181, !noalias !2184
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
   unreachable
 
 25:                                               ; preds = %4
@@ -20031,7 +20031,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN5image7buffer
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca { i32, i32 }, align 4
   %7 = alloca [2 x { ptr, ptr }], align 8
@@ -20072,7 +20072,7 @@ define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN5image7buffer_
   store ptr %7, ptr %23, align 8, !alias.scope !2194, !noalias !2197
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !2194, !noalias !2197
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
   unreachable
 
 25:                                               ; preds = %4
@@ -20108,7 +20108,7 @@ define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN5image7buffer_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca { i32, i32 }, align 4
   %6 = alloca { i32, i32 }, align 4
   %7 = alloca [2 x { ptr, ptr }], align 8
@@ -20149,7 +20149,7 @@ define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN5image7buffer_
   store ptr %7, ptr %23, align 8, !alias.scope !2207, !noalias !2210
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !2207, !noalias !2210
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #18
   unreachable
 
 25:                                               ; preds = %4
@@ -20191,7 +20191,7 @@ define hidden noundef float @"_ZN58_$LT$T$u20$as$u20$image..color..FromPrimitive
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h0e18aa7896d753ceE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ [3 x float] }) align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h0e18aa7896d753ceE.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ [3 x float] }) align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !alias.scope !2215, !noalias !2218, !noundef !4
   store float %3, ptr %0, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -20202,7 +20202,7 @@ define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h2ae01b70c676273cE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h2ae01b70c676273cE.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ [4 x float] }) align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !alias.scope !2220, !noalias !2223, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4, !alias.scope !2220, !noalias !2223, !noundef !4
@@ -20217,19 +20217,19 @@ define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i16 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h351d4d667dd34a9cE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
+define hidden noundef i16 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h351d4d667dd34a9cE.llvm.1609853135345852838"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 2, !alias.scope !2225, !noalias !2228, !noundef !4
   ret i16 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h71c01df01614f725E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0) unnamed_addr #6 {
+define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h71c01df01614f725E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 1, !alias.scope !2230, !noalias !2233
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h72fb4b5f78ddeddfE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h72fb4b5f78ddeddfE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 1, !alias.scope !2235, !noalias !2238, !noundef !4
   %3 = zext i8 %2 to i32
   %.sroa.0.0.insert.ext = mul nuw nsw i32 %3, 257
@@ -20242,7 +20242,7 @@ define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i48 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h73b62e42c159438dE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden i48 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h73b62e42c159438dE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 1, !alias.scope !2240, !noalias !2243, !noundef !4
   %3 = zext i8 %2 to i16
   %4 = mul nuw i16 %3, 257
@@ -20265,13 +20265,13 @@ define hidden i48 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h7f6579a81284673dE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #6 {
+define hidden noundef i8 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h7f6579a81284673dE.llvm.1609853135345852838"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !alias.scope !2245, !noalias !2248, !noundef !4
   ret i8 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h938214223fb541baE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h938214223fb541baE"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = load i16, ptr %0, align 2, !alias.scope !2250, !noalias !2253, !noundef !4
   %3 = zext i16 %2 to i32
   %4 = add nuw nsw i32 %3, 128
@@ -20303,7 +20303,7 @@ define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hb7e9731aa2c5badeE"(ptr noalias nocapture noundef writeonly sret({ [3 x float] }) align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
+define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hb7e9731aa2c5badeE"(ptr noalias noundef writeonly sret({ [3 x float] }) align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !alias.scope !2255, !noalias !2258, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -20330,13 +20330,13 @@ define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hc7c4816201dd1512E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #6 {
+define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hc7c4816201dd1512E.llvm.1609853135345852838"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 2, !alias.scope !2260, !noalias !2263
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hcfe28ae1d60e417eE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %0) unnamed_addr #1 {
+define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hcfe28ae1d60e417eE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #1 {
   %2 = alloca { [4 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
@@ -20347,7 +20347,7 @@ define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hd25235444d9ff40cE"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hd25235444d9ff40cE"(ptr noalias noundef writeonly sret({ [4 x float] }) align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !alias.scope !2265, !noalias !2268, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -20382,7 +20382,7 @@ define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i16 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hdae7004fec612fa8E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden i16 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hdae7004fec612fa8E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 1, !alias.scope !2270, !noalias !2273, !noundef !4
   %3 = zext i8 %2 to i16
   %4 = mul nuw i16 %3, 257
@@ -20390,13 +20390,13 @@ define hidden i16 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i16 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hf27852cc8dedbe5dE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #6 {
+define hidden i16 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hf27852cc8dedbe5dE.llvm.1609853135345852838"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 1, !alias.scope !2275, !noalias !2278
   ret i16 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i64 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hff7a0c04bfe9db8cE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden i64 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hff7a0c04bfe9db8cE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 1, !alias.scope !2280, !noalias !2283, !noundef !4
   %3 = zext i8 %2 to i64
   %.sroa.0.0.insert.ext = mul nuw nsw i64 %3, 257
@@ -20419,7 +20419,7 @@ define hidden i64 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias nocapture noundef nonnull readonly align 2 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 2 captures(none) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   switch i64 %1, label %4 [
     i64 0, label %3
     i64 1, label %6
@@ -20461,7 +20461,7 @@ define hidden noundef i16 @_ZN5image5color11rgb_to_luma17h5a22f648ad68e395E.llvm
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i8 @_ZN5image5color11rgb_to_luma17h9535a7c89093745aE.llvm.1609853135345852838(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i8 @_ZN5image5color11rgb_to_luma17h9535a7c89093745aE.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   switch i64 %1, label %4 [
     i64 0, label %3
     i64 1, label %6
@@ -20503,7 +20503,7 @@ define hidden noundef i8 @_ZN5image5color11rgb_to_luma17h9535a7c89093745aE.llvm.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838(ptr noalias nocapture noundef nonnull readonly align 4 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838(ptr noalias noundef nonnull readonly align 4 captures(none) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   switch i64 %1, label %4 [
     i64 0, label %3
     i64 1, label %6
@@ -20557,14 +20557,14 @@ _ZN5image6traits11Enlargeable10clamp_from17hc0d2f00a5a1392d8E.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h02b64bf1ebd47ed5E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h02b64bf1ebd47ed5E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h0d20c6f838fb10d3E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h0d20c6f838fb10d3E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -20573,7 +20573,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h1fbab30ae3245ba9E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h1fbab30ae3245ba9E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -20584,14 +20584,14 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h64b5ed87442ebd01E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h64b5ed87442ebd01E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17ha000e7fcd5ee36f0E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17ha000e7fcd5ee36f0E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -20602,7 +20602,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hb8c29eb6fea9e43cE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hb8c29eb6fea9e43cE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -20613,7 +20613,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h5b299562f7122cc4E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h5b299562f7122cc4E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -20624,14 +20624,14 @@ define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h5f8378b59d5f79d6E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h5f8378b59d5f79d6E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h8b43b0c6c6a6a4ecE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h8b43b0c6c6a6a4ecE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -20642,14 +20642,14 @@ define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hb68cfa7c4bccd4d8E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hb68cfa7c4bccd4d8E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hc76d9fe1f97fa941E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hc76d9fe1f97fa941E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -20660,7 +20660,7 @@ define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hec11fc31c5952a3fE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hec11fc31c5952a3fE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -20669,7 +20669,7 @@ define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h142294cbbdeaf610E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h142294cbbdeaf610E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2287, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -20719,7 +20719,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h2c75656c027b1942E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h2c75656c027b1942E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2290, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -20752,7 +20752,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h3ba8da5361907098E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h3ba8da5361907098E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2293, !noundef !4
   %5 = zext i8 %4 to i32
@@ -20773,7 +20773,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h6a2fa5143549fad9E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h6a2fa5143549fad9E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2296, !noundef !4
   %5 = zext i16 %4 to i32
@@ -20798,7 +20798,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h715724045f8becd6E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h715724045f8becd6E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2299, !noundef !4
   %5 = zext i16 %4 to i32
@@ -20821,7 +20821,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h8bf877ca463daeadE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h8bf877ca463daeadE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2302, !noundef !4
   %5 = zext i16 %4 to i32
@@ -20842,7 +20842,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h9aac05f45694367aE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h9aac05f45694367aE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2305, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -20892,7 +20892,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hc72d48cebc2d17a5E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hc72d48cebc2d17a5E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2308, !noundef !4
   %5 = zext i8 %4 to i32
@@ -20914,7 +20914,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hf62f560086bdde4bE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hf62f560086bdde4bE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2311, !noundef !4
   %5 = zext i8 %4 to i32
@@ -20939,7 +20939,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h2632d46e01a7f773E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h2632d46e01a7f773E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2314, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -20972,7 +20972,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h2e69b42cebba59d1E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h2e69b42cebba59d1E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2317, !noundef !4
   %5 = zext i8 %4 to i32
@@ -20994,7 +20994,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h30b32c55012f4a68E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h30b32c55012f4a68E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2320, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21019,7 +21019,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h39ab8ba9e77e6136E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h39ab8ba9e77e6136E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2323, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21044,7 +21044,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h4cce3a227df9d1dcE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h4cce3a227df9d1dcE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2326, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21065,7 +21065,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h8fc587610dd1b884E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h8fc587610dd1b884E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2329, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21088,7 +21088,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hbadacc1418a4ba83E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hbadacc1418a4ba83E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2332, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21109,7 +21109,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hde184d17c93bff7aE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hde184d17c93bff7aE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2335, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -21159,7 +21159,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17heb91d8c71f73da13E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17heb91d8c71f73da13E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2338, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -21209,7 +21209,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h2c7beae0aa7ef6e8E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h2c7beae0aa7ef6e8E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -21224,7 +21224,7 @@ define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h66085d37fb420b68E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h66085d37fb420b68E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -21243,7 +21243,7 @@ define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h87500253b14a6581E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h87500253b14a6581E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -21262,7 +21262,7 @@ define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h8d7ae4cd34bf487aE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h8d7ae4cd34bf487aE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -21273,7 +21273,7 @@ define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h9825c7632e57c94dE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h9825c7632e57c94dE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -21292,7 +21292,7 @@ define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17ha1a5d6f316a1deb9E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17ha1a5d6f316a1deb9E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -21303,7 +21303,7 @@ define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h2acce9f2cadc8088E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h2acce9f2cadc8088E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2341, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21330,7 +21330,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h6339d83458f7ac56E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h6339d83458f7ac56E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2344, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21353,7 +21353,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h684adbcc2b420cdbE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h684adbcc2b420cdbE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2347, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21380,7 +21380,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h6afa8bbb4633132aE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h6afa8bbb4633132aE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2350, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -21432,7 +21432,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h83b941d56bd54d5fE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h83b941d56bd54d5fE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2353, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -21484,7 +21484,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h9d5000b13ea842fdE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h9d5000b13ea842fdE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2356, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21509,7 +21509,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hb74ec633fdec966fE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hb74ec633fdec966fE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2359, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -21544,7 +21544,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hddd5a1efcadbf1d0E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hddd5a1efcadbf1d0E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2362, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21568,7 +21568,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hdf204e9643a756baE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hdf204e9643a756baE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2365, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21591,7 +21591,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0083690161b7364aE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0083690161b7364aE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2368, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21616,7 +21616,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0f98fb1e851e5a64E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0f98fb1e851e5a64E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2371, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -21687,7 +21687,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h172b059ec57e9365E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h172b059ec57e9365E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2374, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21720,7 +21720,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h223128be610f5b78E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h223128be610f5b78E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2377, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21753,7 +21753,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h30247783bc56a59eE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h30247783bc56a59eE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2380, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21781,7 +21781,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h387f56893c96dec4E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h387f56893c96dec4E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2383, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -21818,7 +21818,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h78e64e1bb217b2bbE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h78e64e1bb217b2bbE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2386, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -21889,7 +21889,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h84a66a6488e7a329E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h84a66a6488e7a329E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2389, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21914,7 +21914,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc4f47d8f8d24b4b6E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc4f47d8f8d24b4b6E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2392, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21945,7 +21945,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h406136956fc42102E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h406136956fc42102E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -21958,7 +21958,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h7e9a8b491368beb1E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h7e9a8b491368beb1E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -21967,7 +21967,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h81ea8e82e468294eE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h81ea8e82e468294eE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -21978,7 +21978,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17haf11465d1a5b1b99E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17haf11465d1a5b1b99E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -21987,7 +21987,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hdd56ad5aa3ffc224E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hdd56ad5aa3ffc224E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) initializes((0, 2)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -22000,7 +22000,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17he3a3c777790678d9E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17he3a3c777790678d9E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -22013,7 +22013,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h06ceb57c08b2ff06E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h06ceb57c08b2ff06E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -22040,7 +22040,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h18d5d36dd483eb28E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h18d5d36dd483eb28E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -22059,7 +22059,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hb8bf21e141af85f3E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hb8bf21e141af85f3E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -22094,7 +22094,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc0aba1db4a60a59cE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc0aba1db4a60a59cE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !noundef !4
   %4 = fcmp olt float %3, 0.000000e+00
   %.0.i.i = select i1 %4, float 0.000000e+00, float %3
@@ -22181,7 +22181,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc5c9dacac23cc020E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc5c9dacac23cc020E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !noundef !4
   %4 = fcmp olt float %3, 0.000000e+00
   %.0.i.i = select i1 %4, float 0.000000e+00, float %3
@@ -22268,7 +22268,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc8838d8a895435faE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc8838d8a895435faE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -22303,7 +22303,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hcb2c7e2ea1d40e82E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hcb2c7e2ea1d40e82E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -22338,7 +22338,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hf4bc050f10179cd7E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hf4bc050f10179cd7E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -22357,7 +22357,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hf8742cbe50f45d11E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hf8742cbe50f45d11E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !noundef !4
   store float %3, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -22376,7 +22376,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h035bf57d054a8836E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h035bf57d054a8836E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -22393,7 +22393,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h1e62213fa44c5f55E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h1e62213fa44c5f55E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !noundef !4
   %4 = fcmp olt float %3, 0.000000e+00
   %.0.i.i = select i1 %4, float 0.000000e+00, float %3
@@ -22461,7 +22461,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h46d9e21ff61010c1E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h46d9e21ff61010c1E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -22484,7 +22484,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h4c429122d9aff22cE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h4c429122d9aff22cE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !noundef !4
   %4 = fcmp olt float %3, 0.000000e+00
   %.0.i.i = select i1 %4, float 0.000000e+00, float %3
@@ -22552,7 +22552,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h79c68d0d17a55193E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h79c68d0d17a55193E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -22581,7 +22581,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h7f693238bf74f103E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h7f693238bf74f103E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -22610,7 +22610,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h8a1ab35f7a9610b4E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h8a1ab35f7a9610b4E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !noundef !4
   store float %3, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -22627,7 +22627,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17he4349809a69d09aaE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17he4349809a69d09aaE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -22644,7 +22644,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17he545f7f3798317d1E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17he545f7f3798317d1E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -22673,7 +22673,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h10ba5482680ab437E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h10ba5482680ab437E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -22696,7 +22696,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h4dd45da0551045abE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h4dd45da0551045abE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -22719,7 +22719,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h969430dbc42b9c64E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h969430dbc42b9c64E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -22734,7 +22734,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17ha1badcb35a9b28d5E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17ha1badcb35a9b28d5E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -22753,7 +22753,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17ha9158a4bf188104aE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17ha9158a4bf188104aE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !noundef !4
   store float %3, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -22768,7 +22768,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hc004937052b085f7E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hc004937052b085f7E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -22791,7 +22791,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hfbf88cc174170622E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hfbf88cc174170622E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -22806,7 +22806,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h74e7454e13639ff1E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h74e7454e13639ff1E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -22819,7 +22819,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h863e1451f254c37dE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h863e1451f254c37dE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -22832,7 +22832,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h9846384d72fa2ec1E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h9846384d72fa2ec1E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -22849,7 +22849,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hbb0f3cc58eab5b6dE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hbb0f3cc58eab5b6dE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -22866,7 +22866,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hcd16b3c88901ffebE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hcd16b3c88901ffebE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -22883,7 +22883,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17he58274637bdf1041E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17he58274637bdf1041E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -22898,7 +22898,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h01afce633c04c48bE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h01afce633c04c48bE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -22925,7 +22925,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h39807b59f862f3baE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h39807b59f862f3baE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(6) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !noundef !4
   %4 = fcmp olt float %3, 0.000000e+00
   %.0.i.i = select i1 %4, float 0.000000e+00, float %3
@@ -22991,7 +22991,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h512bbe7a911f0912E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h512bbe7a911f0912E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -23006,7 +23006,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h9f7a45c283816d39E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h9f7a45c283816d39E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -23033,7 +23033,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hb17e9a7cc1ab4056E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hb17e9a7cc1ab4056E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -23060,7 +23060,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hc29f66e62ebcad6eE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hc29f66e62ebcad6eE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(6) initializes((0, 6)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -23081,7 +23081,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hd88159c28ef7cd1cE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hd88159c28ef7cd1cE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(3) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !noundef !4
   %4 = fcmp olt float %3, 0.000000e+00
   %.0.i.i = select i1 %4, float 0.000000e+00, float %3
@@ -23147,7 +23147,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hf1fbea8bbec4b847E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hf1fbea8bbec4b847E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !noundef !4
   store float %3, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -23162,7 +23162,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hf6b630b69451d440E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hf6b630b69451d440E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(6) initializes((0, 6)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -23177,7 +23177,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0c34bc72f453ca63E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0c34bc72f453ca63E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(6) initializes((0, 6)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -23198,7 +23198,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0cf4f261fdadb4ccE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0cf4f261fdadb4ccE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -23225,7 +23225,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h45f64318f9118d88E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h45f64318f9118d88E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -23252,7 +23252,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h4cfe444ef5397d25E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h4cfe444ef5397d25E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(6) initializes((0, 6)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -23267,7 +23267,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h604b11efe5487ae7E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h604b11efe5487ae7E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -23282,7 +23282,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h9220906854e9076cE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h9220906854e9076cE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(6) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !noundef !4
   %4 = fcmp olt float %3, 0.000000e+00
   %.0.i.i = select i1 %4, float 0.000000e+00, float %3
@@ -23348,7 +23348,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hb37a7b95e2cf1a8fE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hb37a7b95e2cf1a8fE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(3) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !noundef !4
   %4 = fcmp olt float %3, 0.000000e+00
   %.0.i.i = select i1 %4, float 0.000000e+00, float %3
@@ -23414,7 +23414,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc90e460a797b973eE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc90e460a797b973eE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -23441,7 +23441,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17he0278bdde2042793E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17he0278bdde2042793E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !noundef !4
   store float %3, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -23456,7 +23456,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h71075bdc2ba8aac8E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h71075bdc2ba8aac8E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -23471,7 +23471,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h971f0770a20edf43E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h971f0770a20edf43E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -23486,7 +23486,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hacf9ce6cd0bd8c6aE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hacf9ce6cd0bd8c6aE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(6) initializes((0, 6)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -23499,7 +23499,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hc4cd339abe377e2dE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hc4cd339abe377e2dE"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(6) initializes((0, 6)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -23510,7 +23510,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hd2693bda8cc4ee41E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hd2693bda8cc4ee41E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -23521,7 +23521,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hf5e6e354b4b9c046E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hf5e6e354b4b9c046E"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -23536,7 +23536,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h451a43de2266462cE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h451a43de2266462cE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !noundef !4
   store float %3, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -23547,7 +23547,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h4670ece7d6f5293fE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h4670ece7d6f5293fE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -23562,7 +23562,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h5a8561e8c8be96dbE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h5a8561e8c8be96dbE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -23577,7 +23577,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hc3315f160e290b71E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hc3315f160e290b71E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(6) initializes((0, 6)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -23590,7 +23590,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hf06058820b25904bE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hf06058820b25904bE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -23601,7 +23601,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hfdfc4c24f7a1fb31E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hfdfc4c24f7a1fb31E"(ptr noalias noundef writeonly align 2 captures(none) dereferenceable(6) initializes((0, 6)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -23612,7 +23612,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hffab52956746d00cE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hffab52956746d00cE"(ptr noalias noundef writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -23627,7 +23627,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..Blend$GT$5blend17h74b58b5d49470f71E"(ptr noalias nocapture noundef align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..Blend$GT$5blend17h74b58b5d49470f71E"(ptr noalias noundef align 1 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -23689,7 +23689,7 @@ define hidden void @"_ZN68_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..Blend$GT$5blend17hc90dc95809246dbeE"(ptr noalias nocapture noundef align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..Blend$GT$5blend17hc90dc95809246dbeE"(ptr noalias noundef align 2 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -23751,7 +23751,7 @@ define hidden void @"_ZN68_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..Blend$GT$5blend17h4de4002f6d9aeaf9E"(ptr noalias nocapture noundef align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..Blend$GT$5blend17h4de4002f6d9aeaf9E"(ptr noalias noundef align 1 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %.val71 = load i8, ptr %3, align 1, !noundef !4
   switch i8 %.val71, label %4 [
@@ -23876,7 +23876,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..Blend$GT$5blend17h5198d4a9ae39b6b1E"(ptr noalias nocapture noundef align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..Blend$GT$5blend17h5198d4a9ae39b6b1E"(ptr noalias noundef align 2 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %.val68 = load i16, ptr %3, align 2, !noundef !4
   switch i16 %.val68, label %4 [
@@ -24001,7 +24001,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..Blend$GT$5blend17hd17b42331b33f175E"(ptr noalias nocapture noundef align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..Blend$GT$5blend17hd17b42331b33f175E"(ptr noalias noundef align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.val = load float, ptr %3, align 4, !noundef !4
   %4 = fcmp oeq float %.val, 0.000000e+00
@@ -24062,7 +24062,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..Invert$GT$6invert17h86533aba1c693331E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 4 dereferenceable(16) %0) unnamed_addr #5 {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..Invert$GT$6invert17h86533aba1c693331E.llvm.1609853135345852838"(ptr noalias noundef align 4 captures(none) dereferenceable(16) %0) unnamed_addr #5 {
   %.sroa.0.0.copyload = load float, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -24078,7 +24078,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..Invert$GT$6invert17hbc043ea60ba29c65E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 4 dereferenceable(12) %0) unnamed_addr #5 {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..Invert$GT$6invert17hbc043ea60ba29c65E.llvm.1609853135345852838"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0) unnamed_addr #5 {
   %.sroa.0.0.copyload = load float, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -24094,7 +24094,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..colo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h0132d81866dd64f8E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h0132d81866dd64f8E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i32, i32, i32, i8, [3 x i8] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -24150,7 +24150,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h0132d81866dd64f8E(ptr noal
 35:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !2407
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
-  invoke void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0d65af46012a6780E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %30, i64 noundef %33)
+  invoke void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0d65af46012a6780E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %30, i64 noundef %33)
           to label %37 unwind label %26
 
 36:                                               ; preds = %28
@@ -24181,7 +24181,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h0132d81866dd64f8E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2412
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load i64, ptr %42, align 8, !range !2419, !noalias !2412, !noundef !4
   %.not.i.i.i = icmp eq i64 %43, 0
@@ -24266,7 +24266,7 @@ common.resume:                                    ; preds = %68, %51, %58
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h0958f390c4b1ec76E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h0958f390c4b1ec76E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(96) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -24324,7 +24324,7 @@ switch.lookup:
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hc373beeba22d7e61E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hc373beeba22d7e61E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -24354,7 +24354,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2472
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !2472, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -24414,7 +24414,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h09e04b088b88fc15E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(368) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h09e04b088b88fc15E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(368) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -24467,7 +24467,7 @@ switch.lookup:
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17ha57e5fba0dc4c258E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(368) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17ha57e5fba0dc4c258E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(368) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -24497,7 +24497,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2490
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !2490, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -24572,7 +24572,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h0c6f765611dc664eE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(424) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h0c6f765611dc664eE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(424) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { i64, i64 }, { i32, i32 }, { i32, i32 }, {} }, { { { { { i64, ptr }, i64 }, { { { i64, ptr }, i64 }, i8, i8, [6 x i8] }, { i64, [7 x i64] }, { { ptr, ptr }, i8, i8, [6 x i8] }, { i8, [15 x i8] }, i64, [4 x i8], i16, i16, i8, i8, i8, i8, i8, [3 x i8] }, { { { ptr, i64 }, i64, i64, i64 }, { { ptr, i64 }, i64 } }, i8, [7 x i8] }, { { { i64, ptr }, i64 }, { i64, [2 x i64] }, i64, i8, [7 x i8] }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, i8 }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }, { i16, i16 }, { i8, i8 }, { i8, i8 } } }, align 8
@@ -24611,7 +24611,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h0c6f765611dc664eE(ptr noal
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %19
-  invoke void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17he84ffd3308c3efe8E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(424) %4, ptr noalias noundef nonnull align 1 %21, i64 noundef %14)
+  invoke void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17he84ffd3308c3efe8E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(424) %4, ptr noalias noundef nonnull align 1 %21, i64 noundef %14)
           to label %27 unwind label %17
 
 26:                                               ; preds = %19
@@ -24640,7 +24640,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h0c6f765611dc664eE(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2521
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !range !2419, !noalias !2521, !noundef !4
   %.not.i.i.i = icmp eq i64 %33, 0
@@ -24695,7 +24695,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h0c6f765611dc664eE(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h0e569a3dc206bb11E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(144) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h0e569a3dc206bb11E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(144) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -24751,7 +24751,7 @@ switch.lookup:
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %29
-  invoke void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h7ac11a267400c52fE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(144) %3, ptr noalias noundef nonnull align 1 %31, i64 noundef %34)
+  invoke void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h7ac11a267400c52fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %3, ptr noalias noundef nonnull align 1 %31, i64 noundef %34)
           to label %38 unwind label %27
 
 37:                                               ; preds = %29
@@ -24781,7 +24781,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2540
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load i64, ptr %43, align 8, !range !2419, !noalias !2540, !noundef !4
   %.not.i.i.i = icmp eq i64 %44, 0
@@ -24841,7 +24841,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h100f9b06007eaaa8E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(152) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h100f9b06007eaaa8E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(152) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -24894,7 +24894,7 @@ switch.lookup:
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hf1bd9e9603a32fa8E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hf1bd9e9603a32fa8E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(152) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -24924,7 +24924,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2558
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !2558, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -24984,7 +24984,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h10a6f3166bbcda8eE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(752) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h10a6f3166bbcda8eE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(752) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { i64, i64 }, { i32, i32 }, { i32, i32 }, {} }, { { { { { { i64, ptr }, i64 }, { { i32, i32 }, i64 }, { [4 x i8] }, i32 }, { { { i64, ptr }, i64 }, ptr, i64, i64, i64, i8, i8, [6 x i8] }, { i64, [37 x i64] }, { i32, i32 }, { i8, [23 x i8] }, i64, { i8, i8, i8, i8 }, i8, [3 x i8] }, { { { ptr, i64 }, i64, i64, i64 }, { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] } }, i8, [7 x i8] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, { i32, [6 x i32] }, i32, i32, i8, [3 x i8] }, { i32, i32 }, i64, i64, { ptr, ptr }, i32, i32, i8, [7 x i8] }, i8, [7 x i8] }, align 8
@@ -25049,7 +25049,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h10a6f3166bbcda8eE(ptr noal
   br i1 %36, label %38, label %37
 
 37:                                               ; preds = %30
-  invoke void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h45bdbde6c0ce8a3fE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(752) %4, ptr noalias noundef nonnull align 1 %32, i64 noundef %35)
+  invoke void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h45bdbde6c0ce8a3fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(752) %4, ptr noalias noundef nonnull align 1 %32, i64 noundef %35)
           to label %39 unwind label %28
 
 38:                                               ; preds = %30
@@ -25079,7 +25079,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h10a6f3166bbcda8eE(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2579
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load i64, ptr %44, align 8, !range !2419, !noalias !2579, !noundef !4
   %.not.i.i.i = icmp eq i64 %45, 0
@@ -25142,7 +25142,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h10a6f3166bbcda8eE(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h11a0b4c2ba1f1069E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(240) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h11a0b4c2ba1f1069E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(240) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { i64, ptr }, i64 }, { i32, float }, { i32, [3 x i32] }, { i32, float }, i32, i32, { { i8, i8 }, { i8, i8 } }, [4 x i8] }, { i64, [20 x i64] } }, align 8
@@ -25189,7 +25189,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h11a0b4c2ba1f1069E(ptr noal
   br i1 %28, label %35, label %29
 
 29:                                               ; preds = %22
-  invoke void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h58add2b1feac2ec7E.llvm.3890463254259644073"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(240) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
+  invoke void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h58add2b1feac2ec7E.llvm.3890463254259644073"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(240) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
           to label %32 unwind label %30
 
 30:                                               ; preds = %29
@@ -25235,7 +25235,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h11a0b4c2ba1f1069E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2597
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load i64, ptr %40, align 8, !range !2419, !noalias !2597, !noundef !4
   %.not.i.i.i = icmp eq i64 %41, 0
@@ -25295,7 +25295,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h11a0b4c2ba1f1069E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h11d0b6870e772209E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h11d0b6870e772209E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i64, i32, i32, { i8, i8 }, [6 x i8] } }, align 8
@@ -25341,7 +25341,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h11d0b6870e772209E(ptr noal
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %22
-  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc0c339090a2b64b3E.llvm.3890463254259644073(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
+  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc0c339090a2b64b3E.llvm.3890463254259644073(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
           to label %_ZN5image5image12ImageDecoder10read_image17hc303e51b87284974E.exit unwind label %20
 
 30:                                               ; preds = %22
@@ -25371,7 +25371,7 @@ _ZN5image5image12ImageDecoder10read_image17hc303e51b87284974E.exit: ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2612
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load i64, ptr %35, align 8, !range !2419, !noalias !2612, !noundef !4
   %.not.i.i.i = icmp eq i64 %36, 0
@@ -25456,7 +25456,7 @@ common.resume:                                    ; preds = %61, %44, %51
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h15674424aaf85ec6E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h15674424aaf85ec6E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i64, i32, i32, { i8, i8 }, [6 x i8] } }, align 8
@@ -25500,7 +25500,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h15674424aaf85ec6E(ptr noal
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %21
-  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc0c339090a2b64b3E.llvm.3890463254259644073(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %4, ptr noalias noundef nonnull align 1 %23, i64 noundef %spec.select.i)
+  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc0c339090a2b64b3E.llvm.3890463254259644073(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 1 %23, i64 noundef %spec.select.i)
           to label %_ZN5image5image12ImageDecoder10read_image17hc303e51b87284974E.exit unwind label %19
 
 28:                                               ; preds = %21
@@ -25530,7 +25530,7 @@ _ZN5image5image12ImageDecoder10read_image17hc303e51b87284974E.exit: ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2661
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load i64, ptr %33, align 8, !range !2419, !noalias !2661, !noundef !4
   %.not.i.i.i = icmp eq i64 %34, 0
@@ -25615,7 +25615,7 @@ common.resume:                                    ; preds = %59, %42, %49
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h21b11e48c515b041E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h21b11e48c515b041E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(184) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { i64, [16 x i64] }, { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] } }, align 8
@@ -25704,7 +25704,7 @@ default.unreachable:                              ; preds = %2
   br i1 %51, label %53, label %52
 
 52:                                               ; preds = %46
-  invoke void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17heb945b34f2851524E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %4, ptr noalias noundef nonnull align 1 %48, i64 noundef %spec.select.i)
+  invoke void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17heb945b34f2851524E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %4, ptr noalias noundef nonnull align 1 %48, i64 noundef %spec.select.i)
           to label %54 unwind label %44
 
 53:                                               ; preds = %46
@@ -25734,7 +25734,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2723
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load i64, ptr %59, align 8, !range !2419, !noalias !2723, !noundef !4
   %.not.i.i.i = icmp eq i64 %60, 0
@@ -25835,7 +25835,7 @@ common.resume:                                    ; preds = %90, %68, %.body.i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h27cd787d3a16a4a6E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(216) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h27cd787d3a16a4a6E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(216) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { i64, ptr }, i64 }, { i32, float }, { i32, [3 x i32] }, { i32, float }, i32, i32, { { i8, i8 }, { i8, i8 } }, [4 x i8] }, { i64, [17 x i64] } }, align 8
@@ -25882,7 +25882,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h27cd787d3a16a4a6E(ptr noal
   br i1 %28, label %35, label %29
 
 29:                                               ; preds = %22
-  invoke void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h9722a0cf2c5728e6E.llvm.3890463254259644073"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(216) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
+  invoke void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h9722a0cf2c5728e6E.llvm.3890463254259644073"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(216) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
           to label %32 unwind label %30
 
 30:                                               ; preds = %29
@@ -25928,7 +25928,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h27cd787d3a16a4a6E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2767
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load i64, ptr %40, align 8, !range !2419, !noalias !2767, !noundef !4
   %.not.i.i.i = icmp eq i64 %41, 0
@@ -25988,7 +25988,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h27cd787d3a16a4a6E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h281479dea421db68E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(328) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h281479dea421db68E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(328) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, [5 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { ptr, i64 }, i64 }, [4 x ptr], [4 x i64], i64, i16, i8, i8, i8, i8, [2 x i8] }, { i16, i16, i8, i8 }, [1 x i16] }, align 8
@@ -26055,7 +26055,7 @@ default.unreachable:                              ; preds = %2
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %23
-  invoke void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0286d7cc9293bd11E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(328) %4, ptr noalias noundef nonnull align 1 %25, i64 noundef %28)
+  invoke void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0286d7cc9293bd11E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(328) %4, ptr noalias noundef nonnull align 1 %25, i64 noundef %28)
           to label %32 unwind label %21
 
 31:                                               ; preds = %23
@@ -26084,7 +26084,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2785
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i64, ptr %37, align 8, !range !2419, !noalias !2785, !noundef !4
   %.not.i.i.i = icmp eq i64 %38, 0
@@ -26137,7 +26137,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h29bf57c65937b6d1E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(392) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h29bf57c65937b6d1E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(392) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -26190,7 +26190,7 @@ switch.lookup:
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h64030919f351416eE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(392) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h64030919f351416eE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(392) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -26220,7 +26220,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2803
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !2803, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -26295,7 +26295,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h2a07fc0a07390e85E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(4384) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h2a07fc0a07390e85E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(4384) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i64 } } }, i64, i8, i8, [6 x i8] }, align 8
@@ -26356,7 +26356,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h2a07fc0a07390e85E(ptr noal
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %34
-  invoke void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h2ba3b754aa4f4c65E.llvm.10740287948243559469"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(4384) %4, ptr noalias noundef nonnull align 1 %36, i64 noundef %39)
+  invoke void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h2ba3b754aa4f4c65E.llvm.10740287948243559469"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(4384) %4, ptr noalias noundef nonnull align 1 %36, i64 noundef %39)
           to label %_ZN5image5image12ImageDecoder10read_image17hf46b3fdf38b7e9c2E.exit unwind label %32
 
 42:                                               ; preds = %34
@@ -26386,7 +26386,7 @@ _ZN5image5image12ImageDecoder10read_image17hf46b3fdf38b7e9c2E.exit: ; preds = %4
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2836
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %48 = load i64, ptr %47, align 8, !range !2419, !noalias !2836, !noundef !4
   %.not.i.i.i = icmp eq i64 %48, 0
@@ -26464,7 +26464,7 @@ common.resume:                                    ; preds = %69, %56, %63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h2eac3deae8b5fd8aE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h2eac3deae8b5fd8aE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, { i32, i32, i8, i8, [2 x i8] }, i8, [3 x i8] } }, align 8
@@ -26513,7 +26513,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h2eac3deae8b5fd8aE(ptr noal
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %24
-  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f48a33e652bb5e8E.llvm.17224713629878502917(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
+  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f48a33e652bb5e8E.llvm.17224713629878502917(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
           to label %_ZN5image5image12ImageDecoder10read_image17hcfb4e71c71760440E.exit unwind label %22
 
 31:                                               ; preds = %24
@@ -26543,7 +26543,7 @@ _ZN5image5image12ImageDecoder10read_image17hcfb4e71c71760440E.exit: ; preds = %3
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2855
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = load i64, ptr %36, align 8, !range !2419, !noalias !2855, !noundef !4
   %.not.i.i.i = icmp eq i64 %37, 0
@@ -26628,7 +26628,7 @@ common.resume:                                    ; preds = %62, %45, %52
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h30ace70bb687d310E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h30ace70bb687d310E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i64, i32, i32, { i8, i8 }, [6 x i8] } }, align 8
@@ -26674,7 +26674,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h30ace70bb687d310E(ptr noal
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %22
-  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc0c339090a2b64b3E.llvm.3890463254259644073(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
+  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc0c339090a2b64b3E.llvm.3890463254259644073(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
           to label %_ZN5image5image12ImageDecoder10read_image17hc303e51b87284974E.exit unwind label %20
 
 30:                                               ; preds = %22
@@ -26704,7 +26704,7 @@ _ZN5image5image12ImageDecoder10read_image17hc303e51b87284974E.exit: ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2904
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load i64, ptr %35, align 8, !range !2419, !noalias !2904, !noundef !4
   %.not.i.i.i = icmp eq i64 %36, 0
@@ -26789,7 +26789,7 @@ common.resume:                                    ; preds = %61, %44, %51
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h354a9b931984e190E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(4384) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h354a9b931984e190E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(4384) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i64 } } }, i64, i8, i8, [6 x i8] }, align 8
@@ -26848,7 +26848,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h354a9b931984e190E(ptr noal
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  invoke void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h2ba3b754aa4f4c65E.llvm.10740287948243559469"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(4384) %4, ptr noalias noundef nonnull align 1 %35, i64 noundef %spec.select.i)
+  invoke void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h2ba3b754aa4f4c65E.llvm.10740287948243559469"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(4384) %4, ptr noalias noundef nonnull align 1 %35, i64 noundef %spec.select.i)
           to label %_ZN5image5image12ImageDecoder10read_image17hf46b3fdf38b7e9c2E.exit unwind label %31
 
 40:                                               ; preds = %33
@@ -26878,7 +26878,7 @@ _ZN5image5image12ImageDecoder10read_image17hf46b3fdf38b7e9c2E.exit: ; preds = %3
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2956
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = load i64, ptr %45, align 8, !range !2419, !noalias !2956, !noundef !4
   %.not.i.i.i = icmp eq i64 %46, 0
@@ -26956,7 +26956,7 @@ common.resume:                                    ; preds = %67, %54, %61
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h35d8a00f1aeed9e9E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h35d8a00f1aeed9e9E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.219 = alloca [63 x i8], align 1
   %4 = alloca { { { { ptr, i64 }, i64 }, i64, i32, i32, { i8, i8 }, [6 x i8] } }, align 8
@@ -27007,7 +27007,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h35d8a00f1aeed9e9E(ptr noal
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %20
-  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8ddbce84e4102364E.llvm.3890463254259644073(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
+  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8ddbce84e4102364E.llvm.3890463254259644073(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
           to label %_ZN5image5image12ImageDecoder10read_image17h937256d65993c3b0E.exit unwind label %18
 
 30:                                               ; preds = %20
@@ -27037,7 +27037,7 @@ _ZN5image5image12ImageDecoder10read_image17h937256d65993c3b0E.exit: ; preds = %2
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2971
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = load i64, ptr %36, align 8, !range !2419, !noalias !2971, !noundef !4
   %.not.i.i.i = icmp eq i64 %37, 0
@@ -27072,7 +27072,7 @@ _ZN5image5image12ImageDecoder10read_image17h937256d65993c3b0E.exit: ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h3c3590f4809705d8E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(328) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h3c3590f4809705d8E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(328) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, [5 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { ptr, i64 }, i64 }, [4 x ptr], [4 x i64], i64, i16, i8, i8, i8, i8, [2 x i8] }, { i16, i16, i8, i8 }, [1 x i16] }, align 8
@@ -27137,7 +27137,7 @@ default.unreachable:                              ; preds = %2
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %22
-  invoke void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0286d7cc9293bd11E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(328) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %18)
+  invoke void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0286d7cc9293bd11E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(328) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %18)
           to label %30 unwind label %20
 
 29:                                               ; preds = %22
@@ -27166,7 +27166,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2989
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load i64, ptr %35, align 8, !range !2419, !noalias !2989, !noundef !4
   %.not.i.i.i = icmp eq i64 %36, 0
@@ -27219,7 +27219,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h3ce5cb91a39e2224E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h3ce5cb91a39e2224E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, { i32, i32, i8, i8, [2 x i8] }, i8, [3 x i8] } }, align 8
@@ -27270,7 +27270,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h3ce5cb91a39e2224E(ptr noal
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f48a33e652bb5e8E.llvm.17224713629878502917(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f48a33e652bb5e8E.llvm.17224713629878502917(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %_ZN5image5image12ImageDecoder10read_image17hcfb4e71c71760440E.exit unwind label %23
 
 33:                                               ; preds = %25
@@ -27300,7 +27300,7 @@ _ZN5image5image12ImageDecoder10read_image17hcfb4e71c71760440E.exit: ; preds = %3
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3007
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %39 = load i64, ptr %38, align 8, !range !2419, !noalias !3007, !noundef !4
   %.not.i.i.i = icmp eq i64 %39, 0
@@ -27385,7 +27385,7 @@ common.resume:                                    ; preds = %64, %47, %54
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h3e30cdb15c040f56E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(424) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h3e30cdb15c040f56E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(424) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { i64, i64 }, { i32, i32 }, { i32, i32 }, {} }, { { { { { i64, ptr }, i64 }, { { { i64, ptr }, i64 }, i8, i8, [6 x i8] }, { i64, [7 x i64] }, { { ptr, ptr }, i8, i8, [6 x i8] }, { i8, [15 x i8] }, i64, [4 x i8], i16, i16, i8, i8, i8, i8, i8, [3 x i8] }, { { { ptr, i64 }, i64, i64, i64 }, { { ptr, i64 }, i64 } }, i8, [7 x i8] }, { { { i64, ptr }, i64 }, { i64, [2 x i64] }, i64, i8, [7 x i8] }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, i8 }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }, { i16, i16 }, { i8, i8 }, { i8, i8 } } }, align 8
@@ -27424,7 +27424,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h3e30cdb15c040f56E(ptr noal
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %19
-  invoke void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17he84ffd3308c3efe8E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(424) %4, ptr noalias noundef nonnull align 1 %21, i64 noundef %14)
+  invoke void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17he84ffd3308c3efe8E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(424) %4, ptr noalias noundef nonnull align 1 %21, i64 noundef %14)
           to label %27 unwind label %17
 
 26:                                               ; preds = %19
@@ -27453,7 +27453,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h3e30cdb15c040f56E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3056
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !range !2419, !noalias !3056, !noundef !4
   %.not.i.i.i = icmp eq i64 %33, 0
@@ -27508,7 +27508,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h3e30cdb15c040f56E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h413d35f7ee10dbbeE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(4360) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h413d35f7ee10dbbeE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(4360) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -27568,7 +27568,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h413d35f7ee10dbbeE(ptr noal
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  invoke void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h04defcd2d82e7643E.llvm.10740287948243559469"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(4360) %5, ptr noalias noundef nonnull align 1 %36, i64 noundef %spec.select.i)
+  invoke void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h04defcd2d82e7643E.llvm.10740287948243559469"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(4360) %5, ptr noalias noundef nonnull align 1 %36, i64 noundef %spec.select.i)
           to label %_ZN5image5image12ImageDecoder10read_image17hee0498265dd45ac0E.exit unwind label %32
 
 41:                                               ; preds = %34
@@ -27598,7 +27598,7 @@ _ZN5image5image12ImageDecoder10read_image17hee0498265dd45ac0E.exit: ; preds = %4
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3074
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %47 = load i64, ptr %46, align 8, !range !2419, !noalias !3074, !noundef !4
   %.not.i.i.i = icmp eq i64 %47, 0
@@ -27675,7 +27675,7 @@ _ZN5image5image12ImageDecoder10read_image17hee0498265dd45ac0E.exit: ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3103)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3106
   %71 = load ptr, ptr %70, align 8, !alias.scope !3106, !nonnull !4, !noundef !4
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noundef nonnull %71), !noalias !3107
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %71), !noalias !3107
   %72 = load i8, ptr %3, align 8, !range !25, !alias.scope !3108, !noalias !3106, !noundef !4
   %switch.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %72, 3
   br i1 %switch.not.i.i.i.i.i.i.i.i.i, label %73, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i"
@@ -27707,7 +27707,7 @@ common.resume:                                    ; preds = %77, %54, %61
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h4163c0bc7bec6d10E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h4163c0bc7bec6d10E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -27765,7 +27765,7 @@ switch.lookup:
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h139b81b628a27188E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h139b81b628a27188E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -27795,7 +27795,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3127
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !3127, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -27896,7 +27896,7 @@ common.resume:                                    ; preds = %70, %48, %.body.i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h4301c6f7a42861f7E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(352) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h4301c6f7a42861f7E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(352) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, [5 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, [4 x ptr], [4 x i64], i64, i16, i8, i8, i8, i8, [2 x i8] }, { i16, i16, i8, i8 }, [1 x i16] }, align 8
@@ -27963,7 +27963,7 @@ default.unreachable:                              ; preds = %2
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %23
-  invoke void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h8a15ced87e2e4a09E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(352) %4, ptr noalias noundef nonnull align 1 %25, i64 noundef %28)
+  invoke void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h8a15ced87e2e4a09E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(352) %4, ptr noalias noundef nonnull align 1 %25, i64 noundef %28)
           to label %32 unwind label %21
 
 31:                                               ; preds = %23
@@ -27992,7 +27992,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3171
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i64, ptr %37, align 8, !range !2419, !noalias !3171, !noundef !4
   %.not.i.i.i = icmp eq i64 %38, 0
@@ -28045,7 +28045,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h4353e7904273ef0fE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(216) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h4353e7904273ef0fE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(216) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { i64, ptr }, i64 }, { i32, float }, { i32, [3 x i32] }, { i32, float }, i32, i32, { { i8, i8 }, { i8, i8 } }, [4 x i8] }, { i64, [17 x i64] } }, align 8
@@ -28092,7 +28092,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h4353e7904273ef0fE(ptr noal
   br i1 %28, label %35, label %29
 
 29:                                               ; preds = %22
-  invoke void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h9722a0cf2c5728e6E.llvm.3890463254259644073"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(216) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
+  invoke void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h9722a0cf2c5728e6E.llvm.3890463254259644073"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(216) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
           to label %32 unwind label %30
 
 30:                                               ; preds = %29
@@ -28138,7 +28138,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h4353e7904273ef0fE(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3189
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load i64, ptr %40, align 8, !range !2419, !noalias !3189, !noundef !4
   %.not.i.i.i = icmp eq i64 %41, 0
@@ -28198,7 +28198,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h4353e7904273ef0fE(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h472ec923ffe23ab8E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(448) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h472ec923ffe23ab8E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(448) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { i64, i64 }, { i32, i32 }, { i32, i32 }, {} }, { { { { { i64, ptr }, i64 }, { { { i64, ptr }, i64 }, i8, i8, [6 x i8] }, { i64, [7 x i64] }, { { ptr, ptr }, i8, i8, [6 x i8] }, { i8, [15 x i8] }, i64, [4 x i8], i16, i16, i8, i8, i8, i8, i8, [3 x i8] }, { { { ptr, i64 }, i64, i64, i64 }, { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] } }, i8, [7 x i8] }, { { { i64, ptr }, i64 }, { i64, [2 x i64] }, i64, i8, [7 x i8] }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, i8 }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }, { i16, i16 }, { i8, i8 }, { i8, i8 } } }, align 8
@@ -28237,7 +28237,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h472ec923ffe23ab8E(ptr noal
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %19
-  invoke void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h99b2ba1abee29445E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(448) %4, ptr noalias noundef nonnull align 1 %21, i64 noundef %14)
+  invoke void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h99b2ba1abee29445E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(448) %4, ptr noalias noundef nonnull align 1 %21, i64 noundef %14)
           to label %27 unwind label %17
 
 26:                                               ; preds = %19
@@ -28266,7 +28266,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h472ec923ffe23ab8E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3204
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !range !2419, !noalias !3204, !noundef !4
   %.not.i.i.i = icmp eq i64 %33, 0
@@ -28319,7 +28319,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h472ec923ffe23ab8E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h481560c0f2657dc4E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h481560c0f2657dc4E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, { i32, i32, i8, i8, [2 x i8] }, i8, [3 x i8] } }, align 8
@@ -28370,7 +28370,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h481560c0f2657dc4E(ptr noal
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f48a33e652bb5e8E.llvm.17224713629878502917(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f48a33e652bb5e8E.llvm.17224713629878502917(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %_ZN5image5image12ImageDecoder10read_image17hcfb4e71c71760440E.exit unwind label %23
 
 33:                                               ; preds = %25
@@ -28400,7 +28400,7 @@ _ZN5image5image12ImageDecoder10read_image17hcfb4e71c71760440E.exit: ; preds = %3
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3222
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %39 = load i64, ptr %38, align 8, !range !2419, !noalias !3222, !noundef !4
   %.not.i.i.i = icmp eq i64 %39, 0
@@ -28485,7 +28485,7 @@ common.resume:                                    ; preds = %64, %47, %54
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h48304a0a12bf498bE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(352) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h48304a0a12bf498bE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(352) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, [5 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, [4 x ptr], [4 x i64], i64, i16, i8, i8, i8, i8, [2 x i8] }, { i16, i16, i8, i8 }, [1 x i16] }, align 8
@@ -28552,7 +28552,7 @@ default.unreachable:                              ; preds = %2
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %23
-  invoke void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h8a15ced87e2e4a09E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(352) %4, ptr noalias noundef nonnull align 1 %25, i64 noundef %28)
+  invoke void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h8a15ced87e2e4a09E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(352) %4, ptr noalias noundef nonnull align 1 %25, i64 noundef %28)
           to label %32 unwind label %21
 
 31:                                               ; preds = %23
@@ -28581,7 +28581,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3274
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i64, ptr %37, align 8, !range !2419, !noalias !3274, !noundef !4
   %.not.i.i.i = icmp eq i64 %38, 0
@@ -28634,7 +28634,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h495fd2ff4527ed42E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(216) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h495fd2ff4527ed42E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(216) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { i64, ptr }, i64 }, { i32, float }, { i32, [3 x i32] }, { i32, float }, i32, i32, { { i8, i8 }, { i8, i8 } }, [4 x i8] }, { i64, [17 x i64] } }, align 8
@@ -28679,7 +28679,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h495fd2ff4527ed42E(ptr noal
   br i1 %26, label %33, label %27
 
 27:                                               ; preds = %21
-  invoke void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h9722a0cf2c5728e6E.llvm.3890463254259644073"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(216) %4, ptr noalias noundef nonnull align 1 %23, i64 noundef %spec.select.i)
+  invoke void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h9722a0cf2c5728e6E.llvm.3890463254259644073"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(216) %4, ptr noalias noundef nonnull align 1 %23, i64 noundef %spec.select.i)
           to label %30 unwind label %28
 
 28:                                               ; preds = %27
@@ -28725,7 +28725,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h495fd2ff4527ed42E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3292
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %39 = load i64, ptr %38, align 8, !range !2419, !noalias !3292, !noundef !4
   %.not.i.i.i = icmp eq i64 %39, 0
@@ -28785,7 +28785,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h495fd2ff4527ed42E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h49aa8ebf5beebe41E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(4360) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h49aa8ebf5beebe41E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(4360) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -28847,7 +28847,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h49aa8ebf5beebe41E(ptr noal
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %35
-  invoke void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h04defcd2d82e7643E.llvm.10740287948243559469"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(4360) %5, ptr noalias noundef nonnull align 1 %37, i64 noundef %40)
+  invoke void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h04defcd2d82e7643E.llvm.10740287948243559469"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(4360) %5, ptr noalias noundef nonnull align 1 %37, i64 noundef %40)
           to label %_ZN5image5image12ImageDecoder10read_image17hee0498265dd45ac0E.exit unwind label %33
 
 43:                                               ; preds = %35
@@ -28877,7 +28877,7 @@ _ZN5image5image12ImageDecoder10read_image17hee0498265dd45ac0E.exit: ; preds = %4
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3310
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %49 = load i64, ptr %48, align 8, !range !2419, !noalias !3310, !noundef !4
   %.not.i.i.i = icmp eq i64 %49, 0
@@ -28954,7 +28954,7 @@ _ZN5image5image12ImageDecoder10read_image17hee0498265dd45ac0E.exit: ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3339)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3342
   %73 = load ptr, ptr %72, align 8, !alias.scope !3342, !nonnull !4, !noundef !4
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noundef nonnull %73), !noalias !3343
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %73), !noalias !3343
   %74 = load i8, ptr %3, align 8, !range !25, !alias.scope !3344, !noalias !3342, !noundef !4
   %switch.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %74, 3
   br i1 %switch.not.i.i.i.i.i.i.i.i.i, label %75, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i"
@@ -28986,7 +28986,7 @@ common.resume:                                    ; preds = %79, %56, %63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h4c8890cdf29195caE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h4c8890cdf29195caE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(96) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -29042,7 +29042,7 @@ switch.lookup:
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %24
-  invoke void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hc373beeba22d7e61E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %3, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
+  invoke void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hc373beeba22d7e61E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %3, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
           to label %32 unwind label %22
 
 31:                                               ; preds = %24
@@ -29072,7 +29072,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3363
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load i64, ptr %37, align 8, !range !2419, !noalias !3363, !noundef !4
   %.not.i.i.i = icmp eq i64 %38, 0
@@ -29132,7 +29132,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h52fbf0ab8a0e8de0E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(4384) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h52fbf0ab8a0e8de0E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(4384) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i64 } } }, i64, i8, i8, [6 x i8] }, align 8
@@ -29193,7 +29193,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h52fbf0ab8a0e8de0E(ptr noal
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %34
-  invoke void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h2ba3b754aa4f4c65E.llvm.10740287948243559469"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(4384) %4, ptr noalias noundef nonnull align 1 %36, i64 noundef %39)
+  invoke void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h2ba3b754aa4f4c65E.llvm.10740287948243559469"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(4384) %4, ptr noalias noundef nonnull align 1 %36, i64 noundef %39)
           to label %_ZN5image5image12ImageDecoder10read_image17hf46b3fdf38b7e9c2E.exit unwind label %32
 
 42:                                               ; preds = %34
@@ -29223,7 +29223,7 @@ _ZN5image5image12ImageDecoder10read_image17hf46b3fdf38b7e9c2E.exit: ; preds = %4
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3381
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %48 = load i64, ptr %47, align 8, !range !2419, !noalias !3381, !noundef !4
   %.not.i.i.i = icmp eq i64 %48, 0
@@ -29301,7 +29301,7 @@ common.resume:                                    ; preds = %69, %56, %63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h5ff6eb096d571329E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h5ff6eb096d571329E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.219 = alloca [63 x i8], align 1
   %4 = alloca { { { { ptr, i64 }, i64 }, i64, i32, i32, { i8, i8 }, [6 x i8] } }, align 8
@@ -29352,7 +29352,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h5ff6eb096d571329E(ptr noal
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %20
-  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8ddbce84e4102364E.llvm.3890463254259644073(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
+  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8ddbce84e4102364E.llvm.3890463254259644073(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
           to label %_ZN5image5image12ImageDecoder10read_image17h937256d65993c3b0E.exit unwind label %18
 
 30:                                               ; preds = %20
@@ -29382,7 +29382,7 @@ _ZN5image5image12ImageDecoder10read_image17h937256d65993c3b0E.exit: ; preds = %2
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3396
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = load i64, ptr %36, align 8, !range !2419, !noalias !3396, !noundef !4
   %.not.i.i.i = icmp eq i64 %37, 0
@@ -29417,7 +29417,7 @@ _ZN5image5image12ImageDecoder10read_image17h937256d65993c3b0E.exit: ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h621c52d79f7d8d7aE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h621c52d79f7d8d7aE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { ptr, i64 }, i64 }, i32, i32, i32, i8, [3 x i8] }, align 8
   %.sroa.219 = alloca [63 x i8], align 1
@@ -29473,7 +29473,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h621c52d79f7d8d7aE(ptr noal
 32:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !3414
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !noalias !3419
-  invoke void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hdcffceecd9a62141E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 1 %28, i64 noundef %spec.select.i)
+  invoke void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hdcffceecd9a62141E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 1 %28, i64 noundef %spec.select.i)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -29503,7 +29503,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h621c52d79f7d8d7aE(ptr noal
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3420
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load i64, ptr %40, align 8, !range !2419, !noalias !3420, !noundef !4
   %.not.i.i.i = icmp eq i64 %41, 0
@@ -29538,7 +29538,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h621c52d79f7d8d7aE(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h6266a6e5c1ea8e42E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(728) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h6266a6e5c1ea8e42E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(728) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { i64, i64 }, { i32, i32 }, { i32, i32 }, {} }, { { { { { { i64, ptr }, i64 }, { { i32, i32 }, i64 }, { [4 x i8] }, i32 }, { { { i64, ptr }, i64 }, ptr, i64, i64, i64, i8, i8, [6 x i8] }, { i64, [37 x i64] }, { i32, i32 }, { i8, [23 x i8] }, i64, { i8, i8, i8, i8 }, i8, [3 x i8] }, { { { ptr, i64 }, i64, i64, i64 }, { { ptr, i64 }, i64 } }, i8, [7 x i8] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, { i32, [6 x i32] }, i32, i32, i8, [3 x i8] }, { i32, i32 }, i64, i64, { ptr, ptr }, i32, i32, i8, [7 x i8] }, i8, [7 x i8] }, align 8
@@ -29603,7 +29603,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h6266a6e5c1ea8e42E(ptr noal
   br i1 %36, label %38, label %37
 
 37:                                               ; preds = %30
-  invoke void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h3a8808896f309e9fE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(728) %4, ptr noalias noundef nonnull align 1 %32, i64 noundef %35)
+  invoke void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h3a8808896f309e9fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(728) %4, ptr noalias noundef nonnull align 1 %32, i64 noundef %35)
           to label %39 unwind label %28
 
 38:                                               ; preds = %30
@@ -29633,7 +29633,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h6266a6e5c1ea8e42E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3441
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load i64, ptr %44, align 8, !range !2419, !noalias !3441, !noundef !4
   %.not.i.i.i = icmp eq i64 %45, 0
@@ -29696,7 +29696,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h6266a6e5c1ea8e42E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h64314d2df72905bdE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h64314d2df72905bdE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.219 = alloca [63 x i8], align 1
   %4 = alloca { { { { ptr, i64 }, i64 }, { i32, i32, i8, i8, [2 x i8] }, i8, [3 x i8] } }, align 8
@@ -29750,7 +29750,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h64314d2df72905bdE(ptr noal
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %23
-  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc999c61b5ad8d4c3E.llvm.17224713629878502917(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
+  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc999c61b5ad8d4c3E.llvm.17224713629878502917(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
           to label %_ZN5image5image12ImageDecoder10read_image17haece277fbc448003E.exit unwind label %21
 
 31:                                               ; preds = %23
@@ -29780,7 +29780,7 @@ _ZN5image5image12ImageDecoder10read_image17haece277fbc448003E.exit: ; preds = %3
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3459
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i64, ptr %37, align 8, !range !2419, !noalias !3459, !noundef !4
   %.not.i.i.i = icmp eq i64 %38, 0
@@ -29815,7 +29815,7 @@ _ZN5image5image12ImageDecoder10read_image17haece277fbc448003E.exit: ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h65152c0f30928759E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(752) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h65152c0f30928759E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(752) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { i64, i64 }, { i32, i32 }, { i32, i32 }, {} }, { { { { { { i64, ptr }, i64 }, { { i32, i32 }, i64 }, { [4 x i8] }, i32 }, { { { i64, ptr }, i64 }, ptr, i64, i64, i64, i8, i8, [6 x i8] }, { i64, [37 x i64] }, { i32, i32 }, { i8, [23 x i8] }, i64, { i8, i8, i8, i8 }, i8, [3 x i8] }, { { { ptr, i64 }, i64, i64, i64 }, { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] } }, i8, [7 x i8] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, { i32, [6 x i32] }, i32, i32, i8, [3 x i8] }, { i32, i32 }, i64, i64, { ptr, ptr }, i32, i32, i8, [7 x i8] }, i8, [7 x i8] }, align 8
@@ -29880,7 +29880,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h65152c0f30928759E(ptr noal
   br i1 %36, label %38, label %37
 
 37:                                               ; preds = %30
-  invoke void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h45bdbde6c0ce8a3fE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(752) %4, ptr noalias noundef nonnull align 1 %32, i64 noundef %35)
+  invoke void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h45bdbde6c0ce8a3fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(752) %4, ptr noalias noundef nonnull align 1 %32, i64 noundef %35)
           to label %39 unwind label %28
 
 38:                                               ; preds = %30
@@ -29910,7 +29910,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h65152c0f30928759E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3480
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load i64, ptr %44, align 8, !range !2419, !noalias !3480, !noundef !4
   %.not.i.i.i = icmp eq i64 %45, 0
@@ -29973,7 +29973,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h65152c0f30928759E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h65b5a77fbee4d68bE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(176) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h65b5a77fbee4d68bE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(176) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -30026,7 +30026,7 @@ switch.lookup:
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hbb0459a4a1501f48E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(176) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hbb0459a4a1501f48E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -30056,7 +30056,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3498
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !3498, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -30116,7 +30116,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h6944829bab41c74eE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h6944829bab41c74eE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i32, i32, i32, i8, [3 x i8] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -30172,7 +30172,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h6944829bab41c74eE(ptr noal
 35:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !3516
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
-  invoke void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0d65af46012a6780E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %30, i64 noundef %33)
+  invoke void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0d65af46012a6780E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %30, i64 noundef %33)
           to label %37 unwind label %26
 
 36:                                               ; preds = %28
@@ -30203,7 +30203,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h6944829bab41c74eE(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3521
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load i64, ptr %42, align 8, !range !2419, !noalias !3521, !noundef !4
   %.not.i.i.i = icmp eq i64 %43, 0
@@ -30288,7 +30288,7 @@ common.resume:                                    ; preds = %68, %51, %58
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h72061bd2896f76b2E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h72061bd2896f76b2E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { i64, [17 x i64] }, { i32, i32, i16, i16, i8, i8, i8, i8 } }, align 8
@@ -30422,7 +30422,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %55
-  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %57, i64 noundef %60)
+  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %57, i64 noundef %60)
           to label %64 unwind label %53
 
 63:                                               ; preds = %55
@@ -30452,7 +30452,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3584
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %70 = load i64, ptr %69, align 8, !range !2419, !noalias !3584, !noundef !4
   %.not.i.i.i = icmp eq i64 %70, 0
@@ -30541,7 +30541,7 @@ common.resume:                                    ; preds = %93, %77, %89
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h72ce8cce9a9825e1E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h72ce8cce9a9825e1E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i32, i32, i32, i8, [3 x i8] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -30595,7 +30595,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h72ce8cce9a9825e1E(ptr noal
 33:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !3612
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
-  invoke void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0d65af46012a6780E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %29, i64 noundef %spec.select.i)
+  invoke void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0d65af46012a6780E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 1 %29, i64 noundef %spec.select.i)
           to label %35 unwind label %25
 
 34:                                               ; preds = %27
@@ -30626,7 +30626,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h72ce8cce9a9825e1E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3617
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load i64, ptr %40, align 8, !range !2419, !noalias !3617, !noundef !4
   %.not.i.i.i = icmp eq i64 %41, 0
@@ -30711,7 +30711,7 @@ common.resume:                                    ; preds = %66, %49, %56
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h7c6fa4f0fbf76b67E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h7c6fa4f0fbf76b67E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { i64, [16 x i64] }, { { ptr, i64 }, i64 } }, align 8
@@ -30800,7 +30800,7 @@ default.unreachable:                              ; preds = %2
   br i1 %51, label %53, label %52
 
 52:                                               ; preds = %46
-  invoke void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hfd12f1b189334c24E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %48, i64 noundef %spec.select.i)
+  invoke void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hfd12f1b189334c24E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %48, i64 noundef %spec.select.i)
           to label %54 unwind label %44
 
 53:                                               ; preds = %46
@@ -30830,7 +30830,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3678
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load i64, ptr %59, align 8, !range !2419, !noalias !3678, !noundef !4
   %.not.i.i.i = icmp eq i64 %60, 0
@@ -30890,7 +30890,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h7cdd80a38b00c697E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h7cdd80a38b00c697E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(184) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { i64, [16 x i64] }, { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] } }, align 8
@@ -30981,7 +30981,7 @@ default.unreachable:                              ; preds = %2
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %47
-  invoke void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17heb945b34f2851524E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %4, ptr noalias noundef nonnull align 1 %49, i64 noundef %52)
+  invoke void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17heb945b34f2851524E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %4, ptr noalias noundef nonnull align 1 %49, i64 noundef %52)
           to label %56 unwind label %45
 
 55:                                               ; preds = %47
@@ -31011,7 +31011,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3705
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %62 = load i64, ptr %61, align 8, !range !2419, !noalias !3705, !noundef !4
   %.not.i.i.i = icmp eq i64 %62, 0
@@ -31112,7 +31112,7 @@ common.resume:                                    ; preds = %92, %70, %.body.i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h8285aaedef9f36f2E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(392) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h8285aaedef9f36f2E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(392) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -31163,7 +31163,7 @@ switch.lookup:
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %24
-  invoke void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h64030919f351416eE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(392) %3, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
+  invoke void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h64030919f351416eE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(392) %3, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
           to label %32 unwind label %22
 
 31:                                               ; preds = %24
@@ -31193,7 +31193,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3749
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load i64, ptr %37, align 8, !range !2419, !noalias !3749, !noundef !4
   %.not.i.i.i = icmp eq i64 %38, 0
@@ -31268,7 +31268,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h8650234f723d296aE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(240) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h8650234f723d296aE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(240) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { i64, ptr }, i64 }, { i32, float }, { i32, [3 x i32] }, { i32, float }, i32, i32, { { i8, i8 }, { i8, i8 } }, [4 x i8] }, { i64, [20 x i64] } }, align 8
@@ -31313,7 +31313,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8650234f723d296aE(ptr noal
   br i1 %26, label %33, label %27
 
 27:                                               ; preds = %21
-  invoke void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h58add2b1feac2ec7E.llvm.3890463254259644073"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(240) %4, ptr noalias noundef nonnull align 1 %23, i64 noundef %spec.select.i)
+  invoke void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h58add2b1feac2ec7E.llvm.3890463254259644073"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(240) %4, ptr noalias noundef nonnull align 1 %23, i64 noundef %spec.select.i)
           to label %30 unwind label %28
 
 28:                                               ; preds = %27
@@ -31359,7 +31359,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8650234f723d296aE(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3782
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %39 = load i64, ptr %38, align 8, !range !2419, !noalias !3782, !noundef !4
   %.not.i.i.i = icmp eq i64 %39, 0
@@ -31419,7 +31419,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8650234f723d296aE(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h8877c197331db20fE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h8877c197331db20fE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.219 = alloca [63 x i8], align 1
   %4 = alloca { { { { ptr, i64 }, i64 }, { i32, i32, i8, i8, [2 x i8] }, i8, [3 x i8] } }, align 8
@@ -31475,7 +31475,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8877c197331db20fE(ptr noal
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %23
-  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc999c61b5ad8d4c3E.llvm.17224713629878502917(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc999c61b5ad8d4c3E.llvm.17224713629878502917(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %_ZN5image5image12ImageDecoder10read_image17haece277fbc448003E.exit unwind label %21
 
 33:                                               ; preds = %23
@@ -31505,7 +31505,7 @@ _ZN5image5image12ImageDecoder10read_image17haece277fbc448003E.exit: ; preds = %3
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3800
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !3800, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -31540,7 +31540,7 @@ _ZN5image5image12ImageDecoder10read_image17haece277fbc448003E.exit: ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h8983d8acb31fcd31E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h8983d8acb31fcd31E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { i64, [16 x i64] }, { { ptr, i64 }, i64 } }, align 8
@@ -31631,7 +31631,7 @@ default.unreachable:                              ; preds = %2
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %47
-  invoke void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hfd12f1b189334c24E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %49, i64 noundef %52)
+  invoke void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hfd12f1b189334c24E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %49, i64 noundef %52)
           to label %56 unwind label %45
 
 55:                                               ; preds = %47
@@ -31661,7 +31661,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3827
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %62 = load i64, ptr %61, align 8, !range !2419, !noalias !3827, !noundef !4
   %.not.i.i.i = icmp eq i64 %62, 0
@@ -31721,7 +31721,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h8a238c77828ef4fbE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h8a238c77828ef4fbE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { i64, [17 x i64] }, { i32, i32, i16, i16, i8, i8, i8, i8 } }, align 8
@@ -31853,7 +31853,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br i1 %59, label %61, label %60
 
 60:                                               ; preds = %54
-  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %56, i64 noundef %spec.select.i)
+  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %56, i64 noundef %spec.select.i)
           to label %62 unwind label %52
 
 61:                                               ; preds = %54
@@ -31883,7 +31883,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3854
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %68 = load i64, ptr %67, align 8, !range !2419, !noalias !3854, !noundef !4
   %.not.i.i.i = icmp eq i64 %68, 0
@@ -31972,7 +31972,7 @@ common.resume:                                    ; preds = %91, %75, %87
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h9129c3c119daa66cE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h9129c3c119daa66cE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -32029,7 +32029,7 @@ switch.lookup:
   br i1 %36, label %38, label %37
 
 37:                                               ; preds = %30
-  invoke void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h58342e812c7584e7E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %4, ptr noalias noundef nonnull align 1 %32, i64 noundef %35)
+  invoke void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h58342e812c7584e7E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %4, ptr noalias noundef nonnull align 1 %32, i64 noundef %35)
           to label %39 unwind label %28
 
 38:                                               ; preds = %30
@@ -32059,7 +32059,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3882
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load i64, ptr %44, align 8, !range !2419, !noalias !3882, !noundef !4
   %.not.i.i.i = icmp eq i64 %45, 0
@@ -32112,7 +32112,7 @@ switch.lookup:
 
 61:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3896
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h71769612cc4a2f55E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h71769612cc4a2f55E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %63 = load i64, ptr %62, align 8, !range !2419, !noalias !3896, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %63, 0
@@ -32142,7 +32142,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h98621ae7ddcf6067E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h98621ae7ddcf6067E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -32198,7 +32198,7 @@ switch.lookup:
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %24
-  invoke void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h139b81b628a27188E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %3, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
+  invoke void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h139b81b628a27188E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %3, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
           to label %32 unwind label %22
 
 31:                                               ; preds = %24
@@ -32228,7 +32228,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3919
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load i64, ptr %37, align 8, !range !2419, !noalias !3919, !noundef !4
   %.not.i.i.i = icmp eq i64 %38, 0
@@ -32329,7 +32329,7 @@ common.resume:                                    ; preds = %68, %46, %.body.i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h988ac28855d17718E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h988ac28855d17718E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -32387,7 +32387,7 @@ switch.lookup:
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h139b81b628a27188E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h139b81b628a27188E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -32417,7 +32417,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3968
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !3968, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -32518,7 +32518,7 @@ common.resume:                                    ; preds = %70, %48, %.body.i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h9b0d709f52fe3910E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h9b0d709f52fe3910E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(184) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { i64, [16 x i64] }, { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] } }, align 8
@@ -32609,7 +32609,7 @@ default.unreachable:                              ; preds = %2
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %47
-  invoke void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17heb945b34f2851524E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %4, ptr noalias noundef nonnull align 1 %49, i64 noundef %52)
+  invoke void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17heb945b34f2851524E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %4, ptr noalias noundef nonnull align 1 %49, i64 noundef %52)
           to label %56 unwind label %45
 
 55:                                               ; preds = %47
@@ -32639,7 +32639,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4021
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %62 = load i64, ptr %61, align 8, !range !2419, !noalias !4021, !noundef !4
   %.not.i.i.i = icmp eq i64 %62, 0
@@ -32740,7 +32740,7 @@ common.resume:                                    ; preds = %92, %70, %.body.i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17h9f9d983b9aeee9c5E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17h9f9d983b9aeee9c5E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.219 = alloca [63 x i8], align 1
   %4 = alloca { { { { ptr, i64 }, i64 }, { i32, i32, i8, i8, [2 x i8] }, i8, [3 x i8] } }, align 8
@@ -32796,7 +32796,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h9f9d983b9aeee9c5E(ptr noal
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %23
-  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc999c61b5ad8d4c3E.llvm.17224713629878502917(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc999c61b5ad8d4c3E.llvm.17224713629878502917(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %_ZN5image5image12ImageDecoder10read_image17haece277fbc448003E.exit unwind label %21
 
 33:                                               ; preds = %23
@@ -32826,7 +32826,7 @@ _ZN5image5image12ImageDecoder10read_image17haece277fbc448003E.exit: ; preds = %3
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4065
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !4065, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -32861,7 +32861,7 @@ _ZN5image5image12ImageDecoder10read_image17haece277fbc448003E.exit: ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17ha0646e1a112505c1E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(144) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17ha0646e1a112505c1E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(144) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -32917,7 +32917,7 @@ switch.lookup:
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %29
-  invoke void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h7ac11a267400c52fE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(144) %3, ptr noalias noundef nonnull align 1 %31, i64 noundef %34)
+  invoke void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h7ac11a267400c52fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %3, ptr noalias noundef nonnull align 1 %31, i64 noundef %34)
           to label %38 unwind label %27
 
 37:                                               ; preds = %29
@@ -32947,7 +32947,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4083
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load i64, ptr %43, align 8, !range !2419, !noalias !4083, !noundef !4
   %.not.i.i.i = icmp eq i64 %44, 0
@@ -33007,7 +33007,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17ha0d5ddd1fc1f0464E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(152) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17ha0d5ddd1fc1f0464E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(152) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -33058,7 +33058,7 @@ switch.lookup:
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %24
-  invoke void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hf1bd9e9603a32fa8E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %3, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
+  invoke void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hf1bd9e9603a32fa8E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(152) %3, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
           to label %32 unwind label %22
 
 31:                                               ; preds = %24
@@ -33088,7 +33088,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4101
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load i64, ptr %37, align 8, !range !2419, !noalias !4101, !noundef !4
   %.not.i.i.i = icmp eq i64 %38, 0
@@ -33148,7 +33148,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17ha60ccb41f2a56855E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(152) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17ha60ccb41f2a56855E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(152) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -33201,7 +33201,7 @@ switch.lookup:
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hf1bd9e9603a32fa8E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hf1bd9e9603a32fa8E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(152) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -33231,7 +33231,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4119
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !4119, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -33291,7 +33291,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17ha64bcaef86084c35E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17ha64bcaef86084c35E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.219 = alloca [63 x i8], align 1
   %4 = alloca { { { { ptr, i64 }, i64 }, i64, i32, i32, { i8, i8 }, [6 x i8] } }, align 8
@@ -33340,7 +33340,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17ha64bcaef86084c35E(ptr noal
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %20
-  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8ddbce84e4102364E.llvm.3890463254259644073(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull align 1 %23, i64 noundef %spec.select.i)
+  invoke void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8ddbce84e4102364E.llvm.3890463254259644073(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 1 %23, i64 noundef %spec.select.i)
           to label %_ZN5image5image12ImageDecoder10read_image17h937256d65993c3b0E.exit unwind label %18
 
 28:                                               ; preds = %20
@@ -33370,7 +33370,7 @@ _ZN5image5image12ImageDecoder10read_image17h937256d65993c3b0E.exit: ; preds = %2
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4134
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load i64, ptr %34, align 8, !range !2419, !noalias !4134, !noundef !4
   %.not.i.i.i = icmp eq i64 %35, 0
@@ -33405,7 +33405,7 @@ _ZN5image5image12ImageDecoder10read_image17h937256d65993c3b0E.exit: ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17haed42c292e5395ecE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17haed42c292e5395ecE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(136) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { i64, [14 x i64] }, { i32, i32, i16, i16, i8, i8, i8, i8 } }, align 8
@@ -33539,7 +33539,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %55
-  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h5ee9209658ada30aE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %4, ptr noalias noundef nonnull align 1 %57, i64 noundef %60)
+  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h5ee9209658ada30aE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(136) %4, ptr noalias noundef nonnull align 1 %57, i64 noundef %60)
           to label %64 unwind label %53
 
 63:                                               ; preds = %55
@@ -33569,7 +33569,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4161
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %70 = load i64, ptr %69, align 8, !range !2419, !noalias !4161, !noundef !4
   %.not.i.i.i = icmp eq i64 %70, 0
@@ -33629,7 +33629,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hb155d184d645aca9E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(728) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hb155d184d645aca9E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(728) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { i64, i64 }, { i32, i32 }, { i32, i32 }, {} }, { { { { { { i64, ptr }, i64 }, { { i32, i32 }, i64 }, { [4 x i8] }, i32 }, { { { i64, ptr }, i64 }, ptr, i64, i64, i64, i8, i8, [6 x i8] }, { i64, [37 x i64] }, { i32, i32 }, { i8, [23 x i8] }, i64, { i8, i8, i8, i8 }, i8, [3 x i8] }, { { { ptr, i64 }, i64, i64, i64 }, { { ptr, i64 }, i64 } }, i8, [7 x i8] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, { i32, [6 x i32] }, i32, i32, i8, [3 x i8] }, { i32, i32 }, i64, i64, { ptr, ptr }, i32, i32, i8, [7 x i8] }, i8, [7 x i8] }, align 8
@@ -33692,7 +33692,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hb155d184d645aca9E(ptr noal
   br i1 %34, label %36, label %35
 
 35:                                               ; preds = %29
-  invoke void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h3a8808896f309e9fE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(728) %4, ptr noalias noundef nonnull align 1 %31, i64 noundef %spec.select.i)
+  invoke void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h3a8808896f309e9fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(728) %4, ptr noalias noundef nonnull align 1 %31, i64 noundef %spec.select.i)
           to label %37 unwind label %27
 
 36:                                               ; preds = %29
@@ -33722,7 +33722,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hb155d184d645aca9E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4182
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load i64, ptr %42, align 8, !range !2419, !noalias !4182, !noundef !4
   %.not.i.i.i = icmp eq i64 %43, 0
@@ -33785,7 +33785,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hb155d184d645aca9E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hb1f4d6460b888682E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(176) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hb1f4d6460b888682E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(176) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -33838,7 +33838,7 @@ switch.lookup:
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hbb0459a4a1501f48E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(176) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hbb0459a4a1501f48E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -33868,7 +33868,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4200
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !4200, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -33928,7 +33928,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hb361ea5a711f62fdE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hb361ea5a711f62fdE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -33983,7 +33983,7 @@ switch.lookup:
   br i1 %34, label %36, label %35
 
 35:                                               ; preds = %29
-  invoke void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h58342e812c7584e7E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %4, ptr noalias noundef nonnull align 1 %31, i64 noundef %spec.select.i)
+  invoke void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h58342e812c7584e7E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %4, ptr noalias noundef nonnull align 1 %31, i64 noundef %spec.select.i)
           to label %37 unwind label %27
 
 36:                                               ; preds = %29
@@ -34013,7 +34013,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4218
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load i64, ptr %42, align 8, !range !2419, !noalias !4218, !noundef !4
   %.not.i.i.i = icmp eq i64 %43, 0
@@ -34066,7 +34066,7 @@ switch.lookup:
 
 59:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4232
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h71769612cc4a2f55E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h71769612cc4a2f55E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %61 = load i64, ptr %60, align 8, !range !2419, !noalias !4232, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %61, 0
@@ -34096,7 +34096,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hbfcd17aff1cd2238E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(424) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hbfcd17aff1cd2238E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(424) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { i64, i64 }, { i32, i32 }, { i32, i32 }, {} }, { { { { { i64, ptr }, i64 }, { { { i64, ptr }, i64 }, i8, i8, [6 x i8] }, { i64, [7 x i64] }, { { ptr, ptr }, i8, i8, [6 x i8] }, { i8, [15 x i8] }, i64, [4 x i8], i16, i16, i8, i8, i8, i8, i8, [3 x i8] }, { { { ptr, i64 }, i64, i64, i64 }, { { ptr, i64 }, i64 } }, i8, [7 x i8] }, { { { i64, ptr }, i64 }, { i64, [2 x i64] }, i64, i8, [7 x i8] }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, i8 }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }, { i16, i16 }, { i8, i8 }, { i8, i8 } } }, align 8
@@ -34134,7 +34134,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hbfcd17aff1cd2238E(ptr noal
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %18
-  invoke void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17he84ffd3308c3efe8E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(424) %4, ptr noalias noundef nonnull align 1 %20, i64 noundef %14)
+  invoke void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17he84ffd3308c3efe8E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(424) %4, ptr noalias noundef nonnull align 1 %20, i64 noundef %14)
           to label %26 unwind label %16
 
 25:                                               ; preds = %18
@@ -34163,7 +34163,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hbfcd17aff1cd2238E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4247
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i64, ptr %31, align 8, !range !2419, !noalias !4247, !noundef !4
   %.not.i.i.i = icmp eq i64 %32, 0
@@ -34218,7 +34218,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hbfcd17aff1cd2238E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hc052f864d8e2579aE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(392) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hc052f864d8e2579aE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(392) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -34271,7 +34271,7 @@ switch.lookup:
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h64030919f351416eE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(392) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h64030919f351416eE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(392) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -34301,7 +34301,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4265
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !4265, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -34376,7 +34376,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hc598dc2b5b5d81faE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(448) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hc598dc2b5b5d81faE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(448) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { i64, i64 }, { i32, i32 }, { i32, i32 }, {} }, { { { { { i64, ptr }, i64 }, { { { i64, ptr }, i64 }, i8, i8, [6 x i8] }, { i64, [7 x i64] }, { { ptr, ptr }, i8, i8, [6 x i8] }, { i8, [15 x i8] }, i64, [4 x i8], i16, i16, i8, i8, i8, i8, i8, [3 x i8] }, { { { ptr, i64 }, i64, i64, i64 }, { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] } }, i8, [7 x i8] }, { { { i64, ptr }, i64 }, { i64, [2 x i64] }, i64, i8, [7 x i8] }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, i8 }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }, { i16, i16 }, { i8, i8 }, { i8, i8 } } }, align 8
@@ -34414,7 +34414,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hc598dc2b5b5d81faE(ptr noal
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %18
-  invoke void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h99b2ba1abee29445E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(448) %4, ptr noalias noundef nonnull align 1 %20, i64 noundef %14)
+  invoke void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h99b2ba1abee29445E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(448) %4, ptr noalias noundef nonnull align 1 %20, i64 noundef %14)
           to label %26 unwind label %16
 
 25:                                               ; preds = %18
@@ -34443,7 +34443,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hc598dc2b5b5d81faE(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4295
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i64, ptr %31, align 8, !range !2419, !noalias !4295, !noundef !4
   %.not.i.i.i = icmp eq i64 %32, 0
@@ -34496,7 +34496,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hc598dc2b5b5d81faE(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hc7d202ee1d1d839bE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hc7d202ee1d1d839bE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -34553,7 +34553,7 @@ switch.lookup:
   br i1 %36, label %38, label %37
 
 37:                                               ; preds = %30
-  invoke void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h58342e812c7584e7E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %4, ptr noalias noundef nonnull align 1 %32, i64 noundef %35)
+  invoke void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h58342e812c7584e7E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %4, ptr noalias noundef nonnull align 1 %32, i64 noundef %35)
           to label %39 unwind label %28
 
 38:                                               ; preds = %30
@@ -34583,7 +34583,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4313
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load i64, ptr %44, align 8, !range !2419, !noalias !4313, !noundef !4
   %.not.i.i.i = icmp eq i64 %45, 0
@@ -34636,7 +34636,7 @@ switch.lookup:
 
 61:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4327
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h71769612cc4a2f55E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h71769612cc4a2f55E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %63 = load i64, ptr %62, align 8, !range !2419, !noalias !4327, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %63, 0
@@ -34666,7 +34666,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hcb3dbdfeb4a4ec9fE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hcb3dbdfeb4a4ec9fE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { ptr, i64 }, i64 }, i32, i32, i32, i8, [3 x i8] }, align 8
   %.sroa.219 = alloca [63 x i8], align 1
@@ -34724,7 +34724,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hcb3dbdfeb4a4ec9fE(ptr noal
 34:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !4345
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !noalias !4350
-  invoke void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hdcffceecd9a62141E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 1 %29, i64 noundef %32)
+  invoke void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hdcffceecd9a62141E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 1 %29, i64 noundef %32)
           to label %36 unwind label %23
 
 35:                                               ; preds = %25
@@ -34754,7 +34754,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hcb3dbdfeb4a4ec9fE(ptr noal
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4351
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load i64, ptr %42, align 8, !range !2419, !noalias !4351, !noundef !4
   %.not.i.i.i = icmp eq i64 %43, 0
@@ -34789,7 +34789,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hcb3dbdfeb4a4ec9fE(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hce900191dfb81653E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(448) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hce900191dfb81653E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(448) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { i64, i64 }, { i32, i32 }, { i32, i32 }, {} }, { { { { { i64, ptr }, i64 }, { { { i64, ptr }, i64 }, i8, i8, [6 x i8] }, { i64, [7 x i64] }, { { ptr, ptr }, i8, i8, [6 x i8] }, { i8, [15 x i8] }, i64, [4 x i8], i16, i16, i8, i8, i8, i8, i8, [3 x i8] }, { { { ptr, i64 }, i64, i64, i64 }, { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] } }, i8, [7 x i8] }, { { { i64, ptr }, i64 }, { i64, [2 x i64] }, i64, i8, [7 x i8] }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, i8 }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }, { i16, i16 }, { i8, i8 }, { i8, i8 } } }, align 8
@@ -34828,7 +34828,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hce900191dfb81653E(ptr noal
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %19
-  invoke void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h99b2ba1abee29445E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(448) %4, ptr noalias noundef nonnull align 1 %21, i64 noundef %14)
+  invoke void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h99b2ba1abee29445E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(448) %4, ptr noalias noundef nonnull align 1 %21, i64 noundef %14)
           to label %27 unwind label %17
 
 26:                                               ; preds = %19
@@ -34857,7 +34857,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hce900191dfb81653E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4366
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8, !range !2419, !noalias !4366, !noundef !4
   %.not.i.i.i = icmp eq i64 %33, 0
@@ -34910,7 +34910,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hce900191dfb81653E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hd11d71bcf3edc3eeE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hd11d71bcf3edc3eeE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { i64, [17 x i64] }, { i32, i32, i16, i16, i8, i8, i8, i8 } }, align 8
@@ -35044,7 +35044,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %55
-  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %57, i64 noundef %60)
+  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %57, i64 noundef %60)
           to label %64 unwind label %53
 
 63:                                               ; preds = %55
@@ -35074,7 +35074,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4393
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %70 = load i64, ptr %69, align 8, !range !2419, !noalias !4393, !noundef !4
   %.not.i.i.i = icmp eq i64 %70, 0
@@ -35163,7 +35163,7 @@ common.resume:                                    ; preds = %93, %77, %89
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hd2db2fc6e67ece71E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(240) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hd2db2fc6e67ece71E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(240) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { i64, ptr }, i64 }, { i32, float }, { i32, [3 x i32] }, { i32, float }, i32, i32, { { i8, i8 }, { i8, i8 } }, [4 x i8] }, { i64, [20 x i64] } }, align 8
@@ -35210,7 +35210,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd2db2fc6e67ece71E(ptr noal
   br i1 %28, label %35, label %29
 
 29:                                               ; preds = %22
-  invoke void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h58add2b1feac2ec7E.llvm.3890463254259644073"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(240) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
+  invoke void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h58add2b1feac2ec7E.llvm.3890463254259644073"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(240) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %27)
           to label %32 unwind label %30
 
 30:                                               ; preds = %29
@@ -35256,7 +35256,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd2db2fc6e67ece71E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4421
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load i64, ptr %40, align 8, !range !2419, !noalias !4421, !noundef !4
   %.not.i.i.i = icmp eq i64 %41, 0
@@ -35316,7 +35316,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd2db2fc6e67ece71E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hd5533ca0609609d5E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(752) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hd5533ca0609609d5E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(752) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { i64, i64 }, { i32, i32 }, { i32, i32 }, {} }, { { { { { { i64, ptr }, i64 }, { { i32, i32 }, i64 }, { [4 x i8] }, i32 }, { { { i64, ptr }, i64 }, ptr, i64, i64, i64, i8, i8, [6 x i8] }, { i64, [37 x i64] }, { i32, i32 }, { i8, [23 x i8] }, i64, { i8, i8, i8, i8 }, i8, [3 x i8] }, { { { ptr, i64 }, i64, i64, i64 }, { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] } }, i8, [7 x i8] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, { i32, [6 x i32] }, i32, i32, i8, [3 x i8] }, { i32, i32 }, i64, i64, { ptr, ptr }, i32, i32, i8, [7 x i8] }, i8, [7 x i8] }, align 8
@@ -35379,7 +35379,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd5533ca0609609d5E(ptr noal
   br i1 %34, label %36, label %35
 
 35:                                               ; preds = %29
-  invoke void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h45bdbde6c0ce8a3fE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(752) %4, ptr noalias noundef nonnull align 1 %31, i64 noundef %spec.select.i)
+  invoke void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h45bdbde6c0ce8a3fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(752) %4, ptr noalias noundef nonnull align 1 %31, i64 noundef %spec.select.i)
           to label %37 unwind label %27
 
 36:                                               ; preds = %29
@@ -35409,7 +35409,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd5533ca0609609d5E(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4442
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load i64, ptr %42, align 8, !range !2419, !noalias !4442, !noundef !4
   %.not.i.i.i = icmp eq i64 %43, 0
@@ -35472,7 +35472,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd5533ca0609609d5E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hd6fe3738d4ec7636E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(144) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hd6fe3738d4ec7636E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(144) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -35526,7 +35526,7 @@ switch.lookup:
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  invoke void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h7ac11a267400c52fE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(144) %3, ptr noalias noundef nonnull align 1 %30, i64 noundef %spec.select.i)
+  invoke void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h7ac11a267400c52fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %3, ptr noalias noundef nonnull align 1 %30, i64 noundef %spec.select.i)
           to label %36 unwind label %26
 
 35:                                               ; preds = %28
@@ -35556,7 +35556,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4460
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %42 = load i64, ptr %41, align 8, !range !2419, !noalias !4460, !noundef !4
   %.not.i.i.i = icmp eq i64 %42, 0
@@ -35616,7 +35616,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hdcc4d4f8cfcee929E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(352) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hdcc4d4f8cfcee929E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(352) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, [5 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, [4 x ptr], [4 x i64], i64, i16, i8, i8, i8, i8, [2 x i8] }, { i16, i16, i8, i8 }, [1 x i16] }, align 8
@@ -35681,7 +35681,7 @@ default.unreachable:                              ; preds = %2
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %22
-  invoke void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h8a15ced87e2e4a09E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(352) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %18)
+  invoke void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h8a15ced87e2e4a09E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(352) %4, ptr noalias noundef nonnull align 1 %24, i64 noundef %18)
           to label %30 unwind label %20
 
 29:                                               ; preds = %22
@@ -35710,7 +35710,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4478
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load i64, ptr %35, align 8, !range !2419, !noalias !4478, !noundef !4
   %.not.i.i.i = icmp eq i64 %36, 0
@@ -35763,7 +35763,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17he19fbe1fd17f957aE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(4360) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17he19fbe1fd17f957aE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(4360) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -35825,7 +35825,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17he19fbe1fd17f957aE(ptr noal
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %35
-  invoke void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h04defcd2d82e7643E.llvm.10740287948243559469"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(4360) %5, ptr noalias noundef nonnull align 1 %37, i64 noundef %40)
+  invoke void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h04defcd2d82e7643E.llvm.10740287948243559469"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(4360) %5, ptr noalias noundef nonnull align 1 %37, i64 noundef %40)
           to label %_ZN5image5image12ImageDecoder10read_image17hee0498265dd45ac0E.exit unwind label %33
 
 43:                                               ; preds = %35
@@ -35855,7 +35855,7 @@ _ZN5image5image12ImageDecoder10read_image17hee0498265dd45ac0E.exit: ; preds = %4
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !4496
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %49 = load i64, ptr %48, align 8, !range !2419, !noalias !4496, !noundef !4
   %.not.i.i.i = icmp eq i64 %49, 0
@@ -35932,7 +35932,7 @@ _ZN5image5image12ImageDecoder10read_image17hee0498265dd45ac0E.exit: ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4525)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !4528
   %73 = load ptr, ptr %72, align 8, !alias.scope !4528, !nonnull !4, !noundef !4
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noundef nonnull %73), !noalias !4529
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %73), !noalias !4529
   %74 = load i8, ptr %3, align 8, !range !25, !alias.scope !4530, !noalias !4528, !noundef !4
   %switch.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %74, 3
   br i1 %switch.not.i.i.i.i.i.i.i.i.i, label %75, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i"
@@ -35964,7 +35964,7 @@ common.resume:                                    ; preds = %79, %56, %63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17he2fc42a360e5579dE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(368) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17he2fc42a360e5579dE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(368) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -36015,7 +36015,7 @@ switch.lookup:
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %24
-  invoke void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17ha57e5fba0dc4c258E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(368) %3, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
+  invoke void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17ha57e5fba0dc4c258E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(368) %3, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
           to label %32 unwind label %22
 
 31:                                               ; preds = %24
@@ -36045,7 +36045,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4544
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load i64, ptr %37, align 8, !range !2419, !noalias !4544, !noundef !4
   %.not.i.i.i = icmp eq i64 %38, 0
@@ -36120,7 +36120,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17he4816fbbece421b9E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(328) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17he4816fbbece421b9E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(328) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, [5 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { ptr, i64 }, i64 }, [4 x ptr], [4 x i64], i64, i16, i8, i8, i8, i8, [2 x i8] }, { i16, i16, i8, i8 }, [1 x i16] }, align 8
@@ -36187,7 +36187,7 @@ default.unreachable:                              ; preds = %2
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %23
-  invoke void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0286d7cc9293bd11E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(328) %4, ptr noalias noundef nonnull align 1 %25, i64 noundef %28)
+  invoke void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0286d7cc9293bd11E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(328) %4, ptr noalias noundef nonnull align 1 %25, i64 noundef %28)
           to label %32 unwind label %21
 
 31:                                               ; preds = %23
@@ -36216,7 +36216,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4577
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i64, ptr %37, align 8, !range !2419, !noalias !4577, !noundef !4
   %.not.i.i.i = icmp eq i64 %38, 0
@@ -36269,7 +36269,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17he7d99c6c114229feE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17he7d99c6c114229feE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(136) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { i64, [14 x i64] }, { i32, i32, i16, i16, i8, i8, i8, i8 } }, align 8
@@ -36403,7 +36403,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %55
-  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h5ee9209658ada30aE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %4, ptr noalias noundef nonnull align 1 %57, i64 noundef %60)
+  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h5ee9209658ada30aE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(136) %4, ptr noalias noundef nonnull align 1 %57, i64 noundef %60)
           to label %64 unwind label %53
 
 63:                                               ; preds = %55
@@ -36433,7 +36433,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4604
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %70 = load i64, ptr %69, align 8, !range !2419, !noalias !4604, !noundef !4
   %.not.i.i.i = icmp eq i64 %70, 0
@@ -36493,7 +36493,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17he831180d7bf98000E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17he831180d7bf98000E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { ptr, i64 }, i64 }, i32, i32, i32, i8, [3 x i8] }, align 8
   %.sroa.219 = alloca [63 x i8], align 1
@@ -36551,7 +36551,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17he831180d7bf98000E(ptr noal
 34:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !4622
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !noalias !4627
-  invoke void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hdcffceecd9a62141E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 1 %29, i64 noundef %32)
+  invoke void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hdcffceecd9a62141E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 1 %29, i64 noundef %32)
           to label %36 unwind label %23
 
 35:                                               ; preds = %25
@@ -36581,7 +36581,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17he831180d7bf98000E(ptr noal
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.219, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4628
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load i64, ptr %42, align 8, !range !2419, !noalias !4628, !noundef !4
   %.not.i.i.i = icmp eq i64 %43, 0
@@ -36616,7 +36616,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17he831180d7bf98000E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hec4f0027f108377bE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(728) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hec4f0027f108377bE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(728) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { { i64, i64 }, { i32, i32 }, { i32, i32 }, {} }, { { { { { { i64, ptr }, i64 }, { { i32, i32 }, i64 }, { [4 x i8] }, i32 }, { { { i64, ptr }, i64 }, ptr, i64, i64, i64, i8, i8, [6 x i8] }, { i64, [37 x i64] }, { i32, i32 }, { i8, [23 x i8] }, i64, { i8, i8, i8, i8 }, i8, [3 x i8] }, { { { ptr, i64 }, i64, i64, i64 }, { { ptr, i64 }, i64 } }, i8, [7 x i8] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, { i32, [6 x i32] }, i32, i32, i8, [3 x i8] }, { i32, i32 }, i64, i64, { ptr, ptr }, i32, i32, i8, [7 x i8] }, i8, [7 x i8] }, align 8
@@ -36681,7 +36681,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hec4f0027f108377bE(ptr noal
   br i1 %36, label %38, label %37
 
 37:                                               ; preds = %30
-  invoke void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h3a8808896f309e9fE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(728) %4, ptr noalias noundef nonnull align 1 %32, i64 noundef %35)
+  invoke void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h3a8808896f309e9fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(728) %4, ptr noalias noundef nonnull align 1 %32, i64 noundef %35)
           to label %39 unwind label %28
 
 38:                                               ; preds = %30
@@ -36711,7 +36711,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hec4f0027f108377bE(ptr noal
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4649
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load i64, ptr %44, align 8, !range !2419, !noalias !4649, !noundef !4
   %.not.i.i.i = icmp eq i64 %45, 0
@@ -36774,7 +36774,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hec4f0027f108377bE(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hecbb599937f90c1fE(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hecbb599937f90c1fE(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(96) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -36832,7 +36832,7 @@ switch.lookup:
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hc373beeba22d7e61E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hc373beeba22d7e61E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -36862,7 +36862,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4672
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !4672, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -36922,7 +36922,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hf982acd17ce91047E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hf982acd17ce91047E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { i64, [16 x i64] }, { { ptr, i64 }, i64 } }, align 8
@@ -37013,7 +37013,7 @@ default.unreachable:                              ; preds = %2
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %47
-  invoke void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hfd12f1b189334c24E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %49, i64 noundef %52)
+  invoke void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hfd12f1b189334c24E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %49, i64 noundef %52)
           to label %56 unwind label %45
 
 55:                                               ; preds = %47
@@ -37043,7 +37043,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4699
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %62 = load i64, ptr %61, align 8, !range !2419, !noalias !4699, !noundef !4
   %.not.i.i.i = icmp eq i64 %62, 0
@@ -37103,7 +37103,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hfcd7218db2b4cd48E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(368) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hfcd7218db2b4cd48E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(368) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -37156,7 +37156,7 @@ switch.lookup:
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  invoke void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17ha57e5fba0dc4c258E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(368) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
+  invoke void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17ha57e5fba0dc4c258E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(368) %3, ptr noalias noundef nonnull align 1 %27, i64 noundef %30)
           to label %34 unwind label %23
 
 33:                                               ; preds = %25
@@ -37186,7 +37186,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4717
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !2419, !noalias !4717, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -37261,7 +37261,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hfe28f2520aaf0294E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hfe28f2520aaf0294E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(136) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
   %4 = alloca { { i64, [14 x i64] }, { i32, i32, i16, i16, i8, i8, i8, i8 } }, align 8
@@ -37393,7 +37393,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br i1 %59, label %61, label %60
 
 60:                                               ; preds = %54
-  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h5ee9209658ada30aE"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %4, ptr noalias noundef nonnull align 1 %56, i64 noundef %spec.select.i)
+  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h5ee9209658ada30aE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(136) %4, ptr noalias noundef nonnull align 1 %56, i64 noundef %spec.select.i)
           to label %62 unwind label %52
 
 61:                                               ; preds = %54
@@ -37423,7 +37423,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4759
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %68 = load i64, ptr %67, align 8, !range !2419, !noalias !4759, !noundef !4
   %.not.i.i.i = icmp eq i64 %68, 0
@@ -37483,7 +37483,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image5image14decoder_to_vec17hffa0053875a713d5E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(176) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5image14decoder_to_vec17hffa0053875a713d5E(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(176) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
 switch.lookup:
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.221 = alloca [63 x i8], align 1
@@ -37534,7 +37534,7 @@ switch.lookup:
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %24
-  invoke void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hbb0459a4a1501f48E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(176) %3, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
+  invoke void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hbb0459a4a1501f48E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %3, ptr noalias noundef nonnull align 1 %26, i64 noundef %spec.select.i)
           to label %32 unwind label %22
 
 31:                                               ; preds = %24
@@ -37564,7 +37564,7 @@ switch.lookup:
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4777
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load i64, ptr %37, align 8, !range !2419, !noalias !4777, !noundef !4
   %.not.i.i.i = icmp eq i64 %38, 0
@@ -37624,7 +37624,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h00427f962b20bfeaE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [4 x i32] }) align 4 dereferenceable(20) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h00427f962b20bfeaE.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ i32, [4 x i32] }) align 4 captures(none) dereferenceable(20) initializes((0, 4)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -37674,7 +37674,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h564baef6747e4108E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [6 x i32] }) align 4 dereferenceable(28) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h564baef6747e4108E.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ i32, [6 x i32] }) align 4 captures(none) dereferenceable(28) initializes((0, 4)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -37723,7 +37723,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b1bb33e3420c5dE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [5 x i32] }) align 4 dereferenceable(24) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b1bb33e3420c5dE.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ i32, [5 x i32] }) align 4 captures(none) dereferenceable(24) initializes((0, 4)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -37772,7 +37772,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74e81763f509de65E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74e81763f509de65E.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) initializes((0, 4)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -37822,7 +37822,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h80519703799b0dc6E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h80519703799b0dc6E.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) initializes((0, 4)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -37872,7 +37872,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82885e47938eef5aE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82885e47938eef5aE.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) initializes((0, 4)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -37922,7 +37922,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9182ccdeae457f3eE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9182ccdeae457f3eE.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) initializes((0, 4)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -37972,7 +37972,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae5bf0e622d71781E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae5bf0e622d71781E.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) initializes((0, 4)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -38022,7 +38022,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7d0e4030e9d1075E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7d0e4030e9d1075E.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) initializes((0, 4)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -38072,7 +38072,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd9d97b3bf775d715E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [4 x i32] }) align 4 dereferenceable(20) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd9d97b3bf775d715E.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ i32, [4 x i32] }) align 4 captures(none) dereferenceable(20) initializes((0, 4)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -38122,7 +38122,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h0b437c4180b1d322E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h0b437c4180b1d322E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -38155,7 +38155,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h0b437c4180b1d
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !4790
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -38263,7 +38263,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h0b437c4180b1d
   store ptr %5, ptr %50, align 8, !alias.scope !4799, !noalias !4802
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4799, !noalias !4802
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -38294,7 +38294,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h0b437c4180b1d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h3758d9fafc2af32dE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h3758d9fafc2af32dE"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -38327,7 +38327,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h3758d9fafc2af
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !4804
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -38434,7 +38434,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h3758d9fafc2af
   store ptr %5, ptr %50, align 8, !alias.scope !4813, !noalias !4816
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4813, !noalias !4816
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -38465,7 +38465,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h3758d9fafc2af
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b06c0d01d801b09E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b06c0d01d801b09E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -38610,7 +38610,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b06c0d01d801
   store ptr %5, ptr %50, align 8, !alias.scope !4830, !noalias !4833
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4830, !noalias !4833
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -38641,7 +38641,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b06c0d01d801
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b97d61b8ab94174E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b97d61b8ab94174E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -38674,7 +38674,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b97d61b8ab94
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !4835
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -38782,7 +38782,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b97d61b8ab94
   store ptr %5, ptr %50, align 8, !alias.scope !4844, !noalias !4847
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4844, !noalias !4847
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -38813,7 +38813,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4b97d61b8ab94
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4bb1afc66c2b08a7E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4bb1afc66c2b08a7E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -38846,7 +38846,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4bb1afc66c2b0
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !4849
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -38948,7 +38948,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4bb1afc66c2b0
   store ptr %5, ptr %45, align 8, !alias.scope !4858, !noalias !4861
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %46, align 8, !alias.scope !4858, !noalias !4861
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -38973,7 +38973,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4bb1afc66c2b0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d29fe38a6fa5914E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d29fe38a6fa5914E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -39006,7 +39006,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d29fe38a6fa5
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !4863
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -39113,7 +39113,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d29fe38a6fa5
   store ptr %5, ptr %50, align 8, !alias.scope !4872, !noalias !4875
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4872, !noalias !4875
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -39144,7 +39144,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d29fe38a6fa5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d95684a8b8a3ad1E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d95684a8b8a3ad1E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -39289,7 +39289,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d95684a8b8a3
   store ptr %5, ptr %50, align 8, !alias.scope !4889, !noalias !4892
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4889, !noalias !4892
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -39320,7 +39320,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h4d95684a8b8a3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h5b9fe588d1773986E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h5b9fe588d1773986E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -39465,7 +39465,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h5b9fe588d1773
   store ptr %5, ptr %50, align 8, !alias.scope !4906, !noalias !4909
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4906, !noalias !4909
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -39496,7 +39496,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h5b9fe588d1773
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h692253f8d01fa661E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h692253f8d01fa661E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -39641,7 +39641,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h692253f8d01fa
   store ptr %5, ptr %50, align 8, !alias.scope !4923, !noalias !4926
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4923, !noalias !4926
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -39672,7 +39672,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h692253f8d01fa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h821c727cec33c4d3E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h821c727cec33c4d3E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -39705,7 +39705,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h821c727cec33c
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !4928
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -39813,7 +39813,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h821c727cec33c
   store ptr %5, ptr %50, align 8, !alias.scope !4937, !noalias !4940
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4937, !noalias !4940
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -39844,7 +39844,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h821c727cec33c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83c4ec705173c2a0E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83c4ec705173c2a0E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -39877,7 +39877,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83c4ec705173c
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !4942
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -39985,7 +39985,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83c4ec705173c
   store ptr %5, ptr %50, align 8, !alias.scope !4951, !noalias !4954
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4951, !noalias !4954
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -40016,7 +40016,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83c4ec705173c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83fb26a2132d0742E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83fb26a2132d0742E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -40049,7 +40049,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83fb26a2132d0
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !4956
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -40156,7 +40156,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83fb26a2132d0
   store ptr %5, ptr %50, align 8, !alias.scope !4965, !noalias !4968
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4965, !noalias !4968
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -40187,7 +40187,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h83fb26a2132d0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h88c6a0fd4d5a8e41E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h88c6a0fd4d5a8e41E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -40220,7 +40220,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h88c6a0fd4d5a8
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, float noundef 0.000000e+00, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !4970
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -40327,7 +40327,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h88c6a0fd4d5a8
   store ptr %5, ptr %50, align 8, !alias.scope !4979, !noalias !4982
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4979, !noalias !4982
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -40358,7 +40358,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h88c6a0fd4d5a8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h9ff0feeca62660fbE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h9ff0feeca62660fbE"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -40391,7 +40391,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h9ff0feeca6266
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !4984
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -40499,7 +40499,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h9ff0feeca6266
   store ptr %5, ptr %50, align 8, !alias.scope !4993, !noalias !4996
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !4993, !noalias !4996
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -40530,7 +40530,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17h9ff0feeca6266
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha468f3e5be4d06daE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha468f3e5be4d06daE"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -40563,7 +40563,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha468f3e5be4d0
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !4998
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -40665,7 +40665,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha468f3e5be4d0
   store ptr %5, ptr %45, align 8, !alias.scope !5007, !noalias !5010
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %46, align 8, !alias.scope !5007, !noalias !5010
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -40690,7 +40690,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha468f3e5be4d0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha5ad67a854ffb70fE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha5ad67a854ffb70fE"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -40723,7 +40723,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha5ad67a854ffb
 
 15:                                               ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %12, 1
-  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
+  call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, i16 noundef 0, i64 noundef %.fca.1.extract.i)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %9, ptr %16, align 8, !alias.scope !5012
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -40831,7 +40831,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha5ad67a854ffb
   store ptr %5, ptr %50, align 8, !alias.scope !5021, !noalias !5024
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !5021, !noalias !5024
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -40862,7 +40862,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17ha5ad67a854ffb
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17hc0831aa8f68020d1E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17hc0831aa8f68020d1E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -41007,7 +41007,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17hc0831aa8f6802
   store ptr %5, ptr %50, align 8, !alias.scope !5038, !noalias !5041
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !5038, !noalias !5041
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -41038,7 +41038,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17hc0831aa8f6802
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17hd910b41e8f9a52eaE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17hd910b41e8f9a52eaE"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -41175,7 +41175,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17hd910b41e8f9a5
   store ptr %5, ptr %45, align 8, !alias.scope !5053, !noalias !5056
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %46, align 8, !alias.scope !5053, !noalias !5056
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -41200,7 +41200,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17hd910b41e8f9a5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he22c399865f9661dE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he22c399865f9661dE"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -41345,7 +41345,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he22c399865f96
   store ptr %5, ptr %50, align 8, !alias.scope !5070, !noalias !5073
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %51, align 8, !alias.scope !5070, !noalias !5073
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -41376,7 +41376,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he22c399865f96
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he3486fd562765aafE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he3486fd562765aafE"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, i32, i32, {} }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32 }, align 4
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca [2 x { ptr, ptr }], align 8
@@ -41513,7 +41513,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he3486fd562765
   store ptr %5, ptr %45, align 8, !alias.scope !5085, !noalias !5088
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %46, align 8, !alias.scope !5085, !noalias !5088
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.89) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.split.us
@@ -41538,7 +41538,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he3486fd562765
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i64 -281474976710656, 0) i64 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h1dc183daadf68dceE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #6 {
+define hidden range(i64 -281474976710656, 0) i64 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h1dc183daadf68dceE"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6c38cac8a68372b6E.exit":
   %.sroa.0.0.copyload = load i48, ptr %0, align 2, !alias.scope !5090, !noalias !5094
   %.sroa.0.0.insert.ext = zext i48 %.sroa.0.0.copyload to i64
@@ -41547,7 +41547,7 @@ define hidden range(i64 -281474976710656, 0) i64 @"_ZN67_$LT$image..color..Rgb$L
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -16777216, 0) i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h9f93821536a99cefE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #6 {
+define hidden range(i32 -16777216, 0) i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h9f93821536a99cefE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit":
   %.sroa.0.0.copyload = load i24, ptr %0, align 1, !alias.scope !5096, !noalias !5100
   %.sroa.0.0.insert.ext = zext i24 %.sroa.0.0.copyload to i32
@@ -41556,7 +41556,7 @@ define hidden range(i32 -16777216, 0) i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hc00ccfe4d61db46eE"(ptr noalias nocapture noundef writeonly sret({ float, float, float, float }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #7 {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hc00ccfe4d61db46eE"(ptr noalias noundef writeonly sret({ float, float, float, float }) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #7 {
   %3 = alloca [4 x float], align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   br label %4
@@ -41590,7 +41590,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13from_channels17h8e8ac863eaa1817dE"(ptr noalias nocapture noundef writeonly sret({ [3 x float] }) align 4 dereferenceable(12) initializes((0, 12)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #8 {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13from_channels17h8e8ac863eaa1817dE"(ptr noalias noundef writeonly sret({ [3 x float] }) align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #8 {
 "_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17hd6e3087ca151e8f1E.exit":
   store float %1, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -41642,7 +41642,7 @@ define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN67_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -41662,7 +41662,7 @@ define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN67_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -41682,7 +41682,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN67_$LT$image.
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -41702,7 +41702,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN67_$LT$image.
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -41722,7 +41722,7 @@ define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN67_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -41742,12 +41742,12 @@ define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN67_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.119.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6to_rgb17h38e8d8a818deb928E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #6 {
+define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6to_rgb17h38e8d8a818deb928E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !alias.scope !5108, !noalias !5111, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i16, ptr %3, align 1, !alias.scope !5108, !noalias !5111
@@ -41759,7 +41759,7 @@ define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i64 -281474976710656, 0) i64 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h0e09d42895046a76E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #6 {
+define hidden range(i64 -281474976710656, 0) i64 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h0e09d42895046a76E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 2, !alias.scope !5113, !noalias !5116
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -41772,7 +41772,7 @@ define hidden range(i64 -281474976710656, 0) i64 @"_ZN67_$LT$image..color..Rgb$L
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -16777216, 0) i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h3a30bb2f6d862d70E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #6 {
+define hidden range(i32 -16777216, 0) i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h3a30bb2f6d862d70E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 1, !alias.scope !5118, !noalias !5121
   %3 = zext i16 %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -41785,7 +41785,7 @@ define hidden range(i32 -16777216, 0) i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h7559bce6ad629c82E"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h7559bce6ad629c82E"(ptr noalias noundef writeonly sret({ [4 x float] }) align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !alias.scope !5123, !noalias !5126, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4, !alias.scope !5123, !noalias !5126, !noundef !4
@@ -41802,7 +41802,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_luma17h58795e349f0ea2c3E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_luma17h58795e349f0ea2c3E.llvm.1609853135345852838"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = load float, ptr %0, align 4, !alias.scope !5128, !noalias !5133, !noundef !4
   %3 = fpext float %2 to double
   %4 = fmul double %3, 2.126000e+03
@@ -41835,7 +41835,7 @@ define hidden i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i8 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_luma17h9eede34082646f7cE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden i8 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_luma17h9eede34082646f7cE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1, !alias.scope !5135, !noalias !5140, !noundef !4
   %4 = zext i8 %3 to i32
@@ -41855,7 +41855,7 @@ define hidden i8 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i16 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_luma17hdb5bcdb0a48b5db9E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden i16 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_luma17hdb5bcdb0a48b5db9E.llvm.1609853135345852838"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2, !alias.scope !5142, !noalias !5147, !noundef !4
   %4 = zext i16 %3 to i32
@@ -41875,7 +41875,7 @@ define hidden i16 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$3map17hb38e6273b639d844E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ [3 x float] }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$3map17hb38e6273b639d844E.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ [3 x float] }) align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #9 personality ptr @rust_eh_personality {
   %5 = alloca { [3 x float] }, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
@@ -41911,7 +41911,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$5apply17hc7413a4804b32661E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$5apply17hc7413a4804b32661E.llvm.1609853135345852838"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load float, ptr %1, align 4, !noundef !4
   %5 = load float, ptr %2, align 4, !noundef !4
   br label %7
@@ -41939,7 +41939,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17h442156ed3c2dab2cE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17h442156ed3c2dab2cE.llvm.1609853135345852838"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { [3 x i16] }, align 8
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %0, i64 6, i1 false)
@@ -41980,7 +41980,7 @@ define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17he6471de1d5f08857E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ [3 x float] }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17he6471de1d5f08857E.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ [3 x float] }) align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { [3 x float] }, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
@@ -42023,7 +42023,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17hf1705c225732b791E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17hf1705c225732b791E.llvm.1609853135345852838"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { [3 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) %0, i64 3, i1 false)
@@ -42064,7 +42064,7 @@ define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hadc092b23ea06721E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hadc092b23ea06721E.llvm.1609853135345852838"(ptr noalias noundef align 2 captures(none) dereferenceable(6) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %1, align 4, !noundef !4
   %5 = load i32, ptr %2, align 4, !noundef !4
   br label %7
@@ -42097,7 +42097,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hb5b83dd68f8eff68E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hb5b83dd68f8eff68E.llvm.1609853135345852838"(ptr noalias noundef align 1 captures(none) dereferenceable(3) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %1, align 4, !noundef !4
   %5 = load i32, ptr %2, align 4, !noundef !4
   br label %7
@@ -42130,7 +42130,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17he2b71ba719304a19E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17he2b71ba719304a19E.llvm.1609853135345852838"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %1, align 4
   %5 = load i32, ptr %2, align 4
   br label %7
@@ -42165,7 +42165,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h75dd907b9a2b0e13E"(ptr noalias nocapture noundef writeonly sret({ [3 x float] }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h75dd907b9a2b0e13E"(ptr noalias noundef writeonly sret({ [3 x float] }) align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { [3 x float] }, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
@@ -42232,7 +42232,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h9fc27ad2ca45eefbE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h9fc27ad2ca45eefbE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { [3 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) %0, i64 3, i1 false)
@@ -42284,7 +42284,7 @@ define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217ha7862f532ef06d06E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217ha7862f532ef06d06E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { [3 x i16] }, align 8
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %5, ptr noundef nonnull align 2 dereferenceable(6) %0, i64 6, i1 false)
@@ -42336,7 +42336,7 @@ define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h4f23036b1dd8e148E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h4f23036b1dd8e148E.llvm.1609853135345852838"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr %3, align 4
   br label %8
@@ -42394,7 +42394,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd111bf015380f39dE.llvm.1609853135345852838"(ptr noalias nocapture noundef align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd111bf015380f39dE.llvm.1609853135345852838"(ptr noalias noundef align 2 captures(none) dereferenceable(6) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(6) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %2, align 4, !noundef !4
   %6 = load i32, ptr %3, align 4
   br label %8
@@ -42437,7 +42437,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd73199be0d607359E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd73199be0d607359E.llvm.1609853135345852838"(ptr noalias noundef align 1 captures(none) dereferenceable(3) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %2, align 4, !noundef !4
   %6 = load i32, ptr %3, align 4
   br label %8
@@ -42480,7 +42480,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6invert17h986d6cff579caec0E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 4 dereferenceable(12) %0) unnamed_addr #5 {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6invert17h986d6cff579caec0E.llvm.1609853135345852838"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0) unnamed_addr #5 {
   %.sroa.0.0.copyload.i = load float, ptr %0, align 4, !alias.scope !5234
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.4.0.copyload.i = load float, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !5234
@@ -42496,7 +42496,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i64 -65536, 0) i64 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h0b788688efc83c72E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
+define hidden range(i64 -65536, 0) i64 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h0b788688efc83c72E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6c38cac8a68372b6E.exit":
   %1 = load i16, ptr %0, align 2, !alias.scope !5237, !noalias !5241
   %.sroa.0.0.insert.ext = zext i16 %1 to i64
@@ -42505,7 +42505,7 @@ define hidden range(i64 -65536, 0) i64 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -256, 0) i32 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h4be3d3ae8e020727E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #6 {
+define hidden range(i32 -256, 0) i32 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h4be3d3ae8e020727E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit":
   %1 = load i8, ptr %0, align 1, !alias.scope !5243, !noalias !5247
   %.sroa.0.0.insert.ext = zext i8 %1 to i32
@@ -42541,7 +42541,7 @@ define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN68_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -42561,7 +42561,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN68_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -42581,7 +42581,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN68_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -42601,7 +42601,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN68_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -42621,7 +42621,7 @@ define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN68_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -42641,12 +42641,12 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN68_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.120.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i24 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6to_rgb17h89187563319dc5deE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #6 {
+define hidden i24 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6to_rgb17h89187563319dc5deE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !alias.scope !5249, !noalias !5252, !noundef !4
   %.sroa.7.0.insert.ext = zext i8 %2 to i24
   %.sroa.7.0.insert.shift = shl nuw i24 %.sroa.7.0.insert.ext, 16
@@ -42657,7 +42657,7 @@ define hidden i24 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i64 -281474976710656, 0) i64 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h2a2cf09b369c83c5E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
+define hidden range(i64 -281474976710656, 0) i64 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h2a2cf09b369c83c5E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 2, !alias.scope !5254, !noalias !5257, !noundef !4
   %.sroa.0.0.insert.ext = zext i16 %2 to i64
   %.sroa.0.4.insert.insert = mul nuw nsw i64 %.sroa.0.0.insert.ext, 4295032833
@@ -42666,7 +42666,7 @@ define hidden range(i64 -281474976710656, 0) i64 @"_ZN68_$LT$image..color..Luma$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -16777216, 0) i32 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h83b28acd58c03c53E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #6 {
+define hidden range(i32 -16777216, 0) i32 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h83b28acd58c03c53E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !alias.scope !5259, !noalias !5262, !noundef !4
   %.sroa.0.0.insert.ext = zext i8 %2 to i32
   %.sroa.0.2.insert.insert = mul nuw nsw i32 %.sroa.0.0.insert.ext, 65793
@@ -42675,13 +42675,13 @@ define hidden range(i32 -16777216, 0) i32 @"_ZN68_$LT$image..color..Luma$LT$T$GT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_luma17h7181974547a35d32E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #6 {
+define hidden noundef i8 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_luma17h7181974547a35d32E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !noundef !4
   ret i8 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i8 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17h1930e647c2b8a676E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i8 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17h1930e647c2b8a676E.llvm.1609853135345852838"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i8, ptr %0, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5264)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5267)
@@ -42705,7 +42705,7 @@ define hidden i8 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i16 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17h4cc46fc0a5e14852E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i16 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17h4cc46fc0a5e14852E.llvm.1609853135345852838"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i16, ptr %0, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5273)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5276)
@@ -42729,7 +42729,7 @@ define hidden i16 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h8cb661088b512b53E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h8cb661088b512b53E.llvm.1609853135345852838"(ptr noalias noundef align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %1, align 4, !noundef !4
   %5 = load i32, ptr %2, align 4, !noundef !4
   %6 = load i16, ptr %0, align 2, !noundef !4
@@ -42752,7 +42752,7 @@ define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hc6a9799f710ab279E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hc6a9799f710ab279E.llvm.1609853135345852838"(ptr noalias noundef align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %1, align 4, !noundef !4
   %5 = load i32, ptr %2, align 4, !noundef !4
   %6 = load i8, ptr %0, align 1, !noundef !4
@@ -42775,7 +42775,7 @@ define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i16 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h33d84d8cafe275a8E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i16 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h33d84d8cafe275a8E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = load i16, ptr %0, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5282)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5285)
@@ -42809,7 +42809,7 @@ define hidden i16 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i8 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217haa150c19257327c2E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i8 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217haa150c19257327c2E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = load i8, ptr %0, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5294)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5297)
@@ -42843,7 +42843,7 @@ define hidden i8 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h1915ce3192574a21E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h1915ce3192574a21E.llvm.1609853135345852838"(ptr noalias noundef align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %2, align 4, !noundef !4
   %6 = load i8, ptr %1, align 1, !noundef !4
   %7 = load i8, ptr %0, align 1, !noundef !4
@@ -42875,7 +42875,7 @@ define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h390ef0f1d3443776E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h390ef0f1d3443776E.llvm.1609853135345852838"(ptr noalias noundef align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %2, align 4, !noundef !4
   %6 = load i16, ptr %1, align 2, !noundef !4
   %7 = load i16, ptr %0, align 2, !noundef !4
@@ -42907,21 +42907,21 @@ define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h388a8f73ce177531E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0) unnamed_addr #6 {
+define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h388a8f73ce177531E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit":
   %1 = load i32, ptr %0, align 1, !alias.scope !5306, !noalias !5310
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417heb473baf14d28087E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %0) unnamed_addr #6 {
+define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417heb473baf14d28087E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6c38cac8a68372b6E.exit":
   %1 = load i64, ptr %0, align 2, !alias.scope !5312, !noalias !5316
   ret i64 %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hf7583d293bdb2749E"(ptr noalias nocapture noundef writeonly sret({ float, float, float, float }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #7 {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417hf7583d293bdb2749E"(ptr noalias noundef writeonly sret({ float, float, float, float }) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #7 {
   %3 = alloca [4 x float], align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   br label %4
@@ -42955,7 +42955,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13from_channels17h99ffb1ebe942278cE"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) initializes((0, 16)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #8 {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13from_channels17h99ffb1ebe942278cE"(ptr noalias noundef writeonly sret({ [4 x float] }) align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #8 {
 "_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h65b7115c728bd9a1E.exit":
   store float %1, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -43015,7 +43015,7 @@ define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN68_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -43035,7 +43035,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN68_$LT$image.
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -43055,7 +43055,7 @@ define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN68_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -43075,7 +43075,7 @@ define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN68_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -43095,7 +43095,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN68_$LT$image.
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -43115,12 +43115,12 @@ define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN68_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i24 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6to_rgb17h2ca30ca31acd0409E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0) unnamed_addr #6 {
+define hidden i24 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6to_rgb17h2ca30ca31acd0409E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !alias.scope !5324, !noalias !5327, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i16, ptr %3, align 1, !alias.scope !5324, !noalias !5327
@@ -43132,13 +43132,13 @@ define hidden i24 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h140848c735eafd0fE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %0) unnamed_addr #6 {
+define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h140848c735eafd0fE"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %0) unnamed_addr #6 {
   %2 = load i64, ptr %0, align 2, !alias.scope !5329, !noalias !5332
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h92934a2fe87d9361E"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h92934a2fe87d9361E"(ptr noalias noundef writeonly sret({ [4 x float] }) align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !alias.scope !5334, !noalias !5337, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4, !alias.scope !5334, !noalias !5337, !noundef !4
@@ -43157,13 +43157,13 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h9ef0f6d537ff160cE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0) unnamed_addr #6 {
+define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h9ef0f6d537ff160cE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 1, !alias.scope !5339, !noalias !5342
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i8 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_luma17h2760d00963f70c83E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden i8 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_luma17h2760d00963f70c83E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1, !alias.scope !5344, !noalias !5349, !noundef !4
   %4 = zext i8 %3 to i32
@@ -43183,7 +43183,7 @@ define hidden i8 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i16 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13to_luma_alpha17h9652f4c26c947693E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden i16 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13to_luma_alpha17h9652f4c26c947693E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1, !alias.scope !5351, !noalias !5356, !noundef !4
   %4 = zext i8 %3 to i32
@@ -43208,7 +43208,7 @@ define hidden i16 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13to_luma_alpha17ha710b6303b3dc1efE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13to_luma_alpha17ha710b6303b3dc1efE.llvm.1609853135345852838"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2, !alias.scope !5359, !noalias !5364, !noundef !4
   %4 = zext i16 %3 to i32
@@ -43232,7 +43232,7 @@ define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13to_luma_alpha17heab00ca9eb764a45E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13to_luma_alpha17heab00ca9eb764a45E.llvm.1609853135345852838"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = load float, ptr %0, align 4, !alias.scope !5367, !noalias !5372, !noundef !4
   %3 = fpext float %2 to double
   %4 = fmul double %3, 2.126000e+03
@@ -43271,7 +43271,7 @@ define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$3map17h86b83782af35d225E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$3map17h86b83782af35d225E.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ [4 x float] }) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #9 personality ptr @rust_eh_personality {
   %5 = alloca { [4 x float] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -43307,7 +43307,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$5apply17he0d1f3d7df07c968E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$5apply17he0d1f3d7df07c968E.llvm.1609853135345852838"(ptr noalias noundef align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load float, ptr %1, align 4, !noundef !4
   %5 = load float, ptr %2, align 4, !noundef !4
   br label %7
@@ -43335,7 +43335,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17h0b82b9e685a83af6E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17h0b82b9e685a83af6E.llvm.1609853135345852838"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { [4 x i16] }, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = load <4 x i16>, ptr %0, align 2
@@ -43377,7 +43377,7 @@ define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17h6622deba8637fad4E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17h6622deba8637fad4E.llvm.1609853135345852838"(ptr noalias noundef writeonly sret({ [4 x float] }) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { [4 x float] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -43420,7 +43420,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17hf7d0b8701824734bE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17hf7d0b8701824734bE.llvm.1609853135345852838"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { [4 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %5 = load <4 x i8>, ptr %0, align 1
@@ -43462,7 +43462,7 @@ define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h5876d65095d03f1bE.llvm.1609853135345852838"(ptr noalias nocapture noundef align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h5876d65095d03f1bE.llvm.1609853135345852838"(ptr noalias noundef align 2 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %1, align 4, !noundef !4
   %5 = load i32, ptr %2, align 4, !noundef !4
   br label %7
@@ -43495,7 +43495,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h6be66ee18e118bfbE.llvm.1609853135345852838"(ptr noalias nocapture noundef align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h6be66ee18e118bfbE.llvm.1609853135345852838"(ptr noalias noundef align 1 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %1, align 4, !noundef !4
   %5 = load i32, ptr %2, align 4, !noundef !4
   br label %7
@@ -43528,7 +43528,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hc7d5c7d693b8426aE.llvm.1609853135345852838"(ptr noalias nocapture noundef align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hc7d5c7d693b8426aE.llvm.1609853135345852838"(ptr noalias noundef align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %1, align 4
   %5 = load i32, ptr %2, align 4
   br label %7
@@ -43563,7 +43563,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h31a37fc5e20751d9E"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h31a37fc5e20751d9E"(ptr noalias noundef writeonly sret({ [4 x float] }) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { [4 x float] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -43630,7 +43630,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h3eec35538be8aac0E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h3eec35538be8aac0E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { [4 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = load <4 x i8>, ptr %0, align 1
@@ -43683,7 +43683,7 @@ define hidden i32 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217he1de2fe696ab2c10E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217he1de2fe696ab2c10E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { [4 x i16] }, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = load <4 x i16>, ptr %0, align 2
@@ -43736,7 +43736,7 @@ define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3515cd6925b720daE.llvm.1609853135345852838"(ptr noalias nocapture noundef align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3515cd6925b720daE.llvm.1609853135345852838"(ptr noalias noundef align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr %3, align 4
   br label %8
@@ -43794,7 +43794,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h582e42f930923cbbE.llvm.1609853135345852838"(ptr noalias nocapture noundef align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h582e42f930923cbbE.llvm.1609853135345852838"(ptr noalias noundef align 1 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %2, align 4, !noundef !4
   %6 = load i32, ptr %3, align 4
   br label %8
@@ -43837,7 +43837,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd93120bbd52cea80E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hd93120bbd52cea80E.llvm.1609853135345852838"(ptr noalias noundef align 2 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %2, align 4, !noundef !4
   %6 = load i32, ptr %3, align 4
   br label %8
@@ -43880,7 +43880,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6invert17hd5bff98da8600fb7E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 4 dereferenceable(16) %0) unnamed_addr #5 {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6invert17hd5bff98da8600fb7E.llvm.1609853135345852838"(ptr noalias noundef align 4 captures(none) dereferenceable(16) %0) unnamed_addr #5 {
   %.sroa.0.0.copyload.i = load float, ptr %0, align 4, !alias.scope !5460
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.4.0.copyload.i = load float, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !5460
@@ -43896,7 +43896,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i64 -4294967296, 0) i64 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h00e0fae0b18ffcc5E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #6 {
+define hidden range(i64 -4294967296, 0) i64 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h00e0fae0b18ffcc5E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6c38cac8a68372b6E.exit":
   %1 = load i32, ptr %0, align 2, !alias.scope !5463, !noalias !5467
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -43905,7 +43905,7 @@ define hidden range(i64 -4294967296, 0) i64 @"_ZN69_$LT$image..color..LumaA$LT$T
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -65536, 0) i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h60008d23443def2aE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #6 {
+define hidden range(i32 -65536, 0) i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h60008d23443def2aE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit":
   %1 = load i16, ptr %0, align 1, !alias.scope !5469, !noalias !5473
   %.sroa.0.0.insert.ext = zext i16 %1 to i32
@@ -43949,7 +43949,7 @@ define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN69_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -43969,7 +43969,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN69_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -43989,7 +43989,7 @@ define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN69_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -44009,7 +44009,7 @@ define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN69_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -44029,7 +44029,7 @@ define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN69_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
@@ -44049,12 +44049,12 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN69_$LT$image..
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
+  call void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.123.llvm.1609853135345852838, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i24 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6to_rgb17h99359387b95381d6E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #6 {
+define hidden i24 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6to_rgb17h99359387b95381d6E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !alias.scope !5475, !noalias !5478, !noundef !4
   %.sroa.7.0.insert.ext = zext i8 %2 to i24
   %.sroa.7.0.insert.shift = shl nuw i24 %.sroa.7.0.insert.ext, 16
@@ -44065,7 +44065,7 @@ define hidden i24 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i64 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h67c229a399c3e1dcE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #6 {
+define hidden i64 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h67c229a399c3e1dcE"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 2, !alias.scope !5480, !noalias !5483, !noundef !4
   %.sroa.0.0.insert.ext = zext i16 %2 to i64
   %.sroa.0.2.insert.shift = shl nuw nsw i64 %.sroa.0.0.insert.ext, 16
@@ -44081,7 +44081,7 @@ define hidden i64 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h9a8a2f85422ea4caE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #6 {
+define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h9a8a2f85422ea4caE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !alias.scope !5485, !noalias !5488, !noundef !4
   %.sroa.0.0.insert.ext = zext i8 %2 to i32
   %.sroa.0.1.insert.shift = shl nuw nsw i32 %.sroa.0.0.insert.ext, 8
@@ -44097,25 +44097,25 @@ define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_luma17h1e78e43ee95bc28aE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #6 {
+define hidden noundef i8 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_luma17h1e78e43ee95bc28aE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !noundef !4
   ret i8 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13to_luma_alpha17h2cdad237d4b297f0E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #6 {
+define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13to_luma_alpha17h2cdad237d4b297f0E.llvm.1609853135345852838"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 1, !alias.scope !5490, !noalias !5493
   ret i16 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13to_luma_alpha17he42fe5dc79ba6fcfE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #6 {
+define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13to_luma_alpha17he42fe5dc79ba6fcfE.llvm.1609853135345852838"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 2, !alias.scope !5495, !noalias !5498
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17hd50ca318f672de6cE.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17hd50ca318f672de6cE.llvm.1609853135345852838"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i16, ptr %0, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5500)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5503)
@@ -44142,7 +44142,7 @@ define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17heb4d9f2c134d83d8E.llvm.1609853135345852838"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14map_with_alpha17heb4d9f2c134d83d8E.llvm.1609853135345852838"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %0, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5509)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5512)
@@ -44167,7 +44167,7 @@ define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h48834b74e31aec78E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17h48834b74e31aec78E.llvm.1609853135345852838"(ptr noalias noundef align 2 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %1, align 4, !noundef !4
   %5 = load i32, ptr %2, align 4, !noundef !4
   %6 = load i16, ptr %0, align 2, !noundef !4
@@ -44190,7 +44190,7 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hf6ec43edf55e6ec6E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hf6ec43edf55e6ec6E.llvm.1609853135345852838"(ptr noalias noundef align 1 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %1, align 4, !noundef !4
   %5 = load i32, ptr %2, align 4, !noundef !4
   %6 = load i8, ptr %0, align 1, !noundef !4
@@ -44213,7 +44213,7 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h05cb842841cda370E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h05cb842841cda370E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.0.sroa.0 = alloca i8, align 2
   %.sroa.0.sroa.5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.0.sroa.0)
@@ -44277,7 +44277,7 @@ define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h22fe8967b0a184b9E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h22fe8967b0a184b9E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.0.sroa.0 = alloca i16, align 4
   %.sroa.0.sroa.5 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.0.sroa.0)
@@ -44341,7 +44341,7 @@ define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3920945b39b38965E.llvm.1609853135345852838"(ptr noalias nocapture noundef align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3920945b39b38965E.llvm.1609853135345852838"(ptr noalias noundef align 1 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %2, align 4, !noundef !4
   %6 = load i32, ptr %3, align 4
   br label %8
@@ -44383,7 +44383,7 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hcd43187c74cd68fcE.llvm.1609853135345852838"(ptr noalias nocapture noundef align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hcd43187c74cd68fcE.llvm.1609853135345852838"(ptr noalias noundef align 2 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %2, align 4, !noundef !4
   %6 = load i32, ptr %3, align 4
   br label %8
@@ -44437,13 +44437,13 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 declare void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
+declare void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb290538f250b710bE"(i64 noundef, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
 declare void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() unnamed_addr #12
@@ -44479,40 +44479,40 @@ declare void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 nou
 declare hidden void @_ZN8bytemuck8internal20something_went_wrong17h42df4266370cbc12E(ptr noalias noundef nonnull readonly align 1, i64 noundef, i8 noundef) unnamed_addr #10
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17ha57e5fba0dc4c258E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(368), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17ha57e5fba0dc4c258E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(368), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17he84ffd3308c3efe8E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(424), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17he84ffd3308c3efe8E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(424), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hf1bd9e9603a32fa8E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(152), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hf1bd9e9603a32fa8E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(152), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h45bdbde6c0ce8a3fE"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(752), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h45bdbde6c0ce8a3fE"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(752), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0286d7cc9293bd11E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(328), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0286d7cc9293bd11E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(328), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h64030919f351416eE"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(392), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN88_$LT$image..codecs..tiff..TiffDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h64030919f351416eE"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(392), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h8a15ced87e2e4a09E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(352), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h8a15ced87e2e4a09E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(352), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h99b2ba1abee29445E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(448), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h99b2ba1abee29445E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(448), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h3a8808896f309e9fE"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(728), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h3a8808896f309e9fE"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(728), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hbb0459a4a1501f48E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(176), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hbb0459a4a1501f48E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(176), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(160), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(160), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h5ee9209658ada30aE"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(136), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h5ee9209658ada30aE"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(136), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
@@ -44521,22 +44521,22 @@ declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbde8510ce0a4161cE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare hidden void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef, ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
+declare hidden void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef, ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h139b81b628a27188E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(120), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h139b81b628a27188E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(120), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hc373beeba22d7e61E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(96), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hc373beeba22d7e61E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(96), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare hidden void @"_ZN5image6codecs4jpeg7decoder41_$LT$impl$u20$image..color..ColorType$GT$9from_jpeg19panic_cold_explicit17h0cf6c6ea9e64ac60E"(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
@@ -44545,37 +44545,37 @@ declare hidden void @"_ZN5image6codecs4jpeg7decoder41_$LT$impl$u20$image..color.
 declare float @llvm.round.f32(float) #13
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h58342e812c7584e7E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(120), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h58342e812c7584e7E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(120), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h7ac11a267400c52fE"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(144), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h7ac11a267400c52fE"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(144), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h58add2b1feac2ec7E.llvm.3890463254259644073"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias noundef align 8 dereferenceable(240), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h58add2b1feac2ec7E.llvm.3890463254259644073"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 dereferenceable(240), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h9722a0cf2c5728e6E.llvm.3890463254259644073"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias noundef align 8 dereferenceable(216), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_image_data17h9722a0cf2c5728e6E.llvm.3890463254259644073"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 dereferenceable(216), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8ddbce84e4102364E.llvm.3890463254259644073(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8ddbce84e4102364E.llvm.3890463254259644073(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc0c339090a2b64b3E.llvm.3890463254259644073(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(72), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc0c339090a2b64b3E.llvm.3890463254259644073(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(72), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef align 8 dereferenceable(1424) ptr @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h647ecf6b3e838196E"(ptr noalias noundef readonly align 8 dereferenceable(4288), i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h04defcd2d82e7643E.llvm.10740287948243559469"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(4360), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h04defcd2d82e7643E.llvm.10740287948243559469"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(4360), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h2ba3b754aa4f4c65E.llvm.10740287948243559469"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(4384), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$24read_image_with_progress17h2ba3b754aa4f4c65E.llvm.10740287948243559469"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(4384), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0d65af46012a6780E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(64), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h0d65af46012a6780E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(64), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hdcffceecd9a62141E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(40), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hdcffceecd9a62141E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(40), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he15038c0c5583cb5E.llvm.9832446184049035033"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
@@ -44587,7 +44587,7 @@ declare hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..i
 declare hidden void @"_ZN4core3ptr118drop_in_place$LT$exr..io..PeekRead$LT$exr..io..Tracking$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h2febe600a26f5389E"(ptr noalias noundef align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias nocapture noundef sret({ i8, [15 x i8] }) align 8 dereferenceable(16), ptr noundef nonnull) unnamed_addr #0
+declare hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias noundef sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16), ptr noundef nonnull) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha504b14c792c629fE.llvm.9832446184049035033"(ptr noalias noundef align 8 dereferenceable(4288)) unnamed_addr #1
@@ -44605,7 +44605,7 @@ declare hidden void @"_ZN4core3ptr96drop_in_place$LT$gif..reader..Decoder$LT$std
 declare hidden void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #1
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr96drop_in_place$LT$png..decoder..Reader$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h494790fa3eec33b3E"(ptr noalias noundef align 8 dereferenceable(688)) unnamed_addr #1
@@ -44635,7 +44635,7 @@ declare hidden void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffe
 declare hidden void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17hc7015d4d3bde46c3E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #1
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h594a734dcad31749E"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #1
@@ -44644,7 +44644,7 @@ declare hidden void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffe
 declare hidden void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u16$GT$$GT$17h6540701bf0cd0dcfE"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #1
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Luma$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17hab9acd9360c57db3E"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #1
@@ -44668,7 +44668,7 @@ declare hidden void @"_ZN4core3ptr115drop_in_place$LT$image..buffer_..ImageBuffe
 declare hidden void @"_ZN4core3ptr115drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h8d9b67d1d90a6235E"(ptr noalias noundef align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h71769612cc4a2f55E.llvm.9832446184049035033"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #1
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h71769612cc4a2f55E.llvm.9832446184049035033"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr117drop_in_place$LT$image..codecs..ico..decoder..InnerDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h393103f4deecd76fE.llvm.9832446184049035033"(ptr noalias noundef align 8 dereferenceable(120)) unnamed_addr #1
@@ -44746,19 +44746,19 @@ declare hidden void @"_ZN4core3ptr51drop_in_place$LT$image..error..UnsupportedEr
 declare hidden void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$image..color..Rgb$LT$u8$GT$$GT$$GT$17h9d561b63424b6432E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17heb945b34f2851524E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(184), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17heb945b34f2851524E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(184), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hfd12f1b189334c24E"(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(160), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hfd12f1b189334c24E"(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(160), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hb0e8a1395d1042dfE.llvm.1814251078191383949"(ptr noalias nocapture noundef sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40), ptr noalias noundef nonnull align 4, i64 noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hb0e8a1395d1042dfE.llvm.1814251078191383949"(ptr noalias noundef sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40), ptr noalias noundef nonnull align 4, i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcd6553b4f2868b89E.llvm.1814251078191383949"(ptr noalias nocapture noundef sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40), ptr noalias noundef nonnull align 1, i64 noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcd6553b4f2868b89E.llvm.1814251078191383949"(ptr noalias noundef sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40), ptr noalias noundef nonnull align 1, i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcb6f75d3107c0807E.llvm.1814251078191383949"(ptr noalias nocapture noundef sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 dereferenceable(40), ptr noalias noundef nonnull align 2, i64 noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN4core5slice4iter23ChunksExactMut$LT$T$GT$3new17hcb6f75d3107c0807E.llvm.1814251078191383949"(ptr noalias noundef sret({ { ptr, i64 }, { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(40), ptr noalias noundef nonnull align 2, i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h1e060a8d46891164E.llvm.1814251078191383949"(i32 noundef, i32 noundef) unnamed_addr #1
@@ -44854,16 +44854,16 @@ declare hidden noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32Image
 declare void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias nocapture noundef sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24), i16 noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hca3d8970783d0ad0E.llvm.1814251078191383949"(ptr noalias noundef sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24), i16 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias nocapture noundef sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24), float noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9646b5b80c4741dcE.llvm.1814251078191383949"(ptr noalias noundef sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24), float noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc999c61b5ad8d4c3E.llvm.17224713629878502917(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(40), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc999c61b5ad8d4c3E.llvm.17224713629878502917(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(40), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f48a33e652bb5e8E.llvm.17224713629878502917(ptr noalias nocapture noundef sret({ i8, [63 x i8] }) align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(64), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f48a33e652bb5e8E.llvm.17224713629878502917(ptr noalias noundef sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(64), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
@@ -44872,7 +44872,7 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15

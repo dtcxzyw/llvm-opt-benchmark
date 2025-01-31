@@ -78,14 +78,14 @@ declare dso_local zeroext i1 @kvm_para_available() local_unnamed_addr #1
 declare dso_local i32 @cpuidle_register_governor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @haltpoll_enable_device(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((32, 40)) %1) #2 align 16 {
+define internal noundef i32 @haltpoll_enable_device(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((32, 40)) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 0, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @haltpoll_select(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 align 16 {
+define internal noundef range(i32 0, 2) i32 @haltpoll_select(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call i64 @cpuidle_governor_latency_req(i32 noundef %5) #8
@@ -124,7 +124,7 @@ define internal noundef range(i32 0, 2) i32 @haltpoll_select(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @haltpoll_reflect(ptr nocapture noundef initializes((16, 20)) %0, i32 noundef %1) #3 align 16 {
+define internal void @haltpoll_reflect(ptr noundef captures(none) initializes((16, 20)) %0, i32 noundef %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   %4 = icmp eq i32 %1, 0

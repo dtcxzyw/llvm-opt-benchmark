@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZN8QuantLib6detail18effectiveFixedRateERKSt6vectorIdSaIdEES5_S5_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %spreads, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %caps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %floors, i64 noundef %i) local_unnamed_addr #0 {
+define noundef double @_ZN8QuantLib6detail18effectiveFixedRateERKSt6vectorIdSaIdEES5_S5_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %spreads, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %caps, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %floors, i64 noundef %i) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %spreads, align 8, !tbaa !3
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %spreads, i64 8
@@ -90,7 +90,7 @@ if.end11:                                         ; preds = %if.end, %if.then9, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN8QuantLib6detail8noOptionERKSt6vectorIdSaIdEES5_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %caps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %floors, i64 noundef %i) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN8QuantLib6detail8noOptionERKSt6vectorIdSaIdEES5_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %caps, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %floors, i64 noundef %i) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %caps, align 8, !tbaa !3
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %caps, i64 8

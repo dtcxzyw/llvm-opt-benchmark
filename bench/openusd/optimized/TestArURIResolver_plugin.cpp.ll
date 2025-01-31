@@ -398,13 +398,13 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__10hash_valueERKNS_23_Te
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18_Tf_RegistryAdd195PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZL18_Tf_RegistryAdd195PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str, ptr noundef nonnull @_ZL23_Tf_RegistryFunction195PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23_Tf_RegistryFunction195PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal void @_ZL23_Tf_RegistryFunction195PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_BaseTypeInfos", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TypeCastFunctions", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -418,13 +418,13 @@ define internal void @_ZL23_Tf_RegistryFunction195PN32pxrInternal_v0_24__pxrRese
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18_Tf_RegistryAdd200PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZL18_Tf_RegistryAdd200PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str, ptr noundef nonnull @_ZL23_Tf_RegistryFunction200PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23_Tf_RegistryFunction200PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL23_Tf_RegistryFunction200PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_BaseTypeInfos.0", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TypeCastFunctions.1", align 8
@@ -477,13 +477,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Ar_DefineResolverI16_TestURIResolverJ20_T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18_Tf_RegistryAdd201PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZL18_Tf_RegistryAdd201PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str, ptr noundef nonnull @_ZL23_Tf_RegistryFunction201PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23_Tf_RegistryFunction201PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL23_Tf_RegistryFunction201PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_BaseTypeInfos.0", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TypeCastFunctions.13", align 8
@@ -536,13 +536,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Ar_DefineResolverI21_TestOtherURIResolver
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18_Tf_RegistryAdd202PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZL18_Tf_RegistryAdd202PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str, ptr noundef nonnull @_ZL23_Tf_RegistryFunction202PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23_Tf_RegistryFunction202PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL23_Tf_RegistryFunction202PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_BaseTypeInfos.0", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TypeCastFunctions.15", align 8
@@ -595,13 +595,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Ar_DefineResolverI31_TestInvalidUnderbarU
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18_Tf_RegistryAdd203PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZL18_Tf_RegistryAdd203PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str, ptr noundef nonnull @_ZL23_Tf_RegistryFunction203PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23_Tf_RegistryFunction203PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL23_Tf_RegistryFunction203PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_BaseTypeInfos.0", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TypeCastFunctions.17", align 8
@@ -654,13 +654,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Ar_DefineResolverI28_TestInvalidColonURIR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18_Tf_RegistryAdd204PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZL18_Tf_RegistryAdd204PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str, ptr noundef nonnull @_ZL23_Tf_RegistryFunction204PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23_Tf_RegistryFunction204PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL23_Tf_RegistryFunction204PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_BaseTypeInfos.0", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TypeCastFunctions.19", align 8
@@ -713,13 +713,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Ar_DefineResolverI31_TestInvalidNonAsciiU
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18_Tf_RegistryAdd205PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZL18_Tf_RegistryAdd205PN32pxrInternal_v0_24__pxrReserved__6TfTypeE(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str, ptr noundef nonnull @_ZL23_Tf_RegistryFunction205PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23_Tf_RegistryFunction205PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL23_Tf_RegistryFunction205PN32pxrInternal_v0_24__pxrReserved__6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_BaseTypeInfos.0", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TypeCastFunctions.21", align 8
@@ -779,7 +779,7 @@ define internal void @__cxx_global_var_init.8() #1 section ".text.startup" {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_RegistryInitDtorEPKc(ptr noundef nonnull @.str)
           to label %2 unwind label %3
 
@@ -973,7 +973,7 @@ define linkonce_odr void @_ZNK20_TestURIResolverBase17_CreateIdentifierERKNSt7__
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit: ; preds = %4
-  %13 = call i32 @strncmp(ptr noundef %10, ptr noundef %9, i64 noundef %12) #21
+  %13 = call i32 @strncmp(ptr noundef %10, ptr noundef nonnull %9, i64 noundef %12) #21
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.thread
 
@@ -994,7 +994,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_s
   br label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit11: ; preds = %15
-  %20 = call i32 @strncmp(ptr noundef %17, ptr noundef %16, i64 noundef %19) #21
+  %20 = call i32 @strncmp(ptr noundef %17, ptr noundef nonnull %16, i64 noundef %19) #21
   %21 = icmp eq i32 %20, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   br i1 %21, label %24, label %22
@@ -1059,7 +1059,7 @@ define linkonce_odr void @_ZNK20_TestURIResolverBase28_CreateIdentifierForNewAss
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit: ; preds = %4
-  %13 = call i32 @strncmp(ptr noundef %10, ptr noundef %9, i64 noundef %12) #21
+  %13 = call i32 @strncmp(ptr noundef %10, ptr noundef nonnull %9, i64 noundef %12) #21
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit.thread
 
@@ -1080,7 +1080,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_s
   br label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit11: ; preds = %15
-  %20 = call i32 @strncmp(ptr noundef %17, ptr noundef %16, i64 noundef %19) #21
+  %20 = call i32 @strncmp(ptr noundef %17, ptr noundef nonnull %16, i64 noundef %19) #21
   %21 = icmp eq i32 %20, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   br i1 %21, label %24, label %22
@@ -1150,7 +1150,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_s
   br label %15
 
 _ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit: ; preds = %3
-  %13 = call i32 @strncmp(ptr noundef %10, ptr noundef %9, i64 noundef %12) #21
+  %13 = call i32 @strncmp(ptr noundef %10, ptr noundef nonnull %9, i64 noundef %12) #21
   %14 = icmp eq i32 %13, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   br i1 %14, label %17, label %15
@@ -1426,7 +1426,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_s
   br label %13
 
 _ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit: ; preds = %3
-  %11 = call i32 @strncmp(ptr noundef %8, ptr noundef %7, i64 noundef %10) #21
+  %11 = call i32 @strncmp(ptr noundef %8, ptr noundef nonnull %7, i64 noundef %10) #21
   %12 = icmp eq i32 %11, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   br i1 %12, label %15, label %13
@@ -1482,7 +1482,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_s
   br label %14
 
 _ZN32pxrInternal_v0_24__pxrReserved__18TfStringStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit: ; preds = %4
-  %12 = call i32 @strncmp(ptr noundef %9, ptr noundef %8, i64 noundef %11) #21
+  %12 = call i32 @strncmp(ptr noundef %9, ptr noundef nonnull %8, i64 noundef %11) #21
   %13 = icmp eq i32 %12, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   br i1 %13, label %16, label %14
@@ -1580,7 +1580,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
@@ -1673,7 +1673,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
@@ -1681,7 +1681,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver35_GetInternallyManagedCurrentContextEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
@@ -2883,16 +2883,16 @@ define internal void @_GLOBAL__sub_I_TestArURIResolver_plugin.cpp() #12 section 
 declare i64 @llvm.bswap.i64(i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.iovec = type { ptr, i64 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i32 @net_checksum_add_cont(i32 noundef %len, ptr nocapture noundef readonly %buf, i32 noundef %seq) local_unnamed_addr #0 {
+define dso_local i32 @net_checksum_add_cont(i32 noundef %len, ptr noundef readonly captures(none) %buf, i32 noundef %seq) local_unnamed_addr #0 {
 entry:
   %sub = add i32 %len, -1
   %cmp14 = icmp sgt i32 %sub, 0
@@ -86,7 +86,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local zeroext i16 @net_checksum_tcpudp(i16 noundef zeroext %length, i16 noundef zeroext %proto, ptr nocapture noundef readonly %addrs, ptr nocapture noundef readonly %buf) local_unnamed_addr #0 {
+define dso_local zeroext i16 @net_checksum_tcpudp(i16 noundef zeroext %length, i16 noundef zeroext %proto, ptr noundef readonly captures(none) %addrs, ptr noundef readonly captures(none) %buf) local_unnamed_addr #0 {
 entry:
   %conv = zext i16 %length to i32
   %cmp14.i.i = icmp ugt i16 %length, 1
@@ -181,7 +181,7 @@ net_checksum_finish.exit:                         ; preds = %while.body.i, %net_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @net_checksum_calculate(ptr nocapture noundef %data, i32 noundef %length, i32 noundef %csum_flag) local_unnamed_addr #2 {
+define dso_local void @net_checksum_calculate(ptr noundef captures(none) %data, i32 noundef %length, i32 noundef %csum_flag) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i32 %length, 14
   br i1 %cmp, label %sw.epilog81, label %if.end
@@ -356,7 +356,7 @@ sw.epilog81:                                      ; preds = %sw.epilog81.sink.sp
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @net_checksum_add_iov(ptr nocapture noundef readonly %iov, i32 noundef %iov_cnt, i32 noundef %iov_off, i32 noundef %size, i32 noundef %csum_offset) local_unnamed_addr #3 {
+define dso_local i32 @net_checksum_add_iov(ptr noundef readonly captures(none) %iov, i32 noundef %iov_cnt, i32 noundef %iov_off, i32 noundef %size, i32 noundef %csum_offset) local_unnamed_addr #3 {
 entry:
   %cmp24 = icmp ne i32 %iov_cnt, 0
   %tobool25 = icmp ne i32 %size, 0

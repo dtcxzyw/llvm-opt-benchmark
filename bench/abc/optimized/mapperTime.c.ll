@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [65 x i8] c"Relaxing the required times from (%4.2f) to the target (%4.2f).\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define float @Map_TimeComputeArrivalMax(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define float @Map_TimeComputeArrivalMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -63,7 +63,7 @@ define float @Map_TimeComputeArrivalMax(ptr nocapture noundef readonly %0) local
 declare i32 @Map_NodeIsConst(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define float @Map_TimeCutComputeArrival(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
+define float @Map_TimeCutComputeArrival(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds %struct.Map_MatchStruct_t_, ptr %5, i64 %6
@@ -232,7 +232,7 @@ define float @Map_TimeCutComputeArrival(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Map_TimePropagateRequiredPhase(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @Map_TimePropagateRequiredPhase(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -361,7 +361,7 @@ define void @Map_TimePropagateRequiredPhase(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define float @Map_MatchComputeReqTimes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #2 {
+define float @Map_MatchComputeReqTimes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %4, i64 0, i64 %5
@@ -487,7 +487,7 @@ define float @Map_MatchComputeReqTimes(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Map_TimePropagateRequired(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Map_TimePropagateRequired(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -649,12 +649,12 @@ define void @Map_TimePropagateRequired(ptr nocapture noundef readonly %0) local_
 declare i32 @Map_NodeIsBuf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @Map_NodeIsAnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Map_TimeComputeRequiredGlobal(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Map_TimeComputeRequiredGlobal(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr (...) @Scl_ConReadMan() #6
   %.not101 = icmp eq ptr %2, null
   br i1 %.not101, label %17, label %3
@@ -965,7 +965,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @Scl_ConReadMan(...) local_unnamed_addr #1
 

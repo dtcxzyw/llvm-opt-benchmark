@@ -46,7 +46,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [18 x ptr] [ptr @__UNIQUE_ID___addressable_crypto_sha512_finup342, ptr @__UNIQUE_ID___addressable_crypto_sha512_update341, ptr @__UNIQUE_ID___addressable_sha384_zero_message_hash339, ptr @__UNIQUE_ID___addressable_sha512_generic_mod_init344, ptr @__UNIQUE_ID___addressable_sha512_zero_message_hash340, ptr @__UNIQUE_ID_alias_crypto349, ptr @__UNIQUE_ID_alias_crypto351, ptr @__UNIQUE_ID_alias_crypto353, ptr @__UNIQUE_ID_alias_crypto355, ptr @__UNIQUE_ID_alias_userspace348, ptr @__UNIQUE_ID_alias_userspace350, ptr @__UNIQUE_ID_alias_userspace352, ptr @__UNIQUE_ID_alias_userspace354, ptr @__UNIQUE_ID_description347, ptr @__UNIQUE_ID_file345, ptr @__UNIQUE_ID_license346, ptr @__exitcall_sha512_generic_mod_fini, ptr @sha512_generic_mod_fini], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef i32 @crypto_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef i32 @crypto_sha512_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
@@ -121,7 +121,7 @@ define dso_local noundef i32 @crypto_sha512_update(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc void @sha512_generic_block_fn(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 33554432) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @sha512_generic_block_fn(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 1, 33554432) %2) unnamed_addr #0 align 16 {
   %4 = alloca [16 x i64], align 16
   %5 = getelementptr i8, ptr %0, i64 8
   %6 = getelementptr i8, ptr %0, i64 16
@@ -497,7 +497,7 @@ define internal fastcc void @sha512_generic_block_fn(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 align 16 {
+define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8
@@ -636,7 +636,7 @@ sha512_final.exit:                                ; preds = %.preheader.i, %64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sha512_final(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef i32 @sha512_final(ptr noundef %0, ptr noundef writeonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -722,22 +722,22 @@ define internal i32 @sha512_generic_mod_init() #2 section ".init.text" align 16 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #7
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @sha512_base_init(ptr nocapture noundef writeonly initializes((8, 88)) %0) #8 align 16 {
+define internal noundef i32 @sha512_base_init(ptr noundef writeonly captures(none) initializes((8, 88)) %0) #8 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 7640891576956012808, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 16
@@ -760,7 +760,7 @@ define internal noundef i32 @sha512_base_init(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @sha384_base_init(ptr nocapture noundef writeonly initializes((8, 88)) %0) #8 align 16 {
+define internal noundef i32 @sha384_base_init(ptr noundef writeonly captures(none) initializes((8, 88)) %0) #8 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -3766243637369397544, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 16

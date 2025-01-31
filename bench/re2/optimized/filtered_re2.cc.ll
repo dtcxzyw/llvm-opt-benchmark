@@ -47,7 +47,7 @@ $_ZNSt6vectorIPN3re23RE2ESaIS2_EE16_M_shrink_to_fitEv = comdat any
 @_ZN3re211FilteredRE2C1EOS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN3re211FilteredRE2C2EOS0_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re211FilteredRE2C2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 25)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re211FilteredRE2C2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 25)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %this, i8 0, i64 25, i1 false)
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #15
@@ -86,7 +86,7 @@ declare void @_ZN3re213PrefilterTreeC1Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re211FilteredRE2C2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 25)) %this, i32 noundef %min_atom_len) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re211FilteredRE2C2Ei(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 25)) %this, i32 noundef %min_atom_len) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %this, i8 0, i64 25, i1 false)
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #15
@@ -117,7 +117,7 @@ _ZNSt6vectorIPN3re23RE2ESaIS2_EED2Ev.exit:        ; preds = %ehcleanup, %if.then
 declare void @_ZN3re213PrefilterTreeC1Ei(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3re211FilteredRE2D2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re211FilteredRE2D2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -291,7 +291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 536870912) i32 @_ZN3re211FilteredRE23AddEN4absl7debian211string_viewERKNS_3RE27OptionsEPi(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr %pattern.coerce0, i64 %pattern.coerce1, ptr noundef nonnull align 8 dereferenceable(23) %options, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 536870912) i32 @_ZN3re211FilteredRE23AddEN4absl7debian211string_viewERKNS_3RE27OptionsEPi(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr %pattern.coerce0, i64 %pattern.coerce1, ptr noundef nonnull align 8 dereferenceable(23) %options, ptr noundef writeonly captures(none) %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   %call = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #15
@@ -455,7 +455,7 @@ if.end22:                                         ; preds = %_ZNSt6vectorIPN3re2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN3re23RE2C1EN4absl7debian211string_viewERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(148), ptr, i64, ptr noundef nonnull align 8 dereferenceable(23)) unnamed_addr #2
 
@@ -507,7 +507,7 @@ terminate.lpad:                                   ; preds = %call2.i.noexc, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re211FilteredRE27CompileEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %atoms) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re211FilteredRE27CompileEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef %atoms) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   %ref.tmp6 = alloca %class.LogMessage, align 8
@@ -663,7 +663,7 @@ declare void @_ZN3re213PrefilterTree3AddEPNS_9PrefilterE(ptr noundef nonnull ali
 declare void @_ZN3re213PrefilterTree7CompileEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3re211FilteredRE214SlowFirstMatchEN4absl7debian211string_viewE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %text.coerce0, i64 %text.coerce1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK3re211FilteredRE214SlowFirstMatchEN4absl7debian211string_viewE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %text.coerce0, i64 %text.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -700,7 +700,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3re211FilteredRE210FirstMatchEN4absl7debian211string_viewERKSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %atoms) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK3re211FilteredRE210FirstMatchEN4absl7debian211string_viewERKSt6vectorIiSaIiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %atoms) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   %regexps = alloca %"class.std::vector.7", align 8
@@ -837,7 +837,7 @@ return:                                           ; preds = %if.then.i.i.i10, %c
 declare void @_ZNK3re213PrefilterTree19RegexpsGivenStringsERKSt6vectorIiSaIiEEPS3_(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK3re211FilteredRE210AllMatchesEN4absl7debian211string_viewERKSt6vectorIiSaIiEEPS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %atoms, ptr nocapture noundef %matching_regexps) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK3re211FilteredRE210AllMatchesEN4absl7debian211string_viewERKSt6vectorIiSaIiEEPS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %atoms, ptr noundef captures(none) %matching_regexps) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %regexps = alloca %"class.std::vector.7", align 8
   %0 = load ptr, ptr %matching_regexps, align 8
@@ -1005,7 +1005,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit16:                  ; preds = %for.end, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3re211FilteredRE213AllPotentialsERKSt6vectorIiSaIiEEPS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %atoms, ptr noundef %potential_regexps) local_unnamed_addr #0 align 2 {
+define void @_ZNK3re211FilteredRE213AllPotentialsERKSt6vectorIiSaIiEEPS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %atoms, ptr noundef %potential_regexps) local_unnamed_addr #0 align 2 {
 entry:
   %prefilter_tree_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %prefilter_tree_, align 8
@@ -1014,7 +1014,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re211FilteredRE219RegexpsGivenStringsERKSt6vectorIiSaIiEEPS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %matched_atoms, ptr noundef %passed_regexps) local_unnamed_addr #0 align 2 {
+define void @_ZN3re211FilteredRE219RegexpsGivenStringsERKSt6vectorIiSaIiEEPS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %matched_atoms, ptr noundef %passed_regexps) local_unnamed_addr #0 align 2 {
 entry:
   %prefilter_tree_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %prefilter_tree_, align 8
@@ -1023,7 +1023,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re211FilteredRE214PrintPrefilterEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %regexpid) local_unnamed_addr #0 align 2 {
+define void @_ZN3re211FilteredRE214PrintPrefilterEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i32 noundef %regexpid) local_unnamed_addr #0 align 2 {
 entry:
   %prefilter_tree_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %prefilter_tree_, align 8
@@ -1058,7 +1058,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
@@ -1145,18 +1145,18 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare noundef zeroext i1 @_ZN3re23RE213PartialMatchNEN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr, i64, ptr noundef nonnull align 8 dereferenceable(148), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

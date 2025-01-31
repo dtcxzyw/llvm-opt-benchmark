@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/cipher/aead.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 256) i64 @EVP_AEAD_key_length(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
+define hidden range(i64 0, 256) i64 @EVP_AEAD_key_length(ptr noundef readonly captures(none) %aead) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %aead, align 8
   %conv = zext i8 %0 to i64
@@ -14,7 +14,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 256) i64 @EVP_AEAD_nonce_length(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
+define hidden range(i64 0, 256) i64 @EVP_AEAD_nonce_length(ptr noundef readonly captures(none) %aead) local_unnamed_addr #0 {
 entry:
   %nonce_len = getelementptr inbounds nuw i8, ptr %aead, i64 1
   %0 = load i8, ptr %nonce_len, align 1
@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 256) i64 @EVP_AEAD_max_overhead(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
+define hidden range(i64 0, 256) i64 @EVP_AEAD_max_overhead(ptr noundef readonly captures(none) %aead) local_unnamed_addr #0 {
 entry:
   %overhead = getelementptr inbounds nuw i8, ptr %aead, i64 2
   %0 = load i8, ptr %overhead, align 2
@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 256) i64 @EVP_AEAD_max_tag_len(ptr nocapture noundef readonly %aead) local_unnamed_addr #0 {
+define hidden range(i64 0, 256) i64 @EVP_AEAD_max_tag_len(ptr noundef readonly captures(none) %aead) local_unnamed_addr #0 {
 entry:
   %max_tag_len = getelementptr inbounds nuw i8, ptr %aead, i64 3
   %0 = load i8, ptr %max_tag_len, align 1
@@ -41,17 +41,17 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EVP_AEAD_CTX_zero(ptr nocapture noundef writeonly initializes((0, 16)) %ctx) local_unnamed_addr #1 {
+define hidden void @EVP_AEAD_CTX_zero(ptr noundef writeonly captures(none) initializes((0, 16)) %ctx) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_AEAD_CTX_init(ptr noundef initializes((0, 8)) %ctx, ptr noundef %aead, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, ptr nocapture noundef readnone %impl) local_unnamed_addr #3 {
+define hidden i32 @EVP_AEAD_CTX_init(ptr noundef initializes((0, 8)) %ctx, ptr noundef %aead, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, ptr noundef readnone captures(none) %impl) local_unnamed_addr #3 {
 entry:
   %init = getelementptr inbounds nuw i8, ptr %aead, i64 8
   %0 = load ptr, ptr %init, align 8

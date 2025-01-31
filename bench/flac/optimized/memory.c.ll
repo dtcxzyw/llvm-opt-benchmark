@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef ptr @FLAC__memory_alloc_aligned(i64 noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %aligned_address) local_unnamed_addr #0 {
+define hidden noundef ptr @FLAC__memory_alloc_aligned(i64 noundef %bytes, ptr noundef writeonly captures(none) initializes((0, 8)) %aligned_address) local_unnamed_addr #0 {
 entry:
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %bytes, i64 1)
   %call.i = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #6
@@ -13,7 +13,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %elements, ptr noundef captures(none) %unaligned_pointer, ptr noundef writeonly captures(none) %aligned_pointer) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %elements, 4611686018427387903
   br i1 %cmp, label %return, label %if.end
@@ -45,10 +45,10 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_uint32_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_uint32_array(i64 noundef %elements, ptr noundef captures(none) %unaligned_pointer, ptr noundef writeonly captures(none) %aligned_pointer) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %elements, 4611686018427387903
   br i1 %cmp, label %return, label %if.end
@@ -80,7 +80,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_int64_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_int64_array(i64 noundef %elements, ptr noundef captures(none) %unaligned_pointer, ptr noundef writeonly captures(none) %aligned_pointer) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %elements, 2305843009213693951
   br i1 %cmp, label %return, label %if.end
@@ -112,7 +112,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_uint64_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_uint64_array(i64 noundef %elements, ptr noundef captures(none) %unaligned_pointer, ptr noundef writeonly captures(none) %aligned_pointer) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %elements, 2305843009213693951
   br i1 %cmp, label %return, label %if.end
@@ -144,7 +144,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_real_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_real_array(i64 noundef %elements, ptr noundef captures(none) %unaligned_pointer, ptr noundef writeonly captures(none) %aligned_pointer) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %elements, 4611686018427387903
   br i1 %cmp, label %return, label %if.end

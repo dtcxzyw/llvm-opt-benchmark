@@ -29,7 +29,7 @@ define dso_local i32 @archive_read_support_filter_compress(ptr noundef %0) local
 declare i32 @__archive_read_register_bidder(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 19) i32 @compress_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal range(i32 0, 19) i32 @compress_bidder_bid(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = call ptr @__archive_read_filter_ahead(ptr noundef %1, i64 noundef 3, ptr noundef nonnull %3) #6
   %5 = icmp eq ptr %4, null
@@ -66,7 +66,7 @@ define internal range(i32 0, 19) i32 @compress_bidder_bid(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @compress_bidder_init(ptr nocapture noundef initializes((48, 60)) %0) #0 {
+define internal range(i32 -30, 1) i32 @compress_bidder_init(ptr noundef captures(none) initializes((48, 60)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 3, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -152,7 +152,7 @@ define internal range(i32 -30, 1) i32 @compress_bidder_init(ptr nocapture nounde
   br i1 %.not49, label %44, label %40, !llvm.loop !5
 
 44:                                               ; preds = %40
-  %45 = tail call fastcc i32 @next_code(ptr noundef %0)
+  %45 = tail call fastcc i32 @next_code(ptr noundef nonnull %0)
   br label %46
 
 46:                                               ; preds = %44, %21, %8
@@ -169,12 +169,12 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @getbits(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @getbits(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -280,7 +280,7 @@ define internal fastcc i32 @getbits(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @next_code(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @next_code(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 76
@@ -493,7 +493,7 @@ tailrecurse:                                      ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @compress_filter_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal i64 @compress_filter_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 60
@@ -572,7 +572,7 @@ define internal i64 @compress_filter_read(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @compress_filter_close(ptr nocapture noundef readonly %0) #5 {
+define internal noundef i32 @compress_filter_close(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48

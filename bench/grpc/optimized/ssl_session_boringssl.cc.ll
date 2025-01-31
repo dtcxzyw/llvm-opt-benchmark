@@ -31,7 +31,7 @@ $_ZTIN3tsi16SslCachedSessionE = comdat any
 @_ZTIN3tsi12_GLOBAL__N_122BoringSslCachedSessionE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, ptr @_ZTIN3tsi16SslCachedSessionE }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3tsi16SslCachedSession6CreateESt10unique_ptrI14ssl_session_stNS_17SslSessionDeleterEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef %session) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tsi16SslCachedSession6CreateESt10unique_ptrI14ssl_session_stNS_17SslSessionDeleterEE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef captures(none) %session) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN3tsi12_GLOBAL__N_122BoringSslCachedSessionESt14default_deleteIS2_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #7, !noalias !4
   %0 = load i64, ptr %session, align 8, !noalias !4
@@ -52,7 +52,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tsi12_GLOBAL__N_122BoringSslCachedSessionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3tsi12_GLOBAL__N_122BoringSslCachedSessionD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i64 16), ptr %this, align 8
   %session_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -102,7 +102,7 @@ _ZN3tsi12_GLOBAL__N_122BoringSslCachedSessionD2Ev.exit: ; preds = %entry, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK3tsi12_GLOBAL__N_122BoringSslCachedSession11CopySessionEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.2") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK3tsi12_GLOBAL__N_122BoringSslCachedSession11CopySessionEv(ptr noalias writeonly sret(%"class.std::unique_ptr.2") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %session_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %session_, align 8

@@ -121,7 +121,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qapi_dummy_qapi_visit_ui_c = dso_local local_unnamed_addr global i8 0, align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayProtocol(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayProtocol(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -135,7 +135,7 @@ entry:
 declare zeroext i1 @visit_type_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_SetPasswordAction(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_SetPasswordAction(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -646,7 +646,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ExpirePasswordOptionsVnc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ImageFormat(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_ImageFormat(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -1204,7 +1204,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_VncInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncPrimaryAuth(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_VncPrimaryAuth(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -1216,7 +1216,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncVencryptSubAuth(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_VncVencryptSubAuth(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -1752,7 +1752,7 @@ return:                                           ; preds = %out_obj, %land.lhs.
 declare void @qapi_free_MouseInfoList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QKeyCode(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QKeyCode(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -1764,7 +1764,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_KeyValueKind(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_KeyValueKind(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -1836,7 +1836,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_IntWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QKeyCodeWrapper_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QKeyCodeWrapper_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
@@ -1910,7 +1910,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_QKeyCodeWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_KeyValue_base_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_KeyValue_base_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
@@ -2128,7 +2128,7 @@ return:                                           ; preds = %if.then2, %entry, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputButton(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_InputButton(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2140,7 +2140,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputAxis(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_InputAxis(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2152,7 +2152,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputMultiTouchType(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_InputMultiTouchType(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2512,7 +2512,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_InputMultiTouchEvent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputEventKind(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_InputEventKind(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2764,7 +2764,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_InputMultiTouchEventWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_InputEvent_base_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_InputEvent_base_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
@@ -3274,7 +3274,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayDBus(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayGLMode(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayGLMode(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -3476,7 +3476,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayCocoa(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_HotKeyMod(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_HotKeyMod(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -3579,7 +3579,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplaySDL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayType(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayType(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -3764,7 +3764,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayReloadType(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayReloadType(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -3853,7 +3853,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayReloadOptionsVNC(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_DisplayReloadOptions_base_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_DisplayReloadOptions_base_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
@@ -3984,7 +3984,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayReloadOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayUpdateType(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayUpdateType(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -4075,7 +4075,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayUpdateOptionsVNC(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_DisplayUpdateOptions_base_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_DisplayUpdateOptions_base_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
@@ -4259,10 +4259,10 @@ return:                                           ; preds = %if.then18, %if.then
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

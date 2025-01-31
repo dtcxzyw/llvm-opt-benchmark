@@ -155,7 +155,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.792701b81ad76444630bbc03b8bdde37.150 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.792701b81ad76444630bbc03b8bdde37.3, [16 x i8] c"\22\00\00\00\00\00\00\00\D8\01\00\00\22\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3, i64 %4, ptr nocapture readonly align 1 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3, i64 %4, ptr readonly align 1 captures(none) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { {} }, align 1
   %8 = alloca { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -2484,7 +2484,7 @@ default.unreachable2:                             ; preds = %68
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_isle7codegen7Codegen9type_name17h4f5388863d610e1eE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2, i1 zeroext %3) unnamed_addr #0 {
+define hidden void @_ZN14cranelift_isle7codegen7Codegen9type_name17h4f5388863d610e1eE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr readonly align 8 captures(none) %1, i64 %2, i1 zeroext %3) unnamed_addr #0 {
   %5 = alloca [2 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { ptr, i64 }, align 8
@@ -2565,7 +2565,7 @@ define hidden void @_ZN14cranelift_isle7codegen7Codegen9type_name17h4f5388863d61
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i1, i64 } @_ZN14cranelift_isle7codegen7Codegen2ty17h0dba03be43795e81E(ptr nocapture readonly align 8 %0, i64 %1) unnamed_addr #0 {
+define hidden { i1, i64 } @_ZN14cranelift_isle7codegen7Codegen2ty17h0dba03be43795e81E(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
   %4 = tail call i64 @_ZN14cranelift_isle4sema6TypeId5index17hb85470f904f9f20dE(i64 %1)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -2610,7 +2610,7 @@ declare void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h37a67404a27
 declare hidden zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hd3ca7706e9e2c192E"(ptr align 1, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr align 8) unnamed_addr #0
@@ -2790,10 +2790,10 @@ declare zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h1e2312ee2d
 declare void @"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..trie_again..Binding$GT$17hea7416d2e2542842E"(ptr align 16) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

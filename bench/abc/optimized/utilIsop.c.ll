@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [21 x i8] c"Verification failed.\00", align 1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @Abc_Isop6Cover(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i64 @Abc_Isop6Cover(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -377,7 +377,7 @@ Abc_TtStretch6.exit:                              ; preds = %._crit_edge.us.i73,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_IsopBuildTruth(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define void @Abc_IsopBuildTruth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [1024 x i64], align 16
   %7 = load ptr, ptr @Abc_IsopTtElems.pTtElems, align 16
   %8 = icmp eq ptr %7, null
@@ -595,7 +595,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i60, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Abc_Isop(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @Abc_Isop(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca [1024 x i64], align 16
   %7 = sext i32 %2 to i64
   %8 = shl nsw i64 %7, 32
@@ -898,7 +898,7 @@ Abc_TtNot.exit77:                                 ; preds = %.lr.ph.i73, %41
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_IsopCountLits(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Abc_IsopCountLits(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val24 = load i32, ptr %3, align 4
   switch i32 %.val24, label %7 [
@@ -974,7 +974,7 @@ define i32 @Abc_IsopCountLits(ptr nocapture noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_IsopPrintCover(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define void @Abc_IsopPrintCover(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr i8, ptr %0, i64 4
   %.val23 = load i32, ptr %4, align 4
   switch i32 %.val23, label %11 [
@@ -1063,10 +1063,10 @@ default.unreachable:                              ; preds = %18
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_IsopPrint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define void @Abc_IsopPrint(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call i32 @Abc_Isop(ptr noundef %0, i32 noundef %1, i32 noundef 65535, ptr noundef %2, i32 noundef %3)
   tail call void @Abc_IsopPrintCover(ptr noundef %2, i32 noundef %1, i32 noundef %5)
   ret void
@@ -1731,7 +1731,7 @@ Abc_TtHasVar.exit.thread:                         ; preds = %.loopexit, %.prehea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @Abc_IsopNew(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #6 {
+define i64 @Abc_IsopNew(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #6 {
   %7 = alloca [1024 x i64], align 16
   %8 = alloca [1024 x i64], align 16
   %9 = alloca [1024 x i64], align 16
@@ -2669,7 +2669,7 @@ Vec_IntFree.exit:                                 ; preds = %Abc_IsopVerify.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_IsopTest(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #1 {
+define noundef i32 @Abc_IsopTest(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((4, 8)) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
@@ -2893,7 +2893,7 @@ Abc_Clock.exit54:                                 ; preds = %Abc_Clock.exit52, %
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @Abc_Isop7Cover(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal i64 @Abc_Isop7Cover(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -2995,7 +2995,7 @@ Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %45, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Isop8Cover(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr noundef %4) #1 {
+define internal i64 @Abc_Isop8Cover(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [2 x i64], align 16
   %7 = alloca [2 x i64], align 16
   %8 = alloca [2 x i64], align 16
@@ -3146,7 +3146,7 @@ Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %74, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Isop9Cover(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr noundef %4) #1 {
+define internal i64 @Abc_Isop9Cover(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [4 x i64], align 16
   %7 = alloca [4 x i64], align 16
   %8 = alloca [4 x i64], align 16
@@ -3303,7 +3303,7 @@ Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Isop10Cover(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr noundef %4) #1 {
+define internal i64 @Abc_Isop10Cover(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [8 x i64], align 16
   %7 = alloca [8 x i64], align 16
   %8 = alloca [8 x i64], align 16
@@ -3460,7 +3460,7 @@ Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Isop11Cover(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr noundef %4) #1 {
+define internal i64 @Abc_Isop11Cover(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [16 x i64], align 16
   %7 = alloca [16 x i64], align 16
   %8 = alloca [16 x i64], align 16
@@ -3617,7 +3617,7 @@ Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Isop12Cover(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr noundef %4) #1 {
+define internal i64 @Abc_Isop12Cover(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [32 x i64], align 16
   %7 = alloca [32 x i64], align 16
   %8 = alloca [32 x i64], align 16
@@ -3774,7 +3774,7 @@ Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Isop13Cover(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr noundef %4) #1 {
+define internal i64 @Abc_Isop13Cover(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [64 x i64], align 16
   %7 = alloca [64 x i64], align 16
   %8 = alloca [64 x i64], align 16
@@ -3931,7 +3931,7 @@ Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Isop14Cover(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr noundef %4) #1 {
+define internal i64 @Abc_Isop14Cover(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [128 x i64], align 16
   %7 = alloca [128 x i64], align 16
   %8 = alloca [128 x i64], align 16
@@ -4088,7 +4088,7 @@ Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Isop15Cover(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr noundef %4) #1 {
+define internal i64 @Abc_Isop15Cover(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [256 x i64], align 16
   %7 = alloca [256 x i64], align 16
   %8 = alloca [256 x i64], align 16
@@ -4245,7 +4245,7 @@ Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Isop16Cover(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr noundef %4) #1 {
+define internal i64 @Abc_Isop16Cover(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [512 x i64], align 16
   %7 = alloca [512 x i64], align 16
   %8 = alloca [512 x i64], align 16
@@ -4402,13 +4402,13 @@ Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.prehe
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
@@ -4429,7 +4429,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #19
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #19
   call void @free(ptr noundef %9) #19
   br label %16
 
@@ -4452,10 +4452,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #12
@@ -4476,7 +4476,7 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
@@ -4485,22 +4485,22 @@ declare i32 @llvm.smin.i32(i32, i32) #14
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -338,7 +338,7 @@ define dso_local i64 @get_valid_integer(ptr noundef %0, ptr noundef %1, ptr noun
 declare double @llvm.trunc.f64(double) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @project_select_target(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @project_select_target(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.critedge, label %4
@@ -600,7 +600,7 @@ get_valid_string_setting.exit.i:                  ; preds = %40
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %91
-  call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.235, ptr noundef nonnull @.str.135, ptr noundef %32) #9
+  call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.235, ptr noundef nonnull @.str.135, ptr noundef nonnull %32) #9
   unreachable
 
 97:                                               ; preds = %91, %.lr.ph.i.i
@@ -634,7 +634,7 @@ declare void @json_init_string(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare ptr @json_parse(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
@@ -682,7 +682,7 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
   br i1 %21, label %10, label %._crit_edge.i, !llvm.loop !13
 
 .loopexit.thread.i:                               ; preds = %13
-  tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.199, ptr noundef %12, ptr noundef %1) #8
+  tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.199, ptr noundef nonnull %12, ptr noundef %1) #8
   %.pre.i = load i64, ptr %5, align 8
   %22 = add nuw i64 %.01417.i, 1
   %23 = icmp ult i64 %22, %.pre.i
@@ -734,7 +734,7 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
   br i1 %38, label %27, label %._crit_edge.i377, !llvm.loop !13
 
 .loopexit.thread.i372:                            ; preds = %30
-  tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.199, ptr noundef %29, ptr noundef %1) #8
+  tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.199, ptr noundef nonnull %29, ptr noundef %1) #8
   %.pre.i373 = load i64, ptr %5, align 8
   %39 = add nuw i64 %.01417.i369, 1
   %40 = icmp ult i64 %39, %.pre.i373
@@ -2292,7 +2292,7 @@ define internal fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef %1, ptr 
 declare ptr @str_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @target_append_strings(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = select i1 %6, ptr %3, ptr %4
   %9 = tail call fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef %8, ptr noundef %1)
   br i1 %6, label %.thread, label %10
@@ -2394,7 +2394,7 @@ define internal fastcc void @target_append_strings(ptr noundef %0, ptr noundef %
 declare zeroext i1 @str_is_valid_lowercase_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare void @str_ellide_in_place(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2403,7 +2403,7 @@ declare i32 @arch_os_target_from_string(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @str_is_valid_constant(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @eprintf(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2412,10 +2412,10 @@ declare i32 @str_findlist(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare void @update_build_target_with_opt_level(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -29,7 +29,7 @@ $_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE15_M_range_insertIN9__g
 @_ZN4base14OffsetAdjuster10AdjustmentC1Emmm = dso_local unnamed_addr alias void (ptr, i64, i64, i64), ptr @_ZN4base14OffsetAdjuster10AdjustmentC2Emmm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base14OffsetAdjuster10AdjustmentC2Emmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i64 noundef %original_offset, i64 noundef %original_length, i64 noundef %output_length) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base14OffsetAdjuster10AdjustmentC2Emmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, i64 noundef %original_offset, i64 noundef %original_length, i64 noundef %output_length) unnamed_addr #0 align 2 {
 entry:
   store i64 %original_offset, ptr %this, align 8
   %original_length3 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -40,7 +40,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base14OffsetAdjuster13AdjustOffsetsERKSt6vectorINS0_10AdjustmentESaIS2_EEPS1_ImSaImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %adjustments, ptr noundef readonly %offsets_for_adjustment) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base14OffsetAdjuster13AdjustOffsetsERKSt6vectorINS0_10AdjustmentESaIS2_EEPS1_ImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %adjustments, ptr noundef readonly %offsets_for_adjustment) local_unnamed_addr #1 align 2 {
 entry:
   %tobool.not = icmp eq ptr %offsets_for_adjustment, null
   br i1 %tobool.not, label %for.end, label %lor.lhs.false
@@ -123,7 +123,7 @@ for.end:                                          ; preds = %_ZN4base14OffsetAdj
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base14OffsetAdjuster12AdjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %adjustments, ptr nocapture noundef %offset) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base14OffsetAdjuster12AdjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %adjustments, ptr noundef captures(none) %offset) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %offset, align 8
   %cmp = icmp eq i64 %0, -1
@@ -180,7 +180,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base14OffsetAdjuster15UnadjustOffsetsERKSt6vectorINS0_10AdjustmentESaIS2_EEPS1_ImSaImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %adjustments, ptr noundef readonly %offsets_for_unadjustment) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base14OffsetAdjuster15UnadjustOffsetsERKSt6vectorINS0_10AdjustmentESaIS2_EEPS1_ImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %adjustments, ptr noundef readonly %offsets_for_unadjustment) local_unnamed_addr #1 align 2 {
 entry:
   %tobool.not = icmp eq ptr %offsets_for_unadjustment, null
   br i1 %tobool.not, label %for.end, label %lor.lhs.false
@@ -262,7 +262,7 @@ for.end:                                          ; preds = %_ZN4base14OffsetAdj
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base14OffsetAdjuster14UnadjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %adjustments, ptr nocapture noundef %offset) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base14OffsetAdjuster14UnadjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %adjustments, ptr noundef captures(none) %offset) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %offset, align 8
   %cmp = icmp eq i64 %0, -1
@@ -323,7 +323,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base14OffsetAdjuster26MergeSequentialAdjustmentsERKSt6vectorINS0_10AdjustmentESaIS2_EEPS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %first_adjustments, ptr noundef %adjustments_on_adjusted_string) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base14OffsetAdjuster26MergeSequentialAdjustmentsERKSt6vectorINS0_10AdjustmentESaIS2_EEPS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %first_adjustments, ptr noundef %adjustments_on_adjusted_string) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %adjustments_on_adjusted_string, align 8
   %1 = load ptr, ptr %first_adjustments, align 8
@@ -547,7 +547,7 @@ if.end38:                                         ; preds = %if.then9, %invoke.c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4base26UTF8ToUTF16WithAdjustmentsEPKcmPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEPSt6vectorINS_14OffsetAdjuster10AdjustmentESaISA_EE(ptr noundef %src, i64 noundef %src_len, ptr noundef %output, ptr noundef %adjustments) local_unnamed_addr #3 {
@@ -753,7 +753,7 @@ declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 declare void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base27UTF8ToUTF16AndAdjustOffsetsERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPSt6vectorImSaImEE(ptr noalias sret(%"class.std::__cxx11::basic_string.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %utf8, ptr nocapture noundef readonly %offsets_for_adjustment) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base27UTF8ToUTF16AndAdjustOffsetsERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPSt6vectorImSaImEE(ptr noalias sret(%"class.std::__cxx11::basic_string.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %utf8, ptr noundef readonly captures(none) %offsets_for_adjustment) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %adjustments = alloca %"class.std::vector", align 8
   %0 = load ptr, ptr %offsets_for_adjustment, align 8
@@ -901,7 +901,7 @@ _ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EED2Ev.exit12: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base27UTF16ToUTF8AndAdjustOffsetsERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPSt6vectorImSaImEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %utf16, ptr nocapture noundef readonly %offsets_for_adjustment) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base27UTF16ToUTF8AndAdjustOffsetsERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPSt6vectorImSaImEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %utf16, ptr noundef readonly captures(none) %offsets_for_adjustment) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %adjustments = alloca %"class.std::vector", align 8
   %0 = load ptr, ptr %offsets_for_adjustment, align 8
@@ -1229,7 +1229,7 @@ for.end:                                          ; preds = %for.inc, %for.body.
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
@@ -1456,7 +1456,7 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

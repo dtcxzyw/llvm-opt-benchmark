@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.fetch_att = private unnamed_addr constant [10 x i8] c"fetch_att\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 noundef signext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr nocapture noundef readonly %14, ptr nocapture noundef readonly %15, ptr nocapture noundef readonly %16, ptr nocapture noundef readonly %17, i32 noundef %18, i8 noundef signext %19, i8 noundef signext %20, ptr nocapture noundef readonly %21, i32 noundef %22, i8 noundef signext %23, ptr noundef readonly %24, ptr noundef %25, ptr noundef %26, i1 noundef zeroext %27, i32 noundef %28, i1 noundef zeroext %29, i1 noundef zeroext %30, i1 noundef zeroext %31) local_unnamed_addr #0 {
+define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 noundef signext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef readonly captures(none) %14, ptr noundef readonly captures(none) %15, ptr noundef readonly captures(none) %16, ptr noundef readonly captures(none) %17, i32 noundef %18, i8 noundef signext %19, i8 noundef signext %20, ptr noundef readonly captures(none) %21, i32 noundef %22, i8 noundef signext %23, ptr noundef readonly %24, ptr noundef %25, ptr noundef %26, i1 noundef zeroext %27, i32 noundef %28, i1 noundef zeroext %29, i1 noundef zeroext %30, i1 noundef zeroext %31) local_unnamed_addr #0 {
   %33 = alloca [27 x i8], align 16
   %34 = alloca [27 x i64], align 16
   %35 = alloca %struct.nameData, align 1
@@ -687,7 +687,7 @@ define dso_local ptr @ChooseConstraintName(ptr noundef %0, ptr noundef %1, ptr n
 .thread29.us:                                     ; preds = %.split.us
   call void @pfree(ptr noundef %14) #10
   %18 = add i32 %.0.us, 1
-  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef %2, i32 noundef %18) #10
+  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %2, i32 noundef %18) #10
   br label %.split.us
 
 .lr.ph:                                           ; preds = %5, %.thread29
@@ -728,7 +728,7 @@ define dso_local ptr @ChooseConstraintName(ptr noundef %0, ptr noundef %1, ptr n
 .thread29:                                        ; preds = %25, %._crit_edge.split
   call void @pfree(ptr noundef %20) #10
   %33 = add i32 %.0, 1
-  %34 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef %2, i32 noundef %33) #10
+  %34 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %2, i32 noundef %33) #10
   br label %.lr.ph
 
 .split37.us:                                      ; preds = %._crit_edge.split, %.split.us
@@ -743,7 +743,7 @@ declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 declare ptr @makeObjectName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
@@ -872,7 +872,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @AdjustNotNullInheritance1(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
@@ -1684,7 +1684,7 @@ define dso_local i32 @get_relation_constraint_oid(i32 noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
+define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca [3 x %struct.ScanKeyData], align 16
   %6 = alloca i8, align 1
   store i32 0, ptr %3, align 4
@@ -1996,7 +1996,7 @@ define dso_local i32 @get_domain_constraint_oid(i32 noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.ScanKeyData], align 16
   %5 = alloca i8, align 1
   store i32 0, ptr %2, align 4
@@ -2124,7 +2124,7 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DeconstructFkConstraintRow(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr noundef writeonly %8) local_unnamed_addr #0 {
+define dso_local void @DeconstructFkConstraintRow(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly %8) local_unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 19, ptr noundef %0, i16 noundef signext 20) #10
   %12 = inttoptr i64 %11 to ptr
@@ -2434,7 +2434,7 @@ define dso_local void @DeconstructFkConstraintRow(ptr noundef %0, ptr nocapture 
 declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_functional_grouping(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_functional_grouping(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = call ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = icmp eq ptr %7, null
@@ -2525,13 +2525,13 @@ declare void @llvm.assume(i1 noundef) #6
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

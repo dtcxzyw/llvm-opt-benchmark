@@ -49,7 +49,7 @@ define dso_local void @drm_vma_offset_manager_destroy(ptr noundef %0) #0 align 1
 declare dso_local void @drm_mm_takedown(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_vma_offset_lookup_locked(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) #2 align 16 {
+define dso_local ptr @drm_vma_offset_lookup_locked(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -155,7 +155,7 @@ define dso_local void @drm_vma_offset_remove(ptr noundef %0, ptr noundef %1) #0 
 declare dso_local void @drm_mm_remove_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @drm_vma_node_allow(ptr noundef %0, ptr noundef %1) #0 align 16 {

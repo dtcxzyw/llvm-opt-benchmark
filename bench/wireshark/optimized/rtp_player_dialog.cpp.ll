@@ -8874,7 +8874,7 @@ declare void @_ZNK7QWidget7actionsEv(ptr dead_on_unwind writable sret(%class.QLi
 declare void @_ZN11QTreeWidget11itemEnteredEP15QTreeWidgetItemi(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog11itemEnteredEP15QTreeWidgetItemi(ptr nocapture noundef nonnull align 8 dereferenceable(448) %0, ptr noundef %1, i32 %2) #0 align 2 {
+define void @_ZN15RtpPlayerDialog11itemEnteredEP15QTreeWidgetItemi(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %0, ptr noundef %1, i32 %2) #0 align 2 {
   %.not.i = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %5 = load ptr, ptr %4, align 8
@@ -8920,7 +8920,7 @@ _ZN15RtpPlayerDialog19handleItemHighlightEP15QTreeWidgetItemb.exit: ; preds = %6
 declare void @_ZN11QCustomPlot9mouseMoveEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(513), ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog13mouseMovePlotEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr nocapture noundef readonly %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog13mouseMovePlotEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef readonly captures(none) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QPointF, align 8
   tail call void @_ZN15RtpPlayerDialog15updateHintLabelEv(ptr noundef nonnull align 8 dereferenceable(448) %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -9009,7 +9009,7 @@ _ZN15RtpPlayerDialog19handleItemHighlightEP15QTreeWidgetItemb.exit: ; preds = %2
 declare void @_ZN11QCustomPlot10mousePressEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(513), ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog12graphClickedEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr nocapture noundef readonly %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog12graphClickedEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef readonly captures(none) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QPoint, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 464
@@ -9049,7 +9049,7 @@ define void @_ZN15RtpPlayerDialog12graphClickedEP11QMouseEvent(ptr noundef nonnu
 declare void @_ZN11QCustomPlot16mouseDoubleClickEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(513), ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog18graphDoubleClickedEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr nocapture noundef readonly %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog18graphDoubleClickedEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef readonly captures(none) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 464
   %5 = load ptr, ptr %4, align 8
@@ -9140,7 +9140,7 @@ _ZN15RtpPlayerDialog18setStartPlayMarkerEd.exit:  ; preds = %31, %40
 declare void @_ZN11QCustomPlot14plottableClickEP20QCPAbstractPlottableiP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(513), ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog11plotClickedEP20QCPAbstractPlottableiP11QMouseEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef readonly %3) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog11plotClickedEP20QCPAbstractPlottableiP11QMouseEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef readonly captures(none) %3) #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QPointF, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -9216,7 +9216,7 @@ declare void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnam
 declare void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog18setStartPlayMarkerEd(ptr nocapture noundef nonnull align 8 dereferenceable(448) initializes((192, 200)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog18setStartPlayMarkerEd(ptr noundef nonnull align 8 captures(none) dereferenceable(448) initializes((192, 200)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 520
@@ -9860,7 +9860,7 @@ declare void @_ZN12QAudioDeviceD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN13QMediaDevices12audioOutputsEv(ptr dead_on_unwind writable sret(%class.QList.62) align 8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN12QAudioDeviceC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
@@ -10014,7 +10014,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN15RtpPlayerDialog17isStereoAvailableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN15RtpPlayerDialog17isStereoAvailableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QAudioDevice, align 8
   call void @_ZN15RtpPlayerDialog20getCurrentDeviceInfoEv(ptr dead_on_unwind nonnull writable sret(%class.QAudioDevice) align 8 %2, ptr noundef nonnull align 8 dereferenceable(448) %0)
   %3 = invoke noundef i32 @_ZNK12QAudioDevice19maximumChannelCountEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -10033,7 +10033,7 @@ define noundef zeroext i1 @_ZN15RtpPlayerDialog17isStereoAvailableEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog17fillAudioRateMenuEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog17fillAudioRateMenuEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QIcon, align 8
   %3 = alloca %struct.QHashDummyValue, align 1
   %4 = alloca %struct.QHashDummyValue, align 1
@@ -10553,7 +10553,7 @@ declare noundef ptr @_ZN5QMenu7addMenuEPS_(ptr noundef nonnull align 8 dereferen
 declare void @_ZN11CaptureFile12captureEventE12CaptureEvent(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN15RtpPlayerDialog12captureEventE12CaptureEvent(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) #7 align 2 {
+define void @_ZN15RtpPlayerDialog12captureEventE12CaptureEvent(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) #7 align 2 {
   ret void
 }
 
@@ -11572,7 +11572,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog19cleanupMarkerStreamEv(ptr nocapture noundef nonnull align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog19cleanupMarkerStreamEv(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -12139,7 +12139,7 @@ declare void @_ZN14RtpAudioStream12clearPacketsEv(ptr noundef nonnull align 8 de
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN15RtpPlayerDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 align 2 {
+define noundef i32 @_ZN15RtpPlayerDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 align 2 {
   %.not = icmp eq ptr %0, null
   %.not9 = icmp eq ptr %3, null
   %or.cond = or i1 %.not, %.not9
@@ -13135,7 +13135,7 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %103, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog20getCurrentDeviceInfoEv(ptr dead_on_unwind noalias writable sret(%class.QAudioDevice) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog20getCurrentDeviceInfoEv(ptr dead_on_unwind noalias writable sret(%class.QAudioDevice) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %"class.QtPrivate::QForeachContainer", align 8
   %5 = alloca %class.QList.62, align 8
@@ -13351,7 +13351,7 @@ declare noundef i32 @_ZNK11QTreeWidget11columnCountEv(ptr noundef nonnull align 
 declare void @_ZN9QTreeView22resizeColumnToContentsEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog10createPlotEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog10createPlotEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QVariant, align 8
@@ -15968,7 +15968,7 @@ declare void @_ZN14RtpAudioStream22insertedSilenceSamplesEi(ptr dead_on_unwind w
 declare void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef nonnull align 8 dereferenceable(513), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog10resetXAxisEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog10resetXAxisEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
@@ -16023,7 +16023,7 @@ declare void @_ZNK11QTreeWidget9findItemsERK7QString6QFlagsIN2Qt9MatchFlagEEi(pt
 declare void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog19updateStartStopTimeEP15_rtpstream_infob(ptr nocapture noundef nonnull align 8 dereferenceable(448) initializes((184, 192)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog19updateStartStopTimeEP15_rtpstream_infob(ptr noundef nonnull align 8 captures(none) dereferenceable(448) initializes((184, 192)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2176
   %5 = tail call double @nstime_to_sec(ptr noundef nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2208
@@ -17069,7 +17069,7 @@ declare void @_ZN7QString6numberEii(ptr dead_on_unwind writable sret(%class.QStr
 declare void @_Z14int_to_qstringxii(ptr dead_on_unwind writable sret(%class.QString) align 8, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog18formatAudioRoutingEP15QTreeWidgetItem12AudioRouting(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i64 %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog18formatAudioRoutingEP15QTreeWidgetItem12AudioRouting(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i64 %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QVariant, align 8
   %5 = alloca %class.AudioRouting, align 8
   %6 = alloca %class.QString, align 8
@@ -17704,7 +17704,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit18:          ; preds = %58, %59
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog13highlightItemEP15QTreeWidgetItemb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog13highlightItemEP15QTreeWidgetItemb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QVariant, align 8
   %5 = alloca %class.QFont, align 8
   %6 = alloca %class.QVariant, align 8
@@ -18254,7 +18254,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit13:          ; preds = %48, %49
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog16removeRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog16removeRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %class.QMetaType, align 8
@@ -18839,7 +18839,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit30:          ; preds = %.loopexit.split-lp,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog12updateGraphsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog12updateGraphsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
@@ -18872,7 +18872,7 @@ define void @_ZN15RtpPlayerDialog12updateGraphsEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog9showEventEP10QShowEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr nocapture noundef readnone %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog9showEventEP10QShowEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef readnone captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -19101,7 +19101,7 @@ _ZN17QArrayDataPointerIiED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN15RtpPlayerDialog11eventFilterEP7QObjectP6QEvent(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr nocapture noundef readnone %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN15RtpPlayerDialog11eventFilterEP7QObjectP6QEvent(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef readnone captures(none) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.QPoint, align 8
   %5 = alloca %class.QPoint, align 8
   %6 = alloca %class.QPoint, align 8
@@ -19505,7 +19505,7 @@ _ZN15RtpPlayerDialog23on_actionStop_triggeredEv.exit: ; preds = %227, %217, %3, 
 declare i32 @_ZNK9QKeyEvent9modifiersEv(ptr noundef nonnull align 8 dereferenceable(82)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog26on_actionZoomOut_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog26on_actionZoomOut_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
@@ -19534,7 +19534,7 @@ define void @_ZN15RtpPlayerDialog31on_actionSelectInvert_triggeredEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog25on_actionZoomIn_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog25on_actionZoomIn_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
@@ -19555,7 +19555,7 @@ define void @_ZN15RtpPlayerDialog25on_actionZoomIn_triggeredEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog8panXAxisEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog8panXAxisEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %24, label %3
 
@@ -19592,7 +19592,7 @@ define void @_ZN15RtpPlayerDialog8panXAxisEi(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog24on_actionReset_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog24on_actionReset_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
@@ -20166,7 +20166,7 @@ _ZN5QListIP15QTreeWidgetItemED2Ev.exit14:         ; preds = %_ZN15RtpPlayerDialo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog23on_actionPlay_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog23on_actionPlay_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 344
@@ -20200,7 +20200,7 @@ define void @_ZN15RtpPlayerDialog23on_actionPlay_triggeredEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog23on_actionStop_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog23on_actionStop_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 368
@@ -20228,7 +20228,7 @@ define void @_ZN15RtpPlayerDialog36on_actionDeselectInaudible_triggeredEv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog16contextMenuEventEP17QContextMenuEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog16contextMenuEventEP17QContextMenuEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -21284,7 +21284,7 @@ _ZN7QStringD2Ev.exit190:                          ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog19handleItemHighlightEP15QTreeWidgetItemb(ptr nocapture noundef nonnull align 8 dereferenceable(448) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog19handleItemHighlightEP15QTreeWidgetItemb(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %5 = load ptr, ptr %4, align 8
@@ -21343,7 +21343,7 @@ declare void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unn
 declare void @_ZN13RtpAudioGraph12setHighlightEb(ptr noundef nonnull align 8 dereferenceable(44), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN15RtpPlayerDialog16findItemByCoordsE6QPoint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, i64 %1) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN15RtpPlayerDialog16findItemByCoordsE6QPoint(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, i64 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.QPointF, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
@@ -21379,7 +21379,7 @@ declare noundef zeroext i1 @_ZNK15QTreeWidgetItem10isSelectedEv(ptr noundef nonn
 declare noundef ptr @_ZNK11QCustomPlot11plottableAtERK7QPointFbPi(ptr noundef nonnull align 8 dereferenceable(513), ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN15RtpPlayerDialog8findItemEP20QCPAbstractPlottable(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN15RtpPlayerDialog8findItemEP20QCPAbstractPlottable(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
@@ -21434,7 +21434,7 @@ _ZNK8QVariant5valueIP13RtpAudioGraphEET_v.exit:   ; preds = %.lr.ph
 declare noundef zeroext i1 @_ZN13RtpAudioGraph13isMyPlottableEP20QCPAbstractPlottable(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN15RtpPlayerDialog16getHoveredPacketEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN15RtpPlayerDialog16getHoveredPacketEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QPointF, align 8
   %3 = alloca %class.QPoint, align 8
   %4 = alloca %class.QVariant, align 8
@@ -21507,7 +21507,7 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit:  ; preds = %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN15RtpPlayerDialog18getStartPlayMarkerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define noundef double @_ZN15RtpPlayerDialog18getStartPlayMarkerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 520
@@ -21525,7 +21525,7 @@ define noundef double @_ZN15RtpPlayerDialog18getStartPlayMarkerEv(ptr nocapture 
 declare void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i32 noundef, i32 noundef, i16) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog15getFormatedTimeEd(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1, double noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog15getFormatedTimeEd(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %1, double noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QDateTime, align 8
   %6 = alloca %class.QString, align 8
@@ -21695,7 +21695,7 @@ _ZN7QStringD2Ev.exit21:                           ; preds = %51, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog22getFormatedHoveredTimeEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog22getFormatedHoveredTimeEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.QPointF, align 8
   %4 = alloca %class.QPoint, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -21815,7 +21815,7 @@ declare void @_ZN14RtpAudioStream14getIDAsQStringEv(ptr dead_on_unwind writable 
 declare void @_ZN10QAudioSink4stopEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog15setPlayPositionEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog15setPlayPositionEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
@@ -21953,7 +21953,7 @@ declare noundef zeroext i1 @_ZNK14RtpAudioStream7isMatchEPK12_packet_infoPK9_rtp
 declare void @_ZN14RtpAudioStream12addRtpPacketEPK12_packet_infoPK9_rtp_info(ptr noundef nonnull align 8 dereferenceable(7680), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog9zoomXAxisEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog9zoomXAxisEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 312
@@ -22637,7 +22637,7 @@ declare void @_ZN21AudioSilenceGeneratorC1EP7QObject(ptr noundef nonnull align 8
 declare void @_ZN14RtpAudioStream12startPlayingEv(ptr noundef nonnull align 8 dereferenceable(7680)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog23currentOutputDeviceNameEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog23currentOutputDeviceNameEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 432
@@ -22771,7 +22771,7 @@ declare void @_ZN10QAudioSink7suspendEv(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN10QAudioSink6resumeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog29on_actionMoveLeft10_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog29on_actionMoveLeft10_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
@@ -22800,7 +22800,7 @@ define void @_ZN15RtpPlayerDialog29on_actionMoveLeft10_triggeredEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog30on_actionMoveRight10_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog30on_actionMoveRight10_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
@@ -22829,7 +22829,7 @@ define void @_ZN15RtpPlayerDialog30on_actionMoveRight10_triggeredEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog28on_actionMoveLeft1_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog28on_actionMoveLeft1_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
@@ -22858,7 +22858,7 @@ define void @_ZN15RtpPlayerDialog28on_actionMoveLeft1_triggeredEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog29on_actionMoveRight1_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog29on_actionMoveRight1_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
@@ -23105,7 +23105,7 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit:  ; preds = %7
 declare i64 @_ZN12AudioRouting14getNextChannelEb(ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog24changeAudioRoutingOnItemEP15QTreeWidgetItem12AudioRouting(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef %1, i64 %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog24changeAudioRoutingOnItemEP15QTreeWidgetItem12AudioRouting(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef %1, i64 %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QVariant, align 8
   %5 = alloca %class.AudioRouting, align 8
   %6 = alloca %class.QVariant, align 8
@@ -23504,7 +23504,7 @@ _ZN5QListIP15QTreeWidgetItemED2Ev.exit13:         ; preds = %_ZN15RtpPlayerDialo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog23invertAudioMutingOnItemEP15QTreeWidgetItem(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog23invertAudioMutingOnItemEP15QTreeWidgetItem(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   %4 = alloca %class.AudioRouting, align 4
   %5 = alloca %class.AudioRouting, align 4
@@ -23802,7 +23802,7 @@ _ZN5QHashIi15QHashDummyValueED2Ev.exit:           ; preds = %1, %3, %_ZN9QtPriva
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog42on_outputDeviceComboBox_currentTextChangedERK7QString(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog42on_outputDeviceComboBox_currentTextChangedERK7QString(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QAudioDevice, align 8
   %4 = alloca %class.QVariant, align 8
   %5 = alloca %class.AudioRouting, align 8
@@ -23945,7 +23945,7 @@ _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %_ZN15RtpPlayerDialo
 declare i64 @_ZN12AudioRouting7convertEb(ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog37on_outputAudioRate_currentTextChangedERK7QString(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog37on_outputAudioRate_currentTextChangedERK7QString(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %5 = load i32, ptr %4, align 4
@@ -24212,7 +24212,7 @@ _ZN15RtpPlayerDialog18setStartPlayMarkerEd.exit4: ; preds = %56, %65
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog26on_buttonBox_helpRequestedEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog26on_buttonBox_helpRequestedEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @mainApp, align 8
   tail call void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr noundef nonnull align 8 dereferenceable(216) %2, i32 noundef 253)
   ret void
@@ -24278,7 +24278,7 @@ declare void @_ZN17QAbstractItemView14clearSelectionEv(ptr noundef nonnull align
 declare void @_ZN15QAbstractButton12animateClickEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN15RtpPlayerDialog17saveAudioHeaderAUEP5QFilejj(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZN15RtpPlayerDialog17saveAudioHeaderAUEP5QFilejj(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [4 x i8], align 4
   store i8 46, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -24362,7 +24362,7 @@ define noundef i64 @_ZN15RtpPlayerDialog17saveAudioHeaderAUEP5QFilejj(ptr nocapt
 declare noundef i64 @_ZN9QIODevice5writeEPKcx(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN15RtpPlayerDialog18saveAudioHeaderWAVEP5QFilejjx(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZN15RtpPlayerDialog18saveAudioHeaderWAVEP5QFilejjx(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [4 x i8], align 1
   %7 = alloca i32, align 4
   %8 = alloca i16, align 2
@@ -24480,7 +24480,7 @@ define noundef i64 @_ZN15RtpPlayerDialog18saveAudioHeaderWAVEP5QFilejjx(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN15RtpPlayerDialog24writeAudioSilenceSamplesEP5QFilexi(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN15RtpPlayerDialog24writeAudioSilenceSamplesEP5QFilexi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [2 x i8], align 1
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -24516,7 +24516,7 @@ define noundef zeroext i1 @_ZN15RtpPlayerDialog24writeAudioSilenceSamplesEP5QFil
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN15RtpPlayerDialog24writeAudioStreamsSamplesEP5QFile5QListIP14RtpAudioStreamEb(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN15RtpPlayerDialog24writeAudioStreamsSamplesEP5QFile5QListIP14RtpAudioStreamEb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i16, align 2
   %6 = alloca [2 x i8], align 1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -24708,7 +24708,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14: ; preds 
 declare noundef i64 @_ZN14RtpAudioStream10readSampleEPs(ptr noundef nonnull align 8 dereferenceable(7680), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 3) i32 @_ZN15RtpPlayerDialog28selectFileAudioFormatAndNameEP7QString(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN15RtpPlayerDialog28selectFileAudioFormatAndNameEP7QString(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -25166,7 +25166,7 @@ declare void @_ZNK4QDir16absoluteFilePathERK7QString(ptr dead_on_unwind writable
 declare void @_ZN4QDirD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN15RtpPlayerDialog30selectFilePayloadFormatAndNameEP7QString(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN15RtpPlayerDialog30selectFilePayloadFormatAndNameEP7QString(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -25504,7 +25504,7 @@ _ZN7QStringD2Ev.exit68:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog23getSelectedRtpStreamIDsEv(ptr dead_on_unwind noalias writable sret(%class.QList.107) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog23getSelectedRtpStreamIDsEv(ptr dead_on_unwind noalias writable sret(%class.QList.107) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.QList.72, align 8
   %5 = alloca %class.QVariant, align 8
@@ -25670,7 +25670,7 @@ _ZN17QArrayDataPointerIP13_rtpstream_idED2Ev.exit: ; preds = %1, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog38getSelectedAudibleNonmutedAudioStreamsEv(ptr dead_on_unwind noalias writable sret(%class.QList.2) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog38getSelectedAudibleNonmutedAudioStreamsEv(ptr dead_on_unwind noalias writable sret(%class.QList.2) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.QList.72, align 8
   %5 = alloca %class.QVariant, align 8
@@ -32384,7 +32384,7 @@ declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 no
 declare void @_ZN15MainApplication17windowTitleStringE5QListI7QStringE(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(216), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -33052,7 +33052,7 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %_ZN9QtPrivate16QGen
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE12allocateGrowERKS1_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer.9) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
@@ -33246,7 +33246,7 @@ declare void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%cla
 declare void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare void @_ZN5QIconD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
@@ -35646,86 +35646,78 @@ define linkonce_odr noundef i32 @_ZN18QMetaTypeIdQObjectIP14RtpAudioStreamLi8EE1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %6, i64 0)
   invoke void @_ZN10QByteArray11reallocDataExN10QArrayData16AllocationOptionE(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.sroa.speculated.i, i32 noundef 1)
-          to label %.noexc unwind label %27
+          to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %3
   %.pre.i = load ptr, ptr %1, align 8
   %.not.i1.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i1.i, label %_ZN10QByteArray7reserveEx.exit, label %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
+  br i1 %.not.i1.i, label %_Z7qstrlenPKc.exit.i, label %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
 
 _ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i: ; preds = %.noexc
   %8 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %_ZN10QByteArray7reserveEx.exit, label %10
+  br i1 %.not.i, label %_Z7qstrlenPKc.exit.i, label %10
 
 10:                                               ; preds = %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
-  br label %_ZN10QByteArray7reserveEx.exit
-
-_ZN10QByteArray7reserveEx.exit:                   ; preds = %10, %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i, %.noexc
-  %.not.i.i9 = icmp eq ptr %4, null
-  br i1 %.not.i.i9, label %_Z7qstrlenPKc.exit.i, label %14
-
-14:                                               ; preds = %_ZN10QByteArray7reserveEx.exit
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #27
   br label %_Z7qstrlenPKc.exit.i
 
-_Z7qstrlenPKc.exit.i:                             ; preds = %14, %_ZN10QByteArray7reserveEx.exit
-  %16 = phi i64 [ %15, %14 ], [ 0, %_ZN10QByteArray7reserveEx.exit ]
-  %17 = load i64, ptr %7, align 8
-  %18 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6insertEx14QByteArrayView(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %17, i64 %16, ptr %4)
-          to label %_ZN10QByteArray6appendEPKc.exit unwind label %27
+_Z7qstrlenPKc.exit.i:                             ; preds = %10, %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i, %.noexc
+  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #27
+  %15 = load i64, ptr %7, align 8
+  %16 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6insertEx14QByteArrayView(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15, i64 %14, ptr nonnull %4)
+          to label %_ZN10QByteArray6appendEPKc.exit unwind label %25
 
 _ZN10QByteArray6appendEPKc.exit:                  ; preds = %_Z7qstrlenPKc.exit.i
-  %19 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6appendEc(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 noundef signext 42)
-          to label %20 unwind label %27
+  %17 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6appendEc(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 noundef signext 42)
+          to label %18 unwind label %25
 
-20:                                               ; preds = %_ZN10QByteArray6appendEPKc.exit
-  %21 = invoke noundef i32 @_Z27qRegisterNormalizedMetaTypeIP14RtpAudioStreamEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %22 unwind label %27
+18:                                               ; preds = %_ZN10QByteArray6appendEPKc.exit
+  %19 = invoke noundef i32 @_Z27qRegisterNormalizedMetaTypeIP14RtpAudioStreamEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %1)
+          to label %20 unwind label %25
 
-22:                                               ; preds = %20
-  store atomic i32 %21, ptr @_ZZN18QMetaTypeIdQObjectIP14RtpAudioStreamLi8EE14qt_metatype_idEvE11metatype_id release, align 4
-  %23 = load ptr, ptr %1, align 8
-  %.not.i.i.i = icmp eq ptr %23, null
+20:                                               ; preds = %18
+  store atomic i32 %19, ptr @_ZZN18QMetaTypeIdQObjectIP14RtpAudioStreamLi8EE14qt_metatype_idEvE11metatype_id release, align 4
+  %21 = load ptr, ptr %1, align 8
+  %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZN10QByteArrayD2Ev.exit, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
 
-_ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %22
-  %24 = atomicrmw sub ptr %23, i32 1 seq_cst, align 4
-  %.not.i.i11 = icmp eq i32 %24, 1
-  br i1 %.not.i.i11, label %25, label %_ZN10QByteArrayD2Ev.exit
+_ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %20
+  %22 = atomicrmw sub ptr %21, i32 1 seq_cst, align 4
+  %.not.i.i11 = icmp eq i32 %22, 1
+  br i1 %.not.i.i11, label %23, label %_ZN10QByteArrayD2Ev.exit
 
-25:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
-  %26 = load ptr, ptr %1, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %26, i64 noundef 1, i64 noundef 8) #21
+23:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
+  %24 = load ptr, ptr %1, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %24, i64 noundef 1, i64 noundef 8) #21
   br label %_ZN10QByteArrayD2Ev.exit
 
-27:                                               ; preds = %_Z7qstrlenPKc.exit.i, %3, %20, %_ZN10QByteArray6appendEPKc.exit
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %_Z7qstrlenPKc.exit.i, %3, %18, %_ZN10QByteArray6appendEPKc.exit
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %29 = load ptr, ptr %1, align 8
-  %.not.i.i.i12 = icmp eq ptr %29, null
+  %27 = load ptr, ptr %1, align 8
+  %.not.i.i.i12 = icmp eq ptr %27, null
   br i1 %.not.i.i.i12, label %_ZN10QByteArrayD2Ev.exit15, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
 
-_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13:     ; preds = %27
-  %30 = atomicrmw sub ptr %29, i32 1 seq_cst, align 4
-  %.not.i.i14 = icmp eq i32 %30, 1
-  br i1 %.not.i.i14, label %31, label %_ZN10QByteArrayD2Ev.exit15
+_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13:     ; preds = %25
+  %28 = atomicrmw sub ptr %27, i32 1 seq_cst, align 4
+  %.not.i.i14 = icmp eq i32 %28, 1
+  br i1 %.not.i.i14, label %29, label %_ZN10QByteArrayD2Ev.exit15
 
-31:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
-  %32 = load ptr, ptr %1, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %32, i64 noundef 1, i64 noundef 8) #21
+29:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
+  %30 = load ptr, ptr %1, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %30, i64 noundef 1, i64 noundef 8) #21
   br label %_ZN10QByteArrayD2Ev.exit15
 
-_ZN10QByteArrayD2Ev.exit15:                       ; preds = %27, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13, %31
-  resume { ptr, i32 } %28
+_ZN10QByteArrayD2Ev.exit15:                       ; preds = %25, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13, %29
+  resume { ptr, i32 } %26
 
-_ZN10QByteArrayD2Ev.exit:                         ; preds = %25, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %22, %0
-  %.0 = phi i32 [ %2, %0 ], [ %21, %22 ], [ %21, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ %21, %25 ]
+_ZN10QByteArrayD2Ev.exit:                         ; preds = %23, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %20, %0
+  %.0 = phi i32 [ %2, %0 ], [ %19, %20 ], [ %19, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ %19, %23 ]
   ret i32 %.0
 }
 
@@ -35872,86 +35864,78 @@ define linkonce_odr noundef i32 @_ZN18QMetaTypeIdQObjectIP13RtpAudioGraphLi8EE14
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %6, i64 0)
   invoke void @_ZN10QByteArray11reallocDataExN10QArrayData16AllocationOptionE(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.sroa.speculated.i, i32 noundef 1)
-          to label %.noexc unwind label %27
+          to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %3
   %.pre.i = load ptr, ptr %1, align 8
   %.not.i1.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i1.i, label %_ZN10QByteArray7reserveEx.exit, label %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
+  br i1 %.not.i1.i, label %_Z7qstrlenPKc.exit.i, label %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
 
 _ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i: ; preds = %.noexc
   %8 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %_ZN10QByteArray7reserveEx.exit, label %10
+  br i1 %.not.i, label %_Z7qstrlenPKc.exit.i, label %10
 
 10:                                               ; preds = %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
-  br label %_ZN10QByteArray7reserveEx.exit
-
-_ZN10QByteArray7reserveEx.exit:                   ; preds = %10, %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i, %.noexc
-  %.not.i.i9 = icmp eq ptr %4, null
-  br i1 %.not.i.i9, label %_Z7qstrlenPKc.exit.i, label %14
-
-14:                                               ; preds = %_ZN10QByteArray7reserveEx.exit
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #27
   br label %_Z7qstrlenPKc.exit.i
 
-_Z7qstrlenPKc.exit.i:                             ; preds = %14, %_ZN10QByteArray7reserveEx.exit
-  %16 = phi i64 [ %15, %14 ], [ 0, %_ZN10QByteArray7reserveEx.exit ]
-  %17 = load i64, ptr %7, align 8
-  %18 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6insertEx14QByteArrayView(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %17, i64 %16, ptr %4)
-          to label %_ZN10QByteArray6appendEPKc.exit unwind label %27
+_Z7qstrlenPKc.exit.i:                             ; preds = %10, %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i, %.noexc
+  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #27
+  %15 = load i64, ptr %7, align 8
+  %16 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6insertEx14QByteArrayView(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15, i64 %14, ptr nonnull %4)
+          to label %_ZN10QByteArray6appendEPKc.exit unwind label %25
 
 _ZN10QByteArray6appendEPKc.exit:                  ; preds = %_Z7qstrlenPKc.exit.i
-  %19 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6appendEc(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 noundef signext 42)
-          to label %20 unwind label %27
+  %17 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6appendEc(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 noundef signext 42)
+          to label %18 unwind label %25
 
-20:                                               ; preds = %_ZN10QByteArray6appendEPKc.exit
-  %21 = invoke noundef i32 @_Z27qRegisterNormalizedMetaTypeIP13RtpAudioGraphEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %22 unwind label %27
+18:                                               ; preds = %_ZN10QByteArray6appendEPKc.exit
+  %19 = invoke noundef i32 @_Z27qRegisterNormalizedMetaTypeIP13RtpAudioGraphEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %1)
+          to label %20 unwind label %25
 
-22:                                               ; preds = %20
-  store atomic i32 %21, ptr @_ZZN18QMetaTypeIdQObjectIP13RtpAudioGraphLi8EE14qt_metatype_idEvE11metatype_id release, align 4
-  %23 = load ptr, ptr %1, align 8
-  %.not.i.i.i = icmp eq ptr %23, null
+20:                                               ; preds = %18
+  store atomic i32 %19, ptr @_ZZN18QMetaTypeIdQObjectIP13RtpAudioGraphLi8EE14qt_metatype_idEvE11metatype_id release, align 4
+  %21 = load ptr, ptr %1, align 8
+  %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZN10QByteArrayD2Ev.exit, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
 
-_ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %22
-  %24 = atomicrmw sub ptr %23, i32 1 seq_cst, align 4
-  %.not.i.i11 = icmp eq i32 %24, 1
-  br i1 %.not.i.i11, label %25, label %_ZN10QByteArrayD2Ev.exit
+_ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %20
+  %22 = atomicrmw sub ptr %21, i32 1 seq_cst, align 4
+  %.not.i.i11 = icmp eq i32 %22, 1
+  br i1 %.not.i.i11, label %23, label %_ZN10QByteArrayD2Ev.exit
 
-25:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
-  %26 = load ptr, ptr %1, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %26, i64 noundef 1, i64 noundef 8) #21
+23:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
+  %24 = load ptr, ptr %1, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %24, i64 noundef 1, i64 noundef 8) #21
   br label %_ZN10QByteArrayD2Ev.exit
 
-27:                                               ; preds = %_Z7qstrlenPKc.exit.i, %3, %20, %_ZN10QByteArray6appendEPKc.exit
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %_Z7qstrlenPKc.exit.i, %3, %18, %_ZN10QByteArray6appendEPKc.exit
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %29 = load ptr, ptr %1, align 8
-  %.not.i.i.i12 = icmp eq ptr %29, null
+  %27 = load ptr, ptr %1, align 8
+  %.not.i.i.i12 = icmp eq ptr %27, null
   br i1 %.not.i.i.i12, label %_ZN10QByteArrayD2Ev.exit15, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
 
-_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13:     ; preds = %27
-  %30 = atomicrmw sub ptr %29, i32 1 seq_cst, align 4
-  %.not.i.i14 = icmp eq i32 %30, 1
-  br i1 %.not.i.i14, label %31, label %_ZN10QByteArrayD2Ev.exit15
+_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13:     ; preds = %25
+  %28 = atomicrmw sub ptr %27, i32 1 seq_cst, align 4
+  %.not.i.i14 = icmp eq i32 %28, 1
+  br i1 %.not.i.i14, label %29, label %_ZN10QByteArrayD2Ev.exit15
 
-31:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
-  %32 = load ptr, ptr %1, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %32, i64 noundef 1, i64 noundef 8) #21
+29:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
+  %30 = load ptr, ptr %1, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %30, i64 noundef 1, i64 noundef 8) #21
   br label %_ZN10QByteArrayD2Ev.exit15
 
-_ZN10QByteArrayD2Ev.exit15:                       ; preds = %27, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13, %31
-  resume { ptr, i32 } %28
+_ZN10QByteArrayD2Ev.exit15:                       ; preds = %25, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13, %29
+  resume { ptr, i32 } %26
 
-_ZN10QByteArrayD2Ev.exit:                         ; preds = %25, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %22, %0
-  %.0 = phi i32 [ %2, %0 ], [ %21, %22 ], [ %21, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ %21, %25 ]
+_ZN10QByteArrayD2Ev.exit:                         ; preds = %23, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %20, %0
+  %.0 = phi i32 [ %2, %0 ], [ %19, %20 ], [ %19, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ %19, %23 ]
   ret i32 %.0
 }
 
@@ -36080,86 +36064,78 @@ define linkonce_odr noundef i32 @_ZN18QMetaTypeIdQObjectIP8QCPGraphLi8EE14qt_met
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %6, i64 0)
   invoke void @_ZN10QByteArray11reallocDataExN10QArrayData16AllocationOptionE(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.sroa.speculated.i, i32 noundef 1)
-          to label %.noexc unwind label %27
+          to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %3
   %.pre.i = load ptr, ptr %1, align 8
   %.not.i1.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i1.i, label %_ZN10QByteArray7reserveEx.exit, label %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
+  br i1 %.not.i1.i, label %_Z7qstrlenPKc.exit.i, label %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
 
 _ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i: ; preds = %.noexc
   %8 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %_ZN10QByteArray7reserveEx.exit, label %10
+  br i1 %.not.i, label %_Z7qstrlenPKc.exit.i, label %10
 
 10:                                               ; preds = %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
-  br label %_ZN10QByteArray7reserveEx.exit
-
-_ZN10QByteArray7reserveEx.exit:                   ; preds = %10, %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i, %.noexc
-  %.not.i.i9 = icmp eq ptr %4, null
-  br i1 %.not.i.i9, label %_Z7qstrlenPKc.exit.i, label %14
-
-14:                                               ; preds = %_ZN10QByteArray7reserveEx.exit
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #27
   br label %_Z7qstrlenPKc.exit.i
 
-_Z7qstrlenPKc.exit.i:                             ; preds = %14, %_ZN10QByteArray7reserveEx.exit
-  %16 = phi i64 [ %15, %14 ], [ 0, %_ZN10QByteArray7reserveEx.exit ]
-  %17 = load i64, ptr %7, align 8
-  %18 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6insertEx14QByteArrayView(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %17, i64 %16, ptr %4)
-          to label %_ZN10QByteArray6appendEPKc.exit unwind label %27
+_Z7qstrlenPKc.exit.i:                             ; preds = %10, %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i, %.noexc
+  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #27
+  %15 = load i64, ptr %7, align 8
+  %16 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6insertEx14QByteArrayView(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15, i64 %14, ptr nonnull %4)
+          to label %_ZN10QByteArray6appendEPKc.exit unwind label %25
 
 _ZN10QByteArray6appendEPKc.exit:                  ; preds = %_Z7qstrlenPKc.exit.i
-  %19 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6appendEc(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 noundef signext 42)
-          to label %20 unwind label %27
+  %17 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6appendEc(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 noundef signext 42)
+          to label %18 unwind label %25
 
-20:                                               ; preds = %_ZN10QByteArray6appendEPKc.exit
-  %21 = invoke noundef i32 @_Z27qRegisterNormalizedMetaTypeIP8QCPGraphEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %22 unwind label %27
+18:                                               ; preds = %_ZN10QByteArray6appendEPKc.exit
+  %19 = invoke noundef i32 @_Z27qRegisterNormalizedMetaTypeIP8QCPGraphEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %1)
+          to label %20 unwind label %25
 
-22:                                               ; preds = %20
-  store atomic i32 %21, ptr @_ZZN18QMetaTypeIdQObjectIP8QCPGraphLi8EE14qt_metatype_idEvE11metatype_id release, align 4
-  %23 = load ptr, ptr %1, align 8
-  %.not.i.i.i = icmp eq ptr %23, null
+20:                                               ; preds = %18
+  store atomic i32 %19, ptr @_ZZN18QMetaTypeIdQObjectIP8QCPGraphLi8EE14qt_metatype_idEvE11metatype_id release, align 4
+  %21 = load ptr, ptr %1, align 8
+  %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZN10QByteArrayD2Ev.exit, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
 
-_ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %22
-  %24 = atomicrmw sub ptr %23, i32 1 seq_cst, align 4
-  %.not.i.i11 = icmp eq i32 %24, 1
-  br i1 %.not.i.i11, label %25, label %_ZN10QByteArrayD2Ev.exit
+_ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %20
+  %22 = atomicrmw sub ptr %21, i32 1 seq_cst, align 4
+  %.not.i.i11 = icmp eq i32 %22, 1
+  br i1 %.not.i.i11, label %23, label %_ZN10QByteArrayD2Ev.exit
 
-25:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
-  %26 = load ptr, ptr %1, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %26, i64 noundef 1, i64 noundef 8) #21
+23:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
+  %24 = load ptr, ptr %1, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %24, i64 noundef 1, i64 noundef 8) #21
   br label %_ZN10QByteArrayD2Ev.exit
 
-27:                                               ; preds = %_Z7qstrlenPKc.exit.i, %3, %20, %_ZN10QByteArray6appendEPKc.exit
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %_Z7qstrlenPKc.exit.i, %3, %18, %_ZN10QByteArray6appendEPKc.exit
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %29 = load ptr, ptr %1, align 8
-  %.not.i.i.i12 = icmp eq ptr %29, null
+  %27 = load ptr, ptr %1, align 8
+  %.not.i.i.i12 = icmp eq ptr %27, null
   br i1 %.not.i.i.i12, label %_ZN10QByteArrayD2Ev.exit15, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
 
-_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13:     ; preds = %27
-  %30 = atomicrmw sub ptr %29, i32 1 seq_cst, align 4
-  %.not.i.i14 = icmp eq i32 %30, 1
-  br i1 %.not.i.i14, label %31, label %_ZN10QByteArrayD2Ev.exit15
+_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13:     ; preds = %25
+  %28 = atomicrmw sub ptr %27, i32 1 seq_cst, align 4
+  %.not.i.i14 = icmp eq i32 %28, 1
+  br i1 %.not.i.i14, label %29, label %_ZN10QByteArrayD2Ev.exit15
 
-31:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
-  %32 = load ptr, ptr %1, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %32, i64 noundef 1, i64 noundef 8) #21
+29:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
+  %30 = load ptr, ptr %1, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %30, i64 noundef 1, i64 noundef 8) #21
   br label %_ZN10QByteArrayD2Ev.exit15
 
-_ZN10QByteArrayD2Ev.exit15:                       ; preds = %27, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13, %31
-  resume { ptr, i32 } %28
+_ZN10QByteArrayD2Ev.exit15:                       ; preds = %25, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13, %29
+  resume { ptr, i32 } %26
 
-_ZN10QByteArrayD2Ev.exit:                         ; preds = %25, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %22, %0
-  %.0 = phi i32 [ %2, %0 ], [ %21, %22 ], [ %21, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ %21, %25 ]
+_ZN10QByteArrayD2Ev.exit:                         ; preds = %23, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %20, %0
+  %.0 = phi i32 [ %2, %0 ], [ %19, %20 ], [ %19, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ %19, %23 ]
   ret i32 %.0
 }
 
@@ -42466,10 +42442,10 @@ _ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorES3_.exit: ; preds = %_ZN
 declare i64 @llvm.smax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20

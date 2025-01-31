@@ -348,7 +348,7 @@ wait_on_slots.exit:                               ; preds = %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @connect_slot(ptr nocapture noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @connect_slot(ptr noundef captures(none) %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = zext nneg i32 %1 to i64
   %6 = getelementptr [0 x %struct.ParallelSlot], ptr %4, i64 0, i64 %5
@@ -428,7 +428,7 @@ define dso_local noundef ptr @ParallelSlotsSetup(i32 noundef %0, ptr noundef %1,
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ParallelSlotsAdoptConn(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @ParallelSlotsAdoptConn(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.i, label %find_unconnected_slot.exit.thread
@@ -471,7 +471,7 @@ find_unconnected_slot.exit.thread:                ; preds = %14, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ParallelSlotsTerminate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ParallelSlotsTerminate(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -505,7 +505,7 @@ define dso_local void @ParallelSlotsTerminate(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ParallelSlotsWaitCompletion(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp slt i32 %2, 1
   br i1 %3, label %._crit_edge, label %.lr.ph
@@ -583,7 +583,7 @@ consumeQueryResult.exit:                          ; preds = %processQueryResult.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @TableCommandResultHandler(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @TableCommandResultHandler(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @PQresultStatus(ptr noundef %0) #9
   %.not = icmp eq i32 %4, 1
   br i1 %.not, label %12, label %5
@@ -621,7 +621,7 @@ declare ptr @PQdb(ptr noundef) local_unnamed_addr #1
 declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PQclear(ptr noundef) local_unnamed_addr #1
 
@@ -645,7 +645,7 @@ declare i32 @PQisBusy(ptr noundef) local_unnamed_addr #1
 declare ptr @PQgetResult(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -653,13 +653,13 @@ declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

@@ -87,7 +87,7 @@ declare dso_local i64 @__modver_version_show(ptr noundef, ptr noundef, ptr nound
 declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @amd_init_one(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @amd_init_one(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [2 x ptr], align 16
   %5 = alloca i8, align 1
@@ -258,10 +258,10 @@ define internal i32 @amd_reinit_one(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ata_print_version(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -279,7 +279,7 @@ declare dso_local i32 @ata_pci_bmdma_clear_simplex(ptr noundef) local_unnamed_ad
 declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ata_pci_bmdma_init_one(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -298,7 +298,7 @@ define internal void @amd33_set_piomode(ptr noundef %0, ptr noundef %1) #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @amd33_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @amd33_set_dmamode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
@@ -359,7 +359,7 @@ define internal fastcc void @amd_fifo_setup(ptr noundef %0) unnamed_addr #2 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 64, 81) %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 1, 5) %4) unnamed_addr #2 align 16 {
+define internal fastcc void @timing_setup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 64, 81) %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 1, 5) %4) unnamed_addr #2 align 16 {
   %6 = alloca %struct.ata_timing, align 2
   %7 = alloca %struct.ata_timing, align 2
   %8 = alloca i8, align 1
@@ -653,7 +653,7 @@ define internal void @amd66_set_piomode(ptr noundef %0, ptr noundef %1) #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @amd66_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @amd66_set_dmamode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
@@ -672,7 +672,7 @@ define internal void @amd100_set_piomode(ptr noundef %0, ptr noundef %1) #2 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @amd100_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @amd100_set_dmamode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
@@ -681,7 +681,7 @@ define internal void @amd100_set_dmamode(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 1, 3) i32 @amd_cable_detect(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 1, 3) i32 @amd_cable_detect(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %4 = load ptr, ptr %3, align 8
@@ -716,7 +716,7 @@ define internal void @amd133_set_piomode(ptr noundef %0, ptr noundef %1) #2 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @amd133_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @amd133_set_dmamode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
@@ -725,7 +725,7 @@ define internal void @amd133_set_dmamode(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nv100_set_piomode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @nv100_set_piomode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %4 = load i8, ptr %3, align 16
   %5 = zext i8 %4 to i32
@@ -734,7 +734,7 @@ define internal void @nv100_set_piomode(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nv100_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @nv100_set_dmamode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
@@ -843,7 +843,7 @@ define internal i32 @nv_pre_reset(ptr noundef %0, i64 noundef %1) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nv_host_stop(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @nv_host_stop(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -862,13 +862,13 @@ declare dso_local i32 @ata_pack_xfermask(i32 noundef, i32 noundef, i32 noundef) 
 declare dso_local i32 @ata_acpi_gtm_xfermask(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nv133_set_piomode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @nv133_set_piomode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %4 = load i8, ptr %3, align 16
   %5 = zext i8 %4 to i32
@@ -877,7 +877,7 @@ define internal void @nv133_set_piomode(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nv133_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @nv133_set_dmamode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32

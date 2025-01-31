@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @lj_vm_exit_interp = external hidden global [0 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_asm_patchexit(ptr noundef %J, ptr nocapture noundef readonly %T, i32 noundef %exitno, ptr noundef %target) local_unnamed_addr #0 {
+define hidden void @lj_asm_patchexit(ptr noundef %J, ptr noundef readonly captures(none) %T, i32 noundef %exitno, ptr noundef %target) local_unnamed_addr #0 {
 entry:
   %mcode = getelementptr inbounds nuw i8, ptr %T, i64 88
   %0 = load ptr, ptr %mcode, align 8
@@ -170,7 +170,7 @@ for.end84:                                        ; preds = %for.inc80, %for.end
 declare hidden ptr @lj_mcode_patch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @asm_x86_inslen(ptr nocapture noundef readonly %p) unnamed_addr #2 {
+define internal fastcc i32 @asm_x86_inslen(ptr noundef readonly captures(none) %p) unnamed_addr #2 {
 entry:
   br label %for.cond.outer.outer.outer
 
@@ -15423,7 +15423,7 @@ declare hidden ptr @lj_trace_alloc(ptr noundef, ptr noundef) local_unnamed_addr 
 declare hidden ptr @lj_mcode_reserve(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_snap_prep(ptr nocapture noundef nonnull %as) unnamed_addr #0 {
+define internal fastcc void @asm_snap_prep(ptr noundef nonnull captures(none) %as) unnamed_addr #0 {
 entry:
   %snapalloc = getelementptr inbounds nuw i8, ptr %as, i64 228
   %0 = load i32, ptr %snapalloc, align 4
@@ -15619,7 +15619,7 @@ if.end11:                                         ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_gc_check(ptr nocapture noundef nonnull %as) unnamed_addr #0 {
+define internal fastcc void @asm_gc_check(ptr noundef nonnull captures(none) %as) unnamed_addr #0 {
 entry:
   %args = alloca [2 x i32], align 4
   tail call fastcc void @ra_evictset(ptr noundef %as, i32 noundef -61497)
@@ -15862,7 +15862,7 @@ checkmclim.exit:                                  ; preds = %emit_loadi.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare hidden void @lj_trace_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -15872,7 +15872,7 @@ declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #
 declare hidden void @lj_ir_growtop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @asm_mclimit(ptr nocapture noundef nonnull readonly %as) unnamed_addr #5 {
+define internal fastcc void @asm_mclimit(ptr noundef nonnull readonly captures(none) %as) unnamed_addr #5 {
 entry:
   %J = getelementptr inbounds nuw i8, ptr %as, i64 152
   %0 = load ptr, ptr %J, align 8
@@ -15894,10 +15894,10 @@ declare hidden void @lj_mcode_limiterr(ptr noundef, i64 noundef) local_unnamed_a
 declare hidden ptr @lj_snap_regspmap(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @ra_allocref(ptr nocapture noundef nonnull %as, i32 noundef %ref, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @ra_allocref(ptr noundef nonnull captures(none) %as, i32 noundef %ref, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %ir1 = getelementptr inbounds nuw i8, ptr %as, i64 144
   %0 = load ptr, ptr %ir1, align 8
@@ -16004,7 +16004,7 @@ found:                                            ; preds = %if.else50, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @emit_loadu64(ptr nocapture noundef nonnull %as, i32 noundef %r, i64 noundef %u64) unnamed_addr #7 {
+define internal fastcc void @emit_loadu64(ptr noundef nonnull captures(none) %as, i32 noundef %r, i64 noundef %u64) unnamed_addr #7 {
 entry:
   %conv = trunc i64 %u64 to i32
   %cmp = icmp ult i64 %u64, 4294967296
@@ -16228,7 +16228,7 @@ if.end67:                                         ; preds = %if.end.i, %emit_rr.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @emit_rma(ptr nocapture noundef nonnull %as, i32 noundef range(i32 269480700, 184549631) %xo, i32 noundef range(i32 0, 525056) %rr, ptr noundef %addr) unnamed_addr #7 {
+define internal fastcc void @emit_rma(ptr noundef nonnull captures(none) %as, i32 noundef range(i32 269480700, 184549631) %xo, i32 noundef range(i32 0, 525056) %rr, ptr noundef %addr) unnamed_addr #7 {
 entry:
   %0 = ptrtoint ptr %addr to i64
   %J = getelementptr inbounds nuw i8, ptr %as, i64 152
@@ -16667,7 +16667,7 @@ if.end88:                                         ; preds = %emit_rmro.exit154, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @asm_stack_check(ptr nocapture noundef nonnull %as, i32 noundef %topslot, ptr noundef readonly %irp, i32 noundef range(i32 0, 49136) %allow, i32 noundef %exitno) unnamed_addr #7 {
+define internal fastcc void @asm_stack_check(ptr noundef nonnull captures(none) %as, i32 noundef %topslot, ptr noundef readonly %irp, i32 noundef range(i32 0, 49136) %allow, i32 noundef %exitno) unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %irp, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -16861,7 +16861,7 @@ if.end32:                                         ; preds = %if.then30, %emit_rm
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 256) i32 @ra_rematk(ptr nocapture noundef nonnull %as, i32 noundef range(i32 0, 32769) %ref) unnamed_addr #8 {
+define internal fastcc range(i32 0, 256) i32 @ra_rematk(ptr noundef nonnull captures(none) %as, i32 noundef range(i32 0, 32769) %ref) unnamed_addr #8 {
 entry:
   %ir1 = getelementptr inbounds nuw i8, ptr %as, i64 144
   %0 = load ptr, ptr %ir1, align 8
@@ -17015,7 +17015,7 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr nocapture noundef nonnull %as, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captures(none) %as, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %allow, 65536
   br i1 %cmp, label %if.then, label %if.else
@@ -17410,7 +17410,7 @@ if.end526:                                        ; preds = %if.then510, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @emit_loadk64(ptr nocapture noundef nonnull %as, i32 noundef range(i32 0, 256) %r, ptr noundef %ir) unnamed_addr #8 {
+define internal fastcc void @emit_loadk64(ptr noundef nonnull captures(none) %as, i32 noundef range(i32 0, 256) %r, ptr noundef %ir) unnamed_addr #8 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %ir, i64 8
   %tobool.not = icmp samesign ult i32 %r, 16
@@ -17626,7 +17626,7 @@ if.end68:                                         ; preds = %if.then33, %emit_rm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @emit_rmro(ptr nocapture noundef nonnull %as, i32 noundef %xo, i32 noundef %rr, i32 noundef range(i32 0, 256) %rb, i32 noundef %ofs) unnamed_addr #10 {
+define internal fastcc void @emit_rmro(ptr noundef nonnull captures(none) %as, i32 noundef %xo, i32 noundef %rr, i32 noundef range(i32 0, 256) %rb, i32 noundef %ofs) unnamed_addr #10 {
 entry:
   %mcp = getelementptr inbounds nuw i8, ptr %as, i64 128
   %0 = load ptr, ptr %mcp, align 8
@@ -17765,7 +17765,7 @@ emit_op.exit:                                     ; preds = %if.else26.i, %if.en
 declare i32 @llvm.bswap.i32(i32) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @ra_restore(ptr nocapture noundef nonnull %as, i32 noundef range(i32 0, 65536) %ref) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull captures(none) %as, i32 noundef range(i32 0, 65536) %ref) unnamed_addr #0 {
 entry:
   %cmp = icmp samesign ult i32 %ref, 32769
   br i1 %cmp, label %if.then, label %if.else
@@ -17990,7 +17990,7 @@ return:                                           ; preds = %emit_rmro.exit, %em
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147483645) i32 @ra_spill(ptr nocapture noundef nonnull %as, ptr nocapture noundef %ir) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483645) i32 @ra_spill(ptr noundef nonnull captures(none) %as, ptr noundef captures(none) %ir) unnamed_addr #0 {
 entry:
   %s = getelementptr inbounds nuw i8, ptr %ir, i64 7
   %0 = load i8, ptr %s, align 1
@@ -18060,7 +18060,7 @@ if.end24:                                         ; preds = %if.end21, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @ra_alloc1(ptr nocapture noundef nonnull %as, i32 noundef %ref, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @ra_alloc1(ptr noundef nonnull captures(none) %as, i32 noundef %ref, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %ir = getelementptr inbounds nuw i8, ptr %as, i64 144
   %0 = load ptr, ptr %ir, align 8
@@ -18090,7 +18090,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare hidden void @lj_ir_kvalue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_snap_alloc1(ptr nocapture noundef nonnull %as, i32 noundef range(i32 0, 65536) %ref) unnamed_addr #0 {
+define internal fastcc void @asm_snap_alloc1(ptr noundef nonnull captures(none) %as, i32 noundef range(i32 0, 65536) %ref) unnamed_addr #0 {
 entry:
   %ir1 = getelementptr inbounds nuw i8, ptr %as, i64 144
   %cmp93 = icmp samesign ult i32 %ref, 32768
@@ -19426,7 +19426,7 @@ if.end411:                                        ; preds = %asm_guardcc.exit485
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_intarith(ptr noundef nonnull %as, ptr nocapture noundef %ir, i32 noundef range(i32 0, 9) %xa) unnamed_addr #0 {
+define internal fastcc void @asm_intarith(ptr noundef nonnull %as, ptr noundef captures(none) %ir, i32 noundef range(i32 0, 9) %xa) unnamed_addr #0 {
 entry:
   %0 = load i16, ptr %ir, align 8
   %conv = zext i16 %0 to i32
@@ -19950,7 +19950,7 @@ return:                                           ; preds = %if.end138, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_bitshift(ptr noundef nonnull %as, ptr nocapture noundef %ir, i32 noundef range(i32 0, 8) %xs, i32 noundef range(i32 -143007036, 1) %xv) unnamed_addr #0 {
+define internal fastcc void @asm_bitshift(ptr noundef nonnull %as, ptr noundef captures(none) %ir, i32 noundef range(i32 0, 8) %xs, i32 noundef range(i32 -143007036, 1) %xv) unnamed_addr #0 {
 entry:
   %op2 = getelementptr inbounds nuw i8, ptr %ir, i64 2
   %0 = load i16, ptr %op2, align 2
@@ -20505,7 +20505,7 @@ return:                                           ; preds = %if.end133, %asm_fus
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_fparith(ptr noundef nonnull %as, ptr nocapture noundef %ir, i32 noundef range(i32 1410269437, 1594880765) %xo) unnamed_addr #0 {
+define internal fastcc void @asm_fparith(ptr noundef nonnull %as, ptr noundef captures(none) %ir, i32 noundef range(i32 1410269437, 1594880765) %xo) unnamed_addr #0 {
 entry:
   %0 = load i16, ptr %ir, align 8
   %conv = zext i16 %0 to i32
@@ -20637,7 +20637,7 @@ if.end22:                                         ; preds = %if.end, %.thread36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_href(ptr noundef nonnull %as, ptr nocapture noundef %ir, i32 noundef range(i32 0, 256) %merge) unnamed_addr #0 {
+define internal fastcc void @asm_href(ptr noundef nonnull %as, ptr noundef captures(none) %ir, i32 noundef range(i32 0, 256) %merge) unnamed_addr #0 {
 entry:
   %r = getelementptr inbounds nuw i8, ptr %ir, i64 6
   %0 = load i8, ptr %r, align 2
@@ -22491,7 +22491,7 @@ if.end165:                                        ; preds = %emit_rmro.exit837, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_fxload(ptr nocapture noundef nonnull %as, ptr nocapture noundef %ir) unnamed_addr #0 {
+define internal fastcc void @asm_fxload(ptr noundef nonnull captures(none) %as, ptr noundef captures(none) %ir) unnamed_addr #0 {
 entry:
   %t = getelementptr inbounds nuw i8, ptr %ir, i64 4
   %0 = load i8, ptr %t, align 4
@@ -22652,7 +22652,7 @@ sw.epilog:                                        ; preds = %if.end, %sw.default
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_fxstore(ptr nocapture noundef nonnull %as, ptr nocapture noundef readonly %ir) unnamed_addr #0 {
+define internal fastcc void @asm_fxstore(ptr noundef nonnull captures(none) %as, ptr noundef readonly captures(none) %ir) unnamed_addr #0 {
 entry:
   %r = getelementptr inbounds nuw i8, ptr %ir, i64 6
   %0 = load i8, ptr %r, align 2
@@ -22941,7 +22941,7 @@ if.end116:                                        ; preds = %if.then101, %if.els
 declare hidden void @lj_trace_err_info(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ra_rename(ptr nocapture noundef nonnull %as, i32 noundef range(i32 0, 256) %down, i32 noundef range(i32 0, 256) %up) unnamed_addr #0 {
+define internal fastcc void @ra_rename(ptr noundef nonnull captures(none) %as, i32 noundef range(i32 0, 256) %down, i32 noundef range(i32 0, 256) %up) unnamed_addr #0 {
 entry:
   %idxprom = zext nneg i32 %down to i64
   %arrayidx = getelementptr inbounds nuw [32 x i32], ptr %as, i64 0, i64 %idxprom
@@ -23102,7 +23102,7 @@ if.end:                                           ; preds = %if.then, %emit_movr
 declare hidden i32 @lj_ir_emit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @asm_guardcc(ptr nocapture noundef nonnull %as, i32 noundef range(i32 0, 65536) %cc) unnamed_addr #7 {
+define internal fastcc void @asm_guardcc(ptr noundef nonnull captures(none) %as, i32 noundef range(i32 0, 65536) %cc) unnamed_addr #7 {
 entry:
   %J = getelementptr inbounds nuw i8, ptr %as, i64 152
   %0 = load ptr, ptr %J, align 8
@@ -23985,7 +23985,7 @@ return:                                           ; preds = %if.end231.split, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @emit_mrm(ptr nocapture noundef nonnull %as, i32 noundef %xo, i32 noundef %rr, i32 noundef %rb) unnamed_addr #10 {
+define internal fastcc void @emit_mrm(ptr noundef nonnull captures(none) %as, i32 noundef %xo, i32 noundef %rr, i32 noundef %rb) unnamed_addr #10 {
 entry:
   %mcp = getelementptr inbounds nuw i8, ptr %as, i64 128
   %0 = load ptr, ptr %mcp, align 8
@@ -24234,7 +24234,7 @@ return:                                           ; preds = %if.then.i, %if.end6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @asm_isk32(ptr nocapture noundef nonnull readonly %as, i32 noundef range(i32 0, 65536) %ref, ptr nocapture noundef nonnull writeonly %k) unnamed_addr #11 {
+define internal fastcc range(i32 0, 2) i32 @asm_isk32(ptr noundef nonnull readonly captures(none) %as, i32 noundef range(i32 0, 65536) %ref, ptr noundef nonnull writeonly captures(none) %k) unnamed_addr #11 {
 entry:
   %cmp = icmp samesign ult i32 %ref, 32768
   br i1 %cmp, label %if.then, label %return
@@ -24335,7 +24335,7 @@ return:                                           ; preds = %if.end, %ra_alloc1.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @noconflict(ptr nocapture readonly %as.144.val, i32 %as.200.val, i32 noundef range(i32 0, 65536) %ref, i32 noundef range(i32 8, 264) %conflict, i32 noundef range(i32 0, 4) %check) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @noconflict(ptr readonly captures(none) %as.144.val, i32 %as.200.val, i32 noundef range(i32 0, 65536) %ref, i32 noundef range(i32 8, 264) %conflict, i32 noundef range(i32 0, 4) %check) unnamed_addr #2 {
 entry:
   %add = add nuw nsw i32 %ref, 31
   %cmp = icmp ugt i32 %as.200.val, %add
@@ -24461,7 +24461,7 @@ return:                                           ; preds = %while.body, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_fusefref(ptr nocapture noundef nonnull initializes((160, 164), (165, 166)) %as, ptr nocapture noundef readonly %ir, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc void @asm_fusefref(ptr noundef nonnull captures(none) initializes((160, 164), (165, 166)) %as, ptr noundef readonly captures(none) %ir, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %mrm = getelementptr inbounds nuw i8, ptr %as, i64 160
   %idx = getelementptr inbounds nuw i8, ptr %as, i64 165
@@ -24561,7 +24561,7 @@ return:                                           ; preds = %ra_alloc1.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_fuseahuref(ptr nocapture noundef nonnull %as, i32 noundef range(i32 0, 65536) %ref, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc void @asm_fuseahuref(ptr noundef nonnull captures(none) %as, i32 noundef range(i32 0, 65536) %ref, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %ir1 = getelementptr inbounds nuw i8, ptr %as, i64 144
   %0 = load ptr, ptr %ir1, align 8
@@ -24719,7 +24719,7 @@ return:                                           ; preds = %ra_alloc1.exit52, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_fusexref(ptr nocapture noundef nonnull initializes((160, 164), (165, 166)) %as, i32 noundef range(i32 0, 65536) %ref, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc void @asm_fusexref(ptr noundef nonnull captures(none) initializes((160, 164), (165, 166)) %as, i32 noundef range(i32 0, 65536) %ref, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %ir1 = getelementptr inbounds nuw i8, ptr %as, i64 144
   %0 = load ptr, ptr %ir1, align 8
@@ -24966,7 +24966,7 @@ return:                                           ; preds = %ra_alloc1.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_fusearef(ptr nocapture noundef nonnull initializes((160, 164)) %as, ptr nocapture noundef readonly %ir, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc void @asm_fusearef(ptr noundef nonnull captures(none) initializes((160, 164)) %as, ptr noundef readonly captures(none) %ir, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %0 = load i16, ptr %ir, align 8
   %ir.i = getelementptr inbounds nuw i8, ptr %as, i64 144
@@ -25143,7 +25143,7 @@ if.end:                                           ; preds = %ra_alloc1.exit32, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @ra_dest(ptr nocapture noundef nonnull %as, ptr nocapture noundef %ir, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @ra_dest(ptr noundef nonnull captures(none) %as, ptr noundef captures(none) %ir, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %r = getelementptr inbounds nuw i8, ptr %ir, i64 6
   %0 = load i8, ptr %r, align 2
@@ -25333,7 +25333,7 @@ if.end25:                                         ; preds = %emit_rmro.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ra_left(ptr nocapture noundef nonnull %as, i32 noundef range(i32 0, 256) %dest, i32 noundef range(i32 0, 65536) %lref) unnamed_addr #0 {
+define internal fastcc void @ra_left(ptr noundef nonnull captures(none) %as, i32 noundef range(i32 0, 256) %dest, i32 noundef range(i32 0, 65536) %lref) unnamed_addr #0 {
 entry:
   %ir1 = getelementptr inbounds nuw i8, ptr %as, i64 144
   %0 = load ptr, ptr %ir1, align 8
@@ -25599,7 +25599,7 @@ if.end75:                                         ; preds = %emit_rr.exit25.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_setupresult(ptr nocapture noundef nonnull %as, ptr nocapture noundef %ir, ptr nocapture noundef readonly %ci) unnamed_addr #0 {
+define internal fastcc void @asm_setupresult(ptr noundef nonnull captures(none) %as, ptr noundef captures(none) %ir, ptr noundef readonly captures(none) %ci) unnamed_addr #0 {
 entry:
   %o = getelementptr inbounds nuw i8, ptr %ir, i64 13
   %0 = load i8, ptr %o, align 1
@@ -26461,7 +26461,7 @@ if.end79:                                         ; preds = %emit_rr.exit25.i.i9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_gencall(ptr nocapture noundef nonnull %as, ptr nocapture noundef readonly %ci, ptr nocapture noundef nonnull readonly %args) unnamed_addr #0 {
+define internal fastcc void @asm_gencall(ptr noundef nonnull captures(none) %as, ptr noundef readonly captures(none) %ci, ptr noundef nonnull readonly captures(none) %args) unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %ci, i64 8
   %0 = load i32, ptr %flags, align 8
@@ -26920,7 +26920,7 @@ if.end101:                                        ; preds = %if.then99, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ra_evictset(ptr nocapture noundef nonnull %as, i32 noundef %drop) unnamed_addr #0 {
+define internal fastcc void @ra_evictset(ptr noundef nonnull captures(none) %as, i32 noundef %drop) unnamed_addr #0 {
 entry:
   %modset = getelementptr inbounds nuw i8, ptr %as, i64 172
   %0 = load i32, ptr %modset, align 4
@@ -27122,7 +27122,7 @@ declare hidden void @lj_vm_ceil_sse() #1
 declare hidden void @lj_vm_trunc_sse() #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_intmin_max(ptr nocapture noundef nonnull %as, ptr nocapture noundef %ir, i32 noundef range(i32 12, 16) %cc) unnamed_addr #0 {
+define internal fastcc void @asm_intmin_max(ptr noundef nonnull captures(none) %as, ptr noundef captures(none) %ir, i32 noundef range(i32 12, 16) %cc) unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @ra_dest(ptr noundef %as, ptr noundef %ir, i32 noundef 49135)
   %0 = load i16, ptr %ir, align 8
@@ -27236,7 +27236,7 @@ emit_rr.exit40:                                   ; preds = %emit_rr.exit, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_tvptr(ptr nocapture noundef nonnull %as, i32 noundef range(i32 0, 256) %dest, i32 noundef range(i32 0, 65536) %ref, i32 noundef range(i32 0, 65536) %mode) unnamed_addr #0 {
+define internal fastcc void @asm_tvptr(ptr noundef nonnull captures(none) %as, i32 noundef range(i32 0, 256) %dest, i32 noundef range(i32 0, 65536) %ref, i32 noundef range(i32 0, 65536) %mode) unnamed_addr #0 {
 entry:
   %k = alloca %union.TValue, align 8
   %and = and i32 %mode, 1
@@ -27744,7 +27744,7 @@ return:                                           ; preds = %if.end49, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_tointg(ptr nocapture noundef nonnull %as, ptr nocapture noundef %ir, i32 noundef range(i32 0, 256) %left) unnamed_addr #0 {
+define internal fastcc void @asm_tointg(ptr noundef nonnull captures(none) %as, ptr noundef captures(none) %ir, i32 noundef range(i32 0, 256) %left) unnamed_addr #0 {
 entry:
   %shl = shl nuw i32 1, %left
   %not = and i32 %shl, -65536
@@ -28077,10 +28077,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #12

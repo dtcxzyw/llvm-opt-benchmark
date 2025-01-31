@@ -1045,7 +1045,7 @@ ehcleanup39:                                      ; preds = %if.then.i.i.i24, %e
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK6google8protobuf8compiler3cpp22ParseFunctionGenerator23should_generate_tctableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK6google8protobuf8compiler3cpp22ParseFunctionGenerator23should_generate_tctableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
@@ -1514,7 +1514,7 @@ _ZN6google8protobuf8compiler3cpp9FormatterD2Ev.exit: ; preds = %cleanup, %invoke
 declare noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp12ShouldVerifyEPKNS0_10DescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(206), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler3cpp22ParseFunctionGenerator29GenerateTailcallParseFunctionERNS2_9FormatterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(40) %format) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler3cpp22ParseFunctionGenerator29GenerateTailcallParseFunctionERNS2_9FormatterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(40) %format) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
@@ -2311,7 +2311,7 @@ lpad:                                             ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3cppL19MakeNumToEntryTableERKSt6vectorIPKNS0_15FieldDescriptorESaIS6_EE(ptr noalias nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %field_descriptors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3cppL19MakeNumToEntryTableERKSt6vectorIPKNS0_15FieldDescriptorESaIS6_EE(ptr noalias nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %field_descriptors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp33 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp48 = alloca %"struct.google::protobuf::compiler::cpp::SkipEntryBlock", align 8
@@ -4675,7 +4675,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #28, !noalias !53
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !53
-  %call.i.i2 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %call.i.i, ptr %1) #28, !noalias !53
+  %call.i.i2 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %call.i.i, ptr nonnull %1) #28, !noalias !53
   %2 = extractvalue { i64, ptr } %call.i.i2, 0
   %3 = extractvalue { i64, ptr } %call.i.i2, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %2, ptr %3) #28
@@ -4842,7 +4842,7 @@ invoke.cont22:                                    ; preds = %call.i.i53.noexc
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i51)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i64 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 6, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i64, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 6, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i64, ptr nonnull %format)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont22
@@ -4962,7 +4962,7 @@ invoke.cont5:                                     ; preds = %call.i.i.noexc11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i4)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 2, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 2, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i, ptr nonnull %format)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont5
@@ -5045,7 +5045,7 @@ _ZN6google8protobuf8compiler3cpp9Formatter8ToStringIjvEENSt7__cxx1112basic_strin
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i2 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 1, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i2, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 1, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i2, ptr nonnull %format)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %_ZN6google8protobuf8compiler3cpp9Formatter8ToStringIjvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit
@@ -5124,7 +5124,7 @@ invoke.cont5:                                     ; preds = %call.i.i.noexc11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i4)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 2, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 2, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i, ptr nonnull %format)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont5
@@ -5234,7 +5234,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i3)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i9 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 2, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i9, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 2, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i9, ptr nonnull %format)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont8
@@ -5297,7 +5297,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler3cpp22ParseFunctionGenerator24GenerateFastFieldEntriesERNS2_9FormatterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(40) %format) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler3cpp22ParseFunctionGenerator24GenerateFastFieldEntriesERNS2_9FormatterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(40) %format) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i102 = alloca [9 x %"class.std::basic_string_view"], align 8
   %ref.tmp21.i103 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -5825,7 +5825,7 @@ invoke.cont9:                                     ; preds = %call.i.i.noexc25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i18)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 3, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 3, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i, ptr nonnull %format)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont9
@@ -5879,7 +5879,7 @@ eh.resume:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK6google8protobuf8compiler3cpp9FormatterclIJttEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %format, ptr noundef nonnull align 2 dereferenceable(2) %args, ptr noundef nonnull align 2 dereferenceable(2) %args1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5948,7 +5948,7 @@ invoke.cont5:                                     ; preds = %call.i.i.noexc12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i4)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 2, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 2, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i, ptr nonnull %format)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont5
@@ -5994,7 +5994,7 @@ eh.resume:                                        ; preds = %arraydestroy.body16
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler3cpp22ParseFunctionGenerator20GenerateFieldEntriesERNS2_9FormatterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(40) %format) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler3cpp22ParseFunctionGenerator20GenerateFieldEntriesERNS2_9FormatterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(40) %format) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6270,7 +6270,7 @@ _ZN6google8protobuf8compiler3cpp9Formatter8ToStringB5cxx11ESt17basic_string_view
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i2 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 1, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i2, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 1, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i2, ptr nonnull %format)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %_ZN6google8protobuf8compiler3cpp9Formatter8ToStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -6355,7 +6355,7 @@ invoke.cont5:                                     ; preds = %call.i.i.noexc12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i4)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 2, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 2, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i, ptr nonnull %format)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont5
@@ -6417,7 +6417,7 @@ declare void @_ZN6google8protobuf8compiler3cpp15FieldMemberNameB5cxx11EPKNS0_15F
 declare noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp11ShouldSplitEPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(206)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler3cpp22ParseFunctionGenerator18GenerateFieldNamesERNS2_9FormatterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(40) %format) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler3cpp22ParseFunctionGenerator18GenerateFieldNamesERNS2_9FormatterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(40) %format) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %octal_size = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6648,7 +6648,7 @@ invoke.cont10:                                    ; preds = %call.i.i12.noexc
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i9)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i23 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 3, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i23, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 3, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i23, ptr nonnull %format)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont10
@@ -6866,7 +6866,7 @@ invoke.cont20:                                    ; preds = %invoke.cont16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i38)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i45 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 5, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i45, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 5, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i45, ptr nonnull %format)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont20
@@ -6961,7 +6961,7 @@ _ZN6google8protobuf8compiler3cpp9Formatter8ToStringIivEENSt7__cxx1112basic_strin
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i2 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 1, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i2, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 1, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i2, ptr nonnull %format)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %_ZN6google8protobuf8compiler3cpp9Formatter8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit
@@ -7014,7 +7014,7 @@ _ZN6google8protobuf8compiler3cpp9Formatter8ToStringItvEENSt7__cxx1112basic_strin
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
   %vars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i2 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #28
-  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 1, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i2, ptr %format)
+  invoke void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nonnull %ref.tmp, i64 1, ptr noundef nonnull align 8 dereferenceable(32) %vars_, i64 %call.i.i2, ptr nonnull %format)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %_ZN6google8protobuf8compiler3cpp9Formatter8ToStringItvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit
@@ -7236,7 +7236,7 @@ cleanup:                                          ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
@@ -7873,7 +7873,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 declare noundef i32 @_ZN6google8protobuf8compiler3cpp14GetOptimizeForEPKNS0_14FileDescriptorERKNS2_7OptionsEPb(ptr noundef, ptr noundef nonnull align 8 dereferenceable(206), ptr noundef) local_unnamed_addr #0
 
@@ -8061,7 +8061,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp20IsLazilyVerifiedLa
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8compiler3cpp15SimpleBaseClassB5cxx11EPKNS0_10DescriptorERKNS2_7OptionsE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %desc, ptr noundef nonnull align 8 dereferenceable(206) %options) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -8758,7 +8758,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #19
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #19
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -9876,7 +9876,7 @@ return:                                           ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS2_8compiler3cpp22ParseFunctionGenerator17GenerateDataDeclsEPS4_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS2_8compiler3cpp22ParseFunctionGenerator17GenerateDataDeclsEPS4_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %0 = getelementptr inbounds nuw i8, ptr %__functor.val, i64 16
@@ -9919,7 +9919,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS2_8compiler3cpp22ParseFunctionGenerator17GenerateDataDeclsEPS4_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNS2_8compiler3cpp22ParseFunctionGenerator17GenerateDataDeclsEPS4_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -10766,13 +10766,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23

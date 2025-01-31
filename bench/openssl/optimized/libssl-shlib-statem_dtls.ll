@@ -462,7 +462,7 @@ declare i64 @SSL_get_options(ptr noundef) local_unnamed_addr #1
 declare i32 @ssl3_finish_mac(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dtls_get_message(ptr noundef %s, ptr nocapture noundef writeonly %mt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dtls_get_message(ptr noundef %s, ptr noundef writeonly captures(none) %mt) local_unnamed_addr #0 {
 entry:
   %seq64be.i.i = alloca [8 x i8], align 8
   %readbytes.i.i = alloca i64, align 8
@@ -1195,10 +1195,10 @@ return:                                           ; preds = %if.then, %if.then.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dtls_get_message_body(ptr noundef %s, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dtls_get_message_body(ptr noundef %s, ptr noundef writeonly captures(none) %len) local_unnamed_addr #0 {
 entry:
   %init_buf = getelementptr inbounds nuw i8, ptr %s, i64 240
   %0 = load ptr, ptr %init_buf, align 8
@@ -1414,7 +1414,7 @@ declare ptr @pqueue_iterator(ptr noundef) local_unnamed_addr #1
 declare ptr @pqueue_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2) i32 @dtls1_retransmit_message(ptr noundef %s, i16 noundef zeroext %seq, ptr nocapture noundef writeonly initializes((0, 4)) %found) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @dtls1_retransmit_message(ptr noundef %s, i16 noundef zeroext %seq, ptr noundef writeonly captures(none) initializes((0, 4)) %found) local_unnamed_addr #0 {
 entry:
   %seq64be = alloca [8 x i8], align 8
   store i64 0, ptr %seq64be, align 8
@@ -1516,7 +1516,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dtls1_buffer_message(ptr nocapture noundef readonly %s, i32 noundef %is_ccs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dtls1_buffer_message(ptr noundef readonly captures(none) %s, i32 noundef %is_ccs) local_unnamed_addr #0 {
 entry:
   %seq64be = alloca [8 x i8], align 8
   %init_off = getelementptr inbounds nuw i8, ptr %s, i64 264
@@ -1706,7 +1706,7 @@ return:                                           ; preds = %entry, %if.end13, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @pitem_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1715,7 +1715,7 @@ declare ptr @pqueue_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @pqueue_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @dtls1_set_message_header(ptr nocapture noundef readonly %s, i8 noundef zeroext %mt, i64 noundef %len, i64 noundef %frag_off, i64 noundef %frag_len) local_unnamed_addr #5 {
+define void @dtls1_set_message_header(ptr noundef readonly captures(none) %s, i8 noundef zeroext %mt, i64 noundef %len, i64 noundef %frag_off, i64 noundef %frag_len) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq i64 %frag_off, 0
   %d1 = getelementptr inbounds nuw i8, ptr %s, i64 1136
@@ -1754,7 +1754,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @dtls1_get_message_header(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly initializes((0, 64)) %msg_hdr) local_unnamed_addr #6 {
+define void @dtls1_get_message_header(ptr noundef readonly captures(none) %data, ptr noundef writeonly captures(none) initializes((0, 64)) %msg_hdr) local_unnamed_addr #6 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %msg_hdr, i8 0, i64 64, i1 false)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %data, i64 1
@@ -1818,7 +1818,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dtls1_set_handshake_header(ptr nocapture noundef readonly %s, ptr noundef %pkt, i32 noundef %htype) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dtls1_set_handshake_header(ptr noundef readonly captures(none) %s, ptr noundef %pkt, i32 noundef %htype) local_unnamed_addr #0 {
 entry:
   %header = alloca ptr, align 8
   %cmp = icmp eq i32 %htype, 257
@@ -1892,7 +1892,7 @@ declare i32 @WPACKET_allocate_bytes(ptr noundef, i64 noundef, ptr noundef) local
 declare i32 @WPACKET_start_sub_packet(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dtls1_close_construct_packet(ptr nocapture noundef %s, ptr noundef %pkt, i32 noundef %htype) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dtls1_close_construct_packet(ptr noundef captures(none) %s, ptr noundef %pkt, i32 noundef %htype) local_unnamed_addr #0 {
 entry:
   %msglen = alloca i64, align 8
   %cmp.not = icmp eq i32 %htype, 257
@@ -1956,7 +1956,7 @@ declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #1
 declare i32 @WPACKET_get_length(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 0) i32 @dtls1_reassemble_fragment(ptr noundef %s, ptr nocapture noundef nonnull readonly %msg_hdr) unnamed_addr #0 {
+define internal fastcc range(i32 -3, 0) i32 @dtls1_reassemble_fragment(ptr noundef %s, ptr noundef nonnull readonly captures(none) %msg_hdr) unnamed_addr #0 {
 entry:
   %seq64be = alloca [8 x i8], align 8
   %readbytes = alloca i64, align 8
@@ -2212,7 +2212,7 @@ return:                                           ; preds = %if.end47, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dtls1_preprocess_fragment(ptr noundef %s, ptr nocapture noundef readonly %msg_hdr) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dtls1_preprocess_fragment(ptr noundef %s, ptr noundef readonly captures(none) %msg_hdr) unnamed_addr #0 {
 entry:
   %msg_len1 = getelementptr inbounds nuw i8, ptr %msg_hdr, i64 8
   %0 = load i64, ptr %msg_len1, align 8
@@ -2317,10 +2317,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #7
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

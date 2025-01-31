@@ -126,7 +126,7 @@ declare void @memory_global_dirty_log_stop(i32 noundef) local_unnamed_addr #1
 declare void @qemu_mutex_unlock_iothread() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -18446744073708, 18446744073709) i64 @vcpu_calculate_dirtyrate(i64 noundef %calc_time_ms, ptr nocapture noundef %stat, i32 noundef %flag, i1 noundef zeroext %one_shot) local_unnamed_addr #0 {
+define dso_local range(i64 -18446744073708, 18446744073709) i64 @vcpu_calculate_dirtyrate(i64 noundef %calc_time_ms, ptr noundef captures(none) %stat, i32 noundef %flag, i1 noundef zeroext %one_shot) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %rates.i = getelementptr inbounds nuw i8, ptr %stat, i64 8
@@ -329,7 +329,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @cpu_list_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @get_dirtyrate_thread(ptr nocapture noundef readonly %arg) #0 {
+define dso_local noundef ptr @get_dirtyrate_thread(ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i7.i.i.i = alloca %struct.timeval, align 8
@@ -1275,7 +1275,7 @@ declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @qemu_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @qmp_query_dirty_rate(i1 noundef zeroext %has_calc_time_unit, i32 noundef %calc_time_unit, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_query_dirty_rate(i1 noundef zeroext %has_calc_time_unit, i32 noundef %calc_time_unit, ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %cond = select i1 %has_calc_time_unit, i32 %calc_time_unit, i32 0
   %call = tail call fastcc ptr @query_dirty_rate_info(i32 noundef %cond)
@@ -1430,7 +1430,7 @@ trace_query_dirty_rate_info.exit:                 ; preds = %if.end21, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_info_dirty_rate(ptr noundef %mon, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {
+define dso_local void @hmp_info_dirty_rate(ptr noundef %mon, ptr noundef readnone captures(none) %qdict) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @query_dirty_rate_info(i32 noundef 0)
   %status = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -1571,7 +1571,7 @@ declare void @memory_global_dirty_log_sync(i1 noundef zeroext) local_unnamed_add
 declare i64 @qemu_target_pages_to_MiB(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1649,7 +1649,7 @@ declare i32 @qemu_target_page_bits() local_unnamed_addr #1
 declare ptr @qemu_ram_get_host_addr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 declare ptr @qemu_ram_get_idstr(ptr noundef) local_unnamed_addr #1
 
@@ -1801,25 +1801,25 @@ declare void @g_rand_free(ptr noundef) local_unnamed_addr #1
 declare i64 @qemu_target_page_size() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -43,16 +43,16 @@ define hidden void @virtual_cwd_main_cwd_init(i8 noundef zeroext %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @virtual_cwd_startup() local_unnamed_addr #0 {
@@ -146,7 +146,7 @@ declare noalias ptr @_emalloc_8() local_unnamed_addr #5
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @virtual_cwd_deactivate() local_unnamed_addr #0 {
@@ -166,7 +166,7 @@ define noundef i32 @virtual_cwd_deactivate() local_unnamed_addr #0 {
 declare void @_efree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @virtual_getcwd_ex(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
+define noalias ptr @virtual_getcwd_ex(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %7
@@ -544,7 +544,7 @@ define nonnull ptr @realpath_cache_get_buckets() local_unnamed_addr #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -1298,7 +1298,7 @@ realpath_cache_add.exit:                          ; preds = %246, %223, %220, %2
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @virtual_chdir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @virtual_chdir(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @virtual_file_ex(ptr noundef nonnull @cwd_globals, ptr noundef %0, ptr noundef nonnull @php_is_dir_ok, i32 noundef 2)
   %.not = icmp ne i32 %2, 0
   %3 = sext i1 %.not to i32
@@ -1306,7 +1306,7 @@ define range(i32 -1, 1) i32 @virtual_chdir(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @php_is_dir_ok(ptr nocapture noundef readonly %0) #12 {
+define internal range(i32 0, 2) i32 @php_is_dir_ok(ptr noundef readonly captures(none) %0) #12 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   %3 = load ptr, ptr %0, align 8
@@ -1330,7 +1330,7 @@ define internal range(i32 0, 2) i32 @php_is_dir_ok(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @virtual_chdir_file(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @virtual_chdir_file(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %28, label %.preheader
@@ -1397,7 +1397,7 @@ define i32 @virtual_chdir_file(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @virtual_realpath(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define noundef ptr @virtual_realpath(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = alloca [4096 x i8], align 16
   %5 = load i8, ptr %0, align 1
@@ -1461,7 +1461,7 @@ define noundef ptr @virtual_realpath(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @virtual_filepath_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @virtual_filepath_ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._cwd_state, align 8
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1480,7 +1480,7 @@ define range(i32 -1, 2) i32 @virtual_filepath_ex(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @virtual_filepath(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @virtual_filepath(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
 virtual_filepath_ex.exit:
   %2 = alloca %struct._cwd_state, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -1502,7 +1502,7 @@ virtual_filepath_ex.exit:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @php_is_file_ok(ptr nocapture noundef readonly %0) #12 {
+define internal range(i32 0, 2) i32 @php_is_file_ok(ptr noundef readonly captures(none) %0) #12 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   %3 = load ptr, ptr %0, align 8
@@ -1526,7 +1526,7 @@ define internal range(i32 0, 2) i32 @php_is_file_ok(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @virtual_fopen(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @virtual_fopen(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
@@ -1565,10 +1565,10 @@ define noalias noundef ptr @virtual_fopen(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_access(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @virtual_access(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1598,10 +1598,10 @@ define noundef i32 @virtual_access(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #13
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_utime(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef i32 @virtual_utime(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1631,10 +1631,10 @@ define noundef i32 @virtual_utime(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @utime(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noundef i32 @utime(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_chmod(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @virtual_chmod(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1664,10 +1664,10 @@ define noundef i32 @virtual_chmod(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #13
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_chown(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef i32 @virtual_chown(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._cwd_state, align 8
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1704,13 +1704,13 @@ define noundef i32 @virtual_chown(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lchown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #13
+declare noundef i32 @lchown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #13
+declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_open(ptr nocapture noundef readonly %0, i32 noundef %1, ...) local_unnamed_addr #0 {
+define noundef i32 @virtual_open(ptr noundef readonly captures(none) %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
@@ -1775,10 +1775,10 @@ define noundef i32 @virtual_open(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #14
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define i32 @virtual_creat(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @virtual_creat(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1810,7 +1810,7 @@ define i32 @virtual_creat(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 declare i32 @creat(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_rename(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef i32 @virtual_rename(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = alloca %struct._cwd_state, align 8
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
@@ -1864,10 +1864,10 @@ define noundef i32 @virtual_rename(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef i32 @virtual_stat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1897,10 +1897,10 @@ define noundef i32 @virtual_stat(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_lstat(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef i32 @virtual_lstat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1930,10 +1930,10 @@ define noundef i32 @virtual_lstat(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_unlink(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @virtual_unlink(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct._cwd_state, align 8
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1963,10 +1963,10 @@ define noundef i32 @virtual_unlink(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_mkdir(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @virtual_mkdir(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1996,10 +1996,10 @@ define noundef i32 @virtual_mkdir(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #13
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @virtual_rmdir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @virtual_rmdir(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct._cwd_state, align 8
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2029,10 +2029,10 @@ define noundef i32 @virtual_rmdir(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @virtual_opendir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @virtual_opendir(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct._cwd_state, align 8
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2062,10 +2062,10 @@ define noalias noundef ptr @virtual_opendir(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @virtual_popen(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @virtual_popen(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %5 = trunc i64 %4 to i32
@@ -2156,17 +2156,17 @@ define noalias noundef ptr @virtual_popen(ptr nocapture noundef readonly %0, ptr
   %41 = getelementptr inbounds nuw i8, ptr %.0138, i64 3
   store i8 32, ptr %40, align 1
   %42 = add i64 %3, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %0, i64 %42, i1 false)
-  %43 = tail call noalias ptr @popen(ptr noundef %19, ptr noundef %1)
-  tail call void @_efree(ptr noundef %19) #21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull align 1 %0, i64 %42, i1 false)
+  %43 = tail call noalias ptr @popen(ptr noundef nonnull %19, ptr noundef %1)
+  tail call void @_efree(ptr noundef nonnull %19) #21
   ret ptr %43
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define ptr @tsrm_realpath(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define ptr @tsrm_realpath(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = alloca [4096 x i8], align 16
   %5 = load i8, ptr %0, align 1
@@ -2243,16 +2243,16 @@ define ptr @tsrm_realpath(ptr nocapture noundef readonly %0, ptr noundef writeon
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
@@ -2264,7 +2264,7 @@ declare void @llvm.va_start.p0(ptr) #17
 declare void @llvm.va_end.p0(ptr) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #19
@@ -2273,10 +2273,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #19
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

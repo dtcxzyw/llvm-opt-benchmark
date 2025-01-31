@@ -56,7 +56,7 @@ define internal void @finalize() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mylog(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr nocapture readnone %3, i64 %4, ptr nocapture readnone %5, ptr nocapture readnone %6) #0 {
+define internal i32 @mylog(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr readnone captures(none) %3, i64 %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #0 {
   %8 = icmp eq ptr %1, null
   %9 = icmp eq i64 %2, 0
   %or.cond = or i1 %8, %9
@@ -136,7 +136,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %27, %2
   store i64 %43, ptr %45, align 8
   %46 = tail call noalias ptr @malloc(i64 noundef %43) #15
   store ptr %46, ptr %44, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 1 %41, i64 %43, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr nonnull align 1 %41, i64 %43, i1 false)
   %47 = tail call i32 @PMIx_server_IOF_deliver(ptr noundef nonnull %39, i16 noundef zeroext 4, ptr noundef nonnull %44, ptr noundef null, i64 noundef 0, ptr noundef nonnull @lkcbfunc, ptr noundef %23) #13
   switch i32 %47, label %48 [
     i32 0, label %132
@@ -181,7 +181,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %27, %2
 .lr.ph.i:                                         ; preds = %61, %.lr.ph.i
   %67 = phi ptr [ %69, %.lr.ph.i ], [ %66, %61 ]
   %.07.i = phi ptr [ %68, %.lr.ph.i ], [ %65, %61 ]
-  tail call void %67(ptr noundef %23) #13
+  tail call void %67(ptr noundef nonnull %23) #13
   %68 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not.i94 = icmp eq ptr %69, null
@@ -259,7 +259,7 @@ pmix_obj_new_tma.exit102:                         ; preds = %.lr.ph.i.i99, %84, 
   store i64 %100, ptr %102, align 8
   %103 = tail call noalias ptr @malloc(i64 noundef %100) #15
   store ptr %103, ptr %101, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %98, i64 %100, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr nonnull align 1 %98, i64 %100, i1 false)
   %104 = tail call i32 @PMIx_server_IOF_deliver(ptr noundef nonnull %96, i16 noundef zeroext 2, ptr noundef nonnull %101, ptr noundef null, i64 noundef 0, ptr noundef nonnull @lkcbfunc, ptr noundef %80) #13
   switch i32 %104, label %105 [
     i32 0, label %132
@@ -304,7 +304,7 @@ pmix_obj_new_tma.exit102:                         ; preds = %.lr.ph.i.i99, %84, 
 .lr.ph.i104:                                      ; preds = %118, %.lr.ph.i104
   %124 = phi ptr [ %126, %.lr.ph.i104 ], [ %123, %118 ]
   %.07.i105 = phi ptr [ %125, %.lr.ph.i104 ], [ %122, %118 ]
-  tail call void %124(ptr noundef %80) #13
+  tail call void %124(ptr noundef nonnull %80) #13
   %125 = getelementptr inbounds nuw i8, ptr %.07.i105, i64 8
   %126 = load ptr, ptr %125, align 8
   %.not.i106 = icmp eq ptr %126, null
@@ -341,18 +341,18 @@ declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare void @PMIx_Xfer_procid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @PMIx_server_IOF_deliver(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -431,7 +431,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1
 
@@ -439,14 +439,14 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pdcon(ptr nocapture noundef writeonly initializes((384, 400)) %0) #7 {
+define internal void @pdcon(ptr noundef writeonly captures(none) initializes((384, 400)) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @pddes(ptr nocapture noundef readonly %0) #8 {
+define internal void @pddes(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -467,7 +467,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #6
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #11
@@ -476,7 +476,7 @@ declare void @abort() local_unnamed_addr #11
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

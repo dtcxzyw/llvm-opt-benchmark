@@ -184,12 +184,12 @@ _ZSt10fpclassifye.exit:                           ; preds = %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd128Ee(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 16 %0, x86_fp80 noundef %1) unnamed_addr #2 {
+define internal fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd128Ee(ptr dead_on_unwind noalias nonnull writable writeonly align 16 captures(none) %0, x86_fp80 noundef %1) unnamed_addr #2 {
   %3 = alloca [4 x i64], align 16
   %4 = alloca [4 x i64], align 16
   %5 = alloca [4 x i64], align 16
@@ -716,7 +716,7 @@ _ZN5boost8charconv6detail3ryuL25generic_binary_to_decimalEojjb.exit: ; preds = %
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL16generic_to_charsENS2_20floating_decimal_128EPclNS0_12chars_formatEi(ptr nocapture noundef readonly byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL16generic_to_charsENS2_20floating_decimal_128EPclNS0_12chars_formatEi(ptr noundef readonly byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 16, !tbaa !13
   %8 = icmp eq i32 %7, 2147483647
@@ -1041,10 +1041,10 @@ _ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail12to_chars_hexIeEENS0_15to_chars_resultEPcS4_T_i(ptr noundef %0, ptr noundef %1, x86_fp80 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -1334,7 +1334,7 @@ _ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit: 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL22generic_to_chars_fixedENS2_20floating_decimal_128EPcli(ptr nocapture noundef readonly byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL22generic_to_chars_fixedENS2_20floating_decimal_128EPcli(ptr noundef readonly byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 16, !tbaa !13
   %7 = icmp eq i32 %6, 2147483647
@@ -3159,10 +3159,10 @@ define { ptr, i32 } @_ZN5boost8charconv8to_charsEPcS1_eNS0_12chars_formatEi(ptr 
 declare x86_fp80 @llvm.fabs.f80(x86_fp80) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.0.val, i64 %.8.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 -262143, 267305) %1, i32 noundef range(i32 0, 5) %2, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %3) unnamed_addr #8 {
+define internal fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.0.val, i64 %.8.val, ptr noundef readonly captures(none) %0, i32 noundef range(i32 -262143, 267305) %1, i32 noundef range(i32 0, 5) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %3) unnamed_addr #8 {
   %5 = zext i64 %.0.val to i128
   %6 = load i64, ptr %0, align 8, !tbaa !14
   %7 = zext i64 %6 to i128
@@ -3601,7 +3601,7 @@ _ZN5boost8charconv6detail11decompose32EjPc.exit:  ; preds = %45
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 comdat {
@@ -3957,13 +3957,13 @@ _ZN5boost8charconv6detail11decompose32EjPc.exit107: ; preds = %157
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fixed_implIfEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -10854,7 +10854,7 @@ declare i32 @llvm.umax.i32(i32, i32) #12
 declare i64 @llvm.fshl.i64(i64, i64, i64) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14

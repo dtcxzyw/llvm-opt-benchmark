@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_8(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %.critedge, %2
@@ -34,7 +34,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_8(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_c8_8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_c8_8(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %.critedge, %2
@@ -64,7 +64,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_c8_8(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_8(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not15 = icmp eq i64 %2, 0
   br i1 %.not15, label %.loopexit, label %.lr.ph
 
@@ -95,7 +95,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_8(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_c8_8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_c8_8(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not15 = icmp eq i64 %2, 0
   br i1 %.not15, label %.loopexit, label %.lr.ph
 
@@ -126,7 +126,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_c8_8(ptr nocapture noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @_pcre2_strlen_8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i64 @_pcre2_strlen_8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %.not3 = icmp eq i8 %2, 0
   br i1 %.not3, label %._crit_edge, label %.lr.ph
@@ -146,7 +146,7 @@ define hidden i64 @_pcre2_strlen_8(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i64 @_pcre2_strcpy_c8_8(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden noundef i64 @_pcre2_strcpy_c8_8(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load i8, ptr %1, align 1
   %.not8 = icmp eq i8 %3, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph

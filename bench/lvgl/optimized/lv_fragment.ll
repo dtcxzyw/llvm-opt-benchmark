@@ -343,7 +343,7 @@ declare void @lv_fragment_manager_create_obj(ptr noundef) local_unnamed_addr #1
 declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse noreturn nosync nounwind memory(none) uwtable
-define internal void @cb_delete_assertion(ptr nocapture readnone %0) #3 {
+define internal void @cb_delete_assertion(ptr readnone captures(none) %0) #3 {
   br label %2
 
 2:                                                ; preds = %2, %1

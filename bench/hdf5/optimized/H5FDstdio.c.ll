@@ -132,10 +132,10 @@ sub_0:                                            ; preds = %5
 declare i32 @H5Eclear2(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @H5Iget_type(i64 noundef) local_unnamed_addr #1
 
@@ -441,7 +441,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD_stdio_close(ptr nocapture noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @H5FD_stdio_close(ptr noundef captures(none) %0) #0 {
   %2 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
@@ -469,7 +469,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_close(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5FD_stdio_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @H5FD_stdio_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
@@ -501,7 +501,7 @@ define internal range(i32 -1, 2) i32 @H5FD_stdio_cmp(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5FD_stdio_query(ptr nocapture readnone %0, ptr noundef writeonly %1) #5 {
+define internal noundef i32 @H5FD_stdio_query(ptr readnone captures(none) %0, ptr noundef writeonly %1) #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -514,7 +514,7 @@ define internal noundef i32 @H5FD_stdio_query(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @H5FD_stdio_alloc(ptr nocapture noundef %0, i32 %1, i64 %2, i64 noundef %3) #0 {
+define internal i64 @H5FD_stdio_alloc(ptr noundef captures(none) %0, i32 %1, i64 %2, i64 noundef %3) #0 {
   %5 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
@@ -524,7 +524,7 @@ define internal i64 @H5FD_stdio_alloc(ptr nocapture noundef %0, i32 %1, i64 %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @H5FD_stdio_get_eoa(ptr nocapture noundef readonly %0, i32 %1) #0 {
+define internal i64 @H5FD_stdio_get_eoa(ptr noundef readonly captures(none) %0, i32 %1) #0 {
   %3 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i64, ptr %4, align 8
@@ -532,7 +532,7 @@ define internal i64 @H5FD_stdio_get_eoa(ptr nocapture noundef readonly %0, i32 %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5FD_stdio_set_eoa(ptr nocapture noundef writeonly initializes((96, 104)) %0, i32 %1, i64 noundef %2) #0 {
+define internal noundef i32 @H5FD_stdio_set_eoa(ptr noundef writeonly captures(none) initializes((96, 104)) %0, i32 %1, i64 noundef %2) #0 {
   %4 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %2, ptr %5, align 8
@@ -540,7 +540,7 @@ define internal noundef i32 @H5FD_stdio_set_eoa(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @H5FD_stdio_get_eof(ptr nocapture noundef readonly %0, i32 %1) #0 {
+define internal i64 @H5FD_stdio_get_eof(ptr noundef readonly captures(none) %0, i32 %1) #0 {
   %3 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
@@ -548,7 +548,7 @@ define internal i64 @H5FD_stdio_get_eof(ptr nocapture noundef readonly %0, i32 %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5FD_stdio_get_handle(ptr noundef %0, i64 %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define internal noundef i32 @H5FD_stdio_get_handle(ptr noundef %0, i64 %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 {
   %4 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %5, ptr %2, align 8
@@ -556,7 +556,7 @@ define internal noundef i32 @H5FD_stdio_get_handle(ptr noundef %0, i64 %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, i32 %1, i64 %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr noundef captures(none) %0, i32 %1, i64 %2, i64 noundef %3, i64 noundef %4, ptr noundef captures(none) %5) #0 {
   %7 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %8 = icmp eq i64 %3, -1
   br i1 %8, label %9, label %17
@@ -722,7 +722,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr nocapture noundef %0, i32 %1, i64 %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none) %0, i32 %1, i64 %2, i64 noundef %3, i64 noundef %4, ptr noundef captures(none) %5) #0 {
   %7 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %8 = icmp eq i64 %3, -1
   br i1 %8, label %9, label %17
@@ -837,7 +837,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD_stdio_flush(ptr nocapture noundef %0, i64 %1, i1 noundef zeroext %2) #0 {
+define internal range(i32 -1, 1) i32 @H5FD_stdio_flush(ptr noundef captures(none) %0, i64 %1, i1 noundef zeroext %2) #0 {
   %4 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8
@@ -875,7 +875,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_flush(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD_stdio_truncate(ptr nocapture noundef %0, i64 %1, i1 zeroext %2) #0 {
+define internal range(i32 -1, 1) i32 @H5FD_stdio_truncate(ptr noundef captures(none) %0, i64 %1, i1 zeroext %2) #0 {
   %4 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8
@@ -940,7 +940,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_truncate(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD_stdio_lock(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 {
+define internal range(i32 -1, 1) i32 @H5FD_stdio_lock(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 {
   %3 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
@@ -998,7 +998,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_lock(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD_stdio_unlock(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @H5FD_stdio_unlock(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
@@ -1055,7 +1055,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_unlock(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD_stdio_delete(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i32 -1, 1) i32 @H5FD_stdio_delete(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %4 = tail call i32 @remove(ptr noundef %0) #12
   %5 = icmp slt i32 %4, 0
@@ -1079,10 +1079,10 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_delete(ptr nocapture noundef re
 declare i32 @H5check_version(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @freopen64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1090,42 +1090,42 @@ declare ptr @freopen64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @fseeko64(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello64(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @ftello64(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @H5Pget_file_locking(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr nocapture noundef) local_unnamed_addr #6
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @ftruncate64(i32 noundef, i64 noundef) local_unnamed_addr #10
@@ -1137,7 +1137,7 @@ declare i32 @flock(i32 noundef, i32 noundef) local_unnamed_addr #10
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

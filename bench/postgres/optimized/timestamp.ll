@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [3 x i8] c"%Z\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @tm2timestamp(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tm2timestamp(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, -4713
@@ -152,7 +152,7 @@ define i64 @PGTYPEStimestamp_from_asc(ptr noundef %0, ptr noundef %1) local_unna
 14:                                               ; preds = %2
   %.not = icmp eq ptr %1, null
   %15 = select i1 %.not, ptr %11, ptr %1
-  %16 = call i32 @ParseDateTime(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %15) #9
+  %16 = call i32 @ParseDateTime(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %15) #9
   %.not11 = icmp eq i32 %16, 0
   br i1 %.not11, label %17, label %._crit_edge
 
@@ -199,7 +199,7 @@ define i64 @PGTYPEStimestamp_from_asc(ptr noundef %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
@@ -368,7 +368,7 @@ declare void @EncodeDateTime(ptr noundef, i32 noundef, i1 noundef zeroext, i32 n
 declare ptr @pgtypes_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @PGTYPEStimestamp_current(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @PGTYPEStimestamp_current(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   call void @GetCurrentDateTime(ptr noundef nonnull %2) #9
   %3 = tail call ptr @__errno_location() #11
@@ -438,7 +438,7 @@ tm2timestamp.exit:                                ; preds = %.thread.i, %17, %10
 declare void @GetCurrentDateTime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PGTYPEStimestamp_fmt_asc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define i32 @PGTYPEStimestamp_fmt_asc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.tm, align 8
   %7 = alloca i32, align 4
@@ -457,7 +457,7 @@ declare i64 @PGTYPESdate_from_timestamp(i64 noundef) local_unnamed_addr #1
 declare i32 @PGTYPESdate_dayofweek(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [4 x i8], align 4
   store ptr %3, ptr %7, align 8
@@ -1219,7 +1219,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 322) i32 @PGTYPEStimestamp_sub(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 0, 322) i32 @PGTYPEStimestamp_sub(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8
   %.off = add i64 %4, -9223372036854775807
   %switch = icmp ult i64 %.off, 2
@@ -1284,10 +1284,10 @@ define i32 @PGTYPEStimestamp_defmt_asc(ptr noundef %0, ptr noundef %1, ptr nound
 declare i32 @PGTYPEStimestamp_defmt_scan(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca i32, align 4
   %6 = load i64, ptr %0, align 8
@@ -1485,7 +1485,7 @@ tm2timestamp.exit.thread:                         ; preds = %103, %106, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @PGTYPEStimestamp_sub_interval(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPEStimestamp_sub_interval(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.interval, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -1506,7 +1506,7 @@ declare void @j2date(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_u
 declare void @dt2time(double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7

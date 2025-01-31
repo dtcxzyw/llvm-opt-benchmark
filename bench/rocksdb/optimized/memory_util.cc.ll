@@ -55,7 +55,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb10MemoryUtil31GetApproximateMemoryUsageByTypeERKSt6vectorIPNS_2DBESaIS3_EESt13unordered_setIPKNS_5CacheESt4hashISB_ESt8equal_toISB_ESaISB_EEPSt3mapINS0_9UsageTypeEmSt4lessISJ_ESaISt4pairIKSJ_mEEE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dbs, ptr nocapture noundef readonly %cache_set, ptr noundef nonnull %usage_by_type) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb10MemoryUtil31GetApproximateMemoryUsageByTypeERKSt6vectorIPNS_2DBESaIS3_EESt13unordered_setIPKNS_5CacheESt4hashISB_ESt8equal_toISB_ESaISB_EEPSt3mapINS0_9UsageTypeEmSt4lessISJ_ESaISt4pairIKSJ_mEEE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %dbs, ptr noundef readonly captures(none) %cache_set, ptr noundef nonnull %usage_by_type) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %usage = alloca i64, align 8
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
@@ -315,7 +315,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [5 x i8] c"(I)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_java2d_pipe_BufferedRenderPipe_fillSpans(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define i32 @Java_sun_java2d_pipe_BufferedRenderPipe_fillSpans(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = alloca [4 x i32], align 16
   %12 = alloca i8, align 1
   %13 = inttoptr i64 %7 to ptr

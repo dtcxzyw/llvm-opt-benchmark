@@ -5049,7 +5049,7 @@ for.end21:                                        ; preds = %for.body12
 declare ptr @tcg_global_mem_new_i64(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_tr_init_disas_context(ptr nocapture noundef initializes((64, 96), (100, 120), (124, 126), (128, 163)) %dcbase, ptr noundef %cs) #2 {
+define internal void @riscv_tr_init_disas_context(ptr noundef captures(none) initializes((64, 96), (100, 120), (124, 126), (128, 163)) %dcbase, ptr noundef %cs) #2 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.1163, ptr noundef nonnull @.str.1164, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #13
   %0 = load ptr, ptr %dcbase, align 8
@@ -5188,13 +5188,13 @@ land.end29:                                       ; preds = %land.rhs25, %land.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @riscv_tr_tb_start(ptr nocapture readnone %db, ptr nocapture readnone %cpu) #3 {
+define internal void @riscv_tr_tb_start(ptr readnone captures(none) %db, ptr readnone captures(none) %cpu) #3 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_tr_insn_start(ptr nocapture noundef initializes((168, 176)) %dcbase, ptr nocapture readnone %cpu) #2 {
+define internal void @riscv_tr_insn_start(ptr noundef captures(none) initializes((168, 176)) %dcbase, ptr readnone captures(none) %cpu) #2 {
 entry:
   %pc_next1 = getelementptr inbounds nuw i8, ptr %dcbase, i64 16
   %0 = load i64, ptr %pc_next1, align 8
@@ -6653,7 +6653,7 @@ if.end34:                                         ; preds = %if.end34.sink.split
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_tr_tb_stop(ptr noundef %dcbase, ptr nocapture readnone %cpu) #2 {
+define internal void @riscv_tr_tb_stop(ptr noundef %dcbase, ptr readnone captures(none) %cpu) #2 {
 entry:
   %is_jmp = getelementptr inbounds nuw i8, ptr %dcbase, i64 24
   %0 = load i32, ptr %is_jmp, align 8
@@ -6675,7 +6675,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_tr_disas_log(ptr nocapture noundef readonly %dcbase, ptr noundef %cpu, ptr noundef %logfile) #2 {
+define internal void @riscv_tr_disas_log(ptr noundef readonly captures(none) %dcbase, ptr noundef %cpu, ptr noundef %logfile) #2 {
 entry:
   %pc_first = getelementptr inbounds nuw i8, ptr %dcbase, i64 8
   %0 = load i64, ptr %pc_first, align 8
@@ -6710,7 +6710,7 @@ declare zeroext i16 @translator_lduw(ptr noundef, ptr noundef, i64 noundef) loca
 declare i32 @cpu_lduw_code(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @always_true_p(ptr nocapture readnone %cfg) #3 {
+define internal noundef zeroext i1 @always_true_p(ptr readnone captures(none) %cfg) #3 {
 entry:
   ret i1 true
 }
@@ -17421,7 +17421,7 @@ return:                                           ; preds = %if.then7.i.i, %sw.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_xthead_p(ptr nocapture noundef readonly %cfg) #6 {
+define internal zeroext i1 @has_xthead_p(ptr noundef readonly captures(none) %cfg) #6 {
 entry:
   %ext_xtheadba = getelementptr inbounds nuw i8, ptr %cfg, i64 104
   %0 = load i8, ptr %ext_xtheadba, align 8
@@ -20149,7 +20149,7 @@ return:                                           ; preds = %if.then5.i.i.i608, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_XVentanaCondOps_p(ptr nocapture noundef readonly %cfg) #6 {
+define internal zeroext i1 @has_XVentanaCondOps_p(ptr noundef readonly captures(none) %cfg) #6 {
 entry:
   %ext_XVentanaCondOps = getelementptr inbounds nuw i8, ptr %cfg, i64 115
   %0 = load i8, ptr %ext_XVentanaCondOps, align 1
@@ -20158,7 +20158,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @decode_XVentanaCodeOps(ptr nocapture noundef readonly %ctx, i32 noundef %insn) #2 {
+define internal noundef zeroext i1 @decode_XVentanaCodeOps(ptr noundef readonly captures(none) %ctx, i32 noundef %insn) #2 {
 entry:
   %u = alloca %union.anon.707, align 4
   %shr.i.i = lshr i32 %insn, 7
@@ -20192,7 +20192,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vle8_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vle8_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -20282,7 +20282,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vl2re8_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vl2re8_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -20301,7 +20301,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vl4re8_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vl4re8_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -20320,7 +20320,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vl8re8_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vl8re8_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -20339,7 +20339,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vlm_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vlm_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -20372,7 +20372,7 @@ return:                                           ; preds = %entry, %ld_us_mask_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vle8ff_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vle8ff_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -20437,7 +20437,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vlse8_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vlse8_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -20526,7 +20526,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vlxei8_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vlxei8_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @ld_index_check(ptr noundef %s, ptr noundef %a, i8 noundef zeroext 0)
   br i1 %call, label %if.then, label %return
@@ -20577,7 +20577,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_flh(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_flh(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -20698,7 +20698,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_flw(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_flw(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -20775,7 +20775,7 @@ return:                                           ; preds = %do.body2, %decode_s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fld(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fld(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -20851,7 +20851,7 @@ return:                                           ; preds = %do.body2, %decode_s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vle16_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vle16_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -20945,7 +20945,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vl2re16_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vl2re16_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -20964,7 +20964,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vl4re16_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vl4re16_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -20983,7 +20983,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vl8re16_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vl8re16_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -21002,7 +21002,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vle16ff_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vle16ff_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -21068,7 +21068,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vlse16_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vlse16_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -21161,7 +21161,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vlxei16_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vlxei16_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @ld_index_check(ptr noundef %s, ptr noundef %a, i8 noundef zeroext 1)
   br i1 %call, label %if.then, label %return
@@ -21212,7 +21212,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vle32_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vle32_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -21306,7 +21306,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vl2re32_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vl2re32_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -21325,7 +21325,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vl4re32_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vl4re32_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -21344,7 +21344,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vl8re32_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vl8re32_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -21363,7 +21363,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vle32ff_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vle32ff_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -21429,7 +21429,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vlse32_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vlse32_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -21522,7 +21522,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vlxei32_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vlxei32_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @ld_index_check(ptr noundef %s, ptr noundef %a, i8 noundef zeroext 2)
   br i1 %call, label %if.then, label %return
@@ -21573,7 +21573,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vle64_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vle64_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -21667,7 +21667,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vl2re64_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vl2re64_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -21686,7 +21686,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vl4re64_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vl4re64_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -21705,7 +21705,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vl8re64_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vl8re64_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -21724,7 +21724,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vle64ff_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vle64ff_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -21790,7 +21790,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vlse64_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vlse64_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -21883,7 +21883,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vlxei64_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vlxei64_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @ld_index_check(ptr noundef %s, ptr noundef %a, i8 noundef zeroext 3)
   br i1 %call, label %if.then, label %return
@@ -21934,7 +21934,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_pause(ptr nocapture noundef %ctx) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_pause(ptr noundef captures(none) %ctx) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -21990,7 +21990,7 @@ return:                                           ; preds = %entry, %gen_update_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fence_i(ptr nocapture noundef %ctx) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fence_i(ptr noundef captures(none) %ctx) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -22046,7 +22046,7 @@ return:                                           ; preds = %entry, %gen_update_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_slli(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_slli(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %ctx, i64 120
   %ctx.val.i = load i32, ptr %0, align 8
@@ -22163,7 +22163,7 @@ gen_shift_imm_fn.exit:                            ; preds = %entry, %if.then4.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_aes64im(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_aes64im(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -22282,7 +22282,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_aes64ks1i(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_aes64ks1i(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -22312,7 +22312,7 @@ return:                                           ; preds = %do.end4, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_clz(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_clz(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -22347,7 +22347,7 @@ return:                                           ; preds = %entry, %gen_unary_p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_ctz(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_ctz(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -22382,7 +22382,7 @@ return:                                           ; preds = %entry, %gen_unary_p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_cpop(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_cpop(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -22506,7 +22506,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_sext_b(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_sext_b(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -22619,7 +22619,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_sext_h(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_sext_h(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -22732,7 +22732,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_xori(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_xori(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %rd.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %rd.i, align 4
@@ -22840,7 +22840,7 @@ gen_logic_imm_fn.exit:                            ; preds = %get_gpr.exit.i, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_srli(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_srli(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %ctx, i64 120
   %ctx.val.i = load i32, ptr %0, align 8
@@ -22865,7 +22865,7 @@ gen_shift_imm_fn_per_ol.exit:                     ; preds = %entry, %entry, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_srai(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_srai(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %ctx, i64 120
   %ctx.val.i = load i32, ptr %0, align 8
@@ -22890,7 +22890,7 @@ gen_shift_imm_fn_per_ol.exit:                     ; preds = %entry, %entry, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_rori(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_rori(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -22933,7 +22933,7 @@ return:                                           ; preds = %land.lhs.true, %gen
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_brev8(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_brev8(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -23052,7 +23052,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_rev8_64(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_rev8_64(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -23172,7 +23172,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_ori(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_ori(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %rd.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %rd.i, align 4
@@ -23280,7 +23280,7 @@ gen_logic_imm_fn.exit:                            ; preds = %get_gpr.exit.i, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_andi(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_andi(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %rd.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %rd.i, align 4
@@ -23388,7 +23388,7 @@ gen_logic_imm_fn.exit:                            ; preds = %get_gpr.exit.i, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_slliw(ptr nocapture noundef initializes((120, 124)) %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_slliw(ptr noundef captures(none) initializes((120, 124)) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %ol = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   store i32 1, ptr %ol, align 8
@@ -23479,7 +23479,7 @@ gen_shift_imm_fn.exit:                            ; preds = %entry, %if.then4.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_ctzw(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_ctzw(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -23581,7 +23581,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_cpopw(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_cpopw(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -23683,7 +23683,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_roriw(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_roriw(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -23710,7 +23710,7 @@ return:                                           ; preds = %land.lhs.true, %do.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vse8_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vse8_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -23785,7 +23785,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vs2r_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vs2r_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -23804,7 +23804,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vs4r_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vs4r_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -23823,7 +23823,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vs8r_v(ptr nocapture noundef readonly %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vs8r_v(ptr noundef readonly captures(none) %s, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -23842,7 +23842,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsse8_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsse8_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -23916,7 +23916,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsxei8_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsxei8_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -24015,7 +24015,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsh(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsh(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -24135,7 +24135,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsw(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsw(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -24211,7 +24211,7 @@ return:                                           ; preds = %do.body2, %decode_s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsd(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsd(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -24287,7 +24287,7 @@ return:                                           ; preds = %do.body2, %decode_s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vse16_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vse16_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -24366,7 +24366,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsse16_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsse16_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -24444,7 +24444,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsxei16_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsxei16_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -24543,7 +24543,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vse32_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vse32_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -24622,7 +24622,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsse32_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsse32_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -24700,7 +24700,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsxei32_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsxei32_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -24799,7 +24799,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vse64_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vse64_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -24878,7 +24878,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsse64_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsse64_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -24956,7 +24956,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsxei64_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsxei64_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -25055,7 +25055,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_add(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_add(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i.i = icmp eq i32 %0, 0
@@ -25199,7 +25199,7 @@ gen_arith.exit:                                   ; preds = %if.then.i, %sw.epil
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_sub(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_sub(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i.i = icmp eq i32 %0, 0
@@ -25343,7 +25343,7 @@ gen_arith.exit:                                   ; preds = %if.then.i, %sw.epil
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_xor(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_xor(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i.i = icmp eq i32 %0, 0
@@ -25476,7 +25476,7 @@ gen_logic.exit:                                   ; preds = %get_gpr.exit23.i, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_xnor(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_xnor(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -25624,7 +25624,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_or(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_or(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i.i = icmp eq i32 %0, 0
@@ -25757,7 +25757,7 @@ gen_logic.exit:                                   ; preds = %get_gpr.exit23.i, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_orn(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_orn(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -25905,7 +25905,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_and(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_and(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i.i = icmp eq i32 %0, 0
@@ -26038,7 +26038,7 @@ gen_logic.exit:                                   ; preds = %get_gpr.exit23.i, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_andn(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_andn(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -26186,7 +26186,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_mul(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_mul(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -26346,7 +26346,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_mulh(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_mulh(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -26390,7 +26390,7 @@ return:                                           ; preds = %land.lhs.true, %gen
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_mulhsu(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_mulhsu(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -26434,7 +26434,7 @@ return:                                           ; preds = %land.lhs.true, %gen
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_mulhu(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_mulhu(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -26478,7 +26478,7 @@ return:                                           ; preds = %land.lhs.true, %gen
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_min(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_min(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -26647,7 +26647,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_minu(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_minu(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -26816,7 +26816,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_max(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_max(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -26985,7 +26985,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_maxu(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_maxu(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -27154,7 +27154,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_rol(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_rol(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -27197,7 +27197,7 @@ return:                                           ; preds = %land.lhs.true, %gen
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_ror(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_ror(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -27240,7 +27240,7 @@ return:                                           ; preds = %land.lhs.true, %gen
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_lui(ptr nocapture noundef readonly %ctx, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc void @trans_lui(ptr noundef readonly captures(none) %ctx, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %conv = sext i32 %a.0.val to i64
   %cmp.not.i = icmp eq i32 %a.4.val, 0
@@ -27279,7 +27279,7 @@ gen_set_gpri.exit:                                ; preds = %entry, %sw.epilog.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_addw(ptr nocapture noundef initializes((120, 124)) %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_addw(ptr noundef captures(none) initializes((120, 124)) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %ol = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   store i32 1, ptr %ol, align 8
@@ -27395,7 +27395,7 @@ gen_arith.exit:                                   ; preds = %get_gpr.exit, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_mulw(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_mulw(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -27527,7 +27527,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_zext_h_64(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_zext_h_64(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -27640,7 +27640,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_subw(ptr nocapture noundef initializes((120, 124)) %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_subw(ptr noundef captures(none) initializes((120, 124)) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %ol = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   store i32 1, ptr %ol, align 8
@@ -27756,7 +27756,7 @@ gen_arith.exit:                                   ; preds = %get_gpr.exit, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_rolw(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_rolw(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -27783,7 +27783,7 @@ return:                                           ; preds = %land.lhs.true, %do.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_rorw(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_rorw(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -27810,7 +27810,7 @@ return:                                           ; preds = %land.lhs.true, %do.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmadd_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmadd_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -28060,7 +28060,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmadd_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmadd_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -28313,7 +28313,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmadd_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmadd_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -28565,7 +28565,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmsub_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmsub_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -28815,7 +28815,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmsub_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmsub_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -29068,7 +29068,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmsub_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmsub_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -29320,7 +29320,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fnmsub_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fnmsub_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -29570,7 +29570,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fnmsub_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fnmsub_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -29823,7 +29823,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fnmsub_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fnmsub_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -30075,7 +30075,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fnmadd_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fnmadd_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -30325,7 +30325,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fnmadd_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fnmadd_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -30578,7 +30578,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fnmadd_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fnmadd_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -30830,7 +30830,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fadd_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fadd_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -31047,7 +31047,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fadd_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fadd_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -31267,7 +31267,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fadd_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fadd_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -31486,7 +31486,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsub_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsub_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -31703,7 +31703,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsub_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsub_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -31923,7 +31923,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsub_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsub_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -32142,7 +32142,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmul_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmul_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -32359,7 +32359,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmul_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmul_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -32579,7 +32579,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmul_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmul_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -32798,7 +32798,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fdiv_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fdiv_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -33015,7 +33015,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fdiv_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fdiv_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -33235,7 +33235,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fdiv_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fdiv_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -33454,7 +33454,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsgnj_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsgnj_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -33650,7 +33650,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsgnjn_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsgnjn_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -33866,7 +33866,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsgnjx_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsgnjx_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -34080,7 +34080,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsgnj_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsgnj_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -34271,7 +34271,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsgnjn_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsgnjn_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -34444,7 +34444,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsgnjx_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsgnjx_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -34617,7 +34617,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsgnj_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsgnj_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -34817,7 +34817,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsgnjn_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsgnjn_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -35017,7 +35017,7 @@ return:                                           ; preds = %if.end33, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsgnjx_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsgnjx_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -35214,7 +35214,7 @@ return:                                           ; preds = %if.end32, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmin_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmin_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -35379,7 +35379,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmax_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmax_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -35544,7 +35544,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fminm_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fminm_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -35714,7 +35714,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmaxm_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmaxm_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -35884,7 +35884,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmin_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmin_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -36054,7 +36054,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmax_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmax_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -36224,7 +36224,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fminm_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fminm_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -36394,7 +36394,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmaxm_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmaxm_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -36564,7 +36564,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmin_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmin_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -36733,7 +36733,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmax_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmax_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -36902,7 +36902,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fminm_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fminm_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -37071,7 +37071,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmaxm_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmaxm_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -37240,7 +37240,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_s_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_s_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -37427,7 +37427,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_s_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_s_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -37613,7 +37613,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fround_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fround_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -37800,7 +37800,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_froundnx_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_froundnx_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -37987,7 +37987,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_s_bf16(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_s_bf16(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -38167,7 +38167,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_d_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_d_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -38354,7 +38354,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_d_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_d_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -38553,7 +38553,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fround_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fround_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -38740,7 +38740,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_froundnx_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_froundnx_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -38927,7 +38927,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_h_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_h_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -39113,7 +39113,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_h_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_h_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -39312,7 +39312,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fround_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fround_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -39498,7 +39498,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_froundnx_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_froundnx_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -39684,7 +39684,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_bf16_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_bf16_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -39864,7 +39864,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsqrt_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsqrt_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -40048,7 +40048,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsqrt_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsqrt_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -40235,7 +40235,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fsqrt_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fsqrt_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -40421,7 +40421,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fle_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fle_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -40613,7 +40613,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_flt_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_flt_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -40805,7 +40805,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_feq_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_feq_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -40997,7 +40997,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fleq_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fleq_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -41189,7 +41189,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fltq_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fltq_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -41381,7 +41381,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fle_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fle_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -41573,7 +41573,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_flt_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_flt_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -41765,7 +41765,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_feq_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_feq_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -41957,7 +41957,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fleq_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fleq_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -42149,7 +42149,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fltq_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fltq_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -42341,7 +42341,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fle_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fle_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -42532,7 +42532,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_flt_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_flt_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -42723,7 +42723,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_feq_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_feq_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -42914,7 +42914,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fleq_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fleq_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -43105,7 +43105,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fltq_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fltq_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -43296,7 +43296,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_w_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_w_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -43505,7 +43505,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_wu_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_wu_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -43714,7 +43714,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_l_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_l_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -43923,7 +43923,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_lu_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_lu_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -44132,7 +44132,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_w_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_w_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -44341,7 +44341,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_wu_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_wu_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -44550,7 +44550,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_l_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_l_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -44759,7 +44759,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_lu_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_lu_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -44968,7 +44968,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvtmod_w_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvtmod_w_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -45168,7 +45168,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_w_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_w_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -45376,7 +45376,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_wu_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_wu_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -45584,7 +45584,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_l_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_l_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -45792,7 +45792,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_lu_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_lu_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -46000,7 +46000,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_s_w(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_s_w(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -46192,7 +46192,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_s_wu(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_s_wu(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -46384,7 +46384,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_s_l(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_s_l(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -46576,7 +46576,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_s_lu(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_s_lu(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -46768,7 +46768,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_d_w(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_d_w(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -46963,7 +46963,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_d_wu(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_d_wu(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -47158,7 +47158,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_d_l(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_d_l(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -47353,7 +47353,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_d_lu(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_d_lu(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -47548,7 +47548,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_h_w(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_h_w(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -47742,7 +47742,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_h_wu(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_h_wu(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -47936,7 +47936,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_h_l(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_h_l(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -48130,7 +48130,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fcvt_h_lu(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fcvt_h_lu(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -48324,7 +48324,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmv_x_w(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmv_x_w(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -48474,7 +48474,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fclass_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fclass_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -48633,7 +48633,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmv_x_d(ptr nocapture noundef %ctx, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmv_x_d(ptr noundef captures(none) %ctx, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -48722,7 +48722,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fclass_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fclass_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -48878,7 +48878,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmv_x_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmv_x_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -49001,7 +49001,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fclass_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fclass_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -49159,7 +49159,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmv_w_x(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmv_w_x(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -49291,7 +49291,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fli_s(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fli_s(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -49393,7 +49393,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmv_d_x(ptr nocapture noundef %ctx, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmv_d_x(ptr noundef captures(none) %ctx, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -49466,7 +49466,7 @@ return:                                           ; preds = %do.body4, %get_gpr.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fli_d(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fli_d(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -49568,7 +49568,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fmv_h_x(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fmv_h_x(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -49667,7 +49667,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_fli_h(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_fli_h(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -49768,7 +49768,7 @@ return:                                           ; preds = %if.end4.sink.split.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vadd_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vadd_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -49942,7 +49942,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vandn_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vandn_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -50128,7 +50128,7 @@ return:                                           ; preds = %land.rhs.i.i, %requ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsub_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsub_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -50302,7 +50302,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vminu_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vminu_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -50476,7 +50476,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmin_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmin_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -50650,7 +50650,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmaxu_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmaxu_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -50824,7 +50824,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmax_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmax_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -50998,7 +50998,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vand_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vand_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -51172,7 +51172,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vor_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vor_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -51346,7 +51346,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vxor_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vxor_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -51520,7 +51520,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vrgather_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vrgather_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -51659,7 +51659,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vrgatherei16_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vrgatherei16_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i, align 2
@@ -51857,7 +51857,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vadc_vvm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vadc_vvm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -51980,7 +51980,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmadc_vvm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmadc_vvm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -52070,7 +52070,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsbc_vvm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsbc_vvm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -52193,7 +52193,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsbc_vvm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsbc_vvm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -52283,7 +52283,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vror_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vror_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -52469,7 +52469,7 @@ return:                                           ; preds = %land.rhs.i.i, %requ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vrol_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vrol_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -52655,7 +52655,7 @@ return:                                           ; preds = %land.rhs.i.i, %requ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmerge_vvm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmerge_vvm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -52778,7 +52778,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmv_v_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmv_v_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -52902,7 +52902,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmseq_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmseq_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -52992,7 +52992,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsne_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsne_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -53082,7 +53082,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsltu_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsltu_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -53172,7 +53172,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmslt_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmslt_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -53262,7 +53262,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsleu_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsleu_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -53352,7 +53352,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsle_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsle_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -53442,7 +53442,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfadd_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfadd_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -53553,7 +53553,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfredusum_vs(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfredusum_vs(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -53741,7 +53741,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfsub_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfsub_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -53852,7 +53852,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfredosum_vs(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfredosum_vs(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -54040,7 +54040,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmin_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmin_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -54151,7 +54151,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfredmin_vs(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfredmin_vs(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -54339,7 +54339,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmax_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmax_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -54450,7 +54450,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfredmax_vs(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfredmax_vs(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -54638,7 +54638,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfsgnj_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfsgnj_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -54749,7 +54749,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfsgnjn_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfsgnjn_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -54860,7 +54860,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfsgnjx_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfsgnjx_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -54971,7 +54971,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmv_f_s(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmv_f_s(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -55129,7 +55129,7 @@ return:                                           ; preds = %if.end.i, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwcvt_xu_f_v(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwcvt_xu_f_v(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -55289,7 +55289,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwcvt_x_f_v(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwcvt_x_f_v(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -55449,7 +55449,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwcvt_f_xu_v(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwcvt_f_xu_v(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -55602,7 +55602,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwcvt_f_x_v(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwcvt_f_x_v(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -55755,7 +55755,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwcvt_f_f_v(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwcvt_f_f_v(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -55906,7 +55906,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwcvtbf16_f_f_v(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwcvtbf16_f_f_v(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -56063,7 +56063,7 @@ return:                                           ; preds = %do.end7, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwcvt_rtz_xu_f_v(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwcvt_rtz_xu_f_v(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -56223,7 +56223,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwcvt_rtz_x_f_v(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwcvt_rtz_x_f_v(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -56383,7 +56383,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfncvt_xu_f_w(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfncvt_xu_f_w(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -56542,7 +56542,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfncvt_x_f_w(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfncvt_x_f_w(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -56701,7 +56701,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfncvt_f_xu_w(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfncvt_f_xu_w(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -56852,7 +56852,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfncvt_f_x_w(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfncvt_f_x_w(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -57003,7 +57003,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfncvt_f_f_w(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfncvt_f_f_w(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -57154,7 +57154,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfncvt_rod_f_f_w(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfncvt_rod_f_f_w(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -57305,7 +57305,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfncvt_rtz_xu_f_w(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfncvt_rtz_xu_f_w(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -57464,7 +57464,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfncvt_rtz_x_f_w(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfncvt_rtz_x_f_w(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -57623,7 +57623,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfncvtbf16_f_f_w(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfncvtbf16_f_f_w(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -57780,7 +57780,7 @@ return:                                           ; preds = %do.end7, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmfeq_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmfeq_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -57946,7 +57946,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmfle_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmfle_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -58112,7 +58112,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmflt_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmflt_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -58278,7 +58278,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmfne_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmfne_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -58444,7 +58444,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vredsum_vs(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vredsum_vs(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -58555,7 +58555,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vredand_vs(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vredand_vs(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -58666,7 +58666,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vredor_vs(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vredor_vs(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -58777,7 +58777,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vredxor_vs(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vredxor_vs(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -58888,7 +58888,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vredminu_vs(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vredminu_vs(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -58999,7 +58999,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vredmin_vs(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vredmin_vs(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -59110,7 +59110,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vredmaxu_vs(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vredmaxu_vs(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -59221,7 +59221,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vredmax_vs(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vredmax_vs(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -59332,7 +59332,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaaddu_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaaddu_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -59456,7 +59456,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaadd_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaadd_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -59580,7 +59580,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vasubu_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vasubu_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -59704,7 +59704,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vasub_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vasub_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -59828,7 +59828,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vclmul_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vclmul_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -59960,7 +59960,7 @@ return:                                           ; preds = %land.rhs.i.i, %requ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vclmulh_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vclmulh_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -60092,7 +60092,7 @@ return:                                           ; preds = %land.rhs.i.i, %requ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmv_x_s(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmv_x_s(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -60206,7 +60206,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vcpop_m(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vcpop_m(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -60348,7 +60348,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfirst_m(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfirst_m(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -60490,7 +60490,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vzext_vf8(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vzext_vf8(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @int_ext_check(ptr noundef %s, ptr noundef %a, i8 noundef zeroext 3)
   br i1 %call, label %if.then, label %return
@@ -60505,7 +60505,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsext_vf8(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsext_vf8(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @int_ext_check(ptr noundef %s, ptr noundef %a, i8 noundef zeroext 3)
   br i1 %call, label %if.then, label %return
@@ -60520,7 +60520,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vzext_vf4(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vzext_vf4(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @int_ext_check(ptr noundef %s, ptr noundef %a, i8 noundef zeroext 2)
   br i1 %call, label %if.then, label %return
@@ -60535,7 +60535,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsext_vf4(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsext_vf4(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @int_ext_check(ptr noundef %s, ptr noundef %a, i8 noundef zeroext 2)
   br i1 %call, label %if.then, label %return
@@ -60550,7 +60550,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vzext_vf2(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vzext_vf2(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @int_ext_check(ptr noundef %s, ptr noundef %a, i8 noundef zeroext 1)
   br i1 %call, label %if.then, label %return
@@ -60565,7 +60565,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsext_vf2(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsext_vf2(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @int_ext_check(ptr noundef %s, ptr noundef %a, i8 noundef zeroext 1)
   br i1 %call, label %if.then, label %return
@@ -60580,7 +60580,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vbrev8_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vbrev8_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 128
   %0 = load ptr, ptr %cfg_ptr.i, align 8
@@ -60708,7 +60708,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vrev8_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vrev8_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 128
   %0 = load ptr, ptr %cfg_ptr.i, align 8
@@ -60836,7 +60836,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vbrev_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vbrev_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 128
   %0 = load ptr, ptr %cfg_ptr.i, align 8
@@ -60958,7 +60958,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vclz_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vclz_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 128
   %0 = load ptr, ptr %cfg_ptr.i, align 8
@@ -61080,7 +61080,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vctz_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vctz_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 128
   %0 = load ptr, ptr %cfg_ptr.i, align 8
@@ -61202,7 +61202,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vcpop_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vcpop_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 128
   %0 = load ptr, ptr %cfg_ptr.i, align 8
@@ -61324,7 +61324,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsbf_m(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsbf_m(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -61407,7 +61407,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsof_m(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsof_m(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -61490,7 +61490,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsif_m(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsif_m(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -61573,7 +61573,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_viota_m(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_viota_m(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -61699,7 +61699,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vid_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vid_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -61795,7 +61795,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vcompress_vm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vcompress_vm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -61928,7 +61928,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmandn_mm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmandn_mm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -61988,7 +61988,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmand_mm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmand_mm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -62048,7 +62048,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmor_mm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmor_mm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -62108,7 +62108,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmxor_mm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmxor_mm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -62168,7 +62168,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmorn_mm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmorn_mm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -62228,7 +62228,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmnand_mm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmnand_mm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -62288,7 +62288,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmnor_mm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmnor_mm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -62348,7 +62348,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmxnor_mm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmxnor_mm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -62408,7 +62408,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vadd_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vadd_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -62521,7 +62521,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vrsub_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vrsub_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -62637,7 +62637,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vand_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vand_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -62750,7 +62750,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vor_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vor_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -62863,7 +62863,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vxor_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vxor_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -62976,7 +62976,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vrgather_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vrgather_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -63113,7 +63113,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vslideup_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vslideup_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -63186,7 +63186,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vslidedown_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vslidedown_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -63260,7 +63260,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vadc_vim(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vadc_vim(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -63330,7 +63330,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmadc_vim(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmadc_vim(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_vmadc_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -63356,7 +63356,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vror_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vror_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -63491,7 +63491,7 @@ return:                                           ; preds = %land.rhs.i.i, %requ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmerge_vim(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmerge_vim(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -63561,7 +63561,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmv_v_i(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmv_v_i(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -63684,7 +63684,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmseq_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmseq_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -63710,7 +63710,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsne_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsne_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -63736,7 +63736,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsleu_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsleu_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -63762,7 +63762,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsle_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsle_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -63788,7 +63788,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsgtu_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsgtu_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -63814,7 +63814,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsgt_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsgt_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -63840,7 +63840,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vadd_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vadd_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -63993,7 +63993,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vandn_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vandn_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -64159,7 +64159,7 @@ return:                                           ; preds = %land.rhs.i.i, %requ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsub_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsub_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -64312,7 +64312,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vrsub_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vrsub_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -64381,7 +64381,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vminu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vminu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -64452,7 +64452,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmin_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmin_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -64523,7 +64523,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmaxu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmaxu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -64594,7 +64594,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmax_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmax_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -64665,7 +64665,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vand_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vand_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -64818,7 +64818,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vor_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vor_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -64971,7 +64971,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vxor_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vxor_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -65124,7 +65124,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vrgather_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vrgather_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -65368,7 +65368,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vslideup_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vslideup_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -65441,7 +65441,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vslidedown_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vslidedown_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -65515,7 +65515,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vadc_vxm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vadc_vxm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -65585,7 +65585,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmadc_vxm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmadc_vxm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_vmadc_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -65611,7 +65611,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsbc_vxm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsbc_vxm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -65681,7 +65681,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsbc_vxm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsbc_vxm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_vmadc_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -65707,7 +65707,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vror_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vror_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -65866,7 +65866,7 @@ return:                                           ; preds = %land.rhs.i.i, %requ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vrol_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vrol_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -66025,7 +66025,7 @@ return:                                           ; preds = %land.rhs.i.i, %requ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmerge_vxm(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmerge_vxm(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -66095,7 +66095,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmv_v_x(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmv_v_x(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -66261,7 +66261,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmseq_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmseq_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66287,7 +66287,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsne_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsne_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66313,7 +66313,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsltu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsltu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66339,7 +66339,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmslt_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmslt_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66365,7 +66365,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsleu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsleu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66391,7 +66391,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsle_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsle_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66417,7 +66417,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsgtu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsgtu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66443,7 +66443,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmsgt_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmsgt_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opivx_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66469,7 +66469,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfadd_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfadd_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66558,7 +66558,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfsub_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfsub_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66647,7 +66647,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmin_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmin_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66736,7 +66736,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmax_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmax_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66825,7 +66825,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfsgnj_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfsgnj_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -66914,7 +66914,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfsgnjn_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfsgnjn_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -67003,7 +67003,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfsgnjx_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfsgnjx_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -67092,7 +67092,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfslide1up_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfslide1up_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -67273,7 +67273,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfslide1down_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfslide1down_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -67455,7 +67455,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmv_s_f(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmv_s_f(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -67573,7 +67573,7 @@ return:                                           ; preds = %if.end.i, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmerge_vfm(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmerge_vfm(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -67662,7 +67662,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmv_v_f(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmv_v_f(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -67888,7 +67888,7 @@ return:                                           ; preds = %if.end.i, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmfeq_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmfeq_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -67977,7 +67977,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmfle_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmfle_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -68066,7 +68066,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmflt_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmflt_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -68155,7 +68155,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmfne_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmfne_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -68244,7 +68244,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmfgt_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmfgt_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -68333,7 +68333,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmfge_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmfge_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_cmp_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -68422,7 +68422,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaaddu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaaddu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -68493,7 +68493,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaadd_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaadd_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -68564,7 +68564,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vasubu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vasubu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -68635,7 +68635,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vasub_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vasub_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -68706,7 +68706,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vclmul_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vclmul_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -68786,7 +68786,7 @@ return:                                           ; preds = %land.rhs.i.i, %requ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vclmulh_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vclmulh_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -68866,7 +68866,7 @@ return:                                           ; preds = %land.rhs.i.i, %requ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vslide1up_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vslide1up_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -68939,7 +68939,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vslide1down_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vslide1down_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -69013,7 +69013,7 @@ return:                                           ; preds = %require_align.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmv_s_x(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmv_s_x(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -69078,7 +69078,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsetvli(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsetvli(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %conv = sext i32 %0 to i64
@@ -69092,7 +69092,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsaddu_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsaddu_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -69216,7 +69216,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsadd_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsadd_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -69340,7 +69340,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vssubu_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vssubu_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -69464,7 +69464,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vssub_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vssub_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -69588,7 +69588,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsll_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsll_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -69762,7 +69762,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsmul_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsmul_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -69895,7 +69895,7 @@ return:                                           ; preds = %land.rhs.i, %land.r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsrl_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsrl_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -70069,7 +70069,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsra_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsra_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -70243,7 +70243,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vssrl_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vssrl_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -70367,7 +70367,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vssra_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vssra_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -70491,7 +70491,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnsrl_wv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnsrl_wv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -70598,7 +70598,7 @@ return:                                           ; preds = %land.rhs.i, %entry,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnsra_wv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnsra_wv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -70705,7 +70705,7 @@ return:                                           ; preds = %land.rhs.i, %entry,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnclipu_wv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnclipu_wv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -70812,7 +70812,7 @@ return:                                           ; preds = %land.rhs.i, %entry,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnclip_wv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnclip_wv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -70919,7 +70919,7 @@ return:                                           ; preds = %land.rhs.i, %entry,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfdiv_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfdiv_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -71030,7 +71030,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmul_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmul_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -71141,7 +71141,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmadd_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmadd_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -71252,7 +71252,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfnmadd_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfnmadd_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -71363,7 +71363,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmsub_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmsub_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -71474,7 +71474,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfnmsub_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfnmsub_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -71585,7 +71585,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmacc_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmacc_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -71696,7 +71696,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfnmacc_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfnmacc_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -71807,7 +71807,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmsac_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmsac_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -71918,7 +71918,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfnmsac_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfnmsac_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvv_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -72029,7 +72029,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwadd_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwadd_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -72180,7 +72180,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwredusum_vs(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwredusum_vs(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i.i = load i32, ptr %0, align 8
@@ -72367,7 +72367,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwsub_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwsub_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -72518,7 +72518,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwredosum_vs(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwredosum_vs(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i.i = load i32, ptr %0, align 8
@@ -72705,7 +72705,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwadd_wv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwadd_wv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -72879,7 +72879,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwsub_wv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwsub_wv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -73053,7 +73053,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwmul_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwmul_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -73204,7 +73204,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwmaccbf16_vv(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwmaccbf16_vv(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -73325,7 +73325,7 @@ return:                                           ; preds = %do.end7, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwmacc_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwmacc_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -73476,7 +73476,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwnmacc_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwnmacc_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -73627,7 +73627,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwmsac_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwmsac_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -73778,7 +73778,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwnmsac_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwnmsac_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -73929,7 +73929,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vdivu_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vdivu_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -74053,7 +74053,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vdiv_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vdiv_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -74177,7 +74177,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vremu_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vremu_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -74301,7 +74301,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vrem_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vrem_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -74425,7 +74425,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmulhu_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmulhu_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -74558,7 +74558,7 @@ return:                                           ; preds = %land.rhs.i, %land.r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmul_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmul_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -74732,7 +74732,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmulhsu_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmulhsu_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -74865,7 +74865,7 @@ return:                                           ; preds = %land.rhs.i, %land.r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmulh_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmulh_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -74998,7 +74998,7 @@ return:                                           ; preds = %land.rhs.i, %land.r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmadd_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmadd_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -75122,7 +75122,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnmsub_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnmsub_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -75246,7 +75246,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmacc_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmacc_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -75370,7 +75370,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnmsac_vv(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnmsac_vv(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -75494,7 +75494,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsaddu_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsaddu_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -75565,7 +75565,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsadd_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsadd_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -75636,7 +75636,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsll_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsll_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -75759,7 +75759,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmv1r_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmv1r_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -75819,7 +75819,7 @@ return:                                           ; preds = %entry, %if.then4, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmv2r_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmv2r_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -75891,7 +75891,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmv4r_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmv4r_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -75963,7 +75963,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmv8r_v(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmv8r_v(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -76034,7 +76034,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsrl_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsrl_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -76157,7 +76157,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsra_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsra_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -76280,7 +76280,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vssrl_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vssrl_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -76351,7 +76351,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vssra_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vssra_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -76422,7 +76422,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnsrl_wi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnsrl_wi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -76461,7 +76461,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnsra_wi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnsra_wi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -76500,7 +76500,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnclipu_wi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnclipu_wi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -76539,7 +76539,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnclip_wi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnclip_wi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -76578,7 +76578,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwsll_vi(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwsll_vi(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 128
   %0 = load ptr, ptr %cfg_ptr.i, align 8
@@ -76625,7 +76625,7 @@ return:                                           ; preds = %land.rhs.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsaddu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsaddu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -76696,7 +76696,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsadd_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsadd_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -76767,7 +76767,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vssubu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vssubu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -76838,7 +76838,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vssub_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vssub_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -76909,7 +76909,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsll_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsll_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -77055,7 +77055,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsmul_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsmul_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -77135,7 +77135,7 @@ return:                                           ; preds = %land.rhs.i, %land.r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsrl_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsrl_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -77281,7 +77281,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsra_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsra_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -77427,7 +77427,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vssrl_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vssrl_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -77498,7 +77498,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vssra_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vssra_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -77569,7 +77569,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnsrl_wx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnsrl_wx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -77608,7 +77608,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnsra_wx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnsra_wx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -77647,7 +77647,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnclipu_wx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnclipu_wx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -77686,7 +77686,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnclip_wx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnclip_wx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -77725,7 +77725,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwsll_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwsll_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 128
   %0 = load ptr, ptr %cfg_ptr.i, align 8
@@ -77772,7 +77772,7 @@ return:                                           ; preds = %land.rhs.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfdiv_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfdiv_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -77861,7 +77861,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfrdiv_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfrdiv_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -77950,7 +77950,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmul_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmul_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -78039,7 +78039,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfrsub_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfrsub_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -78128,7 +78128,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmadd_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmadd_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -78217,7 +78217,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfnmadd_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfnmadd_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -78306,7 +78306,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmsub_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmsub_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -78395,7 +78395,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfnmsub_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfnmsub_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -78484,7 +78484,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmacc_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmacc_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -78573,7 +78573,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfnmacc_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfnmacc_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -78662,7 +78662,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfmsac_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfmsac_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -78751,7 +78751,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfnmsac_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfnmsac_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -78840,7 +78840,7 @@ return:                                           ; preds = %entry, %gen_set_rm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwadd_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwadd_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -78972,7 +78972,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwsub_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwsub_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -79104,7 +79104,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwadd_wf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwadd_wf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -79277,7 +79277,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwsub_wf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwsub_wf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -79450,7 +79450,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwmul_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwmul_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -79582,7 +79582,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwmaccbf16_vf(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwmaccbf16_vf(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %mstatus_fs = getelementptr inbounds nuw i8, ptr %ctx, i64 100
   %0 = load i32, ptr %mstatus_fs, align 4
@@ -79679,7 +79679,7 @@ return:                                           ; preds = %do.end7, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwmacc_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwmacc_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -79811,7 +79811,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwnmacc_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwnmacc_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -79943,7 +79943,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwmsac_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwmsac_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -80075,7 +80075,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vfwnmsac_vf(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vfwnmsac_vf(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -80207,7 +80207,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vdivu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vdivu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -80278,7 +80278,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vdiv_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vdiv_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -80349,7 +80349,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vremu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vremu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -80420,7 +80420,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vrem_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vrem_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -80491,7 +80491,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmulhu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmulhu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -80571,7 +80571,7 @@ return:                                           ; preds = %land.rhs.i, %land.r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmul_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmul_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -80724,7 +80724,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmulhsu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmulhsu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -80804,7 +80804,7 @@ return:                                           ; preds = %land.rhs.i, %land.r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmulh_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmulh_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i.i = load i32, ptr %0, align 8
@@ -80884,7 +80884,7 @@ return:                                           ; preds = %land.rhs.i, %land.r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmadd_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmadd_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -80955,7 +80955,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnmsub_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnmsub_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81026,7 +81026,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vmacc_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vmacc_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81097,7 +81097,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vnmsac_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vnmsac_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81168,7 +81168,7 @@ return:                                           ; preds = %land.rhs.i, %requir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwaddu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwaddu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81207,7 +81207,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwadd_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwadd_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81246,7 +81246,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwsubu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwsubu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81285,7 +81285,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwsub_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwsub_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81324,7 +81324,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwaddu_wx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwaddu_wx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew, align 2
@@ -81407,7 +81407,7 @@ do_opiwx_widen.exit:                              ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwadd_wx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwadd_wx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew, align 2
@@ -81490,7 +81490,7 @@ do_opiwx_widen.exit:                              ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwsubu_wx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwsubu_wx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew, align 2
@@ -81573,7 +81573,7 @@ do_opiwx_widen.exit:                              ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwsub_wx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwsub_wx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew, align 2
@@ -81656,7 +81656,7 @@ do_opiwx_widen.exit:                              ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwmulu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwmulu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81695,7 +81695,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwmulsu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwmulsu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81734,7 +81734,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwmul_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwmul_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81773,7 +81773,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwmaccu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwmaccu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81812,7 +81812,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwmacc_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwmacc_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81851,7 +81851,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwmaccus_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwmaccus_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81890,7 +81890,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vwmaccsu_vx(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vwmaccsu_vx(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -81929,7 +81929,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsetvl(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsetvl(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %rs2 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %rs2, align 4
@@ -81978,7 +81978,7 @@ get_gpr.exit:                                     ; preds = %if.then.i, %sw.bb.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsetivli(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsetivli(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %rs1 = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %rs1, align 4
@@ -82138,7 +82138,7 @@ do_vsetivli.exit:                                 ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_jalr(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_jalr(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call ptr @tcg_temp_new_i64() #13
   %rd = getelementptr inbounds nuw i8, ptr %a, i64 8
@@ -82489,7 +82489,7 @@ gen_jal.exit:                                     ; preds = %gen_pc_plus_diff.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_ebreak(ptr nocapture noundef %ctx) unnamed_addr #2 {
+define internal fastcc void @trans_ebreak(ptr noundef captures(none) %ctx) unnamed_addr #2 {
 entry:
   %pc_next = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load i64, ptr %pc_next, align 8
@@ -82527,7 +82527,7 @@ if.end15:                                         ; preds = %if.then, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_csrrw(ptr noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_csrrw(ptr noundef %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %rs1 = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %rs1, align 4
@@ -82591,7 +82591,7 @@ return:                                           ; preds = %if.end, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_csrrs(ptr noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_csrrs(ptr noundef %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %rs1 = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %rs1, align 4
@@ -82656,7 +82656,7 @@ return:                                           ; preds = %get_gpr.exit, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_csrrc(ptr noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_csrrc(ptr noundef %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %rs1 = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %rs1, align 4
@@ -82712,7 +82712,7 @@ return:                                           ; preds = %get_gpr.exit, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_csrrwi(ptr noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_csrrwi(ptr noundef %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %rs1 = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %rs1, align 4
@@ -82752,7 +82752,7 @@ return:                                           ; preds = %if.end, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_csrrsi(ptr noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_csrrsi(ptr noundef %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %rs1 = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %rs1, align 4
@@ -82782,7 +82782,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_csrrci(ptr noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc void @trans_csrrci(ptr noundef %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %rs1 = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %rs1, align 4
@@ -82812,7 +82812,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsm3me_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsm3me_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i.i, align 2
@@ -83017,7 +83017,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsm4k_vi(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsm4k_vi(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i.i, align 2
@@ -83221,7 +83221,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaeskf1_vi(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaeskf1_vi(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i, align 2
@@ -83425,7 +83425,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaesdm_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaesdm_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i, align 2
@@ -83628,7 +83628,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaesdf_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaesdf_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i, align 2
@@ -83831,7 +83831,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaesem_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaesem_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i, align 2
@@ -84034,7 +84034,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaesef_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaesef_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i, align 2
@@ -84237,7 +84237,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsm4r_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsm4r_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i.i, align 2
@@ -84436,7 +84436,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vgmul_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vgmul_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i, align 2
@@ -84644,7 +84644,7 @@ return:                                           ; preds = %land.lhs.true11.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaesdm_vs(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaesdm_vs(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %a, i64 4
   %a.val = load i32, ptr %0, align 4
@@ -84857,7 +84857,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaesdf_vs(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaesdf_vs(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %a, i64 4
   %a.val = load i32, ptr %0, align 4
@@ -85070,7 +85070,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaesem_vs(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaesem_vs(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %a, i64 4
   %a.val = load i32, ptr %0, align 4
@@ -85283,7 +85283,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaesef_vs(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaesef_vs(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %a, i64 4
   %a.val = load i32, ptr %0, align 4
@@ -85496,7 +85496,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaesz_vs(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaesz_vs(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %a, i64 4
   %a.val = load i32, ptr %0, align 4
@@ -85709,7 +85709,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsm4r_vs(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsm4r_vs(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i.i, align 2
@@ -85919,7 +85919,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vaeskf2_vi(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vaeskf2_vi(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i, align 2
@@ -86123,7 +86123,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsm3c_vi(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsm3c_vi(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i.i, align 2
@@ -86351,7 +86351,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vghsh_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vghsh_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew.i = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew.i, align 2
@@ -86537,7 +86537,7 @@ return:                                           ; preds = %land.rhs.i.i, %requ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsha2ms_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsha2ms_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @vsha_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -86645,7 +86645,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsha2ch_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsha2ch_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @vsha_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -86757,7 +86757,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_vsha2cl_vv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_vsha2cl_vv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @vsha_check(ptr noundef %s, ptr noundef %a)
   br i1 %call, label %if.then, label %return
@@ -86869,7 +86869,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_load(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 0, 12) %memop) unnamed_addr #2 {
+define internal fastcc void @gen_load(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 0, 12) %memop) unnamed_addr #2 {
 entry:
   %insn_start.i = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %insn_start.i, align 8
@@ -86974,7 +86974,7 @@ gen_load_tl.exit:                                 ; preds = %dest_gpr.exit.i, %s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_address(ptr nocapture noundef readonly %ctx, i32 noundef %rs1, i32 noundef %imm) unnamed_addr #2 {
+define internal fastcc ptr @get_address(ptr noundef readonly captures(none) %ctx, i32 noundef %rs1, i32 noundef %imm) unnamed_addr #2 {
 entry:
   %call = tail call ptr @tcg_temp_new_i64() #13
   %cmp.i = icmp eq i32 %rs1, 0
@@ -87033,7 +87033,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
 declare ptr @tcg_temp_new_i64() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_gpr(ptr nocapture noundef readonly %ctx, i32 noundef %reg_num, i32 noundef range(i32 0, 3) %ext) unnamed_addr #2 {
+define internal fastcc ptr @get_gpr(ptr noundef readonly captures(none) %ctx, i32 noundef %reg_num, i32 noundef range(i32 0, 3) %ext) unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %reg_num, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -87262,7 +87262,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ldst_us_trans(i32 noundef %vd, i32 noundef %rs1, i32 noundef %data, ptr nocapture noundef readonly %fn, ptr nocapture noundef readonly %s) unnamed_addr #2 {
+define internal fastcc void @ldst_us_trans(i32 noundef %vd, i32 noundef %rs1, i32 noundef %data, ptr noundef readonly captures(none) %fn, ptr noundef readonly captures(none) %s) unnamed_addr #2 {
 entry:
   %call = tail call ptr @gen_new_label() #13
   %0 = load ptr, ptr @cpu_vstart, align 8
@@ -87337,7 +87337,7 @@ declare i32 @simd_desc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr
 declare void @gen_set_label(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ldst_whole_trans(i32 noundef %vd, i32 noundef %rs1, i32 noundef range(i32 1, 9) %nf, i32 noundef range(i32 1, 9) %width, ptr nocapture noundef readonly %fn, ptr nocapture noundef readonly %s) unnamed_addr #2 {
+define internal fastcc void @ldst_whole_trans(i32 noundef %vd, i32 noundef %rs1, i32 noundef range(i32 1, 9) %nf, i32 noundef range(i32 1, 9) %width, ptr noundef readonly captures(none) %fn, ptr noundef readonly captures(none) %s) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %s, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -87495,7 +87495,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @ldff_op(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a, i8 noundef zeroext range(i8 0, 4) %eew) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @ldff_op(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a, i8 noundef zeroext range(i8 0, 4) %eew) unnamed_addr #2 {
 entry:
   %idxprom = zext nneg i8 %eew to i64
   %arrayidx = getelementptr [4 x ptr], ptr @ldff_op.fns, i64 0, i64 %idxprom
@@ -87753,7 +87753,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ldst_stride_trans(i32 noundef %vd, i32 noundef %rs1, i32 noundef %rs2, i32 noundef %data, ptr nocapture noundef nonnull readonly %fn, ptr nocapture noundef readonly %s) unnamed_addr #2 {
+define internal fastcc void @ldst_stride_trans(i32 noundef %vd, i32 noundef %rs1, i32 noundef %rs2, i32 noundef %data, ptr noundef nonnull readonly captures(none) %fn, ptr noundef readonly captures(none) %s) unnamed_addr #2 {
 entry:
   %call = tail call ptr @gen_new_label() #13
   %0 = load ptr, ptr @cpu_vstart, align 8
@@ -87842,7 +87842,7 @@ get_gpr.exit22:                                   ; preds = %if.then.i20, %sw.ep
 declare void @tcg_gen_call6(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @ld_index_check(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a, i8 noundef zeroext range(i8 0, 4) %eew) unnamed_addr #2 {
+define internal fastcc zeroext i1 @ld_index_check(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a, i8 noundef zeroext range(i8 0, 4) %eew) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -88529,7 +88529,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ldst_index_trans(i32 noundef %vd, i32 noundef %rs1, i32 noundef %vs2, i32 noundef %data, ptr nocapture noundef readonly %fn, ptr nocapture noundef readonly %s) unnamed_addr #2 {
+define internal fastcc void @ldst_index_trans(i32 noundef %vd, i32 noundef %rs1, i32 noundef %vs2, i32 noundef %data, ptr noundef readonly captures(none) %fn, ptr noundef readonly captures(none) %s) unnamed_addr #2 {
 entry:
   %call = tail call ptr @gen_new_label() #13
   %0 = load ptr, ptr @cpu_vstart, align 8
@@ -88815,7 +88815,7 @@ declare void @tcg_gen_mb(i32 noundef) local_unnamed_addr #1
 declare void @tcg_gen_call2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, ptr noundef readonly %f128) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly %f128) unnamed_addr #2 {
 entry:
   %rd = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %rd, align 4
@@ -88950,7 +88950,7 @@ entry:
 declare void @tcg_gen_add2_i64(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef readonly %func) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @gen_shift_imm_fn(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly captures(none) %func) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %ctx, i64 120
   %ctx.val = load i32, ptr %0, align 8
@@ -89069,7 +89069,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 declare void @tcg_gen_shli_i64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_unary(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 0, 3) %ext, ptr nocapture noundef readonly %func) unnamed_addr #2 {
+define internal fastcc void @gen_unary(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 0, 3) %ext, ptr noundef readonly captures(none) %func) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -89151,7 +89151,7 @@ gen_set_gpr.exit:                                 ; preds = %dest_gpr.exit, %sw.
 declare void @tcg_gen_call1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_sha256(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef readonly %func, i32 noundef range(i32 2, 18) %num1, i32 noundef range(i32 11, 20) %num2, i32 noundef range(i32 3, 26) %num3) unnamed_addr #2 {
+define internal fastcc void @gen_sha256(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly captures(none) %func, i32 noundef range(i32 2, 18) %num1, i32 noundef range(i32 11, 20) %num2, i32 noundef range(i32 3, 26) %num3) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -89277,7 +89277,7 @@ declare void @tcg_gen_ext_i32_i64(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @tcg_gen_shri_i32(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_sha512_rv64(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef readonly %func, i64 noundef range(i64 1, 29) %num1, i64 noundef range(i64 8, 62) %num2, i64 noundef range(i64 6, 42) %num3) unnamed_addr #2 {
+define internal fastcc void @gen_sha512_rv64(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly captures(none) %func, i64 noundef range(i64 1, 29) %num1, i64 noundef range(i64 8, 62) %num2, i64 noundef range(i64 6, 42) %num3) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -89397,7 +89397,7 @@ declare void @tcg_gen_xor_i64(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @tcg_gen_shri_i64(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_sm3(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 9, 16) %b, i32 noundef range(i32 17, 24) %c) unnamed_addr #2 {
+define internal fastcc void @gen_sm3(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 9, 16) %b, i32 noundef range(i32 17, 24) %c) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -89511,7 +89511,7 @@ gen_set_gpr.exit:                                 ; preds = %get_gpr.exit, %sw.e
 declare void @tcg_gen_rotli_i32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gen_shift_imm_tl(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef readonly %func) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @gen_shift_imm_tl(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly captures(none) %func) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %ctx, i64 120
   %ctx.val = load i32, ptr %0, align 8
@@ -89633,7 +89633,7 @@ entry:
 declare void @tcg_gen_shl_i64(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gen_arith_imm_tl(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 0, 2) %ext, ptr nocapture noundef readonly %func, ptr noundef readonly %f128) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @gen_arith_imm_tl(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 0, 2) %ext, ptr noundef readonly captures(none) %func, ptr noundef readonly %f128) unnamed_addr #2 {
 entry:
   %rd = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %rd, align 4
@@ -89939,7 +89939,7 @@ entry:
 declare void @tcg_gen_deposit_z_i64(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_store(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 0, 11) %memop) unnamed_addr #2 {
+define internal fastcc void @gen_store(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 0, 11) %memop) unnamed_addr #2 {
 entry:
   %insn_start.i = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %insn_start.i, align 8
@@ -90662,7 +90662,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_amo(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef readonly %func, i32 noundef range(i32 227, 235) %mop) unnamed_addr #2 {
+define internal fastcc void @gen_amo(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly captures(none) %func, i32 noundef range(i32 227, 235) %mop) unnamed_addr #2 {
 entry:
   %rd = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load i32, ptr %rd, align 4
@@ -90865,7 +90865,7 @@ entry:
 declare void @tcg_gen_atomic_xchg_i64_chk(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_lr(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 227, 235) %mop) unnamed_addr #2 {
+define internal fastcc void @gen_lr(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 227, 235) %mop) unnamed_addr #2 {
 entry:
   %insn_start.i = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %insn_start.i, align 8
@@ -91018,7 +91018,7 @@ gen_set_gpr.exit:                                 ; preds = %if.end3, %sw.epilog
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_sc(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 227, 235) %mop) unnamed_addr #2 {
+define internal fastcc void @gen_sc(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 227, 235) %mop) unnamed_addr #2 {
 entry:
   %call = tail call ptr @gen_new_label() #13
   %call1 = tail call ptr @gen_new_label() #13
@@ -91363,7 +91363,7 @@ entry:
 declare void @tcg_gen_atomic_fetch_umax_i64_chk(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gen_arith(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 0, 3) %ext, ptr nocapture noundef readonly %func, ptr noundef readonly %f128) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @gen_arith(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 0, 3) %ext, ptr noundef readonly captures(none) %func, ptr noundef readonly %f128) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -91461,7 +91461,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 declare void @tcg_gen_sub_i64(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gen_shift(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 0, 3) %ext, ptr nocapture noundef readonly %func) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @gen_shift(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 0, 3) %ext, ptr noundef readonly captures(none) %func) unnamed_addr #2 {
 entry:
   %rs2 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %rs2, align 4
@@ -91584,7 +91584,7 @@ return:                                           ; preds = %if.then5.i, %sw.epi
 declare void @tcg_gen_movcond_i64(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_logic(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef readonly %func) unnamed_addr #2 {
+define internal fastcc void @gen_logic(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly captures(none) %func) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -92150,7 +92150,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_aes32_sm4(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef readonly %func) unnamed_addr #2 {
+define internal fastcc void @gen_aes32_sm4(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly captures(none) %func) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %conv = sext i32 %0 to i64
@@ -92476,7 +92476,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_set_rm(ptr nocapture noundef %ctx, i32 noundef %rm) unnamed_addr #2 {
+define internal fastcc void @gen_set_rm(ptr noundef captures(none) %ctx, i32 noundef %rm) unnamed_addr #2 {
 entry:
   %frm = getelementptr inbounds nuw i8, ptr %ctx, i64 116
   %0 = load i32, ptr %frm, align 4
@@ -94874,7 +94874,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @opfvv_check(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc zeroext i1 @opfvv_check(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -95744,7 +95744,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @do_opfv(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %a, ptr noundef %fn, i32 noundef range(i32 1, 8) %rm) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @do_opfv(ptr noundef captures(none) %s, ptr noundef nonnull readonly captures(none) %a, ptr noundef %fn, i32 noundef range(i32 1, 8) %rm) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @opfv_check(ptr noundef %s, ptr noundef nonnull %a)
   br i1 %call, label %if.then, label %return
@@ -95844,7 +95844,7 @@ return:                                           ; preds = %entry, %gen_set_rm_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @opfv_check(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
+define internal fastcc zeroext i1 @opfv_check(ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -95943,7 +95943,7 @@ land.end:                                         ; preds = %if.end.i, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_set_rm_chkfrm(ptr nocapture noundef %ctx, i32 noundef range(i32 1, 9) %rm) unnamed_addr #2 {
+define internal fastcc void @gen_set_rm_chkfrm(ptr noundef captures(none) %ctx, i32 noundef range(i32 1, 9) %rm) unnamed_addr #2 {
 entry:
   %frm = getelementptr inbounds nuw i8, ptr %ctx, i64 116
   %0 = load i32, ptr %frm, align 4
@@ -96203,7 +96203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @vext_check_ds(ptr nocapture noundef readonly %s, i32 noundef %vd, i32 noundef %vs, i32 noundef %vm) unnamed_addr #7 {
+define internal fastcc zeroext i1 @vext_check_ds(ptr noundef readonly captures(none) %s, i32 noundef %vd, i32 noundef %vs, i32 noundef %vm) unnamed_addr #7 {
 entry:
   %lmul.i = getelementptr inbounds nuw i8, ptr %s, i64 137
   %0 = load i8, ptr %lmul.i, align 1
@@ -96596,7 +96596,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @vext_check_sd(ptr nocapture noundef readonly %s, i32 noundef %vd, i32 noundef %vs, i32 noundef %vm) unnamed_addr #7 {
+define internal fastcc zeroext i1 @vext_check_sd(ptr noundef readonly captures(none) %s, i32 noundef %vd, i32 noundef %vs, i32 noundef %vm) unnamed_addr #7 {
 entry:
   %lmul.i = getelementptr inbounds nuw i8, ptr %s, i64 137
   %0 = load i8, ptr %lmul.i, align 1
@@ -98450,7 +98450,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @int_ext_check(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a, i8 noundef zeroext range(i8 1, 4) %div) unnamed_addr #2 {
+define internal fastcc zeroext i1 @int_ext_check(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a, i8 noundef zeroext range(i8 1, 4) %div) unnamed_addr #2 {
 entry:
   %sew = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew, align 2
@@ -98587,7 +98587,7 @@ land.end:                                         ; preds = %if.end33.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @int_ext_op(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a, i8 noundef zeroext range(i8 0, 6) %seq) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @int_ext_op(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a, i8 noundef zeroext range(i8 0, 6) %seq) unnamed_addr #2 {
 entry:
   %call = tail call ptr @gen_new_label() #13
   %0 = load ptr, ptr @cpu_vstart, align 8
@@ -99873,7 +99873,7 @@ entry:
 declare void @tcg_gen_gvec_addi(i32 noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @opivi_trans(i32 noundef %vd, i32 noundef %imm, i32 noundef %vs2, i32 noundef %vm, ptr nocapture noundef readonly %fn, ptr nocapture noundef readonly %s, i32 noundef range(i32 0, 3) %imm_mode) unnamed_addr #2 {
+define internal fastcc void @opivi_trans(i32 noundef %vd, i32 noundef %imm, i32 noundef %vs2, i32 noundef %vm, ptr noundef readonly captures(none) %fn, ptr noundef readonly captures(none) %s, i32 noundef range(i32 0, 3) %imm_mode) unnamed_addr #2 {
 entry:
   %call = tail call ptr @gen_new_label() #13
   %0 = load ptr, ptr @cpu_vstart, align 8
@@ -100791,7 +100791,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @opivx_vmadc_check(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc zeroext i1 @opivx_vmadc_check(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -101210,7 +101210,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @opivx_cmp_check(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc zeroext i1 @opivx_cmp_check(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -101811,7 +101811,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_opivx_gvec(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef readonly %gvec_fn, ptr nocapture noundef readonly %fn) unnamed_addr #2 {
+define internal fastcc void @do_opivx_gvec(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly captures(none) %gvec_fn, ptr noundef readonly captures(none) %fn) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -101920,7 +101920,7 @@ return:                                           ; preds = %if.end, %get_gpr.ex
 declare void @tcg_gen_gvec_adds(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @opivx_trans(i32 noundef %vd, i32 noundef %rs1, i32 noundef %vs2, i32 noundef %vm, ptr nocapture noundef readonly %fn, ptr nocapture noundef readonly %s) unnamed_addr #2 {
+define internal fastcc void @opivx_trans(i32 noundef %vd, i32 noundef %rs1, i32 noundef %vs2, i32 noundef %vm, ptr noundef readonly captures(none) %fn, ptr noundef readonly captures(none) %s) unnamed_addr #2 {
 entry:
   %call = tail call ptr @gen_new_label() #13
   %0 = load ptr, ptr @cpu_vstart, align 8
@@ -102974,7 +102974,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @opfvf_check(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc zeroext i1 @opfvf_check(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -103136,7 +103136,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @opfvf_trans(i32 noundef %vd, i32 noundef %rs1, i32 noundef %vs2, i32 noundef %data, ptr nocapture noundef readonly %fn, ptr nocapture noundef readonly %s) unnamed_addr #2 {
+define internal fastcc void @opfvf_trans(i32 noundef %vd, i32 noundef %rs1, i32 noundef %vs2, i32 noundef %data, ptr noundef readonly captures(none) %fn, ptr noundef readonly captures(none) %s) unnamed_addr #2 {
 entry:
   %call = tail call ptr @gen_new_label() #13
   %0 = load ptr, ptr @cpu_vstart, align 8
@@ -103840,7 +103840,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @opfvf_cmp_check(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc zeroext i1 @opfvf_cmp_check(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -104900,7 +104900,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @do_vsetvl(ptr nocapture noundef %s, i32 noundef %rd, i32 noundef %rs1, ptr noundef %s2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @do_vsetvl(ptr noundef captures(none) %s, i32 noundef %rd, i32 noundef %rs1, ptr noundef %s2) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -106252,7 +106252,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @do_opivv_widen(ptr noundef %s, ptr noundef nonnull %a, ptr noundef %fn, ptr nocapture noundef readonly %checkfn) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @do_opivv_widen(ptr noundef %s, ptr noundef nonnull %a, ptr noundef %fn, ptr noundef readonly captures(none) %checkfn) unnamed_addr #2 {
 entry:
   %call = tail call zeroext i1 %checkfn(ptr noundef %s, ptr noundef nonnull %a) #13, !callees !17
   br i1 %call, label %if.then, label %return
@@ -106314,7 +106314,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @reduction_widen_check(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %a) #2 {
+define internal zeroext i1 @reduction_widen_check(ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %a) #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -106508,7 +106508,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @vwsll_vv_check(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %a) #2 {
+define internal zeroext i1 @vwsll_vv_check(ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %a) #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %s, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -106546,7 +106546,7 @@ land.end:                                         ; preds = %land.rhs.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @opivv_widen_check(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %a) #2 {
+define internal zeroext i1 @opivv_widen_check(ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %a) #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %0, align 8
@@ -106576,7 +106576,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @vext_check_dss(ptr nocapture noundef readonly %s, i32 noundef %vd, i32 noundef %vs1, i32 noundef %vs2, i32 noundef %vm) unnamed_addr #2 {
+define internal fastcc zeroext i1 @vext_check_dss(ptr noundef readonly captures(none) %s, i32 noundef %vd, i32 noundef %vs1, i32 noundef %vs2, i32 noundef %vm) unnamed_addr #2 {
 entry:
   %call = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef %s, i32 noundef %vd, i32 noundef %vs2, i32 noundef %vm)
   br i1 %call, label %land.lhs.true, label %land.end
@@ -109110,7 +109110,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @do_opiwv_widen(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a, ptr noundef %fn) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @do_opiwv_widen(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a, ptr noundef %fn) unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 104
   %s.val.i = load i32, ptr %0, align 8
@@ -114073,7 +114073,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_branch(ptr noundef %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 2, 10) %cond) unnamed_addr #2 {
+define internal fastcc void @gen_branch(ptr noundef %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 2, 10) %cond) unnamed_addr #2 {
 entry:
   %call = tail call ptr @gen_new_label() #13
   %rs1 = getelementptr inbounds nuw i8, ptr %a, i64 8
@@ -114382,7 +114382,7 @@ declare zeroext i1 @translator_use_goto_tb(ptr noundef, i64 noundef) local_unnam
 declare void @tcg_gen_goto_tb(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @generate_exception(ptr nocapture noundef %ctx, i32 noundef range(i32 0, 23) %excp) unnamed_addr #2 {
+define internal fastcc void @generate_exception(ptr noundef captures(none) %ctx, i32 noundef range(i32 0, 23) %excp) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @cpu_pc, align 8
   %pc_next.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
@@ -114433,7 +114433,7 @@ gen_update_pc.exit:                               ; preds = %if.then2.i.i, %if.e
 declare i32 @cpu_ldl_code(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_wrs(ptr nocapture noundef %ctx) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_wrs(ptr noundef captures(none) %ctx) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -114583,7 +114583,7 @@ gen_set_gpr.exit:                                 ; preds = %dest_gpr.exit, %sw.
 declare zeroext i1 @translator_io_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_csr_post(ptr nocapture noundef %ctx) unnamed_addr #2 {
+define internal fastcc void @do_csr_post(ptr noundef captures(none) %ctx) unnamed_addr #2 {
 entry:
   %insn_start.i = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %insn_start.i, align 8
@@ -114768,7 +114768,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @vsha_check(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc zeroext i1 @vsha_check(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %sew = getelementptr inbounds nuw i8, ptr %s, i64 138
   %0 = load i8, ptr %sew, align 2
@@ -114997,7 +114997,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_srri(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_srri(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -115034,7 +115034,7 @@ return:                                           ; preds = %entry, %gen_shift_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_mulah(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_mulah(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -115183,7 +115183,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_mulsh(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_mulsh(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -115332,7 +115332,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_rev(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_rev(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -115367,7 +115367,7 @@ return:                                           ; preds = %entry, %gen_unary_p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_ff0(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_ff0(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -115505,7 +115505,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_ff1(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_ff1(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -115540,7 +115540,7 @@ return:                                           ; preds = %entry, %gen_unary_p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_revw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_revw(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -115653,7 +115653,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_srb(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_srb(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -115712,7 +115712,7 @@ return:                                           ; preds = %entry, %gen_store_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_surb(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_surb(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -115771,7 +115771,7 @@ return:                                           ; preds = %entry, %gen_store_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_srh(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_srh(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -115830,7 +115830,7 @@ return:                                           ; preds = %entry, %gen_store_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_surh(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_surh(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -115889,7 +115889,7 @@ return:                                           ; preds = %entry, %gen_store_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_srw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_srw(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -115948,7 +115948,7 @@ return:                                           ; preds = %entry, %gen_store_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_surw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_surw(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -116007,7 +116007,7 @@ return:                                           ; preds = %entry, %gen_store_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_srd(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_srd(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -116066,7 +116066,7 @@ return:                                           ; preds = %entry, %gen_store_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_th_surd(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_th_surd(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -116152,7 +116152,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_th_mac(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef readonly %accumulate_func, ptr noundef readonly %extend_operand_func) unnamed_addr #2 {
+define internal fastcc void @gen_th_mac(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly captures(none) %accumulate_func, ptr noundef readonly %extend_operand_func) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -116327,7 +116327,7 @@ gen_set_gpr.exit:                                 ; preds = %if.end, %sw.epilog.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_th_condmove(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 8, 10) %cond) unnamed_addr #2 {
+define internal fastcc void @gen_th_condmove(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 8, 10) %cond) unnamed_addr #2 {
 entry:
   %rs1 = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %rs1, align 4
@@ -116496,7 +116496,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_load_idx(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 0, 12) %memop, i1 noundef zeroext %zext_offs) unnamed_addr #2 {
+define internal fastcc void @gen_load_idx(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 0, 12) %memop, i1 noundef zeroext %zext_offs) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -116587,7 +116587,7 @@ gen_set_gpr.exit:                                 ; preds = %dest_gpr.exit, %sw.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_th_address_indexed(ptr nocapture noundef readonly %ctx, i32 noundef %rs1, i32 noundef %rs2, i32 noundef %imm2, i1 noundef zeroext %zext_offs) unnamed_addr #2 {
+define internal fastcc ptr @get_th_address_indexed(ptr noundef readonly captures(none) %ctx, i32 noundef %rs1, i32 noundef %rs2, i32 noundef %imm2, i1 noundef zeroext %zext_offs) unnamed_addr #2 {
 entry:
   %cmp.i = icmp eq i32 %rs2, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -116680,7 +116680,7 @@ get_address_indexed.exit:                         ; preds = %if.end.i8, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gen_load_inc(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 0, 12) %memop, i1 noundef zeroext %preinc) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @gen_load_inc(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 0, 12) %memop, i1 noundef zeroext %preinc) unnamed_addr #2 {
 entry:
   %rs1 = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %rs1, align 4
@@ -116854,7 +116854,7 @@ return:                                           ; preds = %if.then5.i36, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gen_loadpair_tl(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 2, 12) %memop, i32 noundef range(i32 3, 5) %shamt) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @gen_loadpair_tl(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 2, 12) %memop, i32 noundef range(i32 3, 5) %shamt) unnamed_addr #2 {
 entry:
   %rs = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %rs, align 4
@@ -116998,7 +116998,7 @@ return:                                           ; preds = %if.then5.i33, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_store_inc(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 8, 12) %memop, i1 noundef zeroext %preinc) unnamed_addr #2 {
+define internal fastcc void @gen_store_inc(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 8, 12) %memop, i1 noundef zeroext %preinc) unnamed_addr #2 {
 entry:
   %imm5 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %imm5, align 4
@@ -117124,7 +117124,7 @@ gen_set_gpr.exit:                                 ; preds = %get_gpr.exit24, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_storepair_tl(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a, i32 noundef range(i32 10, 12) %memop, i32 noundef range(i32 3, 5) %shamt) unnamed_addr #2 {
+define internal fastcc void @gen_storepair_tl(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 10, 12) %memop, i32 noundef range(i32 3, 5) %shamt) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -117212,7 +117212,7 @@ get_gpr.exit24:                                   ; preds = %if.then.i22, %sw.ep
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_illegal(ptr nocapture noundef %ctx) unnamed_addr #2 {
+define internal fastcc void @trans_illegal(ptr noundef captures(none) %ctx) unnamed_addr #2 {
 entry:
   %opcode.i = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   %0 = load i32, ptr %opcode.i, align 8
@@ -117228,7 +117228,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_c_fld(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_c_fld(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -117317,7 +117317,7 @@ return:                                           ; preds = %decode_save_opc.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trans_c64_illegal(ptr nocapture noundef %ctx) unnamed_addr #2 {
+define internal fastcc void @trans_c64_illegal(ptr noundef captures(none) %ctx) unnamed_addr #2 {
 entry:
   %opcode.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   %0 = load i32, ptr %opcode.i.i, align 8
@@ -117333,7 +117333,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal fastcc void @decode_insn16_extract_cj(ptr nocapture noundef nonnull writeonly initializes((0, 4)) %a, i16 noundef zeroext %insn) unnamed_addr #8 {
+define internal fastcc void @decode_insn16_extract_cj(ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %a, i16 noundef zeroext %insn) unnamed_addr #8 {
 entry:
   %conv = zext i16 %insn to i32
   %shr.i = lshr i32 %conv, 3
@@ -117362,7 +117362,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_c_mul(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_c_mul(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -117524,7 +117524,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_c_zext_b(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_c_zext_b(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -117637,7 +117637,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_c_sext_b(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_c_sext_b(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -117757,7 +117757,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_c_zext_h(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_c_zext_h(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -117877,7 +117877,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_c_sext_h(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_c_sext_h(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -117997,7 +117997,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_c_zext_w(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_c_zext_w(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -118116,7 +118116,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_c_not(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_c_not(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -118229,7 +118229,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_c_fsd(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_c_fsd(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -118318,7 +118318,7 @@ return:                                           ; preds = %decode_save_opc.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_cm_jalt(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_cm_jalt(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -118469,7 +118469,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_cm_mvsa01(ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_cm_mvsa01(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -118584,7 +118584,7 @@ return:                                           ; preds = %if.then5.i23, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_cm_mva01s(ptr nocapture noundef readonly %ctx, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_cm_mva01s(ptr noundef readonly captures(none) %ctx, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -118720,7 +118720,7 @@ return:                                           ; preds = %if.then5.i27, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_cm_push(ptr nocapture noundef readonly %ctx, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_cm_push(ptr noundef readonly captures(none) %ctx, i32 %a.0.val, i32 %a.4.val) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -118869,7 +118869,7 @@ declare void @tcg_gen_subi_i64(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare i32 @llvm.ctpop.i32(i32) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gen_pop(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a, i1 noundef zeroext %ret, i1 noundef zeroext %ret_val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @gen_pop(ptr noundef captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i1 noundef zeroext %ret, i1 noundef zeroext %ret_val) unnamed_addr #2 {
 entry:
   %cfg_ptr = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %cfg_ptr, align 8
@@ -119132,7 +119132,7 @@ return:                                           ; preds = %if.end.i, %do.end, 
 declare void @tcg_gen_st_i32(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare ptr @lookup_symbol(i64 noundef) local_unnamed_addr #1
 
@@ -119154,10 +119154,10 @@ declare i8 @llvm.smin.i8(i8, i8) #10
 declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

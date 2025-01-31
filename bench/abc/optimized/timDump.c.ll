@@ -1239,7 +1239,7 @@ declare i32 @Tim_ManBoxCopy(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @Tim_ManDelayTableNum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_StrPutF(ptr nocapture noundef %0, float noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_StrPutF(ptr noundef captures(none) %0, float noundef %1) unnamed_addr #2 {
   %3 = bitcast float %1 to i32
   %.sroa.0.0.extract.trunc = trunc i32 %3 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1513,7 +1513,7 @@ declare float @Tim_ManGetCiArrival(ptr noundef, i32 noundef) local_unnamed_addr 
 declare float @Tim_ManGetCoRequired(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Tim_ManLoad(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @Tim_ManLoad(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
 Vec_StrGetI_ne.exit.preheader:
   %2 = getelementptr i8, ptr %0, i64 8
   %.val.i.le = load ptr, ptr %2, align 8
@@ -2077,7 +2077,7 @@ declare void @Tim_ManInitPiArrival(ptr noundef, i32 noundef, float noundef) loca
 declare void @Tim_ManInitPoRequired(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5

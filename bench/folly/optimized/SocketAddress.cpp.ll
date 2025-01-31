@@ -179,12 +179,12 @@ cleanup:                                          ; preds = %if.else, %_ZNK5foll
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare noundef zeroext i1 @_ZNK5folly11IPAddressV611isLinkLocalEv(ptr noundef nonnull align 4 dereferenceable(18)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare noundef zeroext i1 @_ZNK5folly11IPAddressV49isPrivateEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
@@ -302,7 +302,7 @@ declare noundef zeroext i1 @_ZNK5folly11IPAddressV410isLoopbackEv(ptr noundef no
 declare noundef zeroext i1 @_ZNK5folly11IPAddressV610isLoopbackEv(ptr noundef nonnull align 4 dereferenceable(18)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress15setFromHostPortEPKct(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %host, i16 noundef zeroext %port) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress15setFromHostPortEPKct(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef %host, i16 noundef zeroext %port) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %portString.i = alloca [6 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %portString.i) #27
@@ -329,7 +329,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5folly13SocketAddress11getAddrInfoEPKcti(ptr nocapture noundef nonnull readnone align 8 dereferenceable(27) %this, ptr noundef %host, i16 noundef zeroext %port, i32 noundef %flags) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN5folly13SocketAddress11getAddrInfoEPKcti(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(27) %this, ptr noundef %host, i16 noundef zeroext %port, i32 noundef %flags) local_unnamed_addr #0 align 2 {
 entry:
   %portString = alloca [6 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %portString) #27
@@ -341,7 +341,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress15setFromAddrInfoEPK8addrinfo(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr nocapture noundef readonly %info) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly13SocketAddress15setFromAddrInfoEPK8addrinfo(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef readonly captures(none) %info) local_unnamed_addr #0 align 2 {
 entry:
   %ai_addr = getelementptr inbounds nuw i8, ptr %info, i64 24
   %0 = load ptr, ptr %ai_addr, align 8, !tbaa !19
@@ -355,7 +355,7 @@ entry:
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress13setFromIpPortEPKct(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %ip, i16 noundef zeroext %port) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress13setFromIpPortEPKct(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef %ip, i16 noundef zeroext %port) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %portString.i = alloca [6 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %portString.i) #27
@@ -382,7 +382,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly13SocketAddress17setFromIpAddrPortERKNS_9IPAddressEt(ptr nocapture noundef nonnull align 8 dereferenceable(27) initializes((8, 22), (24, 26)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(22) %ipAddr, i16 noundef zeroext %port) local_unnamed_addr #8 align 2 {
+define void @_ZN5folly13SocketAddress17setFromIpAddrPortERKNS_9IPAddressEt(ptr noundef nonnull align 8 captures(none) dereferenceable(27) initializes((8, 22), (24, 26)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(22) %ipAddr, i16 noundef zeroext %port) local_unnamed_addr #8 align 2 {
 entry:
   %external_ = getelementptr inbounds nuw i8, ptr %this, i64 26
   %0 = load i8, ptr %external_, align 2, !tbaa !7, !range !13, !noundef !14
@@ -410,10 +410,10 @@ if.end:                                           ; preds = %_ZN5folly13SocketAd
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress16setFromLocalPortEt(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, i16 noundef zeroext %port) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress16setFromLocalPortEt(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, i16 noundef zeroext %port) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %portString.i = alloca [6 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %portString.i) #27
@@ -459,7 +459,7 @@ lpad:                                             ; preds = %return.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr noundef readonly %info) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef readonly %info) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.not15 = icmp ne ptr %info, null
   tail call void @llvm.assume(i1 %cmp.not15)
@@ -489,7 +489,7 @@ return:                                           ; preds = %for.inc, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress16setFromLocalPortEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %port) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress16setFromLocalPortEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef %port) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN5folly13SocketAddress11getAddrInfoEPKcS2_i(ptr nonnull align 8 poison, ptr noundef null, ptr noundef %port, i32 noundef 32)
   %cmp.not15.i = icmp ne ptr %call, null
@@ -530,7 +530,7 @@ lpad:                                             ; preds = %return.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5folly13SocketAddress11getAddrInfoEPKcS2_i(ptr nocapture nonnull readnone align 8 %this, ptr noundef %host, ptr noundef %port, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5folly13SocketAddress11getAddrInfoEPKcS2_i(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %host, ptr noundef %port, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v9::format_arg_store", align 16
   %hints = alloca %struct.addrinfo, align 8
@@ -616,14 +616,14 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress18setFromLocalIpPortEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %addressAndPort) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress18setFromLocalIpPortEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef %addressAndPort) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %addressAndPort, i32 noundef 58) #31
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %_ZN12_GLOBAL__N_111HostAndPortC2EPKcb.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
-  %call5.i = tail call noalias ptr @strdup(ptr noundef %addressAndPort) #27
+  %call5.i = tail call noalias ptr @strdup(ptr noundef nonnull %addressAndPort) #27
   %tobool8.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool8.not.i, label %if.then9.i, label %if.end11.i
 
@@ -659,7 +659,7 @@ _ZN12_GLOBAL__N_111HostAndPortC2EPKcb.exit:       ; preds = %if.then21.i, %land.
   %hp.sroa.7.0 = phi ptr [ %add.ptr15.i, %if.then21.i ], [ %add.ptr15.i, %land.lhs.true.i ], [ %add.ptr15.i, %if.end11.i ], [ %addressAndPort, %entry ]
   %hp.sroa.10.0 = phi ptr [ %call5.i, %if.then21.i ], [ %call5.i, %land.lhs.true.i ], [ %call5.i, %if.end11.i ], [ null, %entry ]
   %hp.sroa.0.0 = phi ptr [ %incdec.ptr.i, %if.then21.i ], [ %call5.i, %land.lhs.true.i ], [ %call5.i, %if.end11.i ], [ null, %entry ]
-  %call = invoke noundef ptr @_ZN5folly13SocketAddress11getAddrInfoEPKcS2_i(ptr nonnull align 8 poison, ptr noundef %hp.sroa.0.0, ptr noundef %hp.sroa.7.0, i32 noundef 36)
+  %call = invoke noundef ptr @_ZN5folly13SocketAddress11getAddrInfoEPKcS2_i(ptr nonnull align 8 poison, ptr noundef %hp.sroa.0.0, ptr noundef nonnull %hp.sroa.7.0, i32 noundef 36)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN12_GLOBAL__N_111HostAndPortC2EPKcb.exit
@@ -712,7 +712,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111HostAndPortC2EPKcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111HostAndPortC2EPKcb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %port = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
@@ -737,7 +737,7 @@ lpad:                                             ; preds = %if.then2
 
 if.end4:                                          ; preds = %entry
   %allocated = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %call5 = tail call noalias ptr @strdup(ptr noundef %str) #27
+  %call5 = tail call noalias ptr @strdup(ptr noundef nonnull %str) #27
   store ptr %call5, ptr %allocated, align 8, !tbaa !52
   %tobool8.not = icmp eq ptr %call5, null
   br i1 %tobool8.not, label %if.then9, label %if.end11
@@ -788,16 +788,16 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress13setFromIpPortEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %addressAndPort) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress13setFromIpPortEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef %addressAndPort) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hp = alloca %"struct.(anonymous namespace)::HostAndPort", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %hp) #27
@@ -845,7 +845,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress15setFromHostPortEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %hostAndPort) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress15setFromHostPortEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef %hostAndPort) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hp = alloca %"struct.(anonymous namespace)::HostAndPort", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %hp) #27
@@ -893,7 +893,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -1, 65536) i32 @_ZN5folly13SocketAddress11getPortFromEPK8sockaddr(ptr nocapture noundef readonly %address) local_unnamed_addr #13 align 2 {
+define noundef range(i32 -1, 65536) i32 @_ZN5folly13SocketAddress11getPortFromEPK8sockaddr(ptr noundef readonly captures(none) %address) local_unnamed_addr #13 align 2 {
 entry:
   %0 = load i16, ptr %address, align 2, !tbaa !56
   switch i16 %0, label %return [
@@ -914,7 +914,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN5folly13SocketAddress17getFamilyNameFromEPK8sockaddrPKc(ptr nocapture noundef readonly %address, ptr noundef readnone %defaultResult) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZN5folly13SocketAddress17getFamilyNameFromEPK8sockaddrPKc(ptr noundef readonly captures(none) %address, ptr noundef readnone %defaultResult) local_unnamed_addr #13 align 2 {
 entry:
   %0 = load i16, ptr %address, align 2, !tbaa !56
   switch i16 %0, label %sw.default [
@@ -942,7 +942,7 @@ return:                                           ; preds = %sw.default, %sw.bb3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress11setFromPathENS_5RangeIPKcEE(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr %path.coerce0, ptr %path.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress11setFromPathENS_5RangeIPKcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr %path.coerce0, ptr %path.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %path.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %path.coerce0 to i64
@@ -1010,7 +1010,7 @@ if.end15:                                         ; preds = %if.then11, %if.end4
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress18setFromPeerAddressENS_13NetworkSocketE(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, i32 %socket.coerce) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly13SocketAddress18setFromPeerAddressENS_13NetworkSocketE(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, i32 %socket.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %tmp_sock.i = alloca %struct.sockaddr_storage, align 8
   %addrLen.i = alloca i32, align 4
@@ -1034,7 +1034,7 @@ _ZN5folly13SocketAddress13setFromSocketENS_13NetworkSocketEPFiS1_P8sockaddrPjE.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress13setFromSocketENS_13NetworkSocketEPFiS1_P8sockaddrPjE(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, i32 %socket.coerce, ptr nocapture noundef readonly %fn) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly13SocketAddress13setFromSocketENS_13NetworkSocketEPFiS1_P8sockaddrPjE(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, i32 %socket.coerce, ptr noundef readonly captures(none) %fn) local_unnamed_addr #0 align 2 {
 entry:
   %tmp_sock = alloca %struct.sockaddr_storage, align 8
   %addrLen = alloca i32, align 4
@@ -1060,7 +1060,7 @@ if.end:                                           ; preds = %entry
 declare noundef i32 @_ZN5folly6netops11getpeernameENS_13NetworkSocketEP8sockaddrPj(i32, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress19setFromLocalAddressENS_13NetworkSocketE(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, i32 %socket.coerce) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly13SocketAddress19setFromLocalAddressENS_13NetworkSocketE(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, i32 %socket.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %tmp_sock.i = alloca %struct.sockaddr_storage, align 8
   %addrLen.i = alloca i32, align 4
@@ -1086,7 +1086,7 @@ _ZN5folly13SocketAddress13setFromSocketENS_13NetworkSocketEPFiS1_P8sockaddrPjE.e
 declare noundef i32 @_ZN5folly6netops11getsocknameENS_13NetworkSocketEP8sockaddrPj(i32, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddr(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %address) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddr(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef %address) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::IPAddress", align 4
   %0 = load i16, ptr %address, align 2, !tbaa !56
@@ -1165,7 +1165,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad
 declare void @_ZN5folly9IPAddressC1EPK8sockaddr(ptr noundef nonnull align 4 dereferenceable(22), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddrj(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %address, i32 noundef %addrlen) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddrj(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef %address, i32 noundef %addrlen) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp ult i32 %addrlen, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -1265,21 +1265,21 @@ eh.resume:                                        ; preds = %lpad30, %lpad20, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress15setFromSockaddrEPK11sockaddr_in(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %address) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly13SocketAddress15setFromSockaddrEPK11sockaddr_in(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef %address) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddr(ptr noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %address)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress15setFromSockaddrEPK12sockaddr_in6(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %address) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly13SocketAddress15setFromSockaddrEPK12sockaddr_in6(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef %address) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN5folly13SocketAddress15setFromSockaddrEPK8sockaddr(ptr noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %address)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress15setFromSockaddrEPK11sockaddr_unj(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr nocapture noundef readonly %address, i32 noundef %addrlen) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress15setFromSockaddrEPK11sockaddr_unj(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef readonly captures(none) %address, i32 noundef %addrlen) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = zext i32 %addrlen to i64
   %cmp = icmp ugt i32 %addrlen, 110
@@ -1380,7 +1380,7 @@ if.end13:                                         ; preds = %if.then9, %_ZN5foll
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress23updateUnixAddressLengthEj(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, i32 noundef %addrlen) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress23updateUnixAddressLengthEj(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, i32 noundef %addrlen) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = zext i32 %addrlen to i64
   %cmp = icmp ult i32 %addrlen, 2
@@ -1427,7 +1427,7 @@ if.end18:                                         ; preds = %if.else, %if.end5, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(22) ptr @_ZNK5folly13SocketAddress12getIPAddressEv(ptr noundef nonnull readonly returned align 8 dereferenceable(27) %this) local_unnamed_addr #0 align 2 {
@@ -1680,7 +1680,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #17
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
@@ -1694,7 +1694,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK5folly13SocketAddress13getActualSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK5folly13SocketAddress13getActualSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %external_ = getelementptr inbounds nuw i8, ptr %this, i64 26
   %0 = load i8, ptr %external_, align 2, !tbaa !7, !range !13, !noundef !14
@@ -1789,7 +1789,7 @@ _ZNK5folly9IPAddress16toFullyQualifiedB5cxx11Ev.exit: ; preds = %_ZNK5folly9IPAd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5folly13SocketAddress12isFamilyInetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this) local_unnamed_addr #13 align 2 {
+define noundef zeroext i1 @_ZNK5folly13SocketAddress12isFamilyInetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %this) local_unnamed_addr #13 align 2 {
 entry:
   %external_.i = getelementptr inbounds nuw i8, ptr %this, i64 26
   %0 = load i8, ptr %external_.i, align 2, !tbaa !7, !range !13, !noundef !14
@@ -1859,7 +1859,7 @@ _ZNK5folly9IPAddress3strB5cxx11Ev.exit:           ; preds = %_ZNK5folly9IPAddres
 declare void @_ZNK5folly11IPAddressV63strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 4 dereferenceable(18)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly13SocketAddress13getAddressStrEPcm(ptr noundef nonnull align 8 dereferenceable(27) %this, ptr nocapture noundef writeonly %buf, i64 noundef %buflen) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly13SocketAddress13getAddressStrEPcm(ptr noundef nonnull align 8 dereferenceable(27) %this, ptr noundef writeonly captures(none) %buf, i64 noundef %buflen) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ret) #27
@@ -1891,7 +1891,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i16 @_ZNK5folly13SocketAddress7getPortEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i16 @_ZNK5folly13SocketAddress7getPortEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %external_.i = getelementptr inbounds nuw i8, ptr %this, i64 26
   %0 = load i8, ptr %external_.i, align 2, !tbaa !7, !range !13, !noundef !14
@@ -1926,7 +1926,7 @@ lpad:                                             ; preds = %sw.default
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress7setPortEt(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, i16 noundef zeroext %port) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SocketAddress7setPortEt(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, i16 noundef zeroext %port) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %external_.i = getelementptr inbounds nuw i8, ptr %this, i64 26
   %0 = load i8, ptr %external_.i, align 2, !tbaa !7, !range !13, !noundef !14
@@ -2068,7 +2068,7 @@ declare void @_ZN5folly9IPAddress10createIPv6ERKS0_(ptr dead_on_unwind writable 
 declare noundef nonnull align 4 dereferenceable(22) ptr @_ZN5folly9IPAddressaSERKNS_11IPAddressV6E(ptr noundef nonnull align 4 dereferenceable(22), ptr noundef nonnull align 4 dereferenceable(18)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly13SocketAddress10getHostStrB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly13SocketAddress10getHostStrB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %addrString.i = alloca [1025 x i8], align 16
@@ -2119,7 +2119,7 @@ _ZNK5folly13SocketAddress11getIpStringB5cxx11Ei.exit: ; preds = %if.end.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly13SocketAddress11getIpStringB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly13SocketAddress11getIpStringB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %this, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %addrString = alloca [1025 x i8], align 16
@@ -2169,7 +2169,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly13SocketAddress7getPathB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly13SocketAddress7getPathB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i38 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -2304,7 +2304,7 @@ return:                                           ; preds = %invoke.cont30, %inv
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5folly13SocketAddress8describeB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(27) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -2703,7 +2703,7 @@ return:                                           ; preds = %invoke.cont68, %inv
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK5folly13SocketAddresseqERKS0_(ptr noundef nonnull align 8 dereferenceable(27) %this, ptr noundef nonnull align 8 dereferenceable(27) %other) local_unnamed_addr #0 align 2 {
@@ -2784,7 +2784,7 @@ return:                                           ; preds = %sw.bb47, %sw.bb, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 declare noundef zeroext i1 @_ZN5follyeqERKNS_9IPAddressES2_(ptr noundef nonnull align 4 dereferenceable(22), ptr noundef nonnull align 4 dereferenceable(22)) local_unnamed_addr #2
 
@@ -2829,7 +2829,7 @@ entry:
 declare void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5folly13SocketAddress11prefixMatchERKS0_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %other, i32 noundef %prefixLength) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5folly13SocketAddress11prefixMatchERKS0_j(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %other, i32 noundef %prefixLength) local_unnamed_addr #0 align 2 {
 entry:
   %prefix = alloca %"struct.std::pair", align 4
   %ref.tmp = alloca %"struct.std::pair", align 4
@@ -3581,7 +3581,7 @@ invoke.cont:                                      ; preds = %if.else.i.i, %if.th
   store i8 0, ptr %3, align 8, !tbaa !27
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %call.i.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__what) #27, !noalias !108
-  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef %__what, i64 noundef %call.i.i.i16)
+  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %__what, i64 noundef %call.i.i.i16)
           to label %call3.i.i.i.noexc27 unwind label %lpad4
 
 call3.i.i.i.noexc27:                              ; preds = %invoke.cont
@@ -3747,7 +3747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly13SocketAddress11getIpStringEPcmi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this, ptr noundef %buf, i64 noundef %buflen, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly13SocketAddress11getIpStringEPcmi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %this, ptr noundef %buf, i64 noundef %buflen, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v9::format_arg_store.18", align 16
   %tmp_sock = alloca %struct.sockaddr_storage, align 8
@@ -4076,7 +4076,7 @@ declare void @llvm.assume(i1 noundef) #23
 declare i16 @llvm.bswap.i16(i16) #24
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26

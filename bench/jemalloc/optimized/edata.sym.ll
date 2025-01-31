@@ -4,14 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @edata_avail_new(ptr nocapture noundef writeonly initializes((0, 16)) %ph) local_unnamed_addr #0 {
+define hidden void @edata_avail_new(ptr noundef writeonly captures(none) initializes((0, 16)) %ph) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ph, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @edata_avail_empty(ptr nocapture noundef readonly %ph) local_unnamed_addr #1 {
+define hidden zeroext i1 @edata_avail_empty(ptr noundef readonly captures(none) %ph) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @edata_avail_first(ptr nocapture noundef %ph) local_unnamed_addr #2 {
+define hidden ptr @edata_avail_first(ptr noundef captures(none) %ph) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp1.i = icmp eq ptr %0, null
@@ -345,7 +345,7 @@ ph_first.exit:                                    ; preds = %if.end.i, %phn_merg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @edata_avail_any(ptr nocapture noundef readonly %ph) local_unnamed_addr #3 {
+define hidden ptr @edata_avail_any(ptr noundef readonly captures(none) %ph) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -364,7 +364,7 @@ ph_any.exit:                                      ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @edata_avail_insert(ptr nocapture noundef %ph, ptr noundef initializes((40, 64)) %phn) local_unnamed_addr #4 {
+define hidden void @edata_avail_insert(ptr noundef captures(none) %ph, ptr noundef initializes((40, 64)) %phn) local_unnamed_addr #4 {
 entry:
   %add.ptr.i8.i = getelementptr inbounds nuw i8, ptr %phn, i64 40
   %next.i61 = getelementptr inbounds nuw i8, ptr %phn, i64 48
@@ -541,7 +541,7 @@ ph_insert.exit:                                   ; preds = %if.end.i69, %for.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @edata_avail_remove_first(ptr nocapture noundef %ph) local_unnamed_addr #2 {
+define hidden ptr @edata_avail_remove_first(ptr noundef captures(none) %ph) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp1.i = icmp eq ptr %0, null
@@ -1115,7 +1115,7 @@ ph_remove_first.exit:                             ; preds = %entry, %ph_merge_ch
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @edata_avail_remove(ptr nocapture noundef %ph, ptr noundef readonly %phn) local_unnamed_addr #2 {
+define hidden void @edata_avail_remove(ptr noundef captures(none) %ph, ptr noundef readonly %phn) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp1.i = icmp eq ptr %0, %phn
@@ -1988,7 +1988,7 @@ ph_remove.exit:                                   ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @edata_avail_remove_any(ptr nocapture noundef %ph) local_unnamed_addr #2 {
+define hidden noundef ptr @edata_avail_remove_any(ptr noundef captures(none) %ph) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -2008,14 +2008,14 @@ if.end:                                           ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @edata_heap_new(ptr nocapture noundef writeonly initializes((0, 16)) %ph) local_unnamed_addr #0 {
+define hidden void @edata_heap_new(ptr noundef writeonly captures(none) initializes((0, 16)) %ph) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ph, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @edata_heap_empty(ptr nocapture noundef readonly %ph) local_unnamed_addr #1 {
+define hidden zeroext i1 @edata_heap_empty(ptr noundef readonly captures(none) %ph) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -2023,7 +2023,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @edata_heap_first(ptr nocapture noundef %ph) local_unnamed_addr #2 {
+define hidden ptr @edata_heap_first(ptr noundef captures(none) %ph) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp1.i = icmp eq ptr %0, null
@@ -2361,7 +2361,7 @@ ph_first.exit:                                    ; preds = %if.end.i, %phn_merg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @edata_heap_any(ptr nocapture noundef readonly %ph) local_unnamed_addr #3 {
+define hidden ptr @edata_heap_any(ptr noundef readonly captures(none) %ph) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -2380,7 +2380,7 @@ ph_any.exit:                                      ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @edata_heap_insert(ptr nocapture noundef %ph, ptr noundef initializes((40, 64)) %phn) local_unnamed_addr #4 {
+define hidden void @edata_heap_insert(ptr noundef captures(none) %ph, ptr noundef initializes((40, 64)) %phn) local_unnamed_addr #4 {
 entry:
   %add.ptr.i8.i = getelementptr inbounds nuw i8, ptr %phn, i64 40
   %next.i61 = getelementptr inbounds nuw i8, ptr %phn, i64 48
@@ -2563,7 +2563,7 @@ ph_insert.exit:                                   ; preds = %if.end.i69, %for.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @edata_heap_remove_first(ptr nocapture noundef %ph) local_unnamed_addr #2 {
+define hidden ptr @edata_heap_remove_first(ptr noundef captures(none) %ph) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp1.i = icmp eq ptr %0, null
@@ -3158,7 +3158,7 @@ ph_remove_first.exit:                             ; preds = %entry, %ph_merge_ch
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @edata_heap_remove(ptr nocapture noundef %ph, ptr noundef readonly %phn) local_unnamed_addr #2 {
+define hidden void @edata_heap_remove(ptr noundef captures(none) %ph, ptr noundef readonly %phn) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp1.i = icmp eq ptr %0, %phn
@@ -4061,7 +4061,7 @@ ph_remove.exit:                                   ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @edata_heap_remove_any(ptr nocapture noundef %ph) local_unnamed_addr #2 {
+define hidden noundef ptr @edata_heap_remove_any(ptr noundef captures(none) %ph) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -4090,7 +4090,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

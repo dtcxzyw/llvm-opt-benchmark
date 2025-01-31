@@ -139,10 +139,10 @@ return:                                           ; preds = %do.end, %if.then6, 
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @_Z25grpc_sockaddr_to_v4mappedPK21grpc_resolved_addressPS_(ptr noundef readonly %resolved_addr, ptr noundef writeonly %resolved_addr6_out) local_unnamed_addr #3 {
@@ -182,7 +182,7 @@ return:                                           ; preds = %do.end, %if.then5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z25grpc_sockaddr_is_wildcardPK21grpc_resolved_addressPi(ptr nocapture noundef readonly %resolved_addr, ptr nocapture noundef writeonly %port_out) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_Z25grpc_sockaddr_is_wildcardPK21grpc_resolved_addressPi(ptr noundef readonly captures(none) %resolved_addr, ptr noundef writeonly captures(none) %port_out) local_unnamed_addr #3 {
 entry:
   %addr4_normalized.sroa.0 = alloca i16, align 2
   %0 = load i16, ptr %resolved_addr, align 2
@@ -244,7 +244,7 @@ return:                                           ; preds = %for.body, %return.s
 declare noundef zeroext i16 @_Z10grpc_ntohst(i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z28grpc_sockaddr_make_wildcardsiP21grpc_resolved_addressS0_(i32 noundef %port, ptr nocapture noundef writeonly %wild4_out, ptr nocapture noundef writeonly %wild6_out) local_unnamed_addr #3 {
+define void @_Z28grpc_sockaddr_make_wildcardsiP21grpc_resolved_addressS0_(i32 noundef %port, ptr noundef writeonly captures(none) %wild4_out, ptr noundef writeonly captures(none) %wild6_out) local_unnamed_addr #3 {
 entry:
   %0 = icmp ugt i32 %port, 65535
   br i1 %0, label %if.then.i, label %_Z28grpc_sockaddr_make_wildcard6iP21grpc_resolved_address.exit
@@ -273,7 +273,7 @@ _Z28grpc_sockaddr_make_wildcard6iP21grpc_resolved_address.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z28grpc_sockaddr_make_wildcard4iP21grpc_resolved_address(i32 noundef %port, ptr nocapture noundef writeonly %resolved_wild_out) local_unnamed_addr #3 {
+define void @_Z28grpc_sockaddr_make_wildcard4iP21grpc_resolved_address(i32 noundef %port, ptr noundef writeonly captures(none) %resolved_wild_out) local_unnamed_addr #3 {
 entry:
   %0 = icmp ugt i32 %port, 65535
   br i1 %0, label %if.then, label %do.end
@@ -295,7 +295,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z28grpc_sockaddr_make_wildcard6iP21grpc_resolved_address(i32 noundef %port, ptr nocapture noundef writeonly %resolved_wild_out) local_unnamed_addr #3 {
+define void @_Z28grpc_sockaddr_make_wildcard6iP21grpc_resolved_address(i32 noundef %port, ptr noundef writeonly captures(none) %resolved_wild_out) local_unnamed_addr #3 {
 entry:
   %0 = icmp ugt i32 %port, 65535
   br i1 %0, label %if.then, label %do.end
@@ -815,7 +815,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
@@ -1851,7 +1851,7 @@ return:                                           ; preds = %if.then5, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_Z28grpc_sockaddr_get_uri_schemePK21grpc_resolved_address(ptr nocapture noundef readonly %resolved_addr) local_unnamed_addr #10 {
+define noundef ptr @_Z28grpc_sockaddr_get_uri_schemePK21grpc_resolved_address(ptr noundef readonly captures(none) %resolved_addr) local_unnamed_addr #10 {
 entry:
   %0 = load i16, ptr %resolved_addr, align 2
   switch i16 %0, label %sw.epilog [
@@ -1879,7 +1879,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZN9grpc_core3URI6CreateENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_St6vectorINS0_10QueryParamESaIS8_EES6_(ptr sret(%"class.absl::lts_20230802::StatusOr.3") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -1988,7 +1988,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_strin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 65536) i32 @_Z24grpc_sockaddr_get_familyPK21grpc_resolved_address(ptr nocapture noundef readonly %resolved_addr) local_unnamed_addr #10 {
+define noundef range(i32 0, 65536) i32 @_Z24grpc_sockaddr_get_familyPK21grpc_resolved_address(ptr noundef readonly captures(none) %resolved_addr) local_unnamed_addr #10 {
 entry:
   %0 = load i16, ptr %resolved_addr, align 2
   %conv = zext i16 %0 to i32
@@ -1996,7 +1996,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 65536) i32 @_Z22grpc_sockaddr_get_portPK21grpc_resolved_address(ptr nocapture noundef readonly %resolved_addr) local_unnamed_addr #3 {
+define noundef range(i32 0, 65536) i32 @_Z22grpc_sockaddr_get_portPK21grpc_resolved_address(ptr noundef readonly captures(none) %resolved_addr) local_unnamed_addr #3 {
 entry:
   %0 = load i16, ptr %resolved_addr, align 2
   switch i16 %0, label %sw.default [
@@ -2032,7 +2032,7 @@ return:                                           ; preds = %entry, %entry, %sw.
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z22grpc_sockaddr_set_portP21grpc_resolved_addressi(ptr nocapture noundef %resolved_addr, i32 noundef %port) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_Z22grpc_sockaddr_set_portP21grpc_resolved_addressi(ptr noundef captures(none) %resolved_addr, i32 noundef %port) local_unnamed_addr #3 {
 entry:
   %0 = load i16, ptr %resolved_addr, align 2
   switch i16 %0, label %sw.default [
@@ -2133,7 +2133,7 @@ eh.resume:                                        ; preds = %lpad8, %lpad
 declare void @_ZN9grpc_core5CrashESt17basic_string_viewIcSt11char_traitsIcEENS_14SourceLocationE(i64, ptr, ptr, i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23grpc_sockaddr_mask_bitsP21grpc_resolved_addressj(ptr nocapture noundef %address, i32 noundef %mask_bits) local_unnamed_addr #3 {
+define void @_Z23grpc_sockaddr_mask_bitsP21grpc_resolved_addressj(ptr noundef captures(none) %address, i32 noundef %mask_bits) local_unnamed_addr #3 {
 entry:
   %0 = load i16, ptr %address, align 2
   switch i16 %0, label %if.end69 [
@@ -2243,7 +2243,7 @@ if.end69:                                         ; preds = %entry, %if.end65, %
 declare noundef i32 @_Z10grpc_htonlj(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z26grpc_sockaddr_match_subnetPK21grpc_resolved_addressS1_j(ptr nocapture noundef readonly %address, ptr nocapture noundef readonly %subnet_address, i32 noundef %mask_bits) local_unnamed_addr #3 {
+define noundef zeroext i1 @_Z26grpc_sockaddr_match_subnetPK21grpc_resolved_addressS1_j(ptr noundef readonly captures(none) %address, ptr noundef readonly captures(none) %subnet_address, i32 noundef %mask_bits) local_unnamed_addr #3 {
 entry:
   %masked_address = alloca %struct.grpc_resolved_address, align 4
   %0 = load i16, ptr %address, align 2
@@ -2295,7 +2295,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) local_unnamed_addr #0
 
@@ -2504,16 +2504,16 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Llb_ManComputeCommonQuant(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Llb_ManComputeCommonQuant(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -76,7 +76,7 @@ define i32 @Llb_ManComputeCommonQuant(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Llb_ManComputeBestQuant(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Llb_ManComputeBestQuant(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 2
@@ -221,7 +221,7 @@ Llb_ManComputeCommonQuant.exit.thread:            ; preds = %Llb_ManComputeCommo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Llb_ManComputeQuant(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @Llb_ManComputeQuant(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = tail call ptr @Extra_ArrayAlloc(i32 noundef %3, i32 noundef %3, i32 noundef 4) #5
@@ -376,7 +376,7 @@ Llb_ManComputeCommonQuant.exit:                   ; preds = %Llb_ManComputeCommo
 declare ptr @Extra_ArrayAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define float @Llb_ManComputeCommonAttr(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define float @Llb_ManComputeCommonAttr(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -443,7 +443,7 @@ define float @Llb_ManComputeCommonAttr(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Llb_ManComputeBestAttr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Llb_ManComputeBestAttr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 2
@@ -583,7 +583,7 @@ Llb_ManComputeCommonAttr.exit:                    ; preds = %51, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Llb_ManComputeAttr(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @Llb_ManComputeAttr(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = tail call ptr @Extra_ArrayAlloc(i32 noundef %3, i32 noundef %3, i32 noundef 4) #5
@@ -727,7 +727,7 @@ Llb_ManComputeCommonAttr.exit:                    ; preds = %53, %31
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Llb_MtrCombineSelectedColumns(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @Llb_MtrCombineSelectedColumns(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -832,7 +832,7 @@ define void @Llb_MtrCombineSelectedColumns(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_ManClusterOne(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Llb_ManClusterOne(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
@@ -947,7 +947,7 @@ Llb_MtrCombineSelectedColumns.exit:               ; preds = %61, %3
 declare ptr @Llb_ManGroupsCombine(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_ManClusterCompress(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @Llb_ManClusterCompress(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -1014,7 +1014,7 @@ define void @Llb_ManClusterCompress(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {

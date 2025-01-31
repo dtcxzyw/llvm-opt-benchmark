@@ -226,7 +226,7 @@ $_ZTV26UnsafeAccessErrorHandshake = comdat any
 @_ZN14HandshakeStateD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14HandshakeStateD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1128
   %5 = load volatile i32, ptr %4, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
@@ -2522,7 +2522,7 @@ declare void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14HandshakeState21can_process_handshakeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14HandshakeState21can_process_handshakeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef zeroext i1 @_ZN20SafepointSynchronize14handshake_safeEP10JavaThread(ptr noundef %2) #11
   ret i1 %3
@@ -2531,7 +2531,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState21can_process_handshakeEv(p
 declare noundef zeroext i1 @_ZN20SafepointSynchronize14handshake_safeEP10JavaThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14HandshakeState30possibly_can_process_handshakeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14HandshakeState30possibly_can_process_handshakeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1128
   %4 = load volatile i32, ptr %3, align 4
@@ -3525,7 +3525,7 @@ declare void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereference
 declare noundef zeroext i1 @_ZNK11ThreadsList8includesEPK10JavaThread(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noundef i32 @_ZN2os22active_processor_countEv() local_unnamed_addr #1
 
@@ -3868,10 +3868,10 @@ declare void @_ZN9SpinYield14yield_or_sleepEv(ptr noundef nonnull align 8 derefe
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10

@@ -80,7 +80,7 @@ define void @Java_sun_java2d_pipe_Region_initIDs(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Region_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 20), (24, 32)) %2) local_unnamed_addr #0 {
+define noundef i32 @Region_GetInfo(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 20), (24, 32)) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %9
 
@@ -150,7 +150,7 @@ define noundef i32 @Region_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Region_GetBounds(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) local_unnamed_addr #0 {
+define void @Region_GetBounds(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %8
 
@@ -198,7 +198,7 @@ define void @Region_GetBounds(ptr noundef %0, ptr noundef %1, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Region_StartIteration(ptr noundef %0, ptr nocapture noundef initializes((32, 48)) %1) local_unnamed_addr #0 {
+define void @Region_StartIteration(ptr noundef %0, ptr noundef captures(none) initializes((32, 48)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -225,7 +225,7 @@ define void @Region_StartIteration(ptr noundef %0, ptr nocapture noundef initial
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Region_CountIterationRects(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @Region_CountIterationRects(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -317,7 +317,7 @@ define i32 @Region_CountIterationRects(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Region_NextIteration(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Region_NextIteration(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -459,7 +459,7 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Region_EndIteration(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Region_EndIteration(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -481,7 +481,7 @@ define void @Region_EndIteration(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @RegionToYXBandedRectangles(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define i32 @RegionToYXBandedRectangles(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq ptr %5, null
   br i1 %9, label %10, label %25
 

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_datatype_null = external global %struct.ompi_predefined_datatype_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_datatype_create_subarray(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noundef i32 @ompi_datatype_create_subarray(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr i8, ptr %5, i64 48
   %.val = load i64, ptr %9, align 8

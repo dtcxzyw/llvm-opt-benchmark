@@ -44,49 +44,49 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SSL_CTX_set1_cert_comp_preference(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %algs, i64 noundef %len) local_unnamed_addr #0 {
+define noundef i32 @SSL_CTX_set1_cert_comp_preference(ptr noundef readnone captures(none) %ctx, ptr noundef readnone captures(none) %algs, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SSL_set1_cert_comp_preference(ptr nocapture noundef readnone %ssl, ptr nocapture noundef readnone %algs, i64 noundef %len) local_unnamed_addr #0 {
+define noundef i32 @SSL_set1_cert_comp_preference(ptr noundef readnone captures(none) %ssl, ptr noundef readnone captures(none) %algs, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SSL_compress_certs(ptr nocapture noundef readnone %ssl, i32 noundef %alg) local_unnamed_addr #0 {
+define noundef i32 @SSL_compress_certs(ptr noundef readnone captures(none) %ssl, i32 noundef %alg) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SSL_CTX_compress_certs(ptr nocapture noundef readnone %ctx, i32 noundef %alg) local_unnamed_addr #0 {
+define noundef i32 @SSL_CTX_compress_certs(ptr noundef readnone captures(none) %ctx, i32 noundef %alg) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @SSL_get1_compressed_cert(ptr nocapture noundef readnone %ssl, i32 noundef %alg, ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %orig_len) local_unnamed_addr #0 {
+define noundef i64 @SSL_get1_compressed_cert(ptr noundef readnone captures(none) %ssl, i32 noundef %alg, ptr noundef readnone captures(none) %data, ptr noundef readnone captures(none) %orig_len) local_unnamed_addr #0 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @SSL_CTX_get1_compressed_cert(ptr nocapture noundef readnone %ctx, i32 noundef %alg, ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %orig_len) local_unnamed_addr #0 {
+define noundef i64 @SSL_CTX_get1_compressed_cert(ptr noundef readnone captures(none) %ctx, i32 noundef %alg, ptr noundef readnone captures(none) %data, ptr noundef readnone captures(none) %orig_len) local_unnamed_addr #0 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SSL_CTX_set1_compressed_cert(ptr nocapture noundef readnone %ctx, i32 noundef %algorithm, ptr nocapture noundef readnone %comp_data, i64 noundef %comp_length, i64 noundef %orig_length) local_unnamed_addr #0 {
+define noundef i32 @SSL_CTX_set1_compressed_cert(ptr noundef readnone captures(none) %ctx, i32 noundef %algorithm, ptr noundef readnone captures(none) %comp_data, i64 noundef %comp_length, i64 noundef %orig_length) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SSL_set1_compressed_cert(ptr nocapture noundef readnone %ssl, i32 noundef %algorithm, ptr nocapture noundef readnone %comp_data, i64 noundef %comp_length, i64 noundef %orig_length) local_unnamed_addr #0 {
+define noundef i32 @SSL_set1_compressed_cert(ptr noundef readnone captures(none) %ssl, i32 noundef %algorithm, ptr noundef readnone captures(none) %comp_data, i64 noundef %comp_length, i64 noundef %orig_length) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }

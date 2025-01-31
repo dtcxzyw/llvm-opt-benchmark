@@ -26,13 +26,13 @@ $__clang_call_terminate = comdat any
 @llvm.compiler.used = appending global [1 x ptr] [ptr @_ZL38_Tf_RegistryAddPXR_WORK_THREAD_LIMIT49PN32pxrInternal_v0_24__pxrReserved__21Tf_EnvSettingRegistryE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL38_Tf_RegistryAddPXR_WORK_THREAD_LIMIT49PN32pxrInternal_v0_24__pxrReserved__21Tf_EnvSettingRegistryE(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZL38_Tf_RegistryAddPXR_WORK_THREAD_LIMIT49PN32pxrInternal_v0_24__pxrReserved__21Tf_EnvSettingRegistryE(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZL43_Tf_RegistryFunctionPXR_WORK_THREAD_LIMIT49PN32pxrInternal_v0_24__pxrReserved__21Tf_EnvSettingRegistryEPv, ptr noundef nonnull @.str.3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL43_Tf_RegistryFunctionPXR_WORK_THREAD_LIMIT49PN32pxrInternal_v0_24__pxrReserved__21Tf_EnvSettingRegistryEPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL43_Tf_RegistryFunctionPXR_WORK_THREAD_LIMIT49PN32pxrInternal_v0_24__pxrReserved__21Tf_EnvSettingRegistryEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr @PXR_WORK_THREAD_LIMIT, align 8
   %4 = load atomic i64, ptr %3 seq_cst, align 8
   %.not.i = icmp eq i64 %4, 0
@@ -207,7 +207,7 @@ define internal void @__cxx_global_var_init.5() #3 section ".text.startup" {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_RegistryInitDtorEPKc(ptr noundef nonnull @.str.2)
           to label %2 unwind label %3
 

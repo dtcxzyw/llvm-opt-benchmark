@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @jmm_interface_management_ext = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_management_internal_GarbageCollectorExtImpl_setNotificationEnabled(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_com_sun_management_internal_GarbageCollectorExtImpl_setNotificationEnabled(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %7
 

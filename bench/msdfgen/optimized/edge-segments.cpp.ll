@@ -62,7 +62,7 @@ invoke.cont:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -224,7 +224,7 @@ return:                                           ; preds = %if.end42, %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7msdfgen11EdgeSegment24distanceToPseudoDistanceERNS_14SignedDistanceENS_7Vector2Ed(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %distance, double %origin.coerce0, double %origin.coerce1, double noundef %param) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK7msdfgen11EdgeSegment24distanceToPseudoDistanceERNS_14SignedDistanceENS_7Vector2Ed(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %distance, double %origin.coerce0, double %origin.coerce1, double noundef %param) unnamed_addr #0 align 2 {
 entry:
   %cmp = fcmp olt double %param, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.else
@@ -324,7 +324,7 @@ if.end53:                                         ; preds = %if.end53.sink.split
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen13LinearSegmentC2ENS_7Vector2ES1_NS_9EdgeColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 48)) %this, double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, i32 noundef %edgeColor) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7msdfgen13LinearSegmentC2ENS_7Vector2ES1_NS_9EdgeColorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 12), (16, 48)) %this, double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, i32 noundef %edgeColor) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %color.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %edgeColor, ptr %color.i, align 8
@@ -341,7 +341,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen16QuadraticSegmentC2ENS_7Vector2ES1_S1_NS_9EdgeColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %this, double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, double %p2.coerce0, double %p2.coerce1, i32 noundef %edgeColor) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7msdfgen16QuadraticSegmentC2ENS_7Vector2ES1_S1_NS_9EdgeColorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 12), (16, 64)) %this, double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, double %p2.coerce0, double %p2.coerce1, i32 noundef %edgeColor) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %color.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %edgeColor, ptr %color.i, align 8
@@ -362,7 +362,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen12CubicSegmentC2ENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 12), (16, 80)) %this, double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, double %p2.coerce0, double %p2.coerce1, double %p3.coerce0, double %p3.coerce1, i32 noundef %edgeColor) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7msdfgen12CubicSegmentC2ENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 12), (16, 80)) %this, double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, double %p2.coerce0, double %p2.coerce1, double %p3.coerce0, double %p3.coerce1, i32 noundef %edgeColor) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %color.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %edgeColor, ptr %color.i, align 8
@@ -387,7 +387,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen13LinearSegment5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen13LinearSegment5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -415,7 +415,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -451,7 +451,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen12CubicSegment5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen12CubicSegment5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -495,19 +495,19 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK7msdfgen13LinearSegment4typeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK7msdfgen13LinearSegment4typeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK7msdfgen16QuadraticSegment4typeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK7msdfgen16QuadraticSegment4typeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK7msdfgen12CubicSegment4typeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK7msdfgen12CubicSegment4typeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret i32 3
 }
@@ -534,7 +534,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { double, double } @_ZNK7msdfgen13LinearSegment5pointEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %param) unnamed_addr #7 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen13LinearSegment5pointEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
@@ -557,7 +557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment5pointEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double noundef %param) unnamed_addr #7 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment5pointEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
@@ -596,7 +596,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { double, double } @_ZNK7msdfgen12CubicSegment5pointEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, double noundef %param) unnamed_addr #7 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen12CubicSegment5pointEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -657,7 +657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { double, double } @_ZNK7msdfgen13LinearSegment9directionEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double %param) unnamed_addr #7 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen13LinearSegment9directionEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double %param) unnamed_addr #7 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -675,7 +675,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment9directionEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double noundef %param) unnamed_addr #7 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment9directionEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -714,7 +714,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { double, double } @_ZNK7msdfgen12CubicSegment9directionEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, double noundef %param) unnamed_addr #7 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen12CubicSegment9directionEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -789,13 +789,13 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { double, double } @_ZNK7msdfgen13LinearSegment15directionChangeEd(ptr nocapture nonnull readnone align 8 %this, double %param) unnamed_addr #6 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen13LinearSegment15directionChangeEd(ptr nonnull readnone align 8 captures(none) %this, double %param) unnamed_addr #6 align 2 {
 entry:
   ret { double, double } zeroinitializer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment15directionChangeEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double %param) unnamed_addr #7 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment15directionChangeEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, double %param) unnamed_addr #7 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -821,7 +821,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { double, double } @_ZNK7msdfgen12CubicSegment15directionChangeEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, double noundef %param) unnamed_addr #7 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen12CubicSegment15directionChangeEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -862,7 +862,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef double @_ZNK7msdfgen13LinearSegment6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef double @_ZNK7msdfgen13LinearSegment6lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #7 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -881,7 +881,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef double @_ZNK7msdfgen16QuadraticSegment6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #8 align 2 {
+define dso_local noundef double @_ZNK7msdfgen16QuadraticSegment6lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #8 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -943,7 +943,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 declare double @log(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local { double, double } @_ZNK7msdfgen13LinearSegment14signedDistanceENS_7Vector2ERd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double %origin.coerce0, double %origin.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %param) unnamed_addr #10 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen13LinearSegment14signedDistanceENS_7Vector2ERd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double %origin.coerce0, double %origin.coerce1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %param) unnamed_addr #10 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
@@ -1031,7 +1031,7 @@ return:                                           ; preds = %if.then, %if.end30
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment14signedDistanceENS_7Vector2ERd(ptr noundef nonnull align 8 dereferenceable(64) %this, double %origin.coerce0, double %origin.coerce1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %param) unnamed_addr #0 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment14signedDistanceENS_7Vector2ERd(ptr noundef nonnull align 8 dereferenceable(64) %this, double %origin.coerce0, double %origin.coerce1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %param) unnamed_addr #0 align 2 {
 entry:
   %t = alloca [3 x double], align 16
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1258,7 +1258,7 @@ return:                                           ; preds = %for.end, %if.else, 
 declare noundef i32 @_ZN7msdfgen10solveCubicEPddddd(ptr noundef, double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { double, double } @_ZNK7msdfgen12CubicSegment14signedDistanceENS_7Vector2ERd(ptr noundef nonnull align 8 dereferenceable(80) %this, double %origin.coerce0, double %origin.coerce1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %param) unnamed_addr #0 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen12CubicSegment14signedDistanceENS_7Vector2ERd(ptr noundef nonnull align 8 dereferenceable(80) %this, double %origin.coerce0, double %origin.coerce1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %param) unnamed_addr #0 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
@@ -1531,7 +1531,7 @@ return:                                           ; preds = %for.end185, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZNK7msdfgen13LinearSegment21scanlineIntersectionsEPdPid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %dy, double noundef %y) unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZNK7msdfgen13LinearSegment21scanlineIntersectionsEPdPid(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %dy, double noundef %y) unnamed_addr #10 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %y2 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1577,7 +1577,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -2147483648, 3) i32 @_ZNK7msdfgen16QuadraticSegment21scanlineIntersectionsEPdPid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef writeonly initializes((0, 8)) %x, ptr nocapture noundef writeonly %dy, double noundef %y) unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -2147483648, 3) i32 @_ZNK7msdfgen16QuadraticSegment21scanlineIntersectionsEPdPid(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %x, ptr noundef writeonly captures(none) %dy, double noundef %y) unnamed_addr #0 align 2 {
 entry:
   %t = alloca [2 x double], align 16
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1805,7 +1805,7 @@ if.end190:                                        ; preds = %if.end158.thread, %
 declare noundef i32 @_ZN7msdfgen14solveQuadraticEPdddd(ptr noundef, double noundef, double noundef, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -2147483648, 4) i32 @_ZNK7msdfgen12CubicSegment21scanlineIntersectionsEPdPid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly initializes((0, 8)) %x, ptr nocapture noundef writeonly %dy, double noundef %y) unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -2147483648, 4) i32 @_ZNK7msdfgen12CubicSegment21scanlineIntersectionsEPdPid(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %x, ptr noundef writeonly captures(none) %dy, double noundef %y) unnamed_addr #0 align 2 {
 entry:
   %t = alloca [3 x double], align 16
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2089,7 +2089,7 @@ if.end284:                                        ; preds = %if.end252.thread, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK7msdfgen13LinearSegment5boundERdS1_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %l, ptr nocapture noundef nonnull align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r, ptr nocapture noundef nonnull align 8 dereferenceable(8) %t) unnamed_addr #10 align 2 {
+define dso_local void @_ZNK7msdfgen13LinearSegment5boundERdS1_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %l, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %b, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %r, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %t) unnamed_addr #10 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
@@ -2175,7 +2175,7 @@ _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit16: ; preds = %if.end10.i1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7msdfgen16QuadraticSegment5boundERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %l, ptr nocapture noundef nonnull align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r, ptr nocapture noundef nonnull align 8 dereferenceable(8) %t) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK7msdfgen16QuadraticSegment5boundERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %l, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %b, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %r, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %t) unnamed_addr #0 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
@@ -2384,7 +2384,7 @@ if.end54:                                         ; preds = %if.then13.i60, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7msdfgen12CubicSegment5boundERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %l, ptr nocapture noundef nonnull align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r, ptr nocapture noundef nonnull align 8 dereferenceable(8) %t) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK7msdfgen12CubicSegment5boundERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %l, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %b, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %r, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %t) unnamed_addr #0 align 2 {
 entry:
   %params = alloca [2 x double], align 16
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2631,7 +2631,7 @@ for.end81:                                        ; preds = %for.inc79, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen13LinearSegment7reverseEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN7msdfgen13LinearSegment7reverseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #10 align 2 {
 entry:
   %tmp = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2643,7 +2643,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen16QuadraticSegment7reverseEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN7msdfgen16QuadraticSegment7reverseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #10 align 2 {
 entry:
   %tmp = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2655,7 +2655,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen12CubicSegment7reverseEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN7msdfgen12CubicSegment7reverseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) unnamed_addr #10 align 2 {
 entry:
   %tmp = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2672,7 +2672,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen13LinearSegment14moveStartPointENS_7Vector2E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((16, 32)) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN7msdfgen13LinearSegment14moveStartPointENS_7Vector2E(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((16, 32)) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #5 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %to.coerce0, ptr %p, align 8
@@ -2682,7 +2682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen16QuadraticSegment14moveStartPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
+define dso_local void @_ZN7msdfgen16QuadraticSegment14moveStartPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %origP1 = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2735,7 +2735,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen12CubicSegment14moveStartPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
+define dso_local void @_ZN7msdfgen12CubicSegment14moveStartPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %p, align 8
@@ -2757,7 +2757,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen13LinearSegment12moveEndPointENS_7Vector2E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 48)) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN7msdfgen13LinearSegment12moveEndPointENS_7Vector2E(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((32, 48)) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #5 align 2 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %to.coerce0, ptr %arrayidx, align 8
@@ -2767,7 +2767,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen16QuadraticSegment12moveEndPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
+define dso_local void @_ZN7msdfgen16QuadraticSegment12moveEndPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %origP1 = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2820,7 +2820,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen12CubicSegment12moveEndPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
+define dso_local void @_ZN7msdfgen12CubicSegment12moveEndPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
@@ -2842,7 +2842,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7msdfgen13LinearSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK7msdfgen13LinearSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2956,7 +2956,7 @@ eh.resume:                                        ; preds = %lpad23, %lpad9, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7msdfgen16QuadraticSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK7msdfgen16QuadraticSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -3122,7 +3122,7 @@ eh.resume:                                        ; preds = %lpad53, %lpad18, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7msdfgen12CubicSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK7msdfgen12CubicSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -3410,7 +3410,7 @@ eh.resume:                                        ; preds = %lpad153, %lpad49, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment14convertToCubicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment14convertToCubicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont22:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16

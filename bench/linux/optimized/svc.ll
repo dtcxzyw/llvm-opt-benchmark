@@ -188,7 +188,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [18 x ptr] [ptr @__UNIQUE_ID___addressable_init_nlm786, ptr @__UNIQUE_ID___addressable_lockd_down766, ptr @__UNIQUE_ID___addressable_lockd_up765, ptr @__UNIQUE_ID___addressable_nlmsvc_ops759, ptr @__UNIQUE_ID_author767, ptr @__UNIQUE_ID_description768, ptr @__UNIQUE_ID_file769, ptr @__UNIQUE_ID_license770, ptr @__UNIQUE_ID_nlm_max_connectionstype772, ptr @__UNIQUE_ID_nsm_use_hostnamestype771, ptr @__exitcall_exit_nlm, ptr @__param_nlm_grace_period, ptr @__param_nlm_max_connections, ptr @__param_nlm_tcpport, ptr @__param_nlm_timeout, ptr @__param_nlm_udpport, ptr @__param_nsm_use_hostnames, ptr @exit_nlm], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nlmsvc_request_retry(ptr nocapture readnone %0) #0 align 16 {
+define internal void @nlmsvc_request_retry(ptr readnone captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr @nlmsvc_serv, align 8
   tail call void @svc_wake_up(ptr noundef %2) #8
   ret void
@@ -372,7 +372,7 @@ define dso_local i32 @lockd_up(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -415,7 +415,7 @@ define internal fastcc void @lockd_put() unnamed_addr #0 align 16 {
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @lockd_down(ptr noundef %0) #0 align 16 {
@@ -724,7 +724,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @lockd_inetaddr_event(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef i32 @lockd_inetaddr_event(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.sockaddr_in, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   %5 = icmp eq i64 %1, 2
@@ -749,13 +749,13 @@ define internal noundef i32 @lockd_inetaddr_event(ptr nocapture readnone %0, i64
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @svc_age_temp_xprts_now(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @lockd_inet6addr_event(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef i32 @lockd_inet6addr_event(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.sockaddr_in6, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #8
   %5 = icmp eq i64 %1, 2
@@ -795,7 +795,7 @@ define internal noundef i32 @lockd_inet6addr_event(ptr nocapture readnone %0, i6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__ipv6_addr_type(ptr noundef) local_unnamed_addr #2
@@ -878,7 +878,7 @@ declare dso_local i32 @timer_delete_sync(ptr noundef) local_unnamed_addr #2
 declare dso_local void @nlm_shutdown_hosts_net(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @param_set_grace_period(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @param_set_grace_period(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store ptr null, ptr %3, align 8, !annotation !18
@@ -913,7 +913,7 @@ declare dso_local i32 @param_get_ulong(ptr noundef, ptr noundef) #2
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @param_set_timeout(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @param_set_timeout(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store ptr null, ptr %3, align 8, !annotation !18
@@ -943,7 +943,7 @@ define internal noundef range(i32 -22, 1) i32 @param_set_timeout(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @param_set_port(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @param_set_port(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store ptr null, ptr %3, align 8, !annotation !18

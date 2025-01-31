@@ -88,12 +88,12 @@ define noundef ptr @SUNSparseMatrix(i64 noundef %0, i64 noundef %1, i64 noundef 
 declare ptr @SUNMatNewEmpty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SUNMatGetID_Sparse(ptr nocapture readnone %0) #2 {
+define noundef i32 @SUNMatGetID_Sparse(ptr readnone captures(none) %0) #2 {
   ret i32 4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SUNMatClone_Sparse(ptr nocapture noundef readonly %0) #0 {
+define noundef ptr @SUNMatClone_Sparse(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
@@ -199,7 +199,7 @@ define void @SUNMatDestroy_Sparse(ptr noundef %0) #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNMatZero_Sparse(ptr nocapture noundef readonly %0) #4 {
+define noundef i32 @SUNMatZero_Sparse(ptr noundef readonly captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
@@ -257,7 +257,7 @@ define noundef i32 @SUNMatZero_Sparse(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNMatCopy_Sparse(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define noundef i32 @SUNMatCopy_Sparse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -413,7 +413,7 @@ SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -864,7 +864,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr nocapture noundef readonly %1) #0 {
+define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1321,7 +1321,7 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNMatMatvec_Sparse(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define noundef i32 @SUNMatMatvec_Sparse(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load i32, ptr %5, align 8
@@ -1473,7 +1473,7 @@ Matvec_SparseCSC.exit:                            ; preds = %.loopexit.i14, %.lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNMatSpace_Sparse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #5 {
+define noundef i32 @SUNMatSpace_Sparse(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
@@ -1496,7 +1496,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SUNSparseFromDenseMatrix(ptr nocapture noundef readonly %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %0, align 8
   %6 = load i64, ptr %5, align 8
@@ -1711,7 +1711,7 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr nocapture noundef readonly %0, 
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SUNSparseFromBandMatrix(ptr nocapture noundef readonly %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %0, align 8
   %6 = load i64, ptr %5, align 8
@@ -1971,7 +1971,7 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr nocapture noundef readonly %0, d
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNSparseMatrix_ToCSR(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @SUNSparseMatrix_ToCSR(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8
@@ -2041,7 +2041,7 @@ define noundef i32 @SUNSparseMatrix_ToCSR(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @format_convert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @format_convert(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
@@ -2221,7 +2221,7 @@ SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNSparseMatrix_ToCSC(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @SUNSparseMatrix_ToCSC(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8
@@ -2291,7 +2291,7 @@ define noundef i32 @SUNSparseMatrix_ToCSC(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @SUNSparseMatrix_Realloc(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define noundef i32 @SUNSparseMatrix_Realloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -2320,10 +2320,10 @@ define noundef i32 @SUNSparseMatrix_Realloc(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @SUNSparseMatrix_Reallocate(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @SUNSparseMatrix_Reallocate(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -2346,7 +2346,7 @@ define noundef i32 @SUNSparseMatrix_Reallocate(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @SUNSparseMatrix_Print(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #10 {
+define void @SUNSparseMatrix_Print(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
@@ -2425,17 +2425,17 @@ define void @SUNSparseMatrix_Print(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNSparseMatrix_Rows(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define i64 @SUNSparseMatrix_Rows(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNSparseMatrix_Columns(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define i64 @SUNSparseMatrix_Columns(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -2443,7 +2443,7 @@ define i64 @SUNSparseMatrix_Columns(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNSparseMatrix_NNZ(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define i64 @SUNSparseMatrix_NNZ(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
@@ -2451,7 +2451,7 @@ define i64 @SUNSparseMatrix_NNZ(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNSparseMatrix_NP(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define i64 @SUNSparseMatrix_NP(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
@@ -2459,7 +2459,7 @@ define i64 @SUNSparseMatrix_NP(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @SUNSparseMatrix_SparseType(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define i32 @SUNSparseMatrix_SparseType(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load i32, ptr %3, align 8
@@ -2467,7 +2467,7 @@ define i32 @SUNSparseMatrix_SparseType(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SUNSparseMatrix_Data(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define ptr @SUNSparseMatrix_Data(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -2475,7 +2475,7 @@ define ptr @SUNSparseMatrix_Data(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SUNSparseMatrix_IndexValues(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define ptr @SUNSparseMatrix_IndexValues(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -2483,7 +2483,7 @@ define ptr @SUNSparseMatrix_IndexValues(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SUNSparseMatrix_IndexPointers(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define ptr @SUNSparseMatrix_IndexPointers(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -2491,7 +2491,7 @@ define ptr @SUNSparseMatrix_IndexPointers(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #8
@@ -2502,16 +2502,16 @@ declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.smin.i64(i64, i64) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #14

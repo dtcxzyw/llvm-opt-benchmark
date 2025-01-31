@@ -77,7 +77,7 @@ $_ZSt19piecewise_construct = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_quicktune.cpp, ptr null }]
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14QuicktuneValue9getStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(17) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14QuicktuneValue9getStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(17) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !4
   switch i32 %0, label %sw.epilog [
@@ -116,12 +116,12 @@ return:                                           ; preds = %sw.epilog, %sw.bb2,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_Z4ftosB5cxx11f(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, float noundef %f) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
@@ -238,7 +238,7 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14QuicktuneValue11relativeAddEf(ptr nocapture noundef nonnull align 4 dereferenceable(17) %this, float noundef %amount) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN14QuicktuneValue11relativeAddEf(ptr noundef nonnull align 4 captures(none) dereferenceable(17) %this, float noundef %amount) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !4
   %cond = icmp eq i32 %0, 1
@@ -342,7 +342,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z17getQuicktuneNamesB5cxx11v(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z17getQuicktuneNamesB5cxx11v(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_namesB5cxx11, i64 8), align 8, !tbaa !46
   %1 = load ptr, ptr @_ZL7g_namesB5cxx11, align 8, !tbaa !46
@@ -394,7 +394,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z17getQuicktuneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.QuicktuneValue) align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z17getQuicktuneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable writeonly sret(%struct.QuicktuneValue) align 4 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @g_mutex, align 8, !tbaa !46
   %tobool.not.i = icmp eq ptr %0, null
@@ -507,10 +507,10 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit17:          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z17setQuicktuneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK14QuicktuneValue(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull readonly align 4 dereferenceable(17) %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z17setQuicktuneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK14QuicktuneValue(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(17) %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @g_mutex, align 8, !tbaa !46
   %tobool.not.i = icmp eq ptr %0, null
@@ -651,7 +651,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z20updateQuicktuneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER14QuicktuneValue(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull align 4 dereferenceable(17) %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z20updateQuicktuneValueRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER14QuicktuneValue(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 4 captures(none) dereferenceable(17) %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %0 = load ptr, ptr @g_mutex, align 8, !tbaa !46
@@ -915,7 +915,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeINSt7
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #12
 
@@ -1054,7 +1054,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_14QuicktuneValueESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESK_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {

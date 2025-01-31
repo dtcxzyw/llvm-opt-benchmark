@@ -155,7 +155,7 @@ _ZN5boost10coroutines12stack_traits12maximum_sizeEv.exit3: ; preds = %27, %30, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN5boost10coroutines12stack_traits12minimum_sizeEv() local_unnamed_addr #0 align 2 {
@@ -191,7 +191,7 @@ _ZN12_GLOBAL__N_115stacksize_limitEv.exit:        ; preds = %0, %4, %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #3

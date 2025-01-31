@@ -121,7 +121,7 @@ define internal noundef i32 @init_query(i1 zeroext %0, i1 zeroext %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write) uwtable
-define internal noundef ptr @file_query(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #2 {
+define internal noundef ptr @file_query(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #2 {
   %4 = load i32, ptr @priority_param, align 4
   store i32 %4, ptr %2, align 4
   %5 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #10
@@ -139,7 +139,7 @@ define internal noundef ptr @file_query(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @file_unquery(ptr nocapture readnone %0, ptr noundef %1) #3 {
+define internal noundef i32 @file_unquery(ptr readnone captures(none) %0, ptr noundef %1) #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -152,7 +152,7 @@ define internal noundef i32 @file_unquery(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @delete_query(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #4 {
+define internal noundef i32 @delete_query(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #4 {
   %6 = load i32, ptr @delete_priority_param, align 4
   store i32 %6, ptr %4, align 4
   store i8 1, ptr %3, align 1
@@ -161,7 +161,7 @@ define internal noundef i32 @delete_query(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct.ompi_info_t, align 8
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @opal_class_init_epoch, align 4
@@ -265,7 +265,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #5
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @opal_info_dup(ptr noundef, ptr noundef) local_unnamed_addr #5
 

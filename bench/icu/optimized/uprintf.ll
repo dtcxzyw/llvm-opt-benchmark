@@ -58,7 +58,7 @@ if.then.i:                                        ; preds = %entry
 if.end4.i:                                        ; preds = %if.then.i, %entry
   %pattern.0.i = phi ptr [ %call1.i, %if.then.i ], [ %buffer.i, %entry ]
   %conv.i = trunc i64 %add.i to i32
-  call void @u_charsToUChars_75(ptr noundef %patternSpecification, ptr noundef nonnull %pattern.0.i, i32 noundef %conv.i)
+  call void @u_charsToUChars_75(ptr noundef nonnull %patternSpecification, ptr noundef nonnull %pattern.0.i, i32 noundef %conv.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i.i)
   store i32 0, ptr %written.i.i, align 4
   %fBundle.i.i = getelementptr inbounds nuw i8, ptr %f, i64 48
@@ -98,7 +98,7 @@ if.then:                                          ; preds = %entry
 if.end4:                                          ; preds = %entry, %if.then
   %pattern.0 = phi ptr [ %call1, %if.then ], [ %buffer, %entry ]
   %conv = trunc i64 %add to i32
-  call void @u_charsToUChars_75(ptr noundef %patternSpecification, ptr noundef nonnull %pattern.0, i32 noundef %conv)
+  call void @u_charsToUChars_75(ptr noundef nonnull %patternSpecification, ptr noundef nonnull %pattern.0, i32 noundef %conv)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i)
   store i32 0, ptr %written.i, align 4
   %fBundle.i = getelementptr inbounds nuw i8, ptr %f, i64 48
@@ -158,7 +158,7 @@ if.then.i:                                        ; preds = %u_get_stdout_75.exi
 if.end4.i:                                        ; preds = %if.then.i, %u_get_stdout_75.exit
   %pattern.0.i = phi ptr [ %call1.i, %if.then.i ], [ %buffer.i, %u_get_stdout_75.exit ]
   %conv.i = trunc i64 %add.i to i32
-  call void @u_charsToUChars_75(ptr noundef %patternSpecification, ptr noundef nonnull %pattern.0.i, i32 noundef %conv.i)
+  call void @u_charsToUChars_75(ptr noundef nonnull %patternSpecification, ptr noundef nonnull %pattern.0.i, i32 noundef %conv.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i.i)
   store i32 0, ptr %written.i.i, align 4
   %fBundle.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -242,7 +242,7 @@ u_get_stdout_75.exit:                             ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #2
@@ -364,10 +364,10 @@ declare void @llvm.va_start.p0(ptr) #4
 declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

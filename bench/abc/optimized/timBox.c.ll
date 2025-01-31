@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Tim_Obj_t_ = type { i32, i32, i32, i32, float, float }
 
 ; Function Attrs: nounwind uwtable
-define void @Tim_ManCreateBox(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define void @Tim_ManCreateBox(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %15
@@ -175,10 +175,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 declare ptr @Mem_FlexEntryFetch(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManBoxForCi(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Tim_ManBoxForCi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp slt i32 %1, %4
@@ -198,7 +198,7 @@ define i32 @Tim_ManBoxForCi(ptr nocapture noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManBoxForCo(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Tim_ManBoxForCo(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %.not = icmp slt i32 %1, %4
@@ -218,7 +218,7 @@ define i32 @Tim_ManBoxForCo(ptr nocapture noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManBoxInputFirst(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Tim_ManBoxInputFirst(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -231,7 +231,7 @@ define i32 @Tim_ManBoxInputFirst(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Tim_ManBoxInputLast(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -2147483648, 2147483647) i32 @Tim_ManBoxInputLast(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -248,7 +248,7 @@ define range(i32 -2147483648, 2147483647) i32 @Tim_ManBoxInputLast(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManBoxInputNum(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Tim_ManBoxInputNum(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -261,7 +261,7 @@ define i32 @Tim_ManBoxInputNum(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManBoxOutputFirst(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Tim_ManBoxOutputFirst(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.val3 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val3, i64 8
   %.val3.val = load ptr, ptr %3, align 8
@@ -278,7 +278,7 @@ define i32 @Tim_ManBoxOutputFirst(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Tim_ManBoxOutputLast(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -2147483648, 2147483647) i32 @Tim_ManBoxOutputLast(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.val5 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val5, i64 8
   %.val5.val = load ptr, ptr %3, align 8
@@ -299,7 +299,7 @@ define range(i32 -2147483648, 2147483647) i32 @Tim_ManBoxOutputLast(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManBoxOutputNum(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Tim_ManBoxOutputNum(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -312,7 +312,7 @@ define i32 @Tim_ManBoxOutputNum(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManBoxDelayTableId(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Tim_ManBoxDelayTableId(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -325,7 +325,7 @@ define i32 @Tim_ManBoxDelayTableId(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Tim_ManBoxDelayTable(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define ptr @Tim_ManBoxDelayTable(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.val7 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val7, i64 8
   %.val7.val = load ptr, ptr %3, align 8
@@ -353,7 +353,7 @@ define ptr @Tim_ManBoxDelayTable(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManBoxIsBlack(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Tim_ManBoxIsBlack(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -366,7 +366,7 @@ define i32 @Tim_ManBoxIsBlack(ptr nocapture noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManBoxCopy(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Tim_ManBoxCopy(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -379,7 +379,7 @@ define i32 @Tim_ManBoxCopy(ptr nocapture noundef readonly %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Tim_ManBoxSetCopy(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define void @Tim_ManBoxSetCopy(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %.val = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %4, align 8
@@ -444,7 +444,7 @@ declare i32 @Tim_ManPiNum(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

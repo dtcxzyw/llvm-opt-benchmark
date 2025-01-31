@@ -370,14 +370,14 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit
   %195 = getelementptr i8, ptr %194, i64 16
   %.val.i = load ptr, ptr %195, align 8
   %196 = load ptr, ptr %.val.i, align 8
-  %197 = call ptr @ExecInitExpr(ptr noundef %196, ptr noundef %7) #7
+  %197 = call ptr @ExecInitExpr(ptr noundef %196, ptr noundef nonnull %7) #7
   store ptr %197, ptr %192, align 8
   %198 = load ptr, ptr %193, align 8
   %199 = getelementptr i8, ptr %198, i64 16
   %.val59.i = load ptr, ptr %199, align 8
   %200 = getelementptr i8, ptr %.val59.i, i64 8
   %201 = load ptr, ptr %200, align 8
-  %202 = call ptr @ExecInitExpr(ptr noundef %201, ptr noundef %7) #7
+  %202 = call ptr @ExecInitExpr(ptr noundef %201, ptr noundef nonnull %7) #7
   %203 = getelementptr inbounds nuw i8, ptr %192, i64 8
   store ptr %202, ptr %203, align 8
   %204 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -782,7 +782,7 @@ MJEvalInnerValues.exit:                           ; preds = %143
   br i1 %150, label %151, label %152
 
 151:                                              ; preds = %148
-  call void @ExecMarkPos(ptr noundef %9) #7
+  call void @ExecMarkPos(ptr noundef nonnull %9) #7
   br label %152
 
 152:                                              ; preds = %151, %148
@@ -2135,7 +2135,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndMergeJoin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndMergeJoin(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   tail call void @ExecEndNode(ptr noundef %3) #7
@@ -2148,7 +2148,7 @@ define dso_local void @ExecEndMergeJoin(ptr nocapture noundef readonly %0) local
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanMergeJoin(ptr nocapture noundef initializes((232, 236), (241, 243), (248, 264)) %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanMergeJoin(ptr noundef captures(none) initializes((232, 236), (241, 243), (248, 264)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2200,7 +2200,7 @@ declare void @ProcessInterrupts() local_unnamed_addr #1
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @MJFillOuter(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @MJFillOuter(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2294,7 +2294,7 @@ ExecQual.exit:                                    ; preds = %1
 declare void @ExecMarkPos(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @MJFillInner(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @MJFillInner(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2404,13 +2404,13 @@ declare void @llvm.assume(i1 noundef) #3
 declare i32 @llvm.umax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

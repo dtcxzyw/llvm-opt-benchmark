@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8QuantLib7MINPACK5DWARFE = local_unnamed_addr global double 0x380B38FB9DAA78E4, align 8
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define noundef double @_ZN8QuantLib7MINPACK5enormEiPd(i32 noundef %n, ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define noundef double @_ZN8QuantLib7MINPACK5enormEiPd(i32 noundef %n, ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %conv = sitofp i32 %n to double
   %div = fdiv double 1.304000e+19, %conv
@@ -135,7 +135,7 @@ cleanup:                                          ; preds = %if.end43, %if.else4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #2
@@ -147,7 +147,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 declare double @sqrt(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN8QuantLib7MINPACK5dmax1Edd(double noundef %a, double noundef %b) local_unnamed_addr #4 {
@@ -180,7 +180,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib7MINPACK6fdjac2EiiPdPKdS1_iPidS1_RKSt8functionIFviiS1_S1_S4_EE(i32 noundef %m, i32 noundef %n, ptr noundef %x, ptr nocapture noundef readonly %fvec, ptr nocapture noundef writeonly %fjac, i32 %0, ptr noundef %iflag, double noundef %epsfcn, ptr noundef %wa, ptr noundef nonnull align 8 dereferenceable(32) %fcn) local_unnamed_addr #5 {
+define void @_ZN8QuantLib7MINPACK6fdjac2EiiPdPKdS1_iPidS1_RKSt8functionIFviiS1_S1_S4_EE(i32 noundef %m, i32 noundef %n, ptr noundef %x, ptr noundef readonly captures(none) %fvec, ptr noundef writeonly captures(none) %fjac, i32 %0, ptr noundef %iflag, double noundef %epsfcn, ptr noundef %wa, ptr noundef nonnull align 8 dereferenceable(32) %fcn) local_unnamed_addr #5 {
 entry:
   %__args.addr.i = alloca i32, align 4
   %__args.addr2.i = alloca i32, align 4
@@ -320,7 +320,7 @@ cleanup:                                          ; preds = %_ZNKSt8functionIFvi
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN8QuantLib7MINPACK5qrfacEiiPdiiPiiS1_S1_S1_(i32 noundef %m, i32 noundef %n, ptr nocapture noundef %a, i32 %0, i32 noundef %pivot, ptr nocapture noundef %ipvt, i32 %1, ptr nocapture noundef %rdiag, ptr nocapture noundef writeonly %acnorm, ptr nocapture noundef %wa) local_unnamed_addr #6 {
+define void @_ZN8QuantLib7MINPACK5qrfacEiiPdiiPiiS1_S1_S1_(i32 noundef %m, i32 noundef %n, ptr noundef captures(none) %a, i32 %0, i32 noundef %pivot, ptr noundef captures(none) %ipvt, i32 %1, ptr noundef captures(none) %rdiag, ptr noundef writeonly captures(none) %acnorm, ptr noundef captures(none) %wa) local_unnamed_addr #6 {
 entry:
   %cmp306 = icmp sgt i32 %n, 0
   br i1 %cmp306, label %for.body.lr.ph, label %for.end
@@ -970,7 +970,7 @@ for.end193:                                       ; preds = %L100, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @_ZN8QuantLib7MINPACK6qrsolvEiPdiPKiPKdS5_S1_S1_S1_(i32 noundef %n, ptr nocapture noundef %r, i32 noundef %ldr, ptr nocapture noundef readonly %ipvt, ptr nocapture noundef readonly %diag, ptr nocapture noundef readonly %qtb, ptr nocapture noundef %x, ptr nocapture noundef %sdiag, ptr nocapture noundef %wa) local_unnamed_addr #0 {
+define void @_ZN8QuantLib7MINPACK6qrsolvEiPdiPKiPKdS5_S1_S1_S1_(i32 noundef %n, ptr noundef captures(none) %r, i32 noundef %ldr, ptr noundef readonly captures(none) %ipvt, ptr noundef readonly captures(none) %diag, ptr noundef readonly captures(none) %qtb, ptr noundef captures(none) %x, ptr noundef captures(none) %sdiag, ptr noundef captures(none) %wa) local_unnamed_addr #0 {
 entry:
   %cmp161 = icmp sgt i32 %n, 0
   br i1 %cmp161, label %for.cond1.preheader.lr.ph, label %for.end201
@@ -1259,7 +1259,7 @@ for.end201:                                       ; preds = %for.body192, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN8QuantLib7MINPACK5lmparEiPdiPiPKdS1_dS1_S1_S1_S1_S1_(i32 noundef %n, ptr nocapture noundef %r, i32 noundef %ldr, ptr nocapture noundef readonly %ipvt, ptr nocapture noundef readonly %diag, ptr nocapture noundef readonly %qtb, double noundef %delta, ptr nocapture noundef %par, ptr nocapture noundef %x, ptr nocapture noundef %sdiag, ptr nocapture noundef %wa1, ptr nocapture noundef %wa2) local_unnamed_addr #6 {
+define void @_ZN8QuantLib7MINPACK5lmparEiPdiPiPKdS1_dS1_S1_S1_S1_S1_(i32 noundef %n, ptr noundef captures(none) %r, i32 noundef %ldr, ptr noundef readonly captures(none) %ipvt, ptr noundef readonly captures(none) %diag, ptr noundef readonly captures(none) %qtb, double noundef %delta, ptr noundef captures(none) %par, ptr noundef captures(none) %x, ptr noundef captures(none) %sdiag, ptr noundef captures(none) %wa1, ptr noundef captures(none) %wa2) local_unnamed_addr #6 {
 entry:
   %cmp529 = icmp sgt i32 %n, 0
   br i1 %cmp529, label %for.body.lr.ph, label %for.end73.thread
@@ -2289,7 +2289,7 @@ if.end284:                                        ; preds = %lor.lhs.false214, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib7MINPACK5lmdifEiiPdS1_dddidS1_idiPiS2_S1_iS2_S1_S1_S1_S1_S1_RKSt8functionIFviiS1_S1_S2_EES7_(i32 noundef %m, i32 noundef %n, ptr noundef %x, ptr noundef %fvec, double noundef %ftol, double noundef %xtol, double noundef %gtol, i32 noundef %maxfev, double noundef %epsfcn, ptr nocapture noundef %diag, i32 noundef %mode, double noundef %factor, i32 noundef %nprint, ptr nocapture noundef initializes((0, 4)) %info, ptr nocapture noundef initializes((0, 4)) %nfev, ptr noundef %fjac, i32 noundef %ldfjac, ptr nocapture noundef %ipvt, ptr nocapture noundef %qtf, ptr nocapture noundef %wa1, ptr noundef %wa2, ptr nocapture noundef %wa3, ptr noundef %wa4, ptr noundef nonnull align 8 dereferenceable(32) %fcn, ptr noundef nonnull align 8 dereferenceable(32) %jacFcn) local_unnamed_addr #5 {
+define void @_ZN8QuantLib7MINPACK5lmdifEiiPdS1_dddidS1_idiPiS2_S1_iS2_S1_S1_S1_S1_S1_RKSt8functionIFviiS1_S1_S2_EES7_(i32 noundef %m, i32 noundef %n, ptr noundef %x, ptr noundef %fvec, double noundef %ftol, double noundef %xtol, double noundef %gtol, i32 noundef %maxfev, double noundef %epsfcn, ptr noundef captures(none) %diag, i32 noundef %mode, double noundef %factor, i32 noundef %nprint, ptr noundef captures(none) initializes((0, 4)) %info, ptr noundef captures(none) initializes((0, 4)) %nfev, ptr noundef %fjac, i32 noundef %ldfjac, ptr noundef captures(none) %ipvt, ptr noundef captures(none) %qtf, ptr noundef captures(none) %wa1, ptr noundef %wa2, ptr noundef captures(none) %wa3, ptr noundef %wa4, ptr noundef nonnull align 8 dereferenceable(32) %fcn, ptr noundef nonnull align 8 dereferenceable(32) %jacFcn) local_unnamed_addr #5 {
 entry:
   %__args.addr.i712 = alloca i32, align 4
   %__args.addr2.i713 = alloca i32, align 4
@@ -3690,7 +3690,7 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 declare double @llvm.sqrt.f64(double) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

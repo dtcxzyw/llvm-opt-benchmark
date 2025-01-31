@@ -57,7 +57,7 @@ return:                                           ; preds = %entry, %if.end
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SRP_user_pwd_set_gN(ptr nocapture noundef writeonly initializes((24, 40)) %vinfo, ptr noundef %g, ptr noundef %N) local_unnamed_addr #2 {
+define void @SRP_user_pwd_set_gN(ptr noundef writeonly captures(none) initializes((24, 40)) %vinfo, ptr noundef %g, ptr noundef %N) local_unnamed_addr #2 {
 entry:
   %N1 = getelementptr inbounds nuw i8, ptr %vinfo, i64 32
   store ptr %N, ptr %N1, align 8
@@ -67,7 +67,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SRP_user_pwd_set1_ids(ptr nocapture noundef %vinfo, ptr noundef %id, ptr noundef %info) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_user_pwd_set1_ids(ptr noundef captures(none) %vinfo, ptr noundef %id, ptr noundef %info) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %vinfo, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 215) #7
@@ -102,7 +102,7 @@ return:                                           ; preds = %if.end, %lor.rhs, %
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SRP_user_pwd_set0_sv(ptr nocapture noundef %vinfo, ptr noundef %s, ptr noundef %v) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_user_pwd_set0_sv(ptr noundef captures(none) %vinfo, ptr noundef %s, ptr noundef %v) local_unnamed_addr #0 {
 entry:
   %s1 = getelementptr inbounds nuw i8, ptr %vinfo, i64 8
   %0 = load ptr, ptr %s1, align 8
@@ -202,7 +202,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @SRP_VBASE_init(ptr nocapture noundef %vb, ptr noundef %verifier_file) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @SRP_VBASE_init(ptr noundef captures(none) %vb, ptr noundef %verifier_file) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca [2500 x i8], align 16
   %call = tail call ptr @OPENSSL_sk_new_null() #7
@@ -646,7 +646,7 @@ declare void @TXT_DB_free(ptr noundef) local_unnamed_addr #1
 declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SRP_VBASE_add0_user(ptr nocapture noundef readonly %vb, ptr noundef %user_pwd) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_VBASE_add0_user(ptr noundef readonly captures(none) %vb, ptr noundef %user_pwd) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %vb, align 8
   %call2 = tail call i32 @OPENSSL_sk_push(ptr noundef %0, ptr noundef %user_pwd) #7
@@ -658,7 +658,7 @@ entry:
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SRP_VBASE_get_by_user(ptr noundef readonly %vb, ptr nocapture noundef readonly %username) local_unnamed_addr #0 {
+define noundef ptr @SRP_VBASE_get_by_user(ptr noundef readonly %vb, ptr noundef readonly captures(none) %username) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %vb, null
   br i1 %cmp.i, label %find_user.exit, label %for.cond.preheader.i
@@ -857,13 +857,13 @@ lor.lhs.false30:                                  ; preds = %if.end27
 lor.lhs.false33:                                  ; preds = %lor.lhs.false30
   %20 = load ptr, ptr %seed_key, align 8
   %call36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
-  %call37 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call28, ptr noundef %20, i64 noundef %call36) #7
+  %call37 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call28, ptr noundef nonnull %20, i64 noundef %call36) #7
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %SRP_user_pwd_free.exit, label %lor.lhs.false39
 
 lor.lhs.false39:                                  ; preds = %lor.lhs.false33
   %call40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %username) #8
-  %call41 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call28, ptr noundef %username, i64 noundef %call40) #7
+  %call41 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call28, ptr noundef nonnull %username, i64 noundef %call40) #7
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %SRP_user_pwd_free.exit, label %lor.lhs.false43
 
@@ -915,7 +915,7 @@ declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1375,7 +1375,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @BN_dup(ptr noundef) local_unnamed_addr #1
 
@@ -1390,12 +1390,12 @@ declare i32 @EVP_DecodeUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare i32 @EVP_DecodeFinal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare void @EVP_ENCODE_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @EVP_EncodeInit(ptr noundef) local_unnamed_addr #1
 
@@ -1404,10 +1404,10 @@ declare i32 @EVP_EncodeUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare void @EVP_EncodeFinal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

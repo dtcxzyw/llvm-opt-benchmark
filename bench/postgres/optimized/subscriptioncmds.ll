@@ -146,7 +146,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.106 = private unnamed_addr constant [53 x i8] c"cannot drop all the publications from a subscription\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [18 x i8], align 16
   %5 = alloca [18 x i64], align 16
   %6 = alloca [64 x i8], align 16
@@ -627,7 +627,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
 declare i32 @GetUserId() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parse_subscription_options(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 2, 49088) %2, ptr noundef nonnull initializes((0, 56)) %3) unnamed_addr #0 {
@@ -916,7 +916,7 @@ define internal fastcc void @parse_subscription_options(ptr noundef %0, ptr noun
   br label %324
 
 140:                                              ; preds = %134
-  %141 = tail call zeroext i1 @ReplicationSlotValidateName(ptr noundef %136, i32 noundef 21) #10
+  %141 = tail call zeroext i1 @ReplicationSlotValidateName(ptr noundef nonnull %136, i32 noundef 21) #10
   br label %324
 
 142:                                              ; preds = %125, %124
@@ -1280,7 +1280,7 @@ define internal fastcc void @parse_subscription_options(ptr noundef %0, ptr noun
   %312 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %312)
   %313 = tail call i32 @errcode(i32 noundef 50856066) #10
-  %314 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.67, ptr noundef %300) #10
+  %314 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.67, ptr noundef nonnull %300) #10
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 363, ptr noundef nonnull @__func__.parse_subscription_options) #10
   unreachable
 
@@ -1717,7 +1717,7 @@ list_length.exit.thread:                          ; preds = %walrcv_clear_result
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_publications_origin(ptr noundef nonnull %0, ptr noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @check_publications_origin(ptr noundef nonnull %0, ptr noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.StringInfoData, align 8
   %9 = alloca [1 x i32], align 4
   store i32 25, ptr %9, align 4
@@ -2230,10 +2230,10 @@ declare void @ApplyLauncherWakeupAtCommit() local_unnamed_addr #1
 declare void @RunObjectPostCreateHook(i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [18 x i8], align 16
   %5 = alloca [18 x i8], align 16
   %6 = alloca [18 x i64], align 16
@@ -2812,7 +2812,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   %318 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %318)
   %319 = call i32 @errcode(i32 noundef 290948) #10
-  %320 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.104, ptr noundef %282, ptr noundef %272) #10
+  %320 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.104, ptr noundef nonnull %282, ptr noundef %272) #10
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2369, ptr noundef nonnull @__func__.merge_publications) #10
   unreachable
 
@@ -3140,7 +3140,7 @@ declare ptr @GetSubscription(i32 noundef, i1 noundef zeroext) local_unnamed_addr
 declare void @LockSharedObject(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AlterSubscription_refresh(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @AlterSubscription_refresh(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %6 = alloca i32, align 4
@@ -3474,7 +3474,7 @@ declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 
 declare void @LogicalRepWorkersWakeupAtCommit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DropSubscription(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca %struct.ObjectAddress, align 4
   %5 = alloca i8, align 1
@@ -4206,7 +4206,7 @@ declare ptr @defGetString(ptr noundef) local_unnamed_addr #1
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
 declare void @errorConflictingDefElem(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -4318,7 +4318,7 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly %0
   %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %39)
   %40 = tail call i32 @errcode(i32 noundef 290948) #10
-  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.78, ptr noundef %.us-phi) #10
+  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.78, ptr noundef nonnull %.us-phi) #10
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2325, ptr noundef nonnull @__func__.check_duplicates_in_publist) #10
   unreachable
 
@@ -4403,7 +4403,7 @@ declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

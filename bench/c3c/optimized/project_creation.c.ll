@@ -71,7 +71,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.54 = private unnamed_addr constant [33 x i8] c"Failed to create directory '%s'.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @create_library(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @create_library(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 41120
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc zeroext i1 @check_name(ptr noundef %3)
@@ -155,19 +155,19 @@ mkdir_or_fail.exit24:                             ; preds = %mkdir_or_fail.exit,
   br i1 %34, label %30, label %35
 
 35:                                               ; preds = %mkdir_or_fail.exit24
-  tail call void (ptr, ptr, ...) @delete_dir_and_exit(ptr noundef readonly %0, ptr noundef nonnull @.str.54, ptr noundef %32)
+  tail call void (ptr, ptr, ...) @delete_dir_and_exit(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.54, ptr noundef %32)
   unreachable
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr @MANIFEST_TEMPLATE, align 8
   %38 = load ptr, ptr %2, align 8
   %39 = tail call ptr @scratch_buffer_to_string() #9
-  tail call void (ptr, ptr, ptr, ...) @create_file_or_fail(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef %37, ptr noundef %38, ptr noundef %39)
+  tail call void (ptr, ptr, ptr, ...) @create_file_or_fail(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef %37, ptr noundef %38, ptr noundef %39)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @check_name(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @check_name(ptr noundef readonly captures(none) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %char_is_alphanum_.exit, label %.lr.ph
@@ -254,7 +254,7 @@ char_is_alphanum_.exit:                           ; preds = %5, %.lr.ph, %1
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @exit_fail(ptr nocapture noundef readonly %0, ...) unnamed_addr #2 {
+define internal void @exit_fail(ptr noundef readonly captures(none) %0, ...) unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stderr, align 8
@@ -269,7 +269,7 @@ declare zeroext i1 @dir_change(ptr noundef) local_unnamed_addr #3
 declare zeroext i1 @dir_make(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @chdir_or_fail(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @chdir_or_fail(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @dir_change(ptr noundef %1) #9
   br i1 %3, label %5, label %4
 
@@ -282,7 +282,7 @@ define internal fastcc void @chdir_or_fail(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @create_file_or_fail(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, ...) unnamed_addr #0 {
+define internal void @create_file_or_fail(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %8
@@ -321,7 +321,7 @@ define internal void @create_file_or_fail(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mkdir_or_fail(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @mkdir_or_fail(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @dir_make(ptr noundef %1) #9
   br i1 %3, label %5, label %4
 
@@ -340,7 +340,7 @@ declare void @scratch_buffer_printf(ptr noundef, ...) local_unnamed_addr #3
 declare ptr @scratch_buffer_copy() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @module_name(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @module_name(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   tail call void @scratch_buffer_clear() #9
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 41120
   %3 = load ptr, ptr %2, align 8
@@ -399,7 +399,7 @@ define internal fastcc ptr @module_name(ptr nocapture noundef readonly %0) unnam
 declare ptr @scratch_buffer_to_string() local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @create_project(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local void @create_project(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 41144
   %4 = load ptr, ptr %3, align 8
@@ -494,7 +494,7 @@ define dso_local void @create_project(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @file_read_all(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -502,13 +502,13 @@ declare ptr @file_read_all(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
 declare void @exit_compiler(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @scratch_buffer_append(ptr noundef) local_unnamed_addr #3
 
@@ -517,7 +517,7 @@ declare void @scratch_buffer_append_char(i8 noundef signext) local_unnamed_addr 
 declare zeroext i1 @file_touch(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @delete_dir_and_exit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #2 {
+define internal void @delete_dir_and_exit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 41136
@@ -540,22 +540,22 @@ define internal void @delete_dir_and_exit(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

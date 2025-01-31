@@ -458,7 +458,7 @@ declare i32 @ossl_param_build_set_utf8_string(ptr noundef, ptr noundef, ptr noun
 declare i32 @ossl_param_build_set_int(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %pss_params, ptr nocapture noundef %defaults_set, ptr noundef %params, ptr noundef %libctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %pss_params, ptr noundef captures(none) %defaults_set, ptr noundef %params, ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %saltlen = alloca i32, align 4
   %mgfname = alloca ptr, align 8
@@ -983,7 +983,7 @@ return:                                           ; preds = %entry, %if.end117, 
 declare ptr @ossl_rsa_new_with_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -998,7 +998,7 @@ declare i32 @CRYPTO_dup_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unn
 declare void @RSA_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_rsa_pss_decode(ptr nocapture noundef readonly %alg) local_unnamed_addr #0 {
+define ptr @ossl_rsa_pss_decode(ptr noundef readonly captures(none) %alg) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @RSA_PSS_PARAMS_it() #4
   %parameter = getelementptr inbounds nuw i8, ptr %alg, i64 8
@@ -1036,7 +1036,7 @@ declare ptr @RSA_PSS_PARAMS_it() local_unnamed_addr #1
 declare void @RSA_PSS_PARAMS_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_pss_get_param_unverified(ptr noundef readonly %pss, ptr nocapture noundef writeonly %pmd, ptr nocapture noundef writeonly %pmgf1md, ptr nocapture noundef writeonly %psaltlen, ptr nocapture noundef writeonly %ptrailerField) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_pss_get_param_unverified(ptr noundef readonly %pss, ptr noundef writeonly captures(none) %pmd, ptr noundef writeonly captures(none) %pmgf1md, ptr noundef writeonly captures(none) %psaltlen, ptr noundef writeonly captures(none) %ptrailerField) local_unnamed_addr #0 {
 entry:
   %pss_params = alloca %struct.rsa_pss_params_30_st, align 4
   %call = call i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef nonnull %pss_params) #4
@@ -1266,7 +1266,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @ossl_rsa_set0_pss_params(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_rsa_key_from_pkcs8(ptr noundef %p8inf, ptr nocapture noundef readnone %libctx, ptr nocapture noundef readnone %propq) local_unnamed_addr #0 {
+define ptr @ossl_rsa_key_from_pkcs8(ptr noundef %p8inf, ptr noundef readnone captures(none) %libctx, ptr noundef readnone captures(none) %propq) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %pklen = alloca i32, align 4
@@ -1356,10 +1356,10 @@ declare i32 @EVP_MD_get_type(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_rsa_pss_params_30_set_trailerfield(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

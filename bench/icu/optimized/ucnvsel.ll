@@ -289,17 +289,17 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @ucnv_countAvailable_75() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @ucnv_getAvailableName_75(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 declare ptr @upvec_open_75(i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -585,7 +585,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #3
 declare void @utrie2_close_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucnvsel_serialize_75(ptr nocapture noundef readonly %sel, ptr noundef %buffer, i32 noundef %bufferCapacity, ptr noundef %status) local_unnamed_addr #0 {
+define i32 @ucnvsel_serialize_75(ptr noundef readonly captures(none) %sel, ptr noundef %buffer, i32 noundef %bufferCapacity, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -690,7 +690,7 @@ return:                                           ; preds = %if.end6, %entry, %i
 declare i32 @utrie2_serialize_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @ucnvsel_openFromSerialized_75(ptr noundef %buffer, i32 noundef %length, ptr noundef %status) local_unnamed_addr #0 {
@@ -1069,7 +1069,7 @@ if.end61:                                         ; preds = %do.body, %if.end57
   %idx.ext72 = sext i32 %add69 to i64
   %add.ptr73 = getelementptr inbounds i8, ptr %add.ptr44, i64 %idx.ext72
   %add.ptr75 = getelementptr inbounds i8, ptr %add.ptr46, i64 %idx.ext72
-  %call76 = tail call noundef i32 %14(ptr noundef %ds, ptr noundef %add.ptr73, i32 noundef %mul, ptr noundef %add.ptr75, ptr noundef nonnull %status)
+  %call76 = tail call noundef i32 %14(ptr noundef %ds, ptr noundef nonnull %add.ptr73, i32 noundef %mul, ptr noundef %add.ptr75, ptr noundef nonnull %status)
   %add77 = add nsw i32 %mul, %add69
   %arrayidx78 = getelementptr inbounds nuw i8, ptr %indexes, i64 12
   %15 = load i32, ptr %arrayidx78, align 4
@@ -1078,7 +1078,7 @@ if.end61:                                         ; preds = %do.body, %if.end57
   %idx.ext79 = sext i32 %add77 to i64
   %add.ptr80 = getelementptr inbounds i8, ptr %add.ptr44, i64 %idx.ext79
   %add.ptr82 = getelementptr inbounds i8, ptr %add.ptr46, i64 %idx.ext79
-  %call83 = tail call noundef i32 %16(ptr noundef %ds, ptr noundef %add.ptr80, i32 noundef %15, ptr noundef %add.ptr82, ptr noundef nonnull %status)
+  %call83 = tail call noundef i32 %16(ptr noundef %ds, ptr noundef nonnull %add.ptr80, i32 noundef %15, ptr noundef %add.ptr82, ptr noundef nonnull %status)
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end61, %for.end
@@ -1095,7 +1095,7 @@ declare void @udata_closeSwapper_75(ptr noundef) local_unnamed_addr #3
 declare ptr @utrie2_openFromSerialized_75(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucnvsel_selectForString_75(ptr noundef %sel, ptr noundef readonly %s, i32 noundef %length, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define noundef ptr @ucnvsel_selectForString_75(ptr noundef %sel, ptr noundef readonly %s, i32 noundef %length, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1295,7 +1295,7 @@ return:                                           ; preds = %entry, %if.end95, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13selectForMaskPK18UConverterSelectorPjP10UErrorCode(ptr noundef nonnull %sel, ptr noundef nonnull %theMask, ptr nocapture noundef writeonly %status) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL13selectForMaskPK18UConverterSelectorPjP10UErrorCode(ptr noundef nonnull %sel, ptr noundef nonnull %theMask, ptr noundef writeonly captures(none) %status) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = invoke noalias dereferenceable_or_null(24) ptr @uprv_malloc_75(i64 noundef 24) #14
           to label %invoke.cont1 unwind label %lpad
@@ -1529,7 +1529,7 @@ _ZN6icu_7511LocalMemoryIjED2Ev.exit25:            ; preds = %ehcleanup75
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucnvsel_selectForUTF8_75(ptr noundef %sel, ptr noundef %s, i32 noundef %length, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define noundef ptr @ucnvsel_selectForUTF8_75(ptr noundef %sel, ptr noundef %s, i32 noundef %length, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1791,7 +1791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -32768, 32768) i32 @_ZL23ucnvsel_count_encodingsP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %enumerator, ptr nocapture noundef readonly %status) #10 {
+define internal noundef range(i32 -32768, 32768) i32 @_ZL23ucnvsel_count_encodingsP12UEnumerationP10UErrorCode(ptr noundef readonly captures(none) %enumerator, ptr noundef readonly captures(none) %status) #10 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1813,7 +1813,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @uenum_unextDefault_75(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZL21ucnvsel_next_encodingP12UEnumerationPiP10UErrorCode(ptr nocapture noundef readonly %enumerator, ptr noundef writeonly %resultLength, ptr nocapture noundef readonly %status) #11 {
+define internal noundef ptr @_ZL21ucnvsel_next_encodingP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %enumerator, ptr noundef writeonly %resultLength, ptr noundef readonly captures(none) %status) #11 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1858,7 +1858,7 @@ return:                                           ; preds = %if.end5, %if.then14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL22ucnvsel_reset_iteratorP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %enumerator, ptr nocapture noundef readonly %status) #12 {
+define internal void @_ZL22ucnvsel_reset_iteratorP12UEnumerationP10UErrorCode(ptr noundef readonly captures(none) %enumerator, ptr noundef readonly captures(none) %status) #12 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1

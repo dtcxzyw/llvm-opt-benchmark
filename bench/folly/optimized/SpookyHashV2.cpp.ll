@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly %message, i64 noundef %length, ptr nocapture noundef %hash1, ptr nocapture noundef %hash2) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly %message, i64 noundef %length, ptr noundef captures(none) %hash1, ptr noundef captures(none) %hash2) local_unnamed_addr #0 align 2 {
 entry:
   %rem = and i64 %length, 31
   %0 = load i64, ptr %hash1, align 8, !tbaa !7
@@ -330,13 +330,13 @@ sw.epilog:                                        ; preds = %sw.bb87, %sw.bb83, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef %message, i64 noundef %length, ptr nocapture noundef %hash1, ptr nocapture noundef %hash2) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef %message, i64 noundef %length, ptr noundef captures(none) %hash1, ptr noundef captures(none) %hash2) local_unnamed_addr #0 align 2 {
 entry:
   %buf = alloca [12 x i64], align 16
   %cmp = icmp ult i64 %length, 192
@@ -631,13 +631,13 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly4hash12SpookyHashV24InitEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(297) initializes((192, 208), (288, 297)) %this, i64 noundef %seed1, i64 noundef %seed2) local_unnamed_addr #4 align 2 {
+define void @_ZN5folly4hash12SpookyHashV24InitEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(297) initializes((192, 208), (288, 297)) %this, i64 noundef %seed1, i64 noundef %seed2) local_unnamed_addr #4 align 2 {
 entry:
   %m_length = getelementptr inbounds nuw i8, ptr %this, i64 288
   store i64 0, ptr %m_length, align 8, !tbaa !17
@@ -1066,7 +1066,7 @@ cleanup:                                          ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5folly4hash12SpookyHashV25FinalEPmS2_(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr nocapture noundef initializes((0, 8)) %hash1, ptr nocapture noundef initializes((0, 8)) %hash2) local_unnamed_addr #0 align 2 {
+define void @_ZNK5folly4hash12SpookyHashV25FinalEPmS2_(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr noundef captures(none) initializes((0, 8)) %hash1, ptr noundef captures(none) initializes((0, 8)) %hash2) local_unnamed_addr #0 align 2 {
 entry:
   %buf = alloca [24 x i64], align 16
   %m_length = getelementptr inbounds nuw i8, ptr %this, i64 288

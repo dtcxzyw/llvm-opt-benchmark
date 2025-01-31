@@ -691,13 +691,13 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fcswils_hash(ptr nocapture noundef readonly %0) #2 {
+define internal i32 @fcswils_hash(ptr noundef readonly captures(none) %0) #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @fcswils_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @fcswils_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -953,7 +953,7 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_swrjt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 zeroext %3) #0 {
+define internal void @dissect_swils_swrjt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 zeroext %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %5
 
@@ -971,7 +971,7 @@ define internal void @dissect_swils_swrjt(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_elp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 zeroext %3) #0 {
+define internal void @dissect_swils_elp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 zeroext %3) #0 {
   %5 = alloca [6 x i8], align 1
   %6 = alloca [2 x i8], align 1
   %7 = alloca [2 x i8], align 1
@@ -1217,7 +1217,7 @@ define internal void @dissect_swils_efp(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_dia(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 zeroext %3) #0 {
+define internal void @dissect_swils_dia(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 zeroext %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %5
 
@@ -1231,7 +1231,7 @@ define internal void @dissect_swils_dia(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_rdi(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define internal void @dissect_swils_rdi(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -1279,7 +1279,7 @@ define internal void @dissect_swils_rdi(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_hello(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 zeroext %3) #0 {
+define internal void @dissect_swils_hello(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 zeroext %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %28, label %5
 
@@ -1313,7 +1313,7 @@ define internal void @dissect_swils_hello(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_lsupdate(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 zeroext %3) #0 {
+define internal void @dissect_swils_lsupdate(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 zeroext %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %dissect_swils_fspf_lsrec.exit, label %5
 
@@ -1399,7 +1399,7 @@ dissect_swils_fspf_lsrec.exit:                    ; preds = %._crit_edge.i, %5, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_lsack(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 zeroext %3) #0 {
+define internal void @dissect_swils_lsack(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 zeroext %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -1443,12 +1443,12 @@ define internal void @dissect_swils_lsack(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @dissect_swils_nullpayload(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i8 zeroext %3) #3 {
+define internal void @dissect_swils_nullpayload(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i8 zeroext %3) #3 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_rscn(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define internal void @dissect_swils_rscn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = icmp ne ptr %2, null
   %6 = icmp ne i8 %3, 0
   %or.cond = and i1 %5, %6
@@ -1501,7 +1501,7 @@ define internal void @dissect_swils_rscn(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @dissect_swils_drlir(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i8 zeroext %3) #3 {
+define internal void @dissect_swils_drlir(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i8 zeroext %3) #3 {
   ret void
 }
 
@@ -1606,7 +1606,7 @@ define internal void @dissect_swils_mergereq(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_aca(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define internal void @dissect_swils_aca(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -1652,7 +1652,7 @@ define internal void @dissect_swils_aca(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_rca(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define internal void @dissect_swils_rca(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = icmp eq ptr %2, null
   %6 = icmp ne i8 %3, 0
   %or.cond = or i1 %5, %6
@@ -1773,7 +1773,7 @@ define internal void @dissect_swils_sfc(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_ufc(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define internal void @dissect_swils_ufc(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = icmp eq ptr %2, null
   %6 = icmp ne i8 %3, 0
   %or.cond = or i1 %5, %6
@@ -1793,7 +1793,7 @@ define internal void @dissect_swils_ufc(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_esc(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define internal void @dissect_swils_esc(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -1847,7 +1847,7 @@ define internal void @dissect_swils_esc(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_ess(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 zeroext %3) #0 {
+define internal void @dissect_swils_ess(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 zeroext %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -2158,7 +2158,7 @@ dissect_swils_ess_capability_obj.exit:            ; preds = %.lr.ph.split.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_swils_mrra(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define internal void @dissect_swils_mrra(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %22, label %5
 
@@ -2200,7 +2200,7 @@ declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2478,7 +2478,7 @@ declare i32 @tvb_strsize(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i8 @get_gs_server(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

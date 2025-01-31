@@ -409,7 +409,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl13cord_internal25InitializeCordRepExternalESt17basic_string_viewIcSt11char_traitsIcEEPNS0_15CordRepExternalE(i64 %data.coerce0, ptr %data.coerce1, ptr nocapture noundef writeonly initializes((0, 8), (12, 13), (16, 24)) %rep) local_unnamed_addr #4 {
+define dso_local void @_ZN4absl13cord_internal25InitializeCordRepExternalESt17basic_string_viewIcSt11char_traitsIcEEPNS0_15CordRepExternalE(i64 %data.coerce0, ptr %data.coerce1, ptr noundef writeonly captures(none) initializes((0, 8), (12, 13), (16, 24)) %rep) local_unnamed_addr #4 {
 entry:
   store i64 %data.coerce0, ptr %rep, align 8
   %tag = getelementptr inbounds nuw i8, ptr %rep, i64 12
@@ -533,7 +533,7 @@ _ZN4absl4Cord9InlineRep11EmplaceTreeEPNS_13cord_internal7CordRepENS2_18CordzUpda
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4Cord9InlineRep16AppendTreeToTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %tree, i32 noundef %method) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl4Cord9InlineRep16AppendTreeToTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef %tree, i32 noundef %method) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scope = alloca %"class.absl::cord_internal::CordzUpdateScope", align 8
   %0 = load i64, ptr %this, align 8
@@ -829,7 +829,7 @@ _ZN4absl4Cord9InlineRep11EmplaceTreeEPNS_13cord_internal7CordRepENS2_18CordzUpda
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4Cord9InlineRep17PrependTreeToTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %tree, i32 noundef %method) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl4Cord9InlineRep17PrependTreeToTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef %tree, i32 noundef %method) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scope = alloca %"class.absl::cord_internal::CordzUpdateScope", align 8
   %0 = load i64, ptr %this, align 8
@@ -984,7 +984,7 @@ return:                                           ; preds = %if.then.i16, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4Cord9InlineRep9UnrefTreeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4absl4Cord9InlineRep9UnrefTreeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -1188,7 +1188,7 @@ return:                                           ; preds = %_ZN4absl13cord_inte
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4Cord15DestroyCordSlowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %sub.i.i = add nsw i64 %0, -1
@@ -1217,7 +1217,7 @@ _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit:  ; preds = %_ZN4absl13cord_inte
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4Cord5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl4Cord5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -1636,7 +1636,7 @@ return:                                           ; preds = %if.then.i.i70, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl4Cord9InlineRep11AppendArrayESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %src.coerce0, ptr %src.coerce1, i32 noundef %method) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -1990,12 +1990,12 @@ cleanup.cont:                                     ; preds = %if.then53, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare noundef ptr @_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_St17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef, i64, ptr, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4Cord23GetAppendBufferSlowPathEmmm(ptr noalias nocapture sret(%"class.absl::CordBuffer") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %block_size, i64 noundef %capacity, i64 noundef %min_capacity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl4Cord23GetAppendBufferSlowPathEmmm(ptr noalias sret(%"class.absl::CordBuffer") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i64 noundef %block_size, i64 noundef %capacity, i64 noundef %min_capacity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scope = alloca %"class.absl::cord_internal::CordzUpdateScope", align 8
   %0 = load i8, ptr %this, align 8
@@ -3271,7 +3271,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4Cord13AppendPreciseESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %src.coerce0, ptr nocapture readonly %src.coerce1, i32 noundef %method) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4absl4Cord13AppendPreciseESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %src.coerce0, ptr readonly captures(none) %src.coerce1, i32 noundef %method) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -3336,7 +3336,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4Cord14PrependPreciseESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %src.coerce0, ptr nocapture readonly %src.coerce1, i32 noundef %method) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl4Cord14PrependPreciseESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %src.coerce0, ptr readonly captures(none) %src.coerce1, i32 noundef %method) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data = alloca %"class.absl::cord_internal::InlineData", align 8
   %0 = load i8, ptr %this, align 8
@@ -3407,7 +3407,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4Cord12RemovePrefixEm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl4Cord12RemovePrefixEm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i64 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %death_message = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -3892,7 +3892,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef ptr @_ZN4absl13cord_internal12CordRepBtree7SubTreeEmm(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4Cord12RemoveSuffixEm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl4Cord12RemoveSuffixEm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i64 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %death_message = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -5236,7 +5236,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK4absl4Cord20MaybeGetCrcCordStateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZNK4absl4Cord20MaybeGetCrcCordStateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -5259,7 +5259,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZNK4absl4Cord16ExpectedChecksumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 8589934592) i64 @_ZNK4absl4Cord16ExpectedChecksumEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -6375,7 +6375,7 @@ if.end:                                           ; preds = %_ZNK4absl4Cord19Cop
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl4Cord19CopyToArraySlowPathEPc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly %dst) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4absl4Cord19CopyToArraySlowPathEPc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef writeonly captures(none) %dst) local_unnamed_addr #3 align 2 {
 entry:
   %fragment = alloca %"class.std::basic_string_view", align 8
   %__begin1 = alloca %"class.absl::Cord::ChunkIterator", align 8
@@ -7035,7 +7035,7 @@ nrvo.skipdtor:                                    ; preds = %call.i1.i.noexc53, 
 declare { i64, ptr } @_ZN4absl13cord_internal18CordRepBtreeReader4ReadEmmRPNS0_7CordRepE(ptr noundef nonnull align 8 dereferenceable(120), i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef signext i8 @_ZNK4absl4CordixEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %i) local_unnamed_addr #3 align 2 {
+define dso_local noundef signext i8 @_ZNK4absl4CordixEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -7119,7 +7119,7 @@ return:                                           ; preds = %if.then16, %if.then
 declare noundef signext i8 @_ZNK4absl13cord_internal12CordRepBtree12GetCharacterEm(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl4Cord8FindImplENS0_12CharIteratorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.absl::Cord::CharIterator") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef byval(%"class.absl::Cord::CharIterator") align 8 %it, i64 %needle.coerce0, ptr nocapture readonly %needle.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4absl4Cord8FindImplENS0_12CharIteratorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias writeonly sret(%"class.absl::Cord::CharIterator") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef byval(%"class.absl::Cord::CharIterator") align 8 %it, i64 %needle.coerce0, ptr readonly captures(none) %needle.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24 = alloca %"class.absl::Cord::CharIterator", align 8
   %bytes_remaining_ = getelementptr inbounds nuw i8, ptr %it, i64 24
@@ -8315,7 +8315,7 @@ declare noundef zeroext i1 @_ZNK4absl13cord_internal12CordRepBtree6IsFlatEPSt17b
 declare noundef zeroext i1 @_ZNK4absl13cord_internal12CordRepBtree6IsFlatEmmPSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4Cord15ForEachChunkAuxEPNS_13cord_internal7CordRepENS_11FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEEEEE(ptr noundef %rep, ptr %callback.coerce0, ptr nocapture readonly %callback.coerce1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4absl4Cord15ForEachChunkAuxEPNS_13cord_internal7CordRepENS_11FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEEEEE(ptr noundef %rep, ptr %callback.coerce0, ptr readonly captures(none) %callback.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %it = alloca %"class.absl::Cord::ChunkIterator", align 8
   %chunk = alloca %"class.std::basic_string_view", align 8
@@ -8659,7 +8659,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -8684,7 +8684,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 declare noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE1EEEPS1_S4_PNS0_7CordRepE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -12784,7 +12784,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
@@ -13690,7 +13690,7 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare i64 @llvm.ctpop.i64(i64) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
@@ -13711,10 +13711,10 @@ declare i32 @llvm.smax.i32(i32, i32) #19
 declare i64 @llvm.smin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

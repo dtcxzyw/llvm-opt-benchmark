@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ev_walk_gpe_list(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ev_walk_gpe_list(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
   %4 = tail call i64 @acpi_os_acquire_lock(ptr noundef %3) #5
   %5 = load ptr, ptr @acpi_gbl_gpe_xrupt_list_head, align 8
@@ -59,7 +59,7 @@ define dso_local i32 @acpi_ev_walk_gpe_list(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @acpi_os_acquire_lock(ptr noundef) local_unnamed_addr #2
@@ -68,10 +68,10 @@ declare dso_local i64 @acpi_os_acquire_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @acpi_os_release_lock(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 0, 16392) i32 @acpi_ev_get_gpe_device(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 0, 16392) i32 @acpi_ev_get_gpe_device(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i32
@@ -106,7 +106,7 @@ define dso_local noundef range(i32 0, 16392) i32 @acpi_ev_get_gpe_device(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr @acpi_gbl_gpe_xrupt_list_head, align 8
   %5 = icmp eq ptr %4, null
@@ -256,7 +256,7 @@ define dso_local i32 @acpi_ev_delete_gpe_xrupt(ptr noundef %0) local_unnamed_add
 declare dso_local i32 @acpi_os_remove_interrupt_handler(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ev_delete_gpe_handlers(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @acpi_ev_delete_gpe_handlers(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0

@@ -51,7 +51,7 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
   %arrayidx.i = getelementptr inbounds nuw [7 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %i.013.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
-  %call2.i = call i64 @EVP_EncodeBlock(ptr noundef nonnull %out.i, ptr noundef %0, i64 noundef %call.i)
+  %call2.i = call i64 @EVP_EncodeBlock(ptr noundef nonnull %out.i, ptr noundef nonnull %0, i64 noundef %call.i)
   %encoded.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %1 = load ptr, ptr %encoded.i, align 8
   %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
@@ -59,14 +59,14 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
   br i1 %cmp4.not.i, label %lor.lhs.false.i, label %_ZL10TestEncodev.exit
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %bcmp.i = call i32 @bcmp(ptr nonnull %out.i, ptr %1, i64 %call2.i)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %out.i, ptr nonnull %1, i64 %call2.i)
   %cmp8.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp8.not.i, label %for.cond.i, label %_ZL10TestEncodev.exit
 
 _ZL10TestEncodev.exit:                            ; preds = %for.body.i, %lor.lhs.false.i
   %2 = load ptr, ptr @stderr, align 8
   %conv.i = trunc i64 %call2.i to i32
-  %call12.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef %0, i32 noundef %conv.i, ptr noundef nonnull %out.i, ptr noundef %1) #8
+  %call12.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, i32 noundef %conv.i, ptr noundef nonnull %out.i, ptr noundef nonnull %1) #8
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %out.i)
   br label %return
 
@@ -89,13 +89,13 @@ for.body.i2:                                      ; preds = %for.cond.i12, %lor.
   %encoded.i5 = getelementptr inbounds nuw i8, ptr %arrayidx.i3, i64 8
   %4 = load ptr, ptr %encoded.i5, align 8
   %call2.i6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
-  %call3.i7 = call i32 @EVP_DecodeBase64(ptr noundef nonnull %out.i1, ptr noundef nonnull %len.i, i64 noundef 6, ptr noundef %4, i64 noundef %call2.i6)
+  %call3.i7 = call i32 @EVP_DecodeBase64(ptr noundef nonnull %out.i1, ptr noundef nonnull %len.i, i64 noundef 6, ptr noundef nonnull %4, i64 noundef %call2.i6)
   %tobool.not.i = icmp eq i32 %call3.i7, 0
   br i1 %tobool.not.i, label %if.then.i14, label %if.end.i
 
 if.then.i14:                                      ; preds = %for.body.i2
   %5 = load ptr, ptr @stderr, align 8
-  %call5.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.15, ptr noundef %4) #8
+  %call5.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.15, ptr noundef nonnull %4) #8
   br label %_ZL10TestDecodev.exit.thread
 
 if.end.i:                                         ; preds = %for.body.i2
@@ -105,25 +105,25 @@ if.end.i:                                         ; preds = %for.body.i2
   br i1 %cmp8.not.i8, label %lor.lhs.false.i10, label %if.then13.i
 
 lor.lhs.false.i10:                                ; preds = %if.end.i
-  %bcmp.i11 = call i32 @bcmp(ptr nonnull %out.i1, ptr %3, i64 %6)
+  %bcmp.i11 = call i32 @bcmp(ptr nonnull %out.i1, ptr nonnull %3, i64 %6)
   %cmp12.not.i = icmp eq i32 %bcmp.i11, 0
   br i1 %cmp12.not.i, label %if.end18.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %lor.lhs.false.i10, %if.end.i
   %7 = load ptr, ptr @stderr, align 8
   %conv.i9 = trunc i64 %6 to i32
-  %call17.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.16, ptr noundef %4, i32 noundef %conv.i9, ptr noundef nonnull %out.i1, ptr noundef %3) #8
+  %call17.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.16, ptr noundef nonnull %4, i32 noundef %conv.i9, ptr noundef nonnull %out.i1, ptr noundef nonnull %3) #8
   br label %_ZL10TestDecodev.exit.thread
 
 if.end18.i:                                       ; preds = %lor.lhs.false.i10
   %call22.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
-  %call23.i = call i32 @EVP_DecodeBlock(ptr noundef nonnull %out.i1, ptr noundef %4, i64 noundef %call22.i)
+  %call23.i = call i32 @EVP_DecodeBlock(ptr noundef nonnull %out.i1, ptr noundef nonnull %4, i64 noundef %call22.i)
   %cmp24.i = icmp slt i32 %call23.i, 0
   br i1 %cmp24.i, label %if.then25.i, label %if.end28.i
 
 if.then25.i:                                      ; preds = %if.end18.i
   %8 = load ptr, ptr @stderr, align 8
-  %call27.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.15, ptr noundef %4) #8
+  %call27.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.15, ptr noundef nonnull %4) #8
   br label %_ZL10TestDecodev.exit.thread
 
 if.end28.i:                                       ; preds = %if.end18.i
@@ -149,13 +149,13 @@ if.end32.i:                                       ; preds = %if.end28.i
   br i1 %cmp44.not.i, label %lor.lhs.false45.i, label %if.then51.i
 
 lor.lhs.false45.i:                                ; preds = %if.end32.i
-  %bcmp23.i = call i32 @bcmp(ptr nonnull %out.i1, ptr %3, i64 %conv41.i)
+  %bcmp23.i = call i32 @bcmp(ptr nonnull %out.i1, ptr nonnull %3, i64 %conv41.i)
   %cmp50.not.i = icmp eq i32 %bcmp23.i, 0
   br i1 %cmp50.not.i, label %for.cond.i12, label %if.then51.i
 
 if.then51.i:                                      ; preds = %lor.lhs.false45.i, %if.end32.i
   %13 = load ptr, ptr @stderr, align 8
-  %call55.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.16, ptr noundef %4, i32 noundef %ret.0.i, ptr noundef nonnull %out.i1, ptr noundef %3) #8
+  %call55.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.16, ptr noundef nonnull %4, i32 noundef %ret.0.i, ptr noundef nonnull %out.i1, ptr noundef nonnull %3) #8
   br label %_ZL10TestDecodev.exit.thread
 
 for.end.i:                                        ; preds = %for.cond.i12
@@ -209,29 +209,29 @@ declare void @CRYPTO_library_init() local_unnamed_addr #1
 declare i64 @EVP_EncodeBlock(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @EVP_DecodeBase64(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @EVP_DecodeBlock(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

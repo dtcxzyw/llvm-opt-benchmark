@@ -281,7 +281,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core28AddClientCallTracerToContextEP25grpc_call_context_elementPNS_16ClientCallTracerE(ptr nocapture noundef %call_context, ptr noundef %tracer) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core28AddClientCallTracerToContextEP25grpc_call_context_elementPNS_16ClientCallTracerE(ptr noundef captures(none) %call_context, ptr noundef %tracer) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %call_context, i64 32
   %0 = load ptr, ptr %arrayidx, align 8
@@ -477,7 +477,7 @@ if.end12:                                         ; preds = %_ZNSt6vectorIPN9grp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core28AddServerCallTracerToContextEP25grpc_call_context_elementPNS_16ServerCallTracerE(ptr nocapture noundef %call_context, ptr noundef %tracer) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core28AddServerCallTracerToContextEP25grpc_call_context_elementPNS_16ServerCallTracerE(ptr noundef captures(none) %call_context, ptr noundef %tracer) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %call_context, i64 32
   %0 = load ptr, ptr %arrayidx, align 8
@@ -713,13 +713,13 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: noreturn
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9

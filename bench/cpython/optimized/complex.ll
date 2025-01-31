@@ -44,7 +44,7 @@ entry:
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_check(ptr nocapture readnone %_unused_module, ptr noundef readonly %obj) #0 {
+define internal ptr @complex_check(ptr readnone captures(none) %_unused_module, ptr noundef readonly %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -66,7 +66,7 @@ PyObject_TypeCheck.exit:                          ; preds = %entry, %lor.rhs.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_checkexact(ptr nocapture readnone %_unused_module, ptr noundef readonly %obj) #0 {
+define internal ptr @complex_checkexact(ptr readnone captures(none) %_unused_module, ptr noundef readonly %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -79,7 +79,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_fromccomplex(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @complex_fromccomplex(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %complex = alloca %struct.Py_complex, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %obj, ptr noundef nonnull @.str.14, ptr noundef nonnull %complex) #3
@@ -99,7 +99,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_fromdoubles(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @complex_fromdoubles(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %real = alloca double, align 8
   %imag = alloca double, align 8
@@ -119,7 +119,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_realasdouble(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @complex_realasdouble(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -142,7 +142,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_imagasdouble(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @complex_imagasdouble(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -165,7 +165,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_asccomplex(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @complex_asccomplex(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -190,7 +190,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_py_c_sum(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @_py_c_sum(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %num = alloca %struct.Py_complex, align 8
   %exp = alloca %struct.Py_complex, align 8
@@ -224,7 +224,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_py_c_diff(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @_py_c_diff(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %num = alloca %struct.Py_complex, align 8
   %exp = alloca %struct.Py_complex, align 8
@@ -258,7 +258,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_py_c_neg(ptr nocapture readnone %_unused_module, ptr noundef %num) #0 {
+define internal ptr @_py_c_neg(ptr readnone captures(none) %_unused_module, ptr noundef %num) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %num) #3
   %0 = extractvalue { double, double } %call, 0
@@ -284,7 +284,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_py_c_prod(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @_py_c_prod(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %num = alloca %struct.Py_complex, align 8
   %exp = alloca %struct.Py_complex, align 8
@@ -318,7 +318,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_py_c_quot(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @_py_c_quot(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %num = alloca %struct.Py_complex, align 8
   %exp = alloca %struct.Py_complex, align 8
@@ -352,7 +352,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_py_c_pow(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @_py_c_pow(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %num = alloca %struct.Py_complex, align 8
   %exp = alloca %struct.Py_complex, align 8
@@ -386,7 +386,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_py_c_abs(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @_py_c_abs(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj

@@ -96,7 +96,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ecdsa_sign(i32 noundef %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly initializes((0, 4)) %siglen, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecdsa_sign(i32 noundef %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr noundef writeonly captures(none) initializes((0, 4)) %siglen, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %sig.addr = alloca ptr, align 8
   store ptr %sig, ptr %sig.addr, align 8
@@ -128,7 +128,7 @@ declare i32 @i2d_ECDSA_SIG(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ECDSA_SIG_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ecdsa_deterministic_sign(ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly initializes((0, 4)) %siglen, ptr noundef %eckey, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecdsa_deterministic_sign(ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr noundef writeonly captures(none) initializes((0, 4)) %siglen, ptr noundef %eckey, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %sig.addr = alloca ptr, align 8
   %kinv = alloca ptr, align 8
@@ -168,7 +168,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr noundef captures(none) %kinvp, ptr noundef captures(none) %rp, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -267,27 +267,27 @@ do.body.preheader:                                ; preds = %lor.lhs.false40
   br i1 %cmp46.not, label %do.body45.us.us, label %do.body.preheader.split
 
 if.end65.us:                                      ; preds = %do.end.split.us.us
-  %call66.us = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef %call19, ptr noundef null, ptr noundef nonnull %ctx.0) #3
+  %call66.us = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef nonnull %call19, ptr noundef null, ptr noundef nonnull %ctx.0) #3
   %tobool67.not.us = icmp eq i32 %call66.us, 0
   br i1 %tobool67.not.us, label %if.then83.sink.split, label %if.end69.us
 
 if.end69.us:                                      ; preds = %if.end65.us
-  %call70.us = tail call i32 @BN_nnmod(ptr noundef %call18, ptr noundef %call19, ptr noundef %call31, ptr noundef nonnull %ctx.0) #3
+  %call70.us = tail call i32 @BN_nnmod(ptr noundef nonnull %call18, ptr noundef nonnull %call19, ptr noundef %call31, ptr noundef nonnull %ctx.0) #3
   %tobool71.not.us = icmp eq i32 %call70.us, 0
   br i1 %tobool71.not.us, label %if.then83.sink.split, label %do.cond74.us
 
 do.cond74.us:                                     ; preds = %if.end69.us
-  %call75.us = tail call i32 @BN_is_zero(ptr noundef %call18) #3
+  %call75.us = tail call i32 @BN_is_zero(ptr noundef nonnull %call18) #3
   %tobool76.not.us = icmp eq i32 %call75.us, 0
   br i1 %tobool76.not.us, label %do.end77, label %do.body45.us.us.backedge
 
 do.body45.us.us:                                  ; preds = %do.body.preheader, %do.body45.us.us.backedge
-  %call55.us.us = tail call i32 @BN_priv_rand_range_ex(ptr noundef %call17, ptr noundef %call31, i32 noundef 0, ptr noundef nonnull %ctx.0) #3
+  %call55.us.us = tail call i32 @BN_priv_rand_range_ex(ptr noundef nonnull %call17, ptr noundef %call31, i32 noundef 0, ptr noundef nonnull %ctx.0) #3
   %tobool57.not.us.us = icmp eq i32 %call55.us.us, 0
   br i1 %tobool57.not.us.us, label %if.then83.sink.split, label %do.cond.us.us
 
 do.cond.us.us:                                    ; preds = %do.body45.us.us
-  %call60.us.us = tail call i32 @BN_is_zero(ptr noundef %call17) #3
+  %call60.us.us = tail call i32 @BN_is_zero(ptr noundef nonnull %call17) #3
   %tobool61.not.us.us = icmp eq i32 %call60.us.us, 0
   br i1 %tobool61.not.us.us, label %do.end.split.us.us, label %do.body45.us.us.backedge
 
@@ -295,7 +295,7 @@ do.body45.us.us.backedge:                         ; preds = %do.cond.us.us, %do.
   br label %do.body45.us.us, !llvm.loop !4
 
 do.end.split.us.us:                               ; preds = %do.cond.us.us
-  %call62.us = tail call i32 @EC_POINT_mul(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef %call17, ptr noundef null, ptr noundef null, ptr noundef nonnull %ctx.0) #3
+  %call62.us = tail call i32 @EC_POINT_mul(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef nonnull %call17, ptr noundef null, ptr noundef null, ptr noundef nonnull %ctx.0) #3
   %tobool63.not.us = icmp eq i32 %call62.us, 0
   br i1 %tobool63.not.us, label %if.then83.sink.split, label %if.end65.us
 
@@ -304,27 +304,27 @@ do.body.preheader.split:                          ; preds = %do.body.preheader
   br i1 %cmp48, label %do.body45.us60.us, label %do.body45
 
 if.end65.us68:                                    ; preds = %do.end.split.split.us.us
-  %call66.us69 = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef %call19, ptr noundef null, ptr noundef nonnull %ctx.0) #3
+  %call66.us69 = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef nonnull %call19, ptr noundef null, ptr noundef nonnull %ctx.0) #3
   %tobool67.not.us70 = icmp eq i32 %call66.us69, 0
   br i1 %tobool67.not.us70, label %if.then83.sink.split, label %if.end69.us71
 
 if.end69.us71:                                    ; preds = %if.end65.us68
-  %call70.us72 = tail call i32 @BN_nnmod(ptr noundef %call18, ptr noundef %call19, ptr noundef %call31, ptr noundef nonnull %ctx.0) #3
+  %call70.us72 = tail call i32 @BN_nnmod(ptr noundef nonnull %call18, ptr noundef nonnull %call19, ptr noundef %call31, ptr noundef nonnull %ctx.0) #3
   %tobool71.not.us73 = icmp eq i32 %call70.us72, 0
   br i1 %tobool71.not.us73, label %if.then83.sink.split, label %do.cond74.us74
 
 do.cond74.us74:                                   ; preds = %if.end69.us71
-  %call75.us75 = tail call i32 @BN_is_zero(ptr noundef %call18) #3
+  %call75.us75 = tail call i32 @BN_is_zero(ptr noundef nonnull %call18) #3
   %tobool76.not.us76 = icmp eq i32 %call75.us75, 0
   br i1 %tobool76.not.us76, label %do.end77, label %do.body45.us60.us.backedge
 
 do.body45.us60.us:                                ; preds = %do.body.preheader.split, %do.body45.us60.us.backedge
-  %call50.us.us = tail call i32 @ossl_gen_deterministic_nonce_rfc6979(ptr noundef %call17, ptr noundef %call31, ptr noundef nonnull %call2, ptr noundef nonnull %dgst, i64 noundef %conv51, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) #3
+  %call50.us.us = tail call i32 @ossl_gen_deterministic_nonce_rfc6979(ptr noundef nonnull %call17, ptr noundef %call31, ptr noundef nonnull %call2, ptr noundef nonnull %dgst, i64 noundef %conv51, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) #3
   %tobool57.not.us63.us = icmp eq i32 %call50.us.us, 0
   br i1 %tobool57.not.us63.us, label %if.then83.sink.split, label %do.cond.us64.us
 
 do.cond.us64.us:                                  ; preds = %do.body45.us60.us
-  %call60.us65.us = tail call i32 @BN_is_zero(ptr noundef %call17) #3
+  %call60.us65.us = tail call i32 @BN_is_zero(ptr noundef nonnull %call17) #3
   %tobool61.not.us66.us = icmp eq i32 %call60.us65.us, 0
   br i1 %tobool61.not.us66.us, label %do.end.split.split.us.us, label %do.body45.us60.us.backedge
 
@@ -332,17 +332,17 @@ do.body45.us60.us.backedge:                       ; preds = %do.cond.us64.us, %d
   br label %do.body45.us60.us, !llvm.loop !4
 
 do.end.split.split.us.us:                         ; preds = %do.cond.us64.us
-  %call62.us77 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef %call17, ptr noundef null, ptr noundef null, ptr noundef nonnull %ctx.0) #3
+  %call62.us77 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef nonnull %call17, ptr noundef null, ptr noundef null, ptr noundef nonnull %ctx.0) #3
   %tobool63.not.us78 = icmp eq i32 %call62.us77, 0
   br i1 %tobool63.not.us78, label %if.then83.sink.split, label %if.end65.us68
 
 do.body45:                                        ; preds = %do.body.preheader.split, %do.body45.backedge
-  %call52 = tail call i32 @BN_generate_dsa_nonce(ptr noundef %call17, ptr noundef %call31, ptr noundef nonnull %call2, ptr noundef nonnull %dgst, i64 noundef %conv51, ptr noundef nonnull %ctx.0) #3
+  %call52 = tail call i32 @BN_generate_dsa_nonce(ptr noundef nonnull %call17, ptr noundef %call31, ptr noundef nonnull %call2, ptr noundef nonnull %dgst, i64 noundef %conv51, ptr noundef nonnull %ctx.0) #3
   %tobool57.not = icmp eq i32 %call52, 0
   br i1 %tobool57.not, label %if.then83.sink.split, label %do.cond
 
 do.cond:                                          ; preds = %do.body45
-  %call60 = tail call i32 @BN_is_zero(ptr noundef %call17) #3
+  %call60 = tail call i32 @BN_is_zero(ptr noundef nonnull %call17) #3
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %do.end.split.split, label %do.body45.backedge
 
@@ -350,27 +350,27 @@ do.body45.backedge:                               ; preds = %do.cond, %do.cond74
   br label %do.body45, !llvm.loop !4
 
 do.end.split.split:                               ; preds = %do.cond
-  %call62 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef %call17, ptr noundef null, ptr noundef null, ptr noundef nonnull %ctx.0) #3
+  %call62 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef nonnull %call17, ptr noundef null, ptr noundef null, ptr noundef nonnull %ctx.0) #3
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %if.then83.sink.split, label %if.end65
 
 if.end65:                                         ; preds = %do.end.split.split
-  %call66 = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef %call19, ptr noundef null, ptr noundef nonnull %ctx.0) #3
+  %call66 = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef nonnull %call, ptr noundef nonnull %call27, ptr noundef nonnull %call19, ptr noundef null, ptr noundef nonnull %ctx.0) #3
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %if.then83.sink.split, label %if.end69
 
 if.end69:                                         ; preds = %if.end65
-  %call70 = tail call i32 @BN_nnmod(ptr noundef %call18, ptr noundef %call19, ptr noundef %call31, ptr noundef nonnull %ctx.0) #3
+  %call70 = tail call i32 @BN_nnmod(ptr noundef nonnull %call18, ptr noundef nonnull %call19, ptr noundef %call31, ptr noundef nonnull %ctx.0) #3
   %tobool71.not = icmp eq i32 %call70, 0
   br i1 %tobool71.not, label %if.then83.sink.split, label %do.cond74
 
 do.cond74:                                        ; preds = %if.end69
-  %call75 = tail call i32 @BN_is_zero(ptr noundef %call18) #3
+  %call75 = tail call i32 @BN_is_zero(ptr noundef nonnull %call18) #3
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %do.end77, label %do.body45.backedge
 
 do.end77:                                         ; preds = %do.cond74, %do.cond74.us74, %do.cond74.us
-  %call78 = tail call i32 @ossl_ec_group_do_inverse_ord(ptr noundef nonnull %call, ptr noundef %call17, ptr noundef %call17, ptr noundef nonnull %ctx.0) #3
+  %call78 = tail call i32 @ossl_ec_group_do_inverse_ord(ptr noundef nonnull %call, ptr noundef nonnull %call17, ptr noundef nonnull %call17, ptr noundef nonnull %ctx.0) #3
   %tobool79.not = icmp eq i32 %call78, 0
   br i1 %tobool79.not, label %if.then83.sink.split, label %err
 
@@ -421,7 +421,7 @@ return:                                           ; preds = %if.end88, %if.then1
 declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ecdsa_simple_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecdsa_simple_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr noundef captures(none) %kinvp, ptr noundef captures(none) %rp) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr noundef %kinvp, ptr noundef %rp, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   ret i32 %call
@@ -1077,7 +1077,7 @@ declare i32 @BN_generate_dsa_nonce(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @BN_priv_rand_range_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #2
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

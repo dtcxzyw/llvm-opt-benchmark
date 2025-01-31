@@ -241,7 +241,7 @@ declare zeroext i1 @lv_obj_refresh_self_size(ptr noundef) local_unnamed_addr #1
 declare ptr @lv_group_get_default() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_obj_is_group_def(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define zeroext i1 @lv_obj_is_group_def(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   br label %2
 
 2:                                                ; preds = %3, %1
@@ -306,7 +306,7 @@ tailrecurse:                                      ; preds = %9, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_obj_is_editable(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define zeroext i1 @lv_obj_is_editable(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   br label %2
 
 2:                                                ; preds = %3, %1

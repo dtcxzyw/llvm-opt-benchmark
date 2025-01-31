@@ -833,7 +833,7 @@ return:                                           ; preds = %_ZNSt5dequeIN3net16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMap21RemoveObsoletePacketsEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicUnackedPacketMap21RemoveObsoletePacketsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -918,7 +918,7 @@ while.end:                                        ; preds = %_ZNSt5dequeIN3net16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %info) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, i64 noundef %packet_number, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %info) local_unnamed_addr #6 align 2 {
 entry:
   %is_unackable.i = getelementptr inbounds nuw i8, ptr %info, i64 42
   %0 = load i8, ptr %is_unackable.i, align 2
@@ -954,7 +954,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap24HasRetransmittableFramesEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap24HasRetransmittableFramesEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %least_unacked_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
@@ -1010,7 +1010,7 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this, ptr noundef %info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retransmission4 = getelementptr inbounds nuw i8, ptr %info, i64 48
   %0 = load i64, ptr %retransmission4, align 8
@@ -1096,7 +1096,7 @@ _ZN3net20QuicUnackedPacketMap32MaybeRemoveRetransmittableFramesEPNS_16Transmissi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMap32MaybeRemoveRetransmittableFramesEPNS_16TransmissionInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %transmission_info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicUnackedPacketMap32MaybeRemoveRetransmittableFramesEPNS_16TransmissionInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this, ptr noundef %transmission_info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %has_crypto_handshake = getelementptr inbounds nuw i8, ptr %transmission_info, i64 43
   %0 = load i8, ptr %has_crypto_handshake, align 1
@@ -1117,7 +1117,7 @@ if.end6:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEm(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEm(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %least_unacked_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
@@ -1242,7 +1242,7 @@ _ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMap23IncreaseLargestObservedEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((8, 16)) %this, i64 noundef %largest_observed) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicUnackedPacketMap23IncreaseLargestObservedEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(120) initializes((8, 16)) %this, i64 noundef %largest_observed) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %largest_observed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %largest_observed, ptr %largest_observed_, align 8
@@ -1250,7 +1250,7 @@ if.end:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap29IsPacketUsefulForMeasuringRttEmRKNS_16TransmissionInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %info) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap29IsPacketUsefulForMeasuringRttEmRKNS_16TransmissionInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, i64 noundef %packet_number, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %info) local_unnamed_addr #6 align 2 {
 entry:
   %is_unackable = getelementptr inbounds nuw i8, ptr %info, i64 42
   %0 = load i8, ptr %is_unackable, align 2
@@ -1264,7 +1264,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap34IsPacketUsefulForCongestionControlERKNS_16TransmissionInfoE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %info) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap34IsPacketUsefulForCongestionControlERKNS_16TransmissionInfoE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %info) local_unnamed_addr #6 align 2 {
 entry:
   %in_flight = getelementptr inbounds nuw i8, ptr %info, i64 41
   %0 = load i8, ptr %in_flight, align 1
@@ -1273,7 +1273,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap36IsPacketUsefulForRetransmittableDataERKNS_16TransmissionInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %info) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap36IsPacketUsefulForRetransmittableDataERKNS_16TransmissionInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %info) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %info, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %info, i64 8
@@ -1289,7 +1289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap9IsUnackedEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap9IsUnackedEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #7 align 2 {
 entry:
   %least_unacked_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
@@ -1403,7 +1403,7 @@ return:                                           ; preds = %land.rhs.i, %land.l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %this, ptr noundef %ack_listeners, i64 %ack_delay_time.coerce0, i64 %ack_delay_time.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %this, ptr noundef %ack_listeners, i64 %ack_delay_time.coerce0, i64 %ack_delay_time.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__begin1.sroa.0.06 = load ptr, ptr %ack_listeners, align 8
   %cmp.i.not7 = icmp eq ptr %__begin1.sroa.0.06, %ack_listeners
@@ -1451,7 +1451,7 @@ _ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit: ; preds = %w
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEmNS_8QuicTime5DeltaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number, i64 %ack_delay_time.coerce0, i64 %ack_delay_time.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEmNS_8QuicTime5DeltaE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, i64 noundef %packet_number, i64 %ack_delay_time.coerce0, i64 %ack_delay_time.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %least_unacked_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
@@ -1546,7 +1546,7 @@ _ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18Ac
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16TransmissionInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef %info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16TransmissionInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this, ptr noundef captures(none) %info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %in_flight = getelementptr inbounds nuw i8, ptr %info, i64 41
@@ -1588,7 +1588,7 @@ if.end:                                           ; preds = %cleanup.done, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %least_unacked_ = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -1678,7 +1678,7 @@ _ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16TransmissionInfoE.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMap17RestoreToInFlightEm(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicUnackedPacketMap17RestoreToInFlightEm(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %least_unacked_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
@@ -1739,7 +1739,7 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMap30CancelRetransmissionsForStreamEj(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %stream_id) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net20QuicUnackedPacketMap30CancelRetransmissionsForStreamEj(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this, i32 noundef %stream_id) local_unnamed_addr #0 align 2 {
 entry:
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_start.i, align 8, !noalias !62
@@ -1806,7 +1806,7 @@ for.end:                                          ; preds = %_ZNSt15_Deque_itera
 declare void @_ZN3net9QuicUtils21RemoveFramesForStreamEPSt6vectorINS_9QuicFrameESaIS2_EEj(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap17HasUnackedPacketsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap17HasUnackedPacketsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1817,7 +1817,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap18HasInFlightPacketsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap18HasInFlightPacketsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
 entry:
   %bytes_in_flight_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i64, ptr %bytes_in_flight_, align 8
@@ -1826,7 +1826,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPacketMap19GetTransmissionInfoEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPacketMap19GetTransmissionInfoEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #7 align 2 {
 entry:
   %least_unacked_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
@@ -1878,7 +1878,7 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @_ZN3net20QuicUnackedPacketMap26GetMutableTransmissionInfoEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull ptr @_ZN3net20QuicUnackedPacketMap26GetMutableTransmissionInfoEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, i64 noundef %packet_number) local_unnamed_addr #7 align 2 {
 entry:
   %least_unacked_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
@@ -1930,7 +1930,7 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZNK3net20QuicUnackedPacketMap21GetLastPacketSentTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @_ZNK3net20QuicUnackedPacketMap21GetLastPacketSentTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp12 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp27 = alloca %"class.logging::LogMessage", align 8
@@ -2062,7 +2062,7 @@ eh.resume:                                        ; preds = %lpad29, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK3net20QuicUnackedPacketMap29GetNumUnackedPacketsDebugOnlyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i64 @_ZNK3net20QuicUnackedPacketMap29GetNumUnackedPacketsDebugOnlyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_start.i, align 8, !noalias !82
@@ -2142,7 +2142,7 @@ for.end:                                          ; preds = %_ZNSt15_Deque_itera
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap26HasMultipleInFlightPacketsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap26HasMultipleInFlightPacketsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #7 align 2 {
 entry:
   %bytes_in_flight_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i64, ptr %bytes_in_flight_, align 8
@@ -2211,7 +2211,7 @@ return:                                           ; preds = %_ZNKSt16reverse_ite
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap23HasPendingCryptoPacketsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap23HasPendingCryptoPacketsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
 entry:
   %pending_crypto_packet_count_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load i64, ptr %pending_crypto_packet_count_, align 8
@@ -2220,7 +2220,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap31HasUnackedRetransmittableFramesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap31HasUnackedRetransmittableFramesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i, align 8, !noalias !96
@@ -2293,7 +2293,7 @@ return:                                           ; preds = %_ZNKSt16reverse_ite
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net20QuicUnackedPacketMap15GetLeastUnackedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK3net20QuicUnackedPacketMap15GetLeastUnackedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
 entry:
   %least_unacked_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
@@ -2685,7 +2685,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE16_M_push_back_auxIJRKS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2806,16 +2806,16 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 declare void @_ZN3net18AckListenerWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(10)) unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

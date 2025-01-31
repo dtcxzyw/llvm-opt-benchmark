@@ -305,7 +305,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN10BFSClosureC1EP9EdgeQueueP9EdgeStoreP12ObjectBitSetIL8MEMFLAGS16EE = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN10BFSClosureC2EP9EdgeQueueP9EdgeStoreP12ObjectBitSetIL8MEMFLAGS16EE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10BFSClosureC2EP9EdgeQueueP9EdgeStoreP12ObjectBitSetIL8MEMFLAGS16EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) initializes((0, 81)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN10BFSClosureC2EP9EdgeQueueP9EdgeStoreP12ObjectBitSetIL8MEMFLAGS16EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(81) initializes((0, 81)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10BFSClosure, i64 16), ptr %0, align 8
@@ -321,7 +321,7 @@ define hidden void @_ZN10BFSClosureC2EP9EdgeQueueP9EdgeStoreP12ObjectBitSetIL8ME
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK10BFSClosure22log_completed_frontierEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK10BFSClosure22log_completed_frontierEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -349,7 +349,7 @@ _ZL26log_frontier_level_summarymmmm.exit:         ; preds = %1, %12
 declare noundef i64 @_ZNK9EdgeQueue11sizeof_edgeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK10BFSClosure16log_dfs_fallbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK10BFSClosure16log_dfs_fallbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK9EdgeQueue11sizeof_edgeEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
@@ -509,7 +509,7 @@ _ZN10BFSClosure13process_queueEv.exit:            ; preds = %_ZN10BFSClosure7ite
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BFSClosure16process_root_setEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10BFSClosure16process_root_setEv(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK9EdgeQueue6bottomEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
@@ -596,7 +596,7 @@ declare noundef i64 @_ZNK9EdgeQueue3topEv(ptr noundef nonnull align 8 dereferenc
 declare noundef ptr @_ZNK9EdgeQueue10element_atEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BFSClosure7processE13UnifiedOopRefP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, i64 %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10BFSClosure7processE13UnifiedOopRefP7oopDesc(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, i64 %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   tail call void @_ZN10BFSClosure12closure_implE13UnifiedOopRefP7oopDesc(ptr noundef nonnull align 8 dereferenceable(81) %0, i64 %1, ptr noundef %2)
   ret void
 }
@@ -604,7 +604,7 @@ define hidden void @_ZN10BFSClosure7processE13UnifiedOopRefP7oopDesc(ptr nocaptu
 declare noundef ptr @_ZNK4Edge7pointeeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BFSClosure12closure_implE13UnifiedOopRefP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, i64 %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10BFSClosure12closure_implE13UnifiedOopRefP7oopDesc(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, i64 %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.Edge, align 8
   %5 = tail call noundef zeroext i1 @_ZN13GranularTimer11is_finishedEv() #12
   br i1 %5, label %_ZN10BFSClosure12dfs_fallbackEv.exit, label %6
@@ -739,7 +739,7 @@ declare noundef zeroext i1 @_ZN13GranularTimer11is_finishedEv() local_unnamed_ad
 declare void @_ZN10DFSClosure20find_leaks_from_edgeEP9EdgeStoreP12ObjectBitSetIL8MEMFLAGS16EEPK4Edge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BFSClosure9add_chainE13UnifiedOopRefP7oopDesc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i64 %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10BFSClosure9add_chainE13UnifiedOopRefP7oopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, i64 %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.Edge, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -761,7 +761,7 @@ declare void @_ZN9EdgeQueue3addEPK4Edge13UnifiedOopRef(ptr noundef nonnull align
 declare noundef zeroext i1 @_ZNK9EdgeQueue7is_fullEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BFSClosure12dfs_fallbackEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((72, 81)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10BFSClosure12dfs_fallbackEv(ptr noundef nonnull align 8 captures(none) dereferenceable(81) initializes((72, 81)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -809,7 +809,7 @@ declare noundef zeroext i1 @_ZNK9EdgeQueue8is_emptyEv(ptr noundef nonnull align 
 declare noundef ptr @_ZNK9EdgeQueue6removeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK10BFSClosure11is_completeEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK10BFSClosure11is_completeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK9EdgeQueue6bottomEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
@@ -907,7 +907,7 @@ _ZN7oopDesc11oop_iterateI10BFSClosureEEvPT_.exit: ; preds = %8, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK10BFSClosure13step_frontierEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK10BFSClosure13step_frontierEv(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -941,7 +941,7 @@ _ZNK10BFSClosure22log_completed_frontierEv.exit:  ; preds = %1, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BFSClosure6do_oopEPP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN10BFSClosure6do_oopEPP7oopDesc(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282692EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %4 = tail call noundef ptr %3(ptr noundef %1) #12
   %.not = icmp eq ptr %4, null
@@ -958,7 +958,7 @@ define hidden void @_ZN10BFSClosure6do_oopEPP7oopDesc(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BFSClosure6do_oopEP9narrowOop(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN10BFSClosure6do_oopEP9narrowOop(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282726EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %4 = tail call noundef ptr %3(ptr noundef %1) #12
   %.not = icmp eq ptr %4, null
@@ -976,7 +976,7 @@ define hidden void @_ZN10BFSClosure6do_oopEP9narrowOop(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BFSClosure7do_rootE13UnifiedOopRef(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i64 %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10BFSClosure7do_rootE13UnifiedOopRef(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, i64 %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZNK9EdgeQueue7is_fullEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #12
@@ -2533,7 +2533,7 @@ declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) lo
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI10BFSClosureE5Table4initI13InstanceKlassEEvPS0_P7oopDescP5Klass(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 comdat align 2 {
@@ -4909,10 +4909,10 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI10BFSClosureE5Table1
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

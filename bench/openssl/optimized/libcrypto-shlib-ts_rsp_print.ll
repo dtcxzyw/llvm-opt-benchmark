@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.40 = private unnamed_addr constant [8 x i8] c" micros\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_print_bio(ptr noundef %bio, ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
+define noundef i32 @TS_RESP_print_bio(ptr noundef %bio, ptr noundef readonly captures(none) %a) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str) #2
   %0 = load ptr, ptr %a, align 8
@@ -76,7 +76,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_STATUS_INFO_print_bio(ptr noundef %bio, ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
+define noundef i32 @TS_STATUS_INFO_print_bio(ptr noundef %bio, ptr noundef readonly captures(none) %a) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.17) #2
   %0 = load ptr, ptr %a, align 8

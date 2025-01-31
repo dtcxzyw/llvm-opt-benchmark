@@ -6123,7 +6123,7 @@ _ZNSt8_Rb_treeIaSt4pairIKaNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt13unordered_mapIPKc18llm_offload_func_eSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6177,7 +6177,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef nonnull ptr @llama_grammar_init(ptr nocapture noundef readonly %rules, i64 noundef %n_rules, i64 noundef %start_rule_index) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull ptr @llama_grammar_init(ptr noundef readonly captures(none) %rules, i64 noundef %n_rules, i64 noundef %start_rule_index) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %vec_rules = alloca %"class.std::vector.77", align 8
   %stacks = alloca %"class.std::vector.87", align 8
@@ -6500,7 +6500,7 @@ ehcleanup34:                                      ; preds = %lpad4.loopexit, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL27llama_grammar_advance_stackRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IPKS0_SaIS8_EERS_ISA_SaISA_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rules, ptr noundef nonnull align 8 dereferenceable(24) %stack, ptr noundef nonnull align 8 dereferenceable(24) %new_stacks) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL27llama_grammar_advance_stackRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IPKS0_SaIS8_EERS_ISA_SaISA_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %rules, ptr noundef nonnull align 8 dereferenceable(24) %stack, ptr noundef nonnull align 8 dereferenceable(24) %new_stacks) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_stack = alloca %"class.std::vector.92", align 8
   %0 = load ptr, ptr %stack, align 8
@@ -7020,7 +7020,7 @@ delete.end:                                       ; preds = %_ZN13llama_grammarD
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @llama_grammar_copy(ptr nocapture noundef readonly %grammar) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @llama_grammar_copy(ptr noundef readonly captures(none) %grammar) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #49
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %grammar, i64 8
@@ -7294,7 +7294,7 @@ for.end46:                                        ; preds = %for.inc44, %invoke.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @llama_set_rng_seed(ptr nocapture noundef writeonly initializes((184, 192)) %ctx, i32 noundef %seed) local_unnamed_addr #0 {
+define void @llama_set_rng_seed(ptr noundef writeonly captures(none) initializes((184, 192)) %ctx, i32 noundef %seed) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %seed, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -7335,7 +7335,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 declare i64 @time(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_softmax(ptr noundef %ctx, ptr nocapture noundef %candidates) local_unnamed_addr #2 {
+define void @llama_sample_softmax(ptr noundef %ctx, ptr noundef captures(none) %candidates) local_unnamed_addr #2 {
 entry:
   %__val.i24.i.i.i = alloca %struct.llama_token_data, align 4
   %__val.i.i.i.i = alloca %struct.llama_token_data, align 4
@@ -7601,10 +7601,10 @@ if.end34:                                         ; preds = %if.then30, %for.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare void @ggml_print_backtrace() local_unnamed_addr #9
 
@@ -7617,7 +7617,7 @@ declare i64 @ggml_time_us() local_unnamed_addr #9
 declare float @expf(float noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_top_k(ptr noundef %ctx, ptr nocapture noundef %candidates, i32 noundef %k, i64 noundef %min_keep) local_unnamed_addr #2 {
+define void @llama_sample_top_k(ptr noundef %ctx, ptr noundef captures(none) %candidates, i32 noundef %k, i64 noundef %min_keep) local_unnamed_addr #2 {
 entry:
   %__val.i24.i.i.i = alloca %struct.llama_token_data, align 4
   %__val.i.i.i.i = alloca %struct.llama_token_data, align 4
@@ -7843,7 +7843,7 @@ if.end24:                                         ; preds = %if.then22, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_top_p(ptr noundef %ctx, ptr nocapture noundef %candidates, float noundef %p, i64 noundef %min_keep) local_unnamed_addr #2 {
+define void @llama_sample_top_p(ptr noundef %ctx, ptr noundef captures(none) %candidates, float noundef %p, i64 noundef %min_keep) local_unnamed_addr #2 {
 entry:
   %cmp = fcmp ult float %p, 1.000000e+00
   br i1 %cmp, label %if.end, label %if.end14
@@ -7892,7 +7892,7 @@ if.end14:                                         ; preds = %entry, %if.then11, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_min_p(ptr noundef %ctx, ptr nocapture noundef %candidates, float noundef %p, i64 noundef %min_keep) local_unnamed_addr #2 {
+define void @llama_sample_min_p(ptr noundef %ctx, ptr noundef captures(none) %candidates, float noundef %p, i64 noundef %min_keep) local_unnamed_addr #2 {
 entry:
   %cmp = fcmp ugt float %p, 0.000000e+00
   br i1 %cmp, label %lor.lhs.false, label %if.end15
@@ -7951,7 +7951,7 @@ if.end15:                                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_tail_free(ptr noundef %ctx, ptr nocapture noundef %candidates, float noundef %z, i64 noundef %min_keep) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @llama_sample_tail_free(ptr noundef %ctx, ptr noundef captures(none) %candidates, float noundef %z, i64 noundef %min_keep) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = fcmp ult float %z, 1.000000e+00
   br i1 %cmp, label %lor.lhs.false, label %return
@@ -8184,7 +8184,7 @@ if.then.i.i.i88:                                  ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_typical(ptr noundef %ctx, ptr nocapture noundef %candidates, float noundef %p, i64 noundef %min_keep) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @llama_sample_typical(ptr noundef %ctx, ptr noundef captures(none) %candidates, float noundef %p, i64 noundef %min_keep) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shifted_scores = alloca %"class.std::vector.107", align 8
   %cmp = fcmp ult float %p, 1.000000e+00
@@ -8760,7 +8760,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #12
 declare float @llvm.fabs.f32(float) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_temp(ptr noundef %ctx, ptr nocapture noundef readonly %candidates_p, float noundef %temp) local_unnamed_addr #2 {
+define void @llama_sample_temp(ptr noundef %ctx, ptr noundef readonly captures(none) %candidates_p, float noundef %temp) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @ggml_time_us()
   %size = getelementptr inbounds nuw i8, ptr %candidates_p, i64 8
@@ -8798,7 +8798,7 @@ if.end:                                           ; preds = %if.then, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_temperature(ptr noundef %ctx, ptr nocapture noundef readonly %candidates_p, float noundef %temp) local_unnamed_addr #2 {
+define void @llama_sample_temperature(ptr noundef %ctx, ptr noundef readonly captures(none) %candidates_p, float noundef %temp) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i64 @ggml_time_us()
   %size.i = getelementptr inbounds nuw i8, ptr %candidates_p, i64 8
@@ -8836,7 +8836,7 @@ llama_sample_temp.exit:                           ; preds = %for.end.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_repetition_penalties(ptr noundef %ctx, ptr nocapture noundef %candidates, ptr nocapture noundef readonly %last_tokens, i64 noundef %penalty_last_n, float noundef %penalty_repeat, float noundef %penalty_freq, float noundef %penalty_present) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @llama_sample_repetition_penalties(ptr noundef %ctx, ptr noundef captures(none) %candidates, ptr noundef readonly captures(none) %last_tokens, i64 noundef %penalty_last_n, float noundef %penalty_repeat, float noundef %penalty_freq, float noundef %penalty_present) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %token_count = alloca %"class.std::unordered_map.132", align 8
   %cmp = icmp eq i64 %penalty_last_n, 0
@@ -9127,7 +9127,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_grammar(ptr noundef %ctx, ptr nocapture noundef readonly %candidates, ptr nocapture noundef readonly %grammar) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @llama_sample_grammar(ptr noundef %ctx, ptr noundef readonly captures(none) %candidates, ptr noundef readonly captures(none) %grammar) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %candidates_decoded = alloca %"class.std::vector.214", align 8
   %candidates_grammar = alloca %"class.std::vector.219", align 8
@@ -9559,7 +9559,7 @@ ehcleanup75:                                      ; preds = %if.then.i.i.i83, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_token_eos(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_token_eos(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %special_eos_id = getelementptr inbounds nuw i8, ptr %model, i64 324
   %0 = load i32, ptr %special_eos_id, align 4
@@ -9567,7 +9567,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20llama_token_to_pieceB5cxx11PK13llama_contexti(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %ctx, i32 noundef %token) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20llama_token_to_pieceB5cxx11PK13llama_contexti(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly captures(none) %ctx, i32 noundef %token) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator.6", align 1
   %result = alloca %"class.std::vector.298", align 8
@@ -9885,7 +9885,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11decode_utf8RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE18llama_partial_utf8(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %src, i64 %partial_start.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11decode_utf8RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE18llama_partial_utf8(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %src, i64 %partial_start.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %partial_start.sroa.2.0.extract.shift = lshr i64 %partial_start.coerce, 32
   %partial_start.sroa.2.0.extract.trunc = trunc nuw i64 %partial_start.sroa.2.0.extract.shift to i32
@@ -10294,7 +10294,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit146:                 ; preds = %invoke.cont7, %invo
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL31llama_grammar_reject_candidatesRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IS_IPKS0_SaIS8_EESaISA_EERKS_I23llama_grammar_candidateSaISF_EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rules, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stacks, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %candidates) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL31llama_grammar_reject_candidatesRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IS_IPKS0_SaIS8_EESaISA_EERKS_I23llama_grammar_candidateSaISF_EE(ptr noalias nonnull align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %rules, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %stacks, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %candidates) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.219", align 8
   %0 = load ptr, ptr %stacks, align 8
@@ -10429,7 +10429,7 @@ _ZNSt12_Vector_baseISt4pairISt6vectorIjSaIjEE18llama_partial_utf8ESaIS5_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_classifier_free_guidance(ptr noundef %ctx, ptr nocapture noundef readonly %candidates, ptr nocapture noundef readonly %guidance_ctx, float noundef %scale) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @llama_sample_classifier_free_guidance(ptr noundef %ctx, ptr noundef readonly captures(none) %candidates, ptr noundef readonly captures(none) %guidance_ctx, float noundef %scale) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call i64 @ggml_time_us()
   %tobool.not = icmp eq ptr %ctx, null
@@ -10759,7 +10759,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit70:                  ; preds = %invoke.cont45, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_n_vocab(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_n_vocab(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %id_to_token = getelementptr inbounds nuw i8, ptr %model, i64 192
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %model, i64 200
@@ -10774,7 +10774,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @llama_get_model(ptr nocapture noundef readonly %ctx) local_unnamed_addr #13 {
+define ptr @llama_get_model(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #13 {
 entry:
   %model = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %model, align 8
@@ -10782,7 +10782,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @llama_get_logits(ptr nocapture noundef readonly %ctx) local_unnamed_addr #13 {
+define ptr @llama_get_logits(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #13 {
 entry:
   %logits = getelementptr inbounds nuw i8, ptr %ctx, i64 5248
   %0 = load ptr, ptr %logits, align 8
@@ -10790,7 +10790,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @llama_sample_token_mirostat(ptr noundef %ctx, ptr nocapture noundef %candidates, float noundef %tau, float noundef %eta, i32 noundef %m, ptr nocapture noundef %mu) local_unnamed_addr #2 {
+define i32 @llama_sample_token_mirostat(ptr noundef %ctx, ptr noundef captures(none) %candidates, float noundef %tau, float noundef %eta, i32 noundef %m, ptr noundef captures(none) %mu) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.then, label %do.end
@@ -11006,7 +11006,7 @@ sw.default.i.i.i:                                 ; preds = %sw.bb27.i.i.i, %for
 declare float @powf(float noundef, float noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define i32 @llama_sample_token(ptr noundef %ctx, ptr nocapture noundef %candidates) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define i32 @llama_sample_token(ptr noundef %ctx, ptr noundef captures(none) %candidates) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %dist = alloca %"class.std::discrete_distribution", align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -11302,7 +11302,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit28:                  ; preds = %ehcleanup, %if.then
 declare float @log2f(float noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define i32 @llama_sample_token_mirostat_v2(ptr noundef %ctx, ptr nocapture noundef %candidates, float noundef %tau, float noundef %eta, ptr nocapture noundef %mu) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define i32 @llama_sample_token_mirostat_v2(ptr noundef %ctx, ptr noundef captures(none) %candidates, float noundef %tau, float noundef %eta, ptr noundef captures(none) %mu) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call i64 @ggml_time_us()
   tail call void @llama_sample_softmax(ptr noundef %ctx, ptr noundef %candidates)
@@ -11580,7 +11580,7 @@ if.end31:                                         ; preds = %for.body.i.i.i48, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @llama_sample_token_greedy(ptr noundef %ctx, ptr nocapture noundef readonly %candidates) local_unnamed_addr #2 {
+define i32 @llama_sample_token_greedy(ptr noundef %ctx, ptr noundef readonly captures(none) %candidates) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @ggml_time_us()
   %0 = load ptr, ptr %candidates, align 8
@@ -11658,7 +11658,7 @@ _ZNSt21discrete_distributionIiE10param_typeD2Ev.exit: ; preds = %_ZNSt6vectorIdS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_grammar_accept_token(ptr nocapture noundef %ctx, ptr nocapture noundef %grammar, i32 noundef %token) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @llama_grammar_accept_token(ptr noundef captures(none) %ctx, ptr noundef captures(none) %grammar, i32 noundef %token) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_stack.i = alloca %"class.std::vector.92", align 8
   %piece = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13329,7 +13329,7 @@ _ZNSt6vectorI10llama_beamSaIS0_EED2Ev.exit17:     ; preds = %invoke.cont.i14, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @llama_model_default_params(ptr noalias nocapture writeonly sret(%struct.llama_model_params) align 8 initializes((0, 48)) %agg.result) local_unnamed_addr #14 {
+define void @llama_model_default_params(ptr noalias writeonly sret(%struct.llama_model_params) align 8 captures(none) initializes((0, 48)) %agg.result) local_unnamed_addr #14 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i8 0, i64 48, i1 false)
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 41
@@ -13338,10 +13338,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llama_context_default_params(ptr noalias nocapture writeonly sret(%struct.llama_context_params) align 4 initializes((0, 64)) %agg.result) local_unnamed_addr #16 {
+define void @llama_context_default_params(ptr noalias writeonly sret(%struct.llama_context_params) align 4 captures(none) initializes((0, 64)) %agg.result) local_unnamed_addr #16 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) @__const.llama_context_default_params.result, i64 64, i1 false)
   ret void
@@ -13411,7 +13411,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @llama_load_model_from_file(ptr noundef %path_model, ptr nocapture noundef byval(%struct.llama_model_params) align 8 %params) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @llama_load_model_from_file(ptr noundef %path_model, ptr noundef byval(%struct.llama_model_params) align 8 captures(none) %params) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %rope_scaling_type.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp45.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15302,7 +15302,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(p
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18llama_log_internal14ggml_log_levelPKcz(i32 noundef range(i32 2, 5) %level, ptr nocapture noundef readonly %format, ...) unnamed_addr #2 {
+define internal void @_ZL18llama_log_internal14ggml_log_levelPKcz(i32 noundef range(i32 2, 5) %level, ptr noundef readonly captures(none) %format, ...) unnamed_addr #2 {
 entry:
   %args_copy.i = alloca [1 x %struct.__va_list_tag], align 16
   %buffer.i = alloca [128 x i8], align 16
@@ -15526,7 +15526,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @llama_new_context_with_model(ptr noundef %model, ptr nocapture noundef byval(%struct.llama_context_params) align 8 %params) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @llama_new_context_with_model(ptr noundef %model, ptr noundef byval(%struct.llama_context_params) align 8 captures(none) %params) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %struct.ggml_init_params, align 8
   %ref.tmp = alloca %"class.std::mersenne_twister_engine", align 8
@@ -16482,7 +16482,7 @@ declare i64 @ggml_graph_overhead() local_unnamed_addr #9
 declare ptr @ggml_allocr_new_measure(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_token_bos(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_token_bos(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %special_bos_id = getelementptr inbounds nuw i8, ptr %model, i64 320
   %0 = load i32, ptr %special_bos_id, align 8
@@ -16750,7 +16750,7 @@ _ZNSt8functionIFvP11ggml_tensorPKciEED2Ev.exit21: ; preds = %if.end52, %if.then.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @llama_batch_get_one(ptr noalias nocapture writeonly sret(%struct.llama_batch) align 8 initializes((0, 4), (8, 68)) %agg.result, ptr noundef %tokens, i32 noundef %n_tokens, i32 noundef %pos_0, i32 noundef %seq_id) local_unnamed_addr #14 {
+define void @llama_batch_get_one(ptr noalias writeonly sret(%struct.llama_batch) align 8 captures(none) initializes((0, 4), (8, 68)) %agg.result, ptr noundef %tokens, i32 noundef %n_tokens, i32 noundef %pos_0, i32 noundef %seq_id) local_unnamed_addr #14 {
 entry:
   store i32 %n_tokens, ptr %agg.result, align 8
   %token = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -16850,14 +16850,14 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_n_ctx(ptr nocapture noundef readonly %ctx) local_unnamed_addr #13 {
+define i32 @llama_n_ctx(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %ctx, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_vocab_type(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_vocab_type(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %vocab = getelementptr inbounds nuw i8, ptr %model, i64 128
   %0 = load i32, ptr %vocab, align 8
@@ -16865,7 +16865,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_n_ctx_train(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_n_ctx_train(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %n_ctx_train = getelementptr inbounds nuw i8, ptr %model, i64 56
   %0 = load i32, ptr %n_ctx_train, align 8
@@ -16873,7 +16873,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_n_embd(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_n_embd(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %n_embd = getelementptr inbounds nuw i8, ptr %model, i64 60
   %0 = load i32, ptr %n_embd, align 4
@@ -16881,7 +16881,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @llama_rope_freq_scale_train(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define float @llama_rope_freq_scale_train(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %rope_freq_scale_train = getelementptr inbounds nuw i8, ptr %model, i64 104
   %0 = load float, ptr %rope_freq_scale_train, align 8
@@ -16889,7 +16889,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @llama_model_meta_val_str(ptr noundef %model, ptr noundef %key, ptr nocapture noundef writeonly %buf, i64 noundef %buf_size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @llama_model_meta_val_str(ptr noundef %model, ptr noundef %key, ptr noundef writeonly captures(none) %buf, i64 noundef %buf_size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.6", align 1
@@ -16944,13 +16944,13 @@ return:                                           ; preds = %if.then, %if.then12
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_model_meta_count(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_model_meta_count(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %_M_element_count.i.i = getelementptr inbounds nuw i8, ptr %model, i64 480
   %0 = load i64, ptr %_M_element_count.i.i, align 8
@@ -16959,7 +16959,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @llama_model_meta_key_by_index(ptr nocapture noundef readonly %model, i32 noundef %i, ptr nocapture noundef writeonly %buf, i64 noundef %buf_size) local_unnamed_addr #0 {
+define noundef i32 @llama_model_meta_key_by_index(ptr noundef readonly captures(none) %model, i32 noundef %i, ptr noundef writeonly captures(none) %buf, i64 noundef %buf_size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %i, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -17010,7 +17010,7 @@ return:                                           ; preds = %if.then, %if.then3,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @llama_model_meta_val_str_by_index(ptr nocapture noundef readonly %model, i32 noundef %i, ptr nocapture noundef writeonly %buf, i64 noundef %buf_size) local_unnamed_addr #0 {
+define noundef i32 @llama_model_meta_val_str_by_index(ptr noundef readonly captures(none) %model, i32 noundef %i, ptr noundef writeonly captures(none) %buf, i64 noundef %buf_size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %i, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -17061,7 +17061,7 @@ return:                                           ; preds = %if.then, %if.then3,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @llama_model_desc(ptr nocapture noundef readonly %model, ptr nocapture noundef writeonly %buf, i64 noundef %buf_size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @llama_model_desc(ptr noundef readonly captures(none) %model, ptr noundef writeonly captures(none) %buf, i64 noundef %buf_size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4.i = alloca %"class.std::allocator.6", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17498,7 +17498,7 @@ eh.resume:                                        ; preds = %lpad70, %lpad67, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @llama_model_size(ptr nocapture noundef readonly %model) local_unnamed_addr #2 {
+define i64 @llama_model_size(ptr noundef readonly captures(none) %model) local_unnamed_addr #2 {
 entry:
   %tensors_by_name = getelementptr inbounds nuw i8, ptr %model, i64 600
   %0 = load ptr, ptr %tensors_by_name, align 8
@@ -17524,7 +17524,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @llama_model_n_params(ptr nocapture noundef readonly %model) local_unnamed_addr #2 {
+define i64 @llama_model_n_params(ptr noundef readonly captures(none) %model) local_unnamed_addr #2 {
 entry:
   %tensors_by_name = getelementptr inbounds nuw i8, ptr %model, i64 600
   %0 = load ptr, ptr %tensors_by_name, align 8
@@ -17552,7 +17552,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare i64 @ggml_nelements(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define ptr @llama_get_model_tensor(ptr nocapture noundef readonly %model, ptr noundef %name) local_unnamed_addr #2 {
+define ptr @llama_get_model_tensor(ptr noundef readonly captures(none) %model, ptr noundef %name) local_unnamed_addr #2 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %model, i64 512
   %0 = load ptr, ptr %ctx, align 8
@@ -17563,7 +17563,7 @@ entry:
 declare ptr @ggml_get_tensor(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @llama_model_quantize(ptr noundef %fname_inp, ptr noundef %fname_out, ptr nocapture noundef readonly %params) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @llama_model_quantize(ptr noundef %fname_inp, ptr noundef %fname_out, ptr noundef readonly captures(none) %params) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %zero.i295.i = alloca i8, align 1
   %agg.tmp.i.i.i.i.i246.i = alloca %"class.std::unique_ptr.544", align 8
@@ -20277,7 +20277,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @llama_apply_lora_from_file(ptr nocapture noundef readonly %ctx, ptr noundef %path_lora, float noundef %scale, ptr noundef %path_base_model, i32 noundef %n_threads) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @llama_apply_lora_from_file(ptr noundef readonly captures(none) %ctx, ptr noundef %path_lora, float noundef %scale, ptr noundef %path_base_model, i32 noundef %n_threads) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %model = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %model, align 8
@@ -20329,7 +20329,7 @@ terminate.lpad:                                   ; preds = %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL35llama_apply_lora_from_file_internalRK11llama_modelPKcfS3_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %model, ptr noundef %path_lora, float noundef %scale, ptr noundef %path_base_model, i32 noundef %n_threads) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL35llama_apply_lora_from_file_internalRK11llama_modelPKcfS3_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %model, ptr noundef %path_lora, float noundef %scale, ptr noundef %path_base_model, i32 noundef %n_threads) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %plan.i = alloca %struct.ggml_cplan, align 8
   %ret.i84 = alloca i32, align 4
@@ -21830,7 +21830,7 @@ _ZN10llama_fileD2Ev.exit271:                      ; preds = %ehcleanup406, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @llama_model_apply_lora_from_file(ptr nocapture noundef nonnull readonly %model, ptr noundef %path_lora, float noundef %scale, ptr noundef %path_base_model, i32 noundef %n_threads) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @llama_model_apply_lora_from_file(ptr noundef nonnull readonly captures(none) %model, ptr noundef %path_lora, float noundef %scale, ptr noundef %path_base_model, i32 noundef %n_threads) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = invoke fastcc noundef i32 @_ZL35llama_apply_lora_from_file_internalRK11llama_modelPKcfS3_i(ptr noundef nonnull align 8 dereferenceable(640) %model, ptr noundef %path_lora, float noundef %scale, ptr noundef %path_base_model, i32 noundef %n_threads)
           to label %return unwind label %lpad
@@ -21880,7 +21880,7 @@ terminate.lpad:                                   ; preds = %lpad2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llama_kv_cache_view_init(ptr noalias nocapture writeonly sret(%struct.llama_kv_cache_view) align 8 initializes((0, 40)) %agg.result, ptr nocapture noundef readonly %ctx, i32 noundef %n_max_seq) local_unnamed_addr #16 {
+define void @llama_kv_cache_view_init(ptr noalias writeonly sret(%struct.llama_kv_cache_view) align 8 captures(none) initializes((0, 40)) %agg.result, ptr noundef readonly captures(none) %ctx, i32 noundef %n_max_seq) local_unnamed_addr #16 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %n_max_seq1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
@@ -21901,7 +21901,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_get_kv_cache_used_cells(ptr nocapture noundef readonly %ctx) local_unnamed_addr #13 {
+define i32 @llama_get_kv_cache_used_cells(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #13 {
 entry:
   %used = getelementptr inbounds nuw i8, ptr %ctx, i64 68
   %0 = load i32, ptr %used, align 4
@@ -21909,7 +21909,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @llama_kv_cache_view_free(ptr nocapture noundef %view) local_unnamed_addr #20 {
+define void @llama_kv_cache_view_free(ptr noundef captures(none) %view) local_unnamed_addr #20 {
 entry:
   %cells = getelementptr inbounds nuw i8, ptr %view, i64 24
   %0 = load ptr, ptr %cells, align 8
@@ -21937,10 +21937,10 @@ if.end7:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #21
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_kv_cache_view_update(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %view) local_unnamed_addr #2 {
+define void @llama_kv_cache_view_update(ptr noundef readonly captures(none) %ctx, ptr noundef captures(none) %view) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %view, align 8
   %size = getelementptr inbounds nuw i8, ptr %ctx, i64 64
@@ -22176,10 +22176,10 @@ if.end108:                                        ; preds = %if.then105, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #22
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @llama_get_kv_cache_token_count(ptr nocapture noundef readonly %ctx) local_unnamed_addr #23 {
+define i32 @llama_get_kv_cache_token_count(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #23 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %0 = load i32, ptr %size, align 8
@@ -22209,7 +22209,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @llama_kv_cache_clear(ptr nocapture noundef %ctx) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @llama_kv_cache_clear(ptr noundef captures(none) %ctx) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %size.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %0 = load i32, ptr %size.i, align 8
@@ -22263,7 +22263,7 @@ _ZL20llama_kv_cache_clearR14llama_kv_cache.exit:  ; preds = %_ZNSt3setIiSt4lessI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_kv_cache_seq_rm(ptr nocapture noundef %ctx, i32 noundef %seq_id, i32 noundef %p0, i32 noundef %p1) local_unnamed_addr #2 {
+define void @llama_kv_cache_seq_rm(ptr noundef captures(none) %ctx, i32 noundef %seq_id, i32 noundef %p0, i32 noundef %p1) local_unnamed_addr #2 {
 entry:
   %kv_self = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   tail call fastcc void @_ZL21llama_kv_cache_seq_rmR14llama_kv_cacheiii(ptr noundef nonnull align 8 dereferenceable(128) %kv_self, i32 noundef %seq_id, i32 noundef %p0, i32 noundef %p1)
@@ -22271,7 +22271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21llama_kv_cache_seq_rmR14llama_kv_cacheiii(ptr nocapture noundef nonnull align 8 dereferenceable(128) %cache, i32 noundef %seq_id, i32 noundef %p0, i32 noundef %p1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21llama_kv_cache_seq_rmR14llama_kv_cacheiii(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %cache, i32 noundef %seq_id, i32 noundef %p0, i32 noundef %p1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %seq_id.addr = alloca i32, align 4
   store i32 %seq_id, ptr %seq_id.addr, align 4
@@ -22422,7 +22422,7 @@ if.end62:                                         ; preds = %entry, %if.then60, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_kv_cache_seq_cp(ptr nocapture noundef %ctx, i32 noundef %seq_id_src, i32 noundef %seq_id_dst, i32 noundef %p0, i32 noundef %p1) local_unnamed_addr #2 {
+define void @llama_kv_cache_seq_cp(ptr noundef captures(none) %ctx, i32 noundef %seq_id_src, i32 noundef %seq_id_dst, i32 noundef %p0, i32 noundef %p1) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %seq_id_src, %seq_id_dst
   br i1 %cmp, label %return, label %if.end
@@ -22539,7 +22539,7 @@ return:                                           ; preds = %for.inc.i, %if.end,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_kv_cache_seq_keep(ptr nocapture noundef %ctx, i32 noundef %seq_id) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @llama_kv_cache_seq_keep(ptr noundef captures(none) %ctx, i32 noundef %seq_id) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %size.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %0 = load i32, ptr %size.i, align 8
@@ -22738,7 +22738,7 @@ _ZL23llama_kv_cache_seq_keepR14llama_kv_cachei.exit: ; preds = %entry, %for.end.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @llama_kv_cache_seq_shift(ptr nocapture noundef %ctx, i32 noundef %seq_id, i32 noundef %p0, i32 noundef %p1, i32 noundef %delta) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @llama_kv_cache_seq_shift(ptr noundef captures(none) %ctx, i32 noundef %seq_id, i32 noundef %p0, i32 noundef %p1, i32 noundef %delta) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %kv_self = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %size.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
@@ -22877,7 +22877,7 @@ _ZL24llama_kv_cache_seq_shiftR14llama_kv_cacheiiii.exit: ; preds = %for.inc.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @llama_get_state_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #13 {
+define i64 @llama_get_state_size(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #13 {
 entry:
   %logits = getelementptr inbounds nuw i8, ptr %ctx, i64 5248
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %ctx, i64 5264
@@ -24069,7 +24069,7 @@ declare void @ggml_build_forward_expand(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @ggml_cpy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @llama_load_session_file(ptr noundef %ctx, ptr noundef %path_session, ptr noundef %tokens_out, i64 noundef %n_token_capacity, ptr nocapture noundef writeonly %n_token_count_out) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @llama_load_session_file(ptr noundef %ctx, ptr noundef %path_session, ptr noundef %tokens_out, i64 noundef %n_token_capacity, ptr noundef writeonly captures(none) %n_token_count_out) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret.i16.i = alloca i32, align 4
   %ret.i14.i = alloca i32, align 4
@@ -25719,7 +25719,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @llama_set_n_threads(ptr nocapture noundef writeonly initializes((8, 16)) %ctx, i32 noundef %n_threads, i32 noundef %n_threads_batch) local_unnamed_addr #14 {
+define void @llama_set_n_threads(ptr noundef writeonly captures(none) initializes((8, 16)) %ctx, i32 noundef %n_threads, i32 noundef %n_threads_batch) local_unnamed_addr #14 {
 entry:
   %n_threads1 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i32 %n_threads, ptr %n_threads1, align 8
@@ -25729,7 +25729,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define void @llama_batch_init(ptr noalias nocapture writeonly sret(%struct.llama_batch) align 8 initializes((0, 72)) %agg.result, i32 noundef %n_tokens, i32 noundef %embd, i32 noundef %n_seq_max) local_unnamed_addr #24 {
+define void @llama_batch_init(ptr noalias writeonly sret(%struct.llama_batch) align 8 captures(none) initializes((0, 72)) %agg.result, i32 noundef %n_tokens, i32 noundef %embd, i32 noundef %n_seq_max) local_unnamed_addr #24 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, i8 0, i64 72, i1 false)
   %tobool.not = icmp eq i32 %embd, 0
@@ -25781,7 +25781,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @llama_batch_free(ptr nocapture noundef readonly byval(%struct.llama_batch) align 8 %batch) local_unnamed_addr #0 {
+define void @llama_batch_free(ptr noundef readonly byval(%struct.llama_batch) align 8 captures(none) %batch) local_unnamed_addr #0 {
 entry:
   %token = getelementptr inbounds nuw i8, ptr %batch, i64 8
   %0 = load ptr, ptr %token, align 8
@@ -25865,7 +25865,7 @@ if.end22:                                         ; preds = %if.then20, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 2) i32 @llama_decode(ptr noundef nonnull %ctx, ptr nocapture noundef readonly byval(%struct.llama_batch) align 8 %batch) local_unnamed_addr #2 {
+define noundef range(i32 -1, 2) i32 @llama_decode(ptr noundef nonnull %ctx, ptr noundef readonly byval(%struct.llama_batch) align 8 captures(none) %batch) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL21llama_decode_internalR13llama_context11llama_batch(ptr noundef nonnull align 8 dereferenceable(5384) %ctx, ptr noundef nonnull byval(%struct.llama_batch) align 8 %batch)
   %cmp = icmp slt i32 %call, 0
@@ -25880,7 +25880,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @llama_get_logits_ith(ptr nocapture noundef readonly %ctx, i32 noundef %i) local_unnamed_addr #23 {
+define ptr @llama_get_logits_ith(ptr noundef readonly captures(none) %ctx, i32 noundef %i) local_unnamed_addr #23 {
 entry:
   %logits = getelementptr inbounds nuw i8, ptr %ctx, i64 5248
   %0 = load ptr, ptr %logits, align 8
@@ -25895,7 +25895,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @llama_get_embeddings(ptr nocapture noundef readonly %ctx) local_unnamed_addr #13 {
+define ptr @llama_get_embeddings(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #13 {
 entry:
   %embedding = getelementptr inbounds nuw i8, ptr %ctx, i64 5280
   %0 = load ptr, ptr %embedding, align 8
@@ -25903,7 +25903,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @llama_token_get_text(ptr nocapture noundef readonly %model, i32 noundef %token) local_unnamed_addr #0 {
+define noundef ptr @llama_token_get_text(ptr noundef readonly captures(none) %model, i32 noundef %token) local_unnamed_addr #0 {
 entry:
   %id_to_token = getelementptr inbounds nuw i8, ptr %model, i64 192
   %conv = sext i32 %token to i64
@@ -25914,7 +25914,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @llama_token_get_score(ptr nocapture noundef readonly %model, i32 noundef %token) local_unnamed_addr #23 {
+define float @llama_token_get_score(ptr noundef readonly captures(none) %model, i32 noundef %token) local_unnamed_addr #23 {
 entry:
   %id_to_token = getelementptr inbounds nuw i8, ptr %model, i64 192
   %conv = sext i32 %token to i64
@@ -25925,7 +25925,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @llama_token_get_type(ptr nocapture noundef readonly %model, i32 noundef %token) local_unnamed_addr #23 {
+define i32 @llama_token_get_type(ptr noundef readonly captures(none) %model, i32 noundef %token) local_unnamed_addr #23 {
 entry:
   %id_to_token = getelementptr inbounds nuw i8, ptr %model, i64 192
   %conv = sext i32 %token to i64
@@ -25936,7 +25936,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_token_nl(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_token_nl(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %linefeed_id = getelementptr inbounds nuw i8, ptr %model, i64 348
   %0 = load i32, ptr %linefeed_id, align 4
@@ -25944,7 +25944,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_add_bos_token(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_add_bos_token(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %special_add_bos = getelementptr inbounds nuw i8, ptr %model, i64 340
   %0 = load i32, ptr %special_add_bos, align 4
@@ -25952,7 +25952,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_add_eos_token(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_add_eos_token(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %special_add_eos = getelementptr inbounds nuw i8, ptr %model, i64 344
   %0 = load i32, ptr %special_add_eos, align 8
@@ -25960,7 +25960,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_token_prefix(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_token_prefix(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %special_prefix_id = getelementptr inbounds nuw i8, ptr %model, i64 352
   %0 = load i32, ptr %special_prefix_id, align 8
@@ -25968,7 +25968,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_token_middle(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_token_middle(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %special_middle_id = getelementptr inbounds nuw i8, ptr %model, i64 356
   %0 = load i32, ptr %special_middle_id, align 4
@@ -25976,7 +25976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_token_suffix(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_token_suffix(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %special_suffix_id = getelementptr inbounds nuw i8, ptr %model, i64 360
   %0 = load i32, ptr %special_suffix_id, align 8
@@ -25984,7 +25984,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llama_token_eot(ptr nocapture noundef readonly %model) local_unnamed_addr #13 {
+define i32 @llama_token_eot(ptr noundef readonly captures(none) %model) local_unnamed_addr #13 {
 entry:
   %special_eot_id = getelementptr inbounds nuw i8, ptr %model, i64 364
   %0 = load i32, ptr %special_eot_id, align 4
@@ -25992,7 +25992,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @llama_tokenize(ptr noundef %model, ptr noundef %text, i32 noundef %text_len, ptr nocapture noundef writeonly %tokens, i32 noundef %n_max_tokens, i1 noundef zeroext %add_bos, i1 noundef zeroext %special) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define i32 @llama_tokenize(ptr noundef %model, ptr noundef %text, i32 noundef %text_len, ptr noundef writeonly captures(none) %tokens, i32 noundef %n_max_tokens, i1 noundef zeroext %add_bos, i1 noundef zeroext %special) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.std::vector.272", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26868,7 +26868,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %ehcleanup76, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @llama_token_to_piece(ptr nocapture noundef readonly %model, i32 noundef %token, ptr nocapture noundef writeonly %buf, i32 noundef %length) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @llama_token_to_piece(ptr noundef readonly captures(none) %model, i32 noundef %token, ptr noundef writeonly captures(none) %buf, i32 noundef %length) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %unicode_sequences.i = alloca %"class.std::vector.226", align 8
   %ref.tmp.i48 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -27199,7 +27199,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i8 @_ZL19llama_token_to_byteRK11llama_vocabi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %vocab, i32 noundef range(i32 0, -2147483648) %id) unnamed_addr #2 {
+define internal fastcc noundef zeroext i8 @_ZL19llama_token_to_byteRK11llama_vocabi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %vocab, i32 noundef range(i32 0, -2147483648) %id) unnamed_addr #2 {
 entry:
   %buf = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = getelementptr inbounds nuw i8, ptr %vocab, i64 64
@@ -27244,7 +27244,7 @@ sw.bb:                                            ; preds = %_ZNKSt6vectorIN11ll
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.llama_vocab::token_data", ptr %vocab.val4, i64 %conv.i
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %buf, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 noundef 3, i64 noundef 2)
   %call5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf) #47
-  %call6 = call i64 @strtol(ptr nocapture noundef %call5, ptr noundef null, i32 noundef 16) #47
+  %call6 = call i64 @strtol(ptr noundef captures(none) %call5, ptr noundef null, i32 noundef 16) #47
   %conv7 = trunc i64 %call6 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buf) #47
   ret i8 %conv7
@@ -27272,7 +27272,7 @@ do.body15:                                        ; preds = %_ZNKSt6vectorIN11ll
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_get_timings(ptr noalias nocapture writeonly sret(%struct.llama_timings) align 8 initializes((0, 60)) %agg.result, ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
+define void @llama_get_timings(ptr noalias writeonly sret(%struct.llama_timings) align 8 captures(none) initializes((0, 60)) %agg.result, ptr noundef readonly captures(none) %ctx) local_unnamed_addr #2 {
 entry:
   %t_start_us = getelementptr inbounds nuw i8, ptr %ctx, i64 5192
   %0 = load i64, ptr %t_start_us, align 8
@@ -27328,7 +27328,7 @@ entry:
 declare i64 @ggml_time_ms() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_print_timings(ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
+define void @llama_print_timings(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #2 {
 entry:
   %t_start_us.i = getelementptr inbounds nuw i8, ptr %ctx, i64 5192
   %0 = load i64, ptr %t_start_us.i, align 8, !noalias !223
@@ -27384,7 +27384,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_reset_timings(ptr nocapture noundef writeonly initializes((5192, 5200), (5208, 5244)) %ctx) local_unnamed_addr #2 {
+define void @llama_reset_timings(ptr noundef writeonly captures(none) initializes((5192, 5200), (5208, 5244)) %ctx) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @ggml_time_us()
   %t_start_us = getelementptr inbounds nuw i8, ptr %ctx, i64 5192
@@ -28236,7 +28236,7 @@ declare i32 @ggml_cpu_has_ssse3() local_unnamed_addr #9
 declare i32 @ggml_cpu_has_vsx() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @llama_dump_timing_info_yaml(ptr nocapture noundef %stream, ptr nocapture noundef readonly %ctx) local_unnamed_addr #26 {
+define void @llama_dump_timing_info_yaml(ptr noundef captures(none) %stream, ptr noundef readonly captures(none) %ctx) local_unnamed_addr #26 {
 entry:
   %fputc = tail call i32 @fputc(i32 10, ptr %stream)
   %0 = tail call i64 @fwrite(ptr nonnull @.str.227, i64 12, i64 1, ptr %stream)
@@ -28310,7 +28310,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_Z29llama_internal_get_tensor_mapB5cxx11P13llama_context(ptr nocapture noundef readonly %ctx) local_unnamed_addr #13 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_Z29llama_internal_get_tensor_mapB5cxx11P13llama_context(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #13 {
 entry:
   %model = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %model, align 8
@@ -28329,7 +28329,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal void @_ZL26llama_log_callback_default14ggml_log_levelPKcPv(i32 %level, ptr nocapture noundef readonly %text, ptr nocapture readnone %user_data) #28 {
+define internal void @_ZL26llama_log_callback_default14ggml_log_levelPKcPv(i32 %level, ptr noundef readonly captures(none) %text, ptr readnone captures(none) %user_data) #28 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 @fputs(ptr noundef %text, ptr noundef %0) #51
@@ -28984,7 +28984,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #29
@@ -29018,7 +29018,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL41llama_grammar_reject_candidates_for_stackRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IPKS0_SaIS8_EERKS_I23llama_grammar_candidateSaISD_EE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rules, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stack, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %candidates) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL41llama_grammar_reject_candidates_for_stackRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IPKS0_SaIS8_EERKS_I23llama_grammar_candidateSaISD_EE(ptr noalias nonnull align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %rules, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %stack, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %candidates) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %next_candidates = alloca %"class.std::vector.219", align 8
   %stack_after = alloca %"class.std::vector.92", align 8
@@ -32425,7 +32425,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZ26llama_load_model_from_fileEN3$_08__invokeEfPv"(float noundef %progress, ptr nocapture noundef %ctx) #2 align 2 {
+define internal void @"_ZZ26llama_load_model_from_fileEN3$_08__invokeEfPv"(float noundef %progress, ptr noundef captures(none) %ctx) #2 align 2 {
 entry:
   %mul.i = fmul float %progress, 1.000000e+02
   %conv.i = fptoui float %mul.i to i32
@@ -33137,7 +33137,7 @@ unreachable:                                      ; preds = %invoke.cont28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13llm_load_archR18llama_model_loaderR11llama_model(ptr noundef nonnull align 8 dereferenceable(180) %ml, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((4, 8)) %model) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13llm_load_archR18llama_model_loaderR11llama_model(ptr noundef nonnull align 8 dereferenceable(180) %ml, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(640) initializes((4, 8)) %model) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -46797,7 +46797,7 @@ terminate.lpad:                                   ; preds = %if.then4, %if.then
 declare ptr @gguf_init_from_file(ptr noundef, i8, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL6formatB5cxx11PKcz(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL6formatB5cxx11PKcz(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(none) %fmt, ...) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %ap2 = alloca [1 x %struct.__va_list_tag], align 16
@@ -47185,7 +47185,7 @@ if.end:                                           ; preds = %if.then.i7.i, %clea
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL25llama_format_tensor_shapeB5cxx11PK11ggml_tensor(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %t) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL25llama_format_tensor_shapeB5cxx11PK11ggml_tensor(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly captures(none) %t) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca [256 x i8], align 16
   %ref.tmp = alloca %"class.std::allocator.6", align 1
@@ -48111,7 +48111,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) #8
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIcSaIcEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -49190,7 +49190,7 @@ return:                                           ; preds = %if.end12.i78, %if.t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #33
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #33
 
 declare ptr @gguf_get_arr_data(ptr noundef, i32 noundef) local_unnamed_addr #9
 
@@ -49203,7 +49203,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16gguf_data_to_strB5cxx119gguf_typePKvi(ptr noalias nonnull align 8 %agg.result, i32 noundef %type, ptr nocapture noundef readonly %data, i32 noundef %i) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16gguf_data_to_strB5cxx119gguf_typePKvi(ptr noalias nonnull align 8 %agg.result, i32 noundef %type, ptr noundef readonly captures(none) %data, i32 noundef %i) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.6", align 1
   switch i32 %type, label %sw.default [
@@ -50804,7 +50804,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVIbE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override(i32 noundef %expected_type, ptr noundef %override) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -51236,7 +51236,7 @@ unreachable:                                      ; preds = %invoke.cont16
 declare float @gguf_get_val_f32(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20codepoints_from_utf8RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %utf8) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20codepoints_from_utf8RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %utf8) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %offset = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -51490,7 +51490,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -128, 2097152) i32 @_ZL19codepoint_from_utf8RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, ptr nocapture noundef nonnull align 8 dereferenceable(8) %offset) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -128, 2097152) i32 @_ZL19codepoint_from_utf8RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %offset) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %offset, align 8
   %call = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %utf8, i64 noundef %0) #47
@@ -54485,7 +54485,7 @@ declare i32 @mlock(ptr noundef, i64 noundef) local_unnamed_addr #7
 declare i32 @getrlimit(i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL25llama_format_tensor_shapeB5cxx11RKSt6vectorIlSaIlEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ne) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL25llama_format_tensor_shapeB5cxx11RKSt6vectorIlSaIlEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %ne) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca [256 x i8], align 16
   %ref.tmp = alloca %"class.std::allocator.6", align 1
@@ -55290,7 +55290,7 @@ if.end:                                           ; preds = %_ZNK10llama_file4se
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
@@ -55468,13 +55468,13 @@ declare i64 @gguf_get_data_offset(ptr noundef) local_unnamed_addr #9
 declare i64 @gguf_get_tensor_offset(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #34
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #34
 
 declare void @gguf_free(ptr noundef) local_unnamed_addr #9
 
@@ -56890,7 +56890,7 @@ for.body238:                                      ; preds = %for.body238.lr.ph, 
   %218 = load i64, ptr %n_expert, align 8
   %conv245 = trunc i64 %218 to i32
   %219 = trunc nuw nsw i64 %indvars.iv to i32
-  %call246 = call ptr @ggml_mul_mat_id(ptr noundef %215, ptr noundef nonnull %ffn_up_exp, i32 noundef %conv245, ptr noundef %call214, i32 noundef %219, ptr noundef %cur.addr.2.i336)
+  %call246 = call ptr @ggml_mul_mat_id(ptr noundef %215, ptr noundef nonnull %ffn_up_exp, i32 noundef %conv245, ptr noundef nonnull %call214, i32 noundef %219, ptr noundef %cur.addr.2.i336)
   %220 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i412)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i413)
@@ -56921,7 +56921,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit420: ; preds = %for.body238
   %ffn_gate_exp = getelementptr inbounds nuw %struct.llama_layer, ptr %225, i64 %indvars.iv569, i32 24
   %226 = load i64, ptr %n_expert, align 8
   %conv255 = trunc i64 %226 to i32
-  %call256 = call ptr @ggml_mul_mat_id(ptr noundef %223, ptr noundef nonnull %ffn_gate_exp, i32 noundef %conv255, ptr noundef %call214, i32 noundef %219, ptr noundef %cur.addr.2.i336)
+  %call256 = call ptr @ggml_mul_mat_id(ptr noundef %223, ptr noundef nonnull %ffn_gate_exp, i32 noundef %conv255, ptr noundef nonnull %call214, i32 noundef %219, ptr noundef %cur.addr.2.i336)
   %227 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i422)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i423)
@@ -57002,7 +57002,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit448: ; preds = %_ZNKSt8func
   %ffn_down_exp = getelementptr inbounds nuw %struct.llama_layer, ptr %240, i64 %indvars.iv569, i32 25
   %241 = load i64, ptr %n_expert, align 8
   %conv271 = trunc i64 %241 to i32
-  %call272 = call ptr @ggml_mul_mat_id(ptr noundef %238, ptr noundef nonnull %ffn_down_exp, i32 noundef %conv271, ptr noundef %call214, i32 noundef %219, ptr noundef %call262)
+  %call272 = call ptr @ggml_mul_mat_id(ptr noundef %238, ptr noundef nonnull %ffn_down_exp, i32 noundef %conv271, ptr noundef nonnull %call214, i32 noundef %219, ptr noundef %call262)
   %242 = load ptr, ptr %cb, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i450)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i451)
@@ -64760,7 +64760,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit287: ; preds = %_ZNKSt8func
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvP11ggml_tensorPKciEZL17llama_build_graphR13llama_contextRK11llama_batchE3$_0E9_M_invokeERKSt9_Any_dataOS1_OS3_Oi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args3) #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvP11ggml_tensorPKciEZL17llama_build_graphR13llama_contextRK11llama_batchE3$_0E9_M_invokeERKSt9_Any_dataOS1_OS3_Oi"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args3) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca [7 x %"struct.std::pair.506"], align 8
   %ref.tmp185.i.i.i = alloca i32, align 4
@@ -65344,7 +65344,7 @@ do.body.i.i.i:                                    ; preds = %_ZNK16llm_offload_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvP11ggml_tensorPKciEZL17llama_build_graphR13llama_contextRK11llama_batchE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #2 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvP11ggml_tensorPKciEZL17llama_build_graphR13llama_contextRK11llama_batchE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #2 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -65383,7 +65383,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #33
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #33
 
 declare void @ggml_allocr_alloc(ptr noundef, ptr noundef) local_unnamed_addr #9
 
@@ -65947,7 +65947,7 @@ declare ptr @ggml_new_graph_custom(ptr noundef, i64 noundef, i1 noundef zeroext)
 declare ptr @ggml_new_tensor_3d(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17llm_build_k_shiftP12ggml_contextRK13llama_hparamsRK13llama_cparamsRK14llama_kv_cacheP11ggml_cgraph13llm_rope_typeliffRKSt8functionIFvP11ggml_tensorPKciEE(ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 4 dereferenceable(76) %hparams, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %cparams, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %kv, ptr noundef %graph, i32 noundef range(i32 0, 2) %type, i64 noundef %n_ctx, i32 noundef %n_rot, float noundef %freq_base, float noundef %freq_scale, ptr noundef nonnull align 8 dereferenceable(32) %cb) unnamed_addr #2 {
+define internal fastcc void @_ZL17llm_build_k_shiftP12ggml_contextRK13llama_hparamsRK13llama_cparamsRK14llama_kv_cacheP11ggml_cgraph13llm_rope_typeliffRKSt8functionIFvP11ggml_tensorPKciEE(ptr noundef %ctx, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(76) %hparams, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %cparams, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %kv, ptr noundef %graph, i32 noundef range(i32 0, 2) %type, i64 noundef %n_ctx, i32 noundef %n_rot, float noundef %freq_base, float noundef %freq_scale, ptr noundef nonnull align 8 dereferenceable(32) %cb) unnamed_addr #2 {
 entry:
   %__args.addr.i28 = alloca ptr, align 8
   %__args.addr2.i29 = alloca ptr, align 8
@@ -66172,7 +66172,7 @@ declare ptr @ggml_rope_custom(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 declare ptr @ggml_reshape_3d(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18llm_build_kv_storeP12ggml_contextRK13llama_hparamsRK14llama_kv_cacheP11ggml_cgraphP11ggml_tensorSA_liiRKSt8functionIFvSA_PKciEEl(ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 4 dereferenceable(76) %hparams, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %kv, ptr noundef %graph, ptr noundef %k_cur, ptr noundef %v_cur, i64 noundef %n_ctx, i32 noundef %n_tokens, i32 noundef %kv_head, ptr noundef nonnull align 8 dereferenceable(32) %cb, i64 noundef range(i64 -2147483648, 2147483648) %il) unnamed_addr #2 {
+define internal fastcc void @_ZL18llm_build_kv_storeP12ggml_contextRK13llama_hparamsRK14llama_kv_cacheP11ggml_cgraphP11ggml_tensorSA_liiRKSt8functionIFvSA_PKciEEl(ptr noundef %ctx, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(76) %hparams, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %kv, ptr noundef %graph, ptr noundef %k_cur, ptr noundef %v_cur, i64 noundef %n_ctx, i32 noundef %n_tokens, i32 noundef %kv_head, ptr noundef nonnull align 8 dereferenceable(32) %cb, i64 noundef range(i64 -2147483648, 2147483648) %il) unnamed_addr #2 {
 entry:
   %__args.addr.i41 = alloca ptr, align 8
   %__args.addr2.i42 = alloca ptr, align 8
@@ -66288,7 +66288,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit48: ; preds = %_ZNKSt8funct
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13llm_build_kqvP12ggml_contextRK13llama_hparamsRK14llama_kv_cacheP11ggml_tensorS8_S8_S8_S8_liifRKSt8functionIFvS8_PKciEEi(ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 4 dereferenceable(76) %hparams, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %kv, ptr noundef %wo, ptr noundef %wo_b, ptr noundef %q_cur, ptr noundef %kq_scale, ptr noundef %kq_mask, i64 noundef %n_ctx, i32 noundef %n_tokens, i32 noundef %n_kv, float noundef %max_alibi_bias, ptr noundef nonnull align 8 dereferenceable(32) %cb, i32 noundef %il) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL13llm_build_kqvP12ggml_contextRK13llama_hparamsRK14llama_kv_cacheP11ggml_tensorS8_S8_S8_S8_liifRKSt8functionIFvS8_PKciEEi(ptr noundef %ctx, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(76) %hparams, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %kv, ptr noundef %wo, ptr noundef %wo_b, ptr noundef %q_cur, ptr noundef %kq_scale, ptr noundef %kq_mask, i64 noundef %n_ctx, i32 noundef %n_tokens, i32 noundef %n_kv, float noundef %max_alibi_bias, ptr noundef nonnull align 8 dereferenceable(32) %cb, i32 noundef %il) unnamed_addr #2 {
 entry:
   %__args.addr.i180 = alloca ptr, align 8
   %__args.addr2.i181 = alloca ptr, align 8
@@ -67091,96 +67091,87 @@ declare zeroext i1 @ggml_is_quantized(i32 noundef) local_unnamed_addr #9
 declare i64 @ggml_quantize_chunk(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_paramsENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_paramsENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %local_hist = alloca %"struct.std::array", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %local_hist, i8 0, i64 128, i1 false)
-  %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %3 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %4 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %5 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %6 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %7 = load ptr, ptr %this, align 8
-  %call1.i.i.i.i50 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %7) #47
-  %tobool.not.i.i.i51 = icmp eq i32 %call1.i.i.i.i50, 0
-  br i1 %tobool.not.i.i.i51, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
+  %0 = load ptr, ptr %this, align 8
+  %call1.i.i.i.i40 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #47
+  %tobool.not.i.i.i41 = icmp eq i32 %call1.i.i.i.i40, 0
+  br i1 %tobool.not.i.i.i41, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.lr.ph, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit, %entry
-  %call1.i.i.i.i.lcssa = phi i32 [ %call1.i.i.i.i50, %entry ], [ %call1.i.i.i.i, %_ZNSt11unique_lockISt5mutexED2Ev.exit ]
+_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.lr.ph:   ; preds = %entry
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  br label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
+
+if.then.i.i.i:                                    ; preds = %invoke.cont, %entry
+  %call1.i.i.i.i.lcssa = phi i32 [ %call1.i.i.i.i40, %entry ], [ %call1.i.i.i.i, %invoke.cont ]
   call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.lcssa) #50
   unreachable
 
-_ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry, %_ZNSt11unique_lockISt5mutexED2Ev.exit
-  %8 = phi ptr [ %21, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ %7, %entry ]
-  %local_size.052 = phi i64 [ %add19, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ 0, %entry ]
-  %9 = load ptr, ptr %0, align 8
-  %10 = load i64, ptr %9, align 8
-  %add = add i64 %10, 16384
-  store i64 %add, ptr %9, align 8
-  %11 = load i64, ptr %1, align 8
-  %cmp.not = icmp ult i64 %10, %11
-  br i1 %cmp.not, label %if.else.i, label %if.then
+_ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.lr.ph, %invoke.cont
+  %6 = phi ptr [ %0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.lr.ph ], [ %21, %invoke.cont ]
+  %local_size.042 = phi i64 [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.lr.ph ], [ %add19, %invoke.cont ]
+  %7 = load ptr, ptr %1, align 8
+  %8 = load i64, ptr %7, align 8
+  %add = add i64 %8, 16384
+  store i64 %add, ptr %7, align 8
+  %9 = load i64, ptr %2, align 8
+  %cmp.not = icmp ult i64 %8, %9
+  br i1 %cmp.not, label %invoke.cont, label %if.then
 
 if.then:                                          ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %cmp2.not = icmp eq i64 %local_size.052, 0
-  br i1 %cmp2.not, label %if.else.i.i, label %for.body
+  %cmp2.not = icmp eq i64 %local_size.042, 0
+  br i1 %cmp2.not, label %while.end, label %for.cond.preheader
 
-for.body:                                         ; preds = %if.then, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.then ]
+for.cond.preheader:                               ; preds = %if.then
+  %10 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  br label %for.body
+
+for.body:                                         ; preds = %for.cond.preheader, %for.body
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx.i.i = getelementptr inbounds nuw [16 x i64], ptr %local_hist, i64 0, i64 %indvars.iv
-  %12 = load i64, ptr %arrayidx.i.i, align 8
-  %13 = load ptr, ptr %2, align 8
-  %arrayidx.i.i9 = getelementptr inbounds nuw [16 x i64], ptr %13, i64 0, i64 %indvars.iv
-  %14 = load i64, ptr %arrayidx.i.i9, align 8
-  %add9 = add nsw i64 %14, %12
+  %11 = load i64, ptr %arrayidx.i.i, align 8
+  %12 = load ptr, ptr %10, align 8
+  %arrayidx.i.i9 = getelementptr inbounds nuw [16 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %13 = load i64, ptr %arrayidx.i.i9, align 8
+  %add9 = add nsw i64 %13, %11
   store i64 %add9, ptr %arrayidx.i.i9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !380
 
 for.end:                                          ; preds = %for.body
-  %15 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 8
-  %add10 = add i64 %16, %local_size.052
+  %add10 = add i64 %16, %local_size.042
   store i64 %add10, ptr %15, align 8
-  br label %if.else.i.i
-
-if.else.i:                                        ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %tobool2.not.i.not = icmp eq ptr %8, null
-  br i1 %tobool2.not.i.not, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i
-
-if.then3.i:                                       ; preds = %if.else.i
-  %call1.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #47
-  %.pre = load i64, ptr %1, align 8
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
-
-if.else.i.i:                                      ; preds = %for.end, %if.then
-  %tobool2.not.i.i = icmp eq ptr %8, null
-  br i1 %tobool2.not.i.i, label %while.end, label %if.then3.i.i
-
-if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #47
   br label %while.end
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.else.i, %if.then3.i
-  %17 = phi i64 [ %.pre, %if.then3.i ], [ %11, %if.else.i ]
+invoke.cont:                                      ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
+  %call1.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %6) #47
+  %17 = load i64, ptr %2, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %add, i64 %17)
-  %18 = load i32, ptr %4, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = load ptr, ptr %6, align 8
-  %conv14 = trunc i64 %10 to i32
-  %sub = sub i64 %.sroa.speculated, %10
+  %18 = load i32, ptr %3, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
+  %conv14 = trunc i64 %8 to i32
+  %sub = sub i64 %.sroa.speculated, %8
   %conv15 = trunc i64 %sub to i32
   %call18 = call i64 @ggml_quantize_chunk(i32 noundef %18, ptr noundef %19, ptr noundef %20, i32 noundef %conv14, i32 noundef %conv15, ptr noundef nonnull %local_hist)
-  %add19 = add i64 %call18, %local_size.052
+  %add19 = add i64 %call18, %local_size.042
   %21 = load ptr, ptr %this, align 8
   %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %21) #47
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
-while.end:                                        ; preds = %if.else.i.i, %if.then3.i.i
+while.end:                                        ; preds = %if.then, %for.end
+  %call1.i.i.i.i13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %6) #47
   ret void
 }
 
@@ -67264,7 +67255,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS7_EERS5_IS_SaIS_EEmiE3$_09ggml_typePhPfmEEEEE6_M_runEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #2 align 2 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS7_EERS5_IS_SaIS_EEmiE3$_09ggml_typePhPfmEEEEE6_M_runEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this) unnamed_addr #2 align 2 {
 entry:
   %_M_func = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -67308,7 +67299,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PK27llama_model_quantize_paramsE3$_0EEEEE6_M_runEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PK27llama_model_quantize_paramsE3$_0EEEEE6_M_runEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #2 align 2 {
 entry:
   %_M_func = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call fastcc void @"_ZZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_paramsENK3$_0clEv"(ptr noundef nonnull readonly align 8 dereferenceable(64) %_M_func)
@@ -67915,7 +67906,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P11ggml_tensorESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -68593,10 +68584,10 @@ return:                                           ; preds = %if.end3.i35, %if.en
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN23llama_data_file_context5writeEPKvm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %src, i64 noundef %size) unnamed_addr #2 comdat align 2 {
@@ -68627,7 +68618,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @ggml_allocr_reset(ptr noundef) local_unnamed_addr #9
 
@@ -68695,7 +68686,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -74609,7 +74600,7 @@ invoke.cont:                                      ; preds = %while.body.i, %_ZN9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #35
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #35
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL24unicode_to_bytes_map_bpeB5cxx11v() unnamed_addr #2 personality ptr @__gxx_personality_v0 {
@@ -75220,7 +75211,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #9
 
@@ -77472,7 +77463,7 @@ while.body.i.i.i.i39:                             ; preds = %land.rhs.i.i.i.i24
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIZ20llama_sample_typicalE3$_0EEEvT_SB_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce) unnamed_addr #36 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIZ20llama_sample_typicalE3$_0EEEvT_SB_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr readonly captures(none) %__comp.coerce) unnamed_addr #36 {
 entry:
   %__last.coerce.fr = freeze ptr %__last.coerce
   %__first.coerce.fr = freeze ptr %__first.coerce
@@ -88471,19 +88462,19 @@ declare i32 @llvm.smax.i32(i32, i32) #41
 declare i32 @llvm.abs.i32(i32, i1 immarg) #41
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #41
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #42
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #42
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #41
@@ -88498,7 +88489,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #43
 declare i32 @llvm.smin.i32(i32, i32) #41
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #44
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #44
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.log.f80(x86_fp80) #41

@@ -277,7 +277,7 @@ return:                                           ; preds = %entry, %ByteReverse
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 -192, 1) i32 @wc_Sha256Final(ptr noundef %sha256, ptr noundef writeonly %hash) local_unnamed_addr #1 {
@@ -901,10 +901,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Transform_Sha256(ptr nocapture noundef nonnull %sha256, ptr nocapture noundef nonnull readonly %data) unnamed_addr #1 {
+define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none) %sha256, ptr noundef nonnull readonly captures(none) %data) unnamed_addr #1 {
 entry:
   %S = alloca [8 x i32], align 16
   %W = alloca [64 x i32], align 16

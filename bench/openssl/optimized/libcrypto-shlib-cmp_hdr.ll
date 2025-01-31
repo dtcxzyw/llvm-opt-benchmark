@@ -573,7 +573,7 @@ return:                                           ; preds = %if.then, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_random(ptr noundef %tgt, ptr nocapture noundef readonly %ctx) unnamed_addr #0 {
+define internal fastcc i32 @set_random(ptr noundef %tgt, ptr noundef readonly captures(none) %ctx) unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 142) #4
   %cmp = icmp eq ptr %call, null

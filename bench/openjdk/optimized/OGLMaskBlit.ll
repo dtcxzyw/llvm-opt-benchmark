@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @j2d_glEnd = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLMaskBlit_MaskBlit(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden void @OGLMaskBlit_MaskBlit(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = icmp slt i32 %4, 1
   %9 = icmp slt i32 %5, 1
   %or.cond = or i1 %8, %9

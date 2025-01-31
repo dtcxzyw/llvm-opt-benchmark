@@ -260,7 +260,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wtp_fromwtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_wtp_fromwtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.138) #4
@@ -272,7 +272,7 @@ define internal i32 @dissect_wtp_fromwtls(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wtp_fromudp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_wtp_fromudp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.160) #4
@@ -855,7 +855,7 @@ wtp_handle_tpi.exit:                              ; preds = %261, %253, %249, %2
 297:                                              ; preds = %288
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %299 = load ptr, ptr %298, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %299, i32 noundef 25, ptr noundef nonnull @.str.157, ptr noundef %6, i32 noundef %290) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %299, i32 noundef 25, ptr noundef nonnull @.str.157, ptr noundef nonnull %6, i32 noundef %290) #4
   %300 = load i32, ptr @hf_wtp_payload, align 4
   %301 = tail call ptr @proto_tree_add_item(ptr noundef %.1375413423, i32 noundef %300, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef -1, i32 noundef 0) #4
   br label %307
@@ -863,7 +863,7 @@ wtp_handle_tpi.exit:                              ; preds = %261, %253, %249, %2
 302:                                              ; preds = %280
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %304 = load ptr, ptr %303, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %304, i32 noundef 25, ptr noundef nonnull @.str.158, ptr noundef %6, i32 noundef %.0369) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %304, i32 noundef 25, ptr noundef nonnull @.str.158, ptr noundef nonnull %6, i32 noundef %.0369) #4
   %305 = load i32, ptr @hf_wtp_payload, align 4
   %306 = tail call ptr @proto_tree_add_item(ptr noundef %.1375413423, i32 noundef %305, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef -1, i32 noundef 0) #4
   br label %307
@@ -888,13 +888,13 @@ wtp_handle_tpi.exit:                              ; preds = %261, %253, %249, %2
 315:                                              ; preds = %308
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %317 = load ptr, ptr %316, align 8
-  tail call void @col_append_str(ptr noundef %317, i32 noundef 25, ptr noundef %6) #4
+  tail call void @col_append_str(ptr noundef %317, i32 noundef 25, ptr noundef nonnull %6) #4
   br label %321
 
 318:                                              ; preds = %267
   %319 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %320 = load ptr, ptr %319, align 8
-  tail call void @col_append_str(ptr noundef %320, i32 noundef 25, ptr noundef %6) #4
+  tail call void @col_append_str(ptr noundef %320, i32 noundef 25, ptr noundef nonnull %6) #4
   br label %321
 
 321:                                              ; preds = %307, %315, %311, %._crit_edge401, %45, %318
@@ -922,7 +922,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

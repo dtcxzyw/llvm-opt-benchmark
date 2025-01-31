@@ -531,7 +531,7 @@ define internal void @rtp_dyn_payload_value_destroy(ptr noundef %0) #1 {
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @rtp_dyn_payload_dup(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @rtp_dyn_payload_dup(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct._GHashTableIter, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -853,7 +853,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #0
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @bluetooth_add_address(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
+define hidden void @bluetooth_add_address(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = alloca %struct._address, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
@@ -1277,7 +1277,7 @@ define void @rtp_add_address(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dissect_rtp_shim_header(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
+define noundef i32 @dissect_rtp_shim_header(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #11
   %7 = zext i8 %6 to i32
   %8 = lshr i32 %7, 6
@@ -1493,7 +1493,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pkt_ccc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #1 {
+define internal i32 @dissect_pkt_ccc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split, label %.split13
 
@@ -1587,7 +1587,7 @@ define internal ptr @rtp_value(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rtp_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
+define internal void @rtp_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_rtp, align 4
@@ -1622,7 +1622,7 @@ declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #0
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_rtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2636,7 +2636,7 @@ proto_item_set_generated.exit551:                 ; preds = %453, %450, %proto_i
   %.1.i = phi ptr [ %524, %521 ], [ %.058.i, %520 ]
   %530 = call ptr @tvb_new_subset_length(ptr noundef %491, i32 noundef %516, i32 noundef %515) #11
   %531 = load ptr, ptr @rtp_hdr_ext_rfc5285_dissector_table, align 8
-  %532 = call i32 @dissector_try_uint(ptr noundef %531, i32 noundef %511, ptr noundef %530, ptr noundef %1, ptr noundef %.1.i) #11
+  %532 = call i32 @dissector_try_uint(ptr noundef %531, i32 noundef %511, ptr noundef %530, ptr noundef nonnull %1, ptr noundef %.1.i) #11
   %533 = icmp eq i32 %532, 0
   %or.cond.i = and i1 %495, %533
   br i1 %or.cond.i, label %534, label %537
@@ -2660,12 +2660,12 @@ proto_item_set_generated.exit551:                 ; preds = %453, %450, %proto_i
   %.0..0..0..0.215 = load volatile i32, ptr %6, align 4
   %544 = add i32 %.0..0..0..0.215, -4
   %545 = trunc i16 %475 to i8
-  call fastcc void @dissect_rtp_hext_rfc5285_twobytes(ptr noundef %0, i32 noundef %544, i8 noundef zeroext %545, ptr noundef %491, ptr noundef %1, ptr noundef %490)
+  call fastcc void @dissect_rtp_hext_rfc5285_twobytes(ptr noundef %0, i32 noundef %544, i8 noundef zeroext %545, ptr noundef %491, ptr noundef nonnull %1, ptr noundef %490)
   br label %dissect_rtp_hext_rfc5285_onebyte.exit
 
 546:                                              ; preds = %540
   %547 = load ptr, ptr @rtp_hdr_ext_dissector_table, align 8
-  %548 = call i32 @dissector_try_uint_new(ptr noundef %547, i32 noundef %476, ptr noundef %491, ptr noundef %1, ptr noundef %490, i32 noundef 0, ptr noundef %86) #11
+  %548 = call i32 @dissector_try_uint_new(ptr noundef %547, i32 noundef %476, ptr noundef %491, ptr noundef nonnull %1, ptr noundef %490, i32 noundef 0, ptr noundef %86) #11
   %.not514 = icmp eq i32 %548, 0
   br i1 %.not514, label %549, label %dissect_rtp_hext_rfc5285_onebyte.exit
 
@@ -2703,11 +2703,11 @@ dissect_rtp_hext_rfc5285_onebyte.exit:            ; preds = %550, %537, %513, %5
 
 561:                                              ; preds = %557
   %.0..0..0..0.307 = load volatile ptr, ptr %5, align 8
-  %562 = call ptr @proto_tree_add_expert(ptr noundef %.0..0..0..0.307, ptr noundef %1, ptr noundef nonnull @ei_rtp_padding_missing, ptr noundef %0, i32 noundef 0, i32 noundef 0) #11
+  %562 = call ptr @proto_tree_add_expert(ptr noundef %.0..0..0..0.307, ptr noundef nonnull %1, ptr noundef nonnull @ei_rtp_padding_missing, ptr noundef %0, i32 noundef 0, i32 noundef 0) #11
   %.0..0..0..0.218 = load volatile i32, ptr %6, align 4
   %563 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.218) #11
   %.0..0..0..0.308 = load volatile ptr, ptr %5, align 8
-  %564 = call i32 @call_data_dissector(ptr noundef %563, ptr noundef %1, ptr noundef %.0..0..0..0.308) #11
+  %564 = call i32 @call_data_dissector(ptr noundef %563, ptr noundef nonnull %1, ptr noundef %.0..0..0..0.308) #11
   %565 = call i32 @tvb_captured_length(ptr noundef %0) #11
   br label %759
 
@@ -2804,7 +2804,7 @@ dissect_rtp_hext_rfc5285_onebyte.exit:            ; preds = %550, %537, %513, %5
   %615 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %616 = load i8, ptr %615, align 8
   %617 = zext i8 %616 to i32
-  call void @p_add_proto_data(ptr noundef %613, ptr noundef %1, i32 noundef %614, i32 noundef %617, ptr noundef nonnull %609) #11
+  call void @p_add_proto_data(ptr noundef %613, ptr noundef nonnull %1, i32 noundef %614, i32 noundef %617, ptr noundef nonnull %609) #11
   store volatile i32 0, ptr %10, align 4
   call void @except_setup_try(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @dissect_rtp.catch_spec, i64 noundef 1) #11
   %618 = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -2943,14 +2943,14 @@ dissect_rtp_hext_rfc5285_onebyte.exit:            ; preds = %550, %537, %513, %5
   br i1 %.not532, label %752, label %666
 
 666:                                              ; preds = %663
-  %667 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %665, ptr noundef nonnull @ei_rtp_padding_bogus) #11
+  %667 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %665, ptr noundef nonnull @ei_rtp_padding_bogus) #11
   br label %752
 
 668:                                              ; preds = %654
   %.0..0..0..0.312 = load volatile ptr, ptr %5, align 8
   %669 = call i32 @tvb_reported_length(ptr noundef %0) #11
   %670 = add i32 %669, -1
-  %671 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0..0..0..0.312, ptr noundef %1, ptr noundef nonnull @ei_rtp_padding_bogus, ptr noundef %0, i32 noundef %670, i32 noundef 1, ptr noundef nonnull @.str.322) #11
+  %671 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0..0..0..0.312, ptr noundef nonnull %1, ptr noundef nonnull @ei_rtp_padding_bogus, ptr noundef %0, i32 noundef %670, i32 noundef 1, ptr noundef nonnull @.str.322) #11
   br label %752
 
 672:                                              ; preds = %556
@@ -3036,7 +3036,7 @@ dissect_rtp_hext_rfc5285_onebyte.exit:            ; preds = %550, %537, %513, %5
   %716 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %717 = load i8, ptr %716, align 8
   %718 = zext i8 %717 to i32
-  call void @p_set_proto_data(ptr noundef %714, ptr noundef %1, i32 noundef %715, i32 noundef %718, ptr noundef nonnull %711) #11
+  call void @p_set_proto_data(ptr noundef %714, ptr noundef nonnull %1, i32 noundef %715, i32 noundef %718, ptr noundef nonnull %711) #11
   store volatile i32 0, ptr %14, align 4
   call void @except_setup_try(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @dissect_rtp.catch_spec.323, i64 noundef 1) #11
   %719 = getelementptr inbounds nuw i8, ptr %16, i64 48
@@ -3670,7 +3670,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rtp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_rtp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #11
   %6 = icmp slt i32 %5, 2
   br i1 %6, label %110, label %7
@@ -3872,12 +3872,12 @@ declare i32 @wmem_array_get_count(ptr noundef) local_unnamed_addr #0
 declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -4431,7 +4431,7 @@ declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr
 declare i32 @dissector_try_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
@@ -4444,7 +4444,7 @@ declare void @show_exception(ptr noundef, ptr noundef, ptr noundef, i64 noundef,
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 2, 65538) i32 @get_rtp_rfc4571_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 2, 65538) i32 @get_rtp_rfc4571_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #11
   %6 = zext i16 %5 to i32
   %7 = add nuw nsw i32 %6, 2
@@ -4452,7 +4452,7 @@ define internal range(i32 2, 65538) i32 @get_rtp_rfc4571_len(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_full_rfc4571(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_full_rfc4571(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = load i32, ptr @hf_rfc4571_header_len, align 4
@@ -4479,7 +4479,7 @@ declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @wmem_rtp_dyn_payload_destroy_cb(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #1 {
+define internal noundef zeroext i1 @wmem_rtp_dyn_payload_destroy_cb(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #1 {
   %4 = load ptr, ptr @rtp_dyn_payloads, align 8
   %5 = tail call i32 @g_hash_table_foreach_steal(ptr noundef %4, ptr noundef nonnull @rtp_dyn_payloads_table_steal_func, ptr noundef null) #11
   %6 = load ptr, ptr @rtp_dyn_payloads, align 8
@@ -4491,7 +4491,7 @@ define internal noundef zeroext i1 @wmem_rtp_dyn_payload_destroy_cb(ptr nocaptur
 declare i32 @g_hash_table_foreach_steal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rtp_dyn_payloads_table_steal_func(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal noundef i32 @rtp_dyn_payloads_table_steal_func(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
@@ -4519,7 +4519,7 @@ declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

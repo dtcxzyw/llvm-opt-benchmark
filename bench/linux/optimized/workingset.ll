@@ -52,7 +52,7 @@ define dso_local void @workingset_age_nonresident(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @workingset_eviction(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @workingset_eviction(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load i64, ptr %0, align 16
   %4 = lshr i64 %3, 58
   %5 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %4
@@ -102,13 +102,13 @@ define dso_local ptr @workingset_eviction(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @workingset_test_recent(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @workingset_test_recent(ptr noundef %0, i1 noundef zeroext %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #6
   %4 = ptrtoint ptr %0 to i64
   %5 = trunc i64 %4 to i8
@@ -465,7 +465,7 @@ declare dso_local ptr @shrinker_alloc(i32 noundef, ptr noundef, ...) local_unnam
 declare dso_local i32 @__list_lru_init(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @count_shadow_nodes(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i64 @count_shadow_nodes(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -491,7 +491,7 @@ define internal i64 @count_shadow_nodes(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @scan_shadow_nodes(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal i64 @scan_shadow_nodes(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -511,7 +511,7 @@ declare dso_local void @shrinker_free(ptr noundef) local_unnamed_addr #2
 declare dso_local i64 @list_lru_count_one(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -24
   %6 = getelementptr i8, ptr %0, i64 -8
   %7 = load ptr, ptr %6, align 8

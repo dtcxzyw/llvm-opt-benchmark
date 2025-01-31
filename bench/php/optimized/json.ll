@@ -198,7 +198,7 @@ define internal noundef i32 @zm_activate_json(i32 %0, i32 %1) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zm_info_json(ptr nocapture readnone %0) #0 {
+define internal void @zm_info_json(ptr readnone captures(none) %0) #0 {
   tail call void @php_info_print_table_start() #13
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51) #13
   tail call void @php_info_print_table_end() #13
@@ -206,7 +206,7 @@ define internal void @zm_info_json(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @zm_globals_ctor_json(ptr nocapture noundef writeonly initializes((0, 12)) %0) #2 {
+define internal void @zm_globals_ctor_json(ptr noundef writeonly captures(none) initializes((0, 12)) %0) #2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 4
@@ -337,7 +337,7 @@ define ptr @php_json_encode_string(ptr noundef %0, i64 noundef %1, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @php_json_escape_string(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
@@ -454,7 +454,7 @@ declare ptr @php_json_get_validate_methods() local_unnamed_addr #4
 declare void @php_json_parser_init_ex(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_json_encode(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._php_json_encoder, align 4
   %4 = alloca %struct.smart_str, align 8
   %5 = alloca i64, align 8
@@ -955,7 +955,7 @@ switch.lookup:                                    ; preds = %25
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_json_validate(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_json_validate(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._php_json_parser, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
@@ -1127,7 +1127,7 @@ php_json_validate_ex.exit:                        ; preds = %62, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_json_last_error(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_json_last_error(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1152,7 +1152,7 @@ define hidden void @zif_json_last_error(ptr nocapture noundef readonly %0, ptr n
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_json_last_error_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_json_last_error_msg(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1200,10 +1200,10 @@ php_json_get_error_msg.exit:                      ; preds = %6, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @php_json_implement_json_serializable(ptr nocapture readnone %0, ptr nocapture noundef %1) #7 {
+define internal noundef i32 @php_json_implement_json_serializable(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = or i32 %4, 2048
@@ -1229,7 +1229,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #4
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #10
@@ -1244,10 +1244,10 @@ declare zeroext i1 @zend_parse_arg_bool_slow(ptr noundef, ptr noundef, i32 nound
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

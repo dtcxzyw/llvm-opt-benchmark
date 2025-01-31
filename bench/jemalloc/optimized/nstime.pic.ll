@@ -14,14 +14,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @nstime_prof_update = hidden local_unnamed_addr constant ptr @nstime_prof_update_impl, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nstime_init(ptr nocapture noundef writeonly initializes((0, 8)) %time, i64 noundef %ns) local_unnamed_addr #0 {
+define hidden void @nstime_init(ptr noundef writeonly captures(none) initializes((0, 8)) %time, i64 noundef %ns) local_unnamed_addr #0 {
 entry:
   store i64 %ns, ptr %time, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nstime_init2(ptr nocapture noundef writeonly initializes((0, 8)) %time, i64 noundef %sec, i64 noundef %nsec) local_unnamed_addr #0 {
+define hidden void @nstime_init2(ptr noundef writeonly captures(none) initializes((0, 8)) %time, i64 noundef %sec, i64 noundef %nsec) local_unnamed_addr #0 {
 entry:
   %mul = mul i64 %sec, 1000000000
   %add = add i64 %mul, %nsec
@@ -30,14 +30,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @nstime_ns(ptr nocapture noundef readonly %time) local_unnamed_addr #1 {
+define hidden i64 @nstime_ns(ptr noundef readonly captures(none) %time) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %time, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 18446744073710) i64 @nstime_msec(ptr nocapture noundef readonly %time) local_unnamed_addr #1 {
+define hidden range(i64 0, 18446744073710) i64 @nstime_msec(ptr noundef readonly captures(none) %time) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %time, align 8
   %div = udiv i64 %0, 1000000
@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 18446744074) i64 @nstime_sec(ptr nocapture noundef readonly %time) local_unnamed_addr #1 {
+define hidden range(i64 0, 18446744074) i64 @nstime_sec(ptr noundef readonly captures(none) %time) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %time, align 8
   %div = udiv i64 %0, 1000000000
@@ -53,7 +53,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 1000000000) i64 @nstime_nsec(ptr nocapture noundef readonly %time) local_unnamed_addr #1 {
+define hidden range(i64 0, 1000000000) i64 @nstime_nsec(ptr noundef readonly captures(none) %time) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %time, align 8
   %rem = urem i64 %0, 1000000000
@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nstime_copy(ptr nocapture noundef writeonly initializes((0, 8)) %time, ptr nocapture noundef readonly %source) local_unnamed_addr #2 {
+define hidden void @nstime_copy(ptr noundef writeonly captures(none) initializes((0, 8)) %time, ptr noundef readonly captures(none) %source) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %source, align 8
   store i64 %0, ptr %time, align 8
@@ -69,7 +69,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -1, 2) i32 @nstime_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @nstime_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
@@ -78,7 +78,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nstime_add(ptr nocapture noundef %time, ptr nocapture noundef readonly %addend) local_unnamed_addr #2 {
+define hidden void @nstime_add(ptr noundef captures(none) %time, ptr noundef readonly captures(none) %addend) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %addend, align 8
   %1 = load i64, ptr %time, align 8
@@ -88,7 +88,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nstime_iadd(ptr nocapture noundef %time, i64 noundef %addend) local_unnamed_addr #2 {
+define hidden void @nstime_iadd(ptr noundef captures(none) %time, i64 noundef %addend) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %time, align 8
   %add = add i64 %0, %addend
@@ -97,7 +97,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nstime_subtract(ptr nocapture noundef %time, ptr nocapture noundef readonly %subtrahend) local_unnamed_addr #2 {
+define hidden void @nstime_subtract(ptr noundef captures(none) %time, ptr noundef readonly captures(none) %subtrahend) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %subtrahend, align 8
   %1 = load i64, ptr %time, align 8
@@ -107,7 +107,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nstime_isubtract(ptr nocapture noundef %time, i64 noundef %subtrahend) local_unnamed_addr #2 {
+define hidden void @nstime_isubtract(ptr noundef captures(none) %time, i64 noundef %subtrahend) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %time, align 8
   %sub = sub i64 %0, %subtrahend
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nstime_imultiply(ptr nocapture noundef %time, i64 noundef %multiplier) local_unnamed_addr #2 {
+define hidden void @nstime_imultiply(ptr noundef captures(none) %time, i64 noundef %multiplier) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %time, align 8
   %mul = mul i64 %0, %multiplier
@@ -125,7 +125,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nstime_idivide(ptr nocapture noundef %time, i64 noundef %divisor) local_unnamed_addr #2 {
+define hidden void @nstime_idivide(ptr noundef captures(none) %time, i64 noundef %divisor) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %time, align 8
   %div = udiv i64 %0, %divisor
@@ -134,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @nstime_divide(ptr nocapture noundef readonly %time, ptr nocapture noundef readonly %divisor) local_unnamed_addr #1 {
+define hidden i64 @nstime_divide(ptr noundef readonly captures(none) %time, ptr noundef readonly captures(none) %divisor) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %time, align 8
   %1 = load i64, ptr %divisor, align 8
@@ -143,7 +143,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @nstime_ns_since(ptr nocapture noundef readonly %past) local_unnamed_addr #3 {
+define hidden i64 @nstime_ns_since(ptr noundef readonly captures(none) %past) local_unnamed_addr #3 {
 entry:
   %ts.i.i = alloca %struct.timespec, align 8
   %0 = load i64, ptr %past, align 8
@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nstime_prof_update_impl(ptr nocapture noundef writeonly initializes((0, 8)) %time) #3 {
+define internal void @nstime_prof_update_impl(ptr noundef writeonly captures(none) initializes((0, 8)) %time) #3 {
 entry:
   %ts.i3 = alloca %struct.timespec, align 8
   %ts.i = alloca %struct.timespec, align 8
@@ -205,7 +205,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nstime_update_impl(ptr nocapture noundef %time) #3 {
+define internal void @nstime_update_impl(ptr noundef captures(none) %time) #3 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %0 = load i64, ptr %time, align 8
@@ -230,7 +230,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nstime_init_update(ptr nocapture noundef writeonly initializes((0, 8)) %time) local_unnamed_addr #3 {
+define hidden void @nstime_init_update(ptr noundef writeonly captures(none) initializes((0, 8)) %time) local_unnamed_addr #3 {
 nstime_update_impl.exit:
   %ts.i.i = alloca %struct.timespec, align 8
   store i64 0, ptr %time, align 8
@@ -247,7 +247,7 @@ nstime_update_impl.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nstime_prof_init_update(ptr nocapture noundef writeonly initializes((0, 8)) %time) local_unnamed_addr #3 {
+define hidden void @nstime_prof_init_update(ptr noundef writeonly captures(none) initializes((0, 8)) %time) local_unnamed_addr #3 {
 entry:
   %ts.i3.i = alloca %struct.timespec, align 8
   %ts.i.i = alloca %struct.timespec, align 8
@@ -291,10 +291,10 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6

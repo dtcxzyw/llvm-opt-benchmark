@@ -459,10 +459,10 @@ return:                                           ; preds = %if.end60, %err, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @test_skip_common_options() local_unnamed_addr #1
 
@@ -1562,7 +1562,7 @@ return:                                           ; preds = %entry, %if.end16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_verify_popo_test(ptr nocapture noundef nonnull initializes((24, 32)) %fixture) unnamed_addr #0 {
+define internal fastcc i32 @execute_verify_popo_test(ptr noundef nonnull captures(none) initializes((24, 32)) %fixture) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @ir_protected_f, align 8
   %1 = load ptr, ptr @libctx, align 8
@@ -2078,10 +2078,10 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setup_path(ptr nocapture noundef nonnull %fixture, ptr noundef %wrong, i32 noundef range(i32 0, 2) %expired) unnamed_addr #0 {
+define internal fastcc void @setup_path(ptr noundef nonnull captures(none) %fixture, ptr noundef %wrong, i32 noundef range(i32 0, 2) %expired) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @endentity2, align 8
   %1 = load ptr, ptr %fixture, align 8
@@ -2158,7 +2158,7 @@ declare i32 @OSSL_CMP_validate_cert_path(ptr noundef, ptr noundef, ptr noundef) 
 declare void @OSSL_CMP_CTX_print_errors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setup_check_update(ptr nocapture noundef nonnull %fixture, i32 noundef range(i32 0, 2) %expected, ptr noundef %cb, i32 noundef range(i32 0, 2) %arg, ptr noundef %trid_data, ptr noundef %nonce_data) unnamed_addr #0 {
+define internal fastcc void @setup_check_update(ptr noundef nonnull captures(none) %fixture, i32 noundef range(i32 0, 2) %expected, ptr noundef %cb, i32 noundef range(i32 0, 2) %arg, ptr noundef %trid_data, ptr noundef %nonce_data) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %fixture, align 8
   %cmp_ctx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2249,7 +2249,7 @@ if.end17:                                         ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_msg_check_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_msg_check_test(ptr noundef nonnull readonly captures(none) %fixture) unnamed_addr #0 {
 entry:
   %msg = getelementptr inbounds nuw i8, ptr %fixture, i64 24
   %0 = load ptr, ptr %msg, align 8
@@ -2320,7 +2320,7 @@ declare i32 @ASN1_OCTET_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @ossl_cmp_hdr_get0_senderNonce(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @allow_unprotected(ptr nocapture readnone %ctx, ptr nocapture readnone %msg, i32 %invalid_protection, i32 noundef returned %allow) #2 {
+define internal noundef i32 @allow_unprotected(ptr readnone captures(none) %ctx, ptr readnone captures(none) %msg, i32 %invalid_protection, i32 noundef returned %allow) #2 {
 entry:
   ret i32 %allow
 }

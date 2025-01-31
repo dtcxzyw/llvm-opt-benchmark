@@ -191,7 +191,7 @@ return:                                           ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ecc_projective_add_point(ptr noundef %P, ptr noundef %Q, ptr noundef %R, ptr nocapture noundef readnone %a, ptr noundef %modulus, i64 noundef %mp) local_unnamed_addr #2 {
+define i32 @ecc_projective_add_point(ptr noundef %P, ptr noundef %Q, ptr noundef %R, ptr noundef readnone captures(none) %a, ptr noundef %modulus, i64 noundef %mp) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %P, null
   %cmp1 = icmp eq ptr %Q, null
@@ -573,7 +573,7 @@ cleanup:                                          ; preds = %entry, %if.end106, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ecc_projective_dbl_point(ptr noundef %P, ptr noundef %R, ptr nocapture noundef readnone %a, ptr noundef %modulus, i64 noundef %mp) local_unnamed_addr #2 {
+define i32 @ecc_projective_dbl_point(ptr noundef %P, ptr noundef %R, ptr noundef readnone captures(none) %a, ptr noundef %modulus, i64 noundef %mp) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %P, null
   %cmp1 = icmp eq ptr %R, null
@@ -944,7 +944,7 @@ declare i32 @sp_cmp_d(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @sp_set(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @sp_init_size(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -970,7 +970,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_mulmod_ex(ptr noundef %k, ptr noundef %G, ptr noundef %R, ptr nocapture noundef readnone %a, ptr noundef %modulus, i32 noundef %map, ptr nocapture readnone %heap) local_unnamed_addr #2 {
+define i32 @wc_ecc_mulmod_ex(ptr noundef %k, ptr noundef %G, ptr noundef %R, ptr noundef readnone captures(none) %a, ptr noundef %modulus, i32 noundef %map, ptr readnone captures(none) %heap) local_unnamed_addr #2 {
 entry:
   %M = alloca [3 x ptr], align 16
   %mp = alloca i64, align 8
@@ -1176,7 +1176,7 @@ do.end:                                           ; preds = %entry, %if.end100
 declare i32 @sp_mont_setup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecc_mulmod(ptr noundef nonnull %k, ptr noundef %P, ptr noundef nonnull %Q, ptr nocapture noundef nonnull readonly %R, ptr nocapture noundef readnone %a, ptr noundef nonnull %modulus, i64 noundef %mp, ptr noundef %rng) unnamed_addr #2 {
+define internal fastcc i32 @ecc_mulmod(ptr noundef nonnull %k, ptr noundef %P, ptr noundef nonnull %Q, ptr noundef nonnull readonly captures(none) %R, ptr noundef readnone captures(none) %a, ptr noundef nonnull %modulus, i64 noundef %mp, ptr noundef %rng) unnamed_addr #2 {
 entry:
   %tmp = alloca [1 x %struct.sp_int], align 16
   %infinity = alloca i32, align 4
@@ -1504,7 +1504,7 @@ if.end353:                                        ; preds = %if.end101, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_mulmod_ex2(ptr noundef %k, ptr noundef %G, ptr noundef %R, ptr nocapture noundef readnone %a, ptr noundef %modulus, ptr noundef %order, ptr noundef %rng, i32 noundef %map, ptr nocapture readnone %heap) local_unnamed_addr #2 {
+define i32 @wc_ecc_mulmod_ex2(ptr noundef %k, ptr noundef %G, ptr noundef %R, ptr noundef readnone captures(none) %a, ptr noundef %modulus, ptr noundef %order, ptr noundef %rng, i32 noundef %map, ptr readnone captures(none) %heap) local_unnamed_addr #2 {
 entry:
   %M = alloca [3 x ptr], align 16
   %mp = alloca i64, align 8
@@ -1704,14 +1704,14 @@ do.end:                                           ; preds = %entry, %if.end76
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_mulmod(ptr noundef %k, ptr noundef %G, ptr noundef %R, ptr nocapture noundef readnone %a, ptr noundef %modulus, i32 noundef %map) local_unnamed_addr #2 {
+define i32 @wc_ecc_mulmod(ptr noundef %k, ptr noundef %G, ptr noundef %R, ptr noundef readnone captures(none) %a, ptr noundef %modulus, i32 noundef %map) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @wc_ecc_mulmod_ex(ptr noundef %k, ptr noundef %G, ptr noundef %R, ptr noundef %a, ptr noundef %modulus, i32 noundef %map, ptr poison)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wc_ecc_new_point_h(ptr nocapture noundef readnone %heap) local_unnamed_addr #2 {
+define ptr @wc_ecc_new_point_h(ptr noundef readnone captures(none) %heap) local_unnamed_addr #2 {
 if.end3.i:
   %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef 3120) #19
   %cmp4.i = icmp eq ptr %call.i, null
@@ -1759,7 +1759,7 @@ wc_ecc_new_point_ex.exit:                         ; preds = %if.end6.i, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wc_ecc_del_point_h(ptr noundef %p, ptr nocapture noundef readnone %heap) local_unnamed_addr #2 {
+define void @wc_ecc_del_point_h(ptr noundef %p, ptr noundef readnone captures(none) %heap) local_unnamed_addr #2 {
 entry:
   %cmp.not.i = icmp eq ptr %p, null
   br i1 %cmp.not.i, label %wc_ecc_del_point_ex.exit, label %if.then.i
@@ -1973,7 +1973,7 @@ return:                                           ; preds = %for.inc, %return.lo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
 define i32 @wc_ecc_get_curve_size_from_name(ptr noundef readonly %curveName) local_unnamed_addr #6 {
@@ -2348,7 +2348,7 @@ return:                                           ; preds = %for.inc, %entry, %l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @wc_ecc_get_curve_id_from_oid(ptr noundef readonly %oid, i32 noundef %len) local_unnamed_addr #8 {
@@ -2535,7 +2535,7 @@ return:                                           ; preds = %if.end, %do.end28, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_shared_secret_gen_sync(ptr noundef %private_key, ptr noundef %point, ptr noundef %out, ptr nocapture noundef %outlen) local_unnamed_addr #2 {
+define i32 @wc_ecc_shared_secret_gen_sync(ptr noundef %private_key, ptr noundef %point, ptr noundef %out, ptr noundef captures(none) %outlen) local_unnamed_addr #2 {
 entry:
   %mp = alloca i64, align 8
   %spec_ints = alloca [480 x i8], align 16
@@ -3191,7 +3191,7 @@ return:                                           ; preds = %entry, %if.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecc_make_pub_ex(ptr noundef %key, ptr nocapture noundef readonly %curve, ptr noundef %pubOut, ptr noundef %rng) unnamed_addr #2 {
+define internal fastcc i32 @ecc_make_pub_ex(ptr noundef %key, ptr noundef readonly captures(none) %curve, ptr noundef %pubOut, ptr noundef %rng) unnamed_addr #2 {
 entry:
   %mp = alloca i64, align 8
   %cmp = icmp eq ptr %key, null
@@ -3966,7 +3966,7 @@ declare i32 @StoreECC_DSA_Sig(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare i32 @sp_rshb(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecc_sign_hash_sw(ptr noundef nonnull %key, ptr noundef nonnull %pubkey, ptr noundef %rng, ptr nocapture noundef readonly %curve, ptr noundef nonnull %e, ptr noundef nonnull %r, ptr noundef nonnull %s) unnamed_addr #2 {
+define internal fastcc i32 @ecc_sign_hash_sw(ptr noundef nonnull %key, ptr noundef nonnull %pubkey, ptr noundef %rng, ptr noundef readonly captures(none) %curve, ptr noundef nonnull %e, ptr noundef nonnull %r, ptr noundef nonnull %s) unnamed_addr #2 {
 entry:
   %dp = getelementptr inbounds nuw i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp, align 8
@@ -4131,7 +4131,7 @@ for.end:                                          ; preds = %do.body, %if.end102
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ecc_projective_add_point_safe(ptr noundef %A, ptr noundef %B, ptr noundef %R, ptr nocapture readnone %a, ptr noundef %modulus, i64 noundef %mp, ptr noundef writeonly %infinity) local_unnamed_addr #2 {
+define i32 @ecc_projective_add_point_safe(ptr noundef %A, ptr noundef %B, ptr noundef %R, ptr readnone captures(none) %a, ptr noundef %modulus, i64 noundef %mp, ptr noundef writeonly %infinity) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %A, align 8
   %cmp = icmp eq i32 %0, 0
@@ -4322,7 +4322,7 @@ if.end121:                                        ; preds = %if.else96, %if.end1
 declare i32 @sp_mont_norm(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @ecc_projective_dbl_point_safe(ptr noundef %P, ptr noundef %R, ptr nocapture readnone %a, ptr noundef %modulus, i64 noundef %mp) local_unnamed_addr #2 {
+define i32 @ecc_projective_dbl_point_safe(ptr noundef %P, ptr noundef %R, ptr readnone captures(none) %a, ptr noundef %modulus, i64 noundef %mp) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %P, align 8
   %cmp = icmp eq i32 %0, 0
@@ -4387,7 +4387,7 @@ if.end26:                                         ; preds = %if.then10, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ecc_mul2add(ptr noundef %A, ptr noundef %kA, ptr noundef %B, ptr noundef %kB, ptr noundef %C, ptr nocapture readnone %a, ptr noundef %modulus, ptr nocapture readnone %heap) local_unnamed_addr #2 {
+define i32 @ecc_mul2add(ptr noundef %A, ptr noundef %kA, ptr noundef %B, ptr noundef %kB, ptr noundef %C, ptr readnone captures(none) %a, ptr noundef %modulus, ptr readnone captures(none) %heap) local_unnamed_addr #2 {
 entry:
   %precomp = alloca [16 x ptr], align 16
   %first = alloca i32, align 4
@@ -5238,7 +5238,7 @@ return:                                           ; preds = %wc_ecc_check_r_s_ra
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecc_verify_hash(ptr noundef nonnull %r, ptr noundef nonnull %s, ptr noundef nonnull %hash, i32 noundef %hashlen, ptr nocapture noundef nonnull writeonly %res, ptr noundef %key, ptr nocapture noundef readonly %curve) unnamed_addr #2 {
+define internal fastcc i32 @ecc_verify_hash(ptr noundef nonnull %r, ptr noundef nonnull %s, ptr noundef nonnull %hash, i32 noundef %hashlen, ptr noundef nonnull writeonly captures(none) %res, ptr noundef %key, ptr noundef readonly captures(none) %curve) unnamed_addr #2 {
 entry:
   %dp = getelementptr inbounds nuw i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp, align 8
@@ -5674,7 +5674,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_ecc_export_x963(ptr noundef %key, ptr noundef writeonly %out, ptr noundef %outLen) local_unnamed_addr #2 {
@@ -6882,7 +6882,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx14 = phi ptr [ @ecc_sets, %for.cond.preheader ], [ %arrayidx, %for.cond ]
   %name = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 8
   %0 = load ptr, ptr %name, align 8
-  %call9 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %curveName, i64 noundef %call) #20
+  %call9 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %curveName, i64 noundef %call) #20
   %cmp10 = icmp eq i32 %call9, 0
   br i1 %cmp10, label %if.else, label %for.cond
 
@@ -6898,7 +6898,7 @@ return:                                           ; preds = %for.cond, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @wc_ecc_size(ptr noundef readonly %key) local_unnamed_addr #13 {
@@ -7163,7 +7163,7 @@ declare i32 @sp_submod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @sp_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17
@@ -7172,10 +7172,10 @@ declare i32 @llvm.umax.i32(i32, i32) #17
 declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

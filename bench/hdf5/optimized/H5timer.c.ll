@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [24 x i8] c"%.f d %.f h %.f m %.f s\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @H5_bandwidth(ptr nocapture noundef %0, i64 noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
+define void @H5_bandwidth(ptr noundef captures(none) %0, i64 noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = fcmp ugt double %3, 0.000000e+00
   br i1 %5, label %7, label %6
 
@@ -142,7 +142,7 @@ define void @H5_bandwidth(ptr nocapture noundef %0, i64 noundef %1, double nound
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %51
-  %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.10, double noundef %8) #11
+  %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull @.str.10, double noundef %8) #11
   br label %57
 
 57:                                               ; preds = %11, %18, %29, %41, %51, %55, %47, %35, %23, %14, %6
@@ -153,10 +153,10 @@ define void @H5_bandwidth(ptr nocapture noundef %0, i64 noundef %1, double nound
 declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
 define i64 @H5_now() local_unnamed_addr #0 {
@@ -167,7 +167,7 @@ define i64 @H5_now() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i64 @H5_now_usec() local_unnamed_addr #4 {
@@ -200,16 +200,16 @@ define double @H5_get_time() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5_timer_init(ptr nocapture noundef writeonly initializes((0, 80)) %0) local_unnamed_addr #6 {
+define noundef i32 @H5_timer_init(ptr noundef writeonly captures(none) initializes((0, 80)) %0) local_unnamed_addr #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5_timer_start(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @H5_timer_start(ptr noundef writeonly captures(none) %0) local_unnamed_addr #4 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.rusage, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -263,7 +263,7 @@ H5__timer_get_timevals.exit.thread:               ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5_timer_stop(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @H5_timer_stop(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.rusage, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -342,7 +342,7 @@ H5__timer_get_timevals.exit.thread:               ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5_timer_get_times(ptr nocapture noundef readonly byval(%struct.H5_timer_t) align 8 %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @H5_timer_get_times(ptr noundef readonly byval(%struct.H5_timer_t) align 8 captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.rusage, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -425,7 +425,7 @@ H5__timer_get_timevals.exit.thread:               ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5_timer_get_total_times(ptr nocapture noundef readonly byval(%struct.H5_timer_t) align 8 %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @H5_timer_get_total_times(ptr noundef readonly byval(%struct.H5_timer_t) align 8 captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.rusage, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -635,13 +635,13 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @getrusage(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

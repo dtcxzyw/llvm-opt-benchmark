@@ -133,12 +133,12 @@ define dso_local void @sort_job_list(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_by_cluster_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @_sort_by_cluster_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -153,7 +153,7 @@ define internal i32 @_sort_by_cluster_name(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_by_job_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @_sort_by_job_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -168,7 +168,7 @@ define internal range(i32 -1, 2) i32 @_sort_by_job_id(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @_sort_by_nice_level(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @_sort_by_nice_level(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -194,7 +194,7 @@ define internal range(i32 -1, 2) i32 @_sort_by_nice_level(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_by_qos_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @_sort_by_qos_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -209,7 +209,7 @@ define internal i32 @_sort_by_qos_name(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_by_account(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @_sort_by_account(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %.val, align 8
@@ -222,7 +222,7 @@ define internal i32 @_sort_by_account(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_by_partition(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @_sort_by_partition(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 32
@@ -237,7 +237,7 @@ define internal i32 @_sort_by_partition(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_by_username(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @_sort_by_username(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 56
@@ -254,7 +254,7 @@ define internal i32 @_sort_by_username(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_age_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal i32 @_sort_by_age_prio(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -288,7 +288,7 @@ define internal i32 @_sort_by_age_prio(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_fairshare_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal i32 @_sort_by_fairshare_prio(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -322,7 +322,7 @@ define internal i32 @_sort_by_fairshare_prio(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_jobsize_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal i32 @_sort_by_jobsize_prio(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -356,7 +356,7 @@ define internal i32 @_sort_by_jobsize_prio(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_partition_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal i32 @_sort_by_partition_prio(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -390,7 +390,7 @@ define internal i32 @_sort_by_partition_prio(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_qos_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal i32 @_sort_by_qos_prio(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -424,7 +424,7 @@ define internal i32 @_sort_by_qos_prio(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_by_tres_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal i32 @_sort_by_tres_prio(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 40
@@ -498,7 +498,7 @@ define internal i32 @_sort_by_tres_prio(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_by_job_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @_sort_by_job_prio(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = tail call double @get_priority_from_factors(ptr noundef %.val) #7

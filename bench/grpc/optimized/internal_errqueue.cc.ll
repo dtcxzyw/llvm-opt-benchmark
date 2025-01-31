@@ -20,12 +20,12 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %info, i8 0, i64 232, i1 false)
   %length = getelementptr inbounds nuw i8, ptr %info, i64 224
   store i32 224, ptr %length, align 8
-  %call = tail call i32 @getsockopt(i32 noundef %fd, i32 noundef 6, i32 noundef 11, ptr noundef %info, ptr noundef nonnull %length) #9
+  %call = tail call i32 @getsockopt(i32 noundef %fd, i32 noundef 6, i32 noundef 11, ptr noundef nonnull %info, ptr noundef nonnull %length) #9
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -96,7 +96,7 @@ lpad:                                             ; preds = %if.then
 
 if.end7:                                          ; preds = %entry
   %release4 = getelementptr inbounds nuw i8, ptr %buffer, i64 130
-  %call8 = call i64 @strtol(ptr nocapture noundef nonnull %release4, ptr noundef null, i32 noundef 10) #9
+  %call8 = call i64 @strtol(ptr noundef nonnull captures(none) %release4, ptr noundef null, i32 noundef 10) #9
   %cmp9 = icmp sgt i64 %call8, 3
   br i1 %cmp9, label %return, label %if.else
 
@@ -118,7 +118,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #4
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
@@ -134,7 +134,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

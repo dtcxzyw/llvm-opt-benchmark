@@ -447,7 +447,7 @@ define internal i32 @dissect_dlep_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dlep_sig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dlep_sig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -532,7 +532,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, -2147483648) i32 @decode_dataitem_status(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, -2147483648) i32 @decode_dataitem_status(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -580,7 +580,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 5, 8) i32 @decode_dataitem_v4conn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 5, 8) i32 @decode_dataitem_v4conn(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -631,7 +631,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 17, 20) i32 @decode_dataitem_v6conn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 17, 20) i32 @decode_dataitem_v6conn(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -682,7 +682,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, -2147483648) i32 @decode_dataitem_peertype(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, -2147483648) i32 @decode_dataitem_peertype(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %7 = load i32, ptr @hf_dlep_dataitem_peertype, align 4
@@ -729,7 +729,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_heartbeat(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_heartbeat(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = load i32, ptr @hf_dlep_dataitem_heartbeat, align 4
@@ -740,7 +740,7 @@ define internal noundef i32 @decode_dataitem_heartbeat(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483646, -2147483648) i32 @decode_dataitem_extsupp(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -2147483646, -2147483648) i32 @decode_dataitem_extsupp(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -784,7 +784,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_macaddr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_macaddr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   switch i32 %6, label %19 [
@@ -819,7 +819,7 @@ define internal noundef i32 @decode_dataitem_macaddr(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_v4addr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_v4addr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %6 = load i32, ptr @hf_dlep_dataitem_v4addr, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 5, i32 noundef 0) #5
@@ -861,7 +861,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_v6addr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_v6addr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %6 = load i32, ptr @hf_dlep_dataitem_v6addr, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 17, i32 noundef 0) #5
@@ -903,7 +903,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_v4subnet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_v4subnet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = load i32, ptr @hf_dlep_dataitem_v4subnet, align 4
@@ -950,7 +950,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_v6subnet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_v6subnet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = load i32, ptr @hf_dlep_dataitem_v6subnet, align 4
@@ -997,7 +997,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_mdrr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_mdrr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = load i32, ptr @hf_dlep_dataitem_mdrr, align 4
@@ -1008,7 +1008,7 @@ define internal noundef i32 @decode_dataitem_mdrr(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_mdrt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_mdrt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = load i32, ptr @hf_dlep_dataitem_mdrt, align 4
@@ -1019,7 +1019,7 @@ define internal noundef i32 @decode_dataitem_mdrt(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_cdrr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_cdrr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = load i32, ptr @hf_dlep_dataitem_cdrr, align 4
@@ -1030,7 +1030,7 @@ define internal noundef i32 @decode_dataitem_cdrr(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_cdrt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_cdrt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = load i32, ptr @hf_dlep_dataitem_cdrt, align 4
@@ -1041,7 +1041,7 @@ define internal noundef i32 @decode_dataitem_cdrt(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_latency(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_latency(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = load i32, ptr @hf_dlep_dataitem_latency, align 4
@@ -1052,7 +1052,7 @@ define internal noundef i32 @decode_dataitem_latency(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_resources(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_resources(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = load i32, ptr @hf_dlep_dataitem_resources, align 4
@@ -1063,7 +1063,7 @@ define internal noundef i32 @decode_dataitem_resources(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_rlqr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_rlqr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = load i32, ptr @hf_dlep_dataitem_rlqr, align 4
@@ -1074,7 +1074,7 @@ define internal noundef i32 @decode_dataitem_rlqr(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_rlqt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_rlqt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = load i32, ptr @hf_dlep_dataitem_rlqt, align 4
@@ -1085,7 +1085,7 @@ define internal noundef i32 @decode_dataitem_rlqt(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_mtu(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_mtu(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = load i32, ptr @hf_dlep_dataitem_mtu, align 4
@@ -1096,7 +1096,7 @@ define internal noundef i32 @decode_dataitem_mtu(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_hop_cnt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_hop_cnt(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %6 = load i32, ptr @hf_dlep_dataitem_hop_count_flags, align 4
   %7 = load i32, ptr @ett_dlep_flags, align 4
@@ -1111,7 +1111,7 @@ define internal noundef i32 @decode_dataitem_hop_cnt(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_hop_cntrl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_hop_cntrl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %6 = load i32, ptr @hf_dlep_dataitem_hop_control, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
@@ -1123,7 +1123,7 @@ define internal noundef i32 @decode_dataitem_hop_cntrl(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_li_length(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_li_length(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %6 = load i32, ptr @hf_dlep_dataitem_li_length, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
@@ -1135,7 +1135,7 @@ define internal noundef i32 @decode_dataitem_li_length(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_li(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_li(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %7 = load i32, ptr @hf_dlep_dataitem_li, align 4
@@ -1148,7 +1148,7 @@ define internal noundef i32 @decode_dataitem_li(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_lat_range(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @decode_dataitem_lat_range(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %6 = load i32, ptr @hf_dlep_dataitem_max_lat, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #5
@@ -1189,7 +1189,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 4, 65540) i32 @get_dlep_message_header_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 4, 65540) i32 @get_dlep_message_header_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %5, i32 noundef 0) #5
   %7 = zext i16 %6 to i32
@@ -1198,7 +1198,7 @@ define internal range(i32 4, 65540) i32 @get_dlep_message_header_len(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dlep_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dlep_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1518,10 +1518,10 @@ declare ptr @proto_item_get_display_repr(ptr noundef, ptr noundef) local_unnamed
 declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

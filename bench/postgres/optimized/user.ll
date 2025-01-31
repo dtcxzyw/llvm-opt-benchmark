@@ -132,7 +132,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.98 = private unnamed_addr constant [65 x i8] c"Only roles with the %s option on role \22%s\22 may revoke this role.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @CreateRole(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [12 x i64], align 16
   %4 = alloca [12 x i8], align 1
   %5 = alloca %struct.GrantRoleOptions, align 4
@@ -1002,17 +1002,17 @@ roleSpecsToIds.exit303:                           ; preds = %.lr.ph21.i299, %rol
   br label %400
 
 400:                                              ; preds = %roleSpecsToIds.exit303, %399
-  call void @table_close(ptr noundef %237, i32 noundef 0) #10
+  call void @table_close(ptr noundef nonnull %237, i32 noundef 0) #10
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @GetUserId() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
 declare void @errorConflictingDefElem(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -1147,7 +1147,7 @@ define internal fastcc void @check_role_membership_authorization(i32 noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #0 {
   %8 = alloca [7 x i64], align 16
   %9 = alloca [7 x i8], align 1
   %10 = alloca [7 x i8], align 1
@@ -1655,7 +1655,7 @@ declare void @RunObjectPostCreateHook(i32 noundef, i32 noundef, i32 noundef, i1 
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @AlterRole(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [12 x i64], align 16
   %4 = alloca [12 x i8], align 1
   %5 = alloca [12 x i8], align 1
@@ -2455,7 +2455,7 @@ roleSpecsToIds.exit250:                           ; preds = %.lr.ph21.i246, %357
   br label %370
 
 370:                                              ; preds = %339, %roleSpecsToIds.exit, %roleSpecsToIds.exit250, %335
-  call void @table_close(ptr noundef %111, i32 noundef 0) #10
+  call void @table_close(ptr noundef nonnull %111, i32 noundef 0) #10
   ret i32 %124
 }
 
@@ -2476,7 +2476,7 @@ declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 
 declare void @heap_freetuple(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @DelRoleMems(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @DelRoleMems(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef nonnull readonly captures(none) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca [7 x i64], align 16
   %10 = alloca [7 x i8], align 1
   %11 = alloca [7 x i8], align 1
@@ -2721,7 +2721,7 @@ plan_single_revoke.exit.thread:                   ; preds = %90, %92, %86, %97, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @AlterRoleSet(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @AlterRoleSet(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2853,7 +2853,7 @@ declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unname
 declare void @AlterSetting(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DropRole(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @DropRole(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -3485,7 +3485,7 @@ declare zeroext i1 @SearchSysCacheExists(i32 noundef, i64 noundef, i64 noundef, 
 declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @GrantRole(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @GrantRole(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.GrantRoleOptions, align 4
   %4 = tail call i32 @GetUserId() #10
   store i32 0, ptr %3, align 4
@@ -3702,7 +3702,7 @@ declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @get_rolespec_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DropOwnedObjects(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @DropOwnedObjects(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3781,7 +3781,7 @@ declare ptr @GetUserNameFromId(i32 noundef, i1 noundef zeroext) local_unnamed_ad
 declare void @shdepDropOwned(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReassignOwnedObjects(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ReassignOwnedObjects(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3874,7 +3874,7 @@ declare void @shdepReassignOwned(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_createrole_self_grant(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_createrole_self_grant(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @pstrdup(ptr noundef %5) #10
@@ -3972,7 +3972,7 @@ declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @guc_malloc(i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define dso_local void @assign_createrole_self_grant(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define dso_local void @assign_createrole_self_grant(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp ne i32 %3, 0
   %5 = zext i1 %4 to i8
@@ -4090,7 +4090,7 @@ declare void @updateAclDependencies(i32 noundef, i32 noundef, i32 noundef, i32 n
 declare i32 @select_best_admin(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @plan_recursive_revoke(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
   %6 = sext i32 %2 to i64
   %7 = getelementptr i32, ptr %1, i64 %6
   %8 = load i32, ptr %7, align 4

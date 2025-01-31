@@ -140,7 +140,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
 declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -157,7 +157,7 @@ define dso_local void @rate_limit_shutdown() local_unnamed_addr #0 {
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @rate_limit_exceeded(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sockaddr_storage, align 8
   %.b60 = load i1, ptr @rate_limit_enabled, align 1
   br i1 %.b60, label %3, label %105

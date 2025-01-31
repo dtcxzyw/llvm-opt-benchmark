@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @one = internal constant <{ i64, [39 x i64] }> <{ i64 1, [39 x i64] zeroinitializer }>, align 64
 
 ; Function Attrs: nounwind uwtable
-define void @RSAZ_1024_mod_exp_avx2(ptr noundef %result_norm, ptr noundef %base_norm, ptr nocapture noundef readonly %exponent, ptr noundef %m_norm, ptr noundef %RR, i64 noundef %k0) local_unnamed_addr #0 {
+define void @RSAZ_1024_mod_exp_avx2(ptr noundef %result_norm, ptr noundef %base_norm, ptr noundef readonly captures(none) %exponent, ptr noundef %m_norm, ptr noundef %RR, i64 noundef %k0) local_unnamed_addr #0 {
 entry:
   %storage = alloca [5632 x i8], align 16
   %tmp = alloca [16 x i64], align 16
@@ -175,7 +175,7 @@ declare void @rsaz_1024_red2norm_avx2(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @RSAZ_512_mod_exp(ptr noundef %result, ptr noundef %base, ptr nocapture noundef readonly %exponent, ptr noundef %m, i64 noundef %k0, ptr noundef %RR) local_unnamed_addr #0 {
+define void @RSAZ_512_mod_exp(ptr noundef %result, ptr noundef %base, ptr noundef readonly captures(none) %exponent, ptr noundef %m, i64 noundef %k0, ptr noundef %RR) local_unnamed_addr #0 {
 entry:
   %storage = alloca [1216 x i8], align 16
   %tmp = alloca [8 x i64], align 16

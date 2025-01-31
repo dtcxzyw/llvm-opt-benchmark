@@ -936,7 +936,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_awdl_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_awdl_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1026,7 +1026,7 @@ define internal i32 @dissect_awdl_data(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_awdl_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_awdl_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %2) #5
   %7 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %6) #5
@@ -1282,7 +1282,7 @@ declare ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef, ptr nound
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @awdl_tag_service_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @awdl_tag_service_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1406,7 +1406,7 @@ thread-pre-split:                                 ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @awdl_tag_sync_params(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal i32 @awdl_tag_sync_params(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %6 = load i32, ptr @hf_awdl_syncparams_tx_chan, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
@@ -1454,7 +1454,7 @@ define internal i32 @awdl_tag_sync_params(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 19, 38) i32 @awdl_tag_election_params(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 19, 38) i32 @awdl_tag_election_params(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %6 = load i32, ptr @hf_awdl_electionparams_flags, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
@@ -1492,7 +1492,7 @@ define internal range(i32 19, 38) i32 @awdl_tag_election_params(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_awdl_unknown, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef 0) #5
   %7 = load i32, ptr @hf_awdl_serviceparams_sui, align 4
@@ -1571,7 +1571,7 @@ define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 8, 12) i32 @awdl_tag_ht_capabilities(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 8, 12) i32 @awdl_tag_ht_capabilities(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %6 = load i32, ptr @hf_awdl_ht_unknown, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #5
@@ -1666,7 +1666,7 @@ define internal range(i32 8, 12) i32 @awdl_tag_ht_capabilities(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 2, 65587) i32 @awdl_tag_datapath_state(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 2, 65587) i32 @awdl_tag_datapath_state(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 0, i32 noundef -2147483648) #5
   %6 = load i32, ptr @hf_awdl_datastate_flags, align 4
   %7 = load i32, ptr @ett_awdl_datastate_flags, align 4
@@ -1834,7 +1834,7 @@ define internal range(i32 2, 65587) i32 @awdl_tag_datapath_state(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @awdl_tag_arpa(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @awdl_tag_arpa(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %6 = load i32, ptr @hf_awdl_arpa_flags, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
@@ -1849,7 +1849,7 @@ define internal i32 @awdl_tag_arpa(ptr noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @awdl_tag_ieee80211_container(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @awdl_tag_ieee80211_container(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [1 x i8], align 1
   store i8 -65, ptr %5, align 1
   %6 = call i32 @add_tagged_field(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 13, ptr noundef nonnull %5, i32 noundef 1, ptr noundef null) #5
@@ -1857,7 +1857,7 @@ define internal i32 @awdl_tag_ieee80211_container(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_awdl_channelseq_channel_count, align 4
@@ -1995,7 +1995,7 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @awdl_tag_sync_tree(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -2147483647, -2147483648) i32 @awdl_tag_sync_tree(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %6 = add i32 %5, -6
   %.not7 = icmp slt i32 %6, 0
@@ -2015,7 +2015,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @awdl_tag_sync_tree(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @awdl_tag_version(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @awdl_tag_version(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = load i32, ptr @hf_awdl_version, align 4
@@ -2034,7 +2034,7 @@ define internal noundef i32 @awdl_tag_version(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @awdl_tag_election_params_v2(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @awdl_tag_election_params_v2(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_awdl_electionparams2_master, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 6, i32 noundef 0) #5
   %7 = load i32, ptr @hf_awdl_electionparams2_other, align 4
@@ -2059,7 +2059,7 @@ define internal noundef i32 @awdl_tag_election_params_v2(ptr noundef %0, ptr noc
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_awdl_dns_entry(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc i32 @add_awdl_dns_entry(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -2180,10 +2180,10 @@ declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unn
 declare double @ldexp(double, i32) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4

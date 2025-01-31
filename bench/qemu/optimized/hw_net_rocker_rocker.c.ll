@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_rocker_register_types, ptr null }]
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @rocker_find(ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
+define dso_local ptr @rocker_find(ptr noundef readonly captures(none) %name) local_unnamed_addr #0 {
 entry:
   %r.04 = load ptr, ptr @rockers, align 8
   %tobool.not5 = icmp eq ptr %r.04, null
@@ -92,10 +92,10 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @rocker_get_world(ptr nocapture noundef readonly %r, i32 noundef %type) local_unnamed_addr #2 {
+define dso_local ptr @rocker_get_world(ptr noundef readonly captures(none) %r, i32 noundef %type) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %type, 0
   br i1 %cmp, label %if.then, label %return
@@ -225,7 +225,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #6
 declare ptr @fp_port_get_info(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @rocker_fp_ports(ptr nocapture noundef readonly %r) local_unnamed_addr #2 {
+define dso_local i32 @rocker_fp_ports(ptr noundef readonly captures(none) %r) local_unnamed_addr #2 {
 entry:
   %fp_ports = getelementptr inbounds nuw i8, ptr %r, i64 3168
   %0 = load i32, ptr %fp_ports, align 16
@@ -905,7 +905,7 @@ declare zeroext i16 @desc_tlv_size(ptr noundef) local_unnamed_addr #4
 declare void @g_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rocker_port_eg(ptr nocapture noundef readonly %r, i32 noundef %pport, ptr noundef %iov, i32 noundef %iovcnt) local_unnamed_addr #3 {
+define dso_local i32 @rocker_port_eg(ptr noundef readonly captures(none) %r, i32 noundef %pport, ptr noundef %iov, i32 noundef %iovcnt) local_unnamed_addr #3 {
 entry:
   %port = alloca i32, align 4
   %call = call zeroext i1 @fp_port_from_pport(i32 noundef %pport, ptr noundef nonnull %port) #13
@@ -948,10 +948,10 @@ declare void @msix_notify(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i64 @iov_to_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -960,7 +960,7 @@ declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 no
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @rocker_class_init(ptr noundef %klass, ptr nocapture readnone %data) #3 {
+define internal void @rocker_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #3 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #13
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #13
@@ -1100,7 +1100,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %tobool.not.i84, label %if.end30, label %for.body.i, !llvm.loop !5
 
 if.then28:                                        ; preds = %for.body.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1317, ptr noundef nonnull @__func__.pci_rocker_realize, ptr noundef nonnull @.str.14, ptr noundef %9) #13
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1317, ptr noundef nonnull @__func__.pci_rocker_realize, ptr noundef nonnull @.str.14, ptr noundef nonnull %9) #13
   br label %err_duplicate
 
 if.end30:                                         ; preds = %for.inc.i, %if.end24
@@ -1257,12 +1257,12 @@ if.end109:                                        ; preds = %if.then105, %do.bod
   br label %for.end129
 
 err_duplicate:                                    ; preds = %if.then33, %if.then28
-  %call.i.i87 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
+  %call.i.i87 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
   tail call void @msix_uninit(ptr noundef %call.i.i87, ptr noundef nonnull %msix_bar, ptr noundef nonnull %msix_bar) #13
   %27 = load i32, ptr %fp_ports.i, align 16
   %sub.i = shl i32 %27, 1
   %add2.i = add i32 %sub.i, 4
-  %call.i.i.i90 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
+  %call.i.i.i90 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
   %cmp3.not.i.i91 = icmp eq i32 %add2.i, 0
   br i1 %cmp3.not.i.i91, label %err_msix_init, label %for.body.i.i92
 
@@ -1500,7 +1500,7 @@ declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr
 declare void @memory_region_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
@@ -1510,7 +1510,7 @@ declare ptr @desc_ring_alloc(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare void @desc_ring_set_consume(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cmd_consume(ptr nocapture noundef readonly %r, ptr noundef %info) #3 {
+define internal i32 @cmd_consume(ptr noundef readonly captures(none) %r, ptr noundef %info) #3 {
 entry:
   %tlvs.i16 = alloca [9 x ptr], align 16
   %port.i17 = alloca i32, align 4
@@ -2435,7 +2435,7 @@ declare void @object_unparent(ptr noundef) local_unnamed_addr #4
 declare void @world_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rocker_mmio_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #3 {
+define internal i64 @rocker_mmio_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #3 {
 entry:
   switch i32 %size, label %return [
     i32 4, label %sw.bb
@@ -3315,13 +3315,13 @@ declare void @desc_ring_reset(ptr noundef) local_unnamed_addr #4
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

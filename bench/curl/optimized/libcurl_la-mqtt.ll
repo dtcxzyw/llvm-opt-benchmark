@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [20 x i8] c"server disconnected\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @mqtt_setup_conn(ptr nocapture noundef writeonly %data, ptr nocapture readnone %conn) #0 {
+define internal range(i32 0, 28) i32 @mqtt_setup_conn(ptr noundef writeonly captures(none) %data, ptr readnone captures(none) %conn) #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 72) #8
@@ -51,7 +51,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mqtt_do(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define internal noundef i32 @mqtt_do(ptr noundef %data, ptr noundef writeonly captures(none) initializes((0, 1)) %done) #0 {
 entry:
   %n.i = alloca i64, align 8
   %remain.i = alloca [4 x i8], align 4
@@ -315,7 +315,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mqtt_done(ptr nocapture noundef readonly %data, i32 %status, i1 zeroext %premature) #0 {
+define internal noundef i32 @mqtt_done(ptr noundef readonly captures(none) %data, i32 %status, i1 zeroext %premature) #0 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %data, i64 392
   %0 = load ptr, ptr %p, align 8
@@ -329,7 +329,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mqtt_doing(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define internal i32 @mqtt_doing(ptr noundef %data, ptr noundef writeonly captures(none) initializes((0, 1)) %done) #0 {
 entry:
   %readbuf.i.i.i = alloca [1024 x i8], align 16
   %nread.i.i.i = alloca i64, align 8
@@ -928,7 +928,7 @@ return:                                           ; preds = %sw.epilog, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @mqtt_getsock(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly initializes((0, 4)) %sock) #1 {
+define internal noundef i32 @mqtt_getsock(ptr readnone captures(none) %data, ptr noundef readonly captures(none) %conn, ptr noundef writeonly captures(none) initializes((0, 4)) %sock) #1 {
 entry:
   %sock1 = getelementptr inbounds nuw i8, ptr %conn, i64 392
   %0 = load i32, ptr %sock1, align 8
@@ -941,13 +941,13 @@ declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @Curl_rand_alnum(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1323,10 +1323,10 @@ declare void @Curl_pgrsSetDownloadSize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

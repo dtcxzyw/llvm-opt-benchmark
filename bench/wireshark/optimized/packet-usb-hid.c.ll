@@ -4289,7 +4289,7 @@ hid_unpack_signed.exit.i:                         ; preds = %270, %265, %264, %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -4823,7 +4823,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #2
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -4872,7 +4872,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_usb_hid_boot_keyboard_input_report(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_usb_hid_boot_keyboard_input_report(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_usbhid_boot_report_keyboard_modifier_right_gui, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
   %7 = load i32, ptr @hf_usbhid_boot_report_keyboard_modifier_right_alt, align 4
@@ -5191,7 +5191,7 @@ define internal noundef i32 @dissect_usb_hid_boot_keyboard_input_report(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_usb_hid_boot_keyboard_output_report(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_usb_hid_boot_keyboard_output_report(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_usbhid_boot_report_keyboard_leds_constants, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
   %7 = load i32, ptr @hf_usbhid_boot_report_keyboard_leds_kana, align 4
@@ -5363,7 +5363,7 @@ define internal noundef i32 @dissect_usb_hid_boot_keyboard_output_report(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_usb_hid_boot_mouse_input_report(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_usb_hid_boot_mouse_input_report(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_usbhid_boot_report_mouse_button_8, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
   %7 = load i32, ptr @hf_usbhid_boot_report_mouse_button_7, align 4
@@ -5734,7 +5734,7 @@ dissect_usb_hid_control_std_intf.exit:            ; preds = %.lr.ph, %79, %53, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_usb_hid_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_usb_hid_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -6653,7 +6653,7 @@ dissect_hid_field.exit:                           ; preds = %135, %492, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 1) i32 @dissect_usb_hid_class_descriptors(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 3, 1) i32 @dissect_usb_hid_class_descriptors(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #7
   %.not = icmp eq i8 %6, 33
@@ -6990,7 +6990,7 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_usb_hid_get_report(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @dissect_usb_hid_get_report(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %23, label %7
 
@@ -7017,7 +7017,7 @@ define internal void @dissect_usb_hid_get_report(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_usb_hid_get_idle(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @dissect_usb_hid_get_idle(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %23, label %7
 
@@ -7044,7 +7044,7 @@ define internal void @dissect_usb_hid_get_idle(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_usb_hid_get_protocol(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @dissect_usb_hid_get_protocol(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %16, label %7
 
@@ -7064,7 +7064,7 @@ define internal void @dissect_usb_hid_get_protocol(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_usb_hid_set_report(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @dissect_usb_hid_set_report(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %23, label %7
 
@@ -7091,7 +7091,7 @@ define internal void @dissect_usb_hid_set_report(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_usb_hid_set_idle(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @dissect_usb_hid_set_idle(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %23, label %7
 
@@ -7118,7 +7118,7 @@ define internal void @dissect_usb_hid_set_idle(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_usb_hid_set_protocol(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @dissect_usb_hid_set_protocol(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %16, label %7
 
@@ -7157,10 +7157,10 @@ declare ptr @proto_tree_add_int_bits_format_value(ptr noundef, i32 noundef, ptr 
 declare ptr @dissect_usb_descriptor_header(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6

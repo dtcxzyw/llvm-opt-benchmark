@@ -10,13 +10,13 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5boost3log11v2_mt_posix3aux13get_timestampE = local_unnamed_addr global ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous29get_timestamp_monotonic_clockEv, align 8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -9223372036854, 9223372036855) i64 @_ZNK5boost3log11v2_mt_posix3aux8duration12millisecondsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define noundef range(i64 -9223372036854, 9223372036855) i64 @_ZNK5boost3log11v2_mt_posix3aux8duration12millisecondsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !3
   %3 = sdiv i64 %2, 1000000
   ret i64 %3

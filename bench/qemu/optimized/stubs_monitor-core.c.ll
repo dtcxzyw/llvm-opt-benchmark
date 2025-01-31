@@ -10,25 +10,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noalias noundef ptr @monitor_set_cur(ptr nocapture noundef readnone %co, ptr nocapture noundef readnone %mon) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @monitor_set_cur(ptr noundef readnone captures(none) %co, ptr noundef readnone captures(none) %mon) local_unnamed_addr #0 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @monitor_init_qmp(ptr nocapture noundef readnone %chr, i1 noundef zeroext %pretty, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local void @monitor_init_qmp(ptr noundef readnone captures(none) %chr, i1 noundef zeroext %pretty, ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @qapi_event_emit(i32 noundef %event, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {
+define dso_local void @qapi_event_emit(i32 noundef %event, ptr noundef readnone captures(none) %qdict) local_unnamed_addr #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
-define dso_local noundef i32 @monitor_vprintf(ptr nocapture noundef readnone %mon, ptr nocapture noundef readnone %fmt, ptr nocapture noundef readnone %ap) local_unnamed_addr #1 {
+define dso_local noundef i32 @monitor_vprintf(ptr noundef readnone captures(none) %mon, ptr noundef readnone captures(none) %fmt, ptr noundef readnone captures(none) %ap) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #3
   unreachable

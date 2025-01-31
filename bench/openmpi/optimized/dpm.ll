@@ -190,7 +190,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_srand(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_dpm_connect_accept(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define i32 @ompi_dpm_connect_accept(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -613,7 +613,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %193
   br label %219
 
 216:                                              ; preds = %206
-  %217 = call i64 @strtoul(ptr nocapture noundef nonnull %210, ptr noundef null, i32 noundef 10) #22
+  %217 = call i64 @strtoul(ptr noundef nonnull captures(none) %210, ptr noundef null, i32 noundef 10) #22
   %218 = trunc i64 %217 to i32
   br label %219
 
@@ -783,7 +783,7 @@ opal_obj_run_constructors.exit435:                ; preds = %.lr.ph.i432, %263
   br label %296
 
 293:                                              ; preds = %283
-  %294 = call i64 @strtoul(ptr nocapture noundef nonnull %287, ptr noundef null, i32 noundef 10) #22
+  %294 = call i64 @strtoul(ptr noundef nonnull captures(none) %287, ptr noundef null, i32 noundef 10) #22
   %295 = trunc i64 %294 to i32
   br label %296
 
@@ -1132,7 +1132,7 @@ opal_list_remove_first.exit468.thread:            ; preds = %452, %.preheader775
   br i1 %.not.i479, label %opal_obj_run_destructors.exit480.thread, label %.lr.ph.i477, !llvm.loop !9
 
 462:                                              ; preds = %320
-  %463 = call i64 @strtoul(ptr nocapture noundef nonnull %325, ptr noundef null, i32 noundef 10) #22
+  %463 = call i64 @strtoul(ptr noundef nonnull captures(none) %325, ptr noundef null, i32 noundef 10) #22
   %464 = trunc i64 %463 to i32
   %465 = icmp sgt i32 %464, 0
   br i1 %465, label %.lr.ph807, label %.loopexit786
@@ -2338,7 +2338,7 @@ opal_list_remove_first.exit622.thread:            ; preds = %979, %.preheader771
 .lr.ph834:                                        ; preds = %1023, %.lr.ph834
   %indvars.iv872 = phi i64 [ %indvars.iv.next873, %.lr.ph834 ], [ 0, %1023 ]
   %1030 = phi ptr [ %1035, %.lr.ph834 ], [ %1029, %1023 ]
-  %1031 = call i64 @strtoul(ptr nocapture noundef nonnull %1030, ptr noundef null, i32 noundef 10) #22
+  %1031 = call i64 @strtoul(ptr noundef nonnull captures(none) %1030, ptr noundef null, i32 noundef 10) #22
   %1032 = trunc i64 %1031 to i32
   %1033 = getelementptr inbounds nuw i32, ptr %1028, i64 %indvars.iv872
   store i32 %1032, ptr %1033, align 4
@@ -2979,7 +2979,7 @@ opal_obj_run_destructors.exit699:                 ; preds = %.lr.ph.i696, %opal_
   %1324 = load i32, ptr %1323, align 8
   %1325 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %1326 = load ptr, ptr %1325, align 8
-  %1327 = call i32 @ompi_comm_set(ptr noundef nonnull %22, ptr noundef %0, i32 noundef %1324, ptr noundef null, i32 noundef %1212, ptr noundef null, ptr noundef null, ptr noundef %1326, ptr noundef %33, ptr noundef nonnull %1213, i32 noundef 0) #22
+  %1327 = call i32 @ompi_comm_set(ptr noundef nonnull %22, ptr noundef nonnull %0, i32 noundef %1324, ptr noundef null, i32 noundef %1212, ptr noundef null, ptr noundef null, ptr noundef %1326, ptr noundef %33, ptr noundef nonnull %1213, i32 noundef 0) #22
   %.not404 = icmp eq i32 %1327, 0
   br i1 %.not404, label %1328, label %opal_obj_run_destructors.exit480.thread
 
@@ -3029,12 +3029,12 @@ opal_obj_run_destructors.exit706:                 ; preds = %.lr.ph.i703, %1340
 
 1348:                                             ; preds = %opal_thread_add_fetch_32.exit701, %opal_obj_run_destructors.exit706
   %1349 = load ptr, ptr %22, align 8
-  %1350 = call i32 @ompi_comm_nextcid(ptr noundef %1349, ptr noundef %0, ptr noundef null, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext %3, i32 noundef 256) #22
+  %1350 = call i32 @ompi_comm_nextcid(ptr noundef %1349, ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext %3, i32 noundef 256) #22
   %.not405 = icmp eq i32 %1350, 0
   br i1 %.not405, label %1351, label %opal_obj_run_destructors.exit480.thread
 
 1351:                                             ; preds = %1348
-  %1352 = call i32 @ompi_comm_activate(ptr noundef nonnull %22, ptr noundef %0, ptr noundef null, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext %3, i32 noundef 256) #22
+  %1352 = call i32 @ompi_comm_activate(ptr noundef nonnull %22, ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext %3, i32 noundef 256) #22
   br label %opal_obj_run_destructors.exit480
 
 opal_obj_run_destructors.exit480:                 ; preds = %.lr.ph.i575, %.lr.ph.i519, %.lr.ph.i631, %.lr.ph.i652, %opal_list_remove_first.exit643.thread, %opal_list_remove_first.exit622.thread, %opal_list_remove_first.exit566.thread, %opal_list_remove_first.exit510.thread, %173, %1351
@@ -3115,13 +3115,13 @@ opal_obj_run_destructors.exit713:                 ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @PMIx_Load_procid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -3130,7 +3130,7 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @opal_argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
@@ -3140,7 +3140,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare ptr @opal_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @opal_pmix_convert_jobid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -3157,10 +3157,10 @@ declare void @PMIx_Info_destruct(ptr noundef) local_unnamed_addr #2
 declare void @PMIx_Pdata_destruct(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
@@ -3170,7 +3170,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #2
 declare void @PMIx_Load_nspace(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 declare void @opal_argv_free(ptr noundef) local_unnamed_addr #2
 
@@ -3185,10 +3185,10 @@ declare ptr @PMIx_Proc_create(i64 noundef) local_unnamed_addr #2
 declare void @PMIx_Info_construct(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_pmix_proc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal i32 @compare_pmix_proc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 255) #23
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %10
@@ -3235,7 +3235,7 @@ declare i32 @ompi_comm_nextcid(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @ompi_comm_activate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_dpm_disconnect(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @ompi_dpm_disconnect(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.opal_list_t, align 8
   %3 = load i32, ptr @opal_class_init_epoch, align 4
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
@@ -3607,7 +3607,7 @@ opal_obj_run_destructors.exit74:                  ; preds = %.lr.ph.i71, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -13, 1) i32 @construct_peers(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 -13, 1) i32 @construct_peers(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -3802,7 +3802,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %57, %5
 declare i32 @PMIx_Fence(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_dpm_spawn(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @ompi_dpm_spawn(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca [2 x i32], align 4
@@ -10283,7 +10283,7 @@ opal_obj_run_destructors.exit1502:                ; preds = %opal_obj_run_destru
   br i1 %3041, label %3045, label %3042
 
 3042:                                             ; preds = %3039
-  %3043 = call i64 @strtoul(ptr nocapture noundef nonnull %3036, ptr noundef null, i32 noundef 10) #22
+  %3043 = call i64 @strtoul(ptr noundef nonnull captures(none) %3036, ptr noundef null, i32 noundef 10) #22
   %3044 = trunc i64 %3043 to i32
   br label %3045
 
@@ -10408,7 +10408,7 @@ opal_obj_run_destructors.exit1516:                ; preds = %opal_obj_run_destru
   br i1 %3100, label %3104, label %3101
 
 3101:                                             ; preds = %3098
-  %3102 = call i64 @strtoul(ptr nocapture noundef nonnull %3095, ptr noundef null, i32 noundef 10) #22
+  %3102 = call i64 @strtoul(ptr noundef nonnull captures(none) %3095, ptr noundef null, i32 noundef 10) #22
   %3103 = trunc i64 %3102 to i32
   br label %3104
 
@@ -10534,7 +10534,7 @@ opal_obj_run_destructors.exit1530:                ; preds = %opal_obj_run_destru
   br i1 %3160, label %3164, label %3161
 
 3161:                                             ; preds = %3158
-  %3162 = call i64 @strtoul(ptr nocapture noundef nonnull %3155, ptr noundef null, i32 noundef 10) #22
+  %3162 = call i64 @strtoul(ptr noundef nonnull captures(none) %3155, ptr noundef null, i32 noundef 10) #22
   %3163 = trunc i64 %3162 to i32
   br label %3164
 
@@ -11057,7 +11057,7 @@ opal_obj_new.exit1572:                            ; preds = %.lr.ph.i.i1569, %33
   call void @opal_argv_free(ptr noundef %3415) #22
   %calloc.i = call dereferenceable_or_null(256) ptr @calloc(i64 1, i64 256)
   %3416 = load i32, ptr %9, align 4
-  %3417 = call i64 @read(i32 noundef %3416, ptr noundef %calloc.i, i64 noundef 255) #22
+  %3417 = call i64 @read(i32 noundef %3416, ptr noundef nonnull %calloc.i, i64 noundef 255) #22
   %3418 = trunc i64 %3417 to i32
   %.not556367.i = icmp eq i32 %3418, 0
   br i1 %.not556367.i, label %.sink.split.i, label %.lr.ph.i1574
@@ -11087,7 +11087,7 @@ opal_obj_new.exit1572:                            ; preds = %.lr.ph.i.i1569, %33
 
 3428:                                             ; preds = %3425, %3425
   %3429 = load i32, ptr %9, align 4
-  %3430 = call i64 @read(i32 noundef %3429, ptr noundef %3421, i64 noundef %3420) #22
+  %3430 = call i64 @read(i32 noundef %3429, ptr noundef nonnull %3421, i64 noundef %3420) #22
   %3431 = trunc i64 %3430 to i32
   %.not55.i = icmp eq i32 %3431, 0
   br i1 %.not55.i, label %.outer._crit_edge.i, label %3422, !llvm.loop !64
@@ -11496,7 +11496,7 @@ declare ptr @PMIx_App_create(i64 noundef) local_unnamed_addr #2
 declare i32 @opal_setenv(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @ompi_info_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -11566,12 +11566,12 @@ define internal fastcc range(i32 -5, 1) i32 @dpm_convert(ptr noundef nonnull %0,
 
 28:                                               ; preds = %27, %22
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #23
-  %30 = tail call i32 @strncasecmp(ptr noundef %25, ptr noundef nonnull %3, i64 noundef %29) #23
+  %30 = tail call i32 @strncasecmp(ptr noundef nonnull %25, ptr noundef nonnull %3, i64 noundef %29) #23
   %.not75 = icmp eq i32 %30, 0
   br i1 %.not75, label %37, label %31
 
 31:                                               ; preds = %28
-  %32 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.88, ptr noundef %25, ptr noundef nonnull %3) #22
+  %32 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.88, ptr noundef nonnull %25, ptr noundef nonnull %3) #22
   %33 = call ptr @PMIx_Get_attribute_string(ptr noundef %2) #22
   %34 = load ptr, ptr @opal_show_help, align 8
   %35 = load ptr, ptr %6, align 8
@@ -11674,7 +11674,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @opal_argv_append_unique_nosize(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @opal_getcwd(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -11690,7 +11690,7 @@ declare void @PMIx_Info_free(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @PMIx_Spawn(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_dpm_open_port(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define noundef i32 @ompi_dpm_open_port(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = tail call i32 @opal_rand(ptr noundef nonnull @rnd) #22
   %4 = load ptr, ptr @opal_convert_process_name_to_string, align 8
@@ -11707,10 +11707,10 @@ define noundef i32 @ompi_dpm_open_port(ptr nocapture noundef writeonly %0) local
 declare i32 @opal_rand(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ompi_dpm_close_port(ptr nocapture noundef readnone %0) local_unnamed_addr #14 {
+define noundef i32 @ompi_dpm_close_port(ptr noundef readnone captures(none) %0) local_unnamed_addr #14 {
   ret i32 0
 }
 
@@ -11932,7 +11932,7 @@ opal_obj_run_destructors.exit37:                  ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #15
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 1) i32 @ompi_dpm_dyn_finalize() local_unnamed_addr #0 {
@@ -12376,7 +12376,7 @@ declare ptr @ompi_proc_for_name(i64) local_unnamed_addr #2
 declare zeroext i1 @PMIx_Check_key(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
@@ -12424,13 +12424,13 @@ declare ptr @__errno_location() local_unnamed_addr #17
 declare void @exit(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 declare i32 @PMIx_Init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -12445,10 +12445,10 @@ declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #1
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

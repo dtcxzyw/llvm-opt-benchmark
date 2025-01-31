@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [62 x i8] c"(Lsun/jvm/hotspot/asm/InstructionVisitor;Ljava/lang/String;)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_jvm_hotspot_asm_Disassembler_load_1library(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_jvm_hotspot_asm_Disassembler_load_1library(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1352
   %6 = load ptr, ptr %5, align 8
@@ -188,7 +188,7 @@ define void @Java_sun_jvm_hotspot_asm_Disassembler_decode(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @event_to_env(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal ptr @event_to_env(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1336
@@ -242,14 +242,14 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   switch i64 %5, label %6 [
-    i64 0, label %80
-    i64 1, label %21
+    i64 0, label %79
+    i64 1, label %.thread58
   ]
 
 6:                                                ; preds = %2
   %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 37) #7
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %21, label %9
+  br i1 %8, label %.thread58, label %9
 
 9:                                                ; preds = %6
   %10 = load i8, ptr %1, align 1
@@ -269,107 +269,103 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
   %20 = add i64 %5, -1
   br i1 %19, label %.thread58, label %.thread
 
-21:                                               ; preds = %6, %2
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread, label %.thread58
+.thread58:                                        ; preds = %2, %6, %16
+  %.04763 = phi ptr [ %13, %16 ], [ %1, %6 ], [ %1, %2 ]
+  %.04862 = phi i64 [ %20, %16 ], [ %5, %6 ], [ %5, %2 ]
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1336
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call ptr %23(ptr noundef nonnull %4, ptr noundef nonnull %.04763) #6
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 120
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call ptr %27(ptr noundef nonnull %4) #6
+  %.not52 = icmp eq ptr %28, null
+  br i1 %.not52, label %29, label %39
 
-.thread58:                                        ; preds = %16, %21
-  %.04763 = phi ptr [ %1, %21 ], [ %13, %16 ]
-  %.04862 = phi i64 [ %5, %21 ], [ %20, %16 ]
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1336
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr %24(ptr noundef nonnull %4, ptr noundef nonnull %.04763) #6
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call ptr %28(ptr noundef nonnull %4) #6
-  %.not52 = icmp eq ptr %29, null
-  br i1 %.not52, label %30, label %40
+29:                                               ; preds = %.thread58
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 488
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = load ptr, ptr %37, align 8
+  tail call void (ptr, ptr, ptr, ...) %32(ptr noundef nonnull %4, ptr noundef %34, ptr noundef %36, ptr noundef %38, ptr noundef %24) #6
+  br label %39
 
-30:                                               ; preds = %.thread58
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 488
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load ptr, ptr %38, align 8
-  tail call void (ptr, ptr, ptr, ...) %33(ptr noundef nonnull %4, ptr noundef %35, ptr noundef %37, ptr noundef %39, ptr noundef %25) #6
-  br label %40
+39:                                               ; preds = %29, %.thread58
+  %40 = load ptr, ptr %4, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 120
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call ptr %42(ptr noundef nonnull %4) #6
+  %.not53 = icmp eq ptr %43, null
+  br i1 %.not53, label %48, label %44
 
-40:                                               ; preds = %30, %.thread58
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 120
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call ptr %43(ptr noundef nonnull %4) #6
-  %.not53 = icmp eq ptr %44, null
-  br i1 %.not53, label %49, label %45
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 136
+  %47 = load ptr, ptr %46, align 8
+  tail call void %47(ptr noundef nonnull %4) #6
+  br label %48
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 136
-  %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull %4) #6
-  br label %49
+48:                                               ; preds = %44, %39
+  %49 = trunc i64 %.04862 to i32
+  br label %79
 
-49:                                               ; preds = %45, %40
-  %50 = trunc i64 %.04862 to i32
-  br label %80
-
-.thread:                                          ; preds = %16, %9, %12, %21
+.thread:                                          ; preds = %16, %9, %12
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %52 = call i32 @vsnprintf(ptr noundef nonnull %51, i64 noundef 4096, ptr noundef %1, ptr noundef nonnull %3) #6
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %51 = call i32 @vsnprintf(ptr noundef nonnull %50, i64 noundef 4096, ptr noundef nonnull %1, ptr noundef nonnull %3) #6
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1336
-  %55 = load ptr, ptr %54, align 8
-  %56 = call ptr %55(ptr noundef nonnull %4, ptr noundef nonnull %51) #6
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 120
-  %59 = load ptr, ptr %58, align 8
-  %60 = call ptr %59(ptr noundef nonnull %4) #6
-  %.not50 = icmp eq ptr %60, null
-  br i1 %.not50, label %61, label %71
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1336
+  %54 = load ptr, ptr %53, align 8
+  %55 = call ptr %54(ptr noundef nonnull %4, ptr noundef nonnull %50) #6
+  %56 = load ptr, ptr %4, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 120
+  %58 = load ptr, ptr %57, align 8
+  %59 = call ptr %58(ptr noundef nonnull %4) #6
+  %.not50 = icmp eq ptr %59, null
+  br i1 %.not50, label %60, label %70
 
-61:                                               ; preds = %.thread
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 488
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = load ptr, ptr %69, align 8
-  call void (ptr, ptr, ptr, ...) %64(ptr noundef nonnull %4, ptr noundef %66, ptr noundef %68, ptr noundef %70, ptr noundef %56) #6
-  br label %71
+60:                                               ; preds = %.thread
+  %61 = load ptr, ptr %4, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 488
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %69 = load ptr, ptr %68, align 8
+  call void (ptr, ptr, ptr, ...) %63(ptr noundef nonnull %4, ptr noundef %65, ptr noundef %67, ptr noundef %69, ptr noundef %55) #6
+  br label %70
 
-71:                                               ; preds = %61, %.thread
-  %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 120
-  %74 = load ptr, ptr %73, align 8
-  %75 = call ptr %74(ptr noundef nonnull %4) #6
-  %.not51 = icmp eq ptr %75, null
-  br i1 %.not51, label %80, label %76
+70:                                               ; preds = %60, %.thread
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 120
+  %73 = load ptr, ptr %72, align 8
+  %74 = call ptr %73(ptr noundef nonnull %4) #6
+  %.not51 = icmp eq ptr %74, null
+  br i1 %.not51, label %79, label %75
 
-76:                                               ; preds = %71
-  %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 136
-  %79 = load ptr, ptr %78, align 8
-  call void %79(ptr noundef nonnull %4) #6
-  br label %80
+75:                                               ; preds = %70
+  %76 = load ptr, ptr %4, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 136
+  %78 = load ptr, ptr %77, align 8
+  call void %78(ptr noundef nonnull %4) #6
+  br label %79
 
-80:                                               ; preds = %71, %76, %2, %49
-  %.0 = phi i32 [ %50, %49 ], [ 0, %2 ], [ %52, %76 ], [ %52, %71 ]
+79:                                               ; preds = %70, %75, %2, %48
+  %.0 = phi i32 [ %49, %48 ], [ 0, %2 ], [ %51, %75 ], [ %51, %70 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -378,7 +374,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @llvm.va_start.p0(ptr) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #4

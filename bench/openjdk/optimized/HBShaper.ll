@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @sunFontIDs = external local_unnamed_addr global %struct.FontManagerNativeIDs, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @storeGVData(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9, float noundef %10) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @storeGVData(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, float noundef %10) local_unnamed_addr #0 {
   %12 = fdiv float 0x3EF0000000000000, %10
   %.b.i = load i1, ptr @jniInited, align 4
   br i1 %.b.i, label %init_JNI_IDs.exit, label %13
@@ -309,15 +309,15 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   %198 = load ptr, ptr %0, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 1784
   %200 = load ptr, ptr %199, align 8
-  tail call void %200(ptr noundef nonnull %0, ptr noundef %81, ptr noundef nonnull %129, i32 noundef 0) #8
+  tail call void %200(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull %129, i32 noundef 0) #8
   %201 = load ptr, ptr %0, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 1784
   %203 = load ptr, ptr %202, align 8
-  tail call void %203(ptr noundef nonnull %0, ptr noundef %86, ptr noundef nonnull %135, i32 noundef 0) #8
+  tail call void %203(ptr noundef nonnull %0, ptr noundef nonnull %86, ptr noundef nonnull %135, i32 noundef 0) #8
   %204 = load ptr, ptr %0, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 1784
   %206 = load ptr, ptr %205, align 8
-  tail call void %206(ptr noundef nonnull %0, ptr noundef %91, ptr noundef nonnull %144, i32 noundef 0) #8
+  tail call void %206(ptr noundef nonnull %0, ptr noundef nonnull %91, ptr noundef nonnull %144, i32 noundef 0) #8
   %207 = load ptr, ptr %0, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 888
   %209 = load ptr, ptr %208, align 8
@@ -475,10 +475,10 @@ euclidianDistance.exit30:                         ; preds = %euclidianDistance.e
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_font_SunLayoutEngine_shape(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, float noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_font_SunLayoutEngine_shape(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, float noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #0 {
   %17 = alloca i32, align 4
   %18 = and i32 %14, 1
   %.not = icmp eq i32 %18, 0
@@ -592,7 +592,7 @@ declare void @hb_buffer_destroy(ptr noundef) local_unnamed_addr #1
 declare void @hb_font_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @hb_buffer_add_utf16(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 

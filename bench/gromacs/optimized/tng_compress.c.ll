@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [28 x i8] c"Velocities BWLZH one to one\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_pos_int(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_pos_int(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -288,7 +288,7 @@ quant_intra_differences.exit:                     ; preds = %.preheader36.i, %._
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @determine_best_pos_initial_coding(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @determine_best_pos_initial_coding(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -544,7 +544,7 @@ determine_best_coding_triple.exit116:             ; preds = %88, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @determine_best_pos_coding(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 2, -2147483648) %4, i32 noundef %5, i64 noundef %6, i64 noundef %7, ptr nocapture noundef nonnull %8, ptr nocapture noundef nonnull %9) unnamed_addr #0 {
+define internal fastcc void @determine_best_pos_coding(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 2, -2147483648) %4, i32 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef nonnull captures(none) %8, ptr noundef nonnull captures(none) %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -1016,7 +1016,7 @@ determine_best_coding_triple.exit229:             ; preds = %173, %175
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compress_quantized_pos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10, i64 noundef %11, ptr nocapture noundef writeonly %12, ptr noundef writeonly %13) unnamed_addr #0 {
+define internal fastcc void @compress_quantized_pos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10, i64 noundef %11, ptr noundef writeonly captures(none) %12, ptr noundef writeonly %13) unnamed_addr #0 {
   %15 = alloca i32, align 4
   store i32 0, ptr %15, align 4
   %.not = icmp eq ptr %13, null
@@ -1323,10 +1323,10 @@ bufferfix.exit216.thread:                         ; preds = %85
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_pos(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_pos(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = mul i32 %1, 3
@@ -1440,7 +1440,7 @@ declare void @Ptngc_d_to_i32x2(double noundef, ptr noundef, ptr noundef) local_u
 declare double @Ptngc_i32x2_to_d(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_pos_float(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_pos_float(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = mul i32 %1, 3
@@ -1554,21 +1554,21 @@ quantize_float.exit:                              ; preds = %40, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_pos_find_algo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr nocapture noundef initializes((0, 16)) %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_pos_find_algo(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr noundef captures(none) initializes((0, 16)) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   %8 = tail call ptr @tng_compress_pos(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_pos_float_find_algo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr nocapture noundef initializes((0, 16)) %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_pos_float_find_algo(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr noundef captures(none) initializes((0, 16)) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   %8 = tail call ptr @tng_compress_pos_float(ptr noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_pos_int_find_algo(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr nocapture noundef initializes((0, 16)) %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_pos_int_find_algo(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef captures(none) initializes((0, 16)) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 -1, i64 16, i1 false)
   %9 = tail call ptr @tng_compress_pos_int(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef %7)
   ret ptr %9
@@ -1580,7 +1580,7 @@ define noundef i32 @tng_compress_nalgo() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_vel_int(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_vel_int(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -1760,7 +1760,7 @@ quant_inter_differences.exit:                     ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @determine_best_vel_initial_coding(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @determine_best_vel_initial_coding(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1984,7 +1984,7 @@ determine_best_coding_triple.exit92:              ; preds = %72, %74
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @determine_best_vel_coding(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 2, -2147483648) %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
+define internal fastcc void @determine_best_vel_coding(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 2, -2147483648) %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull captures(none) %7, ptr noundef nonnull captures(none) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -2440,7 +2440,7 @@ determine_best_coding_stop_bits.exit209:          ; preds = %166, %168
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compress_quantized_vel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %10, ptr nocapture noundef writeonly %11, ptr noundef writeonly %12) unnamed_addr #0 {
+define internal fastcc void @compress_quantized_vel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %10, ptr noundef writeonly captures(none) %11, ptr noundef writeonly %12) unnamed_addr #0 {
   %14 = alloca i32, align 4
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.critedge129, label %.critedge
@@ -2718,7 +2718,7 @@ bufferfix.exit189:                                ; preds = %97
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_vel(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_vel(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = mul i32 %1, 3
@@ -2828,7 +2828,7 @@ quantize.exit:                                    ; preds = %37, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_vel_float(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_vel_float(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = mul i32 %1, 3
@@ -2942,28 +2942,28 @@ quantize_float.exit:                              ; preds = %40, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_vel_find_algo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr nocapture noundef initializes((0, 16)) %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_vel_find_algo(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr noundef captures(none) initializes((0, 16)) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   %8 = tail call ptr @tng_compress_vel(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_vel_float_find_algo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr nocapture noundef initializes((0, 16)) %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_vel_float_find_algo(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr noundef captures(none) initializes((0, 16)) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   %8 = tail call ptr @tng_compress_vel_float(ptr noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_vel_int_find_algo(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr nocapture noundef initializes((0, 16)) %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_vel_int_find_algo(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef captures(none) initializes((0, 16)) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 -1, i64 16, i1 false)
   %9 = tail call ptr @tng_compress_vel_int(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef %7)
   ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tng_compress_inquire(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_compress_inquire(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %7, %6
@@ -3284,7 +3284,7 @@ readbufferfix.exit:                               ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_compress_uncompress_int(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @tng_compress_uncompress_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -3324,7 +3324,7 @@ readbufferfix.exit:                               ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @tng_compress_int_to_double(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define void @tng_compress_int_to_double(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = tail call double @Ptngc_i32x2_to_d(i64 noundef %1, i64 noundef %2) #13
   %8 = icmp sgt i32 %4, 0
   %9 = icmp sgt i32 %3, 0
@@ -3376,7 +3376,7 @@ unquantize.exit:                                  ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #5 {
+define internal fastcc void @unquantize(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %6 = icmp sgt i32 %2, 0
   %7 = icmp sgt i32 %1, 0
   %or.cond = and i1 %6, %7
@@ -3427,7 +3427,7 @@ define internal fastcc void @unquantize(ptr nocapture noundef writeonly %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @tng_compress_int_to_float(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define void @tng_compress_int_to_float(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = tail call double @Ptngc_i32x2_to_d(i64 noundef %1, i64 noundef %2) #13
   %8 = fptrunc double %7 to float
   %9 = icmp sgt i32 %4, 0
@@ -3480,7 +3480,7 @@ unquantize_float.exit:                            ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_float(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, float noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #5 {
+define internal fastcc void @unquantize_float(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %6 = icmp sgt i32 %2, 0
   %7 = icmp sgt i32 %1, 0
   %or.cond = and i1 %6, %7
@@ -3531,7 +3531,7 @@ define internal fastcc void @unquantize_float(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @tng_compress_initial_pos_algo(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define ptr @tng_compress_initial_pos_algo(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %3 = icmp sgt i32 %2, 10
@@ -3543,7 +3543,7 @@ define ptr @tng_compress_initial_pos_algo(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @tng_compress_pos_algo(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define ptr @tng_compress_pos_algo(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
@@ -3556,7 +3556,7 @@ define ptr @tng_compress_pos_algo(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @tng_compress_initial_vel_algo(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define ptr @tng_compress_initial_vel_algo(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %3 = icmp sgt i32 %2, 10
@@ -3568,7 +3568,7 @@ define ptr @tng_compress_initial_vel_algo(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @tng_compress_vel_algo(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define ptr @tng_compress_vel_algo(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
@@ -3587,7 +3587,7 @@ declare void @Ptngc_coder_deinit(ptr noundef) local_unnamed_addr #3
 declare ptr @Ptngc_pack_array(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #8
@@ -3596,7 +3596,7 @@ declare double @llvm.floor.f64(double) #8
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tng_compress_uncompress_pos_gen(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @tng_compress_uncompress_pos_gen(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %7, %6
@@ -4171,7 +4171,7 @@ unquantize.exit:                                  ; preds = %._crit_edge.us.i325
 declare i32 @Ptngc_unpack_array(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_intra_differences(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, i32 noundef range(i32 1, 2147483647) %2, double noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #5 {
+define internal fastcc void @unquantize_intra_differences(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 2147483647) %2, double noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %invariant.op = mul i32 %1, 3
   %6 = icmp sgt i32 %1, 1
   %wide.trip.count58 = zext nneg i32 %2 to i64
@@ -4260,7 +4260,7 @@ define internal fastcc void @unquantize_intra_differences(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_intra_differences_float(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, i32 noundef range(i32 1, 2147483647) %2, float noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #5 {
+define internal fastcc void @unquantize_intra_differences_float(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 2147483647) %2, float noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %invariant.op = mul i32 %1, 3
   %6 = icmp sgt i32 %1, 1
   %wide.trip.count58 = zext nneg i32 %2 to i64
@@ -4349,7 +4349,7 @@ define internal fastcc void @unquantize_intra_differences_float(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_intra_differences_int(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, i32 noundef range(i32 1, 2147483647) %2, ptr nocapture noundef readonly %3) unnamed_addr #5 {
+define internal fastcc void @unquantize_intra_differences_int(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 2147483647) %2, ptr noundef readonly captures(none) %3) unnamed_addr #5 {
   %invariant.op = mul i32 %1, 3
   %5 = icmp sgt i32 %1, 1
   %wide.trip.count57 = zext nneg i32 %2 to i64
@@ -4432,7 +4432,7 @@ define internal fastcc void @unquantize_intra_differences_int(ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_inter_differences(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, double noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #5 {
+define internal fastcc void @unquantize_inter_differences(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, double noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.preheader.preheader, label %._crit_edge
 
@@ -4494,7 +4494,7 @@ define internal fastcc void @unquantize_inter_differences(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_inter_differences_float(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, float noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #5 {
+define internal fastcc void @unquantize_inter_differences_float(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, float noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.preheader.preheader, label %._crit_edge
 
@@ -4556,7 +4556,7 @@ define internal fastcc void @unquantize_inter_differences_float(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @unquantize_inter_differences_int(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, ptr nocapture noundef readonly %3) unnamed_addr #5 {
+define internal fastcc void @unquantize_inter_differences_int(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2, ptr noundef readonly captures(none) %3) unnamed_addr #5 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.preheader.preheader, label %._crit_edge
 
@@ -4614,7 +4614,7 @@ define internal fastcc void @unquantize_inter_differences_int(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tng_compress_uncompress_vel_gen(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @tng_compress_uncompress_vel_gen(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %7, %6
@@ -5045,16 +5045,16 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

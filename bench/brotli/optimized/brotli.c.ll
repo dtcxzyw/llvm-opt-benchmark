@@ -1898,7 +1898,7 @@ sw.default:                                       ; preds = %if.else346.i, %if.e
   %258 = load ptr, ptr @stderr, align 8
   %259 = load ptr, ptr @stdout, align 8
   %cond.i = select i1 %cmp40, ptr %259, ptr %258
-  %call.i140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %cond.i, ptr noundef nonnull @.str.84, ptr noundef %path.addr.1.i)
+  %call.i140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %cond.i, ptr noundef nonnull @.str.84, ptr noundef nonnull %path.addr.1.i)
   %260 = tail call i64 @fwrite(ptr nonnull @.str.85, i64 274, i64 1, ptr %cond.i)
   %261 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 321, i64 1, ptr %cond.i)
   %call3.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %cond.i, ptr noundef nonnull @.str.87, i32 noundef 0, i32 noundef 11)
@@ -1934,24 +1934,24 @@ if.end53:                                         ; preds = %sw.epilog
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @BrotliEncoderDestroyPreparedDictionary(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @ParseInt(ptr nocapture noundef readonly %s, i32 noundef range(i32 11, 31) %high, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @ParseInt(ptr noundef readonly captures(none) %s, i32 noundef range(i32 11, 31) %high, ptr noundef nonnull writeonly captures(none) %result) unnamed_addr #7 {
 entry:
   br label %for.body
 
@@ -2012,19 +2012,19 @@ return:                                           ; preds = %if.end, %if.end27, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #8
@@ -2033,21 +2033,21 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #8
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @BrotliEncoderPrepareDictionary(i32 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @NextFile(ptr nocapture noundef nonnull initializes((272, 280)) %context) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @NextFile(ptr noundef nonnull captures(none) initializes((272, 280)) %context) unnamed_addr #10 {
 entry:
   %iterator = getelementptr inbounds nuw i8, ptr %context, i64 216
   %0 = load i32, ptr %iterator, align 8
@@ -2130,7 +2130,7 @@ if.then22:                                        ; preds = %land.lhs.true
 if.end26:                                         ; preds = %land.lhs.true, %if.end14
   %current_input_path27 = getelementptr inbounds nuw i8, ptr %context, i64 256
   store ptr %9, ptr %current_input_path27, align 8
-  %call.i = tail call noalias ptr @fopen(ptr noundef readonly %9, ptr noundef nonnull @.str.45)
+  %call.i = tail call noalias ptr @fopen(ptr noundef nonnull readonly %9, ptr noundef nonnull @.str.45)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %FileSize.exit, label %if.end.i
 
@@ -2196,9 +2196,7 @@ if.then42:                                        ; preds = %if.end37
 
 if.then49:                                        ; preds = %if.then42
   %18 = load ptr, ptr @stderr, align 8
-  %tobool.not.i48 = icmp eq ptr %9, null
-  %cond.i = select i1 %tobool.not.i48, ptr @.str.52, ptr %9
-  %call51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.56, ptr noundef nonnull %cond.i) #20
+  %call51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.56, ptr noundef nonnull %9) #20
   %iterator_error = getelementptr inbounds nuw i8, ptr %context, i64 224
   store i32 1, ptr %iterator_error, align 8
   br label %return
@@ -2213,9 +2211,7 @@ if.end52:                                         ; preds = %if.then42
 
 if.then58:                                        ; preds = %if.end52
   %19 = load ptr, ptr @stderr, align 8
-  %tobool.not.i49 = icmp eq ptr %9, null
-  %cond.i50 = select i1 %tobool.not.i49, ptr @.str.52, ptr %9
-  %call60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.57, ptr noundef nonnull %cond.i50) #20
+  %call60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.57, ptr noundef nonnull %9) #20
   %iterator_error61 = getelementptr inbounds nuw i8, ptr %context, i64 224
   store i32 1, ptr %iterator_error61, align 8
   br label %return
@@ -2243,7 +2239,7 @@ declare i32 @BrotliEncoderSetParameter(ptr noundef, i32 noundef, i32 noundef) lo
 declare i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @OpenFiles(ptr nocapture noundef nonnull initializes((280, 288)) %context) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @OpenFiles(ptr noundef nonnull captures(none) initializes((280, 288)) %context) unnamed_addr #0 {
 entry:
   %current_input_path = getelementptr inbounds nuw i8, ptr %context, i64 256
   %0 = load ptr, ptr %current_input_path, align 8
@@ -2332,7 +2328,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #8
 declare void @BrotliEncoderDestroyInstance(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @CloseFiles(ptr nocapture noundef nonnull %context, i32 noundef range(i32 0, 2) %rm_input, i32 noundef range(i32 0, 2) %rm_output) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @CloseFiles(ptr noundef nonnull captures(none) %context, i32 noundef range(i32 0, 2) %rm_input, i32 noundef range(i32 0, 2) %rm_output) unnamed_addr #0 {
 entry:
   %times.i.i = alloca [2 x %struct.timespec], align 16
   %statbuf.i = alloca %struct.stat, align 8
@@ -2523,13 +2519,13 @@ if.end51:                                         ; preds = %if.then48, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #12
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #12
 
 declare i32 @BrotliEncoderCompressStream(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -2539,7 +2535,7 @@ declare i32 @BrotliEncoderIsFinished(ptr noundef) local_unnamed_addr #4
 declare i64 @clock() local_unnamed_addr #8
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @PrintFileProcessingProgress(ptr nocapture noundef nonnull readonly %context) unnamed_addr #13 {
+define internal fastcc void @PrintFileProcessingProgress(ptr noundef nonnull readonly captures(none) %context) unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %current_input_path = getelementptr inbounds nuw i8, ptr %context, i64 256
@@ -2568,13 +2564,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree nounwind uwtable
 define internal fastcc void @PrintBytes(i64 noundef %value) unnamed_addr #13 {
@@ -2620,16 +2616,16 @@ if.end18:                                         ; preds = %if.then3, %if.else1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i32 @utimensat(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
@@ -2643,7 +2639,7 @@ declare i32 @BrotliDecoderAttachDictionary(ptr noundef, i32 noundef, i64 noundef
 declare void @BrotliDecoderDestroyInstance(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @BrotliDecoderGetErrorCode(ptr noundef) local_unnamed_addr #4
 
@@ -2672,19 +2668,19 @@ declare i32 @BrotliDecoderDecompressStream(ptr noundef, ptr noundef, ptr noundef
 declare ptr @BrotliDecoderErrorString(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

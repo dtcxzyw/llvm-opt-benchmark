@@ -189,7 +189,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7Imf_3_211StdIFStream4readEPci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr noundef %c, i32 noundef %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7Imf_3_211StdIFStream4readEPci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef %c, i32 noundef %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_is = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_is, align 8
@@ -327,7 +327,7 @@ unreachable:                                      ; preds = %invoke.cont18
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7Imf_3_211StdIFStream5tellgEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN7Imf_3_211StdIFStream5tellgEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this) unnamed_addr #3 align 2 {
 entry:
   %_is = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_is, align 8
@@ -339,7 +339,7 @@ entry:
 declare { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_211StdIFStream5seekgEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, i64 noundef %pos) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_211StdIFStream5seekgEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, i64 noundef %pos) unnamed_addr #3 align 2 {
 entry:
   %_is = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_is, align 8
@@ -352,7 +352,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi5seekgESt4fposI11__mbstate_tE(ptr noundef nonnull align 8 dereferenceable(16), i64, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_211StdIFStream5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_211StdIFStream5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this) unnamed_addr #3 align 2 {
 entry:
   %_is = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_is, align 8
@@ -609,7 +609,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_211StdOFStream5writeEPKci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr noundef %c, i32 noundef %n) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_211StdOFStream5writeEPKci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef %c, i32 noundef %n) unnamed_addr #3 align 2 {
 entry:
   %call.i = tail call ptr @__errno_location() #14
   store i32 0, ptr %call.i, align 4
@@ -664,7 +664,7 @@ if.end3:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7Imf_3_211StdOFStream5tellpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN7Imf_3_211StdOFStream5tellpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this) unnamed_addr #3 align 2 {
 entry:
   %_os = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_os, align 8
@@ -676,7 +676,7 @@ entry:
 declare { i64, i64 } @_ZNSo5tellpEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_211StdOFStream5seekpEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, i64 noundef %pos) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_211StdOFStream5seekpEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, i64 noundef %pos) unnamed_addr #3 align 2 {
 entry:
   %_os = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_os, align 8

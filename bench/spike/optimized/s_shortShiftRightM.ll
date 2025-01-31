@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @softfloat_shortShiftRightM(i8 noundef zeroext %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @softfloat_shortShiftRightM(i8 noundef zeroext %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = zext nneg i8 %2 to i32
   %6 = zext i8 %0 to i32
   %7 = add nsw i32 %6, -1

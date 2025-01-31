@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_fVerbose = local_unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @Mvc_CoverDivide(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @Mvc_CoverDivide(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %0) #4
   %6 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %1) #4
   %7 = icmp slt i32 %5, %6
@@ -40,7 +40,7 @@ declare i32 @Mvc_CoverReadCubeNum(ptr noundef) local_unnamed_addr #1
 declare i32 @Mvc_CoverCheckSuppContainment(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %1) #4
   %6 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %0) #4
   %7 = icmp eq i32 %5, 1
@@ -528,7 +528,7 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
 declare i32 @Mvc_CoverIsOneLiteral(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Mvc_CoverDivideByLiteral(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @Mvc_CoverDivideByLiteral(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -625,7 +625,7 @@ define void @Mvc_CoverDivideByLiteral(ptr noundef %0, ptr noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Mvc_CoverDivideByCube(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @Mvc_CoverDivideByCube(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -804,7 +804,7 @@ declare i32 @Mvc_CubeCompareIntUnderMask(ptr noundef, ptr noundef, ptr noundef) 
 declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @Mvc_CoverReadCubeHead(ptr noundef) local_unnamed_addr #1
 

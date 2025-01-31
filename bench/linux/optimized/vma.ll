@@ -55,7 +55,7 @@ define dso_local noundef ptr @arch_get_vdso_data(ptr noundef readnone %0) local_
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @init_vdso_image(ptr nocapture noundef readonly %0) local_unnamed_addr #1 section ".init.text" align 16 {
+define dso_local noundef i32 @init_vdso_image(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4095
@@ -83,7 +83,7 @@ define dso_local noundef i32 @init_vdso_image(ptr nocapture noundef readonly %0)
 declare dso_local void @apply_alternatives(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vdso_join_timens(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef i32 @vdso_join_timens(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 align 16 {
   %3 = alloca %struct.vma_iterator, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %5 = load ptr, ptr %4, align 8
@@ -149,16 +149,16 @@ define dso_local noundef i32 @vdso_join_timens(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @vma_is_special_mapping(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @map_vdso_once(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 align 16 {
@@ -351,7 +351,7 @@ define internal fastcc i32 @map_vdso(ptr noundef %0, i64 noundef %1) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @arch_setup_additional_pages(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @arch_setup_additional_pages(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
   %3 = load i32, ptr @vdso64_enabled, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %37, label %5
@@ -400,7 +400,7 @@ define dso_local i32 @arch_setup_additional_pages(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @compat_arch_setup_additional_pages(ptr nocapture noundef readnone %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @compat_arch_setup_additional_pages(ptr noundef readnone captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 16 {
   %4 = load i32, ptr @vdso32_enabled, align 4
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %8
@@ -415,7 +415,7 @@ define dso_local i32 @compat_arch_setup_additional_pages(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @arch_syscall_is_vdso_sigreturn(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 16 {
+define dso_local noundef zeroext i1 @arch_syscall_is_vdso_sigreturn(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !12
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1192
@@ -485,7 +485,7 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__mmap_lock_do_trace_released(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @vvar_fault(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define internal i32 @vvar_fault(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1104
@@ -621,7 +621,7 @@ declare dso_local i32 @vmf_insert_pfn_prot(ptr noundef, i64 noundef, i64 noundef
 declare dso_local void @down_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 3) i32 @vdso_fault(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #3 align 16 {
+define internal noundef range(i32 0, 3) i32 @vdso_fault(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1104
@@ -706,7 +706,7 @@ define internal noundef range(i32 0, 3) i32 @vdso_fault(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @vdso_mremap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 align 16 {
+define internal noundef i32 @vdso_mremap(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !12
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1192

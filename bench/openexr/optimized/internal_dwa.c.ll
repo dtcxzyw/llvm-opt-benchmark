@@ -398,7 +398,7 @@ return:                                           ; preds = %cond.end77, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DwaCompressor_compress(ptr nocapture noundef nonnull initializes((72, 88)) %me) unnamed_addr #0 {
+define internal fastcc i32 @DwaCompressor_compress(ptr noundef nonnull captures(none) initializes((72, 88)) %me) unnamed_addr #0 {
 entry:
   %planarUncBuffer.i = alloca [3 x ptr], align 16
   %outBufferSize = alloca i64, align 8
@@ -506,7 +506,7 @@ if.end.i.i:                                       ; preds = %for.body4.i
   br i1 %tobool.not.i22.i, label %if.end3.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %call.i23.i = tail call i32 @strcasecmp(ptr noundef readonly %suffix.0.i.i, ptr noundef %18) #18
+  %call.i23.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %suffix.0.i.i, ptr noundef %18) #18
   br label %Classifier_match.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
@@ -527,7 +527,7 @@ if.then7.i:                                       ; preds = %Classifier_match.ex
 
 if.end16.i:                                       ; preds = %if.then7.i
   %add.i.i = add i64 %call.i24.i, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %curp.039.i, ptr align 1 %18, i64 %add.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %curp.039.i, ptr nonnull align 1 %18, i64 %add.i.i, i1 false)
   %add.ptr.i26.i = getelementptr inbounds i8, ptr %curp.039.i, i64 %add.i.i
   %_cscIdx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i, i64 16
   %19 = load i32, ptr %_cscIdx.i.i, align 8
@@ -1396,7 +1396,7 @@ return:                                           ; preds = %if.then7.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @DwaCompressor_destroy(ptr nocapture noundef nonnull readonly %me) unnamed_addr #0 {
+define internal fastcc void @DwaCompressor_destroy(ptr noundef nonnull readonly captures(none) %me) unnamed_addr #0 {
 entry:
   %_packedAcBuffer = getelementptr inbounds nuw i8, ptr %me, i64 88
   %0 = load ptr, ptr %_packedAcBuffer, align 8
@@ -1608,7 +1608,7 @@ if.end6:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @internal_exr_undo_dwaa(ptr noundef %decode, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr nocapture noundef writeonly %uncompressed_data, i64 noundef %uncompressed_size) local_unnamed_addr #0 {
+define hidden i32 @internal_exr_undo_dwaa(ptr noundef %decode, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr noundef writeonly captures(none) %uncompressed_data, i64 noundef %uncompressed_size) local_unnamed_addr #0 {
 entry:
   %dwaa = alloca %struct._DwaCompressor, align 8
   %scratch_buffer_1 = getelementptr inbounds nuw i8, ptr %decode, i64 160
@@ -1642,7 +1642,7 @@ declare i32 @internal_decode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef,
 declare i64 @internal_exr_huf_decompress_spare_bytes() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DwaCompressor_uncompress(ptr nocapture noundef nonnull %me, ptr noundef %inPtr, i64 noundef %iSize, ptr nocapture noundef writeonly %uncompressed_data, i64 noundef %uncompressed_size) unnamed_addr #0 {
+define internal fastcc i32 @DwaCompressor_uncompress(ptr noundef nonnull captures(none) %me, ptr noundef %inPtr, i64 noundef %iSize, ptr noundef writeonly captures(none) %uncompressed_data, i64 noundef %uncompressed_size) unnamed_addr #0 {
 entry:
   %suffix.i31.i = alloca [129 x i8], align 16
   %suffix.i.i = alloca [129 x i8], align 16
@@ -2637,7 +2637,7 @@ return:                                           ; preds = %if.end210, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @internal_exr_undo_dwab(ptr noundef %decode, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr nocapture noundef writeonly %uncompressed_data, i64 noundef %uncompressed_size) local_unnamed_addr #0 {
+define hidden i32 @internal_exr_undo_dwab(ptr noundef %decode, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr noundef writeonly captures(none) %uncompressed_data, i64 noundef %uncompressed_size) local_unnamed_addr #0 {
 entry:
   %dwaa = alloca %struct._DwaCompressor, align 8
   %scratch_buffer_1 = getelementptr inbounds nuw i8, ptr %decode, i64 160
@@ -2667,7 +2667,7 @@ if.end6:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare noalias ptr @internal_exr_alloc(i64 noundef) #1
 
@@ -2680,7 +2680,7 @@ declare i32 @exr_get_zip_compression_level(ptr noundef, i32 noundef, ptr noundef
 declare i32 @exr_get_dwa_compression_level(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @convertFloatToHalf64_scalar(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #3 {
+define internal void @convertFloatToHalf64_scalar(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src) #3 {
 entry:
   br label %for.body
 
@@ -5419,56 +5419,56 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_scalar_0(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_scalar_0(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_scalar(ptr noundef %data, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_scalar_1(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_scalar_1(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_scalar(ptr noundef %data, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_scalar_2(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_scalar_2(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_scalar(ptr noundef %data, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_scalar_3(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_scalar_3(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_scalar(ptr noundef %data, i32 noundef 3)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_scalar_4(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_scalar_4(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_scalar(ptr noundef %data, i32 noundef 4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_scalar_5(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_scalar_5(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_scalar(ptr noundef %data, i32 noundef 5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_scalar_6(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_scalar_6(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_scalar(ptr noundef %data, i32 noundef 6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_scalar_7(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_scalar_7(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_scalar(ptr noundef %data, i32 noundef 7)
   ret void
@@ -5531,56 +5531,56 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_sse2_0(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_sse2_0(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_sse2_1(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_sse2_1(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_sse2_2(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_sse2_2(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_sse2_3(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_sse2_3(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 3)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_sse2_4(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_sse2_4(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_sse2_5(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_sse2_5(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_sse2_6(ptr nocapture noundef %data) #3 {
+define internal void @dctInverse8x8_sse2_6(ptr noundef captures(none) %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_sse2_7(ptr nocapture noundef %data) #5 {
+define internal void @dctInverse8x8_sse2_7(ptr noundef captures(none) %data) #5 {
 entry:
   %in.i = alloca [8 x <4 x float>], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %in.i)
@@ -5734,7 +5734,7 @@ dctInverse8x8_sse2.exit:                          ; preds = %for.end.i
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @dctInverse8x8_scalar(ptr nocapture noundef %data, i32 noundef range(i32 0, 8) %zeroedRows) unnamed_addr #3 {
+define internal fastcc void @dctInverse8x8_scalar(ptr noundef captures(none) %data, i32 noundef range(i32 0, 8) %zeroedRows) unnamed_addr #3 {
 entry:
   %sub = sub nuw nsw i32 8, %zeroedRows
   %wide.trip.count = zext nneg i32 %sub to i64
@@ -5892,7 +5892,7 @@ for.end316:                                       ; preds = %for.body133
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @dctInverse8x8_sse2(ptr nocapture noundef %data, i32 noundef range(i32 0, 8) %zeroedRows) unnamed_addr #5 {
+define internal fastcc void @dctInverse8x8_sse2(ptr noundef captures(none) %data, i32 noundef range(i32 0, 8) %zeroedRows) unnamed_addr #5 {
 entry:
   %in = alloca [8 x <4 x float>], align 16
   %0 = load <4 x float>, ptr %data, align 16
@@ -6351,7 +6351,7 @@ for.end3106:                                      ; preds = %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @DwaCompressor_initializeBuffers(ptr nocapture noundef nonnull %me, ptr nocapture noundef nonnull writeonly %bufferSize) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @DwaCompressor_initializeBuffers(ptr noundef nonnull captures(none) %me, ptr noundef nonnull writeonly captures(none) %bufferSize) unnamed_addr #0 {
 entry:
   %planarUncBufferSize = alloca [3 x i64], align 16
   %_numScanLines = getelementptr inbounds nuw i8, ptr %me, i64 20
@@ -6492,7 +6492,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   br i1 %cmp22.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %call.i79.i = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull %17, i64 noundef %sub.ptr.sub.i) #18
+  %call.i79.i = tail call i32 @strncmp(ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %sub.ptr.sub.i) #18
   %tobool.not.i80.i = icmp eq i32 %call.i79.i, 0
   br i1 %tobool.not.i80.i, label %for.end.loopexit.split.loop.exit.i.i, label %for.inc.i.i
 
@@ -6536,7 +6536,7 @@ if.end.i81.i:                                     ; preds = %for.body23.i
   br i1 %tobool.not.i82.i, label %if.end3.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i81.i
-  %call.i83.i = tail call i32 @strcasecmp(ptr noundef readonly %suffix.0.i.i, ptr noundef %27) #18
+  %call.i83.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %suffix.0.i.i, ptr noundef %27) #18
   br label %Classifier_match.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end.i81.i
@@ -6904,7 +6904,7 @@ return:                                           ; preds = %for.body51, %for.in
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @DwaCompressor_setupChannelData(ptr nocapture noundef nonnull readonly %me) unnamed_addr #7 {
+define internal fastcc void @DwaCompressor_setupChannelData(ptr noundef nonnull readonly captures(none) %me) unnamed_addr #7 {
 entry:
   %planarUncBuffer = alloca [3 x ptr], align 16
   %_planarUncBuffer = getelementptr inbounds nuw i8, ptr %me, i64 136
@@ -7022,7 +7022,7 @@ for.end62:                                        ; preds = %for.inc60, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @DctCoderChannelData_push_row(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef %d, ptr noundef %r) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @DctCoderChannelData_push_row(ptr noundef readonly captures(none) %alloc_fn, ptr noundef readonly captures(none) %free_fn, ptr noundef captures(none) %d, ptr noundef %r) unnamed_addr #0 {
 entry:
   %_size = getelementptr inbounds nuw i8, ptr %d, i64 408
   %0 = load i64, ptr %_size, align 8
@@ -7082,7 +7082,7 @@ return:                                           ; preds = %if.then, %if.end15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef nonnull initializes((8, 24)) %e) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr noundef readonly captures(none) %alloc_fn, ptr noundef readonly captures(none) %free_fn, ptr noundef nonnull captures(none) initializes((8, 24)) %e) unnamed_addr #8 {
 entry:
   %chanData = alloca [3 x ptr], align 16
   %halfZigCoef = alloca [64 x i16], align 16
@@ -8016,7 +8016,7 @@ return:                                           ; preds = %for.end243, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @LossyDctEncoder_construct(ptr nocapture noundef nonnull writeonly initializes((0, 24), (52, 80)) %e, float noundef %quantBaseError, ptr noundef %rowPtrs, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #9 {
+define internal fastcc void @LossyDctEncoder_construct(ptr noundef nonnull writeonly captures(none) initializes((0, 24), (52, 80)) %e, float noundef %quantBaseError, ptr noundef %rowPtrs, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #9 {
 entry:
   %_quantBaseError.i = getelementptr inbounds nuw i8, ptr %e, i64 60
   store float %quantBaseError, ptr %_quantBaseError.i, align 4
@@ -8075,7 +8075,7 @@ LossyDctEncoder_base_construct.exit:              ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare i32 @exr_compress_buffer(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -8091,19 +8091,19 @@ declare i64 @internal_rle_compress(ptr noundef, i64 noundef, ptr noundef, i64 no
 declare float @llvm.ceil.f32(float) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #6
@@ -8117,7 +8117,7 @@ declare void @internal_zip_reconstruct_bytes(ptr noundef, ptr noundef, i64 nound
 declare i64 @internal_rle_decompress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @LossyDctDecoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef nonnull %d) unnamed_addr #8 {
+define internal fastcc range(i32 0, 24) i32 @LossyDctDecoder_execute(ptr noundef readonly captures(none) %alloc_fn, ptr noundef readonly captures(none) %free_fn, ptr noundef nonnull captures(none) %d) unnamed_addr #8 {
 entry:
   %chanData = alloca [3 x ptr], align 16
   %currDcComp = alloca [3 x ptr], align 16
@@ -9522,16 +9522,16 @@ if.end164:                                        ; preds = %for.body148, %for.b
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #13
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

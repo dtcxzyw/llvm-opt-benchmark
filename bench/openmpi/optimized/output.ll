@@ -46,10 +46,10 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   %21 = load i16, ptr %20, align 2
   %22 = and i16 %21, 8192
   %.not = icmp eq i16 %22, 0
-  br i1 %.not, label %37, label %.preheader81
+  br i1 %.not, label %37, label %.preheader80
 
-.preheader81:                                     ; preds = %13, %.preheader81
-  %.0 = phi i64 [ %32, %.preheader81 ], [ 0, %13 ]
+.preheader80:                                     ; preds = %13, %.preheader80
+  %.0 = phi i64 [ %32, %.preheader80 ], [ 0, %13 ]
   %23 = getelementptr inbounds i8, ptr %14, i64 %.0
   %24 = load i8, ptr %23, align 1
   %25 = sext i8 %24 to i64
@@ -60,9 +60,9 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   %30 = icmp ult i64 %.0, %15
   %31 = select i1 %29, i1 %30, i1 false
   %32 = add nuw i64 %.0, 1
-  br i1 %31, label %.preheader81, label %33, !llvm.loop !5
+  br i1 %31, label %.preheader80, label %33, !llvm.loop !5
 
-33:                                               ; preds = %.preheader81
+33:                                               ; preds = %.preheader80
   %34 = getelementptr inbounds i8, ptr %14, i64 %.0
   %35 = call noalias ptr @strdup(ptr noundef nonnull %34) #8
   call void @free(ptr noundef nonnull %14) #8
@@ -135,18 +135,18 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   %74 = zext nneg i32 %73 to i64
   %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #9
   %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
-  %.neg80 = add nsw i64 %74, -2
+  %.neg79 = add nsw i64 %74, -2
   %77 = add i64 %75, %76
-  %78 = sub i64 %.neg80, %77
+  %78 = sub i64 %.neg79, %77
   %.not75 = icmp eq i64 %76, 0
   br i1 %.not75, label %81, label %79
 
 79:                                               ; preds = %71
-  %80 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.3, ptr noundef %72, ptr noundef nonnull %0) #8
+  %80 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.3, ptr noundef nonnull %72, ptr noundef nonnull %0) #8
   br label %83
 
 81:                                               ; preds = %71
-  %82 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.4, ptr noundef %72) #8
+  %82 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.4, ptr noundef nonnull %72) #8
   br label %83
 
 83:                                               ; preds = %81, %79
@@ -158,12 +158,12 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %86, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %83, %95
-  %.16184 = phi ptr [ %.2, %95 ], [ %.058, %83 ]
+  %.16183 = phi ptr [ %.2, %95 ], [ %.058, %83 ]
   %87 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef 26, ptr noundef nonnull @.str.1) #8
-  %88 = getelementptr inbounds i8, ptr %.16184, i64 %78
+  %88 = getelementptr inbounds i8, ptr %.16183, i64 %78
   %89 = load i8, ptr %88, align 1
   store i8 0, ptr %88, align 1
-  %90 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.16184, i32 noundef 32) #9
+  %90 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.16183, i32 noundef 32) #9
   store i8 %89, ptr %88, align 1
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %95
@@ -177,7 +177,7 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   %.sink = phi ptr [ %93, %92 ], [ %90, %.lr.ph ]
   store i8 0, ptr %.sink, align 1
   %96 = load ptr, ptr %5, align 8
-  %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %96, ptr noundef nonnull %.16184)
+  %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %96, ptr noundef nonnull %.16183)
   %.2 = getelementptr inbounds nuw i8, ptr %.sink, i64 1
   %98 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %98) #8
@@ -191,9 +191,9 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %102, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %92, %95, %83
-  %.16184.lcssa.sink = phi ptr [ %.058, %83 ], [ %.2, %95 ], [ %.16184, %92 ]
+  %.16183.lcssa.sink = phi ptr [ %.058, %83 ], [ %.2, %95 ], [ %.16183, %92 ]
   %103 = load ptr, ptr %5, align 8
-  %104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %103, ptr noundef %.16184.lcssa.sink)
+  %104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %103, ptr noundef nonnull %.16183.lcssa.sink)
   %105 = load ptr, ptr %5, align 8
   %.not76 = icmp eq ptr %105, null
   br i1 %.not76, label %107, label %106
@@ -228,15 +228,8 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %2)
   br label %116
 
-116:                                              ; preds = %112, %114, %107, %109
-  %.not78 = icmp eq ptr %.058, null
-  br i1 %.not78, label %118, label %117
-
-117:                                              ; preds = %116
-  call void @free(ptr noundef nonnull %.058) #8
-  br label %118
-
-118:                                              ; preds = %117, %116
+116:                                              ; preds = %109, %107, %114, %112
+  call void @free(ptr noundef %.058) #8
   ret void
 }
 
@@ -244,21 +237,21 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3

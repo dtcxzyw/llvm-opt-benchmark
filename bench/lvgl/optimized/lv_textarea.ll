@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_text_encoded_get_byte_id = external local_unnamed_addr constant ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_textarea_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 120)) %1) #0 {
+define internal void @lv_textarea_constructor(ptr readnone captures(none) %0, ptr noundef initializes((64, 120)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -72,7 +72,7 @@ define internal void @lv_textarea_constructor(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_textarea_destructor(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal void @lv_textarea_destructor(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %.not = icmp eq ptr %4, null
@@ -110,7 +110,7 @@ define internal void @lv_textarea_destructor(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_textarea_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_textarea_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_draw_rect_dsc_t, align 8
   %4 = alloca %struct.lv_area_t, align 4
   %5 = alloca [8 x i8], align 8
@@ -638,14 +638,14 @@ define noundef ptr @lv_textarea_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_textarea_add_char(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -932,7 +932,7 @@ declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
 declare void @lv_label_ins_text(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_textarea_clear_selection(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @lv_textarea_clear_selection(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = tail call i32 @lv_label_get_text_selection_start(ptr noundef %3) #10
@@ -1087,7 +1087,7 @@ define void @lv_textarea_set_cursor_pos(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_textarea_get_cursor_pos(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_textarea_get_cursor_pos(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i32, ptr %2, align 4, !tbaa !15
   ret i32 %3
@@ -1267,14 +1267,14 @@ insert_handler.exit.thread:                       ; preds = %29, %70, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_textarea_get_accepted_chars(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_textarea_get_accepted_chars(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_textarea_get_max_length(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_textarea_get_max_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8, !tbaa !14
   ret i32 %3
@@ -1489,7 +1489,7 @@ lv_textarea_clear_selection.exit:                 ; preds = %8, %11
 31:                                               ; preds = %.lr.ph, %31
   %32 = call i32 %29(ptr noundef nonnull %1, ptr noundef nonnull %3) #10
   %33 = call i32 %30(i32 noundef %32) #10
-  call void @lv_textarea_add_char(ptr noundef %0, i32 noundef %33)
+  call void @lv_textarea_add_char(ptr noundef nonnull %0, i32 noundef %33)
   %34 = load i32, ptr %3, align 4, !tbaa !21
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
@@ -1830,7 +1830,7 @@ define internal fastcc void @refr_cursor_area(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_textarea_set_cursor_click_pos(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
+define void @lv_textarea_set_cursor_click_pos(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %4 = load i8, ptr %3, align 4
   %5 = select i1 %1, i8 2, i8 0
@@ -2013,27 +2013,27 @@ declare zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef, i8 noundef zeroe
 declare void @lv_obj_scroll_to(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_textarea_set_accepted_chars(ptr nocapture noundef writeonly initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @lv_textarea_set_accepted_chars(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %3, align 8, !tbaa !13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_textarea_set_max_length(ptr nocapture noundef writeonly initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @lv_textarea_set_max_length(ptr noundef writeonly captures(none) initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @lv_textarea_set_insert_replace(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_textarea_set_insert_replace(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   store ptr %1, ptr @ta_insert_replace, align 8, !tbaa !45
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_textarea_set_text_selection(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define void @lv_textarea_set_text_selection(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load i8, ptr %3, align 8
   %5 = select i1 %1, i8 2, i8 0
@@ -2092,14 +2092,14 @@ declare void @lv_obj_set_style_text_align(ptr noundef, i32 noundef, i32 noundef)
 declare void @lv_obj_align(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_textarea_get_label(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_textarea_get_label(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_textarea_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @lv_textarea_get_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 4
@@ -2123,7 +2123,7 @@ define ptr @lv_textarea_get_text(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define nonnull ptr @lv_textarea_get_placeholder_text(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define nonnull ptr @lv_textarea_get_placeholder_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not = icmp eq ptr %3, null
@@ -2132,7 +2132,7 @@ define nonnull ptr @lv_textarea_get_placeholder_text(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_textarea_get_cursor_click_pos(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_textarea_get_cursor_click_pos(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 2
@@ -2141,7 +2141,7 @@ define zeroext i1 @lv_textarea_get_cursor_click_pos(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_textarea_get_password_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_textarea_get_password_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 4
@@ -2173,7 +2173,7 @@ define nonnull ptr @lv_textarea_get_password_bullet(ptr noundef %0) local_unname
 declare zeroext i1 @lv_font_get_glyph_dsc(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_textarea_get_one_line(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_textarea_get_one_line(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 8
@@ -2182,7 +2182,7 @@ define zeroext i1 @lv_textarea_get_one_line(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @lv_textarea_text_is_selected(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define zeroext i1 @lv_textarea_text_is_selected(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = tail call i32 @lv_label_get_text_selection_start(ptr noundef %3) #10
@@ -2205,7 +2205,7 @@ declare i32 @lv_label_get_text_selection_start(ptr noundef) local_unnamed_addr #
 declare i32 @lv_label_get_text_selection_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_textarea_get_text_selection(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_textarea_get_text_selection(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 2
@@ -2214,14 +2214,14 @@ define zeroext i1 @lv_textarea_get_text_selection(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_textarea_get_password_show_time(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_textarea_get_password_show_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4, !tbaa !3
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_textarea_get_current_char(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @lv_textarea_get_current_char(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load i8, ptr %3, align 8
@@ -2437,7 +2437,7 @@ declare void @lv_obj_init_draw_rect_dsc(ptr noundef, i32 noundef, ptr noundef) l
 declare void @lv_draw_rect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare zeroext i1 @lv_color_eq(i24, i24) local_unnamed_addr #2
 
@@ -2446,7 +2446,7 @@ declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
 declare zeroext i1 @lv_anim_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @pwd_char_hider_anim(ptr nocapture readnone %0, i32 %1) #8 {
+define internal void @pwd_char_hider_anim(ptr readnone captures(none) %0, i32 %1) #8 {
   ret void
 }
 
@@ -2531,7 +2531,7 @@ declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @pwd_char_hider_anim_completed(ptr nocapture noundef readonly %0) #0 {
+define internal void @pwd_char_hider_anim_completed(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !55
   tail call fastcc void @pwd_char_hider(ptr noundef %2)
   ret void

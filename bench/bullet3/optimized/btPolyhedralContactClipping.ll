@@ -17,7 +17,7 @@ $_Z23btSegmentsClosestPointsR9btVector3S0_S0_RfS1_RKS_S3_fS3_f = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btPolyhedralContactClipping8clipFaceERK20btAlignedObjectArrayI9btVector3ERS2_RKS1_f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %pVtxIn, ptr nocapture noundef nonnull align 8 dereferenceable(25) %ppVtxOut, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %planeNormalWS, float noundef %planeEqWS) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN27btPolyhedralContactClipping8clipFaceERK20btAlignedObjectArrayI9btVector3ERS2_RKS1_f(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %pVtxIn, ptr noundef nonnull align 8 captures(none) dereferenceable(25) %ppVtxOut, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %planeNormalWS, float noundef %planeEqWS) local_unnamed_addr #0 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %pVtxIn, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -427,10 +427,10 @@ for.end:                                          ; preds = %if.end28, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z24InverseTransformPoint3x3R9btVector3RKS_RK11btTransform(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %in, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %tr) local_unnamed_addr #2 {
+define dso_local void @_Z24InverseTransformPoint3x3R9btVector3RKS_RK11btTransform(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %out, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %in, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %tr) local_unnamed_addr #2 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %tr, i64 16
   %arrayidx.i17 = getelementptr inbounds nuw i8, ptr %tr, i64 32
@@ -477,7 +477,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_Z19TestInternalObjectsRK11btTransformS1_RK9btVector3S4_RK18btConvexPolyhedronS7_f(ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %delta_c, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %axis, ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %convex0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %convex1, float noundef %dmin) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_Z19TestInternalObjectsRK11btTransformS1_RK9btVector3S4_RK18btConvexPolyhedronS7_f(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %trans0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %trans1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %delta_c, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %axis, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %convex0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %convex1, float noundef %dmin) local_unnamed_addr #4 {
 entry:
   %0 = load float, ptr %delta_c, align 4
   %1 = load float, ptr %axis, align 4
@@ -598,7 +598,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSeparatingAxisERK18btConvexPolyhedronS2_RK11btTransformS5_R9btVector3RN36btDiscreteCollisionDetectorInterface6ResultE(ptr noundef nonnull align 8 dereferenceable(172) %hullA, ptr noundef nonnull align 8 dereferenceable(172) %hullB, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr nocapture noundef nonnull align 4 dereferenceable(16) %sep, ptr noundef nonnull align 8 dereferenceable(8) %resultOut) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSeparatingAxisERK18btConvexPolyhedronS2_RK11btTransformS5_R9btVector3RN36btDiscreteCollisionDetectorInterface6ResultE(ptr noundef nonnull align 8 dereferenceable(172) %hullA, ptr noundef nonnull align 8 dereferenceable(172) %hullB, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %sep, ptr noundef nonnull align 8 dereferenceable(8) %resultOut) local_unnamed_addr #0 align 2 {
 entry:
   %Min0.i387 = alloca float, align 4
   %Max0.i388 = alloca float, align 4
@@ -1817,7 +1817,7 @@ if.end39:                                         ; preds = %if.else26.if.end39_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btPolyhedralContactClipping19clipFaceAgainstHullERK9btVector3RK18btConvexPolyhedronRK11btTransformR20btAlignedObjectArrayIS0_ESB_ffRN36btDiscreteCollisionDetectorInterface6ResultE(ptr noundef nonnull align 4 dereferenceable(16) %separatingNormal, ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %hullA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr nocapture noundef nonnull align 8 dereferenceable(25) %worldVertsB1, ptr nocapture noundef nonnull align 8 dereferenceable(25) %worldVertsB2, float noundef %minDist, float noundef %maxDist, ptr noundef nonnull align 8 dereferenceable(8) %resultOut) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN27btPolyhedralContactClipping19clipFaceAgainstHullERK9btVector3RK18btConvexPolyhedronRK11btTransformR20btAlignedObjectArrayIS0_ESB_ffRN36btDiscreteCollisionDetectorInterface6ResultE(ptr noundef nonnull align 4 dereferenceable(16) %separatingNormal, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %hullA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transA, ptr noundef nonnull align 8 captures(none) dereferenceable(25) %worldVertsB1, ptr noundef nonnull align 8 captures(none) dereferenceable(25) %worldVertsB2, float noundef %minDist, float noundef %maxDist, ptr noundef nonnull align 8 dereferenceable(8) %resultOut) local_unnamed_addr #0 align 2 {
 entry:
   %planeNormalWS = alloca %class.btVector3, align 8
   %point86 = alloca %class.btVector3, align 4
@@ -2245,7 +2245,7 @@ for.end91:                                        ; preds = %for.inc89, %_ZN20bt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btPolyhedralContactClipping19clipHullAgainstHullERK9btVector3RK18btConvexPolyhedronS5_RK11btTransformS8_ffR20btAlignedObjectArrayIS0_ESB_RN36btDiscreteCollisionDetectorInterface6ResultE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %separatingNormal1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %hullA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %hullB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transB, float noundef %minDist, float noundef %maxDist, ptr nocapture noundef nonnull align 8 dereferenceable(25) %worldVertsB1, ptr nocapture noundef nonnull align 8 dereferenceable(25) %worldVertsB2, ptr noundef nonnull align 8 dereferenceable(8) %resultOut) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN27btPolyhedralContactClipping19clipHullAgainstHullERK9btVector3RK18btConvexPolyhedronS5_RK11btTransformS8_ffR20btAlignedObjectArrayIS0_ESB_RN36btDiscreteCollisionDetectorInterface6ResultE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %separatingNormal1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %hullA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %hullB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transB, float noundef %minDist, float noundef %maxDist, ptr noundef nonnull align 8 captures(none) dereferenceable(25) %worldVertsB1, ptr noundef nonnull align 8 captures(none) dereferenceable(25) %worldVertsB2, ptr noundef nonnull align 8 dereferenceable(8) %resultOut) local_unnamed_addr #0 align 2 {
 entry:
   %separatingNormal = alloca %class.btVector3, align 8
   %nrm.sroa.0.0.copyload.i = load <2 x float>, ptr %separatingNormal1, align 4
@@ -2538,10 +2538,10 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #5
 declare float @llvm.sqrt.f32(float) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

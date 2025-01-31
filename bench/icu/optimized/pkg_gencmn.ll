@@ -239,9 +239,9 @@ if.end13.i:                                       ; preds = %if.then8.i
   %15 = load i32, ptr @_ZL9stringTop, align 4
   %add.i.i = add i32 %conv20.i, %15
   %cmp.i.i = icmp ugt i32 %add.i.i, 200000
-  br i1 %cmp.i.i, label %if.then.i47.i, label %_ZL11allocStringj.exit.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZL11allocStringj.exit.i
 
-if.then.i47.i:                                    ; preds = %if.end13.i
+if.then.i.i:                                      ; preds = %if.end13.i
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 22, i64 1, ptr %16) #13
   tail call void @exit(i32 noundef 7) #14
@@ -325,66 +325,66 @@ if.else.i:                                        ; preds = %if.end7.i
   %26 = trunc i64 %add57.i to i32
   %conv59.i = add i32 %26, 1
   %27 = load i32, ptr @_ZL9stringTop, align 4
-  %add.i48.i = add i32 %conv59.i, %27
-  %cmp.i49.i = icmp ugt i32 %add.i48.i, 200000
-  br i1 %cmp.i49.i, label %if.then.i52.i, label %_ZL11allocStringj.exit53.i
+  %add.i47.i = add i32 %conv59.i, %27
+  %cmp.i48.i = icmp ugt i32 %add.i47.i, 200000
+  br i1 %cmp.i48.i, label %if.then.i51.i, label %_ZL11allocStringj.exit52.i
 
-if.then.i52.i:                                    ; preds = %if.else.i
+if.then.i51.i:                                    ; preds = %if.else.i
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 22, i64 1, ptr %28) #13
   tail call void @exit(i32 noundef 7) #14
   unreachable
 
-_ZL11allocStringj.exit53.i:                       ; preds = %if.else.i
-  %idx.ext.i50.i = zext nneg i32 %27 to i64
-  %add.ptr.i51.i = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %idx.ext.i50.i
-  store i32 %add.i48.i, ptr @_ZL9stringTop, align 4
-  %call61.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i51.i, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #17
-  %strlen44.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %add.ptr.i51.i)
-  %endptr45.i = getelementptr inbounds i8, ptr %add.ptr.i51.i, i64 %strlen44.i
+_ZL11allocStringj.exit52.i:                       ; preds = %if.else.i
+  %idx.ext.i49.i = zext nneg i32 %27 to i64
+  %add.ptr.i50.i = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %idx.ext.i49.i
+  store i32 %add.i47.i, ptr @_ZL9stringTop, align 4
+  %call61.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i50.i, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #17
+  %strlen44.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %add.ptr.i50.i)
+  %endptr45.i = getelementptr inbounds i8, ptr %add.ptr.i50.i, i64 %strlen44.i
   store i16 47, ptr %endptr45.i, align 1
-  %call63.i = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %add.ptr.i51.i, ptr noundef nonnull dereferenceable(1) %call63) #17
+  %call63.i = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %add.ptr.i50.i, ptr noundef nonnull dereferenceable(1) %call63) #17
   %30 = load ptr, ptr @_ZL5files, align 8
   %31 = load i32, ptr @_ZL9fileCount, align 4
   %idxprom64.i = zext i32 %31 to i64
   %basename66.i = getelementptr inbounds nuw %struct.File, ptr %30, i64 %idxprom64.i, i32 1
-  store ptr %add.ptr.i51.i, ptr %basename66.i, align 8
-  %add.i54.i = add i32 %add.i48.i, %conv59.i
-  %cmp.i55.i = icmp ugt i32 %add.i54.i, 200000
-  br i1 %cmp.i55.i, label %if.then.i58.i, label %_ZL11allocStringj.exit59.i
+  store ptr %add.ptr.i50.i, ptr %basename66.i, align 8
+  %add.i53.i = add i32 %add.i47.i, %conv59.i
+  %cmp.i54.i = icmp ugt i32 %add.i53.i, 200000
+  br i1 %cmp.i54.i, label %if.then.i57.i, label %_ZL11allocStringj.exit58.i
 
-if.then.i58.i:                                    ; preds = %_ZL11allocStringj.exit53.i
+if.then.i57.i:                                    ; preds = %_ZL11allocStringj.exit52.i
   %32 = load ptr, ptr @stderr, align 8
   %33 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 22, i64 1, ptr %32) #13
   tail call void @exit(i32 noundef 7) #14
   unreachable
 
-_ZL11allocStringj.exit59.i:                       ; preds = %_ZL11allocStringj.exit53.i
-  %idx.ext.i56.i = zext nneg i32 %add.i48.i to i64
-  %add.ptr.i57.i = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %idx.ext.i56.i
-  store i32 %add.i54.i, ptr @_ZL9stringTop, align 4
+_ZL11allocStringj.exit58.i:                       ; preds = %_ZL11allocStringj.exit52.i
+  %idx.ext.i55.i = zext nneg i32 %add.i47.i to i64
+  %add.ptr.i56.i = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %idx.ext.i55.i
+  store i32 %add.i53.i, ptr @_ZL9stringTop, align 4
   %arrayidx69.i = getelementptr inbounds nuw %struct.File, ptr %30, i64 %idxprom64.i
-  store ptr %add.ptr.i57.i, ptr %arrayidx69.i, align 8
-  %cmp71.not60.i = icmp eq i32 %26, 0
-  br i1 %cmp71.not60.i, label %while.end.i, label %while.body.i
+  store ptr %add.ptr.i56.i, ptr %arrayidx69.i, align 8
+  %cmp71.not59.i = icmp eq i32 %26, 0
+  br i1 %cmp71.not59.i, label %while.end.i, label %while.body.i
 
-while.body.i:                                     ; preds = %_ZL11allocStringj.exit59.i, %while.body.i
-  %dec63.i = phi i32 [ %dec.i, %while.body.i ], [ %26, %_ZL11allocStringj.exit59.i ]
-  %t.062.i = phi ptr [ %incdec.ptr83.i, %while.body.i ], [ %add.ptr.i57.i, %_ZL11allocStringj.exit59.i ]
-  %s.061.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i51.i, %_ZL11allocStringj.exit59.i ]
-  %34 = load i8, ptr %s.061.i, align 1
+while.body.i:                                     ; preds = %_ZL11allocStringj.exit58.i, %while.body.i
+  %dec62.i = phi i32 [ %dec.i, %while.body.i ], [ %26, %_ZL11allocStringj.exit58.i ]
+  %t.061.i = phi ptr [ %incdec.ptr83.i, %while.body.i ], [ %add.ptr.i56.i, %_ZL11allocStringj.exit58.i ]
+  %s.060.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i50.i, %_ZL11allocStringj.exit58.i ]
+  %34 = load i8, ptr %s.060.i, align 1
   %.off.i = add i8 %34, -45
   %switch.i = icmp ult i8 %.off.i, 3
   %spec.select.i = select i1 %switch.i, i8 95, i8 %34
-  store i8 %spec.select.i, ptr %t.062.i, align 1
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.061.i, i64 1
-  %incdec.ptr83.i = getelementptr inbounds nuw i8, ptr %t.062.i, i64 1
-  %dec.i = add i32 %dec63.i, -1
+  store i8 %spec.select.i, ptr %t.061.i, align 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.060.i, i64 1
+  %incdec.ptr83.i = getelementptr inbounds nuw i8, ptr %t.061.i, i64 1
+  %dec.i = add i32 %dec62.i, -1
   %cmp71.not.i = icmp eq i32 %dec.i, 0
   br i1 %cmp71.not.i, label %while.end.i, label %while.body.i, !llvm.loop !6
 
-while.end.i:                                      ; preds = %while.body.i, %_ZL11allocStringj.exit59.i
-  %t.0.lcssa.i = phi ptr [ %add.ptr.i57.i, %_ZL11allocStringj.exit59.i ], [ %incdec.ptr83.i, %while.body.i ]
+while.end.i:                                      ; preds = %while.body.i, %_ZL11allocStringj.exit58.i
+  %t.0.lcssa.i = phi ptr [ %add.ptr.i56.i, %_ZL11allocStringj.exit58.i ], [ %incdec.ptr83.i, %while.body.i ]
   store i8 0, ptr %t.0.lcssa.i, align 1
   br label %if.end84.i
 
@@ -770,7 +770,7 @@ if.end304:                                        ; preds = %if.end200, %for.end
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
@@ -782,7 +782,7 @@ declare ptr @T_FileStream_stdin() local_unnamed_addr #4
 declare ptr @T_FileStream_open(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @T_FileStream_readLine(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -793,10 +793,10 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #4
 declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL12compareFilesPKvS0_(ptr nocapture noundef readonly %file1, ptr nocapture noundef readonly %file2) #6 {
+define internal noundef i32 @_ZL12compareFilesPKvS0_(ptr noundef readonly captures(none) %file1, ptr noundef readonly captures(none) %file2) #6 {
 entry:
   %basename = getelementptr inbounds nuw i8, ptr %file1, i64 8
   %0 = load ptr, ptr %basename, align 8
@@ -823,13 +823,13 @@ declare void @udata_writeBlock(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare i32 @udata_finish(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @T_FileStream_writeLine(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -839,20 +839,20 @@ declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #9
 declare signext i8 @uprv_pathIsAbsolute_75(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 declare i32 @T_FileStream_size(ptr noundef) local_unnamed_addr #4
 
 declare i32 @T_FileStream_error(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

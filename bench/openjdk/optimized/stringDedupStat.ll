@@ -70,13 +70,13 @@ $_ZN9LogPrefixILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm =
 @_ZN11StringDedup4StatC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN11StringDedup4StatC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11StringDedup4StatC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((0, 248)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN11StringDedup4StatC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) initializes((0, 248)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %0, i8 0, i64 248, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11StringDedup4Stat3addEPKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11StringDedup4Stat3addEPKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = load i64, ptr %1, align 8
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %3
@@ -241,7 +241,7 @@ define hidden void @_ZN11StringDedup4Stat3addEPKS0_(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat11log_summaryEPKS0_S2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat11log_summaryEPKS0_S2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -354,7 +354,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE148ELS1_0ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat19report_active_startEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((136, 152)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat19report_active_startEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) initializes((136, 152)) %0) local_unnamed_addr #2 align 2 {
   %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -388,7 +388,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE148ELS1_114ELS1_142E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat17report_active_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat17report_active_endEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = extractvalue { i64, i64 } %2, 1
@@ -430,7 +430,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE148ELS1_114ELS1_0ELS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat18report_phase_startEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((168, 184)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat18report_phase_startEPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) initializes((168, 184)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -451,7 +451,7 @@ define hidden void @_ZN11StringDedup4Stat18report_phase_startEPKc(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
@@ -483,7 +483,7 @@ define hidden void @_ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat17report_idle_startEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((168, 184)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat17report_idle_startEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) initializes((168, 184)) %0) local_unnamed_addr #2 align 2 {
   %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN11StringDedup4Stat18report_phase_startEPKc.exit, label %3
@@ -508,7 +508,7 @@ _ZN11StringDedup4Stat18report_phase_startEPKc.exit: ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat15report_idle_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat15report_idle_endEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %4 = extractvalue { i64, i64 } %3, 0
@@ -541,7 +541,7 @@ _ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRep
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat20report_process_startEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((168, 184)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat20report_process_startEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) initializes((168, 184)) %0) local_unnamed_addr #2 align 2 {
   %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN11StringDedup4Stat18report_phase_startEPKc.exit, label %3
@@ -566,7 +566,7 @@ _ZN11StringDedup4Stat18report_phase_startEPKc.exit: ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat20report_process_pauseEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat20report_process_pauseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = extractvalue { i64, i64 } %2, 1
@@ -597,7 +597,7 @@ define hidden void @_ZN11StringDedup4Stat20report_process_pauseEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat21report_process_resumeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((168, 184)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat21report_process_resumeEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) initializes((168, 184)) %0) local_unnamed_addr #2 align 2 {
   %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -618,7 +618,7 @@ define hidden void @_ZN11StringDedup4Stat21report_process_resumeEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat18report_process_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat18report_process_endEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %4 = extractvalue { i64, i64 } %3, 0
@@ -651,7 +651,7 @@ _ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRep
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat25report_resize_table_startEmmm(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((168, 184)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat25report_resize_table_startEmmm(ptr noundef nonnull align 8 captures(none) dereferenceable(248) initializes((168, 184)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
@@ -676,7 +676,7 @@ define hidden void @_ZN11StringDedup4Stat25report_resize_table_startEmmm(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat23report_resize_table_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat23report_resize_table_endEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %4 = extractvalue { i64, i64 } %3, 0
@@ -709,7 +709,7 @@ _ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRep
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat26report_cleanup_table_startEmm(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((168, 184)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat26report_cleanup_table_startEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(248) initializes((168, 184)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -735,7 +735,7 @@ define hidden void @_ZN11StringDedup4Stat26report_cleanup_table_startEmm(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup4Stat24report_cleanup_table_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup4Stat24report_cleanup_table_endEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %4 = extractvalue { i64, i64 } %3, 0
@@ -768,7 +768,7 @@ _ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRep
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11StringDedup4Stat9log_timesEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK11StringDedup4Stat9log_timesEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not11 = icmp eq ptr %3, null
   br i1 %.not11, label %15, label %4
@@ -849,7 +849,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE148ELS1_0ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11StringDedup4Stat14log_statisticsEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK11StringDedup4Stat14log_statisticsEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %0, align 8
@@ -1121,7 +1121,7 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

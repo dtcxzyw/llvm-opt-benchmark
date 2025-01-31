@@ -36,7 +36,7 @@ method_from_curve_id.exit:                        ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @ssl_nid_to_curve_id(ptr nocapture noundef writeonly %out_curve_id, i32 noundef %nid) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ssl_nid_to_curve_id(ptr noundef writeonly captures(none) %out_curve_id, i32 noundef %nid) local_unnamed_addr #1 {
 entry:
   br label %for.body.i
 
@@ -167,7 +167,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_ec_point_cleanup(ptr nocapture noundef readonly %ctx) #2 {
+define internal void @ssl_ec_point_cleanup(ptr noundef readonly captures(none) %ctx) #2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -176,7 +176,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_ec_point_generate_keypair(ptr nocapture noundef %ctx, ptr noundef %out) #2 {
+define internal range(i32 0, 2) i32 @ssl_ec_point_generate_keypair(ptr noundef captures(none) %ctx, ptr noundef %out) #2 {
 entry:
   %call = tail call ptr @BN_new() #7
   %cmp = icmp eq ptr %call, null
@@ -242,7 +242,7 @@ return:                                           ; preds = %if.end, %entry, %er
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_ec_point_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly initializes((0, 1)) %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
+define internal range(i32 0, 2) i32 @ssl_ec_point_compute_secret(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %out_secret, ptr noundef writeonly captures(none) %out_secret_len, ptr noundef writeonly captures(none) initializes((0, 1)) %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -329,7 +329,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_x25519_cleanup(ptr nocapture noundef readonly %ctx) #2 {
+define internal void @ssl_x25519_cleanup(ptr noundef readonly captures(none) %ctx) #2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -347,7 +347,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ssl_x25519_generate_keypair(ptr nocapture noundef writeonly initializes((8, 16)) %ctx, ptr noundef %out) #2 {
+define internal i32 @ssl_x25519_generate_keypair(ptr noundef writeonly captures(none) initializes((8, 16)) %ctx, ptr noundef %out) #2 {
 entry:
   %public_key = alloca [32 x i8], align 16
   %call = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #8
@@ -371,7 +371,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_x25519_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly initializes((0, 1)) %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
+define internal range(i32 0, 2) i32 @ssl_x25519_compute_secret(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %out_secret, ptr noundef writeonly captures(none) %out_secret_len, ptr noundef writeonly captures(none) initializes((0, 1)) %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
 entry:
   store i8 80, ptr %out_alert, align 1
   %call = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #8
@@ -449,7 +449,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare i32 @BN_bn2bin_padded(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -460,7 +460,7 @@ declare i32 @CBB_add_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i32 @X25519(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_dhe_cleanup(ptr nocapture noundef readonly %ctx) #2 {
+define internal void @ssl_dhe_cleanup(ptr noundef readonly captures(none) %ctx) #2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -469,7 +469,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_dhe_generate_keypair(ptr nocapture noundef readonly %ctx, ptr noundef %out) #2 {
+define internal range(i32 0, 2) i32 @ssl_dhe_generate_keypair(ptr noundef readonly captures(none) %ctx, ptr noundef %out) #2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -494,7 +494,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_dhe_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly initializes((0, 1)) %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
+define internal range(i32 0, 2) i32 @ssl_dhe_compute_secret(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %out_secret, ptr noundef writeonly captures(none) %out_secret_len, ptr noundef writeonly captures(none) initializes((0, 1)) %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -549,7 +549,7 @@ declare i32 @DH_compute_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @BN_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

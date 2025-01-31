@@ -108,7 +108,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [34 x i8] c"Current Association Manager state\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.assoc_mgr_info_request_msg_t, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -149,13 +149,13 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr nocaptu
 
 24:                                               ; preds = %22, %9
   %25 = load ptr, ptr @stderr, align 8
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str, ptr noundef %15) #9
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str, ptr noundef nonnull %15) #9
   br label %94
 
 27:                                               ; preds = %22
   %28 = tail call i32 @llvm.smax.i32(i32 %.036, i32 1)
   %29 = zext nneg i32 %28 to i64
-  %30 = tail call i32 @xstrncasecmp(ptr noundef %15, ptr noundef nonnull @.str.1, i64 noundef %29) #10
+  %30 = tail call i32 @xstrncasecmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.1, i64 noundef %29) #10
   %.not43 = icmp eq i32 %30, 0
   br i1 %.not43, label %31, label %37
 
@@ -174,7 +174,7 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr nocaptu
   br label %77
 
 37:                                               ; preds = %27
-  %38 = tail call i32 @xstrncasecmp(ptr noundef %15, ptr noundef nonnull @.str.2, i64 noundef %29) #10
+  %38 = tail call i32 @xstrncasecmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.2, i64 noundef %29) #10
   %.not45 = icmp eq i32 %38, 0
   br i1 %.not45, label %39, label %56
 
@@ -220,7 +220,7 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr nocaptu
   br label %94
 
 56:                                               ; preds = %37
-  %57 = tail call i32 @xstrncasecmp(ptr noundef %15, ptr noundef nonnull @.str.5, i64 noundef %29) #10
+  %57 = tail call i32 @xstrncasecmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.5, i64 noundef %29) #10
   %.not50 = icmp eq i32 %57, 0
   br i1 %.not50, label %58, label %64
 
@@ -239,7 +239,7 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr nocaptu
   br label %77
 
 64:                                               ; preds = %56
-  %65 = tail call i32 @xstrncasecmp(ptr noundef %15, ptr noundef nonnull @.str.3, i64 noundef %29) #10
+  %65 = tail call i32 @xstrncasecmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.3, i64 noundef %29) #10
   %.not52 = icmp eq i32 %65, 0
   br i1 %.not52, label %66, label %72
 
@@ -265,7 +265,7 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr nocaptu
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr @stderr, align 8
-  %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.7, ptr noundef %15) #9
+  %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.7, ptr noundef nonnull %15) #9
   br label %94
 
 77:                                               ; preds = %.thread, %52, %69, %61, %34
@@ -319,16 +319,16 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -345,7 +345,7 @@ declare i32 @slurm_addto_char_list_with_case(ptr noundef, ptr noundef, i1 nounde
 declare i32 @slurm_load_assoc_mgr_info(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_print_assoc_mgr_info(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @_print_assoc_mgr_info(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -1423,7 +1423,7 @@ declare void @slurm_free_assoc_mgr_info_msg(ptr noundef) local_unnamed_addr #4
 declare void @slurm_free_assoc_mgr_info_request_members(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @list_count(ptr noundef) local_unnamed_addr #4
 
@@ -1556,7 +1556,7 @@ declare ptr @preempt_mode_string(i16 noundef zeroext) local_unnamed_addr #4
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @_print_used_acct_limit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal noundef i32 @_print_used_acct_limit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i32, ptr @one_liner, align 4
   %.not = icmp eq i32 %3, 0
   %4 = select i1 %.not, ptr @.str.71, ptr @.str.9
@@ -1636,7 +1636,7 @@ define internal noundef i32 @_print_used_acct_limit(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_print_used_user_limit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @_print_used_user_limit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @one_liner, align 4
   %.not = icmp eq i32 %4, 0
@@ -1730,7 +1730,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7

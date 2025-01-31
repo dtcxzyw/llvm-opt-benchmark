@@ -96,7 +96,7 @@ declare i32 @file_close(ptr noundef) local_unnamed_addr #1
 declare i32 @nxmutex_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @loteardown(ptr noundef %0) local_unnamed_addr #0 {
@@ -144,7 +144,7 @@ declare i32 @close_blockdriver(ptr noundef) local_unnamed_addr #1
 declare i32 @unregister_blockdriver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @loop_open(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @loop_open(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @nxmutex_lock(ptr noundef %3) #6
@@ -173,7 +173,7 @@ define internal i32 @loop_open(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @loop_close(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @loop_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @nxmutex_lock(ptr noundef %3) #6
@@ -202,7 +202,7 @@ define internal i32 @loop_close(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -2147483648, -9223372036854775808) i64 @loop_read(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal range(i64 -2147483648, -9223372036854775808) i64 @loop_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = add i32 %3, %2
@@ -255,7 +255,7 @@ define internal range(i64 -2147483648, -9223372036854775808) i64 @loop_read(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @loop_write(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal i64 @loop_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -295,7 +295,7 @@ define internal i64 @loop_write(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -22, 1) i32 @loop_geometry(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #4 {
+define internal range(i32 -22, 1) i32 @loop_geometry(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %3
 
@@ -335,7 +335,7 @@ declare i64 @file_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare i64 @file_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

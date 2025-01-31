@@ -87,7 +87,7 @@ return:                                           ; preds = %entry, %entry, %ent
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fd_write(ptr noundef %b, ptr nocapture noundef readonly %in, i32 noundef %inl) #1 {
+define internal noundef i32 @fd_write(ptr noundef %b, ptr noundef readonly captures(none) %in, i32 noundef %inl) #1 {
 entry:
   %call = tail call ptr @__errno_location() #10
   store i32 0, ptr %call, align 4
@@ -173,7 +173,7 @@ if.end13:                                         ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fd_puts(ptr noundef %bp, ptr nocapture noundef readonly %str) #1 {
+define internal noundef i32 @fd_puts(ptr noundef %bp, ptr noundef readonly captures(none) %str) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #11
   %call.i = tail call ptr @__errno_location() #10
@@ -182,7 +182,7 @@ entry:
   %0 = load i32, ptr %num.i, align 8
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  %call1.i = tail call i64 @write(i32 noundef %0, ptr noundef readonly %str, i64 noundef %conv.i) #9
+  %call1.i = tail call i64 @write(i32 noundef %0, ptr noundef nonnull readonly %str, i64 noundef %conv.i) #9
   %conv2.i = trunc i64 %call1.i to i32
   tail call void @BIO_clear_flags(ptr noundef %bp, i32 noundef 15) #9
   %1 = add i32 %conv2.i, 1
@@ -370,7 +370,7 @@ sw.epilog:                                        ; preds = %entry, %entry, %sw.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fd_new(ptr nocapture noundef writeonly initializes((40, 44), (48, 52), (56, 60), (64, 72)) %bi) #5 {
+define internal noundef i32 @fd_new(ptr noundef writeonly captures(none) initializes((40, 44), (48, 52), (56, 60), (64, 72)) %bi) #5 {
 entry:
   %init = getelementptr inbounds nuw i8, ptr %bi, i64 40
   store i32 0, ptr %init, align 8
@@ -419,17 +419,17 @@ return:                                           ; preds = %if.end, %if.end4, %
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8

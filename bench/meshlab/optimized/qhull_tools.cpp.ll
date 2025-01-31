@@ -203,7 +203,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -243,7 +243,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
@@ -531,7 +531,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z19compute_convex_hullP3qhTiiR9MeshModel(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %3) local_unnamed_addr #10 {
+define noundef ptr @_Z19compute_convex_hullP3qhTiiR9MeshModel(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1288) %3) local_unnamed_addr #10 {
   %5 = alloca [10 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, ptr noundef nonnull align 1 dereferenceable(10) @__const._Z14visible_pointsP3qhTiiR9MeshModelS2_S2_N3vcg6Point3IfEEfbb.flags, i64 10, i1 false)
   %6 = load ptr, ptr @stderr, align 8
@@ -613,7 +613,7 @@ declare void @qh_triangulate(ptr noundef) local_unnamed_addr #0
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z16compute_delaunayP3qhTiiR9MeshModel(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %3) local_unnamed_addr #10 {
+define noundef zeroext i1 @_Z16compute_delaunayP3qhTiiR9MeshModel(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1288) %3) local_unnamed_addr #10 {
   %5 = alloca [15 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %5, ptr noundef nonnull align 1 dereferenceable(15) @__const._Z20compute_alpha_shapesP3qhTiiR9MeshModelS2_db.flags, i64 15, i1 false)
   %6 = load ptr, ptr @stderr, align 8
@@ -678,7 +678,7 @@ _ZL21qh_readpointsFromMeshPiS_R9MeshModel.exit:   ; preds = %20, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z15compute_voronoiP3qhTiiR9MeshModelS2_f(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %3, ptr noundef nonnull align 8 dereferenceable(1288) %4, float noundef %5) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z15compute_voronoiP3qhTiiR9MeshModelS2_f(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1288) %3, ptr noundef nonnull align 8 dereferenceable(1288) %4, float noundef %5) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.vcg::tri::Allocator<CMeshO>::PointerUpdater.255", align 8
   %8 = alloca %"class.vcg::tri::Allocator<CMeshO>::PointerUpdater", align 8
   %9 = alloca [15 x i8], align 1
@@ -1754,7 +1754,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EEC2EmRKS2_.exit:    ; preds = %_ZSt6fill_nIPP8CVer
   %.0224584 = phi ptr [ %416, %.lr.ph586 ], [ %437, %429 ]
   %421 = getelementptr inbounds nuw i8, ptr %.0224584, i64 16
   %422 = load ptr, ptr %421, align 8
-  %423 = invoke i32 @qh_pointid(ptr noundef %0, ptr noundef %422)
+  %423 = invoke i32 @qh_pointid(ptr noundef nonnull %0, ptr noundef %422)
           to label %424 unwind label %.loopexit414
 
 424:                                              ; preds = %420
@@ -1763,7 +1763,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EEC2EmRKS2_.exit:    ; preds = %_ZSt6fill_nIPP8CVer
 
 426:                                              ; preds = %424
   %427 = load ptr, ptr %421, align 8
-  %428 = invoke i32 @qh_pointid(ptr noundef %0, ptr noundef %427)
+  %428 = invoke i32 @qh_pointid(ptr noundef nonnull %0, ptr noundef %427)
           to label %429 unwind label %.loopexit414
 
 429:                                              ; preds = %426
@@ -1890,7 +1890,7 @@ declare void @qh_freeqhull(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @qh_memfreeshort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 declare i32 @qh_pointid(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -3137,7 +3137,7 @@ _ZNSt12_Vector_baseI8CVertexOSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5188,7 +5188,7 @@ _ZNSt12_Vector_baseIN3vcg4face10vector_ocfI6CFaceOE19WedgeNormalTypePackESaIS5_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z20compute_alpha_shapesP3qhTiiR9MeshModelS2_db(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %3, ptr noundef nonnull align 8 dereferenceable(1288) %4, double noundef %5, i1 noundef zeroext %6) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z20compute_alpha_shapesP3qhTiiR9MeshModelS2_db(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1288) %3, ptr noundef nonnull align 8 dereferenceable(1288) %4, double noundef %5, i1 noundef zeroext %6) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.vcg::tri::Allocator<CMeshO>::PointerUpdater.255", align 8
   %9 = alloca %"class.vcg::tri::Allocator<CMeshO>::PointerUpdater.255", align 8
   %10 = alloca %"class.vcg::tri::Allocator<CMeshO>::PointerUpdater.255", align 8
@@ -5656,7 +5656,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EEC2EmRKS2_.exit:    ; preds = %_ZSt6fill_nIPP8CVer
   %.0178327 = phi ptr [ %210, %.lr.ph329 ], [ %226, %218 ]
   %215 = getelementptr inbounds nuw i8, ptr %.0178327, i64 16
   %216 = load ptr, ptr %215, align 8
-  %217 = invoke i32 @qh_pointid(ptr noundef %0, ptr noundef %216)
+  %217 = invoke i32 @qh_pointid(ptr noundef nonnull %0, ptr noundef %216)
           to label %218 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 218:                                              ; preds = %214
@@ -5887,7 +5887,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EEC2EmRKS2_.exit:    ; preds = %_ZSt6fill_nIPP8CVer
   %.1179318 = phi ptr [ %327, %.lr.ph320 ], [ %343, %335 ]
   %332 = getelementptr inbounds nuw i8, ptr %.1179318, i64 16
   %333 = load ptr, ptr %332, align 8
-  %334 = invoke i32 @qh_pointid(ptr noundef %0, ptr noundef %333)
+  %334 = invoke i32 @qh_pointid(ptr noundef nonnull %0, ptr noundef %333)
           to label %335 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 335:                                              ; preds = %331
@@ -5993,7 +5993,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EEC2EmRKS2_.exit:    ; preds = %_ZSt6fill_nIPP8CVer
 374:                                              ; preds = %372
   %375 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %376 = load ptr, ptr %375, align 8
-  %377 = invoke i32 @qh_setsize(ptr noundef %0, ptr noundef nonnull %373)
+  %377 = invoke i32 @qh_setsize(ptr noundef nonnull %0, ptr noundef nonnull %373)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit
 
 .preheader:                                       ; preds = %374
@@ -6010,7 +6010,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EEC2EmRKS2_.exit:    ; preds = %_ZSt6fill_nIPP8CVer
   %.1167347 = phi ptr [ %376, %.lr.ph349 ], [ %392, %384 ]
   %381 = getelementptr inbounds nuw i8, ptr %.1167347, i64 16
   %382 = load ptr, ptr %381, align 8
-  %383 = invoke i32 @qh_pointid(ptr noundef %0, ptr noundef %382)
+  %383 = invoke i32 @qh_pointid(ptr noundef nonnull %0, ptr noundef %382)
           to label %384 unwind label %.loopexit270
 
 384:                                              ; preds = %380
@@ -6068,7 +6068,7 @@ declare void @qh_setappend(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare double @sqrt(double noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z14visible_pointsP3qhTiiR9MeshModelS2_S2_N3vcg6Point3IfEEfbb(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %3, ptr noundef nonnull align 8 dereferenceable(1288) %4, ptr noundef nonnull align 8 dereferenceable(1288) %5, <2 x float> %6, float %7, float noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z14visible_pointsP3qhTiiR9MeshModelS2_S2_N3vcg6Point3IfEEfbb(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1288) %3, ptr noundef nonnull align 8 dereferenceable(1288) %4, ptr noundef nonnull align 8 dereferenceable(1288) %5, <2 x float> %6, float %7, float noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.vcg::tri::Allocator<CMeshO>::PointerUpdater.255", align 8
   %13 = alloca %"class.vcg::tri::Allocator<CMeshO>::PointerUpdater.255", align 8
   %14 = alloca %"class.vcg::tri::Allocator<CMeshO>::PointerUpdater", align 8
@@ -8496,10 +8496,10 @@ declare float @llvm.sqrt.f32(float) #20
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20

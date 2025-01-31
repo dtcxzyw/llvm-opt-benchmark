@@ -65,7 +65,7 @@ define dso_local void @acpi_ut_strupr(ptr noundef %0) local_unnamed_addr #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local range(i32 -255, 256) i32 @acpi_ut_stricmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -255, 256) i32 @acpi_ut_stricmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   br label %3
 
 3:                                                ; preds = %3, %2

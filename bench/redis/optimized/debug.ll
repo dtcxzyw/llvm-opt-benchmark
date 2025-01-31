@@ -368,7 +368,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.317 = private unnamed_addr constant [39 x i8] c"Crashed running the instruction at: %p\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xorDigest(ptr nocapture noundef %digest, ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @xorDigest(ptr noundef captures(none) %digest, ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.SHA1_CTX, align 4
   %hash = alloca [20 x i8], align 16
@@ -401,7 +401,7 @@ declare void @SHA1Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare void @SHA1Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xorStringObjectDigest(ptr nocapture noundef %digest, ptr noundef %o) local_unnamed_addr #0 {
+define dso_local void @xorStringObjectDigest(ptr noundef captures(none) %digest, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %ctx.i = alloca %struct.SHA1_CTX, align 4
   %hash.i = alloca [20 x i8], align 16
@@ -480,7 +480,7 @@ xorDigest.exit:                                   ; preds = %for.body.i
 declare ptr @getDecodedObject(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @sdslen(ptr nocapture noundef readonly %s) unnamed_addr #2 {
+define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %s) unnamed_addr #2 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
@@ -768,7 +768,7 @@ if.then7:                                         ; preds = %mixDigest.exit
 
 while.body:                                       ; preds = %if.then7, %while.body
   %call11 = call ptr @listTypeGet(ptr noundef nonnull %entry9) #22
-  call void @mixStringObjectDigest(ptr noundef %digest, ptr noundef %call11)
+  call void @mixStringObjectDigest(ptr noundef nonnull %digest, ptr noundef %call11)
   call void @decrRefCount(ptr noundef %call11) #22
   %call10 = call i32 @listTypeNext(ptr noundef %call8, ptr noundef nonnull %entry9) #22
   %tobool.not = icmp eq i32 %call10, 0
@@ -1256,7 +1256,7 @@ mixDigest.exit185:                                ; preds = %for.body.i.i178
   call void @SHA1Update(ptr noundef nonnull %ctx.i176, ptr noundef nonnull %eledigest122, i32 noundef 20) #22
   call void @SHA1Final(ptr noundef nonnull %eledigest122, ptr noundef nonnull %ctx.i176) #22
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %ctx.i176)
-  call void @sdsfree(ptr noundef %call125) #22
+  call void @sdsfree(ptr noundef nonnull %call125) #22
   %call128 = call ptr @hashTypeCurrentObjectNewSds(ptr noundef %call116, i32 noundef 2) #22
   %arrayidx.i186 = getelementptr inbounds i8, ptr %call128, i64 -1
   %44 = load i8, ptr %arrayidx.i186, align 1
@@ -1328,7 +1328,7 @@ mixDigest.exit216:                                ; preds = %for.body.i.i209
   call void @SHA1Update(ptr noundef nonnull %ctx.i207, ptr noundef nonnull %eledigest122, i32 noundef 20) #22
   call void @SHA1Final(ptr noundef nonnull %eledigest122, ptr noundef nonnull %ctx.i207) #22
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %ctx.i207)
-  call void @sdsfree(ptr noundef %call128) #22
+  call void @sdsfree(ptr noundef nonnull %call128) #22
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %ctx.i217)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %hash.i218)
   call void @SHA1Init(ptr noundef nonnull %ctx.i217) #22
@@ -1451,7 +1451,7 @@ mixDigest.exit257:                                ; preds = %for.body.i.i250
   call void @SHA1Update(ptr noundef nonnull %ctx.i248, ptr noundef nonnull %digest, i32 noundef 20) #22
   call void @SHA1Final(ptr noundef nonnull %digest, ptr noundef nonnull %ctx.i248) #22
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %ctx.i248)
-  call void @sdsfree(ptr noundef %call146) #22
+  call void @sdsfree(ptr noundef nonnull %call146) #22
   %63 = load i64, ptr %numfields, align 8
   %dec302 = add nsw i64 %63, -1
   store i64 %dec302, ptr %numfields, align 8
@@ -1732,12 +1732,12 @@ declare ptr @lpGetValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare double @zzlGetScore(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @fpconv_dtoa(double noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1754,7 +1754,7 @@ declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @_serverPanic(ptr noundef %file, i32 noundef %line, ptr nocapture noundef readonly %msg, ...) local_unnamed_addr #4 {
+define dso_local void @_serverPanic(ptr noundef %file, i32 noundef %line, ptr noundef readonly captures(none) %msg, ...) local_unnamed_addr #4 {
 entry:
   %act.i = alloca %struct.sigaction, align 8
   %ap = alloca [1 x %struct.__va_list_tag], align 16
@@ -2102,7 +2102,7 @@ declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @dbReleaseIterator(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mallctl_int(ptr noundef %c, ptr nocapture noundef readonly %argv, i32 noundef %argc) local_unnamed_addr #0 {
+define dso_local void @mallctl_int(ptr noundef %c, ptr noundef readonly captures(none) %argv, i32 noundef %argc) local_unnamed_addr #0 {
 entry:
   %old = alloca i64, align 8
   %val = alloca i64, align 8
@@ -2211,7 +2211,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #8
 declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mallctl_string(ptr noundef %c, ptr nocapture noundef readonly %argv, i32 noundef %argc) local_unnamed_addr #0 {
+define dso_local void @mallctl_string(ptr noundef %c, ptr noundef readonly captures(none) %argv, i32 noundef %argc) local_unnamed_addr #0 {
 entry:
   %old = alloca ptr, align 8
   %sz = alloca i64, align 8
@@ -2290,7 +2290,7 @@ if.end24:                                         ; preds = %if.then20, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @addReplyBulkCString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3333,7 +3333,7 @@ if.then704:                                       ; preds = %if.else694
   %108 = load ptr, ptr %arrayidx706, align 8
   %ptr707 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %109 = load ptr, ptr %ptr707, align 8
-  %call708 = tail call double @strtod(ptr nocapture noundef %109, ptr noundef null) #22
+  %call708 = tail call double @strtod(ptr noundef captures(none) %109, ptr noundef null) #22
   %mul = fmul double %call708, 1.000000e+06
   %conv709 = fptosi double %mul to i64
   %div710 = sdiv i64 %conv709, 1000000
@@ -3879,10 +3879,10 @@ if.end1188:                                       ; preds = %for.body636, %for.b
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare void @addExtendedReplyHelp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3961,7 +3961,7 @@ declare ptr @dbFind(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @strEncoding(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 declare void @addReplyStatusFormat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -3970,7 +3970,7 @@ declare i64 @rdbSavedObjectLen(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare i64 @estimateObjectIdleTime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @sdsavail(ptr nocapture noundef readonly %s) unnamed_addr #2 {
+define internal fastcc i64 @sdsavail(ptr noundef readonly captures(none) %s) unnamed_addr #2 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
@@ -4035,7 +4035,7 @@ declare void @lpRepr(ptr noundef) local_unnamed_addr #1
 declare void @addReplyStatus(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @quicklistRepr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4072,7 +4072,7 @@ declare void @addReplyPushLen(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @addReplyVerbatim(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #13
 
 declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4567,7 +4567,7 @@ if.end9:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_serverAssertPrintClientInfo(ptr nocapture noundef readonly %c) local_unnamed_addr #0 {
+define dso_local void @_serverAssertPrintClientInfo(ptr noundef readonly captures(none) %c) local_unnamed_addr #0 {
 entry:
   %conninfo = alloca [32 x i8], align 16
   %buf = alloca [128 x i8], align 16
@@ -4690,7 +4690,7 @@ for.end:                                          ; preds = %for.inc, %do.end15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @serverLogObjectDebugInfo(ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define dso_local void @serverLogObjectDebugInfo(ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3696), align 8
   %cmp = icmp sgt i32 %0, 3
@@ -4724,7 +4724,7 @@ do.end12:                                         ; preds = %entry, %do.body1, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_serverAssertPrintObject(ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define dso_local void @_serverAssertPrintObject(ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @bug_report_start_mutex) #22
   %.b.i = load i1, ptr @bug_report_start, align 4
@@ -4778,7 +4778,7 @@ serverLogObjectDebugInfo.exit:                    ; preds = %bugReportStart.exit
 declare void @llvm.va_start.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #14
@@ -4825,7 +4825,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logRegisters(ptr nocapture noundef readonly %uc) local_unnamed_addr #0 {
+define dso_local void @logRegisters(ptr noundef readonly captures(none) %uc) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3696), align 8
   %cmp = icmp sgt i32 %0, 3
@@ -4926,7 +4926,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #16
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @closeDirectLogFiledes(i32 noundef %fd) local_unnamed_addr #0 {
@@ -4947,7 +4947,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #16
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
 declare void @backtrace_symbols_fd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
@@ -5381,8 +5381,8 @@ if.end28:                                         ; preds = %if.end24
   br i1 %tobool30.not, label %while.cond.backedge, label %if.end32
 
 if.end32:                                         ; preds = %if.end28
-  %call33 = call i64 @strtoul(ptr nocapture noundef nonnull %line, ptr noundef null, i32 noundef 16) #22
-  %call34 = call i64 @strtoul(ptr nocapture noundef nonnull %incdec.ptr, ptr noundef null, i32 noundef 16) #22
+  %call33 = call i64 @strtoul(ptr noundef nonnull captures(none) %line, ptr noundef null, i32 noundef 16) #22
+  %call34 = call i64 @strtoul(ptr noundef nonnull captures(none) %incdec.ptr, ptr noundef null, i32 noundef 16) #22
   %sub = sub i64 %call34, %call33
   %arrayidx = getelementptr inbounds nuw [128 x i64], ptr %start_vect, i64 0, i64 %indvars.iv
   store i64 %call33, ptr %arrayidx, align 8
@@ -5437,24 +5437,24 @@ return:                                           ; preds = %if.then.i35, %for.e
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #13
 
 declare i32 @memtest_preserving_test(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @killThreads() local_unnamed_addr #0 {
@@ -5589,7 +5589,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare i32 @dladdr(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @dumpCodeAroundEIP(ptr noundef %eip) local_unnamed_addr #0 {
@@ -5761,7 +5761,7 @@ if.end16:                                         ; preds = %do.end, %dumpX86Cal
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @serverLogHexDump(i32 noundef %level, ptr noundef %descr, ptr nocapture noundef readonly %value, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @serverLogHexDump(i32 noundef %level, ptr noundef %descr, ptr noundef readonly captures(none) %value, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %buf = alloca [65 x i8], align 16
   %and = and i32 %level, 255
@@ -5904,7 +5904,7 @@ if.end11:                                         ; preds = %if.then5, %if.end
 declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sigalrmSignalHandler(i32 %sig, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %secret) #0 {
+define dso_local void @sigalrmSignalHandler(i32 %sig, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %secret) #0 {
 entry:
   %_sifields = getelementptr inbounds nuw i8, ptr %info, i64 16
   %0 = load i32, ptr %_sifields, align 8
@@ -5932,7 +5932,7 @@ declare i32 @pthread_mutexattr_settype(ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal void @sigsegvHandler(i32 noundef %sig, ptr nocapture noundef readonly %info, ptr nocapture noundef %secret) #0 {
+define internal void @sigsegvHandler(i32 noundef %sig, ptr noundef readonly captures(none) %info, ptr noundef captures(none) %secret) #0 {
 entry:
   %act.i30 = alloca %struct.sigaction, align 8
   %act.i = alloca %struct.sigaction, align 8
@@ -6123,10 +6123,10 @@ return:                                           ; preds = %bugReportEnd.exit44
 declare void @serverLogRawFromHandler(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: noreturn
 declare void @_exit(i32 noundef) local_unnamed_addr #18
@@ -6156,7 +6156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i32 @setitimer(i32 noundef, ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @setitimer(i32 noundef, ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define dso_local void @applyWatchdogPeriod() local_unnamed_addr #19 {
@@ -6239,7 +6239,7 @@ declare i32 @rand() local_unnamed_addr #8
 declare i32 @usleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 declare i32 @ThreadsManager_runOnThreads(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6293,10 +6293,10 @@ declare i32 @anetPipe(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr 
 declare i64 @llvm.smin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20

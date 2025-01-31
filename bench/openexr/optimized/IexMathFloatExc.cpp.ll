@@ -133,7 +133,7 @@ entry:
 declare noundef i32 @_ZN7Iex_3_212fpExceptionsEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_29MathExcOnC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 1), (4, 8)) %this, i32 noundef %when) unnamed_addr #0 align 2 {
+define void @_ZN7Iex_3_29MathExcOnC2Ei(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 1), (4, 8)) %this, i32 noundef %when) unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 4
   %call.i = tail call noundef i32 @_ZN7Iex_3_212fpExceptionsEv()
@@ -153,7 +153,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_29MathExcOnD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_29MathExcOnD2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 4
   %tobool = trunc i8 %0 to i1
@@ -195,7 +195,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_29MathExcOn27handleOutstandingExceptionsEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN7Iex_3_29MathExcOn27handleOutstandingExceptionsEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN7Iex_3_230handleExceptionsSetInRegistersEv()
   ret void

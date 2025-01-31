@@ -736,7 +736,7 @@ read_encint.exit:                                 ; preds = %42, %46
   %53 = phi ptr [ %47, %46 ], [ %scevgep, %42 ]
   %.014.i = phi i32 [ %52, %46 ], [ %.01319.i, %42 ]
   store ptr %53, ptr %6, align 8
-  %54 = tail call fastcc ptr @read_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %18, i32 noundef %.014.i)
+  %54 = tail call fastcc ptr @read_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %.014.i)
   %.not84 = icmp eq ptr %54, null
   br i1 %.not84, label %._crit_edge, label %32
 
@@ -1765,10 +1765,10 @@ chmd_read_headers.exit:                           ; preds = %354, %192
 declare i32 @mspack_sys_filelen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_chunk(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @read_chunk(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -1908,7 +1908,7 @@ define internal fastcc ptr @read_chunk(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.136.val, ptr noundef nonnull %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.136.val, ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #4 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -2027,7 +2027,7 @@ read_encint.exit:                                 ; preds = %63, %66
   br i1 %77, label %read_encint.exit.thread, label %78
 
 78:                                               ; preds = %read_encint.exit
-  %79 = tail call fastcc i32 @compare(ptr noundef %1, ptr noundef nonnull %.114, i32 noundef %6, i32 noundef %73)
+  %79 = tail call fastcc i32 @compare(ptr noundef nonnull %1, ptr noundef nonnull %.114, i32 noundef %6, i32 noundef %73)
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %89, label %81
 
@@ -2129,7 +2129,7 @@ read_encint.exit140.us:                           ; preds = %112, %109
   br i1 %123, label %read_encint.exit.thread, label %124
 
 124:                                              ; preds = %read_encint.exit140.us
-  %125 = tail call fastcc i32 @compare(ptr noundef %1, ptr noundef %.5.us, i32 noundef %6, i32 noundef %119)
+  %125 = tail call fastcc i32 @compare(ptr noundef nonnull %1, ptr noundef %.5.us, i32 noundef %6, i32 noundef %119)
   %126 = and i64 %.014.i138.us, 4294967295
   %127 = getelementptr inbounds nuw i8, ptr %.5.us, i64 %126
   %128 = icmp eq i32 %125, 0
@@ -2226,7 +2226,7 @@ read_encint.exit140:                              ; preds = %146, %149
   br i1 %160, label %read_encint.exit.thread, label %161
 
 161:                                              ; preds = %read_encint.exit140
-  %162 = tail call fastcc i32 @compare(ptr noundef %1, ptr noundef %.5, i32 noundef %6, i32 noundef %156)
+  %162 = tail call fastcc i32 @compare(ptr noundef nonnull %1, ptr noundef %.5, i32 noundef %6, i32 noundef %156)
   %163 = and i64 %.014.i138, 4294967295
   %164 = getelementptr inbounds nuw i8, ptr %.5, i64 %163
   %165 = icmp eq i32 %162, 0
@@ -2279,7 +2279,7 @@ read_encint.exit.thread:                          ; preds = %read_encint.exit, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
 define internal fastcc i32 @compare(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
@@ -2495,10 +2495,10 @@ define internal fastcc i32 @compare(ptr noundef readonly %0, ptr noundef readonl
 declare i32 @tolower(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @chmd_sys_write(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal i32 @chmd_sys_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -2526,7 +2526,7 @@ define internal i32 @chmd_sys_write(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @chmd_init_decomp(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @chmd_init_decomp(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.mschmd_file, align 8
   %4 = alloca %struct.mschmd_file, align 8
   %5 = alloca i64, align 8
@@ -2930,7 +2930,7 @@ read_sys_file.exit:                               ; preds = %103
 declare i32 @lzxd_decompress(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @read_reset_table(ptr noundef nonnull %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_reset_table(ptr noundef nonnull %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.mschmd_file, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
@@ -3145,7 +3145,7 @@ read_sys_file.exit.thread:                        ; preds = %51, %79, %68, %44, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_spaninfo(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i32 @read_spaninfo(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.mschmd_file, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -3310,16 +3310,16 @@ read_sys_file.exit:                               ; preds = %74
 declare ptr @lzxd_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10

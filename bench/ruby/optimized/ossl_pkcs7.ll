@@ -2252,10 +2252,10 @@ declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 
@@ -2284,7 +2284,7 @@ declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #1
 declare ptr @PKCS7_get_signer_info(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i64 @rb_ary_new() local_unnamed_addr #1
 
@@ -2321,7 +2321,7 @@ declare ptr @OPENSSL_sk_pop(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_block_call(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_pkcs7_set_certs_i(i64 noundef %0, i64 noundef returned %1, i32 %2, ptr nocapture readnone %3, i64 %4) #0 {
+define internal noundef i64 @ossl_pkcs7_set_certs_i(i64 noundef %0, i64 noundef returned %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #0 {
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_pkcs7_type) #7
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %9
@@ -2355,7 +2355,7 @@ declare i32 @PKCS7_add_crl(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_pkcs7_set_crls_i(i64 noundef %0, i64 noundef returned %1, i32 %2, ptr nocapture readnone %3, i64 %4) #0 {
+define internal noundef i64 @ossl_pkcs7_set_crls_i(i64 noundef %0, i64 noundef returned %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #0 {
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_pkcs7_type) #7
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %9
@@ -2431,13 +2431,13 @@ declare i32 @PKCS7_RECIP_INFO_set(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i64 @asn1str_to_str(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

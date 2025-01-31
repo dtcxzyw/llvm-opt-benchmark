@@ -107,7 +107,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -166,10 +166,10 @@ invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !11
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -370,7 +370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, i32 noundef %from_offset, i32 noundef %field_size) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this, i32 noundef %from_offset, i32 noundef %field_size) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -542,7 +542,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #6 align 2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13NetworkPacket12putRawPacketEPKhjt(ptr noundef nonnull align 8 dereferenceable(36) initializes((24, 28), (34, 36)) %this, ptr nocapture noundef readonly %data, i32 noundef %datasize, i16 noundef zeroext %peer_id) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN13NetworkPacket12putRawPacketEPKhjt(ptr noundef nonnull align 8 dereferenceable(36) initializes((24, 28), (34, 36)) %this, ptr noundef readonly captures(none) %data, i32 noundef %datasize, i16 noundef zeroext %peer_id) local_unnamed_addr #4 align 2 {
 entry:
   %sub = add i32 %datasize, -2
   %m_datasize = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -679,10 +679,10 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN13NetworkPacket5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((24, 36)) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13NetworkPacket5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) initializes((24, 36)) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !27
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -701,7 +701,7 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %invoke.cont.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK13NetworkPacket9getStringEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, i32 noundef %from_offset) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZNK13NetworkPacket9getStringEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this, i32 noundef %from_offset) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %from_offset, i32 noundef 0)
   %conv = zext i32 %from_offset to i64
@@ -711,7 +711,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13NetworkPacket12putRawStringEPKcj(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef readonly %src, i32 noundef %len) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN13NetworkPacket12putRawStringEPKcj(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef readonly captures(none) %src, i32 noundef %len) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
@@ -801,7 +801,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i64 %src.coerce0, ptr nocapture readonly %src.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i64 %src.coerce0, ptr readonly captures(none) %src.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -949,7 +949,7 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13NetworkPacket13putLongStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(36) %this, i64 %src.coerce0, ptr nocapture readonly %src.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13NetworkPacket13putLongStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(36) %this, i64 %src.coerce0, ptr readonly captures(none) %src.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -1207,7 +1207,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsESt17basic_string_viewIwSt11char_traitsIwEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i64 %src.coerce0, ptr nocapture readonly %src.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsESt17basic_string_viewIwSt11char_traitsIwEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i64 %src.coerce0, ptr readonly captures(none) %src.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -1461,7 +1461,7 @@ unreachable:                                      ; preds = %invoke.cont51, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13NetworkPacket14readLongStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13NetworkPacket14readLongStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator", align 1
@@ -1602,7 +1602,7 @@ unreachable:                                      ; preds = %invoke.cont10
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERc(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERc(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1859,7 +1859,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERb(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERb(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1878,7 +1878,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERh(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERh(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1896,7 +1896,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i8 @_ZN13NetworkPacket5getU8Ej(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, i32 noundef %offset) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i8 @_ZN13NetworkPacket5getU8Ej(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this, i32 noundef %offset) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %offset, i32 noundef 1)
   %conv = zext i32 %offset to i64
@@ -1907,7 +1907,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN13NetworkPacket8getU8PtrEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, i32 noundef %from_offset) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZN13NetworkPacket8getU8PtrEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this, i32 noundef %from_offset) local_unnamed_addr #4 align 2 {
 entry:
   %m_datasize = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %m_datasize, align 8, !tbaa !15
@@ -1927,7 +1927,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERt(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERt(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1945,7 +1945,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i16 @_ZN13NetworkPacket6getU16Ej(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, i32 noundef %from_offset) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i16 @_ZN13NetworkPacket6getU16Ej(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this, i32 noundef %from_offset) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %from_offset, i32 noundef 2)
   %conv = zext i32 %from_offset to i64
@@ -1957,7 +1957,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERj(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERj(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1976,7 +1976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERm(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERm(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1994,7 +1994,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERf(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERf(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2100,7 +2100,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector2dIfEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %dst) local_unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector2dIfEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %dst) local_unnamed_addr #11 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2122,7 +2122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIfEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %dst) local_unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIfEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %dst) local_unnamed_addr #11 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2148,7 +2148,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERs(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERs(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2197,7 +2197,7 @@ _ZN13NetworkPacketlsEt.exit:                      ; preds = %if.then.i.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERi(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERi(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2247,7 +2247,7 @@ _ZN13NetworkPacketlsEj.exit:                      ; preds = %if.then.i.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIsEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(6) initializes((0, 6)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIsEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(6) initializes((0, 6)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2279,7 +2279,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector2dIiEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector2dIiEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2304,7 +2304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIiEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIiEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2675,7 +2675,7 @@ _ZN13NetworkPacketlsEi.exit27:                    ; preds = %if.then.i.i.i24, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr5video6SColorE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr5video6SColorE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2725,7 +2725,7 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13NetworkPacket14oldForgePacketEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Buffer) align 8 initializes((0, 12)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13NetworkPacket14oldForgePacketEv(ptr dead_on_unwind noalias writable writeonly sret(%class.Buffer) align 8 captures(none) initializes((0, 12)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_command = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i16, ptr %m_command, align 8, !tbaa !26
@@ -2976,20 +2976,20 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_mutateEmmPKwm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 

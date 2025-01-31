@@ -97,7 +97,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_759ScriptRun4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(1064) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_759ScriptRun4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1064) %this) local_unnamed_addr #2 align 2 {
 entry:
   %error = alloca i32, align 4
   %parenSP = getelementptr inbounds nuw i8, ptr %this, i64 1060

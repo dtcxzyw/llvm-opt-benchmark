@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @mmbit_maxlevel_direct_lut = external local_unnamed_addr constant [32 x i8], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @repeatLastTopRing(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl) local_unnamed_addr #0 {
+define hidden i64 @repeatLastTopRing(ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %ctrl) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %info, i64 8
   %info.val = load i32, ptr %0, align 4
@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @repeatLastTopRange(ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state) local_unnamed_addr #0 {
+define hidden i64 @repeatLastTopRange(ptr noundef readonly captures(none) %ctrl, ptr noundef readonly captures(none) %state) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %ctrl, align 8
   %num = getelementptr inbounds nuw i8, ptr %ctrl, i64 8
@@ -47,7 +47,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @repeatLastTopBitmap(ptr nocapture noundef readonly %ctrl) local_unnamed_addr #0 {
+define hidden i64 @repeatLastTopBitmap(ptr noundef readonly captures(none) %ctrl) local_unnamed_addr #0 {
 entry:
   %bitmap = getelementptr inbounds nuw i8, ptr %ctrl, i64 8
   %0 = load i64, ptr %bitmap, align 8
@@ -67,7 +67,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @repeatLastTopTrailer(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl) local_unnamed_addr #0 {
+define hidden i64 @repeatLastTopTrailer(ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %ctrl) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %ctrl, align 8
   %repeatMin = getelementptr inbounds nuw i8, ptr %info, i64 4
@@ -78,7 +78,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @repeatNextMatchRing(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state, i64 noundef %offset) local_unnamed_addr #1 {
+define hidden i64 @repeatNextMatchRing(ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %ctrl, ptr noundef readonly captures(none) %state, i64 noundef %offset) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %info, i64 8
   %info.val = load i32, ptr %0, align 4
@@ -724,7 +724,7 @@ return:                                           ; preds = %if.else.i280, %for.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @repeatNextMatchRange(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state, i64 noundef %offset) local_unnamed_addr #1 {
+define hidden i64 @repeatNextMatchRange(ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %ctrl, ptr noundef readonly captures(none) %state, i64 noundef %offset) local_unnamed_addr #1 {
 entry:
   %num = getelementptr inbounds nuw i8, ptr %ctrl, i64 8
   %0 = load i8, ptr %num, align 8
@@ -773,7 +773,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define hidden i64 @repeatNextMatchBitmap(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #2 {
+define hidden i64 @repeatNextMatchBitmap(ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %ctrl, i64 noundef %offset) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %ctrl, align 8
   %bitmap2 = getelementptr inbounds nuw i8, ptr %ctrl, i64 8
@@ -816,7 +816,7 @@ return:                                           ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @repeatNextMatchTrailer(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #0 {
+define hidden i64 @repeatNextMatchTrailer(ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %ctrl, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %repeatMax = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load i32, ptr %repeatMax, align 4
@@ -862,7 +862,7 @@ return:                                           ; preds = %if.end14, %entry, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @repeatStoreRing(ptr nocapture noundef readonly %info, ptr nocapture noundef %ctrl, ptr nocapture noundef %state, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #3 {
+define hidden void @repeatStoreRing(ptr noundef readonly captures(none) %info, ptr noundef captures(none) %ctrl, ptr noundef captures(none) %state, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #3 {
 entry:
   %0 = getelementptr i8, ptr %info, i64 8
   %info.val = load i32, ptr %0, align 4
@@ -1811,7 +1811,7 @@ if.end63:                                         ; preds = %mmbit_set_i.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @repeatStoreRange(ptr nocapture noundef readonly %info, ptr nocapture noundef %ctrl, ptr nocapture noundef %state, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #3 {
+define hidden void @repeatStoreRange(ptr noundef readonly captures(none) %info, ptr noundef captures(none) %ctrl, ptr noundef captures(none) %state, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq i8 %is_alive, 0
   br i1 %tobool.not, label %do.end, label %for.cond.preheader
@@ -1948,7 +1948,7 @@ done:                                             ; preds = %append, %if.then79,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @repeatStoreBitmap(ptr nocapture noundef readonly %info, ptr nocapture noundef %ctrl, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #4 {
+define hidden void @repeatStoreBitmap(ptr noundef readonly captures(none) %info, ptr noundef captures(none) %ctrl, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i8 %is_alive, 0
   br i1 %tobool.not, label %do.end3, label %lor.lhs.false
@@ -2012,7 +2012,7 @@ return:                                           ; preds = %if.end38, %do.end13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @repeatStoreTrailer(ptr nocapture noundef readonly %info, ptr nocapture noundef %ctrl, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #4 {
+define hidden void @repeatStoreTrailer(ptr noundef readonly captures(none) %info, ptr noundef captures(none) %ctrl, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #4 {
 entry:
   %repeatMin = getelementptr inbounds nuw i8, ptr %info, i64 4
   %0 = load i32, ptr %repeatMin, align 4
@@ -2102,7 +2102,7 @@ if.end46:                                         ; preds = %if.then40, %do.end3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state, i64 noundef %offset) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %ctrl, ptr noundef readonly captures(none) %state, i64 noundef %offset) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %info, i64 8
   %info.val = load i32, ptr %0, align 4
@@ -2754,7 +2754,7 @@ return:                                           ; preds = %for.body.i109.i, %i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @repeatHasMatchRange(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state, i64 noundef %offset) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @repeatHasMatchRange(ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %ctrl, ptr noundef readonly captures(none) %state, i64 noundef %offset) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %ctrl, align 8
   %sub = sub i64 %offset, %0
@@ -2817,7 +2817,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @repeatHasMatchBitmap(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @repeatHasMatchBitmap(ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %ctrl, i64 noundef %offset) local_unnamed_addr #2 {
 entry:
   %bitmap1 = getelementptr inbounds nuw i8, ptr %ctrl, i64 8
   %0 = load i64, ptr %bitmap1, align 8
@@ -2872,7 +2872,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @repeatHasMatchTrailer(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @repeatHasMatchTrailer(ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %ctrl, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %repeatMax = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load i32, ptr %repeatMax, align 4
@@ -2915,7 +2915,7 @@ return:                                           ; preds = %if.then18, %if.end,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @repeatPack(ptr noundef writeonly %dest, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #3 {
+define hidden void @repeatPack(ptr noundef writeonly %dest, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %ctrl, i64 noundef %offset) local_unnamed_addr #3 {
 entry:
   %v.i.sroa.0 = alloca i64, align 16
   %v.i.sroa.4 = alloca i64, align 8
@@ -3534,7 +3534,7 @@ sw.epilog:                                        ; preds = %if.else.i98, %if.th
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @repeatUnpack(ptr noundef readonly %src, ptr nocapture noundef readonly %info, i64 noundef %offset, ptr nocapture noundef writeonly %ctrl) local_unnamed_addr #3 {
+define hidden void @repeatUnpack(ptr noundef readonly %src, ptr noundef readonly captures(none) %info, i64 noundef %offset, ptr noundef writeonly captures(none) %ctrl) local_unnamed_addr #3 {
 entry:
   %v.i.sroa.0 = alloca i64, align 16
   %v.i.sroa.4 = alloca i64, align 8
@@ -4141,14 +4141,14 @@ sw.epilog:                                        ; preds = %repeatUnpackTrailer
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @repeatLastTopSparseOptimalP(ptr noundef readonly %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state) local_unnamed_addr #5 {
+define hidden i64 @repeatLastTopSparseOptimalP(ptr noundef readonly %info, ptr noundef readonly captures(none) %ctrl, ptr noundef readonly captures(none) %state) local_unnamed_addr #5 {
 entry:
   %call = tail call fastcc i64 @sparseLastTop(ptr noundef %info, ptr noundef %ctrl, ptr noundef %state)
   ret i64 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @sparseLastTop(ptr noundef %info, ptr nocapture noundef readonly %xs, ptr nocapture noundef readonly %state) unnamed_addr #5 {
+define internal fastcc i64 @sparseLastTop(ptr noundef %info, ptr noundef readonly captures(none) %xs, ptr noundef readonly captures(none) %state) unnamed_addr #5 {
 entry:
   %patchSize = getelementptr inbounds nuw i8, ptr %info, i64 40
   %0 = load i32, ptr %patchSize, align 4
@@ -4292,7 +4292,7 @@ return:                                           ; preds = %for.cond, %do.end18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @repeatNextMatchSparseOptimalP(ptr noundef %info, ptr nocapture noundef readonly %ctrl, ptr noundef readonly %state, i64 noundef %offset) local_unnamed_addr #5 {
+define hidden i64 @repeatNextMatchSparseOptimalP(ptr noundef %info, ptr noundef readonly captures(none) %ctrl, ptr noundef readonly %state, i64 noundef %offset) local_unnamed_addr #5 {
 entry:
   %add = add i64 %offset, 1
   %patchSize = getelementptr inbounds nuw i8, ptr %info, i64 40
@@ -5820,7 +5820,7 @@ return:                                           ; preds = %if.else.i676, %for.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @repeatStoreSparseOptimalP(ptr noundef %info, ptr nocapture noundef %ctrl, ptr noundef %state, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #6 {
+define hidden void @repeatStoreSparseOptimalP(ptr noundef %info, ptr noundef captures(none) %ctrl, ptr noundef %state, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i8 %is_alive, 0
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -7863,7 +7863,7 @@ return:                                           ; preds = %if.end.i2624, %whil
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 3) i32 @repeatHasMatchSparseOptimalP(ptr noundef %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state, i64 noundef %offset) local_unnamed_addr #5 {
+define hidden range(i32 0, 3) i32 @repeatHasMatchSparseOptimalP(ptr noundef %info, ptr noundef readonly captures(none) %ctrl, ptr noundef readonly captures(none) %state, i64 noundef %offset) local_unnamed_addr #5 {
 entry:
   %0 = load i64, ptr %ctrl, align 8
   %repeatMin = getelementptr inbounds nuw i8, ptr %info, i64 4
@@ -7952,7 +7952,7 @@ return:                                           ; preds = %if.then82, %if.end4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc signext range(i8 0, 2) i8 @sparseHasMatch(ptr noundef %info, ptr nocapture noundef readonly %state, i32 noundef %lower, i32 noundef %upper) unnamed_addr #5 {
+define internal fastcc signext range(i8 0, 2) i8 @sparseHasMatch(ptr noundef %info, ptr noundef readonly captures(none) %state, i32 noundef %lower, i32 noundef %upper) unnamed_addr #5 {
 entry:
   %patchSize = getelementptr inbounds nuw i8, ptr %info, i64 40
   %0 = load i32, ptr %patchSize, align 4
@@ -8659,7 +8659,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
@@ -8677,10 +8677,10 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

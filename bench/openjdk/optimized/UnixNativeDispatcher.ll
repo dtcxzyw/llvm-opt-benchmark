@@ -96,7 +96,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [5 x i8] c"(I)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -420,7 +420,7 @@ define internal i32 @fstatat_wrapper(i32 noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getcwd(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getcwd(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [4097 x i8], align 16
   %4 = call ptr @getcwd(ptr noundef nonnull %3, i64 noundef 4097) #11
   %5 = icmp eq ptr %4, null
@@ -469,10 +469,10 @@ declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_fs_UnixNativeDispatcher_strerror(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_nio_fs_UnixNativeDispatcher_strerror(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = tail call ptr @__errno_location() #12
   %6 = load i32, ptr %5, align 4
@@ -500,7 +500,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_strerror(ptr noundef %0, ptr no
 declare i32 @getErrorString(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_fs_UnixNativeDispatcher_dup(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_fs_UnixNativeDispatcher_dup(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %7, %3
@@ -534,7 +534,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_dup(ptr noundef %0, ptr nocaptu
 declare i32 @dup(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_rewind(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_rewind(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call ptr @__errno_location() #12
   store i32 0, ptr %5, align 4
@@ -561,13 +561,13 @@ throwUnixException.exit:                          ; preds = %10, %7, %3
 }
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr nocapture noundef) local_unnamed_addr #5
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_fs_UnixNativeDispatcher_getlinelen(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_fs_UnixNativeDispatcher_getlinelen(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = inttoptr i64 %2 to ptr
@@ -627,13 +627,13 @@ throwUnixException.exit12:                        ; preds = %throwUnixException.
 declare i64 @getline(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_open0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_open0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   br label %7
 
@@ -665,10 +665,10 @@ define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_open0(ptr noundef %0, p
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #8
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_fs_UnixNativeDispatcher_openat0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_fs_UnixNativeDispatcher_openat0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %3 to ptr
   %8 = load ptr, ptr @my_openat_func, align 8
   %9 = icmp eq ptr %8, null
@@ -710,7 +710,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_openat0(ptr noundef %0, ptr noc
 declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_close0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_close0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @close(i32 noundef %2) #11
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %throwUnixException.exit
@@ -740,7 +740,7 @@ throwUnixException.exit:                          ; preds = %11, %9, %6, %3
 declare i32 @close(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_read0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_read0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %3 to ptr
   %7 = sext i32 %4 to i64
   br label %8
@@ -778,10 +778,10 @@ define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_read0(ptr noundef %0, p
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_write0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_write0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %3 to ptr
   %7 = sext i32 %4 to i64
   br label %8
@@ -819,10 +819,10 @@ define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_write0(ptr noundef %0, 
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_fs_UnixNativeDispatcher_stat0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_fs_UnixNativeDispatcher_stat0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca %struct.my_statx, align 8
   %7 = inttoptr i64 %2 to ptr
@@ -889,7 +889,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_stat0(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_statx_attributes(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 872
   %6 = load ptr, ptr %5, align 8
@@ -1017,10 +1017,10 @@ define internal fastcc void @copy_statx_attributes(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_stat_attributes(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @copy_stat_attributes(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 872
   %6 = load ptr, ptr %5, align 8
@@ -1123,7 +1123,7 @@ define internal fastcc void @copy_stat_attributes(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_lstat0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_lstat0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca %struct.my_statx, align 8
   %7 = inttoptr i64 %2 to ptr
@@ -1199,10 +1199,10 @@ throwUnixException.exit:                          ; preds = %30, %.critedge2, %1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @lstat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_fstat0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_fstat0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca %struct.my_statx, align 8
   %7 = load ptr, ptr @my_statx_func, align 8
@@ -1277,10 +1277,10 @@ throwUnixException.exit:                          ; preds = %29, %.critedge2, %1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_fstatat0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_fstatat0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca %struct.my_statx, align 8
   %9 = inttoptr i64 %3 to ptr
@@ -1370,7 +1370,7 @@ throwUnixException.exit:                          ; preds = %40, %.critedge2, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_chmod0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_chmod0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   br label %6
 
@@ -1402,10 +1402,10 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_chmod0(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_fchmod0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_fchmod0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %8, %4
@@ -1439,7 +1439,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fchmod0(ptr noundef %0, ptr no
 declare i32 @fchmod(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_chown0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_chown0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   br label %7
 
@@ -1471,10 +1471,10 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_chown0(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_lchown0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_lchown0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   br label %7
 
@@ -1506,10 +1506,10 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lchown0(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lchown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @lchown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_fchown0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_fchown0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %9, %5
@@ -1543,7 +1543,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fchown0(ptr noundef %0, ptr no
 declare i32 @fchown(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_utimes0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_utimes0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [2 x %struct.timeval], align 16
   %7 = inttoptr i64 %2 to ptr
   %8 = sdiv i64 %3, 1000000
@@ -1587,10 +1587,10 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_utimes0(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @utimes(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @utimes(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_futimes0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_futimes0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [2 x %struct.timeval], align 16
   %7 = sdiv i64 %3, 1000000
   store i64 %7, ptr %6, align 16
@@ -1640,7 +1640,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_futimes0(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_futimens0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_futimens0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [2 x %struct.timespec], align 16
   %7 = sdiv i64 %3, 1000000000
   store i64 %7, ptr %6, align 16
@@ -1690,7 +1690,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_futimens0(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_lutimes0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_lutimes0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [2 x %struct.timeval], align 16
   %7 = inttoptr i64 %2 to ptr
   %8 = sdiv i64 %3, 1000000
@@ -1741,7 +1741,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lutimes0(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @Java_sun_nio_fs_UnixNativeDispatcher_opendir0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef i64 @Java_sun_nio_fs_UnixNativeDispatcher_opendir0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call ptr @opendir(ptr noundef %4)
   %6 = icmp eq ptr %5, null
@@ -1767,10 +1767,10 @@ throwUnixException.exit:                          ; preds = %11, %7, %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_nio_fs_UnixNativeDispatcher_fdopendir(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_nio_fs_UnixNativeDispatcher_fdopendir(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @my_fdopendir_func, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -1808,7 +1808,7 @@ throwUnixException.exit:                          ; preds = %14, %10, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_closedir(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_closedir(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @closedir(ptr noundef %4)
   %6 = icmp eq i32 %5, -1
@@ -1837,10 +1837,10 @@ throwUnixException.exit:                          ; preds = %12, %10, %7, %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readdir0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readdir0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call ptr @__errno_location() #12
   store i32 0, ptr %5, align 4
@@ -1891,7 +1891,7 @@ throwUnixException.exit:                          ; preds = %12, %10, %17, %25, 
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_mkdir0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_mkdir0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @mkdir(ptr noundef %5, i32 noundef %3) #11
   %7 = icmp eq i32 %6, -1
@@ -1916,10 +1916,10 @@ throwUnixException.exit:                          ; preds = %12, %8, %4
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_rmdir0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_rmdir0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @rmdir(ptr noundef %4) #11
   %6 = icmp eq i32 %5, -1
@@ -1944,10 +1944,10 @@ throwUnixException.exit:                          ; preds = %11, %7, %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_link0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_link0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = inttoptr i64 %3 to ptr
   br label %7
@@ -1983,7 +1983,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_link0(ptr noundef %0, ptr noca
 declare i32 @link(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_unlink0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_unlink0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @unlink(ptr noundef %4) #11
   %6 = icmp eq i32 %5, -1
@@ -2008,10 +2008,10 @@ throwUnixException.exit:                          ; preds = %11, %7, %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_unlinkat0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_unlinkat0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @my_unlinkat_func, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -2045,7 +2045,7 @@ throwUnixException.exit:                          ; preds = %17, %13, %9, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_rename0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_rename0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = inttoptr i64 %3 to ptr
   %7 = tail call i32 @rename(ptr noundef %5, ptr noundef %6) #11
@@ -2071,10 +2071,10 @@ throwUnixException.exit:                          ; preds = %13, %9, %4
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_renameat0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_renameat0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr @my_renameat_func, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -2109,7 +2109,7 @@ throwUnixException.exit:                          ; preds = %19, %15, %10, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_symlink0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_symlink0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = inttoptr i64 %3 to ptr
   %7 = tail call i32 @symlink(ptr noundef %5, ptr noundef %6) #11
@@ -2138,7 +2138,7 @@ throwUnixException.exit:                          ; preds = %13, %9, %4
 declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readlink0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readlink0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4097 x i8], align 16
   %5 = inttoptr i64 %2 to ptr
   %6 = call i64 @readlink(ptr noundef %5, ptr noundef nonnull %4, i64 noundef 4097) #11
@@ -2203,10 +2203,10 @@ throwUnixException.exit:                          ; preds = %22, %20, %13, %9, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_fs_UnixNativeDispatcher_realpath0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_nio_fs_UnixNativeDispatcher_realpath0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4097 x i8], align 16
   %5 = inttoptr i64 %2 to ptr
   %6 = call ptr @realpath(ptr noundef %5, ptr noundef nonnull %4) #11
@@ -2250,10 +2250,10 @@ throwUnixException.exit:                          ; preds = %12, %8, %17, %24
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 5, 4) i32 @Java_sun_nio_fs_UnixNativeDispatcher_access0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
+define range(i32 5, 4) i32 @Java_sun_nio_fs_UnixNativeDispatcher_access0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = inttoptr i64 %2 to ptr
   br label %6
 
@@ -2274,10 +2274,10 @@ define range(i32 5, 4) i32 @Java_sun_nio_fs_UnixNativeDispatcher_access0(ptr noc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_statvfs0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_statvfs0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.statvfs, align 8
   %6 = inttoptr i64 %2 to ptr
   br label %7
@@ -2341,10 +2341,10 @@ throwUnixException.exit:                          ; preds = %15, %.critedge, %.c
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @statvfs64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @statvfs64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_mknod0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_mknod0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   br label %7
 
@@ -2379,7 +2379,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_mknod0(ptr noundef %0, ptr noc
 declare i32 @mknod(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getpwuid(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getpwuid(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.passwd, align 8
   %5 = alloca ptr, align 8
   %6 = tail call i64 @sysconf(i32 noundef 70) #11
@@ -2495,7 +2495,7 @@ declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @getpwuid_r(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getgrgid(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getgrgid(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.group, align 8
   %5 = alloca ptr, align 8
   %6 = tail call i64 @sysconf(i32 noundef 69) #11
@@ -2618,7 +2618,7 @@ throwUnixException.exit:                          ; preds = %.critedge.thread
 declare i32 @getgrgid_r(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_fs_UnixNativeDispatcher_getpwnam0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_fs_UnixNativeDispatcher_getpwnam0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.passwd, align 8
   %5 = alloca ptr, align 8
   %6 = tail call i64 @sysconf(i32 noundef 70) #11
@@ -2714,7 +2714,7 @@ throwUnixException.exit:                          ; preds = %switch.hole_check, 
 declare i32 @getpwnam_r(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_fs_UnixNativeDispatcher_getgrnam0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_fs_UnixNativeDispatcher_getgrnam0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.group, align 8
   %5 = alloca ptr, align 8
   %6 = tail call i64 @sysconf(i32 noundef 69) #11
@@ -2823,7 +2823,7 @@ throwUnixException.exit:                          ; preds = %.critedge.thread
 declare i32 @getgrnam_r(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_fs_UnixNativeDispatcher_fgetxattr0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_fs_UnixNativeDispatcher_fgetxattr0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %3 to ptr
   %8 = inttoptr i64 %4 to ptr
   %9 = sext i32 %5 to i64
@@ -2854,7 +2854,7 @@ throwUnixException.exit:                          ; preds = %16, %12, %6
 declare i64 @fgetxattr(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_fsetxattr0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_fsetxattr0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %3 to ptr
   %8 = inttoptr i64 %4 to ptr
   %9 = sext i32 %5 to i64
@@ -2884,7 +2884,7 @@ throwUnixException.exit:                          ; preds = %16, %12, %6
 declare i32 @fsetxattr(i32 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_UnixNativeDispatcher_fremovexattr0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_UnixNativeDispatcher_fremovexattr0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %3 to ptr
   %6 = tail call i32 @fremovexattr(i32 noundef %2, ptr noundef %5) #11
   %7 = icmp eq i32 %6, -1
@@ -2912,7 +2912,7 @@ throwUnixException.exit:                          ; preds = %12, %8, %4
 declare i32 @fremovexattr(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_fs_UnixNativeDispatcher_flistxattr(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_fs_UnixNativeDispatcher_flistxattr(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %3 to ptr
   %7 = sext i32 %4 to i64
   %8 = tail call i64 @flistxattr(i32 noundef %2, ptr noundef %6, i64 noundef %7) #11

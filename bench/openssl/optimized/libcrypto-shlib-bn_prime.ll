@@ -955,7 +955,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_bn_miller_rabin_is_prime(ptr noundef %w, i32 noundef %iterations, ptr noundef %ctx, ptr noundef %cb, i32 noundef %enhanced, ptr nocapture noundef writeonly %status) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_bn_miller_rabin_is_prime(ptr noundef %w, i32 noundef %iterations, ptr noundef %ctx, ptr noundef %cb, i32 noundef %enhanced, ptr noundef writeonly captures(none) %status) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @BN_is_odd(ptr noundef %w) #4
   %tobool.not = icmp eq i32 %call, 0

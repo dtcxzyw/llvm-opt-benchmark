@@ -361,7 +361,7 @@ arkStep_CheckNVector.exit.thread:                 ; preds = %15, %21, %25, %29, 
 declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @arkStep_CheckNVector(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @arkStep_CheckNVector(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -408,7 +408,7 @@ define range(i32 0, 2) i32 @arkStep_CheckNVector(ptr nocapture noundef readonly 
 declare ptr @arkCreate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -21, 1) i32 @arkStep_AttachLinsol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) #0 {
@@ -646,7 +646,7 @@ arkStep_AccessStepMem.exit.thread:                ; preds = %8, %3, %arkStep_Acc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkStep_GetGammas(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define range(i32 -21, 1) i32 @arkStep_GetGammas(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -1947,7 +1947,7 @@ arkStep_AccessStepMem.exit.thread:                ; preds = %15, %10, %arkStep_A
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @arkStep_TakeStep_Z(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) #0 {
+define i32 @arkStep_TakeStep_Z(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -2938,12 +2938,12 @@ arkStep_AccessStepMem.exit:                       ; preds = %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %.preheader102 ]
   %54 = load ptr, ptr %45, align 8
   %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
-  %56 = call i32 @arkResizeVec(ptr noundef %0, ptr noundef %4, ptr noundef %5, i64 noundef %26, i64 noundef %29, ptr noundef %1, ptr noundef %55) #12
+  %56 = call i32 @arkResizeVec(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i64 noundef %26, i64 noundef %29, ptr noundef nonnull %1, ptr noundef %55) #12
   %.not69 = icmp eq i32 %56, 0
   br i1 %.not69, label %57, label %50
 
 57:                                               ; preds = %.lr.ph
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -20, i32 noundef 301, ptr noundef nonnull @__func__.ARKStepResize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #12
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 301, ptr noundef nonnull @__func__.ARKStepResize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #12
   br label %arkStep_AccessStepMem.exit.thread
 
 .loopexit103:                                     ; preds = %50, %.preheader102, %44
@@ -2969,12 +2969,12 @@ arkStep_AccessStepMem.exit:                       ; preds = %11
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %63 ], [ 0, %.preheader ]
   %67 = load ptr, ptr %58, align 8
   %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv108
-  %69 = call i32 @arkResizeVec(ptr noundef %0, ptr noundef %4, ptr noundef %5, i64 noundef %26, i64 noundef %29, ptr noundef %1, ptr noundef %68) #12
+  %69 = call i32 @arkResizeVec(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i64 noundef %26, i64 noundef %29, ptr noundef nonnull %1, ptr noundef %68) #12
   %.not68 = icmp eq i32 %69, 0
   br i1 %.not68, label %70, label %63
 
 70:                                               ; preds = %.lr.ph106
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -20, i32 noundef 315, ptr noundef nonnull @__func__.ARKStepResize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #12
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 315, ptr noundef nonnull @__func__.ARKStepResize, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #12
   br label %arkStep_AccessStepMem.exit.thread
 
 .loopexit:                                        ; preds = %63, %.preheader, %.loopexit103
@@ -2998,7 +2998,7 @@ arkStep_AccessStepMem.exit:                       ; preds = %11
   store ptr null, ptr %71, align 8
   store i32 0, ptr %74, align 8
   %79 = load ptr, ptr %0, align 8
-  %80 = call ptr @SUNNonlinSol_Newton(ptr noundef %1, ptr noundef %79) #12
+  %80 = call ptr @SUNNonlinSol_Newton(ptr noundef nonnull %1, ptr noundef %79) #12
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %83
 
@@ -3032,7 +3032,7 @@ arkStep_AccessStepMem.exit.thread:                ; preds = %.loopexit, %15, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -3401,7 +3401,7 @@ declare void @ARKodeButcherTable_Free(ptr noundef) local_unnamed_addr #1
 declare void @arkFreeVec(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @arkFree(ptr noundef) local_unnamed_addr #1
 
@@ -3546,7 +3546,7 @@ arkStep_AccessStepMem.exit.thread:                ; preds = %9, %4, %80
 declare void @arkPrintMem(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare void @ARKodeButcherTable_Write(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4059,7 +4059,7 @@ declare i32 @arkStep_NlsInit(ptr noundef) local_unnamed_addr #1
 declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @arkStep_ApplyForcing(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #9 {
+define void @arkStep_ApplyForcing(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #9 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -4755,7 +4755,7 @@ arkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %
 declare i32 @arkStep_Nls(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -28, 5) i32 @arkStep_ComputeSolutions_MassFixed(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -28, 5) i32 @arkStep_ComputeSolutions_MassFixed(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -5027,7 +5027,7 @@ select.unfold:                                    ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -28, 1) i32 @arkStep_ComputeSolutions(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -28, 1) i32 @arkStep_ComputeSolutions(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -5872,7 +5872,7 @@ arkStep_AccessStepMem.exit.thread:                ; preds = %12, %7, %69, %28, %
 declare i32 @ARKStepSetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -6149,7 +6149,7 @@ declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @N_VDotProdMultiAllReduce(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @arkStep_GetOrder(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @arkStep_GetOrder(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -6158,7 +6158,7 @@ define i32 @arkStep_GetOrder(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

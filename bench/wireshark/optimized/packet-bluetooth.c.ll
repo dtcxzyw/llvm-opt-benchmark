@@ -4695,12 +4695,12 @@ declare i32 @have_tap_listener(i32 noundef) local_unnamed_addr #0
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @bluetooth_unit_1p25_ms(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @bluetooth_unit_1p25_ms(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = uitofp i32 %1 to double
   %4 = fmul double %3, 1.250000e+00
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1250, double noundef %4, i32 noundef %1) #9
@@ -4708,10 +4708,10 @@ define hidden void @bluetooth_unit_1p25_ms(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @bluetooth_unit_0p125_ms(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @bluetooth_unit_0p125_ms(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = uitofp i32 %1 to double
   %4 = fmul double %3, 1.250000e-01
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1250, double noundef %4, i32 noundef %1) #9
@@ -4719,7 +4719,7 @@ define hidden void @bluetooth_unit_0p125_ms(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3, ptr noundef readonly %4) local_unnamed_addr #1 {
+define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, ptr noundef readonly %4) local_unnamed_addr #1 {
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -4821,7 +4821,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct._uuid_t) align 2 initializes((0, 20)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias writable writeonly sret(%struct._uuid_t) align 2 captures(none) initializes((0, 20)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   switch i32 %3, label %92 [
     i32 16, label %5
@@ -4975,7 +4975,7 @@ define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias nocapture writ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define ptr @print_numeric_bluetooth_uuid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -5473,7 +5473,7 @@ define hidden void @proto_register_bluetooth() local_unnamed_addr #1 {
 declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @bt_uuids_uuid_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @bt_uuids_uuid_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
   %8 = load ptr, ptr %0, align 8
@@ -5483,7 +5483,7 @@ define internal void @bt_uuids_uuid_set_cb(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bt_uuids_uuid_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @bt_uuids_uuid_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -5508,7 +5508,7 @@ define internal void @bt_uuids_uuid_tostr_cb(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bt_uuids_label_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @bt_uuids_label_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5519,7 +5519,7 @@ define internal void @bt_uuids_label_set_cb(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bt_uuids_label_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @bt_uuids_label_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5554,7 +5554,7 @@ define internal ptr @bluetooth_uuid_value(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bluetooth_uuid_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
+define internal void @bluetooth_uuid_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_bluetooth, align 4
@@ -5587,7 +5587,7 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bluetooth_ubertooth(ptr noundef %0, ptr noundef initializes((280, 284)) %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_bluetooth_ubertooth(ptr noundef %0, ptr noundef initializes((280, 284)) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call ptr @dissect_bluetooth_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %6 = load ptr, ptr @btle_handle, align 8
   %7 = tail call i32 @call_dissector(ptr noundef %6, ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
@@ -5614,7 +5614,7 @@ declare void @llc_add_oui(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i3
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bluetooth_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4) #1 {
+define internal noundef i32 @bluetooth_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -5630,7 +5630,7 @@ define internal noundef i32 @bluetooth_conversation_packet(ptr noundef initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bluetooth_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4) #1 {
+define internal noundef i32 @bluetooth_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -5652,7 +5652,7 @@ declare void @register_decode_as(ptr noundef) local_unnamed_addr #0
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @bt_uuids_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define internal noundef ptr @bt_uuids_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #9
   store ptr %5, ptr %0, align 8
@@ -5665,7 +5665,7 @@ define internal noundef ptr @bt_uuids_copy_cb(ptr noundef returned writeonly ini
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @bt_uuids_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 {
+define internal noundef zeroext i1 @bt_uuids_update_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.sink.split, label %5
@@ -5705,7 +5705,7 @@ define internal noundef zeroext i1 @bt_uuids_update_cb(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bt_uuids_free_cb(ptr nocapture noundef readonly %0) #1 {
+define internal void @bt_uuids_free_cb(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr @bluetooth_uuids, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @wmem_tree_lookup_string(ptr noundef %2, ptr noundef %3, i32 noundef 0) #9
@@ -5767,7 +5767,7 @@ define internal void @bt_uuids_reset_cb() #6 {
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bluetooth(ptr noundef %0, ptr noundef initializes((280, 284)) %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_bluetooth(ptr noundef %0, ptr noundef initializes((280, 284)) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call ptr @dissect_bluetooth_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 0, ptr %6, align 8
@@ -5933,7 +5933,7 @@ define hidden void @proto_register_btad_apple_ibeacon() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btad_apple_ibeacon(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @dissect_btad_apple_ibeacon(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = load i32, ptr @proto_btad_apple_ibeacon, align 4
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0) #9
@@ -5968,7 +5968,7 @@ define hidden void @proto_register_btad_alt_beacon() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btad_alt_beacon(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @dissect_btad_alt_beacon(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = load i32, ptr @proto_btad_alt_beacon, align 4
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0) #9
@@ -6005,7 +6005,7 @@ define hidden void @proto_register_btad_gaen() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btad_gaen(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_btad_gaen(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
   %6 = add i32 %5, -20
   %7 = load i32, ptr @proto_btad_gaen, align 4
@@ -6040,14 +6040,14 @@ declare void @g_free(ptr noundef) local_unnamed_addr #0
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @bluetooth_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
+define internal nonnull ptr @bluetooth_conv_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #8 {
   switch i32 %1, label %.thread [
     i32 0, label %3
     i32 1, label %6
@@ -6103,7 +6103,7 @@ define internal nonnull ptr @bluetooth_conv_get_filter_type(ptr nocapture nounde
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @bluetooth_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
+define internal nonnull ptr @bluetooth_endpoint_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #8 {
   %3 = icmp eq i32 %1, 2
   br i1 %3, label %4, label %7
 
@@ -6126,7 +6126,7 @@ declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #0
 declare ptr @g_strchug(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @wmem_tree_remove_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 

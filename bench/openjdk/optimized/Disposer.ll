@@ -68,7 +68,7 @@ define void @Disposer_AddRecord(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_DefaultDisposerRecord_invokeNativeDispose(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_java2d_DefaultDisposerRecord_invokeNativeDispose(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ne i64 %2, 0
   %6 = icmp ne i64 %3, 0
   %or.cond = and i1 %5, %6

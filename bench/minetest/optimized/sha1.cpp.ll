@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4SHA1D1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4SHA1D2Ev
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN4SHA110hexPrinterEPhi(ptr nocapture noundef readonly %c, i32 noundef %l) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4SHA110hexPrinterEPhi(ptr noundef readonly captures(none) %c, i32 noundef %l) local_unnamed_addr #0 align 2 {
 entry:
   %cmp3 = icmp sgt i32 %l, 0
   br i1 %cmp3, label %while.body, label %while.end
@@ -31,7 +31,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_ZN4SHA14lrotEji(i32 noundef %x, i32 noundef %bits) local_unnamed_addr #2 align 2 {
@@ -44,7 +44,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4SHA120storeBigEndianUint32EPhj(ptr nocapture noundef writeonly initializes((0, 4)) %byte, i32 noundef %num) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4SHA120storeBigEndianUint32EPhj(ptr noundef writeonly captures(none) initializes((0, 4)) %byte, i32 noundef %num) local_unnamed_addr #3 align 2 {
 entry:
   %shr = lshr i32 %num, 24
   %conv = trunc nuw i32 %shr to i8
@@ -64,7 +64,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4SHA1C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(92) initializes((0, 20), (84, 92)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4SHA1C2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(92) initializes((0, 20), (84, 92)) %this) unnamed_addr #3 align 2 {
 entry:
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %this, align 4, !tbaa !9
   %H4 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -77,20 +77,20 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4SHA1D2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(92) initializes((0, 92)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4SHA1D2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(92) initializes((0, 92)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %this, i8 0, i64 92, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4SHA17processEv(ptr nocapture noundef nonnull align 4 dereferenceable(92) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4SHA17processEv(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %this) local_unnamed_addr #5 align 2 {
 for.body28.preheader:
   %W = alloca [80 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %W) #9
@@ -523,7 +523,7 @@ for.end79:                                        ; preds = %if.end68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4SHA18addBytesEPKcj(ptr nocapture noundef nonnull align 4 dereferenceable(92) %this, ptr nocapture noundef readonly %data, i32 noundef %num) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4SHA18addBytesEPKcj(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %this, ptr noundef readonly captures(none) %data, i32 noundef %num) local_unnamed_addr #5 align 2 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %size, align 4, !tbaa !14
@@ -568,10 +568,10 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4SHA19getDigestEPh(ptr nocapture noundef nonnull align 4 dereferenceable(92) %this, ptr nocapture noundef writeonly %digest) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4SHA19getDigestEPh(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %this, ptr noundef writeonly captures(none) %digest) local_unnamed_addr #5 align 2 {
 entry:
   %footer = alloca [64 x i8], align 16
   %size = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -803,7 +803,7 @@ _ZN4SHA18addBytesEPKcj.exit74:                    ; preds = %if.end.i71, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

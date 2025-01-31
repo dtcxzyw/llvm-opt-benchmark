@@ -238,7 +238,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, i64 } @_ZNK6google8protobuf8internal19RealKeyToVariantKeyINS0_6MapKeyEEclERKS3_(ptr nocapture nonnull readnone align 1 %this, ptr noundef nonnull align 8 dereferenceable(36) %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden { ptr, i64 } @_ZNK6google8protobuf8internal19RealKeyToVariantKeyINS0_6MapKeyEEclERKS3_(ptr nonnull readnone align 1 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(36) %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
@@ -958,7 +958,7 @@ if.end:                                           ; preds = %_ZNK6google8protobu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %payload_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %payload_.i acquire, align 8
@@ -1133,7 +1133,7 @@ if.end7:                                          ; preds = %entry, %if.end, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %payload_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %payload_.i.i acquire, align 8
@@ -1217,17 +1217,17 @@ _ZNK6google8protobuf8internal14UntypedMapBase5beginEv.exit: ; preds = %entry, %c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK6google8protobuf8internal12MapFieldBase6MapEndEPNS0_11MapIteratorE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 20)) %map_iter) local_unnamed_addr #9 align 2 {
+define void @_ZNK6google8protobuf8internal12MapFieldBase6MapEndEPNS0_11MapIteratorE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) initializes((0, 20)) %map_iter) local_unnamed_addr #9 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %map_iter, i8 0, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6google8protobuf8internal12MapFieldBase13EqualIteratorERKNS0_11MapIteratorES5_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %b) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK6google8protobuf8internal12MapFieldBase13EqualIteratorERKNS0_11MapIteratorES5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %b) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -1236,7 +1236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf8internal12MapFieldBase16IncreaseIteratorEPNS0_11MapIteratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %map_iter) local_unnamed_addr #3 align 2 {
+define void @_ZNK6google8protobuf8internal12MapFieldBase16IncreaseIteratorEPNS0_11MapIteratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %map_iter) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %map_iter, align 8
   %1 = load ptr, ptr %0, align 8
@@ -1313,7 +1313,7 @@ _ZN6google8protobuf8internal18UntypedMapIterator8PlusPlusEv.exit: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf8internal12MapFieldBase12CopyIteratorEPNS0_11MapIteratorERKS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef initializes((0, 20)) %this_iter, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %that_iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf8internal12MapFieldBase12CopyIteratorEPNS0_11MapIteratorERKS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef initializes((0, 20)) %this_iter, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %that_iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this_iter, ptr noundef nonnull align 8 dereferenceable(20) %that_iter, i64 20, i1 false)
@@ -1540,7 +1540,7 @@ _ZNK6google8protobuf8internal12MapFieldBase7payloadEv.exit: ; preds = %_ZNK6goog
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal12MapFieldBase16SetRepeatedDirtyEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8internal12MapFieldBase16SetRepeatedDirtyEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %payload_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %payload_.i.i acquire, align 8
@@ -1567,7 +1567,7 @@ _ZNK6google8protobuf8internal12MapFieldBase7payloadEv.exit: ; preds = %_ZNK6goog
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(36) ptr @_ZNK6google8protobuf8internal12MapFieldBase11PayloadSlowEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(36) ptr @_ZNK6google8protobuf8internal12MapFieldBase11PayloadSlowEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %payload_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %payload_ acquire, align 8
@@ -1638,7 +1638,7 @@ if.end11:                                         ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal12MapFieldBase8SwapImplERS2_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %lhs, ptr nocapture noundef nonnull align 8 dereferenceable(16) %rhs) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8internal12MapFieldBase8SwapImplERS2_S3_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %lhs, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %rhs) local_unnamed_addr #3 align 2 {
 entry:
   %payload_.i = getelementptr inbounds nuw i8, ptr %lhs, i64 8
   %0 = load atomic i64, ptr %payload_.i acquire, align 8
@@ -1802,7 +1802,7 @@ return:                                           ; preds = %_ZNK6google8protobu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef %other) local_unnamed_addr #11 align 2 {
+define void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef captures(none) %other) local_unnamed_addr #11 align 2 {
 entry:
   %payload_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %payload_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -1814,7 +1814,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6google8protobuf8internal12MapFieldBase21UnsafeShallowSwapImplERS2_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %lhs, ptr nocapture noundef nonnull align 8 dereferenceable(16) %rhs) local_unnamed_addr #11 align 2 {
+define void @_ZN6google8protobuf8internal12MapFieldBase21UnsafeShallowSwapImplERS2_S3_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %lhs, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %rhs) local_unnamed_addr #11 align 2 {
 entry:
   %payload_.i = getelementptr inbounds nuw i8, ptr %lhs, i64 8
   %payload_2.i = getelementptr inbounds nuw i8, ptr %rhs, i64 8
@@ -1880,7 +1880,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @_ZNK6google8protobuf8internal12MapFieldBase10IsMapValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6google8protobuf8internal12MapFieldBase10IsMapValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #12 align 2 {
 entry:
   %payload_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %payload_.i.i acquire, align 8
@@ -1904,7 +1904,7 @@ _ZNK6google8protobuf8internal12MapFieldBase5stateEv.exit: ; preds = %entry, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @_ZNK6google8protobuf8internal12MapFieldBase20IsRepeatedFieldValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6google8protobuf8internal12MapFieldBase20IsRepeatedFieldValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #12 align 2 {
 entry:
   %payload_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %payload_.i.i acquire, align 8
@@ -5290,7 +5290,7 @@ _ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv.exit: ; preds = %_ZNK6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf8internal15DynamicMapFieldC2EPKNS0_7MessageE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, ptr noundef %default_entry) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15DynamicMapFieldC2EPKNS0_7MessageE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 56)) %this, ptr noundef %default_entry) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @_ZN6google8protobuf8internal15DynamicMapField7kVTableE, ptr %this, align 8
   %payload_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5313,7 +5313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf8internal15DynamicMapFieldC2EPKNS0_7MessageEPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, ptr noundef %default_entry, ptr noundef %arena) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15DynamicMapFieldC2EPKNS0_7MessageEPNS0_5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 56)) %this, ptr noundef %default_entry, ptr noundef %arena) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @_ZN6google8protobuf8internal15DynamicMapField7kVTableE, ptr %this, align 8
   %payload_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5449,7 +5449,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal15DynamicMapField32InsertOrLookupMapValueNoSyncImplERNS1_12MapFieldBaseERKNS0_6MapKeyEPNS0_11MapValueRefE(ptr noundef nonnull align 8 dereferenceable(16) %base, ptr noundef nonnull align 8 dereferenceable(36) %map_key, ptr nocapture noundef writeonly initializes((0, 12)) %val) #3 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal15DynamicMapField32InsertOrLookupMapValueNoSyncImplERNS1_12MapFieldBaseERKNS0_6MapKeyEPNS0_11MapValueRefE(ptr noundef nonnull align 8 dereferenceable(16) %base, ptr noundef nonnull align 8 dereferenceable(36) %map_key, ptr noundef writeonly captures(none) initializes((0, 12)) %val) #3 align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.51", align 8
   %0 = getelementptr inbounds nuw i8, ptr %base, i64 16
@@ -5622,7 +5622,7 @@ _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal15DynamicMapField13MergeFromImplERNS1_12MapFieldBaseERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other) #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15DynamicMapField13MergeFromImplERNS1_12MapFieldBaseERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %base, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.51", align 8
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(48) %base)
@@ -5906,7 +5906,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6google8protobuf8internal15DynamicMapField32SpaceUsedExcludingSelfNoLockImplERKNS1_12MapFieldBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %map) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN6google8protobuf8internal15DynamicMapField32SpaceUsedExcludingSelfNoLockImplERKNS1_12MapFieldBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %map) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
@@ -6218,7 +6218,7 @@ if.end51:                                         ; preds = %if.then.i.i, %_ZN6g
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN6google8protobuf8internal15DynamicMapField16GetPrototypeImplERKNS1_12MapFieldBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %map) #10 align 2 {
+define noundef ptr @_ZN6google8protobuf8internal15DynamicMapField16GetPrototypeImplERKNS1_12MapFieldBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %map) #10 align 2 {
 entry:
   %default_entry_ = getelementptr inbounds nuw i8, ptr %map, i64 48
   %0 = load ptr, ptr %default_entry_, align 8
@@ -6523,7 +6523,7 @@ _ZN6google8protobuf8internal12MapFieldBaseD2Ev.exit: ; preds = %_ZN6google8proto
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal15DynamicMapField16AllocateMapValueEPNS0_11MapValueRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly initializes((8, 12)) %map_val) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15DynamicMapField16AllocateMapValueEPNS0_11MapValueRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef writeonly captures(none) initializes((8, 12)) %map_val) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %default_entry_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %default_entry_, align 8
@@ -7059,7 +7059,7 @@ declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noun
 declare void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7133,7 +7133,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsILi60EEERS2_RAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(60) %buf) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9168,7 +9168,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #19
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINS0_6MapKeyEEEvPv(ptr noundef %object) #4 comdat personality ptr @__gxx_personality_v0 {
@@ -9373,16 +9373,16 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22

@@ -50,7 +50,7 @@ define noundef ptr @Io_ReadDsdFindEnd(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Io_ReadDsdStrSplit(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define i32 @Io_ReadDsdStrSplit(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %25, %3
@@ -345,7 +345,7 @@ common.ret110:                                    ; preds = %61, %58, %.loopexit
 declare ptr @Abc_NtkCreateNodeInv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #3
 
@@ -360,10 +360,10 @@ declare ptr @Abc_SopCreateAnd(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare ptr @Abc_SopFromTruthHex(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @Io_ReadDsd(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @Io_ReadDsd(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1
   %.not60 = icmp eq i8 %2, 0
   br i1 %.not60, label %.lr.ph66, label %.lr.ph
@@ -504,10 +504,10 @@ declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #3
 declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

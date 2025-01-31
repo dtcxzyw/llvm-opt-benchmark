@@ -293,13 +293,13 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
   %.in268.v = select i1 %56, double -5.000000e-01, double 5.000000e-01
   %.in268 = fadd double %55, %.in268.v
   %57 = fptosi double %.in268 to i32
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %53, i32 noundef %57) #4
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, i32 noundef %53, i32 noundef %57) #4
   %58 = add nuw i64 %.0185281, 1
   %exitcond282.not = icmp eq i64 %58, %3
   br i1 %exitcond282.not, label %59, label %49
 
 59:                                               ; preds = %49
-  %60 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.9) #4
+  %60 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #4
   br label %.thread277
 
 61:                                               ; preds = %18
@@ -499,7 +499,7 @@ switch.lookup:                                    ; preds = %90
   %.in255.v = select i1 %157, double -5.000000e-01, double 5.000000e-01
   %.in255 = fadd double %156, %.in255.v
   %158 = fptosi double %.in255 to i32
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %154, i32 noundef %158) #4
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.35, i32 noundef %154, i32 noundef %158) #4
   %159 = add nuw i64 %.0280, 1
   %exitcond.not = icmp eq i64 %159, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
@@ -527,7 +527,7 @@ default.unreachable:                              ; preds = %124
 declare void @gvprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #3

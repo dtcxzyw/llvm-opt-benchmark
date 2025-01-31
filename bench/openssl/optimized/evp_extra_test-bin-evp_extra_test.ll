@@ -3233,7 +3233,7 @@ declare ptr @EVP_PKEY_meth_new(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare void @EVP_PKEY_meth_set_check(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pkey_custom_check(ptr nocapture readnone %pkey) #0 {
+define internal noundef i32 @pkey_custom_check(ptr readnone captures(none) %pkey) #0 {
 entry:
   ret i32 48879
 }
@@ -3241,7 +3241,7 @@ entry:
 declare void @EVP_PKEY_meth_set_public_check(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pkey_custom_pub_check(ptr nocapture readnone %pkey) #0 {
+define internal noundef i32 @pkey_custom_pub_check(ptr readnone captures(none) %pkey) #0 {
 entry:
   ret i32 48879
 }
@@ -3249,7 +3249,7 @@ entry:
 declare void @EVP_PKEY_meth_set_param_check(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pkey_custom_param_check(ptr nocapture readnone %pkey) #0 {
+define internal noundef i32 @pkey_custom_param_check(ptr readnone captures(none) %pkey) #0 {
 entry:
   ret i32 48879
 }
@@ -8534,12 +8534,12 @@ declare i32 @OSSL_DECODER_from_data(ptr noundef, ptr noundef, ptr noundef) local
 declare void @OSSL_DECODER_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @EVP_PKEY_new_raw_private_key_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @EVP_PKEY_new_raw_private_key(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -8666,7 +8666,7 @@ declare i32 @EVP_PKEY_keygen(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @evp_keymgmt_util_export(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec_export_get_encoding_cb(ptr noundef %params, ptr nocapture noundef initializes((0, 4)) %arg) #1 {
+define internal range(i32 0, 2) i32 @ec_export_get_encoding_cb(ptr noundef %params, ptr noundef captures(none) initializes((0, 4)) %arg) #1 {
 entry:
   %enc_name = alloca ptr, align 8
   store ptr null, ptr %enc_name, align 8
@@ -8751,7 +8751,7 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @PEM_read_bio_PUBKEY_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -8787,12 +8787,12 @@ if.then11:                                        ; preds = %if.then3
   %1 = load ptr, ptr @testctx, align 8
   %2 = load i32, ptr %arrayidx5, align 8
   %call14 = tail call ptr @OBJ_nid2sn(i32 noundef %2) #8
-  %call15 = tail call ptr @EVP_PKEY_new_raw_public_key_ex(ptr noundef %1, ptr noundef %call14, ptr noundef null, ptr noundef %0, i64 noundef %call) #8
+  %call15 = tail call ptr @EVP_PKEY_new_raw_public_key_ex(ptr noundef %1, ptr noundef %call14, ptr noundef null, ptr noundef nonnull %0, i64 noundef %call) #8
   br label %if.end41
 
 if.else:                                          ; preds = %if.then3
   %3 = load i32, ptr %arrayidx5, align 8
-  %call19 = tail call ptr @EVP_PKEY_new_raw_public_key(i32 noundef %3, ptr noundef null, ptr noundef %0, i64 noundef %call) #8
+  %call19 = tail call ptr @EVP_PKEY_new_raw_public_key(i32 noundef %3, ptr noundef null, ptr noundef nonnull %0, i64 noundef %call) #8
   br label %if.end41
 
 if.else21:                                        ; preds = %if.end
@@ -8805,12 +8805,12 @@ if.then29:                                        ; preds = %if.else21
   %5 = load ptr, ptr @testctx, align 8
   %6 = load i32, ptr %arrayidx5, align 8
   %call33 = tail call ptr @OBJ_nid2sn(i32 noundef %6) #8
-  %call34 = tail call ptr @EVP_PKEY_new_raw_private_key_ex(ptr noundef %5, ptr noundef %call33, ptr noundef null, ptr noundef %4, i64 noundef %call24) #8
+  %call34 = tail call ptr @EVP_PKEY_new_raw_private_key_ex(ptr noundef %5, ptr noundef %call33, ptr noundef null, ptr noundef nonnull %4, i64 noundef %call24) #8
   br label %if.end41
 
 if.else35:                                        ; preds = %if.else21
   %7 = load i32, ptr %arrayidx5, align 8
-  %call39 = tail call ptr @EVP_PKEY_new_raw_private_key(i32 noundef %7, ptr noundef null, ptr noundef %4, i64 noundef %call24) #8
+  %call39 = tail call ptr @EVP_PKEY_new_raw_private_key(i32 noundef %7, ptr noundef null, ptr noundef nonnull %4, i64 noundef %call24) #8
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then29, %if.else35, %if.then11, %if.else
@@ -8898,7 +8898,7 @@ land.lhs.true104:                                 ; preds = %land.lhs.true84, %i
 
 lor.lhs.false111:                                 ; preds = %land.lhs.true95, %land.lhs.true104
   %9 = load i64, ptr %len, align 8
-  %call113 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 2443, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef %in.0, i64 noundef %inlen.0, ptr noundef nonnull %buf, i64 noundef %9) #8
+  %call113 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 2443, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef nonnull %in.0, i64 noundef %inlen.0, ptr noundef nonnull %buf, i64 noundef %9) #8
   %tobool114.not = icmp ne i32 %call113, 0
   %spec.select = zext i1 %tobool114.not to i32
   br label %done
@@ -9211,7 +9211,7 @@ declare i32 @EVP_PKEY_CTX_get_signature_md(ptr noundef, ptr noundef) local_unnam
 declare ptr @EVP_MD_CTX_settable_params(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -9740,7 +9740,7 @@ declare ptr @d2i_PublicKey(i32 noundef, ptr noundef, ptr noundef, i64 noundef) l
 declare i32 @EVP_MD_names_do_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @md_names(ptr nocapture readnone %name, ptr noundef %vctx) #1 {
+define internal void @md_names(ptr readnone captures(none) %name, ptr noundef %vctx) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_fetch(ptr noundef %vctx, ptr noundef nonnull @.str.561, ptr noundef null) #8
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 3777, ptr noundef nonnull @.str.562, ptr noundef %call) #8
@@ -9967,7 +9967,7 @@ declare ptr @EVP_CIPHER_meth_new(i32 noundef, i32 noundef, i32 noundef) local_un
 declare i32 @EVP_CIPHER_meth_set_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @custom_ciph_init(ptr noundef %ctx, ptr nocapture readnone %key, ptr nocapture readnone %iv, i32 %enc) #1 {
+define internal range(i32 0, 2) i32 @custom_ciph_init(ptr noundef %ctx, ptr readnone captures(none) %key, ptr readnone captures(none) %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
   %cmp = icmp eq ptr %call, null
@@ -10036,13 +10036,13 @@ declare i32 @EVP_DecryptInit_ex2(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @EVP_DecryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

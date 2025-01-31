@@ -107,19 +107,19 @@ define dso_local void @sysvec_reboot(ptr noundef %0) local_unnamed_addr #0 secti
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i8 @irqentry_enter(ptr noundef) local_unnamed_addr #2 section ".noinstr.text"
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @irq_enter_rcu() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
-define internal void @__sysvec_reboot(ptr nocapture readnone %0) #3 align 16 {
+define internal void @__sysvec_reboot(ptr readnone captures(none) %0) #3 align 16 {
   tail call void @__SCT__apic_call_eoi() #12
   tail call void @stop_this_cpu(ptr noundef null) #14
   unreachable
@@ -203,7 +203,7 @@ define dso_local void @sysvec_call_function(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__sysvec_call_function(ptr nocapture readnone %0) #6 align 16 {
+define internal void @__sysvec_call_function(ptr readnone captures(none) %0) #6 align 16 {
   tail call void @__SCT__apic_call_eoi() #12
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_call_function_entry, i64 8), i32 2) #12
           to label %22 [label %2], !srcloc !27
@@ -329,7 +329,7 @@ define dso_local void @sysvec_call_function_single(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__sysvec_call_function_single(ptr nocapture readnone %0) #6 align 16 {
+define internal void @__sysvec_call_function_single(ptr readnone captures(none) %0) #6 align 16 {
   tail call void @__SCT__apic_call_eoi() #12
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_call_function_single_entry, i64 8), i32 2) #12
           to label %22 [label %2], !srcloc !27
@@ -417,7 +417,7 @@ define internal void @__sysvec_call_function_single(ptr nocapture readnone %0) #
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @nonmi_ipi_setup(ptr nocapture readnone %0) #7 section ".init.text" align 16 {
+define internal noundef i32 @nonmi_ipi_setup(ptr readnone captures(none) %0) #7 section ".init.text" align 16 {
   store i1 true, ptr @smp_no_nmi_ipi, align 1
   ret i32 1
 }
@@ -733,7 +733,7 @@ declare dso_local void @disable_local_APIC() local_unnamed_addr #2
 declare dso_local void @mcheck_cpu_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @smp_stop_nmi_callback(i32 %0, ptr nocapture readnone %1) #6 align 16 {
+define internal noundef i32 @smp_stop_nmi_callback(i32 %0, ptr readnone captures(none) %1) #6 align 16 {
   %3 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !82
   %4 = load volatile i32, ptr @stopping_cpu, align 4
   %5 = icmp eq i32 %3, %4

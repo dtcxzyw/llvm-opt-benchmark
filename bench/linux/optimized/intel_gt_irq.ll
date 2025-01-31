@@ -300,7 +300,7 @@ define dso_local void @gen11_gt_irq_handler(ptr noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @gen11_gt_reset_one_iir(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @gen11_gt_reset_one_iir(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -376,7 +376,7 @@ define dso_local noundef zeroext i1 @gen11_gt_reset_one_iir(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen11_gt_irq_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @gen11_gt_irq_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -569,7 +569,7 @@ define dso_local void @gen11_gt_irq_reset(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen11_gt_irq_postinstall(ptr nocapture noundef initializes((4004, 4012)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @gen11_gt_irq_postinstall(ptr noundef captures(none) initializes((4004, 4012)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 636
@@ -796,7 +796,7 @@ define dso_local void @gen11_gt_irq_postinstall(ptr nocapture noundef initialize
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen5_gt_irq_handler(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @gen5_gt_irq_handler(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = and i32 %1, 1
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %11, label %5
@@ -829,7 +829,7 @@ define dso_local void @gen5_gt_irq_handler(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen6_gt_irq_handler(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @gen6_gt_irq_handler(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = and i32 %1, 1
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %11, label %5
@@ -1130,7 +1130,7 @@ define dso_local void @gen8_gt_irq_handler(ptr noundef %0, i32 noundef %1) local
 declare dso_local void @gen6_rps_irq_handler(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen8_gt_irq_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @gen8_gt_irq_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @gen3_irq_reset(ptr noundef %3, i32 279300, i32 279304, i32 279308) #3
@@ -1144,7 +1144,7 @@ define dso_local void @gen8_gt_irq_reset(ptr nocapture noundef readonly %0) loca
 declare dso_local void @gen3_irq_reset(ptr noundef, i32, i32, i32) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen8_gt_irq_postinstall(ptr nocapture noundef initializes((4004, 4012)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @gen8_gt_irq_postinstall(ptr noundef captures(none) initializes((4004, 4012)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4004
@@ -1164,7 +1164,7 @@ define dso_local void @gen8_gt_irq_postinstall(ptr nocapture noundef initializes
 declare dso_local void @gen3_irq_init(ptr noundef, i32, i32 noundef, i32, i32 noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen5_gt_enable_irq(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @gen5_gt_enable_irq(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = xor i32 %1, -1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4000
   %5 = load i32, ptr %4, align 8
@@ -1183,7 +1183,7 @@ define dso_local void @gen5_gt_enable_irq(ptr nocapture noundef %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen5_gt_disable_irq(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @gen5_gt_disable_irq(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4000
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, %1
@@ -1197,7 +1197,7 @@ define dso_local void @gen5_gt_disable_irq(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen5_gt_irq_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @gen5_gt_irq_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @gen3_irq_reset(ptr noundef %3, i32 278548, i32 278552, i32 278556) #3
@@ -1216,7 +1216,7 @@ define dso_local void @gen5_gt_irq_reset(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen5_gt_irq_postinstall(ptr nocapture noundef initializes((4000, 4004)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @gen5_gt_irq_postinstall(ptr noundef captures(none) initializes((4000, 4004)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4000

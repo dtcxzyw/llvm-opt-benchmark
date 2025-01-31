@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [31 x i8] c"cannot allocate new hash table\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FD__onion_ingest_revision_record(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FD__onion_ingest_revision_record(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, -1
@@ -346,7 +346,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare i32 @H5FD_read(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.16, i64 noundef 4) #14
   %.not = icmp eq i32 %4, 0
@@ -675,7 +675,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr nocapture nou
   %186 = ptrtoint ptr %185 to i64
   %187 = ptrtoint ptr %0 to i64
   %188 = sub i64 %186, %187
-  %189 = tail call i32 @H5_checksum_fletcher32(ptr noundef %0, i64 noundef %188) #11
+  %189 = tail call i32 @H5_checksum_fletcher32(ptr noundef nonnull %0, i64 noundef %188) #11
   %.sroa.0.0.copyload191 = load i16, ptr %185, align 1
   %190 = zext i16 %.sroa.0.0.copyload191 to i32
   %.sroa.15.0..sroa_idx205 = getelementptr inbounds nuw i8, ptr %185, i64 2
@@ -716,7 +716,7 @@ declare i32 @H5_checksum_fletcher32(ptr noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @H5FD__onion_archival_index_is_valid(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define noundef zeroext i1 @H5FD__onion_archival_index_is_valid(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i8, ptr %0, align 8
   %.not = icmp eq i8 %2, 1
   br i1 %.not, label %3, label %.loopexit
@@ -757,7 +757,7 @@ define noundef zeroext i1 @H5FD__onion_archival_index_is_valid(ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @H5FD__onion_archival_index_find(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @H5FD__onion_archival_index_find(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, -1
@@ -953,7 +953,7 @@ define noundef ptr @H5FD__onion_revision_index_init(i32 noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FD__onion_revision_index_insert(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FD__onion_revision_index_insert(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1163,10 +1163,10 @@ H5FD__onion_revision_index_resize.exit:           ; preds = %._crit_edge.i, %.pr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @H5FD__onion_revision_index_find(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @H5FD__onion_revision_index_find(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, -1
@@ -1202,10 +1202,10 @@ define range(i32 0, 2) i32 @H5FD__onion_revision_index_find(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5FD__onion_revision_record_encode(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 8)) %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i64 @H5FD__onion_revision_record_encode(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 8)) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %6 = load i32, ptr %5, align 4
@@ -1449,7 +1449,7 @@ define i64 @H5FD__onion_revision_record_encode(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FD__onion_merge_revision_index_into_archival_index(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FD__onion_merge_revision_index_into_archival_index(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -1679,10 +1679,10 @@ H5FD__onion_archival_index_find.exit:             ; preds = %.lr.ph.i, %70, %74
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @H5FD__onion_archival_index_list_sort_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @H5FD__onion_archival_index_list_sort_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)

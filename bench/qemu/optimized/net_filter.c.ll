@@ -78,7 +78,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_netfilter_pass_to_next(ptr noundef %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr nocapture noundef readonly %opaque) local_unnamed_addr #0 {
+define dso_local i64 @qemu_netfilter_pass_to_next(ptr noundef %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef readonly captures(none) %opaque) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %sender, null
   br i1 %tobool.not, label %out, label %lor.lhs.false
@@ -317,7 +317,7 @@ if.end30:                                         ; preds = %if.end21, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @netfilter_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @netfilter_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.11, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #4
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_CLASS) #4
@@ -342,7 +342,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @netfilter_get_netdev_id(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @netfilter_get_netdev_id(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %netdev_id = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -352,7 +352,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @netfilter_set_netdev_id(ptr noundef %obj, ptr noundef %str, ptr nocapture readnone %errp) #0 {
+define internal void @netfilter_set_netdev_id(ptr noundef %obj, ptr noundef %str, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %str) #4
@@ -364,7 +364,7 @@ entry:
 declare ptr @object_class_property_add_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @netfilter_get_direction(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal i32 @netfilter_get_direction(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %direction = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -373,7 +373,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @netfilter_set_direction(ptr noundef %obj, i32 noundef %direction, ptr nocapture readnone %errp) #0 {
+define internal void @netfilter_set_direction(ptr noundef %obj, i32 noundef %direction, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %direction1 = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -382,7 +382,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @netfilter_get_status(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @netfilter_get_status(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %on = getelementptr inbounds nuw i8, ptr %call.i, i64 60
@@ -394,7 +394,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @netfilter_set_status(ptr noundef %obj, ptr nocapture noundef readonly %str, ptr noundef %errp) #0 {
+define internal void @netfilter_set_status(ptr noundef %obj, ptr noundef readonly captures(none) %str, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %call.i10 = tail call ptr @object_get_class(ptr noundef %obj) #4
@@ -465,7 +465,7 @@ if.end21:                                         ; preds = %if.end, %if.then19,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @netfilter_get_position(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @netfilter_get_position(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %position = getelementptr inbounds nuw i8, ptr %call.i, i64 64
@@ -475,7 +475,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @netfilter_set_position(ptr noundef %obj, ptr noundef %str, ptr nocapture readnone %errp) #0 {
+define internal void @netfilter_set_position(ptr noundef %obj, ptr noundef %str, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %str) #4
@@ -485,7 +485,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @netfilter_get_insert(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @netfilter_get_insert(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %insert_before_flag = getelementptr inbounds nuw i8, ptr %call.i, i64 72
@@ -497,7 +497,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @netfilter_set_insert(ptr noundef %obj, ptr nocapture noundef readonly %str, ptr noundef %errp) #0 {
+define internal void @netfilter_set_insert(ptr noundef %obj, ptr noundef readonly captures(none) %str, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %str, ptr noundef nonnull dereferenceable(7) @.str.16) #5
@@ -581,7 +581,7 @@ land.lhs.true:                                    ; preds = %if.end12
   br i1 %tobool18.not, label %if.end39, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true
-  %call21 = call i32 @g_str_has_prefix(ptr noundef %2, ptr noundef nonnull @.str.25) #4
+  %call21 = call i32 @g_str_has_prefix(ptr noundef nonnull %2, ptr noundef nonnull @.str.25) #4
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.then23, label %if.end24
 
@@ -761,7 +761,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -774,7 +774,7 @@ declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @object_get_objects_root() local_unnamed_addr #1
 
@@ -785,7 +785,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @object_property_set_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

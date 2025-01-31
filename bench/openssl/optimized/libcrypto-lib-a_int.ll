@@ -56,7 +56,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ossl_i2c_ASN1_INTEGER(ptr nocapture noundef readonly %a, ptr noundef %pp) local_unnamed_addr #2 {
+define i32 @ossl_i2c_ASN1_INTEGER(ptr noundef readonly captures(none) %a, ptr noundef %pp) local_unnamed_addr #2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -171,7 +171,7 @@ i2c_ibuf.exit:                                    ; preds = %if.end28.i, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ossl_c2i_ASN1_INTEGER(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %len) local_unnamed_addr #0 {
+define noundef ptr @ossl_c2i_ASN1_INTEGER(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %neg = alloca i32, align 4
   %0 = load ptr, ptr %pp, align 8
@@ -248,7 +248,7 @@ return:                                           ; preds = %lor.lhs.false28, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @c2i_ibuf(ptr noundef writeonly %b, ptr noundef writeonly %pneg, ptr nocapture noundef readonly %p, i64 noundef %plen) unnamed_addr #0 {
+define internal fastcc noundef i64 @c2i_ibuf(ptr noundef writeonly %b, ptr noundef writeonly %pneg, ptr noundef readonly captures(none) %p, i64 noundef %plen) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %plen, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -381,7 +381,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_ASN1_UINTEGER(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length) local_unnamed_addr #0 {
+define ptr @d2i_ASN1_UINTEGER(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -509,19 +509,19 @@ declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_INTEGER_get_int64(ptr nocapture noundef writeonly %pr, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_INTEGER_get_int64(ptr noundef writeonly captures(none) %pr, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @asn1_string_get_int64(ptr noundef %pr, ptr noundef %a, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr nocapture noundef writeonly %pr, ptr noundef readonly %a, i32 noundef range(i32 2, 11) %itype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr noundef writeonly captures(none) %pr, ptr noundef readonly %a, i32 noundef range(i32 2, 11) %itype) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.then, label %if.end
@@ -679,7 +679,7 @@ asn1_string_set_int64.exit:                       ; preds = %do.body.i7.i, %do.b
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_INTEGER_get_uint64(ptr nocapture noundef writeonly %pr, ptr noundef readonly %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_INTEGER_get_uint64(ptr noundef writeonly captures(none) %pr, ptr noundef readonly %a) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %a, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -944,14 +944,14 @@ return:                                           ; preds = %err, %if.then26, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ASN1_INTEGER_to_BN(ptr nocapture noundef readonly %ai, ptr noundef %bn) local_unnamed_addr #0 {
+define ptr @ASN1_INTEGER_to_BN(ptr noundef readonly captures(none) %ai, ptr noundef %bn) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @asn1_string_to_bn(ptr noundef %ai, ptr noundef %bn, i32 noundef 2)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @asn1_string_to_bn(ptr nocapture noundef readonly %ai, ptr noundef %bn, i32 noundef range(i32 2, 11) %itype) unnamed_addr #0 {
+define internal fastcc ptr @asn1_string_to_bn(ptr noundef readonly captures(none) %ai, ptr noundef %bn, i32 noundef range(i32 2, 11) %itype) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %ai, i64 4
   %0 = load i32, ptr %type, align 4
@@ -995,7 +995,7 @@ return:                                           ; preds = %if.end3, %if.then6,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_ENUMERATED_get_int64(ptr nocapture noundef writeonly %pr, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_ENUMERATED_get_int64(ptr noundef writeonly captures(none) %pr, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @asn1_string_get_int64(ptr noundef %pr, ptr noundef %a, i32 noundef 10)
   ret i32 %call
@@ -1134,14 +1134,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ASN1_ENUMERATED_to_BN(ptr nocapture noundef readonly %ai, ptr noundef %bn) local_unnamed_addr #0 {
+define ptr @ASN1_ENUMERATED_to_BN(ptr noundef readonly captures(none) %ai, ptr noundef %bn) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @asn1_string_to_bn(ptr noundef %ai, ptr noundef %bn, i32 noundef 10)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_c2i_uint64_int(ptr nocapture noundef writeonly %ret, ptr noundef %neg, ptr nocapture noundef readonly %pp, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_c2i_uint64_int(ptr noundef writeonly captures(none) %ret, ptr noundef %neg, ptr noundef readonly captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %buf = alloca [8 x i8], align 1
   %0 = load ptr, ptr %pp, align 8
@@ -1309,10 +1309,10 @@ declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare void @BN_set_negative(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

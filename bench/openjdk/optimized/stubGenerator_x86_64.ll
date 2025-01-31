@@ -355,7 +355,7 @@ $_ZTV9Assembler = comdat any
 @_ZN13StubGeneratorC1EP10CodeBufferN17StubCodeGenerator9StubsKindE = hidden unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN13StubGeneratorC2EP10CodeBufferN17StubCodeGenerator9StubsKindE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator18generate_call_stubERPh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator18generate_call_stubERPh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
@@ -1181,7 +1181,7 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_call_stubERPh(ptr nounde
 declare void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
@@ -2998,32 +2998,32 @@ declare void @_ZN14MacroAssembler7debug64EPclPl(ptr noundef, i64 noundef, ptr no
 declare void @_ZN9Assembler3hltEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13StubGenerator14setup_arg_regsEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN13StubGenerator14setup_arg_regsEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13StubGenerator16restore_arg_regsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN13StubGenerator16restore_arg_regsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13StubGenerator27setup_arg_regs_using_threadEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN13StubGenerator27setup_arg_regs_using_threadEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13StubGenerator29restore_arg_regs_using_threadEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN13StubGenerator29restore_arg_regs_using_threadEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13StubGenerator19setup_argument_regsE9BasicType(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, i8 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN13StubGenerator19setup_argument_regsE9BasicType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, i8 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13StubGenerator21restore_argument_regsE9BasicType(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, i8 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN13StubGenerator21restore_argument_regsE9BasicType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, i8 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -8425,7 +8425,7 @@ define hidden noundef ptr @_ZN13StubGenerator37generate_cont_returnBarrier_excep
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator29generate_jfr_write_checkpointEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator29generate_jfr_write_checkpointEv(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.CodeBuffer, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 76
@@ -8519,7 +8519,7 @@ declare noundef ptr @_ZN11RuntimeStub16new_runtime_stubEPKcP10CodeBuffersiP9OopM
 declare void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator25generate_jfr_return_leaseEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator25generate_jfr_return_leaseEv(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.CodeBuffer, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 76
@@ -8595,7 +8595,7 @@ define hidden noundef ptr @_ZN13StubGenerator25generate_jfr_return_leaseEv(ptr n
 declare noundef ptr @_ZN19JfrIntrinsicSupport12return_leaseEP10JavaThread(ptr noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator24generate_throw_exceptionEPKcPh8RegisterS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, i32 %3, i32 %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator24generate_throw_exceptionEPKcPh8RegisterS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3, i32 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.CodeBuffer, align 8
   %7 = alloca %class.AddressLiteral, align 8
   %8 = alloca %class.RuntimeAddress, align 8
@@ -8802,7 +8802,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_lookup_secondary_supers_
 declare void @_ZN14MacroAssembler39lookup_secondary_supers_table_slow_pathE8RegisterS0_S0_S0_S0_S0_P5LabelS2_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32, i32, i32, i32, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @_ZN13StubGenerator20create_control_wordsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN13StubGenerator20create_control_wordsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
   %2 = load i8, ptr @EnableX86ECoreOpts, align 1
   %3 = trunc i8 %2 to i1
   %4 = select i1 %3, i32 8127, i32 8064
@@ -9069,7 +9069,7 @@ define hidden void @_ZN13StubGenerator27generate_continuation_stubsEv(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator18generate_jfr_stubsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator18generate_jfr_stubsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN13StubGenerator29generate_jfr_write_checkpointEv(ptr nonnull align 8 poison)
   store ptr %2, ptr @_ZN12StubRoutines26_jfr_write_checkpoint_stubE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -9893,7 +9893,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE71ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -10062,13 +10062,13 @@ declare void @llvm.va_end.p0(ptr) #9
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

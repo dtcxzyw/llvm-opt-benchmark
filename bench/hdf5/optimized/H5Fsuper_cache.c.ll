@@ -71,13 +71,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [36 x i8] c"unable to encode driver information\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5F__cache_superblock_get_initial_load_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5F__cache_superblock_get_initial_load_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   store i64 48, ptr %1, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5F__cache_superblock_get_final_load_size(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal range(i32 -1, 1) i32 @H5F__cache_superblock_get_final_load_size(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.H5F_super_t, align 8
   store ptr %0, ptr %5, align 8
@@ -140,7 +140,7 @@ define internal range(i32 -1, 1) i32 @H5F__cache_superblock_get_final_load_size(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5F__cache_superblock_verify_chksum(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #1 {
+define internal range(i32 -1, 2) i32 @H5F__cache_superblock_verify_chksum(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -172,7 +172,7 @@ define internal range(i32 -1, 2) i32 @H5F__cache_superblock_verify_chksum(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 %1
@@ -786,7 +786,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5F__cache_superblock_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
+define internal noundef i32 @H5F__cache_superblock_image_len(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 252
@@ -829,7 +829,7 @@ define internal noundef i32 @H5F__cache_superblock_image_len(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5F__cache_superblock_serialize(ptr noundef %0, ptr noundef initializes((0, 11)) %1, i64 %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 1) i32 @H5F__cache_superblock_serialize(ptr noundef %0, ptr noundef initializes((0, 11)) %1, i64 %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   store i64 727905341903489161, ptr %1, align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1086,13 +1086,13 @@ define internal range(i32 -1, 1) i32 @H5F__cache_superblock_free_icr(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5F__cache_drvrinfo_get_initial_load_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5F__cache_drvrinfo_get_initial_load_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   store i64 16, ptr %1, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5F__cache_drvrinfo_get_final_load_size(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #1 {
+define internal range(i32 -1, 1) i32 @H5F__cache_drvrinfo_get_final_load_size(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.H5O_drvinfo_t, align 8
   store ptr %0, ptr %5, align 8
@@ -1119,7 +1119,7 @@ define internal range(i32 -1, 1) i32 @H5F__cache_drvrinfo_get_final_load_size(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5F__cache_drvrinfo_deserialize(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #1 {
+define internal noundef ptr @H5F__cache_drvrinfo_deserialize(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca [9 x i8], align 1
   store ptr %0, ptr %5, align 8
@@ -1170,7 +1170,7 @@ define internal noundef ptr @H5F__cache_drvrinfo_deserialize(ptr noundef %0, i64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5F__cache_drvrinfo_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
+define internal noundef i32 @H5F__cache_drvrinfo_image_len(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 16
@@ -1179,7 +1179,7 @@ define internal noundef i32 @H5F__cache_drvrinfo_image_len(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5F__cache_drvrinfo_serialize(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 8)) %1, i64 %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 1) i32 @H5F__cache_drvrinfo_serialize(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 8)) %1, i64 %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 264
   store i32 0, ptr %1, align 1
@@ -1228,7 +1228,7 @@ define internal noundef i32 @H5F__cache_drvrinfo_free_icr(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull %1, i64 noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr i8, ptr %6, i64 %2
   %.ptr87 = getelementptr i8, ptr %7, i64 -1
@@ -1454,7 +1454,7 @@ declare ptr @H5G_oloc(ptr noundef) local_unnamed_addr #3
 declare i32 @H5_checksum_metadata(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr nocapture noundef nonnull %0, ptr noundef writeonly %1, ptr nocapture noundef nonnull %2, i64 noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr noundef nonnull captures(none) %0, ptr noundef writeonly %1, ptr noundef nonnull captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i1 noundef zeroext %5) unnamed_addr #1 {
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr i8, ptr %7, i64 %3
   %.ptr69 = getelementptr i8, ptr %8, i64 -1

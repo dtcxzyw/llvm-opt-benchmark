@@ -126,7 +126,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Osd15TbbEvalStencilsEPKfRKNS1_16BufferDescriptorEPfS6_PKiS9_S9_S3_ii(ptr noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Osd15TbbEvalStencilsEPKfRKNS1_16BufferDescriptorEPfS6_PKiS9_S9_S3_ii(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1, ptr noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %12 = alloca %"struct.tbb::detail::d1::wait_node", align 8
   %13 = alloca %"class.tbb::detail::d1::task_group_context", align 8
@@ -248,7 +248,7 @@ _ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIiEEN10OpenSubdiv6v3_6_03Osd1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -277,7 +277,7 @@ define linkonce_odr void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef 
 declare void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
@@ -1227,7 +1227,7 @@ declare void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_grou
 declare void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Osd15TbbEvalStencilsEPKfRKNS1_16BufferDescriptorEPfS6_S7_S6_S7_S6_PKiS9_S9_S3_S3_S3_ii(ptr noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %5, ptr noundef %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Osd15TbbEvalStencilsEPKfRKNS1_16BufferDescriptorEPfS6_S7_S6_S7_S6_PKiS9_S9_S3_S3_S3_ii(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1, ptr noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %3, ptr noundef %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %5, ptr noundef %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %17 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %18 = alloca %"struct.tbb::detail::d1::wait_node", align 8
   %19 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -1607,7 +1607,7 @@ _ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIiEEN10OpenSubdiv6v3_6_03Osd1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Osd15TbbEvalStencilsEPKfRKNS1_16BufferDescriptorEPfS6_S7_S6_S7_S6_S7_S6_S7_S6_S7_S6_PKiS9_S9_S3_S3_S3_S3_S3_S3_ii(ptr noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %5, ptr noundef %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %7, ptr noundef %8, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %9, ptr noundef %10, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %11, ptr noundef %12, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Osd15TbbEvalStencilsEPKfRKNS1_16BufferDescriptorEPfS6_S7_S6_S7_S6_S7_S6_S7_S6_S7_S6_PKiS9_S9_S3_S3_S3_S3_S3_S3_ii(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1, ptr noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %3, ptr noundef %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %5, ptr noundef %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %7, ptr noundef %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %9, ptr noundef %10, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %11, ptr noundef %12, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %26 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %27 = alloca %"struct.tbb::detail::d1::wait_node", align 8
   %28 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -2353,7 +2353,7 @@ _ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIiEEN10OpenSubdiv6v3_6_03Osd1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Osd14TbbEvalPatchesEPKfRKNS1_16BufferDescriptorEPfS6_S7_S6_S7_S6_iPKNS1_10PatchCoordEPKNS1_10PatchArrayEPKiPKNS1_10PatchParamE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %5, ptr noundef %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #3 {
+define void @_ZN10OpenSubdiv6v3_6_03Osd14TbbEvalPatchesEPKfRKNS1_16BufferDescriptorEPfS6_S7_S6_S7_S6_iPKNS1_10PatchCoordEPKNS1_10PatchArrayEPKiPKNS1_10PatchParamE(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1, ptr noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %3, ptr noundef %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %5, ptr noundef %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #3 {
   %14 = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %15 = alloca %"class.OpenSubdiv::v3_6_0::Osd::TbbEvalPatchesKernel", align 8
   %16 = alloca %"class.tbb::detail::d1::blocked_range", align 8
@@ -5763,7 +5763,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchPara
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %0, ptr nocapture noundef nonnull %1) unnamed_addr #11 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #11 {
   %3 = and i32 %0, 1
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit62, label %.preheader61
@@ -6225,7 +6225,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Osd14TbbEvalPatchesEPKfRKNS1_16BufferDescriptorEPfS6_S7_S6_S7_S6_S7_S6_S7_S6_S7_S6_iPKNS1_10PatchCoordEPKNS1_10PatchArrayEPKiPKNS1_10PatchParamE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %5, ptr noundef %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %7, ptr noundef %8, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %9, ptr noundef %10, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %11, ptr noundef %12, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18) local_unnamed_addr #3 {
+define void @_ZN10OpenSubdiv6v3_6_03Osd14TbbEvalPatchesEPKfRKNS1_16BufferDescriptorEPfS6_S7_S6_S7_S6_S7_S6_S7_S6_S7_S6_iPKNS1_10PatchCoordEPKNS1_10PatchArrayEPKiPKNS1_10PatchParamE(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1, ptr noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %3, ptr noundef %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %5, ptr noundef %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %7, ptr noundef %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %9, ptr noundef %10, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %11, ptr noundef %12, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18) local_unnamed_addr #3 {
   %20 = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %21 = alloca %"class.OpenSubdiv::v3_6_0::Osd::TbbEvalPatchesKernel", align 8
   %22 = alloca %"class.tbb::detail::d1::blocked_range", align 8
@@ -6293,10 +6293,10 @@ define internal void @_GLOBAL__sub_I_tbbKernel.cpp() #13 section ".text.startup"
 declare i8 @llvm.umax.i8(i8, i8) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

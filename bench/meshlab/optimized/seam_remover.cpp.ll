@@ -1608,13 +1608,13 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -3099,7 +3099,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef no
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11PrepareMeshR4MeshPi(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define void @_Z11PrepareMeshR4MeshPi(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.logging::Buffer", align 8
   %4 = alloca %"class.logging::Buffer", align 8
   %5 = alloca i8, align 1
@@ -7375,7 +7375,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIP10MeshVertexSt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #11 comdat align 2 {
@@ -17437,7 +17437,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt4pairIP8MeshFaceiES3_St9_IdentityIS3_
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z15InitializeStateSt10shared_ptrI9MeshGraphERK14AlgoParameters(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %2) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define void @_Z15InitializeStateSt10shared_ptrI9MeshGraphERK14AlgoParameters(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %2) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.306", align 8
   %5 = alloca %"class.std::vector.463", align 8
   %6 = alloca %"class.std::vector.468", align 8
@@ -18791,7 +18791,7 @@ _ZNSt12__shared_ptrI13ClusteredSeamLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23InsertNewClusterInQueueSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %3) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL23InsertNewClusterInQueueSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %3) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.689", align 8
   %6 = alloca %"class.std::tuple.149", align 1
   %7 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>, std::allocator<std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
@@ -27138,12 +27138,12 @@ define linkonce_odr void @_ZNSt8_Rb_treeIP8MeshFaceS1_St9_IdentityIS1_ESt4lessIS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_Z12ColorizeSeamSt10shared_ptrI13ClusteredSeamERKN3vcg6Color4IhEE(ptr noundef, ptr noundef nonnull align 1 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11ComputeCostSt10shared_ptrI13ClusteredSeamES_I9MeshGraphERK14AlgoParametersd(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %3, double noundef %4) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11ComputeCostSt10shared_ptrI13ClusteredSeamES_I9MeshGraphERK14AlgoParametersd(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %3, double noundef %4) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %6 = alloca i8, align 1
   %7 = alloca %"struct.std::pair.477", align 8
   %8 = alloca %"class.std::shared_ptr.474", align 8
@@ -28405,7 +28405,7 @@ _ZNSt12__shared_ptrI4SeamLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL15IslandLookaheadSt10shared_ptrI9FaceGroupES1_i(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL15IslandLookaheadSt10shared_ptrI9FaceGroupES1_i(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__detail::_AllocNode.736", align 8
   %4 = alloca %"struct.std::__detail::_AllocNode.736", align 8
   %5 = alloca %"class.std::unordered_set.696", align 8
@@ -35718,7 +35718,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiSt3setISt10shared_ptrI13ClusteredSeamESt4lessIS5_ESaIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z18GreedyOptimizationSt10shared_ptrI9MeshGraphES_I9AlgoStateERK14AlgoParameters(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %2) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define void @_Z18GreedyOptimizationSt10shared_ptrI9MeshGraphES_I9AlgoStateERK14AlgoParameters(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %2) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::set<int>>, std::allocator<std::pair<const int, std::set<int>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %5 = alloca %"class.std::shared_ptr.474", align 8
   %6 = alloca %"class.std::shared_ptr", align 8
@@ -52837,7 +52837,7 @@ _ZN7logging6BufferlsIdEERS0_RKT_.exit556:         ; preds = %7028
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14PrintStateInfoSt10shared_ptrI9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14PrintStateInfoSt10shared_ptrI9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.843", align 8
   %5 = alloca %"class.std::tuple.149", align 1
   %6 = alloca %"class.std::set.590", align 8
@@ -54598,7 +54598,7 @@ _ZNSt6vectorIN3vcg6Point2IdEESaIS2_EED2Ev.exit10: ; preds = %_ZNSt6vectorIN3vcg6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 12) i32 @_ZL13OptimizeChartR8SeamDataSt10shared_ptrI9MeshGraphEb(ptr noundef nonnull align 8 dereferenceable(1528) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 12) i32 @_ZL13OptimizeChartR8SeamDataSt10shared_ptrI9MeshGraphEb(ptr noundef nonnull align 8 dereferenceable(1528) %0, ptr noundef nonnull readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__detail::_AllocNode.991", align 8
   %5 = alloca %"struct.std::__detail::_AllocNode.991", align 8
   %6 = alloca %"struct.std::__detail::_AllocNode.991", align 8
@@ -55868,7 +55868,7 @@ _ZN9FaceGroupD2Ev.exit:                           ; preds = %_ZN4ARAPD2Ev.exit, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 11) i32 @_ZL27CheckAfterLocalOptimizationR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParameters(ptr nocapture noundef nonnull align 8 dereferenceable(1528) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 11) i32 @_ZL27CheckAfterLocalOptimizationR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParameters(ptr noundef nonnull align 8 captures(none) dereferenceable(1528) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.1034", align 8
   %5 = alloca %"class.std::vector.918", align 8
   %6 = alloca %"class.std::vector.1034", align 8
@@ -58114,7 +58114,7 @@ _ZNSt10shared_ptrI9AlgoStateED2Ev.exit:           ; preds = %878, %896, %909, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10AcceptMoveRK8SeamDataSt10shared_ptrI9AlgoStateES2_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull align 8 dereferenceable(1528) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %3) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10AcceptMoveRK8SeamDataSt10shared_ptrI9AlgoStateES2_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull align 8 dereferenceable(1528) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %3) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Hashtable<std::shared_ptr<ClusteredSeam>, std::pair<const std::shared_ptr<ClusteredSeam>, CostInfo::MatchingValue>, std::allocator<std::pair<const std::shared_ptr<ClusteredSeam>, CostInfo::MatchingValue>>, std::__detail::_Select1st, std::equal_to<std::shared_ptr<ClusteredSeam>>, std::hash<std::shared_ptr<ClusteredSeam>>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %6 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>, std::allocator<std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %7 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::set<int>>, std::allocator<std::pair<const int, std::set<int>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
@@ -72823,7 +72823,7 @@ _ZNSt10_HashtableISt10shared_ptrI9FaceGroupES2_SaIS2_ENSt8__detail9_IdentityESt8
 declare void @_Z12IntersectionRKSt6vectorI8HalfEdgeSaIS0_EE(ptr dead_on_unwind writable sret(%"class.std::vector.918") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEEZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1ET_SJ_SJ_T0_"(ptr %0, ptr %1, ptr nocapture nonnull readonly %2) unnamed_addr #19 {
+define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEEZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1ET_SJ_SJ_T0_"(ptr %0, ptr %1, ptr nonnull readonly captures(none) %2) unnamed_addr #19 {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
@@ -72936,7 +72936,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 24)) %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::Segment2", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not23 = icmp eq ptr %.0.val, %.8.val
@@ -73382,7 +73382,7 @@ _ZNSt12_Vector_baseISt10shared_ptrI9FaceGroupESaIS2_EED2Ev.exit: ; preds = %_ZSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nocapture readonly %.0.val, ptr nocapture readonly %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_0EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1472
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -73691,7 +73691,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nocapture readonly %.0.val, ptr nocapture readonly %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %.val1 = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 8
   %.val2 = load i32, ptr %2, align 8
@@ -74044,7 +74044,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE22_M_insert_range_uniqueISt23_Rb
 declare void @_ZN9FaceGroup23ParameterizationChangedEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.689", align 8
   %5 = alloca %"class.std::tuple.149", align 1
   %6 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>, std::allocator<std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
@@ -75385,7 +75385,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17InvalidateClusterSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE11CheckStatusd(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i32 noundef range(i32 1, 0) %3, double noundef %4) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17InvalidateClusterSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE11CheckStatusd(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 1, 0) %3, double noundef %4) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.689", align 8
   %7 = alloca %"class.std::tuple.149", align 1
   %8 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>, std::allocator<std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
@@ -78692,7 +78692,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrI13Cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z8FinalizeSt10shared_ptrI9MeshGraphEPi(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define void @_Z8FinalizeSt10shared_ptrI9MeshGraphEPi(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unordered_set.1085", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %4, ptr %3, align 8
@@ -79522,10 +79522,10 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #23

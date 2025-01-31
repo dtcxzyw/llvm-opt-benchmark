@@ -606,10 +606,10 @@ define noundef i32 @SetThreading(i32 noundef %0) local_unnamed_addr #3 {
 declare noundef i32 @_ZN6System15PreferThreadingEj(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef i32 @_ZNK6System10NumThreadsEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #0
 
@@ -777,7 +777,7 @@ define void @_Z15CloseDebugFilesv() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z7SetDealP10ThreadData(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @_Z7SetDealP10ThreadData(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -864,7 +864,7 @@ define void @_Z7SetDealP10ThreadData(ptr nocapture noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z13SetDealTablesP10ThreadData(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca [4 x [15 x i32]], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4944
   br label %.preheader82
@@ -1018,7 +1018,7 @@ define void @_Z13SetDealTablesP10ThreadData(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr nocapture noundef nonnull readonly align 4 dereferenceable(96) %0, ptr nocapture noundef nonnull align 4 dereferenceable(1544) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #9 {
+define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(96) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(1544) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 {
 .preheader53:
   %3 = alloca [4 x [4 x i16]], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -1116,7 +1116,7 @@ define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14ResetBestMovesP10ThreadData(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @_Z14ResetBestMovesP10ThreadData(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 3328
   %3 = getelementptr i8, ptr %0, i64 4128
   br label %4
@@ -1201,7 +1201,7 @@ define void @FreeMemory() local_unnamed_addr #3 {
 declare void @_ZN6Memory12ReturnThreadEj(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ErrorMessage(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #11 {
+define void @ErrorMessage(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #11 {
   switch i32 %0, label %30 [
     i32 1, label %3
     i32 -1, label %4

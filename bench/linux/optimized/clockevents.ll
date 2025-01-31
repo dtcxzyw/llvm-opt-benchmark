@@ -85,7 +85,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_clockevent_delta2ns316, ptr @__UNIQUE_ID___addressable_clockevents_config_and_register341, ptr @__UNIQUE_ID___addressable_clockevents_init_sysfs345, ptr @__UNIQUE_ID___addressable_clockevents_register_device340, ptr @__UNIQUE_ID___addressable_clockevents_unbind_device333], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 1000, 0) i64 @clockevent_delta2ns(i64 noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local range(i64 1000, 0) i64 @clockevent_delta2ns(i64 noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -235,10 +235,10 @@ __clockevents_switch_state.exit.thread:           ; preds = %__clockevents_switc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @clockevents_shutdown(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -795,7 +795,7 @@ define dso_local i32 @clockevents_update_freq(ptr noundef %0, i32 noundef %1) lo
 declare dso_local i32 @tick_broadcast_update_freq(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @clockevents_handle_noop(ptr nocapture noundef readnone %0) local_unnamed_addr #3 align 16 {
+define dso_local void @clockevents_handle_noop(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 align 16 {
   ret void
 }
 
@@ -1095,13 +1095,13 @@ define internal i32 @clockevents_init_sysfs() #4 section ".init.text" align 16 {
 declare dso_local i32 @_printk_deferred(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @smp_call_function_single(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__clockevents_unbind(ptr nocapture noundef %0) #0 align 16 {
+define internal void @__clockevents_unbind(ptr noundef captures(none) %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @clockevents_lock) #11
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !54
@@ -1287,7 +1287,7 @@ define internal fastcc i32 @tick_broadcast_init_sysfs() unnamed_addr #4 section 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @current_device_show(ptr noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @current_device_show(ptr noundef readonly %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @clockevents_lock) #11
   %4 = icmp eq ptr %0, @tick_bc_dev
   br i1 %4, label %5, label %7
@@ -1333,7 +1333,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @current_device_s
 declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -1342,7 +1342,7 @@ declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 
 declare dso_local ptr @tick_get_broadcast_device() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @unbind_device_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @unbind_device_store(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca %struct.ce_unbind, align 8
   %6 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11
@@ -1436,7 +1436,7 @@ define internal i64 @unbind_device_store(ptr nocapture noundef readonly %0, ptr 
 declare dso_local i64 @sysfs_get_uname(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

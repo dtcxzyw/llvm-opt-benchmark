@@ -67,7 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_bml = external local_unnamed_addr global %struct.mca_bml_base_module_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_pml_ob1_record_htod_event(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_record_htod_event(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) getelementptr inbounds nuw (i8, ptr @opal_accelerator_base_selected_component, i64 84), ptr noundef nonnull dereferenceable(5) @.str, i64 5)
   %3 = icmp eq i32 %bcmp, 0
   br i1 %3, label %63, label %4
@@ -196,7 +196,7 @@ define ptr @mca_pml_ob1_get_htod_stream() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @mca_pml_ob1_progress_one_htod_event(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @mca_pml_ob1_progress_one_htod_event(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) getelementptr inbounds nuw (i8, ptr @opal_accelerator_base_selected_component, i64 84), ptr noundef nonnull dereferenceable(5) @.str, i64 5)
   %2 = icmp eq i32 %bcmp, 0
   br i1 %2, label %57, label %3
@@ -564,7 +564,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @mca_pml_ob1_accelerator_fini() local_unnamed_addr #0 {
@@ -1000,7 +1000,7 @@ opal_convertor_need_buffers.exit.thread24:        ; preds = %3, %opal_convertor_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_cuda_btls(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_cuda_btls(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 136
   %.val = load i64, ptr %5, align 8
   %6 = trunc i64 %.val to i32
@@ -1166,7 +1166,7 @@ declare i32 @mca_pml_ob1_send_request_start_rdma(ptr noundef, ptr noundef, i64 n
 declare i32 @mca_pml_ob1_send_request_start_rndv(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mca_pml_ob1_accelerator_need_buffers(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @mca_pml_ob1_accelerator_need_buffers(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -1364,12 +1364,12 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #6
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @mca_pml_ob1_com_btl_comp(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

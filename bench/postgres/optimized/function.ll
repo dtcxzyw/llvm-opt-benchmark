@@ -229,7 +229,7 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
   %22 = getelementptr i8, ptr %2, i64 %21
   %sext = shl i64 %14, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = call i64 @PQescapeStringConn(ptr noundef %3, ptr noundef %22, ptr noundef %13, i64 noundef %23, ptr noundef null) #9
+  %24 = call i64 @PQescapeStringConn(ptr noundef %3, ptr noundef %22, ptr noundef nonnull %13, i64 noundef %23, ptr noundef null) #9
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %2)
   %endptr = getelementptr inbounds i8, ptr %2, i64 %strlen
   store i16 39, ptr %endptr, align 1
@@ -257,7 +257,7 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
 36:                                               ; preds = %29, %27
   %.225 = phi ptr [ %30, %29 ], [ %.02331, %27 ]
   %37 = call ptr @PQerrorMessage(ptr noundef %3) #9
-  %38 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.225, ptr noundef nonnull @.str.9, ptr noundef %13, ptr noundef %37) #9
+  %38 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.225, ptr noundef nonnull @.str.9, ptr noundef nonnull %13, ptr noundef %37) #9
   br label %39
 
 39:                                               ; preds = %20, %36
@@ -313,7 +313,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @library_name_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @library_name_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #10
@@ -344,10 +344,10 @@ define internal i32 @library_name_compare(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @PQescapeStringConn(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -356,7 +356,7 @@ declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
 declare void @pg_fatal(ptr noundef, ...) local_unnamed_addr #5
@@ -371,14 +371,14 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @pg_log(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare void @check_ok() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #8

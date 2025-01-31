@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ac4fd1d65e6e66d260219a31c252ffb6.3 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.ac4fd1d65e6e66d260219a31c252ffb6.0, [16 x i8] c"+\00\00\00\00\00\00\00\1F\00\00\00&\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_suffix17h9de619b85a272a61E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, ptr noalias nocapture noundef nonnull writeonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 1 dereferenceable(256) %7, i1 noundef zeroext %8, i8 noundef %9) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_suffix17h9de619b85a272a61E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull writeonly align 1 captures(none) %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef readonly align 1 captures(none) dereferenceable(256) %7, i1 noundef zeroext %8, i8 noundef %9) unnamed_addr #0 personality ptr @rust_eh_personality {
   %11 = ptrtoint ptr %1 to i64
   %12 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
@@ -280,10 +280,10 @@ declare void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 nou
 declare void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #3

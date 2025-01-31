@@ -240,7 +240,7 @@ wc_Sha3Final.exit:                                ; preds = %entry, %Sha3Final.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @wc_Sha3_224_Free(ptr nocapture noundef readnone %sha3) local_unnamed_addr #2 {
+define void @wc_Sha3_224_Free(ptr noundef readnone captures(none) %sha3) local_unnamed_addr #2 {
 entry:
   ret void
 }
@@ -413,7 +413,7 @@ wc_Sha3Final.exit:                                ; preds = %entry, %Sha3Final.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @wc_Sha3_256_Free(ptr nocapture noundef readnone %sha3) local_unnamed_addr #2 {
+define void @wc_Sha3_256_Free(ptr noundef readnone captures(none) %sha3) local_unnamed_addr #2 {
 entry:
   ret void
 }
@@ -586,7 +586,7 @@ wc_Sha3Final.exit:                                ; preds = %entry, %Sha3Final.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @wc_Sha3_384_Free(ptr nocapture noundef readnone %sha3) local_unnamed_addr #2 {
+define void @wc_Sha3_384_Free(ptr noundef readnone captures(none) %sha3) local_unnamed_addr #2 {
 entry:
   ret void
 }
@@ -759,7 +759,7 @@ wc_Sha3Final.exit:                                ; preds = %entry, %Sha3Final.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @wc_Sha3_512_Free(ptr nocapture noundef readnone %sha3) local_unnamed_addr #2 {
+define void @wc_Sha3_512_Free(ptr noundef readnone captures(none) %sha3) local_unnamed_addr #2 {
 entry:
   ret void
 }
@@ -845,7 +845,7 @@ wc_Sha3Copy.exit:                                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @BlockSha3(ptr nocapture noundef nonnull %s) unnamed_addr #1 {
+define internal fastcc void @BlockSha3(ptr noundef nonnull captures(none) %s) unnamed_addr #1 {
 entry:
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %s, i64 40
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %s, i64 80
@@ -1254,10 +1254,10 @@ for.end:                                          ; preds = %do.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #6
@@ -1266,10 +1266,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #6
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -155,7 +155,7 @@ define dso_local void @setup_parser_errposition_callback(ptr noundef initializes
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pcb_error_callback(ptr nocapture noundef readonly %0) #0 {
+define internal void @pcb_error_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call i32 @geterrcode() #7
   %.not = icmp eq i32 %2, 67371461
   br i1 %.not, label %parser_errposition.exit, label %3
@@ -186,7 +186,7 @@ parser_errposition.exit:                          ; preds = %13, %9, %3, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define dso_local void @cancel_parser_errposition_callback(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local void @cancel_parser_errposition_callback(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr @error_context_stack, align 8
@@ -194,7 +194,7 @@ define dso_local void @cancel_parser_errposition_callback(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @transformContainerType(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @transformContainerType(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   %4 = tail call i32 @getBaseTypeAndTypmod(i32 noundef %3, ptr noundef %1) #7
   store i32 %4, ptr %0, align 4
@@ -325,7 +325,7 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 declare i32 @exprLocation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @make_const(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @make_const(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ParseCallbackState, align 8
   %4 = alloca %struct.ErrorSaveContext, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -455,7 +455,7 @@ define dso_local ptr @make_const(ptr noundef %0, ptr nocapture noundef readonly 
 declare ptr @makeConst(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i64 @pg_strtoint64_safe(ptr noundef, ptr noundef) local_unnamed_addr #1
 

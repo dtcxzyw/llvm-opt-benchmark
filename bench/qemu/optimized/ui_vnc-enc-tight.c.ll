@@ -884,7 +884,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vnc_tight_clear(ptr nocapture noundef readonly %vs) local_unnamed_addr #0 {
+define dso_local void @vnc_tight_clear(ptr noundef readonly captures(none) %vs) local_unnamed_addr #0 {
 entry:
   %tight = getelementptr inbounds nuw i8, ptr %vs, i64 49600
   br label %for.body
@@ -1897,7 +1897,7 @@ if.end25.i.i:                                     ; preds = %tight_filter_gradie
   %120 = load ptr, ptr %tight, align 8
   %offset.i.i83 = getelementptr inbounds nuw i8, ptr %120, i64 24
   store i64 %mul30.i.i, ptr %offset.i.i83, align 8
-  %call33.i.i = tail call fastcc i32 @tight_compress_data(ptr noundef %vs, i32 noundef 3, i64 noundef %mul30.i.i, i32 noundef %55, i32 noundef 1)
+  %call33.i.i = tail call fastcc i32 @tight_compress_data(ptr noundef nonnull %vs, i32 noundef 3, i64 noundef %mul30.i.i, i32 noundef %55, i32 noundef 1)
   %cmp35.i.i = icmp sgt i32 %call33.i.i, -1
   br label %send_gradient_rect.exit.i
 
@@ -1984,7 +1984,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vnc_tight_cleanup(ptr nocapture readnone %n, ptr nocapture readnone %value) #0 {
+define internal void @vnc_tight_cleanup(ptr readnone captures(none) %n, ptr readnone captures(none) %value) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @color_count_palette)
   %1 = load ptr, ptr %0, align 8
@@ -2006,7 +2006,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @buffer_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @palette_init(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2015,7 +2015,7 @@ declare i32 @palette_put(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @palette_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @tight_detect_smooth_image(ptr nocapture noundef readonly %vs, i32 noundef %w, i32 noundef %h) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tight_detect_smooth_image(ptr noundef readonly captures(none) %vs, i32 noundef %w, i32 noundef %h) unnamed_addr #0 {
 entry:
   %max.i = alloca [3 x i32], align 4
   %shift.i = alloca [3 x i32], align 4
@@ -2468,7 +2468,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end26.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx30.i = getelementptr [3 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   %10 = load i8, ptr %arrayidx30.i, align 1
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %10) #14
+  call void @vnc_write_u8(ptr noundef nonnull %vs, i8 noundef zeroext %10) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %bytes.0.i
   br i1 %exitcond.not.i, label %tight_send_compact_size.exit, label %for.body.i, !llvm.loop !44
@@ -2480,7 +2480,7 @@ tight_send_compact_size.exit:                     ; preds = %for.body.i
   %12 = load ptr, ptr %buffer, align 8
   %offset14 = getelementptr inbounds nuw i8, ptr %11, i64 184
   %13 = load i64, ptr %offset14, align 8
-  call void @vnc_write(ptr noundef %vs, ptr noundef %12, i64 noundef %13) #14
+  call void @vnc_write(ptr noundef nonnull %vs, ptr noundef %12, i64 noundef %13) #14
   %14 = load ptr, ptr %tight, align 8
   %jpeg16 = getelementptr inbounds nuw i8, ptr %14, i64 168
   call void @buffer_reset(ptr noundef nonnull %jpeg16) #14
@@ -2595,7 +2595,7 @@ if.end9:                                          ; preds = %while.body.i, %if.t
   %idxprom = zext i8 %13 to i64
   %raw_zlib_level = getelementptr [10 x %struct.anon.1], ptr @tight_conf, i64 0, i64 %idxprom, i32 6
   %14 = load i32, ptr %raw_zlib_level, align 8
-  %call14 = tail call fastcc i32 @tight_compress_data(ptr noundef %vs, i32 noundef 0, i64 noundef %mul12.pre-phi, i32 noundef %14, i32 noundef 0)
+  %call14 = tail call fastcc i32 @tight_compress_data(ptr noundef nonnull %vs, i32 noundef 0, i64 noundef %mul12.pre-phi, i32 noundef %14, i32 noundef 0)
   %cmp = icmp sgt i32 %call14, -1
   %conv16 = zext i1 %cmp to i32
   br label %return
@@ -2719,7 +2719,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.t
 
 if.end14:                                         ; preds = %while.body.i, %sw.bb
   %ret11.0 = phi i64 [ 8, %sw.bb ], [ 6, %while.body.i ]
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %buf, i64 noundef %ret11.0) #14
+  call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf, i64 noundef %ret11.0) #14
   %13 = load ptr, ptr %tight, align 8
   %buffer = getelementptr inbounds nuw i8, ptr %13, i64 40
   %14 = load ptr, ptr %buffer, align 8
@@ -3157,7 +3157,7 @@ sw.epilog:                                        ; preds = %for.end54.us63.i, %
   %35 = load ptr, ptr %tight, align 8
   %offset = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 %conv6, ptr %offset, align 8
-  %call33 = call fastcc i32 @tight_compress_data(ptr noundef %vs, i32 noundef 1, i64 noundef %conv6, i32 noundef %2, i32 noundef 0)
+  %call33 = call fastcc i32 @tight_compress_data(ptr noundef nonnull %vs, i32 noundef 1, i64 noundef %conv6, i32 noundef %2, i32 noundef 0)
   %cmp = icmp sgt i32 %call33, -1
   %conv35 = zext i1 %cmp to i32
   br label %return
@@ -3472,7 +3472,7 @@ sw.epilog:                                        ; preds = %for.cond.loopexit.i
   %34 = load ptr, ptr %tight, align 8
   %offset40 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 %conv37, ptr %offset40, align 8
-  %call41 = call fastcc i32 @tight_compress_data(ptr noundef %vs, i32 noundef 2, i64 noundef %conv37, i32 noundef %2, i32 noundef 0)
+  %call41 = call fastcc i32 @tight_compress_data(ptr noundef nonnull %vs, i32 noundef 2, i64 noundef %conv37, i32 noundef %2, i32 noundef 0)
   %cmp = icmp sgt i32 %call41, -1
   %conv43 = zext i1 %cmp to i32
   br label %return
@@ -3483,7 +3483,7 @@ return:                                           ; preds = %if.end, %sw.epilog,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define internal fastcc i32 @tight_detect_smooth_image24(i8 %vs.49452.val, ptr nocapture readonly %vs.49600.val.40.val, i32 noundef range(i32 8, -2147483648) %w, i32 noundef range(i32 8, -2147483648) %h) unnamed_addr #5 {
+define internal fastcc i32 @tight_detect_smooth_image24(i8 %vs.49452.val, ptr readonly captures(none) %vs.49600.val.40.val, i32 noundef range(i32 8, -2147483648) %w, i32 noundef range(i32 8, -2147483648) %h) unnamed_addr #5 {
 entry:
   %stats = alloca [256 x i32], align 16
   %left = alloca [3 x i32], align 4
@@ -3648,7 +3648,7 @@ return:                                           ; preds = %for.body83, %lor.lh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @tight_detect_smooth_image32(ptr nocapture noundef readonly %vs, i32 noundef range(i32 8, -2147483648) %w, i32 noundef range(i32 8, -2147483648) %h) unnamed_addr #6 {
+define internal fastcc i32 @tight_detect_smooth_image32(ptr noundef readonly captures(none) %vs, i32 noundef range(i32 8, -2147483648) %w, i32 noundef range(i32 8, -2147483648) %h) unnamed_addr #6 {
 entry:
   %max = alloca [3 x i32], align 4
   %shift = alloca [3 x i32], align 4
@@ -3857,7 +3857,7 @@ return:                                           ; preds = %for.body109, %lor.l
 declare i32 @pixman_image_get_format(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #2
@@ -3873,7 +3873,7 @@ declare void @jpeg_set_defaults(ptr noundef) local_unnamed_addr #1
 declare void @jpeg_set_quality(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_init_destination(ptr nocapture noundef readonly %cinfo) #8 {
+define internal void @jpeg_init_destination(ptr noundef readonly captures(none) %cinfo) #8 {
 entry:
   %client_data = getelementptr inbounds nuw i8, ptr %cinfo, i64 24
   %0 = load ptr, ptr %client_data, align 8
@@ -3898,7 +3898,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @jpeg_empty_output_buffer(ptr nocapture noundef readonly %cinfo) #0 {
+define internal noundef i32 @jpeg_empty_output_buffer(ptr noundef readonly captures(none) %cinfo) #0 {
 entry:
   %client_data = getelementptr inbounds nuw i8, ptr %cinfo, i64 24
   %0 = load ptr, ptr %client_data, align 8
@@ -3932,7 +3932,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_term_destination(ptr nocapture noundef readonly %cinfo) #8 {
+define internal void @jpeg_term_destination(ptr noundef readonly captures(none) %cinfo) #8 {
 entry:
   %client_data = getelementptr inbounds nuw i8, ptr %cinfo, i64 24
   %0 = load ptr, ptr %client_data, align 8
@@ -4285,7 +4285,7 @@ for.body.i75:                                     ; preds = %for.body.i75, %if.e
   %indvars.iv.i = phi i64 [ 0, %if.end26.i ], [ %indvars.iv.next.i, %for.body.i75 ]
   %arrayidx30.i = getelementptr [3 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   %41 = load i8, ptr %arrayidx30.i, align 1
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %41) #14
+  call void @vnc_write_u8(ptr noundef nonnull %vs, i8 noundef zeroext %41) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i, %bytes.0.i
   br i1 %exitcond.not.i76, label %tight_send_compact_size.exit, label %for.body.i75, !llvm.loop !44
@@ -4297,7 +4297,7 @@ tight_send_compact_size.exit:                     ; preds = %for.body.i75
   %43 = load ptr, ptr %buffer60, align 8
   %offset63 = getelementptr inbounds nuw i8, ptr %42, i64 224
   %44 = load i64, ptr %offset63, align 8
-  call void @vnc_write(ptr noundef %vs, ptr noundef %43, i64 noundef %44) #14
+  call void @vnc_write(ptr noundef nonnull %vs, ptr noundef %43, i64 noundef %44) #14
   %45 = load ptr, ptr %tight, align 8
   %png65 = getelementptr inbounds nuw i8, ptr %45, i64 208
   call void @buffer_reset(ptr noundef nonnull %png65) #14
@@ -4494,14 +4494,14 @@ return:                                           ; preds = %if.then16.i, %if.th
 declare noalias ptr @png_create_write_struct_2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @vnc_png_malloc(ptr nocapture readnone %png_ptr, i64 noundef %size) #0 {
+define internal noalias ptr @vnc_png_malloc(ptr readnone captures(none) %png_ptr, i64 noundef %size) #0 {
 entry:
   %call = tail call noalias ptr @g_malloc(i64 noundef %size) #17
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vnc_png_free(ptr nocapture readnone %png_ptr, ptr noundef %ptr) #0 {
+define internal void @vnc_png_free(ptr readnone captures(none) %png_ptr, ptr noundef %ptr) #0 {
 entry:
   tail call void @g_free(ptr noundef %ptr) #14
   ret void
@@ -4514,7 +4514,7 @@ declare void @png_destroy_write_struct(ptr noundef, ptr noundef) local_unnamed_a
 declare void @png_set_write_fn(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @png_write_data(ptr noundef %png_ptr, ptr nocapture noundef readonly %data, i64 noundef %length) #0 {
+define internal void @png_write_data(ptr noundef %png_ptr, ptr noundef readonly captures(none) %data, i64 noundef %length) #0 {
 entry:
   %call = tail call ptr @png_get_io_ptr(ptr noundef %png_ptr) #14
   %tight = getelementptr inbounds nuw i8, ptr %call, i64 49600
@@ -4540,7 +4540,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @png_flush_data(ptr nocapture readnone %png_ptr) #9 {
+define internal void @png_flush_data(ptr readnone captures(none) %png_ptr) #9 {
 entry:
   ret void
 }
@@ -4556,7 +4556,7 @@ declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @palette_iter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @write_png_palette(i32 noundef %idx, i32 noundef %pix, ptr nocapture noundef readonly %opaque) #8 {
+define internal void @write_png_palette(i32 noundef %idx, i32 noundef %pix, ptr noundef readonly captures(none) %opaque) #8 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %png_palette = getelementptr inbounds nuw i8, ptr %opaque, i64 16
@@ -4688,7 +4688,7 @@ declare ptr @palette_new(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare void @palette_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @write_palette(i32 noundef %idx, i32 noundef %color, ptr nocapture noundef readonly %opaque) #8 {
+define internal void @write_palette(i32 noundef %idx, i32 noundef %color, ptr noundef readonly captures(none) %opaque) #8 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %bytes_per_pixel = getelementptr inbounds nuw i8, ptr %0, i64 49417
@@ -4725,13 +4725,13 @@ declare i32 @vnc_server_fb_stride(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

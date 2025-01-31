@@ -119,10 +119,10 @@ define void @_Z5rtrimPc(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = tail call ptr @fgets(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %6 = icmp eq ptr %5, null
@@ -144,7 +144,7 @@ define noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef %0, i32 noundef %1, ptr n
 
 12:                                               ; preds = %10
   call void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 1 dereferenceable(129) @.str, i8 noundef zeroext 2)
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 93, ptr noundef nonnull @.str.1, i32 noundef %1, i32 noundef %1, ptr noundef %0) #23
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 93, ptr noundef nonnull @.str.1, i32 noundef %1, i32 noundef %1, ptr noundef nonnull %0) #23
           to label %13 unwind label %14
 
 13:                                               ; preds = %12
@@ -171,13 +171,13 @@ define noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
 declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ...) local_unnamed_addr #4
@@ -514,7 +514,7 @@ _Z5rtrimPc.exit:                                  ; preds = %.lr.ph.i3, %.crited
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef range(i32 -255, 256) i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define noundef range(i32 -255, 256) i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   br label %3
 
 3:                                                ; preds = %17, %2
@@ -643,7 +643,7 @@ define noundef range(i32 -255, 256) i32 @_Z19gmx_strncasecmp_minPKcS0_i(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef range(i32 -255, 256) i32 @_Z14gmx_strcasecmpPKcS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define noundef range(i32 -255, 256) i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   br label %3
 
 3:                                                ; preds = %14, %2
@@ -678,7 +678,7 @@ define noundef range(i32 -255, 256) i32 @_Z14gmx_strcasecmpPKcS0_(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef range(i32 -255, 256) i32 @_Z15gmx_strncasecmpPKcS0_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #11 {
+define noundef range(i32 -255, 256) i32 @_Z15gmx_strncasecmpPKcS0_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -718,21 +718,21 @@ define noundef range(i32 -255, 256) i32 @_Z15gmx_strncasecmpPKcS0_i(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z10gmx_strdupPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define noundef ptr @_Z10gmx_strdupPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %3 = add i64 %2, 1
   %4 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 272, i64 noundef %3, i64 noundef 1)
-  %5 = tail call ptr @strncpy(ptr noundef %4, ptr noundef %0, i64 noundef %3) #22
+  %5 = tail call ptr @strncpy(ptr noundef %4, ptr noundef nonnull %0, i64 noundef %3) #22
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z11gmx_strndupPKci(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define noundef ptr @_Z11gmx_strndupPKci(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %4 = trunc i64 %3 to i32
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %4)
@@ -740,14 +740,14 @@ define noundef ptr @_Z11gmx_strndupPKci(ptr nocapture noundef readonly %0, i32 n
   %6 = sext i32 %5 to i64
   %7 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 287, i64 noundef %6, i64 noundef 1)
   %8 = sext i32 %spec.select to i64
-  %9 = tail call ptr @strncpy(ptr noundef %7, ptr noundef %0, i64 noundef %8) #22
+  %9 = tail call ptr @strncpy(ptr noundef %7, ptr noundef nonnull %0, i64 noundef %8) #22
   %10 = getelementptr inbounds i8, ptr %7, i64 %8
   store i8 0, ptr %10, align 1
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z24gmx_string_fullhash_funcPKcj(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #13 {
+define noundef i32 @_Z24gmx_string_fullhash_funcPKcj(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = load i8, ptr %0, align 1
   %.not6 = icmp eq i8 %3, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -770,7 +770,7 @@ define noundef i32 @_Z24gmx_string_fullhash_funcPKcj(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i32 @_Z20gmx_string_hash_funcPKcj(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define noundef i32 @_Z20gmx_string_hash_funcPKcj(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = load i8, ptr %0, align 1
   %4 = sext i8 %3 to i32
   %5 = tail call i32 @toupper(i32 noundef %4) #21
@@ -802,7 +802,7 @@ define noundef i32 @_Z20gmx_string_hash_funcPKcj(ptr nocapture noundef readonly 
 declare i32 @isalnum(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_Z11gmx_wcmatchPKcS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #14 {
+define noundef range(i32 0, 2) i32 @_Z11gmx_wcmatchPKcS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 {
   br label %3
 
 3:                                                ; preds = %26, %2
@@ -894,7 +894,7 @@ define noundef range(i32 0, 2) i32 @_Z11gmx_wcmatchPKcS0_(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z10wrap_linesPKciib(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
+define noundef ptr @_Z10wrap_linesPKciib(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %6 = trunc i64 %5 to i32
   %7 = add i32 %2, 1
@@ -1095,13 +1095,13 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr nocapture noundef readonly %0, i32 
 declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i64 @_Z14str_to_int64_tPKcPPc(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #15 {
+define noundef i64 @_Z14str_to_int64_tPKcPPc(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #15 {
   %3 = tail call i64 @strtoll(ptr noundef %0, ptr noundef %1, i32 noundef 10) #22
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef ptr @_Z12gmx_step_strlPc(i64 noundef %0, ptr noundef returned writeonly %1) local_unnamed_addr #17 {
@@ -1110,19 +1110,19 @@ define noundef ptr @_Z12gmx_step_strlPc(i64 noundef %0, ptr noundef returned wri
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 attributes #0 = { mustprogress nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

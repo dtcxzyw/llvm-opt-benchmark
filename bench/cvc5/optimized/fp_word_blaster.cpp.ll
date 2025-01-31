@@ -2994,41 +2994,41 @@ ehcleanup112:                                     ; preds = %lpad5.loopexit, %lp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6symfpu21probabilityAnnotationIN4cvc58internal6theory2fp14symfpuSymbolic6traitsENS5_19symbolicPropositionEEEvRKT0_RKNS_11probabilityE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %p, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %pr) local_unnamed_addr #4 {
+define hidden void @_ZN6symfpu21probabilityAnnotationIN4cvc58internal6theory2fp14symfpuSymbolic6traitsENS5_19symbolicPropositionEEEvRKT0_RKNS_11probabilityE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %p, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %pr) local_unnamed_addr #4 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits3RNEEv(ptr noalias nocapture nonnull writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicRoundingMode") align 8 %agg.result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits3RNEEv(ptr noalias nonnull writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicRoundingMode") align 8 captures(none) %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits3RNAEv(ptr noalias nocapture nonnull writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicRoundingMode") align 8 %agg.result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits3RNAEv(ptr noalias nonnull writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicRoundingMode") align 8 captures(none) %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits3RTPEv(ptr noalias nocapture nonnull writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicRoundingMode") align 8 %agg.result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits3RTPEv(ptr noalias nonnull writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicRoundingMode") align 8 captures(none) %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i32 noundef 4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits3RTNEv(ptr noalias nocapture nonnull writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicRoundingMode") align 8 %agg.result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits3RTNEv(ptr noalias nonnull writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicRoundingMode") align 8 captures(none) %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i32 noundef 8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits3RTZEv(ptr noalias nocapture nonnull writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicRoundingMode") align 8 %agg.result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits3RTZEv(ptr noalias nonnull writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicRoundingMode") align 8 captures(none) %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i32 noundef 16)
   ret void
@@ -3053,25 +3053,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits12preconditionERKNS3_19symbolicPropositionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %p) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits12preconditionERKNS3_19symbolicPropositionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %p) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits13postconditionERKNS3_19symbolicPropositionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %p) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits13postconditionERKNS3_19symbolicPropositionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %p) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits9invariantERKNS3_19symbolicPropositionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %p) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic6traits9invariantERKNS3_19symbolicPropositionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %p) local_unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicProposition13checkNodeTypeENS0_12NodeTemplateILb0EEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr noundef nonnull %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicProposition13checkNodeTypeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tn = alloca %"class.cvc5::internal::TypeNode", align 8
   call void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %tn, ptr noundef nonnull align 8 dereferenceable(8) %node, i1 noundef zeroext false)
@@ -3310,7 +3310,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionC2ENS0_12NodeTemplateILb1EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef readonly %n) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionC2ENS0_12NodeTemplateILb1EEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef readonly captures(none) %n) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %n, align 8
   store ptr %0, ptr %this, align 8
@@ -3344,7 +3344,7 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic11nodeWrapperC2ERKNS0_12NodeTemplateI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i1 noundef zeroext %v) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionC2Eb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %v) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp2 = alloca %"class.cvc5::internal::BitVector", align 8
@@ -3553,7 +3553,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionC2ERKS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %old) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionC2ERKS4_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %old) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %old, align 8
   store ptr %0, ptr %this, align 8
@@ -3587,7 +3587,7 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic11nodeWrapperC2ERKS4_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionntEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionntEv(ptr noalias writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -3693,7 +3693,7 @@ ehcleanup:                                        ; preds = %ehcleanup.i, %lpad3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionaaERKS4_(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionaaERKS4_(ptr noalias writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -3813,7 +3813,7 @@ ehcleanup:                                        ; preds = %ehcleanup10.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionooERKS4_(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionooERKS4_(ptr noalias writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -3933,7 +3933,7 @@ ehcleanup:                                        ; preds = %ehcleanup10.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositioneqERKS4_(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositioneqERKS4_(ptr noalias writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -4053,7 +4053,7 @@ ehcleanup:                                        ; preds = %ehcleanup10.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositioneoERKS4_(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositioneoERKS4_(ptr noalias writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -4173,7 +4173,7 @@ ehcleanup:                                        ; preds = %ehcleanup10.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingMode13checkNodeTypeENS0_12NodeTemplateILb0EEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr noundef nonnull %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingMode13checkNodeTypeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   call void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %n, i1 noundef zeroext false)
@@ -4220,7 +4220,7 @@ lpad:                                             ; preds = %entry
 declare noundef zeroext i1 @_ZNK4cvc58internal8TypeNode11isBitVectorEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2ENS0_12NodeTemplateILb1EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef readonly %n) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2ENS0_12NodeTemplateILb1EEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef readonly captures(none) %n) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %n, align 8
   store ptr %0, ptr %this, align 8
@@ -4254,7 +4254,7 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic11nodeWrapperC2ERKNS0_12NodeTemplateI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i32 noundef %v) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2Ej(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %v) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp2 = alloca %"class.cvc5::internal::BitVector", align 8
@@ -4362,7 +4362,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit4:            ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2ERKS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %old) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2ERKS4_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %old) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %old, align 8
   store ptr %0, ptr %this, align 8
@@ -4396,7 +4396,7 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic11nodeWrapperC2ERKS4_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingMode5validEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingMode5validEv(ptr noalias writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i70 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i71 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -5091,7 +5091,7 @@ eh.resume:                                        ; preds = %lpad, %ehcleanup75
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeeqERKS4_(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeeqERKS4_(ptr noalias writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -5211,7 +5211,7 @@ ehcleanup:                                        ; preds = %ehcleanup10.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb1EE8maxValueERKj(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector.61") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %w) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb1EE8maxValueERKj(ptr noalias writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector.61") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %w) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -5528,7 +5528,7 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic11nodeWrapperD2Ev.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8maxValueERKj(ptr noalias sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %w) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8maxValueERKj(ptr noalias sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %w) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -5576,7 +5576,7 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE7allOnesERKj
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb1EE8minValueERKj(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector.61") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %w) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb1EE8minValueERKj(ptr noalias writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector.61") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %w) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -5786,7 +5786,7 @@ ehcleanup15:                                      ; preds = %ehcleanup14, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8minValueERKj(ptr noalias nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %w) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8minValueERKj(ptr noalias nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %w) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %w, align 4, !noalias !59
   tail call void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EEC2Ejj(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i32 noundef %0, i32 noundef 0)
@@ -5794,7 +5794,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb1EE6extendEj(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector.61") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %extension) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb1EE6extendEj(ptr noalias writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector.61") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %extension) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %construct = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -5957,7 +5957,7 @@ declare void @_ZN4cvc58internal11NodeBuildercvNS0_12NodeTemplateILb1EEEEv(ptr sr
 declare void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE6extendEj(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %extension) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE6extendEj(ptr noalias writeonly sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %extension) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %construct = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -6145,7 +6145,7 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic11nodeWrapperC2ERKNS0_12NodeTemplateI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic21floatingPointTypeInfoC2ENS0_8TypeNodeE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr nocapture noundef readonly %type) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic21floatingPointTypeInfoC2ENS0_8TypeNodeE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef readonly captures(none) %type) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %type, align 8
   %call.i = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -6849,7 +6849,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster8ufToNodeERKNS2_14symfpuSymbolic21floatingPointTypeInfoERKN6symfpu13unpackedFloatINS4_6traitsEEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 4 dereferenceable(8) %format, ptr noundef nonnull align 8 dereferenceable(48) %u) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster8ufToNodeERKNS2_14symfpuSymbolic21floatingPointTypeInfoERKN6symfpu13unpackedFloatINS4_6traitsEEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 4 dereferenceable(8) %format, ptr noundef nonnull align 8 dereferenceable(48) %u) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.cvc5::internal::FloatingPointSize", align 4
   %fps = alloca %"class.cvc5::internal::FloatingPointSize", align 4
@@ -8696,7 +8696,7 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic11nodeWrapperD2Ev.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster8rmToNodeERKNS2_14symfpuSymbolic20symbolicRoundingModeE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster8rmToNodeERKNS2_14symfpuSymbolic20symbolicRoundingModeE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i183 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i184 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -10152,7 +10152,7 @@ ehcleanup16:                                      ; preds = %lpad2, %lpad11, %lp
 declare void @_ZN4cvc58internal11NodeManager7mkConstINS0_12RoundingModeEEENS0_12NodeTemplateILb1EEERKT_(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(3360), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster10propToNodeERKNS2_14symfpuSymbolic19symbolicPropositionE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster10propToNodeERKNS2_14symfpuSymbolic19symbolicPropositionE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(640) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -10286,7 +10286,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster9ubvToNodeERKNS2_14symfpuSymbolic17symbolicBitVectorILb0EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %u) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster9ubvToNodeERKNS2_14symfpuSymbolic17symbolicBitVectorILb0EEE(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(640) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %u) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %u, align 8
   store ptr %0, ptr %agg.result, align 8
@@ -10320,7 +10320,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster9sbvToNodeERKNS2_14symfpuSymbolic17symbolicBitVectorILb1EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster9sbvToNodeERKNS2_14symfpuSymbolic17symbolicBitVectorILb1EEE(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(640) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %s) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %s, align 8
   store ptr %0, ptr %agg.result, align 8
@@ -13930,7 +13930,7 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit53: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp13FpWordBlaster9wordBlastENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(640) %this, ptr nocapture noundef readonly %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp13FpWordBlaster9wordBlastENS0_12NodeTemplateILb0EEE(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef readonly captures(none) %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i881 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
@@ -33837,7 +33837,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_bESaIS6_ENSt8_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp13FpWordBlaster8getValueERNS1_9ValuationENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %val, ptr noundef nonnull %var) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp13FpWordBlaster8getValueERNS1_9ValuationENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %val, ptr noundef nonnull %var) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"class.cvc5::internal::TypeNode", align 8
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -34427,10 +34427,10 @@ declare noundef i32 @_ZN4cvc58internal6theory6Theory8theoryOfENS0_12NodeTemplate
 declare noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
@@ -100245,10 +100245,10 @@ declare i32 @llvm.umax.i32(i32, i32) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #17

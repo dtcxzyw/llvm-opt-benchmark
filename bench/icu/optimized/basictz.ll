@@ -66,7 +66,7 @@ entry:
 declare void @_ZN6icu_758TimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #3
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7513BasicTimeZoneD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7513BasicTimeZoneD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #12
   unreachable
@@ -582,7 +582,7 @@ declare noundef ptr @_ZNK6icu_7518TimeZoneTransition5getToEv(ptr noundef nonnull
 declare void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7513BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZoneRuleERPNS_18AnnualTimeZoneRuleES6_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, double noundef %date, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %initial, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %std, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %dst, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7513BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZoneRuleERPNS_18AnnualTimeZoneRuleES6_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, double noundef %date, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %initial, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %std, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %dst, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %initialRaw = alloca i32, align 4
   %initialDst = alloca i32, align 4
@@ -1363,7 +1363,7 @@ declare void @_ZN6icu_7519InitialTimeZoneRuleC1ERKNS_13UnicodeStringEii(ptr noun
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7513BasicTimeZone21getTimeZoneRulesAfterEdRPNS_19InitialTimeZoneRuleERPNS_7UVectorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, double noundef %start, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %initial, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %transitionRules, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7513BasicTimeZone21getTimeZoneRulesAfterEdRPNS_19InitialTimeZoneRuleERPNS_7UVectorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, double noundef %start, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %initial, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %transitionRules, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %orgini = alloca ptr, align 8
   %tzt = alloca %"class.icu_75::TimeZoneTransition", align 8
@@ -2439,7 +2439,7 @@ declare noundef i32 @_ZNK6icu_7518AnnualTimeZoneRule10getEndYearEv(ptr noundef n
 declare void @_ZN6icu_7518AnnualTimeZoneRuleC1ERKNS_13UnicodeStringEiiRKNS_12DateTimeRuleEii(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(36), i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_7513BasicTimeZone18getOffsetFromLocalEd20UTimeZoneLocalOptionS1_RiS2_R10UErrorCode(ptr nocapture nonnull readnone align 8 %this, double %0, i32 %1, i32 %2, ptr nocapture nonnull readnone align 4 %3, ptr nocapture nonnull readnone align 4 %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #8 align 2 {
+define void @_ZNK6icu_7513BasicTimeZone18getOffsetFromLocalEd20UTimeZoneLocalOptionS1_RiS2_R10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, double %0, i32 %1, i32 %2, ptr nonnull readnone align 4 captures(none) %3, ptr nonnull readnone align 4 captures(none) %4, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #8 align 2 {
 entry:
   %5 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %5, 1

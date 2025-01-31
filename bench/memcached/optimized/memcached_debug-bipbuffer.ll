@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @bipbuf_unused(ptr nocapture noundef readonly %me) local_unnamed_addr #0 {
+define dso_local i32 @bipbuf_unused(ptr noundef readonly captures(none) %me) local_unnamed_addr #0 {
 entry:
   %b_inuse = getelementptr inbounds nuw i8, ptr %me, i64 20
   %0 = load i32, ptr %b_inuse, align 4
@@ -33,7 +33,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @bipbuf_size(ptr nocapture noundef readonly %me) local_unnamed_addr #0 {
+define dso_local i32 @bipbuf_size(ptr noundef readonly captures(none) %me) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %me, align 8
   %conv = trunc i64 %0 to i32
@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @bipbuf_used(ptr nocapture noundef readonly %me) local_unnamed_addr #0 {
+define dso_local i32 @bipbuf_used(ptr noundef readonly captures(none) %me) local_unnamed_addr #0 {
 entry:
   %a_end = getelementptr inbounds nuw i8, ptr %me, i64 12
   %0 = load i32, ptr %a_end, align 4
@@ -55,7 +55,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @bipbuf_init(ptr nocapture noundef writeonly initializes((0, 24)) %me, i32 noundef %size) local_unnamed_addr #1 {
+define dso_local void @bipbuf_init(ptr noundef writeonly captures(none) initializes((0, 24)) %me, i32 noundef %size) local_unnamed_addr #1 {
 entry:
   %b_end = getelementptr inbounds nuw i8, ptr %me, i64 16
   store i32 0, ptr %b_end, align 8
@@ -99,17 +99,17 @@ return:                                           ; preds = %entry, %if.end
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @bipbuf_free(ptr nocapture noundef %me) local_unnamed_addr #4 {
+define dso_local void @bipbuf_free(ptr noundef captures(none) %me) local_unnamed_addr #4 {
 entry:
   tail call void @free(ptr noundef %me) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @bipbuf_is_empty(ptr nocapture noundef readonly %me) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @bipbuf_is_empty(ptr noundef readonly captures(none) %me) local_unnamed_addr #0 {
 entry:
   %a_start = getelementptr inbounds nuw i8, ptr %me, i64 8
   %0 = load i32, ptr %a_start, align 8
@@ -164,7 +164,7 @@ return:                                           ; preds = %bipbuf_unused.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @bipbuf_push(ptr nocapture noundef %me, i32 noundef %size) local_unnamed_addr #6 {
+define dso_local noundef i32 @bipbuf_push(ptr noundef captures(none) %me, i32 noundef %size) local_unnamed_addr #6 {
 entry:
   %b_inuse.i = getelementptr inbounds nuw i8, ptr %me, i64 20
   %0 = load i32, ptr %b_inuse.i, align 4
@@ -228,7 +228,7 @@ return:                                           ; preds = %if.then.i14, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @bipbuf_offer(ptr nocapture noundef %me, ptr nocapture noundef readonly %data, i32 noundef %size) local_unnamed_addr #6 {
+define dso_local noundef i32 @bipbuf_offer(ptr noundef captures(none) %me, ptr noundef readonly captures(none) %data, i32 noundef %size) local_unnamed_addr #6 {
 entry:
   %b_inuse.i = getelementptr inbounds nuw i8, ptr %me, i64 20
   %0 = load i32, ptr %b_inuse.i, align 4
@@ -302,7 +302,7 @@ return:                                           ; preds = %if.then.i21, %if.en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @bipbuf_peek(ptr noundef readonly %me, i32 noundef %size) local_unnamed_addr #0 {
@@ -333,7 +333,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @bipbuf_peek_all(ptr noundef readonly %me, ptr nocapture noundef writeonly %size) local_unnamed_addr #6 {
+define dso_local ptr @bipbuf_peek_all(ptr noundef readonly %me, ptr noundef writeonly captures(none) %size) local_unnamed_addr #6 {
 entry:
   %a_start.i = getelementptr inbounds nuw i8, ptr %me, i64 8
   %0 = load i32, ptr %a_start.i, align 8

@@ -768,7 +768,7 @@ define dso_local i32 @vlv_resume_prepare(ptr noundef %0, i1 noundef zeroext %1) 
 declare dso_local void @intel_clock_gating_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @vlv_suspend_init(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @vlv_suspend_init(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2097152
@@ -790,7 +790,7 @@ define dso_local noundef range(i32 -12, 1) i32 @vlv_suspend_init(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vlv_suspend_cleanup(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @vlv_suspend_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8904
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

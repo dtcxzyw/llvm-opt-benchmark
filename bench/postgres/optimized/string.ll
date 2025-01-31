@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [7 x i8] c"\\x%02x\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @pg_str_endswith(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @pg_str_endswith(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %5 = icmp ugt i64 %4, %3
@@ -25,13 +25,13 @@ define dso_local zeroext i1 @pg_str_endswith(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local i32 @strtoint(ptr noalias noundef %0, ptr noalias nocapture noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local i32 @strtoint(ptr noalias noundef %0, ptr noalias noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call i64 @strtol(ptr noundef %0, ptr noundef %1, i32 noundef %2) #11
   %5 = add i64 %4, 2147483648
   %.not = icmp ult i64 %5, 4294967296
@@ -48,13 +48,13 @@ define dso_local i32 @strtoint(ptr noalias noundef %0, ptr noalias nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @pg_clean_ascii(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local noundef ptr @pg_clean_ascii(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %4 = shl i64 %3, 2
   %5 = or disjoint i64 %4, 1
@@ -110,7 +110,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local zeroext i1 @pg_is_ascii(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local zeroext i1 @pg_is_ascii(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -126,7 +126,7 @@ define dso_local zeroext i1 @pg_is_ascii(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @pg_strip_crlf(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define dso_local i32 @pg_strip_crlf(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %3 = trunc i64 %2 to i32
   %invariant.gep = getelementptr i8, ptr %0, i64 -1

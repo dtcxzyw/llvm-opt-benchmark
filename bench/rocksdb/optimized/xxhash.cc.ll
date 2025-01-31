@@ -158,14 +158,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @ROCKSDB_XXH32_freeState(ptr nocapture noundef %statePtr) local_unnamed_addr #3 {
+define noundef i32 @ROCKSDB_XXH32_freeState(ptr noundef captures(none) %statePtr) local_unnamed_addr #3 {
 entry:
   tail call void @free(ptr noundef %statePtr) #32
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ROCKSDB_XXH32_copyState(ptr nocapture noundef writeonly initializes((0, 48)) %dstState, ptr nocapture noundef readonly %srcState) local_unnamed_addr #4 {
+define void @ROCKSDB_XXH32_copyState(ptr noundef writeonly captures(none) initializes((0, 48)) %dstState, ptr noundef readonly captures(none) %srcState) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %dstState, ptr noundef nonnull readonly align 1 dereferenceable(48) %srcState, i64 48, i1 false)
   ret void
@@ -192,10 +192,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ROCKSDB_XXH32_update(ptr nocapture noundef %state, ptr noundef %input, i64 noundef %len) local_unnamed_addr #7 {
+define noundef i32 @ROCKSDB_XXH32_update(ptr noundef captures(none) %state, ptr noundef %input, i64 noundef %len) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %input, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -365,7 +365,7 @@ return:                                           ; preds = %if.end95, %if.then9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ROCKSDB_XXH32_digest(ptr nocapture noundef readonly %state) local_unnamed_addr #8 {
+define i32 @ROCKSDB_XXH32_digest(ptr noundef readonly captures(none) %state) local_unnamed_addr #8 {
 entry:
   %large_len = getelementptr inbounds nuw i8, ptr %state, i64 4
   %0 = load i32, ptr %large_len, align 4
@@ -461,7 +461,7 @@ _ZL14XXH32_finalizejPKhm13XXH_alignment.exit:     ; preds = %do.body9.i, %while.
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ROCKSDB_XXH32_canonicalFromHash(ptr nocapture noundef writeonly initializes((0, 4)) %dst, i32 noundef %hash) local_unnamed_addr #10 {
+define void @ROCKSDB_XXH32_canonicalFromHash(ptr noundef writeonly captures(none) initializes((0, 4)) %dst, i32 noundef %hash) local_unnamed_addr #10 {
 entry:
   %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %hash)
   store i32 %or7.i, ptr %dst, align 1
@@ -469,7 +469,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @ROCKSDB_XXH32_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #8 {
+define noundef i32 @ROCKSDB_XXH32_hashFromCanonical(ptr noundef readonly captures(none) %src) local_unnamed_addr #8 {
 entry:
   %src.val = load i32, ptr %src, align 1
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %src.val)
@@ -477,7 +477,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ROCKSDB_XXH64(ptr nocapture noundef readonly %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #8 {
+define i64 @ROCKSDB_XXH64(ptr noundef readonly captures(none) %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #8 {
 entry:
   %cmp.i = icmp eq ptr %input, null
   br i1 %cmp.i, label %if.end15.thread.i.i, label %if.end3.i
@@ -658,21 +658,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @ROCKSDB_XXH64_freeState(ptr nocapture noundef %statePtr) local_unnamed_addr #3 {
+define noundef i32 @ROCKSDB_XXH64_freeState(ptr noundef captures(none) %statePtr) local_unnamed_addr #3 {
 entry:
   tail call void @free(ptr noundef %statePtr) #32
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ROCKSDB_XXH64_copyState(ptr nocapture noundef writeonly initializes((0, 88)) %dstState, ptr nocapture noundef readonly %srcState) local_unnamed_addr #4 {
+define void @ROCKSDB_XXH64_copyState(ptr noundef writeonly captures(none) initializes((0, 88)) %dstState, ptr noundef readonly captures(none) %srcState) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %dstState, ptr noundef nonnull readonly align 1 dereferenceable(88) %srcState, i64 88, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define noundef i32 @ROCKSDB_XXH64_reset(ptr nocapture noundef writeonly %statePtr, i64 noundef %seed) local_unnamed_addr #5 {
+define noundef i32 @ROCKSDB_XXH64_reset(ptr noundef writeonly captures(none) %statePtr, i64 noundef %seed) local_unnamed_addr #5 {
 entry:
   %cmp = icmp ne ptr %statePtr, null
   tail call void @llvm.assume(i1 %cmp)
@@ -692,7 +692,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define noundef i32 @ROCKSDB_XXH64_update(ptr nocapture noundef %state, ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #11 {
+define noundef i32 @ROCKSDB_XXH64_update(ptr noundef captures(none) %state, ptr noundef captures(none) %input, i64 noundef %len) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %input, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -851,7 +851,7 @@ return:                                           ; preds = %if.end96, %if.then9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ROCKSDB_XXH64_digest(ptr nocapture noundef readonly %state) local_unnamed_addr #8 {
+define i64 @ROCKSDB_XXH64_digest(ptr noundef readonly captures(none) %state) local_unnamed_addr #8 {
 entry:
   %0 = load i64, ptr %state, align 8
   %cmp = icmp ugt i64 %0, 31
@@ -988,7 +988,7 @@ _ZL14XXH64_finalizemPKhm13XXH_alignment.exit:     ; preds = %while.body18.i, %if
 declare i64 @llvm.fshl.i64(i64, i64, i64) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ROCKSDB_XXH64_canonicalFromHash(ptr nocapture noundef writeonly initializes((0, 8)) %dst, i64 noundef %hash) local_unnamed_addr #10 {
+define void @ROCKSDB_XXH64_canonicalFromHash(ptr noundef writeonly captures(none) initializes((0, 8)) %dst, i64 noundef %hash) local_unnamed_addr #10 {
 entry:
   %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %hash)
   store i64 %or19.i, ptr %dst, align 1
@@ -996,7 +996,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @ROCKSDB_XXH64_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #8 {
+define noundef i64 @ROCKSDB_XXH64_hashFromCanonical(ptr noundef readonly captures(none) %src) local_unnamed_addr #8 {
 entry:
   %src.val = load i64, ptr %src, align 1
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %src.val)
@@ -1004,14 +1004,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i64 @ROCKSDB_XXH3_64bits(ptr nocapture noundef %input, i64 noundef %length) local_unnamed_addr #1 {
+define noundef i64 @ROCKSDB_XXH3_64bits(ptr noundef captures(none) %input, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %length, i64 noundef 0, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL25XXH3_hashLong_64b_defaultPKvmmPKhm) #32
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %len, i64 noundef %seed64, ptr noundef %secret, i64 noundef %secretLen, ptr nocapture noundef readonly %f_hashLong) unnamed_addr #7 {
+define internal fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %len, i64 noundef %seed64, ptr noundef %secret, i64 noundef %secretLen, ptr noundef readonly captures(none) %f_hashLong) unnamed_addr #7 {
 entry:
   %cmp = icmp ugt i64 %secretLen, 135
   tail call void @llvm.assume(i1 %cmp)
@@ -1464,7 +1464,7 @@ return:                                           ; preds = %if.end10.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define internal noundef i64 @_ZL25XXH3_hashLong_64b_defaultPKvmmPKhm(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture readnone %secret, i64 %secretLen) #12 {
+define internal noundef i64 @_ZL25XXH3_hashLong_64b_defaultPKvmmPKhm(ptr noundef readonly captures(none) %input, i64 noundef %len, i64 %seed64, ptr readnone captures(none) %secret, i64 %secretLen) #12 {
 entry:
   %acc.i = alloca [8 x i64], align 64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %acc.i)
@@ -1609,14 +1609,14 @@ _ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit: ; preds = %f
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i64 @ROCKSDB_XXH3_64bits_withSecret(ptr nocapture noundef %input, i64 noundef %length, ptr nocapture noundef %secret, i64 noundef %secretSize) local_unnamed_addr #1 {
+define noundef i64 @ROCKSDB_XXH3_64bits_withSecret(ptr noundef captures(none) %input, i64 noundef %length, ptr noundef captures(none) %secret, i64 noundef %secretSize) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %length, i64 noundef 0, ptr noundef %secret, i64 noundef %secretSize, ptr noundef nonnull @_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm) #32
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i64 @_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture noundef readonly %secret, i64 noundef %secretLen) #13 {
+define internal noundef i64 @_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm(ptr noundef readonly captures(none) %input, i64 noundef %len, i64 %seed64, ptr noundef readonly captures(none) %secret, i64 noundef %secretLen) #13 {
 entry:
   %acc.i = alloca [8 x i64], align 64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %acc.i)
@@ -1774,14 +1774,14 @@ _ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit: ; preds = %f
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i64 @ROCKSDB_XXH3_64bits_withSeed(ptr nocapture noundef %input, i64 noundef %length, i64 noundef %seed) local_unnamed_addr #1 {
+define noundef i64 @ROCKSDB_XXH3_64bits_withSeed(ptr noundef captures(none) %input, i64 noundef %length, i64 noundef %seed) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %length, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm) #32
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i64 @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm(ptr nocapture noundef readonly %input, i64 noundef %len, i64 noundef %seed, ptr nocapture readnone %secret, i64 %secretLen) #13 {
+define internal noundef i64 @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm(ptr noundef readonly captures(none) %input, i64 noundef %len, i64 noundef %seed, ptr readnone captures(none) %secret, i64 %secretLen) #13 {
 entry:
   %acc.i7.i = alloca [8 x i64], align 64
   %acc.i.i = alloca [8 x i64], align 64
@@ -2100,7 +2100,7 @@ _ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i64 @ROCKSDB_XXH3_64bits_withSecretandSeed(ptr nocapture noundef %input, i64 noundef %length, ptr nocapture noundef readonly %secret, i64 noundef %secretSize, i64 noundef %seed) local_unnamed_addr #14 {
+define i64 @ROCKSDB_XXH3_64bits_withSecretandSeed(ptr noundef captures(none) %input, i64 noundef %length, ptr noundef readonly captures(none) %secret, i64 noundef %secretSize, i64 noundef %seed) local_unnamed_addr #14 {
 entry:
   %acc.i.i = alloca [8 x i64], align 64
   %cmp = icmp ult i64 %length, 241
@@ -2315,14 +2315,14 @@ _ZL15XXH_alignedFreePv.exit:                      ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ROCKSDB_XXH3_copyState(ptr nocapture noundef writeonly initializes((0, 576)) %dst_state, ptr nocapture noundef readonly %src_state) local_unnamed_addr #4 {
+define void @ROCKSDB_XXH3_copyState(ptr noundef writeonly captures(none) initializes((0, 576)) %dst_state, ptr noundef readonly captures(none) %src_state) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(576) %dst_state, ptr noundef nonnull readonly align 1 dereferenceable(576) %src_state, i64 576, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset(ptr nocapture noundef writeonly %statePtr) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset(ptr noundef writeonly captures(none) %statePtr) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %statePtr, null
   br i1 %cmp, label %return, label %if.end
@@ -2361,7 +2361,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSecret(ptr nocapture noundef writeonly %statePtr, ptr nocapture noundef %secret, i64 noundef %secretSize) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSecret(ptr noundef writeonly captures(none) %statePtr, ptr noundef captures(none) %secret, i64 noundef %secretSize) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %statePtr, null
   br i1 %cmp, label %return, label %if.end
@@ -2406,7 +2406,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSeed(ptr nocapture noundef %statePtr, i64 noundef %seed) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSeed(ptr noundef captures(none) %statePtr, i64 noundef %seed) local_unnamed_addr #16 {
 entry:
   %cmp = icmp eq ptr %statePtr, null
   br i1 %cmp, label %return, label %if.end
@@ -2511,7 +2511,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSecretandSeed(ptr nocapture noundef writeonly %statePtr, ptr nocapture noundef %secret, i64 noundef %secretSize, i64 noundef %seed64) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSecretandSeed(ptr noundef writeonly captures(none) %statePtr, ptr noundef captures(none) %secret, i64 noundef %secretSize, i64 noundef %seed64) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %statePtr, null
   %cmp1 = icmp eq ptr %secret, null
@@ -2558,7 +2558,7 @@ return:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @ROCKSDB_XXH3_64bits_update(ptr nocapture noundef %state, ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #17 {
+define noundef i32 @ROCKSDB_XXH3_64bits_update(ptr noundef captures(none) %state, ptr noundef captures(none) %input, i64 noundef %len) local_unnamed_addr #17 {
 entry:
   tail call fastcc void @_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE(ptr noundef %state, ptr noundef %input, i64 noundef %len)
   ret i32 0
@@ -3081,7 +3081,7 @@ return:                                           ; preds = %if.end118, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i64 @ROCKSDB_XXH3_64bits_digest(ptr nocapture noundef %state) local_unnamed_addr #1 {
+define i64 @ROCKSDB_XXH3_64bits_digest(ptr noundef captures(none) %state) local_unnamed_addr #1 {
 entry:
   %acc = alloca [8 x i64], align 64
   %extSecret = getelementptr inbounds nuw i8, ptr %state, i64 568
@@ -3159,7 +3159,7 @@ return:                                           ; preds = %if.end10, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef nonnull initializes((0, 64)) %acc, ptr nocapture noundef readonly %state, ptr nocapture noundef readonly %secret) unnamed_addr #13 {
+define internal fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef nonnull initializes((0, 64)) %acc, ptr noundef readonly captures(none) %state, ptr noundef readonly captures(none) %secret) unnamed_addr #13 {
 entry:
   %lastStripe = alloca [64 x i8], align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %acc, ptr noundef nonnull readonly align 1 dereferenceable(64) %state, i64 64, i1 false)
@@ -3354,14 +3354,14 @@ if.end35:                                         ; preds = %if.else, %_ZL19XXH3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define { i64, i64 } @ROCKSDB_XXH3_128bits(ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #1 {
+define { i64, i64 } @ROCKSDB_XXH3_128bits(ptr noundef captures(none) %input, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef 0, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m) #32
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef %seed64, ptr noundef %secret, i64 noundef %secretLen, ptr nocapture noundef readonly %f_hl128) unnamed_addr #7 {
+define internal fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef %seed64, ptr noundef %secret, i64 noundef %secretLen, ptr noundef readonly captures(none) %f_hl128) unnamed_addr #7 {
 entry:
   %cmp = icmp ugt i64 %secretLen, 135
   tail call void @llvm.assume(i1 %cmp)
@@ -4009,35 +4009,35 @@ return:                                           ; preds = %if.end11, %_ZL22XXH
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define internal { i64, i64 } @_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture readnone %secret, i64 %secretLen) #19 {
+define internal { i64, i64 } @_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m(ptr noundef readonly captures(none) %input, i64 noundef %len, i64 %seed64, ptr readnone captures(none) %secret, i64 %secretLen) #19 {
 entry:
   %call = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef %input, i64 noundef %len, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192) #32
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define { i64, i64 } @ROCKSDB_XXH3_128bits_withSecret(ptr nocapture noundef %input, i64 noundef %len, ptr nocapture noundef %secret, i64 noundef %secretSize) local_unnamed_addr #1 {
+define { i64, i64 } @ROCKSDB_XXH3_128bits_withSecret(ptr noundef captures(none) %input, i64 noundef %len, ptr noundef captures(none) %secret, i64 noundef %secretSize) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef 0, ptr noundef %secret, i64 noundef %secretSize, ptr noundef nonnull @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m) #32
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal { i64, i64 } @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture noundef readonly %secret, i64 noundef %secretLen) #20 {
+define internal { i64, i64 } @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m(ptr noundef readonly captures(none) %input, i64 noundef %len, i64 %seed64, ptr noundef readonly captures(none) %secret, i64 noundef %secretLen) #20 {
 entry:
   %call = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef %input, i64 noundef %len, ptr noundef %secret, i64 noundef %secretLen)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr nocapture noundef %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #1 {
+define { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr noundef captures(none) %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal { i64, i64 } @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m(ptr nocapture noundef readonly %input, i64 noundef %len, i64 noundef %seed64, ptr nocapture readnone %secret, i64 %secretLen) #13 {
+define internal { i64, i64 } @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m(ptr noundef readonly captures(none) %input, i64 noundef %len, i64 noundef %seed64, ptr readnone captures(none) %secret, i64 %secretLen) #13 {
 entry:
   %secret.i = alloca [192 x i8], align 64
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %secret.i)
@@ -4077,7 +4077,7 @@ _ZL36XXH3_hashLong_128b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define { i64, i64 } @ROCKSDB_XXH3_128bits_withSecretandSeed(ptr nocapture noundef %input, i64 noundef %len, ptr nocapture noundef readonly %secret, i64 noundef %secretSize, i64 noundef %seed) local_unnamed_addr #1 {
+define { i64, i64 } @ROCKSDB_XXH3_128bits_withSecretandSeed(ptr noundef captures(none) %input, i64 noundef %len, ptr noundef readonly captures(none) %secret, i64 noundef %secretSize, i64 noundef %seed) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %len, 241
   br i1 %cmp, label %if.then, label %if.end
@@ -4096,14 +4096,14 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define { i64, i64 } @ROCKSDB_XXH128(ptr nocapture noundef %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #1 {
+define { i64, i64 } @ROCKSDB_XXH128(ptr noundef captures(none) %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #1 {
 entry:
   %call.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
   ret { i64, i64 } %call.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset(ptr nocapture noundef writeonly %statePtr) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset(ptr noundef writeonly captures(none) %statePtr) local_unnamed_addr #10 {
 entry:
   %cmp.i = icmp eq ptr %statePtr, null
   br i1 %cmp.i, label %ROCKSDB_XXH3_64bits_reset.exit, label %if.end.i
@@ -4142,7 +4142,7 @@ ROCKSDB_XXH3_64bits_reset.exit:                   ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSecret(ptr nocapture noundef writeonly %statePtr, ptr nocapture noundef %secret, i64 noundef %secretSize) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSecret(ptr noundef writeonly captures(none) %statePtr, ptr noundef captures(none) %secret, i64 noundef %secretSize) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %statePtr, null
   br i1 %cmp.i, label %ROCKSDB_XXH3_64bits_reset_withSecret.exit, label %if.end.i
@@ -4187,7 +4187,7 @@ ROCKSDB_XXH3_64bits_reset_withSecret.exit:        ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSeed(ptr nocapture noundef %statePtr, i64 noundef %seed) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSeed(ptr noundef captures(none) %statePtr, i64 noundef %seed) local_unnamed_addr #16 {
 entry:
   %cmp.i = icmp eq ptr %statePtr, null
   br i1 %cmp.i, label %ROCKSDB_XXH3_64bits_reset_withSeed.exit, label %if.end.i
@@ -4292,7 +4292,7 @@ ROCKSDB_XXH3_64bits_reset_withSeed.exit:          ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSecretandSeed(ptr nocapture noundef writeonly %statePtr, ptr nocapture noundef %secret, i64 noundef %secretSize, i64 noundef %seed) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSecretandSeed(ptr noundef writeonly captures(none) %statePtr, ptr noundef captures(none) %secret, i64 noundef %secretSize, i64 noundef %seed) local_unnamed_addr #10 {
 entry:
   %cmp.i = icmp eq ptr %statePtr, null
   %cmp1.i = icmp eq ptr %secret, null
@@ -4339,14 +4339,14 @@ ROCKSDB_XXH3_64bits_reset_withSecretandSeed.exit: ; preds = %entry, %if.end6.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @ROCKSDB_XXH3_128bits_update(ptr nocapture noundef %state, ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #17 {
+define noundef i32 @ROCKSDB_XXH3_128bits_update(ptr noundef captures(none) %state, ptr noundef captures(none) %input, i64 noundef %len) local_unnamed_addr #17 {
 entry:
   tail call fastcc void @_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE(ptr noundef %state, ptr noundef %input, i64 noundef %len)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define { i64, i64 } @ROCKSDB_XXH3_128bits_digest(ptr nocapture noundef %state) local_unnamed_addr #1 {
+define { i64, i64 } @ROCKSDB_XXH3_128bits_digest(ptr noundef captures(none) %state) local_unnamed_addr #1 {
 entry:
   %acc = alloca [8 x i64], align 64
   %extSecret = getelementptr inbounds nuw i8, ptr %state, i64 568
@@ -4483,7 +4483,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @ROCKSDB_XXH128_cmp(ptr nocapture noundef readonly %h128_1, ptr nocapture noundef readonly %h128_2) local_unnamed_addr #8 {
+define range(i32 -1, 2) i32 @ROCKSDB_XXH128_cmp(ptr noundef readonly captures(none) %h128_1, ptr noundef readonly captures(none) %h128_2) local_unnamed_addr #8 {
 entry:
   %h1.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %h128_1, i64 8
   %h1.sroa.3.0.copyload = load i64, ptr %h1.sroa.3.0..sroa_idx, align 8
@@ -4508,10 +4508,10 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #22
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ROCKSDB_XXH128_canonicalFromHash(ptr nocapture noundef writeonly initializes((0, 16)) %dst, i64 %hash.coerce0, i64 %hash.coerce1) local_unnamed_addr #10 {
+define void @ROCKSDB_XXH128_canonicalFromHash(ptr noundef writeonly captures(none) initializes((0, 16)) %dst, i64 %hash.coerce0, i64 %hash.coerce1) local_unnamed_addr #10 {
 entry:
   %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %hash.coerce1)
   %or19.i2 = tail call noundef i64 @llvm.bswap.i64(i64 %hash.coerce0)
@@ -4522,7 +4522,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @ROCKSDB_XXH128_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #8 {
+define { i64, i64 } @ROCKSDB_XXH128_hashFromCanonical(ptr noundef readonly captures(none) %src) local_unnamed_addr #8 {
 entry:
   %src.val = load i64, ptr %src, align 1
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %src.val)
@@ -4535,7 +4535,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH3_generateSecret(ptr nocapture noundef %secretBuffer, i64 noundef %secretSize, ptr nocapture noundef %customSeed, i64 noundef %customSeedSize) local_unnamed_addr #23 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_generateSecret(ptr noundef captures(none) %secretBuffer, i64 noundef %secretSize, ptr noundef captures(none) %customSeed, i64 noundef %customSeedSize) local_unnamed_addr #23 {
 entry:
   %cmp = icmp eq ptr %secretBuffer, null
   %cmp1 = icmp ult i64 %secretSize, 136
@@ -4639,7 +4639,7 @@ return:                                           ; preds = %if.end3, %entry, %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @ROCKSDB_XXH3_generateSecret_fromSeed(ptr nocapture noundef writeonly %secretBuffer, i64 noundef %seed) local_unnamed_addr #16 {
+define void @ROCKSDB_XXH3_generateSecret_fromSeed(ptr noundef writeonly captures(none) %secretBuffer, i64 noundef %seed) local_unnamed_addr #16 {
 entry:
   %secret = alloca [192 x i8], align 64
   %vecinit.i.i = insertelement <8 x i64> poison, i64 %seed, i64 0
@@ -4670,16 +4670,16 @@ _ZL28XXH3_initCustomSecret_avx512Pvm.exit:        ; preds = %for.body.i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #25
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #26
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32>, <16 x i32>, <16 x i32>, i32 immarg) #27
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr nocapture noundef readonly %input, i64 noundef %len, ptr nocapture noundef readonly %secret, i64 noundef %secretSize) unnamed_addr #13 {
+define internal fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef readonly captures(none) %input, i64 noundef %len, ptr noundef readonly captures(none) %secret, i64 noundef %secretSize) unnamed_addr #13 {
 entry:
   %acc = alloca [8 x i64], align 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %acc, ptr noundef nonnull align 64 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.acc, i64 64, i1 false)
@@ -4882,7 +4882,7 @@ declare i32 @llvm.bswap.i32(i32) #29
 declare i64 @llvm.bswap.i64(i64) #29
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #29
@@ -4891,10 +4891,10 @@ declare i32 @llvm.ucmp.i32.i64(i64, i64) #29
 declare i64 @llvm.umin.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

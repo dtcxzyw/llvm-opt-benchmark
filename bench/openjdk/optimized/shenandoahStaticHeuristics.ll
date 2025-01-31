@@ -237,7 +237,7 @@ _Z25proper_unit_for_byte_sizem.exit22:            ; preds = %.thread30, %_Z24byt
 declare noundef zeroext i1 @_ZN20ShenandoahHeuristics15should_start_gcEv(ptr noundef nonnull align 8 dereferenceable(193)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26ShenandoahStaticHeuristics37choose_collection_set_from_regiondataEP23ShenandoahCollectionSetPN20ShenandoahHeuristics10RegionDataEmm(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN26ShenandoahStaticHeuristics37choose_collection_set_from_regiondataEP23ShenandoahCollectionSetPN20ShenandoahHeuristics10RegionDataEmm(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
   %7 = load i64, ptr @ShenandoahGarbageThreshold, align 8
   %8 = mul i64 %7, %6

@@ -435,7 +435,7 @@ opal_obj_run_destructors.exit34:                  ; preds = %.lr.ph.i31, %opal_o
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define range(i32 -2, 1) i32 @mca_pml_ob1_comm_init_size(ptr nocapture noundef writeonly initializes((216, 224)) %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_comm_init_size(ptr noundef writeonly captures(none) initializes((216, 224)) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %3, ptr %4, align 8
@@ -456,7 +456,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_comm_init_size(ptr nocapture noundef wr
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @mca_pml_ob1_peer_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @mca_pml_ob1_peer_create(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1_comm_proc_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #9
   %6 = load i32, ptr @opal_class_init_epoch, align 4
@@ -646,7 +646,7 @@ opal_thread_compare_exchange_strong_ptr.exit.thread: ; preds = %59, %78, %99
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #4
 
@@ -656,7 +656,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare ptr @ompi_proc_for_name(i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

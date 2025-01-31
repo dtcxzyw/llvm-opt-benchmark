@@ -291,7 +291,7 @@ declare void @ossl_cms_RecipientInfos_set_cmsctx(ptr noundef) local_unnamed_addr
 declare i32 @ossl_x509_set0_libctx(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @CMS_get0_type(ptr nocapture noundef readonly %cms) local_unnamed_addr #3 {
+define ptr @CMS_get0_type(ptr noundef readonly captures(none) %cms) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   ret ptr %0
@@ -765,7 +765,7 @@ declare i32 @ossl_cms_SignedData_final(ptr noundef, ptr noundef, ptr noundef, i3
 declare i32 @ossl_cms_DigestedData_do_final(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_get0_eContentType(ptr nocapture noundef readonly %cms) local_unnamed_addr #0 {
+define ptr @CMS_get0_eContentType(ptr noundef readonly captures(none) %cms) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @cms_get0_econtent_type(ptr noundef %cms)
   %tobool.not = icmp eq ptr %call, null
@@ -781,7 +781,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cms_get0_econtent_type(ptr nocapture noundef readonly %cms) unnamed_addr #0 {
+define internal fastcc ptr @cms_get0_econtent_type(ptr noundef readonly captures(none) %cms) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
@@ -856,7 +856,7 @@ return:                                           ; preds = %sw.default, %sw.bb1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_set1_eContentType(ptr nocapture noundef readonly %cms, ptr noundef %oid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_set1_eContentType(ptr noundef readonly captures(none) %cms, ptr noundef %oid) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @cms_get0_econtent_type(ptr noundef %cms)
   %cmp = icmp eq ptr %call, null
@@ -1055,7 +1055,7 @@ declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @BIO_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_add0_CertificateChoices(ptr nocapture noundef readonly %cms) local_unnamed_addr #0 {
+define ptr @CMS_add0_CertificateChoices(ptr noundef readonly captures(none) %cms) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
@@ -1124,7 +1124,7 @@ declare ptr @ASN1_item_new(ptr noundef) local_unnamed_addr #1
 declare ptr @CMS_CertificateChoices_it() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_add0_cert(ptr nocapture noundef readonly %cms, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add0_cert(ptr noundef readonly captures(none) %cms, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
@@ -1208,7 +1208,7 @@ declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_add1_cert(ptr nocapture noundef readonly %cms, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add1_cert(ptr noundef readonly captures(none) %cms, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_up_ref(ptr noundef %cert) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -1231,7 +1231,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_add0_RevocationInfoChoice(ptr nocapture noundef readonly %cms) local_unnamed_addr #0 {
+define ptr @CMS_add0_RevocationInfoChoice(ptr noundef readonly captures(none) %cms) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
@@ -1312,7 +1312,7 @@ declare ptr @CMS_RevocationInfoChoice_it() local_unnamed_addr #1
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_add0_crl(ptr nocapture noundef readonly %cms, ptr noundef %crl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add0_crl(ptr noundef readonly captures(none) %cms, ptr noundef %crl) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_add0_RevocationInfoChoice(ptr noundef %cms)
   %cmp = icmp eq ptr %call, null
@@ -1330,7 +1330,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_add1_crl(ptr nocapture noundef readonly %cms, ptr noundef %crl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add1_crl(ptr noundef readonly captures(none) %cms, ptr noundef %crl) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_CRL_up_ref(ptr noundef %crl) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -1361,7 +1361,7 @@ declare i32 @X509_CRL_up_ref(ptr noundef) local_unnamed_addr #1
 declare void @X509_CRL_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_get1_certs(ptr nocapture noundef readonly %cms) local_unnamed_addr #0 {
+define ptr @CMS_get1_certs(ptr noundef readonly captures(none) %cms) local_unnamed_addr #0 {
 entry:
   %certs = alloca ptr, align 8
   store ptr null, ptr %certs, align 8
@@ -1441,7 +1441,7 @@ declare i32 @ossl_x509_add_cert_new(ptr noundef, ptr noundef, i32 noundef) local
 declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_get1_crls(ptr nocapture noundef readonly %cms) local_unnamed_addr #0 {
+define ptr @CMS_get1_crls(ptr noundef readonly captures(none) %cms) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
@@ -1544,7 +1544,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cms_ias_cert_cmp(ptr nocapture noundef readonly %ias, ptr noundef %cert) local_unnamed_addr #0 {
+define i32 @ossl_cms_ias_cert_cmp(ptr noundef readonly captures(none) %ias, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ias, align 8
   %call = tail call ptr @X509_get_issuer_name(ptr noundef %cert) #5
@@ -1593,7 +1593,7 @@ declare ptr @X509_get0_subject_key_id(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_OCTET_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_set1_ias(ptr nocapture noundef %pias, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_set1_ias(ptr noundef captures(none) %pias, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_IssuerAndSerialNumber_it() #5
   %call1 = tail call ptr @ASN1_item_new(ptr noundef %call) #5
@@ -1643,7 +1643,7 @@ declare i32 @X509_NAME_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_STRING_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_set1_keyid(ptr nocapture noundef %pkeyid, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_set1_keyid(ptr noundef captures(none) %pkeyid, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_get0_subject_key_id(ptr noundef %cert) #5
   %cmp = icmp eq ptr %call, null
@@ -1680,7 +1680,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 declare ptr @ASN1_STRING_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

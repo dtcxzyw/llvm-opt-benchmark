@@ -314,7 +314,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 
 101:                                              ; preds = %100
   invoke void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %.061.i, i32 noundef 1027)
-          to label %.sink.split118.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
+          to label %.sink.split.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
 
 .loopexit.i.i:                                    ; preds = %144, %141, %.lr.ph.i.i
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
@@ -326,7 +326,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
           cleanup
   br label %.loopexit.split-lp.i.i
 
-.loopexit.split-lp.loopexit.split-lp.i.i:         ; preds = %165, %.sink.split.i.i, %101, %100
+.loopexit.split-lp.loopexit.split-lp.i.i:         ; preds = %165, %.loopexit.i, %101, %100
   %lpad.loopexit.split-lp95.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
@@ -381,7 +381,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 123:                                              ; preds = %118
   %124 = call noalias dereferenceable_or_null(5005) ptr @malloc(i64 noundef 5005) #16
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %.sink.split118.i.i, label %126
+  br i1 %125, label %.sink.split.i.i, label %126
 
 126:                                              ; preds = %123
   %127 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
@@ -397,7 +397,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
   %.073.lcssa.i.i = phi ptr [ %124, %126 ], [ %.275.i.i, %158 ]
   %.lcssa.i.i = phi ptr [ %132, %126 ], [ %163, %158 ]
   store i8 0, ptr %.lcssa.i.i, align 1
-  br label %.sink.split.i.i
+  br label %.loopexit.i
 
 .lr.ph.i.i:                                       ; preds = %126, %158
   %.068106.i.i = phi i64 [ %.169.i.i, %158 ], [ 5005, %126 ]
@@ -413,12 +413,12 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #14
   %136 = load i8, ptr %11, align 1
   %137 = trunc i8 %136 to i1
-  br i1 %137, label %.sink.split.i.i, label %138
+  br i1 %137, label %.loopexit.i, label %138
 
 138:                                              ; preds = %134
   %139 = load i8, ptr %10, align 1
   %140 = trunc i8 %139 to i1
-  br i1 %140, label %.sink.split.i.i, label %141
+  br i1 %140, label %.loopexit.i, label %141
 
 141:                                              ; preds = %138
   %142 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.073105.i.i) #13
@@ -445,7 +445,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 
 .thread.i.i:                                      ; preds = %152
   call void @free(ptr noundef %.073105.i.i) #14
-  br label %.sink.split118.i.i
+  br label %.sink.split.i.i
 
 156:                                              ; preds = %152
   %157 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %154, ptr noundef nonnull dereferenceable(1) %.073105.i.i) #14
@@ -464,22 +464,22 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
   %.not84.i.i = icmp eq ptr %163, null
   br i1 %.not84.i.i, label %.lr.ph.i.i, label %.thread91.i.i, !llvm.loop !6
 
-.sink.split.i.i:                                  ; preds = %138, %134, %.thread91.i.i
+.loopexit.i:                                      ; preds = %138, %134, %.thread91.i.i
   %.073103.i.i = phi ptr [ %.073.lcssa.i.i, %.thread91.i.i ], [ %.073105.i.i, %134 ], [ %.073105.i.i, %138 ]
   call void @free(ptr noundef %67) #14
   %164 = invoke noundef ptr @_Z9pj_shrinkPc(ptr noundef nonnull %.073103.i.i)
           to label %165 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
 
-165:                                              ; preds = %.sink.split.i.i
+165:                                              ; preds = %.loopexit.i
   invoke void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %.061.i, i32 noundef 3, ptr noundef nonnull @.str.59, ptr noundef nonnull %.070.i.i, ptr noundef nonnull %.073103.i.i)
           to label %166 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
 
-.sink.split118.i.i:                               ; preds = %.thread.i.i, %123, %101
+.sink.split.i.i:                                  ; preds = %.thread.i.i, %123, %101
   call void @free(ptr noundef %67) #14
   br label %166
 
-166:                                              ; preds = %.sink.split118.i.i, %165
-  %.2.i.i = phi ptr [ %.073103.i.i, %165 ], [ null, %.sink.split118.i.i ]
+166:                                              ; preds = %.sink.split.i.i, %165
+  %.2.i.i = phi ptr [ %.073103.i.i, %165 ], [ null, %.sink.split.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   br label %167
 
@@ -627,7 +627,7 @@ _ZL8get_initP6pj_ctxPKci.exit:                    ; preds = %21, %192
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1143,7 +1143,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %.not386, label %.thread, label %.critedge5
 
 .thread:                                          ; preds = %231, %241
-  %244 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.38)
+  %244 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.38)
   %.sroa.018.0..sroa.018.0..cast = inttoptr i64 %244 to ptr
   %.not387 = icmp eq i64 %244, 0
   br i1 %.not387, label %266, label %.critedge5
@@ -1200,7 +1200,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %.sink = phi double [ 1.000000e+00, %266 ], [ %265, %264 ]
   %269 = getelementptr inbounds nuw i8, ptr %75, i64 %.sink472
   store double %.sink, ptr %269, align 8
-  %270 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.41)
+  %270 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.41)
   %.sroa.015.0..sroa.015.0..cast = inttoptr i64 %270 to ptr
   %.not388 = icmp eq i64 %270, 0
   br i1 %.not388, label %.thread406, label %.preheader
@@ -1236,7 +1236,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %.not391, label %.thread406, label %.critedge9
 
 .thread406:                                       ; preds = %268, %278
-  %281 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.43)
+  %281 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.43)
   %.sroa.014.0..sroa.014.0..cast = inttoptr i64 %281 to ptr
   %.not392 = icmp eq i64 %281, 0
   br i1 %.not392, label %303, label %.critedge9
@@ -1297,7 +1297,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %310 = getelementptr inbounds nuw i8, ptr %75, i64 520
   store double %.sink473, ptr %310, align 8
   %311 = call ptr @proj_list_prime_meridians()
-  %312 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.46)
+  %312 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.46)
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %312 to ptr
   %.not393 = icmp eq i64 %312, 0
   br i1 %.not393, label %335, label %313
@@ -1329,7 +1329,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %324, label %.thread409, label %.thread414
 
 .thread409:                                       ; preds = %315, %313, %321
-  %325 = call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef %.0337, ptr noundef nonnull %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull %7)
+  %325 = call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef nonnull %.0337, ptr noundef nonnull %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull %7)
   %326 = fcmp une double %325, 0.000000e+00
   br i1 %326, label %330, label %327
 
@@ -1351,7 +1351,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 .thread414:                                       ; preds = %330, %321
   %.1417 = phi ptr [ %323, %321 ], [ %.sroa.0.0..sroa.0.0..cast, %330 ]
-  %334 = call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef %.0337, ptr noundef nonnull %.1417, ptr noundef null)
+  %334 = call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef nonnull %.0337, ptr noundef nonnull %.1417, ptr noundef null)
   br label %335
 
 335:                                              ; preds = %309, %.thread414
@@ -1399,10 +1399,10 @@ declare void @_Z6pj_logP6pj_ctxiPKcz(ptr noundef, i32 noundef, ptr noundef, ...)
 declare void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare noundef ptr @_Z10pj_mkparamPKc(ptr noundef) local_unnamed_addr #1
 
@@ -1411,10 +1411,10 @@ declare noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef, ptr noundef
 declare noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL18locate_constructorPKc(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL18locate_constructorPKc(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = tail call ptr @proj_list_operations()
   %3 = load ptr, ptr %2, align 8
   %cond12 = icmp eq ptr %3, null
@@ -1523,7 +1523,7 @@ define internal fastcc void @_ZL36append_default_ellipsoid_to_paralistP8ARG_list
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 declare noundef i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8PJconsts(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1565,24 +1565,24 @@ declare ptr @proj_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @proj_errno_restore(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare noundef ptr @_Z19pj_search_initcachePKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 declare noundef i32 @_Z12pj_find_fileP6pj_ctxPKcPcm(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 declare ptr @proj_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @proj_as_proj_string(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_Z19pj_insert_initcachePKcPK8ARG_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1590,7 +1590,7 @@ declare void @_Z19pj_insert_initcachePKcPK8ARG_list(ptr noundef, ptr noundef) lo
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1627,16 +1627,16 @@ declare noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef, ptr noundef) local_un
 declare ptr @proj_list_operations() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

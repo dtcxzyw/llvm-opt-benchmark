@@ -122,11 +122,11 @@ define void @lv_obj_add_style(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br i1 %.not27.not.i, label %29, label %style_has_flag.exit
 
 style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph35.i
-  tail call void @lv_obj_invalidate(ptr noundef %0) #9
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #9
   br label %style_has_flag.exit.thread
 
 style_has_flag.exit.thread:                       ; preds = %29, %17, %25, %15, %style_has_flag.exit, %7
-  tail call void @lv_obj_remove_style(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  tail call void @lv_obj_remove_style(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   %37 = load i16, ptr %4, align 2
   %38 = lshr i16 %37, 4
   %39 = and i16 %38, 63
@@ -382,7 +382,7 @@ define internal fastcc void @trans_delete(ptr noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
@@ -612,7 +612,7 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph35
 declare ptr @lv_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define void @lv_obj_refresh_style(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
@@ -873,7 +873,7 @@ lv_obj_get_style_width.exit:                      ; preds = %get_selector_style_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1602,7 +1602,7 @@ define ptr @lv_obj_get_style_prop(ptr noundef readonly %0, i32 noundef %1, i8 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @get_selector_style_prop(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @get_selector_style_prop(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
   %5 = and i32 %1, 16711680
   %6 = tail call fastcc i32 @get_prop_core(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef %3)
   %.not54 = icmp eq i32 %6, 0
@@ -1889,7 +1889,7 @@ get_local_style.exit:                             ; preds = %13, %._crit_edge60.
 declare void @lv_style_set_prop(ptr noundef, i8 noundef zeroext, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_obj_get_local_style_prop(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @lv_obj_get_local_style_prop(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %6 = load i16, ptr %5, align 2
   %7 = lshr i16 %6, 4
@@ -1994,7 +1994,7 @@ define noundef zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef %0, i8 nou
 declare zeroext i1 @lv_style_remove_prop(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_style_create_transition(ptr noundef nonnull initializes((60, 62)) %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define void @lv_obj_style_create_transition(ptr noundef nonnull initializes((60, 62)) %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %union.lv_style_value_t, align 8
   %7 = alloca %union.lv_style_value_t, align 8
   %8 = alloca %union.lv_style_value_t, align 8
@@ -2184,7 +2184,7 @@ lv_obj_get_style_prop.exit83:                     ; preds = %39, %40
 declare zeroext i1 @lv_color_eq(i24, i24) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_trans_style(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @get_trans_style(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %4 = load i16, ptr %3, align 2
   %5 = lshr i16 %4, 4
@@ -2323,7 +2323,7 @@ declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @trans_anim_cb(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca %union.lv_style_value_t, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 62
@@ -2552,7 +2552,7 @@ define internal void @trans_anim_cb(ptr nocapture noundef readonly %0, i32 nound
 declare void @lv_anim_set_start_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @trans_anim_start_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @trans_anim_start_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %union.lv_style_value_t, align 8
   %3 = load ptr, ptr %0, align 8, !tbaa !86
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2613,7 +2613,7 @@ lv_obj_get_style_prop.exit:                       ; preds = %16, %17
 declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @trans_anim_completed_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @trans_anim_completed_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !86
   %3 = load ptr, ptr %2, align 8, !tbaa !37
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2878,7 +2878,7 @@ lv_obj_get_style_color_filter_opa.exit:           ; preds = %get_selector_style_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @lv_obj_style_state_compare(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @lv_obj_style_state_compare(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %union.lv_style_value_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %6 = load i16, ptr %5, align 2
@@ -3119,7 +3119,7 @@ define internal void @fade_anim_cb(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fade_in_anim_completed(ptr nocapture noundef readonly %0) #0 {
+define internal void @fade_in_anim_completed(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !86
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 62
   %4 = load i16, ptr %3, align 2
@@ -3247,7 +3247,7 @@ lv_obj_get_style_opa.exit:                        ; preds = %get_selector_style_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @lv_obj_calculate_style_text_align(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @lv_obj_calculate_style_text_align(ptr noundef readonly %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %union.lv_style_value_t, align 8
   %5 = alloca %union.lv_style_value_t, align 8
   %.not.i.i = icmp eq ptr %0, null
@@ -3755,7 +3755,7 @@ lv_obj_get_style_prop.exit:                       ; preds = %get_selector_style_
 declare void @lv_obj_set_style_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #7 {
   %5 = tail call i8 @llvm.umin.i8(i8 %2, i8 124)
   %narrow.i = lshr i8 %5, 2
   %spec.store.select.i = zext nneg i8 %narrow.i to i32

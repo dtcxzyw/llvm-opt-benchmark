@@ -21,7 +21,7 @@ $_ZTI8RAR_EXIT = comdat any
 @_ZN12ErrorHandlerC1Ev = unnamed_addr alias void (ptr), ptr @_ZN12ErrorHandlerC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12ErrorHandlerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) initializes((0, 14)) %0) unnamed_addr #0 align 2 {
+define void @_ZN12ErrorHandlerC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(14) initializes((0, 14)) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -33,7 +33,7 @@ define void @_ZN12ErrorHandlerC2Ev(ptr nocapture noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12ErrorHandler5CleanEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) initializes((0, 14)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN12ErrorHandler5CleanEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(14) initializes((0, 14)) %0) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -45,7 +45,7 @@ define void @_ZN12ErrorHandler5CleanEv(ptr nocapture noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN12ErrorHandler11MemoryErrorEv(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0) local_unnamed_addr #1 align 2 {
+define void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.uiMsgStore, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2)
   br label %3
@@ -82,7 +82,7 @@ _ZN12ErrorHandler14MemoryErrorMsgEv.exit:         ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler14MemoryErrorMsgEv(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler14MemoryErrorMsgEv(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.uiMsgStore, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2)
   br label %3
@@ -111,7 +111,7 @@ _Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit:          ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler4ExitE8RAR_EXIT(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler4ExitE8RAR_EXIT(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   tail call void @_Z7uiAlarm12UIALARM_TYPE(i32 noundef 0)
   %3 = icmp eq i32 %1, 255
   br i1 %3, label %4, label %.split.i
@@ -153,12 +153,12 @@ _ZN12ErrorHandler5ThrowE8RAR_EXIT.exit:           ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN12ErrorHandler9OpenErrorEPKw(ptr nocapture noundef nonnull readnone align 4 dereferenceable(14) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 align 2 {
+define void @_ZN12ErrorHandler9OpenErrorEPKw(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(14) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler10CloseErrorEPKw(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler10CloseErrorEPKw(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
@@ -207,12 +207,12 @@ _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %13, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN12ErrorHandler9SysErrMsgEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(14) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN12ErrorHandler9SysErrMsgEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(14) %0) local_unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   switch i32 %1, label %.sink.split [
     i32 1, label %3
     i32 255, label %3
@@ -249,7 +249,7 @@ define void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr nocapture noundef non
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define void @_ZN12ErrorHandler9ReadErrorEPKw(ptr nocapture noundef nonnull align 4 dereferenceable(14) initializes((0, 4)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 align 2 {
+define void @_ZN12ErrorHandler9ReadErrorEPKw(ptr noundef nonnull align 4 captures(none) dereferenceable(14) initializes((0, 4)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 align 2 {
   tail call void @_Z7uiAlarm12UIALARM_TYPE(i32 noundef 0)
   store i32 12, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -263,7 +263,7 @@ define void @_ZN12ErrorHandler9ReadErrorEPKw(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr nocapture noundef nonnull align 4 dereferenceable(14) initializes((0, 4)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %3, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %4) local_unnamed_addr #4 align 2 {
+define void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr noundef nonnull align 4 captures(none) dereferenceable(14) initializes((0, 4)) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %2, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %3, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %4) local_unnamed_addr #4 align 2 {
   store i32 12, ptr %0, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
@@ -274,7 +274,7 @@ define void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr nocapture noundef 
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define void @_ZN12ErrorHandler10WriteErrorEPKwS1_(ptr nocapture noundef nonnull align 4 dereferenceable(14) initializes((0, 4)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #5 align 2 {
+define void @_ZN12ErrorHandler10WriteErrorEPKwS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(14) initializes((0, 4)) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #5 align 2 {
   tail call void @_Z7uiAlarm12UIALARM_TYPE(i32 noundef 0)
   store i32 5, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -288,12 +288,12 @@ define void @_ZN12ErrorHandler10WriteErrorEPKwS1_(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN12ErrorHandler14AskRepeatWriteEPKwb(ptr nocapture noundef nonnull readnone align 4 dereferenceable(14) %0, ptr nocapture noundef readnone %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN12ErrorHandler14AskRepeatWriteEPKwb(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(14) %0, ptr noundef readnone captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN12ErrorHandler9SeekErrorEPKw(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN12ErrorHandler9SeekErrorEPKw(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
@@ -346,7 +346,7 @@ _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %13, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler13GeneralErrMsgEPKwz(ptr nocapture noundef nonnull readnone align 4 dereferenceable(14) %0, ptr noundef %1, ...) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler13GeneralErrMsgEPKwz(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(14) %0, ptr noundef %1, ...) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [1024 x i32], align 16
@@ -387,7 +387,7 @@ declare i32 @vswprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local
 declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   br label %4
@@ -422,7 +422,7 @@ _ZN12ErrorHandler12OpenErrorMsgEPKwS1_.exit:      ; preds = %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler12OpenErrorMsgEPKwS1_(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler12OpenErrorMsgEPKwS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.uiMsgStore, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   br label %5
@@ -459,7 +459,7 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
 declare void @_Z4Waitv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler14CreateErrorMsgEPKw(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler14CreateErrorMsgEPKw(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   br label %4
@@ -493,7 +493,7 @@ _ZN12ErrorHandler14CreateErrorMsgEPKwS1_.exit:    ; preds = %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler14CreateErrorMsgEPKwS1_(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler14CreateErrorMsgEPKwS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.uiMsgStore, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   br label %5
@@ -527,7 +527,7 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler12ReadErrorMsgEPKw(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler12ReadErrorMsgEPKw(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   br label %4
@@ -561,7 +561,7 @@ _ZN12ErrorHandler12ReadErrorMsgEPKwS1_.exit:      ; preds = %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler12ReadErrorMsgEPKwS1_(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler12ReadErrorMsgEPKwS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.uiMsgStore, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   br label %5
@@ -595,7 +595,7 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler13WriteErrorMsgEPKwS1_(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler13WriteErrorMsgEPKwS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.uiMsgStore, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   br label %5
@@ -629,7 +629,7 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler12ArcBrokenMsgEPKw(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler12ArcBrokenMsgEPKw(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   br label %4
@@ -669,7 +669,7 @@ _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %_Z5uiMsgIJRPKwEEv14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler17ChecksumFailedMsgEPKwS1_(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler17ChecksumFailedMsgEPKwS1_(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.uiMsgStore, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   br label %5
@@ -711,7 +711,7 @@ _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %_Z5uiMsgIJRPKwS2_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler16UnknownMethodMsgEPKwS1_(ptr nocapture noundef nonnull readnone align 4 dereferenceable(14) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler16UnknownMethodMsgEPKwS1_(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(14) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.uiMsgStore, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   br label %5
@@ -754,7 +754,7 @@ _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %_Z5uiMsgIJRPKwS2_EE
 declare void @_Z7uiAlarm12UIALARM_TYPE(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ErrorHandler5ThrowE8RAR_EXIT(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN12ErrorHandler5ThrowE8RAR_EXIT(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = icmp eq i32 %1, 255
   br i1 %3, label %4, label %.split
 
@@ -816,7 +816,7 @@ define void @_Z13ProcessSignali(i32 %0) #9 {
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12ErrorHandler17SetSignalHandlersEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) initializes((8, 9)) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define void @_ZN12ErrorHandler17SetSignalHandlersEb(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(14) initializes((8, 9)) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %3, ptr %4, align 4
@@ -835,12 +835,12 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN12ErrorHandler12GetSysErrMsgEPwm(ptr nocapture noundef nonnull readnone align 4 dereferenceable(14) %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN12ErrorHandler12GetSysErrMsgEPwm(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(14) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN12ErrorHandler18GetSystemErrorCodeEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(14) %0) local_unnamed_addr #13 align 2 {
+define noundef i32 @_ZN12ErrorHandler18GetSystemErrorCodeEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(14) %0) local_unnamed_addr #13 align 2 {
   %2 = tail call ptr @__errno_location() #21
   %3 = load i32, ptr %2, align 4
   ret i32 %3
@@ -850,7 +850,7 @@ define noundef i32 @_ZN12ErrorHandler18GetSystemErrorCodeEv(ptr nocapture nounde
 declare ptr @__errno_location() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define void @_ZN12ErrorHandler18SetSystemErrorCodeEi(ptr nocapture noundef nonnull readnone align 4 dereferenceable(14) %0, i32 noundef %1) local_unnamed_addr #15 align 2 {
+define void @_ZN12ErrorHandler18SetSystemErrorCodeEi(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(14) %0, i32 noundef %1) local_unnamed_addr #15 align 2 {
   %3 = tail call ptr @__errno_location() #21
   store i32 %1, ptr %3, align 4
   ret void
@@ -859,13 +859,13 @@ define void @_ZN12ErrorHandler18SetSystemErrorCodeEi(ptr nocapture noundef nonnu
 declare void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

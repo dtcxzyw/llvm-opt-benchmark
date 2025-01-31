@@ -321,7 +321,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @zend_accel_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -334,7 +334,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @flock(i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -1014,7 +1014,7 @@ declare void @zend_shared_alloc_destroy_xlat_table() local_unnamed_addr #2
 declare i32 @zend_adler32(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @zend_file_cache_script_load(ptr noundef %0) local_unnamed_addr #0 {
@@ -2082,7 +2082,7 @@ zend_file_cache_unserialize.exit:                 ; preds = %542, %387, %zend_fi
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare i64 @zend_get_file_handle_timestamp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2097,7 +2097,7 @@ declare void @zend_shared_alloc_unlock() local_unnamed_addr #2
 declare void @zend_accel_schedule_restart_if_necessary(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @zend_map_ptr_extend(i64 noundef) local_unnamed_addr #2
 
@@ -2107,7 +2107,7 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #9
 declare ptr @zend_accel_hash_update(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_file_cache_invalidate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @zend_file_cache_invalidate(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
 zend_file_cache_get_bin_file_path.exit:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
@@ -2134,10 +2134,10 @@ zend_file_cache_get_bin_file_path.exit:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #7
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zend_file_cache_serialize_interned(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @zend_file_cache_serialize_interned(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef %0) #19
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %62
@@ -2246,7 +2246,7 @@ define internal fastcc ptr @zend_file_cache_serialize_interned(ptr noundef %0, p
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_file_cache_serialize_hash(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @zend_file_cache_serialize_hash(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 8
@@ -2459,7 +2459,7 @@ define internal fastcc void @zend_file_cache_serialize_hash(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @zend_file_cache_serialize_class(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %6
@@ -5247,7 +5247,7 @@ define internal void @zend_file_cache_serialize_class(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_file_cache_serialize_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @zend_file_cache_serialize_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %27, label %6
@@ -7011,7 +7011,7 @@ declare void @zend_shared_alloc_register_xlat_entry(ptr noundef, ptr noundef) lo
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @zend_file_cache_serialize_zval(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
   switch i8 %6, label %125 [
@@ -7228,7 +7228,7 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_file_cache_serialize_class_constant(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @zend_file_cache_serialize_class_constant(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %7 = load i64, ptr %6, align 8
@@ -7434,7 +7434,7 @@ define internal void @zend_file_cache_serialize_class_constant(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_file_cache_serialize_attribute(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @zend_file_cache_serialize_attribute(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %6
@@ -7741,7 +7741,7 @@ define internal void @zend_file_cache_serialize_attribute(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_file_cache_serialize_prop_info(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @zend_file_cache_serialize_prop_info(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %7 = load i64, ptr %6, align 8
@@ -8016,7 +8016,7 @@ define internal void @zend_file_cache_serialize_prop_info(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_file_cache_serialize_ast(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @zend_file_cache_serialize_ast(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i16, ptr %0, align 8
   %6 = zext i16 %5 to i32
   %7 = and i16 %5, -2
@@ -8168,7 +8168,7 @@ define internal fastcc void @zend_file_cache_serialize_ast(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_file_cache_serialize_type(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @zend_file_cache_serialize_type(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 4194304
@@ -8327,7 +8327,7 @@ declare i64 @writev(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @zend_shared_alloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_file_cache_unserialize_hash(ptr nocapture noundef initializes((48, 56)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @zend_file_cache_unserialize_hash(ptr noundef captures(none) initializes((48, 56)) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8534,7 +8534,7 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %73, %79, %89
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_file_cache_unserialize_class(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @zend_file_cache_unserialize_class(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %6 = load i64, ptr %5, align 8
@@ -10527,7 +10527,7 @@ zend_file_cache_unserialize_interned.exit744:     ; preds = %778, %784, %794
 declare void @destroy_zend_class(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_file_cache_unserialize_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @zend_file_cache_unserialize_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %6 = load i64, ptr %5, align 8
@@ -11892,7 +11892,7 @@ declare i32 @zend_accel_get_class_name_map_ptr(ptr noundef) local_unnamed_addr #
 declare void @zend_alloc_ce_cache(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_file_cache_unserialize_zval(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @zend_file_cache_unserialize_zval(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   switch i8 %5, label %108 [
@@ -12096,7 +12096,7 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %14, %21, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_file_cache_unserialize_class_constant(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @zend_file_cache_unserialize_class_constant(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %6 = load ptr, ptr %5, align 8
@@ -12308,7 +12308,7 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %56, %63, %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_file_cache_unserialize_attribute(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @zend_file_cache_unserialize_attribute(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %6 = load i64, ptr %5, align 8
@@ -12586,7 +12586,7 @@ zend_file_cache_unserialize_interned.exit80:      ; preds = %109, %115, %125
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_file_cache_unserialize_prop_info(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @zend_file_cache_unserialize_prop_info(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %6 = load ptr, ptr %5, align 8
@@ -12871,7 +12871,7 @@ declare ptr @zend_map_ptr_new() local_unnamed_addr #2
 declare void @zval_ptr_dtor(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_file_cache_unserialize_ast(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_file_cache_unserialize_ast(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i16, ptr %0, align 8
   %5 = zext i16 %4 to i32
   %6 = and i16 %4, -2
@@ -13015,7 +13015,7 @@ define internal fastcc void @zend_file_cache_unserialize_ast(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_file_cache_unserialize_type(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_file_cache_unserialize_type(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4194304
@@ -13158,19 +13158,19 @@ zend_file_cache_unserialize_interned.exit:        ; preds = %45, %35, %28, %23, 
 declare void @zend_deserialize_opcode_handler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

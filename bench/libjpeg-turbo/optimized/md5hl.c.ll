@@ -10,13 +10,13 @@ target triple = "x86_64-pc-linux-gnu"
 @MD5End.hex = internal unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @MD5File(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @MD5File(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @MD5FileChunk(ptr noundef %0, ptr noundef %1, i64 noundef 0, i64 noundef 0)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @MD5FileChunk(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @MD5FileChunk(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca [8192 x i8], align 16
   %7 = alloca %struct.MD5Context, align 4
@@ -128,16 +128,16 @@ MD5End.exit:                                      ; preds = %36, %53
 declare void @MD5Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #2
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare void @MD5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -152,10 +152,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare void @MD5Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8

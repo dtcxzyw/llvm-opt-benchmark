@@ -95,7 +95,7 @@ declare hidden void @BrotliInitBitReader(ptr noundef) local_unnamed_addr #1
 declare ptr @BrotliSharedDictionaryCreateInstance(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @BrotliDecoderStateMetablockBegin(ptr nocapture noundef writeonly initializes((132, 136), (160, 200), (208, 224), (232, 248), (280, 304), (312, 384), (408, 424), (716, 717), (784, 800)) %s) local_unnamed_addr #2 {
+define hidden void @BrotliDecoderStateMetablockBegin(ptr noundef writeonly captures(none) initializes((132, 136), (160, 200), (208, 224), (232, 248), (280, 304), (312, 384), (408, 424), (716, 717), (784, 800)) %s) local_unnamed_addr #2 {
 entry:
   %meta_block_remaining_len = getelementptr inbounds nuw i8, ptr %s, i64 132
   store i32 0, ptr %meta_block_remaining_len, align 4
@@ -139,7 +139,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliDecoderStateCleanupAfterMetablock(ptr nocapture noundef %s) local_unnamed_addr #0 {
+define hidden void @BrotliDecoderStateCleanupAfterMetablock(ptr noundef captures(none) %s) local_unnamed_addr #0 {
 entry:
   %free_func = getelementptr inbounds nuw i8, ptr %s, i64 56
   %0 = load ptr, ptr %free_func, align 8
@@ -183,7 +183,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliDecoderStateCleanup(ptr nocapture noundef %s) local_unnamed_addr #0 {
+define hidden void @BrotliDecoderStateCleanup(ptr noundef captures(none) %s) local_unnamed_addr #0 {
 entry:
   %free_func.i = getelementptr inbounds nuw i8, ptr %s, i64 56
   %0 = load ptr, ptr %free_func.i, align 8
@@ -251,7 +251,7 @@ entry:
 declare void @BrotliSharedDictionaryDestroyInstance(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BrotliDecoderHuffmanTreeGroupInit(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly initializes((0, 22)) %group, i64 noundef %alphabet_size_max, i64 noundef %alphabet_size_limit, i64 noundef %ntrees) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BrotliDecoderHuffmanTreeGroupInit(ptr noundef readonly captures(none) %s, ptr noundef writeonly captures(none) initializes((0, 22)) %group, i64 noundef %alphabet_size_max, i64 noundef %alphabet_size_limit, i64 noundef %ntrees) local_unnamed_addr #0 {
 entry:
   %add = shl i64 %alphabet_size_limit, 2
   %alloc_func = getelementptr inbounds nuw i8, ptr %s, i64 48
@@ -280,7 +280,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

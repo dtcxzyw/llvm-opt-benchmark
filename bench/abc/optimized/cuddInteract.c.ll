@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.DdSubtable = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @cuddSetInteract(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @cuddSetInteract(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
   %6 = shl i32 %5, 1
@@ -31,7 +31,7 @@ define void @cuddSetInteract(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @cuddTestInteract(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @cuddTestInteract(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %spec.select18 = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -294,10 +294,10 @@ ddClearGlobal.exit:                               ; preds = %._crit_edge24.i, %.
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ddSuppInteract(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #5 {
+define internal fastcc void @ddSuppInteract(ptr noundef captures(none) %0, ptr noundef nonnull %1) unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 2147483647
   br i1 %4, label %common.ret12, label %5
@@ -340,7 +340,7 @@ common.ret12:                                     ; preds = %2, %5, %10
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ddClearLocal(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @ddClearLocal(ptr noundef captures(none) %0) unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 2147483647
   br i1 %3, label %tailrecurse._crit_edge, label %.lr.ph
@@ -379,7 +379,7 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

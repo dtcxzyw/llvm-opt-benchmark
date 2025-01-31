@@ -163,12 +163,12 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit:             ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN10BookkeeperC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10BookkeeperC2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN10BookkeeperD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10BookkeeperD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -1633,7 +1633,7 @@ declare noundef i32 @_Z20find_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_(
 declare noundef i32 @_ZNK4Type18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_Z10calc_totalRKSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #7 {
+define dso_local noundef i32 @_Z10calc_totalRKSt6vectorIiSaIiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1664,7 +1664,7 @@ define dso_local noundef i32 @_Z10calc_totalRKSt6vectorIiSaIiEE(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10Bookkeeper20record_address_takenEPK8Variable(ptr nocapture noundef initializes((84, 85)) %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN10Bookkeeper20record_address_takenEPK8Variable(ptr noundef captures(none) initializes((84, 85)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -1688,7 +1688,7 @@ define dso_local void @_ZN10Bookkeeper20record_address_takenEPK8Variable(ptr noc
 declare noundef zeroext i1 @_ZNK4Type13has_bitfieldsEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10Bookkeeper22record_bitfields_readsEPK8Variable(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN10Bookkeeper22record_bitfields_readsEPK8Variable(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZNK4Type13has_bitfieldsEv(ptr noundef nonnull align 8 dereferenceable(136) %3)
@@ -1717,7 +1717,7 @@ define dso_local void @_ZN10Bookkeeper22record_bitfields_readsEPK8Variable(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10Bookkeeper23record_bitfields_writesEPK8Variable(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN10Bookkeeper23record_bitfields_writesEPK8Variable(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZNK4Type13has_bitfieldsEv(ptr noundef nonnull align 8 dereferenceable(136) %3)
@@ -1904,7 +1904,7 @@ declare noundef zeroext i1 @_ZNK12CVQualifiers23is_volatile_after_derefEi(ptr no
 declare noundef zeroext i1 @_ZN9CGOptions9bitfieldsEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10Bookkeeper15output_countersERSoPKcS2_RKSt6vectorIiSaIiEEi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %4) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN10Bookkeeper15output_countersERSoPKcS2_RKSt6vectorIiSaIiEEi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i32 noundef %4) local_unnamed_addr #6 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %3, align 8
@@ -2330,7 +2330,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_Bookkeeper.cpp() #12 section ".text.startup" {
@@ -2359,7 +2359,7 @@ define internal void @_GLOBAL__sub_I_Bookkeeper.cpp() #12 section ".text.startup
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

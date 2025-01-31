@@ -211,7 +211,7 @@ define void @except_throwd(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define void @except_vthrowf(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 {
+define void @except_vthrowf(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = tail call ptr @except_alloc(i64 noundef 1024)
   %6 = tail call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef %2, ptr noundef %3) #19
   tail call void @except_throwd(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %5) #18
@@ -234,10 +234,10 @@ define nonnull ptr @except_alloc(i64 noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind uwtable
-define void @except_throwf(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #5 {
+define void @except_throwf(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #5 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @except_vthrowf(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #18
@@ -301,7 +301,7 @@ define void @except_free(ptr noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: noreturn nounwind
 declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #12
@@ -338,7 +338,7 @@ define internal void @unhandled_catcher(ptr noundef %0) #14 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc(i64 noundef) #15

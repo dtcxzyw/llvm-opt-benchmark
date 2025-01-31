@@ -151,7 +151,7 @@ if.end15:                                         ; preds = %read_mailmap_blob.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal i32 @namemap_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #1 {
+define internal i32 @namemap_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #1 {
 entry:
   %call = tail call i32 @strcasecmp(ptr noundef %a, ptr noundef %b) #12
   ret i32 %call
@@ -228,7 +228,7 @@ entry:
 declare void @string_list_clear_func(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_mailmap_entry(ptr noundef %p, ptr nocapture readnone %s) #0 {
+define internal void @free_mailmap_entry(ptr noundef %p, ptr readnone captures(none) %s) #0 {
 entry:
   %0 = load ptr, ptr %p, align 8
   tail call void @free(ptr noundef %0) #11
@@ -246,7 +246,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @map_user(ptr noundef %map, ptr nocapture noundef %email, ptr nocapture noundef %emaillen, ptr nocapture noundef %name, ptr nocapture noundef %namelen) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @map_user(ptr noundef %map, ptr noundef captures(none) %email, ptr noundef captures(none) %emaillen, ptr noundef captures(none) %name, ptr noundef captures(none) %namelen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %email, align 8
   %1 = load i64, ptr %emaillen, align 8
@@ -437,15 +437,15 @@ return:                                           ; preds = %land.rhs.i, %while.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @open_nofollow(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6
@@ -455,7 +455,7 @@ declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @xfdopen(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @read_mailmap_line(ptr noundef %map, ptr noundef %buffer) unnamed_addr #0 {
@@ -640,7 +640,7 @@ if.end7:                                          ; preds = %if.end, %if.end.i, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -650,7 +650,7 @@ declare ptr @string_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
@@ -664,7 +664,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @free_mailmap_info(ptr nocapture noundef %p, ptr nocapture readnone %s) #9 {
+define internal void @free_mailmap_info(ptr noundef captures(none) %p, ptr readnone captures(none) %s) #9 {
 entry:
   %0 = load ptr, ptr %p, align 8
   tail call void @free(ptr noundef %0) #11
@@ -678,13 +678,13 @@ entry:
 declare i32 @string_list_find_insert_index(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.413f081f4c5b3e768e065ae6b3a1ae39.1 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.413f081f4c5b3e768e065ae6b3a1ae39.0, [8 x i8] c"\04\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i8, i8 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h05d1ce6ef91a96f9E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 1 %1) unnamed_addr #0 {
+define { i8, i8 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h05d1ce6ef91a96f9E"(ptr readnone align 1 captures(none) %0, ptr readonly align 1 captures(none) %1) unnamed_addr #0 {
   %.val = load i8, ptr %1, align 1
   %3 = getelementptr i8, ptr %1, i64 1
   %.val1 = load i8, ptr %3, align 1
@@ -17,7 +17,7 @@ define { i8, i8 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..functi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { i8, i8 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h65db63b683bdca13E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 1 %1) unnamed_addr #0 {
+define { i8, i8 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h65db63b683bdca13E"(ptr readnone align 1 captures(none) %0, ptr readonly align 1 captures(none) %1) unnamed_addr #0 {
   %.val = load i8, ptr %1, align 1
   %3 = getelementptr i8, ptr %1, i64 1
   %.val1 = load i8, ptr %3, align 1
@@ -84,7 +84,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #2
 declare zeroext i1 @"_ZN67_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..fmt..Display$GT$3fmt17h21bd1929831684f3E"(ptr align 4, ptr align 8) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @_ZN5alloc3fmt6format17h0016d02633801bf4E(ptr sret([24 x i8]) align 8, ptr align 8) unnamed_addr #1

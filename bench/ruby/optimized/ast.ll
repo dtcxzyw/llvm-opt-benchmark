@@ -132,7 +132,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #1 {
+define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %.pr = load i64, ptr %0, align 8
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge
@@ -166,19 +166,19 @@ define hidden void @Init_builtin_ast() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @ast_s_parse(ptr nocapture readnone %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #0 {
+define internal noundef i64 @ast_s_parse(ptr readnone captures(none) %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #0 {
   %7 = tail call fastcc i64 @rb_ast_parse_str(i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5)
   ret i64 %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @ast_s_parse_file(ptr nocapture readnone %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #0 {
+define internal noundef i64 @ast_s_parse_file(ptr readnone captures(none) %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #0 {
   %7 = tail call fastcc i64 @rb_ast_parse_file(i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5)
   ret i64 %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ast_s_of(ptr nocapture readnone %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #0 {
+define internal i64 @ast_s_of(ptr readnone captures(none) %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #0 {
   %7 = tail call i32 @rb_frame_info_p(i64 noundef %2) #10
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %32
@@ -390,7 +390,7 @@ rb_obj_is_iseq.exit.thread:                       ; preds = %tailrecurse.i, %tai
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @node_id_for_backtrace_location(ptr nocapture readnone %0, i64 %1, i64 noundef %2) #0 {
+define internal range(i64 1, 0) i64 @node_id_for_backtrace_location(ptr readnone captures(none) %0, i64 %1, i64 noundef %2) #0 {
   %4 = tail call i32 @rb_frame_info_p(i64 noundef %2) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
@@ -411,7 +411,7 @@ define internal range(i64 1, 0) i64 @node_id_for_backtrace_location(ptr nocaptur
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ast_node_type(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal i64 @ast_node_type(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -426,7 +426,7 @@ define internal i64 @ast_node_type(ptr nocapture readnone %0, i64 noundef %1) #0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @ast_node_first_lineno(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ast_node_first_lineno(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -439,7 +439,7 @@ define internal range(i64 1, 0) i64 @ast_node_first_lineno(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @ast_node_first_column(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ast_node_first_column(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -452,7 +452,7 @@ define internal range(i64 1, 0) i64 @ast_node_first_column(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @ast_node_last_lineno(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ast_node_last_lineno(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -465,7 +465,7 @@ define internal range(i64 1, 0) i64 @ast_node_last_lineno(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @ast_node_last_column(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ast_node_last_column(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -478,7 +478,7 @@ define internal range(i64 1, 0) i64 @ast_node_last_column(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ast_node_all_tokens(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal i64 @ast_node_all_tokens(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @rb_ast_tokens(ptr noundef %4) #10
@@ -486,7 +486,7 @@ define internal i64 @ast_node_all_tokens(ptr nocapture readnone %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ast_node_children(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal i64 @ast_node_children(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -496,7 +496,7 @@ define internal i64 @ast_node_children(ptr nocapture readnone %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @ast_node_inspect(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal noundef i64 @ast_node_inspect(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = tail call i64 @rb_obj_class(i64 noundef %1) #10
   %5 = tail call i64 @rb_class_path(i64 noundef %4) #10
@@ -524,7 +524,7 @@ define internal noundef i64 @ast_node_inspect(ptr nocapture readnone %0, i64 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @ast_node_node_id(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ast_node_node_id(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -537,7 +537,7 @@ define internal range(i64 1, 0) i64 @ast_node_node_id(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, -7) i64 @ast_node_script_lines(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ast_node_script_lines(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -582,7 +582,7 @@ declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_
 declare void @rb_undef_alloc_func(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -682,7 +682,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @node_gc_mark(ptr nocapture noundef readonly %0) #0 {
+define internal void @node_gc_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   tail call void @rb_gc_mark(i64 noundef %3) #10
@@ -690,7 +690,7 @@ define internal void @node_gc_mark(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @node_memsize(ptr nocapture noundef readonly %0) #0 {
+define internal i64 @node_memsize(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i64 @rb_ast_memsize(ptr noundef %2) #10
   ret i64 %3
@@ -2548,7 +2548,7 @@ var_name.exit:                                    ; preds = %807, %810, %812
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @dump_block(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i64 @dump_block(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call i64 @rb_ary_new() #10
   br label %4
 
@@ -2700,7 +2700,7 @@ define internal fastcc i64 @var_name(i64 noundef %0) unnamed_addr #0 {
 declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @dump_array(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i64 @dump_array(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call i64 @rb_ary_new() #10
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -2861,7 +2861,7 @@ declare void @llvm.va_start.p0(ptr) #8
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

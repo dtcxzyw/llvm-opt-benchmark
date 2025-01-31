@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN32pxrInternal_v0_24__pxrReserved__28TfUnicodeXidContinueFlagDataC1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__28TfUnicodeXidContinueFlagDataC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25TfUnicodeXidStartFlagDataC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(139264) initializes((0, 139264)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25TfUnicodeXidStartFlagDataC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(139264) initializes((0, 139264)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(139264) %0, i8 0, i64 139264, i1 false)
   br label %2
 
@@ -59,7 +59,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25TfUnicodeXidStartFlagDataC2E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28TfUnicodeXidContinueFlagDataC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(139264) initializes((0, 139264)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28TfUnicodeXidContinueFlagDataC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(139264) initializes((0, 139264)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(139264) %0, i8 0, i64 139264, i1 false)
   br label %2
 
@@ -166,7 +166,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28TfUnicodeXidContinueFl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 

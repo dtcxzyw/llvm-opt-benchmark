@@ -59,7 +59,7 @@ _ZN2EA6Thread21SetThreadAffinityMaskERKmm.exit:   ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA6Thread21SetThreadAffinityMaskERKmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %id, i64 noundef %nAffinityMask) local_unnamed_addr #2 {
+define dso_local void @_ZN2EA6Thread21SetThreadAffinityMaskERKmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %id, i64 noundef %nAffinityMask) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %id, align 8
   %call = tail call noundef ptr @_ZN2EA6Thread21FindThreadDynamicDataEm(i64 noundef %0)
@@ -101,7 +101,7 @@ _ZN2EA6Thread21GetThreadAffinityMaskERKm.exit:    ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA6Thread21GetThreadAffinityMaskERKm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %id) local_unnamed_addr #2 {
+define dso_local noundef i64 @_ZN2EA6Thread21GetThreadAffinityMaskERKm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %id) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %id, align 8
   %call = tail call noundef ptr @_ZN2EA6Thread21FindThreadDynamicDataEm(i64 noundef %0)
@@ -263,7 +263,7 @@ for.end:                                          ; preds = %for.inc, %cond.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN2EA6Thread17GetProcessorCountEv() local_unnamed_addr #6 {
@@ -288,7 +288,7 @@ entry:
 declare i32 @sched_getcpu() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8Internal20SetCurrentThreadNameEPKc(ptr nocapture noundef readonly %pName) local_unnamed_addr #6 {
+define dso_local void @_ZN8Internal20SetCurrentThreadNameEPKc(ptr noundef readonly captures(none) %pName) local_unnamed_addr #6 {
 entry:
   %nameBuf = alloca [16 x i8], align 16
   %call = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf, ptr noundef nonnull dereferenceable(1) %pName, i64 noundef 16) #19
@@ -300,7 +300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #7
@@ -392,7 +392,7 @@ _ZN2EA6Thread13SetThreadNameERKmPKc.exit:         ; preds = %entry, %_ZN8Interna
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA6Thread13SetThreadNameERKmPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %id, ptr noundef readonly %pName) local_unnamed_addr #2 {
+define dso_local void @_ZN2EA6Thread13SetThreadNameERKmPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %id, ptr noundef readonly %pName) local_unnamed_addr #2 {
 entry:
   %nameBuf.i.i = alloca [16 x i8], align 16
   %0 = load i64, ptr %id, align 8
@@ -443,7 +443,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN2EA6Thread13GetThreadNameERKm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %id) local_unnamed_addr #2 {
+define dso_local noundef nonnull ptr @_ZN2EA6Thread13GetThreadNameERKm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %id) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %id, align 8
   %call = tail call noundef ptr @_ZN2EA6Thread21FindThreadDynamicDataEm(i64 noundef %0)
@@ -557,7 +557,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN2EA6Thread6detail22ThreadIdToStringBufferC2Em(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(32) %this, i64 noundef %threadId) unnamed_addr #13 align 2 {
+define dso_local void @_ZN2EA6Thread6detail22ThreadIdToStringBufferC2Em(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(32) %this, i64 noundef %threadId) unnamed_addr #13 align 2 {
 entry:
   %conv = trunc i64 %threadId to i32
   %call = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %this, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %conv) #19
@@ -565,10 +565,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN2EA6Thread6detail25SysThreadIdToStringBufferC2Em(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(32) %this, i64 noundef %sysThreadId) unnamed_addr #13 align 2 {
+define dso_local void @_ZN2EA6Thread6detail25SysThreadIdToStringBufferC2Em(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(32) %this, i64 noundef %sysThreadId) unnamed_addr #13 align 2 {
 entry:
   %conv = trunc i64 %sysThreadId to i32
   %call = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %this, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %conv) #19
@@ -576,7 +576,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA6Thread17AssertionFailureVEPKcz(ptr nocapture noundef readonly %pFormat, ...) local_unnamed_addr #2 {
+define dso_local void @_ZN2EA6Thread17AssertionFailureVEPKcz(ptr noundef readonly captures(none) %pFormat, ...) local_unnamed_addr #2 {
 entry:
   %buffer = alloca [512 x i8], align 16
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
@@ -603,7 +603,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #15
@@ -615,10 +615,10 @@ declare void @llvm.va_end.p0(ptr) #15
 declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

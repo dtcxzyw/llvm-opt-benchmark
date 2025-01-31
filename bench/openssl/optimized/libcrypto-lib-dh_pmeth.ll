@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pkey_dh_init(ptr nocapture noundef writeonly %ctx) #1 {
+define internal range(i32 0, 2) i32 @pkey_dh_init(ptr noundef writeonly captures(none) %ctx) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str, i32 noundef 58) #6
   %cmp = icmp eq ptr %call, null
@@ -61,7 +61,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pkey_dh_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #1 {
+define internal range(i32 0, 2) i32 @pkey_dh_copy(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src) #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str, i32 noundef 58) #6
   %cmp.i = icmp eq ptr %call.i, null
@@ -157,7 +157,7 @@ return:                                           ; preds = %entry, %if.then17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pkey_dh_cleanup(ptr nocapture noundef readonly %ctx) #1 {
+define internal void @pkey_dh_cleanup(ptr noundef readonly captures(none) %ctx) #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -326,7 +326,7 @@ return:                                           ; preds = %ffc_params_generate
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_dh_keygen(ptr nocapture noundef readonly %ctx, ptr noundef %pkey) #1 {
+define internal i32 @pkey_dh_keygen(ptr noundef readonly captures(none) %ctx, ptr noundef %pkey) #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -388,7 +388,7 @@ return:                                           ; preds = %land.lhs.true15, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2) i32 @pkey_dh_derive(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef %keylen) #1 {
+define internal range(i32 -2147483648, 2) i32 @pkey_dh_derive(ptr noundef readonly captures(none) %ctx, ptr noundef %key, ptr noundef captures(none) %keylen) #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -536,7 +536,7 @@ return:                                           ; preds = %if.end7, %if.end51,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_dh_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 noundef %p1, ptr noundef %p2) #1 {
+define internal i32 @pkey_dh_ctrl(ptr noundef readonly captures(none) %ctx, i32 noundef %type, i32 noundef %p1, ptr noundef %p2) #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -732,7 +732,7 @@ return:                                           ; preds = %if.then61, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_dh_ctrl_str(ptr noundef %ctx, ptr nocapture noundef readonly %type, ptr noundef %value) #1 {
+define internal i32 @pkey_dh_ctrl_str(ptr noundef %ctx, ptr noundef readonly captures(none) %type, ptr noundef %value) #1 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %type, ptr noundef nonnull dereferenceable(22) @.str.1) #7
   %cmp = icmp eq i32 %call, 0
@@ -887,10 +887,10 @@ declare i32 @DH_KDF_X9_42(ptr noundef, i64 noundef, ptr noundef, i64 noundef, pt
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @EVP_PKEY_CTX_set_dh_paramgen_prime_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -905,10 +905,10 @@ declare i32 @EVP_PKEY_CTX_set_dh_paramgen_type(ptr noundef, i32 noundef) local_u
 declare i32 @EVP_PKEY_CTX_set_dh_pad(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

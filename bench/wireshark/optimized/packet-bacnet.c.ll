@@ -418,7 +418,7 @@ target triple = "x86_64-pc-linux-gnu"
 @update_control_flags = internal constant [9 x ptr] [ptr @hf_bacnet_update_control_remove, ptr @hf_bacnet_update_control_more_follows, ptr @hf_bacnet_update_control_clear_set2, ptr @hf_bacnet_update_control_set2_params_present, ptr @hf_bacnet_update_control_set2_times_present, ptr @hf_bacnet_update_control_clear_set1, ptr @hf_bacnet_update_control_set1_params_present, ptr @hf_bacnet_update_control_set1_times_present, ptr null], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @bacnet_dissect_sec_wrapper(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define hidden noundef i32 @bacnet_dissect_sec_wrapper(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #2
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %7
@@ -571,7 +571,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bacnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_bacnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %5
 }

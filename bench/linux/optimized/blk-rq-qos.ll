@@ -273,7 +273,7 @@ define dso_local void @__rq_qos_queue_depth_changed(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local zeroext i1 @rq_depth_calc_max_depth(ptr nocapture noundef initializes((0, 4)) %0) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @rq_depth_calc_max_depth(ptr noundef captures(none) initializes((0, 4)) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
@@ -325,13 +325,13 @@ define dso_local zeroext i1 @rq_depth_calc_max_depth(ptr nocapture noundef initi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef zeroext i1 @rq_depth_scale_up(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef zeroext i1 @rq_depth_scale_up(ptr noundef captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 4, !range !19, !noundef !20
   %4 = icmp eq i8 %3, 0
@@ -394,7 +394,7 @@ define dso_local noundef zeroext i1 @rq_depth_scale_up(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef zeroext i1 @rq_depth_scale_down(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef zeroext i1 @rq_depth_scale_down(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 16 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp ne i32 %3, 1
   br i1 %4, label %5, label %41
@@ -457,7 +457,7 @@ define dso_local noundef zeroext i1 @rq_depth_scale_down(ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rq_qos_wait(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
+define dso_local void @rq_qos_wait(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.rq_qos_wait_data, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -533,10 +533,10 @@ define dso_local void @rq_qos_wait(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -1, 2) i32 @rq_qos_wake_function(ptr noundef %0, i32 %1, i32 %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i32 -1, 2) i32 @rq_qos_wake_function(ptr noundef %0, i32 %1, i32 %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48

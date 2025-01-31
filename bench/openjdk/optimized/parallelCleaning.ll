@@ -88,7 +88,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit.thread: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22CodeCacheUnloadingTaskD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22CodeCacheUnloadingTaskD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN9CodeCache26verify_clean_inline_cachesEv() #3
   ret void
 }
@@ -96,7 +96,7 @@ define hidden void @_ZN22CodeCacheUnloadingTaskD2Ev(ptr nocapture nonnull readno
 declare void @_ZN9CodeCache26verify_clean_inline_cachesEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22CodeCacheUnloadingTask14claim_nmethodsEPP7nmethodPi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22CodeCacheUnloadingTask14claim_nmethodsEPP7nmethodPi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %4

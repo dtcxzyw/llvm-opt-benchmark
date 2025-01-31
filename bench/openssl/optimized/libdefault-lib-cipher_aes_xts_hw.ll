@@ -64,7 +64,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @cipher_hw_aes_xts_copyctx(ptr noundef initializes((0, 728)) %dst, ptr nocapture noundef readonly %src) #2 {
+define internal void @cipher_hw_aes_xts_copyctx(ptr noundef initializes((0, 728)) %dst, ptr noundef readonly captures(none) %src) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(728) %dst, ptr noundef nonnull align 8 dereferenceable(728) %src, i64 728, i1 false)
   %ks1 = getelementptr inbounds nuw i8, ptr %dst, i64 192
@@ -89,7 +89,7 @@ declare void @aesni_xts_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare void @aesni_xts_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cipher_hw_aes_xts_generic_initkey(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen) #1 {

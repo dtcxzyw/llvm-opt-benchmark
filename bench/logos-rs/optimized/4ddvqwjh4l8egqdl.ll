@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser3new17h39c2dde93544591bE(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 40)) %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser3new17h39c2dde93544591bE(ptr writeonly sret([40 x i8]) align 8 captures(none) initializes((0, 40)) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [40 x i8], align 8
   call void @"_ZN11proc_macro212token_stream96_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$proc_macro2..TokenStream$GT$9into_iter17h1d4d1d07c273ecc9E"(ptr nonnull sret([40 x i8]) align 8 %3, ptr align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
@@ -20,7 +20,7 @@ define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser7next_tt17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13parse_unnamed17he1a1b1fcde987c5dE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr nocapture nonnull readonly align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13parse_unnamed17he1a1b1fcde987c5dE(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr align 8 %1, ptr nonnull readonly align 8 captures(none) %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [32 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = alloca [32 x i8], align 8
@@ -76,7 +76,7 @@ define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13parse_literal17hfa46a50c521c66b5E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13parse_literal17hfa46a50c521c66b5E(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr align 8 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [32 x i8], align 8
   invoke void @_ZN13logos_codegen6parser6nested15AttributeParser12collect_tail17hc79792dce947e4aaE(ptr nonnull sret([32 x i8]) align 8 %5, ptr align 8 %1)
           to label %8 unwind label %6
@@ -114,7 +114,7 @@ define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13parse_keyword17h3a94fa3ad84ec177E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13parse_keyword17h3a94fa3ad84ec177E(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr align 8 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [32 x i8], align 8
   %6 = alloca [56 x i8], align 8
   %7 = alloca [32 x i8], align 8
@@ -199,7 +199,7 @@ define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5d3ebd9a8d150ebE"(ptr nocapture writeonly sret([80 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5d3ebd9a8d150ebE"(ptr writeonly sret([80 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -533,7 +533,7 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
 declare void @"_ZN11proc_macro212token_stream96_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$proc_macro2..TokenStream$GT$9into_iter17h1d4d1d07c273ecc9E"(ptr sret([40 x i8]) align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN94_$LT$proc_macro2..token_stream..IntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c95c4201e5c5950E"(ptr sret([32 x i8]) align 8, ptr align 8) unnamed_addr #0
@@ -590,10 +590,10 @@ declare void @_ZN11proc_macro25Group6stream17h5bcb6dbd247bf26fE(ptr sret([32 x i
 declare void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Group$GT$17h572145524329a63dE"(ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

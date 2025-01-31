@@ -78,7 +78,7 @@ if.end:                                           ; preds = %_ZN5folly14aligned_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -89,7 +89,7 @@ declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind
 declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
@@ -98,19 +98,19 @@ declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @"_ZZN5folly6crypto6detail25allocateCacheAlignedIOBufEmEN3$_08__invokeEPvS3_"(ptr nocapture noundef %addr, ptr nocapture readnone %0) #6 align 2 {
+define internal void @"_ZZN5folly6crypto6detail25allocateCacheAlignedIOBufEmEN3$_08__invokeEPvS3_"(ptr noundef captures(none) %addr, ptr readnone captures(none) %0) #6 align 2 {
 entry:
   tail call void @free(ptr noundef %addr) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZN5folly5IOBufC2ENS0_15TakeOwnershipOpEPvmmmPFvS2_S2_ES2_b(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6crypto6detail31allocateCacheAlignedIOBufUniqueEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef %size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6crypto6detail31allocateCacheAlignedIOBufUniqueEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, i64 noundef %size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr.i.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.folly::IOBuf", align 8
@@ -249,7 +249,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #10
 declare noundef zeroext i1 @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE2EE13isImplementedEv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #1
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_abort(ptr) local_unnamed_addr #10
@@ -326,7 +326,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE3addEmmNS_5RangeIPKhEES8_NS5_IPhEE(i64 noundef %dataMask, i64 noundef %bitsPerElement, ptr %b1.coerce0, ptr %b1.coerce1, ptr %b2.coerce0, ptr %b2.coerce1, ptr nocapture noundef readonly byval(%"class.folly::Range.2") align 8 %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE3addEmmNS_5RangeIPKhEES8_NS5_IPhEE(i64 noundef %dataMask, i64 noundef %bitsPerElement, ptr %b1.coerce0, ptr %b1.coerce1, ptr %b2.coerce0, ptr %b2.coerce1, ptr noundef readonly byval(%"class.folly::Range.2") align 8 captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE3addEmmNS_5RangeIPKhEES8_NS5_IPhEEE14implementation acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -559,7 +559,7 @@ declare void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3addEm
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE3subEmmNS_5RangeIPKhEES8_NS5_IPhEE(i64 noundef %dataMask, i64 noundef %bitsPerElement, ptr %b1.coerce0, ptr %b1.coerce1, ptr %b2.coerce0, ptr %b2.coerce1, ptr nocapture noundef readonly byval(%"class.folly::Range.2") align 8 %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE3subEmmNS_5RangeIPKhEES8_NS5_IPhEE(i64 noundef %dataMask, i64 noundef %bitsPerElement, ptr %b1.coerce0, ptr %b1.coerce1, ptr %b2.coerce0, ptr %b2.coerce1, ptr noundef readonly byval(%"class.folly::Range.2") align 8 captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE3subEmmNS_5RangeIPKhEES8_NS5_IPhEEE14implementation acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0

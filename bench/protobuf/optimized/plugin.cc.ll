@@ -152,7 +152,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler12GenerateCodeERKNS1_20CodeGeneratorRequestERKNS1_13CodeGeneratorEPNS1_21CodeGeneratorResponseEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %request, ptr noundef nonnull align 8 dereferenceable(8) %generator, ptr noundef %response, ptr noundef %error_msg) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler12GenerateCodeERKNS1_20CodeGeneratorRequestERKNS1_13CodeGeneratorEPNS1_21CodeGeneratorResponseEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %request, ptr noundef nonnull align 8 dereferenceable(8) %generator, ptr noundef %response, ptr noundef %error_msg) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %pool = alloca %"class.google::protobuf::DescriptorPool", align 8
   %defaults = alloca %"class.absl::lts_20230802::StatusOr", align 8
@@ -869,7 +869,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN6google8protobuf18Featu
 declare void @_ZN6google8protobuf14DescriptorPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN6google8protobuf8compiler10PluginMainEiPPcPKNS1_13CodeGeneratorE(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %generator) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6google8protobuf8compiler10PluginMainEiPPcPKNS1_13CodeGeneratorE(i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef %generator) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %request = alloca %"class.google::protobuf::compiler::CodeGeneratorRequest", align 8
   %error_msg = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1528,7 +1528,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 declare void @_ZN6google8protobuf8compiler7Version8CopyFromERKS2_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
@@ -1553,7 +1553,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
@@ -1565,7 +1565,7 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

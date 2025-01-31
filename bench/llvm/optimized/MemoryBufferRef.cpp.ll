@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm15MemoryBufferRefC1ERKNS_12MemoryBufferE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm15MemoryBufferRefC2ERKNS_12MemoryBufferE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15MemoryBufferRefC2ERKNS_12MemoryBufferE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15MemoryBufferRefC2ERKNS_12MemoryBufferE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16

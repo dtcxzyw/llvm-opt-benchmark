@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { <2 x float>, float } @_ZNK7b2Mat337Solve33ERK6b2Vec3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %b) local_unnamed_addr #0 align 2 {
+define { <2 x float>, float } @_ZNK7b2Mat337Solve33ERK6b2Vec3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %b) local_unnamed_addr #0 align 2 {
 entry:
   %ey = getelementptr inbounds nuw i8, ptr %this, i64 12
   %ez = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define <2 x float> @_ZNK7b2Mat337Solve22ERK6b2Vec2(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b) local_unnamed_addr #0 align 2 {
+define <2 x float> @_ZNK7b2Mat337Solve22ERK6b2Vec2(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %b) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
   %ey = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -118,7 +118,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK7b2Mat3312GetInverse22EPS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef writeonly initializes((0, 36)) %M) local_unnamed_addr #2 align 2 {
+define void @_ZNK7b2Mat3312GetInverse22EPS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %this, ptr noundef writeonly captures(none) initializes((0, 36)) %M) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
   %ey = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -153,7 +153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK7b2Mat3315GetSymInverse33EPS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef writeonly initializes((0, 36)) %M) local_unnamed_addr #3 align 2 {
+define void @_ZNK7b2Mat3315GetSymInverse33EPS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %this, ptr noundef writeonly captures(none) initializes((0, 36)) %M) local_unnamed_addr #3 align 2 {
 entry:
   %ey = getelementptr inbounds nuw i8, ptr %this, i64 12
   %ez = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -227,7 +227,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

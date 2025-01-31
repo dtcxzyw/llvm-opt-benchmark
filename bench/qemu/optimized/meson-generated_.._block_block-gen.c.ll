@@ -164,7 +164,7 @@ declare ptr @bdrv_get_aio_context(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_pwrite_zeroes_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_pwrite_zeroes_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %child = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -186,7 +186,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bdrv_poll_co(ptr nocapture noundef nonnull readonly %s) unnamed_addr #0 {
+define internal fastcc void @bdrv_poll_co(ptr noundef nonnull readonly captures(none) %s) unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call, label %if.else, label %if.end
@@ -346,7 +346,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_pread_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_pread_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   tail call void @bdrv_graph_co_rdlock() #5
@@ -456,7 +456,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_pwrite_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_pwrite_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   tail call void @bdrv_graph_co_rdlock() #5
@@ -537,7 +537,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_pwrite_sync(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_pwrite_sync_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_pwrite_sync_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %child = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -595,7 +595,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i64 @bdrv_co_getlength(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_getlength_entry(ptr nocapture noundef initializes((8, 9), (24, 32)) %opaque) #0 {
+define internal void @bdrv_co_getlength_entry(ptr noundef captures(none) initializes((8, 9), (24, 32)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -642,7 +642,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_get_allocated_file_size_entry(ptr nocapture noundef initializes((8, 9), (24, 32)) %opaque) #0 {
+define internal void @bdrv_co_get_allocated_file_size_entry(ptr noundef captures(none) initializes((8, 9), (24, 32)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -703,7 +703,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_block_status(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_block_status_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_block_status_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -776,7 +776,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_block_status_above(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_block_status_above_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_block_status_above_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -845,7 +845,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_is_allocated(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_is_allocated_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_is_allocated_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -913,7 +913,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_is_allocated_above(ptr noundef, ptr noundef, i1 noundef zeroext, i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_is_allocated_above_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_is_allocated_above_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -970,7 +970,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_is_inserted_entry(ptr nocapture noundef initializes((8, 9), (24, 25)) %opaque) #0 {
+define internal void @bdrv_co_is_inserted_entry(ptr noundef captures(none) initializes((8, 9), (24, 25)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1024,7 +1024,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_get_info(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_get_info_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_get_info_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1078,7 +1078,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_change_backing_file_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_change_backing_file_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1134,7 +1134,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @bdrv_co_debug_event(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_debug_event_entry(ptr nocapture noundef initializes((8, 9)) %opaque) #0 {
+define internal void @bdrv_co_debug_event_entry(ptr noundef captures(none) initializes((8, 9)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 24
@@ -1186,7 +1186,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_can_store_new_dirty_bitmap_entry(ptr nocapture noundef initializes((8, 9), (24, 25)) %opaque) #0 {
+define internal void @bdrv_co_can_store_new_dirty_bitmap_entry(ptr noundef captures(none) initializes((8, 9), (24, 25)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1256,7 +1256,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_truncate_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_truncate_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %child = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1322,7 +1322,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_check(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_check_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_check_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1379,7 +1379,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_invalidate_cache(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_invalidate_cache_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_invalidate_cache_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1432,7 +1432,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_flush(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_flush_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_flush_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1488,7 +1488,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_pdiscard_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_pdiscard_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %child = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1547,7 +1547,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_readv_vmstate(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_readv_vmstate_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_readv_vmstate_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1606,7 +1606,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_writev_vmstate(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_writev_vmstate_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_writev_vmstate_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1659,7 +1659,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_remove_persistent_dirty_bitmap_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_remove_persistent_dirty_bitmap_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1716,7 +1716,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_refresh_total_sectors(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_refresh_total_sectors_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_refresh_total_sectors_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -1771,7 +1771,7 @@ if.end:                                           ; preds = %entry
 declare ptr @qemu_get_aio_context() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_create_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_create_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %drv = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %drv, align 8
@@ -1835,7 +1835,7 @@ declare ptr @qemu_coroutine_self() local_unnamed_addr #1
 declare void @aio_bh_schedule_oneshot_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_open_child_bh(ptr nocapture noundef initializes((8, 16)) %opaque) #0 {
+define internal void @bdrv_open_child_bh(ptr noundef captures(none) initializes((8, 16)) %opaque) #0 {
 entry:
   %call = tail call ptr @qemu_get_aio_context() #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
@@ -1895,7 +1895,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_open_blockdev_ref_bh(ptr nocapture noundef initializes((8, 16)) %opaque) #0 {
+define internal void @bdrv_open_blockdev_ref_bh(ptr noundef captures(none) initializes((8, 16)) %opaque) #0 {
 entry:
   %call = tail call ptr @qemu_get_aio_context() #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
@@ -1946,7 +1946,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_open_bh(ptr nocapture noundef initializes((8, 16)) %opaque) #0 {
+define internal void @bdrv_open_bh(ptr noundef captures(none) initializes((8, 16)) %opaque) #0 {
 entry:
   %call = tail call ptr @qemu_get_aio_context() #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
@@ -1997,7 +1997,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_activate_bh(ptr nocapture noundef initializes((8, 12)) %opaque) #0 {
+define internal void @bdrv_activate_bh(ptr noundef captures(none) initializes((8, 12)) %opaque) #0 {
 entry:
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %bs, align 8
@@ -2040,7 +2040,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_unref_bh(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @bdrv_unref_bh(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %bs, align 8
@@ -2079,7 +2079,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_unref_child_bh(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @bdrv_unref_child_bh(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %parent = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %parent, align 8
@@ -2129,7 +2129,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_new_with_bs_bh(ptr nocapture noundef initializes((8, 16)) %opaque) #0 {
+define internal void @blk_new_with_bs_bh(ptr noundef captures(none) initializes((8, 16)) %opaque) #0 {
 entry:
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %bs, align 8
@@ -2185,7 +2185,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_new_open_bh(ptr nocapture noundef initializes((8, 16)) %opaque) #0 {
+define internal void @blk_new_open_bh(ptr noundef captures(none) initializes((8, 16)) %opaque) #0 {
 entry:
   %call = tail call ptr @qemu_get_aio_context() #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
@@ -2231,7 +2231,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_unref_bh(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @blk_unref_bh(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %blk, align 8
@@ -2284,7 +2284,7 @@ declare zeroext i1 @blk_co_is_inserted(ptr noundef) #1
 declare ptr @blk_get_aio_context(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_is_inserted_entry(ptr nocapture noundef initializes((8, 9), (24, 25)) %opaque) #0 {
+define internal void @blk_co_is_inserted_entry(ptr noundef captures(none) initializes((8, 9), (24, 25)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -2337,7 +2337,7 @@ return:                                           ; preds = %if.else, %if.then
 declare zeroext i1 @blk_co_is_available(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_is_available_entry(ptr nocapture noundef initializes((8, 9), (24, 25)) %opaque) #0 {
+define internal void @blk_co_is_available_entry(ptr noundef captures(none) initializes((8, 9), (24, 25)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -2383,7 +2383,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_lock_medium_entry(ptr nocapture noundef initializes((8, 9)) %opaque) #0 {
+define internal void @blk_co_lock_medium_entry(ptr noundef captures(none) initializes((8, 9)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %blk, align 8
@@ -2427,7 +2427,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_eject_entry(ptr nocapture noundef initializes((8, 9)) %opaque) #0 {
+define internal void @blk_co_eject_entry(ptr noundef captures(none) initializes((8, 9)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %blk, align 8
@@ -2476,7 +2476,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i64 @blk_co_getlength(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_getlength_entry(ptr nocapture noundef initializes((8, 9), (24, 32)) %opaque) #0 {
+define internal void @blk_co_getlength_entry(ptr noundef captures(none) initializes((8, 9), (24, 32)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -2533,7 +2533,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_pread_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_pread_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -2598,7 +2598,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_preadv_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_preadv_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -2665,7 +2665,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_preadv_part(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_preadv_part_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_preadv_part_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -2732,7 +2732,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_pwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_pwrite_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_pwrite_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -2797,7 +2797,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_pwritev(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_pwritev_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_pwritev_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -2864,7 +2864,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_pwritev_part(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_pwritev_part_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_pwritev_part_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -2929,7 +2929,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_pwrite_compressed(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_pwrite_compressed_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_pwrite_compressed_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -2990,7 +2990,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_pwrite_zeroes(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_pwrite_zeroes_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_pwrite_zeroes_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -3051,7 +3051,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_zone_report(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_zone_report_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_zone_report_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -3112,7 +3112,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_zone_mgmt(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_zone_mgmt_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_zone_mgmt_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -3173,7 +3173,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_zone_append(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_zone_append_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_zone_append_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -3232,7 +3232,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_pdiscard_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_pdiscard_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -3285,7 +3285,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_flush(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_flush_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_flush_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -3338,7 +3338,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_ioctl(ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_ioctl_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_ioctl_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -3402,7 +3402,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @blk_co_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_co_truncate_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @blk_co_truncate_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
@@ -3482,7 +3482,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @bdrv_co_common_block_status_above(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_common_block_status_above_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @bdrv_co_common_block_status_above_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -3558,7 +3558,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @nbd_co_do_establish_connection(ptr noundef, i1 noundef zeroext, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nbd_co_do_establish_connection_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
+define internal void @nbd_co_do_establish_connection_entry(ptr noundef captures(none) initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
@@ -3647,13 +3647,13 @@ declare void @blk_co_lock_medium(ptr noundef, i1 noundef zeroext) #1
 declare void @blk_co_eject(ptr noundef, i1 noundef zeroext) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

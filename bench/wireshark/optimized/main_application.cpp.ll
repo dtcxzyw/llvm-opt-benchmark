@@ -379,7 +379,7 @@ define void @topic_action(i32 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QUrl, align 8
   %5 = tail call ptr @topic_action_url(i32 noundef %1)
@@ -985,7 +985,7 @@ _ZN7QStringD2Ev.exit15:                           ; preds = %26, %_ZN17QArrayDat
 declare void @_ZN4QDirD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @menu_recent_file_write_all(ptr nocapture noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @menu_recent_file_write_all(ptr noundef captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QByteArray, align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16recent_captures_, i64 16), align 8
@@ -1096,7 +1096,7 @@ _ZN7QStringD2Ev.exit21:                           ; preds = %31, %_ZN17QArrayDat
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN15MainApplication21refreshRecentCapturesEv(ptr noundef nonnull align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -1248,7 +1248,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP19_recent_item_statusEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
@@ -1291,7 +1291,7 @@ declare i32 @col_data_changed() local_unnamed_addr #2
 declare void @_ZN15MainApplication17columnDataChangedEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication10updateTapsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN15MainApplication10updateTapsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #3 align 2 {
   tail call void @draw_tap_listeners(i32 noundef 0)
   ret void
 }
@@ -1299,7 +1299,7 @@ define void @_ZN15MainApplication10updateTapsEv(ptr nocapture noundef nonnull re
 declare void @draw_tap_listeners(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication20openDialogInitialDirEv(ptr dead_on_unwind noalias writable sret(%class.QDir) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication20openDialogInitialDirEv(ptr dead_on_unwind noalias writable sret(%class.QDir) align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = tail call ptr @get_open_dialog_initial_dir()
@@ -1370,7 +1370,7 @@ _ZN7QStringD2Ev.exit5:                            ; preds = %19, %_ZN17QArrayDat
 declare ptr @get_open_dialog_initial_dir() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication26setLastOpenDirFromFilenameE7QString(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication26setLastOpenDirFromFilenameE7QString(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QFileInfo, align 8
   %5 = alloca %class.QByteArray, align 8
@@ -3290,7 +3290,7 @@ _ZN7QStringD2Ev.exit80:                           ; preds = %160, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare noundef zeroext i1 @_ZN5QFont10fromStringERK7QString(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
@@ -3306,7 +3306,7 @@ declare void @_ZN9QFontInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3661,7 +3661,7 @@ declare ptr @__errno_location() local_unnamed_addr #11
 declare i32 @copy_persconffile_profile(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @get_profile_name() local_unnamed_addr #2
 
@@ -3674,7 +3674,7 @@ declare void @set_profile_name(ptr noundef) local_unnamed_addr #2
 declare void @_ZN15MainApplication18profileNameChangedEPKc(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN15MainApplication22readConfigurationFilesEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN15MainApplication22readConfigurationFilesEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   br i1 %1, label %3, label %4
 
 3:                                                ; preds = %2
@@ -3692,7 +3692,7 @@ declare void @commandline_options_free() local_unnamed_addr #2
 declare void @extcap_register_preferences() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication25reloadDisplayFilterMacrosEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication25reloadDisplayFilterMacrosEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @dfilter_macro_reload()
   %2 = load ptr, ptr @mainApp, align 8
   tail call void @_ZN15MainApplication13fieldsChangedEv(ptr noundef nonnull align 8 dereferenceable(216) %2)
@@ -3788,7 +3788,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN15MainApplication11cap
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication17windowTitleStringE5QListI7QStringE(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication17windowTitleStringE5QListI7QStringE(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QMutableListIterator.11, align 8
   %5 = alloca %class.QString, align 8
   store ptr %2, ptr %4, align 8
@@ -4067,7 +4067,7 @@ _ZN5QListI7QStringE3endEv.exit:                   ; preds = %_ZNK17QArrayDataPoi
 declare void @_ZN16QCoreApplication15applicationNameEv(ptr dead_on_unwind writable sret(%class.QString) align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication27applyCustomColorsFromRecentEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication27applyCustomColorsFromRecentEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca i8, align 1
   %4 = alloca %class.QColor, align 8
@@ -4174,7 +4174,7 @@ declare void @_ZN12QColorDialog14setCustomColorEi6QColor(i32 noundef, i64, i64) 
 declare void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14), i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN15MainApplication10mainWindowEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN15MainApplication10mainWindowEv(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5QListIP7QWidgetED2Ev.exit:
   %1 = alloca %class.QList.17, align 8
   call void @_ZN12QApplication15topLevelWidgetsEv(ptr dead_on_unwind nonnull writable sret(%class.QList.17) align 8 %1)
@@ -4252,7 +4252,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP7QWidgetEED2Ev.exit: ; preds = %11, %_Z
 declare void @_ZN12QApplication15topLevelWidgetsEv(ptr dead_on_unwind writable sret(%class.QList.17) align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication25storeCustomColorsInRecentEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #3 align 2 {
+define void @_ZN15MainApplication25storeCustomColorsInRecentEv(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.QColor, align 8
   %3 = tail call noundef i32 @_ZN12QColorDialog11customCountEv()
   %.not = icmp eq i32 %3, 0
@@ -4711,7 +4711,7 @@ _ZN7QStringD2Ev.exit8:                            ; preds = %44, %_ZN17QArrayDat
 declare void @_ZN15MainApplication25updateRecentCaptureStatusERK7QStringxb(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication7cleanupEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication7cleanupEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   tail call void @software_update_cleanup()
   tail call void @_ZN15MainApplication25storeCustomColorsInRecentEv(ptr nonnull align 8 poison)
@@ -5385,7 +5385,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN5QListIN15MainAp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication26clearDynamicMenuGroupItemsEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication26clearDynamicMenuGroupItemsEv(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.QList.27, align 8
   %4 = alloca i32, align 4
@@ -5544,7 +5544,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN15MainApplicationD0Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0) unnamed_addr #14 align 2 {
+define void @_ZN15MainApplicationD0Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0) unnamed_addr #14 align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
@@ -5746,7 +5746,7 @@ define void @_ZN15MainApplication21emitStatCommandSignalERK7QStringPKcPv(ptr nou
 declare void @_ZN15MainApplication21openStatCommandDialogERK7QStringPKcPv(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication22emitTapParameterSignalE7QStringS0_Pv(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication22emitTapParameterSignalE7QStringS0_Pv(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = load ptr, ptr %1, align 8
@@ -5860,7 +5860,7 @@ _ZN7QStringD2Ev.exit17:                           ; preds = %_ZN7QStringD2Ev.exi
 declare void @_ZN15MainApplication22openTapParameterDialogE7QStringS0_Pv(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication23addDynamicMenuGroupItemEiP7QAction(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication23addDynamicMenuGroupItemEiP7QAction(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store i32 %1, ptr %5, align 4
@@ -6092,7 +6092,7 @@ _ZN17QArrayDataPointerIP7QActionED2Ev.exit:       ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication26appendDynamicMenuGroupItemEiP7QAction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication26appendDynamicMenuGroupItemEiP7QAction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store i32 %1, ptr %5, align 4
@@ -6204,7 +6204,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %_ZNK5QHashIi5QListI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication26removeDynamicMenuGroupItemEiP7QAction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication26removeDynamicMenuGroupItemEiP7QAction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.anon, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6324,7 +6324,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %_ZNK5QHashIi5QListI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication21dynamicMenuGroupItemsEi(ptr dead_on_unwind noalias writable sret(%class.QList.22) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication21dynamicMenuGroupItemsEi(ptr dead_on_unwind noalias writable sret(%class.QList.22) align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   store i32 %2, ptr %4, align 4
   %5 = load ptr, ptr @_ZL20dynamic_menu_groups_, align 8
@@ -6705,7 +6705,7 @@ _ZSt4sortIN5QListIP7QActionE8iteratorEPFbPKS1_S6_EEvT_S9_T0_.exit: ; preds = %_Z
 declare noundef zeroext i1 @_Z15qActionLessThanPK7QActionS1_(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication19addedMenuGroupItemsEi(ptr dead_on_unwind noalias writable sret(%class.QList.22) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication19addedMenuGroupItemsEi(ptr dead_on_unwind noalias writable sret(%class.QList.22) align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   store i32 %2, ptr %4, align 4
   %5 = load ptr, ptr @_ZL18added_menu_groups_, align 8
@@ -7084,7 +7084,7 @@ _ZSt4sortIN5QListIP7QActionE8iteratorEPFbPKS1_S6_EEvT_S9_T0_.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication21removedMenuGroupItemsEi(ptr dead_on_unwind noalias writable sret(%class.QList.22) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication21removedMenuGroupItemsEi(ptr dead_on_unwind noalias writable sret(%class.QList.22) align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   store i32 %2, ptr %4, align 4
   %5 = load ptr, ptr @_ZL20removed_menu_groups_, align 8
@@ -7463,7 +7463,7 @@ _ZSt4sortIN5QListIP7QActionE8iteratorEPFbPKS1_S6_EEvT_S9_T0_.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication24clearAddedMenuGroupItemsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication24clearAddedMenuGroupItemsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.QList.27, align 8
   %4 = alloca i32, align 4
@@ -7610,7 +7610,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit12: ; preds = %34, %_ZN17QAr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication26clearRemovedMenuGroupItemsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication26clearRemovedMenuGroupItemsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.QList.27, align 8
   %4 = alloca i32, align 4
@@ -7810,7 +7810,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit15: ; preds = %34, %_ZN17QAr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN15MainApplication23ifChangeEventsAvailableEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0) local_unnamed_addr #16 align 2 {
+define void @_ZN15MainApplication23ifChangeEventsAvailableEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #16 align 2 {
   ret void
 }
 
@@ -7823,7 +7823,7 @@ define void @_ZN15MainApplication23emitLocalInterfaceEventEPKcii(ptr noundef non
 declare void @_ZN15MainApplication19localInterfaceEventEPKcii(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication22refreshLocalInterfacesEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0) unnamed_addr #3 align 2 {
+define void @_ZN15MainApplication22refreshLocalInterfacesEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0) unnamed_addr #3 align 2 {
   tail call void @extcap_clear_interfaces()
   ret void
 }
@@ -8077,7 +8077,7 @@ declare void @proto_reenable_all() local_unnamed_addr #2
 declare ptr @epan_load_settings() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK15MainApplication11recentItemsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QList) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK15MainApplication11recentItemsEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QList) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr @_ZL16recent_captures_, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8414,7 +8414,7 @@ _ZN7QStringD2Ev.exit13:                           ; preds = %72, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication12loadLanguageE7QString(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication12loadLanguageE7QString(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -10833,7 +10833,7 @@ declare noundef i32 @_ZNK12CaptureEvent14captureContextEv(ptr noundef nonnull al
 declare noundef i32 @_ZNK12CaptureEvent9eventTypeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication10pushStatusENS_10StatusInfoERK7QStringS3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication10pushStatusENS_10StatusInfoERK7QStringS3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -11022,7 +11022,7 @@ declare noundef ptr @_ZN10MainWindow9statusBarEv(ptr noundef nonnull align 8 der
 declare void @_ZN13MainStatusBar17pushGenericStatusENS_13StatusContextERK7QStringS3_(ptr noundef nonnull align 8 dereferenceable(512), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication9popStatusENS_10StatusInfoE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN15MainApplication9popStatusENS_10StatusInfoE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noundef ptr @_ZN15MainApplication10mainWindowEv(ptr nonnull align 8 poison)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %4
@@ -11059,7 +11059,7 @@ switch.lookup:                                    ; preds = %11
 declare void @_ZN13MainStatusBar16popGenericStatusENS_13StatusContextE(ptr noundef nonnull align 8 dereferenceable(512), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication9gotoFrameEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN15MainApplication9gotoFrameEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noundef ptr @_ZN15MainApplication10mainWindowEv(ptr nonnull align 8 poison)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
@@ -11551,7 +11551,7 @@ declare noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOpti
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15880,10 +15880,10 @@ define internal void @_GLOBAL__sub_I_main_application.cpp() #23 section ".text.s
 declare i64 @llvm.smax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #24

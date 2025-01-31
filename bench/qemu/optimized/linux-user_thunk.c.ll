@@ -310,7 +310,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @thunk_register_struct_direct(i32 noundef %id, ptr noundef %name, ptr nocapture noundef readonly %se1) local_unnamed_addr #0 {
+define dso_local void @thunk_register_struct_direct(i32 noundef %id, ptr noundef %name, ptr noundef readonly captures(none) %se1) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @max_struct_entries, align 4
   %cmp = icmp ult i32 %id, %0
@@ -331,7 +331,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @thunk_convert(ptr noundef %dst, ptr noundef %src, ptr noundef %type_ptr, i32 noundef %to_host) local_unnamed_addr #0 {
@@ -649,7 +649,7 @@ sw.epilog75:                                      ; preds = %for.body60, %tailre
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @thunk_print(ptr noundef %arg, ptr noundef %type_ptr) local_unnamed_addr #0 {
@@ -933,7 +933,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #5
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i32 @target_to_host_bitmask_len(i32 noundef %target_mask, ptr nocapture noundef readonly %tbl, i64 noundef %len) local_unnamed_addr #7 {
+define dso_local i32 @target_to_host_bitmask_len(i32 noundef %target_mask, ptr noundef readonly captures(none) %tbl, i64 noundef %len) local_unnamed_addr #7 {
 entry:
   %cmp8.not = icmp eq i64 %len, 0
   br i1 %cmp8.not, label %for.end, label %for.body
@@ -967,7 +967,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i32 @host_to_target_bitmask_len(i32 noundef %host_mask, ptr nocapture noundef readonly %tbl, i64 noundef %len) local_unnamed_addr #7 {
+define dso_local i32 @host_to_target_bitmask_len(i32 noundef %host_mask, ptr noundef readonly captures(none) %tbl, i64 noundef %len) local_unnamed_addr #7 {
 entry:
   %cmp8.not = icmp eq i64 %len, 0
   br i1 %cmp8.not, label %for.end, label %for.body
@@ -1002,7 +1002,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @thunk_type_size_array(ptr nocapture noundef readonly %type_ptr, i32 noundef %is_host) local_unnamed_addr #0 {
+define dso_local i32 @thunk_type_size_array(ptr noundef readonly captures(none) %type_ptr, i32 noundef %is_host) local_unnamed_addr #0 {
 entry:
   br label %tailrecurse.i
 
@@ -1064,7 +1064,7 @@ thunk_type_size.exit:                             ; preds = %tailrecurse.i, %tai
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @thunk_type_align_array(ptr nocapture noundef readonly %type_ptr, i32 noundef %is_host) local_unnamed_addr #0 {
+define dso_local i32 @thunk_type_align_array(ptr noundef readonly captures(none) %type_ptr, i32 noundef %is_host) local_unnamed_addr #0 {
 entry:
   br label %tailrecurse.i
 

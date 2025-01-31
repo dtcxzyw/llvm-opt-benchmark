@@ -276,7 +276,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -513,7 +513,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number5ScaleC2EiPNS0_4impl6DecNumE(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 4), (8, 20)) %this, i32 noundef %magnitude, ptr noundef %arbitraryToAdopt) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number5ScaleC2EiPNS0_4impl6DecNumE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) initializes((0, 4), (8, 20)) %this, i32 noundef %magnitude, ptr noundef %arbitraryToAdopt) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %magnitude, ptr %this, align 8
   %fArbitrary = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -583,7 +583,7 @@ declare noundef zeroext i1 @_ZNK6icu_756number4impl6DecNum10isNegativeEv(ptr nou
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number5ScaleC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 4), (8, 20)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number5ScaleC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 4), (8, 20)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %localStatus = alloca i32, align 4
   %0 = load i32, ptr %other, align 8
@@ -676,7 +676,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756number5ScaleC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 4), (8, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number5ScaleC2EOS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 4), (8, 20)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %src) unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %src, align 8
   store i32 %0, ptr %this, align 8
@@ -693,7 +693,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number5ScaleaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(20) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number5ScaleaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(20) initializes((0, 4)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %src, align 8
   store i32 %0, ptr %this, align 8
@@ -737,7 +737,7 @@ if.end:                                           ; preds = %_ZN6icu_756number4i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number5ScaleD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number5ScaleD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fArbitrary = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fArbitrary, align 8
@@ -1076,7 +1076,7 @@ eh.resume:                                        ; preds = %lpad, %lpad1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number5Scale7applyToERNS0_4impl15DecimalQuantityE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(66) %quantity) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_756number5Scale7applyToERNS0_4impl15DecimalQuantityE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(66) %quantity) local_unnamed_addr #1 align 2 {
 entry:
   %localStatus = alloca i32, align 4
   %0 = load i32, ptr %this, align 8
@@ -1100,7 +1100,7 @@ declare noundef zeroext i1 @_ZN6icu_756number4impl15DecimalQuantity15adjustMagni
 declare void @_ZN6icu_756number4impl15DecimalQuantity10multiplyByERKNS1_6DecNumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 8 dereferenceable(92), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number5Scale17applyReciprocalToERNS0_4impl15DecimalQuantityE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(66) %quantity) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_756number5Scale17applyReciprocalToERNS0_4impl15DecimalQuantityE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(66) %quantity) local_unnamed_addr #1 align 2 {
 entry:
   %localStatus = alloca i32, align 4
   %0 = load i32, ptr %this, align 8
@@ -1174,7 +1174,7 @@ _ZN6icu_756number5ScaleaSERKS1_.exit:             ; preds = %entry, %if.end8.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number4impl23MultiplierFormatHandler15processQuantityERNS1_15DecimalQuantityERNS1_10MicroPropsER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr noundef nonnull align 1 %micros, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_756number4impl23MultiplierFormatHandler15processQuantityERNS1_15DecimalQuantityERNS1_10MicroPropsER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr noundef nonnull align 1 %micros, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %localStatus.i = alloca i32, align 4
   %fParent = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1225,10 +1225,10 @@ entry:
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

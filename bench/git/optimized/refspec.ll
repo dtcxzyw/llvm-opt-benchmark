@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr nocapture noundef initializes((0, 24)) %item, ptr noundef %refspec, i32 noundef %fetch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(none) initializes((0, 24)) %item, ptr noundef %refspec, i32 noundef %fetch) local_unnamed_addr #0 {
 entry:
   %unused.i = alloca %struct.object_id, align 4
   %unused116.i = alloca %struct.object_id, align 4
@@ -302,10 +302,10 @@ parse_refspec.exit:                               ; preds = %if.end10.i, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @refspec_item_init_or_die(ptr nocapture noundef initializes((0, 24)) %item, ptr noundef %refspec, i32 noundef %fetch) local_unnamed_addr #0 {
+define dso_local void @refspec_item_init_or_die(ptr noundef captures(none) initializes((0, 24)) %item, ptr noundef %refspec, i32 noundef %fetch) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @refspec_item_init(ptr noundef %item, ptr noundef %refspec, i32 noundef %fetch)
   %tobool.not = icmp eq i32 %call, 0
@@ -340,7 +340,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @refspec_item_clear(ptr nocapture noundef %item) local_unnamed_addr #3 {
+define dso_local void @refspec_item_clear(ptr noundef captures(none) %item) local_unnamed_addr #3 {
 entry:
   %src = getelementptr inbounds nuw i8, ptr %item, i64 8
   %0 = load ptr, ptr %src, align 8
@@ -357,10 +357,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @refspec_init(ptr nocapture noundef writeonly initializes((0, 40)) %rs, i32 noundef %fetch) local_unnamed_addr #5 {
+define dso_local void @refspec_init(ptr noundef writeonly captures(none) initializes((0, 40)) %rs, i32 noundef %fetch) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %rs, i8 0, i64 40, i1 false)
   %fetch1 = getelementptr inbounds nuw i8, ptr %rs, i64 32
@@ -369,7 +369,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @refspec_append(ptr nocapture noundef %rs, ptr noundef %refspec) local_unnamed_addr #0 {
+define dso_local void @refspec_append(ptr noundef captures(none) %rs, ptr noundef %refspec) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @xstrdup(ptr noundef %refspec) #13
   tail call fastcc void @refspec_append_nodup(ptr noundef %rs, ptr noundef %call)
@@ -377,7 +377,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @refspec_append_nodup(ptr nocapture noundef %rs, ptr noundef %refspec) unnamed_addr #0 {
+define internal fastcc void @refspec_append_nodup(ptr noundef captures(none) %rs, ptr noundef %refspec) unnamed_addr #0 {
 entry:
   %item = alloca %struct.refspec_item, align 8
   %fetch = getelementptr inbounds nuw i8, ptr %rs, i64 32
@@ -486,7 +486,7 @@ do.end51:                                         ; preds = %do.end.do.end51_cri
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @refspec_appendf(ptr nocapture noundef %rs, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @refspec_appendf(ptr noundef captures(none) %rs, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -499,7 +499,7 @@ entry:
 declare ptr @xstrvfmt(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @refspec_appendn(ptr nocapture noundef %rs, ptr nocapture noundef readonly %refspecs, i32 noundef %nr) local_unnamed_addr #0 {
+define dso_local void @refspec_appendn(ptr noundef captures(none) %rs, ptr noundef readonly captures(none) %refspecs, i32 noundef %nr) local_unnamed_addr #0 {
 entry:
   %cmp3 = icmp sgt i32 %nr, 0
   br i1 %cmp3, label %for.body.preheader, label %for.end
@@ -523,7 +523,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @refspec_clear(ptr nocapture noundef %rs) local_unnamed_addr #0 {
+define dso_local void @refspec_clear(ptr noundef captures(none) %rs) local_unnamed_addr #0 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %rs, i64 12
   %0 = load i32, ptr %nr, align 4
@@ -621,14 +621,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @refspec_ref_prefixes(ptr nocapture noundef readonly %rs, ptr noundef %ref_prefixes) local_unnamed_addr #0 {
+define dso_local void @refspec_ref_prefixes(ptr noundef readonly captures(none) %rs, ptr noundef %ref_prefixes) local_unnamed_addr #0 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %rs, i64 12
   %0 = load i32, ptr %nr, align 4
@@ -706,7 +706,7 @@ declare void @expand_ref_prefix(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @xstrndup(ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -729,10 +729,10 @@ declare void @llvm.va_start.p0(ptr) #10
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

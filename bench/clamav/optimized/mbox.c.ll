@@ -500,13 +500,13 @@ initialiseTables.exit.i:                          ; preds = %46, %.loopexit2.i.i
 
 84:                                               ; preds = %79
   call void @messageReset(ptr noundef %.063.i) #19
-  call void @messageSetCTX(ptr noundef %.063.i, ptr noundef %1) #19
+  call void @messageSetCTX(ptr noundef %.063.i, ptr noundef nonnull %1) #19
   %85 = load i8, ptr %10, align 1
   %86 = trunc i8 %85 to i1
   br i1 %86, label %.loopexit.i, label %107
 
 87:                                               ; preds = %79
-  call void @messageSetCTX(ptr noundef nonnull %82, ptr noundef %1) #19
+  call void @messageSetCTX(ptr noundef nonnull %82, ptr noundef nonnull %1) #19
   call void @messageDestroy(ptr noundef %.063.i) #19
   %88 = call ptr @messageGetBody(ptr noundef nonnull %82) #19
   %.not94.i = icmp eq ptr %88, null
@@ -521,7 +521,7 @@ initialiseTables.exit.i:                          ; preds = %46, %.loopexit2.i.i
 
 91:                                               ; preds = %89
   call void @messageReset(ptr noundef nonnull %82) #19
-  call void @messageSetCTX(ptr noundef nonnull %82, ptr noundef %1) #19
+  call void @messageSetCTX(ptr noundef nonnull %82, ptr noundef nonnull %1) #19
   br label %107
 
 .thread129.i:                                     ; preds = %89
@@ -530,7 +530,7 @@ initialiseTables.exit.i:                          ; preds = %46, %.loopexit2.i.i
 
 92:                                               ; preds = %89, %87
   call void @messageReset(ptr noundef nonnull %82) #19
-  call void @messageSetCTX(ptr noundef nonnull %82, ptr noundef %1) #19
+  call void @messageSetCTX(ptr noundef nonnull %82, ptr noundef nonnull %1) #19
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #19
   br label %96
 
@@ -1653,7 +1653,7 @@ strip.exit:                                       ; preds = %.critedge.i, %3, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
@@ -1662,7 +1662,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @messageCreate() local_unnamed_addr #1
 
@@ -1671,7 +1671,7 @@ declare void @messageSetCTX(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @cli_chomp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parseEmailHeaders(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull initializes((0, 1)) %2) unnamed_addr #0 {
+define internal fastcc ptr @parseEmailHeaders(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) initializes((0, 1)) %2) unnamed_addr #0 {
   %4 = alloca [1001 x i8], align 16
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34) #19
   store i8 0, ptr %2, align 1
@@ -2070,7 +2070,7 @@ declare void @messageDestroy(ptr noundef) local_unnamed_addr #1
 declare ptr @messageGetBody(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parseEmailBody(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @parseEmailBody(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [1001 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -2172,7 +2172,7 @@ getMimeTypeStr.exit:                              ; preds = %51, %.lr.ph, %46
   %56 = load ptr, ptr %25, align 8
   %57 = tail call i32 @cli_jsonstr(ptr noundef %56, ptr noundef nonnull @.str.89, ptr noundef %44) #19
   %58 = load ptr, ptr %25, align 8
-  %59 = tail call i32 @messageGetEncoding(ptr noundef %0) #19
+  %59 = tail call i32 @messageGetEncoding(ptr noundef nonnull %0) #19
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %getEncTypeStr.exit, label %.lr.ph777
 
@@ -2193,14 +2193,14 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph777, %ge
   %.05.i693 = phi ptr [ @.str.168, %getMimeTypeStr.exit ], [ @.str.158, %.lr.ph777 ], [ %62, %63 ]
   %67 = tail call i32 @cli_jsonstr(ptr noundef %58, ptr noundef nonnull @.str.90, ptr noundef nonnull %.05.i693) #19
   %68 = load ptr, ptr %25, align 8
-  %69 = tail call ptr @messageGetDispositionType(ptr noundef %0) #19
+  %69 = tail call ptr @messageGetDispositionType(ptr noundef nonnull %0) #19
   %70 = tail call i32 @cli_jsonstr(ptr noundef %68, ptr noundef nonnull @.str.91, ptr noundef %69) #19
-  %71 = tail call i32 @messageHasFilename(ptr noundef %0) #19
+  %71 = tail call i32 @messageHasFilename(ptr noundef nonnull %0) #19
   %.not611 = icmp eq i32 %71, 0
   br i1 %.not611, label %76, label %72
 
 72:                                               ; preds = %getEncTypeStr.exit
-  %73 = tail call ptr @messageGetFilename(ptr noundef %0) #19
+  %73 = tail call ptr @messageGetFilename(ptr noundef nonnull %0) #19
   %74 = load ptr, ptr %25, align 8
   %75 = tail call i32 @cli_jsonstr(ptr noundef %74, ptr noundef nonnull @.str.92, ptr noundef %73) #19
   tail call void @free(ptr noundef %73) #19
@@ -2231,7 +2231,7 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph777, %ge
 
 .thread701:                                       ; preds = %87
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.97, i32 noundef 4) #19
-  %90 = tail call i32 @messageGetEncoding(ptr noundef %0) #19
+  %90 = tail call i32 @messageGetEncoding(ptr noundef nonnull %0) #19
   switch i32 %90, label %446 [
     i32 0, label %447
     i32 3, label %447
@@ -2253,12 +2253,12 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph777, %ge
 .thread.sink.split:                               ; preds = %87, %79
   %.str.96.sink = phi ptr [ @.str.94, %79 ], [ @.str.96, %87 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.96.sink) #19
-  tail call void @messageSetMimeSubtype(ptr noundef %0, ptr noundef nonnull @.str.36) #19
+  tail call void @messageSetMimeSubtype(ptr noundef nonnull %0, ptr noundef nonnull @.str.36) #19
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %91
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.98) #19
-  %92 = tail call ptr @textAddMessage(ptr noundef %1, ptr noundef %0) #19
+  %92 = tail call ptr @textAddMessage(ptr noundef %1, ptr noundef nonnull %0) #19
   store ptr %92, ptr %7, align 8
   br i1 %24, label %94, label %504
 
@@ -2275,7 +2275,7 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph777, %ge
 
 98:                                               ; preds = %91
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.99) #19
-  %99 = tail call ptr @messageFindArgument(ptr noundef %0, ptr noundef nonnull @.str.100) #19
+  %99 = tail call ptr @messageFindArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.100) #19
   %100 = load ptr, ptr %25, align 8
   %.not615 = icmp eq ptr %100, null
   br i1 %.not615, label %103, label %101
@@ -2300,12 +2300,12 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph777, %ge
 
 110:                                              ; preds = %106
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.103) #19
-  tail call void @messageSetMimeSubtype(ptr noundef %0, ptr noundef nonnull @.str.20) #19
+  tail call void @messageSetMimeSubtype(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #19
   br label %111
 
 111:                                              ; preds = %110, %106
   %.0548 = phi ptr [ @.str.20, %110 ], [ %44, %106 ]
-  %112 = tail call ptr @messageGetBody(ptr noundef %0) #19
+  %112 = tail call ptr @messageGetBody(ptr noundef nonnull %0) #19
   %113 = icmp eq ptr %112, null
   br i1 %113, label %114, label %.preheader739
 
@@ -2327,7 +2327,7 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph777, %ge
   br i1 %.not617, label %119, label %.lr.ph799
 
 119:                                              ; preds = %116
-  %120 = tail call ptr @binhexBegin(ptr noundef %0) #19
+  %120 = tail call ptr @binhexBegin(ptr noundef nonnull %0) #19
   %121 = icmp eq ptr %120, %.0538
   br i1 %121, label %122, label %124
 
@@ -2342,7 +2342,7 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph777, %ge
   br i1 %.not618, label %136, label %127
 
 127:                                              ; preds = %124
-  %128 = tail call ptr @encodingLine(ptr noundef %0) #19
+  %128 = tail call ptr @encodingLine(ptr noundef nonnull %0) #19
   %129 = load ptr, ptr %125, align 8
   %130 = icmp eq ptr %128, %129
   br i1 %130, label %131, label %136
@@ -2351,7 +2351,7 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph777, %ge
   %132 = load ptr, ptr %129, align 8
   %133 = tail call ptr @lineGetData(ptr noundef %132) #19
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.105, ptr noundef %133) #19
-  %134 = tail call i32 @messageGetEncoding(ptr noundef %0) #19
+  %134 = tail call i32 @messageGetEncoding(ptr noundef nonnull %0) #19
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %.lr.ph799, label %136
 
@@ -2578,7 +2578,7 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph777, %ge
   %237 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %230) #21
   %238 = add i64 %236, 1
   %239 = add i64 %238, %237
-  %240 = tail call ptr @cli_max_realloc(ptr noundef %.1507784, i64 noundef %239) #19
+  %240 = tail call ptr @cli_max_realloc(ptr noundef nonnull %.1507784, i64 noundef %239) #19
   %241 = icmp eq ptr %240, null
   br i1 %241, label %.critedge, label %242
 
@@ -2962,9 +2962,9 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit738
   br label %696
 
 361:                                              ; preds = %352
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.122, ptr noundef %.1549) #19
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.122, ptr noundef nonnull %.1549) #19
   %362 = load ptr, ptr %80, align 8
-  %363 = tail call i32 @tableFind(ptr noundef %362, ptr noundef %.1549) #19
+  %363 = tail call i32 @tableFind(ptr noundef %362, ptr noundef nonnull %.1549) #19
   switch i32 %363, label %423 [
     i32 10, label %364
     i32 7, label %.thread714
@@ -3242,7 +3242,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit738
 453:                                              ; preds = %450, %447
   %454 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %455 = load ptr, ptr %454, align 8
-  %456 = call fastcc ptr @parseEmailHeaders(ptr noundef %0, ptr noundef %455, ptr noundef %8)
+  %456 = call fastcc ptr @parseEmailHeaders(ptr noundef nonnull %0, ptr noundef %455, ptr noundef %8)
   %.not613 = icmp eq ptr %456, null
   br i1 %.not613, label %464, label %457
 
@@ -3250,7 +3250,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit738
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.133) #19
   %458 = load ptr, ptr %9, align 8
   tail call void @messageSetCTX(ptr noundef nonnull %456, ptr noundef %458) #19
-  tail call void @messageReset(ptr noundef %0) #19
+  tail call void @messageReset(ptr noundef nonnull %0) #19
   %459 = tail call ptr @messageGetBody(ptr noundef nonnull %456) #19
   %.not614 = icmp eq ptr %459, null
   br i1 %.not614, label %463, label %460
@@ -3333,7 +3333,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit738
 
 494:                                              ; preds = %493, %91
   %495 = load ptr, ptr %2, align 8
-  %496 = tail call ptr @messageToFileblob(ptr noundef %0, ptr noundef %495, i32 noundef 1) #19
+  %496 = tail call ptr @messageToFileblob(ptr noundef nonnull %0, ptr noundef %495, i32 noundef 1) #19
   %.not654 = icmp eq ptr %496, null
   br i1 %.not654, label %504, label %497
 
@@ -3352,7 +3352,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit738
   %502 = load i32, ptr %27, align 8
   %503 = add i32 %502, 1
   store i32 %503, ptr %27, align 8
-  tail call void @messageReset(ptr noundef %0) #19
+  tail call void @messageReset(ptr noundef nonnull %0) #19
   br label %504
 
 504:                                              ; preds = %91, %94, %91, %91, %494, %501, %463, %467, %464, %340, %._crit_edge831, %93, %.thread, %471, %139, %114, %105
@@ -3514,7 +3514,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit738
 571:                                              ; preds = %566
   %572 = tail call ptr @lineGetData(ptr noundef nonnull %567) #19
   %573 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %572) #21
-  %574 = tail call i32 @fileblobAddData(ptr noundef nonnull %560, ptr noundef %572, i64 noundef %573) #19
+  %574 = tail call i32 @fileblobAddData(ptr noundef nonnull %560, ptr noundef nonnull %572, i64 noundef %573) #19
   br label %575
 
 575:                                              ; preds = %569, %571
@@ -4003,7 +4003,7 @@ define internal fastcc ptr @rfc822comments(ptr noundef nonnull %0, ptr noundef %
 declare i32 @tableFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @cli_safer_strdup(ptr noundef) local_unnamed_addr #1
 
@@ -4012,7 +4012,7 @@ declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @cli_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @next_is_folded_header(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @next_is_folded_header(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -4076,7 +4076,7 @@ define internal fastcc noundef zeroext i1 @next_is_folded_header(ptr nocapture n
 declare ptr @lineUnlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parseEmailHeader(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parseEmailHeader(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca [2 x i8], align 1
@@ -4109,11 +4109,11 @@ define internal fastcc range(i32 -1, 1) i32 @parseEmailHeader(ptr noundef %0, pt
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18, %15
-  %22 = tail call ptr @cli_safer_strdup(ptr noundef %1) #19
+  %22 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %1) #19
   br label %rfc2047.exit
 
 23:                                               ; preds = %18
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59, ptr noundef %1) #19
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59, ptr noundef nonnull %1) #19
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
   %25 = add i64 %24, 1
   %26 = tail call ptr @cli_max_malloc(i64 noundef %25) #19
@@ -4312,7 +4312,7 @@ rfc2047.exit:                                     ; preds = %21, %.loopexit.i
   br i1 %97, label %rfc2047.exit.thread, label %100
 
 rfc2047.exit.thread:                              ; preds = %62, %51, %29, %rfc2047.exit
-  %98 = tail call ptr @cli_safer_strdup(ptr noundef %1) #19
+  %98 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %1) #19
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.thread, label %100
 
@@ -4611,7 +4611,7 @@ strstrip.exit.i:                                  ; preds = %.critedge.i.i.i, %1
 
 219:                                              ; preds = %.critedge.thread.i, %163, %161, %158, %149
   %.1101.i = phi ptr [ %..i, %149 ], [ %spec.select.i, %.critedge.thread.i ], [ %spec.select.i, %163 ], [ %spec.select.i, %161 ], [ %spec.select.i, %158 ]
-  %220 = call ptr @cli_strtokbuf(ptr noundef %.1101.i, i32 noundef 1, ptr noundef nonnull @.str.73, ptr noundef nonnull %140) #19
+  %220 = call ptr @cli_strtokbuf(ptr noundef nonnull %.1101.i, i32 noundef 1, ptr noundef nonnull @.str.73, ptr noundef nonnull %140) #19
   %.not127136.i = icmp eq ptr %220, null
   br i1 %.not127136.i, label %haveTooManyMIMEArguments.exit.thread.i, label %.lr.ph138.i
 
@@ -4640,7 +4640,7 @@ haveTooManyMIMEArguments.exit.i:                  ; preds = %.lr.ph138.i
   %230 = add nuw nsw i64 %.098137.i, 1
   call void @messageAddArguments(ptr noundef %0, ptr noundef nonnull %140) #19
   %231 = add nuw nsw i32 %221, 1
-  %232 = call ptr @cli_strtokbuf(ptr noundef %.1101.i, i32 noundef %221, ptr noundef nonnull @.str.73, ptr noundef nonnull %140) #19
+  %232 = call ptr @cli_strtokbuf(ptr noundef nonnull %.1101.i, i32 noundef %221, ptr noundef nonnull @.str.73, ptr noundef nonnull %140) #19
   %.not127.i = icmp eq ptr %232, null
   br i1 %.not127.i, label %haveTooManyMIMEArguments.exit.thread.i, label %.lr.ph138.i
 
@@ -4728,13 +4728,13 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @tolower(i32 noundef) local_unnamed_addr #7
@@ -4750,7 +4750,7 @@ declare i64 @blobGetDataSize(ptr noundef) local_unnamed_addr #1
 declare ptr @blobGetData(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @blobDestroy(ptr noundef) local_unnamed_addr #1
 
@@ -4783,7 +4783,7 @@ declare ptr @messageGetFilename(ptr noundef) local_unnamed_addr #1
 declare ptr @textAddMessage(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @checkURLs(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @checkURLs(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.tag_arguments_tag, align 8
   %6 = load i32, ptr %2, align 4
@@ -5177,7 +5177,7 @@ define internal fastcc range(i32 0, 2) i32 @boundaryStart(ptr noundef %0, ptr no
 declare ptr @binhexBegin(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @exportBinhexMessage(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @exportBinhexMessage(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call i32 @messageGetEncoding(ptr noundef nonnull %1) #19
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %6
@@ -5218,7 +5218,7 @@ declare ptr @encodingLine(ptr noundef) local_unnamed_addr #1
 declare i32 @messageAddLine(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @do_multipart(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr noundef nonnull readnone %5, ptr nocapture noundef nonnull readonly %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @do_multipart(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull readnone %5, ptr noundef nonnull readonly captures(none) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = sext i32 %2 to i64
@@ -5322,9 +5322,9 @@ define internal fastcc noundef ptr @do_multipart(ptr noundef %0, ptr nocapture n
 getMimeTypeStr.exit:                              ; preds = %57, %.lr.ph, %52
   %.05.i = phi ptr [ @.str.159, %52 ], [ @.str.158, %.lr.ph ], [ %56, %57 ]
   %61 = tail call i32 @cli_jsonstr(ptr noundef nonnull %.0148, ptr noundef nonnull @.str.88, ptr noundef nonnull %.05.i) #19
-  %62 = tail call ptr @messageGetMimeSubtype(ptr noundef %13) #19
+  %62 = tail call ptr @messageGetMimeSubtype(ptr noundef nonnull %13) #19
   %63 = tail call i32 @cli_jsonstr(ptr noundef nonnull %.0148, ptr noundef nonnull @.str.89, ptr noundef %62) #19
-  %64 = tail call i32 @messageGetEncoding(ptr noundef %13) #19
+  %64 = tail call i32 @messageGetEncoding(ptr noundef nonnull %13) #19
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %getEncTypeStr.exit, label %.lr.ph189
 
@@ -5344,14 +5344,14 @@ getMimeTypeStr.exit:                              ; preds = %57, %.lr.ph, %52
 getEncTypeStr.exit:                               ; preds = %68, %.lr.ph189, %getMimeTypeStr.exit
   %.05.i182 = phi ptr [ @.str.168, %getMimeTypeStr.exit ], [ @.str.158, %.lr.ph189 ], [ %67, %68 ]
   %72 = tail call i32 @cli_jsonstr(ptr noundef nonnull %.0148, ptr noundef nonnull @.str.90, ptr noundef nonnull %.05.i182) #19
-  %73 = tail call ptr @messageGetDispositionType(ptr noundef %13) #19
+  %73 = tail call ptr @messageGetDispositionType(ptr noundef nonnull %13) #19
   %74 = tail call i32 @cli_jsonstr(ptr noundef nonnull %.0148, ptr noundef nonnull @.str.91, ptr noundef %73) #19
-  %75 = tail call i32 @messageHasFilename(ptr noundef %13) #19
+  %75 = tail call i32 @messageHasFilename(ptr noundef nonnull %13) #19
   %.not163 = icmp eq i32 %75, 0
   br i1 %.not163, label %79, label %76
 
 76:                                               ; preds = %getEncTypeStr.exit
-  %77 = tail call ptr @messageGetFilename(ptr noundef %13) #19
+  %77 = tail call ptr @messageGetFilename(ptr noundef nonnull %13) #19
   %78 = tail call i32 @cli_jsonstr(ptr noundef nonnull %.0148, ptr noundef nonnull @.str.92, ptr noundef %77) #19
   tail call void @free(ptr noundef %77) #19
   br label %81
@@ -5361,7 +5361,7 @@ getEncTypeStr.exit:                               ; preds = %68, %.lr.ph189, %ge
   br label %81
 
 81:                                               ; preds = %76, %79, %50
-  %82 = tail call i32 @messageGetMimeType(ptr noundef %13) #19
+  %82 = tail call i32 @messageGetMimeType(ptr noundef nonnull %13) #19
   switch i32 %82, label %155 [
     i32 1, label %157
     i32 2, label %157
@@ -5376,7 +5376,7 @@ getEncTypeStr.exit:                               ; preds = %68, %.lr.ph189, %ge
 83:                                               ; preds = %81
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.192, i32 noundef %2) #19
   %.not167 = icmp eq ptr %0, null
-  %84 = tail call ptr @binhexBegin(ptr noundef %13) #19
+  %84 = tail call ptr @binhexBegin(ptr noundef nonnull %13) #19
   %.not168 = icmp eq ptr %84, null
   br i1 %.not167, label %91, label %85
 
@@ -5418,7 +5418,7 @@ getEncTypeStr.exit:                               ; preds = %68, %.lr.ph189, %ge
   br label %97
 
 97:                                               ; preds = %89, %90, %95, %91
-  %98 = tail call ptr @messageGetBody(ptr noundef %13) #19
+  %98 = tail call ptr @messageGetBody(ptr noundef nonnull %13) #19
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %157
 
@@ -5427,7 +5427,7 @@ getEncTypeStr.exit:                               ; preds = %68, %.lr.ph189, %ge
   br label %157
 
 101:                                              ; preds = %81
-  %102 = tail call ptr @messageGetDispositionType(ptr noundef %13) #19
+  %102 = tail call ptr @messageGetDispositionType(ptr noundef nonnull %13) #19
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.196, ptr noundef %102) #19
   %103 = tail call i32 @strcasecmp(ptr noundef %102, ptr noundef nonnull @.str.197) #21
   %104 = icmp eq i32 %103, 0
@@ -5454,7 +5454,7 @@ getEncTypeStr.exit:                               ; preds = %68, %.lr.ph189, %ge
   br label %113
 
 113:                                              ; preds = %112, %111
-  %114 = tail call ptr @messageGetMimeSubtype(ptr noundef %13) #19
+  %114 = tail call ptr @messageGetMimeSubtype(ptr noundef nonnull %13) #19
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.199, ptr noundef %114) #19
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %116 = load ptr, ptr %115, align 8
@@ -5463,12 +5463,12 @@ getEncTypeStr.exit:                               ; preds = %68, %.lr.ph189, %ge
   br i1 %118, label %119, label %126
 
 119:                                              ; preds = %113
-  %120 = tail call i32 @messageGetEncoding(ptr noundef %13) #19
+  %120 = tail call i32 @messageGetEncoding(ptr noundef nonnull %13) #19
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %126
 
 122:                                              ; preds = %119
-  %123 = tail call i32 @messageHasFilename(ptr noundef %13) #19
+  %123 = tail call i32 @messageHasFilename(ptr noundef nonnull %13) #19
   %.not166 = icmp eq i32 %123, 0
   br i1 %.not166, label %124, label %125
 
@@ -5490,7 +5490,7 @@ getEncTypeStr.exit:                               ; preds = %68, %.lr.ph189, %ge
   br label %130
 
 130:                                              ; preds = %129, %126
-  tail call void @messageAddArgument(ptr noundef %13, ptr noundef nonnull @.str.202) #19
+  tail call void @messageAddArgument(ptr noundef nonnull %13, ptr noundef nonnull @.str.202) #19
   br label %157
 
 131:                                              ; preds = %108
@@ -5498,9 +5498,9 @@ getEncTypeStr.exit:                               ; preds = %68, %.lr.ph189, %ge
   br label %206
 
 132:                                              ; preds = %81
-  %133 = tail call i32 @messageGetEncoding(ptr noundef %13) #19
+  %133 = tail call i32 @messageGetEncoding(ptr noundef nonnull %13) #19
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.204, i32 noundef %133) #19
-  %134 = tail call i32 @messageGetEncoding(ptr noundef %13) #19
+  %134 = tail call i32 @messageGetEncoding(ptr noundef nonnull %13) #19
   switch i32 %134, label %140 [
     i32 0, label %135
     i32 3, label %135
@@ -5508,7 +5508,7 @@ getEncTypeStr.exit:                               ; preds = %68, %.lr.ph189, %ge
   ]
 
 135:                                              ; preds = %132, %132, %132
-  %136 = tail call ptr @encodingLine(ptr noundef %13) #19
+  %136 = tail call ptr @encodingLine(ptr noundef nonnull %13) #19
   %137 = icmp eq ptr %136, null
   br i1 %137, label %138, label %140
 
@@ -5552,7 +5552,7 @@ saveTextPart.exit.thread:                         ; preds = %140, %148, %saveTex
   store ptr %.0148, ptr %30, align 8
   %151 = load ptr, ptr %6, align 8
   %152 = add i32 %7, 1
-  %153 = tail call fastcc i32 @parseEmailBody(ptr noundef %13, ptr noundef %151, ptr noundef %4, i32 noundef %152)
+  %153 = tail call fastcc i32 @parseEmailBody(ptr noundef nonnull %13, ptr noundef %151, ptr noundef %4, i32 noundef %152)
   store i32 %153, ptr %3, align 4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.208, i32 noundef %153) #19
   %154 = load ptr, ptr %12, align 8
@@ -5562,7 +5562,7 @@ saveTextPart.exit.thread:                         ; preds = %140, %148, %saveTex
   br label %206
 
 155:                                              ; preds = %81
-  %156 = tail call i32 @messageGetMimeType(ptr noundef %13) #19
+  %156 = tail call i32 @messageGetMimeType(ptr noundef nonnull %13) #19
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.209, i32 noundef %156) #19
   br label %157
 
@@ -5575,7 +5575,7 @@ saveTextPart.exit.thread:                         ; preds = %140, %148, %saveTex
 
 159:                                              ; preds = %157
   %160 = load ptr, ptr %4, align 8
-  %161 = tail call ptr @messageToFileblob(ptr noundef %13, ptr noundef %160, i32 noundef 1) #19
+  %161 = tail call ptr @messageToFileblob(ptr noundef nonnull %13, ptr noundef %160, i32 noundef 1) #19
   br i1 %.not162, label %170, label %162
 
 162:                                              ; preds = %159
@@ -5662,7 +5662,7 @@ thread-pre-split.thread:                          ; preds = %187, %182, %193, %1
   br label %202
 
 202:                                              ; preds = %thread-pre-split.thread, %181
-  %203 = call i32 @messageContainsVirus(ptr noundef %13) #19
+  %203 = call i32 @messageContainsVirus(ptr noundef nonnull %13) #19
   %.not178 = icmp eq i32 %203, 0
   br i1 %.not178, label %205, label %204
 
@@ -5671,7 +5671,7 @@ thread-pre-split.thread:                          ; preds = %187, %182, %193, %1
   br label %205
 
 205:                                              ; preds = %202, %204, %157
-  call void @messageDestroy(ptr noundef %13) #19
+  call void @messageDestroy(ptr noundef nonnull %13) #19
   store ptr null, ptr %12, align 8
   br label %206
 
@@ -5683,7 +5683,7 @@ thread-pre-split.thread:                          ; preds = %187, %182, %193, %1
 declare void @textDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @getTextPart(ptr nocapture noundef readonly %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #0 {
+define internal fastcc i32 @getTextPart(ptr noundef readonly captures(none) %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #0 {
   %.not19 = icmp eq i64 %1, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
@@ -5720,7 +5720,7 @@ define internal fastcc i32 @getTextPart(ptr nocapture noundef readonly %0, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parseRootMHTML(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @parseRootMHTML(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.msxml_ctx, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -5839,7 +5839,7 @@ declare ptr @textToFileblob(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @fileblobDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 21) i32 @rfc1341(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 21) i32 @rfc1341(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [4097 x i8], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca %struct.stat, align 8
@@ -6257,7 +6257,7 @@ declare ptr @messageToFileblob(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare i32 @fileblobScanAndDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @isBounceStart(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @isBounceStart(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %43, label %4
 
@@ -6340,7 +6340,7 @@ define internal fastcc zeroext i1 @isBounceStart(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare ptr @__cli_strcasestr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6359,10 +6359,10 @@ declare void @html_tag_arg_add(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @html_tag_arg_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @fileblobGetFilename(ptr noundef) local_unnamed_addr #1
 
@@ -6397,10 +6397,10 @@ declare i32 @xmlGetDocCompressMode(ptr noundef) local_unnamed_addr #1
 declare ptr @xmlReaderWalker(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parseMHTMLComment(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal i32 @parseMHTMLComment(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   br label %5
 
 5:                                                ; preds = %23, %4
@@ -6466,24 +6466,24 @@ declare ptr @cl_engine_get_str(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare ptr @cli_gettmpdir() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #12
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare ptr @cli_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @cl_hash_data(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6492,15 +6492,15 @@ declare ptr @cli_str2hex(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @messageSavePartial(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 declare void @sanitiseName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #4
@@ -6508,26 +6508,26 @@ declare i64 @time(ptr noundef) local_unnamed_addr #4
 declare ptr @readdir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #13
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @rewinddir(ptr noundef) local_unnamed_addr #4
@@ -6538,19 +6538,19 @@ declare i32 @cli_compare_ftm_file(ptr noundef, i64 noundef, ptr noundef) local_u
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #15
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #15
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18

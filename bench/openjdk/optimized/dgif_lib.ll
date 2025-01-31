@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @DGifDecompressInput.CodeMasks = internal unnamed_addr constant [13 x i16] [i16 0, i16 1, i16 3, i16 7, i16 15, i16 31, i16 63, i16 127, i16 255, i16 511, i16 1023, i16 2047, i16 4095], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @DGifOpenFileName(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @DGifOpenFileName(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #14
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %7
@@ -40,7 +40,7 @@ define hidden noundef ptr @DGifOpenFileName(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #1
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @DGifOpenFileHandle(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
@@ -164,13 +164,13 @@ declare i32 @close(i32 noundef) local_unnamed_addr #3
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @DGifGetScreenDesc(ptr noundef %0) local_unnamed_addr #0 {
@@ -529,7 +529,7 @@ declare void @GifFreeMapObject(ptr noundef) local_unnamed_addr #3
 declare ptr @GifMakeMapObject(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden nonnull ptr @DGifGetGifVersion(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden nonnull ptr @DGifGetGifVersion(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24928
@@ -540,7 +540,7 @@ define hidden nonnull ptr @DGifGetGifVersion(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DGifGetRecordType(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DGifGetRecordType(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -1101,10 +1101,10 @@ define hidden range(i32 0, 2) i32 @DGifGetImageDesc(ptr noundef %0) local_unname
 declare ptr @openbsd_reallocarray(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DGifGetLine(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DGifGetLine(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
@@ -1234,7 +1234,7 @@ DGifGetCodeNext.exit.thread:                      ; preds = %InternalRead.exit15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
@@ -1609,7 +1609,7 @@ DGifGetPrefixChar.exit136:                        ; preds = %.lr.ph.i132, %154, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DGifGetCodeNext(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DGifGetCodeNext(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -1815,7 +1815,7 @@ DGifGetCodeNext.exit.thread:                      ; preds = %InternalRead.exit15
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DGifGetExtension(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DGifGetExtension(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1946,7 +1946,7 @@ DGifGetExtensionNext.exit:                        ; preds = %39, %InternalRead.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DGifGetExtensionNext(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DGifGetExtensionNext(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -2028,7 +2028,7 @@ InternalRead.exit13:                              ; preds = %27, %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @DGifExtensionToGCB(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @DGifExtensionToGCB(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 {
   %.not = icmp eq i64 %0, 4
   br i1 %.not, label %4, label %23
 
@@ -2071,7 +2071,7 @@ define hidden range(i32 0, 2) i32 @DGifExtensionToGCB(i64 noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @DGifSavedExtensionToGCB(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @DGifSavedExtensionToGCB(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %DGifExtensionToGCB.exit, label %5
 
@@ -2278,7 +2278,7 @@ declare void @GifFreeSavedImages(ptr noundef) local_unnamed_addr #3
 declare void @GifFreeExtensions(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DGifGetCode(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DGifGetCode(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
@@ -2385,7 +2385,7 @@ DGifGetCodeNext.exit:                             ; preds = %25, %InternalRead.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DGifGetLZCodes(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DGifGetLZCodes(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -2514,7 +2514,7 @@ DGifGetCodeNext.exit.thread:                      ; preds = %InternalRead.exit15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @DGifDecompressInput(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @DGifDecompressInput(ptr noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2703,7 +2703,7 @@ DGifBufferedInput.exit.thread:                    ; preds = %56, %38, %33, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DGifDecreaseImageCounter(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @DGifDecreaseImageCounter(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
@@ -2895,7 +2895,7 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
   %76 = mul nsw i32 %75, %.0115
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr %74, i64 %77
-  %79 = call i32 @DGifGetLine(ptr noundef %0, ptr noundef %78, i32 noundef %75)
+  %79 = call i32 @DGifGetLine(ptr noundef nonnull %0, ptr noundef %78, i32 noundef %75)
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %93
 
@@ -3093,16 +3093,16 @@ DGifDecreaseImageCounter.exit:                    ; preds = %113, %108, %29, %15
 declare i32 @GifAddExtensionBlock(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13

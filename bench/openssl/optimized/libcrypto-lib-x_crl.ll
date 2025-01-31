@@ -226,7 +226,7 @@ return:                                           ; preds = %if.then5, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_CRL_add0_revoked(ptr nocapture noundef %crl, ptr noundef %rev) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509_CRL_add0_revoked(ptr noundef captures(none) %crl, ptr noundef %rev) local_unnamed_addr #1 {
 entry:
   %revoked = getelementptr inbounds nuw i8, ptr %crl, i64 48
   %0 = load ptr, ptr %revoked, align 8
@@ -264,7 +264,7 @@ return:                                           ; preds = %if.end11, %if.then1
 declare ptr @OPENSSL_sk_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @X509_REVOKED_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #1 {
+define internal i32 @X509_REVOKED_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #1 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -400,7 +400,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_CRL_set_meth_data(ptr nocapture noundef writeonly initializes((216, 224)) %crl, ptr noundef %dat) local_unnamed_addr #4 {
+define void @X509_CRL_set_meth_data(ptr noundef writeonly captures(none) initializes((216, 224)) %crl, ptr noundef %dat) local_unnamed_addr #4 {
 entry:
   %meth_data = getelementptr inbounds nuw i8, ptr %crl, i64 216
   store ptr %dat, ptr %meth_data, align 8
@@ -408,7 +408,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_CRL_get_meth_data(ptr nocapture noundef readonly %crl) local_unnamed_addr #5 {
+define ptr @X509_CRL_get_meth_data(ptr noundef readonly captures(none) %crl) local_unnamed_addr #5 {
 entry:
   %meth_data = getelementptr inbounds nuw i8, ptr %crl, i64 216
   %0 = load ptr, ptr %meth_data, align 8
@@ -428,7 +428,7 @@ declare ptr @X509_ALGOR_it() #2
 declare ptr @X509_NAME_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @crl_inf_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
+define internal noundef i32 @crl_inf_cb(i32 noundef %operation, ptr noundef readonly captures(none) %pval, ptr readnone captures(none) %it, ptr readnone captures(none) %exarg) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -455,7 +455,7 @@ declare ptr @OPENSSL_sk_set_cmp_func(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @ASN1_BIT_STRING_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @crl_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef readonly %exarg) #1 {
+define internal range(i32 0, 2) i32 @crl_cb(i32 noundef %operation, ptr noundef readonly captures(none) %pval, ptr readnone captures(none) %it, ptr noundef readonly captures(none) %exarg) #1 {
 entry:
   %j.i = alloca i32, align 4
   %i = alloca i32, align 4
@@ -1072,7 +1072,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %idx.027.us = phi i32 [ %inc.us, %for.inc.us ], [ %call20, %for.body.lr.ph ]
   %6 = load ptr, ptr %revoked, align 8
   %call32.us = call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %idx.027.us) #9
-  %call34.us = call i32 @ASN1_INTEGER_cmp(ptr noundef %call32.us, ptr noundef %serial) #9
+  %call34.us = call i32 @ASN1_INTEGER_cmp(ptr noundef %call32.us, ptr noundef nonnull %serial) #9
   %tobool35.not.us = icmp eq i32 %call34.us, 0
   br i1 %tobool35.not.us, label %if.end37.us, label %return
 
@@ -1120,7 +1120,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.027 = phi i32 [ %inc, %for.inc ], [ %call20, %for.body.lr.ph ]
   %12 = load ptr, ptr %revoked, align 8
   %call32 = call ptr @OPENSSL_sk_value(ptr noundef %12, i32 noundef %idx.027) #9
-  %call34 = call i32 @ASN1_INTEGER_cmp(ptr noundef %call32, ptr noundef %serial) #9
+  %call34 = call i32 @ASN1_INTEGER_cmp(ptr noundef %call32, ptr noundef nonnull %serial) #9
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.end37, label %return
 
@@ -1211,7 +1211,7 @@ declare void @OPENSSL_sk_sort(ptr noundef) local_unnamed_addr #2
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @OPENSSL_sk_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1222,13 +1222,13 @@ declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_item_verify_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_Sftable = external local_unnamed_addr global %struct._sftab_, align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @sfvscanf(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @sfvscanf(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [1284 x i8], align 16
   %5 = alloca %union.Argv_t, align 16
@@ -1015,7 +1015,7 @@ gv_isspace.exit818.thread:                        ; preds = %.preheader900, %374
 
 432:                                              ; preds = %.critedge
   store i8 0, ptr %.1564, align 1
-  %433 = call double @strtod(ptr nocapture noundef nonnull %4, ptr noundef null) #8
+  %433 = call double @strtod(ptr noundef nonnull captures(none) %4, ptr noundef null) #8
   store double %433, ptr %5, align 16
   %434 = add nsw i32 %.1627.ph.ph, 1
   switch i64 %.4646, label %436 [
@@ -1724,19 +1724,19 @@ gv_isspace.exit822:                               ; preds = %.preheader892
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @setclass(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 256)) %1) unnamed_addr #4 {
+define internal fastcc nonnull ptr @setclass(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) initializes((0, 256)) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %0, align 1
   %5 = icmp ne i8 %4, 94
@@ -1853,7 +1853,7 @@ declare i32 @llvm.ctpop.i32(i32) #6
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

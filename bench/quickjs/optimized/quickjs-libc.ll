@@ -249,7 +249,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.211 = private unnamed_addr constant [13 x i8] c"[exception]\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @js_load_file(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local ptr @js_load_file(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %36, label %5
@@ -331,13 +331,13 @@ define dso_local ptr @js_load_file(ptr noundef %0, ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #2
@@ -348,15 +348,15 @@ declare ptr @js_malloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @js_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @js_module_set_import_meta(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -446,13 +446,13 @@ declare void @JS_FreeAtom(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare { i64, i64 } @JS_ThrowTypeError(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -465,14 +465,14 @@ declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr 
 declare { i64, i64 } @JS_GetImportMeta(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @JS_DefinePropertyValueStr(ptr noundef, i64, i64, ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
 declare { i64, i64 } @JS_NewString(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @js_module_loader(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define dso_local ptr @js_module_loader(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i64, align 8
   %5 = tail call i32 @has_suffix(ptr noundef %1, ptr noundef nonnull @.str.5) #30
   %.not = icmp eq i32 %5, 0
@@ -484,7 +484,7 @@ define dso_local ptr @js_module_loader(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %.not.i, label %9, label %.thread.i
 
 .thread.i:                                        ; preds = %6
-  %8 = tail call ptr @dlopen(ptr noundef %1, i32 noundef 2) #30
+  %8 = tail call ptr @dlopen(ptr noundef nonnull %1, i32 noundef 2) #30
   br label %18
 
 9:                                                ; preds = %6
@@ -517,17 +517,17 @@ define dso_local ptr @js_module_loader(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %.not42.i, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call ptr %21(ptr noundef %0, ptr noundef %1) #30
+  %23 = tail call ptr %21(ptr noundef %0, ptr noundef nonnull %1) #30
   %.not43.i = icmp eq ptr %23, null
   br i1 %.not43.i, label %26, label %js_module_loader_so.exit
 
 24:                                               ; preds = %18
-  %25 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %1) #30
+  %25 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef nonnull %1) #30
   br label %js_module_loader_so.exit
 
 26:                                               ; preds = %22, %20
   %.str.22.sink.i = phi ptr [ @.str.21, %20 ], [ @.str.22, %22 ]
-  %27 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull %.str.22.sink.i, ptr noundef %1) #30
+  %27 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull %.str.22.sink.i, ptr noundef nonnull %1) #30
   %28 = tail call i32 @dlclose(ptr noundef nonnull %19) #30
   br label %js_module_loader_so.exit
 
@@ -839,7 +839,7 @@ define internal i32 @js_os_init(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @js_std_add_helpers(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @js_std_add_helpers(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call { i64, i64 } @JS_GetGlobalObject(ptr noundef %0) #30
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
@@ -918,7 +918,7 @@ declare { i64, i64 } @JS_NewObject(ptr noundef) local_unnamed_addr #3
 declare i32 @JS_SetPropertyStr(ptr noundef, i64, i64, ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_print(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_print(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
@@ -969,7 +969,7 @@ declare { i64, i64 } @JS_NewArray(ptr noundef) local_unnamed_addr #3
 declare i32 @JS_SetPropertyUint32(ptr noundef, i64, i64, i32 noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_loadScript(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_loadScript(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1053,18 +1053,18 @@ define dso_local void @js_std_init_handlers(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @JS_SetRuntimeOpaque(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define internal noalias ptr @js_sab_alloc(ptr nocapture readnone %0, i64 noundef %1) #12 {
+define internal noalias ptr @js_sab_alloc(ptr readnone captures(none) %0, i64 noundef %1) #12 {
   %3 = add i64 %1, 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #31
   %.not = icmp eq ptr %4, null
@@ -1081,7 +1081,7 @@ define internal noalias ptr @js_sab_alloc(ptr nocapture readnone %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @js_sab_free(ptr nocapture readnone %0, ptr nocapture noundef %1) #13 {
+define internal void @js_sab_free(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #13 {
   %3 = getelementptr i8, ptr %1, i64 -8
   %4 = atomicrmw add ptr %3, i32 -1 seq_cst, align 4
   %5 = icmp eq i32 %4, 1
@@ -1096,7 +1096,7 @@ define internal void @js_sab_free(ptr nocapture readnone %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @js_sab_dup(ptr nocapture readnone %0, ptr nocapture noundef %1) #14 {
+define internal void @js_sab_dup(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #14 {
   %3 = getelementptr i8, ptr %1, i64 -8
   %4 = atomicrmw add ptr %3, i32 1 seq_cst, align 4
   ret void
@@ -1422,7 +1422,7 @@ JS_FreeValue.exit:                                ; preds = %30, %25, %js_dump_o
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @js_std_promise_rejection_tracker(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr nocapture noundef readnone %6) local_unnamed_addr #0 {
+define dso_local void @js_std_promise_rejection_tracker(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %11
 
@@ -1727,12 +1727,12 @@ define internal void @js_std_file_finalizer(ptr noundef %0, i64 %1, i64 %2) #0 {
 declare ptr @JS_GetOpaque(i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @js_free_rt(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_close(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_std_file_close(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
   %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not = icmp eq ptr %7, null
@@ -1790,7 +1790,7 @@ js_get_errno.exit:                                ; preds = %js_get_errno.exit.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_puts(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_std_file_puts(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %9, label %11
@@ -1848,7 +1848,7 @@ js_std_file_get.exit.thread:                      ; preds = %.lr.ph, %24, %js_st
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_printf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_file_printf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
   %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
@@ -1878,7 +1878,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_flush(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_std_file_flush(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
   %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
@@ -1904,7 +1904,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_tell(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_std_file_tell(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @js_std_file_class_id, align 4
   %8 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %7) #30
   %.not.i = icmp eq ptr %8, null
@@ -1954,7 +1954,7 @@ js_std_file_get.exit.thread:                      ; preds = %6, %11, %18, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_seek(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_file_seek(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = load i32, ptr @js_std_file_class_id, align 4
@@ -2015,7 +2015,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %12, %18, %js_st
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_eof(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_std_file_eof(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
   %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
@@ -2045,7 +2045,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_fileno(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_std_file_fileno(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
   %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
@@ -2074,7 +2074,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_error(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_std_file_error(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
   %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
@@ -2104,7 +2104,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_clearerr(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_std_file_clearerr(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
   %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
@@ -2130,7 +2130,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_read_write(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_std_file_read_write(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -2226,7 +2226,7 @@ js_std_file_get.exit.thread:                      ; preds = %6, %14, %27, %21, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_getline(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_std_file_getline(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.DynBuf, align 8
   %7 = load i32, ptr @js_std_file_class_id, align 4
   %8 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %7) #30
@@ -2305,7 +2305,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %11, %.loopexit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_readAsString(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_file_readAsString(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.DynBuf, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @js_std_file_class_id, align 4
@@ -2394,7 +2394,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %12, %17, %._cri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_getByte(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_std_file_getByte(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
   %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
@@ -2423,7 +2423,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_file_putByte(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_file_putByte(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @js_std_file_class_id, align 4
   %8 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %7) #30
@@ -2464,12 +2464,12 @@ js_std_file_get.exit.thread:                      ; preds = %5, %11, %js_std_fil
 declare ptr @JS_GetOpaque2(ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @JS_ToCStringLen2(ptr noundef, ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca [7 x i8], align 1
   %7 = alloca %struct.DynBuf, align 8
@@ -2910,7 +2910,7 @@ declare i32 @dbuf_put(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @JS_ToInt32(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare i32 @unicode_from_utf8(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2933,27 +2933,27 @@ declare void @dbuf_init2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @js_realloc_rt(ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @ftello(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare { i64, i64 } @JS_NewBigInt64(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @fseeko(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #1
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @JS_ToIndex(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #3
 
@@ -2962,10 +2962,10 @@ declare ptr @JS_GetArrayBuffer(ptr noundef, ptr noundef, i64, i64) local_unnamed
 declare { i64, i64 } @JS_ThrowRangeError(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 declare { i64, i64 } @JS_NewObjectClass(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -2974,7 +2974,7 @@ declare ptr @js_mallocz(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @JS_SetOpaque(i64, i64, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef { i64, i64 } @js_std_exit(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #18 {
+define internal noundef { i64, i64 } @js_std_exit(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #18 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2998,14 +2998,14 @@ define internal noundef { i64, i64 } @js_std_exit(ptr noundef %0, i64 %1, i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_gc(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_std_gc(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   tail call void @JS_RunGC(ptr noundef %6) #30
   ret { i64, i64 } { i64 0, i64 3 }
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_evalScript(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_evalScript(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
@@ -3153,7 +3153,7 @@ get_bool_option.exit:                             ; preds = %.thread.i, %10, %ge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_getenv(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_getenv(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -3186,7 +3186,7 @@ define internal { i64, i64 } @js_std_getenv(ptr noundef %0, i64 %1, i64 %2, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_setenv(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_setenv(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -3221,7 +3221,7 @@ define internal { i64, i64 } @js_std_setenv(ptr noundef %0, i64 %1, i64 %2, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_unsetenv(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_unsetenv(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -3241,7 +3241,7 @@ define internal { i64, i64 } @js_std_unsetenv(ptr noundef %0, i64 %1, i64 %2, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_getenviron(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_std_getenviron(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0) #30
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
@@ -3321,7 +3321,7 @@ JS_FreeValue.exit:                                ; preds = %42, %37, %34, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_urlGet(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_urlGet(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.DynBuf, align 8
   %7 = alloca %struct.DynBuf, align 8
   %8 = alloca %struct.DynBuf, align 8
@@ -3743,7 +3743,7 @@ JS_FreeValue.exit:                                ; preds = %163, %158, %155, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_loadFile(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_loadFile(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3779,7 +3779,7 @@ define internal { i64, i64 } @js_std_loadFile(ptr noundef %0, i64 %1, i64 %2, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_strerror(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_strerror(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3805,7 +3805,7 @@ define internal { i64, i64 } @js_std_strerror(ptr noundef %0, i64 %1, i64 %2, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_parseExtJSON(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_parseExtJSON(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3831,7 +3831,7 @@ define internal { i64, i64 } @js_std_parseExtJSON(ptr noundef %0, i64 %1, i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_open(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_open(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -3962,7 +3962,7 @@ js_new_std_file.exit:                             ; preds = %44, %47, %50, %55, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_popen(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_popen(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -4093,7 +4093,7 @@ js_new_std_file.exit:                             ; preds = %44, %47, %50, %55, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_fdopen(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_fdopen(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4223,7 +4223,7 @@ js_new_std_file.exit:                             ; preds = %46, %49, %52, %57, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_tmpfile(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_tmpfile(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = tail call noalias ptr @tmpfile()
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %8, label %js_set_error_object.exit
@@ -4317,14 +4317,14 @@ js_new_std_file.exit:                             ; preds = %26, %29, %32, %37, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_printf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_printf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load ptr, ptr @stdout, align 8
   %7 = tail call fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noundef %3, ptr noundef %4, ptr noundef %6)
   ret { i64, i64 } %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_std_sprintf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_std_sprintf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = tail call fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noundef %3, ptr noundef %4, ptr noundef null)
   ret { i64, i64 } %6
 }
@@ -4332,7 +4332,7 @@ define internal { i64, i64 } @js_std_sprintf(ptr noundef %0, i64 %1, i64 %2, i32
 declare void @JS_RunGC(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_bool_option(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_bool_option(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %2, i64 %3, ptr noundef %4) #30
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
@@ -4371,7 +4371,7 @@ JS_FreeValue.exit:                                ; preds = %.thread, %5, %17, %
 declare void @JS_SetInterruptHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @interrupt_handler(ptr nocapture readnone %0, ptr nocapture readnone %1) #19 {
+define internal range(i32 0, 2) i32 @interrupt_handler(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #19 {
   %3 = load i64, ptr @os_pending_signals, align 8
   %4 = trunc i64 %3 to i32
   %5 = lshr i32 %4, 2
@@ -4386,13 +4386,13 @@ declare { i64, i64 } @JS_GetPropertyStr(ptr noundef, i64, i64, ptr noundef) loca
 declare i32 @JS_ToBool(ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #17
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unsetenv(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare i32 @JS_NewAtomLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -4401,12 +4401,12 @@ declare i32 @JS_DefinePropertyValue(ptr noundef, i64, i64, i32 noundef, i64, i64
 declare i32 @dbuf_putstr(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare { i64, i64 } @JS_NewArrayBufferCopy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #20
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #16
@@ -4414,10 +4414,10 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #16
 declare { i64, i64 } @JS_ParseJSON2(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @tmpfile() local_unnamed_addr #1
@@ -5038,7 +5038,7 @@ JS_FreeValue.exit:                                ; preds = %300, %.preheader, %
 declare { i64, i64 } @JS_NewCFunction2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [2 x i32], align 4
   %7 = alloca [2 x i32], align 4
   %8 = alloca i64, align 8
@@ -5422,7 +5422,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #16
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #16
@@ -5491,7 +5491,7 @@ js_free_port.exit:                                ; preds = %6, %JS_FreeValueRT.
 declare void @__JS_FreeValueRT(ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
@@ -5805,14 +5805,14 @@ JS_DupValue.exit:                                 ; preds = %JS_FreeValue.exit, 
 declare ptr @JS_WriteObject2(ptr noundef, ptr noundef, i64, i64, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #21
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #21
 
 declare i32 @JS_IsFunction(ptr noundef, i64, i64) local_unnamed_addr #3
 
 declare i32 @JS_GetScriptOrModuleName(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #22
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nounwind
 declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #16
@@ -5824,7 +5824,7 @@ declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @worker_func(ptr nocapture noundef %0) #0 {
+define internal noundef ptr @worker_func(ptr noundef captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = tail call ptr @JS_NewRuntime() #30
   %4 = icmp eq ptr %3, null
@@ -5969,7 +5969,7 @@ declare { i64, i64 } @JS_GetClassProto(ptr noundef, i32 noundef) local_unnamed_a
 declare { i64, i64 } @JS_NewObjectProtoClass(ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_open(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_open(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8
@@ -6047,7 +6047,7 @@ js_get_errno.exit:                                ; preds = %29, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_close(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_close(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6082,7 +6082,7 @@ js_get_errno.exit:                                ; preds = %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_seek(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_seek(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
@@ -6162,7 +6162,7 @@ define internal { i64, i64 } @js_os_seek(ptr noundef %0, i64 %1, i64 %2, i32 %3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_read_write(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_os_read_write(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -6263,7 +6263,7 @@ js_get_errno.exit:                                ; preds = %js_get_errno.exit.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_isatty(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_isatty(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6288,7 +6288,7 @@ define internal { i64, i64 } @js_os_isatty(ptr noundef %0, i64 %1, i64 %2, i32 %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_ttyGetWinSize(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_ttyGetWinSize(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.winsize, align 2
   %8 = load i64, ptr %4, align 8
@@ -6345,7 +6345,7 @@ define internal { i64, i64 } @js_os_ttyGetWinSize(ptr noundef %0, i64 %1, i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_ttySetRaw(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_ttySetRaw(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.termios, align 4
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8
@@ -6392,7 +6392,7 @@ define internal { i64, i64 } @js_os_ttySetRaw(ptr noundef %0, i64 %1, i64 %2, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_remove(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_remove(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -6426,7 +6426,7 @@ js_get_errno.exit:                                ; preds = %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_rename(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_rename(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -6476,7 +6476,7 @@ js_get_errno.exit:                                ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_setReadHandler(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_os_setReadHandler(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #30
@@ -6701,7 +6701,7 @@ find_rh.exit.thread:                              ; preds = %19, %JS_DupValue.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
@@ -6913,7 +6913,7 @@ JS_DupValue.exit:                                 ; preds = %JS_FreeValue.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_now(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_os_now(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
@@ -6943,7 +6943,7 @@ define internal { i64, i64 } @js_os_now(ptr nocapture readnone %0, i64 %1, i64 %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_setTimeout(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_setTimeout(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca i64, align 8
   %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
@@ -7038,7 +7038,7 @@ JS_DupValue.exit:                                 ; preds = %23, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_clearTimeout(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_clearTimeout(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
@@ -7113,7 +7113,7 @@ find_timer_by_id.exit.thread:                     ; preds = %22, %16, %13, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_sleepAsync(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_sleepAsync(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca i64, align 8
   %8 = alloca [2 x %struct.JSValue], align 16
@@ -7295,7 +7295,7 @@ JS_FreeValue.exit31:                              ; preds = %53, %48, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_getcwd(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_os_getcwd(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca [4096 x i8], align 16
   %7 = call ptr @getcwd(ptr noundef nonnull %6, i64 noundef 4096) #30
   %.not = icmp eq ptr %7, null
@@ -7347,7 +7347,7 @@ make_string_error.exit:                           ; preds = %17, %18, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_chdir(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_chdir(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -7381,7 +7381,7 @@ js_get_errno.exit:                                ; preds = %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_mkdir(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_mkdir(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = icmp sgt i32 %3, 1
   br i1 %7, label %8, label %14
@@ -7434,7 +7434,7 @@ js_get_errno.exit:                                ; preds = %20, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_readdir(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_readdir(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -7520,7 +7520,7 @@ make_obj_error.exit:                              ; preds = %37, %33, %5, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.stat, align 8
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7722,7 +7722,7 @@ make_obj_error.exit:                              ; preds = %122, %118, %22, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_utimes(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_utimes(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [2 x %struct.timeval], align 16
@@ -7792,7 +7792,7 @@ js_get_errno.exit:                                ; preds = %25, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_sleep(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_sleep(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = load i64, ptr %4, align 8
@@ -7843,7 +7843,7 @@ js_get_errno.exit:                                ; preds = %16, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_realpath(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_realpath(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [4096 x i8], align 16
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7909,7 +7909,7 @@ make_string_error.exit:                           ; preds = %22, %23, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_symlink(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_symlink(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -7959,7 +7959,7 @@ js_get_errno.exit:                                ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_readlink(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_readlink(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [4096 x i8], align 16
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8030,7 +8030,7 @@ make_string_error.exit:                           ; preds = %25, %26, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_exec(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_exec(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -8602,7 +8602,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_getpid(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_os_getpid(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @getpid() #30
   %.sroa.04.0.insert.ext = zext i32 %6 to i64
   %.fca.0.insert2 = insertvalue { i64, i64 } poison, i64 %.sroa.04.0.insert.ext, 0
@@ -8611,7 +8611,7 @@ define internal { i64, i64 } @js_os_getpid(ptr nocapture readnone %0, i64 %1, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -8679,7 +8679,7 @@ define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_pipe(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_os_pipe(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca [2 x i32], align 4
   %7 = call i32 @pipe(ptr noundef nonnull %6) #30
   %8 = icmp slt i32 %7, 0
@@ -8720,7 +8720,7 @@ define internal { i64, i64 } @js_os_pipe(ptr noundef %0, i64 %1, i64 %2, i32 %3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_kill(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_kill(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8
@@ -8766,7 +8766,7 @@ js_get_errno.exit:                                ; preds = %18, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_dup(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_dup(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8801,7 +8801,7 @@ js_get_errno.exit:                                ; preds = %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_os_dup2(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_os_dup2(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8
@@ -8847,7 +8847,7 @@ js_get_errno.exit:                                ; preds = %18, %23
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #21
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #16
@@ -8876,10 +8876,10 @@ define internal void @term_exit() #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #16
@@ -8905,24 +8905,24 @@ declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #16
 declare i32 @chdir(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @utimes(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noundef i32 @utimes(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -8930,7 +8930,7 @@ declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 declare { i64, i64 } @JS_GetPropertyUint32(ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
@@ -9119,7 +9119,7 @@ define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef nonnull %1, 
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @execve(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #30
+  %12 = tail call i32 @execve(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #30
   br label %.loopexit
 
 13:                                               ; preds = %9
@@ -9166,7 +9166,7 @@ define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef nonnull %1, 
   %29 = getelementptr [4096 x i8], ptr %4, i64 0, i64 %.030
   store i8 47, ptr %29, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.030
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %gep, ptr align 1 %0, i64 %5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %gep, ptr nonnull align 1 %0, i64 %5, i1 false)
   %30 = getelementptr [4096 x i8], ptr %4, i64 0, i64 %28
   store i8 0, ptr %30, align 1
   %31 = call i32 @execve(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef %2) #30
@@ -9225,10 +9225,10 @@ declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #16
 declare i32 @JS_IsError(ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #27

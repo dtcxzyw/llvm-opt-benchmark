@@ -260,13 +260,13 @@ $_ZN12OutputStream13writeUnsignedEmb = comdat any
 @.str.150 = private unnamed_addr constant [10 x i8] c"__clrcall\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK4llvh11ms_demangle8TypeNode11outputQualsEbb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(13) %this, i1 noundef zeroext %SpaceBefore, i1 noundef zeroext %SpaceAfter) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle8TypeNode11outputQualsEbb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(13) %this, i1 noundef zeroext %SpaceBefore, i1 noundef zeroext %SpaceAfter) local_unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle17PrimitiveTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle17PrimitiveTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
 entry:
   %PrimKind = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %PrimKind, align 8
@@ -1100,14 +1100,14 @@ _ZN12OutputStreampLE10StringView.exit:            ; preds = %entry, %_ZN12Output
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle13NodeArrayNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle13NodeArrayNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK4llvh11ms_demangle13NodeArrayNode6outputER12OutputStreamNS0_11OutputFlagsE10StringView(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags, ptr nonnull @.str.20, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.20, i64 2))
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle13NodeArrayNode6outputER12OutputStreamNS0_11OutputFlagsE10StringView(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags, ptr %Separator.coerce0, ptr %Separator.coerce1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle13NodeArrayNode6outputER12OutputStreamNS0_11OutputFlagsE10StringView(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags, ptr %Separator.coerce0, ptr %Separator.coerce1) local_unnamed_addr #1 align 2 {
 entry:
   %Count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %Count, align 8
@@ -1208,7 +1208,7 @@ for.end:                                          ; preds = %_ZN12OutputStream4g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle24EncodedStringLiteralNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle24EncodedStringLiteralNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
 entry:
   %Char = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %Char, align 4
@@ -1526,7 +1526,7 @@ _ZN12OutputStream4growEm.exit.i.i174:             ; preds = %if.then.i._ZN12Outp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle18IntegerLiteralNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle18IntegerLiteralNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
 entry:
   %IsNegative = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %IsNegative, align 8
@@ -1578,7 +1578,7 @@ if.end:                                           ; preds = %_ZN12OutputStreamls
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle30TemplateParameterReferenceNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(61) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle30TemplateParameterReferenceNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(61) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %ThunkOffsetCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %ThunkOffsetCount, align 8
@@ -1850,7 +1850,7 @@ if.end34:                                         ; preds = %if.then7, %if.end15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle14IdentifierNode24outputTemplateParametersER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle14IdentifierNode24outputTemplateParametersER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) local_unnamed_addr #1 align 2 {
 entry:
   %TemplateParams = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %TemplateParams, align 8
@@ -1936,7 +1936,7 @@ return:                                           ; preds = %_ZN12OutputStream4g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle29DynamicStructorIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle29DynamicStructorIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %IsDestructor = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i8, ptr %IsDestructor, align 8
@@ -2159,7 +2159,7 @@ if.end18:                                         ; preds = %_ZN12OutputStream4g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle19NamedIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle19NamedIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %Name = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Name, align 8
@@ -2214,7 +2214,7 @@ _ZN12OutputStreamlsE10StringView.exit:            ; preds = %entry, %_ZN12Output
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle31IntrinsicFunctionIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle31IntrinsicFunctionIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %Operator = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %Operator, align 8
@@ -2547,7 +2547,7 @@ sw.epilog:                                        ; preds = %sw.bb188, %sw.bb185
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle30LocalStaticGuardIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle30LocalStaticGuardIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
 entry:
   %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
@@ -2662,7 +2662,7 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle32ConversionOperatorIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle32ConversionOperatorIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
@@ -2741,7 +2741,7 @@ _ZN12OutputStream4growEm.exit.i.i25:              ; preds = %if.then.i._ZN12Outp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle22StructorIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle22StructorIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %IsDestructor = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %IsDestructor, align 8
@@ -2797,7 +2797,7 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle29LiteralOperatorIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle29LiteralOperatorIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
@@ -2883,7 +2883,7 @@ _ZN12OutputStreamlsE10StringView.exit23:          ; preds = %_ZN12OutputStream4g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle21FunctionSignatureNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle21FunctionSignatureNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %FunctionClass = getelementptr inbounds nuw i8, ptr %this, i64 22
   %0 = load i16, ptr %FunctionClass, align 2
@@ -3079,7 +3079,7 @@ if.end33:                                         ; preds = %if.then32, %if.end2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23outputCallingConventionR12OutputStreamN4llvh11ms_demangle11CallingConvE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef zeroext %CC) unnamed_addr #1 {
+define internal fastcc void @_ZL23outputCallingConventionR12OutputStreamN4llvh11ms_demangle11CallingConvE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %OS, i8 noundef zeroext %CC) unnamed_addr #1 {
 entry:
   %CurrentPosition.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
@@ -3446,7 +3446,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle21FunctionSignatureNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle21FunctionSignatureNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %FunctionClass = getelementptr inbounds nuw i8, ptr %this, i64 22
   %0 = load i16, ptr %FunctionClass, align 2
@@ -3847,7 +3847,7 @@ if.end57:                                         ; preds = %if.then53, %if.end5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle18ThunkSignatureNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle18ThunkSignatureNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
@@ -3888,7 +3888,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle18ThunkSignatureNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle18ThunkSignatureNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %FunctionClass = getelementptr inbounds nuw i8, ptr %this, i64 22
   %0 = load i16, ptr %FunctionClass, align 2
@@ -4319,7 +4319,7 @@ if.end48:                                         ; preds = %_ZN12OutputStream4g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle15PointerTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle15PointerTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %Pointee = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %Pointee, align 8
@@ -4757,7 +4757,7 @@ _ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle15PointerTypeNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle15PointerTypeNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %Pointee = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %Pointee, align 8
@@ -4816,7 +4816,7 @@ if.end:                                           ; preds = %entry, %_ZN12Output
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle11TagTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle11TagTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %Tag = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %Tag, align 8
@@ -5021,13 +5021,13 @@ _ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK4llvh11ms_demangle11TagTypeNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %OS, i32 %Flags) unnamed_addr #0 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle11TagTypeNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %OS, i32 %Flags) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle13ArrayTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle13ArrayTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %ElementType = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %ElementType, align 8
@@ -5051,7 +5051,7 @@ _ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11OutputFlagsEPNS0_4NodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags, ptr noundef %N) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11OutputFlagsEPNS0_4NodeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags, ptr noundef %N) local_unnamed_addr #1 align 2 {
 entry:
   %Value = getelementptr inbounds nuw i8, ptr %N, i64 16
   %0 = load i64, ptr %Value, align 8
@@ -5070,7 +5070,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle13ArrayTypeNode20outputDimensionsImplER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle13ArrayTypeNode20outputDimensionsImplER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) local_unnamed_addr #1 align 2 {
 entry:
   %Dimensions = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Dimensions, align 8
@@ -5173,7 +5173,7 @@ for.end:                                          ; preds = %_ZNK4llvh11ms_deman
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle13ArrayTypeNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle13ArrayTypeNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
@@ -5252,7 +5252,7 @@ _ZN12OutputStream4growEm.exit.i.i25:              ; preds = %if.then.i._ZN12Outp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle10SymbolNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle10SymbolNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %Name = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Name, align 8
@@ -5264,7 +5264,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle18FunctionSymbolNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle18FunctionSymbolNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %Signature = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %Signature, align 8
@@ -5339,7 +5339,7 @@ _ZL22outputSpaceIfNecessaryR12OutputStream.exit:  ; preds = %entry, %_ZNK12Outpu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle18VariableSymbolNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle18VariableSymbolNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %SC = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %SC, align 8
@@ -5469,7 +5469,7 @@ if.end11:                                         ; preds = %if.then7, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle14CustomTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle14CustomTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %Identifier = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Identifier, align 8
@@ -5481,13 +5481,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK4llvh11ms_demangle14CustomTypeNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %OS, i32 %Flags) unnamed_addr #0 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle14CustomTypeNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %OS, i32 %Flags) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle17QualifiedNameNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle17QualifiedNameNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %Components = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Components, align 8
@@ -5496,7 +5496,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle27RttiBaseClassDescriptorNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle27RttiBaseClassDescriptorNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
 entry:
   %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
@@ -5692,7 +5692,7 @@ _ZN12OutputStream4growEm.exit.i.i102:             ; preds = %if.then.i._ZN12Outp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle28LocalStaticGuardVariableNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle28LocalStaticGuardVariableNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %Name = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Name, align 8
@@ -5704,7 +5704,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle24VcallThunkIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle24VcallThunkIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
 entry:
   %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
@@ -5779,7 +5779,7 @@ _ZN12OutputStream4growEm.exit.i.i21:              ; preds = %if.then.i._ZN12Outp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh11ms_demangle22SpecialTableSymbolNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
+define hidden void @_ZNK4llvh11ms_demangle22SpecialTableSymbolNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
   %Quals = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %Quals, align 8
@@ -6319,16 +6319,16 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b(ptr nocapture noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef zeroext %Q, i8 noundef zeroext range(i8 1, 33) %Mask, i1 noundef zeroext %NeedSpace) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %OS, i8 noundef zeroext %Q, i8 noundef zeroext range(i8 1, 33) %Mask, i1 noundef zeroext %NeedSpace) unnamed_addr #1 {
 entry:
   %and4 = and i8 %Mask, %Q
   %tobool.not = icmp eq i8 %and4, 0
@@ -6621,7 +6621,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

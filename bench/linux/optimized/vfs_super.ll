@@ -316,7 +316,7 @@ define internal void @v9fs_kill_super(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @v9fs_session_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -351,7 +351,7 @@ declare dso_local void @v9fs_stat2inode_dotl(ptr noundef, ptr noundef, i32 nound
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @p9_client_stat(ptr noundef) local_unnamed_addr #2
@@ -393,7 +393,7 @@ define internal i32 @v9fs_write_inode_dotl(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, 2) i32 @v9fs_drop_inode(ptr nocapture noundef readonly %0) #4 align 16 {
+define internal range(i32 0, 2) i32 @v9fs_drop_inode(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 872
@@ -539,7 +539,7 @@ define internal i32 @v9fs_statfs(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @v9fs_umount_begin(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @v9fs_umount_begin(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   tail call void @v9fs_session_begin_cancel(ptr noundef %3) #6
@@ -553,7 +553,7 @@ declare dso_local i32 @v9fs_show_options(ptr noundef, ptr noundef) #2
 declare dso_local i32 @netfs_unpin_writeback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @v9fs_fid_lookup(ptr noundef) local_unnamed_addr #2

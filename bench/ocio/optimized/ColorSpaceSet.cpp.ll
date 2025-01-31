@@ -103,7 +103,7 @@ $_ZTSPFvPN19OpenColorIO_v2_4dev13ColorSpaceSetEE = comdat any
 @_ZN19OpenColorIO_v2_4dev13ColorSpaceSetD1Ev = unnamed_addr alias void (ptr), ptr @_ZN19OpenColorIO_v2_4dev13ColorSpaceSetD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet6CreateEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet6CreateEv(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
   invoke void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSetC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
@@ -190,7 +190,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSetC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
@@ -199,7 +199,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSetD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %isnull = icmp eq ptr %0, null
@@ -315,7 +315,7 @@ delete.end:                                       ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet6CreateEv(ptr sret(%"class.std::shared_ptr") align 8 %agg.result)
   %0 = load ptr, ptr %this, align 8
@@ -640,7 +640,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev13ColorSpaceSetELN9__gnu_cxx12_Lock_po
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSeteqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %css) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSeteqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %css) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %css, align 8
@@ -684,7 +684,7 @@ _ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4ImpleqERKS1_.exit: ; preds = %for.body.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSetneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %css) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSetneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %css) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %css, align 8
@@ -728,7 +728,7 @@ _ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4ImpleqERKS1_.exit: ; preds = %for.body.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet17getNumColorSpacesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet17getNumColorSpacesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -743,7 +743,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet24getColorSpaceNameByIndexEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet24getColorSpaceNameByIndexEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.i = icmp slt i32 %index, 0
   br i1 %cmp.i, label %_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4Impl7getNameEi.exit, label %lor.lhs.false.i
@@ -774,7 +774,7 @@ _ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4Impl7getNameEi.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet20getColorSpaceByIndexEi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.0") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %index) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet20getColorSpaceByIndexEi(ptr noalias writeonly sret(%"class.std::shared_ptr.0") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %index) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -830,7 +830,7 @@ _ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4Impl3getEi.exit: ; preds = %_ZNSt10shar
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet13getColorSpaceEPKc(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.0") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet13getColorSpaceEPKc(ptr noalias writeonly sret(%"class.std::shared_ptr.0") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
@@ -888,7 +888,7 @@ _ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4Impl9getByNameEPKc.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet18getColorSpaceIndexEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet18getColorSpaceIndexEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef i32 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4Impl8getIndexEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %name)
@@ -1029,7 +1029,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet13hasColorSpaceEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet13hasColorSpaceEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef i32 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4Impl8getIndexEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %name)
@@ -1038,7 +1038,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet13addColorSpaceERKSt10shared_ptrIKNS_10ColorSpaceEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %cs) local_unnamed_addr #0 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet13addColorSpaceERKSt10shared_ptrIKNS_10ColorSpaceEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %cs) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet4Impl3addERKSt10shared_ptrIKNS_10ColorSpaceEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %cs)
@@ -1587,7 +1587,7 @@ unreachable:                                      ; preds = %invoke.cont87, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet14addColorSpacesERKSt10shared_ptrIKS0_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %css) local_unnamed_addr #0 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet14addColorSpacesERKSt10shared_ptrIKS0_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %css) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %css, align 8
@@ -1729,7 +1729,7 @@ for.end:                                          ; preds = %_ZNSt10shared_ptrIK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet16removeColorSpaceEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet16removeColorSpaceEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet4Impl6removeEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %name)
@@ -1822,7 +1822,7 @@ cleanup:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet17removeColorSpacesERKSt10shared_ptrIKS0_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %css) local_unnamed_addr #0 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet17removeColorSpacesERKSt10shared_ptrIKS0_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %css) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %css, align 8
@@ -1847,7 +1847,7 @@ _ZN19OpenColorIO_v2_4dev13ColorSpaceSet4Impl6removeERKS1_.exit: ; preds = %for.b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet16clearColorSpacesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSet16clearColorSpacesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
@@ -1945,7 +1945,7 @@ _ZN19OpenColorIO_v2_4dev13ColorSpaceSet4Impl5clearEv.exit: ; preds = %entry, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4devooERKSt10shared_ptrIKNS_13ColorSpaceSetEES5_(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.3") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lcss, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rcss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4devooERKSt10shared_ptrIKNS_13ColorSpaceSetEES5_(ptr noalias writeonly sret(%"class.std::shared_ptr.3") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lcss, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %rcss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %css = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %lcss, align 8
@@ -1990,7 +1990,7 @@ lpad:                                             ; preds = %_ZNK19OpenColorIO_v
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4devaaERKSt10shared_ptrIKNS_13ColorSpaceSetEES5_(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.3") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lcss, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rcss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4devaaERKSt10shared_ptrIKNS_13ColorSpaceSetEES5_(ptr noalias writeonly sret(%"class.std::shared_ptr.3") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lcss, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %rcss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %css = alloca %"class.std::shared_ptr", align 8
   %tmp = alloca %"class.std::shared_ptr.0", align 8
@@ -2250,7 +2250,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceELN9__gnu_cxx12_Lock_poli
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4devmiERKSt10shared_ptrIKNS_13ColorSpaceSetEES5_(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.3") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lcss, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rcss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4devmiERKSt10shared_ptrIKNS_13ColorSpaceSetEES5_(ptr noalias writeonly sret(%"class.std::shared_ptr.3") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lcss, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %rcss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %css = alloca %"class.std::shared_ptr", align 8
   %tmp = alloca %"class.std::shared_ptr.0", align 8
@@ -3121,13 +3121,13 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
@@ -3139,7 +3139,7 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

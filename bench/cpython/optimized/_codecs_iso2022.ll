@@ -247,7 +247,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 
@@ -522,10 +522,10 @@ register_maps.exit:                               ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -566,7 +566,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -3, 2) i64 @iso2022_encode(ptr nocapture noundef %state, ptr noundef %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 noundef %flags) #0 {
+define internal range(i64 -3, 2) i64 @iso2022_encode(ptr noundef captures(none) %state, ptr noundef %codec, i32 noundef %kind, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %inpos, i64 noundef %inlen, ptr noundef captures(none) %outbuf, i64 noundef %outleft, i32 noundef %flags) #0 {
 entry:
   %buf = alloca [2 x i32], align 4
   %length = alloca i64, align 8
@@ -1077,7 +1077,7 @@ return:                                           ; preds = %do.body6, %do.body3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @iso2022_encode_init(ptr nocapture noundef writeonly initializes((0, 2), (4, 5)) %state, ptr nocapture readnone %codec) #5 {
+define internal noundef i32 @iso2022_encode_init(ptr noundef writeonly captures(none) initializes((0, 2), (4, 5)) %state, ptr readnone captures(none) %codec) #5 {
 entry:
   %arrayidx = getelementptr i8, ptr %state, i64 4
   store i8 0, ptr %arrayidx, align 1
@@ -1088,7 +1088,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 -1, 1) i64 @iso2022_encode_reset(ptr nocapture noundef %state, ptr nocapture readnone %codec, ptr nocapture noundef %outbuf, i64 noundef %outleft) #6 {
+define internal range(i64 -1, 1) i64 @iso2022_encode_reset(ptr noundef captures(none) %state, ptr readnone captures(none) %codec, ptr noundef captures(none) %outbuf, i64 noundef %outleft) #6 {
 entry:
   %arrayidx = getelementptr i8, ptr %state, i64 4
   %0 = load i8, ptr %arrayidx, align 1
@@ -1143,7 +1143,7 @@ return:                                           ; preds = %if.end17, %do.body3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @iso2022_decode(ptr nocapture noundef %state, ptr noundef %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
+define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @iso2022_decode(ptr noundef captures(none) %state, ptr noundef %codec, ptr noundef captures(none) %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
   %cmp133137 = icmp sgt i64 %inleft, 0
   br i1 %cmp133137, label %while.body.lr.ph.lr.ph, label %return
@@ -1766,7 +1766,7 @@ return:                                           ; preds = %sw.epilog, %do.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @iso2022_decode_init(ptr nocapture noundef writeonly initializes((0, 3), (4, 5)) %state, ptr nocapture readnone %codec) #5 {
+define internal noundef i32 @iso2022_decode_init(ptr noundef writeonly captures(none) initializes((0, 3), (4, 5)) %state, ptr readnone captures(none) %codec) #5 {
 entry:
   %arrayidx = getelementptr i8, ptr %state, i64 4
   store i8 0, ptr %arrayidx, align 1
@@ -1779,7 +1779,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @iso2022_decode_reset(ptr nocapture noundef initializes((0, 1)) %state, ptr nocapture readnone %codec) #7 {
+define internal noundef i64 @iso2022_decode_reset(ptr noundef captures(none) initializes((0, 1)) %state, ptr readnone captures(none) %codec) #7 {
 entry:
   store i8 66, ptr %state, align 1
   %arrayidx3 = getelementptr i8, ptr %state, i64 4
@@ -1790,7 +1790,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @ksx1001_init(ptr nocapture noundef readonly %codec) #0 {
+define internal range(i32 -1, 1) i32 @ksx1001_init(ptr noundef readonly captures(none) %codec) #0 {
 entry:
   %modstate = getelementptr inbounds nuw i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -1812,7 +1812,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @ksx1001_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal range(i32 0, 65536) i32 @ksx1001_decoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data) #8 {
 entry:
   %modstate = getelementptr inbounds nuw i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -1856,7 +1856,7 @@ return:                                           ; preds = %land.lhs.true22, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext range(i16 -1, -32768) i16 @ksx1001_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #8 {
+define internal zeroext range(i16 -1, -32768) i16 @ksx1001_encoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data, ptr readnone captures(none) %length) #8 {
 entry:
   %0 = load i32, ptr %data, align 4
   %cmp = icmp ult i32 %0, 65536
@@ -2009,7 +2009,7 @@ declare i32 @_PyUnicodeWriter_WriteChar(ptr noundef, i32 noundef) local_unnamed_
 declare i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @jisx0208_init(ptr nocapture noundef readonly %codec) #0 {
+define internal range(i32 -1, 1) i32 @jisx0208_init(ptr noundef readonly captures(none) %codec) #0 {
 entry:
   %modstate = getelementptr inbounds nuw i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -2031,7 +2031,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @jisx0208_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal range(i32 0, 65536) i32 @jisx0208_decoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data) #8 {
 entry:
   %0 = load i8, ptr %data, align 1
   %cmp = icmp eq i8 %0, 33
@@ -2085,7 +2085,7 @@ return:                                           ; preds = %land.lhs.true32, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext range(i16 -1, -32768) i16 @jisx0208_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #8 {
+define internal zeroext range(i16 -1, -32768) i16 @jisx0208_encoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data, ptr readnone captures(none) %length) #8 {
 entry:
   %0 = load i32, ptr %data, align 4
   %cmp = icmp ult i32 %0, 65536
@@ -2139,7 +2139,7 @@ return:                                           ; preds = %land.lhs.true21, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @jisx0201_r_decoder(ptr nocapture readnone %codec, ptr nocapture noundef readonly %data) #9 {
+define internal range(i32 0, 65536) i32 @jisx0201_r_decoder(ptr readnone captures(none) %codec, ptr noundef readonly captures(none) %data) #9 {
 entry:
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
@@ -2167,7 +2167,7 @@ return:                                           ; preds = %if.else13, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext range(i16 -1, 128) i16 @jisx0201_r_encoder(ptr nocapture readnone %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #9 {
+define internal zeroext range(i16 -1, 128) i16 @jisx0201_r_encoder(ptr readnone captures(none) %codec, ptr noundef readonly captures(none) %data, ptr readnone captures(none) %length) #9 {
 entry:
   %0 = load i32, ptr %data, align 4
   %.fr = freeze i32 %0
@@ -2197,7 +2197,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @jisx0212_init(ptr nocapture noundef readonly %codec) #0 {
+define internal range(i32 -1, 1) i32 @jisx0212_init(ptr noundef readonly captures(none) %codec) #0 {
 entry:
   %modstate = getelementptr inbounds nuw i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -2219,7 +2219,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @jisx0212_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal range(i32 0, 65536) i32 @jisx0212_decoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data) #8 {
 entry:
   %modstate = getelementptr inbounds nuw i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -2263,7 +2263,7 @@ return:                                           ; preds = %land.lhs.true22, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext range(i16 -1, -32768) i16 @jisx0212_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #8 {
+define internal zeroext range(i16 -1, -32768) i16 @jisx0212_encoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data, ptr readnone captures(none) %length) #8 {
 entry:
   %0 = load i32, ptr %data, align 4
   %cmp = icmp ult i32 %0, 65536
@@ -2312,7 +2312,7 @@ return:                                           ; preds = %land.lhs.true19, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @gb2312_init(ptr nocapture noundef readonly %codec) #0 {
+define internal range(i32 -1, 1) i32 @gb2312_init(ptr noundef readonly captures(none) %codec) #0 {
 entry:
   %modstate = getelementptr inbounds nuw i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -2334,7 +2334,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @gb2312_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal range(i32 0, 65536) i32 @gb2312_decoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data) #8 {
 entry:
   %modstate = getelementptr inbounds nuw i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -2378,7 +2378,7 @@ return:                                           ; preds = %land.lhs.true22, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext range(i16 -1, -32768) i16 @gb2312_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #8 {
+define internal zeroext range(i16 -1, -32768) i16 @gb2312_encoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data, ptr readnone captures(none) %length) #8 {
 entry:
   %0 = load i32, ptr %data, align 4
   %cmp = icmp ult i32 %0, 65536
@@ -2428,19 +2428,19 @@ return:                                           ; preds = %land.lhs.true19, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_decoder(ptr nocapture readnone %codec, ptr nocapture readnone %data) #10 {
+define internal noundef i32 @dummy_decoder(ptr readnone captures(none) %codec, ptr readnone captures(none) %data) #10 {
 entry:
   ret i32 65535
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i16 @dummy_encoder(ptr nocapture readnone %codec, ptr nocapture readnone %data, ptr nocapture readnone %length) #10 {
+define internal noundef zeroext i16 @dummy_encoder(ptr readnone captures(none) %codec, ptr readnone captures(none) %data, ptr readnone captures(none) %length) #10 {
 entry:
   ret i16 -1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @jisx0213_init(ptr nocapture noundef readonly %codec) #0 {
+define internal range(i32 -1, 1) i32 @jisx0213_init(ptr noundef readonly captures(none) %codec) #0 {
 entry:
   %modstate = getelementptr inbounds nuw i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -2503,7 +2503,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @jisx0213_2004_1_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data) #8 {
 entry:
   %0 = load i8, ptr %data, align 1
   %cmp = icmp eq i8 %0, 33
@@ -2655,7 +2655,7 @@ return:                                           ; preds = %land.lhs.true191, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i16 @jisx0213_2004_1_encoder_paironly(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture noundef %length) #11 {
+define internal zeroext i16 @jisx0213_2004_1_encoder_paironly(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %length) #11 {
 entry:
   %0 = load i64, ptr %length, align 8
   %call = tail call fastcc zeroext i16 @jisx0213_encoder(ptr noundef %codec, ptr noundef %data, ptr noundef nonnull %length, ptr noundef null)
@@ -2681,7 +2681,7 @@ return:                                           ; preds = %entry, %sw.bb2, %sw
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i16 @jisx0213_2004_1_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture noundef %length) #11 {
+define internal zeroext i16 @jisx0213_2004_1_encoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %length) #11 {
 entry:
   %call = tail call fastcc zeroext i16 @jisx0213_encoder(ptr noundef %codec, ptr noundef %data, ptr noundef %length, ptr noundef null)
   %or.cond = icmp ugt i16 %call, -3
@@ -2691,7 +2691,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 196608) i32 @jisx0213_2004_2_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal range(i32 0, 196608) i32 @jisx0213_2004_2_decoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data) #8 {
 entry:
   %modstate = getelementptr inbounds nuw i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
@@ -2770,7 +2770,7 @@ return:                                           ; preds = %if.then96, %land.lh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i16 @jisx0213_2004_2_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture noundef %length) #11 {
+define internal zeroext i16 @jisx0213_2004_2_encoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %length) #11 {
 entry:
   %call = tail call fastcc zeroext i16 @jisx0213_encoder(ptr noundef %codec, ptr noundef %data, ptr noundef %length, ptr noundef null)
   %0 = and i16 %call, 32767
@@ -2782,7 +2782,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i16 @jisx0213_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture noundef %length, ptr noundef readnone %config) unnamed_addr #12 {
+define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %length, ptr noundef readnone %config) unnamed_addr #12 {
 entry:
   %0 = load i64, ptr %length, align 8
   switch i64 %0, label %return [
@@ -3049,7 +3049,7 @@ return:                                           ; preds = %land.lhs.true60, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @jisx0213_2000_1_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data) #8 {
 entry:
   %0 = load i8, ptr %data, align 1
   switch i8 %0, label %if.else105 [
@@ -3240,7 +3240,7 @@ return:                                           ; preds = %land.lhs.true50, %l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i16 @jisx0213_2000_1_encoder_paironly(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture noundef %length) #11 {
+define internal zeroext i16 @jisx0213_2000_1_encoder_paironly(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %length) #11 {
 entry:
   %0 = load i64, ptr %length, align 8
   %call = tail call fastcc zeroext i16 @jisx0213_encoder(ptr noundef %codec, ptr noundef %data, ptr noundef nonnull %length, ptr noundef nonnull inttoptr (i64 2000 to ptr))
@@ -3266,7 +3266,7 @@ return:                                           ; preds = %entry, %sw.bb2, %sw
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i16 @jisx0213_2000_1_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture noundef %length) #11 {
+define internal zeroext i16 @jisx0213_2000_1_encoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %length) #11 {
 entry:
   %call = tail call fastcc zeroext i16 @jisx0213_encoder(ptr noundef %codec, ptr noundef %data, ptr noundef %length, ptr noundef nonnull inttoptr (i64 2000 to ptr))
   %or.cond = icmp ugt i16 %call, -3
@@ -3276,7 +3276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 196608) i32 @jisx0213_2000_2_decoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data) #8 {
+define internal range(i32 0, 196608) i32 @jisx0213_2000_2_decoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data) #8 {
 entry:
   %0 = load i8, ptr %data, align 1
   %modstate = getelementptr inbounds nuw i8, ptr %codec, i64 72
@@ -3355,7 +3355,7 @@ return:                                           ; preds = %if.then107, %land.l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i16 @jisx0213_2000_2_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture noundef %length) #11 {
+define internal zeroext i16 @jisx0213_2000_2_encoder(ptr noundef readonly captures(none) %codec, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %length) #11 {
 entry:
   %call = tail call fastcc zeroext i16 @jisx0213_encoder(ptr noundef %codec, ptr noundef %data, ptr noundef %length, ptr noundef nonnull inttoptr (i64 2000 to ptr))
   %0 = and i16 %call, 32767
@@ -3367,7 +3367,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 65377, 65536) i32 @jisx0201_k_decoder(ptr nocapture readnone %codec, ptr nocapture noundef readonly %data) #9 {
+define internal range(i32 65377, 65536) i32 @jisx0201_k_decoder(ptr readnone captures(none) %codec, ptr noundef readonly captures(none) %data) #9 {
 entry:
   %0 = load i8, ptr %data, align 1
   %1 = xor i8 %0, -128
@@ -3380,7 +3380,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext range(i16 -1, 96) i16 @jisx0201_k_encoder(ptr nocapture readnone %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #9 {
+define internal zeroext range(i16 -1, 96) i16 @jisx0201_k_encoder(ptr readnone captures(none) %codec, ptr noundef readonly captures(none) %data, ptr readnone captures(none) %length) #9 {
 entry:
   %0 = load i32, ptr %data, align 4
   %1 = add i32 %0, -65377
@@ -3398,10 +3398,10 @@ declare i32 @llvm.umax.i32(i32, i32) #13
 declare i16 @llvm.smax.i16(i16, i16) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

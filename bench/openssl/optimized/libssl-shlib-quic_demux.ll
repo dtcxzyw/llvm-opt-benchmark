@@ -66,7 +66,7 @@ return:                                           ; preds = %if.end9, %land.lhs.
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i64 @demux_conn_hash(ptr nocapture noundef readonly %conn) #2 {
+define internal i64 @demux_conn_hash(ptr noundef readonly captures(none) %conn) #2 {
 entry:
   %dst_conn_id = getelementptr inbounds nuw i8, ptr %conn, i64 8
   %0 = load i8, ptr %dst_conn_id, align 8
@@ -98,7 +98,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @demux_conn_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
+define internal range(i32 0, 2) i32 @demux_conn_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #3 {
 entry:
   %dst_conn_id = getelementptr inbounds nuw i8, ptr %a, i64 8
   %dst_conn_id1 = getelementptr inbounds nuw i8, ptr %b, i64 8
@@ -269,14 +269,14 @@ return:                                           ; preds = %entry, %demux_free_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @demux_free_conn_it(ptr noundef %conn, ptr nocapture readnone %arg) #0 {
+define internal void @demux_free_conn_it(ptr noundef %conn, ptr readnone captures(none) %arg) #0 {
 entry:
   tail call void @CRYPTO_free(ptr noundef %conn, ptr noundef nonnull @.str, i32 noundef 141) #12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_demux_set_bio(ptr nocapture noundef writeonly initializes((0, 8)) %demux, ptr noundef %net_bio) local_unnamed_addr #0 {
+define void @ossl_quic_demux_set_bio(ptr noundef writeonly captures(none) initializes((0, 8)) %demux, ptr noundef %net_bio) local_unnamed_addr #0 {
 entry:
   store ptr %net_bio, ptr %demux, align 8
   %cmp.not = icmp eq ptr %net_bio, null
@@ -299,7 +299,7 @@ if.end6:                                          ; preds = %if.then, %ossl_quic
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ossl_quic_demux_set_mtu(ptr nocapture noundef writeonly %demux, i32 noundef %mtu) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_quic_demux_set_mtu(ptr noundef writeonly captures(none) %demux, i32 noundef %mtu) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ult i32 %mtu, 1200
   br i1 %cmp, label %return, label %if.end
@@ -316,7 +316,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_demux_register(ptr nocapture noundef readonly %demux, ptr noundef readonly %dst_conn_id, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_demux_register(ptr noundef readonly captures(none) %demux, ptr noundef readonly %dst_conn_id, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #0 {
 entry:
   %key.i = alloca %struct.quic_demux_conn_st, align 8
   %cmp = icmp eq ptr %dst_conn_id, null
@@ -362,10 +362,10 @@ return:                                           ; preds = %if.end9, %demux_get
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_demux_unregister(ptr nocapture noundef readonly %demux, ptr noundef readonly %dst_conn_id) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_demux_unregister(ptr noundef readonly captures(none) %demux, ptr noundef readonly %dst_conn_id) local_unnamed_addr #0 {
 entry:
   %key.i = alloca %struct.quic_demux_conn_st, align 8
   %cmp = icmp eq ptr %dst_conn_id, null
@@ -399,7 +399,7 @@ return:                                           ; preds = %demux_get_by_conn_i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_demux_unregister_by_cb(ptr nocapture noundef readonly %demux, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #0 {
+define void @ossl_quic_demux_unregister_by_cb(ptr noundef readonly captures(none) %demux, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #0 {
 entry:
   %arg = alloca %struct.unreg_arg, align 8
   %0 = getelementptr inbounds nuw i8, ptr %arg, i64 16
@@ -429,10 +429,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @demux_unregister_by_cb(ptr noundef %conn, ptr nocapture noundef %arg_) #7 {
+define internal void @demux_unregister_by_cb(ptr noundef %conn, ptr noundef captures(none) %arg_) #7 {
 entry:
   %cb = getelementptr inbounds nuw i8, ptr %conn, i64 32
   %0 = load ptr, ptr %cb, align 8
@@ -460,7 +460,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_demux_set_default_handler(ptr nocapture noundef writeonly initializes((48, 64)) %demux, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #4 {
+define void @ossl_quic_demux_set_default_handler(ptr noundef writeonly captures(none) initializes((48, 64)) %demux, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #4 {
 entry:
   %default_cb = getelementptr inbounds nuw i8, ptr %demux, i64 48
   store ptr %cb, ptr %default_cb, align 8
@@ -470,7 +470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_demux_set_stateless_reset_handler(ptr nocapture noundef writeonly initializes((64, 80)) %demux, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #4 {
+define void @ossl_quic_demux_set_stateless_reset_handler(ptr noundef writeonly captures(none) initializes((64, 80)) %demux, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #4 {
 entry:
   %reset_token_cb = getelementptr inbounds nuw i8, ptr %demux, i64 64
   store ptr %cb, ptr %reset_token_cb, align 8
@@ -480,7 +480,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -3, 2) i32 @ossl_quic_demux_pump(ptr nocapture noundef %demux) local_unnamed_addr #0 {
+define range(i32 -3, 2) i32 @ossl_quic_demux_pump(ptr noundef captures(none) %demux) local_unnamed_addr #0 {
 entry:
   %msg.i = alloca [32 x %struct.bio_msg_st], align 16
   %rd.i = alloca i64, align 8
@@ -771,7 +771,7 @@ return:                                           ; preds = %while.body.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @demux_process_pending_urxl(ptr nocapture noundef %demux) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @demux_process_pending_urxl(ptr noundef captures(none) %demux) unnamed_addr #0 {
 entry:
   %key.i.i.i = alloca %struct.quic_demux_conn_st, align 8
   %dst_conn_id.i.i = alloca %struct.quic_conn_id_st, align 1
@@ -1000,7 +1000,7 @@ return:                                           ; preds = %demux_process_pendi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_demux_inject(ptr nocapture noundef %demux, ptr nocapture noundef readonly %buf, i64 noundef %buf_len, ptr noundef readonly %peer, ptr noundef readonly %local) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_demux_inject(ptr noundef captures(none) %demux, ptr noundef readonly captures(none) %buf, i64 noundef %buf_len, ptr noundef readonly %peer, ptr noundef readonly %local) local_unnamed_addr #0 {
 entry:
   %mtu.i = getelementptr inbounds nuw i8, ptr %demux, i64 16
   %urx_free.i = getelementptr inbounds nuw i8, ptr %demux, i64 80
@@ -1205,7 +1205,7 @@ return:                                           ; preds = %while.body.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @demux_reserve_urxe(ptr nocapture noundef %demux, ptr noundef %e, i64 noundef %alloc_len) unnamed_addr #0 {
+define internal fastcc ptr @demux_reserve_urxe(ptr noundef captures(none) %demux, ptr noundef %e, i64 noundef %alloc_len) unnamed_addr #0 {
 entry:
   %alloc_len1 = getelementptr inbounds nuw i8, ptr %e, i64 24
   %0 = load i64, ptr %alloc_len1, align 8
@@ -1398,7 +1398,7 @@ cond.end:                                         ; preds = %if.end23.i, %ossl_l
 declare void @BIO_ADDR_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_quic_demux_release_urxe(ptr nocapture noundef %demux, ptr noundef %e) local_unnamed_addr #8 {
+define void @ossl_quic_demux_release_urxe(ptr noundef captures(none) %demux, ptr noundef %e) local_unnamed_addr #8 {
 entry:
   %urx_free = getelementptr inbounds nuw i8, ptr %demux, i64 80
   %omega.i = getelementptr inbounds nuw i8, ptr %demux, i64 88
@@ -1436,7 +1436,7 @@ ossl_list_urxe_insert_tail.exit:                  ; preds = %if.end.i, %if.then8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_quic_demux_reinject_urxe(ptr nocapture noundef %demux, ptr noundef %e) local_unnamed_addr #8 {
+define void @ossl_quic_demux_reinject_urxe(ptr noundef captures(none) %demux, ptr noundef %e) local_unnamed_addr #8 {
 entry:
   %urx_pending = getelementptr inbounds nuw i8, ptr %demux, i64 104
   %0 = load ptr, ptr %urx_pending, align 8
@@ -1475,7 +1475,7 @@ ossl_list_urxe_insert_head.exit:                  ; preds = %if.end.i, %if.then8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_quic_demux_has_pending(ptr nocapture noundef readonly %demux) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @ossl_quic_demux_has_pending(ptr noundef readonly captures(none) %demux) local_unnamed_addr #9 {
 entry:
   %urx_pending = getelementptr inbounds nuw i8, ptr %demux, i64 104
   %urx_pending.val = load ptr, ptr %urx_pending, align 8
@@ -1515,13 +1515,13 @@ declare i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr noundef, i64 noundef, i6
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

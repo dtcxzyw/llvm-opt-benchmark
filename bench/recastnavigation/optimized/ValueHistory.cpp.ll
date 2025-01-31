@@ -8,13 +8,13 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN12ValueHistoryC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN12ValueHistoryC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12ValueHistoryC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(1028) initializes((0, 1028)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN12ValueHistoryC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(1028) initializes((0, 1028)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %0, i8 0, i64 1028, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK12ValueHistory12getSampleMinEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1028) %0) local_unnamed_addr #1 align 2 {
+define dso_local noundef float @_ZNK12ValueHistory12getSampleMinEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1028) %0) local_unnamed_addr #1 align 2 {
   %2 = load float, ptr %0, align 4
   br label %3
 
@@ -34,7 +34,7 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMinEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK12ValueHistory12getSampleMaxEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1028) %0) local_unnamed_addr #1 align 2 {
+define dso_local noundef float @_ZNK12ValueHistory12getSampleMaxEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1028) %0) local_unnamed_addr #1 align 2 {
   %2 = load float, ptr %0, align 4
   br label %3
 
@@ -54,7 +54,7 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMaxEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK12ValueHistory10getAverageEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1028) %0) local_unnamed_addr #1 align 2 {
+define dso_local noundef float @_ZNK12ValueHistory10getAverageEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1028) %0) local_unnamed_addr #1 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -73,7 +73,7 @@ define dso_local noundef float @_ZNK12ValueHistory10getAverageEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11GraphParams7setRectEiiiii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN11GraphParams7setRectEiiiii(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(48) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %7, align 4
@@ -87,7 +87,7 @@ define dso_local void @_ZN11GraphParams7setRectEiiiii(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11GraphParams13setValueRangeEffiPKc(ptr noundef nonnull align 4 dereferenceable(48) initializes((20, 32)) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN11GraphParams13setValueRangeEffiPKc(ptr noundef nonnull align 4 dereferenceable(48) initializes((20, 32)) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %1, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100,7 +100,7 @@ define dso_local void @_ZN11GraphParams13setValueRangeEffiPKc(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z19drawGraphBackgroundPK11GraphParams(ptr noundef %0) local_unnamed_addr #4 {
@@ -192,14 +192,14 @@ declare void @_Z20imguiDrawRoundedRectfffffj(float noundef, float noundef, float
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare void @_Z13imguiDrawTextiiiPKcj(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 declare void @_Z13imguiDrawLinefffffj(float noundef, float noundef, float noundef, float noundef, float noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca [64 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 4
@@ -297,7 +297,7 @@ _ZNK12ValueHistory10getAverageEv.exit:            ; preds = %60
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

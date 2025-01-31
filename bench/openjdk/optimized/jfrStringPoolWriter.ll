@@ -47,7 +47,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @_ZN19JfrStringPoolWriterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN19JfrStringPoolWriterD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18JfrStringPoolFlushC2EP19JfrStringPoolBuffermmP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN18JfrStringPoolFlushC2EP19JfrStringPoolBuffermmP6Thread(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = tail call noundef ptr @_ZN13JfrStringPool5flushEP19JfrStringPoolBuffermmP6Thread(ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #6
   store ptr %6, ptr %0, align 8
   ret void
@@ -67,7 +67,7 @@ define hidden void @_ZN19JfrStringPoolWriterC2EP6Thread(ptr noundef nonnull alig
 declare noundef ptr @_ZN13JfrStringPool5leaseEP6Threadm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19JfrStringPoolWriterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN19JfrStringPoolWriterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -124,7 +124,7 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
 declare void @_ZN19JfrStringPoolBuffer9incrementEm(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19JfrStringPoolWriter15inc_nof_stringsEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN19JfrStringPoolWriter15inc_nof_stringsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 1
@@ -310,7 +310,7 @@ declare noundef zeroext i1 @_ZN12JfrOptionSet19compressed_integersEv() local_unn
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

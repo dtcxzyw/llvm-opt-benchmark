@@ -140,7 +140,7 @@ define dso_local void @intel_vgpu_register(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef zeroext i1 @intel_vgpu_active(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef zeroext i1 @intel_vgpu_active(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7768
   %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
   %4 = icmp ne i8 %3, 0
@@ -148,7 +148,7 @@ define dso_local noundef zeroext i1 @intel_vgpu_active(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @intel_vgpu_has_full_ppgtt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local zeroext i1 @intel_vgpu_has_full_ppgtt(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7772
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 4
@@ -157,7 +157,7 @@ define dso_local zeroext i1 @intel_vgpu_has_full_ppgtt(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @intel_vgpu_has_hwsp_emulation(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local zeroext i1 @intel_vgpu_has_hwsp_emulation(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7772
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 8
@@ -166,7 +166,7 @@ define dso_local zeroext i1 @intel_vgpu_has_hwsp_emulation(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @intel_vgpu_has_huge_gtt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local zeroext i1 @intel_vgpu_has_huge_gtt(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7772
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16
@@ -175,7 +175,7 @@ define dso_local zeroext i1 @intel_vgpu_has_huge_gtt(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_vgt_deballoon(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_vgt_deballoon(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7768
@@ -246,7 +246,7 @@ define dso_local void @intel_vgt_deballoon(ptr nocapture noundef %0) local_unnam
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @vgt_deballoon_space(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @vgt_deballoon_space(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 160

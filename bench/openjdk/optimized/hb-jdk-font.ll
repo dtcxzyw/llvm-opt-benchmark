@@ -14,7 +14,7 @@ $_ZN7JNIEnv_13CallIntMethodEP8_jobjectP10_jmethodIDz = comdat any
 @_ZZL22_hb_jdk_get_font_funcsvE10jdk_ffuncs = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: mustprogress uwtable
-define i64 @Java_sun_font_SunLayoutEngine_createFace(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define i64 @Java_sun_font_SunLayoutEngine_createFace(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
   %.not = icmp eq ptr %6, null
@@ -54,12 +54,12 @@ define i64 @Java_sun_font_SunLayoutEngine_createFace(ptr noundef %0, ptr nocaptu
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #2
+declare void @free(ptr allocptr noundef captures(none)) #2
 
 declare ptr @hb_face_create_for_tables(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL15reference_tableP9hb_face_tjPv(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef ptr @_ZL15reference_tableP9hb_face_tjPv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %35, label %6
@@ -108,7 +108,7 @@ define internal noundef ptr @_ZL15reference_tableP9hb_face_tjPv(ptr nocapture re
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL15cleanupFontInfoPv(ptr nocapture noundef %0) #0 {
+define internal void @_ZL15cleanupFontInfoPv(ptr noundef captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
@@ -127,7 +127,7 @@ define internal void @_ZL15cleanupFontInfoPv(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @Java_sun_font_SunLayoutEngine_disposeFace(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_font_SunLayoutEngine_disposeFace(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   tail call void @hb_face_destroy(ptr noundef %4)
   ret void
@@ -136,7 +136,7 @@ define void @Java_sun_font_SunLayoutEngine_disposeFace(ptr nocapture noundef rea
 declare void @hb_face_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden ptr @hb_jdk_font_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define hidden ptr @hb_jdk_font_create(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @hb_font_create(ptr noundef %0)
   %5 = load ptr, ptr @_ZZL22_hb_jdk_get_font_funcsvE10jdk_ffuncs, align 8
   %.not.i.i = icmp eq ptr %5, null
@@ -213,7 +213,7 @@ declare ptr @hb_font_funcs_create() local_unnamed_addr #3
 declare void @hb_font_funcs_set_nominal_glyph_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL24hb_jdk_get_nominal_glyphP9hb_font_tPvjPjS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((0, 4)) %3, ptr nocapture readnone %4) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL24hb_jdk_get_nominal_glyphP9hb_font_tPvjPjS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -253,7 +253,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL24hb_jdk_get_nominal_glyphP9hb_f
 declare void @hb_font_funcs_set_variation_glyph_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL26hb_jdk_get_variation_glyphP9hb_font_tPvjjPjS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL26hb_jdk_get_variation_glyphP9hb_font_tPvjjPjS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((0, 4)) %4, ptr readnone captures(none) %5) #0 {
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -293,7 +293,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL26hb_jdk_get_variation_glyphP9hb
 declare void @hb_font_funcs_set_glyph_h_advance_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL26hb_jdk_get_glyph_h_advanceP9hb_font_tPvjS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_ZL26hb_jdk_get_glyph_h_advanceP9hb_font_tPvjS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = and i32 %2, 65534
   %6 = icmp eq i32 %5, 65534
   br i1 %6, label %28, label %7
@@ -332,7 +332,7 @@ define internal noundef i32 @_ZL26hb_jdk_get_glyph_h_advanceP9hb_font_tPvjS1_(pt
 declare void @hb_font_funcs_set_glyph_v_advance_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL26hb_jdk_get_glyph_v_advanceP9hb_font_tPvjS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_ZL26hb_jdk_get_glyph_v_advanceP9hb_font_tPvjS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = and i32 %2, 65534
   %6 = icmp eq i32 %5, 65534
   br i1 %6, label %25, label %7
@@ -368,42 +368,42 @@ define internal noundef i32 @_ZL26hb_jdk_get_glyph_v_advanceP9hb_font_tPvjS1_(pt
 declare void @hb_font_funcs_set_glyph_h_origin_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL25hb_jdk_get_glyph_h_originP9hb_font_tPvjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #6 {
+define internal noundef i32 @_ZL25hb_jdk_get_glyph_h_originP9hb_font_tPvjPiS2_S1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #6 {
   ret i32 1
 }
 
 declare void @hb_font_funcs_set_glyph_v_origin_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL25hb_jdk_get_glyph_v_originP9hb_font_tPvjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #6 {
+define internal noundef i32 @_ZL25hb_jdk_get_glyph_v_originP9hb_font_tPvjPiS2_S1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #6 {
   ret i32 0
 }
 
 declare void @hb_font_funcs_set_glyph_h_kerning_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL26hb_jdk_get_glyph_h_kerningP9hb_font_tPvjjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture readnone %4) #6 {
+define internal noundef i32 @_ZL26hb_jdk_get_glyph_h_kerningP9hb_font_tPvjjS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, ptr readnone captures(none) %4) #6 {
   ret i32 0
 }
 
 declare void @hb_font_funcs_set_glyph_v_kerning_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL26hb_jdk_get_glyph_v_kerningP9hb_font_tPvjjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture readnone %4) #6 {
+define internal noundef i32 @_ZL26hb_jdk_get_glyph_v_kerningP9hb_font_tPvjjS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, ptr readnone captures(none) %4) #6 {
   ret i32 0
 }
 
 declare void @hb_font_funcs_set_glyph_extents_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL24hb_jdk_get_glyph_extentsP9hb_font_tPvjP18hb_glyph_extents_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #6 {
+define internal noundef i32 @_ZL24hb_jdk_get_glyph_extentsP9hb_font_tPvjP18hb_glyph_extents_tS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #6 {
   ret i32 0
 }
 
 declare void @hb_font_funcs_set_glyph_contour_point_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL30hb_jdk_get_glyph_contour_pointP9hb_font_tPvjjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr nocapture readnone %6) #0 {
+define internal noundef i32 @_ZL30hb_jdk_get_glyph_contour_pointP9hb_font_tPvjjPiS2_S1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, ptr readnone captures(none) %6) #0 {
   %8 = and i32 %2, 65534
   %9 = icmp eq i32 %8, 65534
   br i1 %9, label %10, label %11
@@ -457,14 +457,14 @@ define internal noundef i32 @_ZL30hb_jdk_get_glyph_contour_pointP9hb_font_tPvjjP
 declare void @hb_font_funcs_set_glyph_name_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL21hb_jdk_get_glyph_nameP9hb_font_tPvjPcjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, i32 %4, ptr nocapture readnone %5) #6 {
+define internal noundef i32 @_ZL21hb_jdk_get_glyph_nameP9hb_font_tPvjPcjS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, i32 %4, ptr readnone captures(none) %5) #6 {
   ret i32 0
 }
 
 declare void @hb_font_funcs_set_glyph_from_name_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL26hb_jdk_get_glyph_from_nameP9hb_font_tPvPKciPjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #6 {
+define internal noundef i32 @_ZL26hb_jdk_get_glyph_from_nameP9hb_font_tPvPKciPjS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #6 {
   ret i32 0
 }
 

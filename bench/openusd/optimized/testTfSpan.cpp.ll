@@ -45,27 +45,27 @@ $_Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEE
 @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEENS1_IiEEEvRKT_RKT0_ = private unnamed_addr constant [186 x i8] c"void Tf_TestSpanMatchesContainer(const Span &, const Container &) [Span = pxrInternal_v0_24__pxrReserved__::TfSpan<const int>, Container = pxrInternal_v0_24__pxrReserved__::TfSpan<int>]\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_Z36Tf_TestImplicitConversionInOverloadsN32pxrInternal_v0_24__pxrReserved__6TfSpanIiEE(ptr nocapture readnone %0, i64 %1) local_unnamed_addr #0 {
+define dso_local void @_Z36Tf_TestImplicitConversionInOverloadsN32pxrInternal_v0_24__pxrReserved__6TfSpanIiEE(ptr readnone captures(none) %0, i64 %1) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_Z36Tf_TestImplicitConversionInOverloadsN32pxrInternal_v0_24__pxrReserved__6TfSpanIfEE(ptr nocapture readnone %0, i64 %1) local_unnamed_addr #0 {
+define dso_local void @_Z36Tf_TestImplicitConversionInOverloadsN32pxrInternal_v0_24__pxrReserved__6TfSpanIfEE(ptr readnone captures(none) %0, i64 %1) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_Z41Tf_TestConstImplicitConversionInOverloadsN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEE(ptr nocapture readnone %0, i64 %1) local_unnamed_addr #0 {
+define dso_local void @_Z41Tf_TestConstImplicitConversionInOverloadsN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEE(ptr readnone captures(none) %0, i64 %1) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_Z41Tf_TestConstImplicitConversionInOverloadsN32pxrInternal_v0_24__pxrReserved__6TfSpanIKfEE(ptr nocapture readnone %0, i64 %1) local_unnamed_addr #0 {
+define dso_local void @_Z41Tf_TestConstImplicitConversionInOverloadsN32pxrInternal_v0_24__pxrReserved__6TfSpanIKfEE(ptr readnone captures(none) %0, i64 %1) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit43:
   %2 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
@@ -595,7 +595,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit155:                 ; preds = %161, %.body61, %87
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1215,16 +1215,16 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

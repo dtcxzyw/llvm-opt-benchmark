@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN7meshoptL19kTriangleIndexOrderE = internal unnamed_addr constant [3 x [3 x i32]] [[3 x i32] [i32 0, i32 1, i32 2], [3 x i32] [i32 1, i32 2, i32 0], [3 x i32] [i32 2, i32 0, i32 1]], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @meshopt_encodeIndexBuffer(ptr noundef %buffer, i64 noundef %buffer_size, ptr nocapture noundef readonly %indices, i64 noundef %index_count) local_unnamed_addr #0 {
+define dso_local i64 @meshopt_encodeIndexBuffer(ptr noundef %buffer, i64 noundef %buffer_size, ptr noundef readonly captures(none) %indices, i64 noundef %index_count) local_unnamed_addr #0 {
 entry:
   %edgefifo = alloca [16 x [2 x i32]], align 16
   %vertexfifo = alloca [16 x i32], align 16
@@ -555,7 +555,7 @@ return:                                           ; preds = %for.body, %for.end,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local i64 @meshopt_encodeIndexBufferBound(i64 noundef %index_count, i64 noundef %vertex_count) local_unnamed_addr #2 {
@@ -592,7 +592,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr nocapture noundef writeonly %destination, i64 noundef %index_count, i64 noundef %index_size, ptr noundef readonly %buffer, i64 noundef %buffer_size) local_unnamed_addr #4 {
+define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr noundef writeonly captures(none) %destination, i64 noundef %index_count, i64 noundef %index_size, ptr noundef readonly %buffer, i64 noundef %buffer_size) local_unnamed_addr #4 {
 entry:
   %edgefifo = alloca [16 x [2 x i32]], align 16
   %vertexfifo = alloca [16 x i32], align 16
@@ -1143,7 +1143,7 @@ return:                                           ; preds = %for.body, %for.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @meshopt_encodeIndexSequence(ptr noundef %buffer, i64 noundef %buffer_size, ptr nocapture noundef readonly %indices, i64 noundef %index_count) local_unnamed_addr #4 {
+define dso_local i64 @meshopt_encodeIndexSequence(ptr noundef %buffer, i64 noundef %buffer_size, ptr noundef readonly captures(none) %indices, i64 noundef %index_count) local_unnamed_addr #4 {
 entry:
   %last = alloca [2 x i32], align 8
   %add1 = add i64 %index_count, 5
@@ -1251,7 +1251,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexSequence(ptr nocapture noundef writeonly %destination, i64 noundef %index_count, i64 noundef %index_size, ptr noundef readonly %buffer, i64 noundef %buffer_size) local_unnamed_addr #5 {
+define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexSequence(ptr noundef writeonly captures(none) %destination, i64 noundef %index_count, i64 noundef %index_size, ptr noundef readonly %buffer, i64 noundef %buffer_size) local_unnamed_addr #5 {
 entry:
   %last = alloca [2 x i32], align 8
   %add1 = add i64 %index_count, 5

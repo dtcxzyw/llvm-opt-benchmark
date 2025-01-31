@@ -40,7 +40,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @epki2pki_decode(ptr noundef %vctx, ptr noundef %cin, i32 %selection, ptr nocapture noundef readonly %data_cb, ptr noundef %data_cbarg, ptr nocapture noundef readonly %pw_cb, ptr noundef %pw_cbarg) #0 {
+define internal i32 @epki2pki_decode(ptr noundef %vctx, ptr noundef %cin, i32 %selection, ptr noundef readonly captures(none) %data_cb, ptr noundef %data_cbarg, ptr noundef readonly captures(none) %pw_cb, ptr noundef %pw_cbarg) #0 {
 entry:
   %mem = alloca ptr, align 8
   %pder = alloca ptr, align 8
@@ -189,7 +189,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @epki2pki_settable_ctx_params(ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @epki2pki_settable_ctx_params(ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @epki2pki_settable_ctx_params.settables
 }
@@ -258,7 +258,7 @@ declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) loc
 declare void @OSSL_PARAM_construct_utf8_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 

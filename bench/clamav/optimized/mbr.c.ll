@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [64 x i8] c"cli_scanebr: second entry for EBR is not an extended partition\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 575) i32 @cli_mbr_check(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 575) i32 @cli_mbr_check(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.mbr_boot_record, align 1
   %5 = icmp ult i64 %1, 512
   br i1 %5, label %mbr_check_mbr.exit, label %6
@@ -103,10 +103,10 @@ mbr_check_mbr.exit:                               ; preds = %.sink.split.i, %27,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @mbr_convert_to_host(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @mbr_convert_to_host(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i16, ptr %2, align 1
   %rev = tail call i16 @llvm.bswap.i16(i16 %3)
@@ -680,7 +680,7 @@ mbr_scanextprtn.exit:                             ; preds = %157, %158
 declare i32 @cli_magic_scan_nested_fmap_type(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef nonnull %0, ptr nocapture noundef readonly byval(%struct.mbr_boot_record) align 8 %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef nonnull %0, ptr noundef readonly byval(%struct.mbr_boot_record) align 8 captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.mbr_boot_record, align 1
   %5 = alloca %struct.partition_intersection_list, align 8
   %6 = alloca i32, align 4
@@ -878,10 +878,10 @@ declare i16 @llvm.bswap.i16(i16) #4
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

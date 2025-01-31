@@ -39,7 +39,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_04SHA1C2EPKvm(ptr nocapture noundef nonnull align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef %data, i64 noundef %size) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_04SHA1C2EPKvm(ptr noundef nonnull align 8 captures(none) dereferenceable(9) initializes((0, 9)) %this, ptr noundef %data, i64 noundef %size) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #18
   %m_workspace.i = getelementptr inbounds nuw i8, ptr %call, i64 128
@@ -71,7 +71,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_04SHA16appendEPKvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, ptr noundef readonly %data, i64 noundef %size) local_unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_04SHA16appendEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef readonly %data, i64 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   %m_final = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %m_final, align 8
@@ -158,7 +158,7 @@ if.end:                                           ; preds = %if.then27.i, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_04SHA1D2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) unnamed_addr #7 align 2 {
+define void @_ZN18OpenImageIO_v2_6_04SHA1D2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this) unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %isnull = icmp eq ptr %0, null
@@ -173,10 +173,10 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %pbData, i32 noundef %uLen) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly captures(none) %pbData, i32 noundef %uLen) local_unnamed_addr #9 align 2 {
 entry:
   %m_count = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %m_count, align 4
@@ -214,7 +214,7 @@ for.body:                                         ; preds = %if.then13, %for.bod
   %i.020 = phi i32 [ %add23, %for.body ], [ %sub, %if.then13 ]
   %idxprom21 = zext i32 %i.020 to i64
   %arrayidx22 = getelementptr inbounds nuw i8, ptr %pbData, i64 %idxprom21
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef %arrayidx22)
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef nonnull %arrayidx22)
   %add23 = add i32 %i.020, 64
   %add17 = add i32 %i.020, 127
   %cmp18 = icmp ult i32 %add17, %uLen
@@ -245,7 +245,7 @@ if.end35:                                         ; preds = %if.then27, %if.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_04SHA17gethashERNS0_4HashE(ptr nocapture noundef nonnull align 8 dereferenceable(9) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(20) initializes((0, 20)) %h) local_unnamed_addr #9 align 2 {
+define void @_ZN18OpenImageIO_v2_6_04SHA17gethashERNS0_4HashE(ptr noundef nonnull align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(20) initializes((0, 20)) %h) local_unnamed_addr #9 align 2 {
 entry:
   %m_final = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %m_final, align 8
@@ -266,7 +266,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_05CSHA15FinalEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN18OpenImageIO_v2_6_05CSHA15FinalEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #9 align 2 {
 entry:
   %pbFinalCount = alloca [8 x i8], align 8
   %m_count = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -403,7 +403,7 @@ for.end26:                                        ; preds = %for.body12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA17GetHashEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef writeonly %pbDest20) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA17GetHashEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef writeonly %pbDest20) local_unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ne ptr %pbDest20, null
   br i1 %cmp, label %if.end, label %return
@@ -418,7 +418,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_04SHA16digestB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(9) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_04SHA16digestB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(9) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tszOut.i = alloca [84 x i8], align 16
   %m_final = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -458,7 +458,7 @@ nrvo.skipdtor:                                    ; preds = %if.end, %if.then.i
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA113ReportHashStlERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_11REPORT_TYPEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(32) %strOut, i32 noundef %rtReportType) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA113ReportHashStlERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_11REPORT_TYPEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(32) %strOut, i32 noundef %rtReportType) local_unnamed_addr #4 align 2 {
 entry:
   %tszOut = alloca [84 x i8], align 16
   %call = call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA110ReportHashEPcNS0_11REPORT_TYPEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %tszOut, i32 noundef %rtReportType)
@@ -498,7 +498,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_05CSHA15ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((0, 28)) %this) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN18OpenImageIO_v2_6_05CSHA15ResetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(200) initializes((0, 28)) %this) local_unnamed_addr #11 align 2 {
 entry:
   store i32 1732584193, ptr %this, align 8
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -517,7 +517,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr nocapture noundef %pState, ptr nocapture noundef readonly %pBuffer) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef captures(none) %pState, ptr noundef readonly captures(none) %pBuffer) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i32, ptr %pState, align 4
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %pState, i64 4
@@ -2209,10 +2209,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_05CSHA18HashFileEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly %tszFileName) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_05CSHA18HashFileEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly %tszFileName) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq ptr %tszFileName, null
   br i1 %cmp, label %return, label %if.end
@@ -2310,25 +2310,25 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA110ReportHashEPcNS0_11REPORT_TYPEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef %tszReport, i32 noundef %rtReportType) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA110ReportHashEPcNS0_11REPORT_TYPEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef %tszReport, i32 noundef %rtReportType) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tszTemp = alloca [16 x i8], align 16
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -2407,7 +2407,7 @@ return:                                           ; preds = %for.body30, %for.bo
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -2418,7 +2418,7 @@ declare noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcatEPcNS_17basic_s
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_SHA1.cpp() #15 section ".text.startup" {
@@ -2435,10 +2435,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #16
 declare i32 @llvm.bswap.i32(i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

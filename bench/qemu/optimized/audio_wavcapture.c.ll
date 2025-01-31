@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [16 x i8] c"<not available>\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @wav_start_capture(ptr noundef %state, ptr nocapture noundef writeonly %s, ptr noundef %path, i32 noundef %freq, i32 noundef %bits, i32 noundef %nchannels) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @wav_start_capture(ptr noundef %state, ptr noundef writeonly captures(none) %s, ptr noundef %path, i32 noundef %freq, i32 noundef %bits, i32 noundef %nchannels) local_unnamed_addr #0 {
 entry:
   %hdr = alloca [44 x i8], align 16
   %as = alloca %struct.audsettings, align 4
@@ -211,18 +211,18 @@ return:                                           ; preds = %if.end58, %if.end48
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @wav_notify(ptr nocapture readnone %opaque, i32 %cmd) #3 {
+define internal void @wav_notify(ptr readnone captures(none) %opaque, i32 %cmd) #3 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wav_capture(ptr nocapture noundef %opaque, ptr nocapture noundef %buf, i32 noundef %size) #0 {
+define internal void @wav_capture(ptr noundef captures(none) %opaque, ptr noundef captures(none) %buf, i32 noundef %size) #0 {
 entry:
   %conv = sext i32 %size to i64
   %0 = load ptr, ptr %opaque, align 8
@@ -246,7 +246,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wav_destroy(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @wav_destroy(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %rlen = alloca [4 x i8], align 1
   %dlen = alloca [4 x i8], align 1
@@ -337,7 +337,7 @@ if.end36:                                         ; preds = %doclose, %if.then32
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #6
@@ -350,18 +350,18 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @AUD_add_capture(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wav_capture_info(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @wav_capture_info(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %path1 = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %path1, align 8

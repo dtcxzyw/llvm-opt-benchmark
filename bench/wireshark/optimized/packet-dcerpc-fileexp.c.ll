@@ -1798,7 +1798,7 @@ define internal i32 @fileexp_dissect_releasetokens_resp(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fileexp_dissect_gettime_rqst(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @fileexp_dissect_gettime_rqst(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #2 {
   ret i32 %1
 }
 
@@ -1919,12 +1919,12 @@ define internal i32 @fileexp_dissect_makemountpoint_resp(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fileexp_dissect_getstatistics_rqst(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @fileexp_dissect_getstatistics_rqst(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #2 {
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fileexp_dissect_getstatistics_resp(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @fileexp_dissect_getstatistics_resp(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #2 {
   ret i32 %1
 }
 
@@ -1965,7 +1965,7 @@ define internal i32 @fileexp_dissect_bulkfetchvv_rqst(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fileexp_dissect_bulkfetchvv_resp(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @fileexp_dissect_bulkfetchvv_resp(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #2 {
   ret i32 %1
 }
 
@@ -2083,7 +2083,7 @@ define internal i32 @fileexp_dissect_processquota_resp(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fileexp_dissect_getserverinterfaces_rqst(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @fileexp_dissect_getserverinterfaces_rqst(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #2 {
   ret i32 %1
 }
 
@@ -2297,7 +2297,7 @@ dissect_afsNetAddr.exit.thread:                   ; preds = %17
   %.042.i = phi i32 [ 0, %29 ], [ %58, %57 ]
   %.03441.i = phi i32 [ %27, %29 ], [ %35, %57 ]
   %34 = load i32, ptr @hf_fileexp_afsNetAddr_data, align 4
-  %35 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.03441.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %12) #4
+  %35 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.03441.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %12) #4
   switch i32 %.042.i, label %57 [
     i32 1, label %36
     i32 2, label %41
@@ -4389,15 +4389,15 @@ define internal i32 @dissect_afsConnParams(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dissect_afsBulkStat(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dissect_afsBulkStat(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #2 {
   ret i32 %1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

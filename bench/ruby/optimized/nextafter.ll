@@ -130,7 +130,7 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #2
 declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Init_nextafter(i64 noundef %0) local_unnamed_addr #0 {

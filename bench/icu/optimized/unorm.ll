@@ -496,7 +496,7 @@ invoke.cont:                                      ; preds = %if.then18
           to label %while.cond unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 while.cond:                                       ; preds = %invoke.cont, %if.else
-  %call23 = invoke i32 @uiter_next32_75(ptr noundef %src)
+  %call23 = invoke i32 @uiter_next32_75(ptr noundef nonnull %src)
           to label %invoke.cont22 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont22:                                    ; preds = %while.cond
@@ -542,7 +542,7 @@ if.else:                                          ; preds = %invoke.cont25
           to label %while.cond unwind label %lpad.loopexit.split-lp.loopexit, !llvm.loop !6
 
 while.cond37:                                     ; preds = %if.end16, %invoke.cont46
-  %call39 = invoke i32 @uiter_previous32_75(ptr noundef %src)
+  %call39 = invoke i32 @uiter_previous32_75(ptr noundef nonnull %src)
           to label %invoke.cont38 unwind label %lpad.loopexit
 
 invoke.cont38:                                    ; preds = %while.cond37

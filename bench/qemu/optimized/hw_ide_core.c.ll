@@ -1459,7 +1459,7 @@ if.end63:                                         ; preds = %if.then61, %done, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_abort_command(ptr nocapture noundef initializes((649, 650), (665, 666), (864, 888)) %s) local_unnamed_addr #0 {
+define dso_local void @ide_abort_command(ptr noundef captures(none) initializes((649, 650), (665, 666), (864, 888)) %s) local_unnamed_addr #0 {
 entry:
   %status = getelementptr inbounds nuw i8, ptr %s, i64 665
   %error = getelementptr inbounds nuw i8, ptr %s, i64 649
@@ -1491,7 +1491,7 @@ ide_transfer_stop.exit:                           ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_transfer_stop(ptr nocapture noundef initializes((864, 888)) %s) #0 {
+define dso_local void @ide_transfer_stop(ptr noundef captures(none) initializes((864, 888)) %s) #0 {
 entry:
   %end_transfer_func.i = getelementptr inbounds nuw i8, ptr %s, i64 864
   store ptr @ide_transfer_stop, ptr %end_transfer_func.i, align 8
@@ -1523,7 +1523,7 @@ ide_cmd_done.exit:                                ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @ide_transfer_start_norecurse(ptr nocapture noundef initializes((872, 888)) %s, ptr noundef %buf, i32 noundef %size, ptr noundef %end_transfer_func) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ide_transfer_start_norecurse(ptr noundef captures(none) initializes((872, 888)) %s, ptr noundef %buf, i32 noundef %size, ptr noundef %end_transfer_func) local_unnamed_addr #0 {
 entry:
   %data_ptr = getelementptr inbounds nuw i8, ptr %s, i64 872
   store ptr %buf, ptr %data_ptr, align 8
@@ -1674,7 +1674,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i64 -2147483648, 281474976710656) i64 @ide_get_sector(ptr nocapture noundef readonly %s) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 281474976710656) i64 @ide_get_sector(ptr noundef readonly captures(none) %s) local_unnamed_addr #2 {
 entry:
   %select = getelementptr inbounds nuw i8, ptr %s, i64 664
   %0 = load i8, ptr %select, align 8
@@ -1761,7 +1761,7 @@ if.end50:                                         ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ide_set_sector(ptr nocapture noundef initializes((656, 659)) %s, i64 noundef %sector_num) local_unnamed_addr #3 {
+define dso_local void @ide_set_sector(ptr noundef captures(none) initializes((656, 659)) %s, i64 noundef %sector_num) local_unnamed_addr #3 {
 entry:
   %select = getelementptr inbounds nuw i8, ptr %s, i64 664
   %0 = load i8, ptr %select, align 8
@@ -2016,7 +2016,7 @@ qemu_iovec_buf.exit:                              ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_cancel_dma_sync(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define dso_local void @ide_cancel_dma_sync(ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %_now.i.i11 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2182,7 +2182,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @qemu_sglist_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_set_inactive(ptr nocapture noundef readonly %s, i1 noundef zeroext %more) local_unnamed_addr #0 {
+define dso_local void @ide_set_inactive(ptr noundef readonly captures(none) %s, i1 noundef zeroext %more) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %dma = getelementptr inbounds nuw i8, ptr %0, i64 2120
@@ -2341,7 +2341,7 @@ ide_bus_set_irq.exit:                             ; preds = %ide_set_inactive.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_bus_set_irq(ptr nocapture noundef readonly %bus) local_unnamed_addr #0 {
+define dso_local void @ide_bus_set_irq(ptr noundef readonly captures(none) %bus) local_unnamed_addr #0 {
 entry:
   %cmd = getelementptr inbounds nuw i8, ptr %bus, i64 2129
   %0 = load i8, ptr %cmd, align 1
@@ -3223,7 +3223,7 @@ declare zeroext i1 @blk_is_writable(ptr noundef) local_unnamed_addr #1
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @qemu_hw_version() local_unnamed_addr #1
 
@@ -3322,7 +3322,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_exit(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define dso_local void @ide_exit(ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %sector_write_timer = getelementptr inbounds nuw i8, ptr %s, i64 912
   %0 = load ptr, ptr %sector_write_timer, align 8
@@ -3347,7 +3347,7 @@ timer_free.exit:                                  ; preds = %entry, %if.then.i
 declare void @qemu_vfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ide_drive_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #0 {
+define internal noundef i32 @ide_drive_post_load(ptr noundef readonly captures(none) %opaque, i32 %version_id) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 672
   %0 = load ptr, ptr %blk, align 8
@@ -3373,7 +3373,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @is_identify_set(ptr nocapture noundef readonly %opaque, i32 %version_id) #2 {
+define internal zeroext i1 @is_identify_set(ptr noundef readonly captures(none) %opaque, i32 %version_id) #2 {
 entry:
   %identify_set = getelementptr inbounds nuw i8, ptr %opaque, i64 52
   %0 = load i32, ptr %identify_set, align 4
@@ -3382,7 +3382,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_drive_get(ptr nocapture noundef writeonly %hd, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local void @ide_drive_get(ptr noundef writeonly captures(none) %hd, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp4 = icmp sgt i32 %n, 0
   br i1 %cmp4, label %for.body.preheader, label %for.end
@@ -3408,7 +3408,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare ptr @drive_get_by_index(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @trim_aio_cancel(ptr nocapture noundef initializes((56, 60), (80, 88)) %acb) #0 {
+define internal void @trim_aio_cancel(ptr noundef captures(none) initializes((56, 60), (80, 88)) %acb) #0 {
 entry:
   %qiov = getelementptr inbounds nuw i8, ptr %acb, i64 64
   %0 = load ptr, ptr %qiov, align 8
@@ -3463,14 +3463,14 @@ declare ptr @blk_aio_pdiscard(ptr noundef, i64 noundef, i64 noundef, ptr noundef
 declare void @replay_bh_schedule_event(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i64 @qemu_iovec_from_buf(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -3479,7 +3479,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_cfa_req_ext_error_code(ptr nocapture noundef initializes((649, 650), (665, 666)) %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_cfa_req_ext_error_code(ptr noundef captures(none) initializes((649, 650), (665, 666)) %s, i8 zeroext %cmd) #0 {
 entry:
   %error = getelementptr inbounds nuw i8, ptr %s, i64 649
   store i8 9, ptr %error, align 1
@@ -3579,7 +3579,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @cmd_nop(ptr nocapture readnone %s, i8 zeroext %cmd) #8 {
+define internal noundef zeroext i1 @cmd_nop(ptr readnone captures(none) %s, i8 zeroext %cmd) #8 {
 entry:
   ret i1 true
 }
@@ -3790,7 +3790,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_read_native_max(ptr nocapture noundef %s, i8 noundef zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_read_native_max(ptr noundef captures(none) %s, i8 noundef zeroext %cmd) #0 {
 entry:
   %nb_sectors = getelementptr inbounds nuw i8, ptr %s, i64 40
   %0 = load i64, ptr %nb_sectors, align 8
@@ -4315,7 +4315,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @cmd_verify(ptr nocapture noundef initializes((668, 669)) %s, i8 noundef zeroext %cmd) #3 {
+define internal noundef zeroext i1 @cmd_verify(ptr noundef captures(none) initializes((668, 669)) %s, i8 noundef zeroext %cmd) #3 {
 entry:
   %cmp = icmp eq i8 %cmd, 66
   %conv.i = zext i1 %cmp to i8
@@ -4352,13 +4352,13 @@ ide_cmd_lba48_transform.exit:                     ; preds = %if.then.i, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @cmd_seek(ptr nocapture readnone %s, i8 zeroext %cmd) #8 {
+define internal noundef zeroext i1 @cmd_seek(ptr readnone captures(none) %s, i8 zeroext %cmd) #8 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_cfa_translate_sector(ptr nocapture noundef initializes((665, 666), (872, 888)) %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_cfa_translate_sector(ptr noundef captures(none) initializes((665, 666), (872, 888)) %s, i8 zeroext %cmd) #0 {
 entry:
   %status = getelementptr inbounds nuw i8, ptr %s, i64 665
   store i8 80, ptr %status, align 1
@@ -4544,7 +4544,7 @@ ide_bus_set_irq.exit:                             ; preds = %ide_transfer_start.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_exec_dev_diagnostic(ptr nocapture noundef initializes((649, 650), (652, 659), (664, 666)) %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_exec_dev_diagnostic(ptr noundef captures(none) initializes((649, 650), (652, 659), (664, 666)) %s, i8 zeroext %cmd) #0 {
 entry:
   %select = getelementptr inbounds nuw i8, ptr %s, i64 664
   store i8 -96, ptr %select, align 8
@@ -4599,7 +4599,7 @@ if.end:                                           ; preds = %if.then.i9, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_specify(ptr nocapture noundef %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_specify(ptr noundef captures(none) %s, i8 zeroext %cmd) #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %s, i64 672
   %0 = load ptr, ptr %blk, align 8
@@ -4668,7 +4668,7 @@ if.end:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @cmd_check_power_mode(ptr nocapture noundef writeonly initializes((652, 656)) %s, i8 zeroext %cmd) #9 {
+define internal noundef zeroext i1 @cmd_check_power_mode(ptr noundef writeonly captures(none) initializes((652, 656)) %s, i8 zeroext %cmd) #9 {
 entry:
   %nsector = getelementptr inbounds nuw i8, ptr %s, i64 652
   store i32 255, ptr %nsector, align 4
@@ -5483,7 +5483,7 @@ return:                                           ; preds = %if.then.i.i.i, %abo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_cfa_access_metadata_storage(ptr nocapture noundef initializes((872, 888)) %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_cfa_access_metadata_storage(ptr noundef captures(none) initializes((872, 888)) %s, i8 zeroext %cmd) #0 {
 entry:
   %feature = getelementptr inbounds nuw i8, ptr %s, i64 648
   %0 = load i8, ptr %feature, align 8
@@ -5705,7 +5705,7 @@ return:                                           ; preds = %if.then.i39, %ide_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @cmd_cfa_erase_sectors(ptr nocapture noundef writeonly %s, i8 noundef zeroext %cmd) #9 {
+define internal noundef zeroext i1 @cmd_cfa_erase_sectors(ptr noundef writeonly captures(none) %s, i8 noundef zeroext %cmd) #9 {
 entry:
   switch i8 %cmd, label %if.end6 [
     i8 -11, label %if.then
@@ -5727,7 +5727,7 @@ if.end6:                                          ; preds = %if.then, %entry, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_set_multiple_mode(ptr nocapture noundef %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_set_multiple_mode(ptr noundef captures(none) %s, i8 zeroext %cmd) #0 {
 entry:
   %drive_kind = getelementptr inbounds nuw i8, ptr %s, i64 12
   %0 = load i32, ptr %drive_kind, align 4
@@ -6604,7 +6604,7 @@ return:                                           ; preds = %if.then.i.i.i44, %a
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_ibm_sense_condition(ptr nocapture noundef %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_ibm_sense_condition(ptr noundef captures(none) %s, i8 zeroext %cmd) #0 {
 entry:
   %feature = getelementptr inbounds nuw i8, ptr %s, i64 648
   %0 = load i8, ptr %feature, align 8
@@ -8127,7 +8127,7 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @ide_atapi_cmd(ptr noundef) #1
 
@@ -8355,7 +8355,7 @@ declare void @blk_set_enable_write_cache(ptr noundef, i1 noundef zeroext) local_
 declare void @ide_atapi_cmd_reply_end(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ide_dummy_transfer_stop(ptr nocapture noundef initializes((872, 888)) %s) #12 {
+define internal void @ide_dummy_transfer_stop(ptr noundef captures(none) initializes((872, 888)) %s) #12 {
 entry:
   %io_buffer = getelementptr inbounds nuw i8, ptr %s, i64 888
   %0 = load ptr, ptr %io_buffer, align 8
@@ -8377,7 +8377,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_cd_change_cb(ptr nocapture noundef initializes((40, 48), (689, 691), (693, 694), (695, 696)) %opaque, i1 noundef zeroext %load, ptr nocapture readnone %errp) #0 {
+define internal void @ide_cd_change_cb(ptr noundef captures(none) initializes((40, 48), (689, 691), (693, 694), (695, 696)) %opaque, i1 noundef zeroext %load, ptr readnone captures(none) %errp) #0 {
 entry:
   %nb_sectors = alloca i64, align 8
   %lnot = xor i1 %load, true
@@ -8414,7 +8414,7 @@ ide_bus_set_irq.exit:                             ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_cd_eject_request_cb(ptr nocapture noundef initializes((689, 690)) %opaque, i1 noundef zeroext %force) #0 {
+define internal void @ide_cd_eject_request_cb(ptr noundef captures(none) initializes((689, 690)) %opaque, i1 noundef zeroext %force) #0 {
 entry:
   %events = getelementptr inbounds nuw i8, ptr %opaque, i64 689
   store i8 1, ptr %events, align 1
@@ -8444,7 +8444,7 @@ ide_bus_set_irq.exit:                             ; preds = %if.end, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @ide_cd_is_medium_locked(ptr nocapture noundef readonly %opaque) #2 {
+define internal zeroext i1 @ide_cd_is_medium_locked(ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %tray_locked = getelementptr inbounds nuw i8, ptr %opaque, i64 694
   %0 = load i8, ptr %tray_locked, align 2
@@ -8453,7 +8453,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @ide_cd_is_tray_open(ptr nocapture noundef readonly %opaque) #2 {
+define internal zeroext i1 @ide_cd_is_tray_open(ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %tray_open = getelementptr inbounds nuw i8, ptr %opaque, i64 693
   %0 = load i8, ptr %tray_open, align 1
@@ -8462,7 +8462,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_resize_cb(ptr nocapture noundef %opaque) #0 {
+define internal void @ide_resize_cb(ptr noundef captures(none) %opaque) #0 {
 entry:
   %nb_sectors = alloca i64, align 8
   %identify_set = getelementptr inbounds nuw i8, ptr %opaque, i64 52
@@ -8766,7 +8766,7 @@ declare void @ide_atapi_dma_restart(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_memalign(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_sector_write_timer_cb(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @ide_sector_write_timer_cb(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %cmd.i = getelementptr inbounds nuw i8, ptr %0, i64 2129
@@ -8788,19 +8788,19 @@ ide_bus_set_irq.exit:                             ; preds = %entry, %if.then.i
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @ide_nop_int32(ptr nocapture readnone %dma, i32 %l) #8 {
+define internal noundef i32 @ide_nop_int32(ptr readnone captures(none) %dma, i32 %l) #8 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @ide_nop_int(ptr nocapture readnone %dma, i1 zeroext %is_write) #8 {
+define internal noundef i32 @ide_nop_int(ptr readnone captures(none) %dma, i1 zeroext %is_write) #8 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @ide_nop(ptr nocapture readnone %dma) #8 {
+define internal void @ide_nop(ptr readnone captures(none) %dma) #8 {
 entry:
   ret void
 }
@@ -8808,7 +8808,7 @@ entry:
 declare void @timer_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -22, 1) i32 @ide_drive_pio_post_load(ptr nocapture noundef %opaque, i32 %version_id) #3 {
+define internal range(i32 -22, 1) i32 @ide_drive_pio_post_load(ptr noundef captures(none) %opaque, i32 %version_id) #3 {
 entry:
   %end_transfer_fn_idx = getelementptr inbounds nuw i8, ptr %opaque, i64 908
   %0 = load i8, ptr %end_transfer_fn_idx, align 4
@@ -8849,7 +8849,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal noundef i32 @ide_drive_pio_pre_save(ptr nocapture noundef initializes((900, 908)) %opaque) #13 {
+define internal noundef i32 @ide_drive_pio_pre_save(ptr noundef captures(none) initializes((900, 908)) %opaque) #13 {
 entry:
   %data_ptr = getelementptr inbounds nuw i8, ptr %opaque, i64 872
   %0 = load ptr, ptr %data_ptr, align 8
@@ -8901,7 +8901,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @ide_drive_pio_state_needed(ptr nocapture noundef readonly %opaque) #14 {
+define internal zeroext i1 @ide_drive_pio_state_needed(ptr noundef readonly captures(none) %opaque) #14 {
 entry:
   %status = getelementptr inbounds nuw i8, ptr %opaque, i64 665
   %0 = load i8, ptr %status, align 1
@@ -8923,10 +8923,10 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @ide_tray_state_needed(ptr nocapture noundef readonly %opaque) #2 {
+define internal zeroext i1 @ide_tray_state_needed(ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %tray_open = getelementptr inbounds nuw i8, ptr %opaque, i64 693
   %0 = load i8, ptr %tray_open, align 1
@@ -8945,7 +8945,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @ide_atapi_gesn_needed(ptr nocapture noundef readonly %opaque) #2 {
+define internal zeroext i1 @ide_atapi_gesn_needed(ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %new_media = getelementptr inbounds nuw i8, ptr %opaque, i64 690
   %0 = load i8, ptr %new_media, align 1
@@ -8964,7 +8964,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @ide_error_needed(ptr nocapture noundef readonly %opaque) #2 {
+define internal zeroext i1 @ide_error_needed(ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %error_status = getelementptr inbounds nuw i8, ptr %opaque, i64 2144
   %0 = load i32, ptr %error_status, align 8
@@ -8982,10 +8982,10 @@ declare i32 @llvm.ctpop.i32(i32) #15
 declare i64 @llvm.smin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15

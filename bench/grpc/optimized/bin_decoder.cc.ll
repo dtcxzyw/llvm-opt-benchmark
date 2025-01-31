@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [65 x i8] c"Base64 decoding failed, invalid character '%c' in base64 input.\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, -4611686018427387651) i64 @_Z44grpc_chttp2_base64_infer_length_after_decodeRK10grpc_slice(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %slice) local_unnamed_addr #0 {
+define noundef range(i64 0, -4611686018427387651) i64 @_Z44grpc_chttp2_base64_infer_length_after_decodeRK10grpc_slice(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %slice) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -87,7 +87,7 @@ return:                                           ; preds = %if.end32, %if.then3
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_context(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_context(ptr noundef captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %input_end = getelementptr inbounds nuw i8, ptr %ctx, i64 8
@@ -406,7 +406,7 @@ return:                                           ; preds = %_ZL14input_is_valid
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL14input_is_validPKhm(ptr nocapture noundef readonly %input_ptr, i64 noundef %length) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14input_is_validPKhm(ptr noundef readonly captures(none) %input_ptr, i64 noundef %length) unnamed_addr #0 {
 entry:
   %cmp6 = icmp eq i64 %length, 0
   br i1 %cmp6, label %return, label %for.body
@@ -591,7 +591,7 @@ declare void @grpc_empty_slice(ptr sret(%struct.grpc_slice) align 8) local_unnam
 declare void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @grpc_slice_to_c_string(ptr noundef byval(%struct.grpc_slice) align 8) local_unnamed_addr #1
 

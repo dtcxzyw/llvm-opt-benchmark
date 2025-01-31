@@ -2849,7 +2849,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprEPKNS2_4StmtENS_12DenseMapInfo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer18findDirectMutationEPKNS_4ExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) #0 align 2 {
+define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer18findDirectMutationEPKNS_4ExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) #0 align 2 {
   %3 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::Matcher.1000", align 8
   %5 = alloca %"class.clang::ASTNodeKind", align 4
@@ -18597,7 +18597,7 @@ _ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit146: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer23findFunctionArgMutationEPKNS_4ExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) #0 align 2 {
+define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer23findFunctionArgMutationEPKNS_4ExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) #0 align 2 {
   %3 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::Matcher.678", align 8
   %5 = alloca %"class.clang::ASTNodeKind", align 4
@@ -20319,7 +20319,7 @@ _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_40matcher_forEachArgume
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer12findMutationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
@@ -20999,7 +20999,7 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer19findPoin
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer19findPointeeMutationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
@@ -21008,7 +21008,7 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer19findPoin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang20ExprMutationAnalyzer8Analyzer13isUnevaluatedEPKNS_4ExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang20ExprMutationAnalyzer8Analyzer13isUnevaluatedEPKNS_4ExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -25954,7 +25954,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_18CXXConstructorDeclEED2Ev.exit46: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNK5clang12_GLOBAL__N_13$_5clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 1), (4, 12), (16, 24)) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZNK5clang12_GLOBAL__N_13$_5clEv"(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 1), (4, 12), (16, 24)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::ast_matchers::internal::Matcher.478", align 8
   %3 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1256", align 8
   %.sroa.02.i = alloca [16 x i8], align 8
@@ -26270,7 +26270,7 @@ _ZNSt6vectorIN5clang12ast_matchers8internal15DynTypedMatcherESaIS3_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNK5clang12_GLOBAL__N_13$_6clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 1), (4, 12), (16, 24)) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZNK5clang12_GLOBAL__N_13$_6clEv"(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 1), (4, 12), (16, 24)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::ast_matchers::internal::Matcher.478", align 8
   %3 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1385", align 8
   %.sroa.02.i = alloca [16 x i8], align 8
@@ -30897,7 +30897,7 @@ declare noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull alig
 declare noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -31979,7 +31979,7 @@ declare noundef zeroext i1 @_ZNK5clang18CXXConstructorDecl17isCopyConstructorERj
 declare noundef zeroext i1 @_ZNK5clang18CXXConstructorDecl17isMoveConstructorERj(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5clang12_GLOBAL__N_18internal32matcher_canResolveToExpr0MatcherD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
+define internal void @_ZN5clang12_GLOBAL__N_18internal32matcher_canResolveToExpr0MatcherD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   ret void
 }
 
@@ -31990,7 +31990,7 @@ define internal void @_ZN5clang12_GLOBAL__N_18internal32matcher_canResolveToExpr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal32matcher_canResolveToExpr0Matcher7matchesERKNS_4StmtEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture readnone %2, ptr nocapture readnone %3) unnamed_addr #10 align 2 {
+define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal32matcher_canResolveToExpr0Matcher7matchesERKNS_4StmtEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #10 align 2 {
   %5 = load i8, ptr %1, align 8
   %6 = add i8 %5, 126
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %6, -127
@@ -32131,7 +32131,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_1clES2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef readonly %1) unnamed_addr #10 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_1clES2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly %1) unnamed_addr #10 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -32397,7 +32397,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 declare void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher9dynCastToENS_11ASTNodeKindE(ptr dead_on_unwind writable sret(%"class.clang::ast_matchers::internal::DynTypedMatcher") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5clang12_GLOBAL__N_18internal37matcher_isPotentiallyEvaluatedMatcherD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
+define internal void @_ZN5clang12_GLOBAL__N_18internal37matcher_isPotentiallyEvaluatedMatcherD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   ret void
 }
 
@@ -32419,7 +32419,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal37matcher_isPotentiallyEvaluatedMatcher7matchesERKNS_13CXXTypeidExprEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture readnone %2, ptr nocapture readnone %3) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal37matcher_isPotentiallyEvaluatedMatcher7matchesERKNS_13CXXTypeidExprEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr22isPotentiallyEvaluatedEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
   ret i1 %5
 }
@@ -32427,7 +32427,7 @@ define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal37matcher_i
 declare noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr22isPotentiallyEvaluatedEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang12_GLOBAL__N_18internal34matcher_hasControllingExpr0MatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5clang12_GLOBAL__N_18internal34matcher_hasControllingExpr0MatcherD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang12_GLOBAL__N_18internal34matcher_hasControllingExpr0MatcherE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -32489,7 +32489,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal34matcher_hasControllingExpr0Matcher7matchesERKNS_20GenericSelectionExprEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal34matcher_hasControllingExpr0Matcher7matchesERKNS_20GenericSelectionExprEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::DynTypedNode", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8
@@ -32518,7 +32518,7 @@ define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal34matcher_h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5clang12_GLOBAL__N_18internal28matcher_isConstCalleeMatcherD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
+define internal void @_ZN5clang12_GLOBAL__N_18internal28matcher_isConstCalleeMatcherD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   ret void
 }
 
@@ -32529,7 +32529,7 @@ define internal void @_ZN5clang12_GLOBAL__N_18internal28matcher_isConstCalleeMat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal28matcher_isConstCalleeMatcher7matchesERKNS_17CXXMemberCallExprEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture readnone %2, ptr nocapture readnone %3) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal28matcher_isConstCalleeMatcher7matchesERKNS_17CXXMemberCallExprEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = load i32, ptr %1, align 8
   %6 = lshr i32 %5, 24
   %7 = zext nneg i32 %6 to i64
@@ -35308,7 +35308,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 declare i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang12_GLOBAL__N_18internal26matcher_hasAnyInit0MatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5clang12_GLOBAL__N_18internal26matcher_hasAnyInit0MatcherD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang12_GLOBAL__N_18internal26matcher_hasAnyInit0MatcherE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -35359,7 +35359,7 @@ _ZN5clang12_GLOBAL__N_18internal26matcher_hasAnyInit0MatcherD2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal26matcher_hasAnyInit0Matcher7matchesERKNS_12InitListExprEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal26matcher_hasAnyInit0Matcher7matchesERKNS_12InitListExprEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::DynTypedNode", align 8
   %6 = alloca %"class.clang::ast_matchers::internal::BoundNodesTreeBuilder", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -35447,7 +35447,7 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5clang12_GLOBAL__N_18internal30matcher_hasCaptureInit0MatcherD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
+define internal void @_ZN5clang12_GLOBAL__N_18internal30matcher_hasCaptureInit0MatcherD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   ret void
 }
 
@@ -35458,7 +35458,7 @@ define internal void @_ZN5clang12_GLOBAL__N_18internal30matcher_hasCaptureInit0M
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal30matcher_hasCaptureInit0Matcher7matchesERKNS_10LambdaExprEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture readnone %2, ptr nocapture readnone %3) unnamed_addr #12 align 2 {
+define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal30matcher_hasCaptureInit0Matcher7matchesERKNS_10LambdaExprEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #12 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i16, ptr %6, align 4
@@ -35582,7 +35582,7 @@ _ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang12_GLOBAL__N_18internal28matcher_hasRangeStmt0MatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5clang12_GLOBAL__N_18internal28matcher_hasRangeStmt0MatcherD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang12_GLOBAL__N_18internal28matcher_hasRangeStmt0MatcherE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -35633,7 +35633,7 @@ _ZN5clang12_GLOBAL__N_18internal28matcher_hasRangeStmt0MatcherD2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal28matcher_hasRangeStmt0Matcher7matchesERKNS_15CXXForRangeStmtEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal28matcher_hasRangeStmt0Matcher7matchesERKNS_15CXXForRangeStmtEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::DynTypedNode", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -36201,7 +36201,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 declare i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4TypeE(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 declare i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
@@ -37228,7 +37228,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit4: ; preds = %_ZN5cl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal19TypeTraverseMatcherINS_13ReferenceTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
@@ -55558,16 +55558,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclEPKNS2_4StmtENS_12Dens
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18

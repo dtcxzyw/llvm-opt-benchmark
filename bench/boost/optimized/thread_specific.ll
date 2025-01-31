@@ -13,13 +13,13 @@ target triple = "x86_64-pc-linux-gnu"
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix3aux20thread_specific_baseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 {
+define void @_ZN5boost3log11v2_mt_posix3aux20thread_specific_baseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 align 2 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
   %3 = call i32 @pthread_key_create(ptr noundef nonnull %2, ptr noundef null) #5
@@ -40,7 +40,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous18pthread_key_traitsIjLb1ELb1EE8allocate
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix3aux20thread_specific_baseD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix3aux20thread_specific_baseD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !10
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
@@ -49,7 +49,7 @@ define void @_ZN5boost3log11v2_mt_posix3aux20thread_specific_baseD2Ev(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK5boost3log11v2_mt_posix3aux20thread_specific_base11get_contentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK5boost3log11v2_mt_posix3aux20thread_specific_base11get_contentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !10
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
@@ -58,7 +58,7 @@ define noundef ptr @_ZNK5boost3log11v2_mt_posix3aux20thread_specific_base11get_c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5boost3log11v2_mt_posix3aux20thread_specific_base11set_contentEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZNK5boost3log11v2_mt_posix3aux20thread_specific_base11set_contentEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !10
   %4 = ptrtoint ptr %3 to i64
   %5 = trunc i64 %4 to i32

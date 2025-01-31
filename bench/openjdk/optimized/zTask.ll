@@ -16,7 +16,7 @@ $_ZTV10WorkerTask = comdat any
 @_ZN5ZTask4TaskC1EPS_PKc = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5ZTask4TaskC2EPS_PKc
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ZTask4TaskC2EPS_PKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN5ZTask4TaskC2EPS_PKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 20), (24, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -30,7 +30,7 @@ define hidden void @_ZN5ZTask4TaskC2EPS_PKc(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ZTask4Task4workEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN5ZTask4Task4workEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -56,7 +56,7 @@ define hidden void @_ZN5ZTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK5ZTask4nameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK5ZTask4nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -86,7 +86,7 @@ define hidden void @_ZN16ZRestartableTaskC2EPKc(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16ZRestartableTask14resize_workersEj(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN16ZRestartableTask14resize_workersEj(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #2 align 2 {
   ret void
 }
 

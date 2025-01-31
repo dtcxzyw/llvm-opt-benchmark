@@ -259,7 +259,7 @@ define internal void @virtio_net_driver_exit() #0 section ".exit.text" align 16 
 declare dso_local void @unregister_virtio_driver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @virtnet_cpu_online(i32 %0, ptr noundef %1) #3 align 16 {
@@ -354,13 +354,13 @@ define internal noundef i32 @virtnet_cpu_dead(i32 %0, ptr noundef %1) #3 align 1
 declare dso_local i32 @register_virtio_driver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__cpuhp_setup_state(i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @virtnet_set_affinity(ptr nocapture noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @virtnet_set_affinity(ptr noundef captures(none) %0) unnamed_addr #3 align 16 {
   %2 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
   store i64 0, ptr %2, align 8
@@ -474,7 +474,7 @@ define internal fastcc void @virtnet_set_affinity(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
 declare dso_local i32 @cpumask_next_wrap(i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #5
@@ -1723,7 +1723,7 @@ virtnet_free_queues.exit:                         ; preds = %593, %583
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtnet_remove(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal void @virtnet_remove(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @virtionet_online, align 4
@@ -1746,7 +1746,7 @@ define internal void @virtnet_remove(ptr nocapture noundef readonly %0) #3 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtnet_config_changed(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal void @virtnet_config_changed(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -1756,7 +1756,7 @@ define internal void @virtnet_config_changed(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @virtnet_freeze(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal noundef i32 @virtnet_freeze(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @virtionet_online, align 4
@@ -1886,7 +1886,7 @@ declare dso_local ptr @alloc_etherdev_mqs(i32 noundef, i32 noundef, i32 noundef)
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtnet_config_changed_work(ptr noundef %0) #3 align 16 {
@@ -2661,7 +2661,7 @@ define internal fastcc zeroext i1 @virtnet_send_command(ptr noundef %0, i8 nound
 declare dso_local void @netif_carrier_off(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @virtnet_update_settings(ptr nocapture noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @virtnet_update_settings(ptr noundef captures(none) %0) unnamed_addr #3 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i8, align 1
   %4 = load ptr, ptr %0, align 8
@@ -2731,7 +2731,7 @@ declare dso_local void @virtio_reset_device(ptr noundef) local_unnamed_addr #1
 declare dso_local zeroext i1 @cancel_delayed_work_sync(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @free_receive_page_frags(ptr nocapture noundef readonly %0) unnamed_addr #3 align 16 {
+define internal fastcc void @free_receive_page_frags(ptr noundef readonly captures(none) %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i16, ptr %2, align 4
   %4 = icmp eq i16 %3, 0
@@ -3813,7 +3813,7 @@ define internal void @virtnet_tx_timeout(ptr noundef %0, i32 noundef %1) #8 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal void @virtnet_stats(ptr noundef %0, ptr nocapture noundef %1) #9 align 16 {
+define internal void @virtnet_stats(ptr noundef %0, ptr noundef captures(none) %1) #9 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2348
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 0
@@ -4035,7 +4035,7 @@ define internal noundef range(i32 -22, 1) i32 @virtnet_set_features(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i32 -95, 1) i32 @virtnet_get_phys_port_name(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #10 align 16 {
+define internal noundef range(i32 -95, 1) i32 @virtnet_get_phys_port_name(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #10 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2304
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 784
@@ -4057,7 +4057,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_get_phys_port_name(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = alloca %struct.scatterlist, align 8
   %4 = alloca %struct.scatterlist, align 8
   %5 = alloca %struct.scatterlist, align 8
@@ -4635,7 +4635,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @virtnet_xdp_xmit(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #3 align 16 {
+define internal i32 @virtnet_xdp_xmit(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr i8, ptr %0, i64 2304
   %7 = getelementptr i8, ptr %0, i64 2336
@@ -4998,7 +4998,7 @@ define internal i32 @virtnet_xdp_xmit(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @try_fill_recv(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 2080, 3265) %2) unnamed_addr #3 align 16 {
+define internal fastcc zeroext i1 @try_fill_recv(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 2080, 3265) %2) unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 632
@@ -5887,7 +5887,7 @@ define internal fastcc ptr @virtnet_rq_alloc(ptr noundef %0, i32 noundef %1, i32
 declare dso_local i32 @virtqueue_add_inbuf_ctx(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @virtnet_rq_unmap(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc void @virtnet_rq_unmap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
   %4 = load i64, ptr @vmemmap_base, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = ptrtoint ptr %1 to i64
@@ -6271,7 +6271,7 @@ declare dso_local zeroext i1 @virtqueue_enable_cb_delayed(ptr noundef) local_unn
 declare dso_local i32 @net_ratelimit() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @check_sq_full_and_disable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc void @check_sq_full_and_disable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 688
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 44
@@ -6540,7 +6540,7 @@ define internal fastcc noundef zeroext i1 @virtnet_commit_rss_command(ptr nounde
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #1
@@ -6567,7 +6567,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtnet_get_drvinfo(ptr nocapture noundef readonly %0, ptr noundef %1) #3 align 16 {
+define internal void @virtnet_get_drvinfo(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6596,7 +6596,7 @@ define internal void @virtnet_get_drvinfo(ptr nocapture noundef readonly %0, ptr
 declare dso_local i32 @ethtool_op_get_link(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @virtnet_get_coalesce(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #17 align 16 {
+define internal noundef i32 @virtnet_get_coalesce(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #17 align 16 {
   %5 = getelementptr i8, ptr %0, i64 2304
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 784
@@ -6649,7 +6649,7 @@ define internal noundef i32 @virtnet_get_coalesce(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #3 align 16 {
+define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #3 align 16 {
   %5 = alloca %struct.scatterlist, align 8
   %6 = alloca %struct.scatterlist, align 8
   %7 = getelementptr i8, ptr %0, i64 2304
@@ -6975,7 +6975,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtnet_get_ringparam(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((4, 8), (16, 24), (32, 36)) %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #3 align 16 {
+define internal void @virtnet_get_ringparam(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((4, 8), (16, 24), (32, 36)) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #3 align 16 {
   %5 = getelementptr i8, ptr %0, i64 2336
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 64
@@ -7004,7 +7004,7 @@ define internal void @virtnet_get_ringparam(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @virtnet_set_ringparam(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #3 align 16 {
+define internal i32 @virtnet_set_ringparam(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #3 align 16 {
   %5 = alloca %struct.scatterlist, align 8
   %6 = alloca %struct.scatterlist, align 8
   %7 = getelementptr i8, ptr %0, i64 2304
@@ -7330,7 +7330,7 @@ define internal i32 @virtnet_set_ringparam(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtnet_get_strings(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #3 align 16 {
+define internal void @virtnet_get_strings(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #3 align 16 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   store ptr %2, ptr %4, align 8
@@ -7391,7 +7391,7 @@ define internal void @virtnet_get_strings(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal void @virtnet_get_ethtool_stats(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #9 align 16 {
+define internal void @virtnet_get_ethtool_stats(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #9 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2350
   %5 = load i16, ptr %4, align 2
   %6 = icmp eq i16 %5, 0
@@ -7471,7 +7471,7 @@ define internal void @virtnet_get_ethtool_stats(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 -95, 917491) i32 @virtnet_get_sset_count(ptr nocapture noundef readonly %0, i32 noundef %1) #18 align 16 {
+define internal range(i32 -95, 917491) i32 @virtnet_get_sset_count(ptr noundef readonly captures(none) %0, i32 noundef %1) #18 align 16 {
   %3 = icmp eq i32 %1, 1
   br i1 %3, label %4, label %9
 
@@ -7488,7 +7488,7 @@ define internal range(i32 -95, 917491) i32 @virtnet_get_sset_count(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef range(i32 -95, 1) i32 @virtnet_get_rxnfc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #19 align 16 {
+define internal noundef range(i32 -95, 1) i32 @virtnet_get_rxnfc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #19 align 16 {
   %4 = load i32, ptr %1, align 8
   switch i32 %4, label %66 [
     i32 45, label %5
@@ -7625,7 +7625,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_get_rxnfc(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -95, 1) i32 @virtnet_set_rxnfc(ptr noundef %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define internal noundef range(i32 -95, 1) i32 @virtnet_set_rxnfc(ptr noundef %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %4, 42
@@ -7742,7 +7742,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_set_rxnfc(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 256) i32 @virtnet_get_rxfh_key_size(ptr nocapture noundef readonly %0) #18 align 16 {
+define internal range(i32 0, 256) i32 @virtnet_get_rxfh_key_size(ptr noundef readonly captures(none) %0) #18 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2363
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -7750,7 +7750,7 @@ define internal range(i32 0, 256) i32 @virtnet_get_rxfh_key_size(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 65536) i32 @virtnet_get_rxfh_indir_size(ptr nocapture noundef readonly %0) #18 align 16 {
+define internal range(i32 0, 65536) i32 @virtnet_get_rxfh_indir_size(ptr noundef readonly captures(none) %0) #18 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2364
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i32
@@ -7758,7 +7758,7 @@ define internal range(i32 0, 65536) i32 @virtnet_get_rxfh_indir_size(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @virtnet_get_rxfh(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #20 align 16 {
+define internal noundef i32 @virtnet_get_rxfh(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #20 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -7812,7 +7812,7 @@ define internal noundef i32 @virtnet_get_rxfh(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -95, 1) i32 @virtnet_set_rxfh(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 align 16 {
+define internal noundef range(i32 -95, 1) i32 @virtnet_set_rxfh(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #3 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2304
   %5 = load i8, ptr %1, align 8
   %6 = icmp ult i8 %5, 2
@@ -7876,7 +7876,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_set_rxfh(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @virtnet_get_channels(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((12, 36)) %1) #19 align 16 {
+define internal void @virtnet_get_channels(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((12, 36)) %1) #19 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2350
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
@@ -7899,7 +7899,7 @@ define internal void @virtnet_get_channels(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @virtnet_set_channels(ptr noundef %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define internal noundef range(i32 -22, 1) i32 @virtnet_set_channels(ptr noundef %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 4
@@ -7964,7 +7964,7 @@ define internal noundef range(i32 -22, 1) i32 @virtnet_set_channels(ptr noundef 
 declare dso_local i32 @ethtool_op_get_ts_info(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @virtnet_get_per_queue_coalesce(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #17 align 16 {
+define internal noundef range(i32 -22, 1) i32 @virtnet_get_per_queue_coalesce(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #17 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2348
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i32
@@ -8034,7 +8034,7 @@ define internal noundef range(i32 -22, 1) i32 @virtnet_get_per_queue_coalesce(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -95, 1) i32 @virtnet_set_per_queue_coalesce(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define internal range(i32 -95, 1) i32 @virtnet_set_per_queue_coalesce(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #3 align 16 {
   %4 = alloca %struct.scatterlist, align 8
   %5 = alloca %struct.scatterlist, align 8
   %6 = getelementptr i8, ptr %0, i64 2304
@@ -8223,7 +8223,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_per_queue_coalesce(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @virtnet_get_link_ksettings(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((4, 10)) %1) #19 align 16 {
+define internal noundef i32 @virtnet_get_link_ksettings(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((4, 10)) %1) #19 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2564
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -8255,7 +8255,7 @@ declare dso_local i32 @virtqueue_get_vring_size(ptr noundef) local_unnamed_addr 
 declare dso_local i32 @virtqueue_resize(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtnet_sq_free_unused_buf(ptr nocapture readnone %0, ptr noundef %1) #3 align 16 {
+define internal void @virtnet_sq_free_unused_buf(ptr readnone captures(none) %0, ptr noundef %1) #3 align 16 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 1
   %5 = icmp eq i64 %4, 0
@@ -8282,7 +8282,7 @@ declare dso_local void @netif_tx_wake_queue(ptr noundef) local_unnamed_addr #1
 declare dso_local void @consume_skb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtnet_rq_unmap_free_buf(ptr nocapture noundef readonly %0, ptr noundef %1) #3 align 16 {
+define internal void @virtnet_rq_unmap_free_buf(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 792
@@ -8309,7 +8309,7 @@ define internal void @virtnet_rq_unmap_free_buf(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @virtnet_rq_free_buf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc void @virtnet_rq_free_buf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i8, ptr %4, align 8, !range !6, !noundef !7
   %6 = icmp eq i8 %5, 0
@@ -9128,7 +9128,7 @@ define internal noundef i32 @virtnet_poll_tx(ptr noundef %0, i32 %1) #3 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtnet_rx_dim_work(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal void @virtnet_rx_dim_work(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = alloca %struct.scatterlist, align 8
   %3 = getelementptr i8, ptr %0, i64 -560
   %4 = load ptr, ptr %3, align 64
@@ -9245,7 +9245,7 @@ declare dso_local void @xdp_do_flush() local_unnamed_addr #1
 declare dso_local i32 @_raw_spin_trylock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @receive_buf(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6) unnamed_addr #3 align 16 {
+define internal fastcc void @receive_buf(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef %6) unnamed_addr #3 align 16 {
   %8 = alloca %struct.flow_keys_basic, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -10398,7 +10398,7 @@ declare dso_local zeroext i16 @eth_type_trans(ptr noundef, ptr noundef) local_un
 declare dso_local i32 @napi_gro_receive(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef %7, ptr noundef %8) unnamed_addr #3 align 16 {
+define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(none) %7, ptr noundef %8) unnamed_addr #3 align 16 {
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
@@ -11145,7 +11145,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @page_to_skb(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 4194304) %5, i32 noundef %6) unnamed_addr #3 align 16 {
+define internal fastcc ptr @page_to_skb(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 4194304) %5, i32 noundef %6) unnamed_addr #3 align 16 {
   %8 = load i64, ptr @vmemmap_base, align 8
   %9 = ptrtoint ptr %2 to i64
   %10 = sub i64 %9, %8
@@ -11423,7 +11423,7 @@ declare dso_local void @skb_coalesce_rx_frag(ptr noundef, i32 noundef, i32 nound
 declare dso_local void @skb_add_rx_frag(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mergeable_buf_free(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc void @mergeable_buf_free(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #26
   %6 = icmp sgt i32 %1, 1
@@ -11580,7 +11580,7 @@ define internal fastcc void @mergeable_buf_free(ptr nocapture noundef readonly %
 declare dso_local void @__rcu_read_lock() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 1, 5) i32 @virtnet_xdp_handler(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 1, 5) i32 @virtnet_xdp_handler(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4) unnamed_addr #3 align 16 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @bpf_stats_enabled_key, i32 2) #26
@@ -11829,7 +11829,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @virtnet_xdp_handler(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xdp_linearize_page(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 64, 384) %4, ptr nocapture noundef %5) unnamed_addr #3 align 16 {
+define internal fastcc ptr @xdp_linearize_page(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 64, 384) %4, ptr noundef captures(none) %5) unnamed_addr #3 align 16 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr %5, align 4
   %9 = add nuw nsw i32 %4, -3777
@@ -12181,7 +12181,7 @@ declare void @llvm.write_register.i64(metadata, i64) #22
 declare dso_local ptr @build_skb(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @xdp_update_skb_shared_info(ptr nocapture noundef nonnull %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #23 align 16 {
+define internal fastcc void @xdp_update_skb_shared_info(ptr noundef nonnull captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #23 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -12227,7 +12227,7 @@ declare dso_local ptr @__napi_alloc_skb(ptr noundef, i32 noundef, i32 noundef) l
 declare dso_local ptr @__alloc_skb(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @receive_small_xdp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef range(i32 0, 1519) %6, ptr nocapture noundef %7, ptr noundef %8) unnamed_addr #3 align 16 {
+define internal fastcc ptr @receive_small_xdp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef range(i32 0, 1519) %6, ptr noundef captures(none) %7, ptr noundef %8) unnamed_addr #3 align 16 {
   %10 = alloca %struct.xdp_buff, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -12504,7 +12504,7 @@ define internal fastcc ptr @receive_small_xdp(ptr noundef %0, ptr nocapture noun
 declare dso_local zeroext i1 @skb_partial_csum_set(ptr noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc void @virtio_net_hdr_set_proto(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #24 align 16 {
+define internal fastcc void @virtio_net_hdr_set_proto(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #24 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
@@ -12638,7 +12638,7 @@ define internal void @skb_xmit_done(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @virtqueue_set_dma_premapped(ptr noundef) local_unnamed_addr #1
@@ -12647,7 +12647,7 @@ declare dso_local i32 @virtqueue_set_dma_premapped(ptr noundef) local_unnamed_ad
 declare dso_local void @__netif_napi_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @mergeable_rx_buffer_size_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @mergeable_rx_buffer_size_show(ptr noundef %0, ptr noundef writeonly captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -12750,7 +12750,7 @@ declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr nounde
 declare dso_local zeroext i1 @flush_work(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @remove_vq_common(ptr nocapture noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @remove_vq_common(ptr noundef captures(none) %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   tail call void @virtio_reset_device(ptr noundef %2) #26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44

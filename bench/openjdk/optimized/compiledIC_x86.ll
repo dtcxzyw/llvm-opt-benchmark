@@ -74,7 +74,7 @@ define hidden noundef i32 @_ZN18CompiledDirectCall20reloc_to_interp_stubEv() loc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18CompiledDirectCall18set_to_interpretedERK12methodHandlePh(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18CompiledDirectCall18set_to_interpretedERK12methodHandlePh(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN18CompiledDirectCall9find_stubEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %7
@@ -118,7 +118,7 @@ declare noundef ptr @_ZN18CompiledDirectCall9find_stubEv(ptr noundef nonnull ali
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18CompiledDirectCall17set_stub_to_cleanEP22static_stub_Relocation(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18CompiledDirectCall17set_stub_to_cleanEP22static_stub_Relocation(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32

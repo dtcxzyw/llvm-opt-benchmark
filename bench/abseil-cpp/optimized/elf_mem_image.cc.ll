@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC1EPKvi = dso_local unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC2EPKvi
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18debugging_internal11ElfMemImageC2EPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr noundef %base) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl18debugging_internal11ElfMemImageC2EPKv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %this, ptr noundef %base) unnamed_addr #0 align 2 {
 entry:
   %cmp.not = icmp eq ptr %base, @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE
   br i1 %cmp.not, label %do.body2, label %do.end5
@@ -47,7 +47,7 @@ do.end5:                                          ; preds = %entry
 declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %this, ptr noundef %base) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 72)) %this, ptr noundef %base) local_unnamed_addr #2 align 2 {
 entry:
   %dynsym_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %dynstr_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -261,7 +261,7 @@ if.end90:                                         ; preds = %if.end90.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
   %hash_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %hash_, align 8
@@ -279,7 +279,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynsymEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynsymEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
   %hash_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %hash_.i, align 8
@@ -309,7 +309,7 @@ do.end5:                                          ; preds = %_ZNK4absl18debuggin
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
   %hash_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %hash_.i, align 8
@@ -339,7 +339,7 @@ do.end5:                                          ; preds = %_ZNK4absl18debuggin
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp sgt i32 %index, -1
   br i1 %cmp, label %land.rhs, label %do.body4
@@ -370,7 +370,7 @@ do.end7:                                          ; preds = %land.rhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %offset) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %offset) local_unnamed_addr #0 align 2 {
 entry:
   %conv = zext i32 %offset to i64
   %strsize_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -390,7 +390,7 @@ do.end6:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %sym) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly captures(none) %sym) local_unnamed_addr #0 align 2 {
 entry:
   %st_shndx = getelementptr inbounds nuw i8, ptr %sym, i64 6
   %0 = load i16, ptr %st_shndx, align 2
@@ -428,7 +428,7 @@ return:                                           ; preds = %do.end13, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp slt i32 %index, 0
   %conv = zext nneg i32 %index to i64
@@ -483,14 +483,14 @@ while.end:                                        ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK4absl18debugging_internal11ElfMemImage12GetVerdefAuxEPK12Elf64_Verdef(ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %this, ptr noundef readnone %verdef) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4absl18debugging_internal11ElfMemImage12GetVerdefAuxEPK12Elf64_Verdef(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %this, ptr noundef readnone %verdef) local_unnamed_addr #4 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %verdef, i64 20
   ret ptr %add.ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %offset) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %offset) local_unnamed_addr #0 align 2 {
 entry:
   %conv = zext i32 %offset to i64
   %strsize_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -510,7 +510,7 @@ do.end6:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage12LookupSymbolEPKcS3_iPNS1_10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %version, i32 noundef %type, ptr noundef writeonly %info_out) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage12LookupSymbolEPKcS3_iPNS1_10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly captures(none) %name, ptr noundef readonly captures(none) %version, i32 noundef %type, ptr noundef writeonly %info_out) local_unnamed_addr #0 align 2 {
 entry:
   %__begin2 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
   %index_.i.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 32
@@ -586,7 +586,7 @@ return:                                           ; preds = %for.inc, %_ZNK4absl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage5beginEv(ptr noalias nocapture nonnull sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 initializes((32, 36), (40, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage5beginEv(ptr noalias nonnull sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 captures(none) initializes((32, 36), (40, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
   %index_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i32 0, ptr %index_.i, align 8
@@ -597,7 +597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr noalias nocapture writeonly sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 initializes((32, 36), (40, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr noalias writeonly sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 captures(none) initializes((32, 36), (40, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
 entry:
   %hash_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %hash_.i, align 8
@@ -619,7 +619,7 @@ _ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorneERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %rhs) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorneERKS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %image_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %image_.i, align 8
@@ -642,10 +642,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
@@ -746,7 +746,7 @@ return:                                           ; preds = %for.inc, %if.then, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC2EPKvi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 36), (40, 48)) %this, ptr noundef %image, i32 noundef %index) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC2EPKvi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((32, 36), (40, 48)) %this, ptr noundef %image, i32 noundef %index) unnamed_addr #9 align 2 {
 entry:
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %index, ptr %index_, align 8
@@ -762,7 +762,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratoreqERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %rhs) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratoreqERKS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %image_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %image_, align 8
@@ -779,7 +779,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %increment) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i32 noundef %increment) local_unnamed_addr #0 align 2 {
 entry:
   %image_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %image_, align 8
@@ -981,7 +981,7 @@ return:                                           ; preds = %do.end5, %_ZNK4absl
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

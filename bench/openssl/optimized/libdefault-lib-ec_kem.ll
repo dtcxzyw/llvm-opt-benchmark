@@ -205,14 +205,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @eckem_encapsulate_init(ptr nocapture noundef %vctx, ptr noundef %vec, ptr noundef %params) #0 {
+define internal range(i32 -2, 2) i32 @eckem_encapsulate_init(ptr noundef captures(none) %vctx, ptr noundef %vec, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @eckem_init(ptr noundef %vctx, i32 noundef 4096, ptr noundef %vec, ptr noundef null, ptr noundef %params)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @eckem_encapsulate(ptr nocapture noundef readonly %vctx, ptr noundef writeonly %out, ptr noundef %outlen, ptr noundef %secret, ptr noundef %secretlen) #0 {
+define internal range(i32 -2, 2) i32 @eckem_encapsulate(ptr noundef readonly captures(none) %vctx, ptr noundef writeonly %out, ptr noundef %outlen, ptr noundef %secret, ptr noundef %secretlen) #0 {
 entry:
   %tmpbuf.i.i = alloca [66 x i8], align 16
   %sender_pub.i = alloca [133 x i8], align 16
@@ -412,14 +412,14 @@ return:                                           ; preds = %sw.default, %dhkem_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @eckem_decapsulate_init(ptr nocapture noundef %vctx, ptr noundef %vec, ptr noundef %params) #0 {
+define internal range(i32 -2, 2) i32 @eckem_decapsulate_init(ptr noundef captures(none) %vctx, ptr noundef %vec, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @eckem_init(ptr noundef %vctx, i32 noundef 8192, ptr noundef %vec, ptr noundef null, ptr noundef %params)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @eckem_decapsulate(ptr nocapture noundef readonly %vctx, ptr noundef %out, ptr nocapture noundef %outlen, ptr noundef %in, i64 noundef %inlen) #0 {
+define internal range(i32 -2, 2) i32 @eckem_decapsulate(ptr noundef readonly captures(none) %vctx, ptr noundef %out, ptr noundef captures(none) %outlen, ptr noundef %in, i64 noundef %inlen) #0 {
 entry:
   %recipient_pub.i = alloca [133 x i8], align 16
   %mode = getelementptr inbounds nuw i8, ptr %vctx, i64 32
@@ -561,7 +561,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @eckem_set_ctx_params(ptr nocapture noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @eckem_set_ctx_params(ptr noundef captures(none) %vctx, ptr noundef %params) #0 {
 entry:
   %tmp = alloca ptr, align 8
   %tmplen = alloca i64, align 8
@@ -633,20 +633,20 @@ return:                                           ; preds = %if.end12, %if.end23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @eckem_settable_ctx_params(ptr nocapture readnone %vctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @eckem_settable_ctx_params(ptr readnone captures(none) %vctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @known_settable_eckem_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @eckem_auth_encapsulate_init(ptr nocapture noundef %vctx, ptr noundef %vecx, ptr noundef %vauthpriv, ptr noundef %params) #0 {
+define internal range(i32 -2, 2) i32 @eckem_auth_encapsulate_init(ptr noundef captures(none) %vctx, ptr noundef %vecx, ptr noundef %vauthpriv, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @eckem_init(ptr noundef %vctx, i32 noundef 4096, ptr noundef %vecx, ptr noundef %vauthpriv, ptr noundef %params)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @eckem_auth_decapsulate_init(ptr nocapture noundef %vctx, ptr noundef %vecx, ptr noundef %vauthpub, ptr noundef %params) #0 {
+define internal range(i32 -2, 2) i32 @eckem_auth_decapsulate_init(ptr noundef captures(none) %vctx, ptr noundef %vecx, ptr noundef %vauthpub, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @eckem_init(ptr noundef %vctx, i32 noundef 8192, ptr noundef %vecx, ptr noundef %vauthpub, ptr noundef %params)
   ret i32 %call
@@ -661,7 +661,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 2) i32 @eckem_init(ptr nocapture noundef %vctx, i32 noundef range(i32 4096, 8193) %operation, ptr noundef %vec, ptr noundef %vauth, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @eckem_init(ptr noundef captures(none) %vctx, i32 noundef range(i32 4096, 8193) %operation, ptr noundef %vec, ptr noundef %vauth, ptr noundef %params) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -848,7 +848,7 @@ declare i32 @EC_KEY_up_ref(ptr noundef) local_unnamed_addr #1
 declare i32 @EC_GROUP_cmp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @derive_secret(ptr nocapture noundef readonly %ctx, ptr noundef %secret, ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef %privkey2, ptr noundef %peerkey2, ptr nocapture noundef readonly %sender_pub, ptr nocapture noundef nonnull readonly %recipient_pub) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @derive_secret(ptr noundef readonly captures(none) %ctx, ptr noundef %secret, ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef %privkey2, ptr noundef %peerkey2, ptr noundef readonly captures(none) %sender_pub, ptr noundef nonnull readonly captures(none) %recipient_pub) unnamed_addr #0 {
 entry:
   %suiteid.i = alloca [2 x i8], align 1
   %prk.i = alloca [64 x i8], align 16
@@ -990,7 +990,7 @@ err:                                              ; preds = %if.end22.thread, %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @EC_KEY_new_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1065,10 +1065,10 @@ declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, 
 declare i32 @ossl_eckem_modename2id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -17,7 +17,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pci_iomap_wc
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_pci_iomap354, ptr @__UNIQUE_ID___addressable_pci_iomap_range352, ptr @__UNIQUE_ID___addressable_pci_iomap_wc355, ptr @__UNIQUE_ID___addressable_pci_iomap_wc_range353], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pci_iomap_range(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local ptr @pci_iomap_range(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = sext i32 %1 to i64
   %7 = getelementptr [11 x %struct.resource], ptr %5, i64 0, i64 %6
@@ -71,7 +71,7 @@ declare dso_local ptr @ioport_map(i64 noundef, i32 noundef) local_unnamed_addr #
 declare dso_local ptr @ioremap(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pci_iomap_wc_range(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local ptr @pci_iomap_wc_range(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = sext i32 %1 to i64
   %7 = getelementptr [11 x %struct.resource], ptr %5, i64 0, i64 %6
@@ -115,7 +115,7 @@ define dso_local ptr @pci_iomap_wc_range(ptr nocapture noundef readonly %0, i32 
 declare dso_local ptr @ioremap_wc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pci_iomap(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local ptr @pci_iomap(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %5 = sext i32 %1 to i64
   %6 = getelementptr [11 x %struct.resource], ptr %4, i64 0, i64 %5
@@ -161,7 +161,7 @@ define dso_local ptr @pci_iomap(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pci_iomap_wc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local ptr @pci_iomap_wc(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %5 = sext i32 %1 to i64
   %6 = getelementptr [11 x %struct.resource], ptr %4, i64 0, i64 %5

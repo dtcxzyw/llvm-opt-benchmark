@@ -527,7 +527,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.323 = private unnamed_addr constant [13 x i8] c", Reason: %s\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @bp_creation_ts_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @bp_creation_ts_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
   %6 = icmp ult i64 %4, %5
@@ -583,7 +583,7 @@ define void @bp_eid_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @bp_eid_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @bp_eid_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %3, align 8
@@ -853,10 +853,10 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @bp_bundle_ident_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define range(i32 0, 2) i32 @bp_bundle_ident_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -1139,9 +1139,9 @@ define noundef ptr @proto_tree_add_cbor_eid(ptr noundef %0, i32 noundef %1, i32 
   br label %proto_item_set_generated.exit188
 
 93:                                               ; preds = %47
-  %94 = tail call noalias ptr @wmem_strdup(ptr noundef %8, ptr noundef %49) #16
+  %94 = tail call noalias ptr @wmem_strdup(ptr noundef %8, ptr noundef nonnull %49) #16
   %95 = load ptr, ptr %14, align 8
-  tail call void @wmem_free(ptr noundef %95, ptr noundef %49) #16
+  tail call void @wmem_free(ptr noundef %95, ptr noundef nonnull %49) #16
   %.not181 = icmp eq ptr %94, null
   br i1 %.not181, label %proto_item_set_generated.exit188, label %96
 
@@ -1171,7 +1171,7 @@ proto_item_set_generated.exit:                    ; preds = %47
   %108 = getelementptr i8, ptr %52, i64 1
   %109 = tail call noalias ptr @wmem_strdup(ptr noundef %8, ptr noundef %108) #16
   %110 = load ptr, ptr %14, align 8
-  tail call void @wmem_free(ptr noundef %110, ptr noundef %49) #16
+  tail call void @wmem_free(ptr noundef %110, ptr noundef nonnull %49) #16
   %.not182 = icmp eq ptr %109, null
   br i1 %.not182, label %proto_item_set_generated.exit188, label %111
 
@@ -1343,7 +1343,7 @@ declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #2
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_bpv7() local_unnamed_addr #1 {
@@ -1444,7 +1444,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_bp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca %struct.bpsec_block_mark_t, align 8
   %6 = alloca %struct.bpsec_block_mark_t, align 8
   %7 = alloca %struct.bpsec_block_mark_t, align 8
@@ -2211,7 +2211,7 @@ label_type_field.exit.i:                          ; preds = %402, %392
   br i1 %426, label %427, label %429
 
 427:                                              ; preds = %.loopexit.i
-  %428 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %390, ptr noundef nonnull @ei_block_type_dupe) #16
+  %428 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %390, ptr noundef nonnull @ei_block_type_dupe) #16
   br label %429
 
 429:                                              ; preds = %427, %.loopexit.i, %384
@@ -2220,7 +2220,7 @@ label_type_field.exit.i:                          ; preds = %402, %392
   %432 = call ptr @wmem_file_scope() #16
   %433 = call ptr @wscbor_require_uint64(ptr noundef %432, ptr noundef %431) #16
   %434 = load i32, ptr @hf_canonical_block_num, align 4
-  %435 = call ptr @proto_tree_add_cbor_uint64(ptr noundef %79, i32 noundef %434, ptr noundef %1, ptr noundef %0, ptr noundef %431, ptr noundef %433) #16
+  %435 = call ptr @proto_tree_add_cbor_uint64(ptr noundef %79, i32 noundef %434, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %431, ptr noundef %433) #16
   %436 = getelementptr inbounds nuw i8, ptr %370, i64 24
   store ptr %433, ptr %436, align 8
   %.not182.i = icmp eq ptr %433, null
@@ -2945,7 +2945,7 @@ define internal ptr @dtn_serv_value(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dtn_serv_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
+define internal void @dtn_serv_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_bp, align 4
@@ -3008,7 +3008,7 @@ define internal ptr @ipn_serv_value(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ipn_serv_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
+define internal void @ipn_serv_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_bp, align 4
@@ -3056,7 +3056,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #2
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bp_conv_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #1 {
+define internal noundef i32 @bp_conv_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -3078,7 +3078,7 @@ define internal noundef i32 @bp_conv_packet(ptr noundef initializes((24, 28)) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bp_endp_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #1 {
+define internal noundef i32 @bp_endp_packet(ptr noundef initializes((24, 28)) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -3123,7 +3123,7 @@ define internal noundef i32 @bp_endp_packet(ptr noundef initializes((24, 28)) %0
 declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @bp_filter_valid(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal range(i32 0, 2) i32 @bp_filter_valid(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_bp, align 4
@@ -3134,7 +3134,7 @@ define internal range(i32 0, 2) i32 @bp_filter_valid(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @bp_build_filter(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal noalias ptr @bp_build_filter(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_bp, align 4
@@ -3314,7 +3314,7 @@ declare i32 @proto_get_id_by_filter_name(ptr noundef) local_unnamed_addr #2
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @btsd_heur_cbor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 0, 2) i32 @btsd_heur_cbor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3726,7 +3726,7 @@ bp_bundle_ident_new.exit:                         ; preds = %32, %41
 declare void @dissector_add_custom_table_handle(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_block_prev_node(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_block_prev_node(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = load i32, ptr @hf_previous_node_nodeid, align 4
@@ -3737,7 +3737,7 @@ define internal i32 @dissect_block_prev_node(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_block_bundle_age(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_block_bundle_age(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -3752,7 +3752,7 @@ define internal i32 @dissect_block_bundle_age(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_block_hop_count(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_block_hop_count(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -4106,7 +4106,7 @@ proto_item_set_generated.exit174:                 ; preds = %.thread, %108, %131
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -4203,7 +4203,7 @@ declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #2
 declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @show_status_subj_ref(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal void @show_status_subj_ref(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr @bp_history, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @wmem_map_lookup(ptr noundef %5, ptr noundef %0) #16
@@ -4399,7 +4399,7 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @wmem_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @bp_bundle_frameloc_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @bp_bundle_frameloc_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp ult i32 %3, %4
@@ -4664,7 +4664,7 @@ declare void @nstime_set_zero(ptr noundef) local_unnamed_addr #2
 declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare zeroext i16 @crc16_ccitt(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -4691,7 +4691,7 @@ declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @mark_target_block(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @mark_target_block(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -4707,15 +4707,15 @@ define internal void @mark_target_block(ptr nocapture noundef readonly %0, ptr n
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @fragment_bundle_ident_temporary_key(ptr nocapture readnone %0, i32 %1, ptr noundef readnone returned %2) #7 {
+define internal noundef ptr @fragment_bundle_ident_temporary_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned %2) #7 {
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @fragment_bundle_ident_persistent_key(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2) #1 {
+define internal noalias noundef ptr @fragment_bundle_ident_persistent_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call noalias dereferenceable_or_null(72) ptr @g_slice_alloc0(i64 noundef 72) #21
   %5 = load i32, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -4772,7 +4772,7 @@ copy_address.exit:                                ; preds = %3, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @fragment_bundle_ident_free_temporary_key(ptr nocapture readnone %0) #7 {
+define internal void @fragment_bundle_ident_free_temporary_key(ptr readnone captures(none) %0) #7 {
   ret void
 }
 
@@ -4821,7 +4821,7 @@ declare void @g_slice_free1(i64 noundef, ptr noundef) local_unnamed_addr #2
 declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @bp_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal noundef nonnull ptr @bp_conv_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   switch i32 %1, label %19 [
     i32 0, label %3
     i32 1, label %7
@@ -4863,7 +4863,7 @@ define internal noundef nonnull ptr @bp_conv_get_filter_type(ptr nocapture nound
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @bp_endp_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal noundef nonnull ptr @bp_endp_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   switch i32 %1, label %15 [
     i32 0, label %3
     i32 1, label %7
@@ -4992,16 +4992,16 @@ declare ptr @wscbor_require_boolean(ptr noundef, ptr noundef) local_unnamed_addr
 declare ptr @proto_tree_add_cbor_boolean(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

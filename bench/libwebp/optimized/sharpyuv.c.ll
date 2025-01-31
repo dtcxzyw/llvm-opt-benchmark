@@ -81,7 +81,7 @@ define range(i32 0, 2) i32 @SharpYuvConvert(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SharpYuvConvertWithOptions(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, i32 noundef %7, ptr noundef writeonly %8, i32 noundef %9, ptr noundef writeonly %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr nocapture noundef readonly %15) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SharpYuvConvertWithOptions(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, i32 noundef %7, ptr noundef writeonly %8, i32 noundef %9, ptr noundef writeonly %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef readonly captures(none) %15) local_unnamed_addr #1 {
   %17 = alloca %struct.SharpYuvConversionMatrix, align 4
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -354,11 +354,11 @@ SharpYuvInit.exit:                                ; preds = %51, %.sink.split.i
   %168 = getelementptr inbounds i8, ptr %.0289.i, i64 %148
   %169 = getelementptr inbounds i8, ptr %.0203288.i, i64 %148
   %170 = getelementptr inbounds i8, ptr %.0204287.i, i64 %148
-  tail call fastcc void @ImportOneRow(ptr noundef %168, ptr noundef %169, ptr noundef %170, i32 noundef %3, i32 noundef %5, i32 noundef %13, ptr noundef %147)
+  tail call fastcc void @ImportOneRow(ptr noundef %168, ptr noundef %169, ptr noundef %170, i32 noundef %3, i32 noundef %5, i32 noundef %13, ptr noundef nonnull %147)
   br label %.preheader124
 
 171:                                              ; preds = %165
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %147, ptr nonnull align 2 %115, i64 %113, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %147, ptr nonnull align 2 %115, i64 %113, i1 false)
   br label %.preheader124
 
 .preheader124:                                    ; preds = %171, %167
@@ -1028,10 +1028,10 @@ define range(i32 0, 2) i32 @SharpYuvOptionsInitInternal(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ImportOneRow(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6) unnamed_addr #6 {
+define internal fastcc void @ImportOneRow(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(none) %6) unnamed_addr #6 {
   %8 = add nsw i32 %5, 1
   %9 = and i32 %8, -2
   %10 = icmp eq i32 %4, 8
@@ -1178,7 +1178,7 @@ define internal fastcc void @ImportOneRow(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @UpdateChroma(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 -1073741824, 1073741824) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @UpdateChroma(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef range(i32 -1073741824, 1073741824) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = icmp slt i32 %4, 13
   %8 = sub nsw i32 14, %4
   %9 = select i1 %7, i32 2, i32 %8
@@ -1283,7 +1283,7 @@ define internal fastcc void @UpdateChroma(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8

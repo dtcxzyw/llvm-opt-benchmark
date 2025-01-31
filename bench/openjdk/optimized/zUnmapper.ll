@@ -157,7 +157,7 @@ define hidden void @_ZN9ZUnmapperC2EP14ZPageAllocator(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916), ptr noundef, ...) local_unnamed_addr #2
 
@@ -336,7 +336,7 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %25, %23, %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK9ZUnmapper12is_saturatedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1050) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK9ZUnmapper12is_saturatedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1050) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 920
@@ -384,7 +384,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_166ELS1_0ELS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 0, -2097151) i64 @_ZNK9ZUnmapper14queue_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1050) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -2097151) i64 @_ZNK9ZUnmapper14queue_capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1050) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK14ZPageAllocator12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #9
@@ -401,7 +401,7 @@ define hidden noundef range(i64 0, -2097151) i64 @_ZNK9ZUnmapper14queue_capacity
 declare noundef i64 @_ZNK14ZPageAllocator12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(609)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK9ZUnmapper25do_unmap_and_destroy_pageEP5ZPage(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1050) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK9ZUnmapper25do_unmap_and_destroy_pageEP5ZPage(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1050) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.EventZUnmap, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 18
@@ -2120,10 +2120,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

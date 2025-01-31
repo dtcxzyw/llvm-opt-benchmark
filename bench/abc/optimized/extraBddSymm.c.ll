@@ -459,13 +459,13 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ._crit_edge177:                                   ; preds = %.lr.ph176, %.preheader170
   %.0.lcssa = phi ptr [ %131, %.preheader170 ], [ %146, %.lr.ph176 ]
-  %148 = tail call ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %.0.lcssa, ptr noundef nonnull %131)
+  %148 = tail call ptr @extraZddTuplesFromBdd(ptr noundef nonnull %0, ptr noundef %.0.lcssa, ptr noundef nonnull %131)
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %._crit_edge177
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %131) #10
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef %.1) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %131) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.1) #10
   br label %175
 
 151:                                              ; preds = %._crit_edge177
@@ -476,14 +476,14 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %156 = load i32, ptr %155, align 4
   %157 = add i32 %156, 1
   store i32 %157, ptr %155, align 4
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %131) #10
-  %158 = tail call ptr @cuddZddUnion(ptr noundef %0, ptr noundef %.1, ptr noundef nonnull %148) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %131) #10
+  %158 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %.1, ptr noundef nonnull %148) #10
   %159 = icmp eq ptr %158, null
   br i1 %159, label %160, label %161
 
 160:                                              ; preds = %151
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef %.1) #10
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef nonnull %148) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.1) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %148) #10
   br label %175
 
 161:                                              ; preds = %151
@@ -494,8 +494,8 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %166 = load i32, ptr %165, align 4
   %167 = add i32 %166, 1
   store i32 %167, ptr %165, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef %.1) #10
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef nonnull %148) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.1) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %148) #10
   br label %168
 
 168:                                              ; preds = %144, %161, %129
@@ -507,7 +507,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %173 = load i32, ptr %172, align 4
   %174 = add i32 %173, -1
   store i32 %174, ptr %172, align 4
-  tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @extraZddSymmPairsCompute, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.2) #10
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddSymmPairsCompute, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.2) #10
   br label %175
 
 175:                                              ; preds = %53, %20, %168, %160, %150, %133, %121, %109, %94, %82, %72, %._crit_edge182, %13
@@ -1053,7 +1053,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 53:                                               ; preds = %51, %43
   %.077 = phi ptr [ %46, %43 ], [ %42, %51 ]
   %.076 = phi ptr [ %50, %43 ], [ %52, %51 ]
-  %54 = tail call ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %.074, ptr noundef %.077)
+  %54 = tail call ptr @extraBddReduceVarSet(ptr noundef nonnull %0, ptr noundef %.074, ptr noundef %.077)
   %55 = icmp eq ptr %54, null
   br i1 %55, label %98, label %56
 
@@ -1065,12 +1065,12 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %61 = load i32, ptr %60, align 4
   %62 = add i32 %61, 1
   store i32 %62, ptr %60, align 4
-  %63 = tail call ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef nonnull %54, ptr noundef %.076)
+  %63 = tail call ptr @extraBddReduceVarSet(ptr noundef nonnull %0, ptr noundef nonnull %54, ptr noundef %.076)
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %56
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %54) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %54) #10
   br label %98
 
 66:                                               ; preds = %56
@@ -1081,17 +1081,17 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %71 = load i32, ptr %70, align 4
   %72 = add i32 %71, 1
   store i32 %72, ptr %70, align 4
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %54) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %54) #10
   %.not91 = icmp eq ptr %.07595, %1
   br i1 %.not91, label %94, label %73
 
 73:                                               ; preds = %66
-  %74 = tail call ptr @cuddBddExistAbstractRecur(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.07595) #10
+  %74 = tail call ptr @cuddBddExistAbstractRecur(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.07595) #10
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %73
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %63) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %63) #10
   br label %98
 
 77:                                               ; preds = %73
@@ -1102,13 +1102,13 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %82 = load i32, ptr %81, align 4
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 4
-  %84 = tail call ptr @cuddBddAndRecur(ptr noundef %0, ptr noundef nonnull %63, ptr noundef nonnull %74) #10
+  %84 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef nonnull %63, ptr noundef nonnull %74) #10
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %77
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %63) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %74) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %63) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %74) #10
   br label %98
 
 87:                                               ; preds = %77
@@ -1119,8 +1119,8 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %92 = load i32, ptr %91, align 4
   %93 = add i32 %92, 1
   store i32 %93, ptr %91, align 4
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %63) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %74) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %63) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %74) #10
   br label %94
 
 94:                                               ; preds = %87, %66
@@ -1130,7 +1130,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %96 = load i32, ptr %95, align 4
   %97 = add i32 %96, -1
   store i32 %97, ptr %95, align 4
-  tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @extraBddReduceVarSet, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.073) #10
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddReduceVarSet, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.073) #10
   br label %98
 
 98:                                               ; preds = %53, %13, %3, %9, %94, %86, %76, %65
@@ -1181,7 +1181,7 @@ define noalias noundef ptr @Extra_SymmPairsAllocate(i32 noundef %0) local_unname
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Extra_SymmPairsDissolve(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @Extra_SymmPairsDissolve(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1218,10 +1218,10 @@ define void @Extra_SymmPairsDissolve(ptr nocapture noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Extra_SymmPairsPrint(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @Extra_SymmPairsPrint(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %putchar = tail call i32 @putchar(i32 10)
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0

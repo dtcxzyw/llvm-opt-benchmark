@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define noundef range(i32 -901, 1) i32 @nghttp2_option_new(ptr nocapture noundef writeonly initializes((0, 8)) %option_ptr) local_unnamed_addr #0 {
+define noundef range(i32 -901, 1) i32 @nghttp2_option_new(ptr noundef writeonly captures(none) initializes((0, 8)) %option_ptr) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #5
   store ptr %call, ptr %option_ptr, align 8
@@ -17,17 +17,17 @@ entry:
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @nghttp2_option_del(ptr nocapture noundef %option) local_unnamed_addr #2 {
+define void @nghttp2_option_del(ptr noundef captures(none) %option) local_unnamed_addr #2 {
 entry:
   tail call void @free(ptr noundef %option) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_no_auto_window_update(ptr nocapture noundef initializes((64, 68)) %option, i32 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_no_auto_window_update(ptr noundef captures(none) initializes((64, 68)) %option, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -39,7 +39,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_peer_max_concurrent_streams(ptr nocapture noundef initializes((52, 56)) %option, i32 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_peer_max_concurrent_streams(ptr noundef captures(none) initializes((52, 56)) %option, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_no_recv_client_magic(ptr nocapture noundef initializes((68, 72)) %option, i32 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_no_recv_client_magic(ptr noundef captures(none) initializes((68, 72)) %option, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -63,7 +63,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_no_http_messaging(ptr nocapture noundef initializes((72, 76)) %option, i32 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_no_http_messaging(ptr noundef captures(none) initializes((72, 76)) %option, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -75,7 +75,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_max_reserved_remote_streams(ptr nocapture noundef initializes((56, 60)) %option, i32 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_max_reserved_remote_streams(ptr noundef captures(none) initializes((56, 60)) %option, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -87,7 +87,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_user_recv_extension_type(ptr nocapture noundef %option, i8 noundef zeroext %type) local_unnamed_addr #4 {
+define void @nghttp2_option_set_user_recv_extension_type(ptr noundef captures(none) %option, i8 noundef zeroext %type) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ult i8 %type, 10
   br i1 %cmp, label %return, label %if.end
@@ -113,7 +113,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_builtin_recv_extension_type(ptr nocapture noundef %option, i8 noundef zeroext %type) local_unnamed_addr #4 {
+define void @nghttp2_option_set_builtin_recv_extension_type(ptr noundef captures(none) %option, i8 noundef zeroext %type) local_unnamed_addr #4 {
 entry:
   switch i8 %type, label %return [
     i8 10, label %return.sink.split
@@ -144,7 +144,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_no_auto_ping_ack(ptr nocapture noundef initializes((76, 80)) %option, i32 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_no_auto_ping_ack(ptr noundef captures(none) initializes((76, 80)) %option, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -156,7 +156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_max_send_header_block_length(ptr nocapture noundef initializes((16, 24)) %option, i64 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_max_send_header_block_length(ptr noundef captures(none) initializes((16, 24)) %option, i64 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_max_deflate_dynamic_table_size(ptr nocapture noundef initializes((24, 32)) %option, i64 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_max_deflate_dynamic_table_size(ptr noundef captures(none) initializes((24, 32)) %option, i64 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -180,7 +180,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_no_closed_streams(ptr nocapture noundef initializes((80, 84)) %option, i32 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_no_closed_streams(ptr noundef captures(none) initializes((80, 84)) %option, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -192,7 +192,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_max_outbound_ack(ptr nocapture noundef initializes((32, 40)) %option, i64 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_max_outbound_ack(ptr noundef captures(none) initializes((32, 40)) %option, i64 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_max_settings(ptr nocapture noundef initializes((40, 48)) %option, i64 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_max_settings(ptr noundef captures(none) initializes((40, 48)) %option, i64 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -216,7 +216,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_server_fallback_rfc7540_priorities(ptr nocapture noundef initializes((84, 88)) %option, i32 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_server_fallback_rfc7540_priorities(ptr noundef captures(none) initializes((84, 88)) %option, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -228,7 +228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_no_rfc9113_leading_and_trailing_ws_validation(ptr nocapture noundef initializes((88, 92)) %option, i32 noundef %val) local_unnamed_addr #4 {
+define void @nghttp2_option_set_no_rfc9113_leading_and_trailing_ws_validation(ptr noundef captures(none) initializes((88, 92)) %option, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8
@@ -240,7 +240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nghttp2_option_set_stream_reset_rate_limit(ptr nocapture noundef initializes((0, 16)) %option, i64 noundef %burst, i64 noundef %rate) local_unnamed_addr #4 {
+define void @nghttp2_option_set_stream_reset_rate_limit(ptr noundef captures(none) initializes((0, 16)) %option, i64 noundef %burst, i64 noundef %rate) local_unnamed_addr #4 {
 entry:
   %opt_set_mask = getelementptr inbounds nuw i8, ptr %option, i64 48
   %0 = load i32, ptr %opt_set_mask, align 8

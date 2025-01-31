@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [25 x i8] c"adio/common/eof_offset.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Get_eof_offset(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define void @ADIOI_Get_eof_offset(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

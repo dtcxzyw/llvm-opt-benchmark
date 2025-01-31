@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @OnigEncAsciiToLowerCaseTable = external local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @mbc_enc_len(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i64
   %4 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %3
@@ -207,7 +207,7 @@ declare i32 @onigenc_unicode_property_name_to_ctype(ptr noundef, ptr noundef, pt
 declare i32 @onigenc_unicode_is_code_ctype(i32 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef %2) #5 {
+define internal i32 @get_ctype_code_range(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef %2) #5 {
   store i32 128, ptr %1, align 4
   %4 = tail call i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, ptr noundef %2) #7
   ret i32 %4

@@ -401,7 +401,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
 69:                                               ; preds = %._crit_edge.i
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.153) #8
   %70 = zext i32 %.48..48..48..48..48.625.i to i64
-  tail call fastcc void @spamsisnames(ptr noundef %37, i64 noundef %70, i16 noundef zeroext %.2..2..2..2..2.617.i, ptr noundef %58)
+  tail call fastcc void @spamsisnames(ptr noundef nonnull %37, i64 noundef %70, i16 noundef zeroext %.2..2..2..2..2.617.i, ptr noundef %58)
   br label %71
 
 71:                                               ; preds = %69, %68
@@ -417,7 +417,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
 73:                                               ; preds = %71
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.155) #8
   %74 = zext i32 %.56..56..56..56..56.627.i to i64
-  tail call fastcc void @spamsisnames(ptr noundef %37, i64 noundef %74, i16 noundef zeroext %.2..2..2..2..2.617.i, ptr noundef %58)
+  tail call fastcc void @spamsisnames(ptr noundef nonnull %37, i64 noundef %74, i16 noundef zeroext %.2..2..2..2..2.617.i, ptr noundef %58)
   br label %75
 
 75:                                               ; preds = %73, %72
@@ -611,7 +611,7 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 %140
   %144 = sub nuw nsw i32 8196, %.1421.i
   %145 = zext nneg i32 %144 to i64
-  %146 = call fastcc i64 @fmap_readn(ptr noundef %37, ptr noundef %143, i64 noundef %.1446.i, i64 noundef %145)
+  %146 = call fastcc i64 @fmap_readn(ptr noundef nonnull %37, ptr noundef %143, i64 noundef %.1446.i, i64 noundef %145)
   %147 = icmp eq i64 %146, -1
   br i1 %147, label %148, label %149
 
@@ -655,7 +655,7 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 %166
   %170 = sub nuw nsw i32 8196, %.3423.i
   %171 = zext nneg i32 %170 to i64
-  %172 = call fastcc i64 @fmap_readn(ptr noundef %37, ptr noundef %169, i64 noundef %.3448.i, i64 noundef %171)
+  %172 = call fastcc i64 @fmap_readn(ptr noundef nonnull %37, ptr noundef %169, i64 noundef %.3448.i, i64 noundef %171)
   %173 = icmp eq i64 %172, -1
   br i1 %173, label %174, label %175
 
@@ -699,7 +699,7 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   %195 = getelementptr inbounds nuw i8, ptr %7, i64 %192
   %196 = sub nuw nsw i32 8196, %.4424.i
   %197 = zext nneg i32 %196 to i64
-  %198 = call fastcc i64 @fmap_readn(ptr noundef %37, ptr noundef %195, i64 noundef %.4449.i, i64 noundef %197)
+  %198 = call fastcc i64 @fmap_readn(ptr noundef nonnull %37, ptr noundef %195, i64 noundef %.4449.i, i64 noundef %197)
   %199 = icmp eq i64 %198, -1
   br i1 %199, label %200, label %201
 
@@ -743,7 +743,7 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   %221 = getelementptr inbounds nuw i8, ptr %7, i64 %218
   %222 = sub nuw nsw i32 8196, %.5425.i
   %223 = zext nneg i32 %222 to i64
-  %224 = call fastcc i64 @fmap_readn(ptr noundef %37, ptr noundef %221, i64 noundef %.5450.i, i64 noundef %223)
+  %224 = call fastcc i64 @fmap_readn(ptr noundef nonnull %37, ptr noundef %221, i64 noundef %.5450.i, i64 noundef %223)
   %225 = icmp eq i64 %224, -1
   br i1 %225, label %226, label %227
 
@@ -787,7 +787,7 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   %247 = getelementptr inbounds nuw i8, ptr %7, i64 %244
   %248 = sub nuw nsw i32 8196, %.6.i
   %249 = zext nneg i32 %248 to i64
-  %250 = call fastcc i64 @fmap_readn(ptr noundef %37, ptr noundef %247, i64 noundef %.6451.i, i64 noundef %249)
+  %250 = call fastcc i64 @fmap_readn(ptr noundef nonnull %37, ptr noundef %247, i64 noundef %.6451.i, i64 noundef %249)
   %251 = icmp eq i64 %250, -1
   br i1 %251, label %252, label %253
 
@@ -831,7 +831,7 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   %273 = getelementptr inbounds nuw i8, ptr %7, i64 %270
   %274 = sub nuw nsw i32 8196, %.7.i
   %275 = zext nneg i32 %274 to i64
-  %276 = call fastcc i64 @fmap_readn(ptr noundef %37, ptr noundef %273, i64 noundef %.7452.i, i64 noundef %275)
+  %276 = call fastcc i64 @fmap_readn(ptr noundef nonnull %37, ptr noundef %273, i64 noundef %.7452.i, i64 noundef %275)
   %277 = icmp eq i64 %276, -1
   br i1 %277, label %278, label %279
 
@@ -907,7 +907,7 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
 301:                                              ; preds = %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %286
   %.0491.i = phi ptr [ @.str.177, %300 ], [ @.str.176, %299 ], [ @.str.175, %298 ], [ @.str.174, %297 ], [ @.str.173, %296 ], [ @.str.172, %295 ], [ @.str.171, %294 ], [ @.str.170, %293 ], [ @.str.169, %292 ], [ @.str.168, %291 ], [ @.str.167, %286 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.178, i32 noundef %186, ptr noundef nonnull %.0491.i) #8
-  %302 = call fastcc ptr @getsistring(ptr noundef %37, i32 noundef %238, i32 noundef %212)
+  %302 = call fastcc ptr @getsistring(ptr noundef nonnull %37, i32 noundef %238, i32 noundef %212)
   %.not552.i = icmp eq ptr %302, null
   br i1 %.not552.i, label %304, label %303
 
@@ -916,7 +916,7 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   br label %304
 
 304:                                              ; preds = %303, %301
-  %305 = call fastcc ptr @getsistring(ptr noundef %37, i32 noundef %290, i32 noundef %264)
+  %305 = call fastcc ptr @getsistring(ptr noundef nonnull %37, i32 noundef %290, i32 noundef %264)
   %.not553.i = icmp eq ptr %305, null
   br i1 %.not553.i, label %307, label %306
 
@@ -1201,7 +1201,7 @@ fmap_readn.exit594.i:                             ; preds = %select.unfold637.i,
   %423 = load i32, ptr %404, align 4
   %424 = zext i32 %423 to i64
   %425 = load ptr, ptr %42, align 8
-  %426 = call ptr %425(ptr noundef %37, i64 noundef %422, i64 noundef %424, i32 noundef 0) #8
+  %426 = call ptr %425(ptr noundef nonnull %37, i64 noundef %422, i64 noundef %424, i32 noundef 0) #8
   %.not558.i = icmp eq ptr %426, null
   br i1 %.not558.i, label %427, label %428
 
@@ -1346,7 +1346,7 @@ fmap_readn.exit594.i:                             ; preds = %select.unfold637.i,
   %485 = getelementptr inbounds nuw i8, ptr %7, i64 %482
   %486 = sub nuw nsw i32 8196, %.1421.i
   %487 = zext nneg i32 %486 to i64
-  %488 = call fastcc i64 @fmap_readn(ptr noundef %37, ptr noundef %485, i64 noundef %.1446.i, i64 noundef %487)
+  %488 = call fastcc i64 @fmap_readn(ptr noundef nonnull %37, ptr noundef %485, i64 noundef %.1446.i, i64 noundef %487)
   %489 = icmp eq i64 %488, -1
   br i1 %489, label %490, label %491
 
@@ -1395,7 +1395,7 @@ fmap_readn.exit594.i:                             ; preds = %select.unfold637.i,
   %513 = getelementptr inbounds nuw i8, ptr %7, i64 %510
   %514 = sub nuw nsw i32 8196, %.1421.i
   %515 = zext nneg i32 %514 to i64
-  %516 = call fastcc i64 @fmap_readn(ptr noundef %37, ptr noundef %513, i64 noundef %.1446.i, i64 noundef %515)
+  %516 = call fastcc i64 @fmap_readn(ptr noundef nonnull %37, ptr noundef %513, i64 noundef %.1446.i, i64 noundef %515)
   %517 = icmp eq i64 %516, -1
   br i1 %517, label %518, label %519
 
@@ -1443,7 +1443,7 @@ fmap_readn.exit594.i:                             ; preds = %select.unfold637.i,
   %540 = getelementptr inbounds nuw i8, ptr %7, i64 %537
   %541 = sub nuw nsw i32 8196, %.1421.i
   %542 = zext nneg i32 %541 to i64
-  %543 = call fastcc i64 @fmap_readn(ptr noundef %37, ptr noundef %540, i64 noundef %.1446.i, i64 noundef %542)
+  %543 = call fastcc i64 @fmap_readn(ptr noundef nonnull %37, ptr noundef %540, i64 noundef %.1446.i, i64 noundef %542)
   %544 = icmp eq i64 %543, -1
   br i1 %544, label %545, label %546
 
@@ -2542,13 +2542,13 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @cli_gentemp_with_prefix(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, 2147483648) i64 @fmap_readn(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 noundef %2, i64 noundef range(i64 0, 4294967296) %3) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 2147483648) i64 @fmap_readn(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 noundef %2, i64 noundef range(i64 0, 4294967296) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = icmp ne i64 %2, %6
@@ -2583,12 +2583,12 @@ define internal fastcc range(i64 -1, 2147483648) i64 @fmap_readn(ptr noundef %0,
 declare i32 @cli_rmdirs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spamsisnames(ptr noundef %0, i64 noundef range(i64 0, 38653919236) %1, i16 noundef zeroext %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @spamsisnames(ptr noundef %0, i64 noundef range(i64 0, 38653919236) %1, i16 noundef zeroext %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %.tr = zext i16 %2 to i64
   %5 = shl nuw nsw i64 %.tr, 3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2717,10 +2717,10 @@ declare i32 @cli_checklimits(ptr noundef, ptr noundef, i64 noundef, i64 noundef,
 declare i32 @uncompress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2731,7 +2731,7 @@ declare i32 @cli_magic_scan_desc(i32 noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @getfield(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @getfield(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8212
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 4
@@ -2853,7 +2853,7 @@ fmap_readn.exit.i:                                ; preds = %.fmap_readn.exit_cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @getsize(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @getsize(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8272
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8300
   %4 = load i32, ptr %3, align 4
@@ -2988,10 +2988,10 @@ declare i64 @llvm.umin.i64(i64, i64) #6
 declare i32 @llvm.usub.sat.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

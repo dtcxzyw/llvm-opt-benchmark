@@ -133,7 +133,7 @@ define hidden void @protobuf_lang_error(ptr noundef %0, ptr noundef readonly %1,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @pbl_printf(ptr nocapture noundef readonly %0, ...) unnamed_addr #4 {
+define internal void @pbl_printf(ptr noundef readonly captures(none) %0, ...) unnamed_addr #4 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call i32 @vprintf(ptr noundef %0, ptr noundef nonnull %2) #11
@@ -448,19 +448,19 @@ pbl_clear_state.exit:                             ; preds = %91, %92
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @g_queue_is_empty(ptr noundef) local_unnamed_addr #5
 
 declare ptr @g_queue_peek_head(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare i32 @protobuf_lang_lex_init(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @protobuf_lang_set_extra(ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -705,7 +705,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %25, %28
   br label %yy_reduce.exit
 
 97:                                               ; preds = %91
-  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %47, ptr noundef nonnull @.str.9, ptr noundef %85)
+  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %47, ptr noundef nonnull @.str.9, ptr noundef nonnull %85)
   %98 = getelementptr inbounds nuw i8, ptr %47, i64 48
   store i32 1, ptr %98, align 8
   br label %yy_reduce.exit
@@ -1564,7 +1564,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.preheader.i,
 declare ptr @g_queue_pop_head(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -1582,7 +1582,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @pbl_create_node(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
@@ -1609,7 +1609,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #5
 

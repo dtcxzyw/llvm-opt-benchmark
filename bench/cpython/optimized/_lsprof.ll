@@ -103,7 +103,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.57 = private unnamed_addr constant [38 x i8] c"inline time (not in further subcalls)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @pystart_callback(ptr noundef %self, ptr nocapture noundef readonly %args, i64 %size) #0 {
+define hidden noundef nonnull ptr @pystart_callback(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 %size) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   tail call fastcc void @ptrace_enter_call(ptr noundef %self, ptr noundef %0, ptr noundef %0)
@@ -463,7 +463,7 @@ restorePyerr:                                     ; preds = %if.then3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @pyreturn_callback(ptr noundef %self, ptr nocapture noundef readonly %args, i64 %size) #0 {
+define hidden noundef nonnull ptr @pyreturn_callback(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 %size) #0 {
 entry:
   %currentProfilerContext.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %currentProfilerContext.i, align 8
@@ -559,7 +559,7 @@ return:                                           ; preds = %if.end11, %PyObject
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @ccall_callback(ptr noundef %self, ptr nocapture noundef readonly %args, i64 %size) #0 {
+define hidden noundef ptr @ccall_callback(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 %size) #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load i32, ptr %flags, align 8
@@ -645,7 +645,7 @@ if.end4:                                          ; preds = %if.end.i9, %PyObjec
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @creturn_callback(ptr noundef %self, ptr nocapture noundef readonly %args, i64 %size) #0 {
+define hidden noundef ptr @creturn_callback(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 %size) #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load i32, ptr %flags, align 8
@@ -795,7 +795,7 @@ declare ptr @_PyType_Lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_Repr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @call_timer(ptr nocapture noundef readonly %pObj) unnamed_addr #0 {
+define internal fastcc i64 @call_timer(ptr noundef readonly captures(none) %pObj) unnamed_addr #0 {
 entry:
   %result.i = alloca i64, align 8
   %externalTimer = getelementptr inbounds nuw i8, ptr %pObj, i64 48
@@ -914,7 +914,7 @@ declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Stop(ptr nocapture noundef %pObj, ptr nocapture noundef nonnull readonly %self, ptr noundef nonnull %entry1) unnamed_addr #0 {
+define internal fastcc void @Stop(ptr noundef captures(none) %pObj, ptr noundef nonnull readonly captures(none) %self, ptr noundef nonnull %entry1) unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @call_timer(ptr noundef %pObj)
   %0 = load i64, ptr %self, align 8
@@ -1008,7 +1008,7 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_lsprof_traverse(ptr noundef %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @_lsprof_traverse(ptr noundef %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #4
   %0 = load ptr, ptr %call.i, align 8
@@ -1311,7 +1311,7 @@ Py_DECREF.exit:                                   ; preds = %Py_XDECREF.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @profiler_init(ptr nocapture noundef %pObj, ptr noundef %args, ptr noundef %kw) #0 {
+define internal range(i32 -1, 1) i32 @profiler_init(ptr noundef captures(none) %pObj, ptr noundef %args, ptr noundef %kw) #0 {
 entry:
   %timer = alloca ptr, align 8
   %timeunit = alloca double, align 8
@@ -1458,7 +1458,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @profiler_traverse(ptr nocapture noundef readonly %op, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @profiler_traverse(ptr noundef readonly captures(none) %op, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val3 = load ptr, ptr %0, align 8
@@ -1479,7 +1479,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_lsprof_Profiler_getstats(ptr nocapture noundef %self, ptr nocapture noundef readonly %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @_lsprof_Profiler_getstats(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %collect.i = alloca %struct.statscollector_t, align 8
   %tobool.not = icmp eq i64 %nargs, 0
@@ -1781,7 +1781,7 @@ return:                                           ; preds = %if.end.i40, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @profiler_disable(ptr nocapture noundef %self, ptr nocapture readnone %noarg) #0 {
+define internal noundef ptr @profiler_disable(ptr noundef captures(none) %self, ptr readnone captures(none) %noarg) #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load i32, ptr %flags, align 8
@@ -1993,7 +1993,7 @@ return:                                           ; preds = %pending_exception.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @profiler_clear(ptr nocapture noundef %pObj, ptr nocapture readnone %noarg) #0 {
+define internal noundef nonnull ptr @profiler_clear(ptr noundef captures(none) %pObj, ptr readnone captures(none) %noarg) #0 {
 entry:
   %profilerEntries.i = getelementptr inbounds nuw i8, ptr %pObj, i64 16
   %0 = load ptr, ptr %profilerEntries.i, align 8
@@ -2039,7 +2039,7 @@ declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 declare i32 @RotatingTree_Enum(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @statsForEntry(ptr nocapture noundef readonly %node, ptr noundef %arg) #0 {
+define internal i32 @statsForEntry(ptr noundef readonly captures(none) %node, ptr noundef %arg) #0 {
 entry:
   %callcount = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load i64, ptr %callcount, align 8
@@ -2162,7 +2162,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @statsForSubEntry(ptr nocapture noundef readonly %node, ptr nocapture noundef readonly %arg) #0 {
+define internal i32 @statsForSubEntry(ptr noundef readonly captures(none) %node, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %0 = load ptr, ptr %node, align 8
   %state = getelementptr inbounds nuw i8, ptr %arg, i64 24
@@ -2228,7 +2228,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @freeEntry(ptr noundef %header, ptr nocapture readnone %arg) #0 {
+define internal noundef i32 @freeEntry(ptr noundef %header, ptr readnone captures(none) %arg) #0 {
 entry:
   %calls = getelementptr inbounds nuw i8, ptr %header, i64 72
   %0 = load ptr, ptr %calls, align 8
@@ -2256,7 +2256,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @freeSubEntry(ptr noundef %header, ptr nocapture readnone %arg) #0 {
+define internal noundef i32 @freeSubEntry(ptr noundef %header, ptr readnone captures(none) %arg) #0 {
 entry:
   tail call void @PyMem_Free(ptr noundef %header) #4
   ret i32 0
@@ -2269,13 +2269,13 @@ declare i32 @_PyEval_SetProfile(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @PyErr_FormatUnraisable(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

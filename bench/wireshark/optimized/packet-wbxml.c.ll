@@ -2385,14 +2385,14 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wbxml(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_wbxml(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_wbxml_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_uaprof(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_uaprof(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_wbxml_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @decode_uaprof_wap_248)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %5
@@ -2628,7 +2628,7 @@ define internal fastcc void @dissect_wbxml_common(ptr noundef %0, ptr noundef %1
   %104 = call ptr @wmem_packet_scope() #4
   %105 = load ptr, ptr %6, align 8
   %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #5
-  %107 = call ptr @format_text(ptr noundef %104, ptr noundef %105, i64 noundef %106) #4
+  %107 = call ptr @format_text(ptr noundef %104, ptr noundef nonnull %105, i64 noundef %106) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %103, ptr noundef nonnull @.str.168, ptr noundef %107) #4
   %108 = load ptr, ptr %5, align 8
   %109 = load i32, ptr %7, align 4
@@ -2656,7 +2656,7 @@ show_wbxml_string_table.exit:                     ; preds = %.lr.ph.i, %91
 
 120:                                              ; preds = %113
   %121 = load ptr, ptr %8, align 8
-  %122 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %121, ptr noundef nonnull @ei_wbxml_data_not_shown) #4
+  %122 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %121, ptr noundef nonnull @ei_wbxml_data_not_shown) #4
   br label %163
 
 123:                                              ; preds = %113
@@ -2749,14 +2749,14 @@ get_wbxml_decoding_from_content_type.exit.thread129: ; preds = %145, %get_wbxml_
 .sink.split:                                      ; preds = %.preheader.i118, %155, %get_wbxml_decoding_from_public_id.exit.thread, %137, %get_wbxml_decoding_from_content_type.exit
   %ei_wbxml_content_type_not_supported.sink = phi ptr [ @ei_wbxml_content_type_not_supported, %get_wbxml_decoding_from_content_type.exit ], [ @ei_wbxml_content_type_not_supported, %137 ], [ @ei_wbxml_content_type_not_supported, %get_wbxml_decoding_from_public_id.exit.thread ], [ @ei_wbxml_content_type_disabled, %155 ], [ @ei_wbxml_content_type_not_supported, %.preheader.i118 ]
   %157 = load ptr, ptr %8, align 8
-  %158 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %157, ptr noundef nonnull %ei_wbxml_content_type_not_supported.sink) #4
+  %158 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %157, ptr noundef nonnull %ei_wbxml_content_type_not_supported.sink) #4
   br label %159
 
 159:                                              ; preds = %.sink.split, %155
   %.1 = phi ptr [ %.099, %155 ], [ null, %.sink.split ]
   %160 = load i32, ptr @ett_wbxml_tags, align 4
   %161 = call ptr @proto_tree_add_subtree(ptr noundef %118, ptr noundef %0, i32 noundef %116, i32 noundef -1, i32 noundef %160, ptr noundef null, ptr noundef nonnull @.str.166) #4
-  %162 = call fastcc i32 @parse_wbxml_tag_defined(ptr noundef %161, ptr noundef %0, ptr noundef %1, i32 noundef %116, i32 noundef %87, ptr noundef %13, ptr noundef %14, ptr noundef %.1)
+  %162 = call fastcc i32 @parse_wbxml_tag_defined(ptr noundef %161, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %116, i32 noundef %87, ptr noundef %13, ptr noundef %14, ptr noundef %.1)
   br label %163
 
 163:                                              ; preds = %159, %120, %17
@@ -2796,7 +2796,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -3469,7 +3469,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3516,7 +3516,7 @@ define internal noalias ptr @default_opaque_binary_tag(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @default_opaque_literal_tag(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal noalias ptr @default_opaque_literal_tag(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %9 = load ptr, ptr %8, align 8
@@ -3540,7 +3540,7 @@ define internal noalias ptr @default_opaque_binary_attr(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @default_opaque_literal_attr(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal noalias ptr @default_opaque_literal_attr(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %9 = load ptr, ptr %8, align 8
@@ -3722,7 +3722,7 @@ define internal fastcc noalias ptr @date_time_from_opaque(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @emnc10_opaque_binary_attr(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -4091,7 +4091,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @format_char(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @ext_t_0_wv_cspc_11(ptr nocapture readnone %0, i32 noundef %1, i32 %2) #0 {
+define internal noalias ptr @ext_t_0_wv_cspc_11(ptr readnone captures(none) %0, i32 noundef %1, i32 %2) #0 {
   %4 = tail call ptr @wmem_packet_scope() #4
   %5 = tail call ptr @val_to_str_ext(i32 noundef %1, ptr noundef nonnull @vals_wv_csp_11_element_value_tokens_ext, ptr noundef nonnull @.str.1078) #4
   %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %4, ptr noundef nonnull @.str.1077, ptr noundef %5) #4
@@ -4308,7 +4308,7 @@ define internal ptr @wv_csp11_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @ext_t_0_wv_cspc_12(ptr nocapture readnone %0, i32 noundef %1, i32 %2) #0 {
+define internal noalias ptr @ext_t_0_wv_cspc_12(ptr readnone captures(none) %0, i32 noundef %1, i32 %2) #0 {
   %4 = tail call ptr @wmem_packet_scope() #4
   %5 = tail call ptr @val_to_str(i32 noundef %1, ptr noundef nonnull @vals_wv_csp_12_element_value_tokens, ptr noundef nonnull @.str.1115) #4
   %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %4, ptr noundef nonnull @.str.1077, ptr noundef %5) #4
@@ -4552,7 +4552,7 @@ define internal ptr @wv_csp12_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @ext_t_0_wv_cspc_13(ptr nocapture readnone %0, i32 noundef %1, i32 %2) #0 {
+define internal noalias ptr @ext_t_0_wv_cspc_13(ptr readnone captures(none) %0, i32 noundef %1, i32 %2) #0 {
   %4 = tail call ptr @wmem_packet_scope() #4
   %5 = tail call ptr @val_to_str(i32 noundef %1, ptr noundef nonnull @vals_wv_csp_13_element_value_tokens, ptr noundef nonnull @.str.1179) #4
   %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %4, ptr noundef nonnull @.str.1077, ptr noundef %5) #4
@@ -4990,7 +4990,7 @@ declare void @p_set_proto_depth(ptr noundef, i32 noundef, i32 noundef) local_unn
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5, ptr noundef readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, ptr noundef readonly %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = tail call i32 @tvb_reported_length(ptr noundef %1) #4
@@ -5573,10 +5573,10 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

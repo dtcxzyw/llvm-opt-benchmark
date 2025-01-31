@@ -563,7 +563,7 @@ declare void @ws_logv(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_
 declare void @extcap_help_print(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @randpkt_example_list(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -572,7 +572,7 @@ declare void @g_strfreev(ptr noundef) local_unnamed_addr #2
 declare void @extcap_config_debug(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #4

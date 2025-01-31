@@ -103,7 +103,7 @@ define hidden ptr @mbedtls_cipher_info_from_string(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @mbedtls_cipher_info_from_values(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
@@ -145,13 +145,13 @@ define hidden ptr @mbedtls_cipher_info_from_values(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_cipher_init(ptr nocapture noundef writeonly initializes((0, 96)) %0) local_unnamed_addr #5 {
+define hidden void @mbedtls_cipher_init(ptr noundef writeonly captures(none) initializes((0, 96)) %0) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_cipher_free(ptr noundef %0) local_unnamed_addr #7 {
@@ -196,10 +196,10 @@ define hidden void @mbedtls_cipher_free(ptr noundef %0) local_unnamed_addr #7 {
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -24960, 1) i32 @mbedtls_cipher_setup(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #7 {
+define hidden range(i32 -24960, 1) i32 @mbedtls_cipher_setup(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %mbedtls_cipher_set_padding_mode.exit, label %4
 
@@ -235,7 +235,7 @@ mbedtls_cipher_set_padding_mode.exit:             ; preds = %15, %12, %4, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_set_padding_mode(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_set_padding_mode(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
@@ -269,7 +269,7 @@ switch.lookup:                                    ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_cipher_setkey(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define hidden i32 @mbedtls_cipher_setkey(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %31, label %7
@@ -323,7 +323,7 @@ define hidden i32 @mbedtls_cipher_setkey(ptr nocapture noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_cipher_set_iv(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 {
+define hidden i32 @mbedtls_cipher_set_iv(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %54, label %6
@@ -439,10 +439,10 @@ declare i32 @mbedtls_ccm_set_lengths(ptr noundef, i64 noundef, i64 noundef, i64 
 declare i32 @mbedtls_ccm_starts(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_reset(ptr nocapture noundef %0) local_unnamed_addr #12 {
+define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_reset(ptr noundef captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
@@ -1007,7 +1007,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @add_pkcs_padding(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) #13 {
+define internal void @add_pkcs_padding(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) #13 {
   %4 = sub i64 %1, %2
   %.not = icmp eq i64 %1, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1077,7 +1077,7 @@ define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @add_one_and_zeros_padding(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) #13 {
+define internal void @add_one_and_zeros_padding(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) #13 {
   %4 = sub i64 %1, %2
   %5 = getelementptr inbounds i8, ptr %0, i64 %2
   store i8 -128, ptr %5, align 1
@@ -1142,7 +1142,7 @@ define internal range(i32 -25088, 1) i32 @get_one_and_zeros_padding(ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @add_zeros_and_len_padding(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) #13 {
+define internal void @add_zeros_and_len_padding(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) #13 {
   %4 = sub i64 %1, %2
   %5 = icmp ugt i64 %4, 1
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1215,7 +1215,7 @@ define internal range(i32 -25088, 1) i32 @get_zeros_and_len_padding(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @add_zeros_padding(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) #5 {
+define internal void @add_zeros_padding(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) #5 {
   %4 = icmp ult i64 %2, %1
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1281,7 +1281,7 @@ define internal range(i32 -24832, 1) i32 @get_no_padding(ptr noundef readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_cipher_write_tag(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 {
+define hidden i32 @mbedtls_cipher_write_tag(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = alloca i64, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
@@ -1330,7 +1330,7 @@ declare i32 @mbedtls_gcm_finish(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare i32 @mbedtls_chachapoly_finish(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_cipher_check_tag(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 {
+define hidden i32 @mbedtls_cipher_check_tag(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %0, align 8
@@ -1443,7 +1443,7 @@ mbedtls_cipher_reset.exit:                        ; preds = %10, %16, %13, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_cipher_auth_encrypt_ext(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10) local_unnamed_addr #7 {
+define hidden i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10) local_unnamed_addr #7 {
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
@@ -1527,7 +1527,7 @@ mbedtls_cipher_aead_encrypt.exit:                 ; preds = %30, %34, %38, %41, 
 declare i32 @mbedtls_nist_kw_wrap(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10) local_unnamed_addr #7 {
+define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10) local_unnamed_addr #7 {
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4

@@ -45,7 +45,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @_ZN25ShenandoahGCStateResetterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN25ShenandoahGCStateResetterD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25ShenandoahGCStateResetterC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(9) initializes((0, 9)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25ShenandoahGCStateResetterC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(9) initializes((0, 9)) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %2, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -60,7 +60,7 @@ define hidden void @_ZN25ShenandoahGCStateResetterC2Ev(ptr nocapture noundef non
 declare noundef signext i8 @_ZNK14ShenandoahHeap8gc_stateEv(ptr noundef nonnull align 8 dereferenceable(2657)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25ShenandoahGCStateResetterD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25ShenandoahGCStateResetterD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8

@@ -60,7 +60,7 @@ entry:
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lookupKeyByPattern(ptr noundef %db, ptr nocapture noundef readonly %pattern, ptr noundef %subst) local_unnamed_addr #0 {
+define dso_local ptr @lookupKeyByPattern(ptr noundef %db, ptr noundef readonly captures(none) %pattern, ptr noundef %subst) local_unnamed_addr #0 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %pattern, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -325,19 +325,19 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @decrRefCount(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @lookupKeyRead(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @hashTypeGetValueObject(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sortCompare(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2) #0 {
+define dso_local i32 @sortCompare(ptr noundef readonly captures(none) %s1, ptr noundef readonly captures(none) %s2) #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4972), align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -429,7 +429,7 @@ if.end55:                                         ; preds = %if.then18, %if.else
 declare i32 @compareStringObjects(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcoll(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcoll(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @collateStringObjects(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1648,7 +1648,7 @@ declare void @zfree(ptr noundef) #2
 declare i32 @ACLUserCheckCmdWithUnrestrictedKeyAccess(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1704,7 +1704,7 @@ declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #2
 declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #8
@@ -1712,7 +1712,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare void @pqsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @addReplyArrayLen(ptr noundef, i64 noundef) local_unnamed_addr #2
 

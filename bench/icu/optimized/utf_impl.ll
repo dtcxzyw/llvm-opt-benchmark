@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL15utf8_errorValue = internal unnamed_addr constant [6 x i32] [i32 21, i32 159, i32 65535, i32 1114111, i32 0, i32 0], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @utf8_nextCharSafeBody_75(ptr nocapture noundef readonly %s, ptr nocapture noundef %pi, i32 noundef %length, i32 noundef %c, i8 noundef signext %strict) local_unnamed_addr #0 {
+define i32 @utf8_nextCharSafeBody_75(ptr noundef readonly captures(none) %s, ptr noundef captures(none) %pi, i32 noundef %length, i32 noundef %c, i8 noundef signext %strict) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pi, align 4
   %cmp = icmp eq i32 %0, %length
@@ -242,7 +242,7 @@ return:                                           ; preds = %_ZL10errorValueia.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @utf8_appendCharSafeBody_75(ptr nocapture noundef writeonly %s, i32 noundef %i, i32 noundef %length, i32 noundef %c, ptr noundef writeonly %pIsError) local_unnamed_addr #1 {
+define i32 @utf8_appendCharSafeBody_75(ptr noundef writeonly captures(none) %s, i32 noundef %i, i32 noundef %length, i32 noundef %c, ptr noundef writeonly %pIsError) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i32 %c, 2048
   br i1 %cmp, label %if.then, label %if.else
@@ -410,7 +410,7 @@ return:                                           ; preds = %if.then72, %do.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @utf8_prevCharSafeBody_75(ptr nocapture noundef readonly %s, i32 noundef %start, ptr nocapture noundef %pi, i32 noundef %c, i8 noundef signext %strict) local_unnamed_addr #0 {
+define i32 @utf8_prevCharSafeBody_75(ptr noundef readonly captures(none) %s, i32 noundef %start, ptr noundef captures(none) %pi, i32 noundef %c, i8 noundef signext %strict) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pi, align 4
   %1 = and i32 %c, 192
@@ -650,7 +650,7 @@ return:                                           ; preds = %land.lhs.true82, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @utf8_back1SafeBody_75(ptr nocapture noundef readonly %s, i32 noundef %start, i32 noundef %i) local_unnamed_addr #2 {
+define i32 @utf8_back1SafeBody_75(ptr noundef readonly captures(none) %s, i32 noundef %start, i32 noundef %i) local_unnamed_addr #2 {
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 %idxprom

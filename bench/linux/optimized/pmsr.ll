@@ -85,7 +85,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cfg80211_pms
 @llvm.compiler.used = appending global [14 x ptr] [ptr @__UNIQUE_ID___addressable_cfg80211_pmsr_complete3173, ptr @__UNIQUE_ID___addressable_cfg80211_pmsr_report3176, ptr @trace_cfg80211_pmsr_complete.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace3038, ptr @trace_cfg80211_pmsr_complete.__UNIQUE_ID___addressable___SCK__tp_func_cfg80211_pmsr_complete3037, ptr @trace_cfg80211_pmsr_report.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace3024, ptr @trace_cfg80211_pmsr_report.__UNIQUE_ID___addressable___SCK__tp_func_cfg80211_pmsr_report3023, ptr @trace_rdev_abort_pmsr.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2226, ptr @trace_rdev_abort_pmsr.__UNIQUE_ID___addressable___SCK__tp_func_rdev_abort_pmsr2225, ptr @trace_rdev_return_int.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace574, ptr @trace_rdev_return_int.__UNIQUE_ID___addressable___SCK__tp_func_rdev_return_int573, ptr @trace_rdev_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace616, ptr @trace_rdev_return_void.__UNIQUE_ID___addressable___SCK__tp_func_rdev_return_void615, ptr @trace_rdev_start_pmsr.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2212, ptr @trace_rdev_start_pmsr.__UNIQUE_ID___addressable___SCK__tp_func_rdev_start_pmsr2211], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nl80211_pmsr_start(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [14 x ptr], align 16
   %4 = alloca [5 x ptr], align 16
   %5 = alloca [3 x ptr], align 16
@@ -1148,7 +1148,7 @@ rdev_start_pmsr.exit:                             ; preds = %572, %574, %587, %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @nla_find(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -1157,13 +1157,13 @@ declare dso_local ptr @nla_find(ptr noundef, i32 noundef, i32 noundef) local_unn
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @nl80211_parse_random_mac(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
@@ -1345,7 +1345,7 @@ define dso_local void @cfg80211_pmsr_complete(ptr noundef %0, ptr noundef %1, i3
 declare dso_local ptr @nl80211hdr_put(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_pmsr_report(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local void @cfg80211_pmsr_report(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
@@ -1954,7 +1954,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @nl80211_parse_chandef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

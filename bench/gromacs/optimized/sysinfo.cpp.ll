@@ -76,7 +76,7 @@ define noundef i32 @_Z10gmx_getuidv() local_unnamed_addr #3 {
 declare i32 @getuid() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_Z15gmx_getusernamePcm(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @_Z15gmx_getusernamePcm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ugt i64 %1, 7
   br i1 %3, label %5, label %4
 
@@ -105,7 +105,7 @@ define noundef range(i32 -1, 1) i32 @_Z15gmx_getusernamePcm(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getlogin_r(ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i32 @getlogin_r(ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z11gmx_ctime_rB5cxx11PKl(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {

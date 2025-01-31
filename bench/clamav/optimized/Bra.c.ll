@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 4, 1) i64 @ARM_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i64 4, 1) i64 @ARM_Convert(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ult i64 %1, 4
   br i1 %5, label %.loopexit, label %6
 
@@ -108,7 +108,7 @@ define range(i64 4, 1) i64 @ARM_Convert(ptr nocapture noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @ARMT_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i64 @ARMT_Convert(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ult i64 %1, 4
   br i1 %5, label %.loopexit, label %6
 
@@ -244,7 +244,7 @@ define i64 @ARMT_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 4, 1) i64 @PPC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i64 4, 1) i64 @PPC_Convert(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ult i64 %1, 4
   br i1 %5, label %.loopexit, label %6
 
@@ -379,7 +379,7 @@ define range(i64 4, 1) i64 @PPC_Convert(ptr nocapture noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ult i64 %1, 4
   br i1 %5, label %.loopexit, label %6
 

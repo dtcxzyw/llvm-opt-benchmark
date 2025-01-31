@@ -17,14 +17,14 @@ entry:
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @NEWHOPE_POLY_free(ptr nocapture noundef %p) local_unnamed_addr #2 {
+define hidden void @NEWHOPE_POLY_free(ptr noundef captures(none) %p) local_unnamed_addr #2 {
 entry:
   tail call void @free(ptr noundef %p) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @NEWHOPE_keygen(ptr noundef %servermsg, ptr noundef %sk) local_unnamed_addr #4 {

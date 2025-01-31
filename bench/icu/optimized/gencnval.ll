@@ -1609,7 +1609,7 @@ while.body.i.i45:                                 ; preds = %if.then93.i, %if.en
   br i1 %cmp3.i.i46, label %if.then.i66.i, label %if.end12.i.i
 
 if.then.i66.i:                                    ; preds = %while.body.i.i45
-  %call5.i.i = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef %normalizedStrings.addr.021.i.i, ptr noundef %origStringBlock.addr.020.i.i) #16
+  %call5.i.i = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef %normalizedStrings.addr.021.i.i, ptr noundef nonnull %origStringBlock.addr.020.i.i) #16
   %call6.i.i47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %normalizedStrings.addr.021.i.i) #20
   %conv7.i67.i = trunc i64 %call6.i.i47 to i32
   %cmp8.i.i = icmp sgt i32 %conv7.i67.i, 0
@@ -1620,7 +1620,7 @@ if.then10.i.i:                                    ; preds = %if.then.i66.i
   %add.ptr.i68.i = getelementptr inbounds nuw i8, ptr %normalizedStrings.addr.021.i.i, i64 %idx.ext.i.i48
   %sub.i69.i = sub nsw i32 %add.i62.i, %conv7.i67.i
   %conv11.i70.i = sext i32 %sub.i69.i to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i68.i, i8 0, i64 %conv11.i70.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i68.i, i8 0, i64 %conv11.i70.i, i1 false)
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.then10.i.i, %if.then.i66.i, %while.body.i.i45
@@ -1660,7 +1660,7 @@ while.body.i75.i:                                 ; preds = %createNormalizedAli
   br i1 %cmp3.i81.i, label %if.then.i90.i, label %if.end12.i82.i
 
 if.then.i90.i:                                    ; preds = %while.body.i75.i
-  %call5.i91.i = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef %normalizedStrings.addr.021.i77.i, ptr noundef %origStringBlock.addr.020.i78.i) #16
+  %call5.i91.i = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef %normalizedStrings.addr.021.i77.i, ptr noundef nonnull %origStringBlock.addr.020.i78.i) #16
   %call6.i92.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %normalizedStrings.addr.021.i77.i) #20
   %conv7.i93.i = trunc i64 %call6.i92.i to i32
   %cmp8.i94.i = icmp sgt i32 %conv7.i93.i, 0
@@ -1671,7 +1671,7 @@ if.then10.i95.i:                                  ; preds = %if.then.i90.i
   %add.ptr.i97.i = getelementptr inbounds nuw i8, ptr %normalizedStrings.addr.021.i77.i, i64 %idx.ext.i96.i
   %sub.i98.i = sub nsw i32 %add.i80.i, %conv7.i93.i
   %conv11.i99.i = sext i32 %sub.i98.i to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i97.i, i8 0, i64 %conv11.i99.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i97.i, i8 0, i64 %conv11.i99.i, i1 false)
   br label %if.end12.i82.i
 
 if.end12.i82.i:                                   ; preds = %if.then10.i95.i, %if.then.i90.i, %while.body.i75.i
@@ -1749,16 +1749,16 @@ declare ptr @u_getDataDirectory_75() local_unnamed_addr #1
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @T_FileStream_open(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1908,7 +1908,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @allocString(ptr nocapture noundef %block, ptr nocapture noundef readonly %s, i32 noundef range(i32 -1, 65536) %length) unnamed_addr #0 {
+define internal fastcc ptr @allocString(ptr noundef captures(none) %block, ptr noundef readonly captures(none) %s, i32 noundef range(i32 -1, 65536) %length) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %length, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1979,20 +1979,20 @@ declare ptr @T_FileStream_readLine(ptr noundef, ptr noundef, i32 noundef) local_
 declare ptr @__ctype_b_loc() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @uprv_strnicmp_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare signext i8 @uprv_isInvariantString_75(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @addAlias(ptr noundef %alias, i16 noundef zeroext %standard, i16 noundef zeroext %converter, i8 noundef signext range(i8 0, 2) %defaultName) unnamed_addr #0 {
@@ -2051,7 +2051,7 @@ if.then18:                                        ; preds = %if.end14
   %conv22 = zext i16 %13 to i64
   %shl = shl nuw nsw i64 %conv22, 1
   %add.ptr = getelementptr inbounds nuw i8, ptr @stringStore, i64 %shl
-  %call23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.36, ptr noundef %11, i32 noundef %12, ptr noundef %alias, ptr noundef nonnull %add.ptr) #17
+  %call23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.36, ptr noundef %11, i32 noundef %12, ptr noundef nonnull %alias, ptr noundef nonnull %add.ptr) #17
   tail call void @exit(i32 noundef 15) #18
   unreachable
 
@@ -2086,7 +2086,7 @@ if.then36:                                        ; preds = %land.lhs.true
 if.then40:                                        ; preds = %if.then36
   %17 = load ptr, ptr @stderr, align 8
   %18 = load i32, ptr @lineNum, align 4
-  %call41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.37, i32 noundef %18, ptr noundef %alias) #17
+  %call41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.37, i32 noundef %18, ptr noundef nonnull %alias) #17
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then40, %if.then36
@@ -2097,7 +2097,7 @@ if.end42:                                         ; preds = %if.then40, %if.then
 if.then46:                                        ; preds = %if.end42
   %19 = load ptr, ptr @stderr, align 8
   %20 = load i32, ptr @lineNum, align 4
-  %call47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.38, i32 noundef %20, ptr noundef %alias) #17
+  %call47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.38, i32 noundef %20, ptr noundef nonnull %alias) #17
   br label %if.end141
 
 for.cond57.preheader:                             ; preds = %for.cond57.preheader.lr.ph, %for.inc138
@@ -2124,7 +2124,7 @@ land.lhs.true77:                                  ; preds = %for.body67
   %conv78 = zext i16 %24 to i64
   %shl79 = shl nuw nsw i64 %conv78, 1
   %add.ptr80 = getelementptr inbounds nuw i8, ptr @stringStore, i64 %shl79
-  %call81 = tail call i32 @ucnv_compareNames_75(ptr noundef %alias, ptr noundef nonnull %add.ptr80) #16
+  %call81 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull %alias, ptr noundef nonnull %add.ptr80) #16
   %cmp82 = icmp eq i32 %call81, 0
   br i1 %cmp82, label %if.then84, label %land.lhs.true77.for.inc_crit_edge
 
@@ -2157,7 +2157,7 @@ if.then97:                                        ; preds = %lor.lhs.false, %if.
   %conv109 = zext i16 %29 to i64
   %shl110 = shl nuw nsw i64 %conv109, 1
   %add.ptr111 = getelementptr inbounds nuw i8, ptr @stringStore, i64 %shl110
-  %call112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.39, ptr noundef %26, i32 noundef %27, ptr noundef %alias, ptr noundef nonnull %add.ptr80, ptr noundef nonnull %add.ptr105, ptr noundef nonnull %add.ptr111) #17
+  %call112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.39, ptr noundef %26, i32 noundef %27, ptr noundef nonnull %alias, ptr noundef nonnull %add.ptr80, ptr noundef nonnull %add.ptr105, ptr noundef nonnull %add.ptr111) #17
   br label %for.inc138
 
 if.else:                                          ; preds = %if.then84
@@ -2177,7 +2177,7 @@ if.else:                                          ; preds = %if.then84
   %conv132 = zext i16 %35 to i64
   %shl133 = shl nuw nsw i64 %conv132, 1
   %add.ptr134 = getelementptr inbounds nuw i8, ptr @stringStore, i64 %shl133
-  %call135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.40, ptr noundef %31, i32 noundef %32, ptr noundef %alias, ptr noundef nonnull %add.ptr80, ptr noundef nonnull %add.ptr122, ptr noundef nonnull %add.ptr128, ptr noundef nonnull %add.ptr134) #17
+  %call135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.40, ptr noundef %31, i32 noundef %32, ptr noundef nonnull %alias, ptr noundef nonnull %add.ptr80, ptr noundef nonnull %add.ptr122, ptr noundef nonnull %add.ptr128, ptr noundef nonnull %add.ptr134) #17
   br label %for.inc138
 
 for.inc:                                          ; preds = %land.lhs.true77.for.inc_crit_edge, %for.body67
@@ -2243,7 +2243,7 @@ if.then169:                                       ; preds = %if.then163
   %conv184 = zext i16 %48 to i64
   %shl185 = shl nuw nsw i64 %conv184, 1
   %add.ptr186 = getelementptr inbounds nuw i8, ptr @stringStore, i64 %shl185
-  %call187 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.41, ptr noundef %45, i32 noundef %46, ptr noundef %alias, ptr noundef nonnull %add.ptr174, ptr noundef nonnull %add.ptr180, ptr noundef nonnull %add.ptr186) #17
+  %call187 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.41, ptr noundef %45, i32 noundef %46, ptr noundef nonnull %alias, ptr noundef nonnull %add.ptr174, ptr noundef nonnull %add.ptr180, ptr noundef nonnull %add.ptr186) #17
   tail call void @exit(i32 noundef 9) #18
   unreachable
 
@@ -2289,10 +2289,10 @@ declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #10
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @compareAliases(ptr nocapture noundef readonly %alias1, ptr nocapture noundef readonly %alias2) #0 {
+define internal i32 @compareAliases(ptr noundef readonly captures(none) %alias1, ptr noundef readonly captures(none) %alias2) #0 {
 entry:
   %0 = load i16, ptr %alias1, align 2
   %conv = zext i16 %0 to i64
@@ -2336,7 +2336,7 @@ declare void @udata_writeBlock(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare void @udata_writeString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2347,10 +2347,10 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 declare i16 @llvm.umax.i16(i16, i16) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

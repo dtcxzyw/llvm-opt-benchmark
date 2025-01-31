@@ -224,7 +224,7 @@ sub_030:                                          ; preds = %12, %.tail
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_usage(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @print_usage(ptr noundef captures(none) %0) unnamed_addr #1 {
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %2 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 49, i64 1, ptr %0)
   %fputc23 = tail call i32 @fputc(i32 10, ptr %0)
@@ -290,7 +290,7 @@ define internal fastcc i32 @socket_init(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %17, i8 0, i64 108, i1 false)
   store i16 1, ptr %2, align 2
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %19 = call i64 @g_strlcpy(ptr noundef nonnull %18, ptr noundef %9, i64 noundef 108) #10
+  %19 = call i64 @g_strlcpy(ptr noundef nonnull %18, ptr noundef nonnull %9, i64 noundef 108) #10
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #15
   %21 = trunc i64 %20 to i32
   %22 = add i32 %21, 2
@@ -332,7 +332,7 @@ declare zeroext i1 @profile_exists(ptr noundef, i1 noundef zeroext) local_unname
 declare void @set_profile_name(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @show_help_header(ptr noundef) local_unnamed_addr #3
 
@@ -351,7 +351,7 @@ declare ptr @g_strerror(i32 noundef) local_unnamed_addr #6
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @sharkd_loop(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden i32 @sharkd_loop(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @mode, align 4
   %4 = and i32 %3, -3
   %or.cond = icmp eq i32 %4, 1
@@ -427,16 +427,16 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 declare ptr @please_report_bug() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -447,10 +447,10 @@ declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -29,7 +29,7 @@ return:                                           ; preds = %return.loopexit, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_idn_decode(ptr noundef %input, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_idn_decode(ptr noundef %input, ptr noundef writeonly captures(none) %output) local_unnamed_addr #1 {
 entry:
   %decoded.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %decoded.i)
@@ -74,7 +74,7 @@ if.end7:                                          ; preds = %idn_decode.exit.thr
 declare void @idn2_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_idn_encode(ptr noundef %puny, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_idn_encode(ptr noundef %puny, ptr noundef writeonly captures(none) %output) local_unnamed_addr #1 {
 entry:
   %enc.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %enc.i)
@@ -108,7 +108,7 @@ if.end7:                                          ; preds = %idn_encode.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_free_idnconverted_hostname(ptr nocapture noundef %host) local_unnamed_addr #1 {
+define hidden void @Curl_free_idnconverted_hostname(ptr noundef captures(none) %host) local_unnamed_addr #1 {
 entry:
   %encalloc = getelementptr inbounds nuw i8, ptr %host, i64 8
   %0 = load ptr, ptr %encalloc, align 8
@@ -125,7 +125,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 5) i32 @Curl_idnconvert_hostname(ptr nocapture noundef initializes((24, 32)) %host) local_unnamed_addr #1 {
+define hidden range(i32 0, 5) i32 @Curl_idnconvert_hostname(ptr noundef captures(none) initializes((24, 32)) %host) local_unnamed_addr #1 {
 entry:
   %decoded.i = alloca ptr, align 8
   %name = getelementptr inbounds nuw i8, ptr %host, i64 16
@@ -198,10 +198,10 @@ declare i32 @idn2_lookup_ul(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare i32 @idn2_to_unicode_8z8z(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

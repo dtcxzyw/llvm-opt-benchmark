@@ -36,13 +36,13 @@ define void @_Z11destroy_binP5t_bin(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z9reset_binP5t_bin(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #2 {
+define void @_Z9reset_binP5t_bin(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #2 {
   store i32 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z8add_binrP5t_biniPKf(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = add nsw i32 %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -107,7 +107,7 @@ define noundef i32 @_Z8add_binrP5t_biniPKf(ptr nocapture noundef %0, i32 noundef
 declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z8add_binrP5t_binN3gmx8ArrayRefIKfEE(ptr nocapture noundef %0, ptr %1, ptr %2) local_unnamed_addr #0 {
+define noundef i32 @_Z8add_binrP5t_binN3gmx8ArrayRefIKfEE(ptr noundef captures(none) %0, ptr %1, ptr %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
@@ -175,7 +175,7 @@ _Z8add_binrP5t_biniPKf.exit:                      ; preds = %21, %._crit_edge.lo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z8add_bindP5t_biniPKd(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noundef i32 @_Z8add_bindP5t_biniPKd(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = add nsw i32 %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -237,7 +237,7 @@ define noundef i32 @_Z8add_bindP5t_biniPKd(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr nocapture noundef %0, ptr %1, ptr %2) local_unnamed_addr #0 {
+define noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr noundef captures(none) %0, ptr %1, ptr %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
@@ -304,7 +304,7 @@ _Z8add_bindP5t_biniPKd.exit:                      ; preds = %21, %._crit_edge.lo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7sum_binP5t_binPK9t_commrec(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @_Z7sum_binP5t_binPK9t_commrec(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -342,7 +342,7 @@ define void @_Z7sum_binP5t_binPK9t_commrec(ptr nocapture noundef readonly %0, pt
 declare void @_Z8gmx_sumdmPdPK9t_commrec(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z12extract_binrP5t_biniiPf(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
+define void @_Z12extract_binrP5t_biniiPf(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
@@ -370,7 +370,7 @@ define void @_Z12extract_binrP5t_biniiPf(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z12extract_binrP5t_biniN3gmx8ArrayRefIfEE(ptr nocapture noundef readonly %0, i32 noundef %1, ptr %2, ptr %3) local_unnamed_addr #3 {
+define void @_Z12extract_binrP5t_biniN3gmx8ArrayRefIfEE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr %2, ptr %3) local_unnamed_addr #3 {
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %2 to i64
   %7 = sub i64 %5, %6
@@ -403,7 +403,7 @@ _Z12extract_binrP5t_biniiPf.exit:                 ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z12extract_bindP5t_biniiPd(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
+define void @_Z12extract_bindP5t_biniiPd(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
@@ -430,7 +430,7 @@ define void @_Z12extract_bindP5t_biniiPd(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr nocapture noundef readonly %0, i32 noundef %1, ptr %2, ptr %3) local_unnamed_addr #3 {
+define void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr %2, ptr %3) local_unnamed_addr #3 {
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %2 to i64
   %7 = sub i64 %5, %6

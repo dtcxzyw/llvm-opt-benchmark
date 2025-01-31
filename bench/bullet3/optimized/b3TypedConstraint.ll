@@ -30,7 +30,7 @@ $_ZTI17b3TypedConstraint = comdat any
 @_ZTI17b3TypedConstraint = linkonce_odr dso_local constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTS17b3TypedConstraint, i32 0, i32 1, ptr @_ZTI13b3TypedObject, i64 2050 }, comdat, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN17b3TypedConstraintC2E21b3TypedConstraintTypeii(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(64) initializes((0, 30), (32, 52), (56, 64)) %this, i32 noundef %type, i32 noundef %rbA, i32 noundef %rbB) unnamed_addr #0 align 2 {
+define dso_local void @_ZN17b3TypedConstraintC2E21b3TypedConstraintTypeii(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(64) initializes((0, 30), (32, 52), (56, 64)) %this, i32 noundef %type, i32 noundef %rbA, i32 noundef %rbB) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %type, ptr %0, align 8
@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef float @_ZN17b3TypedConstraint14getMotorFactorEfffff(ptr nocapture noundef nonnull readnone align 16 dereferenceable(64) %this, float noundef %pos, float noundef %lowLim, float noundef %uppLim, float noundef %vel, float noundef %timeFact) local_unnamed_addr #1 align 2 {
+define dso_local noundef float @_ZN17b3TypedConstraint14getMotorFactorEfffff(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(64) %this, float noundef %pos, float noundef %lowLim, float noundef %uppLim, float noundef %vel, float noundef %timeFact) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = fcmp ogt float %lowLim, %uppLim
   br i1 %cmp, label %return, label %if.else
@@ -119,7 +119,7 @@ return:                                           ; preds = %if.then9, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local void @_ZN14b3AngularLimit3setEfffff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(29) initializes((0, 20)) %this, float noundef %low, float noundef %high, float noundef %_softness, float noundef %_biasFactor, float noundef %_relaxationFactor) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN14b3AngularLimit3setEfffff(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(29) initializes((0, 20)) %this, float noundef %low, float noundef %high, float noundef %_softness, float noundef %_biasFactor, float noundef %_relaxationFactor) local_unnamed_addr #2 align 2 {
 entry:
   %sub = fsub float %high, %low
   %div = fmul float %sub, 5.000000e-01
@@ -155,7 +155,7 @@ _Z16b3NormalizeAnglef.exit:                       ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @_ZN14b3AngularLimit4testEf(ptr nocapture noundef nonnull align 4 dereferenceable(29) initializes((20, 29)) %this, float noundef %angle) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN14b3AngularLimit4testEf(ptr noundef nonnull align 4 captures(none) dereferenceable(29) initializes((20, 29)) %this, float noundef %angle) local_unnamed_addr #3 align 2 {
 entry:
   %m_correction = getelementptr inbounds nuw i8, ptr %this, i64 20
   %m_sign = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -219,7 +219,7 @@ if.end19:                                         ; preds = %if.end19.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK14b3AngularLimit8getErrorEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef float @_ZNK14b3AngularLimit8getErrorEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_correction = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load float, ptr %m_correction, align 4
@@ -230,7 +230,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @_ZNK14b3AngularLimit3fitERf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %angle) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK14b3AngularLimit3fitERf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %angle) local_unnamed_addr #3 align 2 {
 entry:
   %m_halfRange = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load float, ptr %m_halfRange, align 4
@@ -317,7 +317,7 @@ if.end10:                                         ; preds = %if.end10.sink.split
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef float @_ZNK14b3AngularLimit7getHighEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZNK14b3AngularLimit7getHighEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
   %m_halfRange = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -345,7 +345,7 @@ _Z16b3NormalizeAnglef.exit:                       ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef float @_ZNK14b3AngularLimit6getLowEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZNK14b3AngularLimit6getLowEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
   %m_halfRange = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -407,7 +407,7 @@ declare float @fmodf(float noundef, float noundef) local_unnamed_addr #6
 declare void @llvm.trap() #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

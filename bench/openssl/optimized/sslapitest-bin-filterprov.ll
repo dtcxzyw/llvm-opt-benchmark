@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @filter_provider_init(ptr nocapture noundef readnone %handle, ptr nocapture noundef readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @filter_provider_init(ptr noundef readnone captures(none) %handle, ptr noundef readnone captures(none) %in, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %provctx) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2040) @ourglobals, i8 0, i64 2040, i1 false)
   %call = tail call ptr @OSSL_LIB_CTX_new() #6
@@ -53,7 +53,7 @@ return:                                           ; preds = %err, %if.end4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #2
 
@@ -174,13 +174,13 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare ptr @OSSL_PROVIDER_query_operation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @OSSL_PROVIDER_unquery_operation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -202,7 +202,7 @@ entry:
 declare i32 @test_ulong_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @filter_gettable_params(ptr nocapture readnone %provctx) #0 {
+define internal ptr @filter_gettable_params(ptr readnone captures(none) %provctx) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   %call1 = tail call ptr @OSSL_PROVIDER_gettable_params(ptr noundef %0) #6
@@ -210,7 +210,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @filter_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
+define internal i32 @filter_get_params(ptr readnone captures(none) %provctx, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   %call1 = tail call i32 @OSSL_PROVIDER_get_params(ptr noundef %0, ptr noundef %params) #6
@@ -218,7 +218,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @filter_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr noundef %no_cache) #0 {
+define internal ptr @filter_query(ptr readnone captures(none) %provctx, i32 noundef %operation_id, ptr noundef %no_cache) #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2024), align 8
   %inc = add i64 %0, 1
@@ -260,7 +260,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_unquery(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr noundef %algs) #0 {
+define internal void @filter_unquery(ptr readnone captures(none) %provctx, i32 noundef %operation_id, ptr noundef %algs) #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2024), align 8
   %call1 = tail call i32 @test_ulong_gt(ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i64 noundef %0, i64 noundef 0) #6
@@ -308,7 +308,7 @@ return:                                           ; preds = %for.body, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @filter_get_capabilities(ptr nocapture readnone %provctx, ptr noundef %capability, ptr noundef %cb, ptr noundef %arg) #0 {
+define internal i32 @filter_get_capabilities(ptr readnone captures(none) %provctx, ptr noundef %capability, ptr noundef %cb, ptr noundef %arg) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   %call1 = tail call i32 @OSSL_PROVIDER_get_capabilities(ptr noundef %0, ptr noundef %capability, ptr noundef %cb, ptr noundef %arg) #6
@@ -316,7 +316,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_teardown(ptr nocapture readnone %provctx) #0 {
+define internal void @filter_teardown(ptr readnone captures(none) %provctx) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   %call1 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %0) #6

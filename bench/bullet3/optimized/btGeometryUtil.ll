@@ -14,7 +14,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN14btGeometryUtil19isPointInsidePlanesERK20btAlignedObjectArrayI9btVector3ERKS1_f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %planeEquations, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %point, float noundef %margin) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN14btGeometryUtil19isPointInsidePlanesERK20btAlignedObjectArrayI9btVector3ERKS1_f(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %planeEquations, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %point, float noundef %margin) local_unnamed_addr #1 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %planeEquations, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -58,7 +58,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN14btGeometryUtil22areVerticesBehindPlaneERK9btVector3RK20btAlignedObjectArrayIS0_Ef(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %planeNormal, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %vertices, float noundef %margin) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN14btGeometryUtil22areVerticesBehindPlaneERK9btVector3RK20btAlignedObjectArrayIS0_Ef(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %planeNormal, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %vertices, float noundef %margin) local_unnamed_addr #1 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %vertices, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -102,7 +102,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_Z8notExistRK9btVector3RK20btAlignedObjectArrayIS_E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %planeEquation, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %planeEquations) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_Z8notExistRK9btVector3RK20btAlignedObjectArrayIS_E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %planeEquation, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %planeEquations) local_unnamed_addr #1 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %planeEquations, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -143,7 +143,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14btGeometryUtil29getPlaneEquationsFromVerticesER20btAlignedObjectArrayI9btVector3ES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %vertices, ptr nocapture noundef nonnull align 8 dereferenceable(25) %planeEquationsOut) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN14btGeometryUtil29getPlaneEquationsFromVerticesER20btAlignedObjectArrayI9btVector3ES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %vertices, ptr noundef nonnull align 8 captures(none) dereferenceable(25) %planeEquationsOut) local_unnamed_addr #2 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %vertices, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -411,10 +411,10 @@ for.end43:                                        ; preds = %for.cond.loopexit, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14btGeometryUtil29getVerticesFromPlaneEquationsERK20btAlignedObjectArrayI9btVector3ERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %planeEquations, ptr nocapture noundef nonnull align 8 dereferenceable(25) %verticesOut) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN14btGeometryUtil29getVerticesFromPlaneEquationsERK20btAlignedObjectArrayI9btVector3ERS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %planeEquations, ptr noundef nonnull align 8 captures(none) dereferenceable(25) %verticesOut) local_unnamed_addr #2 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %planeEquations, i64 4
   %0 = load i32, ptr %m_size.i, align 4

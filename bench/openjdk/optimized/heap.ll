@@ -91,7 +91,7 @@ define hidden void @_ZN8CodeHeap20init_segmap_templateEv() local_unnamed_addr #2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8CodeHeap19mark_segmap_as_freeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN8CodeHeap19mark_segmap_as_freeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = icmp ult i64 %1, %2
   br i1 %4, label %5, label %9
 
@@ -108,10 +108,10 @@ define hidden void @_ZN8CodeHeap19mark_segmap_as_freeEmm(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8CodeHeap19mark_segmap_as_usedEmmb(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN8CodeHeap19mark_segmap_as_usedEmmb(ptr noundef nonnull align 8 captures(none) dereferenceable(336) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #5 align 2 {
   %5 = icmp ult i64 %1, %2
   br i1 %5, label %6, label %.loopexit
 
@@ -184,7 +184,7 @@ define hidden void @_ZN8CodeHeap19mark_segmap_as_usedEmmb(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN8CodeHeap13defrag_segmapEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN8CodeHeap13defrag_segmapEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
@@ -328,15 +328,15 @@ select.unfold._crit_edge:                         ; preds = %select.unfold._crit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN8CodeHeap10invalidateEmmm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(336) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN8CodeHeap10invalidateEmmm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(336) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8CodeHeap5clearEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN8CodeHeap5clearEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = icmp ult i64 %1, %2
   br i1 %4, label %5, label %_ZN8CodeHeap19mark_segmap_as_freeEmm.exit
 
@@ -353,7 +353,7 @@ _ZN8CodeHeap19mark_segmap_as_freeEmm.exit:        ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8CodeHeap5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((256, 264)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN8CodeHeap5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(336) initializes((256, 264)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -372,7 +372,7 @@ _ZN8CodeHeap5clearEmm.exit:                       ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8CodeHeap15on_code_mappingEPcm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(336) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8CodeHeap15on_code_mappingEPcm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(336) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @_Z15linux_wrap_codePcm(ptr noundef %1, i64 noundef %2) #16
   ret void
 }
@@ -380,7 +380,7 @@ define hidden void @_ZN8CodeHeap15on_code_mappingEPcm(ptr nocapture noundef nonn
 declare void @_Z15linux_wrap_codePcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr noundef nonnull align 8 dereferenceable(336) initializes((240, 252)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr noundef nonnull align 8 dereferenceable(336) initializes((240, 252)) %0, ptr noundef readonly byval(%class.ReservedSpace) align 8 captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.ThreadCritical, align 1
   %6 = alloca %class.ReservedSpace, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -589,7 +589,7 @@ declare noundef i64 @_ZNK12VirtualSpace16uncommitted_sizeEv(ptr noundef nonnull 
 declare noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr noundef nonnull align 8 dereferenceable(112), i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(336) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %1, 7
@@ -755,7 +755,7 @@ _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %64, %47, %55, %56, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr noundef nonnull align 8 captures(none) dereferenceable(336) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr @CodeCacheMinBlockLength, align 8
@@ -917,7 +917,7 @@ _ZN8CodeHeap11split_blockEP9HeapBlockm.exit:      ; preds = %73, %32, %64, %65, 
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK8CodeHeap18allocated_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0) local_unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK8CodeHeap18allocated_capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -931,7 +931,7 @@ define hidden noundef i64 @_ZNK8CodeHeap18allocated_capacityEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN8CodeHeap11split_blockEP9HeapBlockm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN8CodeHeap11split_blockEP9HeapBlockm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %49, label %5
 
@@ -1014,7 +1014,7 @@ _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %46, %5, %37, %38, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8CodeHeap15deallocate_tailEPvm(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8CodeHeap15deallocate_tailEPvm(ptr noundef nonnull align 8 captures(none) dereferenceable(336) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 -8
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
@@ -1106,7 +1106,7 @@ _ZN8CodeHeap11split_blockEP9HeapBlockm.exit:      ; preds = %53, %17, %44, %45, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8CodeHeap15add_to_freelistEP9HeapBlock(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef initializes((4, 5)) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN8CodeHeap15add_to_freelistEP9HeapBlock(ptr noundef nonnull align 8 captures(none) dereferenceable(336) %0, ptr noundef initializes((4, 5)) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -1256,7 +1256,7 @@ _ZNK8CodeHeap14find_block_forEPv.exit:            ; preds = %.preheader.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8CodeHeap10deallocateEPv(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8CodeHeap10deallocateEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -8
   %4 = load ptr, ptr %0, align 8
   %.not = icmp uge ptr %3, %4
@@ -1283,7 +1283,7 @@ define hidden void @_ZN8CodeHeap10deallocateEPv(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK8CodeHeap14find_block_forEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define hidden noundef ptr @_ZNK8CodeHeap14find_block_forEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp ule ptr %4, %1
@@ -1328,7 +1328,7 @@ define hidden noundef ptr @_ZNK8CodeHeap14find_block_forEPv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK8CodeHeap10find_startEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define hidden noundef ptr @_ZNK8CodeHeap10find_startEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp ule ptr %4, %1
@@ -1382,7 +1382,7 @@ _ZNK8CodeHeap14find_block_forEPv.exit.thread:     ; preds = %27, %9, %2, %_ZNK8C
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK8CodeHeap9find_blobEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define hidden noundef ptr @_ZNK8CodeHeap9find_blobEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp ule ptr %4, %1
@@ -1446,7 +1446,7 @@ _ZNK8CodeHeap10find_startEPv.exit.thread:         ; preds = %27, %9, %2, %_ZNK8C
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK8CodeHeap9next_usedEP9HeapBlock(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZNK8CodeHeap9next_usedEP9HeapBlock(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread, label %3
 
@@ -1489,7 +1489,7 @@ _ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread: ; preds = %7, %2, %_ZNK8CodeH
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK8CodeHeap10next_blockEP9HeapBlock(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZNK8CodeHeap10next_blockEP9HeapBlock(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %23, label %4
 
@@ -1522,7 +1522,7 @@ define hidden noundef ptr @_ZNK8CodeHeap10next_blockEP9HeapBlock(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK8CodeHeap11first_blockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZNK8CodeHeap11first_blockEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -1533,7 +1533,7 @@ define hidden noundef ptr @_ZNK8CodeHeap11first_blockEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK8CodeHeap11block_startEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define hidden noundef ptr @_ZNK8CodeHeap11block_startEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp ule ptr %4, %1
@@ -1602,7 +1602,7 @@ define hidden noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK8CodeHeap18allocated_segmentsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK8CodeHeap18allocated_segmentsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1610,7 +1610,7 @@ define hidden noundef i32 @_ZNK8CodeHeap18allocated_segmentsEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK8CodeHeap25heap_unallocated_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0) local_unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK8CodeHeap25heap_unallocated_capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1624,7 +1624,7 @@ define hidden noundef i64 @_ZNK8CodeHeap25heap_unallocated_capacityEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN8CodeHeap15following_blockEP9FreeBlock(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef readonly %1) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZN8CodeHeap15following_blockEP9FreeBlock(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef readonly %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load i64, ptr %3, align 8
   %5 = load i32, ptr %1, align 8
@@ -1635,7 +1635,7 @@ define hidden noundef ptr @_ZN8CodeHeap15following_blockEP9FreeBlock(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8CodeHeap12insert_afterEP9FreeBlockS1_(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef initializes((8, 16)) %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN8CodeHeap12insert_afterEP9FreeBlockS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(336) %0, ptr noundef %1, ptr noundef initializes((8, 16)) %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1647,7 +1647,7 @@ define hidden void @_ZN8CodeHeap12insert_afterEP9FreeBlockS1_(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr noundef nonnull align 8 captures(none) dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load i64, ptr %3, align 8
   %5 = load i32, ptr %1, align 8
@@ -1761,7 +1761,7 @@ _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %63, %12, %41, %50, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN8CodeHeap11segmap_hopsEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #10 align 2 {
+define hidden noundef i32 @_ZN8CodeHeap11segmap_hopsEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = icmp ult i64 %1, %2
   br i1 %4, label %5, label %25
 
@@ -1908,10 +1908,10 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

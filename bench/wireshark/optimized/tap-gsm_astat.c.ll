@@ -36,10 +36,10 @@ define hidden void @register_tap_listener_gsm_astat() local_unnamed_addr #0 {
 declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @gsm_a_stat_init(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal void @gsm_a_stat_init(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call noalias dereferenceable_or_null(10240) ptr @g_malloc_n(i64 noundef 1, i64 noundef 10240) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10240) %3, i8 0, i64 10240, i1 false)
-  %4 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str, ptr noundef %3, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull @gsm_a_stat_packet, ptr noundef nonnull @gsm_a_stat_draw, ptr noundef null) #9
+  %4 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull @gsm_a_stat_packet, ptr noundef nonnull @gsm_a_stat_draw, ptr noundef null) #9
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
@@ -57,12 +57,12 @@ define internal void @gsm_a_stat_init(ptr nocapture readnone %0, ptr nocapture r
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @gsm_a_stat_packet(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #4 {
+define internal range(i32 0, 2) i32 @gsm_a_stat_packet(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #4 {
   %6 = load i8, ptr %3, align 4
   switch i8 %6, label %37 [
     i8 0, label %.sink.split
@@ -143,7 +143,7 @@ define internal range(i32 0, 2) i32 @gsm_a_stat_packet(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @gsm_a_stat_draw(ptr nocapture noundef readonly %0) #5 {
+define internal void @gsm_a_stat_draw(ptr noundef readonly captures(none) %0) #5 {
   %putchar = tail call i32 @putchar(i32 10)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %puts100 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
@@ -512,13 +512,13 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

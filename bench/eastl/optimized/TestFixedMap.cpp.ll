@@ -22880,7 +22880,7 @@ invoke.cont380:                                   ; preds = %if.end16.i892, %lan
           to label %call.i.i895.noexc unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i895.noexc:                                ; preds = %invoke.cont380
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i891, ptr noundef nonnull align 8 dereferenceable(88) %call192)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i891, ptr noundef nonnull align 8 dereferenceable(88) %call192)
           to label %.noexc900 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc900:                                        ; preds = %call.i.i895.noexc
@@ -22890,7 +22890,7 @@ call.i.i895.noexc:                                ; preds = %invoke.cont380
   %265 = load ptr, ptr %mpCapacity.i.i.i.i, align 8, !noalias !409
   %cmp2.i.i.i.i897 = icmp ult ptr %storemerge.i891, %265
   %or.cond.i.i.i.i898 = select i1 %cmp.not.i.i.i.i896, i1 %cmp2.i.i.i.i897, i1 false
-  br i1 %or.cond.i.i.i.i898, label %if.then.i.i.i.i, label %if.else.i.i.i.i
+  br i1 %or.cond.i.i.i.i898, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc900
   %266 = load ptr, ptr %mAllocator.i.i.i611, align 8, !noalias !409
@@ -22898,15 +22898,11 @@ if.then.i.i.i.i:                                  ; preds = %.noexc900
   store ptr %storemerge.i891, ptr %mAllocator.i.i.i611, align 8, !noalias !409
   br label %invoke.cont384
 
-if.else.i.i.i.i:                                  ; preds = %.noexc900
-  %isnull.i.i.i.i.i = icmp eq ptr %storemerge.i891, null
-  br i1 %isnull.i.i.i.i.i, label %invoke.cont384, label %delete.notnull.i.i.i.i.i
-
-delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
+delete.notnull.i.i.i.i.i:                         ; preds = %.noexc900
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i891) #19, !noalias !409
   br label %invoke.cont384
 
-invoke.cont384:                                   ; preds = %delete.notnull.i.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i
+invoke.cont384:                                   ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i
   %267 = load ptr, ptr %_M_parent.i.i.i.i.i620, align 8
   %cmp.not5.i.i.i903 = icmp eq ptr %267, null
   br i1 %cmp.not5.i.i.i903, label %invoke.cont391, label %while.body.i.i.i905
@@ -23124,7 +23120,7 @@ invoke.cont447:                                   ; preds = %if.end16.i1014, %la
           to label %call.i.i1018.noexc unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1018.noexc:                               ; preds = %invoke.cont447
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1013, ptr noundef nonnull align 8 dereferenceable(88) %call192)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1013, ptr noundef nonnull align 8 dereferenceable(88) %call192)
           to label %.noexc1030 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1030:                                       ; preds = %call.i.i1018.noexc
@@ -23133,7 +23129,7 @@ call.i.i1018.noexc:                               ; preds = %invoke.cont447
   %292 = load ptr, ptr %mpCapacity.i.i.i.i, align 8, !noalias !418
   %cmp2.i.i.i.i1022 = icmp ult ptr %storemerge.i1013, %292
   %or.cond.i.i.i.i1023 = select i1 %cmp.not.i.i.i.i1020, i1 %cmp2.i.i.i.i1022, i1 false
-  br i1 %or.cond.i.i.i.i1023, label %if.then.i.i.i.i1027, label %if.else.i.i.i.i1024
+  br i1 %or.cond.i.i.i.i1023, label %if.then.i.i.i.i1027, label %delete.notnull.i.i.i.i.i1026
 
 if.then.i.i.i.i1027:                              ; preds = %.noexc1030
   %293 = load ptr, ptr %mAllocator.i.i.i611, align 8, !noalias !418
@@ -23141,15 +23137,11 @@ if.then.i.i.i.i1027:                              ; preds = %.noexc1030
   store ptr %storemerge.i1013, ptr %mAllocator.i.i.i611, align 8, !noalias !418
   br label %invoke.cont451
 
-if.else.i.i.i.i1024:                              ; preds = %.noexc1030
-  %isnull.i.i.i.i.i1025 = icmp eq ptr %storemerge.i1013, null
-  br i1 %isnull.i.i.i.i.i1025, label %invoke.cont451, label %delete.notnull.i.i.i.i.i1026
-
-delete.notnull.i.i.i.i.i1026:                     ; preds = %if.else.i.i.i.i1024
+delete.notnull.i.i.i.i.i1026:                     ; preds = %.noexc1030
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1013) #19, !noalias !418
   br label %invoke.cont451
 
-invoke.cont451:                                   ; preds = %delete.notnull.i.i.i.i.i1026, %if.else.i.i.i.i1024, %if.then.i.i.i.i1027
+invoke.cont451:                                   ; preds = %delete.notnull.i.i.i.i.i1026, %if.then.i.i.i.i1027
   %294 = load ptr, ptr %_M_parent.i.i.i.i.i620, align 8
   %cmp.not5.i.i.i1034 = icmp eq ptr %294, null
   br i1 %cmp.not5.i.i.i1034, label %invoke.cont458, label %while.body.i.i.i1036
@@ -23542,7 +23534,7 @@ invoke.cont547:                                   ; preds = %if.end16.i1227, %la
           to label %call.i.i1231.noexc unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1231.noexc:                               ; preds = %invoke.cont547
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1226, ptr noundef nonnull align 8 dereferenceable(88) %call192)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1226, ptr noundef nonnull align 8 dereferenceable(88) %call192)
           to label %.noexc1243 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1243:                                       ; preds = %call.i.i1231.noexc
@@ -23551,7 +23543,7 @@ call.i.i1231.noexc:                               ; preds = %invoke.cont547
   %334 = load ptr, ptr %mpCapacity.i.i.i.i, align 8, !noalias !437
   %cmp2.i.i.i.i1235 = icmp ult ptr %storemerge.i1226, %334
   %or.cond.i.i.i.i1236 = select i1 %cmp.not.i.i.i.i1233, i1 %cmp2.i.i.i.i1235, i1 false
-  br i1 %or.cond.i.i.i.i1236, label %if.then.i.i.i.i1240, label %if.else.i.i.i.i1237
+  br i1 %or.cond.i.i.i.i1236, label %if.then.i.i.i.i1240, label %delete.notnull.i.i.i.i.i1239
 
 if.then.i.i.i.i1240:                              ; preds = %.noexc1243
   %335 = load ptr, ptr %mAllocator.i.i.i611, align 8, !noalias !437
@@ -23559,15 +23551,11 @@ if.then.i.i.i.i1240:                              ; preds = %.noexc1243
   store ptr %storemerge.i1226, ptr %mAllocator.i.i.i611, align 8, !noalias !437
   br label %invoke.cont551
 
-if.else.i.i.i.i1237:                              ; preds = %.noexc1243
-  %isnull.i.i.i.i.i1238 = icmp eq ptr %storemerge.i1226, null
-  br i1 %isnull.i.i.i.i.i1238, label %invoke.cont551, label %delete.notnull.i.i.i.i.i1239
-
-delete.notnull.i.i.i.i.i1239:                     ; preds = %if.else.i.i.i.i1237
+delete.notnull.i.i.i.i.i1239:                     ; preds = %.noexc1243
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1226) #19, !noalias !437
   br label %invoke.cont551
 
-invoke.cont551:                                   ; preds = %delete.notnull.i.i.i.i.i1239, %if.else.i.i.i.i1237, %if.then.i.i.i.i1240
+invoke.cont551:                                   ; preds = %delete.notnull.i.i.i.i.i1239, %if.then.i.i.i.i1240
   %336 = load ptr, ptr %_M_parent.i.i.i.i.i620, align 8
   %cmp.not5.i.i.i1247 = icmp eq ptr %336, null
   br i1 %cmp.not5.i.i.i1247, label %invoke.cont558, label %while.body.i.i.i1249
@@ -28161,7 +28149,7 @@ invoke.cont506:                                   ; preds = %if.end16.i1871, %la
           to label %call.i.i1875.noexc unwind label %_ZN10TestObjectD2Ev.exit3352
 
 call.i.i1875.noexc:                               ; preds = %invoke.cont506
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1870, ptr noundef nonnull align 8 dereferenceable(88) %call211)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1870, ptr noundef nonnull align 8 dereferenceable(88) %call211)
           to label %.noexc1881 unwind label %_ZN10TestObjectD2Ev.exit3352
 
 .noexc1881:                                       ; preds = %call.i.i1875.noexc
@@ -28595,7 +28583,7 @@ invoke.cont609:                                   ; preds = %if.end16.i2182, %la
           to label %call.i.i2186.noexc unwind label %_ZN10TestObjectD2Ev.exit3432
 
 call.i.i2186.noexc:                               ; preds = %invoke.cont609
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2181, ptr noundef nonnull align 8 dereferenceable(88) %call211)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i2181, ptr noundef nonnull align 8 dereferenceable(88) %call211)
           to label %.noexc2208 unwind label %_ZN10TestObjectD2Ev.exit3432
 
 .noexc2208:                                       ; preds = %call.i.i2186.noexc
@@ -29138,7 +29126,7 @@ invoke.cont751:                                   ; preds = %if.end16.i2600, %la
           to label %call.i.i2604.noexc unwind label %_ZN10TestObjectD2Ev.exit3528
 
 call.i.i2604.noexc:                               ; preds = %invoke.cont751
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2599, ptr noundef nonnull align 8 dereferenceable(88) %call211)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i2599, ptr noundef nonnull align 8 dereferenceable(88) %call211)
           to label %.noexc2626 unwind label %_ZN10TestObjectD2Ev.exit3528
 
 .noexc2626:                                       ; preds = %call.i.i2604.noexc
@@ -33354,7 +33342,7 @@ invoke.cont375:                                   ; preds = %if.end16.i958, %lan
           to label %call.i.i961.noexc unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i961.noexc:                                ; preds = %invoke.cont375
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i957, ptr noundef nonnull align 8 dereferenceable(88) %call188)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i957, ptr noundef nonnull align 8 dereferenceable(88) %call188)
           to label %.noexc964 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc964:                                        ; preds = %call.i.i961.noexc
@@ -33364,7 +33352,7 @@ call.i.i961.noexc:                                ; preds = %invoke.cont375
   %273 = load ptr, ptr %mpCapacity.i.i.i.i, align 8, !noalias !637
   %cmp2.i.i.i.i = icmp ult ptr %storemerge.i957, %273
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i962, i1 %cmp2.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc964
   %274 = load ptr, ptr %mAllocator.i.i.i674, align 8, !noalias !637
@@ -33372,15 +33360,11 @@ if.then.i.i.i.i:                                  ; preds = %.noexc964
   store ptr %storemerge.i957, ptr %mAllocator.i.i.i674, align 8, !noalias !637
   br label %invoke.cont379
 
-if.else.i.i.i.i:                                  ; preds = %.noexc964
-  %isnull.i.i.i.i.i = icmp eq ptr %storemerge.i957, null
-  br i1 %isnull.i.i.i.i.i, label %invoke.cont379, label %delete.notnull.i.i.i.i.i
-
-delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
+delete.notnull.i.i.i.i.i:                         ; preds = %.noexc964
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i957) #19, !noalias !637
   br label %invoke.cont379
 
-invoke.cont379:                                   ; preds = %delete.notnull.i.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i
+invoke.cont379:                                   ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i
   %275 = load ptr, ptr %_M_parent.i.i.i.i.i683, align 8
   %cmp.not5.i.i.i967 = icmp eq ptr %275, null
   br i1 %cmp.not5.i.i.i967, label %invoke.cont382, label %while.body.i.i.i969
@@ -33566,7 +33550,7 @@ invoke.cont440:                                   ; preds = %if.end16.i1064, %la
           to label %call.i.i1068.noexc unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1068.noexc:                               ; preds = %invoke.cont440
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1063, ptr noundef nonnull align 8 dereferenceable(88) %call188)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1063, ptr noundef nonnull align 8 dereferenceable(88) %call188)
           to label %.noexc1080 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1080:                                       ; preds = %call.i.i1068.noexc
@@ -33575,7 +33559,7 @@ call.i.i1068.noexc:                               ; preds = %invoke.cont440
   %293 = load ptr, ptr %mpCapacity.i.i.i.i, align 8, !noalias !646
   %cmp2.i.i.i.i1072 = icmp ult ptr %storemerge.i1063, %293
   %or.cond.i.i.i.i1073 = select i1 %cmp.not.i.i.i.i1070, i1 %cmp2.i.i.i.i1072, i1 false
-  br i1 %or.cond.i.i.i.i1073, label %if.then.i.i.i.i1077, label %if.else.i.i.i.i1074
+  br i1 %or.cond.i.i.i.i1073, label %if.then.i.i.i.i1077, label %delete.notnull.i.i.i.i.i1076
 
 if.then.i.i.i.i1077:                              ; preds = %.noexc1080
   %294 = load ptr, ptr %mAllocator.i.i.i674, align 8, !noalias !646
@@ -33583,15 +33567,11 @@ if.then.i.i.i.i1077:                              ; preds = %.noexc1080
   store ptr %storemerge.i1063, ptr %mAllocator.i.i.i674, align 8, !noalias !646
   br label %invoke.cont444
 
-if.else.i.i.i.i1074:                              ; preds = %.noexc1080
-  %isnull.i.i.i.i.i1075 = icmp eq ptr %storemerge.i1063, null
-  br i1 %isnull.i.i.i.i.i1075, label %invoke.cont444, label %delete.notnull.i.i.i.i.i1076
-
-delete.notnull.i.i.i.i.i1076:                     ; preds = %if.else.i.i.i.i1074
+delete.notnull.i.i.i.i.i1076:                     ; preds = %.noexc1080
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1063) #19, !noalias !646
   br label %invoke.cont444
 
-invoke.cont444:                                   ; preds = %delete.notnull.i.i.i.i.i1076, %if.else.i.i.i.i1074, %if.then.i.i.i.i1077
+invoke.cont444:                                   ; preds = %delete.notnull.i.i.i.i.i1076, %if.then.i.i.i.i1077
   %295 = load ptr, ptr %_M_parent.i.i.i.i.i683, align 8
   %cmp.not5.i.i.i1084 = icmp eq ptr %295, null
   br i1 %cmp.not5.i.i.i1084, label %invoke.cont447, label %while.body.i.i.i1086
@@ -33952,7 +33932,7 @@ invoke.cont538:                                   ; preds = %if.end16.i1251, %la
           to label %call.i.i1255.noexc unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1255.noexc:                               ; preds = %invoke.cont538
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1250, ptr noundef nonnull align 8 dereferenceable(88) %call188)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1250, ptr noundef nonnull align 8 dereferenceable(88) %call188)
           to label %.noexc1267 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1267:                                       ; preds = %call.i.i1255.noexc
@@ -33961,7 +33941,7 @@ call.i.i1255.noexc:                               ; preds = %invoke.cont538
   %328 = load ptr, ptr %mpCapacity.i.i.i.i, align 8, !noalias !664
   %cmp2.i.i.i.i1259 = icmp ult ptr %storemerge.i1250, %328
   %or.cond.i.i.i.i1260 = select i1 %cmp.not.i.i.i.i1257, i1 %cmp2.i.i.i.i1259, i1 false
-  br i1 %or.cond.i.i.i.i1260, label %if.then.i.i.i.i1264, label %if.else.i.i.i.i1261
+  br i1 %or.cond.i.i.i.i1260, label %if.then.i.i.i.i1264, label %delete.notnull.i.i.i.i.i1263
 
 if.then.i.i.i.i1264:                              ; preds = %.noexc1267
   %329 = load ptr, ptr %mAllocator.i.i.i674, align 8, !noalias !664
@@ -33969,15 +33949,11 @@ if.then.i.i.i.i1264:                              ; preds = %.noexc1267
   store ptr %storemerge.i1250, ptr %mAllocator.i.i.i674, align 8, !noalias !664
   br label %invoke.cont542
 
-if.else.i.i.i.i1261:                              ; preds = %.noexc1267
-  %isnull.i.i.i.i.i1262 = icmp eq ptr %storemerge.i1250, null
-  br i1 %isnull.i.i.i.i.i1262, label %invoke.cont542, label %delete.notnull.i.i.i.i.i1263
-
-delete.notnull.i.i.i.i.i1263:                     ; preds = %if.else.i.i.i.i1261
+delete.notnull.i.i.i.i.i1263:                     ; preds = %.noexc1267
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1250) #19, !noalias !664
   br label %invoke.cont542
 
-invoke.cont542:                                   ; preds = %delete.notnull.i.i.i.i.i1263, %if.else.i.i.i.i1261, %if.then.i.i.i.i1264
+invoke.cont542:                                   ; preds = %delete.notnull.i.i.i.i.i1263, %if.then.i.i.i.i1264
   %330 = load ptr, ptr %_M_parent.i.i.i.i.i683, align 8
   %cmp.not5.i.i.i1271 = icmp eq ptr %330, null
   br i1 %cmp.not5.i.i.i1271, label %invoke.cont545, label %while.body.i.i.i1273
@@ -38575,7 +38551,7 @@ invoke.cont501:                                   ; preds = %if.end16.i1864, %la
           to label %call.i.i1868.noexc unwind label %_ZN10TestObjectD2Ev.exit3340
 
 call.i.i1868.noexc:                               ; preds = %invoke.cont501
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1863, ptr noundef nonnull align 8 dereferenceable(88) %call207)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i1863, ptr noundef nonnull align 8 dereferenceable(88) %call207)
           to label %.noexc1872 unwind label %_ZN10TestObjectD2Ev.exit3340
 
 .noexc1872:                                       ; preds = %call.i.i1868.noexc
@@ -39009,7 +38985,7 @@ invoke.cont602:                                   ; preds = %if.end16.i2173, %la
           to label %call.i.i2177.noexc unwind label %_ZN10TestObjectD2Ev.exit3420
 
 call.i.i2177.noexc:                               ; preds = %invoke.cont602
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2172, ptr noundef nonnull align 8 dereferenceable(88) %call207)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i2172, ptr noundef nonnull align 8 dereferenceable(88) %call207)
           to label %.noexc2199 unwind label %_ZN10TestObjectD2Ev.exit3420
 
 .noexc2199:                                       ; preds = %call.i.i2177.noexc
@@ -39552,7 +39528,7 @@ invoke.cont742:                                   ; preds = %if.end16.i2591, %la
           to label %call.i.i2595.noexc unwind label %_ZN10TestObjectD2Ev.exit3516
 
 call.i.i2595.noexc:                               ; preds = %invoke.cont742
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2590, ptr noundef nonnull align 8 dereferenceable(88) %call207)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %storemerge.i2590, ptr noundef nonnull align 8 dereferenceable(88) %call207)
           to label %.noexc2617 unwind label %_ZN10TestObjectD2Ev.exit3516
 
 .noexc2617:                                       ; preds = %call.i.i2595.noexc
@@ -53035,7 +53011,7 @@ _ZN10TestObjectD2Ev.exit279:                      ; preds = %invoke.cont111
   %99 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i278 = add nsw i64 %99, 1
   store i64 %inc3.i278, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSG_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator") align 8 %ref.tmp121, ptr noundef nonnull align 8 dereferenceable(88) %toMap, ptr %result.0.i.i.i.i2903, ptr noundef nonnull align 8 dereferenceable(32) %value51)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSG_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator") align 8 %ref.tmp121, ptr noundef nonnull align 8 dereferenceable(88) %toMap, ptr nonnull %result.0.i.i.i.i2903, ptr noundef nonnull align 8 dereferenceable(32) %value51)
           to label %invoke.cont125 unwind label %lpad122.loopexit.split-lp
 
 invoke.cont125:                                   ; preds = %_ZN10TestObjectD2Ev.exit279
@@ -54429,7 +54405,7 @@ _ZN10TestObjectD2Ev.exit948:                      ; preds = %invoke.cont380
   %259 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i947 = add nsw i64 %259, 1
   store i64 %inc3.i947, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSG_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator") align 8 %ref.tmp390, ptr noundef nonnull align 8 dereferenceable(88) %toMap, ptr %result.0.i.i.i.i3093, ptr noundef nonnull align 8 dereferenceable(32) %value91)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSG_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator") align 8 %ref.tmp390, ptr noundef nonnull align 8 dereferenceable(88) %toMap, ptr nonnull %result.0.i.i.i.i3093, ptr noundef nonnull align 8 dereferenceable(32) %value91)
           to label %invoke.cont396 unwind label %lpad392.loopexit.split-lp
 
 invoke.cont396:                                   ; preds = %_ZN10TestObjectD2Ev.exit948
@@ -60075,7 +60051,7 @@ while.end:                                        ; preds = %_ZN5eastl6rbtreeI7A
 declare void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %pNodeSource, ptr noundef %pNodeDest) local_unnamed_addr #0 comdat align 2 {
@@ -60206,7 +60182,7 @@ for.end:                                          ; preds = %for.inc, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -70369,7 +70345,7 @@ _ZN5eastl8multimapI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm80EL
 declare noundef i32 @_ZN2EA8UnitTest11GetRandSeedEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
@@ -81611,10 +81587,10 @@ return:                                           ; preds = %_ZN5eastl6rbtreeI7A
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

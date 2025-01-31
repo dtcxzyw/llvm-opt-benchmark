@@ -118,7 +118,7 @@ _ZN11ZGeneration12remap_objectE15zaddress_unsafe.exit: ; preds = %2, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN8ZBarrier37blocking_keep_alive_on_weak_slow_pathEPV8zpointer8zaddress(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN8ZBarrier37blocking_keep_alive_on_weak_slow_pathEPV8zpointer8zaddress(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %25, label %4
 
@@ -162,7 +162,7 @@ _ZL16keep_alive_young8zaddress.exit:              ; preds = %23, %18, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN8ZBarrier40blocking_keep_alive_on_phantom_slow_pathEPV8zpointer8zaddress(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN8ZBarrier40blocking_keep_alive_on_phantom_slow_pathEPV8zpointer8zaddress(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %25, label %4
 
@@ -206,7 +206,7 @@ _ZL16keep_alive_young8zaddress.exit:              ; preds = %23, %18, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN8ZBarrier39blocking_load_barrier_on_weak_slow_pathEPV8zpointer8zaddress(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN8ZBarrier39blocking_load_barrier_on_weak_slow_pathEPV8zpointer8zaddress(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %25, label %4
 
@@ -250,7 +250,7 @@ _ZL16keep_alive_young8zaddress.exit:              ; preds = %23, %18, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN8ZBarrier42blocking_load_barrier_on_phantom_slow_pathEPV8zpointer8zaddress(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN8ZBarrier42blocking_load_barrier_on_phantom_slow_pathEPV8zpointer8zaddress(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %25, label %4
 

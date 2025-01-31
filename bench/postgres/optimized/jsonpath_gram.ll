@@ -1859,7 +1859,7 @@ makeItemList.exit:                                ; preds = %.lr.ph27.i, %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
@@ -1947,7 +1947,7 @@ makeItemType.exit16:                              ; preds = %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @makeItemLikeRegex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @makeItemLikeRegex(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.regex_t, align 8
   %7 = alloca [100 x i8], align 16
   %8 = tail call ptr @palloc(i64 noundef 40) #5
@@ -2124,7 +2124,7 @@ declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 declare void @jsonpath_yyerror(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @jspConvertRegexFlags(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @jspConvertRegexFlags(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %0, 1
   %.not = icmp eq i32 %4, 0
   %spec.select = select i1 %.not, i32 3, i32 11
@@ -2195,7 +2195,7 @@ declare i64 @llvm.smin.i64(i64, i64) #3
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

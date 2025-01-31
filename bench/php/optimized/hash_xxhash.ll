@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @XXH3_kSecret = internal constant [192 x i8] c"\B8\FEl9#\A4K\BE|\01\81,\F7!\AD\1C\DE\D4m\E9\83\90\97\DBr@\A4\A4\B7\B3g\1F\CBy\E6N\CC\C0\E5x\82Z\D0}\CC\FFr!\B8\08Ft\F7C$\8E\E05\90\E6\81:&L<(R\BB\91\C3\00\CB\88\D0e\8B\1BS.\A3qdH\97\A2\0D\F9N8\19\EFF\A9\DE\AC\D8\A8\FAv?\E3\9C4?\F9\DC\BB\C7\C7\0BO\1D\8AQ\E0K\CD\B4Y1\C8\9F~\C9\D9xsd\EA\C5\AC\834\D3\EB\C3\C5\81\A0\FF\FA\13c\EB\17\0D\DDQ\B7\F0\DAI\D3\16U&)\D4h\9E+\16\BEX}G\A1\FC\8F\F8\B8\D1z\D01\CEE\CB:\8F\95\16\04(\AF\D7\FB\CA\BBK@~", align 64
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_XXH32Init(ptr nocapture noundef writeonly initializes((0, 48)) %0, ptr noundef %1) #0 {
+define void @PHP_XXH32Init(ptr noundef writeonly captures(none) initializes((0, 48)) %0, ptr noundef %1) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %21, label %3
@@ -87,7 +87,7 @@ define void @PHP_XXH32Init(ptr nocapture noundef writeonly initializes((0, 48)) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #1 {
+define void @PHP_XXH32Update(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %XXH_INLINE_XXH32_update.exit, label %5
 
@@ -250,7 +250,7 @@ XXH_INLINE_XXH32_update.exit:                     ; preds = %3, %.loopexit.i, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PHP_XXH32Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
+define void @PHP_XXH32Final(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -344,7 +344,7 @@ XXH_INLINE_XXH32_digest.exit:                     ; preds = %.lr.ph27.i.i, %.pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_XXH32Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 48)) %2) #2 {
+define noundef i32 @PHP_XXH32Copy(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 48)) %2) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(48) %1, i64 48, i1 false)
   ret i32 0
 }
@@ -376,13 +376,13 @@ define internal i32 @php_hash_xxh32_unserialize(ptr noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_XXH64Init(ptr nocapture noundef writeonly initializes((0, 88)) %0, ptr noundef %1) #0 {
+define void @PHP_XXH64Init(ptr noundef writeonly captures(none) initializes((0, 88)) %0, ptr noundef %1) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %3
@@ -445,7 +445,7 @@ define void @PHP_XXH64Init(ptr nocapture noundef writeonly initializes((0, 88)) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #1 {
+define void @PHP_XXH64Update(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %XXH_INLINE_XXH64_update.exit, label %5
 
@@ -601,7 +601,7 @@ XXH_INLINE_XXH64_update.exit:                     ; preds = %3, %.loopexit.i, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PHP_XXH64Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
+define void @PHP_XXH64Final(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp ugt i64 %3, 31
   br i1 %4, label %5, label %45
@@ -736,7 +736,7 @@ XXH_INLINE_XXH64_digest.exit:                     ; preds = %.lr.ph39.i.i, %74
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_XXH64Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 88)) %2) #2 {
+define noundef i32 @PHP_XXH64Copy(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 88)) %2) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   ret i32 0
 }
@@ -1013,13 +1013,13 @@ XXH_INLINE_XXH3_64bits_reset_withSeed.exit67:     ; preds = %.thread, %.thread75
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define void @PHP_XXH3_64_Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #7 {
+define void @PHP_XXH3_64_Update(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #7 {
   tail call fastcc void @XXH3_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #8 {
+define void @PHP_XXH3_64_Final(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = alloca i64, align 8
   %4 = alloca [64 x i8], align 16
   %5 = alloca [8 x i64], align 16
@@ -1198,7 +1198,7 @@ XXH_INLINE_XXH3_64bits_digest.exit:               ; preds = %XXH3_mergeAccs.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_XXH3_64_Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 576)) %2) #2 {
+define noundef i32 @PHP_XXH3_64_Copy(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 576)) %2) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %2, ptr noundef nonnull align 64 dereferenceable(576) %1, i64 576, i1 false)
   ret i32 0
 }
@@ -1453,13 +1453,13 @@ XXH_INLINE_XXH3_128bits_reset_withSeed.exit67:    ; preds = %.thread, %.thread75
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define void @PHP_XXH3_128_Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #7 {
+define void @PHP_XXH3_128_Update(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #7 {
   tail call fastcc void @XXH3_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #8 {
+define void @PHP_XXH3_128_Final(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = alloca i64, align 8
   %4 = alloca [64 x i8], align 16
   %5 = alloca [8 x i64], align 16
@@ -1683,7 +1683,7 @@ XXH_INLINE_XXH3_128bits_digest.exit:              ; preds = %XXH3_mergeAccs.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_XXH3_128_Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 576)) %2) #2 {
+define noundef i32 @PHP_XXH3_128_Copy(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 576)) %2) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %2, ptr noundef nonnull align 64 dereferenceable(576) %1, i64 576, i1 false)
   ret i32 0
 }
@@ -1705,7 +1705,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare zeroext i1 @_try_convert_to_string(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr noalias noundef %1, i64 noundef %2) unnamed_addr #8 {
+define internal fastcc void @XXH3_update(ptr noalias noundef captures(none) %0, ptr noalias noundef %1, i64 noundef %2) unnamed_addr #8 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %196, label %5
 
@@ -2052,7 +2052,7 @@ XXH3_accumulate.exit132:                          ; preds = %XXH3_accumulate_512
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @XXH3_consumeStripes(ptr noalias nocapture noundef %0, ptr noalias nocapture noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3, i64 noundef range(i64 0, 67108864) %4, ptr noalias nocapture noundef readonly %5, i64 noundef %6) unnamed_addr #10 {
+define internal fastcc void @XXH3_consumeStripes(ptr noalias noundef captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef range(i64 0, 67108864) %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6) unnamed_addr #10 {
   %8 = load i64, ptr %1, align 8
   %9 = sub i64 %2, %8
   %.not = icmp ugt i64 %9, %4
@@ -2247,10 +2247,10 @@ XXH3_accumulate.exit41:                           ; preds = %XXH3_accumulate_512
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #11
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef readonly %0, i64 noundef range(i64 0, 241) %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
+define internal fastcc i64 @XXH3_64bits_internal(ptr noalias noundef readonly captures(none) %0, i64 noundef range(i64 0, 241) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #12 {
   %5 = icmp samesign ult i64 %1, 17
   br i1 %5, label %6, label %110
 
@@ -2690,7 +2690,7 @@ XXH3_len_0to16_64b.exit:                          ; preds = %97, %67, %38, %8, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 241) %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
+define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef readonly captures(none) %0, i64 noundef range(i64 0, 241) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3) unnamed_addr #12 {
   %5 = icmp samesign ult i64 %1, 17
   br i1 %5, label %6, label %163
 
@@ -3326,10 +3326,10 @@ declare i64 @llvm.bswap.i64(i64) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

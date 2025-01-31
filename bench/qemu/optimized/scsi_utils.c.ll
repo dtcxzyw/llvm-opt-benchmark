@@ -154,7 +154,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.scsi_cdb_length = private unnamed_addr constant [6 x i32] [i32 6, i32 10, i32 10, i32 -1, i32 16, i32 12], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @scsi_data_cdb_xfer(ptr nocapture noundef readonly %buf) local_unnamed_addr #0 {
+define dso_local i32 @scsi_data_cdb_xfer(ptr noundef readonly captures(none) %buf) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %buf, align 1
   %cmp = icmp ult i8 %0, 32
@@ -207,7 +207,7 @@ return:                                           ; preds = %sw.bb10.i, %sw.bb5.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @scsi_cdb_xfer(ptr nocapture noundef readonly %buf) local_unnamed_addr #0 {
+define dso_local i32 @scsi_cdb_xfer(ptr noundef readonly captures(none) %buf) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %buf, align 1
   %1 = lshr i8 %0, 5
@@ -250,7 +250,7 @@ return:                                           ; preds = %entry, %sw.bb10, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @scsi_cmd_lba(ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local i64 @scsi_cmd_lba(ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %cmd, align 1
   %1 = lshr i8 %0, 5
@@ -288,7 +288,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb9, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 -1, 17) i32 @scsi_cdb_length(ptr nocapture noundef readonly %buf) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 17) i32 @scsi_cdb_length(ptr noundef readonly captures(none) %buf) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %buf, align 1
   %1 = icmp ult i8 %0, -64
@@ -307,7 +307,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i24 @scsi_parse_sense_buf(ptr nocapture noundef readonly %in_buf, i32 noundef %in_len) local_unnamed_addr #1 {
+define dso_local i24 @scsi_parse_sense_buf(ptr noundef readonly captures(none) %in_buf, i32 noundef %in_len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp sgt i32 %in_len, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -360,10 +360,10 @@ return:                                           ; preds = %if.else11, %if.then
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 19) i32 @scsi_build_sense_buf(ptr nocapture noundef writeonly %out_buf, i64 noundef %size, i24 %sense.coerce, i1 noundef zeroext %fixed_sense) local_unnamed_addr #4 {
+define dso_local range(i32 0, 19) i32 @scsi_build_sense_buf(ptr noundef writeonly captures(none) %out_buf, i64 noundef %size, i24 %sense.coerce, i1 noundef zeroext %fixed_sense) local_unnamed_addr #4 {
 entry:
   %buf = alloca [18 x i8], align 16
   %sense.sroa.0.0.extract.trunc = trunc i24 %sense.coerce to i8
@@ -404,10 +404,10 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @scsi_build_sense(ptr nocapture noundef writeonly initializes((0, 18)) %buf, i24 %sense.coerce) local_unnamed_addr #6 {
+define dso_local noundef i32 @scsi_build_sense(ptr noundef writeonly captures(none) initializes((0, 18)) %buf, i24 %sense.coerce) local_unnamed_addr #6 {
 entry:
   %sense.sroa.0.0.extract.trunc.i = trunc i24 %sense.coerce to i8
   %sense.sroa.3.0.extract.shift.i = lshr i24 %sense.coerce, 8
@@ -435,7 +435,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @scsi_convert_sense(ptr nocapture noundef readonly %in_buf, i32 noundef %in_len, ptr nocapture noundef writeonly %buf, i32 noundef %len, i1 noundef zeroext %fixed) local_unnamed_addr #1 {
+define dso_local i32 @scsi_convert_sense(ptr noundef readonly captures(none) %in_buf, i32 noundef %in_len, ptr noundef writeonly captures(none) %buf, i32 noundef %len, i1 noundef zeroext %fixed) local_unnamed_addr #1 {
 entry:
   %buf.i19 = alloca [18 x i8], align 16
   %buf.i = alloca [18 x i8], align 16
@@ -622,7 +622,7 @@ return:                                           ; preds = %sw.epilog, %sw.epil
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 5, 126) i32 @scsi_sense_buf_to_errno(ptr nocapture noundef readonly %in_buf, i64 noundef %in_len) local_unnamed_addr #1 {
+define dso_local range(i32 5, 126) i32 @scsi_sense_buf_to_errno(ptr noundef readonly captures(none) %in_buf, i64 noundef %in_len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq i64 %in_len, 0
   br i1 %cmp, label %return, label %if.end
@@ -724,7 +724,7 @@ return:                                           ; preds = %sw.default10.i, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @scsi_sense_buf_is_guest_recoverable(ptr nocapture noundef readonly %in_buf, i64 noundef %in_len) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @scsi_sense_buf_is_guest_recoverable(ptr noundef readonly captures(none) %in_buf, i64 noundef %in_len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq i64 %in_len, 0
   br i1 %cmp, label %return, label %if.end
@@ -822,7 +822,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 41) i32 @scsi_sense_from_errno(i32 noundef %errno_value, ptr nocapture noundef writeonly %sense) local_unnamed_addr #4 {
+define dso_local range(i32 0, 41) i32 @scsi_sense_from_errno(i32 noundef %errno_value, ptr noundef writeonly captures(none) %sense) local_unnamed_addr #4 {
 entry:
   switch i32 %errno_value, label %sw.default [
     i32 0, label %return
@@ -876,7 +876,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 25) i32 @scsi_sense_from_host_status(i8 noundef zeroext %host_status, ptr nocapture noundef writeonly %sense) local_unnamed_addr #4 {
+define dso_local range(i32 0, 25) i32 @scsi_sense_from_host_status(i8 noundef zeroext %host_status, ptr noundef writeonly captures(none) %sense) local_unnamed_addr #4 {
 entry:
   switch i8 %host_status, label %sw.epilog [
     i8 1, label %sw.bb
@@ -955,10 +955,10 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

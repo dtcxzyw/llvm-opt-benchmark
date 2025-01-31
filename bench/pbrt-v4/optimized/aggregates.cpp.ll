@@ -531,7 +531,7 @@ $_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 declare void @_ZN4pbrt14StatRegistererC1EPFvRNS_16StatsAccumulatorEEPFvNS_6Point2IiEEiRNS_21PixelStatsAccumulatorEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt12BVHAggregateC2ESt6vectorINS_9PrimitiveESaIS2_EEiNS0_11SplitMethodE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4), (8, 36), (40, 48)) %this, ptr nocapture noundef %prims, i32 noundef %maxPrimsInNode, i32 noundef %splitMethod) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt12BVHAggregateC2ESt6vectorINS_9PrimitiveESaIS2_EEiNS0_11SplitMethodE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4), (8, 36), (40, 48)) %this, ptr noundef captures(none) %prims, i32 noundef %maxPrimsInNode, i32 noundef %splitMethod) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %bvhPrimitives = alloca %"class.std::vector.16", align 8
@@ -1201,7 +1201,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNK4pbrt9Primitive6BoundsEv(ptr sret(%"class.pbrt::Bounds3") align 4, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4pbrt11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEC2EOSt8functionIFS5_vEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(32) %c) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1291,7 +1291,7 @@ lpad2.body:                                       ; preds = %lpad.i, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4pbrt12BVHAggregate10buildHLBVHEN4pstd3pmr21polymorphic_allocatorISt4byteEERKSt6vectorINS_12BVHPrimitiveESaIS7_EEPSt6atomicIiERS6_INS_9PrimitiveESaISF_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %alloc.coerce, ptr noundef nonnull align 8 dereferenceable(24) %bvhPrimitives, ptr noundef %totalNodes, ptr noundef nonnull align 8 dereferenceable(24) %orderedPrims) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -4131,7 +4131,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 declare noalias noundef nonnull ptr @_ZnamSt11align_val_t(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4pbrt12BVHAggregate10flattenBVHEPNS_12BVHBuildNodeEPi(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %node, ptr noundef %offset) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN4pbrt12BVHAggregate10flattenBVHEPNS_12BVHBuildNodeEPi(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly captures(none) %node, ptr noundef %offset) local_unnamed_addr #1 align 2 {
 entry:
   %va = alloca i32, align 4
   %vb = alloca i32, align 4
@@ -5476,7 +5476,7 @@ return:                                           ; preds = %"_ZSt16__insertion_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @"_ZSt9partitionIPN4pbrt12BVHPrimitiveEZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanIS1_EEPSt6atomicIiESG_RSt6vectorINS0_9PrimitiveESaISI_EEE3$_4ET_SN_SN_T0_"(ptr noundef %__first, ptr noundef %__last, ptr nocapture noundef readonly byval(%class.anon.36) align 8 %__pred) unnamed_addr #10 {
+define internal fastcc noundef ptr @"_ZSt9partitionIPN4pbrt12BVHPrimitiveEZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanIS1_EEPSt6atomicIiESG_RSt6vectorINS0_9PrimitiveESaISI_EEE3$_4ET_SN_SN_T0_"(ptr noundef %__first, ptr noundef %__last, ptr noundef readonly byval(%class.anon.36) align 8 captures(none) %__pred) unnamed_addr #10 {
 entry:
   %__tmp.i.i.i = alloca %"struct.pbrt::BVHPrimitive", align 8
   %agg.tmp.sroa.2.0.__pred.sroa_idx = getelementptr inbounds nuw i8, ptr %__pred, i64 8
@@ -6545,7 +6545,7 @@ do.end53:                                         ; preds = %do.body38
   %call58 = tail call noundef ptr @_ZN4pbrt12BVHAggregate8emitLBVHERPNS_12BVHBuildNodeERKSt6vectorINS_12BVHPrimitiveESaIS5_EEPNS_15MortonPrimitiveEiPiRS4_INS_9PrimitiveESaISD_EEPSt6atomicIiEi(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %buildNodes, ptr noundef nonnull align 8 dereferenceable(24) %bvhPrimitives, ptr noundef nonnull %mortonPrims, i32 noundef %inc29, ptr noundef nonnull %totalNodes, ptr noundef nonnull align 8 dereferenceable(24) %orderedPrims, ptr noundef %orderedPrimsOffset, i32 noundef %sub57)
   %arrayidx60 = getelementptr inbounds %"struct.pbrt::MortonPrimitive", ptr %mortonPrims, i64 %idxprom46
   %sub61 = sub nsw i32 %nPrimitives, %inc29
-  %call63 = tail call noundef ptr @_ZN4pbrt12BVHAggregate8emitLBVHERPNS_12BVHBuildNodeERKSt6vectorINS_12BVHPrimitiveESaIS5_EEPNS_15MortonPrimitiveEiPiRS4_INS_9PrimitiveESaISD_EEPSt6atomicIiEi(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %buildNodes, ptr noundef nonnull align 8 dereferenceable(24) %bvhPrimitives, ptr noundef %arrayidx60, i32 noundef %sub61, ptr noundef nonnull %totalNodes, ptr noundef nonnull align 8 dereferenceable(24) %orderedPrims, ptr noundef %orderedPrimsOffset, i32 noundef %sub57)
+  %call63 = tail call noundef ptr @_ZN4pbrt12BVHAggregate8emitLBVHERPNS_12BVHBuildNodeERKSt6vectorINS_12BVHPrimitiveESaIS5_EEPNS_15MortonPrimitiveEiPiRS4_INS_9PrimitiveESaISD_EEPSt6atomicIiEi(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %buildNodes, ptr noundef nonnull align 8 dereferenceable(24) %bvhPrimitives, ptr noundef nonnull %arrayidx60, i32 noundef %sub61, ptr noundef nonnull %totalNodes, ptr noundef nonnull align 8 dereferenceable(24) %orderedPrims, ptr noundef %orderedPrimsOffset, i32 noundef %sub57)
   %rem = srem i32 %bitIndex.tr69.us76, 3
   %children.i54 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %call58, ptr %children.i54, align 8
@@ -6767,7 +6767,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt12BVHAggregate6BoundsEv(ptr noalias nocapture writeonly sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4pbrt12BVHAggregate6BoundsEv(ptr noalias writeonly sret(%"class.pbrt::Bounds3") align 4 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #1 align 2 {
 entry:
   %nodes = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %nodes, align 8
@@ -6816,7 +6816,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt12BVHAggregate9IntersectERKNS_3RayEf(ptr noalias nocapture writeonly sret(%"class.pstd::optional") align 8 initializes((256, 257)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt12BVHAggregate9IntersectERKNS_3RayEf(ptr noalias writeonly sret(%"class.pstd::optional") align 8 captures(none) initializes((256, 257)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dirIsNeg = alloca [3 x i32], align 4
   %nodesToVisit = alloca [64 x i32], align 16
@@ -7106,7 +7106,7 @@ return:                                           ; preds = %while.end, %if.then
 declare void @_ZNK4pbrt9Primitive9IntersectERKNS_3RayEf(ptr sret(%"class.pstd::optional") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(40), float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4pbrt12BVHAggregate10IntersectPERKNS_3RayEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4pbrt12BVHAggregate10IntersectPERKNS_3RayEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #5 align 2 {
 entry:
   %dirIsNeg = alloca [3 x i32], align 4
   %nodesToVisit = alloca [64 x i32], align 16
@@ -7517,7 +7517,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN4pbrt12BVHAggregate6CreateESt6vectorINS_9PrimitiveESaIS2_EERKNS_19ParameterDictionaryE(ptr nocapture noundef %prims, ptr noundef nonnull align 8 dereferenceable(108) %parameters) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN4pbrt12BVHAggregate6CreateESt6vectorINS_9PrimitiveESaIS2_EERKNS_19ParameterDictionaryE(ptr noundef captures(none) %prims, ptr noundef nonnull align 8 dereferenceable(108) %parameters) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %splitMethodName = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7775,7 +7775,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt15KdTreeAggregateC2ESt6vectorINS_9PrimitiveESaIS2_EEiifii(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 64), (72, 104)) %this, ptr nocapture noundef %p, i32 noundef %isectCost, i32 noundef %traversalCost, float noundef %emptyBonus, i32 noundef %maxPrims, i32 noundef %maxDepth) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt15KdTreeAggregateC2ESt6vectorINS_9PrimitiveESaIS2_EEiifii(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 64), (72, 104)) %this, ptr noundef captures(none) %p, i32 noundef %isectCost, i32 noundef %traversalCost, float noundef %emptyBonus, i32 noundef %maxPrims, i32 noundef %maxDepth) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %primBounds = alloca %"class.std::vector.82", align 8
   %b = alloca %"class.pbrt::Bounds3", align 8
@@ -8414,7 +8414,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKSt6vectorIS2_SaIS2_EEN4pstd4spanIKiEEiPS5_INS_9BoundEdgeESaISE_EENSB_IiEESI_i(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %nodeNum, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %nodeBounds, ptr noundef nonnull align 8 dereferenceable(24) %allPrimBounds, ptr %primNums.coerce0, i64 %primNums.coerce1, i32 noundef %depth, ptr noundef %edges, ptr nocapture noundef readonly byval(%"class.pstd::span.94") align 8 %prims0, ptr nocapture noundef readonly byval(%"class.pstd::span.94") align 8 %prims1, i32 noundef %badRefines) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKSt6vectorIS2_SaIS2_EEN4pstd4spanIKiEEiPS5_INS_9BoundEdgeESaISE_EENSB_IiEESI_i(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %nodeNum, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %nodeBounds, ptr noundef nonnull align 8 dereferenceable(24) %allPrimBounds, ptr %primNums.coerce0, i64 %primNums.coerce1, i32 noundef %depth, ptr noundef %edges, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %prims0, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %prims1, i32 noundef %badRefines) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.i20.i.i.i = alloca %"struct.pbrt::BoundEdge", align 4
   %__val.i.i.i.i = alloca %"struct.pbrt::BoundEdge", align 4
@@ -9284,7 +9284,7 @@ return:                                           ; preds = %_ZN4pbrt6Tuple3INS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10KdTreeNode8InitLeafEN4pstd4spanIKiEEPSt6vectorIiSaIiEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr readonly %primNums.coerce0, i64 %primNums.coerce1, ptr nocapture noundef %primitiveIndices) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt10KdTreeNode8InitLeafEN4pstd4spanIKiEEPSt6vectorIiSaIiEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr readonly %primNums.coerce0, i64 %primNums.coerce1, ptr noundef captures(none) %primitiveIndices) local_unnamed_addr #1 align 2 {
 entry:
   %call.tr = trunc i64 %primNums.coerce1 to i32
   %0 = shl i32 %call.tr, 2
@@ -9464,7 +9464,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt15KdTreeAggregate9IntersectERKNS_3RayEf(ptr noalias nocapture writeonly sret(%"class.pstd::optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %rayTMax) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt15KdTreeAggregate9IntersectERKNS_3RayEf(ptr noalias writeonly sret(%"class.pstd::optional") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %rayTMax) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %toVisit = alloca [64 x %"struct.pbrt::KdNodeToVisit"], align 16
   %primSi = alloca %"class.pstd::optional", align 8
@@ -9863,7 +9863,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4pbrt15KdTreeAggregate10IntersectPERKNS_3RayEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %raytMax) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4pbrt15KdTreeAggregate10IntersectPERKNS_3RayEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %raytMax) local_unnamed_addr #5 align 2 {
 entry:
   %toVisit = alloca [64 x %"struct.pbrt::KdNodeToVisit"], align 16
   %bounds = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -10138,7 +10138,7 @@ return:                                           ; preds = %_ZN4pbrt6Tuple3INS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN4pbrt15KdTreeAggregate6CreateESt6vectorINS_9PrimitiveESaIS2_EERKNS_19ParameterDictionaryE(ptr nocapture noundef %prims, ptr noundef nonnull align 8 dereferenceable(108) %parameters) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN4pbrt15KdTreeAggregate6CreateESt6vectorINS_9PrimitiveESaIS2_EERKNS_19ParameterDictionaryE(ptr noundef captures(none) %prims, ptr noundef nonnull align 8 dereferenceable(108) %parameters) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator.67", align 1
@@ -10406,7 +10406,7 @@ eh.resume:                                        ; preds = %_ZNSt6vectorIN4pbrt
 declare noundef float @_ZNK4pbrt19ParameterDictionary11GetOneFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32), float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17CreateAcceleratorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS_9PrimitiveESaIS9_EERKNS_19ParameterDictionaryE(ptr noalias nocapture writeonly sret(%"class.pbrt::Primitive") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %prims, ptr noundef nonnull align 8 dereferenceable(108) %parameters) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt17CreateAcceleratorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS_9PrimitiveESaIS9_EERKNS_19ParameterDictionaryE(ptr noalias writeonly sret(%"class.pbrt::Primitive") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef captures(none) %prims, ptr noundef nonnull align 8 dereferenceable(108) %parameters) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp8 = alloca %"class.std::vector", align 8
@@ -10972,7 +10972,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 declare void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
@@ -12288,7 +12288,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal ptr @"_ZNSt17_Function_handlerIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEZN4pbrt12BVHAggregateC1ESt6vectorINS6_9PrimitiveESaIS9_EEiNS7_11SplitMethodEE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal ptr @"_ZNSt17_Function_handlerIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEZN4pbrt12BVHAggregateC1ESt6vectorINS6_9PrimitiveESaIS9_EEiNS7_11SplitMethodEE3$_0E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %__functor, align 8
   %call.i.i.i.i = tail call noalias noundef nonnull align 64 dereferenceable(64) ptr @_ZnwmSt11align_val_t(i64 noundef 64, i64 noundef 64) #27, !noalias !125
@@ -12399,7 +12399,7 @@ _ZNSt10unique_ptrIN4pstd3pmr25monotonic_buffer_resourceESt14default_deleteIS2_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEZN4pbrt12BVHAggregateC1ESt6vectorINS6_9PrimitiveESaIS9_EEiNS7_11SplitMethodEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEZN4pbrt12BVHAggregateC1ESt6vectorINS6_9PrimitiveESaIS9_EEiNS7_11SplitMethodEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -15626,7 +15626,7 @@ declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #11
 declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_T2_"(ptr nocapture noundef %__first, i64 noundef range(i64 0, 144115188075855871) %__holeIndex, i64 noundef range(i64 -288230376151711744, 288230376151711744) %__len, ptr nocapture noundef readonly byval(%"struct.pbrt::BVHPrimitive") align 8 %__value, i32 %__comp.coerce) unnamed_addr #10 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_T2_"(ptr noundef captures(none) %__first, i64 noundef range(i64 0, 144115188075855871) %__holeIndex, i64 noundef range(i64 -288230376151711744, 288230376151711744) %__len, ptr noundef readonly byval(%"struct.pbrt::BVHPrimitive") align 8 captures(none) %__value, i32 %__comp.coerce) unnamed_addr #10 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -15852,10 +15852,10 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_T2_"(ptr nocapture noundef %__first, i64 noundef range(i64 0, 144115188075855871) %__holeIndex, i64 noundef range(i64 -288230376151711744, 288230376151711744) %__len, ptr nocapture noundef readonly byval(%"struct.pbrt::BVHPrimitive") align 8 %__value, i32 %__comp.coerce) unnamed_addr #10 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_T2_"(ptr noundef captures(none) %__first, i64 noundef range(i64 0, 144115188075855871) %__holeIndex, i64 noundef range(i64 -288230376151711744, 288230376151711744) %__len, ptr noundef readonly byval(%"struct.pbrt::BVHPrimitive") align 8 captures(none) %__value, i32 %__comp.coerce) unnamed_addr #10 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -16081,7 +16081,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt12BVHAggregate14buildRecursiveERNS1_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS4_4spanINS1_12BVHPrimitiveEEEPSt6atomicIiESG_RSt6vectorINS1_9PrimitiveESaISI_EEE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #1 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt12BVHAggregate14buildRecursiveERNS1_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS4_4spanINS1_12BVHPrimitiveEEEPSt6atomicIiESG_RSt6vectorINS1_9PrimitiveESaISI_EEE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #1 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %__args.val = load i64, ptr %__args, align 8
@@ -16139,7 +16139,7 @@ if.else.i.i.i:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN4pbrt12BVHAggregate14buildRecursiveERNS1_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS4_4spanINS1_12BVHPrimitiveEEEPSt6atomicIiESG_RSt6vectorINS1_9PrimitiveESaISI_EEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #1 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN4pbrt12BVHAggregate14buildRecursiveERNS1_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS4_4spanINS1_12BVHPrimitiveEEEPSt6atomicIiESG_RSt6vectorINS1_9PrimitiveESaISI_EEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #1 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -16178,7 +16178,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt12BVHAggregate10buildHLBVHEN4pstd3pmr21polymorphic_allocatorISt4byteEERKSt6vectorINS1_12BVHPrimitiveESaIS9_EEPSt6atomicIiERS8_INS1_9PrimitiveESaISH_EEE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #19 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt12BVHAggregate10buildHLBVHEN4pstd3pmr21polymorphic_allocatorISt4byteEERKSt6vectorINS1_12BVHPrimitiveESaIS9_EEPSt6atomicIiERS8_INS1_9PrimitiveESaISH_EEE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #19 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %__args.val = load i64, ptr %__args, align 8
@@ -16300,7 +16300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN4pbrt12BVHAggregate10buildHLBVHEN4pstd3pmr21polymorphic_allocatorISt4byteEERKSt6vectorINS1_12BVHPrimitiveESaIS9_EEPSt6atomicIiERS8_INS1_9PrimitiveESaISH_EEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #1 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN4pbrt12BVHAggregate10buildHLBVHEN4pstd3pmr21polymorphic_allocatorISt4byteEERKSt6vectorINS1_12BVHPrimitiveESaIS9_EEPSt6atomicIiERS8_INS1_9PrimitiveESaISH_EEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #1 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -16339,7 +16339,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt12BVHAggregate10buildHLBVHEN4pstd3pmr21polymorphic_allocatorISt4byteEERKSt6vectorINS1_12BVHPrimitiveESaIS9_EEPSt6atomicIiERS8_INS1_9PrimitiveESaISH_EEE3$_1E9_M_invokeERKSt9_Any_dataOl"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #1 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt12BVHAggregate10buildHLBVHEN4pstd3pmr21polymorphic_allocatorISt4byteEERKSt6vectorINS1_12BVHPrimitiveESaIS9_EEPSt6atomicIiERS8_INS1_9PrimitiveESaISH_EEE3$_1E9_M_invokeERKSt9_Any_dataOl"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #1 align 2 {
 entry:
   %nodesCreated.i.i.i = alloca i32, align 4
   %__functor.val = load ptr, ptr %__functor, align 8
@@ -16380,7 +16380,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN4pbrt12BVHAggregate10buildHLBVHEN4pstd3pmr21polymorphic_allocatorISt4byteEERKSt6vectorINS1_12BVHPrimitiveESaIS9_EEPSt6atomicIiERS8_INS1_9PrimitiveESaISH_EEE3$_1E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #1 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN4pbrt12BVHAggregate10buildHLBVHEN4pstd3pmr21polymorphic_allocatorISt4byteEERKSt6vectorINS1_12BVHPrimitiveESaIS9_EEPSt6atomicIiERS8_INS1_9PrimitiveESaISH_EEE3$_1E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #1 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -22071,7 +22071,7 @@ ehcleanup46:                                      ; preds = %lpad37, %ehcleanup3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt12BVHAggregate13buildUpperSAHEN4pstd3pmr21polymorphic_allocatorISt4byteEERSt6vectorIPNS_12BVHBuildNodeESaIS8_EEiiPSt6atomicIiEENK3$_0clEPKS7_"(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %this, ptr nocapture noundef readonly %node) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt12BVHAggregate13buildUpperSAHEN4pstd3pmr21polymorphic_allocatorISt4byteEERSt6vectorIPNS_12BVHBuildNodeESaIS8_EEiiPSt6atomicIiEENK3$_0clEPKS7_"(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(none) %node) unnamed_addr #1 align 2 {
 entry:
   %va = alloca i32, align 4
   %vb = alloca i32, align 4
@@ -24956,10 +24956,10 @@ declare i64 @llvm.umax.i64(i64, i64) #24
 declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24

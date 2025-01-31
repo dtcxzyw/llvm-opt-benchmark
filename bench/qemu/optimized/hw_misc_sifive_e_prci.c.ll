@@ -85,7 +85,7 @@ declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 4294967296) i64 @sifive_e_prci_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @sifive_e_prci_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
   switch i64 %0, label %do.body [
@@ -133,7 +133,7 @@ return:                                           ; preds = %if.then, %do.body, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_e_prci_write(ptr nocapture noundef writeonly %opaque, i64 noundef %addr, i64 noundef %val64, i32 %size) #0 {
+define internal void @sifive_e_prci_write(ptr noundef writeonly captures(none) %opaque, i64 noundef %addr, i64 noundef %val64, i32 %size) #0 {
 entry:
   %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
   switch i64 %0, label %do.body [

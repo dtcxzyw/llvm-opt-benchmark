@@ -559,7 +559,7 @@ define range(i32 0, 2) i32 @wtap_plugins_supported() local_unnamed_addr #0 {
 declare zeroext i1 @plugins_supported() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @wtap_file_size(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i64 @wtap_file_size(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -583,7 +583,7 @@ define i64 @wtap_file_size(ptr nocapture noundef readonly %0, ptr noundef %1) lo
 declare i32 @file_fstat(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @wtap_fstat(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @wtap_fstat(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
@@ -602,35 +602,35 @@ define range(i32 -1, 1) i32 @wtap_fstat(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @wtap_file_type_subtype(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @wtap_file_type_subtype(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @wtap_snapshot_length(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @wtap_snapshot_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @wtap_file_encap(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @wtap_file_encap(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @wtap_file_tsprec(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @wtap_file_tsprec(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @wtap_file_get_num_shbs(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @wtap_file_get_num_shbs(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -798,10 +798,10 @@ define void @wtap_write_shb_comment(ptr noundef readonly %0, ptr noundef %1) loc
 declare i32 @wtap_block_set_nth_string_option_value(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @wtap_file_get_idb_info(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @wtap_file_get_idb_info(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -813,7 +813,7 @@ define noalias noundef ptr @wtap_file_get_idb_info(ptr nocapture noundef readonl
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @wtap_get_next_interface_description(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define ptr @wtap_get_next_interface_description(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -838,7 +838,7 @@ define ptr @wtap_get_next_interface_description(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @wtap_file_get_num_dsbs(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @wtap_file_get_num_dsbs(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -884,7 +884,7 @@ define ptr @wtap_file_get_dsb(ptr noundef readonly %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wtap_file_add_decryption_secrets(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @wtap_file_add_decryption_secrets(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -904,7 +904,7 @@ define void @wtap_file_add_decryption_secrets(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wtap_file_discard_decryption_secrets(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_file_discard_decryption_secrets(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -929,7 +929,7 @@ define range(i32 0, 2) i32 @wtap_file_discard_decryption_secrets(ptr nocapture n
 declare void @wtap_block_array_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @wtap_file_add_meta_event(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @wtap_file_add_meta_event(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -949,7 +949,7 @@ define hidden void @wtap_file_add_meta_event(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @wtap_file_discard_meta_events(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @wtap_file_discard_meta_events(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -972,7 +972,7 @@ define hidden range(i32 0, 2) i32 @wtap_file_discard_meta_events(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @wtap_add_idb(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @wtap_add_idb(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -982,7 +982,7 @@ define hidden void @wtap_add_idb(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wtap_add_generated_idb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @wtap_add_generated_idb(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
@@ -1448,7 +1448,7 @@ define hidden ptr @wtap_file_get_nrb_for_new_file(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wtap_dump_params_init(ptr nocapture noundef writeonly initializes((0, 80)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @wtap_dump_params_init(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   %4 = icmp eq ptr %1, null
@@ -1539,10 +1539,10 @@ wtap_file_get_shb_for_new_file.exit:              ; preds = %.lr.ph.i, %5, %17, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define void @wtap_dump_params_init_no_idbs(ptr nocapture noundef writeonly initializes((0, 80)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @wtap_dump_params_init_no_idbs(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   %4 = icmp eq ptr %1, null
@@ -1629,28 +1629,28 @@ wtap_file_get_shb_for_new_file.exit:              ; preds = %.lr.ph.i, %5, %17, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @wtap_dump_params_discard_name_resolution(ptr nocapture noundef writeonly initializes((40, 48)) %0) local_unnamed_addr #9 {
+define void @wtap_dump_params_discard_name_resolution(ptr noundef writeonly captures(none) initializes((40, 48)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @wtap_dump_params_discard_decryption_secrets(ptr nocapture noundef writeonly initializes((48, 64)) %0) local_unnamed_addr #9 {
+define void @wtap_dump_params_discard_decryption_secrets(ptr noundef writeonly captures(none) initializes((48, 64)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @wtap_dump_params_discard_meta_events(ptr nocapture noundef writeonly initializes((64, 72)) %0) local_unnamed_addr #9 {
+define hidden void @wtap_dump_params_discard_meta_events(ptr noundef writeonly captures(none) initializes((64, 72)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wtap_dump_params_cleanup(ptr nocapture noundef initializes((0, 16), (24, 80)) %0) local_unnamed_addr #0 {
+define void @wtap_dump_params_cleanup(ptr noundef captures(none) initializes((0, 16), (24, 80)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @wtap_block_array_free(ptr noundef %3) #18
@@ -1659,7 +1659,7 @@ define void @wtap_dump_params_cleanup(ptr nocapture noundef initializes((0, 16),
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @wtap_dump_params_generate_idb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @wtap_dump_params_generate_idb(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -1736,7 +1736,7 @@ define i32 @wtap_register_encap_type(ptr noundef %0, ptr noundef %1) local_unnam
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @wtap_name_to_encap(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define range(i32 -2147483648, 2147483647) i32 @wtap_name_to_encap(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = load i32, ptr @wtap_num_encap_types, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -1774,7 +1774,7 @@ define range(i32 -2147483648, 2147483647) i32 @wtap_name_to_encap(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
 define ptr @wtap_strerror(i32 noundef %0) local_unnamed_addr #12 {
@@ -1812,7 +1812,7 @@ define ptr @wtap_strerror(i32 noundef %0) local_unnamed_addr #12 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @g_strerror(i32 noundef) local_unnamed_addr #14
@@ -1845,7 +1845,7 @@ define void @wtap_sequential_close(ptr noundef %0) local_unnamed_addr #0 {
 declare void @file_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @wtap_fdclose(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @wtap_fdclose(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -1955,7 +1955,7 @@ wtap_sequential_close.exit:                       ; preds = %5, %7
 declare void @g_ptr_array_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @g_fast_seek_item_free(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @g_fast_seek_item_free(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   tail call void @g_free(ptr noundef %0) #18
   ret void
 }
@@ -1965,7 +1965,7 @@ declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @wtap_cleareof(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @wtap_cleareof(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @file_clearerr(ptr noundef %2) #18
   ret void
@@ -2094,7 +2094,7 @@ wtapng_process_nrb_ipv6.exit:                     ; preds = %.lr.ph.i, %.lr.ph, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @wtapng_process_nrb(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @wtapng_process_nrb(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %1) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
@@ -2199,7 +2199,7 @@ wtapng_process_dsb.exit:                          ; preds = %.lr.ph, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @wtapng_process_dsb(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @wtapng_process_dsb(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %1) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
@@ -2282,7 +2282,7 @@ declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wtap_block_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @file_read(ptr noundef %1, i32 noundef %2, ptr noundef %0) #18
   %7 = icmp sgt i32 %6, -1
   %.not = icmp eq i32 %6, %2
@@ -2306,7 +2306,7 @@ define range(i32 0, 2) i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef %
 declare i32 @file_read(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wtap_read_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_read_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @file_read(ptr noundef %1, i32 noundef %2, ptr noundef %0) #18
   %7 = icmp sgt i32 %6, -1
   %.not = icmp eq i32 %6, %2
@@ -2326,7 +2326,7 @@ define range(i32 0, 2) i32 @wtap_read_bytes(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = zext i32 %2 to i64
   tail call void @ws_buffer_assure_space(ptr noundef %1, i64 noundef %6) #18
   %7 = load ptr, ptr %1, align 8
@@ -2360,7 +2360,7 @@ wtap_read_bytes.exit:                             ; preds = %5
 declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @wtap_read_so_far(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i64 @wtap_read_so_far(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i64 @file_tell_raw(ptr noundef %2) #18
   ret i64 %3
@@ -2379,7 +2379,7 @@ define void @wtap_rec_init(ptr noundef initializes((0, 280)) %0) local_unnamed_a
 declare void @ws_buffer_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @wtap_rec_reset(ptr nocapture noundef initializes((240, 244)) %0) local_unnamed_addr #0 {
+define void @wtap_rec_reset(ptr noundef captures(none) initializes((240, 244)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   tail call void @wtap_block_unref(ptr noundef %3) #18
@@ -2405,7 +2405,7 @@ define void @wtap_rec_cleanup(ptr noundef initializes((240, 244)) %0) local_unna
 declare void @ws_buffer_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @wtap_rec_generate_idb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @wtap_rec_generate_idb(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1
@@ -2519,7 +2519,7 @@ define range(i32 0, 2) i32 @wtap_seek_read(ptr noundef %0, i64 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @wtap_full_file_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @wtap_full_file_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #18
   %.not = icmp eq i64 %8, 0
@@ -2543,7 +2543,7 @@ define hidden range(i32 0, 2) i32 @wtap_full_file_read(ptr nocapture noundef rea
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @wtap_full_file_read_file(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wtap_full_file_read_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
   %8 = load ptr, ptr %0, align 8
@@ -2695,7 +2695,7 @@ wtap_encap_name.exit48:                           ; preds = %43, %48, %49, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @wtap_full_file_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @wtap_full_file_seek_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp sgt i64 %1, 0
   br i1 %7, label %8, label %9
 
@@ -2783,7 +2783,7 @@ define void @wtap_buffer_append_epdu_tag(ptr noundef %0, i16 noundef zeroext %1,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
 define void @wtap_buffer_append_epdu_uint(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -2821,64 +2821,62 @@ define void @wtap_buffer_append_epdu_uint(ptr noundef %0, i16 noundef zeroext %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wtap_buffer_append_epdu_string(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @wtap_buffer_append_epdu_string(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
   %5 = icmp ne i16 %1, 0
-  %6 = icmp ne ptr %2, null
-  %or.cond.i = and i1 %5, %6
-  %7 = icmp ne i64 %4, 0
-  %or.cond4.i = and i1 %or.cond.i, %7
-  br i1 %or.cond4.i, label %8, label %16
+  %6 = icmp ne i64 %4, 0
+  %or.cond4.i = and i1 %5, %6
+  br i1 %or.cond4.i, label %7, label %15
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %4, i64 65535)
-  %9 = trunc nuw i64 %spec.store.select to i16
-  %10 = add i16 %9, 3
-  %11 = and i16 %10, 252
-  %12 = sub i16 %11, %9
-  %.mask.i = and i16 %12, 255
-  %13 = zext nneg i16 %.mask.i to i64
-  %14 = add nuw nsw i64 %spec.store.select, 4
-  %15 = add nuw nsw i64 %14, %13
-  br label %16
+  %8 = trunc nuw i64 %spec.store.select to i16
+  %9 = add i16 %8, 3
+  %10 = and i16 %9, 252
+  %11 = sub i16 %10, %8
+  %.mask.i = and i16 %11, 255
+  %12 = zext nneg i16 %.mask.i to i64
+  %13 = add nuw nsw i64 %spec.store.select, 4
+  %14 = add nuw nsw i64 %13, %12
+  br label %15
 
-16:                                               ; preds = %8, %3
-  %.030.i = phi i16 [ %.mask.i, %8 ], [ 0, %3 ]
-  %.029.i = phi i64 [ %15, %8 ], [ 4, %3 ]
-  %.0.i = phi i16 [ %9, %8 ], [ 0, %3 ]
+15:                                               ; preds = %7, %3
+  %.030.i = phi i16 [ %.mask.i, %7 ], [ 0, %3 ]
+  %.029.i = phi i64 [ %14, %7 ], [ 4, %3 ]
+  %.0.i = phi i16 [ %8, %7 ], [ 0, %3 ]
   tail call void @ws_buffer_assure_space(ptr noundef %0, i64 noundef %.029.i) #18
-  %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr i8, ptr %17, i64 %19
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, i8 0, i64 %.029.i, i1 false)
-  %21 = lshr i16 %1, 8
-  %22 = trunc nuw i16 %21 to i8
-  store i8 %22, ptr %20, align 1
-  %23 = trunc i16 %1 to i8
-  %24 = getelementptr i8, ptr %20, i64 1
-  store i8 %23, ptr %24, align 1
-  %25 = getelementptr i8, ptr %20, i64 2
-  %26 = add i16 %.0.i, %.030.i
-  %27 = lshr i16 %26, 8
-  %28 = trunc nuw i16 %27 to i8
-  store i8 %28, ptr %25, align 1
-  %29 = trunc i16 %26 to i8
-  %30 = getelementptr i8, ptr %20, i64 3
-  store i8 %29, ptr %30, align 1
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr i8, ptr %16, i64 %18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %19, i8 0, i64 %.029.i, i1 false)
+  %20 = lshr i16 %1, 8
+  %21 = trunc nuw i16 %20 to i8
+  store i8 %21, ptr %19, align 1
+  %22 = trunc i16 %1 to i8
+  %23 = getelementptr i8, ptr %19, i64 1
+  store i8 %22, ptr %23, align 1
+  %24 = getelementptr i8, ptr %19, i64 2
+  %25 = add i16 %.0.i, %.030.i
+  %26 = lshr i16 %25, 8
+  %27 = trunc nuw i16 %26 to i8
+  store i8 %27, ptr %24, align 1
+  %28 = trunc i16 %25 to i8
+  %29 = getelementptr i8, ptr %19, i64 3
+  store i8 %28, ptr %29, align 1
   %.not.i = icmp eq i16 %.0.i, 0
-  br i1 %.not.i, label %wtap_buffer_append_epdu_tag.exit, label %31
+  br i1 %.not.i, label %wtap_buffer_append_epdu_tag.exit, label %30
 
-31:                                               ; preds = %16
-  %32 = getelementptr i8, ptr %20, i64 4
-  %33 = zext i16 %.0.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr readonly align 1 %2, i64 %33, i1 false)
+30:                                               ; preds = %15
+  %31 = getelementptr i8, ptr %19, i64 4
+  %32 = zext i16 %.0.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull readonly align 1 %2, i64 %32, i1 false)
   br label %wtap_buffer_append_epdu_tag.exit
 
-wtap_buffer_append_epdu_tag.exit:                 ; preds = %16, %31
-  %34 = load i64, ptr %18, align 8
-  %35 = add i64 %34, %.029.i
-  store i64 %35, ptr %18, align 8
+wtap_buffer_append_epdu_tag.exit:                 ; preds = %15, %30
+  %33 = load i64, ptr %17, align 8
+  %34 = add i64 %33, %.029.i
+  store i64 %34, ptr %17, align 8
   ret void
 }
 
@@ -2942,7 +2940,7 @@ declare ptr @plugins_init(i32 noundef) local_unnamed_addr #1
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @call_plugin_register_wtap_module(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal void @call_plugin_register_wtap_module(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -2999,10 +2997,10 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

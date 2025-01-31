@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [42 x i8] c"javax/sound/midi/MidiUnavailableException\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_media_sound_MidiOutDevice_nOpen(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_com_sun_media_sound_MidiOutDevice_nOpen(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = call i32 @MIDI_OUT_OpenDevice(i32 noundef %2, ptr noundef nonnull %4) #3
@@ -33,7 +33,7 @@ declare void @ThrowJavaMessageException(ptr noundef, ptr noundef, ptr noundef) l
 declare ptr @MIDI_OUT_InternalGetErrorString(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_MidiOutDevice_nClose(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_com_sun_media_sound_MidiOutDevice_nClose(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @MIDI_OUT_CloseDevice(ptr noundef %4) #3
   ret void
@@ -42,7 +42,7 @@ define void @Java_com_sun_media_sound_MidiOutDevice_nClose(ptr nocapture noundef
 declare i32 @MIDI_OUT_CloseDevice(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, -9223372036854775808) i64 @Java_com_sun_media_sound_MidiOutDevice_nGetTimeStamp(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @Java_com_sun_media_sound_MidiOutDevice_nGetTimeStamp(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i64 @MIDI_OUT_GetTimeStamp(ptr noundef %4) #3
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %5, i64 -1)
@@ -52,7 +52,7 @@ define range(i64 -1, -9223372036854775808) i64 @Java_com_sun_media_sound_MidiOut
 declare i64 @MIDI_OUT_GetTimeStamp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_MidiOutDevice_nSendShortMessage(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_com_sun_media_sound_MidiOutDevice_nSendShortMessage(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = trunc i64 %4 to i32
   %8 = tail call i32 @MIDI_OUT_SendShortMessage(ptr noundef %6, i32 noundef %3, i32 noundef %7) #3
@@ -62,7 +62,7 @@ define void @Java_com_sun_media_sound_MidiOutDevice_nSendShortMessage(ptr nocapt
 declare i32 @MIDI_OUT_SendShortMessage(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_MidiOutDevice_nSendLongMessage(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define void @Java_com_sun_media_sound_MidiOutDevice_nSendLongMessage(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1472
   %9 = load ptr, ptr %8, align 8

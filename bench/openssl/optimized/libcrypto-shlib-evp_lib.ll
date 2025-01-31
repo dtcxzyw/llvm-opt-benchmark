@@ -558,7 +558,7 @@ declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @ASN1_TYPE_set_octetstring(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @EVP_CIPHER_get_flags(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
+define i64 @EVP_CIPHER_get_flags(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %0 = load i64, ptr %flags, align 8
@@ -566,7 +566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 983048) i32 @EVP_CIPHER_get_mode(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
+define range(i32 0, 983048) i32 @EVP_CIPHER_get_mode(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #3 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %0 = load i64, ptr %flags.i, align 8
@@ -617,7 +617,7 @@ return:                                           ; preds = %entry, %EVP_CIPHER_
 declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_cipher_set_asn1_aead_params(ptr nocapture noundef readnone %c, ptr noundef %type, ptr noundef %asn1_params) local_unnamed_addr #0 {
+define i32 @evp_cipher_set_asn1_aead_params(ptr noundef readnone captures(none) %c, ptr noundef %type, ptr noundef %asn1_params) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %type, null
   %cmp1 = icmp eq ptr %asn1_params, null
@@ -641,7 +641,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
@@ -664,7 +664,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @evp_cipher_get_asn1_aead_params(ptr nocapture noundef readnone %c, ptr noundef %type, ptr noundef writeonly %asn1_params) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @evp_cipher_get_asn1_aead_params(ptr noundef readnone captures(none) %c, ptr noundef %type, ptr noundef writeonly %asn1_params) local_unnamed_addr #0 {
 entry:
   %tl = alloca i64, align 8
   %iv = alloca [16 x i8], align 16
@@ -700,7 +700,7 @@ declare i32 @ossl_asn1_type_get_octetstring_int(ptr noundef, ptr noundef, ptr no
 declare i32 @ossl_asn1_type_set_octetstring_int(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 659, 656) i32 @EVP_CIPHER_get_type(ptr nocapture noundef readonly %cipher) local_unnamed_addr #0 {
+define range(i32 659, 656) i32 @EVP_CIPHER_get_type(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %cipher, align 8
   switch i32 %0, label %sw.default [
@@ -755,7 +755,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_CIPHER_get_nid(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
+define i32 @EVP_CIPHER_get_nid(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %cipher, align 8
   ret i32 %0
@@ -944,7 +944,7 @@ declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @EVP_CIPHER_gettable_ctx_params(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_CIPHER_get_block_size(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
+define i32 @EVP_CIPHER_get_block_size(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #3 {
 entry:
   %block_size = getelementptr inbounds nuw i8, ptr %cipher, i64 4
   %0 = load i32, ptr %block_size, align 4
@@ -952,7 +952,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @EVP_CIPHER_CTX_get_block_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %block_size.i = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -961,7 +961,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_CIPHER_impl_ctx_size(ptr nocapture noundef readonly %e) local_unnamed_addr #3 {
+define i32 @EVP_CIPHER_impl_ctx_size(ptr noundef readonly captures(none) %e) local_unnamed_addr #3 {
 entry:
   %ctx_size = getelementptr inbounds nuw i8, ptr %e, i64 56
   %0 = load i32, ptr %ctx_size, align 8
@@ -1089,7 +1089,7 @@ return:                                           ; preds = %if.end, %entry
 declare i32 @EVP_CIPHER_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_CIPHER_CTX_is_encrypting(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
+define i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #3 {
 entry:
   %encrypt = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load i32, ptr %encrypt, align 8
@@ -1097,7 +1097,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_CIPHER_CTX_get_app_data(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
+define ptr @EVP_CIPHER_CTX_get_app_data(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #3 {
 entry:
   %app_data = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   %0 = load ptr, ptr %app_data, align 8
@@ -1105,7 +1105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_CIPHER_CTX_set_app_data(ptr nocapture noundef writeonly initializes((96, 104)) %ctx, ptr noundef %data) local_unnamed_addr #6 {
+define void @EVP_CIPHER_CTX_set_app_data(ptr noundef writeonly captures(none) initializes((96, 104)) %ctx, ptr noundef %data) local_unnamed_addr #6 {
 entry:
   %app_data = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   store ptr %data, ptr %app_data, align 8
@@ -1113,7 +1113,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_CIPHER_CTX_get_cipher_data(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
+define ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #3 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
@@ -1121,7 +1121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @EVP_CIPHER_CTX_set_cipher_data(ptr nocapture noundef %ctx, ptr noundef %cipher_data) local_unnamed_addr #7 {
+define ptr @EVP_CIPHER_CTX_set_cipher_data(ptr noundef captures(none) %ctx, ptr noundef %cipher_data) local_unnamed_addr #7 {
 entry:
   %cipher_data1 = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data1, align 8
@@ -1130,7 +1130,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_CIPHER_get_iv_length(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
+define i32 @EVP_CIPHER_get_iv_length(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #3 {
 entry:
   %iv_len = getelementptr inbounds nuw i8, ptr %cipher, i64 12
   %0 = load i32, ptr %iv_len, align 4
@@ -1138,7 +1138,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i32 @evp_do_ciph_ctx_getparams(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1147,7 +1147,7 @@ declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_CIPHER_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CIPHER_CTX_get_tag_length(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @EVP_CIPHER_CTX_get_tag_length(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %v = alloca i64, align 8
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -1215,7 +1215,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_CIPHER_CTX_get_updated_iv(ptr nocapture noundef readonly %ctx, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_CIPHER_CTX_get_updated_iv(ptr noundef readonly captures(none) %ctx, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -1233,7 +1233,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_CIPHER_CTX_get_original_iv(ptr nocapture noundef readonly %ctx, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_CIPHER_CTX_get_original_iv(ptr noundef readonly captures(none) %ctx, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -1258,7 +1258,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CIPHER_CTX_get_num(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @EVP_CIPHER_CTX_get_num(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %v = alloca i32, align 4
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -1281,7 +1281,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_CIPHER_CTX_set_num(ptr nocapture noundef %ctx, i32 noundef %num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_CIPHER_CTX_set_num(ptr noundef captures(none) %ctx, i32 noundef %num) local_unnamed_addr #0 {
 entry:
   %n = alloca i32, align 4
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -1312,7 +1312,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @evp_do_ciph_ctx_setparams(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_CIPHER_get_key_length(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
+define i32 @EVP_CIPHER_get_key_length(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #3 {
 entry:
   %key_len = getelementptr inbounds nuw i8, ptr %cipher, i64 8
   %0 = load i32, ptr %key_len, align 8
@@ -1366,7 +1366,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @EVP_CIPHER_CTX_get_nid(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define i32 @EVP_CIPHER_CTX_get_nid(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %1 = load i32, ptr %0, align 8
@@ -1376,7 +1376,7 @@ entry:
 declare i32 @evp_is_a(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_CIPHER_get0_name(ptr nocapture noundef readonly %cipher) local_unnamed_addr #0 {
+define ptr @EVP_CIPHER_get0_name(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #0 {
 entry:
   %type_name = getelementptr inbounds nuw i8, ptr %cipher, i64 104
   %0 = load ptr, ptr %type_name, align 8
@@ -1394,7 +1394,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @evp_cipher_get_number(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
+define i32 @evp_cipher_get_number(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #3 {
 entry:
   %name_id = getelementptr inbounds nuw i8, ptr %cipher, i64 96
   %0 = load i32, ptr %name_id, align 8
@@ -1404,7 +1404,7 @@ entry:
 declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_CIPHER_get0_description(ptr nocapture noundef readonly %cipher) local_unnamed_addr #0 {
+define ptr @EVP_CIPHER_get0_description(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #0 {
 entry:
   %description = getelementptr inbounds nuw i8, ptr %cipher, i64 112
   %0 = load ptr, ptr %description, align 8
@@ -1424,7 +1424,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CIPHER_names_do_all(ptr nocapture noundef readonly %cipher, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
+define i32 @EVP_CIPHER_names_do_all(ptr noundef readonly captures(none) %cipher, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %cipher, i64 120
   %0 = load ptr, ptr %prov, align 8
@@ -1445,7 +1445,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_CIPHER_get0_provider(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
+define ptr @EVP_CIPHER_get0_provider(ptr noundef readonly captures(none) %cipher) local_unnamed_addr #3 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %cipher, i64 120
   %0 = load ptr, ptr %prov, align 8
@@ -1514,7 +1514,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @evp_md_get_number(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define i32 @evp_md_get_number(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %name_id = getelementptr inbounds nuw i8, ptr %md, i64 88
   %0 = load i32, ptr %name_id, align 8
@@ -1522,7 +1522,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_MD_get0_description(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
+define ptr @EVP_MD_get0_description(ptr noundef readonly captures(none) %md) local_unnamed_addr #0 {
 entry:
   %description = getelementptr inbounds nuw i8, ptr %md, i64 104
   %0 = load ptr, ptr %description, align 8
@@ -1540,14 +1540,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_MD_get_type(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define i32 @EVP_MD_get_type(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %md, align 8
   ret i32 %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MD_names_do_all(ptr nocapture noundef readonly %md, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
+define i32 @EVP_MD_names_do_all(ptr noundef readonly captures(none) %md, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %md, i64 112
   %0 = load ptr, ptr %prov, align 8
@@ -1566,7 +1566,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MD_get0_provider(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define ptr @EVP_MD_get0_provider(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %md, i64 112
   %0 = load ptr, ptr %prov, align 8
@@ -1574,7 +1574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_MD_get_pkey_type(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define i32 @EVP_MD_get_pkey_type(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %pkey_type = getelementptr inbounds nuw i8, ptr %md, i64 4
   %0 = load i32, ptr %pkey_type, align 4
@@ -1626,7 +1626,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @EVP_MD_get_flags(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define i64 @EVP_MD_get_flags(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %md, i64 16
   %0 = load i64, ptr %flags, align 8
@@ -1655,7 +1655,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @evp_md_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_MD_meth_dup(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
+define ptr @EVP_MD_meth_dup(ptr noundef readonly captures(none) %md) local_unnamed_addr #0 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %md, i64 112
   %0 = load ptr, ptr %prov, align 8
@@ -1730,7 +1730,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @EVP_MD_meth_set_input_blocksize(ptr nocapture noundef %md, i32 noundef %blocksize) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @EVP_MD_meth_set_input_blocksize(ptr noundef captures(none) %md, i32 noundef %blocksize) local_unnamed_addr #7 {
 entry:
   %block_size = getelementptr inbounds nuw i8, ptr %md, i64 72
   %0 = load i32, ptr %block_size, align 8
@@ -1747,7 +1747,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @EVP_MD_meth_set_result_size(ptr nocapture noundef %md, i32 noundef %resultsize) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @EVP_MD_meth_set_result_size(ptr noundef captures(none) %md, i32 noundef %resultsize) local_unnamed_addr #7 {
 entry:
   %md_size = getelementptr inbounds nuw i8, ptr %md, i64 8
   %0 = load i32, ptr %md_size, align 8
@@ -1764,7 +1764,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @EVP_MD_meth_set_app_datasize(ptr nocapture noundef %md, i32 noundef %datasize) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @EVP_MD_meth_set_app_datasize(ptr noundef captures(none) %md, i32 noundef %datasize) local_unnamed_addr #7 {
 entry:
   %ctx_size = getelementptr inbounds nuw i8, ptr %md, i64 76
   %0 = load i32, ptr %ctx_size, align 4
@@ -1781,7 +1781,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @EVP_MD_meth_set_flags(ptr nocapture noundef %md, i64 noundef %flags) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @EVP_MD_meth_set_flags(ptr noundef captures(none) %md, i64 noundef %flags) local_unnamed_addr #7 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %md, i64 16
   %0 = load i64, ptr %flags1, align 8
@@ -1798,7 +1798,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @EVP_MD_meth_set_init(ptr nocapture noundef %md, ptr noundef %init) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @EVP_MD_meth_set_init(ptr noundef captures(none) %md, ptr noundef %init) local_unnamed_addr #7 {
 entry:
   %init1 = getelementptr inbounds nuw i8, ptr %md, i64 32
   %0 = load ptr, ptr %init1, align 8
@@ -1815,7 +1815,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @EVP_MD_meth_set_update(ptr nocapture noundef %md, ptr noundef %update) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @EVP_MD_meth_set_update(ptr noundef captures(none) %md, ptr noundef %update) local_unnamed_addr #7 {
 entry:
   %update1 = getelementptr inbounds nuw i8, ptr %md, i64 40
   %0 = load ptr, ptr %update1, align 8
@@ -1832,7 +1832,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @EVP_MD_meth_set_final(ptr nocapture noundef %md, ptr noundef %final) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @EVP_MD_meth_set_final(ptr noundef captures(none) %md, ptr noundef %final) local_unnamed_addr #7 {
 entry:
   %final1 = getelementptr inbounds nuw i8, ptr %md, i64 48
   %0 = load ptr, ptr %final1, align 8
@@ -1849,7 +1849,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @EVP_MD_meth_set_copy(ptr nocapture noundef %md, ptr noundef %copy) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @EVP_MD_meth_set_copy(ptr noundef captures(none) %md, ptr noundef %copy) local_unnamed_addr #7 {
 entry:
   %copy1 = getelementptr inbounds nuw i8, ptr %md, i64 56
   %0 = load ptr, ptr %copy1, align 8
@@ -1866,7 +1866,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @EVP_MD_meth_set_cleanup(ptr nocapture noundef %md, ptr noundef %cleanup) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @EVP_MD_meth_set_cleanup(ptr noundef captures(none) %md, ptr noundef %cleanup) local_unnamed_addr #7 {
 entry:
   %cleanup1 = getelementptr inbounds nuw i8, ptr %md, i64 64
   %0 = load ptr, ptr %cleanup1, align 8
@@ -1883,7 +1883,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @EVP_MD_meth_set_ctrl(ptr nocapture noundef %md, ptr noundef %ctrl) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @EVP_MD_meth_set_ctrl(ptr noundef captures(none) %md, ptr noundef %ctrl) local_unnamed_addr #7 {
 entry:
   %md_ctrl = getelementptr inbounds nuw i8, ptr %md, i64 80
   %0 = load ptr, ptr %md_ctrl, align 8
@@ -1900,7 +1900,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_MD_meth_get_input_blocksize(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define i32 @EVP_MD_meth_get_input_blocksize(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %block_size = getelementptr inbounds nuw i8, ptr %md, i64 72
   %0 = load i32, ptr %block_size, align 8
@@ -1908,7 +1908,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_MD_meth_get_result_size(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define i32 @EVP_MD_meth_get_result_size(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %md_size = getelementptr inbounds nuw i8, ptr %md, i64 8
   %0 = load i32, ptr %md_size, align 8
@@ -1916,7 +1916,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_MD_meth_get_app_datasize(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define i32 @EVP_MD_meth_get_app_datasize(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %ctx_size = getelementptr inbounds nuw i8, ptr %md, i64 76
   %0 = load i32, ptr %ctx_size, align 4
@@ -1924,7 +1924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @EVP_MD_meth_get_flags(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define i64 @EVP_MD_meth_get_flags(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %md, i64 16
   %0 = load i64, ptr %flags, align 8
@@ -1932,7 +1932,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MD_meth_get_init(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define ptr @EVP_MD_meth_get_init(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %init = getelementptr inbounds nuw i8, ptr %md, i64 32
   %0 = load ptr, ptr %init, align 8
@@ -1940,7 +1940,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MD_meth_get_update(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define ptr @EVP_MD_meth_get_update(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %update = getelementptr inbounds nuw i8, ptr %md, i64 40
   %0 = load ptr, ptr %update, align 8
@@ -1948,7 +1948,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MD_meth_get_final(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define ptr @EVP_MD_meth_get_final(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %final = getelementptr inbounds nuw i8, ptr %md, i64 48
   %0 = load ptr, ptr %final, align 8
@@ -1956,7 +1956,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MD_meth_get_copy(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define ptr @EVP_MD_meth_get_copy(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %copy = getelementptr inbounds nuw i8, ptr %md, i64 56
   %0 = load ptr, ptr %copy, align 8
@@ -1964,7 +1964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MD_meth_get_cleanup(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define ptr @EVP_MD_meth_get_cleanup(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %cleanup = getelementptr inbounds nuw i8, ptr %md, i64 64
   %0 = load ptr, ptr %cleanup, align 8
@@ -1972,7 +1972,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MD_meth_get_ctrl(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
+define ptr @EVP_MD_meth_get_ctrl(ptr noundef readonly captures(none) %md) local_unnamed_addr #3 {
 entry:
   %md_ctrl = getelementptr inbounds nuw i8, ptr %md, i64 80
   %0 = load ptr, ptr %md_ctrl, align 8
@@ -2034,7 +2034,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 declare i32 @EVP_MD_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MD_CTX_get_pkey_ctx(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
+define ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #3 {
 entry:
   %pctx = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx, align 8
@@ -2042,7 +2042,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @EVP_MD_CTX_set_pkey_ctx(ptr nocapture noundef %ctx, ptr noundef %pctx) local_unnamed_addr #0 {
+define void @EVP_MD_CTX_set_pkey_ctx(ptr noundef captures(none) %ctx, ptr noundef %pctx) local_unnamed_addr #0 {
 entry:
   %flags1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load i64, ptr %flags1.i, align 8
@@ -2069,7 +2069,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_MD_CTX_test_flags(ptr nocapture noundef readonly %ctx, i32 noundef %flags) local_unnamed_addr #3 {
+define i32 @EVP_MD_CTX_test_flags(ptr noundef readonly captures(none) %ctx, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load i64, ptr %flags1, align 8
@@ -2081,7 +2081,7 @@ entry:
 declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_MD_CTX_set_flags(ptr nocapture noundef %ctx, i32 noundef %flags) local_unnamed_addr #7 {
+define void @EVP_MD_CTX_set_flags(ptr noundef captures(none) %ctx, i32 noundef %flags) local_unnamed_addr #7 {
 entry:
   %conv = sext i32 %flags to i64
   %flags1 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
@@ -2092,7 +2092,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_MD_CTX_clear_flags(ptr nocapture noundef %ctx, i32 noundef %flags) local_unnamed_addr #7 {
+define void @EVP_MD_CTX_clear_flags(ptr noundef captures(none) %ctx, i32 noundef %flags) local_unnamed_addr #7 {
 entry:
   %not = xor i32 %flags, -1
   %conv = sext i32 %not to i64
@@ -2104,7 +2104,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MD_CTX_get0_md_data(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
+define ptr @EVP_MD_CTX_get0_md_data(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #3 {
 entry:
   %md_data = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %md_data, align 8
@@ -2112,7 +2112,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MD_CTX_update_fn(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
+define ptr @EVP_MD_CTX_update_fn(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #3 {
 entry:
   %update = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %update, align 8
@@ -2120,7 +2120,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_MD_CTX_set_update_fn(ptr nocapture noundef writeonly initializes((48, 56)) %ctx, ptr noundef %update) local_unnamed_addr #6 {
+define void @EVP_MD_CTX_set_update_fn(ptr noundef writeonly captures(none) initializes((48, 56)) %ctx, ptr noundef %update) local_unnamed_addr #6 {
 entry:
   %update1 = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   store ptr %update, ptr %update1, align 8
@@ -2200,7 +2200,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_CIPHER_CTX_test_flags(ptr nocapture noundef readonly %ctx, i32 noundef %flags) local_unnamed_addr #3 {
+define i32 @EVP_CIPHER_CTX_test_flags(ptr noundef readonly captures(none) %ctx, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %ctx, i64 112
   %0 = load i64, ptr %flags1, align 8
@@ -2455,10 +2455,10 @@ declare void @llvm.va_end.p0(ptr) #10
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

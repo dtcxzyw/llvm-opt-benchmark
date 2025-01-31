@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.LocVar = type { ptr, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @luaC_separateudata(ptr nocapture noundef readonly %L, i32 noundef %all) local_unnamed_addr #0 {
+define hidden i64 @luaC_separateudata(ptr noundef readonly captures(none) %L, i32 noundef %all) local_unnamed_addr #0 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !4
@@ -1047,7 +1047,7 @@ while.end14:                                      ; preds = %while.body12, %whil
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @markroot(ptr nocapture noundef readonly %L) unnamed_addr #2 {
+define internal fastcc void @markroot(ptr noundef readonly captures(none) %L) unnamed_addr #2 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !4
@@ -1114,7 +1114,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaC_barrierf(ptr nocapture noundef readonly %L, ptr nocapture noundef %o, ptr noundef %v) local_unnamed_addr #2 {
+define hidden void @luaC_barrierf(ptr noundef readonly captures(none) %L, ptr noundef captures(none) %o, ptr noundef %v) local_unnamed_addr #2 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !4
@@ -1264,7 +1264,7 @@ sw.epilog:                                        ; preds = %if.end12, %tailrecu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaC_barrierback(ptr nocapture noundef readonly %L, ptr noundef initializes((56, 64)) %t) local_unnamed_addr #3 {
+define hidden void @luaC_barrierback(ptr noundef readonly captures(none) %L, ptr noundef initializes((56, 64)) %t) local_unnamed_addr #3 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !4
@@ -1281,7 +1281,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaC_link(ptr nocapture noundef readonly %L, ptr noundef initializes((0, 8)) %o, i8 noundef zeroext %tt) local_unnamed_addr #3 {
+define hidden void @luaC_link(ptr noundef readonly captures(none) %L, ptr noundef initializes((0, 8)) %o, i8 noundef zeroext %tt) local_unnamed_addr #3 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !4
@@ -1300,7 +1300,7 @@ entry:
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaC_linkupval(ptr nocapture noundef readonly %L, ptr noundef initializes((0, 8)) %uv) local_unnamed_addr #2 {
+define hidden void @luaC_linkupval(ptr noundef readonly captures(none) %L, ptr noundef initializes((0, 8)) %uv) local_unnamed_addr #2 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !4
@@ -2256,7 +2256,7 @@ for.inc.8:                                        ; preds = %if.then5.8, %if.the
 declare hidden void @luaS_resize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

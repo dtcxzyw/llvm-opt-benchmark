@@ -317,7 +317,7 @@ $_ZTIN6duckdb17InternalExceptionE = comdat any
 @reltable.AdbcStatusCodeMessage = private unnamed_addr constant [15 x i32] [i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.98 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.99 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.100 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.101 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.102 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.103 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.104 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.105 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.106 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.107 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.108 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.109 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.110 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.111 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.112 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32)], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext range(i8 0, 6) i8 @duckdb_adbc_init(i32 noundef %version, ptr noundef writeonly %driver, ptr nocapture noundef readnone %error) local_unnamed_addr #0 {
+define noundef zeroext range(i8 0, 6) i8 @duckdb_adbc_init(i32 noundef %version, ptr noundef writeonly %driver, ptr noundef readnone captures(none) %error) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %driver, null
   br i1 %tobool.not, label %return, label %if.end
@@ -383,7 +383,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc11DatabaseNewEP12AdbcDatabaseP9AdbcError(ptr noundef writeonly %database, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
@@ -711,7 +711,7 @@ if.then19:                                        ; preds = %if.end18
   %_M_string_length.i.i.i68 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %16 = load i64, ptr %_M_string_length.i.i.i68, align 8, !tbaa !40
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #30
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %path, i64 noundef 0, i64 noundef %16, ptr noundef %value, i64 noundef %call.i.i.i)
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %path, i64 noundef 0, i64 noundef %16, ptr noundef nonnull %value, i64 noundef %call.i.i.i)
   br label %return
 
 if.end21:                                         ; preds = %if.end18
@@ -837,7 +837,7 @@ return:                                           ; preds = %if.end14, %_ZNSt7__
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc15DatabaseReleaseEP12AdbcDatabaseP9AdbcError(ptr noundef %database, ptr nocapture readnone %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @_ZN11duckdb_adbc15DatabaseReleaseEP12AdbcDatabaseP9AdbcError(ptr noundef %database, ptr readnone captures(none) %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %database, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -955,7 +955,7 @@ return:                                           ; preds = %if.end, %_ZNSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc19ConnectionSetOptionEP14AdbcConnectionPKcS3_P9AdbcError(ptr noundef readonly %connection, ptr noundef readonly %key, ptr noundef readonly %value, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc19ConnectionSetOptionEP14AdbcConnectionPKcS3_P9AdbcError(ptr noundef readonly %connection, ptr noundef readonly captures(none) %key, ptr noundef readonly %value, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i358 = alloca i64, align 8
   %__dnew.i.i306 = alloca i64, align 8
@@ -1086,24 +1086,13 @@ if.else34:                                        ; preds = %if.else17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp37) #30
   %10 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 16
   store ptr %10, ptr %ref.tmp37, align 8, !tbaa !33
-  %cmp.i = icmp eq ptr %key, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.else34
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.135) #34
-          to label %.noexc unwind label %lpad39
-
-.noexc:                                           ; preds = %if.then.i
-  unreachable
-
-if.end.i:                                         ; preds = %if.else34
   %call.i.i185 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i184) #30
   store i64 %call.i.i185, ptr %__dnew.i.i184, align 8, !tbaa !35
   %cmp.i.i186 = icmp ugt i64 %call.i.i185, 15
   br i1 %cmp.i.i186, label %if.then.i.i192, label %if.end.i.i187
 
-if.then.i.i192:                                   ; preds = %if.end.i
+if.then.i.i192:                                   ; preds = %if.else34
   %call2.i10.i194 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i184, i64 noundef 0)
           to label %call2.i10.i.noexc193 unwind label %lpad39
 
@@ -1113,8 +1102,8 @@ call2.i10.i.noexc193:                             ; preds = %if.then.i.i192
   store i64 %11, ptr %10, align 8, !tbaa !39
   br label %if.end.i.i187
 
-if.end.i.i187:                                    ; preds = %call2.i10.i.noexc193, %if.end.i
-  %12 = phi ptr [ %call2.i10.i194, %call2.i10.i.noexc193 ], [ %10, %if.end.i ]
+if.end.i.i187:                                    ; preds = %call2.i10.i.noexc193, %if.else34
+  %12 = phi ptr [ %call2.i10.i194, %call2.i10.i.noexc193 ], [ %10, %if.else34 ]
   switch i64 %call.i.i185, label %if.end.i.i.i.i.i191 [
     i64 1, label %if.then.i.i.i.i190
     i64 0, label %invoke.cont40
@@ -1225,24 +1214,13 @@ invoke.cont44:                                    ; preds = %if.else.i.i204, %if
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp45) #30
   %29 = getelementptr inbounds nuw i8, ptr %ref.tmp45, i64 16
   store ptr %29, ptr %ref.tmp45, align 8, !tbaa !33
-  %cmp.i216 = icmp eq ptr %value, null
-  br i1 %cmp.i216, label %if.then.i226, label %if.end.i217
-
-if.then.i226:                                     ; preds = %invoke.cont44
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.135) #34
-          to label %.noexc227 unwind label %lpad47
-
-.noexc227:                                        ; preds = %if.then.i226
-  unreachable
-
-if.end.i217:                                      ; preds = %invoke.cont44
   %call.i.i218 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i215) #30
   store i64 %call.i.i218, ptr %__dnew.i.i215, align 8, !tbaa !35
   %cmp.i.i219 = icmp ugt i64 %call.i.i218, 15
   br i1 %cmp.i.i219, label %if.then.i.i225, label %if.end.i.i220
 
-if.then.i.i225:                                   ; preds = %if.end.i217
+if.then.i.i225:                                   ; preds = %invoke.cont44
   %call2.i10.i229 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i215, i64 noundef 0)
           to label %call2.i10.i.noexc228 unwind label %lpad47
 
@@ -1252,8 +1230,8 @@ call2.i10.i.noexc228:                             ; preds = %if.then.i.i225
   store i64 %30, ptr %29, align 8, !tbaa !39
   br label %if.end.i.i220
 
-if.end.i.i220:                                    ; preds = %call2.i10.i.noexc228, %if.end.i217
-  %31 = phi ptr [ %call2.i10.i229, %call2.i10.i.noexc228 ], [ %29, %if.end.i217 ]
+if.end.i.i220:                                    ; preds = %call2.i10.i.noexc228, %invoke.cont44
+  %31 = phi ptr [ %call2.i10.i229, %call2.i10.i.noexc228 ], [ %29, %invoke.cont44 ]
   switch i64 %call.i.i218, label %if.end.i.i.i.i.i224 [
     i64 1, label %if.then.i.i.i.i223
     i64 0, label %invoke.cont48
@@ -1487,7 +1465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit275: ; preds = %if
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %error_message) #30
   br label %return
 
-lpad39:                                           ; preds = %if.then.i.i192, %if.then.i
+lpad39:                                           ; preds = %if.then.i.i192
   %65 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup58
@@ -1502,7 +1480,7 @@ lpad43:                                           ; preds = %_ZNSt7__cxx1112basi
           cleanup
   br label %ehcleanup56
 
-lpad47:                                           ; preds = %if.then.i.i225, %if.then.i226
+lpad47:                                           ; preds = %if.then.i.i225
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup52
@@ -1614,24 +1592,13 @@ if.end71:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp75) #30
   %82 = getelementptr inbounds nuw i8, ptr %ref.tmp75, i64 16
   store ptr %82, ptr %ref.tmp75, align 8, !tbaa !33
-  %cmp.i307 = icmp eq ptr %key, null
-  br i1 %cmp.i307, label %if.then.i317, label %if.end.i308
-
-if.then.i317:                                     ; preds = %if.end71
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.135) #34
-          to label %.noexc318 unwind label %lpad77
-
-.noexc318:                                        ; preds = %if.then.i317
-  unreachable
-
-if.end.i308:                                      ; preds = %if.end71
   %call.i.i309 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i306) #30
   store i64 %call.i.i309, ptr %__dnew.i.i306, align 8, !tbaa !35
   %cmp.i.i310 = icmp ugt i64 %call.i.i309, 15
   br i1 %cmp.i.i310, label %if.then.i.i316, label %if.end.i.i311
 
-if.then.i.i316:                                   ; preds = %if.end.i308
+if.then.i.i316:                                   ; preds = %if.end71
   %call2.i10.i320 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i306, i64 noundef 0)
           to label %call2.i10.i.noexc319 unwind label %lpad77
 
@@ -1641,8 +1608,8 @@ call2.i10.i.noexc319:                             ; preds = %if.then.i.i316
   store i64 %83, ptr %82, align 8, !tbaa !39
   br label %if.end.i.i311
 
-if.end.i.i311:                                    ; preds = %call2.i10.i.noexc319, %if.end.i308
-  %84 = phi ptr [ %call2.i10.i320, %call2.i10.i.noexc319 ], [ %82, %if.end.i308 ]
+if.end.i.i311:                                    ; preds = %call2.i10.i.noexc319, %if.end71
+  %84 = phi ptr [ %call2.i10.i320, %call2.i10.i.noexc319 ], [ %82, %if.end71 ]
   switch i64 %call.i.i309, label %if.end.i.i.i.i.i315 [
     i64 1, label %if.then.i.i.i.i314
     i64 0, label %invoke.cont78
@@ -2021,7 +1988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464: ; preds = %if
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %error_message72) #30
   br label %return
 
-lpad77:                                           ; preds = %if.then.i.i316, %if.then.i317
+lpad77:                                           ; preds = %if.then.i.i316
   %137 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup126
@@ -2397,7 +2364,7 @@ eh.resume:                                        ; preds = %ehcleanup28, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc17ConnectionReleaseEP14AdbcConnectionP9AdbcError(ptr noundef %connection, ptr nocapture readnone %error) #2 {
+define noundef zeroext i8 @_ZN11duckdb_adbc17ConnectionReleaseEP14AdbcConnectionP9AdbcError(ptr noundef %connection, ptr readnone captures(none) %error) #2 {
 entry:
   %tobool.not = icmp eq ptr %connection, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -2749,7 +2716,7 @@ eh.resume:                                        ; preds = %ehcleanup42, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc16StatementReleaseEP13AdbcStatementP9AdbcError(ptr noundef %statement, ptr nocapture readnone %error) #2 {
+define noundef zeroext i8 @_ZN11duckdb_adbc16StatementReleaseEP13AdbcStatementP9AdbcError(ptr noundef %statement, ptr readnone captures(none) %error) #2 {
 entry:
   %tobool.not = icmp eq ptr %statement, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -4632,7 +4599,7 @@ eh.resume:                                        ; preds = %ehcleanup15, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc18StatementSetOptionEP13AdbcStatementPKcS3_P9AdbcError(ptr noundef readonly %statement, ptr noundef readonly %key, ptr nocapture noundef readonly %value, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc18StatementSetOptionEP13AdbcStatementPKcS3_P9AdbcError(ptr noundef readonly %statement, ptr noundef readonly %key, ptr noundef readonly captures(none) %value, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i121 = alloca i64, align 8
   %__dnew.i.i97 = alloca i64, align 8
@@ -6589,7 +6556,7 @@ eh.resume:                                        ; preds = %ehcleanup14, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc23ConnectionReadPartitionEP14AdbcConnectionPKhmP16ArrowArrayStreamP9AdbcError(ptr nocapture readnone %connection, ptr nocapture readnone %serialized_partition, i64 %serialized_length, ptr nocapture readnone %out, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @_ZN11duckdb_adbc23ConnectionReadPartitionEP14AdbcConnectionPKhmP16ArrowArrayStreamP9AdbcError(ptr readnone captures(none) %connection, ptr readnone captures(none) %serialized_partition, i64 %serialized_length, ptr readnone captures(none) %out, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6653,7 +6620,7 @@ ehcleanup:                                        ; preds = %if.then.i.i11, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc26StatementExecutePartitionsEP13AdbcStatementP11ArrowSchemaP14AdbcPartitionsPlP9AdbcError(ptr nocapture readnone %statement, ptr nocapture readnone %schema, ptr nocapture readnone %partitions, ptr nocapture readnone %rows_affected, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @_ZN11duckdb_adbc26StatementExecutePartitionsEP13AdbcStatementP11ArrowSchemaP14AdbcPartitionsPlP9AdbcError(ptr readnone captures(none) %statement, ptr readnone captures(none) %schema, ptr readnone captures(none) %partitions, ptr readnone captures(none) %rows_affected, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8924,7 +8891,7 @@ eh.resume:                                        ; preds = %ehcleanup58, %ehcle
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN11duckdb_adbc19InitializeADBCErrorEP9AdbcError(ptr noundef writeonly %error) local_unnamed_addr #0 {
@@ -8947,7 +8914,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN11duckdb_adbcL17EmptyErrorReleaseEP9AdbcError(ptr nocapture noundef writeonly initializes((24, 32)) %error) #0 {
+define internal void @_ZN11duckdb_adbcL17EmptyErrorReleaseEP9AdbcError(ptr noundef writeonly captures(none) initializes((24, 32)) %error) #0 {
 entry:
   %release = getelementptr inbounds nuw i8, ptr %error, i64 24
   store ptr null, ptr %release, align 8, !tbaa !165
@@ -8955,10 +8922,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc11CheckResultER12duckdb_stateP9AdbcErrorPKc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %res, ptr noundef %error, ptr noundef readonly %error_msg) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc11CheckResultER12duckdb_stateP9AdbcErrorPKc(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %res, ptr noundef %error, ptr noundef readonly %error_msg) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9299,7 +9266,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %cmp.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %invoke.cont4
-  %call.i1617 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call.i1617 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -9350,14 +9317,14 @@ declare i32 @duckdb_prepare(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @duckdb_prepare_error(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @duckdb_set_config(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 declare i32 @duckdb_open_ext(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @duckdb_close(ptr noundef) local_unnamed_addr #6
 
@@ -9367,7 +9334,7 @@ declare void @duckdb_destroy_config(ptr noundef) local_unnamed_addr #6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbcL13QueryInternalEP14AdbcConnectionP16ArrowArrayStreamPKcP9AdbcError(ptr noundef %connection, ptr noundef %out, ptr noundef %query, ptr noundef %error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
@@ -10473,13 +10440,13 @@ return:                                           ; preds = %if.end6, %lor.lhs.f
 declare void @duckdb_destroy_arrow(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @_ZN11duckdb_adbc14get_last_errorEP16ArrowArrayStream(ptr nocapture readnone %stream) #10 {
+define noalias noundef ptr @_ZN11duckdb_adbc14get_last_errorEP16ArrowArrayStream(ptr readnone captures(none) %stream) #10 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11duckdb_adbc14stream_produceEmRN6duckdb21ArrowStreamParametersE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.71") align 8 initializes((0, 8)) %agg.result, i64 noundef %factory_ptr, ptr nocapture nonnull readnone align 8 %parameters) #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11duckdb_adbc14stream_produceEmRN6duckdb21ArrowStreamParametersE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.71") align 8 initializes((0, 8)) %agg.result, i64 noundef %factory_ptr, ptr nonnull readnone align 8 captures(none) %parameters) #2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #36, !noalias !178
@@ -10573,7 +10540,7 @@ _ZN6duckdb10unique_ptrINS_23ArrowArrayStreamWrapperESt14default_deleteIS1_ELb1EE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrIN6duckdb23ArrowArrayStreamWrapperESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11649,7 +11616,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
@@ -11659,7 +11626,7 @@ declare void @duckdb_destroy_prepare(ptr noundef) local_unnamed_addr #6
 declare i32 @duckdb_prepared_arrow_schema(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc21GetPreparedParametersEP18_duckdb_connectionRN6duckdb10unique_ptrINS2_11QueryResultESt14default_deleteIS4_ELb1EEEP16ArrowArrayStreamP9AdbcError(ptr noundef %connection, ptr nocapture noundef nonnull align 8 dereferenceable(8) %result, ptr noundef %input, ptr noundef writeonly %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc21GetPreparedParametersEP18_duckdb_connectionRN6duckdb10unique_ptrINS2_11QueryResultESt14default_deleteIS4_ELb1EEEP16ArrowArrayStreamP9AdbcError(ptr noundef %connection, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %result, ptr noundef %input, ptr noundef writeonly %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrow_scan = alloca %"class.std::shared_ptr.80", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12344,7 +12311,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #15
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4copyEPcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23ErrorArrayStreamReleaseP16ArrowArrayStream(ptr nocapture noundef %stream) #2 {
+define void @_Z23ErrorArrayStreamReleaseP16ArrowArrayStream(ptr noundef captures(none) %stream) #2 {
 entry:
   %release = getelementptr inbounds nuw i8, ptr %stream, i64 24
   %0 = load ptr, ptr %release, align 8, !tbaa !82
@@ -12370,7 +12337,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z28ErrorArrayStreamGetLastErrorP16ArrowArrayStream(ptr nocapture noundef readonly %stream) #2 {
+define noundef ptr @_Z28ErrorArrayStreamGetLastErrorP16ArrowArrayStream(ptr noundef readonly captures(none) %stream) #2 {
 entry:
   %release = getelementptr inbounds nuw i8, ptr %stream, i64 24
   %0 = load ptr, ptr %release, align 8, !tbaa !82
@@ -12395,7 +12362,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z23ErrorArrayStreamGetNextP16ArrowArrayStreamP10ArrowArray(ptr nocapture noundef readonly %stream, ptr noundef %array) #2 {
+define noundef i32 @_Z23ErrorArrayStreamGetNextP16ArrowArrayStreamP10ArrowArray(ptr noundef readonly captures(none) %stream, ptr noundef %array) #2 {
 entry:
   %release = getelementptr inbounds nuw i8, ptr %stream, i64 24
   %0 = load ptr, ptr %release, align 8, !tbaa !82
@@ -12420,7 +12387,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z25ErrorArrayStreamGetSchemaP16ArrowArrayStreamP11ArrowSchema(ptr nocapture noundef readonly %stream, ptr noundef %schema) #2 {
+define noundef i32 @_Z25ErrorArrayStreamGetSchemaP16ArrowArrayStreamP11ArrowSchema(ptr noundef readonly captures(none) %stream, ptr noundef %schema) #2 {
 entry:
   %release = getelementptr inbounds nuw i8, ptr %stream, i64 24
   %0 = load ptr, ptr %release, align 8, !tbaa !82
@@ -12444,20 +12411,20 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_Z19ErrorGetDetailCountPK9AdbcError(ptr nocapture readnone %error) #10 {
+define noundef i32 @_Z19ErrorGetDetailCountPK9AdbcError(ptr readnone captures(none) %error) #10 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z14ErrorGetDetailPK9AdbcErrori(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.AdbcErrorDetail) align 8 initializes((0, 24)) %agg.result, ptr nocapture readnone %error, i32 %index) #0 {
+define void @_Z14ErrorGetDetailPK9AdbcErrori(ptr dead_on_unwind noalias writable writeonly sret(%struct.AdbcErrorDetail) align 8 captures(none) initializes((0, 24)) %agg.result, ptr readnone captures(none) %error, i32 %index) #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @_Z20ErrorFromArrayStreamP16ArrowArrayStreamPh(ptr nocapture readnone %stream, ptr nocapture readnone %status) #10 {
+define noalias noundef ptr @_Z20ErrorFromArrayStreamP16ArrowArrayStreamPh(ptr readnone captures(none) %stream, ptr readnone captures(none) %status) #10 {
 entry:
   ret ptr null
 }
@@ -12503,157 +12470,157 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z17DatabaseGetOptionP12AdbcDatabasePKcPcPmP9AdbcError(ptr nocapture readnone %database, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %length, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z17DatabaseGetOptionP12AdbcDatabasePKcPcPmP9AdbcError(ptr readnone captures(none) %database, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %length, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z22DatabaseGetOptionBytesP12AdbcDatabasePKcPhPmP9AdbcError(ptr nocapture readnone %database, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %length, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z22DatabaseGetOptionBytesP12AdbcDatabasePKcPhPmP9AdbcError(ptr readnone captures(none) %database, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %length, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z20DatabaseGetOptionIntP12AdbcDatabasePKcPlP9AdbcError(ptr nocapture readnone %database, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z20DatabaseGetOptionIntP12AdbcDatabasePKcPlP9AdbcError(ptr readnone captures(none) %database, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z23DatabaseGetOptionDoubleP12AdbcDatabasePKcPdP9AdbcError(ptr nocapture readnone %database, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z23DatabaseGetOptionDoubleP12AdbcDatabasePKcPdP9AdbcError(ptr readnone captures(none) %database, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z22DatabaseSetOptionBytesP12AdbcDatabasePKcPKhmP9AdbcError(ptr nocapture readnone %database, ptr nocapture readnone %key, ptr nocapture readnone %value, i64 %length, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z22DatabaseSetOptionBytesP12AdbcDatabasePKcPKhmP9AdbcError(ptr readnone captures(none) %database, ptr readnone captures(none) %key, ptr readnone captures(none) %value, i64 %length, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z20DatabaseSetOptionIntP12AdbcDatabasePKclP9AdbcError(ptr nocapture readnone %database, ptr nocapture readnone %key, i64 %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z20DatabaseSetOptionIntP12AdbcDatabasePKclP9AdbcError(ptr readnone captures(none) %database, ptr readnone captures(none) %key, i64 %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z23DatabaseSetOptionDoubleP12AdbcDatabasePKcdP9AdbcError(ptr nocapture readnone %database, ptr nocapture readnone %key, double %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z23DatabaseSetOptionDoubleP12AdbcDatabasePKcdP9AdbcError(ptr readnone captures(none) %database, ptr readnone captures(none) %key, double %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z16ConnectionCancelP14AdbcConnectionP9AdbcError(ptr nocapture readnone %connection, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z16ConnectionCancelP14AdbcConnectionP9AdbcError(ptr readnone captures(none) %connection, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z19ConnectionGetOptionP14AdbcConnectionPKcPcPmP9AdbcError(ptr nocapture readnone %connection, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %length, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z19ConnectionGetOptionP14AdbcConnectionPKcPcPmP9AdbcError(ptr readnone captures(none) %connection, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %length, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z24ConnectionGetOptionBytesP14AdbcConnectionPKcPhPmP9AdbcError(ptr nocapture readnone %connection, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %length, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z24ConnectionGetOptionBytesP14AdbcConnectionPKcPhPmP9AdbcError(ptr readnone captures(none) %connection, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %length, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z22ConnectionGetOptionIntP14AdbcConnectionPKcPlP9AdbcError(ptr nocapture readnone %connection, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z22ConnectionGetOptionIntP14AdbcConnectionPKcPlP9AdbcError(ptr readnone captures(none) %connection, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z25ConnectionGetOptionDoubleP14AdbcConnectionPKcPdP9AdbcError(ptr nocapture readnone %connection, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z25ConnectionGetOptionDoubleP14AdbcConnectionPKcPdP9AdbcError(ptr readnone captures(none) %connection, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z23ConnectionGetStatisticsP14AdbcConnectionPKcS2_S2_cP16ArrowArrayStreamP9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i8 signext %4, ptr nocapture readnone %5, ptr nocapture readnone %6) #10 {
+define noundef zeroext i8 @_Z23ConnectionGetStatisticsP14AdbcConnectionPKcS2_S2_cP16ArrowArrayStreamP9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i8 signext %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z27ConnectionGetStatisticNamesP14AdbcConnectionP16ArrowArrayStreamP9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #10 {
+define noundef zeroext i8 @_Z27ConnectionGetStatisticNamesP14AdbcConnectionP16ArrowArrayStreamP9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z24ConnectionSetOptionBytesP14AdbcConnectionPKcPKhmP9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z24ConnectionSetOptionBytesP14AdbcConnectionPKcPKhmP9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z22ConnectionSetOptionIntP14AdbcConnectionPKclP9AdbcError(ptr nocapture readnone %connection, ptr nocapture readnone %key, i64 %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z22ConnectionSetOptionIntP14AdbcConnectionPKclP9AdbcError(ptr readnone captures(none) %connection, ptr readnone captures(none) %key, i64 %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z25ConnectionSetOptionDoubleP14AdbcConnectionPKcdP9AdbcError(ptr nocapture readnone %connection, ptr nocapture readnone %key, double %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z25ConnectionSetOptionDoubleP14AdbcConnectionPKcdP9AdbcError(ptr readnone captures(none) %connection, ptr readnone captures(none) %key, double %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z15StatementCancelP13AdbcStatementP9AdbcError(ptr nocapture readnone %statement, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z15StatementCancelP13AdbcStatementP9AdbcError(ptr readnone captures(none) %statement, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z22StatementExecuteSchemaP13AdbcStatementP11ArrowSchemaP9AdbcError(ptr nocapture readnone %statement, ptr nocapture readnone %schema, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z22StatementExecuteSchemaP13AdbcStatementP11ArrowSchemaP9AdbcError(ptr readnone captures(none) %statement, ptr readnone captures(none) %schema, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z18StatementGetOptionP13AdbcStatementPKcPcPmP9AdbcError(ptr nocapture readnone %statement, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %length, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z18StatementGetOptionP13AdbcStatementPKcPcPmP9AdbcError(ptr readnone captures(none) %statement, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %length, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z23StatementGetOptionBytesP13AdbcStatementPKcPhPmP9AdbcError(ptr nocapture readnone %statement, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %length, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z23StatementGetOptionBytesP13AdbcStatementPKcPhPmP9AdbcError(ptr readnone captures(none) %statement, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %length, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z21StatementGetOptionIntP13AdbcStatementPKcPlP9AdbcError(ptr nocapture readnone %statement, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z21StatementGetOptionIntP13AdbcStatementPKcPlP9AdbcError(ptr readnone captures(none) %statement, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z24StatementGetOptionDoubleP13AdbcStatementPKcPdP9AdbcError(ptr nocapture readnone %statement, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z24StatementGetOptionDoubleP13AdbcStatementPKcPdP9AdbcError(ptr readnone captures(none) %statement, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z23StatementSetOptionBytesP13AdbcStatementPKcPKhmP9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z23StatementSetOptionBytesP13AdbcStatementPKcPKhmP9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z21StatementSetOptionIntP13AdbcStatementPKclP9AdbcError(ptr nocapture readnone %statement, ptr nocapture readnone %key, i64 %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z21StatementSetOptionIntP13AdbcStatementPKclP9AdbcError(ptr readnone captures(none) %statement, ptr readnone captures(none) %key, i64 %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z24StatementSetOptionDoubleP13AdbcStatementPKcdP9AdbcError(ptr nocapture readnone %statement, ptr nocapture readnone %key, double %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z24StatementSetOptionDoubleP13AdbcStatementPKcdP9AdbcError(ptr readnone captures(none) %statement, ptr readnone captures(none) %key, double %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
@@ -13596,7 +13563,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @AdbcErrorFromArrayStream(ptr nocapture noundef readonly %stream, ptr noundef %status) local_unnamed_addr #2 {
+define noundef ptr @AdbcErrorFromArrayStream(ptr noundef readonly captures(none) %stream, ptr noundef %status) local_unnamed_addr #2 {
 entry:
   %private_data = getelementptr inbounds nuw i8, ptr %stream, i64 32
   %0 = load ptr, ptr %private_data, align 8, !tbaa !123
@@ -13630,103 +13597,103 @@ return:                                           ; preds = %if.then5, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z17DatabaseSetOptionP12AdbcDatabasePKcS2_P9AdbcError(ptr nocapture readnone %database, ptr nocapture readnone %key, ptr nocapture readnone %value, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z17DatabaseSetOptionP12AdbcDatabasePKcS2_P9AdbcError(ptr readnone captures(none) %database, ptr readnone captures(none) %key, ptr readnone captures(none) %value, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z16ConnectionCommitP14AdbcConnectionP9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z16ConnectionCommitP14AdbcConnectionP9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z17ConnectionGetInfoP14AdbcConnectionPKjmP16ArrowArrayStreamP9AdbcError(ptr nocapture readnone %connection, ptr nocapture readnone %info_codes, i64 %info_codes_length, ptr nocapture readnone %out, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z17ConnectionGetInfoP14AdbcConnectionPKjmP16ArrowArrayStreamP9AdbcError(ptr readnone captures(none) %connection, ptr readnone captures(none) %info_codes, i64 %info_codes_length, ptr readnone captures(none) %out, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z20ConnectionGetObjectsP14AdbcConnectioniPKcS2_S2_PS2_S2_P16ArrowArrayStreamP9AdbcError(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture readnone %6, ptr nocapture readnone %7, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z20ConnectionGetObjectsP14AdbcConnectioniPKcS2_S2_PS2_S2_P16ArrowArrayStreamP9AdbcError(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z24ConnectionGetTableSchemaP14AdbcConnectionPKcS2_S2_P11ArrowSchemaP9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z24ConnectionGetTableSchemaP14AdbcConnectionPKcS2_S2_P11ArrowSchemaP9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z23ConnectionGetTableTypesP14AdbcConnectionP16ArrowArrayStreamP9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z23ConnectionGetTableTypesP14AdbcConnectionP16ArrowArrayStreamP9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z23ConnectionReadPartitionP14AdbcConnectionPKhmP16ArrowArrayStreamP9AdbcError(ptr nocapture readnone %connection, ptr nocapture readnone %serialized_partition, i64 %serialized_length, ptr nocapture readnone %out, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z23ConnectionReadPartitionP14AdbcConnectionPKhmP16ArrowArrayStreamP9AdbcError(ptr readnone captures(none) %connection, ptr readnone captures(none) %serialized_partition, i64 %serialized_length, ptr readnone captures(none) %out, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z18ConnectionRollbackP14AdbcConnectionP9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z18ConnectionRollbackP14AdbcConnectionP9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z19ConnectionSetOptionP14AdbcConnectionPKcS2_P9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z19ConnectionSetOptionP14AdbcConnectionPKcS2_P9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z13StatementBindP13AdbcStatementP10ArrowArrayP11ArrowSchemaP9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z13StatementBindP13AdbcStatementP10ArrowArrayP11ArrowSchemaP9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z26StatementExecutePartitionsP13AdbcStatementP11ArrowSchemaP14AdbcPartitionsPlP9AdbcError(ptr nocapture readnone %statement, ptr nocapture readnone %schema, ptr nocapture readnone %partitions, ptr nocapture readnone %rows_affected, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z26StatementExecutePartitionsP13AdbcStatementP11ArrowSchemaP14AdbcPartitionsPlP9AdbcError(ptr readnone captures(none) %statement, ptr readnone captures(none) %schema, ptr readnone captures(none) %partitions, ptr readnone captures(none) %rows_affected, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z27StatementGetParameterSchemaP13AdbcStatementP11ArrowSchemaP9AdbcError(ptr nocapture readnone %statement, ptr nocapture readnone %schema, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z27StatementGetParameterSchemaP13AdbcStatementP11ArrowSchemaP9AdbcError(ptr readnone captures(none) %statement, ptr readnone captures(none) %schema, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z16StatementPrepareP13AdbcStatementP9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z16StatementPrepareP13AdbcStatementP9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z18StatementSetOptionP13AdbcStatementPKcS2_P9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z18StatementSetOptionP13AdbcStatementPKcS2_P9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z20StatementSetSqlQueryP13AdbcStatementPKcP9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z20StatementSetSqlQueryP13AdbcStatementPKcP9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_Z25StatementSetSubstraitPlanP13AdbcStatementPKhmP9AdbcError(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %error) #10 {
+define noundef zeroext i8 @_Z25StatementSetSubstraitPlanP13AdbcStatementPKhmP9AdbcError(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %error) #10 {
 entry:
   ret i8 2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @AdbcDatabaseNew(ptr nocapture noundef writeonly initializes((0, 16)) %database, ptr nocapture noundef readnone %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @AdbcDatabaseNew(ptr noundef writeonly captures(none) initializes((0, 16)) %database, ptr noundef readnone captures(none) %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #36
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 32
@@ -13841,29 +13808,21 @@ if.else13:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %4, ptr %ref.tmp, align 8, !tbaa !33
-  %cmp.i = icmp eq ptr %key, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.else13
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.135) #34
-  unreachable
-
-if.end.i:                                         ; preds = %if.else13
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #30
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !35
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %if.end.i
+if.then.i.i:                                      ; preds = %if.else13
   %call2.i10.i67 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i, i64 noundef 0)
   store ptr %call2.i10.i67, ptr %ref.tmp, align 8, !tbaa !37
   %5 = load i64, ptr %__dnew.i.i, align 8, !tbaa !35
   store i64 %5, ptr %4, align 8, !tbaa !39
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
-  %6 = phi ptr [ %call2.i10.i67, %if.then.i.i ], [ %4, %if.end.i ]
+if.end.i.i:                                       ; preds = %if.then.i.i, %if.else13
+  %6 = phi ptr [ %call2.i10.i67, %if.then.i.i ], [ %4, %if.else13 ]
   switch i64 %call.i.i, label %if.end.i.i.i.i.i [
     i64 1, label %if.then.i.i.i.i
     i64 0, label %invoke.cont
@@ -14426,7 +14385,7 @@ if.then9:                                         ; preds = %if.end6
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 232
   %4 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !40
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #30
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %driver, i64 noundef 0, i64 noundef %4, ptr noundef %value, i64 noundef %call.i.i.i)
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %driver, i64 noundef 0, i64 noundef %4, ptr noundef nonnull %value, i64 noundef %call.i.i.i)
   br label %return
 
 if.else:                                          ; preds = %if.end6
@@ -14439,36 +14398,28 @@ if.then13:                                        ; preds = %if.else
   %_M_string_length.i.i.i44 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %5 = load i64, ptr %_M_string_length.i.i.i44, align 8, !tbaa !40
   %call.i.i.i45 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #30
-  %call3.i.i46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %entrypoint, i64 noundef 0, i64 noundef %5, ptr noundef %value, i64 noundef %call.i.i.i45)
+  %call3.i.i46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %entrypoint, i64 noundef 0, i64 noundef %5, ptr noundef nonnull %value, i64 noundef %call.i.i.i45)
   br label %return
 
 if.else15:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
   %6 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %6, ptr %ref.tmp, align 8, !tbaa !33
-  %cmp.i = icmp eq ptr %key, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.else15
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.135) #34
-  unreachable
-
-if.end.i:                                         ; preds = %if.else15
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #30
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !35
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %if.end.i
+if.then.i.i:                                      ; preds = %if.else15
   %call2.i10.i47 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i, i64 noundef 0)
   store ptr %call2.i10.i47, ptr %ref.tmp, align 8, !tbaa !37
   %7 = load i64, ptr %__dnew.i.i, align 8, !tbaa !35
   store i64 %7, ptr %6, align 8, !tbaa !39
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
-  %8 = phi ptr [ %call2.i10.i47, %if.then.i.i ], [ %6, %if.end.i ]
+if.end.i.i:                                       ; preds = %if.then.i.i, %if.else15
+  %8 = phi ptr [ %call2.i10.i47, %if.then.i.i ], [ %6, %if.else15 ]
   switch i64 %call.i.i, label %if.end.i.i.i.i.i [
     i64 1, label %if.then.i.i.i.i
     i64 0, label %invoke.cont
@@ -14498,7 +14449,7 @@ invoke.cont18:                                    ; preds = %invoke.cont
   %_M_string_length.i.i.i49 = getelementptr inbounds nuw i8, ptr %call.i48, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i49, align 8, !tbaa !40
   %call.i.i.i50 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #30
-  %call3.i.i5152 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %call.i48, i64 noundef 0, i64 noundef %12, ptr noundef %value, i64 noundef %call.i.i.i50)
+  %call3.i.i5152 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %call.i48, i64 noundef 0, i64 noundef %12, ptr noundef nonnull %value, i64 noundef %call.i.i.i50)
           to label %invoke.cont20 unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %invoke.cont18
@@ -15117,7 +15068,7 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext range(i8 0, 7) i8 @AdbcDriverManagerDatabaseSetInitFunc(ptr nocapture noundef readonly %database, ptr noundef %init_func, ptr nocapture noundef readnone %error) local_unnamed_addr #17 {
+define noundef zeroext range(i8 0, 7) i8 @AdbcDriverManagerDatabaseSetInitFunc(ptr noundef readonly captures(none) %database, ptr noundef %init_func, ptr noundef readnone captures(none) %error) local_unnamed_addr #17 {
 entry:
   %private_driver = getelementptr inbounds nuw i8, ptr %database, i64 8
   %0 = load ptr, ptr %private_driver, align 8, !tbaa !240
@@ -16054,7 +16005,7 @@ eh.resume:                                        ; preds = %ehcleanup271, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @AdbcLoadDriverFromInitFunc(ptr nocapture noundef readonly %init_func, i32 noundef %version, ptr noundef %raw_driver, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @AdbcLoadDriverFromInitFunc(ptr noundef readonly captures(none) %init_func, i32 noundef %version, ptr noundef %raw_driver, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i520 = alloca i64, align 8
   %__dnew.i.i496 = alloca i64, align 8
@@ -20678,7 +20629,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @AdbcConnectionNew(ptr nocapture noundef writeonly initializes((0, 16)) %connection, ptr nocapture noundef readnone %error) local_unnamed_addr #2 {
+define noundef zeroext i8 @AdbcConnectionNew(ptr noundef writeonly captures(none) initializes((0, 16)) %connection, ptr noundef readnone captures(none) %error) local_unnamed_addr #2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #36
   %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 48
@@ -21028,7 +20979,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   %_M_string_length.i.i.i68 = getelementptr inbounds nuw i8, ptr %call.i67, i64 8
   %16 = load i64, ptr %_M_string_length.i.i.i68, align 8, !tbaa !40
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #30
-  %call3.i.i69 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %call.i67, i64 noundef 0, i64 noundef %16, ptr noundef %value, i64 noundef %call.i.i.i)
+  %call3.i.i69 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %call.i67, i64 noundef 0, i64 noundef %16, ptr noundef nonnull %value, i64 noundef %call.i.i.i)
           to label %invoke.cont15 unwind label %lpad13
 
 invoke.cont15:                                    ; preds = %invoke.cont14
@@ -22750,7 +22701,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont7
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %invoke.cont7
-  %call2.i.i80 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %error_message, ptr noundef %call9, i64 noundef %call.i.i.i78)
+  %call2.i.i80 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %error_message, ptr noundef nonnull %call9, i64 noundef %call.i.i.i78)
           to label %invoke.cont10 unwind label %lpad6
 
 invoke.cont10:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -22969,7 +22920,7 @@ if.then.i.i.i145.cont:                            ; preds = %if.then.i.i.i145.in
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i144: ; preds = %invoke.cont45
-  %call2.i.i147 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %error_message, ptr noundef %call47, i64 noundef %call.i.i.i140)
+  %call2.i.i147 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %error_message, ptr noundef nonnull %call47, i64 noundef %call.i.i.i140)
           to label %if.end50 unwind label %lpad18
 
 if.end50:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i144, %if.end40
@@ -23113,7 +23064,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i33.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %if.then
-  %call2.i.i18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef %name, i64 noundef %call.i.i.i)
+  %call2.i.i18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef nonnull %name, i64 noundef %call.i.i.i)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -23142,7 +23093,7 @@ if.then.i.i.i33.cont:                             ; preds = %if.then.i.i.i33.inv
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i32: ; preds = %invoke.cont5
-  %call2.i.i35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef %call7, i64 noundef %call.i.i.i28)
+  %call2.i.i35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef nonnull %call7, i64 noundef %call.i.i.i28)
           to label %invoke.cont8 unwind label %lpad2
 
 invoke.cont8:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i32
@@ -25596,7 +25547,7 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #27
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
 declare ptr @llvm.load.relative.i64(ptr, i64) #28

@@ -66,7 +66,7 @@ $_ZTVN8QuantLib8ExerciseE = comdat any
 @_ZN8QuantLib15RebatedExerciseC1ERKNS_8ExerciseERKSt6vectorIdSaIdEEjNS_8CalendarENS_21BusinessDayConventionE = unnamed_addr alias void (ptr, ptr, ptr, i32, ptr, i32), ptr @_ZN8QuantLib15RebatedExerciseC2ERKNS_8ExerciseERKSt6vectorIdSaIdEEjNS_8CalendarENS_21BusinessDayConventionE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15RebatedExerciseC2ERKNS_8ExerciseEdjNS_8CalendarENS_21BusinessDayConventionE(ptr nocapture noundef nonnull align 8 dereferenceable(92) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %exercise, double noundef %rebate, i32 noundef %rebateSettlementDays, ptr nocapture noundef %rebatePaymentCalendar, i32 noundef %rebatePaymentConvention) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15RebatedExerciseC2ERKNS_8ExerciseEdjNS_8CalendarENS_21BusinessDayConventionE(ptr noundef nonnull align 8 captures(none) dereferenceable(92) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %exercise, double noundef %rebate, i32 noundef %rebateSettlementDays, ptr noundef captures(none) %rebatePaymentCalendar, i32 noundef %rebatePaymentConvention) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !3
   %dates_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -202,13 +202,13 @@ _ZN8QuantLib8ExerciseD2Ev.exit:                   ; preds = %lpad3, %if.then.i.i
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15RebatedExerciseC2ERKNS_8ExerciseERKSt6vectorIdSaIdEEjNS_8CalendarENS_21BusinessDayConventionE(ptr noundef nonnull align 8 dereferenceable(92) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %exercise, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rebates, i32 noundef %rebateSettlementDays, ptr nocapture noundef %rebatePaymentCalendar, i32 noundef %rebatePaymentConvention) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15RebatedExerciseC2ERKNS_8ExerciseERKSt6vectorIdSaIdEEjNS_8CalendarENS_21BusinessDayConventionE(ptr noundef nonnull align 8 dereferenceable(92) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %exercise, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %rebates, i32 noundef %rebateSettlementDays, ptr noundef captures(none) %rebatePaymentCalendar, i32 noundef %rebatePaymentConvention) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1133,7 +1133,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #6
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
@@ -1157,7 +1157,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
@@ -1169,13 +1169,13 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

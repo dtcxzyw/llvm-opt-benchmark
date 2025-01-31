@@ -619,7 +619,7 @@ declare ptr @GetPredicateLockStatusData() local_unnamed_addr #1
 declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -632,7 +632,7 @@ declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_blocking_pids(ptr nocapture noundef readonly %0) #0 {
+define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -804,7 +804,7 @@ declare ptr @GetLockTagsMethodTable(ptr noundef) local_unnamed_addr #1
 declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_safe_snapshot_blocking_pids(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_safe_snapshot_blocking_pids(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -844,7 +844,7 @@ define dso_local i64 @pg_safe_snapshot_blocking_pids(ptr nocapture noundef reado
 declare i32 @GetSafeSnapshotBlockingPids(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_isolation_test_session_is_blocked(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_isolation_test_session_is_blocked(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -981,7 +981,7 @@ declare i32 @ArrayGetNItems(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_advisory_lock_int8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_advisory_lock_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1007,7 +1007,7 @@ define dso_local noundef i64 @pg_advisory_lock_int8(ptr nocapture noundef readon
 declare i32 @LockAcquire(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_advisory_xact_lock_int8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_advisory_xact_lock_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1031,7 +1031,7 @@ define dso_local noundef i64 @pg_advisory_xact_lock_int8(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_advisory_lock_shared_int8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_advisory_lock_shared_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1055,7 +1055,7 @@ define dso_local noundef i64 @pg_advisory_lock_shared_int8(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_advisory_xact_lock_shared_int8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_advisory_xact_lock_shared_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1079,7 +1079,7 @@ define dso_local noundef i64 @pg_advisory_xact_lock_shared_int8(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_int8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1105,7 +1105,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_int8(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_int8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1131,7 +1131,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_int8(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_shared_int8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_shared_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1157,7 +1157,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_shared_int8(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_shared_int8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_shared_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1183,7 +1183,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_shared_int8(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_int8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1210,7 +1210,7 @@ define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_int8(ptr nocapture noun
 declare zeroext i1 @LockRelease(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_shared_int8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_shared_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1235,7 +1235,7 @@ define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_shared_int8(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_advisory_lock_int4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_advisory_lock_int4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1260,7 +1260,7 @@ define dso_local noundef i64 @pg_advisory_lock_int4(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_advisory_xact_lock_int4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_advisory_xact_lock_int4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1285,7 +1285,7 @@ define dso_local noundef i64 @pg_advisory_xact_lock_int4(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_advisory_lock_shared_int4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_advisory_lock_shared_int4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1310,7 +1310,7 @@ define dso_local noundef i64 @pg_advisory_lock_shared_int4(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_advisory_xact_lock_shared_int4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_advisory_xact_lock_shared_int4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1335,7 +1335,7 @@ define dso_local noundef i64 @pg_advisory_xact_lock_shared_int4(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_int4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_int4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1362,7 +1362,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_int4(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_int4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_int4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1389,7 +1389,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_int4(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_shared_int4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_shared_int4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1416,7 +1416,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_shared_int4(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_shared_int4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_shared_int4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1443,7 +1443,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_shared_int4(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_int4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_int4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1469,7 +1469,7 @@ define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_int4(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_shared_int4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_shared_int4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1495,7 +1495,7 @@ define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_shared_int4(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_advisory_unlock_all(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_advisory_unlock_all(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   tail call void @LockReleaseSession(i16 noundef zeroext 2) #6
   ret i64 0
 }
@@ -1508,10 +1508,10 @@ declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

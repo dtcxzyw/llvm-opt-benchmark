@@ -30,7 +30,7 @@ define void @Java_java_util_zip_Inflater_initIDs(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @Java_java_util_zip_Inflater_init(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define noundef i64 @Java_java_util_zip_Inflater_init(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #6
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -83,12 +83,12 @@ declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_util_zip_Inflater_setDictionary(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Java_java_util_zip_Inflater_setDictionary(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1776
   %9 = load ptr, ptr %8, align 8
@@ -130,7 +130,7 @@ checkSetDictionaryResult.exit:                    ; preds = %23, %20, %12, %6
 declare i32 @inflateSetDictionary(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_util_zip_Inflater_setDictionaryBuffer(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_java_util_zip_Inflater_setDictionaryBuffer(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %3 to ptr
   %7 = inttoptr i64 %2 to ptr
   %8 = tail call i32 @inflateSetDictionary(ptr noundef %7, ptr noundef %6, i32 noundef %4) #5
@@ -435,7 +435,7 @@ define i64 @Java_java_util_zip_Inflater_inflateBufferBuffer(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Java_java_util_zip_Inflater_getAdler(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #4 {
+define i32 @Java_java_util_zip_Inflater_getAdler(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i64, ptr %5, align 8
@@ -444,7 +444,7 @@ define i32 @Java_java_util_zip_Inflater_getAdler(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_util_zip_Inflater_reset(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_java_util_zip_Inflater_reset(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @inflateReset(ptr noundef %4) #5
   %.not = icmp eq i32 %5, 0
@@ -461,7 +461,7 @@ define void @Java_java_util_zip_Inflater_reset(ptr noundef %0, ptr nocapture nou
 declare i32 @inflateReset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_util_zip_Inflater_end(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_java_util_zip_Inflater_end(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @inflateEnd(ptr noundef %4) #5
   %6 = icmp eq i32 %5, -2

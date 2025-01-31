@@ -75,7 +75,7 @@ $_ZN8ModelPPM16CreateSuccessorsEbP12RARPPM_STATE = comdat any
 @_ZN6UnpackD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6UnpackD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10RangeCoder11InitDecoderEP6Unpack(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 12), (24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10RangeCoder11InitDecoderEP6Unpack(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 12), (24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -102,19 +102,19 @@ define void @_ZN10RangeCoder11InitDecoderEP6Unpack(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12SubAllocatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(536) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN12SubAllocatorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(536) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store i64 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12SubAllocator5CleanEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(536) initializes((0, 8)) %0) local_unnamed_addr #1 align 2 {
+define void @_ZN12SubAllocator5CleanEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(536) initializes((0, 8)) %0) local_unnamed_addr #1 align 2 {
   store i64 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN12SubAllocator16StopSubAllocatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(536) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN12SubAllocator16StopSubAllocatorEv(ptr noundef nonnull align 8 captures(none) dereferenceable(536) %0) local_unnamed_addr #2 align 2 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %6, label %3
@@ -131,10 +131,10 @@ define void @_ZN12SubAllocator16StopSubAllocatorEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN12SubAllocator17StartSubAllocatorEi(ptr nocapture noundef nonnull align 8 dereferenceable(536) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN12SubAllocator17StartSubAllocatorEi(ptr noundef nonnull align 8 captures(none) dereferenceable(536) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = shl i32 %1, 20
   %4 = load i64, ptr %0, align 8
   %5 = zext i32 %3 to i64
@@ -186,7 +186,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN12SubAllocator16InitSubAllocatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(536) initializes((184, 520), (528, 536)) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN12SubAllocator16InitSubAllocatorEv(ptr noundef nonnull align 8 captures(none) dereferenceable(536) initializes((184, 520), (528, 536)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %2, i8 0, i64 304, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -293,7 +293,7 @@ define void @_ZN12SubAllocator16InitSubAllocatorEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN12SubAllocator14AllocUnitsRareEi(ptr noundef nonnull align 8 dereferenceable(536) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
@@ -1036,7 +1036,7 @@ define void @_ZN8ModelPPM14StartModelRareEi(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr nocapture noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 align 2 {
   %3 = alloca %struct.RARPPM_STATE, align 1
   %4 = load i16, ptr %0, align 1
   %5 = zext i16 %4 to i32
@@ -1329,7 +1329,7 @@ _ZN12SubAllocator11ShrinkUnitsEPvii.exit:         ; preds = %104, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8ModelPPM7CleanUpEv(ptr noundef nonnull align 8 dereferenceable(19648) initializes((1652, 1656), (1664, 1920), (2688, 2689), (19296, 19632), (19640, 19648)) %0) local_unnamed_addr #0 align 2 {
@@ -1428,7 +1428,7 @@ _ZN8ModelPPM14StartModelRareEi.exit:              ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8ModelPPM10DecodeInitEP6UnpackRi(ptr noundef nonnull align 8 dereferenceable(19648) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN8ModelPPM10DecodeInitEP6UnpackRi(ptr noundef nonnull align 8 dereferenceable(19648) %0, ptr noundef nonnull %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZN6Unpack7GetCharEv(ptr noundef nonnull align 8 dereferenceable(59688) %1)
   %5 = and i32 %4, 32
   %.not = icmp eq i32 %5, 0
@@ -3366,7 +3366,7 @@ _ZN6Unpack13UnpWriteBuf20Ev.exit22:               ; preds = %199, %208
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6Unpack11UnpInitDataEb(ptr nocapture noundef nonnull align 8 dereferenceable(59688) initializes((8, 16), (104, 112), (176, 204), (19856, 19864)) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define void @_ZN6Unpack11UnpInitDataEb(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) initializes((8, 16), (104, 112), (176, 204), (19856, 19864)) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   br i1 %1, label %13, label %3
 
 3:                                                ; preds = %2
@@ -3505,7 +3505,7 @@ _ZN6Unpack13UnpInitData50Eb.exit:                 ; preds = %_ZN6Unpack13UnpInit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Unpack13UnpInitData15Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(59688) initializes((176, 180), (22684, 22688), (22716, 22728)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN6Unpack13UnpInitData15Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(59688) initializes((176, 180), (22684, 22688), (22716, 22728)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %3, label %9
 
@@ -3537,7 +3537,7 @@ define void @_ZN6Unpack13UnpInitData15Ei(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Unpack10UnpReadBufEv(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6Unpack10UnpReadBufEv(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3627,7 +3627,7 @@ define noundef zeroext i1 @_ZN6Unpack10UnpReadBufEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6Unpack8InitHuffEv(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN6Unpack8InitHuffEv(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20890
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 19866
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20378
@@ -3837,7 +3837,7 @@ _ZN6Unpack8CorrHuffEPtPh.exit:                    ; preds = %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Unpack13UnpWriteBuf20Ev(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN6Unpack13UnpWriteBuf20Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -5287,7 +5287,7 @@ declare noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 derefer
 declare void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6Unpack12CopyString15Ejj(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define void @_ZN6Unpack12CopyString15Ejj(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = zext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 19840
   %6 = load i64, ptr %5, align 8
@@ -5330,7 +5330,7 @@ define void @_ZN6Unpack12CopyString15Ejj(ptr nocapture noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6Unpack9DecodeNumEjjPjS0_(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6Unpack9DecodeNumEjjPjS0_(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 align 2 {
   %6 = and i32 %1, 65520
   %7 = load i32, ptr %3, align 4
   %.not18 = icmp ugt i32 %7, %6
@@ -5373,7 +5373,7 @@ define noundef i32 @_ZN6Unpack9DecodeNumEjjPjS0_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6Unpack8CorrHuffEPtPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(59688) %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 align 2 {
+define void @_ZN6Unpack8CorrHuffEPtPh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(59688) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 align 2 {
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %11
@@ -7167,7 +7167,7 @@ _ZN6Unpack10UnpReadBufEv.exit.thread:             ; preds = %126, %233, %_ZN6Unp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i8 @_ZN6Unpack11DecodeAudioEi(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef zeroext i8 @_ZN6Unpack11DecodeAudioEi(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 39064
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 39056
   %5 = load i32, ptr %4, align 8
@@ -7628,7 +7628,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit11: ; preds = %96, %.prehe
 declare void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 4)) %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
+define void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 4)) %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = alloca [16 x i32], align 16
   %6 = alloca [16 x i32], align 16
   store i32 %3, ptr %2, align 4
@@ -7802,7 +7802,7 @@ define void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nocapture nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Unpack13UnpInitData20Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(59688) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN6Unpack13UnpInitData20Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(59688) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %3, label %11
 
@@ -8875,7 +8875,7 @@ _ZN6Unpack12UnpReadBuf30Ev.exit.thread:           ; preds = %150, %20, %57, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Unpack12UnpReadBuf30Ev(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6Unpack12UnpReadBuf30Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10112,7 +10112,7 @@ _ZN5ArrayIhE3AddEm.exit:                          ; preds = %2, %8
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Unpack9AddVMCodeEjPhj(ptr noundef nonnull align 8 dereferenceable(59688) initializes((59544, 59552)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6Unpack9AddVMCodeEjPhj(ptr noundef nonnull align 8 dereferenceable(59688) initializes((59544, 59552)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.Array, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 59544
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 59548
@@ -10684,7 +10684,7 @@ declare void @_ZN5RarVM4InitEv(ptr noundef nonnull align 8 dereferenceable(40)) 
 declare noundef i32 @_ZN5RarVM8ReadDataER8BitInput(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6Unpack13InitFilters30Eb(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define void @_ZN6Unpack13InitFilters30Eb(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   br i1 %1, label %20, label %3
 
 3:                                                ; preds = %2
@@ -10769,12 +10769,12 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
 declare void @_ZN5RarVM7PrepareEPhjP18VM_PreparedProgram(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 declare noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 dereferenceable(266), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Unpack12UnpWriteAreaEmm(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN6Unpack12UnpWriteAreaEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq i64 %2, %1
   br i1 %.not, label %6, label %4
 
@@ -10988,7 +10988,7 @@ define void @_ZN6Unpack11ExecuteCodeEP18VM_PreparedProgram(ptr noundef nonnull a
 declare void @_ZN5RarVM7ExecuteEP18VM_PreparedProgram(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6Unpack13UnpInitData30Eb(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define void @_ZN6Unpack13UnpInitData30Eb(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   br i1 %1, label %.thread, label %3
 
 3:                                                ; preds = %2
@@ -12366,7 +12366,7 @@ _ZN6Unpack10UnpReadBufEv.exit.thread:             ; preds = %179, %135, %137, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Unpack15ReadBlockHeaderER8BitInputR17UnpackBlockHeader(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((12, 16)) %2) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6Unpack15ReadBlockHeaderER8BitInputR17UnpackBlockHeader(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(20) initializes((12, 16)) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12549,7 +12549,7 @@ _ZN6Unpack10UnpReadBufEv.exit.thread:             ; preds = %14, %84, %55, %_ZN6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Unpack10ReadTablesER8BitInputR17UnpackBlockHeaderR17UnpackBlockTables(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %2, ptr nocapture noundef nonnull align 4 dereferenceable(19100) %3) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6Unpack10ReadTablesER8BitInputR17UnpackBlockHeaderR17UnpackBlockTables(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(19100) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [20 x i8], align 16
   %6 = alloca [430 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 17
@@ -13577,7 +13577,7 @@ _ZN5ArrayI12UnpackFilterE5AllocEm.exit._crit_edge: ; preds = %_ZN5ArrayI12Unpack
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN16FragmentedWindowixEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, i64 noundef %1) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN16FragmentedWindowixEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %0, i64 noundef %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %1, %4
@@ -13621,7 +13621,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZN16FragmentedWindowixEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN16FragmentedWindow10CopyStringEjjRmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) local_unnamed_addr #10 align 2 {
+define void @_ZN16FragmentedWindow10CopyStringEjjRmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i64 noundef %4) local_unnamed_addr #10 align 2 {
   %.not18 = icmp eq i32 %1, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -13728,7 +13728,7 @@ _ZN16FragmentedWindowixEm.exit15:                 ; preds = %37, %43, %53
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Unpack10ReadFilterER8BitInputR12UnpackFilter(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6Unpack10ReadFilterER8BitInputR12UnpackFilter(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -13923,7 +13923,7 @@ _ZN6Unpack10UnpReadBufEv.exit.thread:             ; preds = %13, %_ZN6Unpack14Re
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Unpack9AddFilterER12UnpackFilter(ptr noundef nonnull align 8 dereferenceable(59688) %0, ptr nocapture noundef nonnull align 4 dereferenceable(16) initializes((13, 14)) %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6Unpack9AddFilterER12UnpackFilter(ptr noundef nonnull align 8 dereferenceable(59688) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(16) initializes((13, 14)) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %4, 8191
@@ -13987,7 +13987,7 @@ define noundef zeroext i1 @_ZN6Unpack9AddFilterER12UnpackFilter(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6Unpack14ReadFilterDataER8BitInput(ptr nocapture noundef nonnull readnone align 8 dereferenceable(59688) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6Unpack14ReadFilterDataER8BitInput(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(59688) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
   %4 = lshr i32 %3, 14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -14026,7 +14026,7 @@ define noundef i32 @_ZN6Unpack14ReadFilterDataER8BitInput(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Unpack11InitFiltersEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(59688) initializes((104, 112)) %0) local_unnamed_addr #1 align 2 {
+define void @_ZN6Unpack11InitFiltersEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(59688) initializes((104, 112)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %2, align 8
   ret void
@@ -14097,7 +14097,7 @@ _ZN5ArrayI12UnpackFilterE3AddEm.exit:             ; preds = %._ZN5ArrayI12Unpack
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN16FragmentedWindow8CopyDataEPhmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #17 align 2 {
+define void @_ZN16FragmentedWindow8CopyDataEPhmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #17 align 2 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -14158,7 +14158,7 @@ _ZN16FragmentedWindowixEm.exit:                   ; preds = %10, %16, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6Unpack11ApplyFilterEPhjP12UnpackFilter(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN6Unpack11ApplyFilterEPhjP12UnpackFilter(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = load i8, ptr %3, align 4
   switch i8 %5, label %.loopexit [
     i8 1, label %6
@@ -14370,7 +14370,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %._ZN5ArrayIhE5Alloc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN16FragmentedWindow12GetBlockSizeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #16 align 2 {
+define noundef i64 @_ZN16FragmentedWindow12GetBlockSizeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %6
 
@@ -14397,7 +14397,7 @@ define noundef i64 @_ZN16FragmentedWindow12GetBlockSizeEmm(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Unpack12UnpWriteDataEPhm(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN6Unpack12UnpWriteDataEPhm(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 19856
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 19840
@@ -14420,7 +14420,7 @@ define void @_ZN6Unpack12UnpWriteDataEPhm(ptr nocapture noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Unpack13UnpInitData50Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define void @_ZN6Unpack13UnpInitData50Eb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   br i1 %1, label %5, label %3
 
 3:                                                ; preds = %2
@@ -14433,13 +14433,13 @@ define void @_ZN6Unpack13UnpInitData50Eb(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16FragmentedWindowC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) initializes((0, 512)) %0) unnamed_addr #1 align 2 {
+define void @_ZN16FragmentedWindowC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(512) initializes((0, 512)) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 0, i64 512, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16FragmentedWindowD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(512) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16FragmentedWindowD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(512) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -14464,7 +14464,7 @@ _ZN16FragmentedWindow5ResetEv.exit:               ; preds = %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16FragmentedWindow5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(512) %0) local_unnamed_addr #12 align 2 {
+define void @_ZN16FragmentedWindow5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(512) %0) local_unnamed_addr #12 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %6
@@ -14489,7 +14489,7 @@ define void @_ZN16FragmentedWindow5ResetEv(ptr nocapture noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16FragmentedWindow4InitEm(ptr nocapture noundef nonnull align 8 dereferenceable(512) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN16FragmentedWindow4InitEm(ptr noundef nonnull align 8 captures(none) dereferenceable(512) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -14950,7 +14950,7 @@ _ZN5ArrayIhED2Ev.exit8:                           ; preds = %_ZN5ArrayIhED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Unpack4InitEmb(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define void @_ZN6Unpack4InitEmb(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %5, label %6
 
@@ -15365,7 +15365,7 @@ declare i32 @llvm.bswap.i32(i32) #13
 declare void @_ZN12ErrorHandler13GeneralErrMsgEPKwz(ptr noundef nonnull align 4 dereferenceable(14), ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19
@@ -15386,10 +15386,10 @@ declare i32 @llvm.smin.i32(i32, i32) #19
 declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #19

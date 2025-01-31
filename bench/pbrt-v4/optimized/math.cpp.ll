@@ -383,7 +383,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt12SquareMatrixILi2EEmlEf(ptr noundef nonnull align 4 dereferenceable(16) %this, float noundef %s) local_unnamed_addr #4 comdat align 2 {
@@ -931,7 +931,7 @@ return:                                           ; preds = %for.end178, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { <2 x float>, <2 x float> } @_ZN4pbrtmlILi2EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(16) %m1, ptr noundef nonnull align 4 dereferenceable(16) %m2) local_unnamed_addr #3 comdat {
@@ -2136,7 +2136,7 @@ _ZN4pbrt12StringPrintfIJRKfS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4pbrt17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS1_IfEE(ptr nocapture readonly %nodes.coerce0, i64 %nodes.coerce1, float noundef %x, ptr nocapture noundef writeonly %offset, ptr nocapture writeonly %weights.coerce0, i64 %weights.coerce1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4pbrt17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS1_IfEE(ptr readonly captures(none) %nodes.coerce0, i64 %nodes.coerce1, float noundef %x, ptr noundef writeonly captures(none) %offset, ptr writeonly captures(none) %weights.coerce0, i64 %weights.coerce1) local_unnamed_addr #3 {
 entry:
   %va = alloca i64, align 8
   %vb = alloca i32, align 4
@@ -2314,7 +2314,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN4pbrt10CatmullRomEN4pstd4spanIKfEES3_f(ptr nocapture readonly %nodes.coerce0, i64 %nodes.coerce1, ptr nocapture readonly %f.coerce0, i64 %f.coerce1, float noundef %x) local_unnamed_addr #3 {
+define dso_local noundef float @_ZN4pbrt10CatmullRomEN4pstd4spanIKfEES3_f(ptr readonly captures(none) %nodes.coerce0, i64 %nodes.coerce1, ptr readonly captures(none) %f.coerce0, i64 %f.coerce1, float noundef %x) local_unnamed_addr #3 {
 entry:
   %va = alloca i64, align 8
   %vb = alloca i64, align 8
@@ -2490,7 +2490,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN4pbrt16InvertCatmullRomEN4pstd4spanIKfEES3_f(ptr nocapture readonly %nodes.coerce0, i64 %nodes.coerce1, ptr nocapture readonly %f.coerce0, i64 %f.coerce1, float noundef %u) local_unnamed_addr #8 {
+define dso_local noundef float @_ZN4pbrt16InvertCatmullRomEN4pstd4spanIKfEES3_f(ptr readonly captures(none) %nodes.coerce0, i64 %nodes.coerce1, ptr readonly captures(none) %f.coerce0, i64 %f.coerce1, float noundef %u) local_unnamed_addr #8 {
 entry:
   %0 = load float, ptr %f.coerce0, align 4
   %cmp = fcmp ogt float %u, %0
@@ -2705,7 +2705,7 @@ return:                                           ; preds = %"_ZN4pbrt15NewtonBi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN4pbrt19IntegrateCatmullRomEN4pstd4spanIKfEES3_NS1_IfEE(ptr nocapture readonly %nodes.coerce0, i64 %nodes.coerce1, ptr nocapture readonly %f.coerce0, i64 %f.coerce1, ptr nocapture writeonly %cdf.coerce0, i64 %cdf.coerce1) local_unnamed_addr #3 {
+define dso_local noundef float @_ZN4pbrt19IntegrateCatmullRomEN4pstd4spanIKfEES3_NS1_IfEE(ptr readonly captures(none) %nodes.coerce0, i64 %nodes.coerce1, ptr readonly captures(none) %f.coerce0, i64 %f.coerce1, ptr writeonly captures(none) %cdf.coerce0, i64 %cdf.coerce1) local_unnamed_addr #3 {
 entry:
   %va = alloca i64, align 8
   %vb = alloca i64, align 8
@@ -3540,7 +3540,7 @@ ehcleanup51:                                      ; preds = %lpad42, %ehcleanup3
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
@@ -4572,7 +4572,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #18

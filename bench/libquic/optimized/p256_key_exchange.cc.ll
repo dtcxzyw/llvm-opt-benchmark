@@ -43,7 +43,7 @@ $_ZTIN3net11KeyExchangeE = comdat any
 @_ZN3net15P256KeyExchangeD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net15P256KeyExchangeD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net15P256KeyExchangeC2EP9ec_key_stPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) initializes((0, 81)) %this, ptr noundef %private_key, ptr nocapture noundef readonly %public_key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net15P256KeyExchangeC2EP9ec_key_stPKh(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(81) initializes((0, 81)) %this, ptr noundef %private_key, ptr noundef readonly captures(none) %public_key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %this, align 8
   %private_key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -54,10 +54,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net15P256KeyExchangeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net15P256KeyExchangeD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(81) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %this, align 8
   %private_key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -365,7 +365,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noalias noundef ptr @_ZNK3net15P256KeyExchange10NewKeyPairEPNS_10QuicRandomE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef ptr @_ZNK3net15P256KeyExchange10NewKeyPairEPNS_10QuicRandomE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %private_value = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
@@ -397,7 +397,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK3net15P256KeyExchange18CalculateSharedKeyEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %this, ptr %peer_public_value.coerce0, i64 %peer_public_value.coerce1, ptr noundef %out_result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK3net15P256KeyExchange18CalculateSharedKeyEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %this, ptr %peer_public_value.coerce0, i64 %peer_public_value.coerce1, ptr noundef %out_result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %peer_public_value = alloca %"class.base::BasicStringPiece", align 8
   %point = alloca %"class.std::unique_ptr.10", align 8
@@ -523,7 +523,7 @@ entry:
 declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK3net15P256KeyExchange3tagEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZNK3net15P256KeyExchange3tagEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i32 909455952
 }

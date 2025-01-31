@@ -149,7 +149,7 @@ declare i32 @vhost_dev_get_config(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @virtio_notify_config(ptr noundef) local_unnamed_addr #1
 
@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vhost_user_blk_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @vhost_user_blk_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #5
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #5
@@ -470,7 +470,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vhost_user_blk_update_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config) #0 {
+define internal void @vhost_user_blk_update_config(ptr noundef %vdev, ptr noundef writeonly captures(none) %config) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 26, ptr noundef nonnull @__func__.VHOST_USER_BLK) #5
   %blkcfg = getelementptr inbounds nuw i8, ptr %call.i, i64 580
@@ -515,7 +515,7 @@ return:                                           ; preds = %entry, %if.end8, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vhost_user_blk_get_features(ptr noundef %vdev, i64 noundef %features, ptr nocapture readnone %errp) #0 {
+define internal i64 @vhost_user_blk_get_features(ptr noundef %vdev, i64 noundef %features, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 26, ptr noundef nonnull @__func__.VHOST_USER_BLK) #5
   %num_queues = getelementptr inbounds nuw i8, ptr %call.i, i64 676
@@ -627,7 +627,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @virtio_add_queue(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vhost_user_blk_handle_output(ptr noundef %vdev, ptr nocapture readnone %vq) #0 {
+define internal void @vhost_user_blk_handle_output(ptr noundef %vdev, ptr readnone captures(none) %vq) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 26, ptr noundef nonnull @__func__.VHOST_USER_BLK) #5
@@ -669,8 +669,8 @@ if.then8:                                         ; preds = %if.end6
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.012 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %call12 = call ptr @virtio_get_queue(ptr noundef %vdev, i32 noundef %i.012) #5
-  %call13 = call i64 @virtio_queue_get_desc_addr(ptr noundef %vdev, i32 noundef %i.012) #5
+  %call12 = call ptr @virtio_get_queue(ptr noundef nonnull %vdev, i32 noundef %i.012) #5
+  %call13 = call i64 @virtio_queue_get_desc_addr(ptr noundef nonnull %vdev, i32 noundef %i.012) #5
   %tobool14.not = icmp eq i64 %call13, 0
   br i1 %tobool14.not, label %for.inc, label %if.end16
 

@@ -475,7 +475,7 @@ declare ptr @blk_next(ptr noundef) local_unnamed_addr #1
 declare ptr @blk_legacy_dinfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -1493,7 +1493,7 @@ declare ptr @qemu_opts_create(ptr noundef, ptr noundef, i32 noundef, ptr noundef
 declare zeroext i1 @qemu_opts_absorb_qdict(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare zeroext i1 @qemu_opt_get_bool(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -2316,7 +2316,7 @@ cleanup:                                          ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @external_snapshot_abort(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @external_snapshot_abort(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %new_bs = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %new_bs, align 8
@@ -2381,7 +2381,7 @@ if.end23:                                         ; preds = %if.then, %if.end13,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @external_snapshot_commit(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @external_snapshot_commit(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #15
@@ -2425,7 +2425,7 @@ cleanup:                                          ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @drive_backup_abort(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @drive_backup_abort(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %job = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %job, align 8
@@ -2441,7 +2441,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @drive_backup_commit(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @drive_backup_commit(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #15
@@ -2482,7 +2482,7 @@ cleanup:                                          ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blockdev_backup_abort(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @blockdev_backup_abort(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %job = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %job, align 8
@@ -2498,7 +2498,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blockdev_backup_commit(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @blockdev_backup_commit(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #15
@@ -2539,7 +2539,7 @@ cleanup:                                          ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_dirty_bitmap_add_abort(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @block_dirty_bitmap_add_abort(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2554,7 +2554,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_dirty_bitmap_restore(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @block_dirty_bitmap_restore(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %backup = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %backup, align 8
@@ -2571,7 +2571,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_dirty_bitmap_free_backup(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @block_dirty_bitmap_free_backup(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %backup = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %backup, align 8
@@ -2580,7 +2580,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_dirty_bitmap_enable_abort(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @block_dirty_bitmap_enable_abort(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %was_enabled = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load i8, ptr %was_enabled, align 8
@@ -2597,7 +2597,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_dirty_bitmap_disable_abort(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @block_dirty_bitmap_disable_abort(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %was_enabled = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load i8, ptr %was_enabled, align 8
@@ -2614,7 +2614,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_dirty_bitmap_remove_abort(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @block_dirty_bitmap_remove_abort(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2631,7 +2631,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_dirty_bitmap_remove_commit(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @block_dirty_bitmap_remove_commit(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   tail call void @bdrv_dirty_bitmap_set_busy(ptr noundef %0, i1 noundef zeroext false) #15
@@ -2641,7 +2641,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal void @abort_commit(ptr nocapture readnone %opaque) #9 {
+define internal void @abort_commit(ptr readnone captures(none) %opaque) #9 {
 entry:
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 2204, ptr noundef nonnull @__func__.abort_commit, ptr noundef null) #16
   unreachable
@@ -4333,7 +4333,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_drive_mirror(ptr nocapture noundef %arg, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_drive_mirror(ptr noundef captures(none) %arg, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -5832,7 +5832,7 @@ declare ptr @block_job_query_locked(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @qapi_free_BlockJobInfoList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_x_blockdev_set_iothread(ptr noundef %node_name, ptr nocapture noundef readonly %iothread, i1 noundef zeroext %has_force, i1 noundef zeroext %force, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_x_blockdev_set_iothread(ptr noundef %node_name, ptr noundef readonly captures(none) %iothread, i1 noundef zeroext %has_force, i1 noundef zeroext %force, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   tail call void @bdrv_graph_rdlock_main_loop() #15
   %call2 = tail call ptr @bdrv_find_node(ptr noundef %node_name) #15
@@ -5916,7 +5916,7 @@ declare i32 @qemu_printf(ptr noundef, ...) local_unnamed_addr #1
 declare void @bdrv_iterate_format(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_format_print(ptr nocapture readnone %opaque, ptr noundef %name) #0 {
+define internal void @bdrv_format_print(ptr readnone captures(none) %opaque, ptr noundef %name) #0 {
 entry:
   %call = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.196, ptr noundef %name) #15
   ret void
@@ -6105,7 +6105,7 @@ declare ptr @bdrv_cow_child(ptr noundef) local_unnamed_addr #1
 declare i32 @bdrv_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @do_backup_common(ptr nocapture noundef %backup, ptr noundef nonnull %bs, ptr noundef nonnull %target_bs, ptr noundef %txn, ptr noundef nonnull %errp) unnamed_addr #0 {
+define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %backup, ptr noundef nonnull %bs, ptr noundef nonnull %target_bs, ptr noundef %txn, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %perf = alloca %struct.BackupPerf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %perf, ptr noundef nonnull align 8 dereferenceable(32) @__const.do_backup_common.perf, i64 32, i1 false)
@@ -6377,7 +6377,7 @@ return:                                           ; preds = %if.end72, %if.end10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare ptr @bdrv_find_dirty_bitmap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6410,7 +6410,7 @@ declare ptr @block_dirty_bitmap_remove(ptr noundef, ptr noundef, i1 noundef zero
 declare ptr @bdrv_filter_or_cow_child(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -6431,13 +6431,13 @@ declare i32 @llvm.ctpop.i32(i32) #12
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

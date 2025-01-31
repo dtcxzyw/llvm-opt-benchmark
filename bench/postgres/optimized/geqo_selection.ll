@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Chromosome = type { ptr, double }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @geqo_selection(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, double noundef %4) local_unnamed_addr #0 {
+define dso_local void @geqo_selection(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, double noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = sitofp i32 %7 to double

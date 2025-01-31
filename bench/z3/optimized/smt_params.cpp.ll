@@ -623,7 +623,7 @@ declare noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull a
 declare ptr @_ZNK10params_ref7get_symEPKcRK6symbol(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK10smt_params22validate_string_solverERK6symbol(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(8) %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK10smt_params22validate_string_solverERK6symbol(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i45 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i32 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -900,7 +900,7 @@ declare void @_ZN16theory_pb_params11updt_paramsERK10params_ref(ptr noundef nonn
 declare void @_ZN17theory_str_params11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(38), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10smt_params11updt_paramsERK14context_params(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((755, 756), (771, 772)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %p) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN10smt_params11updt_paramsERK14context_params(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((755, 756), (771, 772)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %p) local_unnamed_addr #6 align 2 {
 entry:
   %m_auto_config = getelementptr inbounds nuw i8, ptr %p, i64 72
   %0 = load i8, ptr %m_auto_config, align 8
@@ -1437,7 +1437,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef no
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params11setup_QF_UFEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((58, 59), (512, 516), (548, 556), (636, 640)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params11setup_QF_UFEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((58, 59), (512, 516), (548, 556), (636, 640)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_relevancy_lvl = getelementptr inbounds nuw i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
@@ -1453,7 +1453,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params12setup_QF_RDLEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((58, 59), (248, 249), (264, 265), (284, 285), (512, 516)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params12setup_QF_RDLEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((58, 59), (248, 249), (264, 265), (284, 285), (512, 516)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_relevancy_lvl = getelementptr inbounds nuw i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
@@ -1469,13 +1469,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN10smt_params12setup_QF_RDLER15static_features(ptr nocapture noundef nonnull readnone align 8 dereferenceable(800) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(792) %st) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN10smt_params12setup_QF_RDLER15static_features(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(792) %st) local_unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params12setup_QF_IDLEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((58, 59), (248, 249), (264, 265), (280, 285), (512, 516)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params12setup_QF_IDLEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((58, 59), (248, 249), (264, 265), (280, 285), (512, 516)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_relevancy_lvl = getelementptr inbounds nuw i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
@@ -1493,13 +1493,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN10smt_params12setup_QF_IDLER15static_features(ptr nocapture noundef nonnull readnone align 8 dereferenceable(800) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(792) %st) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN10smt_params12setup_QF_IDLER15static_features(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(792) %st) local_unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params12setup_QF_LRAEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((50, 51), (58, 59), (248, 249), (264, 265), (284, 285), (512, 516), (552, 556)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params12setup_QF_LRAEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((50, 51), (58, 59), (248, 249), (264, 265), (284, 285), (512, 516), (552, 556)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_relevancy_lvl = getelementptr inbounds nuw i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
@@ -1519,7 +1519,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10smt_params12setup_QF_LRAERK15static_features(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((50, 51), (58, 59), (248, 249), (264, 265), (284, 285), (512, 516)) %this, ptr noundef nonnull align 8 dereferenceable(792) %st) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10smt_params12setup_QF_LRAERK15static_features(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((50, 51), (58, 59), (248, 249), (264, 265), (284, 285), (512, 516)) %this, ptr noundef nonnull align 8 dereferenceable(792) %st) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   %ref.tmp4 = alloca %class.rational, align 8
@@ -1918,7 +1918,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params12setup_QF_LIAEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((58, 59), (248, 249), (264, 265), (284, 285), (512, 516)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params12setup_QF_LIAEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((58, 59), (248, 249), (264, 265), (284, 285), (512, 516)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_relevancy_lvl = getelementptr inbounds nuw i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
@@ -1934,7 +1934,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10smt_params12setup_QF_LIAERK15static_features(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((58, 59), (248, 249), (264, 265), (284, 285), (512, 516)) %this, ptr noundef nonnull align 8 dereferenceable(792) %st) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10smt_params12setup_QF_LIAERK15static_features(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((58, 59), (248, 249), (264, 265), (284, 285), (512, 516)) %this, ptr noundef nonnull align 8 dereferenceable(792) %st) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   %m_relevancy_lvl = getelementptr inbounds nuw i8, ptr %this, i64 512
@@ -2111,7 +2111,7 @@ if.end28:                                         ; preds = %if.end18, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params14setup_QF_UFIDLEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((58, 59), (248, 249), (284, 285), (360, 361), (512, 516), (636, 640), (648, 657)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params14setup_QF_UFIDLEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((58, 59), (248, 249), (284, 285), (360, 361), (512, 516), (636, 640), (648, 657)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_relevancy_lvl = getelementptr inbounds nuw i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
@@ -2133,7 +2133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params14setup_QF_UFLIAEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((58, 59), (284, 285), (344, 348), (512, 516)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params14setup_QF_UFLIAEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((58, 59), (284, 285), (344, 348), (512, 516)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_relevancy_lvl = getelementptr inbounds nuw i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
@@ -2147,7 +2147,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params14setup_QF_UFLRAEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((58, 59), (284, 285), (512, 516)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params14setup_QF_UFLRAEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((58, 59), (284, 285), (512, 516)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_relevancy_lvl = getelementptr inbounds nuw i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
@@ -2159,7 +2159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params11setup_QF_BVEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((38, 39), (58, 59), (284, 285), (427, 428), (512, 516)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params11setup_QF_BVEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((38, 39), (58, 59), (284, 285), (427, 428), (512, 516)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_relevancy_lvl = getelementptr inbounds nuw i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
@@ -2175,7 +2175,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params14setup_QF_AUFBVEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((38, 39), (58, 59), (396, 400), (427, 428), (512, 516)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params14setup_QF_AUFBVEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((38, 39), (58, 59), (396, 400), (427, 428), (512, 516)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_array_mode = getelementptr inbounds nuw i8, ptr %this, i64 396
   store i32 1, ptr %m_array_mode, align 4
@@ -2191,7 +2191,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params11setup_QF_AXEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((58, 59), (396, 400)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params11setup_QF_AXEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((58, 59), (396, 400)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_array_mode = getelementptr inbounds nuw i8, ptr %this, i64 396
   store i32 1, ptr %m_array_mode, align 4
@@ -2201,7 +2201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10smt_params11setup_QF_AXERK15static_features(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((58, 59), (396, 400), (512, 516)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(792) %st) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN10smt_params11setup_QF_AXERK15static_features(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((58, 59), (396, 400), (512, 516)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(792) %st) local_unnamed_addr #6 align 2 {
 entry:
   %m_has_ext_arrays = getelementptr inbounds nuw i8, ptr %st, i64 525
   %0 = load i8, ptr %m_has_ext_arrays, align 1
@@ -2231,7 +2231,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params15setup_QF_AUFLIAEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((58, 59), (396, 400), (512, 516), (552, 556), (636, 640), (648, 656)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params15setup_QF_AUFLIAEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((58, 59), (396, 400), (512, 516), (552, 556), (636, 640), (648, 656)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_array_mode = getelementptr inbounds nuw i8, ptr %this, i64 396
   store i32 1, ptr %m_array_mode, align 4
@@ -2249,7 +2249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10smt_params15setup_QF_AUFLIAERK15static_features(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((396, 400)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(792) %st) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10smt_params15setup_QF_AUFLIAERK15static_features(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((396, 400)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(792) %st) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
@@ -2327,7 +2327,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10smt_params12setup_AUFLIAEb(ptr nocapture noundef nonnull align 8 dereferenceable(800) initializes((16, 17), (56, 57), (176, 184), (200, 204), (215, 216), (396, 400), (552, 556), (636, 640), (648, 656)) %this, i1 noundef zeroext %simple_array) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN10smt_params12setup_AUFLIAEb(ptr noundef nonnull align 8 captures(none) dereferenceable(800) initializes((16, 17), (56, 57), (176, 184), (200, 204), (215, 216), (396, 400), (552, 556), (636, 640), (648, 656)) %this, i1 noundef zeroext %simple_array) local_unnamed_addr #6 align 2 {
 entry:
   %cond = select i1 %simple_array, i32 1, i32 3
   %m_array_mode = getelementptr inbounds nuw i8, ptr %this, i64 396
@@ -2362,7 +2362,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10smt_params12setup_AUFLIAERK15static_features(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((168, 176)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(792) %st) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN10smt_params12setup_AUFLIAERK15static_features(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((168, 176)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(792) %st) local_unnamed_addr #6 align 2 {
 entry:
   %m_num_quantifiers_with_patterns = getelementptr inbounds nuw i8, ptr %st, i64 420
   %0 = load i32, ptr %m_num_quantifiers_with_patterns, align 4
@@ -2375,7 +2375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10smt_params13setup_AUFLIRAEb(ptr nocapture noundef nonnull align 8 dereferenceable(800) initializes((4, 8), (51, 52), (56, 57), (168, 184), (200, 204), (215, 216), (396, 400), (411, 416), (552, 556)) %this, i1 noundef zeroext %simple_array) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN10smt_params13setup_AUFLIRAEb(ptr noundef nonnull align 8 captures(none) dereferenceable(800) initializes((4, 8), (51, 52), (56, 57), (168, 184), (200, 204), (215, 216), (396, 400), (411, 416), (552, 556)) %this, i1 noundef zeroext %simple_array) local_unnamed_addr #6 align 2 {
 entry:
   %cond = select i1 %simple_array, i32 1, i32 3
   %m_array_mode = getelementptr inbounds nuw i8, ptr %this, i64 396
@@ -2414,7 +2414,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10smt_params9setup_LRAEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) initializes((50, 51), (264, 265), (284, 285), (512, 516)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10smt_params9setup_LRAEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(800) initializes((50, 51), (264, 265), (284, 285), (512, 516)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_relevancy_lvl = getelementptr inbounds nuw i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
@@ -2446,7 +2446,7 @@ declare void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), p
 declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZNK6symbol3strB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
@@ -2533,7 +2533,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2584,10 +2584,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

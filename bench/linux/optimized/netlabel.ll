@@ -33,7 +33,7 @@ define dso_local void @selinux_netlbl_err(ptr noundef %0, i16 noundef zeroext %1
 declare dso_local void @netlbl_skbuff_err(ptr noundef, i16 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @selinux_netlbl_sk_security_free(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @selinux_netlbl_sk_security_free(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -121,13 +121,13 @@ netlbl_secattr_free.exit:                         ; preds = %.preheader.i, %.thr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @selinux_netlbl_sk_security_reset(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #2 align 16 {
+define dso_local void @selinux_netlbl_sk_security_reset(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #2 align 16 {
   store i32 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @selinux_netlbl_skbuff_getsid(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @selinux_netlbl_skbuff_getsid(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.netlbl_lsm_secattr, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #9
   %6 = tail call i32 @netlbl_enabled() #9
@@ -251,10 +251,10 @@ define dso_local i32 @selinux_netlbl_skbuff_getsid(ptr noundef %0, i16 noundef z
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @netlbl_enabled() local_unnamed_addr #1
@@ -263,7 +263,7 @@ declare dso_local i32 @netlbl_enabled() local_unnamed_addr #1
 declare dso_local i32 @netlbl_skbuff_getattr(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
@@ -414,7 +414,7 @@ declare dso_local i32 @security_netlbl_sid_to_secattr(i32 noundef, ptr noundef) 
 declare dso_local i32 @netlbl_skbuff_setattr(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.netlbl_lsm_secattr, align 8
   %4 = alloca %struct.sockaddr_in, align 4
   %5 = alloca %struct.sockaddr_in6, align 4
@@ -564,7 +564,7 @@ define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr nocapture noundef re
 declare dso_local i32 @netlbl_conn_setattr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @selinux_netlbl_inet_conn_request(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 16 {
@@ -666,7 +666,7 @@ define dso_local i32 @selinux_netlbl_inet_conn_request(ptr noundef %0, i16 nound
 declare dso_local i32 @netlbl_req_setattr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @selinux_netlbl_inet_csk_clone(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 16 {
+define dso_local void @selinux_netlbl_inet_csk_clone(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i16 %1, 2
@@ -676,7 +676,7 @@ define dso_local void @selinux_netlbl_inet_csk_clone(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @selinux_netlbl_sctp_sk_clone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 align 16 {
+define dso_local void @selinux_netlbl_sctp_sk_clone(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 640
@@ -817,7 +817,7 @@ netlbl_secattr_free.exit:                         ; preds = %.preheader.i, %.thr
 declare dso_local i32 @netlbl_sock_setattr(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @selinux_netlbl_sock_rcv_skb(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @selinux_netlbl_sock_rcv_skb(ptr noundef readonly captures(none) %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.netlbl_lsm_secattr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
@@ -963,7 +963,7 @@ define dso_local i32 @selinux_netlbl_sock_rcv_skb(ptr nocapture noundef readonly
 declare dso_local i32 @avc_has_perm(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @selinux_netlbl_socket_setsockopt(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @selinux_netlbl_socket_setsockopt(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.netlbl_lsm_secattr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8

@@ -75,7 +75,7 @@ $_ZTIN6duckdb17InternalExceptionE = comdat any
 @.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb17FetchDefaultValue9OperationI14duckdb_decimalEET_v(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.duckdb_decimal) align 8 initializes((0, 2), (8, 24)) %agg.result) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb17FetchDefaultValue9OperationI14duckdb_decimalEET_v(ptr dead_on_unwind noalias writable writeonly sret(%struct.duckdb_decimal) align 8 captures(none) initializes((0, 2), (8, 24)) %agg.result) local_unnamed_addr #0 align 2 {
 entry:
   %scale = getelementptr inbounds nuw i8, ptr %agg.result, i64 1
   store i8 0, ptr %scale, align 1, !tbaa !3
@@ -86,13 +86,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN6duckdb17FetchDefaultValue9OperationINS_6date_tEEET_v() local_unnamed_addr #3 align 2 {
@@ -311,7 +311,7 @@ return:                                           ; preds = %if.end, %_Z21CanUse
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalI13duckdb_stringEEbP13duckdb_resultRT_mm(ptr nocapture noundef readonly %source, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalI13duckdb_stringEEbP13duckdb_resultRT_mm(ptr noundef readonly captures(none) %source, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %result_vec = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
@@ -882,7 +882,7 @@ _ZN6duckdb21TemplatedValidityMaskImED2Ev.exit:    ; preds = %if.then7.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZN6duckdb14FetchInternalsIsEE14duckdb_hugeintPv(ptr nocapture noundef readonly %source_address) local_unnamed_addr #4 {
+define { i64, i64 } @_ZN6duckdb14FetchInternalsIsEE14duckdb_hugeintPv(ptr noundef readonly captures(none) %source_address) local_unnamed_addr #4 {
 entry:
   %result.i = alloca i16, align 2
   %intermediate_result = alloca i16, align 2
@@ -931,7 +931,7 @@ declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIssEEbT_RT0_b(i16 nounde
 declare void @_ZN6duckdb9hugeint_tC1El(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZN6duckdb14FetchInternalsIiEE14duckdb_hugeintPv(ptr nocapture noundef readonly %source_address) local_unnamed_addr #4 {
+define { i64, i64 } @_ZN6duckdb14FetchInternalsIiEE14duckdb_hugeintPv(ptr noundef readonly captures(none) %source_address) local_unnamed_addr #4 {
 entry:
   %result.i = alloca i32, align 4
   %intermediate_result = alloca i32, align 4
@@ -978,7 +978,7 @@ if.end:                                           ; preds = %if.then, %entry.if.
 declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIiiEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZN6duckdb14FetchInternalsIlEE14duckdb_hugeintPv(ptr nocapture noundef readonly %source_address) local_unnamed_addr #4 {
+define { i64, i64 } @_ZN6duckdb14FetchInternalsIlEE14duckdb_hugeintPv(ptr noundef readonly captures(none) %source_address) local_unnamed_addr #4 {
 entry:
   %result.i = alloca i64, align 8
   %intermediate_result = alloca i64, align 8
@@ -1023,7 +1023,7 @@ if.end:                                           ; preds = %if.then, %entry.if.
 declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIllEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZN6duckdb14FetchInternalsINS_9hugeint_tEEE14duckdb_hugeintPv(ptr nocapture noundef readonly %source_address) local_unnamed_addr #4 {
+define { i64, i64 } @_ZN6duckdb14FetchInternalsINS_9hugeint_tEEE14duckdb_hugeintPv(ptr noundef readonly captures(none) %source_address) local_unnamed_addr #4 {
 entry:
   %retval.i = alloca %"struct.duckdb::hugeint_t", align 8
   %intermediate_result = alloca %"struct.duckdb::hugeint_t", align 8
@@ -1061,7 +1061,7 @@ if.end:                                           ; preds = %if.then, %entry.if.
 declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tES2_EEbT_RT0_b(i64, i64, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalI14duckdb_decimalEEbP13duckdb_resultRT_mm(ptr nocapture noundef readonly %source, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #4 {
+define noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalI14duckdb_decimalEEbP13duckdb_resultRT_mm(ptr noundef readonly captures(none) %source, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #4 {
 entry:
   %result.i.i60 = alloca i16, align 2
   %intermediate_result.i61 = alloca i16, align 2
@@ -1241,7 +1241,7 @@ if.end27:                                         ; preds = %_ZN6duckdb14FetchIn
 declare noundef zeroext i1 @_ZNK6duckdb11LogicalType20GetDecimalPropertiesERhS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6

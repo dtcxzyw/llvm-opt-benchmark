@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3zmq14tipc_address_tC1EPK8sockaddrj = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN3zmq14tipc_address_tC2EPK8sockaddrj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq14tipc_address_tC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 1), (4, 20)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq14tipc_address_tC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(20) initializes((0, 1), (4, 20)) %this) unnamed_addr #0 align 2 {
 entry:
   %address2 = getelementptr inbounds nuw i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %address2, i8 0, i64 16, i1 false)
@@ -46,10 +46,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14tipc_address_tC2EPK8sockaddrj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 1), (4, 20)) %this, ptr noundef readonly %sa_, i32 noundef %sa_len_) unnamed_addr #2 align 2 {
+define void @_ZN3zmq14tipc_address_tC2EPK8sockaddrj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(20) initializes((0, 1), (4, 20)) %this, ptr noundef readonly %sa_, i32 noundef %sa_len_) unnamed_addr #2 align 2 {
 entry:
   %tobool = icmp eq ptr %sa_, null
   %cmp = icmp eq i32 %sa_len_, 0
@@ -82,25 +82,25 @@ if.end8:                                          ; preds = %if.then5, %do.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq14tipc_address_t10set_randomEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 1)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq14tipc_address_t10set_randomEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(20) initializes((0, 1)) %this) local_unnamed_addr #0 align 2 {
 entry:
   store i8 1, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3zmq14tipc_address_t9is_randomEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK3zmq14tipc_address_t9is_randomEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i8, ptr %this, align 4
   %tobool = trunc i8 %0 to i1
@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3zmq14tipc_address_t10is_serviceEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK3zmq14tipc_address_t10is_serviceEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
 entry:
   %addrtype = getelementptr inbounds nuw i8, ptr %this, i64 6
   %0 = load i8, ptr %addrtype, align 2
@@ -117,7 +117,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 0, 23) i32 @_ZN3zmq14tipc_address_t7resolveEPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this, ptr noundef readonly %name_) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, 23) i32 @_ZN3zmq14tipc_address_t7resolveEPKc(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(20) %this, ptr noundef readonly %name_) local_unnamed_addr #7 align 2 {
 entry:
   %type = alloca i32, align 4
   %lower = alloca i32, align 4
@@ -267,13 +267,13 @@ return:                                           ; preds = %if.then58, %if.else
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZNK3zmq14tipc_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %addr_) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZNK3zmq14tipc_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %addr_) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -460,7 +460,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK3zmq14tipc_address_t7addrlenEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(20) %this) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK3zmq14tipc_address_t7addrlenEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(20) %this) local_unnamed_addr #10 align 2 {
 entry:
   ret i32 16
 }

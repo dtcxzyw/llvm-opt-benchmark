@@ -356,7 +356,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mmse_standalone(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_mmse_standalone(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
   %6 = zext i8 %5 to i32
   %7 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @vals_message_type, ptr noundef nonnull @.str.205) #5
@@ -371,7 +371,7 @@ define internal i32 @dissect_mmse_standalone(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mmse_encapsulated(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_mmse_encapsulated(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
   %6 = zext i8 %5 to i32
   %7 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @vals_message_type, ptr noundef nonnull @.str.205) #5
@@ -397,7 +397,7 @@ define hidden void @proto_reg_handoff_mmse() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_mmse_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_mmse_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %.not = icmp eq i8 %5, -116
   br i1 %.not, label %6, label %23
@@ -1455,8 +1455,8 @@ get_integer_value.exit:                           ; preds = %540, %553
   %563 = load ptr, ptr %14, align 8
   %564 = load ptr, ptr %37, align 8
   %565 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %563) #6
-  %566 = call ptr @format_text(ptr noundef %564, ptr noundef %563, i64 noundef %565) #5
-  %567 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %30, i32 noundef %559, ptr noundef %0, i32 noundef %.0588, i32 noundef %562, ptr noundef %563, ptr noundef nonnull @.str.212, ptr noundef %566, i32 noundef %.0.i544) #5
+  %566 = call ptr @format_text(ptr noundef %564, ptr noundef nonnull %563, i64 noundef %565) #5
+  %567 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %30, i32 noundef %559, ptr noundef %0, i32 noundef %.0588, i32 noundef %562, ptr noundef nonnull %563, ptr noundef nonnull @.str.212, ptr noundef %566, i32 noundef %.0.i544) #5
   %568 = load i32, ptr @ett_mmse_hdr_details, align 4
   %569 = call ptr @proto_item_add_subtree(ptr noundef %567, i32 noundef %568) #5
   %570 = load i32, ptr @hf_mmse_prev_sent_by_fwd_count, align 4
@@ -1466,7 +1466,7 @@ get_integer_value.exit:                           ; preds = %540, %553
   %574 = load i32, ptr @hf_mmse_prev_sent_by_address, align 4
   %575 = load i32, ptr %15, align 4
   %576 = add i32 %556, %575
-  %577 = call ptr @proto_tree_add_string(ptr noundef %569, i32 noundef %574, ptr noundef %0, i32 noundef %576, i32 noundef %558, ptr noundef %563) #5
+  %577 = call ptr @proto_tree_add_string(ptr noundef %569, i32 noundef %574, ptr noundef %0, i32 noundef %576, i32 noundef %558, ptr noundef nonnull %563) #5
   %578 = load i32, ptr %15, align 4
   %579 = add i32 %.0.i541, %47
   %580 = add i32 %579, %578
@@ -1585,8 +1585,8 @@ get_long_integer.exit554:                         ; preds = %get_integer_value.e
   %634 = add i32 %633, %632
   %635 = load ptr, ptr %37, align 8
   %636 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %630) #6
-  %637 = call ptr @format_text(ptr noundef %635, ptr noundef %630, i64 noundef %636) #5
-  %638 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %30, i32 noundef %631, ptr noundef %0, i32 noundef %.0588, i32 noundef %634, ptr noundef %630, ptr noundef nonnull @.str.212, ptr noundef %637, i32 noundef %.0.i550) #5
+  %637 = call ptr @format_text(ptr noundef %635, ptr noundef nonnull %630, i64 noundef %636) #5
+  %638 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %30, i32 noundef %631, ptr noundef %0, i32 noundef %.0588, i32 noundef %634, ptr noundef nonnull %630, ptr noundef nonnull @.str.212, ptr noundef %637, i32 noundef %.0.i550) #5
   %639 = load i32, ptr @ett_mmse_hdr_details, align 4
   %640 = call ptr @proto_item_add_subtree(ptr noundef %638, i32 noundef %639) #5
   %641 = load i32, ptr @hf_mmse_prev_sent_date_fwd_count, align 4
@@ -1596,7 +1596,7 @@ get_long_integer.exit554:                         ; preds = %get_integer_value.e
   %645 = load i32, ptr @hf_mmse_prev_sent_date_date, align 4
   %646 = load i32, ptr %15, align 4
   %647 = add i32 %612, %646
-  %648 = call ptr @proto_tree_add_string(ptr noundef %640, i32 noundef %645, ptr noundef %0, i32 noundef %647, i32 noundef %627, ptr noundef %630) #5
+  %648 = call ptr @proto_tree_add_string(ptr noundef %640, i32 noundef %645, ptr noundef %0, i32 noundef %647, i32 noundef %627, ptr noundef nonnull %630) #5
   %649 = load i32, ptr %15, align 4
   %650 = add i32 %.0.i546, %47
   %651 = add i32 %650, %649
@@ -1649,7 +1649,7 @@ get_text_string.exit557:                          ; preds = %666, %671
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %674 = load ptr, ptr %37, align 8
   %675 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink.i556) #6
-  %676 = call ptr @format_text(ptr noundef %674, ptr noundef %.sink.i556, i64 noundef %675) #5
+  %676 = call ptr @format_text(ptr noundef %674, ptr noundef nonnull %.sink.i556, i64 noundef %675) #5
   %677 = load i32, ptr @hf_mmse_header_string, align 4
   %678 = add i32 %673, 1
   %679 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %30, i32 noundef %677, ptr noundef %0, i32 noundef %.0588, i32 noundef %678, ptr noundef %676, ptr noundef nonnull @.str.215, ptr noundef %655, ptr noundef %676) #5
@@ -1738,10 +1738,10 @@ get_text_string.exit563:                          ; preds = %713, %718
   %724 = call ptr @tvb_get_string_enc(ptr noundef %723, ptr noundef %0, i32 noundef %.0588, i32 noundef %722, i32 noundef 0) #5
   %725 = load ptr, ptr %37, align 8
   %726 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink.i559) #6
-  %727 = call ptr @format_text(ptr noundef %725, ptr noundef %.sink.i559, i64 noundef %726) #5
+  %727 = call ptr @format_text(ptr noundef %725, ptr noundef nonnull %.sink.i559, i64 noundef %726) #5
   %728 = load ptr, ptr %37, align 8
   %729 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink.i562) #6
-  %730 = call ptr @format_text(ptr noundef %728, ptr noundef %.sink.i562, i64 noundef %729) #5
+  %730 = call ptr @format_text(ptr noundef %728, ptr noundef nonnull %.sink.i562, i64 noundef %729) #5
   %731 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %30, i32 noundef %721, ptr noundef %0, i32 noundef %.0588, i32 noundef %722, ptr noundef %724, ptr noundef nonnull @.str.217, ptr noundef %727, ptr noundef %730) #5
   %732 = add i32 %722, %.0588
   br label %733
@@ -1791,7 +1791,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
@@ -1947,7 +1947,7 @@ declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @abs_time_to_str_ex(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1983,10 +1983,10 @@ declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

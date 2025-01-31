@@ -110,10 +110,10 @@ define dso_local i32 @cls_cgroup_classify(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @exit_cgroup_cls() #2 section ".exit.text" align 16 {
@@ -140,12 +140,12 @@ declare dso_local i32 @__tcf_em_tree_match(ptr noundef, ptr noundef, ptr noundef
 declare dso_local i32 @tcf_action_exec(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @cls_cgroup_init(ptr nocapture readnone %0) #4 align 16 {
+define internal noundef i32 @cls_cgroup_init(ptr readnone captures(none) %0) #4 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @cls_cgroup_destroy(ptr nocapture noundef readonly %0, i1 zeroext %1, ptr nocapture readnone %2) #0 align 16 {
+define internal void @cls_cgroup_destroy(ptr noundef readonly captures(none) %0, i1 zeroext %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -234,12 +234,12 @@ define internal void @cls_cgroup_destroy(ptr nocapture noundef readonly %0, i1 z
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noalias noundef ptr @cls_cgroup_get(ptr nocapture readnone %0, i32 %1) #4 align 16 {
+define internal noalias noundef ptr @cls_cgroup_get(ptr readnone captures(none) %0, i32 %1) #4 align 16 {
   ret ptr null
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @cls_cgroup_change(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6, i32 noundef %7, ptr noundef %8) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @cls_cgroup_change(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr readnone captures(none) %6, i32 noundef %7, ptr noundef %8) #0 align 16 {
   %10 = alloca [4 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -329,7 +329,7 @@ define internal range(i32 -2147483648, 1) i32 @cls_cgroup_change(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @cls_cgroup_delete(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i1 zeroext %3, ptr nocapture readnone %4) #4 align 16 {
+define internal noundef i32 @cls_cgroup_delete(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i1 zeroext %3, ptr readnone captures(none) %4) #4 align 16 {
   ret i32 -95
 }
 
@@ -374,7 +374,7 @@ define internal void @cls_cgroup_walk(ptr noundef %0, ptr noundef %1, i1 zeroext
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @cls_cgroup_dump(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((8, 12)) %4, i1 zeroext %5) #0 align 16 {
+define internal i32 @cls_cgroup_dump(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((8, 12)) %4, i1 zeroext %5) #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
@@ -451,7 +451,7 @@ define internal i32 @cls_cgroup_dump(ptr nocapture readnone %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @tcf_exts_get_net(ptr nocapture noundef %0) unnamed_addr #5 align 16 {
+define internal fastcc void @tcf_exts_get_net(ptr noundef captures(none) %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 140
@@ -558,7 +558,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local void @__put_net(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @tcf_exts_validate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3

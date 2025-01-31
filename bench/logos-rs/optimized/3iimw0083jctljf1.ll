@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.02d6962d98a4b47ae1e3f2ce35cef1f4.6 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.02d6962d98a4b47ae1e3f2ce35cef1f4.0, [16 x i8] c" \00\00\00\00\00\00\00e\00\00\00:\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h87481167b23f2da3E"(ptr sret([24 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 4 %2) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h87481167b23f2da3E"(ptr sret([24 x i8]) align 8 %0, ptr readnone align 1 captures(none) %1, ptr readonly align 4 captures(none) %2) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   %4 = getelementptr i8, ptr %2, i64 4
   %.val1 = load i32, ptr %4, align 4
@@ -21,7 +21,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hba7460ab4ea1b6f2E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 28), (32, 36)) %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 1 %2) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hba7460ab4ea1b6f2E"(ptr writeonly sret([40 x i8]) align 8 captures(none) initializes((0, 28), (32, 36)) %0, ptr readonly align 8 captures(none) %1, ptr readonly align 1 captures(none) %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [9 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) %2, i64 9, i1 false)
@@ -43,7 +43,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$9parse_mir28_$u7b$$u7b$closure$u7d$$u7d$17h87a9cda992ff59dcE"(ptr nocapture readonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr nocapture align 4 %3) unnamed_addr #1 {
+define hidden noundef zeroext i1 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$9parse_mir28_$u7b$$u7b$closure$u7d$$u7d$17h87a9cda992ff59dcE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 4 captures(none) %3) unnamed_addr #1 {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = alloca [24 x i8], align 8
@@ -220,7 +220,7 @@ define hidden noundef zeroext i1 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @"_ZN13logos_codegen5graph5regex8is_ascii28_$u7b$$u7b$closure$u7d$$u7d$17ha80b3f745c969457E"(ptr nocapture readonly align 1 %0, ptr nocapture readonly align 4 %1) unnamed_addr #2 {
+define hidden zeroext i1 @"_ZN13logos_codegen5graph5regex8is_ascii28_$u7b$$u7b$closure$u7d$$u7d$17ha80b3f745c969457E"(ptr readonly align 1 captures(none) %0, ptr readonly align 4 captures(none) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 128
@@ -242,7 +242,7 @@ define hidden zeroext i1 @"_ZN13logos_codegen5graph5regex8is_ascii28_$u7b$$u7b$c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden zeroext i1 @_ZN13logos_codegen5graph5regex12is_one_ascii17h8523ea3a0f9f7067E(ptr align 8, i1 zeroext) unnamed_addr #0
@@ -287,10 +287,10 @@ declare void @"_ZN98_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..co
 declare void @llvm.experimental.noalias.scope.decl(metadata) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

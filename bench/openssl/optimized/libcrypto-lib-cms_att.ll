@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_cms_si_check_attributes = private unnamed_addr constant [29 x i8] c"ossl_cms_si_check_attributes\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_signed_get_attr_count(ptr nocapture noundef readonly %si) local_unnamed_addr #0 {
+define i32 @CMS_signed_get_attr_count(ptr noundef readonly captures(none) %si) local_unnamed_addr #0 {
 entry:
   %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs, align 8
@@ -21,7 +21,7 @@ entry:
 declare i32 @X509at_get_attr_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_signed_get_attr_by_NID(ptr nocapture noundef readonly %si, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
+define i32 @CMS_signed_get_attr_by_NID(ptr noundef readonly captures(none) %si, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs, align 8
@@ -32,7 +32,7 @@ entry:
 declare i32 @X509at_get_attr_by_NID(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_signed_get_attr_by_OBJ(ptr nocapture noundef readonly %si, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
+define i32 @CMS_signed_get_attr_by_OBJ(ptr noundef readonly captures(none) %si, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs, align 8
@@ -43,7 +43,7 @@ entry:
 declare i32 @X509at_get_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_signed_get_attr(ptr nocapture noundef readonly %si, i32 noundef %loc) local_unnamed_addr #0 {
+define ptr @CMS_signed_get_attr(ptr noundef readonly captures(none) %si, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs, align 8
@@ -54,7 +54,7 @@ entry:
 declare ptr @X509at_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_signed_delete_attr(ptr nocapture noundef readonly %si, i32 noundef %loc) local_unnamed_addr #0 {
+define ptr @CMS_signed_delete_attr(ptr noundef readonly captures(none) %si, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs, align 8
@@ -113,7 +113,7 @@ entry:
 declare ptr @X509at_add1_attr_by_txt(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_signed_get0_data_by_OBJ(ptr nocapture noundef readonly %si, ptr noundef %oid, i32 noundef %lastpos, i32 noundef %type) local_unnamed_addr #0 {
+define ptr @CMS_signed_get0_data_by_OBJ(ptr noundef readonly captures(none) %si, ptr noundef %oid, i32 noundef %lastpos, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs, align 8
@@ -124,7 +124,7 @@ entry:
 declare ptr @X509at_get0_data_by_OBJ(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_unsigned_get_attr_count(ptr nocapture noundef readonly %si) local_unnamed_addr #0 {
+define i32 @CMS_unsigned_get_attr_count(ptr noundef readonly captures(none) %si) local_unnamed_addr #0 {
 entry:
   %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load ptr, ptr %unsignedAttrs, align 8
@@ -133,7 +133,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_unsigned_get_attr_by_NID(ptr nocapture noundef readonly %si, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
+define i32 @CMS_unsigned_get_attr_by_NID(ptr noundef readonly captures(none) %si, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load ptr, ptr %unsignedAttrs, align 8
@@ -142,7 +142,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_unsigned_get_attr_by_OBJ(ptr nocapture noundef readonly %si, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
+define i32 @CMS_unsigned_get_attr_by_OBJ(ptr noundef readonly captures(none) %si, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load ptr, ptr %unsignedAttrs, align 8
@@ -151,7 +151,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_unsigned_get_attr(ptr nocapture noundef readonly %si, i32 noundef %loc) local_unnamed_addr #0 {
+define ptr @CMS_unsigned_get_attr(ptr noundef readonly captures(none) %si, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load ptr, ptr %unsignedAttrs, align 8
@@ -160,7 +160,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_unsigned_delete_attr(ptr nocapture noundef readonly %si, i32 noundef %loc) local_unnamed_addr #0 {
+define ptr @CMS_unsigned_delete_attr(ptr noundef readonly captures(none) %si, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load ptr, ptr %unsignedAttrs, align 8
@@ -209,7 +209,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_unsigned_get0_data_by_OBJ(ptr nocapture noundef readonly %si, ptr noundef %oid, i32 noundef %lastpos, i32 noundef %type) local_unnamed_addr #0 {
+define ptr @CMS_unsigned_get0_data_by_OBJ(ptr noundef readonly captures(none) %si, ptr noundef %oid, i32 noundef %lastpos, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load ptr, ptr %unsignedAttrs, align 8
@@ -218,7 +218,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_si_check_attributes(ptr nocapture noundef readonly %si) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_si_check_attributes(ptr noundef readonly captures(none) %si) local_unnamed_addr #0 {
 entry:
   %signedAttrs.i = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs.i, align 8

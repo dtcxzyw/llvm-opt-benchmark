@@ -37,7 +37,7 @@ define hidden void @_ZN6google24glog_internal_namespace_38InstallSymbolizeOpenOb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_22GetSectionHeaderByNameEiPKcmP10Elf64_Shdr(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_22GetSectionHeaderByNameEiPKcmP10Elf64_Shdr(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca %struct.Elf64_Ehdr, align 8
   %6 = alloca %struct.Elf64_Shdr, align 8
   %7 = alloca [64 x i8], align 16
@@ -1563,7 +1563,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit31.i.i: ; p
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit87.i: ; preds = %446
   %452 = getelementptr inbounds i8, ptr %.050.i, i64 %449
   %453 = sub nuw i64 %.051.i, %449
-  %454 = call ptr @strncpy(ptr noundef %452, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef %453) #21
+  %454 = call ptr @strncpy(ptr noundef nonnull %452, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef %453) #21
   store i8 0, ptr %448, align 1
   %455 = load i64, ptr %20, align 8
   %456 = sub i64 %22, %455
@@ -1623,7 +1623,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i: ; preds = %.lr.p
 478:                                              ; preds = %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i
   %479 = getelementptr inbounds i8, ptr %.050.i, i64 %475
   %480 = sub nuw i64 %.051.i, %475
-  %481 = call ptr @strncpy(ptr noundef %479, ptr noundef readonly %.0.i.i93.i, i64 noundef %480) #21
+  %481 = call ptr @strncpy(ptr noundef nonnull %479, ptr noundef readonly %.0.i.i93.i, i64 noundef %480) #21
   store i8 0, ptr %448, align 1
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %6)
   %482 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050.i) #20
@@ -1637,7 +1637,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i: ; preds = %.lr.p
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97.i: ; preds = %478
   %485 = getelementptr inbounds i8, ptr %.050.i, i64 %482
   %486 = sub nuw i64 %.051.i, %482
-  %487 = call ptr @strncpy(ptr noundef %485, ptr noundef nonnull dereferenceable(2) @.str.4, i64 noundef %486) #21
+  %487 = call ptr @strncpy(ptr noundef nonnull %485, ptr noundef nonnull dereferenceable(2) @.str.4, i64 noundef %486) #21
   store i8 0, ptr %448, align 1
   br label %497
 
@@ -1705,7 +1705,7 @@ declare void @abort() local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @pread(i32 noundef, ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1732,10 +1732,10 @@ _ZN6google24glog_internal_namespace_14FileDescriptor10safe_closeEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
@@ -1752,7 +1752,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #11 {
+define internal fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #11 {
   store i64 0, ptr %2, align 8
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %.lr.ph.preheader, label %switch.early.test._crit_edge
@@ -1819,7 +1819,7 @@ switch.early.test._crit_edge:                     ; preds = %12, %switch.early.t
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L44OpenObjectFileContainingPcAndGetStartAddressEmRmS3_PcmE3$_2EEDaT_i"(ptr nocapture readonly %0) unnamed_addr #12 {
+define internal fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L44OpenObjectFileContainingPcAndGetStartAddressEmRmS3_PcmE3$_2EEDaT_i"(ptr readonly captures(none) %0) unnamed_addr #12 {
   br label %2
 
 2:                                                ; preds = %5, %1
@@ -1838,19 +1838,19 @@ define internal fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOB
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L22GetSectionHeaderByTypeEitmjP10Elf64_Shdr(i32 noundef %0, i16 noundef zeroext %1, i64 noundef %2, i32 noundef range(i32 2, 12) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #12 {
+define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L22GetSectionHeaderByTypeEitmjP10Elf64_Shdr(i32 noundef %0, i16 noundef zeroext %1, i64 noundef %2, i32 noundef range(i32 2, 12) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #12 {
   %6 = alloca [16 x %struct.Elf64_Shdr], align 16
   %7 = zext i16 %1 to i64
   %.not = icmp eq i16 %1, 0
@@ -1959,7 +1959,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L10FindSymbolEmiPcmmPK10Elf64_ShdrS4_(i64 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 %.24.val, ptr nocapture noundef nonnull readonly %5) unnamed_addr #12 {
+define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L10FindSymbolEmiPcmmPK10Elf64_ShdrS4_(i64 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 %.24.val, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #12 {
   %7 = alloca [32 x %struct.Elf64_Sym], align 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load i64, ptr %8, align 8
@@ -2160,21 +2160,21 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit66.thread: ; pre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_8DemangleEPKcPcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

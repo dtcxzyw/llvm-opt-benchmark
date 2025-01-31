@@ -102,7 +102,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.87 = private unnamed_addr constant [26 x i8] c"-expect-key-exchange-info\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11ParseConfigiPPcP10TestConfig(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %out_config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11ParseConfigiPPcP10TestConfig(i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef %out_config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %len = alloca i64, align 8
   %cmp119 = icmp slt i32 %argc, 1
@@ -236,7 +236,7 @@ if.end33:                                         ; preds = %if.end24
   %call34 = call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #10
   %16 = load ptr, ptr %arrayidx26, align 8
   %call40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #8
-  %call41 = invoke i32 @EVP_DecodeBase64(ptr noundef nonnull %call34, ptr noundef nonnull %len, i64 noundef %15, ptr noundef %16, i64 noundef %call40)
+  %call41 = invoke i32 @EVP_DecodeBase64(ptr noundef nonnull %call34, ptr noundef nonnull %len, i64 noundef %15, ptr noundef nonnull %16, i64 noundef %call40)
           to label %invoke.cont unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
 invoke.cont:                                      ; preds = %if.end33
@@ -304,7 +304,7 @@ if.end62:                                         ; preds = %if.then57
 
 if.end66:                                         ; preds = %_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit, %for.cond.i73
   %26 = load ptr, ptr @stderr, align 8
-  %call69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.2, ptr noundef %0) #9
+  %call69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.2, ptr noundef nonnull %0) #9
   br label %return
 
 for.inc:                                          ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit67, %if.end62, %if.end10, %if.then
@@ -319,14 +319,14 @@ return:                                           ; preds = %for.inc, %entry, %_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 declare i32 @EVP_DecodedLength(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
@@ -338,16 +338,16 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

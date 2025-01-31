@@ -14,7 +14,7 @@ define dso_local ptr @create_queryEnv() local_unnamed_addr #0 {
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @get_visible_ENR_metadata(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define dso_local noundef ptr @get_visible_ENR_metadata(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %get_ENR.exit, label %4
 
@@ -55,7 +55,7 @@ get_ENR.exit:                                     ; preds = %12, %11, %.lr.ph.i,
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @get_ENR(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define dso_local noundef ptr @get_ENR(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -96,7 +96,7 @@ define dso_local noundef ptr @get_ENR(ptr noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @register_ENR(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @register_ENR(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @lappend(ptr noundef %3, ptr noundef %1) #4
   store ptr %4, ptr %0, align 8
@@ -106,7 +106,7 @@ define dso_local void @register_ENR(ptr nocapture noundef %0, ptr noundef %1) lo
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @unregister_ENR(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @unregister_ENR(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %get_ENR.exit.thread, label %4
 
@@ -153,10 +153,10 @@ get_ENR.exit.thread:                              ; preds = %11, %.lr.ph.i, %4, 
 declare ptr @list_delete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ENRMetadataGetTupDesc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @ENRMetadataGetTupDesc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

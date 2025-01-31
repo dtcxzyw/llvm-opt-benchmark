@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7523FullCaseFoldingIteratorC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7523FullCaseFoldingIteratorC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @ucase_addPropertyStarts_75(ptr noundef %sa, ptr nocapture noundef readonly %pErrorCode) local_unnamed_addr #0 {
+define void @ucase_addPropertyStarts_75(ptr noundef %sa, ptr noundef readonly captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -48,7 +48,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @utrie2_enum_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL24_enumPropertyStartsRangePKviij(ptr nocapture noundef readonly %context, i32 noundef %start, i32 %0, i32 %1) #0 {
+define internal noundef signext i8 @_ZL24_enumPropertyStartsRangePKviij(ptr noundef readonly captures(none) %context, i32 noundef %start, i32 %0, i32 %1) #0 {
 entry:
   %add = getelementptr inbounds nuw i8, ptr %context, i64 8
   %2 = load ptr, ptr %add, align 8
@@ -58,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @ucase_getSingleton_75(ptr nocapture noundef writeonly initializes((0, 4)) %pExceptionsLength, ptr nocapture noundef writeonly initializes((0, 4)) %pUnfoldLength) local_unnamed_addr #2 {
+define noundef nonnull ptr @ucase_getSingleton_75(ptr noundef writeonly captures(none) initializes((0, 4)) %pExceptionsLength, ptr noundef writeonly captures(none) initializes((0, 4)) %pUnfoldLength) local_unnamed_addr #2 {
 entry:
   store i32 1664, ptr %pExceptionsLength, align 4
   store i32 370, ptr %pUnfoldLength, align 4
@@ -558,7 +558,7 @@ return:                                           ; preds = %if.then48, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucase_addCaseClosure_75(i32 noundef %c, ptr nocapture noundef readonly %sa) local_unnamed_addr #0 {
+define void @ucase_addCaseClosure_75(i32 noundef %c, ptr noundef readonly captures(none) %sa) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -901,7 +901,7 @@ if.end283:                                        ; preds = %do.end279, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucase_addSimpleCaseClosure_75(i32 noundef %c, ptr nocapture noundef readonly %sa) local_unnamed_addr #0 {
+define void @ucase_addSimpleCaseClosure_75(i32 noundef %c, ptr noundef readonly captures(none) %sa) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1252,7 +1252,7 @@ if.end279:                                        ; preds = %do.end275, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucase_addStringCaseClosure_75(ptr noundef readonly %s, i32 noundef %length, ptr nocapture noundef readonly %sa) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucase_addStringCaseClosure_75(ptr noundef readonly %s, i32 noundef %length, ptr noundef readonly captures(none) %sa) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   %0 = add i32 %length, -4
@@ -1406,7 +1406,7 @@ return:                                           ; preds = %if.else, %if.else.u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7523FullCaseFoldingIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7523FullCaseFoldingIteratorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((0, 28)) %this) unnamed_addr #2 align 2 {
 entry:
   %unfoldRows = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 73, ptr %unfoldRows, align 8
@@ -1423,7 +1423,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 10559488) i32 @_ZN6icu_7523FullCaseFoldingIterator4nextERNS_13UnicodeStringE(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(64) %full) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 10559488) i32 @_ZN6icu_7523FullCaseFoldingIterator4nextERNS_13UnicodeStringE(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(64) %full) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %0 = load ptr, ptr %this, align 8
@@ -1822,7 +1822,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 1, 7) i32 @ucase_getCaseLocale_75(ptr nocapture noundef readonly %locale) local_unnamed_addr #4 {
+define range(i32 1, 7) i32 @ucase_getCaseLocale_75(ptr noundef readonly captures(none) %locale) local_unnamed_addr #4 {
 entry:
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %locale, i64 1
   %0 = load i8, ptr %locale, align 1
@@ -2179,7 +2179,7 @@ return:                                           ; preds = %if.end354, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucase_toFullLower_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr nocapture noundef writeonly initializes((0, 8)) %pString, i32 noundef %loc) local_unnamed_addr #0 {
+define i32 @ucase_toFullLower_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %pString, align 8
   %cmp = icmp ult i32 %c, 55296
@@ -2826,14 +2826,14 @@ return:                                           ; preds = %for.cond, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ucase_toFullUpper_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr nocapture noundef writeonly initializes((0, 8)) %pString, i32 noundef %caseLocale) local_unnamed_addr #0 {
+define noundef i32 @ucase_toFullUpper_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %caseLocale) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr noundef %pString, i32 noundef %caseLocale, i8 noundef signext 1)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef readonly %iter, ptr noundef %context, ptr nocapture noundef writeonly initializes((0, 8)) %pString, i32 noundef %loc, i8 noundef signext range(i8 0, 2) %upperNotTitle) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef readonly %iter, ptr noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %loc, i8 noundef signext range(i8 0, 2) %upperNotTitle) unnamed_addr #0 {
 entry:
   store ptr null, ptr %pString, align 8
   %cmp = icmp ult i32 %c, 55296
@@ -3181,7 +3181,7 @@ return:                                           ; preds = %_ZL10getDotTypei.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ucase_toFullTitle_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr nocapture noundef writeonly initializes((0, 8)) %pString, i32 noundef %caseLocale) local_unnamed_addr #0 {
+define noundef i32 @ucase_toFullTitle_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %caseLocale) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr noundef %pString, i32 noundef %caseLocale, i8 noundef signext 0)
   ret i32 %call
@@ -3390,7 +3390,7 @@ return:                                           ; preds = %if.then48, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @ucase_toFullFolding_75(i32 noundef %c, ptr nocapture noundef writeonly initializes((0, 8)) %pString, i32 noundef %options) local_unnamed_addr #2 {
+define i32 @ucase_toFullFolding_75(i32 noundef %c, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %options) local_unnamed_addr #2 {
 entry:
   store ptr null, ptr %pString, align 8
   %cmp = icmp ult i32 %c, 55296

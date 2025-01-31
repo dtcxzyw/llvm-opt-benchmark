@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_PyInstrumentation_DISABLE = external global %struct._object, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyEval_SetOpcodeTrace(ptr nocapture noundef readonly %frame, i1 noundef zeroext %enable) local_unnamed_addr #0 {
+define hidden i32 @_PyEval_SetOpcodeTrace(ptr noundef readonly captures(none) %frame, i1 noundef zeroext %enable) local_unnamed_addr #0 {
 entry:
   %events = alloca i32, align 4
   %f_frame = getelementptr inbounds nuw i8, ptr %frame, i64 24
@@ -75,7 +75,7 @@ declare void @PyObject_Free(ptr noundef) #1
 declare ptr @PyVectorcall_Call(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PyEval_SetProfile(ptr nocapture noundef %tstate, ptr noundef %func, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local i32 @_PyEval_SetProfile(ptr noundef captures(none) %tstate, ptr noundef %func, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -313,7 +313,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_profile_start(ptr nocapture noundef readonly %self, ptr nocapture readnone %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_profile_start(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -375,7 +375,7 @@ call_profile_func.exit:                           ; preds = %entry, %if.then3.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_profile_throw(ptr nocapture noundef readonly %self, ptr nocapture readnone %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_profile_throw(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -437,7 +437,7 @@ call_profile_func.exit:                           ; preds = %entry, %if.then3.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_profile_return(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_profile_return(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
@@ -501,7 +501,7 @@ call_profile_func.exit:                           ; preds = %entry, %if.then3.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_profile_unwind(ptr nocapture noundef readonly %self, ptr nocapture readnone %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_profile_unwind(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -563,7 +563,7 @@ call_profile_func.exit:                           ; preds = %entry, %if.then3.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_profile_call_or_return(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_profile_call_or_return(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
@@ -731,7 +731,7 @@ return:                                           ; preds = %Py_DECREF.exit.i, %
 declare i32 @_PyMonitoring_SetEvents(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyEval_SetTrace(ptr nocapture noundef %tstate, ptr noundef %func, ptr noundef %arg) local_unnamed_addr #0 {
+define hidden i32 @_PyEval_SetTrace(ptr noundef captures(none) %tstate, ptr noundef %func, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %events.i = alloca i32, align 4
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -983,21 +983,21 @@ return:                                           ; preds = %_PyEval_SetOpcodeTr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_trace_start(ptr nocapture noundef readonly %self, ptr nocapture readnone %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_trace_start(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %call = tail call fastcc ptr @call_trace_func(ptr noundef %self, ptr noundef nonnull @_Py_NoneStruct)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_trace_throw(ptr nocapture noundef readonly %self, ptr nocapture readnone %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_trace_throw(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %call = tail call fastcc ptr @call_trace_func(ptr noundef %self, ptr noundef nonnull @_Py_NoneStruct)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_trace_return(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_trace_return(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
@@ -1006,7 +1006,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_trace_yield(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_trace_yield(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
@@ -1015,7 +1015,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_trace_exception_func(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_trace_exception_func(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
@@ -1080,7 +1080,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_trace_line_func(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_trace_line_func(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1156,14 +1156,14 @@ return:                                           ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_trace_unwind(ptr nocapture noundef readonly %self, ptr nocapture readnone %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_trace_unwind(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %call = tail call fastcc ptr @call_trace_func(ptr noundef %self, ptr noundef null)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_trace_jump_func(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_trace_jump_func(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1255,7 +1255,7 @@ return:                                           ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sys_trace_instruction_func(ptr nocapture noundef readonly %self, ptr nocapture readnone %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @sys_trace_instruction_func(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %events.i = alloca i32, align 4
   %call = tail call ptr @PyEval_GetFrame() #4
@@ -1378,7 +1378,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @call_trace_func(ptr nocapture noundef readonly %self, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc ptr @call_trace_func(ptr noundef readonly captures(none) %self, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %events.i = alloca i32, align 4
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -1487,10 +1487,10 @@ declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 declare i32 @_Py_Instrumentation_GetLine(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

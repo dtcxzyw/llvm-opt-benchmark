@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local signext range(i16 0, 128) i16 @calc_func(ptr nocapture noundef %pdata, ptr noundef %res) local_unnamed_addr #0 {
+define dso_local signext range(i16 0, 128) i16 @calc_func(ptr noundef captures(none) %pdata, ptr noundef %res) local_unnamed_addr #0 {
 entry:
   %0 = load i16, ptr %pdata, align 2
   %1 = and i16 %0, 128
@@ -85,7 +85,7 @@ declare zeroext i16 @core_bench_matrix(ptr noundef, i16 noundef signext, i16 nou
 declare zeroext i16 @crcu16(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -127, 128) i32 @cmp_complex(ptr nocapture noundef %a, ptr nocapture noundef %b, ptr noundef %res) local_unnamed_addr #0 {
+define dso_local range(i32 -127, 128) i32 @cmp_complex(ptr noundef captures(none) %a, ptr noundef captures(none) %b, ptr noundef %res) local_unnamed_addr #0 {
 entry:
   %call = tail call signext i16 @calc_func(ptr noundef %a, ptr noundef %res)
   %call2 = tail call signext i16 @calc_func(ptr noundef %b, ptr noundef %res)
@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -65535, 65536) i32 @cmp_idx(ptr nocapture noundef %a, ptr nocapture noundef %b, ptr noundef readnone %res) local_unnamed_addr #2 {
+define dso_local range(i32 -65535, 65536) i32 @cmp_idx(ptr noundef captures(none) %a, ptr noundef captures(none) %b, ptr noundef readnone %res) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %res, null
   br i1 %cmp, label %if.then, label %if.end
@@ -126,7 +126,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @copy_info(ptr nocapture noundef writeonly initializes((0, 4)) %to, ptr nocapture noundef readonly %from) local_unnamed_addr #2 {
+define dso_local void @copy_info(ptr noundef writeonly captures(none) initializes((0, 4)) %to, ptr noundef readonly captures(none) %from) local_unnamed_addr #2 {
 entry:
   %0 = load i16, ptr %from, align 2
   store i16 %0, ptr %to, align 2
@@ -746,7 +746,7 @@ while.end85:                                      ; preds = %while.body80, %whil
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @core_list_find(ptr noundef readonly %list, ptr nocapture noundef readonly %info) local_unnamed_addr #3 {
+define dso_local ptr @core_list_find(ptr noundef readonly %list, ptr noundef readonly captures(none) %info) local_unnamed_addr #3 {
 entry:
   %idx = getelementptr inbounds nuw i8, ptr %info, i64 2
   %0 = load i16, ptr %idx, align 2
@@ -817,7 +817,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @core_list_mergesort(ptr noundef %list, ptr nocapture noundef readonly %cmp, ptr noundef %res) local_unnamed_addr #0 {
+define dso_local ptr @core_list_mergesort(ptr noundef %list, ptr noundef readonly captures(none) %cmp, ptr noundef %res) local_unnamed_addr #0 {
 entry:
   br label %while.body
 
@@ -943,7 +943,7 @@ if.then40:                                        ; preds = %while.end37.loopexi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @core_list_remove(ptr nocapture noundef %item) local_unnamed_addr #5 {
+define dso_local noundef ptr @core_list_remove(ptr noundef captures(none) %item) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %item, align 8
   %info = getelementptr inbounds nuw i8, ptr %item, i64 8
@@ -962,7 +962,7 @@ entry:
 declare zeroext i16 @crc16(i16 noundef signext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @core_list_undo_remove(ptr noundef returned initializes((0, 8)) %item_removed, ptr nocapture noundef %item_modified) local_unnamed_addr #2 {
+define dso_local noundef ptr @core_list_undo_remove(ptr noundef returned initializes((0, 8)) %item_removed, ptr noundef captures(none) %item_modified) local_unnamed_addr #2 {
 entry:
   %info = getelementptr inbounds nuw i8, ptr %item_removed, i64 8
   %0 = load ptr, ptr %info, align 8
@@ -1230,7 +1230,7 @@ core_list_mergesort.exit:                         ; preds = %while.end37.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @core_list_insert_new(ptr nocapture noundef %insert_point, ptr nocapture noundef readonly %info, ptr nocapture noundef %memblock, ptr nocapture noundef %datablock, ptr noundef readnone %memblock_end, ptr noundef readnone %datablock_end) local_unnamed_addr #5 {
+define dso_local ptr @core_list_insert_new(ptr noundef captures(none) %insert_point, ptr noundef readonly captures(none) %info, ptr noundef captures(none) %memblock, ptr noundef captures(none) %datablock, ptr noundef readnone %memblock_end, ptr noundef readnone %datablock_end) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %memblock, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16

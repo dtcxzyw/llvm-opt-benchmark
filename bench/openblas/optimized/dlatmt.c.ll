@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @c_false = internal global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readonly %8, ptr noundef %9, ptr nocapture noundef readonly %10, ptr nocapture noundef readonly %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr nocapture noundef initializes((0, 4)) %16) local_unnamed_addr #0 {
+define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr noundef %9, ptr noundef readonly captures(none) %10, ptr noundef readonly captures(none) %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef captures(none) initializes((0, 4)) %16) local_unnamed_addr #0 {
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
@@ -544,7 +544,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 333:                                              ; preds = %410, %331
   %334 = phi i64 [ %411, %410 ], [ 1, %331 ]
   store double 0.000000e+00, ptr %33, align 8, !tbaa !7
-  %335 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef %3) #6
+  %335 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #6
   %336 = fmul double %335, 0x401921FB54442D18
   %337 = call double @cos(double noundef %336) #6
   store double %337, ptr %27, align 8, !tbaa !7
@@ -725,7 +725,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %446 = phi i32 [ 1, %441 ], [ %535, %.loopexit90 ]
   %447 = phi i32 [ %434, %441 ], [ %533, %.loopexit90 ]
   store double 0.000000e+00, ptr %33, align 8, !tbaa !7
-  %448 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef %3) #6
+  %448 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #6
   %449 = fmul double %448, 0x401921FB54442D18
   %450 = call double @cos(double noundef %449) #6
   store double %450, ptr %27, align 8, !tbaa !7
@@ -907,7 +907,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %562 = phi i32 [ %558, %.loopexit85 ], [ %550, %546 ]
   %563 = add nsw i32 %561, -1
   store double 0.000000e+00, ptr %33, align 8, !tbaa !7
-  %564 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef %3) #6
+  %564 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #6
   %565 = fmul double %564, 0x401921FB54442D18
   %566 = call double @cos(double noundef %565) #6
   store double %566, ptr %27, align 8, !tbaa !7
@@ -1080,7 +1080,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %662 = phi i32 [ %644, %654 ], [ %657, %.loopexit81 ]
   %663 = add nsw i32 %661, -1
   store double 0.000000e+00, ptr %33, align 8, !tbaa !7
-  %664 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef %3) #6
+  %664 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #6
   %665 = fmul double %664, 0x401921FB54442D18
   %666 = call double @cos(double noundef %665) #6
   store double %666, ptr %27, align 8, !tbaa !7
@@ -1280,7 +1280,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %787 = getelementptr inbounds double, ptr %48, i64 %786
   %788 = load double, ptr %787, align 8, !tbaa !7
   store double %788, ptr %26, align 8, !tbaa !7
-  %789 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef %3) #6
+  %789 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #6
   %790 = fmul double %789, 0x401921FB54442D18
   %791 = call double @cos(double noundef %790) #6
   store double %791, ptr %27, align 8, !tbaa !7
@@ -1560,7 +1560,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %978 = getelementptr double, ptr %977, i64 %976
   %979 = load double, ptr %978, align 8, !tbaa !7
   store double %979, ptr %26, align 8, !tbaa !7
-  %980 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef %3) #6
+  %980 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #6
   %981 = fmul double %980, 0x401921FB54442D18
   %982 = call double @cos(double noundef %981) #6
   store double %982, ptr %27, align 8, !tbaa !7
@@ -1762,11 +1762,11 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %66, label %1113, label %1114
 
 1113:                                             ; preds = %1112
-  call void @dlagge_(ptr noundef nonnull %37, ptr noundef nonnull %35, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %3, ptr noundef %15, ptr noundef nonnull %30) #6
+  call void @dlagge_(ptr noundef nonnull %37, ptr noundef nonnull %35, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef %15, ptr noundef nonnull %30) #6
   br label %1115
 
 1114:                                             ; preds = %1112
-  call void @dlagsy_(ptr noundef nonnull %0, ptr noundef nonnull %41, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %3, ptr noundef %15, ptr noundef nonnull %30) #6
+  call void @dlagsy_(ptr noundef nonnull %0, ptr noundef nonnull %41, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef %15, ptr noundef nonnull %30) #6
   br label %1115
 
 1115:                                             ; preds = %1114, %1113
@@ -2240,7 +2240,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @lsame_(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2271,7 +2271,7 @@ declare void @dlagge_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @dlagsy_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
@@ -2286,7 +2286,7 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #4

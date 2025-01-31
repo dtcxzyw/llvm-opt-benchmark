@@ -54,7 +54,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_25SliceC2ENS_9PixelTypeEPcmmiidbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) initializes((0, 4), (8, 50)) %this, i32 noundef %t, ptr noundef %b, i64 noundef %xst, i64 noundef %yst, i32 noundef %xsm, i32 noundef %ysm, double noundef %fv, i1 noundef zeroext %xtc, i1 noundef zeroext %ytc) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_25SliceC2ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(50) initializes((0, 4), (8, 50)) %this, i32 noundef %t, ptr noundef %b, i64 noundef %xst, i64 noundef %yst, i32 noundef %xsm, i32 noundef %ysm, double noundef %fv, i1 noundef zeroext %xtc, i1 noundef zeroext %ytc) unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %xtc to i8
   %frombool1 = zext i1 %ytc to i8
@@ -79,7 +79,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_25Slice4MakeENS_9PixelTypeEPKvRKN9Imath_3_24Vec2IiEEllmmiidbb(ptr noalias sret(%"struct.Imf_3_2::Slice") align 8 %agg.result, i32 noundef %type, ptr noundef %ptr, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %origin, i64 noundef %w, i64 %h, i64 noundef %xStride, i64 noundef %yStride, i32 noundef %xSampling, i32 noundef %ySampling, double noundef %fillValue, i1 noundef zeroext %xTileCoords, i1 noundef zeroext %yTileCoords) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_25Slice4MakeENS_9PixelTypeEPKvRKN9Imath_3_24Vec2IiEEllmmiidbb(ptr noalias sret(%"struct.Imf_3_2::Slice") align 8 %agg.result, i32 noundef %type, ptr noundef %ptr, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %origin, i64 noundef %w, i64 %h, i64 noundef %xStride, i64 noundef %yStride, i32 noundef %xSampling, i32 noundef %ySampling, double noundef %fillValue, i1 noundef zeroext %xTileCoords, i1 noundef zeroext %yTileCoords) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %cmp = icmp eq i64 %xStride, 0
@@ -189,7 +189,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_25Slice4MakeENS_9PixelTypeEPKvRKN9Imath_3_23BoxINS4_4Vec2IiEEEEmmiidbb(ptr noalias sret(%"struct.Imf_3_2::Slice") align 8 %agg.result, i32 noundef %type, ptr noundef %ptr, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, i64 noundef %xStride, i64 noundef %yStride, i32 noundef %xSampling, i32 noundef %ySampling, double noundef %fillValue, i1 noundef zeroext %xTileCoords, i1 noundef zeroext %yTileCoords) local_unnamed_addr #4 align 2 {
+define void @_ZN7Imf_3_25Slice4MakeENS_9PixelTypeEPKvRKN9Imath_3_23BoxINS4_4Vec2IiEEEEmmiidbb(ptr noalias sret(%"struct.Imf_3_2::Slice") align 8 %agg.result, i32 noundef %type, ptr noundef %ptr, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow, i64 noundef %xStride, i64 noundef %yStride, i32 noundef %xSampling, i32 noundef %ySampling, double noundef %fillValue, i1 noundef zeroext %xTileCoords, i1 noundef zeroext %yTileCoords) local_unnamed_addr #4 align 2 {
 entry:
   %max = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max, align 4
@@ -203,7 +203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_211FrameBuffer6insertEPKcRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %slice) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_211FrameBuffer6insertEPKcRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly captures(none) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %slice) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.3", align 1
@@ -299,10 +299,10 @@ unreachable:                                      ; preds = %invoke.cont3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_211FrameBuffer6insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %slice) local_unnamed_addr #4 align 2 {
+define void @_ZN7Imf_3_211FrameBuffer6insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %slice) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #20
   tail call void @_ZN7Imf_3_211FrameBuffer6insertEPKcRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(50) %slice)
@@ -357,7 +357,7 @@ do.body:                                          ; preds = %entry, %_ZNSt8_Rb_t
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.body
-  %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef %name)
+  %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef nonnull %name)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont
@@ -442,7 +442,7 @@ do.body:                                          ; preds = %entry, %_ZNKSt8_Rb_
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.body
-  %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef %name)
+  %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef nonnull %name)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont
@@ -499,7 +499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN7Imf_3_211FrameBuffer9findSliceEPKc(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7Imf_3_211FrameBuffer9findSliceEPKc(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imf_3_2::Name", align 1
   %call.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp, ptr noundef nonnull dereferenceable(1) %name, i64 noundef 255) #20
@@ -542,7 +542,7 @@ cond.end:                                         ; preds = %_ZNSt3mapIN7Imf_3_2
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK7Imf_3_211FrameBuffer9findSliceEPKc(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK7Imf_3_211FrameBuffer9findSliceEPKc(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imf_3_2::Name", align 1
   %call.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp, ptr noundef nonnull dereferenceable(1) %name, i64 noundef 255) #20
@@ -677,7 +677,7 @@ _ZNK7Imf_3_211FrameBuffer9findSliceEPKc.exit:     ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @_ZN7Imf_3_211FrameBuffer5beginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #9 align 2 {
+define ptr @_ZN7Imf_3_211FrameBuffer5beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #9 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -685,7 +685,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @_ZNK7Imf_3_211FrameBuffer5beginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #9 align 2 {
+define ptr @_ZNK7Imf_3_211FrameBuffer5beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #9 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -707,7 +707,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define nonnull ptr @_ZN7Imf_3_211FrameBuffer4findEPKc(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #7 align 2 {
+define nonnull ptr @_ZN7Imf_3_211FrameBuffer4findEPKc(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #7 align 2 {
 entry:
   %ref.tmp2 = alloca %"class.Imf_3_2::Name", align 1
   %call.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp2, ptr noundef nonnull dereferenceable(1) %name, i64 noundef 255) #20
@@ -749,7 +749,7 @@ _ZNSt3mapIN7Imf_3_24NameENS0_5SliceESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define nonnull ptr @_ZNK7Imf_3_211FrameBuffer4findEPKc(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #7 align 2 {
+define nonnull ptr @_ZNK7Imf_3_211FrameBuffer4findEPKc(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #7 align 2 {
 entry:
   %ref.tmp2 = alloca %"class.Imf_3_2::Name", align 1
   %call.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp2, ptr noundef nonnull dereferenceable(1) %name, i64 noundef 255) #20
@@ -881,7 +881,7 @@ _ZNK7Imf_3_211FrameBuffer4findEPKc.exit:          ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
@@ -984,7 +984,7 @@ _ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4less
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 1 dereferenceable(256) %__k) local_unnamed_addr #4 comdat align 2 {
@@ -1217,10 +1217,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

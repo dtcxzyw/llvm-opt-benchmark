@@ -203,7 +203,7 @@ define noundef zeroext i1 @_Z20periodic_convolutioniPfiPKf(i32 noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @_Z11gausskernelPfif(ptr nocapture noundef %0, i32 noundef %1, float noundef %2) local_unnamed_addr #3 {
+define void @_Z11gausskernelPfif(ptr noundef captures(none) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #3 {
   %.not19 = icmp slt i32 %1, -1
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 

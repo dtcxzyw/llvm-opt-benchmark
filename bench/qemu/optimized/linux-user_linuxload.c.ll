@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [15 x i8] c"prepare_binprm\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -14, 1) i64 @memcpy_to_target(i64 noundef %dest, ptr nocapture noundef readonly %src, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i64 -14, 1) i64 @memcpy_to_target(i64 noundef %dest, ptr noundef readonly captures(none) %src, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @lock_user(i32 noundef 3, i64 noundef %dest, i64 noundef %len, i1 noundef zeroext false) #13
   %tobool.not = icmp eq ptr %call, null
@@ -37,7 +37,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @lock_user(i32 noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @loader_build_argptr(i32 noundef %envc, i32 noundef %argc, i64 noundef %sp, i64 noundef %stringp, i32 noundef %push_ptr) local_unnamed_addr #0 {
@@ -367,7 +367,7 @@ declare i32 @load_elf_binary(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @do_init_thread(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @imgsrc_read(ptr noundef %dst, i64 noundef %offset, i64 noundef %len, ptr nocapture noundef readonly %img, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @imgsrc_read(ptr noundef %dst, i64 noundef %offset, i64 noundef %len, ptr noundef readonly captures(none) %img, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %add = add i64 %len, %offset
   %cache_size = getelementptr inbounds nuw i8, ptr %img, i64 8
@@ -426,7 +426,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @imgsrc_read_alloc(i64 noundef %offset, i64 noundef %len, ptr nocapture noundef readonly %img, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @imgsrc_read_alloc(i64 noundef %offset, i64 noundef %len, ptr noundef readonly captures(none) %img, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @g_malloc(i64 noundef %len) #17
   %call1 = tail call zeroext i1 @imgsrc_read(ptr noundef %call, i64 noundef %offset, i64 noundef %len, ptr noundef %img, ptr noundef %errp)
@@ -447,7 +447,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @imgsrc_mmap(i64 noundef %start, i64 noundef %len, i32 noundef %prot, i32 noundef %flags, ptr nocapture noundef readonly %src, i64 noundef %offset) local_unnamed_addr #0 {
+define dso_local i64 @imgsrc_mmap(i64 noundef %start, i64 noundef %len, i32 noundef %prot, i32 noundef %flags, ptr noundef readonly captures(none) %src, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %flags, 18
   br i1 %cmp, label %if.end, label %if.else
@@ -533,12 +533,12 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i64 @target_mmap(i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @target_mprotect(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @geteuid() local_unnamed_addr #9
@@ -547,19 +547,19 @@ declare i32 @geteuid() local_unnamed_addr #9
 declare i32 @getegid() local_unnamed_addr #9
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

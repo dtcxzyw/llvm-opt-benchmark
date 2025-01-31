@@ -711,7 +711,7 @@ declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) 
 declare ptr @rb_st_init_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wmap_mark(ptr nocapture noundef readonly %0) #0 {
+define internal void @wmap_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -725,7 +725,7 @@ define internal void @wmap_mark(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wmap_free(ptr nocapture noundef readonly %0) #0 {
+define internal void @wmap_free(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @rb_st_foreach(ptr noundef %2, ptr noundef nonnull @wmap_free_table_i, i64 noundef 0) #9
   %4 = load ptr, ptr %0, align 8
@@ -734,7 +734,7 @@ define internal void @wmap_free(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @wmap_memsize(ptr nocapture noundef readonly %0) #0 {
+define internal i64 @wmap_memsize(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i64 @rb_st_memsize(ptr noundef %2) #11
   %4 = tail call i64 @rb_st_table_size(ptr noundef %2) #9
@@ -744,7 +744,7 @@ define internal i64 @wmap_memsize(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wmap_compact(ptr nocapture noundef readonly %0) #0 {
+define internal void @wmap_compact(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
@@ -877,7 +877,7 @@ declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @rb_st_update(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @wmap_aset_replace(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @wmap_aset_replace(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr i8, ptr %5, i64 8
@@ -1077,7 +1077,7 @@ define internal void @wmap_values_i(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
 declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wkmap_mark(ptr nocapture noundef readonly %0) #0 {
+define internal void @wkmap_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -1091,7 +1091,7 @@ define internal void @wkmap_mark(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wkmap_free(ptr nocapture noundef readonly %0) #0 {
+define internal void @wkmap_free(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @rb_st_foreach(ptr noundef %2, ptr noundef nonnull @wkmap_free_table_i, i64 noundef 0) #9
   %4 = load ptr, ptr %0, align 8
@@ -1100,7 +1100,7 @@ define internal void @wkmap_free(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @wkmap_memsize(ptr nocapture noundef readonly %0) #0 {
+define internal i64 @wkmap_memsize(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i64 @rb_st_memsize(ptr noundef %2) #11
   %4 = tail call i64 @rb_st_table_size(ptr noundef %2) #9
@@ -1110,7 +1110,7 @@ define internal i64 @wkmap_memsize(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wkmap_compact(ptr nocapture noundef readonly %0) #0 {
+define internal void @wkmap_compact(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -1183,7 +1183,7 @@ define internal range(i32 0, 5) i32 @wkmap_compact_table_i(i64 noundef %0, i64 n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @wkmap_compact_table_replace(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 %2, i32 %3) #0 {
+define internal noundef i32 @wkmap_compact_table_replace(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 %2, i32 %3) #0 {
   %5 = load i64, ptr %0, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = load i64, ptr %6, align 8
@@ -1233,7 +1233,7 @@ declare i64 @rb_any_hash(i64 noundef) local_unnamed_addr #1
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @wkmap_aset_replace(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @wkmap_aset_replace(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i64 noundef %2, i32 noundef %3) #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %._crit_edge
 
@@ -1264,10 +1264,10 @@ declare i32 @rb_st_get_key(ptr noundef, i64 noundef, ptr noundef) local_unnamed_
 declare void @rb_st_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

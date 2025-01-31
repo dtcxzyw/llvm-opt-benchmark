@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @huff_decode_table = external local_unnamed_addr constant [0 x [16 x %struct.nghttp2_huff_decode]], align 2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i64 0, 2305843009213693952) i64 @nghttp2_hd_huff_encode_count(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2305843009213693952) i64 @nghttp2_hd_huff_encode_count(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -189,13 +189,13 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #2
 declare i32 @nghttp2_bufs_addb(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_hd_huff_decode_context_init(ptr nocapture noundef writeonly initializes((0, 2)) %0) local_unnamed_addr #4 {
+define dso_local void @nghttp2_hd_huff_decode_context_init(ptr noundef writeonly captures(none) initializes((0, 2)) %0) local_unnamed_addr #4 {
   store i16 16384, ptr %0, align 2
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @nghttp2_hd_huff_decode(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define dso_local i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = getelementptr inbounds i8, ptr %2, i64 %3
   %7 = load i16, ptr %0, align 2
   %.not27 = icmp eq i64 %3, 0
@@ -264,7 +264,7 @@ define dso_local i64 @nghttp2_hd_huff_decode(ptr nocapture noundef %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @nghttp2_hd_huff_decode_failure_state(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @nghttp2_hd_huff_decode_failure_state(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i16, ptr %0, align 2
   %3 = icmp eq i16 %2, 256
   %4 = zext i1 %3 to i32

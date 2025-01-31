@@ -7,13 +7,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @opt_stats_interval = external local_unnamed_addr global i64, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @te_assert_invariants_debug(ptr nocapture noundef %tsd) local_unnamed_addr #0 {
+define hidden void @te_assert_invariants_debug(ptr noundef captures(none) %tsd) local_unnamed_addr #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @te_recompute_fast_threshold(ptr nocapture noundef initializes((840, 848), (856, 864)) %tsd) local_unnamed_addr #1 {
+define hidden void @te_recompute_fast_threshold(ptr noundef captures(none) initializes((840, 848), (856, 864)) %tsd) local_unnamed_addr #1 {
 entry:
   %state.i35 = getelementptr inbounds nuw i8, ptr %tsd, i64 824
   %0 = load i8, ptr %state.i35, align 8
@@ -55,7 +55,7 @@ if.end7:                                          ; preds = %if.then6, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @te_event_trigger(ptr noundef %tsd, ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
+define hidden void @te_event_trigger(ptr noundef %tsd, ptr noundef readonly captures(none) %ctx) local_unnamed_addr #2 {
 entry:
   %current.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %current.i, align 8

@@ -274,7 +274,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @blk_log_writes_refresh_limits(ptr nocapture noundef initializes((16464, 16468)) %bs, ptr nocapture readnone %errp) #2 {
+define internal void @blk_log_writes_refresh_limits(ptr noundef captures(none) initializes((16464, 16468)) %bs, ptr readnone captures(none) %errp) #2 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -307,7 +307,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @blk_log_writes_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
+define internal i32 @blk_log_writes_co_preadv(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -344,7 +344,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @blk_log_writes_co_getlength(ptr nocapture noundef readonly %bs) #0 {
+define internal i64 @blk_log_writes_co_getlength(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -364,7 +364,7 @@ declare ptr @bdrv_open_child(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare zeroext i1 @qemu_opt_get_bool(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @qemu_opt_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -589,7 +589,7 @@ if.end56:                                         ; preds = %if.then55, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @blk_log_writes_co_do_file_pwritev(ptr nocapture noundef readonly %fr) #0 {
+define internal i32 @blk_log_writes_co_do_file_pwritev(ptr noundef readonly captures(none) %fr) #0 {
 entry:
   %0 = load ptr, ptr %fr, align 8
   %file = getelementptr inbounds nuw i8, ptr %0, i64 16840
@@ -627,7 +627,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_log_writes_co_do_log(ptr nocapture noundef initializes((56, 60)) %lr) #0 {
+define internal void @blk_log_writes_co_do_log(ptr noundef captures(none) initializes((56, 60)) %lr) #0 {
 entry:
   %super = alloca %struct.log_write_super, align 8
   %qiov58 = alloca %struct.QEMUIOVector, align 8
@@ -763,7 +763,7 @@ declare i32 @bdrv_co_pwrite_zeroes(ptr noundef, i64 noundef, i64 noundef, i32 no
 declare i32 @bdrv_co_flush(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @blk_log_writes_co_do_file_pwrite_zeroes(ptr nocapture noundef readonly %fr) #0 {
+define internal i32 @blk_log_writes_co_do_file_pwrite_zeroes(ptr noundef readonly captures(none) %fr) #0 {
 entry:
   %0 = load ptr, ptr %fr, align 8
   %file = getelementptr inbounds nuw i8, ptr %0, i64 16840
@@ -779,7 +779,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @blk_log_writes_co_do_file_pdiscard(ptr nocapture noundef readonly %fr) #0 {
+define internal i32 @blk_log_writes_co_do_file_pdiscard(ptr noundef readonly captures(none) %fr) #0 {
 entry:
   %0 = load ptr, ptr %fr, align 8
   %file = getelementptr inbounds nuw i8, ptr %0, i64 16840
@@ -795,7 +795,7 @@ entry:
 declare i32 @bdrv_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @blk_log_writes_co_do_file_flush(ptr nocapture noundef readonly %fr) #0 {
+define internal i32 @blk_log_writes_co_do_file_flush(ptr noundef readonly captures(none) %fr) #0 {
 entry:
   %0 = load ptr, ptr %fr, align 8
   %file = getelementptr inbounds nuw i8, ptr %0, i64 16840

@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Error_string = weak alias i32 (i32, ptr, ptr), ptr @PMPI_Error_string
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Error_string(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define i32 @PMPI_Error_string(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = tail call i32 @ompi_mpi_instance_retain() #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %35, label %5
@@ -185,7 +185,7 @@ declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @opal_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @ompi_mpi_instance_release() local_unnamed_addr #1
 

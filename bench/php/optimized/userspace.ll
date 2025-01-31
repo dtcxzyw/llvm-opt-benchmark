@@ -179,7 +179,7 @@ define hidden range(i32 -1, 1) i32 @zm_startup_user_streams(i32 noundef %0, i32 
 declare i32 @zend_register_list_destructors_ex(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @stream_wrapper_dtor(ptr nocapture noundef readonly %0) #0 {
+define internal void @stream_wrapper_dtor(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -190,7 +190,7 @@ define internal void @stream_wrapper_dtor(ptr nocapture noundef readonly %0) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_stream_wrapper_register(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_stream_wrapper_register(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -296,7 +296,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare i32 @zend_list_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_stream_wrapper_unregister(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_stream_wrapper_unregister(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -361,7 +361,7 @@ define hidden void @zif_stream_wrapper_unregister(ptr nocapture noundef readonly
 declare i32 @php_unregister_url_stream_wrapper_volatile(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_stream_wrapper_restore(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_stream_wrapper_restore(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -443,7 +443,7 @@ define hidden void @zif_stream_wrapper_restore(ptr nocapture noundef readonly %0
 declare ptr @php_stream_get_url_stream_wrappers_hash_global() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @php_userstreamop_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @php_userstreamop_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca [1 x %struct._zval_struct], align 16
@@ -542,7 +542,7 @@ define internal i64 @php_userstreamop_write(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @php_userstreamop_read(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 {
+define internal i64 @php_userstreamop_read(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca [1 x %struct._zval_struct], align 16
@@ -710,7 +710,7 @@ define internal i64 @php_userstreamop_read(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_userstreamop_close(ptr nocapture noundef readonly %0, i32 %1) #0 {
+define internal noundef i32 @php_userstreamop_close(ptr noundef readonly captures(none) %0, i32 %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -743,7 +743,7 @@ define internal noundef i32 @php_userstreamop_close(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @php_userstreamop_flush(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @php_userstreamop_flush(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -789,7 +789,7 @@ define internal range(i32 -1, 1) i32 @php_userstreamop_flush(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @php_userstreamop_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -1, 1) i32 @php_userstreamop_seek(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca [2 x %struct._zval_struct], align 16
@@ -1005,7 +1005,7 @@ define internal i32 @php_userstreamop_cast(ptr noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @php_userstreamop_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @php_userstreamop_stat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1061,7 +1061,7 @@ define internal range(i32 -1, 1) i32 @php_userstreamop_stat(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca [3 x %struct._zval_struct], align 16
@@ -1412,7 +1412,7 @@ default.unreachable:                              ; preds = %114
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, 258) i64 @php_userstreamop_readdir(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 {
+define internal range(i64 -1, 258) i64 @php_userstreamop_readdir(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1492,7 +1492,7 @@ define internal range(i64 -1, 258) i64 @php_userstreamop_readdir(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_userstreamop_closedir(ptr nocapture noundef readonly %0, i32 %1) #0 {
+define internal noundef i32 @php_userstreamop_closedir(ptr noundef readonly captures(none) %0, i32 %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1525,7 +1525,7 @@ define internal noundef i32 @php_userstreamop_closedir(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_userstreamop_rewinddir(ptr nocapture noundef readonly %0, i64 %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @php_userstreamop_rewinddir(ptr noundef readonly captures(none) %0, i64 %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1633,7 +1633,7 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i64 %41, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr align 1 %1, i64 %41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 1 %1, i64 %41, i1 false)
   %49 = getelementptr inbounds [1 x i8], ptr %48, i64 0, i64 %41
   store i8 0, ptr %49, align 1
   store ptr %44, ptr %9, align 16
@@ -1652,7 +1652,7 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i64 %52, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr align 1 %2, i64 %52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 1 %2, i64 %52, i1 false)
   %60 = getelementptr inbounds [1 x i8], ptr %59, i64 0, i64 %52
   store i8 0, ptr %60, align 1
   store ptr %55, ptr %51, align 16
@@ -1723,7 +1723,7 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not259, label %121, label %92
 
 92:                                               ; preds = %90
-  %93 = call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_userspace_ops, ptr noundef nonnull %30, ptr noundef null, ptr noundef %2) #11
+  %93 = call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_userspace_ops, ptr noundef nonnull %30, ptr noundef null, ptr noundef nonnull %2) #11
   %94 = load i8, ptr %73, align 8
   %95 = icmp eq i8 %94, 10
   br i1 %95, label %96, label %112
@@ -1808,7 +1808,7 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @user_wrapper_close(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @user_wrapper_close(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1818,7 +1818,7 @@ define internal noundef i32 @user_wrapper_close(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @user_wrapper_stat_url(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @user_wrapper_stat_url(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [2 x %struct._zval_struct], align 16
@@ -1844,7 +1844,7 @@ define internal range(i32 -1, 1) i32 @user_wrapper_stat_url(ptr nocapture nounde
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %16, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 1 %1, i64 %16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 1 %1, i64 %16, i1 false)
   %24 = getelementptr inbounds [1 x i8], ptr %23, i64 0, i64 %16
   store i8 0, ptr %24, align 1
   store ptr %19, ptr %8, align 16
@@ -1911,7 +1911,7 @@ define internal range(i32 -1, 1) i32 @user_wrapper_stat_url(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @user_wrapper_opendir(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal ptr @user_wrapper_opendir(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca [2 x %struct._zval_struct], align 16
@@ -1964,7 +1964,7 @@ define internal ptr @user_wrapper_opendir(ptr noundef %0, ptr noundef %1, ptr no
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 %29, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr align 1 %1, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 1 %1, i64 %29, i1 false)
   %37 = getelementptr inbounds [1 x i8], ptr %36, i64 0, i64 %29
   store i8 0, ptr %37, align 1
   store ptr %32, ptr %9, align 16
@@ -2054,7 +2054,7 @@ define internal ptr @user_wrapper_opendir(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @user_wrapper_unlink(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @user_wrapper_unlink(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, ptr noundef %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca [1 x %struct._zval_struct], align 16
@@ -2080,7 +2080,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_unlink(ptr nocapture noundef r
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 %15, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 1 %1, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 1 %1, i64 %15, i1 false)
   %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %15
   store i8 0, ptr %23, align 1
   store ptr %18, ptr %7, align 16
@@ -2143,7 +2143,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_unlink(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @user_wrapper_rename(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 %3, ptr noundef %4) #0 {
+define internal range(i32 0, 2) i32 @user_wrapper_rename(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr noundef %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [2 x %struct._zval_struct], align 16
@@ -2169,7 +2169,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_rename(ptr nocapture noundef r
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %16, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 1 %1, i64 %16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 1 %1, i64 %16, i1 false)
   %24 = getelementptr inbounds [1 x i8], ptr %23, i64 0, i64 %16
   store i8 0, ptr %24, align 1
   store ptr %19, ptr %8, align 16
@@ -2188,7 +2188,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_rename(ptr nocapture noundef r
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 %27, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr align 1 %2, i64 %27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %2, i64 %27, i1 false)
   %35 = getelementptr inbounds [1 x i8], ptr %34, i64 0, i64 %27
   store i8 0, ptr %35, align 1
   store ptr %30, ptr %26, align 16
@@ -2252,7 +2252,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_rename(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @user_wrapper_mkdir(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal range(i32 0, 2) i32 @user_wrapper_mkdir(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [3 x %struct._zval_struct], align 16
@@ -2278,7 +2278,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_mkdir(ptr nocapture noundef re
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %16, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 1 %1, i64 %16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 1 %1, i64 %16, i1 false)
   %24 = getelementptr inbounds [1 x i8], ptr %23, i64 0, i64 %16
   store i8 0, ptr %24, align 1
   store ptr %19, ptr %8, align 16
@@ -2353,7 +2353,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_mkdir(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @user_wrapper_rmdir(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @user_wrapper_rmdir(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca [2 x %struct._zval_struct], align 16
@@ -2379,7 +2379,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_rmdir(ptr nocapture noundef re
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 %15, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 1 %1, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 1 %1, i64 %15, i1 false)
   %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %15
   store i8 0, ptr %23, align 1
   store ptr %18, ptr %7, align 16
@@ -2448,7 +2448,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_rmdir(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @user_wrapper_metadata(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) #0 {
+define internal range(i32 0, 2) i32 @user_wrapper_metadata(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [3 x %struct._zval_struct], align 16
@@ -2503,7 +2503,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_metadata(ptr nocapture noundef
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 %26, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr align 1 %3, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %3, i64 %26, i1 false)
   %34 = getelementptr inbounds [1 x i8], ptr %33, i64 0, i64 %26
   store i8 0, ptr %34, align 1
   store ptr %29, ptr %25, align 16
@@ -2535,7 +2535,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_metadata(ptr nocapture noundef
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i64 %42, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %49, ptr align 1 %1, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %49, ptr nonnull align 1 %1, i64 %42, i1 false)
   %50 = getelementptr inbounds [1 x i8], ptr %49, i64 0, i64 %42
   store i8 0, ptr %50, align 1
   store ptr %45, ptr %8, align 16
@@ -2606,14 +2606,14 @@ define internal range(i32 0, 2) i32 @user_wrapper_metadata(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @php_stream_wrapper_log_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare noalias ptr @_emalloc_24() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @user_stream_create_object(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @user_stream_create_object(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -2685,7 +2685,7 @@ define internal fastcc void @user_stream_create_object(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noalias ptr @_emalloc_32() local_unnamed_addr #1
 
@@ -2710,7 +2710,7 @@ declare void @add_property_null_ex(ptr noundef, ptr noundef, i64 noundef) local_
 declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noalias ptr @_emalloc_40() local_unnamed_addr #1
 
@@ -2722,7 +2722,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
 declare i32 @zend_call_method_if_exists(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @statbuf_from_array(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly initializes((0, 144)) %1) unnamed_addr #0 {
+define internal fastcc void @statbuf_from_array(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 144)) %1) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %1, i8 0, i64 144, i1 false)
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @zend_hash_str_find(ptr noundef %3, ptr noundef nonnull @.str.41, i64 noundef 3) #11
@@ -3068,7 +3068,7 @@ define internal fastcc void @statbuf_from_array(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

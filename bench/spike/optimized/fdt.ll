@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -10, 2147483647) i32 @fdt_ro_probe_(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -10, 2147483647) i32 @fdt_ro_probe_(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -145,7 +145,7 @@ define range(i64 28, 41) i64 @fdt_header_size_(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -10, 1) i32 @fdt_check_header(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = shl nuw i32 %3, 24
@@ -514,7 +514,7 @@ define ptr @fdt_offset_ptr(ptr noundef readonly %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @fdt_next_tag(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #2 {
+define noundef i32 @fdt_next_tag(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #2 {
   store i32 -8, ptr %2, align 4
   %4 = tail call ptr @fdt_offset_ptr(ptr noundef %0, i32 noundef %1, i32 noundef 4)
   %.not = icmp eq ptr %4, null
@@ -1075,7 +1075,7 @@ fdt_next_node.exit.thread:                        ; preds = %fdt_check_node_offs
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define ptr @fdt_find_string_(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define ptr @fdt_find_string_(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
@@ -1089,7 +1089,7 @@ define ptr @fdt_find_string_(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
 
 .lr.ph:                                           ; preds = %3, %12
   %.014 = phi ptr [ %13, %12 ], [ %0, %3 ]
-  %bcmp = tail call i32 @bcmp(ptr %.014, ptr %2, i64 %8)
+  %bcmp = tail call i32 @bcmp(ptr %.014, ptr nonnull %2, i64 %8)
   %11 = icmp eq i32 %bcmp, 0
   br i1 %11, label %._crit_edge, label %12
 
@@ -1104,10 +1104,10 @@ define ptr @fdt_find_string_(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -10, 1) i32 @fdt_move(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define range(i32 -10, 1) i32 @fdt_move(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = tail call i32 @fdt_ro_probe_(ptr noundef %0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %28, label %6
@@ -1145,19 +1145,19 @@ define range(i32 -10, 1) i32 @fdt_move(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7

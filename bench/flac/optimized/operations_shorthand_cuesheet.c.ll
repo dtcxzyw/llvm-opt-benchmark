@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [10 x i8] c"\22%s\22 FLAC\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @do_shorthand_operation__cuesheet(ptr noundef %filename, ptr noundef %chain, ptr nocapture noundef readonly %operation, ptr nocapture noundef writeonly %needs_write) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @do_shorthand_operation__cuesheet(ptr noundef %filename, ptr noundef %chain, ptr noundef readonly captures(none) %operation, ptr noundef writeonly captures(none) %needs_write) local_unnamed_addr #0 {
 entry:
   %error_message.i = alloca ptr, align 8
   %last_line_read.i = alloca i32, align 4
@@ -396,7 +396,7 @@ if.end13.i45:                                     ; preds = %if.end7.i42
 
 if.then18.i:                                      ; preds = %if.end13.i45
   %49 = load ptr, ptr @stderr, align 8
-  %call19.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.19, ptr noundef %filename) #10
+  %call19.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.19, ptr noundef nonnull %filename) #10
   %50 = load ptr, ptr @stdout, align 8
   %cmp20.not.i = icmp eq ptr %f.0.i43, %50
   br i1 %cmp20.not.i, label %sw.epilog, label %if.then21.i
@@ -406,7 +406,7 @@ if.then21.i:                                      ; preds = %if.then18.i
   br label %sw.epilog
 
 if.end24.i:                                       ; preds = %if.end13.i45
-  %call25.i = tail call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %call16.i, i64 noundef %add15.i, ptr noundef nonnull @.str.20, ptr noundef %filename) #9
+  %call25.i = tail call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %call16.i, i64 noundef %add15.i, ptr noundef nonnull @.str.20, ptr noundef nonnull %filename) #9
   tail call void @grabbag__cuesheet_emit(ptr noundef nonnull %f.0.i43, ptr noundef nonnull %cuesheet.1, ptr noundef nonnull %call16.i) #9
   tail call void @free(ptr noundef nonnull %call16.i) #9
   %51 = load ptr, ptr @stdout, align 8
@@ -436,7 +436,7 @@ declare void @FLAC__metadata_iterator_init(ptr noundef, ptr noundef) local_unnam
 declare ptr @FLAC__metadata_iterator_get_block(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @FLAC__metadata_iterator_delete(ptr noundef) local_unnamed_addr #1
 
@@ -449,10 +449,10 @@ declare void @print_error_with_chain_status(ptr noundef, ptr noundef, ...) local
 declare void @FLAC__metadata_object_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
@@ -463,7 +463,7 @@ declare ptr @__errno_location() local_unnamed_addr #5
 declare ptr @grabbag__cuesheet_parse(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @FLAC__format_cuesheet_is_legal(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -479,13 +479,13 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare void @grabbag__cuesheet_emit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

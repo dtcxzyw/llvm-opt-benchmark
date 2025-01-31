@@ -140,7 +140,7 @@ for.end48:                                        ; preds = %for.body40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -232,7 +232,7 @@ entry:
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @add_calxeda_midway_xgmac_fdt_node(ptr noundef %sbdev, ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @add_calxeda_midway_xgmac_fdt_node(ptr noundef %sbdev, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %pbus1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %pbus1, align 8
@@ -250,7 +250,7 @@ entry:
   %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
   %5 = trunc i64 %call7 to i32
   %conv = add i32 %5, 1
-  %call9 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.3, ptr noundef %4, i32 noundef %conv) #11
+  %call9 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.3, ptr noundef nonnull %4, i32 noundef %conv) #11
   %call10 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19, i32 noundef 0) #11
   %num_regions = getelementptr inbounds nuw i8, ptr %call.i, i64 932
   %6 = load i32, ptr %num_regions, align 4
@@ -349,7 +349,7 @@ for.end62:                                        ; preds = %for.end62.loopexit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @add_amd_xgbe_fdt_node(ptr noundef %sbdev, ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @add_amd_xgbe_fdt_node(ptr noundef %sbdev, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %prop_len = alloca i32, align 4
   %qdt_tmp = alloca [2 x i32], align 4
@@ -592,7 +592,7 @@ for.end125:                                       ; preds = %for.end125.loopexit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @vfio_platform_match(ptr noundef %sbdev, ptr nocapture noundef readonly %entry1) #0 {
+define internal noundef zeroext i1 @vfio_platform_match(ptr noundef %sbdev, ptr noundef readonly captures(none) %entry1) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #11
   %num_compat = getelementptr inbounds nuw i8, ptr %call.i, i64 1008
@@ -628,7 +628,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @add_tpm_tis_fdt_node(ptr noundef %sbdev, ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @add_tpm_tis_fdt_node(ptr noundef %sbdev, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %reg_attr = alloca [2 x i32], align 4
   %pbus1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
@@ -651,7 +651,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @no_fdt_node(ptr nocapture readnone %sbdev, ptr nocapture readnone %opaque) #6 {
+define internal noundef i32 @no_fdt_node(ptr readnone captures(none) %sbdev, ptr readnone captures(none) %opaque) #6 {
 entry:
   ret i32 0
 }
@@ -659,7 +659,7 @@ entry:
 declare i64 @platform_bus_get_mmio_addr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #8
@@ -730,14 +730,14 @@ if.then13:                                        ; preds = %if.end10
 if.end14:                                         ; preds = %if.end10
   %call15 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %node_path.0.lcssa, i32 noundef 47) #12
   %call16 = call i32 @qemu_fdt_add_subnode(ptr noundef %guest_fdt, ptr noundef %call15) #11
-  call fastcc void @copy_properties_from_host(ptr noundef nonnull @clock_copied_properties, i32 noundef 4, ptr noundef %host_fdt, ptr noundef %guest_fdt, ptr noundef %node_path.0.lcssa, ptr noundef %call15)
+  call fastcc void @copy_properties_from_host(ptr noundef nonnull @clock_copied_properties, i32 noundef 4, ptr noundef %host_fdt, ptr noundef %guest_fdt, ptr noundef nonnull %node_path.0.lcssa, ptr noundef %call15)
   %call17 = call i32 @qemu_fdt_setprop_cell(ptr noundef %guest_fdt, ptr noundef %call15, ptr noundef nonnull @.str.37, i32 noundef %guest_phandle) #11
-  call void @g_free(ptr noundef %node_path.0.lcssa) #11
+  call void @g_free(ptr noundef nonnull %node_path.0.lcssa) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @copy_properties_from_host(ptr nocapture noundef readonly %props, i32 noundef range(i32 4, 14) %nb_props, ptr noundef %host_fdt, ptr noundef %guest_fdt, ptr noundef %node_path, ptr noundef %nodename) unnamed_addr #0 {
+define internal fastcc void @copy_properties_from_host(ptr noundef readonly captures(none) %props, i32 noundef range(i32 4, 14) %nb_props, ptr noundef %host_fdt, ptr noundef %guest_fdt, ptr noundef %node_path, ptr noundef %nodename) unnamed_addr #0 {
 entry:
   %prop_len = alloca i32, align 4
   %err = alloca ptr, align 8
@@ -813,7 +813,7 @@ declare i32 @fdt_get_path(ptr noundef, i32 noundef, ptr noundef, i32 noundef) lo
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7

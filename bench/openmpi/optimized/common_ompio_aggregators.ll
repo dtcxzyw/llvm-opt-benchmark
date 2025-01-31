@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [84 x i8] c"mca_common_ompio_prepare_to_group: error in ompi_fcoll_base_coll_allgather_array 2\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_common_ompio_simple_grouping(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define noundef i32 @mca_common_ompio_simple_grouping(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef nonnull @.str, i32 noundef 29) #10
@@ -359,7 +359,7 @@ mca_common_ompio_forced_grouping.exit:            ; preds = %.loopexit40.i, %.lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @mca_common_ompio_forced_grouping(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define noundef i32 @mca_common_ompio_forced_grouping(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = sdiv i32 %5, %1
@@ -458,7 +458,7 @@ define noundef i32 @mca_common_ompio_forced_grouping(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_ompio_fview_based_grouping(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i32 @mca_common_ompio_fview_based_grouping(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [3 x i64], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
@@ -661,7 +661,7 @@ define i32 @mca_common_ompio_fview_based_grouping(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
@@ -669,10 +669,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_ompio_cart_based_grouping(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i32 @mca_common_ompio_cart_based_grouping(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.mca_io_ompio_cart_topo_components, align 8
   store i32 0, ptr %4, align 4
@@ -882,7 +882,7 @@ select.unfold.thread:                             ; preds = %71, %select.unfold
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_common_ompio_finalize_initial_grouping(ptr nocapture noundef initializes((400, 404)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_ompio_finalize_initial_grouping(ptr noundef captures(none) initializes((400, 404)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -1009,7 +1009,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_finalize_initial_grouping(ptr noca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_common_ompio_set_aggregator_props(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -1375,7 +1375,7 @@ mca_common_ompio_retain_initial_groups.exit.thread: ; preds = %36, %.preheader.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_ompio_prepare_to_group(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6, ptr nocapture noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define i32 @mca_common_ompio_prepare_to_group(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, i64 noundef %6, ptr noundef captures(none) %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca [3 x i64], align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %12 = load ptr, ptr %11, align 8
@@ -1725,7 +1725,7 @@ define i32 @mca_common_ompio_prepare_to_group(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_common_ompio_split_initial_groups(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_ompio_split_initial_groups(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -1858,7 +1858,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_split_initial_groups(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.thread186, label %.preheader204
 
@@ -2245,7 +2245,7 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_common_ompio_retain_initial_groups(ptr nocapture noundef initializes((432, 444)) %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_ompio_retain_initial_groups(ptr noundef captures(none) initializes((432, 444)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -2403,7 +2403,7 @@ define i32 @mca_common_ompio_merge_groups(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_common_ompio_split_a_group(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef initializes((0, 4)) %6, ptr nocapture noundef writeonly initializes((0, 4)) %7) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_ompio_split_a_group(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %10 = load i32, ptr %9, align 4
   %11 = sdiv i32 %10, %3
@@ -2615,7 +2615,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_split_a_group(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_common_ompio_finalize_split(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_ompio_finalize_split(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0

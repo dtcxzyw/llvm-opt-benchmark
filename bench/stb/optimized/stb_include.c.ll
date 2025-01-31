@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [23 x i8] c"Error: couldn't load '\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @stb_include_load_file(ptr nocapture noundef readonly %filename, ptr noundef writeonly %plen) local_unnamed_addr #0 {
+define noalias noundef ptr @stb_include_load_file(ptr noundef readonly captures(none) %filename, ptr noundef writeonly %plen) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
   %cmp = icmp eq ptr %call, null
@@ -49,25 +49,25 @@ return:                                           ; preds = %if.end4, %entry, %i
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @stb_include_append_include(ptr nocapture noundef %array, i32 noundef %len, i32 noundef %offset, i32 noundef %end, ptr noundef %filename, i32 noundef %next_line) local_unnamed_addr #3 {
+define noalias noundef ptr @stb_include_append_include(ptr noundef captures(none) %array, i32 noundef %len, i32 noundef %offset, i32 noundef %end, ptr noundef %filename, i32 noundef %next_line) local_unnamed_addr #3 {
 entry:
   %add = add nsw i32 %len, 1
   %conv = sext i32 %add to i64
@@ -86,10 +86,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @stb_include_free_includes(ptr nocapture noundef %array, i32 noundef %len) local_unnamed_addr #5 {
+define void @stb_include_free_includes(ptr noundef captures(none) %array, i32 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp4 = icmp sgt i32 %len, 0
   br i1 %cmp4, label %for.body.preheader, label %for.end
@@ -113,7 +113,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 0, 2) i32 @stb_include_isspace(i32 noundef %ch) local_unnamed_addr #7 {
@@ -135,7 +135,7 @@ lor.end:                                          ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_include_find_includes(ptr noundef %text, ptr nocapture noundef writeonly %plist) local_unnamed_addr #5 {
+define i32 @stb_include_find_includes(ptr noundef %text, ptr noundef writeonly captures(none) %plist) local_unnamed_addr #5 {
 entry:
   %0 = load i8, ptr %text, align 1
   %tobool.not88 = icmp eq i8 %0, 0
@@ -352,13 +352,13 @@ while.end180:                                     ; preds = %if.end178, %while.c
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @stb_include_itoa(ptr nocapture noundef writeonly initializes((0, 9)) %str, i32 noundef %n) local_unnamed_addr #10 {
+define void @stb_include_itoa(ptr noundef writeonly captures(none) initializes((0, 9)) %str, i32 noundef %n) local_unnamed_addr #10 {
 entry:
   store i64 2314885530818453536, ptr %str, align 1
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %str, i64 8
@@ -387,7 +387,7 @@ for.end12:                                        ; preds = %for.body5
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noalias noundef ptr @stb_include_append(ptr nocapture noundef %str, ptr nocapture noundef %curlen, ptr nocapture noundef readonly %addstr, i64 noundef %addlen) local_unnamed_addr #11 {
+define noalias noundef ptr @stb_include_append(ptr noundef captures(none) %str, ptr noundef captures(none) %curlen, ptr noundef readonly captures(none) %addstr, i64 noundef %addlen) local_unnamed_addr #11 {
 entry:
   %0 = load i64, ptr %curlen, align 8
   %add = add i64 %0, %addlen
@@ -401,7 +401,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stb_include_string(ptr noundef %str, ptr noundef %inject, ptr nocapture noundef readonly %path_to_includes, ptr noundef readonly %filename, ptr noundef %error) local_unnamed_addr #5 {
+define noalias noundef ptr @stb_include_string(ptr noundef %str, ptr noundef %inject, ptr noundef readonly captures(none) %path_to_includes, ptr noundef readonly %filename, ptr noundef %error) local_unnamed_addr #5 {
 entry:
   %len.i = alloca i64, align 8
   %temp = alloca [4096 x i8], align 16
@@ -434,7 +434,7 @@ stb_include_itoa.exit:                            ; preds = %stb_include_itoa.ex
   %add.i = add i64 %sub, %textlen.0109
   %call.i = call ptr @realloc(ptr noundef %text.0111, i64 noundef %add.i) #15
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %textlen.0109
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %add.ptr, i64 %sub, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull readonly align 1 %add.ptr, i64 %sub, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %temp, ptr noundef nonnull align 1 dereferenceable(7) @.str.3, i64 7, i1 false) #16
   store i64 2319670605422534688, ptr %add.ptr5, align 2
   store i8 0, ptr %arrayidx2.i, align 2
@@ -499,7 +499,7 @@ stb_include_file.exit.thread:                     ; preds = %if.else42
   br label %for.body.i.preheader
 
 stb_include_file.exit:                            ; preds = %if.else42
-  %call4.i = call ptr @stb_include_string(ptr noundef nonnull %call.i49, ptr noundef %inject, ptr noundef %path_to_includes, ptr noundef nonnull %temp, ptr noundef %error)
+  %call4.i = call ptr @stb_include_string(ptr noundef nonnull %call.i49, ptr noundef %inject, ptr noundef nonnull %path_to_includes, ptr noundef nonnull %temp, ptr noundef %error)
   call void @free(ptr noundef nonnull %call.i49) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i)
   %cmp54 = icmp eq ptr %call4.i, null
@@ -580,7 +580,7 @@ for.end:                                          ; preds = %stb_include_itoa.ex
   %add.i75 = add i64 %add, %textlen.0.lcssa
   %call.i76 = call ptr @realloc(ptr noundef %text.0.lcssa, i64 noundef %add.i75) #15
   %add.ptr.i77 = getelementptr inbounds i8, ptr %call.i76, i64 %textlen.0.lcssa
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i77, ptr readonly align 1 %add.ptr81, i64 %add, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i77, ptr nonnull readonly align 1 %add.ptr81, i64 %add, i1 false)
   br i1 %cmp108, label %for.body.preheader.i80, label %return
 
 for.body.preheader.i80:                           ; preds = %for.end
@@ -603,16 +603,16 @@ return:                                           ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #12
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #12
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stb_include_file(ptr noundef %filename, ptr noundef %inject, ptr nocapture noundef readonly %path_to_includes, ptr noundef %error) local_unnamed_addr #5 {
+define noalias noundef ptr @stb_include_file(ptr noundef %filename, ptr noundef %inject, ptr noundef readonly captures(none) %path_to_includes, ptr noundef %error) local_unnamed_addr #5 {
 entry:
   %len = alloca i64, align 8
   %call = call ptr @stb_include_load_file(ptr noundef %filename, ptr noundef nonnull %len)
@@ -638,7 +638,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stb_include_strings(ptr nocapture noundef readonly %strs, i32 noundef %count, ptr noundef %inject, ptr nocapture noundef readonly %path_to_includes, ptr noundef %filename, ptr noundef %error) local_unnamed_addr #5 {
+define noalias noundef ptr @stb_include_strings(ptr noundef readonly captures(none) %strs, i32 noundef %count, ptr noundef %inject, ptr noundef readonly captures(none) %path_to_includes, ptr noundef %filename, ptr noundef %error) local_unnamed_addr #5 {
 entry:
   %cmp15 = icmp sgt i32 %count, 0
   br i1 %cmp15, label %for.body.preheader, label %for.end.thread
@@ -689,10 +689,10 @@ for.end15:                                        ; preds = %for.body5, %for.end
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

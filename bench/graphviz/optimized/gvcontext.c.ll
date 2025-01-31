@@ -37,7 +37,7 @@ gv_alloc.exit:                                    ; preds = %2
 declare void @agerrorf(ptr noundef, ...) #1
 
 ; Function Attrs: nounwind uwtable
-define void @gvFinalize(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @gvFinalize(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -133,7 +133,7 @@ define i32 @gvFreeContext(ptr noundef %0) local_unnamed_addr #2 {
 declare void @emit_once_reset() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @gvjobs_delete(ptr noundef) local_unnamed_addr #1
 
@@ -142,7 +142,7 @@ declare void @textfont_dict_close(ptr noundef) local_unnamed_addr #1
 declare i32 @agerrors() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @gvCloneGVC(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @gvCloneGVC(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(584) ptr @calloc(i64 noundef 1, i64 noundef 584) #9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit
@@ -169,7 +169,7 @@ gv_alloc.exit:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define void @gvFreeCloneGVC(ptr noundef %0) local_unnamed_addr #2 {
@@ -179,7 +179,7 @@ define void @gvFreeCloneGVC(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #6 {

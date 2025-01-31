@@ -316,13 +316,13 @@ declare void @_ZN7nmethod22mark_as_maybe_on_stackEv(ptr noundef nonnull align 8 
 declare void @_ZN17BarrierSetNMethod6disarmEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18ZBarrierSetNMethod28disarmed_guard_value_addressEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18ZBarrierSetNMethod28disarmed_guard_value_addressEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @ZPointerStoreGoodMaskLowOrderBitsAddr, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18ZBarrierSetNMethod34thread_disarmed_guard_value_offsetEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK18ZBarrierSetNMethod34thread_disarmed_guard_value_offsetEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   ret i32 88
 }
 

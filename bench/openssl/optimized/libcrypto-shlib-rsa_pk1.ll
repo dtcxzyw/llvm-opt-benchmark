@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [7 x i8] c"sha256\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @RSA_padding_add_PKCS1_type_1(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_padding_add_PKCS1_type_1(ptr noundef writeonly captures(none) %to, i32 noundef %tlen, ptr noundef readonly captures(none) %from, i32 noundef %flen) local_unnamed_addr #0 {
 entry:
   %sub = add nsw i32 %tlen, -11
   %cmp = icmp sgt i32 %flen, %sub
@@ -56,13 +56,13 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483638) i32 @RSA_padding_check_PKCS1_type_1(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen, i32 noundef %num) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483638) i32 @RSA_padding_check_PKCS1_type_1(ptr noundef writeonly captures(none) %to, i32 noundef %tlen, ptr noundef readonly captures(none) %from, i32 noundef %flen, i32 noundef %num) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %num, 11
   br i1 %cmp, label %return, label %if.end
@@ -174,7 +174,7 @@ return:                                           ; preds = %entry, %if.end42, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_type_2_ex(ptr noundef %libctx, ptr noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_type_2_ex(ptr noundef %libctx, ptr noundef %to, i32 noundef %tlen, ptr noundef readonly captures(none) %from, i32 noundef %flen) local_unnamed_addr #0 {
 entry:
   %sub = add nsw i32 %tlen, -11
   %cmp = icmp sgt i32 %flen, %sub
@@ -251,14 +251,14 @@ return:                                           ; preds = %do.body, %if.end3, 
 declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @RSA_padding_add_PKCS1_type_2(ptr noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_padding_add_PKCS1_type_2(ptr noundef %to, i32 noundef %tlen, ptr noundef readonly captures(none) %from, i32 noundef %flen) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_rsa_padding_add_PKCS1_type_2_ex(ptr noundef null, ptr noundef %to, i32 noundef %tlen, ptr noundef %from, i32 noundef %flen)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_padding_check_PKCS1_type_2(ptr nocapture noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen, i32 noundef %num) local_unnamed_addr #0 {
+define i32 @RSA_padding_check_PKCS1_type_2(ptr noundef captures(none) %to, i32 noundef %tlen, ptr noundef readonly captures(none) %from, i32 noundef %flen, i32 noundef %num) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %tlen, 1
   %cmp1 = icmp slt i32 %flen, 1
@@ -470,7 +470,7 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare void @err_clear_last_constant_time(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_padding_check_PKCS1_type_2(ptr noundef %ctx, ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen, i32 noundef %num, ptr noundef %kdk) local_unnamed_addr #0 {
+define i32 @ossl_rsa_padding_check_PKCS1_type_2(ptr noundef %ctx, ptr noundef writeonly captures(none) %to, i32 noundef %tlen, ptr noundef readonly captures(none) %from, i32 noundef %flen, i32 noundef %num, ptr noundef %kdk) local_unnamed_addr #0 {
 entry:
   %candidate_lengths = alloca [256 x i8], align 16
   %cmp = icmp ne i32 %num, %flen
@@ -828,7 +828,7 @@ return:                                           ; preds = %err, %if.then
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 49) i32 @ossl_rsa_padding_check_PKCS1_type_2_TLS(ptr noundef %libctx, ptr nocapture noundef writeonly %to, i64 noundef %tlen, ptr nocapture noundef readonly %from, i64 noundef %flen, i32 noundef %client_version, i32 noundef %alt_version) local_unnamed_addr #0 {
+define range(i32 -1, 49) i32 @ossl_rsa_padding_check_PKCS1_type_2_TLS(ptr noundef %libctx, ptr noundef writeonly captures(none) %to, i64 noundef %tlen, ptr noundef readonly captures(none) %from, i64 noundef %flen, i32 noundef %client_version, i32 noundef %alt_version) local_unnamed_addr #0 {
 entry:
   %rand_premaster_secret = alloca [48 x i8], align 16
   %cmp = icmp ult i64 %flen, 59

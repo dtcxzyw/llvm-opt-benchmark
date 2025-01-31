@@ -1011,7 +1011,7 @@ declare void @PyThread_init_thread() local_unnamed_addr #4
 declare void @_PyThreadState_Attach(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyEval_FiniGIL(ptr nocapture noundef %interp) local_unnamed_addr #3 {
+define hidden void @_PyEval_FiniGIL(ptr noundef captures(none) %interp) local_unnamed_addr #3 {
 entry:
   %gil1 = getelementptr inbounds nuw i8, ptr %interp, i64 72
   %0 = load ptr, ptr %gil1, align 8
@@ -1452,7 +1452,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @drop_gil(ptr nocapture noundef readonly %interp, ptr noundef %tstate) unnamed_addr #3 {
+define internal fastcc void @drop_gil(ptr noundef readonly captures(none) %interp, ptr noundef %tstate) unnamed_addr #3 {
 entry:
   %gil2 = getelementptr inbounds nuw i8, ptr %interp, i64 72
   %0 = load ptr, ptr %gil2, align 8
@@ -1592,7 +1592,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyEval_ReleaseLock(ptr nocapture noundef readonly %interp, ptr noundef %tstate) local_unnamed_addr #3 {
+define hidden void @_PyEval_ReleaseLock(ptr noundef readonly captures(none) %interp, ptr noundef %tstate) local_unnamed_addr #3 {
 entry:
   tail call fastcc void @drop_gil(ptr noundef %interp, ptr noundef %tstate)
   ret void
@@ -1623,7 +1623,7 @@ entry:
 declare void @_PyThreadState_Detach(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyEval_ReInitThreads(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 32)) %agg.result, ptr noundef %tstate) local_unnamed_addr #3 {
+define hidden void @_PyEval_ReInitThreads(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef %tstate) local_unnamed_addr #3 {
 entry:
   %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
@@ -1654,12 +1654,12 @@ return:                                           ; preds = %gil_created.exit, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @_PyThreadState_DeleteExcept(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden void @_PyEval_SignalAsyncExc(ptr nocapture noundef %interp) local_unnamed_addr #7 {
+define hidden void @_PyEval_SignalAsyncExc(ptr noundef captures(none) %interp) local_unnamed_addr #7 {
 entry:
   %0 = load atomic i64, ptr %interp seq_cst, align 8
   %and.i = and i64 %0, 8
@@ -2153,7 +2153,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_PyEval_InitState(ptr nocapture noundef writeonly initializes((1352, 1360), (1368, 1372)) %interp) local_unnamed_addr #8 {
+define hidden void @_PyEval_InitState(ptr noundef writeonly captures(none) initializes((1352, 1360), (1368, 1372)) %interp) local_unnamed_addr #8 {
 entry:
   %_gil = getelementptr inbounds nuw i8, ptr %interp, i64 1352
   %locked.i = getelementptr inbounds nuw i8, ptr %interp, i64 1368
@@ -2533,10 +2533,10 @@ declare i32 @_PyErr_CheckSignalsTstate(ptr noundef) local_unnamed_addr #4
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

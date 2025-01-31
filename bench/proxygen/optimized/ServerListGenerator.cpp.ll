@@ -164,7 +164,7 @@ $_ZTVN8proxygen19ServerListGenerator8CallbackE = comdat any
 @.str.7 = private unnamed_addr constant [2 x i8] c" \00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen19ServerListGenerator15attachEventBaseEPN5folly9EventBaseE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %base) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen19ServerListGenerator15attachEventBaseEPN5folly9EventBaseE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %base) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp15 = alloca %"class.google::LogMessageFatal", align 8
@@ -243,7 +243,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen19ServerListGenerator15detachEventBaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen19ServerListGenerator15detachEventBaseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
   %eventBase_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -291,7 +291,7 @@ cleanup.done:                                     ; preds = %lor.rhs, %entry, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen19ServerListGenerator19listServersBlockingEPSt6vectorINS0_12ServerConfigESaIS2_EENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture noundef %results, i64 %timeout.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen19ServerListGenerator19listServersBlockingEPSt6vectorINS0_12ServerConfigESaIS2_EENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef captures(none) %results, i64 %timeout.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %eventBase = alloca %"class.folly::EventBase", align 16
   %callback = alloca %"class.proxygen::ServerListCallback", align 8
@@ -856,13 +856,13 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

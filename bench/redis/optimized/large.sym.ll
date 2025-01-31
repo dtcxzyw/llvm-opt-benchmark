@@ -1128,7 +1128,7 @@ declare void @hook_invoke_alloc(i32 noundef, ptr noundef, i64 noundef, ptr nound
 declare void @hook_invoke_dalloc(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @large_dalloc_prep_locked(ptr noundef %tsdn, ptr noundef %edata) local_unnamed_addr #0 {
@@ -1433,7 +1433,7 @@ arena_decay_ticks.exit:                           ; preds = %if.end.i, %large_da
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @large_salloc(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readonly %edata) local_unnamed_addr #3 {
+define hidden i64 @large_salloc(ptr noundef readnone captures(none) %tsdn, ptr noundef readonly captures(none) %edata) local_unnamed_addr #3 {
 entry:
   %edata.val = load i64, ptr %edata, align 8
   %0 = lshr i64 %edata.val, 20
@@ -1476,7 +1476,7 @@ declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @prof_recent_alloc_reset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @large_prof_tctx_reset(ptr nocapture noundef writeonly %edata) local_unnamed_addr #4 {
+define hidden void @large_prof_tctx_reset(ptr noundef writeonly captures(none) %edata) local_unnamed_addr #4 {
 entry:
   %e_prof_tctx.i.i = getelementptr inbounds nuw i8, ptr %edata, i64 80
   store atomic i64 1, ptr %e_prof_tctx.i.i release, align 8
@@ -1536,7 +1536,7 @@ declare zeroext i1 @pa_expand(ptr noundef, ptr noundef, ptr noundef, i64 noundef
 declare void @arena_handle_deferred_work(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @arena_extent_ralloc_large_expand(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1547,7 +1547,7 @@ declare zeroext i1 @pa_shrink(ptr noundef, ptr noundef, ptr noundef, i64 noundef
 declare void @arena_extent_ralloc_large_shrink(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15
@@ -1669,10 +1669,10 @@ declare void @pa_dalloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loca
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8

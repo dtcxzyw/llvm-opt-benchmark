@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.bn_set_words = private unnamed_addr constant [13 x i8] c"bn_set_words\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @bn_compute_wNAF(ptr noundef %scalar, i32 noundef %w, ptr nocapture noundef writeonly %ret_len) local_unnamed_addr #0 {
+define ptr @bn_compute_wNAF(ptr noundef %scalar, i32 noundef %w, ptr noundef writeonly captures(none) %ret_len) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_zero(ptr noundef %scalar) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -246,7 +246,7 @@ declare i32 @BN_is_bit_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @bn_get_top(ptr nocapture noundef readonly %a) local_unnamed_addr #2 {
+define i32 @bn_get_top(ptr noundef readonly captures(none) %a) local_unnamed_addr #2 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
@@ -254,7 +254,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @bn_get_dmax(ptr nocapture noundef readonly %a) local_unnamed_addr #2 {
+define i32 @bn_get_dmax(ptr noundef readonly captures(none) %a) local_unnamed_addr #2 {
 entry:
   %dmax = getelementptr inbounds nuw i8, ptr %a, i64 12
   %0 = load i32, ptr %dmax, align 4
@@ -262,7 +262,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @bn_set_all_zero(ptr nocapture noundef readonly %a) local_unnamed_addr #3 {
+define void @bn_set_all_zero(ptr noundef readonly captures(none) %a) local_unnamed_addr #3 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
@@ -291,7 +291,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @bn_copy_words(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %in, i32 noundef %size) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @bn_copy_words(ptr noundef writeonly captures(none) %out, ptr noundef readonly captures(none) %in, i32 noundef %size) local_unnamed_addr #4 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %in, i64 8
   %0 = load i32, ptr %top, align 8
@@ -319,13 +319,13 @@ return:                                           ; preds = %if.end, %if.then3, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @bn_get_words(ptr nocapture noundef readonly %a) local_unnamed_addr #2 {
+define ptr @bn_get_words(ptr noundef readonly captures(none) %a) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   ret ptr %0
@@ -352,7 +352,7 @@ entry:
 declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bn_set_words(ptr noundef %a, ptr nocapture noundef readonly %words, i32 noundef %num_words) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_set_words(ptr noundef %a, ptr noundef readonly captures(none) %words, i32 noundef %num_words) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @bn_wexpand(ptr noundef %a, i32 noundef %num_words) #7
   %cmp = icmp eq ptr %call, null

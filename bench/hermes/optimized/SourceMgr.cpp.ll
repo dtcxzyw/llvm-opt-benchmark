@@ -381,7 +381,7 @@ _ZN4llvh9SourceMgr9SrcBufferD2Ev.exit:            ; preds = %if.end36.i, %_ZNKSt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr readnone %Loc.coerce) local_unnamed_addr #4 align 2 {
@@ -455,7 +455,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4llvh9SourceMgr9SrcBufferC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %Other) unnamed_addr #5 align 2 {
+define hidden void @_ZN4llvh9SourceMgr9SrcBufferC2EOS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %Other) unnamed_addr #5 align 2 {
 entry:
   %0 = load i64, ptr %Other, align 8
   store i64 %0, ptr %this, align 8
@@ -473,7 +473,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh9SourceMgr9SrcBufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh9SourceMgr9SrcBufferD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
   %OffsetCache = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %OffsetCache, align 8
@@ -517,7 +517,7 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh9SourceMgr8FindLineENS_5SMLocEj(ptr noalias nocapture writeonly sret(%"struct.std::pair.36") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %BufferID) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK4llvh9SourceMgr8FindLineENS_5SMLocEj(ptr noalias writeonly sret(%"struct.std::pair.36") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %BufferID) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq i32 %BufferID, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -916,7 +916,7 @@ return:                                           ; preds = %_ZNK4llvh9SourceMgr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i64 } @_ZNK4llvh9SourceMgr10getLineRefEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i32 noundef %line, i32 noundef %BufferID) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i64 } @_ZNK4llvh9SourceMgr10getLineRefEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, i32 noundef %line, i32 noundef %BufferID) local_unnamed_addr #0 align 2 {
 entry:
   %sub.i = add i32 %BufferID, -1
   %conv.i = zext i32 %sub.i to i64
@@ -1446,10 +1446,10 @@ return:                                           ; preds = %if.then4.i.i40, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh9SourceMgr10GetMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEE(ptr noalias sret(%"class.llvh::SMDiagnostic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %Kind, ptr noundef nonnull align 8 dereferenceable(18) %Msg, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef") align 8 %Ranges, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef.41") align 8 %FixIts) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK4llvh9SourceMgr10GetMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEE(ptr noalias sret(%"class.llvh::SMDiagnostic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %Kind, ptr noundef nonnull align 8 dereferenceable(18) %Msg, ptr noundef readonly byval(%"class.llvh::ArrayRef") align 8 captures(none) %Ranges, ptr noundef readonly byval(%"class.llvh::ArrayRef.41") align 8 captures(none) %FixIts) local_unnamed_addr #0 align 2 {
 entry:
   %Loc.coerce55 = ptrtoint ptr %Loc.coerce to i64
   %LineRefAndNo.i = alloca %"struct.std::pair.36", align 8
@@ -2775,7 +2775,7 @@ cleanup.cont:                                     ; preds = %if.end88, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh9SourceMgr12PrintMessageERNS_11raw_ostreamENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS8_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr %Loc.coerce, i32 noundef %Kind, ptr noundef nonnull align 8 dereferenceable(18) %Msg, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef") align 8 %Ranges, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef.41") align 8 %FixIts, i1 noundef zeroext %ShowColors) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK4llvh9SourceMgr12PrintMessageERNS_11raw_ostreamENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS8_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr %Loc.coerce, i32 noundef %Kind, ptr noundef nonnull align 8 dereferenceable(18) %Msg, ptr noundef readonly byval(%"class.llvh::ArrayRef") align 8 captures(none) %Ranges, ptr noundef readonly byval(%"class.llvh::ArrayRef.41") align 8 captures(none) %FixIts, i1 noundef zeroext %ShowColors) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::SMDiagnostic", align 8
   call void @_ZNK4llvh9SourceMgr10GetMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEE(ptr nonnull sret(%"class.llvh::SMDiagnostic") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %Kind, ptr noundef nonnull align 8 dereferenceable(18) %Msg, ptr noundef nonnull byval(%"class.llvh::ArrayRef") align 8 %Ranges, ptr noundef nonnull byval(%"class.llvh::ArrayRef.41") align 8 %FixIts)
@@ -2835,7 +2835,7 @@ _ZN4llvh12SMDiagnosticD2Ev.exit:                  ; preds = %_ZN4llvh11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %Kind, ptr noundef nonnull align 8 dereferenceable(18) %Msg, ptr %Ranges.coerce0, i64 %Ranges.coerce1, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef.41") align 8 %FixIts, i1 noundef zeroext %ShowColors) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK4llvh9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %Kind, ptr noundef nonnull align 8 dereferenceable(18) %Msg, ptr %Ranges.coerce0, i64 %Ranges.coerce1, ptr noundef readonly byval(%"class.llvh::ArrayRef.41") align 8 captures(none) %FixIts, i1 noundef zeroext %ShowColors) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp2 = alloca %"class.llvh::ArrayRef", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #19
@@ -2849,7 +2849,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh12SMDiagnosticC2ERKNS_9SourceMgrENS_5SMLocENS_9StringRefEiiNS1_8DiagKindES5_S5_NS_8ArrayRefISt4pairIjjEEENS7_INS_7SMFixItEEE(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(120) %sm, ptr %L.coerce, ptr %FN.coerce0, i64 %FN.coerce1, i32 noundef %Line, i32 noundef %Col, i32 noundef %Kind, ptr nocapture noundef readonly byval(%"class.llvh::StringRef") align 8 %Msg, ptr nocapture noundef readonly byval(%"class.llvh::StringRef") align 8 %LineStr, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef.56") align 8 %Ranges, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef.41") align 8 %Hints) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh12SMDiagnosticC2ERKNS_9SourceMgrENS_5SMLocENS_9StringRefEiiNS1_8DiagKindES5_S5_NS_8ArrayRefISt4pairIjjEEENS7_INS_7SMFixItEEE(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(120) %sm, ptr %L.coerce, ptr %FN.coerce0, i64 %FN.coerce1, i32 noundef %Line, i32 noundef %Col, i32 noundef %Kind, ptr noundef readonly byval(%"class.llvh::StringRef") align 8 captures(none) %Msg, ptr noundef readonly byval(%"class.llvh::StringRef") align 8 captures(none) %LineStr, ptr noundef readonly byval(%"class.llvh::ArrayRef.56") align 8 captures(none) %Ranges, ptr noundef readonly byval(%"class.llvh::ArrayRef.41") align 8 captures(none) %Hints) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i7 = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i1 = alloca %"class.std::allocator", align 1
@@ -3682,7 +3682,7 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5w
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
@@ -3691,7 +3691,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
@@ -3710,7 +3710,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(pt
 declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
@@ -5145,10 +5145,10 @@ declare void @llvm.assume(i1 noundef) #16
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

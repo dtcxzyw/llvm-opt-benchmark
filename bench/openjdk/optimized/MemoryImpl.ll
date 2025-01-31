@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @jmm_interface = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_management_MemoryImpl_setVerboseGC(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define void @Java_sun_management_MemoryImpl_setVerboseGC(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -15,7 +15,7 @@ define void @Java_sun_management_MemoryImpl_setVerboseGC(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_management_MemoryImpl_getMemoryPools0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_management_MemoryImpl_getMemoryPools0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -24,7 +24,7 @@ define ptr @Java_sun_management_MemoryImpl_getMemoryPools0(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_management_MemoryImpl_getMemoryManagers0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_management_MemoryImpl_getMemoryManagers0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -33,7 +33,7 @@ define ptr @Java_sun_management_MemoryImpl_getMemoryManagers0(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_management_MemoryImpl_getMemoryUsage0(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define ptr @Java_sun_management_MemoryImpl_getMemoryUsage0(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8

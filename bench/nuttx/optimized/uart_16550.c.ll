@@ -27,7 +27,7 @@ define void @u16550_earlyserialinit() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @u16550_setup(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @u16550_setup(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.val = load i16, ptr %3, align 4
@@ -161,7 +161,7 @@ up_irq_restore.exit:                              ; preds = %u16550_putc.exit12,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @u16550_shutdown(ptr nocapture noundef readonly %0) #0 {
+define internal void @u16550_shutdown(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -195,7 +195,7 @@ define internal i32 @u16550_attach(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @u16550_detach(ptr nocapture noundef readonly %0) #0 {
+define internal void @u16550_detach(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 13
@@ -209,7 +209,7 @@ define internal void @u16550_detach(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -25, 1) i32 @u16550_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 %2) #0 {
+define internal range(i32 -25, 1) i32 @u16550_ioctl(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -267,7 +267,7 @@ up_irq_restore.exit:                              ; preds = %22, %17, %16, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 256) i32 @u16550_receive(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal range(i32 0, 256) i32 @u16550_receive(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %.val = load i16, ptr %4, align 4
@@ -281,7 +281,7 @@ define internal range(i32 0, 256) i32 @u16550_receive(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @u16550_rxint(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 {
+define internal void @u16550_rxint(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -296,7 +296,7 @@ define internal void @u16550_rxint(ptr nocapture noundef readonly %0, i1 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @u16550_rxavailable(ptr nocapture noundef readonly %0) #0 {
+define internal zeroext i1 @u16550_rxavailable(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.val = load i16, ptr %3, align 4
@@ -307,7 +307,7 @@ define internal zeroext i1 @u16550_rxavailable(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @u16550_send(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal void @u16550_send(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %5 = trunc i32 %1 to i8
@@ -359,7 +359,7 @@ up_irq_restore.exit:                              ; preds = %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @u16550_txready(ptr nocapture noundef readonly %0) #0 {
+define internal zeroext i1 @u16550_txready(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.val = load i16, ptr %3, align 4
@@ -370,7 +370,7 @@ define internal zeroext i1 @u16550_txready(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @u16550_txempty(ptr nocapture noundef readonly %0) #0 {
+define internal zeroext i1 @u16550_txempty(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.val = load i16, ptr %3, align 4
@@ -385,7 +385,7 @@ declare void @uart_putreg(i16 noundef zeroext, i32 noundef, i8 noundef zeroext) 
 declare i32 @irq_attach(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @u16550_interrupt(i32 %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal noundef i32 @u16550_interrupt(i32 %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8
   br label %6
@@ -448,10 +448,10 @@ declare zeroext i8 @uart_getreg(i16 noundef zeroext, i32 noundef) local_unnamed_
 declare void @up_disable_irq(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

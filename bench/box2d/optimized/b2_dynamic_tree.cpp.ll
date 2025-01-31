@@ -14,7 +14,7 @@ $__clang_call_terminate = comdat any
 @_ZN13b2DynamicTreeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN13b2DynamicTreeD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13b2DynamicTreeC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 24)) %this) unnamed_addr #0 align 2 {
+define void @_ZN13b2DynamicTreeC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 4), (8, 24)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 -1, ptr %this, align 8
   %m_nodeCapacity = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -72,10 +72,10 @@ for.end:                                          ; preds = %for.body, %entry.fo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13b2DynamicTreeD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13b2DynamicTreeD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_nodes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_nodes, align 8
@@ -108,7 +108,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN13b2DynamicTree12AllocateNodeEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN13b2DynamicTree12AllocateNodeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_freeList = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %m_freeList, align 8
@@ -208,10 +208,10 @@ if.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN13b2DynamicTree8FreeNodeEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %nodeId) local_unnamed_addr #6 align 2 {
+define void @_ZN13b2DynamicTree8FreeNodeEi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i32 noundef %nodeId) local_unnamed_addr #6 align 2 {
 entry:
   %m_freeList = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %m_freeList, align 8
@@ -232,7 +232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN13b2DynamicTree11CreateProxyERK6b2AABBPv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabb, ptr noundef %userData) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZN13b2DynamicTree11CreateProxyERK6b2AABBPv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %aabb, ptr noundef %userData) local_unnamed_addr #7 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN13b2DynamicTree12AllocateNodeEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %0 = load float, ptr %aabb, align 4
@@ -272,7 +272,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13b2DynamicTree10InsertLeafEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %leaf) local_unnamed_addr #7 align 2 {
+define void @_ZN13b2DynamicTree10InsertLeafEi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i32 noundef %leaf) local_unnamed_addr #7 align 2 {
 entry:
   %m_insertionCount = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_insertionCount, align 4
@@ -612,7 +612,7 @@ while.end214:                                     ; preds = %while.body173, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN13b2DynamicTree12DestroyProxyEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %proxyId) local_unnamed_addr #8 align 2 {
+define void @_ZN13b2DynamicTree12DestroyProxyEi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i32 noundef %proxyId) local_unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN13b2DynamicTree10RemoveLeafEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %proxyId)
   %m_freeList.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -634,7 +634,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN13b2DynamicTree10RemoveLeafEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %leaf) local_unnamed_addr #9 align 2 {
+define void @_ZN13b2DynamicTree10RemoveLeafEi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i32 noundef %leaf) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %leaf, %0
@@ -789,7 +789,7 @@ if.end82:                                         ; preds = %while.body, %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13b2DynamicTree9MoveProxyEiRK6b2AABBRK6b2Vec2(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %proxyId, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %displacement) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN13b2DynamicTree9MoveProxyEiRK6b2AABBRK6b2Vec2(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i32 noundef %proxyId, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %aabb, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %displacement) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load float, ptr %aabb, align 4
   %sub.i = fadd float %0, 0xBFB99999A0000000
@@ -897,7 +897,7 @@ return:                                           ; preds = %if.then28, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN13b2DynamicTree7BalanceEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %iA) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZN13b2DynamicTree7BalanceEi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i32 noundef %iA) local_unnamed_addr #10 align 2 {
 entry:
   %m_nodes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_nodes, align 8
@@ -1299,7 +1299,7 @@ return:                                           ; preds = %if.end78, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK13b2DynamicTree9GetHeightEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZNK13b2DynamicTree9GetHeightEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, -1
@@ -1319,7 +1319,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef float @_ZNK13b2DynamicTree12GetAreaRatioEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
+define noundef float @_ZNK13b2DynamicTree12GetAreaRatioEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, -1
@@ -1425,25 +1425,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK13b2DynamicTree17ValidateStructureEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %index) local_unnamed_addr #13 align 2 {
+define void @_ZNK13b2DynamicTree17ValidateStructureEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %index) local_unnamed_addr #13 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK13b2DynamicTree15ValidateMetricsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %index) local_unnamed_addr #14 align 2 {
+define void @_ZNK13b2DynamicTree15ValidateMetricsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %index) local_unnamed_addr #14 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK13b2DynamicTree8ValidateEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this) local_unnamed_addr #13 align 2 {
+define void @_ZNK13b2DynamicTree8ValidateEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #13 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, -2147483648) i32 @_ZNK13b2DynamicTree13GetMaxBalanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK13b2DynamicTree13GetMaxBalanceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_nodeCapacity = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %m_nodeCapacity, align 4
@@ -1493,7 +1493,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13b2DynamicTree15RebuildBottomUpEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN13b2DynamicTree15RebuildBottomUpEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_nodeCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_nodeCount, align 8
@@ -1720,7 +1720,7 @@ while.end:                                        ; preds = %for.end44, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN13b2DynamicTree11ShiftOriginERK6b2Vec2(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %newOrigin) local_unnamed_addr #8 align 2 {
+define void @_ZN13b2DynamicTree11ShiftOriginERK6b2Vec2(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %newOrigin) local_unnamed_addr #8 align 2 {
 entry:
   %m_nodeCapacity = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %m_nodeCapacity, align 4

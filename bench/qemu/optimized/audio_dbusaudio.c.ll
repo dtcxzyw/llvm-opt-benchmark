@@ -73,7 +73,7 @@ entry:
 declare void @audio_driver_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @dbus_audio_init(ptr nocapture readnone %dev, ptr nocapture readnone %errp) #0 {
+define internal noalias noundef ptr @dbus_audio_init(ptr readnone captures(none) %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #12
   %call1 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @g_object_unref) #11
@@ -231,14 +231,14 @@ declare ptr @qemu_dbus_display1_audio_skeleton_new() local_unnamed_addr #1
 declare ptr @g_object_connect(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_audio_register_in_listener(ptr nocapture noundef readonly %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener) #0 {
+define internal noundef i32 @dbus_audio_register_in_listener(ptr noundef readonly captures(none) %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener) #0 {
 entry:
   tail call fastcc void @dbus_audio_register_listener(ptr noundef %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener, i1 noundef zeroext false)
   ret i32 1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_audio_register_out_listener(ptr nocapture noundef readonly %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener) #0 {
+define internal noundef i32 @dbus_audio_register_out_listener(ptr noundef readonly captures(none) %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener) #0 {
 entry:
   tail call fastcc void @dbus_audio_register_listener(ptr noundef %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener, i1 noundef zeroext true)
   ret i32 1
@@ -257,7 +257,7 @@ declare i64 @g_dbus_interface_skeleton_get_type() local_unnamed_addr #4
 declare void @g_dbus_object_manager_server_export(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @dbus_audio_register_listener(ptr nocapture noundef readonly %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener, i1 noundef zeroext %out) unnamed_addr #0 {
+define internal fastcc void @dbus_audio_register_listener(ptr noundef readonly captures(none) %s, ptr noundef %invocation, ptr noundef %fd_list, ptr noundef %arg_listener, i1 noundef zeroext %out) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %err = alloca ptr, align 8
@@ -610,7 +610,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @listener_out_vanished_cb(ptr noundef %connection, i32 %remote_peer_vanished, ptr nocapture readnone %error, ptr nocapture noundef readonly %da) #0 {
+define internal void @listener_out_vanished_cb(ptr noundef %connection, i32 %remote_peer_vanished, ptr readnone captures(none) %error, ptr noundef readonly captures(none) %da) #0 {
 entry:
   %call = tail call ptr @g_type_check_instance_cast(ptr noundef %connection, i64 noundef 80) #11
   %call1 = tail call ptr @g_object_get_data(ptr noundef %call, ptr noundef nonnull @.str.18) #11
@@ -621,7 +621,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @listener_in_vanished_cb(ptr noundef %connection, i32 %remote_peer_vanished, ptr nocapture readnone %error, ptr nocapture noundef readonly %da) #0 {
+define internal void @listener_in_vanished_cb(ptr noundef %connection, i32 %remote_peer_vanished, ptr readnone captures(none) %error, ptr noundef readonly captures(none) %da) #0 {
 entry:
   %call = tail call ptr @g_type_check_instance_cast(ptr noundef %connection, i64 noundef 80) #11
   %call1 = tail call ptr @g_object_get_data(ptr noundef %call, ptr noundef nonnull @.str.18) #11
@@ -634,7 +634,7 @@ entry:
 declare void @g_error_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -649,7 +649,7 @@ declare ptr @g_object_get_data(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_init_out(ptr noundef %hw, ptr noundef %as, ptr nocapture readnone %drv_opaque) #0 {
+define internal noundef i32 @dbus_init_out(ptr noundef %hw, ptr noundef %as, ptr readnone captures(none) %drv_opaque) #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
@@ -753,7 +753,7 @@ do.end:                                           ; preds = %do.body, %if.then
 declare i64 @audio_generic_write(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @dbus_get_buffer_out(ptr noundef %hw, ptr nocapture noundef %size) #0 {
+define internal ptr @dbus_get_buffer_out(ptr noundef %hw, ptr noundef captures(none) %size) #0 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %hw, i64 192
   %0 = load ptr, ptr %buf, align 8
@@ -958,7 +958,7 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_volume_out(ptr noundef initializes((216, 217), (220, 244)) %hw, ptr nocapture noundef readonly %vol) #0 {
+define internal void @dbus_volume_out(ptr noundef initializes((216, 217), (220, 244)) %hw, ptr noundef readonly captures(none) %vol) #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
@@ -1024,7 +1024,7 @@ while.end:                                        ; preds = %dbus_volume_out_lis
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_init_in(ptr noundef %hw, ptr noundef %as, ptr nocapture readnone %drv_opaque) #0 {
+define internal noundef i32 @dbus_init_in(ptr noundef %hw, ptr noundef %as, ptr readnone captures(none) %drv_opaque) #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
@@ -1115,7 +1115,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @dbus_read(ptr noundef %hw, ptr nocapture noundef writeonly %buf, i64 noundef %size) #0 {
+define internal i64 @dbus_read(ptr noundef %hw, ptr noundef writeonly captures(none) %buf, i64 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %iter = alloca %struct._GHashTableIter, align 8
@@ -1262,7 +1262,7 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_volume_in(ptr noundef initializes((192, 193), (196, 220)) %hw, ptr nocapture noundef readonly %vol) #0 {
+define internal void @dbus_volume_in(ptr noundef initializes((192, 193), (196, 220)) %hw, ptr noundef readonly captures(none) %vol) #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
@@ -1360,7 +1360,7 @@ declare void @g_bytes_unref(ptr noundef) local_unnamed_addr #1
 declare void @g_variant_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @g_bytes_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1380,10 +1380,10 @@ declare void @qemu_dbus_display1_audio_in_listener_call_set_volume(ptr noundef, 
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

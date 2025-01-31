@@ -207,7 +207,7 @@ $_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_M_default_appendEm = comdat any
 @_ZN8QuantLib34PathwiseVegasOuterAccountingEngineC1EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEERKSt6vectorISC_INS_6MatrixESaISD_EESaISF_EEd = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, double), ptr @_ZN8QuantLib34PathwiseVegasOuterAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEERKSt6vectorISC_INS_6MatrixESaISD_EESaISF_EEd
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -224,10 +224,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24PathwiseAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEEd(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 16)) %this, ptr nocapture noundef %evolver, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %product, ptr nocapture noundef %pseudoRootStructure, double noundef %initialNumeraireValue) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24PathwiseAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEEd(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 16)) %this, ptr noundef captures(none) %evolver, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %product, ptr noundef captures(none) %pseudoRootStructure, double noundef %initialNumeraireValue) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %VModel = alloca %"class.QuantLib::Matrix", align 8
@@ -2471,7 +2471,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib24PathwiseAccountingEngine16singlePathValuesERSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %values) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN8QuantLib24PathwiseAccountingEngine16singlePathValuesERSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %values) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %initialForwards_ = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %initialForwards_) #21
@@ -3833,7 +3833,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i6, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29PathwiseVegasAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEERKSt6vectorISC_INS_6MatrixESaISD_EESaISF_EEd(ptr noundef nonnull align 8 dereferenceable(624) initializes((0, 16)) %this, ptr nocapture noundef %evolver, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %product, ptr nocapture noundef %pseudoRootStructure, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vegaBumps, double noundef %initialNumeraireValue) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib29PathwiseVegasAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEERKSt6vectorISC_INS_6MatrixESaISD_EESaISF_EEd(ptr noundef nonnull align 8 dereferenceable(624) initializes((0, 16)) %this, ptr noundef captures(none) %evolver, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %product, ptr noundef captures(none) %pseudoRootStructure, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vegaBumps, double noundef %initialNumeraireValue) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp113 = alloca %"class.std::vector.13", align 8
@@ -6759,7 +6759,7 @@ _ZNSt12_Vector_baseIN8QuantLib22RatePseudoRootJacobianESaIS1_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib29PathwiseVegasAccountingEngine16singlePathValuesERSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %values) local_unnamed_addr #3 align 2 {
+define noundef double @_ZN8QuantLib29PathwiseVegasAccountingEngine16singlePathValuesERSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %values) local_unnamed_addr #3 align 2 {
 entry:
   %pseudoRootStructure_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %pseudoRootStructure_, align 8, !tbaa !13
@@ -8231,7 +8231,7 @@ ehcleanup61:                                      ; preds = %if.then.i.i.i144, %
 declare double @sqrt(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib34PathwiseVegasOuterAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEERKSt6vectorISC_INS_6MatrixESaISD_EESaISF_EEd(ptr noundef nonnull align 8 dereferenceable(664) initializes((0, 16)) %this, ptr nocapture noundef %evolver, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %product, ptr nocapture noundef %pseudoRootStructure, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vegaBumps, double noundef %initialNumeraireValue) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib34PathwiseVegasOuterAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEERKSt6vectorISC_INS_6MatrixESaISD_EESaISF_EEd(ptr noundef nonnull align 8 dereferenceable(664) initializes((0, 16)) %this, ptr noundef captures(none) %evolver, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %product, ptr noundef captures(none) %pseudoRootStructure, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vegaBumps, double noundef %initialNumeraireValue) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp122 = alloca %"class.std::vector.13", align 8
@@ -11358,7 +11358,7 @@ _ZNSt12_Vector_baseIN8QuantLib33RatePseudoRootJacobianAllElementsESaIS1_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib34PathwiseVegasOuterAccountingEngine16singlePathValuesERSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %values) local_unnamed_addr #3 align 2 {
+define noundef double @_ZN8QuantLib34PathwiseVegasOuterAccountingEngine16singlePathValuesERSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %values) local_unnamed_addr #3 align 2 {
 entry:
   %pseudoRootStructure_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %pseudoRootStructure_, align 8, !tbaa !13
@@ -13206,7 +13206,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit82:                  ; preds = %_ZNSt6vectorIdSaIdE
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #12
@@ -13215,7 +13215,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #12
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
@@ -13224,7 +13224,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 
@@ -13246,7 +13246,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {

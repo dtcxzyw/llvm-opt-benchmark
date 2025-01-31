@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -5, 1) i32 @i915_ggtt_init_hw(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @i915_ggtt_init_hw(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -126,10 +126,10 @@ define dso_local noundef range(i32 -5, 1) i32 @i915_ggtt_init_hw(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_ggtt_suspend_vm(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -428,7 +428,7 @@ define dso_local void @i915_ggtt_suspend(ptr noundef %0) local_unnamed_addr #0 a
 declare dso_local void @intel_gt_check_and_clear_faults(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen6_ggtt_invalidate(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @gen6_ggtt_invalidate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -455,7 +455,7 @@ define dso_local noundef range(i64 1, 0) i64 @gen8_ggtt_pte_encode(i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_ggtt_bind_vma(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local void @intel_ggtt_bind_vma(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %4, 3072
@@ -483,7 +483,7 @@ define dso_local void @intel_ggtt_bind_vma(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_ggtt_unbind_vma(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @intel_ggtt_unbind_vma(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 248
@@ -495,7 +495,7 @@ define dso_local void @intel_ggtt_unbind_vma(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_init_ggtt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @i915_init_ggtt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_vm_pt_stash, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9304
   %4 = load ptr, ptr %3, align 8
@@ -828,7 +828,7 @@ define dso_local i32 @i915_init_ggtt(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_ggtt_driver_release(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_ggtt_driver_release(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -990,7 +990,7 @@ define dso_local void @i915_ggtt_driver_release(ptr nocapture noundef readonly %
 declare dso_local void @intel_ggtt_fini_fences(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_ggtt_driver_late_release(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_ggtt_driver_late_release(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1714,7 +1714,7 @@ declare dso_local void @intel_ggtt_restore_fences(ptr noundef) local_unnamed_add
 declare dso_local void @i915_address_space_init(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define internal void @i915_ggtt_color_adjust(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #6 align 16 {
+define internal void @i915_ggtt_color_adjust(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #6 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load volatile i64, ptr %5, align 8
   %7 = and i64 %6, 1
@@ -1802,7 +1802,7 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 declare dso_local i32 @i915_gem_gtt_reserve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @i915_ppgtt_create(ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -1957,12 +1957,12 @@ define internal void @gen8_ggtt_insert_page(ptr noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @nop_clear_range(ptr nocapture readnone %0, i64 %1, i64 %2) #4 align 16 {
+define internal void @nop_clear_range(ptr readnone captures(none) %0, i64 %1, i64 %2) #4 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen8_ggtt_clear_range(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define internal void @gen8_ggtt_clear_range(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = lshr i64 %1, 12
   %5 = lshr i64 %2, 12
   %6 = trunc i64 %5 to i32
@@ -2011,7 +2011,7 @@ define internal void @gen8_ggtt_clear_range(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen8_ggtt_insert_entries(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define internal void @gen8_ggtt_insert_entries(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 %6(i64 noundef 0, i32 noundef %2, i32 noundef %3) #10
@@ -2306,7 +2306,7 @@ define internal void @gen8_ggtt_insert_page_bind(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen8_ggtt_insert_entries_bind(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define internal void @gen8_ggtt_insert_entries_bind(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @intel_gt_is_bind_context_ready(ptr noundef %6) #10
@@ -2466,7 +2466,7 @@ define internal void @guc_ggtt_invalidate(ptr noundef readonly %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen8_ggtt_invalidate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @gen8_ggtt_invalidate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2632,7 +2632,7 @@ declare dso_local void @free_scratch(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @stop_machine(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bxt_vtd_ggtt_insert_entries__cb(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @bxt_vtd_ggtt_insert_entries__cb(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -2653,7 +2653,7 @@ define internal noundef i32 @bxt_vtd_ggtt_insert_entries__cb(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bxt_vtd_ggtt_insert_page__cb(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @bxt_vtd_ggtt_insert_page__cb(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -2684,7 +2684,7 @@ define internal noundef i32 @bxt_vtd_ggtt_insert_page__cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.i915_sched_attr, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   store i32 0, ptr %6, align 4
@@ -3233,7 +3233,7 @@ declare dso_local zeroext i1 @i915_gem_object_is_lmem(ptr noundef) local_unnamed
 declare dso_local i64 @__px_dma(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen6_ggtt_clear_range(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define internal void @gen6_ggtt_clear_range(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = lshr i64 %1, 12
   %5 = lshr i64 %2, 12
   %6 = trunc i64 %5 to i32
@@ -3300,7 +3300,7 @@ define internal void @gen6_ggtt_insert_page(ptr noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen6_ggtt_insert_entries(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define internal void @gen6_ggtt_insert_entries(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 248

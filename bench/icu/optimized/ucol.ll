@@ -108,7 +108,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 declare noundef i32 @_ZNK6icu_7517RuleBasedCollator11cloneBinaryEPhiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucol_safeClone_75(ptr noundef %coll, ptr nocapture noundef readnone %0, ptr noundef %pBufferSize, ptr noundef %status) local_unnamed_addr #0 {
+define noundef ptr @ucol_safeClone_75(ptr noundef %coll, ptr noundef readnone captures(none) %0, ptr noundef %pBufferSize, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -383,7 +383,7 @@ return:                                           ; preds = %lor.lhs.false21, %l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @ucol_getSortKey_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %result, i32 noundef %resultLength) local_unnamed_addr #0 {
@@ -518,7 +518,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define void @ucol_setMaxVariable_75(ptr noundef %coll, i32 noundef %group, ptr noundef %pErrorCode) local_unnamed_addr #0 {
@@ -861,7 +861,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucol_getUCAVersion_75(ptr noundef %coll, ptr nocapture noundef writeonly %info) local_unnamed_addr #0 {
+define void @ucol_getUCAVersion_75(ptr noundef %coll, ptr noundef writeonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %v = alloca [4 x i8], align 1
   %cmp.not = icmp eq ptr %coll, null
@@ -893,7 +893,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucol_getRules_75(ptr noundef %coll, ptr nocapture noundef writeonly initializes((0, 4)) %length) local_unnamed_addr #0 {
+define ptr @ucol_getRules_75(ptr noundef %coll, ptr noundef writeonly captures(none) initializes((0, 4)) %length) local_unnamed_addr #0 {
 entry:
   %0 = icmp ne ptr %coll, null
   tail call void @llvm.assume(i1 %0)
@@ -1133,10 +1133,10 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #7
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @DES_cbc_cksum(ptr nocapture noundef readonly %in, ptr noundef writeonly %output, i64 noundef %length, ptr noundef %schedule, ptr nocapture noundef readonly %ivec) local_unnamed_addr #0 {
+define i32 @DES_cbc_cksum(ptr noundef readonly captures(none) %in, ptr noundef writeonly %output, i64 noundef %length, ptr noundef %schedule, ptr noundef readonly captures(none) %ivec) local_unnamed_addr #0 {
 entry:
   %tin = alloca [2 x i32], align 4
   %0 = load i32, ptr %ivec, align 1

@@ -1235,7 +1235,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %544, %546, %555
 
 573:                                              ; preds = %139
   %574 = load ptr, ptr %76, align 8
-  %575 = tail call i64 @strtoul(ptr nocapture noundef %574, ptr noundef null, i32 noundef 0) #32
+  %575 = tail call i64 @strtoul(ptr noundef captures(none) %574, ptr noundef null, i32 noundef 0) #32
   %576 = trunc i64 %575 to i32
   %577 = load ptr, ptr %0, align 8
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 216
@@ -1251,7 +1251,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %544, %546, %555
 
 583:                                              ; preds = %139
   %584 = load ptr, ptr %76, align 8
-  %585 = tail call i64 @strtol(ptr nocapture noundef %584, ptr noundef null, i32 noundef 0) #32
+  %585 = tail call i64 @strtol(ptr noundef captures(none) %584, ptr noundef null, i32 noundef 0) #32
   %586 = trunc i64 %585 to i16
   %587 = load ptr, ptr %0, align 8
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 224
@@ -1271,7 +1271,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %544, %546, %555
 
 594:                                              ; preds = %139
   %595 = load ptr, ptr %76, align 8
-  %596 = tail call i64 @strtoul(ptr nocapture noundef readonly %595, ptr noundef null, i32 noundef 10) #32
+  %596 = tail call i64 @strtoul(ptr noundef readonly captures(none) %595, ptr noundef null, i32 noundef 10) #32
   %597 = trunc i64 %596 to i32
   %598 = lshr exact i32 -2147483648, %597
   %599 = load ptr, ptr %0, align 8
@@ -1291,7 +1291,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %544, %546, %555
 
 606:                                              ; preds = %139
   %607 = load ptr, ptr %76, align 8
-  %608 = tail call i64 @strtoul(ptr nocapture noundef readonly %607, ptr noundef null, i32 noundef 10) #32
+  %608 = tail call i64 @strtoul(ptr noundef readonly captures(none) %607, ptr noundef null, i32 noundef 10) #32
   %609 = trunc i64 %608 to i32
   %610 = sub i32 15, %609
   %611 = shl nuw i32 1, %610
@@ -1312,7 +1312,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %544, %546, %555
 
 619:                                              ; preds = %139
   %620 = load ptr, ptr %76, align 8
-  %621 = tail call i64 @strtoul(ptr nocapture noundef readonly %620, ptr noundef null, i32 noundef 10) #32
+  %621 = tail call i64 @strtoul(ptr noundef readonly captures(none) %620, ptr noundef null, i32 noundef 10) #32
   %622 = trunc i64 %621 to i32
   %623 = sub i32 7, %622
   %624 = shl nuw i32 1, %623
@@ -2682,13 +2682,13 @@ default.unreachable800:                           ; preds = %yy_get_next_buffer.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @WimaxasncpDict_get_extra(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @WimaxasncpDict_get_extra(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden nonnull ptr @WimaxasncpDict__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define hidden nonnull ptr @WimaxasncpDict__create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -2799,7 +2799,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @wimaxasncp_dict_debug(ptr nocapture noundef readonly %0, ...) unnamed_addr #2 {
+define internal void @wimaxasncp_dict_debug(ptr noundef readonly captures(none) %0, ...) unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load i32, ptr @debugging, align 4
@@ -2821,10 +2821,10 @@ define internal void @wimaxasncp_dict_debug(ptr nocapture noundef readonly %0, .
 declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @WimaxasncpDict__switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @WimaxasncpDict__switch_to_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -2954,10 +2954,10 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare void @g_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @WimaxasncpDict__delete_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define hidden void @WimaxasncpDict__delete_buffer(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -3004,10 +3004,10 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @wmem_epan_scope() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -3022,7 +3022,7 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #9 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @WimaxasncpDict_restart(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @WimaxasncpDict_restart(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3217,10 +3217,10 @@ WimaxasncpDict__init_buffer.exit:                 ; preds = %80, %.thread.i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @WimaxasncpDict__flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #12 {
+define hidden void @WimaxasncpDict__flush_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -3279,7 +3279,7 @@ define hidden void @WimaxasncpDict__flush_buffer(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @WimaxasncpDict_push_buffer_state(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @WimaxasncpDict_push_buffer_state(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %73, label %4
 
@@ -3414,7 +3414,7 @@ WimaxasncpDict_ensure_buffer_stack.exit:          ; preds = %10, %13, %24
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @WimaxasncpDict_pop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #7 {
+define hidden void @WimaxasncpDict_pop_buffer_state(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3496,7 +3496,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %.thread.i, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @WimaxasncpDict__scan_buffer(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @WimaxasncpDict__scan_buffer(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %1, 2
   br i1 %4, label %27, label %5
 
@@ -3553,15 +3553,15 @@ define hidden noundef ptr @WimaxasncpDict__scan_buffer(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @WimaxasncpDict__scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden nonnull ptr @WimaxasncpDict__scan_string(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #33
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @WimaxasncpDict__scan_bytes(ptr noundef %0, i32 noundef %4, ptr noundef %1)
+  %5 = tail call ptr @WimaxasncpDict__scan_bytes(ptr noundef nonnull %0, i32 noundef %4, ptr noundef %1)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @WimaxasncpDict__scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden nonnull ptr @WimaxasncpDict__scan_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 2
   %5 = sext i32 %4 to i64
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #28
@@ -3653,10 +3653,10 @@ define hidden nonnull ptr @WimaxasncpDict__scan_bytes(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @WimaxasncpDict_get_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define hidden i32 @WimaxasncpDict_get_lineno(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3681,7 +3681,7 @@ define hidden i32 @WimaxasncpDict_get_lineno(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @WimaxasncpDict_get_column(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define hidden i32 @WimaxasncpDict_get_column(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3706,41 +3706,41 @@ define hidden i32 @WimaxasncpDict_get_column(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @WimaxasncpDict_get_in(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @WimaxasncpDict_get_in(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @WimaxasncpDict_get_out(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @WimaxasncpDict_get_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @WimaxasncpDict_get_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden i32 @WimaxasncpDict_get_leng(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @WimaxasncpDict_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @WimaxasncpDict_get_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @WimaxasncpDict_set_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #14 {
+define hidden void @WimaxasncpDict_set_extra(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #14 {
   store ptr %0, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @WimaxasncpDict_set_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden void @WimaxasncpDict_set_lineno(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3765,7 +3765,7 @@ define hidden void @WimaxasncpDict_set_lineno(i32 noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @WimaxasncpDict_set_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden void @WimaxasncpDict_set_column(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3790,28 +3790,28 @@ define hidden void @WimaxasncpDict_set_column(i32 noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @WimaxasncpDict_set_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #14 {
+define hidden void @WimaxasncpDict_set_in(ptr noundef %0, ptr noundef writeonly captures(none) initializes((8, 16)) %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @WimaxasncpDict_set_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #14 {
+define hidden void @WimaxasncpDict_set_out(ptr noundef %0, ptr noundef writeonly captures(none) initializes((16, 24)) %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @WimaxasncpDict_get_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden i32 @WimaxasncpDict_get_debug(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @WimaxasncpDict_set_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #14 {
+define hidden void @WimaxasncpDict_set_debug(i32 noundef %0, ptr noundef writeonly captures(none) initializes((124, 128)) %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -3843,7 +3843,7 @@ define hidden range(i32 0, 2) i32 @WimaxasncpDict_lex_init(ptr noundef writeonly
 declare ptr @__errno_location() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @WimaxasncpDict_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
@@ -3876,7 +3876,7 @@ define hidden range(i32 0, 2) i32 @WimaxasncpDict_lex_init_extra(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @WimaxasncpDict_lex_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden noundef i32 @WimaxasncpDict_lex_destroy(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -4005,12 +4005,12 @@ WimaxasncpDict_pop_buffer_state.exit:             ; preds = %26, %44, %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @wimaxasncp_dict_unused(ptr nocapture noundef readonly %0) local_unnamed_addr #18 {
+define hidden void @wimaxasncp_dict_unused(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @wimaxasncp_dict_scan(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden ptr @wimaxasncp_dict_scan(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.WimaxasncpDict_scanner_state_t, align 8
   store i32 %2, ptr @debugging, align 4
   %6 = tail call ptr @g_string_new(ptr noundef nonnull @.str.39) #32
@@ -4152,7 +4152,7 @@ wimaxasncp_dict_open.exit:                        ; preds = %17, %19
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @file_input(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #2 {
+define internal noundef i64 @file_input(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fread(ptr noundef %0, i64 noundef 1, i64 noundef %1, ptr noundef %5)
@@ -4163,7 +4163,7 @@ define internal noundef i64 @file_input(ptr nocapture noundef %0, i64 noundef %1
 declare ptr @strerror(i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @string_input(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) #12 {
+define internal i64 @string_input(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -4234,7 +4234,7 @@ define hidden void @wimaxasncp_dict_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @wimaxasncp_dict_print(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @wimaxasncp_dict_print(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %.02032 = load ptr, ptr %1, align 8
   %.not33 = icmp eq ptr %.02032, null
@@ -4288,21 +4288,21 @@ define hidden void @wimaxasncp_dict_print(ptr nocapture noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #22
@@ -4310,13 +4310,13 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #22
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #23
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #23
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #24
@@ -4325,7 +4325,7 @@ declare void @llvm.va_start.p0(ptr) #24
 declare void @llvm.va_end.p0(ptr) #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #26

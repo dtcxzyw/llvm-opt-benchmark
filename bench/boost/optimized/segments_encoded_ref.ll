@@ -106,10 +106,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5boost4urls20segments_encoded_refC2ERNS0_8url_baseE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #3 align 2 {
@@ -443,7 +443,7 @@ define void @_ZN5boost4urls20segments_encoded_ref6assignESt16initializer_listINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls20segments_encoded_ref6insertENS0_21segments_encoded_base8iteratorENS0_15pct_string_viewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::segments_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %2, ptr noundef nonnull byval(%"class.boost::urls::pct_string_view") align 8 %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls20segments_encoded_ref6insertENS0_21segments_encoded_base8iteratorENS0_15pct_string_viewE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::segments_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %2, ptr noundef nonnull byval(%"class.boost::urls::pct_string_view") align 8 %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::urls::detail::segment_encoded_iter", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !3
@@ -460,7 +460,7 @@ declare void @_ZN5boost4urls8url_base13edit_segmentsERKNS0_6detail18segments_ite
 declare void @_ZN5boost4urls6detail20segment_encoded_iterC1ERKNS0_15pct_string_viewE(ptr noundef nonnull align 8 dereferenceable(46), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls20segments_encoded_ref6insertENS0_21segments_encoded_base8iteratorESt16initializer_listINS0_15pct_string_viewEE(ptr dead_on_unwind noalias writable sret(%"class.boost::urls::segments_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %2, ptr %3, i64 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls20segments_encoded_ref6insertENS0_21segments_encoded_base8iteratorESt16initializer_listINS0_15pct_string_viewEE(ptr dead_on_unwind noalias writable sret(%"class.boost::urls::segments_encoded_base::iterator") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef readonly byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 captures(none) %2, ptr %3, i64 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.boost::urls::pct_string_view", align 8
   %7 = alloca %"struct.boost::urls::detail::segments_encoded_iter.7", align 8
   %8 = alloca %"class.boost::urls::segments_encoded_base::iterator", align 8
@@ -512,10 +512,10 @@ _ZN5boost4urls20segments_encoded_ref6insertIPKNS0_15pct_string_viewEEENS0_21segm
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost4urls20segments_encoded_ref5eraseENS0_21segments_encoded_base8iteratorES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::segments_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %2, ptr noundef nonnull byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls20segments_encoded_ref5eraseENS0_21segments_encoded_base8iteratorES3_(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::segments_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %2, ptr noundef nonnull byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::core::basic_string_view", align 8
   %6 = alloca %"struct.boost::urls::detail::segments_iter_impl", align 8
   %7 = alloca %"struct.boost::urls::detail::segments_encoded_iter", align 8
@@ -553,7 +553,7 @@ define void @_ZN5boost4urls20segments_encoded_ref5eraseENS0_21segments_encoded_b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls20segments_encoded_ref7replaceENS0_21segments_encoded_base8iteratorENS0_15pct_string_viewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::segments_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %2, ptr noundef byval(%"class.boost::urls::pct_string_view") align 8 %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls20segments_encoded_ref7replaceENS0_21segments_encoded_base8iteratorENS0_15pct_string_viewE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::segments_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %2, ptr noundef byval(%"class.boost::urls::pct_string_view") align 8 %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 .preheader.i.i.i:
   %4 = alloca %"class.boost::urls::segments_encoded_base::iterator", align 8
   %5 = alloca %"class.boost::urls::segments_encoded_base::iterator", align 8
@@ -575,7 +575,7 @@ define void @_ZN5boost4urls20segments_encoded_ref7replaceENS0_21segments_encoded
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls20segments_encoded_ref7replaceENS0_21segments_encoded_base8iteratorES3_NS0_15pct_string_viewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::segments_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %2, ptr noundef byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %3, ptr noundef nonnull byval(%"class.boost::urls::pct_string_view") align 8 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls20segments_encoded_ref7replaceENS0_21segments_encoded_base8iteratorES3_NS0_15pct_string_viewE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::segments_encoded_base::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %2, ptr noundef byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %3, ptr noundef nonnull byval(%"class.boost::urls::pct_string_view") align 8 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.boost::urls::detail::segment_encoded_iter", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !3
@@ -587,7 +587,7 @@ define void @_ZN5boost4urls20segments_encoded_ref7replaceENS0_21segments_encoded
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls20segments_encoded_ref7replaceENS0_21segments_encoded_base8iteratorES3_St16initializer_listINS0_15pct_string_viewEE(ptr dead_on_unwind noalias writable sret(%"class.boost::urls::segments_encoded_base::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %2, ptr nocapture noundef readonly byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 %3, ptr %4, i64 %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls20segments_encoded_ref7replaceENS0_21segments_encoded_base8iteratorES3_St16initializer_listINS0_15pct_string_viewEE(ptr dead_on_unwind noalias writable sret(%"class.boost::urls::segments_encoded_base::iterator") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef readonly byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 captures(none) %2, ptr noundef readonly byval(%"class.boost::urls::segments_encoded_base::iterator") align 8 captures(none) %3, ptr %4, i64 %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.boost::urls::pct_string_view", align 8
   %8 = alloca %"struct.boost::urls::detail::segments_encoded_iter.7", align 8
   %9 = alloca %"class.boost::urls::segments_encoded_base::iterator", align 8
@@ -850,7 +850,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail21segments_encoded_iterIPN
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

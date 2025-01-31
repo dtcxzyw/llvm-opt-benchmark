@@ -106,7 +106,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z24grpc_set_socket_zerocopyi(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef %fd) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z24grpc_set_socket_zerocopyi(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, i32 noundef %fd) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %enable = alloca i32, align 4
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -177,7 +177,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z27grpc_set_socket_nonblockingii(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef %fd, i32 noundef %non_blocking) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z27grpc_set_socket_nonblockingii(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, i32 noundef %fd, i32 noundef %non_blocking) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
@@ -251,14 +251,14 @@ eh.resume:                                        ; preds = %lpad10, %lpad
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z38grpc_set_socket_no_sigpipe_if_possiblei(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, i32 noundef %fd) local_unnamed_addr #6 {
+define void @_Z38grpc_set_socket_no_sigpipe_if_possiblei(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) initializes((0, 8)) %agg.result, i32 noundef %fd) local_unnamed_addr #6 {
 entry:
   store i64 0, ptr %agg.result, align 8, !alias.scope !13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z38grpc_set_socket_ip_pktinfo_if_possiblei(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef %fd) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z38grpc_set_socket_ip_pktinfo_if_possiblei(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, i32 noundef %fd) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %get_local_ip = alloca i32, align 4
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -296,7 +296,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z44grpc_set_socket_ipv6_recvpktinfo_if_possiblei(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef %fd) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z44grpc_set_socket_ipv6_recvpktinfo_if_possiblei(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, i32 noundef %fd) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %get_local_ip = alloca i32, align 4
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -334,7 +334,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22grpc_set_socket_sndbufii(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef %fd, i32 noundef %buffer_size_bytes) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z22grpc_set_socket_sndbufii(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, i32 noundef %fd, i32 noundef %buffer_size_bytes) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer_size_bytes.addr = alloca i32, align 4
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -372,7 +372,7 @@ lpad:                                             ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22grpc_set_socket_rcvbufii(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef %fd, i32 noundef %buffer_size_bytes) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z22grpc_set_socket_rcvbufii(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, i32 noundef %fd, i32 noundef %buffer_size_bytes) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer_size_bytes.addr = alloca i32, align 4
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -410,7 +410,7 @@ lpad:                                             ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23grpc_set_socket_cloexecii(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef %fd, i32 noundef %close_on_exec) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z23grpc_set_socket_cloexecii(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, i32 noundef %fd, i32 noundef %close_on_exec) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
@@ -638,7 +638,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 declare void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr sret(%"class.absl::lts_20230802::Status") align 8, i32 noundef, i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1099,7 +1099,7 @@ eh.resume:                                        ; preds = %lpad19, %lpad9, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20grpc_set_socket_dscpii(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef %fd, i32 noundef %dscp) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z20grpc_set_socket_dscpii(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, i32 noundef %fd, i32 noundef %dscp) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca i32, align 4
   %optval = alloca i32, align 4
@@ -1220,7 +1220,7 @@ if.end10:                                         ; preds = %if.end10.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z32grpc_set_socket_tcp_user_timeoutiRKN9grpc_core15PosixTcpOptionsEb(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %options, i1 noundef zeroext %is_client) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z32grpc_set_socket_tcp_user_timeoutiRKN9grpc_core15PosixTcpOptionsEb(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, i32 noundef %fd, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %options, i1 noundef zeroext %is_client) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %timeout = alloca i32, align 4
   %newval = alloca i32, align 4
@@ -1458,7 +1458,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 declare noundef zeroext i1 @_Z29grpc_socket_mutator_mutate_fdP19grpc_socket_mutatori13grpc_fd_usage(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z33grpc_apply_socket_mutator_in_argsi13grpc_fd_usageRKN9grpc_core15PosixTcpOptionsE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef %fd, i32 noundef %usage, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %options) local_unnamed_addr #3 {
+define void @_Z33grpc_apply_socket_mutator_in_argsi13grpc_fd_usageRKN9grpc_core15PosixTcpOptionsE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef %fd, i32 noundef %usage, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %options) local_unnamed_addr #3 {
 entry:
   %socket_mutator = getelementptr inbounds nuw i8, ptr %options, i64 56
   %0 = load ptr, ptr %socket_mutator, align 8
@@ -1525,14 +1525,14 @@ if.end6:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z28grpc_create_dualstack_socketPK21grpc_resolved_addressiiP19grpc_dualstack_modePi(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %resolved_addr, i32 noundef %type, i32 noundef %protocol, ptr nocapture noundef writeonly initializes((0, 4)) %dsmode, ptr nocapture noundef initializes((0, 4)) %newfd) local_unnamed_addr #3 {
+define void @_Z28grpc_create_dualstack_socketPK21grpc_resolved_addressiiP19grpc_dualstack_modePi(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %resolved_addr, i32 noundef %type, i32 noundef %protocol, ptr noundef writeonly captures(none) initializes((0, 4)) %dsmode, ptr noundef captures(none) initializes((0, 4)) %newfd) local_unnamed_addr #3 {
 entry:
   tail call void @_Z42grpc_create_dualstack_socket_using_factoryP19grpc_socket_factoryPK21grpc_resolved_addressiiP19grpc_dualstack_modePi(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef null, ptr noundef %resolved_addr, i32 noundef %type, i32 noundef %protocol, ptr noundef %dsmode, ptr noundef %newfd)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z42grpc_create_dualstack_socket_using_factoryP19grpc_socket_factoryPK21grpc_resolved_addressiiP19grpc_dualstack_modePi(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %factory, ptr noundef %resolved_addr, i32 noundef %type, i32 noundef %protocol, ptr nocapture noundef writeonly initializes((0, 4)) %dsmode, ptr nocapture noundef initializes((0, 4)) %newfd) local_unnamed_addr #3 {
+define void @_Z42grpc_create_dualstack_socket_using_factoryP19grpc_socket_factoryPK21grpc_resolved_addressiiP19grpc_dualstack_modePi(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %factory, ptr noundef %resolved_addr, i32 noundef %type, i32 noundef %protocol, ptr noundef writeonly captures(none) initializes((0, 4)) %dsmode, ptr noundef captures(none) initializes((0, 4)) %newfd) local_unnamed_addr #3 {
 entry:
   %0 = load i16, ptr %resolved_addr, align 2
   %conv = zext i16 %0 to i32
@@ -2085,10 +2085,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

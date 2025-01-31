@@ -50,10 +50,10 @@ define hidden void @sync_pipe_write_string_msg(i32 noundef %0, i8 noundef signex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @sync_pipe_write_uint_msg(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -93,7 +93,7 @@ sync_pipe_write_string_msg.exit:                  ; preds = %3, %21
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @sync_pipe_write_int_msg(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -133,7 +133,7 @@ sync_pipe_write_string_msg.exit:                  ; preds = %3, %21
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @sync_pipe_write_errmsgs_to_parent(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @sync_pipe_write_errmsgs_to_parent(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
@@ -158,88 +158,72 @@ define hidden void @sync_pipe_write_errmsgs_to_parent(i32 noundef %0, ptr nounde
   store i8 %19, ptr %20, align 1
   %21 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %26, label %22
-
-22:                                               ; preds = %3
-  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #5
-  %24 = trunc i64 %23 to i32
-  %25 = add i32 %24, 1
-  br label %26
-
-26:                                               ; preds = %22, %3
-  %.0.i = phi i32 [ %25, %22 ], [ 0, %3 ]
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #5
+  %23 = trunc i64 %22 to i32
+  %24 = add i32 %23, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i8 69, ptr %5, align 1
-  %27 = lshr i32 %.0.i, 16
-  %28 = trunc i32 %27 to i8
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %28, ptr %29, align 1
-  %30 = lshr i32 %.0.i, 8
-  %31 = trunc i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %25 = lshr i32 %24, 16
+  %26 = trunc i32 %25 to i8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %26, ptr %27, align 1
+  %28 = lshr i32 %24, 8
+  %29 = trunc i32 %28 to i8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %29, ptr %30, align 1
+  %31 = trunc i32 %24 to i8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %31, ptr %32, align 1
-  %33 = trunc i32 %.0.i to i8
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %33, ptr %34, align 1
-  %35 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 4) #6
+  %33 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %36 = icmp ne i64 %35, -1
-  %37 = icmp ne i32 %.0.i, 0
-  %or.cond.i = and i1 %37, %36
-  br i1 %or.cond.i, label %38, label %sync_pipe_write_string_msg.exit
+  %34 = icmp ne i64 %33, -1
+  %35 = icmp ne i32 %24, 0
+  %or.cond.i = and i1 %35, %34
+  br i1 %or.cond.i, label %36, label %39
 
-38:                                               ; preds = %26
-  %39 = sext i32 %.0.i to i64
-  %40 = tail call i64 @write(i32 noundef %0, ptr noundef readonly %1, i64 noundef %39) #6
-  br label %sync_pipe_write_string_msg.exit
+36:                                               ; preds = %3
+  %37 = sext i32 %24 to i64
+  %38 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull readonly %1, i64 noundef %37) #6
+  br label %39
 
-sync_pipe_write_string_msg.exit:                  ; preds = %26, %38
-  %.not.i6 = icmp eq ptr %2, null
-  br i1 %.not.i6, label %45, label %41
-
-41:                                               ; preds = %sync_pipe_write_string_msg.exit
-  %42 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #5
-  %43 = trunc i64 %42 to i32
-  %44 = add i32 %43, 1
-  br label %45
-
-45:                                               ; preds = %41, %sync_pipe_write_string_msg.exit
-  %.0.i7 = phi i32 [ %44, %41 ], [ 0, %sync_pipe_write_string_msg.exit ]
+39:                                               ; preds = %3, %36
+  %40 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #5
+  %41 = trunc i64 %40 to i32
+  %42 = add i32 %41, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i8 69, ptr %4, align 1
-  %46 = lshr i32 %.0.i7, 16
+  %43 = lshr i32 %42, 16
+  %44 = trunc i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 %44, ptr %45, align 1
+  %46 = lshr i32 %42, 8
   %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %47, ptr %48, align 1
-  %49 = lshr i32 %.0.i7, 8
-  %50 = trunc i32 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %50, ptr %51, align 1
-  %52 = trunc i32 %.0.i7 to i8
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %52, ptr %53, align 1
-  %54 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 4) #6
+  %49 = trunc i32 %42 to i8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  store i8 %49, ptr %50, align 1
+  %51 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %55 = icmp ne i64 %54, -1
-  %56 = icmp ne i32 %.0.i7, 0
-  %or.cond.i8 = and i1 %56, %55
-  br i1 %or.cond.i8, label %57, label %sync_pipe_write_string_msg.exit9
+  %52 = icmp ne i64 %51, -1
+  %53 = icmp ne i32 %42, 0
+  %or.cond.i8 = and i1 %53, %52
+  br i1 %or.cond.i8, label %54, label %sync_pipe_write_string_msg.exit9
 
-57:                                               ; preds = %45
-  %58 = sext i32 %.0.i7 to i64
-  %59 = tail call i64 @write(i32 noundef %0, ptr noundef readonly %2, i64 noundef %58) #6
+54:                                               ; preds = %39
+  %55 = sext i32 %42 to i64
+  %56 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull readonly %2, i64 noundef %55) #6
   br label %sync_pipe_write_string_msg.exit9
 
-sync_pipe_write_string_msg.exit9:                 ; preds = %45, %57
+sync_pipe_write_string_msg.exit9:                 ; preds = %39, %54
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

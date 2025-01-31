@@ -426,7 +426,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.ExplainNode.17 = private unnamed_addr constant [4 x ptr] [ptr @.str.90, ptr @.str.89, ptr @.str.91, ptr @.str.92], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainQuery(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1 x i64], align 8
   %6 = alloca [1 x i8], align 1
   %7 = tail call ptr @palloc0(i64 noundef 96) #11
@@ -622,7 +622,7 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr nocapture noundef readon
   tail call void @llvm.assume(i1 %112)
   %113 = tail call i32 @errcode(i32 noundef 50856066) #11
   %114 = load ptr, ptr %111, align 8
-  %115 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %114, ptr noundef %94) #11
+  %115 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %114, ptr noundef nonnull %94) #11
   %116 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %117 = load i32, ptr %116, align 4
   %118 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %117) #11
@@ -934,7 +934,7 @@ define dso_local ptr @NewExplainState() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #2
 
@@ -956,7 +956,7 @@ declare ptr @JumbleQuery(ptr noundef) local_unnamed_addr #2
 declare ptr @QueryRewrite(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainBeginOutput(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExplainBeginOutput(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %21 [
@@ -1107,7 +1107,7 @@ define internal fastcc void @ExplainOneQuery(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainSeparatePlans(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExplainSeparatePlans(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %cond = icmp eq i32 %3, 0
@@ -1123,7 +1123,7 @@ define dso_local void @ExplainSeparatePlans(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainEndOutput(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExplainEndOutput(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %21 [
@@ -1168,7 +1168,7 @@ define dso_local void @ExplainEndOutput(ptr nocapture noundef %0) local_unnamed_
 declare ptr @begin_tup_output_tupdesc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExplainResultDesc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @ExplainResultDesc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1347,7 +1347,7 @@ define dso_local void @ExplainOneUtility(ptr noundef %0, ptr noundef %1, ptr nou
 declare zeroext i1 @CreateTableAsRelExists(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExplainDummyGroup(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @ExplainDummyGroup(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %35 [
@@ -1932,7 +1932,7 @@ ExplainPrintJITSummary.exit:                      ; preds = %241, %257
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @PushCopiedSnapshot(ptr noundef) local_unnamed_addr #2
 
@@ -1953,7 +1953,7 @@ declare void @ExecutorRun(ptr noundef, i32 noundef, i64 noundef, i1 noundef zero
 declare void @ExecutorFinish(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainOpenGroup(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local void @ExplainOpenGroup(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %56 [
@@ -2070,7 +2070,7 @@ ExplainYAMLLineStarting.exit:                     ; preds = %40, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainPrintPlan(ptr noundef initializes((40, 80)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExplainPrintPlan(ptr noundef initializes((40, 80)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca %struct.StringInfoData, align 8
@@ -2148,7 +2148,7 @@ define dso_local void @ExplainPrintPlan(ptr noundef initializes((40, 80)) %0, pt
   %50 = load ptr, ptr %49, align 8
   %51 = call ptr @GetConfigOptionByName(ptr noundef %50, ptr noundef null, i1 noundef zeroext true) #11
   %52 = load ptr, ptr %49, align 8
-  call fastcc void @ExplainProperty(ptr noundef %52, ptr noundef null, ptr noundef %51, i1 noundef zeroext false, ptr noundef readonly %0)
+  call fastcc void @ExplainProperty(ptr noundef %52, ptr noundef null, ptr noundef %51, i1 noundef zeroext false, ptr noundef nonnull readonly %0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %53 = load i32, ptr %4, align 4
   %54 = sext i32 %53 to i64
@@ -2156,7 +2156,7 @@ define dso_local void @ExplainPrintPlan(ptr noundef initializes((40, 80)) %0, pt
   br i1 %55, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %45
-  call void @ExplainCloseGroup(ptr noundef nonnull @.str.57, ptr nonnull poison, i1 noundef zeroext true, ptr noundef %0)
+  call void @ExplainCloseGroup(ptr noundef nonnull @.str.57, ptr nonnull poison, i1 noundef zeroext true, ptr noundef nonnull %0)
   br label %ExplainPrintSettings.exit
 
 56:                                               ; preds = %41
@@ -2205,7 +2205,7 @@ define dso_local void @ExplainPrintPlan(ptr noundef initializes((40, 80)) %0, pt
 
 ._crit_edge30.i:                                  ; preds = %71, %59
   %75 = load ptr, ptr %5, align 8
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef %75, i1 noundef zeroext false, ptr noundef readonly %0)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef %75, i1 noundef zeroext false, ptr noundef nonnull readonly %0)
   br label %ExplainPrintSettings.exit
 
 ExplainPrintSettings.exit:                        ; preds = %37, %._crit_edge.i, %56, %._crit_edge30.i
@@ -2238,7 +2238,7 @@ ExplainPrintSettings.exit:                        ; preds = %37, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExplainIndentText(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @ExplainIndentText(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -2266,7 +2266,7 @@ define internal fastcc void @ExplainIndentText(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_buffer_usage(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @show_buffer_usage(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [32 x i8], align 16
   %5 = alloca [32 x i8], align 16
@@ -2814,7 +2814,7 @@ ExplainIndentText.exit152:                        ; preds = %177, %184
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainCloseGroup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i1 noundef zeroext %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local void @ExplainCloseGroup(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i1 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %31 [
@@ -2867,7 +2867,7 @@ define dso_local void @ExplainCloseGroup(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainPropertyFloat(ptr noundef %0, ptr noundef %1, double noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define dso_local void @ExplainPropertyFloat(ptr noundef %0, ptr noundef %1, double noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, i32 noundef %3, double noundef %2) #11
   tail call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef %1, ptr noundef %6, i1 noundef zeroext true, ptr noundef %4)
   tail call void @pfree(ptr noundef %6) #11
@@ -2875,7 +2875,7 @@ define dso_local void @ExplainPropertyFloat(ptr noundef %0, ptr noundef %1, doub
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainPrintTriggers(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExplainPrintTriggers(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -2972,7 +2972,7 @@ list_length.exit.thread:                          ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainPrintJITSummary(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExplainPrintJITSummary(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.JitInstrumentation, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -5717,7 +5717,7 @@ list_length.exit.thread.i.i:                      ; preds = %list_length.exit.i.
   %1247 = load ptr, ptr %1246, align 8
   %1248 = getelementptr inbounds nuw i8, ptr %1247, i64 64
   %1249 = load ptr, ptr %1248, align 8
-  call fastcc void @show_grouping_set_keys(ptr noundef readonly %1223, ptr noundef %1247, ptr noundef %1249, ptr noundef %1229, i1 noundef zeroext %1238, ptr noundef %1219, ptr noundef %4)
+  call fastcc void @show_grouping_set_keys(ptr noundef nonnull readonly %1223, ptr noundef %1247, ptr noundef %1249, ptr noundef %1229, i1 noundef zeroext %1238, ptr noundef %1219, ptr noundef nonnull %4)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %1250 = load i32, ptr %1241, align 4
   %1251 = sext i32 %1250 to i64
@@ -5725,7 +5725,7 @@ list_length.exit.thread.i.i:                      ; preds = %list_length.exit.i.
   br i1 %1252, label %.lr.ph33.i.i, label %show_grouping_sets.exit.i
 
 show_grouping_sets.exit.i:                        ; preds = %.lr.ph33.i.i, %.lr.ph.i.i, %1237
-  call void @ExplainCloseGroup(ptr noundef nonnull @.str.255, ptr nonnull poison, i1 noundef zeroext false, ptr noundef %4)
+  call void @ExplainCloseGroup(ptr noundef nonnull @.str.255, ptr nonnull poison, i1 noundef zeroext false, ptr noundef nonnull %4)
   br label %1258
 
 1253:                                             ; preds = %1218
@@ -7741,7 +7741,7 @@ show_scan_qual.exit766:                           ; preds = %1663, %1706, %1484,
   br i1 %2286, label %2287, label %2295
 
 2287:                                             ; preds = %2281
-  call void @ExplainOpenGroup(ptr noundef nonnull @.str.238, ptr noundef null, i1 noundef zeroext true, ptr noundef %4)
+  call void @ExplainOpenGroup(ptr noundef nonnull @.str.238, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %4)
   %2288 = load ptr, ptr %4, align 8
   %2289 = load ptr, ptr %2280, align 8
   %2290 = getelementptr %struct.StringInfoData, ptr %2289, i64 %indvars.iv.i932
@@ -7763,7 +7763,7 @@ show_scan_qual.exit766:                           ; preds = %1663, %1706, %1484,
   br i1 %2298, label %2281, label %ExplainFlushWorkersState.exit, !llvm.loop !18
 
 ExplainFlushWorkersState.exit:                    ; preds = %2295, %.loopexit.thread
-  call void @ExplainCloseGroup(ptr noundef nonnull @.str.341, ptr nonnull poison, i1 noundef zeroext false, ptr noundef %4)
+  call void @ExplainCloseGroup(ptr noundef nonnull @.str.341, ptr nonnull poison, i1 noundef zeroext false, ptr noundef nonnull %4)
   %2299 = getelementptr inbounds nuw i8, ptr %.pr9791179, i64 8
   %2300 = load ptr, ptr %2299, align 8
   call void @pfree(ptr noundef %2300) #11
@@ -8175,7 +8175,7 @@ ExplainSubPlans.exit962:                          ; preds = %2471, %.preheader, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainPropertyInteger(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @ExplainPropertyInteger(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2) #11
   call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef %3)
@@ -8183,7 +8183,7 @@ define dso_local void @ExplainPropertyInteger(ptr noundef %0, ptr noundef %1, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @report_triggers(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @report_triggers(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -8351,12 +8351,12 @@ define internal fastcc void @report_triggers(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @InstrJitAgg(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExplainPrintJIT(ptr nocapture noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @ExplainPrintJIT(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %.not = icmp eq ptr %2, null
@@ -8620,7 +8620,7 @@ ExplainIndentText.exit68:                         ; preds = %81, %88
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainQueryText(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExplainQueryText(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8635,13 +8635,13 @@ define dso_local void @ExplainQueryText(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainPropertyText(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @ExplainPropertyText(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   tail call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef null, ptr noundef %1, i1 noundef zeroext false, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainQueryParameters(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @ExplainQueryParameters(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %15, label %5
 
@@ -8674,7 +8674,7 @@ define dso_local void @ExplainQueryParameters(ptr nocapture noundef readonly %0,
 declare ptr @BuildParamLogString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainPropertyList(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @ExplainPropertyList(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %.thread90 [
@@ -8924,7 +8924,7 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExplainXMLTag(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 6) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @ExplainXMLTag(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 6) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = icmp samesign ult i32 %1, 4
   br i1 %4, label %5, label %10
 
@@ -9104,7 +9104,7 @@ declare ptr @escape_xml(ptr noundef) local_unnamed_addr #2
 declare void @escape_json(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainPropertyListNested(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @ExplainPropertyListNested(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %65 [
@@ -9251,7 +9251,7 @@ ExplainYAMLLineStarting.exit:                     ; preds = %42, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExplainProperty(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @ExplainProperty(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %70 [
@@ -9398,7 +9398,7 @@ ExplainYAMLLineStarting.exit:                     ; preds = %59, %60
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainPropertyUInteger(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @ExplainPropertyUInteger(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.48, i64 noundef %2) #11
   call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef %3)
@@ -9408,7 +9408,7 @@ define dso_local void @ExplainPropertyUInteger(ptr noundef %0, ptr noundef %1, i
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainPropertyBool(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @ExplainPropertyBool(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = select i1 %1, ptr @.str.50, ptr @.str.51
   tail call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef %2)
   ret void
@@ -9446,7 +9446,7 @@ declare ptr @bms_add_members(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @planstate_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExplainIndexScanDetails(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @ExplainIndexScanDetails(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = load ptr, ptr @explain_get_index_name_hook, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %.thread.i, label %5
@@ -9506,7 +9506,7 @@ explain_get_index_name.exit:                      ; preds = %5, %.thread.i
 declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExplainOpenWorker(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @ExplainOpenWorker(i32 noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -9633,7 +9633,7 @@ ExplainIndentText.exit:                           ; preds = %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExplainCloseWorker(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @ExplainCloseWorker(i32 noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -9742,7 +9742,7 @@ ExplainSaveGroup.exit:                            ; preds = %ExplainSaveGroup.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_instrumentation_count(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @show_instrumentation_count(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
@@ -9784,7 +9784,7 @@ define internal fastcc void @show_instrumentation_count(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_tidbitmap_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @show_tidbitmap_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [32 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -9874,7 +9874,7 @@ ExplainIndentText.exit:                           ; preds = %25, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_eval_params(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @show_eval_params(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = tail call i32 @bms_next_member(ptr noundef nonnull %0, i32 noundef -1) #11
   %5 = icmp sgt i32 %4, -1
@@ -9905,7 +9905,7 @@ define internal fastcc void @show_eval_params(ptr noundef nonnull %0, ptr nocapt
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_expression(ptr noundef %0, ptr noundef %1, ptr %.8.val, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @show_expression(ptr noundef %0, ptr noundef %1, ptr %.8.val, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @set_deparse_context_plan(ptr noundef %7, ptr noundef %.8.val, ptr noundef %2) #11
@@ -9921,7 +9921,7 @@ declare ptr @make_orclause(ptr noundef) local_unnamed_addr #2
 declare ptr @make_andclause(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_wal_usage(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @show_wal_usage(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [32 x i8], align 16
   %5 = alloca [32 x i8], align 16
@@ -10038,7 +10038,7 @@ declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExplainTargetRel(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @ExplainTargetRel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = add i32 %1, -1
@@ -10244,7 +10244,7 @@ declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #0 {
+define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef readonly captures(none) %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca %struct.StringInfoData, align 8
   %12 = icmp slt i32 %1, 1
@@ -10460,7 +10460,7 @@ show_sortorder_options.exit:                      ; preds = %93, %.critedge.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_grouping_set_keys(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc void @show_grouping_set_keys(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef captures(none) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -10637,7 +10637,7 @@ declare ptr @tuplesort_method_name(i32 noundef) local_unnamed_addr #2
 declare ptr @tuplesort_space_type_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_incremental_sort_group_info(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @show_incremental_sort_group_info(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
@@ -10854,10 +10854,10 @@ declare void @llvm.assume(i1 noundef) #7
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10

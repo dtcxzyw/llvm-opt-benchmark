@@ -279,7 +279,7 @@ declare dso_local void @device_remove_file(ptr noundef, ptr noundef) local_unnam
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @dma_pool_alloc(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local noundef ptr @dma_pool_alloc(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = and i32 %1, 1024
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %6
@@ -471,7 +471,7 @@ define dso_local noundef ptr @dma_pool_alloc(ptr noundef %0, i32 noundef %1, ptr
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_pool_free(ptr noundef %0, ptr noundef initializes((0, 16)) %1, i64 noundef %2) #0 align 16 {
@@ -531,7 +531,7 @@ define dso_local noundef ptr @dmam_pool_create(ptr noundef %0, ptr noundef %1, i
 declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @dmam_pool_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @dmam_pool_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   tail call void @dma_pool_destroy(ptr noundef %3)
   ret void
@@ -565,7 +565,7 @@ define dso_local void @dmam_pool_destroy(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @devres_release(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 2) i32 @dmam_pool_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #4 align 16 {
+define internal range(i32 0, 2) i32 @dmam_pool_match(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #4 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %2
   %6 = zext i1 %5 to i32
@@ -576,7 +576,7 @@ define internal range(i32 0, 2) i32 @dmam_pool_match(ptr nocapture readnone %0, 
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 0, 4294967296) i64 @pools_show(ptr noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 0, 4294967296) i64 @pools_show(ptr noundef readonly %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.5) #8
   tail call void @mutex_lock(ptr noundef nonnull @pools_lock) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 600

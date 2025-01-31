@@ -88,7 +88,7 @@ declare void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferen
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN12b2MouseJoint9SetTargetERK6b2Vec2(ptr nocapture noundef nonnull align 8 dereferenceable(228) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %target) local_unnamed_addr #2 align 2 {
+define void @_ZN12b2MouseJoint9SetTargetERK6b2Vec2(ptr noundef nonnull align 8 captures(none) dereferenceable(228) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %target) local_unnamed_addr #2 align 2 {
 entry:
   %m_targetA = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load float, ptr %target, align 4
@@ -135,7 +135,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12b2MouseJoint11SetMaxForceEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) initializes((164, 168)) %this, float noundef %force) local_unnamed_addr #4 align 2 {
+define void @_ZN12b2MouseJoint11SetMaxForceEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(228) initializes((164, 168)) %this, float noundef %force) local_unnamed_addr #4 align 2 {
 entry:
   %m_maxForce = getelementptr inbounds nuw i8, ptr %this, i64 164
   store float %force, ptr %m_maxForce, align 4
@@ -143,7 +143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK12b2MouseJoint11GetMaxForceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(228) %this) local_unnamed_addr #5 align 2 {
+define noundef float @_ZNK12b2MouseJoint11GetMaxForceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_maxForce = getelementptr inbounds nuw i8, ptr %this, i64 164
   %0 = load float, ptr %m_maxForce, align 4
@@ -151,7 +151,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN12b2MouseJoint23InitVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(228) initializes((152, 156), (168, 172), (176, 228)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #6 align 2 {
+define void @_ZN12b2MouseJoint23InitVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 captures(none) dereferenceable(228) initializes((152, 156), (168, 172), (176, 228)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %data) unnamed_addr #6 align 2 {
 entry:
   %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_bodyB, align 8
@@ -329,7 +329,7 @@ if.end86:                                         ; preds = %if.else, %if.then74
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN12b2MouseJoint24SolveVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(228) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #8 align 2 {
+define void @_ZN12b2MouseJoint24SolveVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 captures(none) dereferenceable(228) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %data) unnamed_addr #8 align 2 {
 entry:
   %velocities = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %velocities, align 8
@@ -434,13 +434,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN12b2MouseJoint24SolvePositionConstraintsERK12b2SolverData(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %data) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN12b2MouseJoint24SolvePositionConstraintsERK12b2SolverData(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %data) unnamed_addr #3 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define <2 x float> @_ZNK12b2MouseJoint10GetAnchorAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(228) %this) unnamed_addr #9 align 2 {
+define <2 x float> @_ZNK12b2MouseJoint10GetAnchorAEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %this) unnamed_addr #9 align 2 {
 entry:
   %m_targetA = getelementptr inbounds nuw i8, ptr %this, i64 136
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %m_targetA, align 8
@@ -448,7 +448,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @_ZNK12b2MouseJoint10GetAnchorBEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(228) %this) unnamed_addr #10 align 2 {
+define <2 x float> @_ZNK12b2MouseJoint10GetAnchorBEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %this) unnamed_addr #10 align 2 {
 entry:
   %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_bodyB, align 8
@@ -477,7 +477,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define <2 x float> @_ZNK12b2MouseJoint16GetReactionForceEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(228) %this, float noundef %inv_dt) unnamed_addr #9 align 2 {
+define <2 x float> @_ZNK12b2MouseJoint16GetReactionForceEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %this, float noundef %inv_dt) unnamed_addr #9 align 2 {
 entry:
   %m_impulse = getelementptr inbounds nuw i8, ptr %this, i64 156
   %0 = load float, ptr %m_impulse, align 4
@@ -491,14 +491,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef float @_ZNK12b2MouseJoint17GetReactionTorqueEf(ptr nocapture nonnull readnone align 8 %this, float noundef %inv_dt) unnamed_addr #3 align 2 {
+define noundef float @_ZNK12b2MouseJoint17GetReactionTorqueEf(ptr nonnull readnone align 8 captures(none) %this, float noundef %inv_dt) unnamed_addr #3 align 2 {
 entry:
   %mul = fmul float %inv_dt, 0.000000e+00
   ret float %mul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12b2MouseJoint11ShiftOriginERK6b2Vec2(ptr nocapture noundef nonnull align 8 dereferenceable(228) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %newOrigin) unnamed_addr #11 align 2 {
+define void @_ZN12b2MouseJoint11ShiftOriginERK6b2Vec2(ptr noundef nonnull align 8 captures(none) dereferenceable(228) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %newOrigin) unnamed_addr #11 align 2 {
 entry:
   %m_targetA = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load float, ptr %newOrigin, align 4

@@ -100,7 +100,7 @@ declare void @dfilter_plugins_register(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @df_func_register(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @df_func_ip_special_name(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #1 {
+define internal zeroext i1 @df_func_ip_special_name(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %31, label %.preheader
@@ -168,7 +168,7 @@ lookup_block.exit:                                ; preds = %12, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @semcheck_ip_special_name(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 %4, i64 %5) #1 {
+define internal noundef i32 @semcheck_ip_special_name(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 %4, i64 %5) #1 {
   %.val = load ptr, ptr %3, align 8
   %7 = tail call i32 @stnode_type_id(ptr noundef %.val) #4
   %8 = icmp eq i32 %7, 8
@@ -222,7 +222,7 @@ declare void @dfilter_fail_throw(ptr noundef, i32 noundef, i64, i64, ptr noundef
 declare { i64, i64 } @stnode_location(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @df_func_ip_special_mask(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #1 {
+define internal zeroext i1 @df_func_ip_special_mask(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %48, label %.preheader
@@ -312,7 +312,7 @@ lookup_block.exit:                                ; preds = %12, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @semcheck_ip_special_mask(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 %4, i64 %5) #1 {
+define internal noundef i32 @semcheck_ip_special_mask(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 %4, i64 %5) #1 {
   %.val = load ptr, ptr %3, align 8
   %7 = tail call i32 @stnode_type_id(ptr noundef %.val) #4
   %8 = icmp eq i32 %7, 8
@@ -338,7 +338,7 @@ check_ip_field.exit:                              ; preds = %9
 declare void @fvalue_set_uinteger(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @df_func_ip_is_link_local(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #1 {
+define internal zeroext i1 @df_func_ip_is_link_local(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #1 {
   %.val = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %.val, null
   br i1 %4, label %df_func_ip_is_any.exit, label %.preheader.i
@@ -406,7 +406,7 @@ df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @semcheck_is_ip_field(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 %4, i64 %5) #1 {
+define internal noundef i32 @semcheck_is_ip_field(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 %4, i64 %5) #1 {
   %.val = load ptr, ptr %3, align 8
   %7 = tail call i32 @stnode_type_id(ptr noundef %.val) #4
   %8 = icmp eq i32 %7, 8
@@ -432,7 +432,7 @@ check_ip_field.exit:                              ; preds = %9
 declare void @fvalue_set_uinteger64(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @df_func_ip_is_multicast(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #1 {
+define internal zeroext i1 @df_func_ip_is_multicast(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #1 {
   %.val = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %.val, null
   br i1 %4, label %df_func_ip_is_any.exit, label %.preheader.i
@@ -494,7 +494,7 @@ df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @df_func_ip_is_rfc1918(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #1 {
+define internal zeroext i1 @df_func_ip_is_rfc1918(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #1 {
   %.val = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %.val, null
   br i1 %4, label %df_func_ip_is_any.exit, label %.preheader.i
@@ -564,7 +564,7 @@ df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @df_func_ip_is_ula(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #1 {
+define internal zeroext i1 @df_func_ip_is_ula(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #1 {
   %.val = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %.val, null
   br i1 %4, label %df_func_ip_is_any.exit, label %.preheader.i

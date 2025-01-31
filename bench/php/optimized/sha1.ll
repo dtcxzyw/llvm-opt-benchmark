@@ -17,7 +17,7 @@ define void @make_sha1_digest(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 declare void @make_digest_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_sha1(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_sha1(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = alloca %struct.PHP_SHA1_CTX, align 4
@@ -178,7 +178,7 @@ declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_SHA1InitArgs(ptr nocapture noundef writeonly initializes((0, 28)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define void @PHP_SHA1InitArgs(ptr noundef writeonly captures(none) initializes((0, 28)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %4, align 4
@@ -196,7 +196,7 @@ define void @PHP_SHA1InitArgs(ptr nocapture noundef writeonly initializes((0, 28
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_SHA1Update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @PHP_SHA1Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
@@ -234,7 +234,7 @@ define void @PHP_SHA1Update(ptr nocapture noundef %0, ptr nocapture noundef read
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.031 = phi i64 [ %28, %.lr.ph ], [ %20, %21 ]
   %27 = getelementptr inbounds i8, ptr %1, i64 %.031
-  tail call fastcc void @SHA1Transform(ptr noundef %0, ptr noundef %27)
+  tail call fastcc void @SHA1Transform(ptr noundef nonnull %0, ptr noundef nonnull %27)
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
   %30 = icmp ult i64 %29, %2
@@ -256,7 +256,7 @@ define void @PHP_SHA1Update(ptr nocapture noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_SHA1Final(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @PHP_SHA1Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
@@ -324,7 +324,7 @@ define void @PHP_SHA1Final(ptr nocapture noundef writeonly %0, ptr noundef %1) l
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
   %49 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @SHA1Transform(ptr noundef %1, ptr noundef nonnull readonly %49)
+  tail call fastcc void @SHA1Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %49)
   %50 = add nuw nsw i64 %.031.i, 64
   %51 = add nuw nsw i64 %.031.i, 127
   %52 = icmp samesign ult i64 %51, %33
@@ -414,7 +414,7 @@ SHA1Encode.exit:                                  ; preds = %77
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_sha1_file(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_sha1_file(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = alloca [1024 x i8], align 16
@@ -634,10 +634,10 @@ declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SHA1Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @SHA1Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [16 x i32], align 16
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1711,7 +1711,7 @@ declare noalias ptr @_emalloc_48() local_unnamed_addr #1
 declare noalias ptr @_emalloc_80() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #6

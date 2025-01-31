@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.avifGetExifTiffHeaderOffset.tiffHeaderLE = private unnamed_addr constant [4 x i8] c"II*\00", align 1
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 18) i32 @avifGetExifTiffHeaderOffset(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 18) i32 @avifGetExifTiffHeaderOffset(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   store i64 0, ptr %2, align 8
   %4 = icmp ugt i64 %1, 4
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
@@ -44,7 +44,7 @@ define hidden range(i32 0, 18) i32 @avifGetExifTiffHeaderOffset(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 18) i32 @avifGetExifOrientationOffset(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 18) i32 @avifGetExifOrientationOffset(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.avifROData, align 8
   %5 = alloca %struct.avifROStream, align 8
   %6 = alloca i32, align 4
@@ -191,7 +191,7 @@ declare i32 @avifROStreamReadU16Endianness(ptr noundef, ptr noundef, i32 noundef
 declare i64 @avifROStreamOffset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 18) i32 @avifImageExtractExifOrientationToIrotImir(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 18) i32 @avifImageExtractExifOrientationToIrotImir(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %4 = load i32, ptr %3, align 4
@@ -360,13 +360,13 @@ declare i32 @avifRWDataSet(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i64 @llvm.umin.i64(i64, i64) #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.prune_lexemes_hashtable = private unnamed_addr constant [24 x i8] c"prune_lexemes_hashtable\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @ts_typanalyze(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @ts_typanalyze(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -42,7 +42,7 @@ define dso_local noundef i64 @ts_typanalyze(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compute_tsvector_stats(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, double %3) #1 {
+define internal void @compute_tsvector_stats(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, double %3) #1 {
   %5 = alloca %struct.HASH_SEQ_STATUS, align 8
   %6 = alloca %struct.HASHCTL, align 8
   %7 = alloca %struct.HASH_SEQ_STATUS, align 8
@@ -454,7 +454,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lexeme_hash(ptr nocapture noundef readonly %0, i64 %1) #1 {
+define internal i32 @lexeme_hash(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -463,7 +463,7 @@ define internal i32 @lexeme_hash(ptr nocapture noundef readonly %0, i64 %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @lexeme_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
+define internal i32 @lexeme_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -496,7 +496,7 @@ declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @pfree(ptr noundef) local_unnamed_addr #3
 
@@ -518,7 +518,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @qsort_interruptible(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @trackitem_compare_frequencies_desc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #6 {
+define internal i32 @trackitem_compare_frequencies_desc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #6 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
@@ -530,7 +530,7 @@ define internal i32 @trackitem_compare_frequencies_desc(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @trackitem_compare_lexemes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 {
+define internal i32 @trackitem_compare_lexemes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -561,7 +561,7 @@ declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
 
@@ -569,10 +569,10 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

@@ -11,14 +11,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @cov_2char = internal unnamed_addr constant [64 x i8] c"./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @DES_crypt(ptr nocapture noundef readonly %buf, ptr nocapture noundef readonly %salt) local_unnamed_addr #0 {
+define noundef ptr @DES_crypt(ptr noundef readonly captures(none) %buf, ptr noundef readonly captures(none) %salt) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @DES_fcrypt(ptr noundef %buf, ptr noundef %salt, ptr noundef nonnull @DES_crypt.buff)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @DES_fcrypt(ptr nocapture noundef readonly %buf, ptr nocapture noundef readonly %salt, ptr noundef writeonly initializes((0, 1)) %ret) local_unnamed_addr #0 {
+define noundef ptr @DES_fcrypt(ptr noundef readonly captures(none) %buf, ptr noundef readonly captures(none) %salt, ptr noundef writeonly initializes((0, 1)) %ret) local_unnamed_addr #0 {
 entry:
   %out = alloca [2 x i32], align 4
   %key = alloca [8 x i8], align 1
@@ -174,7 +174,7 @@ declare void @DES_set_key_unchecked(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @fcrypt_body(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

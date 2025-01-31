@@ -136,13 +136,13 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL7tunpackP9lua_State(pt
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
   %.143 = phi i32 [ %41, %.lr.ph ], [ %5, %38 ]
-  %40 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef %0, i32 noundef 1, i32 noundef %.143)
+  %40 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %.143)
   %41 = add i32 %.143, 1
   %exitcond.not = icmp eq i32 %41, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
-  %42 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef %0, i32 noundef 1, i32 noundef %13)
+  %42 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %13)
   br label %43
 
 43:                                               ; preds = %._crit_edge47, %._crit_edge, %12
@@ -1016,7 +1016,7 @@ declare void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef, i32 noundef, i32 noundef
 declare hidden void @_Z18luaG_readonlyerrorP9lua_State(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare hidden void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1025,7 +1025,7 @@ declare hidden noundef i32 @_Z9luaH_getnP5Table(ptr noundef) local_unnamed_addr 
 declare hidden noundef i32 @_Z13luaV_lessthanP9lua_StatePK10lua_TValueS3_(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL9sort_funcP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL9sort_funcP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1363,7 +1363,7 @@ _ZL9sort_heapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %126, 
 declare hidden void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 1073741823) %5) unnamed_addr #0 {
+define internal fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 0, 1073741823) %5) unnamed_addr #0 {
   %7 = alloca %struct.lua_TValue, align 8
   %8 = alloca %struct.lua_TValue, align 8
   %9 = sub nsw i32 %3, %2
@@ -1519,10 +1519,10 @@ declare hidden void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef, p
 declare noundef i32 @_Z14lua_checkstackP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5

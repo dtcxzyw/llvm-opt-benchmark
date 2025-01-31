@@ -71,11 +71,8 @@ if.end12:                                         ; preds = %if.then6.if.end12_c
   %write_data.0 = phi ptr [ %call7, %if.then6.if.end12_crit_edge ], [ %data, %if.else ]
   %conv = trunc i64 %0 to i32
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @__func__.RINGBUF_CHARDEV) #7
-  %tobool.i = icmp eq ptr %write_data.0, null
   %cmp.i = icmp slt i32 %conv, 0
-  %or.cond.i = or i1 %tobool.i, %cmp.i
-  %cmp114.not.i = icmp eq i32 %conv, 0
-  %or.cond15 = or i1 %cmp114.not.i, %or.cond.i
+  %or.cond15 = icmp slt i32 %conv, 1
   br i1 %or.cond15, label %ringbuf_chr_write.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end12
@@ -123,11 +120,11 @@ ringbuf_chr_write.exit:                           ; preds = %for.inc.i, %if.end1
   br i1 %cmp14.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %ringbuf_chr_write.exit
-  call void @g_free(ptr noundef %write_data.0) #7
+  call void @g_free(ptr noundef nonnull %write_data.0) #7
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %ringbuf_chr_write.exit
-  br i1 %or.cond.i, label %if.then20, label %if.end21
+  br i1 %cmp.i, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end17
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.qmp_ringbuf_write, ptr noundef nonnull @.str.4, ptr noundef %device) #7
@@ -146,7 +143,7 @@ declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @qbase64_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -2147483647, -2147483648) i32 @ringbuf_chr_write(ptr noundef %chr, ptr noundef readonly %buf, i32 noundef %len) #0 {
@@ -346,7 +343,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @char_ringbuf_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @char_ringbuf_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #7
   %parse = getelementptr inbounds nuw i8, ptr %call.i, i64 104
@@ -359,7 +356,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_chr_parse_ringbuf(ptr noundef %opts, ptr nocapture noundef writeonly initializes((0, 4), (8, 16)) %backend, ptr nocapture readnone %errp) #0 {
+define internal void @qemu_chr_parse_ringbuf(ptr noundef %opts, ptr noundef writeonly captures(none) initializes((0, 4), (8, 16)) %backend, ptr readnone captures(none) %errp) #0 {
 entry:
   store i32 17, ptr %backend, align 8
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #10
@@ -385,7 +382,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_chr_open_ringbuf(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture readnone %be_opened, ptr noundef %errp) #0 {
+define internal void @qemu_chr_open_ringbuf(ptr noundef %chr, ptr noundef readonly captures(none) %backend, ptr readnone captures(none) %be_opened, ptr noundef %errp) #0 {
 entry:
   %u = getelementptr inbounds nuw i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
@@ -443,7 +440,7 @@ declare i64 @llvm.umin.i64(i64, i64) #5
 declare i64 @llvm.ctpop.i64(i64) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

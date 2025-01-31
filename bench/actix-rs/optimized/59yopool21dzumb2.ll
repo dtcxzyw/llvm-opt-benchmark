@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h365dcf2356324cadE"(ptr nocapture readnone align 1 %0) unnamed_addr #0 {
+define hidden void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h365dcf2356324cadE"(ptr readnone align 1 captures(none) %0) unnamed_addr #0 {
   ret void
 }
 
@@ -44,7 +44,7 @@ _ZN5alloc5alloc6Global10alloc_impl17h8d00dd0f4fd60566E.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd1c48a0fb8e14d99E"(ptr nocapture readnone align 1 %0, ptr %1, i64 %2, i64 %3) unnamed_addr #2 {
+define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd1c48a0fb8e14d99E"(ptr readnone align 1 captures(none) %0, ptr %1, i64 %2, i64 %3) unnamed_addr #2 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %9, label %6
 
@@ -60,7 +60,7 @@ define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allo
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17he0cdc28f8907d6ceE"(ptr nocapture readnone align 1 %0, i64 %1, i64 %2) unnamed_addr #2 {
+define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17he0cdc28f8907d6ceE"(ptr readnone align 1 captures(none) %0, i64 %1, i64 %2) unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
   %5 = add i64 %1, -1
   %6 = icmp sgt i64 %5, -1
@@ -83,7 +83,7 @@ _ZN5alloc5alloc6Global10alloc_impl17h8d00dd0f4fd60566E.exit: ; preds = %7, %9
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h61a25da9545e0f92E"(ptr nocapture readnone align 1 %0, i64 %1, i64 %2) unnamed_addr #2 {
+define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h61a25da9545e0f92E"(ptr readnone align 1 captures(none) %0, i64 %1, i64 %2) unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %9
 

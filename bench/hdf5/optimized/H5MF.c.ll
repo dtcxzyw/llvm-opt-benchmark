@@ -119,7 +119,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.59 = private unnamed_addr constant [30 x i8] c"can't check for shrinking eoa\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @H5MF_init_merge_flags(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef i32 @H5MF_init_merge_flags(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1876
   %3 = load i32, ptr %2, align 4
   br label %5
@@ -206,12 +206,12 @@ select.unfold:                                    ; preds = %17, %.critedge.sele
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @H5MF__alloc_to_fs_type(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #3 {
+define void @H5MF__alloc_to_fs_type(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
@@ -363,7 +363,7 @@ define range(i32 -1, 1) i32 @H5MF__open_fstype(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @H5AC_tag(i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2545,7 +2545,7 @@ define range(i32 -1, 1) i32 @H5MF_close(ptr noundef %0) local_unnamed_addr #3 {
   %52 = getelementptr inbounds nuw i8, ptr %23, i64 1832
   %53 = load i64, ptr %52, align 8
   store i64 %53, ptr %40, align 8
-  %54 = call i32 @H5F__super_ext_write_msg(ptr noundef %0, i32 noundef 23, ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef 16) #7
+  %54 = call i32 @H5F__super_ext_write_msg(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef 16) #7
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %56, label %.preheader.i
 
@@ -2645,7 +2645,7 @@ define range(i32 -1, 1) i32 @H5MF_close(ptr noundef %0) local_unnamed_addr #3 {
 
 .preheader62.i:                                   ; preds = %22, %106
   %.364.i = phi i32 [ %107, %106 ], [ 1, %22 ]
-  %108 = call fastcc i32 @H5MF__close_delete_fstype(ptr noundef %0, i32 noundef %.364.i)
+  %108 = call fastcc i32 @H5MF__close_delete_fstype(ptr noundef nonnull %0, i32 noundef %.364.i)
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %110, label %106
 
@@ -2656,7 +2656,7 @@ define range(i32 -1, 1) i32 @H5MF_close(ptr noundef %0) local_unnamed_addr #3 {
   br label %128
 
 114:                                              ; preds = %106
-  %115 = call i32 @H5F__super_ext_write_msg(ptr noundef %0, i32 noundef 23, ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef 16) #7
+  %115 = call i32 @H5F__super_ext_write_msg(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef 16) #7
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %117, label %121
 
@@ -2667,7 +2667,7 @@ define range(i32 -1, 1) i32 @H5MF_close(ptr noundef %0) local_unnamed_addr #3 {
   br label %128
 
 121:                                              ; preds = %114, %97
-  %122 = call fastcc i32 @H5MF__close_shrink_eoa(ptr noundef %0)
+  %122 = call fastcc i32 @H5MF__close_shrink_eoa(ptr noundef nonnull %0)
   %123 = icmp slt i32 %122, 0
   br i1 %123, label %124, label %128
 
@@ -2786,7 +2786,7 @@ H5MF__close_pagefs.exit:                          ; preds = %128, %131
   %186 = getelementptr inbounds nuw i8, ptr %151, i64 1540
   %187 = load i32, ptr %186, align 4
   store i32 %187, ptr %3, align 8
-  %188 = call i32 @H5F__super_ext_write_msg(ptr noundef %0, i32 noundef 23, ptr noundef nonnull %3, i1 noundef zeroext false, i32 noundef 16) #7
+  %188 = call i32 @H5F__super_ext_write_msg(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull %3, i1 noundef zeroext false, i32 noundef 16) #7
   %189 = icmp slt i32 %188, 0
   br i1 %189, label %190, label %.preheader.i12
 
@@ -2886,7 +2886,7 @@ H5MF__close_pagefs.exit:                          ; preds = %128, %131
 
 242:                                              ; preds = %.preheader, %240
   %.26067.i = phi i32 [ %241, %240 ], [ 0, %.preheader ]
-  %243 = call fastcc i32 @H5MF__close_delete_fstype(ptr noundef %0, i32 noundef %.26067.i)
+  %243 = call fastcc i32 @H5MF__close_delete_fstype(ptr noundef nonnull %0, i32 noundef %.26067.i)
   %244 = icmp slt i32 %243, 0
   br i1 %244, label %245, label %240
 
@@ -2897,7 +2897,7 @@ H5MF__close_pagefs.exit:                          ; preds = %128, %131
   br label %262
 
 .loopexit.i:                                      ; preds = %240, %231
-  %249 = call i32 @H5MF_free_aggrs(ptr noundef %0) #7
+  %249 = call i32 @H5MF_free_aggrs(ptr noundef nonnull %0) #7
   %250 = icmp slt i32 %249, 0
   br i1 %250, label %251, label %255
 
@@ -2908,7 +2908,7 @@ H5MF__close_pagefs.exit:                          ; preds = %128, %131
   br label %262
 
 255:                                              ; preds = %.loopexit.i
-  %256 = call fastcc i32 @H5MF__close_shrink_eoa(ptr noundef %0)
+  %256 = call fastcc i32 @H5MF__close_shrink_eoa(ptr noundef nonnull %0)
   %257 = icmp slt i32 %256, 0
   br i1 %257, label %258, label %262
 
@@ -3439,7 +3439,7 @@ declare i32 @H5FS_sect_stats(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @H5FS_size(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5MF_get_free_sections(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @H5MF_get_free_sections(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #3 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -3664,7 +3664,7 @@ H5MF__close_fstype.exit:                          ; preds = %.thread83
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5MF_settle_raw_data_fsm(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @H5MF_settle_raw_data_fsm(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.H5O_fsinfo_t, align 8
   %4 = alloca %struct.H5FS_stat_t, align 8
   %5 = alloca i32, align 4
@@ -4416,7 +4416,7 @@ declare i32 @H5FS_alloc_hdr(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare i32 @H5FS_alloc_sect(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5MF_settle_meta_data_fsm(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @H5MF_settle_meta_data_fsm(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   store i32 0, ptr %3, align 4
@@ -4984,7 +4984,7 @@ declare i32 @H5FS_close(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @H5FS_sect_iterate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5MF__sects_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #5 {
+define internal noundef i32 @H5MF__sects_cb(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5017,10 +5017,10 @@ declare i32 @H5FS_sect_try_shrink_eoa(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @H5MF__aggrs_try_shrink_eoa(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

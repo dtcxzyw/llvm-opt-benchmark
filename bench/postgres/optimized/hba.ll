@@ -679,7 +679,7 @@ tokenize_expand_file.exit:                        ; preds = %.thread, %151, %107
   store ptr null, ptr %163, align 8
   %sext10.i = add i64 %sext.i, 4294967296
   %164 = ashr exact i64 %sext10.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %161, ptr readonly align 1 %.pre240, i64 %164, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %161, ptr nonnull readonly align 1 %.pre240, i64 %164, i1 false)
   %165 = call ptr @lappend(ptr noundef %.0.i, ptr noundef nonnull %160) #13
   store ptr %155, ptr @CurrentMemoryContext, align 8
   br label %166
@@ -964,7 +964,7 @@ list_length.exit.thread:                          ; preds = %181, %list_length.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tokenize_error_callback(ptr nocapture noundef readonly %0) #1 {
+define internal void @tokenize_error_callback(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call i32 @set_errcontext_domain(ptr noundef null) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -976,10 +976,10 @@ define internal void @tokenize_error_callback(ptr nocapture noundef readonly %0)
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @resetStringInfo(ptr noundef) local_unnamed_addr #2
 
@@ -990,7 +990,7 @@ declare i32 @pg_strip_crlf(ptr noundef) local_unnamed_addr #2
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @GetConfFilesInDir(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1005,7 +1005,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @parse_hba_line(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local ptr @parse_hba_line(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.addrinfo, align 8
   %5 = alloca ptr, align 8
@@ -1255,7 +1255,7 @@ list_head.exit:                                   ; preds = %2, %24
   store ptr null, ptr %139, align 8
   %sext10.i.i = add i64 %sext.i.i, 4294967296
   %140 = ashr exact i64 %sext10.i.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr readonly align 1 %.val769, i64 %140, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr nonnull readonly align 1 %.val769, i64 %140, i1 false)
   %141 = tail call fastcc i32 @regcomp_auth_token(ptr noundef nonnull %136, ptr noundef %14, i32 noundef %12, ptr noundef nonnull %15, i32 noundef %1)
   %.not753 = icmp eq i32 %141, 0
   br i1 %.not753, label %142, label %.thread851
@@ -1336,7 +1336,7 @@ list_head.exit:                                   ; preds = %2, %24
   store ptr null, ptr %181, align 8
   %sext10.i.i775 = add i64 %sext.i.i774, 4294967296
   %182 = ashr exact i64 %sext10.i.i775, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %179, ptr readonly align 1 %.val771, i64 %182, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %179, ptr nonnull readonly align 1 %.val771, i64 %182, i1 false)
   %183 = tail call fastcc i32 @regcomp_auth_token(ptr noundef nonnull %178, ptr noundef %14, i32 noundef %12, ptr noundef nonnull %15, i32 noundef %1)
   %.not752 = icmp eq i32 %183, 0
   br i1 %.not752, label %184, label %.thread851
@@ -1470,7 +1470,7 @@ list_head.exit:                                   ; preds = %2, %24
   %251 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %250, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %251, i8 0, i64 24, i1 false)
-  %252 = call i32 @pg_getaddrinfo_all(ptr noundef %246, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull %9) #13
+  %252 = call i32 @pg_getaddrinfo_all(ptr noundef nonnull %246, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull %9) #13
   %253 = icmp eq i32 %252, 0
   %254 = load ptr, ptr %9, align 8
   %255 = icmp ne ptr %254, null
@@ -1506,7 +1506,7 @@ list_head.exit:                                   ; preds = %2, %24
 271:                                              ; preds = %269
   %272 = call i32 @errcode(i32 noundef 22) #13
   %273 = call ptr @gai_strerror(i32 noundef %252) #13
-  %274 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %246, ptr noundef %273) #13
+  %274 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef nonnull %246, ptr noundef %273) #13
   %275 = call i32 @set_errcontext_domain(ptr noundef null) #13
   %276 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1565, ptr noundef nonnull @__func__.parse_hba_line) #13
@@ -1514,7 +1514,7 @@ list_head.exit:                                   ; preds = %2, %24
 
 277:                                              ; preds = %271, %269
   %278 = call ptr @gai_strerror(i32 noundef %252) #13
-  %279 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.32, ptr noundef %246, ptr noundef %278) #13
+  %279 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.32, ptr noundef nonnull %246, ptr noundef %278) #13
   store ptr %279, ptr %15, align 8
   %280 = load ptr, ptr %9, align 8
   %.not729 = icmp eq ptr %280, null
@@ -1589,14 +1589,14 @@ list_head.exit:                                   ; preds = %2, %24
   %320 = load i32, ptr %319, align 8
   %321 = getelementptr inbounds nuw i8, ptr %16, i64 312
   store i32 %320, ptr %321, align 8
-  call void @pfree(ptr noundef %246) #13
+  call void @pfree(ptr noundef nonnull %246) #13
   br label %398
 
 322:                                              ; preds = %283
   br i1 %.not730, label %323, label %398
 
 323:                                              ; preds = %322
-  call void @pfree(ptr noundef %246) #13
+  call void @pfree(ptr noundef nonnull %246) #13
   %324 = load ptr, ptr %0, align 8
   %325 = getelementptr i8, ptr %324, i64 4
   %.val763 = load i32, ptr %325, align 4
@@ -2170,7 +2170,7 @@ list_head.exit:                                   ; preds = %2, %24
 
 635:                                              ; preds = %633
   %636 = call i32 @errcode(i32 noundef 22) #13
-  %637 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.93, ptr noundef %583) #13
+  %637 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.93, ptr noundef nonnull %583) #13
   %638 = call i32 @set_errcontext_domain(ptr noundef null) #13
   %639 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2112, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
@@ -2460,14 +2460,14 @@ sub_0727.i:                                       ; preds = %729
 
 765:                                              ; preds = %763
   %766 = call i32 @errcode(i32 noundef 22) #13
-  %767 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.107, ptr noundef %583) #13
+  %767 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.107, ptr noundef nonnull %583) #13
   %768 = call i32 @set_errcontext_domain(ptr noundef null) #13
   %769 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2229, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
   br label %770
 
 770:                                              ; preds = %763, %765, %761, %759
-  %771 = call ptr @pstrdup(ptr noundef %583) #13
+  %771 = call ptr @pstrdup(ptr noundef nonnull %583) #13
   store ptr %771, ptr %543, align 8
   br label %1167
 
@@ -3274,14 +3274,14 @@ sub_0739.i:                                       ; preds = %983
 
 1160:                                             ; preds = %1158
   %1161 = call i32 @errcode(i32 noundef 22) #13
-  %1162 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.130, ptr noundef %568) #13
+  %1162 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.130, ptr noundef nonnull %568) #13
   %1163 = call i32 @set_errcontext_domain(ptr noundef null) #13
   %1164 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2461, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
   br label %1165
 
 1165:                                             ; preds = %1160, %1158
-  %1166 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.130, ptr noundef %568) #13
+  %1166 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.130, ptr noundef nonnull %568) #13
   store ptr %1166, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
@@ -3301,7 +3301,7 @@ parse_hba_auth_opt.exit.thread:                   ; preds = %1148, %1150, %1121,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @pfree(ptr noundef %568) #13
+  call void @pfree(ptr noundef nonnull %568) #13
   %indvars.iv.next1262 = add nuw nsw i64 %indvars.iv12611652, 1
   %1168 = load i32, ptr %553, align 4
   %1169 = sext i32 %1168 to i64
@@ -3747,7 +3747,7 @@ declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #2
 declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @regcomp_auth_token(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @regcomp_auth_token(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca [100 x i8], align 16
   %7 = load ptr, ptr %0, align 8
   %8 = load i8, ptr %7, align 1
@@ -3768,7 +3768,7 @@ define internal fastcc i32 @regcomp_auth_token(ptr nocapture noundef %0, ptr nou
   %19 = getelementptr i8, ptr %18, i64 1
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #15
   %21 = trunc i64 %20 to i32
-  %22 = tail call i32 @pg_mb2wchar_with_len(ptr noundef %19, ptr noundef %17, i32 noundef %21) #13
+  %22 = tail call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %19, ptr noundef %17, i32 noundef %21) #13
   %23 = load ptr, ptr %11, align 8
   %24 = sext i32 %22 to i64
   %25 = tail call i32 @pg_regcomp(ptr noundef %23, ptr noundef %17, i64 noundef %24, i32 noundef 3, i32 noundef 950) #13
@@ -3813,7 +3813,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare i32 @pg_getaddrinfo_all(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
 declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #8
@@ -3932,7 +3932,7 @@ define dso_local noundef zeroext i1 @load_hba() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @parse_ident_line(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local ptr @parse_ident_line(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4057,7 +4057,7 @@ list_head.exit:                                   ; preds = %2, %9
   store ptr null, ptr %74, align 8
   %sext10.i.i = add i64 %sext.i.i, 4294967296
   %75 = ashr exact i64 %sext10.i.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr readonly align 1 %.val116, i64 %75, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr nonnull readonly align 1 %.val116, i64 %75, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %71, ptr %76, align 8
   %77 = load ptr, ptr %0, align 8
@@ -4135,7 +4135,7 @@ list_head.exit:                                   ; preds = %2, %9
   store ptr null, ptr %118, align 8
   %sext10.i.i120 = add i64 %sext.i.i119, 4294967296
   %119 = ashr exact i64 %sext10.i.i120, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr readonly align 1 %.val114, i64 %119, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr nonnull readonly align 1 %.val114, i64 %119, i1 false)
   %120 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %115, ptr %120, align 8
   %121 = load ptr, ptr %76, align 8
@@ -4232,7 +4232,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   %46 = call ptr @palloc(i64 noundef %45) #13
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
   %48 = trunc i64 %47 to i32
-  %49 = call i32 @pg_mb2wchar_with_len(ptr noundef %2, ptr noundef %46, i32 noundef %48) #13
+  %49 = call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %2, ptr noundef %46, i32 noundef %48) #13
   %50 = load ptr, ptr %40, align 8
   %51 = sext i32 %49 to i64
   %52 = call i32 @pg_regexec(ptr noundef %50, ptr noundef %46, i64 noundef %51, i64 noundef 0, ptr noundef null, i64 noundef 2, ptr noundef nonnull %5, i32 noundef 0) #13
@@ -4341,8 +4341,8 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   store ptr null, ptr %122, align 8
   %sext10.i = add i64 %sext.i25, 4294967296
   %123 = ashr exact i64 %sext10.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %120, ptr readonly align 1 %102, i64 %123, i1 false)
-  call void @pfree(ptr noundef %102) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %120, ptr nonnull readonly align 1 %102, i64 %123, i1 false)
+  call void @pfree(ptr noundef nonnull %102) #13
   br label %124
 
 124:                                              ; preds = %96, %79, %76, %72
@@ -4910,7 +4910,7 @@ is_member.exit.i.i:                               ; preds = %161
   %173 = call ptr @palloc(i64 noundef %172) #13
   %174 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %116) #15
   %175 = trunc i64 %174 to i32
-  %176 = call i32 @pg_mb2wchar_with_len(ptr noundef %116, ptr noundef %173, i32 noundef %175) #13
+  %176 = call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %116, ptr noundef %173, i32 noundef %175) #13
   %177 = load ptr, ptr %167, align 8
   %178 = sext i32 %176 to i64
   %179 = call i32 @pg_regexec(ptr noundef %177, ptr noundef %173, i64 noundef %178, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i32 noundef 0) #13
@@ -4969,7 +4969,7 @@ define dso_local ptr @hba_authname(i32 noundef %0) local_unnamed_addr #0 {
 declare ptr @AbsoluteConfigLocation(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
@@ -4980,22 +4980,22 @@ declare i32 @pg_regcomp(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 
 declare i64 @pg_regerror(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare zeroext i1 @SplitGUCList(ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare void @list_free(ptr noundef) local_unnamed_addr #2
 
 declare i32 @get_role_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @check_role(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #1 {
@@ -5057,7 +5057,7 @@ is_member.exit:                                   ; preds = %20
   %33 = tail call ptr @palloc(i64 noundef %32) #13
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %35 = trunc i64 %34 to i32
-  %36 = tail call i32 @pg_mb2wchar_with_len(ptr noundef %0, ptr noundef %33, i32 noundef %35) #13
+  %36 = tail call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %0, ptr noundef %33, i32 noundef %35) #13
   %37 = load ptr, ptr %27, align 8
   %38 = sext i32 %36 to i64
   %39 = tail call i32 @pg_regexec(ptr noundef %37, ptr noundef %33, i64 noundef %38, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i32 noundef 0) #13
@@ -5113,7 +5113,7 @@ declare i32 @pg_range_sockaddr(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @pg_foreach_ifaddr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @check_network_callback(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #1 {
+define internal void @check_network_callback(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #1 {
   %4 = alloca %struct.sockaddr_storage, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i8, ptr %5, align 8
@@ -5170,10 +5170,10 @@ define internal void @check_network_callback(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

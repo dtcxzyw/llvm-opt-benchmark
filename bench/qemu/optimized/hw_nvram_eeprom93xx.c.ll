@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [44 x i8] c"Never should be used to write a new state.\0A\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @eeprom93xx_write(ptr nocapture noundef %eeprom, i32 noundef %eecs, i32 noundef %eesk, i32 noundef %eedi) local_unnamed_addr #0 {
+define dso_local void @eeprom93xx_write(ptr noundef captures(none) %eeprom, i32 noundef %eecs, i32 noundef %eesk, i32 noundef %eedi) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %eeprom, align 2
   %eedo2 = getelementptr inbounds nuw i8, ptr %eeprom, i64 6
@@ -286,7 +286,7 @@ if.end216:                                        ; preds = %for.body70, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext range(i16 0, 256) i16 @eeprom93xx_read(ptr nocapture noundef readonly %eeprom) local_unnamed_addr #1 {
+define dso_local zeroext range(i16 0, 256) i16 @eeprom93xx_read(ptr noundef readonly captures(none) %eeprom) local_unnamed_addr #1 {
 entry:
   %eedo = getelementptr inbounds nuw i8, ptr %eeprom, i64 6
   %0 = load i8, ptr %eedo, align 2
@@ -359,14 +359,14 @@ entry:
 declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @is_old_eeprom_version(ptr nocapture readnone %opaque, i32 noundef %version_id) #6 {
+define internal noundef zeroext i1 @is_old_eeprom_version(ptr readnone captures(none) %opaque, i32 noundef %version_id) #6 {
 entry:
   %cmp = icmp eq i32 %version_id, 20061112
   ret i1 %cmp
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_uint16_from_uint8(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 2)) %pv, i64 %size, ptr nocapture readnone %field) #2 {
+define internal noundef i32 @get_uint16_from_uint8(ptr noundef %f, ptr noundef writeonly captures(none) initializes((0, 2)) %pv, i64 %size, ptr readnone captures(none) %field) #2 {
 entry:
   %call.i = tail call i32 @qemu_get_byte(ptr noundef %f) #13
   %conv = trunc i32 %call.i to i16
@@ -375,7 +375,7 @@ entry:
 }
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
-define internal noundef i32 @put_unused(ptr nocapture readnone %f, ptr nocapture readnone %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #7 {
+define internal noundef i32 @put_unused(ptr readnone captures(none) %f, ptr readnone captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #7 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %1 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 60, i64 1, ptr %0) #14
@@ -391,10 +391,10 @@ declare i32 @qemu_get_byte(ptr noundef) local_unnamed_addr #5
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -13,7 +13,7 @@ $_ZNK4llvm8RTTIRoot3isAEPKv = comdat any
 @_ZTVN4llvm8RTTIRootE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZN4llvm8RTTIRootD2Ev, ptr @_ZN4llvm8RTTIRootD0Ev, ptr @__cxa_pure_virtual, ptr @_ZNK4llvm8RTTIRoot3isAEPKv, ptr @_ZN4llvm8RTTIRoot6anchorEv] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm8RTTIRoot6anchorEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8RTTIRoot6anchorEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 

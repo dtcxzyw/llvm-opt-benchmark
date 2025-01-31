@@ -186,7 +186,7 @@ define dso_local i32 @gen4_emit_flush_vcs(ptr noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local noundef ptr @gen3_emit_breadcrumb(ptr nocapture noundef %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef ptr @gen3_emit_breadcrumb(ptr noundef captures(none) %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr i8, ptr %1, i64 4
   store i32 33554432, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -245,7 +245,7 @@ define dso_local noundef ptr @gen3_emit_breadcrumb(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local noundef ptr @gen5_emit_breadcrumb(ptr nocapture noundef %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef ptr @gen5_emit_breadcrumb(ptr noundef captures(none) %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr i8, ptr %1, i64 4
   store i32 33554432, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -460,7 +460,7 @@ define dso_local i32 @gen4_emit_bb_start(ptr noundef %0, i64 noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen2_irq_enable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @gen2_irq_enable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %4 = load i32, ptr %3, align 4
@@ -486,7 +486,7 @@ define dso_local void @gen2_irq_enable(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen2_irq_disable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @gen2_irq_disable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %4 = load i32, ptr %3, align 4
@@ -503,7 +503,7 @@ define dso_local void @gen2_irq_disable(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen3_irq_enable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @gen3_irq_enable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %3 = load i32, ptr %2, align 4
   %4 = xor i32 %3, -1
@@ -532,7 +532,7 @@ define dso_local void @gen3_irq_enable(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen3_irq_disable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @gen3_irq_disable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %3 = load i32, ptr %2, align 4
   %4 = load ptr, ptr %0, align 8
@@ -552,7 +552,7 @@ define dso_local void @gen3_irq_disable(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen5_irq_enable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @gen5_irq_enable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 764
@@ -565,7 +565,7 @@ define dso_local void @gen5_irq_enable(ptr nocapture noundef readonly %0) local_
 declare dso_local void @gen5_gt_enable_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen5_irq_disable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @gen5_irq_disable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 764

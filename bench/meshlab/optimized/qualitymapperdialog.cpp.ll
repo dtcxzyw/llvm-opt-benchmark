@@ -319,7 +319,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -359,7 +359,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
@@ -647,7 +647,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z15TfHandleCompareP8TFHandleS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define noundef zeroext i1 @_Z15TfHandleCompareP8TFHandleS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = load float, ptr %4, align 4
@@ -10305,7 +10305,7 @@ define void @_ZThn16_N19QualityMapperDialogD0Ev(ptr noundef %0) unnamed_addr #14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog32ComputePerVertexQualityHistogramER6CMeshO6FrangePN3vcg9HistogramIfEEi(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1196) %1, <2 x float> %2, ptr noundef initializes((48, 80)) %3, i32 noundef %4) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QualityMapperDialog32ComputePerVertexQualityHistogramER6CMeshO6FrangePN3vcg9HistogramIfEEi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1196) %1, <2 x float> %2, ptr noundef initializes((48, 80)) %3, i32 noundef %4) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -12550,7 +12550,7 @@ declare void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 derefe
 declare void @_ZN8EqHandleC1EP10CHART_INFO6QColor7QPointF21EQUALIZER_HANDLE_TYPEPPS_PdP14QDoubleSpinBoxii(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef, ptr noundef, double, double, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog22initEqualizerSpinboxesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(824) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN19QualityMapperDialog22initEqualizerSpinboxesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(824) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -12655,7 +12655,7 @@ define void @_ZN19QualityMapperDialog22initEqualizerSpinboxesEv(ptr nocapture no
 declare void @_ZN13QGraphicsView8setSceneEP14QGraphicsScene(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog19drawGammaCorrectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(824) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QualityMapperDialog19drawGammaCorrectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(824) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QPointF, align 8
   %3 = alloca %class.QPointF, align 8
   %4 = alloca %class.QPointF, align 8
@@ -12998,12 +12998,12 @@ declare void @_ZN14QDoubleSpinBox11setDecimalsEi(ptr noundef nonnull align 8 der
 declare void @_ZN14QDoubleSpinBox8setRangeEdd(ptr noundef nonnull align 8 dereferenceable(48), double noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 declare noundef i32 @_ZN11QMessageBox7warningEP7QWidgetRK7QStringS4_6QFlagsINS_14StandardButtonEES6_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i32, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, -2147483648) i32 @_ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff(ptr nocapture noundef nonnull readnone align 8 dereferenceable(824) %0, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3) local_unnamed_addr #12 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(824) %0, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3) local_unnamed_addr #12 align 2 {
   %5 = fsub float %3, %2
   %6 = fdiv float %5, 1.000000e+02
   %7 = fpext float %6 to double
@@ -13117,7 +13117,7 @@ _ZN3vcg9HistogramIfE8BinCountEff.exit:            ; preds = %_ZN3vcg9HistogramIf
 declare noundef double @_ZNK14QDoubleSpinBox5valueEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog17drawHistogramBarsER14QGraphicsSceneP10CHART_INFOff6QColor(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef readonly %2, float noundef %3, float noundef %4, ptr noundef nonnull %5) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QualityMapperDialog17drawHistogramBarsER14QGraphicsSceneP10CHART_INFOff6QColor(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef readonly captures(none) %2, float noundef %3, float noundef %4, ptr noundef nonnull %5) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.QRectF, align 8
   %8 = alloca %class.QLineF, align 8
   %9 = alloca %class.QPen, align 8
@@ -14025,7 +14025,7 @@ declare { double, double } @_ZNK13QGraphicsItem8scenePosEv(ptr noundef nonnull a
 declare void @_ZNK6QColor7lighterEi(ptr dead_on_unwind writable sret(%class.QColor) align 4, ptr noundef nonnull align 4 dereferenceable(14), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog15updateColorBandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(824) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QualityMapperDialog15updateColorBandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(824) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QImage, align 8
   %3 = alloca %class.QPixmap, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 688
@@ -14157,7 +14157,7 @@ declare void @_ZN16TransferFunction8flipRampEv(ptr noundef nonnull align 8 deref
 declare noundef zeroext i1 @_ZNK15QAbstractButton9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog22on_applyButton_clickedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(824) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QualityMapperDialog22on_applyButton_clickedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(824) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = load ptr, ptr %3, align 8
@@ -16533,7 +16533,7 @@ define void @_ZN19QualityMapperDialog17on_TfHandle_movedEP8TFHandle(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog21manageBorderTfHandlesEP8TFHandle(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QualityMapperDialog21manageBorderTfHandlesEP8TFHandle(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -17309,7 +17309,7 @@ _ZN5QListIP6GLAreaED2Ev.exit:                     ; preds = %1, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog16meshColorPreviewEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(824) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN19QualityMapperDialog16meshColorPreviewEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(824) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZNK15QAbstractButton9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
@@ -17324,7 +17324,7 @@ define void @_ZN19QualityMapperDialog16meshColorPreviewEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog24on_previewButton_clickedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(824) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN19QualityMapperDialog24on_previewButton_clickedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(824) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZNK15QAbstractButton9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
@@ -18151,7 +18151,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6insertEiPK5Q
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6setNumEdci(ptr noundef nonnull align 8 dereferenceable(8), double noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog32on_brightnessSlider_valueChangedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(824) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN19QualityMapperDialog32on_brightnessSlider_valueChangedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(824) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext true) #24
@@ -18165,7 +18165,7 @@ define void @_ZN19QualityMapperDialog32on_brightnessSlider_valueChangedEi(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog32on_brightessSpinBox_valueChangedEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(824) %0, double noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN19QualityMapperDialog32on_brightessSpinBox_valueChangedEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(824) %0, double noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext true) #24
@@ -18181,7 +18181,7 @@ define void @_ZN19QualityMapperDialog32on_brightessSpinBox_valueChangedEd(ptr no
 declare void @_ZN15QAbstractSlider8setValueEi(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog26on_midSpinBox_valueChangedEd(ptr nocapture noundef nonnull align 8 dereferenceable(824) initializes((672, 676)) %0, double noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QualityMapperDialog26on_midSpinBox_valueChangedEd(ptr noundef nonnull align 8 captures(none) dereferenceable(824) initializes((672, 676)) %0, double noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store i32 1, ptr %4, align 8
@@ -20015,10 +20015,10 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20

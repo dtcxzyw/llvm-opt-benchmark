@@ -1207,7 +1207,7 @@ declare ptr @PyObject_Malloc(i64 noundef) local_unnamed_addr #7
 declare ptr @PyErr_NoMemory() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyComplex_FromDoubles(double noundef %real, double noundef %imag) local_unnamed_addr #6 {
@@ -1281,7 +1281,7 @@ return:                                           ; preds = %if.else, %if.then
 declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @PyComplex_ImagAsDouble(ptr nocapture noundef readonly %op) local_unnamed_addr #6 {
+define dso_local double @PyComplex_ImagAsDouble(ptr noundef readonly captures(none) %op) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -1479,7 +1479,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @PyErr_Occurred() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_repr(ptr nocapture noundef readonly %v) #6 {
+define internal ptr @complex_repr(ptr noundef readonly captures(none) %v) #6 {
 entry:
   %cval = getelementptr inbounds nuw i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
@@ -3090,7 +3090,7 @@ return:                                           ; preds = %land.lhs.true.i19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_neg(ptr nocapture noundef readonly %v) #6 {
+define internal ptr @complex_neg(ptr noundef readonly captures(none) %v) #6 {
 entry:
   %cval = getelementptr inbounds nuw i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
@@ -3200,7 +3200,7 @@ return:                                           ; preds = %_PyObject_Init.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_abs(ptr nocapture noundef readonly %v) #6 {
+define internal ptr @complex_abs(ptr noundef readonly captures(none) %v) #6 {
 entry:
   %cval = getelementptr inbounds nuw i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
@@ -3264,7 +3264,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @complex_bool(ptr nocapture noundef readonly %v) #9 {
+define internal range(i32 0, 2) i32 @complex_bool(ptr noundef readonly captures(none) %v) #9 {
 entry:
   %cval = getelementptr inbounds nuw i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
@@ -3496,7 +3496,7 @@ return:                                           ; preds = %land.lhs.true.i15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @to_complex(ptr nocapture noundef nonnull %pobj, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %pc) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @to_complex(ptr noundef nonnull captures(none) %pobj, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %pc) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %pobj, align 8
   %1 = getelementptr i8, ptr %0, i64 8
@@ -3570,7 +3570,7 @@ declare i64 @_Py_HashDouble(ptr noundef, double noundef) local_unnamed_addr #7
 declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_conjugate(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #6 {
+define internal ptr @complex_conjugate(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #6 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load double, ptr %0, align 8
@@ -3617,7 +3617,7 @@ complex_conjugate_impl.exit:                      ; preds = %if.then.i.i, %_PyOb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex___complex__(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #6 {
+define internal ptr @complex___complex__(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #6 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
@@ -3679,7 +3679,7 @@ complex___complex___impl.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex___getnewargs__(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #6 {
+define internal ptr @complex___getnewargs__(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #6 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load double, ptr %0, align 8
@@ -3974,13 +3974,13 @@ declare void @PyErr_Clear() local_unnamed_addr #7
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

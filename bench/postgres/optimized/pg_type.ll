@@ -171,7 +171,7 @@ declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @CatalogTupleInsert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i8 noundef signext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
+define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i8 noundef signext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca %struct.ObjectAddress, align 4
   %12 = alloca %struct.ObjectAddress, align 4
@@ -1241,12 +1241,12 @@ define dso_local ptr @makeMultirangeTypeName(ptr noundef %0, i32 noundef %1) loc
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %0 to i64
   %7 = sub i64 %5, %6
-  %8 = tail call ptr @pnstrdup(ptr noundef %0, i64 noundef %7) #6
+  %8 = tail call ptr @pnstrdup(ptr noundef nonnull %0, i64 noundef %7) #6
   %9 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.13, ptr noundef %8, ptr noundef nonnull @.str.14, ptr noundef nonnull %3) #6
   br label %13
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @pnstrdup(ptr noundef %0, i64 noundef 52) #6
+  %11 = tail call ptr @pnstrdup(ptr noundef nonnull %0, i64 noundef 52) #6
   %12 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.15, ptr noundef %11) #6
   br label %13
 
@@ -1254,7 +1254,7 @@ define dso_local ptr @makeMultirangeTypeName(ptr noundef %0, i32 noundef %1) loc
   %.0 = phi ptr [ %9, %4 ], [ %12, %10 ]
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #8
   %15 = trunc i64 %14 to i32
-  %16 = tail call i32 @pg_mbcliplen(ptr noundef %.0, i32 noundef %15, i32 noundef 63) #6
+  %16 = tail call i32 @pg_mbcliplen(ptr noundef nonnull %.0, i32 noundef %15, i32 noundef 63) #6
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %.0, i64 %17
   store i8 0, ptr %18, align 1
@@ -1268,7 +1268,7 @@ define dso_local ptr @makeMultirangeTypeName(ptr noundef %0, i32 noundef %1) loc
   tail call void @llvm.assume(i1 %23)
   %24 = tail call i32 @errcode(i32 noundef 290948) #6
   %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %.0) #6
-  %26 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, ptr noundef %0) #6
+  %26 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, ptr noundef nonnull %0) #6
   %27 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.17) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 973, ptr noundef nonnull @__func__.makeMultirangeTypeName) #6
   unreachable
@@ -1279,7 +1279,7 @@ define dso_local ptr @makeMultirangeTypeName(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1288,7 +1288,7 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @pg_mbcliplen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1304,7 +1304,7 @@ declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

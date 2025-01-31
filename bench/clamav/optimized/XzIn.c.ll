@@ -37,7 +37,7 @@ declare i32 @SeqInStream_Read2(ptr noundef, ptr noundef, i64 noundef, i32 nounde
 declare i32 @Xz_ParseHeader(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @XzBlock_ReadHeader(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define i32 @XzBlock_ReadHeader(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   store i32 0, ptr %3, align 4
   %6 = call i32 @SeqInStream_ReadByte(ptr noundef %1, ptr noundef nonnull %5) #9
@@ -74,7 +74,7 @@ declare i32 @SeqInStream_Read(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @XzBlock_Parse(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @Xz_GetUnpackSize(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i64 @Xz_GetUnpackSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -105,7 +105,7 @@ define i64 @Xz_GetUnpackSize(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @Xz_GetPackSize(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i64 @Xz_GetPackSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -138,13 +138,13 @@ define i64 @Xz_GetPackSize(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Xzs_Construct(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #3 {
+define void @Xzs_Construct(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Xzs_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Xzs_Free(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -176,7 +176,7 @@ define void @Xzs_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_ad
 declare void @Xz_Free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @Xzs_GetNumBlocks(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i64 @Xzs_GetNumBlocks(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -202,7 +202,7 @@ define i64 @Xzs_GetNumBlocks(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @Xzs_GetUnpackSize(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i64 @Xzs_GetUnpackSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -257,7 +257,7 @@ Xz_GetUnpackSize.exit:                            ; preds = %13, %15, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Xzs_ReadBackward(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @Xzs_ReadBackward(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [12 x i8], align 4
   %7 = alloca [1024 x i8], align 16
   %8 = alloca i16, align 2
@@ -338,7 +338,7 @@ define i32 @Xzs_ReadBackward(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   %46 = sub nsw i64 0, %spec.select.i
   store i64 %46, ptr %2, align 8
   %47 = load ptr, ptr %12, align 8
-  %48 = call i32 %47(ptr noundef %1, ptr noundef nonnull %2, i32 noundef 1) #9
+  %48 = call i32 %47(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 1) #9
   %.not98.i = icmp eq i32 %48, 0
   br i1 %.not98.i, label %49, label %Xz_ReadBackward.exit.thread
 
@@ -381,7 +381,7 @@ define i32 @Xzs_ReadBackward(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   %63 = add nsw i64 %60, -12
   store i64 %63, ptr %2, align 8
   %64 = load ptr, ptr %12, align 8
-  %65 = call i32 %64(ptr noundef %1, ptr noundef nonnull %2, i32 noundef 0) #9
+  %65 = call i32 %64(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0) #9
   %.not103.i = icmp eq i32 %65, 0
   br i1 %.not103.i, label %66, label %Xz_ReadBackward.exit.thread
 
@@ -467,7 +467,7 @@ Xz_GetPackSize.exit.i:                            ; preds = %93, %90
   %107 = sub nsw i64 0, %103
   store i64 %107, ptr %2, align 8
   %108 = load ptr, ptr %12, align 8
-  %109 = call i32 %108(ptr noundef %1, ptr noundef nonnull %2, i32 noundef 1) #9
+  %109 = call i32 %108(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 1) #9
   %.not110.i = icmp eq i32 %109, 0
   br i1 %.not110.i, label %110, label %Xz_ReadBackward.exit.thread
 
@@ -581,7 +581,7 @@ Xz_ReadBackward.exit.thread:                      ; preds = %110, %106, %Xz_GetP
 declare void @Xz_Construct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @LookInStream_Read2(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -732,16 +732,16 @@ declare void @SecToRead_CreateVTable(ptr noundef) local_unnamed_addr #1
 declare i32 @Xz_ReadVarInt(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

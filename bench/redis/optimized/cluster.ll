@@ -604,7 +604,7 @@ if.end53:                                         ; preds = %if.then44
   br i1 %or.cond4, label %if.then58, label %for.inc
 
 if.then58:                                        ; preds = %if.end53
-  call void @addReplyError(ptr noundef %c, ptr noundef nonnull @.str.8) #16
+  call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.8) #16
   br label %return
 
 if.else61:                                        ; preds = %if.else31
@@ -897,7 +897,7 @@ return:                                           ; preds = %if.then44, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @getLongLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -940,7 +940,7 @@ declare void @rewriteClientCommandArgument(ptr noundef, i32 noundef, ptr noundef
 declare i32 @objectSetLRUOrLFU(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @migrateGetSocket(ptr noundef %c, ptr nocapture noundef readonly %host, ptr nocapture noundef readonly %port, i64 noundef %timeout) local_unnamed_addr #0 {
+define dso_local ptr @migrateGetSocket(ptr noundef %c, ptr noundef readonly captures(none) %host, ptr noundef readonly captures(none) %port, i64 noundef %timeout) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sdsempty() #16
   %ptr = getelementptr inbounds nuw i8, ptr %host, i64 8
@@ -1140,7 +1140,7 @@ declare i32 @dictDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @connEnableTcpNoDelay(ptr noundef) local_unnamed_addr #1
 
@@ -1150,7 +1150,7 @@ declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #4
 declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @migrateCloseSocket(ptr nocapture noundef readonly %host, ptr nocapture noundef readonly %port) local_unnamed_addr #0 {
+define dso_local void @migrateCloseSocket(ptr noundef readonly captures(none) %host, ptr noundef readonly captures(none) %port) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sdsempty() #16
   %ptr = getelementptr inbounds nuw i8, ptr %host, i64 8
@@ -1606,7 +1606,7 @@ try_again:                                        ; preds = %try_again.preheader
   %arrayidx119 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %arrayidx119, align 8
   %37 = load i64, ptr %timeout, align 8
-  %call120 = call ptr @migrateGetSocket(ptr noundef %c, ptr noundef %35, ptr noundef %36, i64 noundef %37)
+  %call120 = call ptr @migrateGetSocket(ptr noundef nonnull %c, ptr noundef %35, ptr noundef %36, i64 noundef %37)
   %cmp121 = icmp eq ptr %call120, null
   br i1 %cmp121, label %if.then123, label %if.end124
 
@@ -1859,7 +1859,7 @@ if.end282:                                        ; preds = %if.else270, %if.the
   ]
 
 cond.false301:                                    ; preds = %if.end282
-  call void @_serverAssertWithInfo(ptr noundef %c, ptr noundef null, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.1, i32 noundef 574) #16
+  call void @_serverAssertWithInfo(ptr noundef nonnull %c, ptr noundef null, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.1, i32 noundef 574) #16
   call void @abort() #17
   unreachable
 
@@ -1913,7 +1913,7 @@ sdslen.exit245:                                   ; preds = %cond.end302, %sw.bb
   br i1 %tobool311.not, label %cond.false319, label %cond.end320
 
 cond.false319:                                    ; preds = %sdslen.exit245
-  call void @_serverAssertWithInfo(ptr noundef %c, ptr noundef null, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.1, i32 noundef 576) #16
+  call void @_serverAssertWithInfo(ptr noundef nonnull %c, ptr noundef null, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.1, i32 noundef 576) #16
   call void @abort() #17
   unreachable
 
@@ -1923,7 +1923,7 @@ cond.end320:                                      ; preds = %sdslen.exit245
   br i1 %tobool322.not, label %cond.false330, label %cond.end331
 
 cond.false330:                                    ; preds = %cond.end320
-  call void @_serverAssertWithInfo(ptr noundef %c, ptr noundef null, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 577) #16
+  call void @_serverAssertWithInfo(ptr noundef nonnull %c, ptr noundef null, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 577) #16
   call void @abort() #17
   unreachable
 
@@ -1981,7 +1981,7 @@ sdslen.exit264:                                   ; preds = %cond.end331, %sw.bb
   br i1 %tobool342.not, label %cond.false350, label %cond.end351
 
 cond.false350:                                    ; preds = %sdslen.exit264
-  call void @_serverAssertWithInfo(ptr noundef %c, ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, i32 noundef 584) #16
+  call void @_serverAssertWithInfo(ptr noundef nonnull %c, ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, i32 noundef 584) #16
   call void @abort() #17
   unreachable
 
@@ -1996,7 +1996,7 @@ if.then355:                                       ; preds = %cond.end351
   br i1 %tobool357.not, label %cond.false365, label %for.inc368
 
 cond.false365:                                    ; preds = %if.then355
-  call void @_serverAssertWithInfo(ptr noundef %c, ptr noundef null, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.1, i32 noundef 590) #16
+  call void @_serverAssertWithInfo(ptr noundef nonnull %c, ptr noundef null, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.1, i32 noundef 590) #16
   call void @abort() #17
   unreachable
 
@@ -2167,7 +2167,7 @@ if.then447:                                       ; preds = %if.then445
   %buf1.buf2.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %or.cond4, ptr %buf1, ptr %buf2
   %errbuf.0.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %or.cond, ptr %buf0, ptr %buf1.buf2.sroa.sel.v.sroa.sel.v.sroa.sel.v
   %errbuf.0.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %errbuf.0.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 1
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %c, ptr noundef nonnull @.str.42, ptr noundef nonnull %errbuf.0.sroa.sel.v.sroa.sel.v.sroa.sel) #16
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.42, ptr noundef nonnull %errbuf.0.sroa.sel.v.sroa.sel.v.sroa.sel) #16
   br label %for.inc495
 
 if.else472:                                       ; preds = %lor.lhs.false433
@@ -2180,7 +2180,7 @@ if.then474:                                       ; preds = %if.else472
   %call478 = call i32 @dbDelete(ptr noundef %100, ptr noundef %101) #16
   %102 = load ptr, ptr %db216, align 8
   %103 = load ptr, ptr %arrayidx477, align 8
-  call void @signalModifiedKey(ptr noundef %c, ptr noundef %102, ptr noundef %103) #16
+  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %102, ptr noundef %103) #16
   %104 = load ptr, ptr %arrayidx477, align 8
   %105 = load ptr, ptr %db216, align 8
   %id = getelementptr inbounds nuw i8, ptr %105, i64 48
@@ -2247,7 +2247,7 @@ if.then520:                                       ; preds = %if.end518
 if.then523:                                       ; preds = %if.then520
   %call524 = call ptr @createStringObject(ptr noundef nonnull @.str.43, i64 noundef 3) #16
   store ptr %call524, ptr %newargv.2469, align 8
-  call void @replaceClientCommandVector(ptr noundef %c, i32 noundef %del_idx.0314, ptr noundef nonnull %newargv.2469) #16
+  call void @replaceClientCommandVector(ptr noundef nonnull %c, i32 noundef %del_idx.0314, ptr noundef nonnull %newargv.2469) #16
   br i1 %or.cond5296299, label %socket_err.thread, label %if.end533
 
 socket_err.thread:                                ; preds = %if.then523
@@ -2271,7 +2271,7 @@ if.then535:                                       ; preds = %if.end415.thread, %
   %118 = load i64, ptr %dbid, align 8
   store i64 %118, ptr %last_dbid, align 8
   %119 = load ptr, ptr @shared, align 8
-  call void @addReply(ptr noundef %c, ptr noundef %119) #16
+  call void @addReply(ptr noundef nonnull %c, ptr noundef %119) #16
   br label %if.end538
 
 if.end538:                                        ; preds = %if.end533, %if.then535
@@ -2318,7 +2318,7 @@ if.end556:                                        ; preds = %if.end549
   %call557 = call ptr @sdsempty() #16
   %cond559 = select i1 %cmp376.not481, ptr @.str.46, ptr @.str.45
   %call560 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call557, ptr noundef nonnull @.str.44, ptr noundef nonnull %cond559) #16
-  call void @addReplyErrorSds(ptr noundef %c, ptr noundef %call560) #16
+  call void @addReplyErrorSds(ptr noundef nonnull %c, ptr noundef %call560) #16
   br label %return
 
 return:                                           ; preds = %for.end, %lor.lhs.false, %if.end556, %if.end538, %if.then123, %if.then113, %if.else63, %if.then58, %if.then33, %if.then19
@@ -2362,7 +2362,7 @@ declare void @addReplyErrorSds(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 -1, 1) i32 @verifyClusterNodeId(ptr nocapture noundef readonly %name, i32 noundef %length) local_unnamed_addr #7 {
+define dso_local range(i32 -1, 1) i32 @verifyClusterNodeId(ptr noundef readonly captures(none) %name, i32 noundef %length) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq i32 %length, 40
   br i1 %cmp.not, label %for.body, label %return
@@ -2415,7 +2415,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @isValidAuxString(ptr nocapture noundef readonly %s, i32 noundef %length) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @isValidAuxString(ptr noundef readonly captures(none) %s, i32 noundef %length) local_unnamed_addr #9 {
 entry:
   %cmp5.not = icmp eq i32 %length, 0
   br i1 %cmp5.not, label %return, label %for.body.lr.ph
@@ -2537,7 +2537,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare void @addExtendedReplyHelp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3071,7 +3071,7 @@ sw.bb13.i140:                                     ; preds = %cond.end166
 
 sdslen.exit155:                                   ; preds = %cond.end166, %sw.bb.i152, %sw.bb3.i149, %sw.bb5.i146, %sw.bb9.i143, %sw.bb13.i140
   %retval.0.i142 = phi i64 [ %55, %sw.bb13.i140 ], [ %conv12.i145, %sw.bb9.i143 ], [ %conv8.i148, %sw.bb5.i146 ], [ %conv4.i151, %sw.bb3.i149 ], [ %conv2.i154, %sw.bb.i152 ], [ 0, %cond.end166 ]
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %call167, i64 noundef %retval.0.i142) #16
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %call167, i64 noundef %retval.0.i142) #16
   %inc = add nuw i32 %i.0215, 1
   %exitcond.not = icmp eq i32 %inc, %conv152
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
@@ -3825,7 +3825,7 @@ declare void @sunsubscribeCommand(ptr noundef) #1
 declare void @spublishCommand(ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare i32 @getKeysFromCommand(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4497,7 +4497,7 @@ declare i32 @clusterNodeIsMyself(ptr noundef) local_unnamed_addr #1
 declare i64 @replicationGetSlaveOffset() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
@@ -4506,10 +4506,10 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

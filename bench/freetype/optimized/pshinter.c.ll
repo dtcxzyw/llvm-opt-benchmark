@@ -1921,7 +1921,7 @@ psh_blues_scale_zones.exit:                       ; preds = %._crit_edge115.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @psh_glyph_interpolate_strong_points(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @psh_glyph_interpolate_strong_points(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not51 = icmp eq i32 %3, 0
   br i1 %.not51, label %._crit_edge, label %.lr.ph
@@ -2055,7 +2055,7 @@ define internal fastcc void @psh_glyph_interpolate_strong_points(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @psh_glyph_interpolate_normal_points(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca [16 x ptr], align 16
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2373,7 +2373,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @psh_glyph_interpolate_other_points(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @psh_glyph_interpolate_other_points(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not149 = icmp eq i32 %4, 0
@@ -2670,7 +2670,7 @@ define internal noundef i32 @ps_hinter_init(ptr noundef initializes((24, 168), (
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ps_hinter_done(ptr nocapture noundef initializes((168, 176), (224, 232)) %0) #0 {
+define internal void @ps_hinter_done(ptr noundef captures(none) initializes((168, 176), (224, 232)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2688,14 +2688,14 @@ define internal void @ps_hinter_done(ptr nocapture noundef initializes((168, 176
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare hidden i32 @ft_corner_is_flat(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psh_hint_table_init(ptr nocapture noundef nonnull initializes((16, 24)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @psh_hint_table_init(ptr noundef nonnull captures(none) initializes((16, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %1, align 8
   %7 = shl i32 %6, 1
@@ -2999,7 +2999,7 @@ psh_hint_table_record.exit:                       ; preds = %.lr.ph15, %100, %.l
 declare hidden i32 @ft_corner_orientation(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @psh_hint_align(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #5 {
+define internal fastcc void @psh_hint_align(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = zext nneg i32 %2 to i64
   %7 = getelementptr inbounds nuw [2 x %struct.PSH_DimensionRec_], ptr %5, i64 0, i64 %6
@@ -3424,7 +3424,7 @@ psh_dimension_quantize_len.exit:                  ; preds = %174, %200, %197, %1
 declare i64 @FT_DivFix(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @psh_hint_table_find_strong_points(i32 %.4.val, ptr nocapture readonly %.16.val, ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 3, 13) %3) unnamed_addr #6 {
+define internal fastcc void @psh_hint_table_find_strong_points(i32 %.4.val, ptr readonly captures(none) %.16.val, ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 3, 13) %3) unnamed_addr #6 {
   %invariant.op30 = and i32 %3, 10
   %.not31 = icmp eq i32 %1, 0
   br i1 %.not31, label %._crit_edge, label %.lr.ph34
@@ -3657,7 +3657,7 @@ define internal nonnull ptr @pshinter_get_t2_funcs(ptr noundef readnone %0) #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @psh_globals_new(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal i32 @psh_globals_new(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = call ptr @ft_mem_qalloc(ptr noundef %0, i64 noundef 3952, ptr noundef nonnull %4) #12
   %6 = load i32, ptr %4, align 4
@@ -3918,7 +3918,7 @@ define internal void @psh_globals_destroy(ptr noundef %0) #0 {
 declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @psh_blues_set_zones(ptr noundef %0, i32 noundef range(i32 0, 256) %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 256) %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #2 {
+define internal fastcc void @psh_blues_set_zones(ptr noundef %0, i32 noundef range(i32 0, 256) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 256) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #2 {
   %.not = icmp eq i32 %6, 0
   %.092.v = select i1 %.not, i64 776, i64 2328
   %.092 = getelementptr inbounds nuw i8, ptr %0, i64 %.092.v
@@ -4279,10 +4279,10 @@ psh_blues_set_zones_0.exit140:                    ; preds = %69, %psh_blues_set_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @t1_hints_open(ptr nocapture noundef writeonly initializes((8, 12), (16, 20), (24, 28), (40, 44), (56, 60), (72, 76), (88, 92), (104, 108)) %0) #9 {
+define internal void @t1_hints_open(ptr noundef writeonly captures(none) initializes((8, 12), (16, 20), (24, 28), (40, 44), (56, 60), (72, 76), (88, 92), (104, 108)) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4303,7 +4303,7 @@ define internal void @t1_hints_open(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @t1_hints_close(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define internal i32 @t1_hints_close(ptr noundef captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 0
@@ -4327,7 +4327,7 @@ ps_hints_close.exit:                              ; preds = %2, %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @t1_hints_stem(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @t1_hints_stem(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i64, ptr %2, align 8
   %5 = tail call i64 @FT_RoundFix(i64 noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4361,7 +4361,7 @@ ps_hints_stem.exit:                               ; preds = %11, %3, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ps_hints_t1stem3(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @ps_hints_t1stem3(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -4722,7 +4722,7 @@ ps_dimension_add_counter.exit.thread:             ; preds = %.preheader, %ps_mas
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ps_hints_t1reset(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define internal void @ps_hints_t1reset(ptr noundef captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4906,7 +4906,7 @@ define internal i32 @t1_hints_apply(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ps_dimension_end(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ps_dimension_end(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.PS_MaskRec_, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5147,14 +5147,14 @@ ps_mask_table_merge_all.exit:                     ; preds = %.loopexit.i, %ps_di
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 declare hidden ptr @ft_mem_realloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i64 @FT_RoundFix(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ps_dimension_add_t1stem(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @ps_dimension_add_t1stem(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -5369,7 +5369,7 @@ ps_mask_set_bit.exit:                             ; preds = %71, %92
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @t2_hints_open(ptr nocapture noundef writeonly initializes((8, 12), (16, 20), (24, 28), (40, 44), (56, 60), (72, 76), (88, 92), (104, 108)) %0) #9 {
+define internal void @t2_hints_open(ptr noundef writeonly captures(none) initializes((8, 12), (16, 20), (24, 28), (40, 44), (56, 60), (72, 76), (88, 92), (104, 108)) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5390,7 +5390,7 @@ define internal void @t2_hints_open(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @t2_hints_close(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define internal i32 @t2_hints_close(ptr noundef captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 0
@@ -5414,7 +5414,7 @@ ps_hints_close.exit:                              ; preds = %2, %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @t2_hints_stems(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @t2_hints_stems(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca [32 x i64], align 16
   %6 = icmp sgt i32 %2, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -5504,7 +5504,7 @@ ps_hints_stem.exit:                               ; preds = %41, %31, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ps_hints_t2mask(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @ps_hints_t2mask(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
@@ -5540,7 +5540,7 @@ define internal void @ps_hints_t2mask(ptr nocapture noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ps_hints_t2counter(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @ps_hints_t2counter(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -5582,7 +5582,7 @@ define internal i32 @t2_hints_apply(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ps_dimension_set_mask_bits(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @ps_dimension_set_mask_bits(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -5815,7 +5815,7 @@ ps_mask_table_set_bits.exit:                      ; preds = %.lr.ph.i, %89, %ps_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ps_dimension_done(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @ps_dimension_done(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
@@ -5895,10 +5895,10 @@ declare i32 @llvm.umin.i32(i32, i32) #10
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #10

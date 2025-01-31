@@ -46,7 +46,7 @@ define hidden void @cmsGBDFree(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsGDBAddPoint(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsGDBAddPoint(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cmsSpherical, align 8
   %4 = call fastcc ptr @GetPoint(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %5 = icmp eq ptr %4, null
@@ -75,7 +75,7 @@ define hidden range(i32 0, 2) i32 @cmsGDBAddPoint(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @GetPoint(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc ptr @GetPoint(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = alloca %struct.cmsVEC3, align 8
   %5 = load double, ptr %1, align 8
   %6 = fadd double %5, -5.000000e+01
@@ -202,10 +202,10 @@ QuantizeToSector.exit:                            ; preds = %45, %.thread26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsGDBCheckPoint(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsGDBCheckPoint(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cmsSpherical, align 8
   %4 = call fastcc ptr @GetPoint(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %5 = icmp eq ptr %4, null
@@ -650,16 +650,16 @@ declare double @llvm.fabs.f64(double) #3
 declare double @llvm.sqrt.f64(double) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

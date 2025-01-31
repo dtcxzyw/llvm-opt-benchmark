@@ -2051,10 +2051,10 @@ declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #2
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr nocapture noundef nonnull readonly %base, ptr nocapture noundef readonly %aead, i64 noundef range(i64 0, 4) %aeadsz, ptr nocapture noundef nonnull readonly %export) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull readonly captures(none) %base, ptr noundef readonly captures(none) %aead, i64 noundef range(i64 0, 4) %aeadsz, ptr noundef nonnull readonly captures(none) %export) unnamed_addr #1 {
 entry:
   %ct = alloca [256 x i8], align 16
   %enc = alloca [256 x i8], align 16
@@ -2545,7 +2545,7 @@ declare i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef, ptr noundef, ptr noundef, i64 n
 declare i32 @OSSL_HPKE_encap(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @OSSL_HPKE_seal(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2570,7 +2570,7 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_PKEY_get_octet_string_param(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @test_random() local_unnamed_addr #2
 

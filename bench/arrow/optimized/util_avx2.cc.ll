@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow4util8bit_util4avx220bits_to_indexes_avx2EiiPKhPiPtt(i32 noundef %bit_to_search, i32 noundef %num_bits, ptr nocapture noundef readonly %bits, ptr nocapture noundef initializes((0, 4)) %num_indexes, ptr nocapture noundef writeonly %indexes, i16 noundef zeroext %base_index) local_unnamed_addr #0 {
+define void @_ZN5arrow4util8bit_util4avx220bits_to_indexes_avx2EiiPKhPiPtt(i32 noundef %bit_to_search, i32 noundef %num_bits, ptr noundef readonly captures(none) %bits, ptr noundef captures(none) initializes((0, 4)) %num_indexes, ptr noundef writeonly captures(none) %indexes, i16 noundef zeroext %base_index) local_unnamed_addr #0 {
 entry:
   %byte_indexes.i6 = alloca [64 x i8], align 16
   %byte_indexes.i = alloca [64 x i8], align 16
@@ -191,7 +191,7 @@ if.end:                                           ; preds = %_ZN5arrow4util8bit_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow4util8bit_util4avx224bits_filter_indexes_avx2EiiPKhPKtPiPt(i32 noundef %bit_to_search, i32 noundef %num_bits, ptr nocapture noundef readonly %bits, ptr nocapture noundef readonly %input_indexes, ptr nocapture noundef writeonly %num_indexes, ptr nocapture noundef writeonly %indexes) local_unnamed_addr #0 {
+define void @_ZN5arrow4util8bit_util4avx224bits_filter_indexes_avx2EiiPKhPKtPiPt(i32 noundef %bit_to_search, i32 noundef %num_bits, ptr noundef readonly captures(none) %bits, ptr noundef readonly captures(none) %input_indexes, ptr noundef writeonly captures(none) %num_indexes, ptr noundef writeonly captures(none) %indexes) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %bit_to_search, 0
   %cmp4102.i = icmp sgt i32 %num_bits, 63
@@ -337,7 +337,7 @@ if.end:                                           ; preds = %for.inc.i30, %for.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow4util8bit_util4avx218bits_to_bytes_avx2EiPKhPh(i32 noundef %num_bits, ptr nocapture noundef readonly %bits, ptr nocapture noundef writeonly %bytes) local_unnamed_addr #0 {
+define void @_ZN5arrow4util8bit_util4avx218bits_to_bytes_avx2EiPKhPh(i32 noundef %num_bits, ptr noundef readonly captures(none) %bits, ptr noundef writeonly captures(none) %bytes) local_unnamed_addr #0 {
 entry:
   %cmp17 = icmp sgt i32 %num_bits, 31
   br i1 %cmp17, label %for.body.preheader, label %for.end
@@ -369,7 +369,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow4util8bit_util4avx218bytes_to_bits_avx2EiPKhPh(i32 noundef %num_bits, ptr nocapture noundef readonly %bytes, ptr nocapture noundef writeonly %bits) local_unnamed_addr #0 {
+define void @_ZN5arrow4util8bit_util4avx218bytes_to_bits_avx2EiPKhPh(i32 noundef %num_bits, ptr noundef readonly captures(none) %bytes, ptr noundef writeonly captures(none) %bits) local_unnamed_addr #0 {
 entry:
   %cmp4 = icmp sgt i32 %num_bits, 31
   br i1 %cmp4, label %for.body.preheader, label %for.end
@@ -395,7 +395,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrow4util8bit_util4avx223are_all_bytes_zero_avx2EPKhj(ptr nocapture noundef readonly %bytes, i32 noundef %num_bytes) local_unnamed_addr #1 {
+define noundef zeroext i1 @_ZN5arrow4util8bit_util4avx223are_all_bytes_zero_avx2EPKhj(ptr noundef readonly captures(none) %bytes, i32 noundef %num_bytes) local_unnamed_addr #1 {
 entry:
   %tail = alloca [4 x i64], align 16
   %cmp74.not = icmp ult i32 %num_bytes, 32
@@ -446,10 +446,10 @@ if.end:                                           ; preds = %if.then, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #4
@@ -464,10 +464,10 @@ declare i64 @llvm.x86.bmi.pdep.64(i64, i64) #4
 declare i64 @llvm.ctpop.i64(i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="haswell" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="haswell" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }

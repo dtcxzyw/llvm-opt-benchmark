@@ -187,7 +187,7 @@ declare i32 @H5E_clear_stack() local_unnamed_addr #1
 declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5T__array_create(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @H5T__array_create(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @H5T__alloc() #5
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
@@ -378,7 +378,7 @@ define i32 @H5Tget_array_ndims(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @H5T__get_array_ndims(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @H5T__get_array_ndims(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -499,7 +499,7 @@ H5T__get_array_dims.exit.thread:                  ; preds = %.preheader.i, %H5T_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @H5T__get_array_dims(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define i32 @H5T__get_array_dims(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -533,7 +533,7 @@ define i32 @H5T__get_array_dims(ptr nocapture noundef readonly %0, ptr noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, -9223372036854775808) i64 @H5Tarray_create1(i64 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @H5Tarray_create1(i64 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = load i8, ptr @H5_libinit_g, align 1
   %6 = trunc i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1
@@ -670,7 +670,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tarray_create1(i64 noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5Tget_array_dims1(i64 noundef %0, ptr noundef writeonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5Tget_array_dims1(i64 noundef %0, ptr noundef writeonly %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5_libinit_g, align 1
   %5 = trunc i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1

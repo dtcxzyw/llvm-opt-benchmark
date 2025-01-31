@@ -118,7 +118,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_irq_check_st
 @llvm.compiler.used = appending global [28 x ptr] [ptr @__UNIQUE_ID___addressable___irq_apply_affinity_hint380, ptr @__UNIQUE_ID___addressable___request_percpu_irq472, ptr @__UNIQUE_ID___addressable_disable_hardirq385, ptr @__UNIQUE_ID___addressable_disable_irq384, ptr @__UNIQUE_ID___addressable_disable_irq_nosync383, ptr @__UNIQUE_ID___addressable_disable_percpu_irq456, ptr @__UNIQUE_ID___addressable_enable_irq394, ptr @__UNIQUE_ID___addressable_enable_percpu_irq454, ptr @__UNIQUE_ID___addressable_free_irq435, ptr @__UNIQUE_ID___addressable_free_percpu_irq469, ptr @__UNIQUE_ID___addressable_irq_check_status_bit490, ptr @__UNIQUE_ID___addressable_irq_force_affinity379, ptr @__UNIQUE_ID___addressable_irq_get_irqchip_state485, ptr @__UNIQUE_ID___addressable_irq_has_action489, ptr @__UNIQUE_ID___addressable_irq_percpu_is_enabled455, ptr @__UNIQUE_ID___addressable_irq_set_affinity378, ptr @__UNIQUE_ID___addressable_irq_set_affinity_notifier381, ptr @__UNIQUE_ID___addressable_irq_set_irq_wake399, ptr @__UNIQUE_ID___addressable_irq_set_irqchip_state488, ptr @__UNIQUE_ID___addressable_irq_set_parent400, ptr @__UNIQUE_ID___addressable_irq_set_vcpu_affinity382, ptr @__UNIQUE_ID___addressable_irq_wake_thread418, ptr @__UNIQUE_ID___addressable_request_any_context_irq447, ptr @__UNIQUE_ID___addressable_request_threaded_irq446, ptr @__UNIQUE_ID___addressable_synchronize_hardirq376, ptr @__UNIQUE_ID___addressable_synchronize_irq377, ptr @__setup_setup_forced_irqthreads, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @setup_forced_irqthreads(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @setup_forced_irqthreads(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   tail call void @static_key_enable(ptr noundef nonnull @force_irqthreads_key) #10
   ret i32 0
 }
@@ -170,13 +170,13 @@ define dso_local zeroext i1 @synchronize_hardirq(i32 noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @irq_to_desc(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @synchronize_irq(i32 noundef %0) #1 align 16 {
@@ -367,7 +367,7 @@ define dso_local zeroext i1 @irq_can_set_affinity_usr(i32 noundef %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_set_thread_affinity(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @irq_set_thread_affinity(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -693,7 +693,7 @@ define dso_local range(i32 3, 1) i32 @irq_set_affinity_locked(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @irq_update_affinity_desc(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 align 16 {
+define dso_local noundef i32 @irq_update_affinity_desc(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 align 16 {
   ret i32 -95
 }
 
@@ -2040,7 +2040,7 @@ define dso_local ptr @free_irq(i32 noundef %0, ptr noundef readnone %1) #1 align
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @free_nmi(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 16 {
+define dso_local ptr @free_nmi(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %34, label %5
@@ -2263,7 +2263,7 @@ define dso_local i32 @request_threaded_irq(i32 noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @irq_default_primary_handler(i32 %0, ptr nocapture readnone %1) #4 align 16 {
+define internal noundef i32 @irq_default_primary_handler(i32 %0, ptr readnone captures(none) %1) #4 align 16 {
   ret i32 2
 }
 
@@ -3236,7 +3236,7 @@ define dso_local void @disable_percpu_nmi(i32 noundef %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @remove_percpu_irq(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local void @remove_percpu_irq(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
@@ -3967,7 +3967,7 @@ define dso_local zeroext i1 @irq_check_status_bit(i32 noundef %0, i32 noundef %1
 declare dso_local void @static_key_enable(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -4033,7 +4033,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @irq_nested_primary_handler(i32 noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal noundef i32 @irq_nested_primary_handler(i32 noundef %0, ptr readnone captures(none) %1) #1 align 16 {
   tail call void asm sideeffect "401: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 401b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 401) #10, !srcloc !137
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.18, i32 noundef %0) #10
   tail call void asm sideeffect "402: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 402b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 402) #10, !srcloc !138
@@ -4105,7 +4105,7 @@ declare dso_local void @register_irq_proc(i32 noundef, ptr noundef) local_unname
 declare dso_local void @register_handler_proc(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @irq_forced_secondary_handler(i32 noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal noundef i32 @irq_forced_secondary_handler(i32 noundef %0, ptr readnone captures(none) %1) #1 align 16 {
   tail call void asm sideeffect "405: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 405b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 405) #10, !srcloc !142
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.19, i32 noundef %0) #10
   tail call void asm sideeffect "406: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 406b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 406) #10, !srcloc !143
@@ -4326,7 +4326,7 @@ define internal i32 @irq_thread_fn(ptr noundef %0, ptr noundef %1) unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @irq_thread_dtor(ptr nocapture readnone %0) #1 align 16 {
+define internal void @irq_thread_dtor(ptr readnone captures(none) %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !147
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 44

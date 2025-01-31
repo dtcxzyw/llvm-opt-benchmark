@@ -29,7 +29,7 @@ define hidden void @FT_Trace_Enable() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @FT_Trace_Set_Level(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @FT_Trace_Set_Level(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
@@ -39,7 +39,7 @@ define void @FT_Trace_Set_Default_Level() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @FT_Set_Log_Handler(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @FT_Set_Log_Handler(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 

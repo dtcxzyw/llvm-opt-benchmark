@@ -358,13 +358,13 @@ define dso_local i32 @usb_clear_port_feature(ptr noundef %0, i32 noundef %1, i32
 declare dso_local i32 @usb_control_msg(ptr noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, ptr noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 8) i32 @usb_hub_port_status(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 8) i32 @usb_hub_port_status(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 align 16 {
   %5 = tail call fastcc i32 @hub_ext_port_status(ptr noundef %0, i32 noundef %1, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef null), !range !5
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 8) i32 @hub_ext_port_status(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 3) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 8) i32 @hub_ext_port_status(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly %5) unnamed_addr #1 align 16 {
   %7 = icmp ne i32 %2, 0
   %8 = select i1 %7, i32 8, i32 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -473,7 +473,7 @@ define dso_local void @usb_kick_hub_wq(ptr noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @kick_hub_wq(ptr noundef %0) unnamed_addr #1 align 16 {
@@ -545,7 +545,7 @@ define internal fastcc void @kick_hub_wq(ptr noundef %0) unnamed_addr #1 align 1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @usb_wakeup_notification(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
@@ -632,7 +632,7 @@ define dso_local i32 @usb_hub_set_port_power(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @usb_hub_clear_tt_buffer(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @usb_hub_clear_tt_buffer(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -717,7 +717,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @usb_remove_device(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @usb_remove_device(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -964,7 +964,7 @@ define dso_local void @usb_hub_release_all_ports(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @usb_device_is_owned(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @usb_device_is_owned(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -1271,7 +1271,7 @@ define internal fastcc void @recursively_mark_NOTATTACHED(ptr noundef %0) unname
 declare dso_local void @device_set_wakeup_capable(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @usb_disconnect(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local void @usb_disconnect(ptr noundef captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @device_state_lock) #19
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1872,7 +1872,7 @@ declare dso_local void @usb_disable_autosuspend(ptr noundef) local_unnamed_addr 
 declare dso_local void @add_device_randomness(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @device_add(ptr noundef) local_unnamed_addr #3
@@ -1966,7 +1966,7 @@ declare dso_local i32 @usb_choose_configuration(ptr noundef) local_unnamed_addr 
 declare dso_local void @usb_autosuspend_device(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 0, 2) i32 @usb_port_is_power_on(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @usb_port_is_power_on(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 902
@@ -3780,7 +3780,7 @@ define dso_local void @usb_unlocked_enable_lpm(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_port_disable(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local i32 @usb_port_disable(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3815,7 +3815,7 @@ define dso_local i32 @usb_port_disable(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @hub_port_disable(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @hub_port_disable(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %5 = load ptr, ptr %4, align 8
   %6 = add i32 %1, -1
@@ -4741,7 +4741,7 @@ define dso_local ptr @usb_hub_find_child(ptr noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @usb_hub_adjust_deviceremovable(ptr noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #9 align 16 {
+define dso_local void @usb_hub_adjust_deviceremovable(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #9 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -5096,7 +5096,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @usb_set_device_initiated_l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -19, 1) i32 @hub_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal noundef range(i32 -19, 1) i32 @hub_probe(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5889,7 +5889,7 @@ define internal void @hub_disconnect(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -38, 257) i32 @hub_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) #1 align 16 {
+define internal range(i32 -38, 257) i32 @hub_ioctl(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -168
@@ -5980,7 +5980,7 @@ define internal range(i32 -38, 257) i32 @hub_ioctl(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -16, 1) i32 @hub_suspend(ptr nocapture noundef readonly %0, i32 %1) #1 align 16 {
+define internal noundef range(i32 -16, 1) i32 @hub_suspend(ptr noundef readonly captures(none) %0, i32 %1) #1 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %.fr = freeze i32 %1
@@ -6300,7 +6300,7 @@ hub_quiesce.exit:                                 ; preds = %hub_quiesce.exit.lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hub_resume(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @hub_resume(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -6369,7 +6369,7 @@ define internal noundef i32 @hub_resume(ptr nocapture noundef readonly %0) #1 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hub_reset_resume(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @hub_reset_resume(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @hub_activate(ptr noundef %3, i32 noundef 5)
@@ -6377,7 +6377,7 @@ define internal noundef i32 @hub_reset_resume(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hub_pre_reset(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @hub_pre_reset(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @hub_quiesce(ptr noundef %3, i32 noundef 1)
@@ -6416,7 +6416,7 @@ define internal noundef i32 @hub_pre_reset(ptr nocapture noundef readonly %0) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hub_post_reset(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @hub_post_reset(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 240
@@ -6461,7 +6461,7 @@ declare dso_local void @pm_runtime_set_autosuspend_delay(ptr noundef, i32 nounde
 declare dso_local void @usb_enable_autosuspend(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @led_work(ptr noundef %0) #1 align 16 {
@@ -8146,7 +8146,7 @@ define internal fastcc void @hub_quiesce(ptr noundef %0, i32 noundef range(i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @hub_hub_status(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @hub_hub_status(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @mutex_lock(ptr noundef nonnull %4) #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8781,7 +8781,7 @@ define internal fastcc noundef i32 @hub_port_reset(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @sysfs_notify(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -8805,7 +8805,7 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #3
 declare dso_local ptr @usb_get_device_descriptor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @descriptors_changed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 0, 2) i32 @descriptors_changed(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %5 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %4, ptr noundef dereferenceable(18) %1, i64 18)
   %6 = icmp eq i32 %5, 0
@@ -9754,7 +9754,7 @@ thread-pre-split:                                 ; preds = %47, %43, %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hub_power_remaining(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc void @hub_power_remaining(ptr noundef readonly captures(none) %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -9890,7 +9890,7 @@ declare dso_local void @usb_detect_quirks(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @usb_get_bos_descriptor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @usb_set_lpm_parameters(ptr nocapture noundef %0) unnamed_addr #9 align 16 {
+define internal fastcc void @usb_set_lpm_parameters(ptr noundef captures(none) %0) unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1213
   %3 = load i16, ptr %2, align 1
   %4 = and i16 %3, 64
@@ -10294,7 +10294,7 @@ define internal void @hub_tt_work(ptr noundef %0) #1 align 16 {
 declare dso_local ptr @usb_alloc_urb(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hub_irq(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @hub_irq(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -11068,7 +11068,7 @@ declare i32 @llvm.umin.i32(i32, i32) #15
 declare i16 @llvm.umin.i16(i16, i16) #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15

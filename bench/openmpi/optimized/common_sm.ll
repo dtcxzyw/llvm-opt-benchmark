@@ -174,7 +174,7 @@ opal_obj_new.exit.thread45:                       ; preds = %.lr.ph.i.i, %15
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @mca_common_sm_module_attach(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -274,7 +274,7 @@ define range(i32 -5, 1) i32 @mca_common_sm_local_proc_reorder(ptr noundef %0, i6
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define ptr @mca_common_sm_seg_alloc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define ptr @mca_common_sm_seg_alloc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = cmpxchg volatile ptr %4, i32 0, i32 1 acquire monotonic, align 4

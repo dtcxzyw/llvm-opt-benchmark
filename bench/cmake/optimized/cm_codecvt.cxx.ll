@@ -43,7 +43,7 @@ define dso_local void @_ZN7codecvtD0Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7codecvt16do_always_noconvEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7codecvt16do_always_noconvEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -51,14 +51,14 @@ define dso_local noundef zeroext i1 @_ZNK7codecvt16do_always_noconvEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNK7codecvt6do_outER11__mbstate_tPKcS3_RS3_PcS5_RS5_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %4, ptr noundef %5, ptr nocapture readnone %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %7) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK7codecvt6do_outER11__mbstate_tPKcS3_RS3_PcS5_RS5_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4, ptr noundef %5, ptr readnone captures(none) %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %7) unnamed_addr #6 align 2 {
   store ptr %2, ptr %4, align 8
   store ptr %5, ptr %7, align 8
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 0, 4) i32 @_ZNK7codecvt10do_unshiftER11__mbstate_tPcS2_RS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture nonnull readnone align 4 %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZNK7codecvt10do_unshiftER11__mbstate_tPcS2_RS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #7 align 2 {
   store ptr %2, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
@@ -68,12 +68,12 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK7codecvt10do_unshiftER11__mbst
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK7codecvt13do_max_lengthEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZNK7codecvt13do_max_lengthEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK7codecvt11do_encodingEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZNK7codecvt11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i32 0
 }
 

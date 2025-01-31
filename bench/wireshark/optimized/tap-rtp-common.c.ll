@@ -15,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @rtpstream_info_init(ptr nocapture noundef writeonly initializes((0, 7304)) %0) local_unnamed_addr #0 {
+define hidden void @rtpstream_info_init(ptr noundef writeonly captures(none) initializes((0, 7304)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %0, i8 0, i64 7304, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @rtpstream_info_malloc_and_init() local_unnamed_addr #2 {
@@ -34,7 +34,7 @@ define hidden noalias noundef ptr @rtpstream_info_malloc_and_init() local_unname
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_info_copy_deep(ptr nocapture noundef writeonly initializes((0, 7304)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden void @rtpstream_info_copy_deep(ptr noundef writeonly captures(none) initializes((0, 7304)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %0, ptr noundef nonnull align 8 dereferenceable(7304) %1, i64 7304, i1 false)
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -91,12 +91,12 @@ copy_address.exit8:                               ; preds = %copy_address.exit, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @rtpstream_info_malloc_and_copy_deep(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden noalias noundef ptr @rtpstream_info_malloc_and_copy_deep(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(7304) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %2, ptr noundef nonnull readonly align 8 dereferenceable(7304) %0, i64 7304, i1 false)
   %3 = load i32, ptr %0, align 8
@@ -304,7 +304,7 @@ addresses_equal.exit:                             ; preds = %44, %36, %31, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_reset(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define hidden void @rtpstream_reset(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -365,7 +365,7 @@ rtpstream_info_free_data.exit:                    ; preds = %.lr.ph, %17
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_info_multihash_destroy_value(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #2 {
+define hidden void @rtpstream_info_multihash_destroy_value(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #2 {
   tail call void @g_list_free(ptr noundef %1) #16
   ret void
 }
@@ -453,7 +453,7 @@ define hidden void @register_tap_listener_rtpstream(ptr noundef %0, ptr noundef 
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @rtpstream_packet_cb(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #2 {
+define hidden range(i32 0, 2) i32 @rtpstream_packet_cb(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #2 {
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
@@ -526,7 +526,7 @@ rtpstream_info_multihash_lookup.exit:             ; preds = %.lr.ph.i
 rtpstream_info_multihash_lookup.exit.thread:      ; preds = %37, %33, %28, %25, %rtpstream_info_multihash_lookup.exit
   %41 = call noalias noundef dereferenceable_or_null(7304) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %41, i8 0, i64 7304, i1 false)
-  call void @rtpstream_id_copy_pinfo(ptr noundef %1, ptr noundef %41, i32 noundef 0) #16
+  call void @rtpstream_id_copy_pinfo(ptr noundef %1, ptr noundef nonnull %41, i32 noundef 0) #16
   %42 = load i32, ptr %10, align 8
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 60
   store i32 %42, ptr %43, align 4
@@ -712,7 +712,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @rtpstream_is_payload_used(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @rtpstream_is_payload_used(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = zext i8 %1 to i64
   %5 = getelementptr [256 x ptr], ptr %3, i64 0, i64 %4
@@ -723,7 +723,7 @@ define hidden range(i32 0, 2) i32 @rtpstream_is_payload_used(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtp_write_header(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden void @rtp_write_header(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -791,12 +791,12 @@ define hidden void @rtp_write_header(ptr noundef %0, ptr nocapture noundef %1) l
 declare ptr @address_to_display(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @rtpstream_id_copy_pinfo_shallow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -847,7 +847,7 @@ rtpstream_to_hash.exit:                           ; preds = %2, %3
 declare void @rtpstream_id_copy_pinfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_info_analyse_init(ptr nocapture noundef writeonly initializes((64, 65), (72, 80), (2156, 2168), (2176, 2192), (2208, 2224), (2240, 2244), (7276, 7280)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define hidden void @rtpstream_info_analyse_init(ptr noundef writeonly captures(none) initializes((64, 65), (72, 80), (2156, 2168), (2176, 2192), (2208, 2224), (2240, 2244), (7276, 7280)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -1058,7 +1058,7 @@ update_payload_names.exit:                        ; preds = %32, %35
 declare double @nstime_to_msec(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_info_calculate(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 10), (16, 26), (28, 124), (128, 164), (168, 184)) %1) local_unnamed_addr #2 {
+define hidden void @rtpstream_info_calculate(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 10), (16, 26), (28, 124), (128, 164), (168, 184)) %1) local_unnamed_addr #2 {
   %3 = tail call ptr @address_to_display(ptr noundef null, ptr noundef %0) #16
   store ptr %3, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1228,7 +1228,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_info_calc_free(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden void @rtpstream_info_calc_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   tail call void @wmem_free(ptr noundef null, ptr noundef %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1277,7 +1277,7 @@ declare ptr @g_string_sized_new(i64 noundef) local_unnamed_addr #5
 declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #13
@@ -1289,10 +1289,10 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 declare i16 @llvm.bswap.i16(i16) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

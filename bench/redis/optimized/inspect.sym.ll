@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @arena_bin_offsets = external local_unnamed_addr global [39 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @inspect_extent_util_stats_get(ptr noundef %tsdn, ptr noundef %ptr, ptr nocapture noundef writeonly initializes((0, 8)) %nfree, ptr nocapture noundef writeonly initializes((0, 8)) %nregs, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #0 {
+define hidden void @inspect_extent_util_stats_get(ptr noundef %tsdn, ptr noundef %ptr, ptr noundef writeonly captures(none) initializes((0, 8)) %nfree, ptr noundef writeonly captures(none) initializes((0, 8)) %nregs, ptr noundef writeonly captures(none) initializes((0, 8)) %size) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i = alloca %struct.rtree_ctx_s, align 8
   %tmp.i = alloca %struct.rtree_contents_s, align 8
@@ -99,7 +99,7 @@ if.end14:                                         ; preds = %if.else, %if.then4,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @inspect_extent_util_stats_verbose_get(ptr noundef %tsdn, ptr noundef %ptr, ptr nocapture noundef writeonly initializes((0, 8)) %nfree, ptr nocapture noundef initializes((0, 8)) %nregs, ptr nocapture noundef writeonly initializes((0, 8)) %size, ptr nocapture noundef writeonly initializes((0, 8)) %bin_nfree, ptr nocapture noundef writeonly initializes((0, 8)) %bin_nregs, ptr nocapture noundef writeonly initializes((0, 8)) %slabcur_addr) local_unnamed_addr #0 {
+define hidden void @inspect_extent_util_stats_verbose_get(ptr noundef %tsdn, ptr noundef %ptr, ptr noundef writeonly captures(none) initializes((0, 8)) %nfree, ptr noundef captures(none) initializes((0, 8)) %nregs, ptr noundef writeonly captures(none) initializes((0, 8)) %size, ptr noundef writeonly captures(none) initializes((0, 8)) %bin_nfree, ptr noundef writeonly captures(none) initializes((0, 8)) %bin_nregs, ptr noundef writeonly captures(none) initializes((0, 8)) %slabcur_addr) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i = alloca %struct.rtree_ctx_s, align 8
   %tmp.i = alloca %struct.rtree_contents_s, align 8
@@ -243,7 +243,7 @@ return:                                           ; preds = %cond.end, %if.then4
 declare ptr @edata_heap_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15

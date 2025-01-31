@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net10CubicBytesC1EPKNS_9QuicClockE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN3net10CubicBytesC2EPKNS_9QuicClockE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net10CubicBytesC2EPKNS_9QuicClockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 12), (16, 76), (80, 88)) %this, ptr noundef %clock) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net10CubicBytesC2EPKNS_9QuicClockE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((0, 12), (16, 76), (80, 88)) %this, ptr noundef %clock) unnamed_addr #0 align 2 {
 entry:
   store ptr %clock, ptr %this, align 8
   %num_connections_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net10CubicBytes5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((16, 76), (80, 88)) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net10CubicBytes5ResetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((16, 76), (80, 88)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %epoch_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %last_target_congestion_window_ = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net10CubicBytes17SetNumConnectionsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((8, 12)) %this, i32 noundef %num_connections) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net10CubicBytes17SetNumConnectionsEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((8, 12)) %this, i32 noundef %num_connections) local_unnamed_addr #0 align 2 {
 entry:
   %num_connections_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %num_connections, ptr %num_connections_, align 8
@@ -37,7 +37,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK3net10CubicBytes5AlphaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef float @_ZNK3net10CubicBytes5AlphaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this) local_unnamed_addr #1 align 2 {
 entry:
   %num_connections_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %num_connections_.i, align 8
@@ -57,7 +57,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK3net10CubicBytes4BetaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef float @_ZNK3net10CubicBytes4BetaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this) local_unnamed_addr #1 align 2 {
 entry:
   %num_connections_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %num_connections_, align 8
@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net10CubicBytes20OnApplicationLimitedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((16, 24)) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net10CubicBytes20OnApplicationLimitedEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((16, 24)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %epoch_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %epoch_, align 8
@@ -78,7 +78,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN3net10CubicBytes31CongestionWindowAfterPacketLossEm(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((16, 24)) %this, i64 noundef %current_congestion_window) local_unnamed_addr #2 align 2 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN3net10CubicBytes31CongestionWindowAfterPacketLossEm(ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((16, 24)) %this, i64 noundef %current_congestion_window) local_unnamed_addr #2 align 2 {
 entry:
   %last_max_congestion_window_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %last_max_congestion_window_, align 8
@@ -105,7 +105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3net10CubicBytes24CongestionWindowAfterAckEmmNS_8QuicTime5DeltaE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %acked_bytes, i64 noundef %current_congestion_window, i64 %delay_min.coerce0, i64 %delay_min.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN3net10CubicBytes24CongestionWindowAfterAckEmmNS_8QuicTime5DeltaE(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, i64 noundef %acked_bytes, i64 noundef %current_congestion_window, i64 %delay_min.coerce0, i64 %delay_min.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %acked_bytes_count_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %acked_bytes_count_, align 8
@@ -239,7 +239,7 @@ declare double @cbrt(double noundef) local_unnamed_addr #4
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6

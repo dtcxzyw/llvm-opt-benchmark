@@ -61,7 +61,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @grpmodule_traverse(ptr noundef %m, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @grpmodule_traverse(ptr noundef %m, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #4
   %0 = load ptr, ptr %call.i, align 8
@@ -365,7 +365,7 @@ if.then29.i:                                      ; preds = %if.then27.i
 
 if.else.i:                                        ; preds = %if.then27.i
   %7 = load ptr, ptr @PyExc_KeyError, align 8
-  %call31.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.9, ptr noundef %1) #4
+  %call31.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #4
   br label %out.i
 
 if.end33.i:                                       ; preds = %while.end.i
@@ -404,7 +404,7 @@ exit:                                             ; preds = %cond.end, %grp_getg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @grp_getgrall(ptr noundef %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @grp_getgrall(ptr noundef %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyList_New(i64 noundef 0) #4
   %cmp.i = icmp eq ptr %call.i, null
@@ -511,7 +511,7 @@ declare ptr @_PyLong_FromGid(i32 noundef) local_unnamed_addr #1
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mkgrent(ptr noundef %module, ptr nocapture noundef nonnull readonly %p) unnamed_addr #0 {
+define internal fastcc ptr @mkgrent(ptr noundef %module, ptr noundef nonnull readonly captures(none) %p) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #4
   %0 = load ptr, ptr %call.i, align 8
@@ -728,10 +728,10 @@ declare ptr @PyStructSequence_NewType(ptr noundef) local_unnamed_addr #1
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

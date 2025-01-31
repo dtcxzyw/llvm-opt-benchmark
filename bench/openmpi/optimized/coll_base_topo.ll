@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @ompi_coll_base_topo_build_tree(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @ompi_coll_base_topo_build_tree(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %0, -33
   %or.cond = icmp ult i32 %4, -32
   br i1 %or.cond, label %70, label %5
@@ -216,7 +216,7 @@ calculate_num_nodes_up_to_level.exit:             ; preds = %._crit_edge92, %pow
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bintree(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bintree(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val, i64 16
@@ -363,10 +363,10 @@ define noundef i32 @ompi_coll_base_topo_destroy_tree(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @ompi_coll_base_topo_build_bmtree(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define noalias noundef ptr @ompi_coll_base_topo_build_bmtree(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 16
@@ -457,7 +457,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_bmtree(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bmtree(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bmtree(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 16
@@ -541,7 +541,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bmtree(ptr nocapt
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @ompi_coll_base_topo_build_kmtree(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @ompi_coll_base_topo_build_kmtree(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -655,7 +655,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_kmtree(ptr nocapture nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr i8, ptr %1, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -838,10 +838,10 @@ define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ompi_coll_base_topo_dump_tree(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define noundef i32 @ompi_coll_base_topo_dump_tree(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
 .loopexit:
   ret i32 0
 }
@@ -856,7 +856,7 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nofree nounwind memory(readwrite, argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

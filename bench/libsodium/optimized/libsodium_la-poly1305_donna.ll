@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @crypto_onetimeauth_poly1305_donna_implementation = hidden local_unnamed_addr global %struct.crypto_onetimeauth_poly1305_implementation { ptr @crypto_onetimeauth_poly1305_donna, ptr @crypto_onetimeauth_poly1305_donna_verify, ptr @crypto_onetimeauth_poly1305_donna_init, ptr @crypto_onetimeauth_poly1305_donna_update, ptr @crypto_onetimeauth_poly1305_donna_final }, align 8
 
 ; Function Attrs: nounwind ssp uwtable
-define internal noundef i32 @crypto_onetimeauth_poly1305_donna(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %m, i64 noundef %inlen, ptr nocapture noundef readonly %key) #0 {
+define internal noundef i32 @crypto_onetimeauth_poly1305_donna(ptr noundef writeonly captures(none) %out, ptr noundef readonly captures(none) %m, i64 noundef %inlen, ptr noundef readonly captures(none) %key) #0 {
 if.end15.i:
   %state = alloca %struct.poly1305_state_internal_t, align 64
   %key.val.i = load i64, ptr %key, align 1
@@ -156,7 +156,7 @@ poly1305_update.exit:                             ; preds = %if.end21.i, %for.en
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal i32 @crypto_onetimeauth_poly1305_donna_verify(ptr noundef %h, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %k) #0 {
+define internal i32 @crypto_onetimeauth_poly1305_donna_verify(ptr noundef %h, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr noundef readonly captures(none) %k) #0 {
 entry:
   %correct = alloca [16 x i8], align 16
   %call = call i32 @crypto_onetimeauth_poly1305_donna(ptr noundef nonnull %correct, ptr noundef %in, i64 noundef %inlen, ptr noundef %k)
@@ -165,7 +165,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @crypto_onetimeauth_poly1305_donna_init(ptr nocapture noundef writeonly initializes((0, 72), (88, 89)) %state, ptr nocapture noundef readonly %key) #1 {
+define internal noundef i32 @crypto_onetimeauth_poly1305_donna_init(ptr noundef writeonly captures(none) initializes((0, 72), (88, 89)) %state, ptr noundef readonly captures(none) %key) #1 {
 entry:
   %key.val.i = load i64, ptr %key, align 1
   %arrayidx1.i = getelementptr i8, ptr %key, i64 8
@@ -198,7 +198,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal noundef i32 @crypto_onetimeauth_poly1305_donna_update(ptr nocapture noundef %state, ptr nocapture noundef readonly %in, i64 noundef %inlen) #2 {
+define internal noundef i32 @crypto_onetimeauth_poly1305_donna_update(ptr noundef captures(none) %state, ptr noundef readonly captures(none) %in, i64 noundef %inlen) #2 {
 entry:
   %leftover.i = getelementptr inbounds nuw i8, ptr %state, i64 64
   %0 = load i64, ptr %leftover.i, align 8
@@ -292,14 +292,14 @@ poly1305_update.exit:                             ; preds = %for.end.i, %if.end2
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal noundef i32 @crypto_onetimeauth_poly1305_donna_final(ptr noundef %state, ptr nocapture noundef writeonly initializes((0, 16)) %out) #0 {
+define internal noundef i32 @crypto_onetimeauth_poly1305_donna_final(ptr noundef %state, ptr noundef writeonly captures(none) initializes((0, 16)) %out) #0 {
 entry:
   tail call fastcc void @poly1305_finish(ptr noundef %state, ptr noundef %out)
   ret i32 0
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @poly1305_finish(ptr noundef %st, ptr nocapture noundef writeonly initializes((0, 16)) %mac) unnamed_addr #0 {
+define internal fastcc void @poly1305_finish(ptr noundef %st, ptr noundef writeonly captures(none) initializes((0, 16)) %mac) unnamed_addr #0 {
 entry:
   %leftover = getelementptr inbounds nuw i8, ptr %st, i64 64
   %0 = load i64, ptr %leftover, align 8
@@ -403,7 +403,7 @@ if.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef range(i64 16, -15) %bytes) unnamed_addr #2 {
+define internal fastcc void @poly1305_blocks(ptr noundef captures(none) %st, ptr noundef readonly captures(none) %m, i64 noundef range(i64 16, -15) %bytes) unnamed_addr #2 {
 entry:
   %final = getelementptr inbounds nuw i8, ptr %st, i64 88
   %0 = load i8, ptr %final, align 8
@@ -503,7 +503,7 @@ declare i32 @crypto_verify_16(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i64 @llvm.fshl.i64(i64, i64, i64) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4

@@ -24,7 +24,7 @@ $_ZN9LogPrefixILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = co
 @switch.table._ZNK9metaspace9Metachunk8print_onEP12outputStream = private unnamed_addr constant [3 x i32] [i32 102, i32 117, i32 100], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef signext range(i8 63, 118) i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef signext range(i8 63, 118) i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %3 = load i8, ptr %2, align 1
   %4 = icmp ult i8 %3, 3
@@ -252,7 +252,7 @@ _ZN9metaspace9Metachunk12commit_up_toEm.exit:     ; preds = %34, %27, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace9Metachunk8uncommitEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9metaspace9Metachunk8uncommitEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @Metaspace_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %3
@@ -291,7 +291,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN9metaspace9Metac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace9Metachunk15uncommit_lockedEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9metaspace9Metachunk15uncommit_lockedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = sext i8 %3 to i64
@@ -316,7 +316,7 @@ define hidden void @_ZN9metaspace9Metachunk15uncommit_lockedEv(ptr nocapture nou
 declare void @_ZN9metaspace16VirtualSpaceNode14uncommit_rangeEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9metaspace9Metachunk19set_committed_wordsEm(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((16, 24)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN9metaspace9Metachunk19set_committed_wordsEm(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((16, 24)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = add i64 %1, 8191
   %4 = and i64 %3, -8192
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -331,7 +331,7 @@ define hidden void @_ZN9metaspace9Metachunk19set_committed_wordsEm(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN9metaspace9Metachunk8allocateEm(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN9metaspace9Metachunk8allocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8

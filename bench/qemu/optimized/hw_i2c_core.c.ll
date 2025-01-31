@@ -79,7 +79,7 @@ entry:
 declare ptr @qbus_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @i2c_slave_set_address(ptr nocapture noundef writeonly initializes((160, 161)) %dev, i8 noundef zeroext %address) local_unnamed_addr #2 {
+define dso_local void @i2c_slave_set_address(ptr noundef writeonly captures(none) initializes((160, 161)) %dev, i8 noundef zeroext %address) local_unnamed_addr #2 {
 entry:
   %address1 = getelementptr inbounds nuw i8, ptr %dev, i64 160
   store i8 %address, ptr %address1, align 8
@@ -87,7 +87,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @i2c_bus_busy(ptr nocapture noundef readonly %bus) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @i2c_bus_busy(ptr noundef readonly captures(none) %bus) local_unnamed_addr #3 {
 entry:
   %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %0 = load ptr, ptr %current_devs, align 8
@@ -107,7 +107,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @i2c_scan_bus(ptr nocapture noundef readonly %bus, i8 noundef zeroext %address, i1 noundef zeroext %broadcast, ptr noundef %current_devs) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @i2c_scan_bus(ptr noundef readonly captures(none) %bus, i8 noundef zeroext %address, i1 noundef zeroext %broadcast, ptr noundef %current_devs) local_unnamed_addr #0 {
 entry:
   %children = getelementptr inbounds nuw i8, ptr %bus, i64 80
   %kid.07 = load ptr, ptr %children, align 8
@@ -276,7 +276,7 @@ return:                                           ; preds = %for.inc, %if.then29
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @i2c_bus_master(ptr nocapture noundef %bus, ptr noundef %bh) local_unnamed_addr #0 {
+define dso_local void @i2c_bus_master(ptr noundef captures(none) %bus, ptr noundef %bh) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
   store ptr %bh, ptr %call, align 8
@@ -404,7 +404,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @i2c_end_transfer(ptr nocapture noundef %bus) local_unnamed_addr #0 {
+define dso_local void @i2c_end_transfer(ptr noundef captures(none) %bus) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
@@ -498,7 +498,7 @@ for.end:                                          ; preds = %if.end13, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @i2c_send(ptr nocapture noundef readonly %bus, i8 noundef zeroext %data) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @i2c_send(ptr noundef readonly captures(none) %bus, i8 noundef zeroext %data) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
@@ -588,7 +588,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @i2c_send_async(ptr nocapture noundef readonly %bus, i8 noundef zeroext %data) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @i2c_send_async(ptr noundef readonly captures(none) %bus, i8 noundef zeroext %data) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
@@ -652,7 +652,7 @@ return:                                           ; preds = %entry, %trace_i2c_s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @i2c_recv(ptr nocapture noundef readonly %bus) local_unnamed_addr #0 {
+define dso_local zeroext i8 @i2c_recv(ptr noundef readonly captures(none) %bus) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
@@ -727,7 +727,7 @@ if.end10:                                         ; preds = %if.then, %trace_i2c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @i2c_nack(ptr nocapture noundef readonly %bus) local_unnamed_addr #0 {
+define dso_local void @i2c_nack(ptr noundef readonly captures(none) %bus) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
@@ -804,7 +804,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @i2c_ack(ptr nocapture noundef readonly %bus) local_unnamed_addr #0 {
+define dso_local void @i2c_ack(ptr noundef readonly captures(none) %bus) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %bh = getelementptr inbounds nuw i8, ptr %bus, i64 152
@@ -949,7 +949,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @i2c_bus_pre_save(ptr nocapture noundef initializes((144, 145)) %opaque) #5 {
+define internal noundef i32 @i2c_bus_pre_save(ptr noundef captures(none) initializes((144, 145)) %opaque) #5 {
 entry:
   %saved_address = getelementptr inbounds nuw i8, ptr %opaque, i64 144
   store i8 -1, ptr %saved_address, align 8
@@ -984,7 +984,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -995,7 +995,7 @@ declare ptr @qdev_get_parent_bus(ptr noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @i2c_slave_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @i2c_slave_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE_CLASS) #9
@@ -1047,13 +1047,13 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

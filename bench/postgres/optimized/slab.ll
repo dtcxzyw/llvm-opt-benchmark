@@ -209,7 +209,7 @@ define dso_local void @SlabReset(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SlabDelete(ptr noundef %0) local_unnamed_addr #0 {
@@ -570,7 +570,7 @@ SlabAllocFromNewBlock.exit:                       ; preds = %dlist_push_head.exi
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @SlabAllocInvalidSize(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #5 {
+define internal fastcc void @SlabAllocInvalidSize(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #5 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -808,7 +808,7 @@ define dso_local noundef ptr @SlabRealloc(ptr noundef returned %0, i64 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @SlabGetChunkContext(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local ptr @SlabGetChunkContext(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %3 = load i64, ptr %2, align 8
   %4 = lshr i64 %3, 34
@@ -819,7 +819,7 @@ define dso_local ptr @SlabGetChunkContext(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 4294967296) i64 @SlabGetChunkSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local range(i64 0, 4294967296) i64 @SlabGetChunkSpace(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %3 = load i64, ptr %2, align 8
   %4 = lshr i64 %3, 34
@@ -833,7 +833,7 @@ define dso_local range(i64 0, 4294967296) i64 @SlabGetChunkSpace(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @SlabIsEmpty(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local zeroext i1 @SlabIsEmpty(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0

@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.25 = private unnamed_addr constant [24 x i8] c"drm_WARN_ON(!all_equal)\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @intel_dsc_source_support(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_dsc_source_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2653
@@ -60,10 +60,10 @@ define dso_local zeroext i1 @intel_dsc_source_support(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 4768), (4772, 4774)) %0) local_unnamed_addr #2 align 16 {
@@ -582,7 +582,7 @@ declare dso_local void @drm_dsc_set_rc_buf_thresh(ptr noundef) local_unnamed_add
 declare dso_local i32 @drm_dsc_setup_rc_params(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_dsc_power_domain(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local i32 @intel_dsc_power_domain(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %5 = load i32, ptr %4, align 8
@@ -647,7 +647,7 @@ define dso_local i32 @intel_dsc_power_domain(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 1, 5) i32 @intel_dsc_get_num_vdsc_instances(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 1, 5) i32 @intel_dsc_get_num_vdsc_instances(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4757
   %3 = load i8, ptr %2, align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
@@ -661,7 +661,7 @@ define dso_local range(i32 1, 5) i32 @intel_dsc_get_num_vdsc_instances(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_dsc_dsi_pps_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_dsc_dsi_pps_write(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = alloca %struct.drm_dsc_picture_parameter_set, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4756
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
@@ -706,7 +706,7 @@ define dso_local void @intel_dsc_dsi_pps_write(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @drm_dsc_pps_payload_pack(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -3020,7 +3020,7 @@ intel_dsc_get_pps_reg.exit123:                    ; preds = %900, %.thread.i120,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_dsc_disable(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_dsc_disable(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4756
@@ -3150,7 +3150,7 @@ define dso_local void @intel_dsc_disable(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_dsc_get_config(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_dsc_get_config(ptr noundef captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 864
@@ -3551,7 +3551,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_dsc_pps_read_and_verify(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @intel_dsc_pps_read_and_verify(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4757

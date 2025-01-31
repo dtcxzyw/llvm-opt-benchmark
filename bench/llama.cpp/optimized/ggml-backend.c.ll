@@ -115,7 +115,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @ggml_backend_buffer_init(ptr noundef %buft, ptr nocapture noundef readonly byval(%struct.ggml_backend_buffer_i) align 8 %iface, ptr noundef %context, i64 noundef %size) local_unnamed_addr #0 {
+define noalias noundef ptr @ggml_backend_buffer_init(ptr noundef %buft, ptr noundef readonly byval(%struct.ggml_backend_buffer_i) align 8 captures(none) %iface, ptr noundef %context, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #21
   %get_base = getelementptr inbounds nuw i8, ptr %iface, i64 8
@@ -147,10 +147,10 @@ do.end:                                           ; preds = %entry
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @ggml_print_backtrace() local_unnamed_addr #1
 
@@ -158,7 +158,7 @@ declare void @ggml_print_backtrace() local_unnamed_addr #1
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_buffer_free(ptr noundef %buffer) local_unnamed_addr #0 {
@@ -184,10 +184,10 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ggml_backend_buffer_get_size(ptr nocapture noundef readonly %buffer) local_unnamed_addr #7 {
+define i64 @ggml_backend_buffer_get_size(ptr noundef readonly captures(none) %buffer) local_unnamed_addr #7 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %buffer, i64 72
   %0 = load i64, ptr %size, align 8
@@ -233,7 +233,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ggml_backend_buffer_get_alignment(ptr nocapture noundef readonly %buffer) local_unnamed_addr #0 {
+define i64 @ggml_backend_buffer_get_alignment(ptr noundef readonly captures(none) %buffer) local_unnamed_addr #0 {
 entry:
   %buft.i = getelementptr inbounds nuw i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %buft.i, align 8
@@ -244,7 +244,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ggml_backend_buffer_type(ptr nocapture noundef readonly %buffer) local_unnamed_addr #7 {
+define ptr @ggml_backend_buffer_type(ptr noundef readonly captures(none) %buffer) local_unnamed_addr #7 {
 entry:
   %buft = getelementptr inbounds nuw i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %buft, align 8
@@ -252,7 +252,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ggml_backend_buffer_get_alloc_size(ptr nocapture noundef readonly %buffer, ptr noundef %tensor) local_unnamed_addr #0 {
+define i64 @ggml_backend_buffer_get_alloc_size(ptr noundef readonly captures(none) %buffer, ptr noundef %tensor) local_unnamed_addr #0 {
 entry:
   %buft.i = getelementptr inbounds nuw i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %buft.i, align 8
@@ -726,10 +726,10 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i64 @ggml_backend_reg_get_count() local_unnamed_addr #0 {
@@ -772,7 +772,7 @@ ggml_backend_registry_init.exit:                  ; preds = %entry, %ggml_backen
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ggml_backend_reg_find_by_name(ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
+define i64 @ggml_backend_reg_find_by_name(ptr noundef readonly captures(none) %name) local_unnamed_addr #0 {
 entry:
   %.b1.i = load i1, ptr @ggml_backend_registry_init.initialized, align 1
   %.pre = load i64, ptr @ggml_backend_registry_count, align 8
@@ -832,7 +832,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define ptr @ggml_backend_reg_init_backend_from_str(ptr noundef %backend_str) local_unnamed_addr #0 {
@@ -883,7 +883,7 @@ if.else:                                          ; preds = %ggml_backend_regist
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %backend_str to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call3 = call ptr @strncpy(ptr noundef nonnull %backend_name, ptr noundef %backend_str, i64 noundef %sub.ptr.sub) #20
+  %call3 = call ptr @strncpy(ptr noundef nonnull %backend_name, ptr noundef nonnull %backend_str, i64 noundef %sub.ptr.sub) #20
   %arrayidx = getelementptr inbounds [128 x i8], ptr %backend_name, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
@@ -913,10 +913,10 @@ return:                                           ; preds = %if.end13, %if.then1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define ptr @ggml_backend_reg_init_backend(i64 noundef %i, ptr noundef %params) local_unnamed_addr #0 {
@@ -1183,13 +1183,13 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @ggml_backend_cpu_buffer_type_get_alignment(ptr nocapture readnone %buft) #11 {
+define internal noundef i64 @ggml_backend_cpu_buffer_type_get_alignment(ptr readnone captures(none) %buft) #11 {
 entry:
   ret i64 64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @ggml_backend_cpu_buffer_type_supports_backend(ptr nocapture readnone %buft, ptr nocapture noundef readonly %backend) #7 {
+define internal zeroext i1 @ggml_backend_cpu_buffer_type_supports_backend(ptr readnone captures(none) %buft, ptr noundef readonly captures(none) %backend) #7 {
 entry:
   %0 = load ptr, ptr %backend, align 8
   %cmp.i = icmp eq ptr %0, @ggml_backend_cpu_name
@@ -1211,7 +1211,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_backend_is_cpu(ptr nocapture noundef readonly %backend) local_unnamed_addr #7 {
+define zeroext i1 @ggml_backend_is_cpu(ptr noundef readonly captures(none) %backend) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %backend, align 8
   %cmp = icmp eq ptr %0, @ggml_backend_cpu_name
@@ -1219,13 +1219,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ggml_backend_cpu_name(ptr nocapture readnone %backend) #11 {
+define internal noundef nonnull ptr @ggml_backend_cpu_name(ptr readnone captures(none) %backend) #11 {
 entry:
   ret ptr @.str.33
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_backend_cpu_set_n_threads(ptr nocapture noundef readonly %backend_cpu, i32 noundef %n_threads) local_unnamed_addr #0 {
+define void @ggml_backend_cpu_set_n_threads(ptr noundef readonly captures(none) %backend_cpu, i32 noundef %n_threads) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %backend_cpu, align 8
   %cmp.i = icmp eq ptr %0, @ggml_backend_cpu_name
@@ -1266,7 +1266,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @ggml_backend_sched_new(ptr nocapture noundef readonly %backends, i32 noundef %n_backends) local_unnamed_addr #0 {
+define noalias noundef ptr @ggml_backend_sched_new(ptr noundef readonly captures(none) %backends, i32 noundef %n_backends) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %n_backends, 5
   br i1 %cmp, label %do.end, label %if.then
@@ -2433,7 +2433,7 @@ if.end.i331:                                      ; preds = %get_allocr_backend.
 ggml_backend_name.exit:                           ; preds = %ggml_dup_tensor_layout.exit, %get_allocr_backend.exit, %if.end.i331
   %retval.0.i333 = phi ptr [ %call.i332, %if.end.i331 ], [ @.str.5, %get_allocr_backend.exit ], [ @.str.5, %ggml_dup_tensor_layout.exit ]
   %name = getelementptr inbounds nuw i8, ptr %166, i64 288
-  %call294 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %call.i, ptr noundef nonnull @.str.38, ptr noundef %retval.0.i333, ptr noundef nonnull %name) #20
+  %call294 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.38, ptr noundef %retval.0.i333, ptr noundef nonnull %name) #20
   %.pre = load ptr, ptr %node_copies, align 8
   %arrayidx298.phi.trans.insert = getelementptr inbounds [4 x ptr], ptr %.pre, i64 %call275, i64 %cur_backend_id.2
   %.pre544 = load ptr, ptr %arrayidx298.phi.trans.insert, align 8
@@ -3131,7 +3131,7 @@ sched_reset.exit:                                 ; preds = %for.body.i10, %sche
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @ggml_backend_sched_get_tallocr(ptr nocapture noundef readonly %sched, ptr noundef readnone %backend) local_unnamed_addr #13 {
+define ptr @ggml_backend_sched_get_tallocr(ptr noundef readonly captures(none) %sched, ptr noundef readnone %backend) local_unnamed_addr #13 {
 entry:
   %backends.i = getelementptr inbounds nuw i8, ptr %sched, i64 8
   %0 = load i32, ptr %sched, align 16
@@ -3168,7 +3168,7 @@ sched_backend_prio.exit:                          ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ggml_backend_sched_get_buffer(ptr nocapture noundef readonly %sched, ptr noundef readnone %backend) local_unnamed_addr #0 {
+define ptr @ggml_backend_sched_get_buffer(ptr noundef readonly captures(none) %sched, ptr noundef readnone %backend) local_unnamed_addr #0 {
 entry:
   %backends.i = getelementptr inbounds nuw i8, ptr %sched, i64 8
   %0 = load i32, ptr %sched, align 16
@@ -3208,7 +3208,7 @@ sched_backend_prio.exit:                          ; preds = %for.inc.i, %entry, 
 declare ptr @ggml_tallocr_get_buffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_backend_sched_set_node_backend(ptr nocapture noundef readonly %sched, ptr noundef %node, ptr noundef readnone %backend) local_unnamed_addr #0 {
+define void @ggml_backend_sched_set_node_backend(ptr noundef readonly captures(none) %sched, ptr noundef %node, ptr noundef readnone %backend) local_unnamed_addr #0 {
 entry:
   %backends.i = getelementptr inbounds nuw i8, ptr %sched, i64 8
   %0 = load i32, ptr %sched, align 16
@@ -3507,7 +3507,7 @@ ggml_backend_buffer_init_tensor.exit:             ; preds = %do.end35, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_backend_graph_copy(ptr noalias nocapture writeonly sret(%struct.ggml_backend_graph_copy) align 8 %agg.result, ptr noundef %backend, ptr nocapture noundef readonly %graph) local_unnamed_addr #0 {
+define void @ggml_backend_graph_copy(ptr noalias writeonly sret(%struct.ggml_backend_graph_copy) align 8 captures(none) %agg.result, ptr noundef %backend, ptr noundef readonly captures(none) %graph) local_unnamed_addr #0 {
 entry:
   %params = alloca %struct.ggml_init_params, align 8
   %visited_hash_table = getelementptr inbounds nuw i8, ptr %graph, i64 40
@@ -3758,7 +3758,7 @@ return:                                           ; preds = %for.end, %if.then10
 declare ptr @ggml_backend_alloc_ctx_tensors(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @graph_init_tensor(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr nocapture noundef readonly %node_copies, ptr nocapture noundef %node_init, ptr noundef %src) unnamed_addr #0 {
+define internal fastcc void @graph_init_tensor(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef readonly captures(none) %node_copies, ptr noundef captures(none) %node_init, ptr noundef %src) unnamed_addr #0 {
 entry:
   %call = tail call i64 @ggml_hash_find(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef %src) #20
   %arrayidx = getelementptr inbounds i8, ptr %node_init, i64 %call
@@ -3811,7 +3811,7 @@ declare ptr @ggml_new_graph_custom(ptr noundef, i64 noundef, i1 noundef zeroext)
 declare i64 @ggml_hash_find(i64, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_backend_graph_copy_free(ptr nocapture noundef readonly byval(%struct.ggml_backend_graph_copy) align 8 %copy) local_unnamed_addr #0 {
+define void @ggml_backend_graph_copy_free(ptr noundef readonly byval(%struct.ggml_backend_graph_copy) align 8 captures(none) %copy) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %copy, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -3843,7 +3843,7 @@ ggml_backend_buffer_free.exit:                    ; preds = %entry, %if.end5.i
 declare void @ggml_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_backend_compare_graph_backend(ptr noundef %backend1, ptr noundef %backend2, ptr noundef %graph, ptr nocapture noundef readonly %callback, ptr noundef %user_data) local_unnamed_addr #0 {
+define void @ggml_backend_compare_graph_backend(ptr noundef %backend1, ptr noundef %backend2, ptr noundef %graph, ptr noundef readonly captures(none) %callback, ptr noundef %user_data) local_unnamed_addr #0 {
 entry:
   %copy = alloca %struct.ggml_backend_graph_copy, align 8
   %g1v = alloca %struct.ggml_cgraph, align 8
@@ -3947,7 +3947,7 @@ ggml_backend_graph_copy_free.exit:                ; preds = %for.end, %if.end5.i
 declare void @ggml_graph_view(ptr sret(%struct.ggml_cgraph) align 8, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
-define internal noalias noundef ptr @ggml_backend_reg_cpu_init(ptr nocapture readnone %params, ptr nocapture readnone %user_data) #12 {
+define internal noalias noundef ptr @ggml_backend_reg_cpu_init(ptr readnone captures(none) %params, ptr readnone captures(none) %user_data) #12 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #21
   store i32 4, ptr %call.i, align 8
@@ -3961,7 +3961,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @ggml_backend_cpu_buffer_free_buffer(ptr nocapture noundef readonly %buffer) #15 {
+define internal void @ggml_backend_cpu_buffer_free_buffer(ptr noundef readonly captures(none) %buffer) #15 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %buffer, i64 64
   %0 = load ptr, ptr %context, align 8
@@ -3970,7 +3970,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @ggml_backend_cpu_buffer_get_base(ptr nocapture noundef readonly %buffer) #7 {
+define internal ptr @ggml_backend_cpu_buffer_get_base(ptr noundef readonly captures(none) %buffer) #7 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %buffer, i64 64
   %0 = load ptr, ptr %context, align 8
@@ -3978,7 +3978,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ggml_backend_cpu_buffer_set_tensor(ptr nocapture readnone %buffer, ptr noundef %tensor, ptr nocapture noundef readonly %data, i64 noundef %offset, i64 noundef %size) #0 {
+define internal void @ggml_backend_cpu_buffer_set_tensor(ptr readnone captures(none) %buffer, ptr noundef %tensor, ptr noundef readonly captures(none) %data, i64 noundef %offset, i64 noundef %size) #0 {
 entry:
   %add = add i64 %size, %offset
   %call = tail call i64 @ggml_nbytes(ptr noundef %tensor) #20
@@ -4016,7 +4016,7 @@ do.end11:                                         ; preds = %do.body3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ggml_backend_cpu_buffer_get_tensor(ptr nocapture readnone %buffer, ptr noundef %tensor, ptr nocapture noundef writeonly %data, i64 noundef %offset, i64 noundef %size) #0 {
+define internal void @ggml_backend_cpu_buffer_get_tensor(ptr readnone captures(none) %buffer, ptr noundef %tensor, ptr noundef writeonly captures(none) %data, i64 noundef %offset, i64 noundef %size) #0 {
 entry:
   %add = add i64 %size, %offset
   %call = tail call i64 @ggml_nbytes(ptr noundef %tensor) #20
@@ -4054,7 +4054,7 @@ do.end11:                                         ; preds = %do.body3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ggml_backend_cpu_buffer_cpy_tensor_from(ptr nocapture readnone %buffer, ptr noundef %src, ptr nocapture noundef readonly %dst) #0 {
+define internal void @ggml_backend_cpu_buffer_cpy_tensor_from(ptr readnone captures(none) %buffer, ptr noundef %src, ptr noundef readonly captures(none) %dst) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %dst, i64 280
   %0 = load ptr, ptr %data, align 8
@@ -4064,7 +4064,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ggml_backend_cpu_buffer_cpy_tensor_to(ptr nocapture readnone %buffer, ptr noundef %src, ptr noundef %dst) #0 {
+define internal void @ggml_backend_cpu_buffer_cpy_tensor_to(ptr readnone captures(none) %buffer, ptr noundef %src, ptr noundef %dst) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %src, i64 280
   %0 = load ptr, ptr %data, align 8
@@ -4074,7 +4074,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @ggml_backend_cpu_free(ptr nocapture noundef %backend) #15 {
+define internal void @ggml_backend_cpu_free(ptr noundef captures(none) %backend) #15 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %backend, i64 104
   %0 = load ptr, ptr %context, align 8
@@ -4087,13 +4087,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ggml_backend_cpu_get_default_buffer_type(ptr nocapture readnone %backend) #11 {
+define internal noundef nonnull ptr @ggml_backend_cpu_get_default_buffer_type(ptr readnone captures(none) %backend) #11 {
 entry:
   ret ptr @ggml_backend_cpu_buffer_type.ggml_backend_buffer_type_cpu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @ggml_backend_cpu_graph_plan_create(ptr nocapture noundef readonly %backend, ptr noundef %cgraph) #0 {
+define internal noalias noundef ptr @ggml_backend_cpu_graph_plan_create(ptr noundef readonly captures(none) %backend, ptr noundef %cgraph) #0 {
 entry:
   %tmp = alloca %struct.ggml_cplan, align 8
   %context = getelementptr inbounds nuw i8, ptr %backend, i64 104
@@ -4119,7 +4119,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @ggml_backend_cpu_graph_plan_free(ptr nocapture readnone %backend, ptr nocapture noundef %plan) #15 {
+define internal void @ggml_backend_cpu_graph_plan_free(ptr readnone captures(none) %backend, ptr noundef captures(none) %plan) #15 {
 entry:
   %work_data = getelementptr inbounds nuw i8, ptr %plan, i64 8
   %0 = load ptr, ptr %work_data, align 8
@@ -4129,7 +4129,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ggml_backend_cpu_graph_plan_compute(ptr nocapture readnone %backend, ptr noundef %plan) #0 {
+define internal void @ggml_backend_cpu_graph_plan_compute(ptr readnone captures(none) %backend, ptr noundef %plan) #0 {
 entry:
   %cgraph = getelementptr inbounds nuw i8, ptr %plan, i64 40
   %call = tail call i32 @ggml_graph_compute(ptr noundef nonnull %cgraph, ptr noundef %plan) #20
@@ -4137,7 +4137,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ggml_backend_cpu_graph_compute(ptr nocapture noundef readonly %backend, ptr noundef %cgraph) #0 {
+define internal void @ggml_backend_cpu_graph_compute(ptr noundef readonly captures(none) %backend, ptr noundef %cgraph) #0 {
 entry:
   %cplan = alloca %struct.ggml_cplan, align 8
   %context = getelementptr inbounds nuw i8, ptr %backend, i64 104
@@ -4168,7 +4168,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @ggml_backend_cpu_supports_op(ptr nocapture readnone %backend, ptr nocapture readnone %op) #11 {
+define internal noundef zeroext i1 @ggml_backend_cpu_supports_op(ptr readnone captures(none) %backend, ptr readnone captures(none) %op) #11 {
 entry:
   ret i1 true
 }
@@ -4178,7 +4178,7 @@ declare void @ggml_graph_plan(ptr sret(%struct.ggml_cplan) align 8, ptr noundef,
 declare i32 @ggml_graph_compute(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 declare ptr @ggml_format_name(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -4201,10 +4201,10 @@ declare ptr @ggml_set_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

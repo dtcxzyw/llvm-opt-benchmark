@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @av1_sinpi_arr_data = external local_unnamed_addr constant [7 x [5 x i32]], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_idct4(ptr noundef %0, ptr noundef initializes((0, 16)) %1, i8 noundef signext %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @av1_idct4(ptr noundef %0, ptr noundef initializes((0, 16)) %1, i8 noundef signext %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i32], align 16
   %6 = sext i8 %2 to i32
   %7 = add nsw i32 %6, -10
@@ -183,7 +183,7 @@ clamp_value.exit73:                               ; preds = %clamp_value.exit71,
 declare void @av1_range_check_buf(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_idct8(ptr noundef %0, ptr noundef initializes((0, 32)) %1, i8 noundef signext %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @av1_idct8(ptr noundef %0, ptr noundef initializes((0, 32)) %1, i8 noundef signext %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [8 x i32], align 16
   %6 = sext i8 %2 to i32
   %7 = add nsw i32 %6, -10
@@ -704,7 +704,7 @@ clamp_value.exit227:                              ; preds = %clamp_value.exit225
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) %1, i8 noundef signext %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) %1, i8 noundef signext %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i32], align 16
   %6 = sext i8 %2 to i32
   %7 = add nsw i32 %6, -10
@@ -5783,7 +5783,7 @@ clamp_value.exit1535:                             ; preds = %clamp_value.exit153
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_iadst4(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, i8 noundef signext %2, ptr nocapture noundef readonly %3) local_unnamed_addr #2 {
+define hidden void @av1_iadst4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, i8 noundef signext %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
   %5 = load i32, ptr %0, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
@@ -5866,7 +5866,7 @@ define hidden void @av1_iadst4(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_iadst8(ptr noundef %0, ptr noundef initializes((0, 32)) %1, i8 noundef signext %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @av1_iadst8(ptr noundef %0, ptr noundef initializes((0, 32)) %1, i8 noundef signext %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [8 x i32], align 16
   %6 = sext i8 %2 to i32
   %7 = add nsw i32 %6, -10
@@ -6522,7 +6522,7 @@ clamp_value.exit296:                              ; preds = %clamp_value.exit294
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64)) %1, i8 noundef signext %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64)) %1, i8 noundef signext %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i32], align 16
   %6 = sext i8 %2 to i32
   %7 = add nsw i32 %6, -10
@@ -8278,7 +8278,7 @@ clamp_value.exit742:                              ; preds = %clamp_value.exit740
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_iidentity4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i8 noundef signext %2, ptr nocapture noundef readnone %3) local_unnamed_addr #3 {
+define hidden void @av1_iidentity4_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i8 noundef signext %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #3 {
   br label %5
 
 5:                                                ; preds = %4, %5
@@ -8301,7 +8301,7 @@ define hidden void @av1_iidentity4_c(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_iidentity8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i8 noundef signext %2, ptr nocapture noundef readnone %3) local_unnamed_addr #3 {
+define hidden void @av1_iidentity8_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i8 noundef signext %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #3 {
   br label %5
 
 5:                                                ; preds = %4, %5
@@ -8320,7 +8320,7 @@ define hidden void @av1_iidentity8_c(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_iidentity16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i8 noundef signext %2, ptr nocapture noundef readnone %3) local_unnamed_addr #3 {
+define hidden void @av1_iidentity16_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i8 noundef signext %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #3 {
   br label %5
 
 5:                                                ; preds = %4, %5
@@ -8343,7 +8343,7 @@ define hidden void @av1_iidentity16_c(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_iidentity32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i8 noundef signext %2, ptr nocapture noundef readnone %3) local_unnamed_addr #3 {
+define hidden void @av1_iidentity32_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i8 noundef signext %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #3 {
   br label %5
 
 5:                                                ; preds = %4, %5

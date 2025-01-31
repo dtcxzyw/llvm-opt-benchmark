@@ -39,7 +39,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BIO_new_bio_dgram_pair(ptr nocapture noundef writeonly initializes((0, 8)) %pbio1, i64 noundef %writebuf1, ptr nocapture noundef writeonly initializes((0, 8)) %pbio2, i64 noundef %writebuf2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BIO_new_bio_dgram_pair(ptr noundef writeonly captures(none) initializes((0, 8)) %pbio1, i64 noundef %writebuf1, ptr noundef writeonly captures(none) initializes((0, 8)) %pbio2, i64 noundef %writebuf2) local_unnamed_addr #1 {
 entry:
   %call1 = tail call ptr @BIO_new(ptr noundef nonnull @dgram_pair_method) #8
   %cmp = icmp eq ptr %call1, null
@@ -480,7 +480,7 @@ sw.epilog:                                        ; preds = %if.end.i13, %sw.bb3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dgram_pair_init(ptr nocapture noundef writeonly %bio) #1 {
+define internal range(i32 0, 2) i32 @dgram_pair_init(ptr noundef writeonly captures(none) %bio) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.1, i32 noundef 277) #8
   %cmp = icmp eq ptr %call, null
@@ -565,7 +565,7 @@ return:                                           ; preds = %if.end, %entry, %dg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dgram_pair_sendmmsg(ptr noundef %bio, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
+define internal range(i32 0, 2) i32 @dgram_pair_sendmmsg(ptr noundef %bio, ptr noundef captures(none) %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr noundef writeonly captures(none) %num_processed) #1 {
 entry:
   %cmp = icmp eq i64 %num_msg, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -641,7 +641,7 @@ return:                                           ; preds = %out, %if.then2, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dgram_pair_recvmmsg(ptr noundef %bio, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
+define internal range(i32 0, 2) i32 @dgram_pair_recvmmsg(ptr noundef %bio, ptr noundef captures(none) %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr noundef writeonly captures(none) %num_processed) #1 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %bio, i64 64
   %0 = load ptr, ptr %ptr, align 8
@@ -873,15 +873,15 @@ return:                                           ; preds = %if.end3, %lor.lhs.f
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @dgram_pair_write_inner(ptr nocapture noundef %b, ptr nocapture noundef readonly %buf, i64 noundef %sz) unnamed_addr #1 {
+define internal fastcc i64 @dgram_pair_write_inner(ptr noundef captures(none) %b, ptr noundef readonly captures(none) %buf, i64 noundef %sz) unnamed_addr #1 {
 entry:
   %cmp.not43 = icmp eq i64 %sz, 0
   br i1 %cmp.not43, label %while.end, label %while.body.lr.ph
@@ -1068,7 +1068,7 @@ declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1255,7 +1255,7 @@ return:                                           ; preds = %if.end17, %if.end12
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @dgram_pair_read_inner(ptr nocapture noundef %b, ptr noundef writeonly %buf, i64 noundef %sz) unnamed_addr #5 {
+define internal fastcc i64 @dgram_pair_read_inner(ptr noundef captures(none) %b, ptr noundef writeonly %buf, i64 noundef %sz) unnamed_addr #5 {
 entry:
   %rbuf = getelementptr inbounds nuw i8, ptr %b, i64 8
   %len1.i = getelementptr inbounds nuw i8, ptr %b, i64 16
@@ -1339,7 +1339,7 @@ while.end:                                        ; preds = %if.end11, %while.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @dgram_mem_ctrl(ptr nocapture noundef readonly %bio, i32 noundef %cmd, i64 noundef %num, ptr nocapture noundef writeonly %ptr) #1 {
+define internal i64 @dgram_mem_ctrl(ptr noundef readonly captures(none) %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef writeonly captures(none) %ptr) #1 {
 entry:
   %hdr.i = alloca %struct.dgram_hdr, align 8
   %ptr1 = getelementptr inbounds nuw i8, ptr %bio, i64 64
@@ -1784,7 +1784,7 @@ return:                                           ; preds = %if.end14, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dgram_mem_init(ptr nocapture noundef writeonly %bio) #1 {
+define internal range(i32 0, 2) i32 @dgram_mem_init(ptr noundef writeonly captures(none) %bio) #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.1, i32 noundef 277) #8
   %cmp.i = icmp eq ptr %call.i, null
@@ -1845,10 +1845,10 @@ declare i64 @llvm.umin.i64(i64, i64) #6
 declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_op_max = external global %struct.ompi_predefined_op_t, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 16
@@ -109,7 +109,7 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_coll_basic_barrier_inter_lin(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @mca_coll_basic_barrier_inter_lin(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr i8, ptr %0, i64 220

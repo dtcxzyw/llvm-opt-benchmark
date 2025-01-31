@@ -465,7 +465,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6icu_7523TransliterationRuleData6lookupEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %this, i32 noundef %standIn) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZNK6icu_7523TransliterationRuleData6lookupEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %this, i32 noundef %standIn) local_unnamed_addr #7 align 2 {
 entry:
   %variablesBase = getelementptr inbounds nuw i8, ptr %this, i64 1162
   %0 = load i16, ptr %variablesBase, align 2
@@ -492,7 +492,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7523TransliterationRuleData13lookupMatcherEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %this, i32 noundef %standIn) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK6icu_7523TransliterationRuleData13lookupMatcherEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %this, i32 noundef %standIn) local_unnamed_addr #0 align 2 {
 entry:
   %variablesBase.i = getelementptr inbounds nuw i8, ptr %this, i64 1162
   %0 = load i16, ptr %variablesBase.i, align 2
@@ -527,7 +527,7 @@ cond.end:                                         ; preds = %entry, %_ZNK6icu_75
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7523TransliterationRuleData14lookupReplacerEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %this, i32 noundef %standIn) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK6icu_7523TransliterationRuleData14lookupReplacerEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %this, i32 noundef %standIn) local_unnamed_addr #0 align 2 {
 entry:
   %variablesBase.i = getelementptr inbounds nuw i8, ptr %this, i64 1162
   %0 = load i16, ptr %variablesBase.i, align 2
@@ -578,10 +578,10 @@ declare ptr @uhash_nextElement_75(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @uhash_put_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

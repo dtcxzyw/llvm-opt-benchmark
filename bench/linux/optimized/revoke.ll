@@ -101,7 +101,7 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke_table_c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -300,7 +300,7 @@ jbd2_journal_init_revoke_table.exit7:             ; preds = %.preheader
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @jbd2_journal_destroy_revoke(ptr nocapture noundef initializes((1160, 1168)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @jbd2_journal_destroy_revoke(ptr noundef captures(none) initializes((1160, 1168)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1168
@@ -543,7 +543,7 @@ declare dso_local i32 @jbd2_journal_forget(ptr noundef, ptr noundef) local_unnam
 declare dso_local void @__brelse(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_cancel_revoke(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_cancel_revoke(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -655,7 +655,7 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_cancel_revoke(ptr noc
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @jbd2_clear_buffer_revoked_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @jbd2_clear_buffer_revoked_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -714,7 +714,7 @@ define dso_local void @jbd2_clear_buffer_revoked_flags(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local void @jbd2_journal_switch_revoke_table(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local void @jbd2_journal_switch_revoke_table(ptr noundef captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1168
@@ -1192,7 +1192,7 @@ define dso_local range(i32 0, 2) i32 @jbd2_journal_test_revoke(ptr noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @jbd2_journal_clear_revoke(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @jbd2_journal_clear_revoke(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8

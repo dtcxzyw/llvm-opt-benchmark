@@ -134,7 +134,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @FreeSnapshotBuilder(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @FreeSnapshotBuilder(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -209,27 +209,27 @@ SnapBuildFreeSnapshot.exit:                       ; preds = %8
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @SnapBuildCurrentState(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i32 @SnapBuildCurrentState(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @SnapBuildGetTwoPhaseAt(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i64 @SnapBuildGetTwoPhaseAt(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SnapBuildSetTwoPhaseAt(ptr nocapture noundef writeonly initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local void @SnapBuildSetTwoPhaseAt(ptr noundef writeonly captures(none) initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @SnapBuildXactNeedsSkip(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %1, %4
@@ -246,7 +246,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   tail call void @InvalidateCatalogSnapshot() #14
   %3 = tail call zeroext i1 @HaveRegisteredOrActiveSnapshot() #14
@@ -452,7 +452,7 @@ declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SnapBuildExportSnapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @SnapBuildExportSnapshot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @IsTransactionOrTransactionBlock() #14
   br i1 %2, label %3, label %6
 
@@ -508,7 +508,7 @@ declare ptr @ExportSnapshot(ptr noundef) local_unnamed_addr #1
 declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SnapBuildGetOrBuildSnapshot(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @SnapBuildGetOrBuildSnapshot(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -605,7 +605,7 @@ define dso_local void @SnapBuildResetExportedSnapshotState() local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @SnapBuildProcessChange(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @SnapBuildProcessChange(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %58, label %6
@@ -703,7 +703,7 @@ declare zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef, i32 noundef) lo
 declare void @ReorderBufferSetBaseSnapshot(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SnapBuildProcessNewCid(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @SnapBuildProcessNewCid(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   tail call void @ReorderBufferXidSetCatalogChanges(ptr noundef %6, i32 noundef %1, i64 noundef %2) #14
@@ -758,12 +758,12 @@ declare void @ReorderBufferXidSetCatalogChanges(ptr noundef, i32 noundef, i64 no
 declare void @ReorderBufferAddNewTupleCids(ptr noundef, i32 noundef, i64 noundef, i64, i32, i48, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @ReorderBufferAddNewCommandId(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SnapBuildCommitTxn(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local void @SnapBuildCommitTxn(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = load i32, ptr %0, align 8
@@ -1376,7 +1376,7 @@ SnapBuildDistributeNewCatalogSnapshot.exit:       ; preds = %295, %.critedge132,
 declare zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SnapBuildProcessRunningXacts(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @SnapBuildProcessRunningXacts(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp slt i32 %4, 2
   br i1 %5, label %6, label %106
@@ -1777,7 +1777,7 @@ SnapBuildFindSnapshot.exit:                       ; preds = %205, %51, %41, %34,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SnapBuildSerialize(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @SnapBuildSerialize(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.stat, align 8
@@ -2039,7 +2039,7 @@ declare ptr @ReorderBufferGetOldestTXN(ptr noundef) local_unnamed_addr #1
 declare void @LogicalIncreaseRestartDecodingForSlot(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SnapBuildSerializationPoint(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @SnapBuildSerializationPoint(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp slt i32 %3, 2
   br i1 %4, label %5, label %7
@@ -2057,7 +2057,7 @@ define dso_local void @SnapBuildSerializationPoint(ptr nocapture noundef %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.SnapBuildOnDisk, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = load i32, ptr %0, align 8
@@ -2495,10 +2495,10 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare i32 @get_dirent_type(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
@@ -2519,12 +2519,12 @@ declare zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr noundef, i32 noundef) 
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SnapBuildWaitSnapshot(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @SnapBuildWaitSnapshot(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -2589,7 +2589,7 @@ declare i64 @LogStandbySnapshot() local_unnamed_addr #1
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #8
@@ -2601,19 +2601,19 @@ declare ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef) local_unnamed_addr
 declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #1
 
 declare i32 @pg_fsync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare void @ReorderBufferSetRestartPoint(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SnapBuildRestoreContents(i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @SnapBuildRestoreContents(i32 noundef range(i32 0, -2147483648) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772210, ptr %5, align 4
   %6 = tail call i64 @read(i32 noundef %0, ptr noundef %1, i64 noundef %2) #14
@@ -2654,7 +2654,7 @@ define internal fastcc void @SnapBuildRestoreContents(i32 noundef range(i32 0, -
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
@@ -2663,13 +2663,13 @@ declare void @llvm.assume(i1 noundef) #10
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11

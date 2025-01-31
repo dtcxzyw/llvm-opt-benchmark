@@ -444,7 +444,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text) #7
   %add.ptr = getelementptr inbounds i8, ptr %text, i64 %call
-  %call.i = tail call fastcc i32 @uriParseUriExMmA(ptr noundef nonnull %state, ptr noundef nonnull %text, ptr noundef %add.ptr, ptr noundef null)
+  %call.i = tail call fastcc i32 @uriParseUriExMmA(ptr noundef nonnull %state, ptr noundef nonnull %text, ptr noundef nonnull %add.ptr, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -453,7 +453,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @uriParseSingleUriA(ptr noundef %uri, ptr noundef %text, ptr noundef writeonly %errorPos) local_unnamed_addr #0 {
@@ -894,7 +894,7 @@ entry:
   %call2 = call ptr %1(ptr noundef nonnull @defaultMemoryManager, i64 noundef 16) #6
   %ip6 = getelementptr inbounds nuw i8, ptr %uri, i64 56
   store ptr %call2, ptr %ip6, align 8
-  %call4 = call fastcc ptr @uriParseIPv6address2A(ptr noundef %parser, ptr noundef %text, ptr noundef %add.ptr, ptr noundef nonnull @defaultMemoryManager)
+  %call4 = call fastcc ptr @uriParseIPv6address2A(ptr noundef %parser, ptr noundef nonnull %text, ptr noundef nonnull %add.ptr, ptr noundef nonnull @defaultMemoryManager)
   %call5 = call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %uri, ptr noundef nonnull @defaultMemoryManager)
   %cmp = icmp eq ptr %call4, %add.ptr
   %cond = zext i1 %cmp to i32
@@ -1655,7 +1655,7 @@ entry:
   %octets = alloca [4 x i8], align 1
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text) #7
   %add.ptr = getelementptr inbounds i8, ptr %text, i64 %call
-  %call1 = call i32 @uriParseIpFourAddressA(ptr noundef nonnull %octets, ptr noundef %text, ptr noundef %add.ptr) #6
+  %call1 = call i32 @uriParseIpFourAddressA(ptr noundef nonnull %octets, ptr noundef nonnull %text, ptr noundef nonnull %add.ptr) #6
   %cmp = icmp eq i32 %call1, 0
   %cond = zext i1 %cmp to i32
   ret i32 %cond
@@ -2083,7 +2083,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call i64 @wcslen(ptr noundef nonnull %text) #7
   %add.ptr = getelementptr inbounds i32, ptr %text, i64 %call
-  %call.i = tail call fastcc i32 @uriParseUriExMmW(ptr noundef nonnull %state, ptr noundef nonnull %text, ptr noundef %add.ptr, ptr noundef null)
+  %call.i = tail call fastcc i32 @uriParseUriExMmW(ptr noundef nonnull %state, ptr noundef nonnull %text, ptr noundef nonnull %add.ptr, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2092,7 +2092,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @uriParseSingleUriW(ptr noundef %uri, ptr noundef %text, ptr noundef writeonly %errorPos) local_unnamed_addr #0 {
@@ -3303,7 +3303,7 @@ entry:
 declare i32 @uriParseIpFourAddressW(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseMustBeSegmentNzNcA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseMustBeSegmentNzNcA(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not71 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not71, label %if.end6, label %if.then
@@ -3533,7 +3533,7 @@ return:                                           ; preds = %sw.bb, %if.end36, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParsePctEncodedA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParsePctEncodedA(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4394,7 +4394,7 @@ return:                                           ; preds = %if.end8.i.i, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseUriTailA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseUriTailA(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %return
@@ -4456,7 +4456,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2A(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2A(ptr noundef nonnull readonly captures(none) %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %1 = load ptr, ptr %0, align 8
@@ -4505,7 +4505,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseSegmentA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseSegmentA(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   br label %tailrecurse
 
@@ -4610,7 +4610,7 @@ return:                                           ; preds = %if.end, %sw.bb, %ta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentA(ptr nocapture noundef nonnull readonly %state, ptr noundef %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentA(ptr noundef nonnull readonly captures(none) %state, ptr noundef %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %calloc = getelementptr inbounds nuw i8, ptr %memory, i64 8
   %0 = load ptr, ptr %calloc, align 8
@@ -4655,7 +4655,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseZeroMoreSlashSegsA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseZeroMoreSlashSegsA(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not19 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not19, label %if.end.lr.ph, label %return
@@ -4938,7 +4938,7 @@ return:                                           ; preds = %if.end8.i.i, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParsePcharA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParsePcharA(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5181,7 +5181,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseIpFutureA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseIpFutureA(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5526,7 +5526,7 @@ return:                                           ; preds = %uriParseIpFutLoopA.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParsePctSubUnresA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParsePctSubUnresA(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6112,7 +6112,7 @@ return:                                           ; preds = %sw.bb.i19, %uriPars
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoA(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoA(ptr noundef nonnull readonly captures(none) %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %userInfo = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6163,7 +6163,7 @@ return:                                           ; preds = %if.end, %if.then23,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoA(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoA(ptr noundef nonnull readonly captures(none) %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %userInfo = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6354,7 +6354,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2A(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2A(ptr noundef nonnull readonly captures(none) %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %afterLast = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6397,7 +6397,7 @@ return:                                           ; preds = %if.end, %if.then15,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseQueryFragA(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseQueryFragA(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not14 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not14, label %if.end, label %return
@@ -6510,17 +6510,17 @@ return:                                           ; preds = %tailrecurse.backedg
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare zeroext i8 @uriGetOctetValue(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @uriWriteQuadToDoubleByte(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseMustBeSegmentNzNcW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseMustBeSegmentNzNcW(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not71 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not71, label %if.end6, label %if.then
@@ -6750,7 +6750,7 @@ return:                                           ; preds = %sw.bb, %if.end34, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParsePctEncodedW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParsePctEncodedW(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7611,7 +7611,7 @@ return:                                           ; preds = %if.end7.i.i, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseUriTailW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseUriTailW(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %return
@@ -7673,7 +7673,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2W(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2W(ptr noundef nonnull readonly captures(none) %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %1 = load ptr, ptr %0, align 8
@@ -7722,7 +7722,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseSegmentW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseSegmentW(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   br label %tailrecurse
 
@@ -7827,7 +7827,7 @@ return:                                           ; preds = %if.end, %sw.bb, %ta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentW(ptr nocapture noundef nonnull readonly %state, ptr noundef %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentW(ptr noundef nonnull readonly captures(none) %state, ptr noundef %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %calloc = getelementptr inbounds nuw i8, ptr %memory, i64 8
   %0 = load ptr, ptr %calloc, align 8
@@ -7872,7 +7872,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseZeroMoreSlashSegsW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseZeroMoreSlashSegsW(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not19 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not19, label %if.end.lr.ph, label %return
@@ -8155,7 +8155,7 @@ return:                                           ; preds = %if.end7.i.i, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParsePcharW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParsePcharW(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8398,7 +8398,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseIpFutureW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParseIpFutureW(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8741,7 +8741,7 @@ return:                                           ; preds = %uriParseIpFutLoopW.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParsePctSubUnresW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc ptr @uriParsePctSubUnresW(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult ptr %first, %afterLast
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9320,7 +9320,7 @@ return:                                           ; preds = %sw.bb.i19, %uriPars
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoW(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoW(ptr noundef nonnull readonly captures(none) %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %userInfo = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9371,7 +9371,7 @@ return:                                           ; preds = %if.end, %if.then23,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoW(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoW(ptr noundef nonnull readonly captures(none) %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %userInfo = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9562,7 +9562,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2W(ptr nocapture noundef nonnull readonly %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2W(ptr noundef nonnull readonly captures(none) %state, ptr noundef nonnull %first, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %afterLast = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9605,7 +9605,7 @@ return:                                           ; preds = %if.end, %if.then15,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @uriParseQueryFragW(ptr nocapture noundef nonnull %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc noundef ptr @uriParseQueryFragW(ptr noundef nonnull captures(none) %state, ptr noundef nonnull %first, ptr noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %cmp.not14 = icmp ult ptr %first, %afterLast
   br i1 %cmp.not14, label %if.end, label %return
@@ -9718,10 +9718,10 @@ return:                                           ; preds = %tailrecurse.backedg
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

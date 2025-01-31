@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.7a9fe1f6526430b07e198ec1915e94a1.29 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr43drop_in_place$LT$$RF$std..env..VarError$GT$17h7d3ad1457eff9948E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a49a2ce7ea95de5E" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11shellexpand16env_with_context17h9ef4ded570c439edE(ptr nocapture writeonly sret({ i64, [5 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN11shellexpand16env_with_context17h9ef4ded570c439edE(ptr writeonly sret({ i64, [5 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -701,14 +701,14 @@ define void @_ZN11shellexpand16env_with_context17h9ef4ded570c439edE(ptr nocaptur
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN11shellexpand16env_with_context28_$u7b$$u7b$closure$u7d$$u7d$17he596be6ae51ab247E"(ptr nocapture readnone align 1 %0, i32 %1) unnamed_addr #1 {
+define zeroext i1 @"_ZN11shellexpand16env_with_context28_$u7b$$u7b$closure$u7d$$u7d$17he596be6ae51ab247E"(ptr readnone align 1 captures(none) %0, i32 %1) unnamed_addr #1 {
   %3 = tail call zeroext i1 @_ZN11shellexpand22is_valid_var_name_char17he4dbee9f19f655d3E(i32 %1)
   %4 = xor i1 %3, true
   ret i1 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN11shellexpand3env28_$u7b$$u7b$closure$u7d$$u7d$17headb8f7ce6f67d9fE"(ptr sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readnone align 1 %1, ptr align 1 %2, i64 %3) unnamed_addr #1 {
+define void @"_ZN11shellexpand3env28_$u7b$$u7b$closure$u7d$$u7d$17headb8f7ce6f67d9fE"(ptr sret({ i64, [3 x i64] }) align 8 %0, ptr readnone align 1 captures(none) %1, ptr align 1 %2, i64 %3) unnamed_addr #1 {
   %5 = alloca { i64, [3 x i64] }, align 8
   call void @_ZN3std3env3var17h5e5b193510db5c88E(ptr nonnull sret({ i64, [3 x i64] }) align 8 %5, ptr align 1 %2, i64 %3)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h41c224055b86b03eE"(ptr sret({ i64, [3 x i64] }) align 8 %0, ptr nonnull align 8 %5)
@@ -716,7 +716,7 @@ define void @"_ZN11shellexpand3env28_$u7b$$u7b$closure$u7d$$u7d$17headb8f7ce6f67
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h91c5ea966cf94319E"(ptr nocapture writeonly sret({ { { ptr, i64 }, { { { ptr, ptr, {} } }, i64 }, {} } }) align 8 initializes((0, 40)) %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
+define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h91c5ea966cf94319E"(ptr writeonly sret({ { { ptr, i64 }, { { { ptr, ptr, {} } }, i64 }, {} } }) align 8 captures(none) initializes((0, 40)) %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -733,7 +733,7 @@ define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searc
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hbb3fb44101510e9dE"(ptr nocapture readnone align 1 %0, i32 %1) unnamed_addr #1 {
+define zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hbb3fb44101510e9dE"(ptr readnone align 1 captures(none) %0, i32 %1) unnamed_addr #1 {
   %3 = tail call zeroext i1 @_ZN11shellexpand22is_valid_var_name_char17he4dbee9f19f655d3E(i32 %1)
   %4 = xor i1 %3, true
   ret i1 %4
@@ -761,7 +761,7 @@ declare { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h1d3c1a5fb36ec5
 declare { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h67c4390d3745334fE"(i64, i1 zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden { ptr, i64 } @"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he41f535d7c80a094E"(i64, ptr align 1, i64) unnamed_addr #1
@@ -833,10 +833,10 @@ declare zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b5
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

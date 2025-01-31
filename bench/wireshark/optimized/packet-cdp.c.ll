@@ -416,7 +416,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cdp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_cdp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -659,7 +659,7 @@ define internal i32 @dissect_cdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.310301151 = phi i32 [ %135, %134 ], [ %129, %124 ]
   %.010341150 = phi i16 [ %137, %134 ], [ %130, %124 ]
   %131 = zext i16 %.010341150 to i32
-  %132 = call fastcc i32 @dissect_address_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.310301151, i32 noundef %131, ptr noundef %.01023)
+  %132 = call fastcc i32 @dissect_address_tlv(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.310301151, i32 noundef %131, ptr noundef %.01023)
   %133 = icmp slt i32 %132, 0
   br i1 %133, label %._crit_edge1155, label %134
 
@@ -1214,7 +1214,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   %.510321133 = phi i32 [ %514, %513 ], [ %508, %506 ]
   %.210361132 = phi i16 [ %516, %513 ], [ %509, %506 ]
   %510 = zext i16 %.210361132 to i32
-  %511 = call fastcc i32 @dissect_address_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.510321133, i32 noundef %510, ptr noundef %.310261102)
+  %511 = call fastcc i32 @dissect_address_tlv(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.510321133, i32 noundef %510, ptr noundef %.310261102)
   %512 = icmp slt i32 %511, 0
   br i1 %512, label %._crit_edge1137, label %513
 
@@ -1437,7 +1437,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   br i1 %656, label %657, label %660
 
 657:                                              ; preds = %653
-  %658 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %606, ptr noundef %1, ptr noundef nonnull @ei_cdp_nrgyz_tlvlength, ptr noundef %0, i32 noundef %.089111.i, i32 noundef 8, ptr noundef nonnull @.str.263, i32 noundef %651) #3
+  %658 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %606, ptr noundef nonnull %1, ptr noundef nonnull @ei_cdp_nrgyz_tlvlength, ptr noundef %0, i32 noundef %.089111.i, i32 noundef 8, ptr noundef nonnull @.str.263, i32 noundef %651) #3
   %659 = add i32 %.089111.i, 8
   br label %.loopexit.i
 
@@ -1568,7 +1568,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
 .thread98.i:                                      ; preds = %.lr.ph.i1099, %.loopexit..thread98_crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre.i, %.loopexit..thread98_crit_edge.i ], [ %648, %.lr.ph.i1099 ]
   %.1103.i = phi i32 [ %.1.i, %.loopexit..thread98_crit_edge.i ], [ %.089111.i, %.lr.ph.i1099 ]
-  %729 = call ptr @proto_tree_add_expert(ptr noundef %606, ptr noundef %1, ptr noundef nonnull @ei_cdp_invalid_data, ptr noundef %0, i32 noundef %.1103.i, i32 noundef %.pre-phi.i) #3
+  %729 = call ptr @proto_tree_add_expert(ptr noundef %606, ptr noundef nonnull %1, ptr noundef nonnull @ei_cdp_invalid_data, ptr noundef %0, i32 noundef %.1103.i, i32 noundef %.pre-phi.i) #3
   br label %dissect_nrgyz_tlv.exit
 
 dissect_nrgyz_tlv.exit:                           ; preds = %.thread98.i, %.loopexit.i, %603
@@ -1924,7 +1924,7 @@ dissect_spare_poe_tlv.exit:                       ; preds = %739, %744
 .loopexit1103:                                    ; preds = %.loopexit, %44, %65
   %.11028 = phi i32 [ %66, %65 ], [ 4, %44 ], [ %.21029, %.loopexit ]
   %975 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.11028) #3
-  %976 = call i32 @call_data_dissector(ptr noundef %975, ptr noundef %1, ptr noundef %18) #3
+  %976 = call i32 @call_data_dissector(ptr noundef %975, ptr noundef nonnull %1, ptr noundef %18) #3
   br label %.loopexit1212
 
 .loopexit1212:                                    ; preds = %959, %.loopexit1103
@@ -1994,7 +1994,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp eq i32 %3, 0
   br i1 %7, label %97, label %8
@@ -2192,10 +2192,10 @@ declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef,
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

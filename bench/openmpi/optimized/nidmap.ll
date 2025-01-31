@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_util_nidmap_create(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @prte_util_nidmap_create(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
@@ -183,7 +183,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   call void @PMIx_Argv_free(ptr noundef %76) #11
   %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #13
   %78 = add i64 %77, 1
-  %79 = call zeroext i1 @PMIx_Data_compress(ptr noundef %75, i64 noundef %78, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
+  %79 = call zeroext i1 @PMIx_Data_compress(ptr noundef nonnull %75, i64 noundef %78, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %74
@@ -248,7 +248,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   call void @PMIx_Argv_free(ptr noundef %103) #11
   %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #13
   %105 = add i64 %104, 1
-  %106 = call zeroext i1 @PMIx_Data_compress(ptr noundef %102, i64 noundef %105, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
+  %106 = call zeroext i1 @PMIx_Data_compress(ptr noundef nonnull %102, i64 noundef %105, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   br i1 %106, label %107, label %110
 
 107:                                              ; preds = %99
@@ -384,14 +384,14 @@ declare ptr @PMIx_Argv_join(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #1
 
 declare zeroext i1 @PMIx_Data_compress(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @prte_util_decode_nidmap(ptr noundef %0) local_unnamed_addr #0 {
@@ -709,7 +709,7 @@ pmix_pointer_array_get_item.exit150.thread:       ; preds = %101, %pmix_pointer_
   br i1 %.not132, label %144, label %141
 
 141:                                              ; preds = %pmix_pointer_array_get_item.exit150.thread
-  %142 = call ptr @PMIx_Argv_split(ptr noundef %139, i32 noundef 44) #11
+  %142 = call ptr @PMIx_Argv_split(ptr noundef nonnull %139, i32 noundef 44) #11
   %143 = getelementptr inbounds nuw i8, ptr %130, i64 168
   store ptr %142, ptr %143, align 8
   br label %144
@@ -860,10 +860,10 @@ declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @prte_get_job_data_object(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @pmix_obj_new_tma(ptr noundef %0) unnamed_addr #0 {
@@ -931,7 +931,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #6
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #9
@@ -940,7 +940,7 @@ declare void @abort() local_unnamed_addr #9
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

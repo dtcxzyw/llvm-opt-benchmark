@@ -357,7 +357,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.plpgsql_HashTableDelete = private unnamed_addr constant [24 x i8] c"plpgsql_HashTableDelete\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @plpgsql_compile(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define ptr @plpgsql_compile(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca %struct.ErrorContextCallback, align 8
   %5 = alloca ptr, align 8
@@ -1679,7 +1679,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compute_function_hashkey(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @compute_function_hashkey(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = ptrtoint ptr %2 to i64
   %6 = and i64 %5, 7
   %7 = icmp eq i64 %6, 0
@@ -2171,7 +2171,7 @@ declare i32 @plpgsql_yyparse() local_unnamed_addr #1
 declare void @plpgsql_scanner_finish() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_dummy_return(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @add_dummy_return(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2250,7 +2250,7 @@ define internal fastcc void @add_dummy_return(ptr nocapture noundef %0) unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @plpgsql_parser_setup(ptr nocapture noundef writeonly initializes((184, 208), (216, 224)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @plpgsql_parser_setup(ptr noundef writeonly captures(none) initializes((184, 208), (216, 224)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr @plpgsql_pre_column_ref, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2263,7 +2263,7 @@ define void @plpgsql_parser_setup(ptr nocapture noundef writeonly initializes((1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @plpgsql_pre_column_ref(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef ptr @plpgsql_pre_column_ref(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2283,7 +2283,7 @@ define internal noundef ptr @plpgsql_pre_column_ref(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @plpgsql_post_column_ref(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #0 {
+define internal noundef ptr @plpgsql_post_column_ref(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -2327,7 +2327,7 @@ define internal noundef ptr @plpgsql_post_column_ref(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @plpgsql_param_ref(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef ptr @plpgsql_param_ref(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [32 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
@@ -2384,7 +2384,7 @@ define internal noundef ptr @plpgsql_param_ref(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @plpgsql_parse_word(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @plpgsql_parse_word(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @plpgsql_IdentifierLookup, align 4
   %7 = icmp eq i32 %6, 0
   %or.cond = select i1 %2, i1 %7, i1 false
@@ -2448,7 +2448,7 @@ declare ptr @plpgsql_ns_lookup(ptr noundef, i1 noundef zeroext, ptr noundef, ptr
 declare ptr @plpgsql_ns_top() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @plpgsql_parse_dblword(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @plpgsql_parse_dblword(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @makeString(ptr noundef %0) #10
   %7 = tail call ptr @makeString(ptr noundef %1) #10
@@ -2526,7 +2526,7 @@ declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #1
 declare ptr @makeString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @plpgsql_build_recfield(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @plpgsql_build_recfield(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.01920 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.01920, -1
@@ -2604,7 +2604,7 @@ plpgsql_adddatum.exit:                            ; preds = %._crit_edge, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @plpgsql_parse_tripword(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @plpgsql_parse_tripword(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @plpgsql_IdentifierLookup, align 4
   %.not = icmp eq i32 %7, 1
@@ -3285,7 +3285,7 @@ plpgsql_adddatum.exit:                            ; preds = %5, %17
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @plpgsql_build_datatype_arrayof(ptr noundef readonly %0) local_unnamed_addr #0 {
@@ -3352,7 +3352,7 @@ define i32 @plpgsql_recognize_err_condition(ptr noundef %0, i1 noundef zeroext %
   br i1 %5, label %6, label %42
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strspn(ptr noundef %0, ptr noundef nonnull @.str.16) #12
+  %7 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.16) #12
   %8 = icmp eq i64 %7, 5
   br i1 %8, label %9, label %42
 
@@ -3420,7 +3420,7 @@ define i32 @plpgsql_recognize_err_condition(ptr noundef %0, i1 noundef zeroext %
   %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
   tail call void @llvm.assume(i1 %55)
   %56 = tail call i32 @errcode(i32 noundef 67137668) #10
-  %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %0) #10
+  %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %0) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2233, ptr noundef nonnull @__func__.plpgsql_recognize_err_condition) #10
   unreachable
 
@@ -3430,10 +3430,10 @@ define i32 @plpgsql_recognize_err_condition(ptr noundef %0, i1 noundef zeroext %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @plpgsql_parse_err_condition(ptr noundef %0) local_unnamed_addr #0 {
@@ -3487,7 +3487,7 @@ define hidden ptr @plpgsql_parse_err_condition(ptr noundef %0) local_unnamed_add
   %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
   tail call void @llvm.assume(i1 %25)
   %26 = tail call i32 @errcode(i32 noundef 67137668) #10
-  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %0) #10
+  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %0) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2286, ptr noundef nonnull @__func__.plpgsql_parse_err_condition) #10
   unreachable
 
@@ -3628,14 +3628,14 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @format_procedure(i32 noundef) local_unnamed_addr #1
 
 declare void @MemoryContextSetIdentifier(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @get_func_arg_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3830,7 +3830,7 @@ declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @resolve_column_ref(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @resolve_column_ref(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -4123,10 +4123,10 @@ declare void @llvm.assume(i1 noundef) #7
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

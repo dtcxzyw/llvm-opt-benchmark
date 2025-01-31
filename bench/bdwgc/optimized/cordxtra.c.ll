@@ -72,7 +72,7 @@ declare noalias ptr @GC_malloc_atomic(i64 noundef) local_unnamed_addr #2
 declare void @CORD__call_oom_fn() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #4
@@ -336,7 +336,7 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @CORD_set_pos(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -345,7 +345,7 @@ declare signext i8 @CORD__pos_fetch(ptr noundef) local_unnamed_addr #1
 declare void @CORD__next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
@@ -586,7 +586,7 @@ define nonnull ptr @CORD_to_char_star(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @CORD_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @CORD_from_char_star(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias ptr @CORD_from_char_star(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %12, label %4
@@ -605,7 +605,7 @@ define noalias ptr @CORD_from_char_star(ptr nocapture noundef readonly %0) local
   unreachable
 
 11:                                               ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %0, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %0, i64 %5, i1 false)
   br label %12
 
 12:                                               ; preds = %1, %11
@@ -614,10 +614,10 @@ define noalias ptr @CORD_from_char_star(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define ptr @CORD_to_const_char_star(ptr noundef %0) local_unnamed_addr #0 {
@@ -690,7 +690,7 @@ define range(i32 -1, 2) i32 @CORD_put(ptr noundef %0, ptr noundef %1) local_unna
 declare i32 @CORD_iter5(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @CORD_put_proc(i8 noundef signext %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 2) i32 @CORD_put_proc(i8 noundef signext %0, ptr noundef captures(none) %1) #7 {
   %3 = sext i8 %0 to i32
   %4 = tail call i32 @putc(i32 noundef %3, ptr noundef %1)
   %5 = icmp eq i32 %4, -1
@@ -699,7 +699,7 @@ define internal range(i32 0, 2) i32 @CORD_put_proc(i8 noundef signext %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @CORD_batched_put_proc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 2) i32 @CORD_batched_put_proc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = tail call i32 @fputs(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq i32 %3, -1
   %5 = zext i1 %4 to i32
@@ -721,7 +721,7 @@ define i64 @CORD_chr(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @CORD_chr_proc(i8 noundef signext %0, ptr nocapture noundef %1) #8 {
+define internal range(i32 0, 2) i32 @CORD_chr_proc(i8 noundef signext %0, ptr noundef captures(none) %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %0, %4
@@ -739,7 +739,7 @@ define internal range(i32 0, 2) i32 @CORD_chr_proc(i8 noundef signext %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @CORD_batched_chr_proc(ptr noundef %0, ptr nocapture noundef %1) #9 {
+define internal range(i32 0, 2) i32 @CORD_batched_chr_proc(ptr noundef %0, ptr noundef captures(none) %1) #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = sext i8 %4 to i32
@@ -785,7 +785,7 @@ define i64 @CORD_rchr(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unna
 declare i32 @CORD_riter4(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @CORD_rchr_proc(i8 noundef signext %0, ptr nocapture noundef %1) #8 {
+define internal range(i32 0, 2) i32 @CORD_rchr_proc(i8 noundef signext %0, ptr noundef captures(none) %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %0, %4
@@ -1140,7 +1140,7 @@ define internal noundef signext i8 @CORD_nul_func(i64 %0, ptr noundef %1) #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @CORD_from_file_eager(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define ptr @CORD_from_file_eager(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.CORD_ec_struct], align 16
   store ptr null, ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1283,10 +1283,10 @@ CORD_ec_flush_buf.exit11:                         ; preds = %.CORD_ec_flush_buf.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @CORD_balance(ptr noundef) local_unnamed_addr #1
 
@@ -1318,10 +1318,10 @@ define ptr @CORD_from_file_lazy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @CORD_from_file_lazy_inner(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %1) unnamed_addr #0 {
@@ -1418,7 +1418,7 @@ define ptr @CORD_from_file(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @CORD_fill_proc(i8 noundef signext %0, ptr nocapture noundef %1) #11 {
+define internal range(i32 0, 2) i32 @CORD_fill_proc(i8 noundef signext %0, ptr noundef captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1434,7 +1434,7 @@ define internal range(i32 0, 2) i32 @CORD_fill_proc(i8 noundef signext %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @CORD_batched_fill_proc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #12 {
+define internal range(i32 0, 2) i32 @CORD_batched_fill_proc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -1465,10 +1465,10 @@ define internal range(i32 0, 2) i32 @CORD_batched_fill_proc(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -1477,12 +1477,12 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare noalias ptr @GC_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @GC_register_finalizer(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @CORD_lf_close_proc(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 {
+define internal void @CORD_lf_close_proc(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @fclose(ptr noundef %3)
   %.not = icmp eq i32 %4, 0
@@ -1553,7 +1553,7 @@ define internal signext i8 @CORD_lf_func(i64 noundef %0, ptr noundef %1) #0 {
 declare ptr @GC_call_with_alloc_lock(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @refill_cache(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @refill_cache(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1626,10 +1626,10 @@ declare i64 @llvm.smin.i64(i64, i64) #14
 declare i64 @llvm.usub.sat.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

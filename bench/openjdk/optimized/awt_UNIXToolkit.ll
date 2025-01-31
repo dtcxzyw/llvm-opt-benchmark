@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [12 x i8] c"SplashClose\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_awt_UNIXToolkit_check_1gtk(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_awt_UNIXToolkit_check_1gtk(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @gtk_check_version(i32 noundef %2) #6
   %5 = trunc i32 %4 to i8
   ret i8 %5
@@ -25,7 +25,7 @@ define zeroext i8 @Java_sun_awt_UNIXToolkit_check_1gtk(ptr nocapture noundef rea
 declare i32 @gtk_check_version(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1gtk(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1gtk(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i8 %3 to i32
   %6 = tail call i32 @gtk_load(ptr noundef %0, i32 noundef %2, i32 noundef %5) #6
   %7 = trunc i32 %6 to i8
@@ -35,7 +35,7 @@ define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1gtk(ptr noundef %0, ptr nocapt
 declare i32 @gtk_load(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_awt_UNIXToolkit_unload_1gtk(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_awt_UNIXToolkit_unload_1gtk(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @gtk, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -153,7 +153,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1stock_1icon(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -269,7 +269,7 @@ init_method.exit.thread:                          ; preds = %50, %init_method.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_UNIXToolkit_nativeSync(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_awt_UNIXToolkit_nativeSync(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1824
   %5 = load ptr, ptr %4, align 8
@@ -363,7 +363,7 @@ declare i32 @XSync(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @awt_output_flush(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_SunToolkit_closeSplashScreen(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_awt_SunToolkit_closeSplashScreen(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dlopen(ptr noundef null, i32 noundef 1) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
@@ -395,7 +395,7 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_UNIXToolkit_gtkCheckVersionImpl(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_UNIXToolkit_gtkCheckVersionImpl(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @gtk, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -406,7 +406,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_UNIXToolkit_gtkCheckVersionImpl(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Java_sun_awt_UNIXToolkit_get_1gtk_1version(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 {
+define i32 @Java_sun_awt_UNIXToolkit_get_1gtk_1version(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr @gtk, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4

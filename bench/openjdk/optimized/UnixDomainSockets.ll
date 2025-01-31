@@ -57,10 +57,10 @@ define hidden ptr @sockaddrToUnixAddressBytes(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @unixSocketAddressToSockaddr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 110)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @unixSocketAddressToSockaddr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 110)) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %5, i8 0, i64 108, i1 false)
   store i16 1, ptr %2, align 2
@@ -109,20 +109,20 @@ define hidden range(i32 -1, 1) i32 @unixSocketAddressToSockaddr(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @Java_sun_nio_ch_UnixDomainSockets_init(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 {
+define noundef zeroext i8 @Java_sun_nio_ch_UnixDomainSockets_init(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
   ret i8 1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_UnixDomainSockets_socket0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_UnixDomainSockets_socket0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %9
@@ -147,7 +147,7 @@ declare i32 @handleSocketError(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_UnixDomainSockets_bind0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_UnixDomainSockets_bind0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.sockaddr_un, align 2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %6, i8 0, i64 108, i1 false)
@@ -208,7 +208,7 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #6
 declare i32 @fdval(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_UnixDomainSockets_connect0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_UnixDomainSockets_connect0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.sockaddr_un, align 2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %6, i8 0, i64 108, i1 false)
@@ -276,7 +276,7 @@ unixSocketAddressToSockaddr.exit:                 ; preds = %12
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 2) i32 @Java_sun_nio_ch_UnixDomainSockets_accept0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -5, 2) i32 @Java_sun_nio_ch_UnixDomainSockets_accept0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.sockaddr_un, align 2
   %7 = alloca i32, align 4
   %8 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #9
@@ -364,7 +364,7 @@ declare void @JNU_ThrowIOExceptionWithLastError(ptr noundef, ptr noundef) local_
 declare void @setfdval(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_ch_UnixDomainSockets_localAddress0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_nio_ch_UnixDomainSockets_localAddress0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.sockaddr_un, align 2
   %5 = alloca i32, align 4
   store i32 110, ptr %5, align 4

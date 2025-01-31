@@ -52,7 +52,7 @@ $_ZTIN3irr5video6IImageE = comdat any
 @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE = private unnamed_addr constant [17 x i32] [i32 2, i32 2, i32 3, i32 4, i32 2, i32 4, i32 8, i32 4, i32 8, i32 16, i32 1, i32 2, i32 2, i32 4, i32 2, i32 4, i32 4], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEPvbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) initializes((0, 20), (24, 50)) %this, ptr nocapture noundef readonly %vtt, i32 noundef %format, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size, ptr noundef %data, i1 noundef zeroext %ownForeignMemory, i1 noundef zeroext %deleteMemory) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video6CImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEPvbb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(50) initializes((0, 20), (24, 50)) %this, ptr noundef readonly captures(none) %vtt, i32 noundef %format, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %size, ptr noundef %data, i1 noundef zeroext %ownForeignMemory, i1 noundef zeroext %deleteMemory) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %frombool.i = zext i1 %deleteMemory to i8
@@ -136,19 +136,19 @@ if.end:                                           ; preds = %_ZN3irr5video6IImag
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEPvbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) initializes((0, 20), (24, 50), (56, 76)) %this, i32 noundef %format, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size, ptr noundef %data, i1 noundef zeroext %ownForeignMemory, i1 noundef zeroext %deleteMemory) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEPvbb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(50) initializes((0, 20), (24, 50), (56, 76)) %this, i32 noundef %format, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %size, ptr noundef %data, i1 noundef zeroext %ownForeignMemory, i1 noundef zeroext %deleteMemory) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -220,7 +220,7 @@ if.end:                                           ; preds = %_ZN3irr5video6IImag
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) initializes((0, 20), (24, 50)) %this, ptr nocapture noundef readonly %vtt, i32 noundef %format, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video6CImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(50) initializes((0, 20), (24, 50)) %this, ptr noundef readonly captures(none) %vtt, i32 noundef %format, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %size) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -479,7 +479,7 @@ _ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) initializes((0, 20), (24, 50), (56, 76)) %this, i32 noundef %format, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(50) initializes((0, 20), (24, 50), (56, 76)) %this, i32 noundef %format, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %size) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -669,7 +669,7 @@ _ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImage8setPixelEjjRKNS0_6SColorEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %this, i32 noundef %x, i32 noundef %y, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %color, i1 noundef zeroext %blend) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video6CImage8setPixelEjjRKNS0_6SColorEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %this, i32 noundef %x, i32 noundef %y, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %color, i1 noundef zeroext %blend) unnamed_addr #0 align 2 {
 entry:
   %Size = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %Size, align 4, !tbaa !24
@@ -834,7 +834,7 @@ sw.epilog:                                        ; preds = %sw.bb49, %cond.end,
 declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @_ZNK3irr5video6CImage8getPixelEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %this, i32 noundef %x, i32 noundef %y) unnamed_addr #0 align 2 {
+define i32 @_ZNK3irr5video6CImage8getPixelEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %this, i32 noundef %x, i32 noundef %y) unnamed_addr #0 align 2 {
 entry:
   %Size = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %Size, align 4, !tbaa !24
@@ -952,7 +952,7 @@ return:                                           ; preds = %sw.bb37, %sw.bb23, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImage6copyToEPNS0_6IImageERKNS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef %target, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos) unnamed_addr #5 align 2 {
+define void @_ZN3irr5video6CImage6copyToEPNS0_6IImageERKNS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef %target, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos) unnamed_addr #5 align 2 {
 if.end:
   %pos.val = load <2 x i32>, ptr %pos, align 4
   %call2 = tail call fastcc noundef i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef 3, ptr noundef %target, ptr noundef null, <2 x i32> %pos.val, ptr noundef nonnull %this, ptr noundef null, i32 noundef 0)
@@ -997,7 +997,7 @@ if.end16:                                         ; preds = %if.then11, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef range(i32 3, 7) %operation, ptr noundef readonly %dest, ptr noundef readonly %destClipping, <2 x i32> %destPos.0.val, ptr nocapture noundef nonnull readonly %source, ptr noundef readonly %sourceClipping, i32 noundef %argb) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef range(i32 3, 7) %operation, ptr noundef readonly %dest, ptr noundef readonly %destClipping, <2 x i32> %destPos.0.val, ptr noundef nonnull readonly captures(none) %source, ptr noundef readonly %sourceClipping, i32 noundef %argb) unnamed_addr #5 {
 entry:
   %job = alloca %"struct.irr::SBlitJob", align 16
   %Format.i.i = getelementptr inbounds nuw i8, ptr %source, i64 8
@@ -1244,7 +1244,7 @@ cleanup92:                                        ; preds = %if.end27.us.i, %if.
 declare noundef zeroext i1 @_ZN3irr5video15CColorConverter16canConvertFormatENS0_13ECOLOR_FORMATES2_(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImage6copyToEPNS0_6IImageERKNS_4core8vector2dIiEERKNS4_4rectIiEEPSB_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %this, ptr noundef %target, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef %clipRect) unnamed_addr #5 align 2 {
+define void @_ZN3irr5video6CImage6copyToEPNS0_6IImageERKNS_4core8vector2dIiEERKNS4_4rectIiEEPSB_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %this, ptr noundef %target, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef %clipRect) unnamed_addr #5 align 2 {
 return:
   %pos.val = load <2 x i32>, ptr %pos, align 4
   %0 = tail call fastcc noundef i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef 3, ptr noundef %target, ptr noundef %clipRect, <2 x i32> %pos.val, ptr noundef nonnull %this, ptr noundef nonnull %sourceRect, i32 noundef 0)
@@ -1252,7 +1252,7 @@ return:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImage15copyToWithAlphaEPNS0_6IImageERKNS_4core8vector2dIiEERKNS4_4rectIiEERKNS0_6SColorEPSB_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %this, ptr noundef %target, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %color, ptr noundef %clipRect, i1 noundef zeroext %combineAlpha) unnamed_addr #5 align 2 {
+define void @_ZN3irr5video6CImage15copyToWithAlphaEPNS0_6IImageERKNS_4core8vector2dIiEERKNS4_4rectIiEERKNS0_6SColorEPSB_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %this, ptr noundef %target, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %color, ptr noundef %clipRect, i1 noundef zeroext %combineAlpha) unnamed_addr #5 align 2 {
 return:
   %0 = load i32, ptr %color, align 4
   %cmp = icmp eq i32 %0, -1
@@ -1264,7 +1264,7 @@ return:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK3irr5video6CImage15copyToNoScalingEPvjjNS0_13ECOLOR_FORMATEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %this, ptr noundef writeonly %target, i32 noundef %width, i32 noundef %height, i32 noundef %format, i32 noundef %pitch) unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK3irr5video6CImage15copyToNoScalingEPvjjNS0_13ECOLOR_FORMATEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %this, ptr noundef writeonly %target, i32 noundef %width, i32 noundef %height, i32 noundef %format, i32 noundef %pitch) unnamed_addr #6 align 2 {
 if.end:
   %Format = getelementptr inbounds nuw i8, ptr %this, i64 8
   %tobool = icmp ne ptr %target, null
@@ -1377,7 +1377,7 @@ return:                                           ; preds = %for.body.epil, %ret
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5video6CImage13copyToScalingEPvjjNS0_13ECOLOR_FORMATEj(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef %target, i32 noundef %width, i32 noundef %height, i32 noundef %format, i32 noundef %pitch) unnamed_addr #0 align 2 {
@@ -1734,7 +1734,7 @@ return:                                           ; preds = %for.cond13.for.cond
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImage4fillERKNS0_6SColorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %this, ptr noundef nonnull align 4 dereferenceable(4) %color) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video6CImage4fillERKNS0_6SColorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %this, ptr noundef nonnull align 4 dereferenceable(4) %color) unnamed_addr #0 align 2 {
 if.end:
   %rgb = alloca [3 x i8], align 1
   %Format = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2168,7 +2168,7 @@ _ZN3irr5video6CImageD0Ev.exit:                    ; preds = %delete.notnull6.i.i
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL30executeBlit_TextureCopy_x_to_xEPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL30executeBlit_TextureCopy_x_to_xEPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %stretch = getelementptr inbounds nuw i8, ptr %job, i64 80
   %0 = load i8, ptr %stretch, align 8, !tbaa !44, !range !69, !noundef !70
@@ -2401,7 +2401,7 @@ if.end86:                                         ; preds = %for.cond41.for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL32executeBlit_TextureCopy_32_to_16EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL32executeBlit_TextureCopy_32_to_16EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %width = getelementptr inbounds nuw i8, ptr %job, i64 56
   %0 = load i32, ptr %width, align 8, !tbaa !75
@@ -2759,7 +2759,7 @@ if.end:                                           ; preds = %for.cond6.for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL32executeBlit_TextureCopy_24_to_16EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL32executeBlit_TextureCopy_24_to_16EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %width = getelementptr inbounds nuw i8, ptr %job, i64 56
   %0 = load i32, ptr %width, align 8, !tbaa !75
@@ -2997,7 +2997,7 @@ if.end:                                           ; preds = %for.cond7.for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL32executeBlit_TextureCopy_16_to_32EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL32executeBlit_TextureCopy_16_to_32EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %width = getelementptr inbounds nuw i8, ptr %job, i64 56
   %0 = load i32, ptr %width, align 8, !tbaa !75
@@ -3362,7 +3362,7 @@ if.end:                                           ; preds = %for.cond6.for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL32executeBlit_TextureCopy_24_to_32EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL32executeBlit_TextureCopy_24_to_32EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %width = getelementptr inbounds nuw i8, ptr %job, i64 56
   %0 = load i32, ptr %width, align 8, !tbaa !75
@@ -3513,7 +3513,7 @@ if.end:                                           ; preds = %for.cond7.for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL32executeBlit_TextureCopy_16_to_24EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL32executeBlit_TextureCopy_16_to_24EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %width = getelementptr inbounds nuw i8, ptr %job, i64 56
   %0 = load i32, ptr %width, align 8, !tbaa !75
@@ -3784,7 +3784,7 @@ if.end:                                           ; preds = %for.cond6.for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL32executeBlit_TextureCopy_32_to_24EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL32executeBlit_TextureCopy_32_to_24EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %width = getelementptr inbounds nuw i8, ptr %job, i64 56
   %0 = load i32, ptr %width, align 8, !tbaa !75
@@ -4156,7 +4156,7 @@ if.end:                                           ; preds = %for.cond6.for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL33executeBlit_TextureBlend_16_to_16EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL33executeBlit_TextureBlend_16_to_16EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %x_stretch = getelementptr inbounds nuw i8, ptr %job, i64 84
   %0 = load float, ptr %x_stretch, align 4, !tbaa !72
@@ -4235,7 +4235,7 @@ for.cond.cleanup:                                 ; preds = %for.cond4.for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL33executeBlit_TextureBlend_32_to_32EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL33executeBlit_TextureBlend_32_to_32EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %x_stretch = getelementptr inbounds nuw i8, ptr %job, i64 84
   %0 = load float, ptr %x_stretch, align 4, !tbaa !72
@@ -4350,7 +4350,7 @@ _ZN3irr12PixelBlend32Ejj.exit:                    ; preds = %if.end3.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL38executeBlit_TextureBlendColor_16_to_16EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL38executeBlit_TextureBlendColor_16_to_16EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %argb = getelementptr inbounds nuw i8, ptr %job, i64 32
   %0 = load i32, ptr %argb, align 8, !tbaa !43
@@ -4455,7 +4455,7 @@ for.cond.cleanup:                                 ; preds = %for.cond4.for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL38executeBlit_TextureBlendColor_32_to_32EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL38executeBlit_TextureBlendColor_32_to_32EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %x_stretch = getelementptr inbounds nuw i8, ptr %job, i64 84
   %0 = load float, ptr %x_stretch, align 4, !tbaa !72
@@ -4587,7 +4587,7 @@ _ZN3irr12PixelBlend32Ejj.exit:                    ; preds = %if.end3.i, %for.bod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL26executeBlit_Color_16_to_16EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #12 {
+define internal void @_ZN3irrL26executeBlit_Color_16_to_16EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #12 {
 entry:
   %argb = getelementptr inbounds nuw i8, ptr %job, i64 32
   %0 = load i32, ptr %argb, align 8, !tbaa !43
@@ -4981,7 +4981,7 @@ _ZN3irr8memset16EPvtm.exit.loopexit:              ; preds = %while.body11.i.6, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL26executeBlit_Color_32_to_32EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #12 {
+define internal void @_ZN3irrL26executeBlit_Color_32_to_32EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #12 {
 entry:
   %height = getelementptr inbounds nuw i8, ptr %job, i64 60
   %0 = load i32, ptr %height, align 4, !tbaa !74
@@ -5137,7 +5137,7 @@ _ZN3irr8memset32EPvjm.exit:                       ; preds = %while.body11.i.6, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL31executeBlit_ColorAlpha_16_to_16EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL31executeBlit_ColorAlpha_16_to_16EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %argb = getelementptr inbounds nuw i8, ptr %job, i64 32
   %0 = load i32, ptr %argb, align 8, !tbaa !43
@@ -5290,7 +5290,7 @@ cleanup:                                          ; preds = %for.cond7.for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL31executeBlit_ColorAlpha_32_to_32EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL31executeBlit_ColorAlpha_32_to_32EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %argb = getelementptr inbounds nuw i8, ptr %job, i64 32
   %0 = load i32, ptr %argb, align 8, !tbaa !43
@@ -5372,7 +5372,7 @@ cleanup:                                          ; preds = %for.cond.cleanup5, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL40executeBlit_TextureCombineColor_32_to_32EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL40executeBlit_TextureCombineColor_32_to_32EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %height = getelementptr inbounds nuw i8, ptr %job, i64 60
   %0 = load i32, ptr %height, align 4, !tbaa !74
@@ -5493,7 +5493,7 @@ _ZN3irr14PixelCombine32Ejj.exit:                  ; preds = %if.end3.i, %for.bod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL40executeBlit_TextureCombineColor_32_to_24EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL40executeBlit_TextureCombineColor_32_to_24EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %width = getelementptr inbounds nuw i8, ptr %job, i64 56
   %0 = load i32, ptr %width, align 8, !tbaa !75
@@ -5740,7 +5740,7 @@ if.end:                                           ; preds = %for.cond6.for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL40executeBlit_TextureCombineColor_16_to_16EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL40executeBlit_TextureCombineColor_16_to_16EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %width = getelementptr inbounds nuw i8, ptr %job, i64 56
   %0 = load i32, ptr %width, align 8, !tbaa !75
@@ -5929,7 +5929,7 @@ for.body7:                                        ; preds = %middle.block, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irrL40executeBlit_TextureCombineColor_16_to_24EPKNS_8SBlitJobE(ptr nocapture noundef readonly %job) #6 {
+define internal void @_ZN3irrL40executeBlit_TextureCombineColor_16_to_24EPKNS_8SBlitJobE(ptr noundef readonly captures(none) %job) #6 {
 entry:
   %width = getelementptr inbounds nuw i8, ptr %job, i64 56
   %0 = load i32, ptr %width, align 8, !tbaa !75

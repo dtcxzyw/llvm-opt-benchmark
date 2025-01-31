@@ -7,13 +7,13 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pm_constant_pool_bucket_t = type { i32, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @pm_constant_id_list_init(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #0 {
+define hidden void @pm_constant_id_list_init(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden noundef zeroext i1 @pm_constant_id_list_append(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @pm_constant_id_list_append(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -57,10 +57,10 @@ define hidden noundef zeroext i1 @pm_constant_id_list_append(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @pm_constant_id_list_includes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @pm_constant_id_list_includes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -86,7 +86,7 @@ define hidden noundef zeroext i1 @pm_constant_id_list_includes(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden range(i64 24, 21) i64 @pm_constant_id_list_memsize(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i64 24, 21) i64 @pm_constant_id_list_memsize(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = shl i64 %3, 2
@@ -95,7 +95,7 @@ define hidden range(i64 24, 21) i64 @pm_constant_id_list_memsize(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @pm_constant_id_list_free(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden void @pm_constant_id_list_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -110,10 +110,10 @@ define hidden void @pm_constant_id_list_free(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @pm_constant_pool_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden noundef zeroext i1 @pm_constant_pool_init(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %28, label %4
 
@@ -164,7 +164,7 @@ next_power_of_two.exit:                           ; preds = %4, %6
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden ptr @pm_constant_pool_id_to_constant(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden ptr @pm_constant_pool_id_to_constant(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = add i32 %1, -1
@@ -174,7 +174,7 @@ define hidden ptr @pm_constant_pool_id_to_constant(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 1073741824) i32 @pm_constant_pool_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 {
+define hidden range(i32 0, 1073741824) i32 @pm_constant_pool_find(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, -1
@@ -242,13 +242,13 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @pm_constant_pool_insert_shared(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 {
+define hidden i32 @pm_constant_pool_insert_shared(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = tail call fastcc i32 @pm_constant_pool_insert(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @pm_constant_pool_insert(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #9 {
+define internal fastcc i32 @pm_constant_pool_insert(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -450,19 +450,19 @@ pm_constant_pool_resize.exit.thread:              ; preds = %14, %11, %._crit_ed
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @pm_constant_pool_insert_owned(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 {
+define hidden i32 @pm_constant_pool_insert_owned(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = tail call fastcc i32 @pm_constant_pool_insert(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 1)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @pm_constant_pool_insert_constant(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 {
+define hidden i32 @pm_constant_pool_insert_constant(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = tail call fastcc i32 @pm_constant_pool_insert(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_constant_pool_free(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden void @pm_constant_pool_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %.not12 = icmp eq i32 %3, 0
@@ -509,13 +509,13 @@ define hidden void @pm_constant_pool_free(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind sspstrong willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -58,7 +58,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.CPU_GET_CLASS = private unnamed_addr constant [14 x i8] c"CPU_GET_CLASS\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local i32 @curr_cflags(ptr nocapture noundef readonly %cpu) local_unnamed_addr #0 {
+define dso_local i32 @curr_cflags(ptr noundef readonly captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %tcg_cflags = getelementptr inbounds nuw i8, ptr %cpu, i64 720
   %0 = load i32, ptr %tcg_cflags, align 16
@@ -332,7 +332,7 @@ return:                                           ; preds = %if.end28, %while.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @log_cpu_exec(i64 noundef %pc, ptr noundef %cpu, ptr nocapture noundef readonly %tb) unnamed_addr #2 {
+define internal fastcc void @log_cpu_exec(i64 noundef %pc, ptr noundef %cpu, ptr noundef readonly captures(none) %tb) unnamed_addr #2 {
 entry:
   %call = tail call zeroext i1 @qemu_log_in_addr_range(i64 noundef %pc) #12
   br i1 %call, label %do.body, label %if.end20
@@ -583,7 +583,7 @@ declare ptr @tb_gen_code(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32
 declare void @mmap_unlock() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @cpu_tb_exec(ptr noundef %cpu, ptr nocapture noundef readonly %itb, ptr nocapture noundef nonnull initializes((0, 4)) %tb_exit) unnamed_addr #2 {
+define internal fastcc ptr @cpu_tb_exec(ptr noundef %cpu, ptr noundef readonly captures(none) %itb, ptr noundef nonnull captures(none) initializes((0, 4)) %tb_exit) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %add.ptr.i = getelementptr i8, ptr %cpu, i64 10176
@@ -996,7 +996,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i, %if
   br i1 %tobool3.not.i.i.i, label %cpu_exec_loop.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  call void %7(ptr noundef %cpu) #12
+  call void %7(ptr noundef nonnull %cpu) #12
   br label %cpu_exec_loop.exit
 
 while.body.i:                                     ; preds = %while.end44.i, %while.body.lr.ph.i
@@ -1610,7 +1610,7 @@ cpu_exec_loop.exit:                               ; preds = %while.end76.i.i, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @tcg_exec_realizefn(ptr noundef %cpu, ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @tcg_exec_realizefn(ptr noundef %cpu, ptr noundef readnone captures(none) %errp) local_unnamed_addr #2 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #12
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #12
@@ -1636,7 +1636,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_exec_unrealizefn(ptr nocapture noundef readonly %cpu) local_unnamed_addr #2 {
+define dso_local void @tcg_exec_unrealizefn(ptr noundef readonly captures(none) %cpu) local_unnamed_addr #2 {
 entry:
   %tb_jmp_cache = getelementptr inbounds nuw i8, ptr %cpu, i64 544
   %0 = load ptr, ptr %tb_jmp_cache, align 16
@@ -1740,7 +1740,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @qht_lookup_custom(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @tb_lookup_cmp(ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %d) #2 {
+define internal noundef zeroext i1 @tb_lookup_cmp(ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %d) #2 {
 entry:
   %cflags.i = getelementptr inbounds nuw i8, ptr %p, i64 20
   %0 = load atomic i32, ptr %cflags.i monotonic, align 4
@@ -1826,7 +1826,7 @@ declare void @cpu_dump_state(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare void @qemu_log_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 
@@ -1856,10 +1856,10 @@ declare void @llvm.assume(i1 noundef) #9
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

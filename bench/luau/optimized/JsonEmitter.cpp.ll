@@ -70,7 +70,7 @@ $_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits = comdat any
 @_ZN4Luau4Json11JsonEmitterC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4Luau4Json11JsonEmitterC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json13ObjectEmitterC2ENS_7NotNullINS0_11JsonEmitterEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(10) initializes((0, 10)) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau4Json13ObjectEmitterC2ENS_7NotNullINS0_11JsonEmitterEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(10) initializes((0, 10)) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %.cast = ptrtoint ptr %1 to i64
   store i64 %.cast, ptr %0, align 8
@@ -89,7 +89,7 @@ define dso_local void @_ZN4Luau4Json13ObjectEmitterC2ENS_7NotNullINS0_11JsonEmit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau4Json11JsonEmitter9pushCommaEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau4Json11JsonEmitter9pushCommaEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = load i8, ptr %0, align 8
   %3 = trunc i8 %2 to i1
   store i8 0, ptr %0, align 8
@@ -105,7 +105,7 @@ define dso_local void @_ZN4Luau4Json11JsonEmitter8writeRawEc(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau4Json13ObjectEmitterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau4Json13ObjectEmitterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(10) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %4 = load i8, ptr %3, align 1
@@ -141,7 +141,7 @@ _ZN4Luau4Json13ObjectEmitter6finishEv.exit:       ; preds = %.noexc, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json13ObjectEmitter6finishEv(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau4Json13ObjectEmitter6finishEv(ptr noundef nonnull align 8 captures(none) dereferenceable(10) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %4 = load i8, ptr %3, align 1
@@ -181,14 +181,14 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau4Json11JsonEmitter8popCommaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4Luau4Json11JsonEmitter8popCommaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 1)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json12ArrayEmitterC2ENS_7NotNullINS0_11JsonEmitterEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(10) initializes((0, 10)) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau4Json12ArrayEmitterC2ENS_7NotNullINS0_11JsonEmitterEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(10) initializes((0, 10)) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %.cast = ptrtoint ptr %1 to i64
   store i64 %.cast, ptr %0, align 8
@@ -207,7 +207,7 @@ define dso_local void @_ZN4Luau4Json12ArrayEmitterC2ENS_7NotNullINS0_11JsonEmitt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau4Json12ArrayEmitterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau4Json12ArrayEmitterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(10) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %4 = load i8, ptr %3, align 1
@@ -243,7 +243,7 @@ _ZN4Luau4Json12ArrayEmitter6finishEv.exit:        ; preds = %.noexc, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json12ArrayEmitter6finishEv(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau4Json12ArrayEmitter6finishEv(ptr noundef nonnull align 8 captures(none) dereferenceable(10) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %4 = load i8, ptr %3, align 1
@@ -1628,12 +1628,12 @@ define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEc(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
-  tail call void @_ZN4Luau4Json5writeERNS0_11JsonEmitterESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %3, ptr %1)
+  tail call void @_ZN4Luau4Json5writeERNS0_11JsonEmitterESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %3, ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 {
@@ -1645,7 +1645,7 @@ define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterERKNSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEDn(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readnone %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEDn(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4Luau4Json11JsonEmitter8writeRawESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 4, ptr nonnull @.str.7)
   ret void
 }
@@ -1679,7 +1679,7 @@ define dso_local void @_ZN4Luau4Json11JsonEmitter10writeCommaEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json11JsonEmitter11writeObjectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Json::ObjectEmitter") align 8 initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau4Json11JsonEmitter11writeObjectEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::Json::ObjectEmitter") align 8 captures(none) initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %.cast.i = ptrtoint ptr %1 to i64
   store i64 %.cast.i, ptr %0, align 8
@@ -1698,7 +1698,7 @@ define dso_local void @_ZN4Luau4Json11JsonEmitter11writeObjectEv(ptr dead_on_unw
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json11JsonEmitter10writeArrayEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Json::ArrayEmitter") align 8 initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau4Json11JsonEmitter10writeArrayEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::Json::ArrayEmitter") align 8 captures(none) initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %.cast.i = ptrtoint ptr %1 to i64
   store i64 %.cast.i, ptr %0, align 8
@@ -1764,7 +1764,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_.exit: ; 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) #9
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #10
@@ -2138,10 +2138,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 declare i64 @llvm.abs.i64(i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
@@ -2153,7 +2153,7 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -73,7 +73,7 @@ $_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_ = c
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %key.i27 = alloca %"class.std::unique_ptr", align 8
   %e.i28 = alloca %"class.std::unique_ptr.2", align 8
@@ -1257,7 +1257,7 @@ if.end9:                                          ; preds = %lor.lhs.false
 
 invoke.cont12:                                    ; preds = %if.end9
   %tobool14.not = icmp eq i32 %call13, 0
-  br i1 %tobool14.not, label %cleanup64, label %if.end16
+  br i1 %tobool14.not, label %cleanup64, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit
 
 lpad11:                                           ; preds = %if.end27, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit, %if.end9
   %delete_der.sroa.0.1 = phi ptr [ %5, %if.end27 ], [ %5, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ], [ %1, %if.end9 ]
@@ -1265,18 +1265,10 @@ lpad11:                                           ; preds = %if.end27, %_ZNSt10u
           cleanup
   br label %ehcleanup
 
-if.end16:                                         ; preds = %invoke.cont12
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit: ; preds = %invoke.cont12
   %5 = load ptr, ptr %der, align 8
-  %tobool.not.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %if.end16
   call void @free(ptr noundef nonnull %1) #13
-  %.pre = load ptr, ptr %der, align 8
-  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit
-
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit: ; preds = %if.end16, %if.then.i.i
-  %6 = phi ptr [ %5, %if.end16 ], [ %.pre, %if.then.i.i ]
+  %6 = load ptr, ptr %der, align 8
   %7 = load i64, ptr %der_len, align 8
   %call18 = invoke ptr @RSA_public_key_from_bytes(ptr noundef %6, i64 noundef %7)
           to label %invoke.cont17 unwind label %lpad11
@@ -1505,7 +1497,7 @@ declare i32 @RSA_check_key(ptr noundef) local_unnamed_addr #1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @RSA_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1514,7 +1506,7 @@ declare i32 @RSA_size(ptr noundef) local_unnamed_addr #1
 declare i32 @RSA_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @ERR_clear_error() local_unnamed_addr #1
 
@@ -1560,7 +1552,7 @@ declare i32 @BN_hex2bn(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ERR_print_errors_fp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @RSA_sign(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1639,7 +1631,7 @@ _ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_
 declare ptr @RSA_public_key_from_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1648,19 +1640,19 @@ declare ptr @RSA_parse_public_key_buggy(ptr noundef) local_unnamed_addr #1
 declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

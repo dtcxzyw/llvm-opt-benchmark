@@ -34,10 +34,10 @@ return:                                           ; preds = %err, %if.end5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define hidden noalias noundef ptr @sk_new_null() local_unnamed_addr #0 {
@@ -171,7 +171,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @sk_pop_free(ptr noundef %sk, ptr nocapture noundef readonly %func) local_unnamed_addr #7 {
+define hidden void @sk_pop_free(ptr noundef %sk, ptr noundef readonly captures(none) %func) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -306,10 +306,10 @@ return:                                           ; preds = %if.end18, %if.end11
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden ptr @sk_delete(ptr noundef %sk, i64 noundef %where) local_unnamed_addr #10 {
@@ -585,7 +585,7 @@ return:                                           ; preds = %if.end, %entry, %sk
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden i64 @sk_push(ptr nocapture noundef %sk, ptr noundef %p) local_unnamed_addr #6 {
+define hidden i64 @sk_push(ptr noundef captures(none) %sk, ptr noundef %p) local_unnamed_addr #6 {
 if.end.i:
   %0 = load i64, ptr %sk, align 8
   %num_alloc.i = getelementptr inbounds nuw i8, ptr %sk, i64 24
@@ -755,10 +755,10 @@ return:                                           ; preds = %if.end.split, %sk_f
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @sk_is_sorted(ptr noundef readonly %sk) local_unnamed_addr #3 {
@@ -778,7 +778,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @sk_set_cmp_func(ptr nocapture noundef %sk, ptr noundef %comp) local_unnamed_addr #16 {
+define hidden ptr @sk_set_cmp_func(ptr noundef captures(none) %sk, ptr noundef %comp) local_unnamed_addr #16 {
 entry:
   %comp1 = getelementptr inbounds nuw i8, ptr %sk, i64 32
   %0 = load ptr, ptr %comp1, align 8
@@ -796,7 +796,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @sk_deep_copy(ptr noundef %sk, ptr nocapture noundef readonly %copy_func, ptr nocapture noundef readonly %free_func) local_unnamed_addr #7 {
+define hidden noundef ptr @sk_deep_copy(ptr noundef %sk, ptr noundef readonly captures(none) %copy_func, ptr noundef readonly captures(none) %free_func) local_unnamed_addr #7 {
 entry:
   %call = tail call ptr @sk_dup(ptr noundef %sk)
   %cmp = icmp eq ptr %call, null

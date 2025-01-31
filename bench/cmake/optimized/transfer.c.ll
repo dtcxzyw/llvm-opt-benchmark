@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.36 = private unnamed_addr constant [36 x i8] c"We are completely uploaded and fine\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @Curl_checkheaders(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @Curl_checkheaders(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %.014 = load ptr, ptr %4, align 8
   %.not15 = icmp eq ptr %.014, null
@@ -83,7 +83,7 @@ define dso_local ptr @Curl_checkheaders(ptr nocapture noundef readonly %0, ptr n
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_get_upload_buffer(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_get_upload_buffer(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3160
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -108,7 +108,7 @@ define dso_local range(i32 0, 28) i32 @Curl_get_upload_buffer(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_fillreadbuffer(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local i32 @Curl_fillreadbuffer(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [11 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4808
@@ -446,7 +446,7 @@ declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #1
 declare void @curl_slist_free_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @trailers_read(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal i64 @trailers_read(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4640
   %6 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %5) #10
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4632
@@ -472,15 +472,15 @@ define internal i64 @trailers_read(ptr nocapture noundef writeonly %0, i64 nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @Curl_meets_timecondition(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -539,7 +539,7 @@ define dso_local noundef zeroext i1 @Curl_meets_timecondition(ptr noundef %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_done_sending(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_done_sending(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, -3
@@ -1507,7 +1507,7 @@ declare i32 @Curl_speedcheck(ptr noundef, i64, i32) local_unnamed_addr #1
 declare i64 @Curl_timeleft(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @Curl_init_CONNECT(ptr nocapture noundef initializes((4504, 4520)) %0) local_unnamed_addr #5 {
+define dso_local void @Curl_init_CONNECT(ptr noundef captures(none) initializes((4504, 4520)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4504
@@ -1891,7 +1891,7 @@ declare i32 @Curl_setstropt(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_headers_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @Curl_posttransfer(ptr nocapture noundef readnone %0) local_unnamed_addr #6 {
+define dso_local noundef i32 @Curl_posttransfer(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   ret i32 0
 }
 
@@ -2393,14 +2393,14 @@ declare ptr @curl_url_strerror(i32 noundef) local_unnamed_addr #1
 declare i32 @Curl_uc_to_curlcode(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @Curl_get_scheme_handler(ptr noundef) local_unnamed_addr #1
 
 declare { i64, i32 } @Curl_pgrsTime(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 56) i32 @Curl_retry_request(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 56) i32 @Curl_retry_request(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %1, align 8
@@ -2793,7 +2793,7 @@ declare i32 @Curl_read(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr n
 declare zeroext i1 @Curl_conn_data_pending(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @Curl_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2805,10 +2805,10 @@ declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8

@@ -78,7 +78,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759RCEBuffer7isEmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759RCEBuffer7isEmptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #5 align 2 {
 entry:
   %bufferIndex = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load i32, ptr %bufferIndex, align 8
@@ -88,7 +88,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759RCEBuffer3putEjiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %ce, i32 noundef %ixLow, i32 noundef %ixHigh, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_759RCEBuffer3putEjiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %ce, i32 noundef %ixLow, i32 noundef %ixHigh, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -172,10 +172,10 @@ return:                                           ; preds = %entry, %if.end19, %
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_759RCEBuffer3getEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN6icu_759RCEBuffer3getEv(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #9 align 2 {
 entry:
   %bufferIndex = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load i32, ptr %bufferIndex, align 8
@@ -232,7 +232,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_759PCEBuffer5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) initializes((264, 268)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_759PCEBuffer5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(272) initializes((264, 268)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %bufferIndex = getelementptr inbounds nuw i8, ptr %this, i64 264
   store i32 0, ptr %bufferIndex, align 8
@@ -240,7 +240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759PCEBuffer7isEmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759PCEBuffer7isEmptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %this) local_unnamed_addr #5 align 2 {
 entry:
   %bufferIndex = getelementptr inbounds nuw i8, ptr %this, i64 264
   %0 = load i32, ptr %bufferIndex, align 8
@@ -250,7 +250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759PCEBuffer3putEmiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, i64 noundef %ce, i32 noundef %ixLow, i32 noundef %ixHigh, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_759PCEBuffer3putEmiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, i64 noundef %ce, i32 noundef %ixLow, i32 noundef %ixHigh, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -331,7 +331,7 @@ return:                                           ; preds = %entry, %if.end19, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_759PCEBuffer3getEv(ptr nocapture noundef nonnull align 8 dereferenceable(272) %this) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN6icu_759PCEBuffer3getEv(ptr noundef nonnull align 8 captures(none) dereferenceable(272) %this) local_unnamed_addr #9 align 2 {
 entry:
   %bufferIndex = getelementptr inbounds nuw i8, ptr %this, i64 264
   %0 = load i32, ptr %bufferIndex, align 8
@@ -405,7 +405,7 @@ lpad:                                             ; preds = %call4.i.i.i.noexc, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513UCollationPCE4initEP18UCollationElements(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) initializes((272, 286), (288, 292)) %this, ptr noundef %elems) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7513UCollationPCE4initEP18UCollationElements(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(292) initializes((272, 286), (288, 292)) %this, ptr noundef %elems) local_unnamed_addr #6 align 2 {
 entry:
   %status.i.i = alloca i32, align 4
   %cei.i = getelementptr inbounds nuw i8, ptr %this, i64 272
@@ -493,7 +493,7 @@ lpad:                                             ; preds = %call4.i.i.noexc, %c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513UCollationPCE4initEPNS_24CollationElementIteratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) initializes((272, 286), (288, 292)) %this, ptr noundef %iter) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7513UCollationPCE4initEPNS_24CollationElementIteratorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(292) initializes((272, 286), (288, 292)) %this, ptr noundef %iter) local_unnamed_addr #6 align 2 {
 entry:
   %status.i = alloca i32, align 4
   %cei = getelementptr inbounds nuw i8, ptr %this, i64 272
@@ -529,7 +529,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513UCollationPCE4initERKNS_8CollatorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) initializes((280, 286), (288, 292)) %this, ptr noundef nonnull align 8 dereferenceable(8) %coll) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7513UCollationPCE4initERKNS_8CollatorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(292) initializes((280, 286), (288, 292)) %this, ptr noundef nonnull align 8 dereferenceable(8) %coll) local_unnamed_addr #6 align 2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -566,7 +566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i64 0, -280375465082880) i64 @_ZN6icu_7513UCollationPCE9processCEEj(ptr nocapture noundef nonnull align 8 dereferenceable(292) %this, i32 noundef %ce) local_unnamed_addr #9 align 2 {
+define noundef range(i64 0, -280375465082880) i64 @_ZN6icu_7513UCollationPCE9processCEEj(ptr noundef nonnull align 8 captures(none) dereferenceable(292) %this, i32 noundef %ce) local_unnamed_addr #9 align 2 {
 entry:
   %strength = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load i32, ptr %strength, align 8
@@ -665,7 +665,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucol_openElements_75(ptr noundef %coll, ptr noundef %text, i32 noundef %textLength, ptr nocapture noundef %status) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ucol_openElements_75(ptr noundef %coll, ptr noundef %text, i32 noundef %textLength, ptr noundef captures(none) %status) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -799,7 +799,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef i32 @_ZN6icu_7524CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 1, -280375465082880) i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(292) %this, ptr noundef writeonly %ixLow, ptr noundef writeonly %ixHigh, ptr noundef %status) local_unnamed_addr #6 align 2 {
+define noundef range(i64 1, -280375465082880) i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(292) %this, ptr noundef writeonly %ixLow, ptr noundef writeonly %ixHigh, ptr noundef %status) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1425,10 +1425,10 @@ declare void @_ZN6icu_7524CollationElementIterator9setOffsetEiR10UErrorCode(ptr 
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

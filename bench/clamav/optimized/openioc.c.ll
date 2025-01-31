@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [49 x i8] c"openioc_parse: No text for XML Content element.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = icmp eq ptr %0, null
@@ -377,7 +377,7 @@ declare i32 @xmlStrEqual(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @xmlTextReaderNodeType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #6
   %.not.i30 = icmp eq i32 %3, 1
   br i1 %.not.i30, label %.lr.ph, label %openioc_read.exit.thread
@@ -622,7 +622,7 @@ declare i32 @xmlTextReaderClose(ptr noundef) local_unnamed_addr #1
 declare void @xmlFreeTextReader(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @mpool_calloc(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -630,7 +630,7 @@ declare ptr @mpool_calloc(ptr noundef, i64 noundef, i64 noundef) local_unnamed_a
 declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5

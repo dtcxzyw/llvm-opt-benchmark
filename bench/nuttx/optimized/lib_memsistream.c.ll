@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lib_memsistream(ptr nocapture noundef writeonly initializes((0, 4), (8, 56)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lib_memsistream(ptr noundef writeonly captures(none) initializes((0, 4), (8, 56)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @memsistream_getc, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -23,7 +23,7 @@ define void @lib_memsistream(ptr nocapture noundef writeonly initializes((0, 4),
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -128, 128) i32 @memsistream_getc(ptr nocapture noundef %0) #1 {
+define internal range(i32 -128, 128) i32 @memsistream_getc(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -50,7 +50,7 @@ define internal range(i32 -128, 128) i32 @memsistream_getc(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @memsistream_gets(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
+define internal i32 @memsistream_gets(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #2 {
   %4 = load i32, ptr %0, align 8
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -76,7 +76,7 @@ define internal i32 @memsistream_gets(ptr nocapture noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 2147483647) i32 @memsistream_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #3 {
+define internal range(i32 -1, 2147483647) i32 @memsistream_seek(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #3 {
   switch i32 %2, label %18 [
     i32 1, label %.sink.split
     i32 0, label %9
@@ -118,7 +118,7 @@ define internal range(i32 -1, 2147483647) i32 @memsistream_seek(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

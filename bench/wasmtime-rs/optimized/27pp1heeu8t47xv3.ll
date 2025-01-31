@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ade288f69af41da59e4153ec9739cc31.56 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.ade288f69af41da59e4153ec9739cc31.2, [16 x i8] c"X\00\00\00\00\00\00\00\F0\02\00\00\22\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h05f6b318ccdea695E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h05f6b318ccdea695E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -77,14 +77,14 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h05f6b3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbce88fca8de765bdE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbce88fca8de765bdE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = tail call zeroext i1 @"_ZN56_$LT$witx..abi..WasmType$u20$as$u20$core..fmt..Debug$GT$3fmt17hd32b78f691b03372E"(ptr nonnull align 1 %3, ptr align 8 %1)
   ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc305e96e709cecabE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc305e96e709cecabE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
@@ -100,7 +100,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc305e9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc40911627ad41783E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc40911627ad41783E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %4 = tail call zeroext i1 @"_ZN59_$LT$witx..abi..Instruction$u20$as$u20$core..fmt..Debug$GT$3fmt17h163bb219dfa02f65E"(ptr nonnull align 8 %3, ptr align 8 %1)
   ret i1 %4
@@ -119,7 +119,7 @@ define zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4witx3abi18Generator$LT$B$GT$14call_interface17hd5ad17f056fbacf8E"(ptr align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN4witx3abi18Generator$LT$B$GT$14call_interface17hd5ad17f056fbacf8E"(ptr align 8 %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [8 x i64] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -770,7 +770,7 @@ default.unreachable20:                            ; preds = %47, %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4witx3abi18Generator$LT$B$GT$4lift28_$u7b$$u7b$closure$u7d$$u7d$17hbfeb6ddccaefb84dE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN4witx3abi18Generator$LT$B$GT$4lift28_$u7b$$u7b$closure$u7d$$u7d$17hbfeb6ddccaefb84dE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
   %3 = alloca { i64, [8 x i64] }, align 8
   %4 = alloca { i64, [8 x i64] }, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
@@ -1197,7 +1197,7 @@ default.unreachable32:                            ; preds = %35, %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4witx3abi18Generator$LT$B$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17hdbcf48083256c3e2E"(ptr nocapture readonly align 8 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2, i64 %3) unnamed_addr #1 {
+define void @"_ZN4witx3abi18Generator$LT$B$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17hdbcf48083256c3e2E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1, ptr readonly align 8 captures(none) %2, i64 %3) unnamed_addr #1 {
   %5 = alloca { i64, [8 x i64] }, align 8
   %6 = alloca { i64, [8 x i64] }, align 8
   %7 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
@@ -1255,7 +1255,7 @@ declare void @llvm.assume(i1 noundef) #2
 declare void @"_ZN4witx3abi42_$LT$impl$u20$witx..ast..InterfaceFunc$GT$14wasm_signature17hdf14704c64b5f211E"(ptr sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$witx..abi..WasmType$GT$$GT$17h21cf68782e7ae3e4E"(ptr align 8) unnamed_addr #0
@@ -1330,10 +1330,10 @@ declare void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bind
 declare { i64, ptr } @"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hbf562a55c124adfcE"(ptr align 8) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

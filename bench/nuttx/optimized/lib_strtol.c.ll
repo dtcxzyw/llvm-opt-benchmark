@@ -81,7 +81,7 @@ define i64 @strtol(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 declare void @lib_skipspace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 declare ptr @__errno() local_unnamed_addr #1
 

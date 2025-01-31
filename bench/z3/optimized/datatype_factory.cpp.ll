@@ -594,7 +594,7 @@ declare noundef ptr @_ZN14struct_factory13get_value_setEP4sort(ptr noundef nonnu
 declare noundef zeroext i1 @_ZN8datatype4util12is_recursiveEP4sort(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN16datatype_factory24is_subterm_of_last_valueEP3app(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, ptr noundef nonnull %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN16datatype_factory24is_subterm_of_last_valueEP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, ptr noundef nonnull %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %contains = alloca %class.contains_app, align 8
   %m_last_fresh_value = getelementptr inbounds nuw i8, ptr %this, i64 384
@@ -919,7 +919,7 @@ invoke.cont25:                                    ; preds = %_ZNK4decl13get_fami
   br i1 %19, label %lor.lhs.false, label %if.then30
 
 lor.lhs.false:                                    ; preds = %invoke.cont25
-  %call29 = invoke noundef zeroext i1 @_ZN8datatype4util12are_siblingsEP4sortS2_(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef %s, ptr noundef nonnull %15)
+  %call29 = invoke noundef zeroext i1 @_ZN8datatype4util12are_siblingsEP4sortS2_(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef nonnull %s, ptr noundef nonnull %15)
           to label %invoke.cont28 unwind label %lpad.loopexit.loopexit
 
 invoke.cont28:                                    ; preds = %lor.lhs.false
@@ -1003,7 +1003,7 @@ invoke.cont45:                                    ; preds = %_ZNK4decl13get_fami
   br i1 %29, label %land.lhs.true47, label %if.else
 
 land.lhs.true47:                                  ; preds = %invoke.cont45
-  %call50 = invoke noundef zeroext i1 @_ZN8datatype4util12are_siblingsEP4sortS2_(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef %s, ptr noundef nonnull %15)
+  %call50 = invoke noundef zeroext i1 @_ZN8datatype4util12are_siblingsEP4sortS2_(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef nonnull %s, ptr noundef nonnull %15)
           to label %invoke.cont49 unwind label %lpad.loopexit.loopexit
 
 invoke.cont49:                                    ; preds = %land.lhs.true47
@@ -1226,7 +1226,7 @@ invoke.cont69:                                    ; preds = %_ZNK15ref_vector_co
           to label %invoke.cont73 unwind label %lpad.loopexit.split-lp
 
 invoke.cont73:                                    ; preds = %invoke.cont69
-  %call76 = invoke noundef zeroext i1 @_ZN8datatype4util12is_recursiveEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef %s)
+  %call76 = invoke noundef zeroext i1 @_ZN8datatype4util12is_recursiveEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef nonnull %s)
           to label %invoke.cont75 unwind label %lpad.loopexit.split-lp
 
 invoke.cont75:                                    ; preds = %invoke.cont73
@@ -1586,7 +1586,7 @@ invoke.cont28:                                    ; preds = %land.lhs.true
   br i1 %call29, label %if.end52, label %land.lhs.true30
 
 land.lhs.true30:                                  ; preds = %invoke.cont28
-  %call33 = invoke noundef zeroext i1 @_ZN8datatype4util12is_recursiveEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef %s)
+  %call33 = invoke noundef zeroext i1 @_ZN8datatype4util12is_recursiveEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef nonnull %s)
           to label %invoke.cont32 unwind label %lpad19.loopexit
 
 invoke.cont32:                                    ; preds = %land.lhs.true30
@@ -1614,7 +1614,7 @@ invoke.cont35:                                    ; preds = %_ZNK4decl13get_fami
   br i1 %19, label %lor.lhs.false37, label %if.then41
 
 lor.lhs.false37:                                  ; preds = %invoke.cont35
-  %call40 = invoke noundef zeroext i1 @_ZN8datatype4util12are_siblingsEP4sortS2_(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef %s, ptr noundef nonnull %15)
+  %call40 = invoke noundef zeroext i1 @_ZN8datatype4util12are_siblingsEP4sortS2_(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef nonnull %s, ptr noundef nonnull %15)
           to label %invoke.cont39 unwind label %lpad19.loopexit
 
 invoke.cont39:                                    ; preds = %lor.lhs.false37
@@ -1996,7 +1996,7 @@ if.then77:                                        ; preds = %for.body.i.i103, %f
           to label %invoke.cont82 unwind label %lpad19.loopexit.split-lp
 
 invoke.cont82:                                    ; preds = %if.then77
-  %call85 = invoke noundef zeroext i1 @_ZN8datatype4util12is_recursiveEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef %s)
+  %call85 = invoke noundef zeroext i1 @_ZN8datatype4util12is_recursiveEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef nonnull %s)
           to label %invoke.cont84 unwind label %lpad19.loopexit.split-lp
 
 invoke.cont84:                                    ; preds = %invoke.cont82
@@ -2114,7 +2114,7 @@ for.inc97:                                        ; preds = %_ZN10ref_vectorI4ex
 
 for.end98:                                        ; preds = %for.inc97, %if.end13, %_ZNK6vectorIP9func_declLb0EjE3endEv.exit
   %retval.1.lcssa = phi ptr [ undef, %_ZNK6vectorIP9func_declLb0EjE3endEv.exit ], [ undef, %if.end13 ], [ %retval.3, %for.inc97 ]
-  %call100 = call noundef zeroext i1 @_ZN8datatype4util12is_recursiveEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef %s)
+  %call100 = call noundef zeroext i1 @_ZN8datatype4util12is_recursiveEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef nonnull %s)
   br i1 %call100, label %while.body.preheader, label %return
 
 while.body.preheader:                             ; preds = %for.end98
@@ -2135,7 +2135,7 @@ while.body.outer:                                 ; preds = %for.cond108, %while
 while.body:                                       ; preds = %while.body.backedge, %while.body.outer
   %num_iterations.0 = phi i32 [ %num_iterations.0.ph, %while.body.outer ], [ %inc102, %while.body.backedge ]
   %inc102 = add i32 %num_iterations.0, 1
-  %call105 = call noundef ptr @_ZN8datatype4util25get_datatype_constructorsEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef %s)
+  %call105 = call noundef ptr @_ZN8datatype4util25get_datatype_constructorsEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef nonnull %s)
   %72 = load ptr, ptr %call105, align 8
   %cmp.i.i143 = icmp eq ptr %72, null
   br i1 %cmp.i.i143, label %while.body.backedge, label %_ZNK6vectorIP9func_declLb0EjE3endEv.exit148
@@ -2188,7 +2188,7 @@ for.body121:                                      ; preds = %for.body121.lr.ph, 
   br i1 %tobool125, label %if.else165, label %land.lhs.true126
 
 land.lhs.true126:                                 ; preds = %for.body121
-  %call129 = invoke noundef zeroext i1 @_ZN8datatype4util12are_siblingsEP4sortS2_(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef %s, ptr noundef %79)
+  %call129 = invoke noundef zeroext i1 @_ZN8datatype4util12are_siblingsEP4sortS2_(ptr noundef nonnull align 8 dereferenceable(288) %m_util, ptr noundef nonnull %s, ptr noundef %79)
           to label %invoke.cont128 unwind label %lpad115
 
 invoke.cont128:                                   ; preds = %land.lhs.true126
@@ -2864,10 +2864,10 @@ _ZN8ast_markD2Ev.exit10:                          ; preds = %_ZN8obj_markI4decl1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3070,7 +3070,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -3373,10 +3373,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
